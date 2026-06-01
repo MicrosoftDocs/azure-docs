@@ -1,25 +1,27 @@
 ---
-title: Create a NetApp account to access Azure NetApp Files | Microsoft Docs
+title: Create a NetApp account to access Azure NetApp Files
 description: Learn how to access Azure NetApp Files and create a NetApp account so that you can set up a capacity pool and create a volume.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/04/2021
+ms.date: 06/25/2025
 ms.author: anfdocs
+# Customer intent: As an IT administrator, I want to create a NetApp account in Azure NetApp Files, so that I can set up a capacity pool and manage storage volumes effectively.
 ---
 
-# Create a NetApp account
+# Create a NetApp account in Azure NetApp Files
 
 Creating a NetApp account enables you to set up a capacity pool so that you can create a volume. You use the Azure NetApp Files pane to create a new NetApp account.
 
 ## Before you begin
 
-You must register your subscription for using the NetApp Resource Provider. For more information, see [Register the NetApp Resource Provider](azure-netapp-files-register.md).
+* You must register your subscription for using the NetApp Resource Provider. For more information, see [Register the NetApp Resource Provider](azure-netapp-files-register.md).
+* There are two types of NetApp accounts. If you plan to use Elastic zone-redundant storage, you must use a [NetApp Elastic account](elastic-zone-redundant-concept.md).
 
 ## Steps
 
-1. Sign in to the Azure portal.
+1. Log in to the Azure portal.
 1. Access the Azure NetApp Files pane by using one of the following methods:
    * Search for **Azure NetApp Files** in the Azure portal search box.
    * Select **All services** in the navigation, and then filter to Azure NetApp Files.
@@ -34,6 +36,7 @@ You must register your subscription for using the NetApp Resource Provider. For 
    * **Subscription**: Select a subscription from your existing subscriptions.
    * **Resource group**: Use an existing resource group or create a new one.
    * **Location**: Select the region where you want the account and its child resources to be located.
+   * **Service tier**: For standard Azure NetApp Files storage, select **Other**. For zone-redundant, select **Zone redundant**. 
 
      ![Screenshot that shows New NetApp account.](./media/azure-netapp-files-create-netapp-account/azure-netapp-files-new-netapp-account.png)
 

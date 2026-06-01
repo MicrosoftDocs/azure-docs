@@ -2,7 +2,7 @@
 title: include file
 description: include file
 author: spelluru
-ms.service: event-hubs
+ms.service: azure-event-hubs
 ms.topic: include
 ms.date: 02/07/2023
 ms.author: spelluru
@@ -60,7 +60,7 @@ To monitor the CPU usage of the dedicated cluster, follow these steps:
 
     :::image type="content" source="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png" alt-text="Screenshot that shows the Metrics page with CPU consumption metric and roles." lightbox="./media/event-hubs-dedicated-clusters-faq/monitoring-dedicated-cluster.png":::
 
-    Then you can monitor this metric to determine when you should scale your dedicated cluster. You can also set up [alerts](../../azure-monitor/alerts/alerts-overview.md) against this metric to get notified when CPU usage reaches the thresholds you set.
+    Then you can monitor this metric to determine when you should scale your dedicated cluster. You can also set up [alerts](/azure/azure-monitor/alerts/alerts-overview) against this metric to get notified when CPU usage reaches the thresholds you set.
 
 ### How does geo-disaster recovery work with my cluster?
 
@@ -70,7 +70,7 @@ You can geo-pair a namespace under a Dedicated-tier cluster with another namespa
 
 We don't currently support an automated migration process for migrating your Event Hubs data from a Standard or Premium namespace to a dedicated one.
 
-### Why does a zone-redundant dedicated cluster have a minimum of eight CUs?
+### Why does a legacy zone-redundant dedicated cluster have a minimum of eight CUs?
 
 To provide zone redundancy for the Dedicated offering, all compute resources must have three replicas across three datacenters in the same region. This minimum requirement supports zone redundancy (so that the service can still function when two zones or datacenters are down) and results in a compute capacity equivalent to eight CUs.
 

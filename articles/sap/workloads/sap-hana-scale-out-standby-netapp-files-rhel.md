@@ -8,9 +8,12 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.custom: linux-related-content
-ms.date: 07/11/2023
+ms.date: 05/22/2025
 ms.author: radeltch
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: As an SAP administrator, I want to deploy a highly available SAP HANA scale-out system with standby nodes using Azure NetApp Files on Red Hat Enterprise Linux, so that I can ensure seamless operations and automated failover capabilities for critical applications.
 ---
 
 # Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on Red Hat Enterprise Linux 
@@ -168,7 +171,7 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 
    Each virtual machine has three network interfaces, which correspond to the three Azure virtual network subnets (`client`, `storage` and `hana`). 
 
-   For more information, see [Create a Linux virtual machine in Azure with multiple network interface cards](../../virtual-machines/linux/multiple-nics.md).  
+   For more information, see [Create a Linux virtual machine in Azure with multiple network interface cards](/azure/virtual-machines/linux/multiple-nics).  
 
 > [!IMPORTANT]
 > For SAP HANA workloads, low latency is critical. To achieve low latency, work with your Microsoft representative to ensure that the virtual machines and the Azure NetApp Files volumes are deployed in close proximity. When you're [onboarding new SAP HANA system](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) that's using SAP HANA Azure NetApp Files, submit the necessary information. 
@@ -224,8 +227,11 @@ The next instructions assume that you've already created the resource group, the
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-hana</b> --accelerated-networking true
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb2-hana</b> --accelerated-networking true
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb3-hana</b> --accelerated-networking true
-
     </code></pre>
+
+    > [!NOTE]
+    > You don’t have to install the Azure CLI package on your HANA nodes to run `az` command. You can run it from any machine that has the CLI installed, or use Azure Cloud Shell.
+
 
 7. Start the virtual machines by doing the following steps:  
 
@@ -626,7 +632,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
    - `async_write_submit_active` **on**
    - `async_write_submit_blocks` **all**
 
-   For more information, see [I/O stack configuration for SAP HANA](https://docs.netapp.com/us-en/netapp-solutions-sap/bp/saphana_aff_nfs_i_o_stack_configuration_for_sap_hana.html). 
+   For more information, see [I/O stack configuration for SAP HANA](https://docs.netapp.com/us-en/netapp-solutions-sap/bp/hana-aff-nfs-io-stack-configuration.html). 
 
    Starting with SAP HANA 2.0 systems, you can set the parameters in `global.ini`. For more information, see SAP Note [1999930](https://launchpad.support.sap.com/#/notes/1999930).  
    

@@ -2,8 +2,9 @@
 ms.author: cherylmc
 author: cherylmc
 ms.date: 05/25/2022
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: include
+ms.custom: sfi-image-nochange
 ---
 
 1. Click the **Point to site** tab to open the configuration page for point-to-site. To view the point to site settings, click **Yes**.

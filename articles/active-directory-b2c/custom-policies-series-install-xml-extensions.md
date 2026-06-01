@@ -6,14 +6,14 @@ description: Learn how to validate custom policy files by using TrustFrameworkPo
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
 ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer working with Azure AD B2C custom policies, I want to validate my custom policy files using the TrustFrameworkPolicy schema, so that I can ensure that my files are properly formatted and free of errors before uploading them.
@@ -21,6 +21,7 @@ ms.subservice: B2C
 ---
 
 # Validate custom policy files by using TrustFrameworkPolicy schema  
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 You can improve your productivity when editing or writing custom policy files by validating your files before you upload them. You can let Azure Active Directory B2C (Azure AD B2C) to validate the XML policy files when you upload them, but most errors cause the upload to fail. So, we recommend you validate your custom policy files before you upload them. An example of invalid policy file is improperly formatted XML.
 

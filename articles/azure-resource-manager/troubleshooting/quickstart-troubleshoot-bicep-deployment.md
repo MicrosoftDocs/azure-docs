@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Bicep file deployments
 description: Learn how to monitor and troubleshoot Bicep file deployments. Shows activity logs and deployment history.
-ms.date: 06/20/2024
+ms.date: 04/28/2025
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-bicep
 ---
@@ -13,7 +13,7 @@ This quickstart describes how to troubleshoot Bicep file deployment errors. You'
 There are three types of errors that are related to a deployment:
 
 - **Validation errors** occur before a deployment begins and are caused by syntax errors in your file. A code editor like Visual Studio Code can identify these errors.
-- **Preflight validation errors** occur when a deployment command is run but resources aren't deployed. These errors are found without starting the deployment. For example, if a parameter value is incorrect, the error is found in preflight validation.
+- **Preflight validation errors** occur when a deployment command is run but resources aren't deployed. These errors are found without starting the deployment. For example, if a parameter value is incorrect, the error is found in [preflight validation](../bicep/deploy-preflight.md).
 - **Deployment errors** occur during the deployment process and can only be found by assessing the deployment's progress in your Azure environment.
 
 All types of errors return an error code that you use to troubleshoot the deployment. Validation and preflight errors are shown in the activity log but don't appear in your deployment history. A Bicep file with syntax errors doesn't compile into JSON and isn't shown in the activity log.
@@ -22,7 +22,7 @@ All types of errors return an error code that you use to troubleshoot the deploy
 
 To complete this quickstart, you need the following items:
 
-- If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Visual Studio Code](https://code.visualstudio.com) with the latest [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 - The latest version of either [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 

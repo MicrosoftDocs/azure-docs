@@ -3,11 +3,13 @@
  description: include file
  services: iot-central
  author: dominicbetts
- ms.service: iot-central
+ ms.service: azure-iot-central
  ms.topic: include
  ms.date: 07/14/2023
  ms.author: dobett
- ms.custom: include file
+ ms.custom:
+   - include file
+   - sfi-image-nochange
 ---
 
 When the app is ready, you can navigate to it from the Azure portal:

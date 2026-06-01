@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot no eligible subscriptions in the Azure portal
 description: This article helps you troubleshoot the No eligible subscriptions error message in the Azure portal when you try to purchase a reservation.
-author: bandersmsft
+author: pri-mittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.author: banders
+ms.author: primittal
 ms.reviewer: primittal
 ms.topic: troubleshooting
-ms.date: 03/21/2024
+ms.date: 03/19/2026
 ---
 
 # Troubleshoot no eligible subscriptions
@@ -71,7 +71,7 @@ You can only purchase reservations using subscriptions on which you have owner o
 To buy a reservation, you need to create a new Azure subscription that supports reservations.
 
 - If you have an Azure Free trial, you can [upgrade your subscription](../manage/upgrade-azure-subscription.md).
-- You can create a new Azure subscription with [pay-as-you-go rates](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
+- You can create a new Azure subscription with [pay-as-you-go rates](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Sign up for a [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) and create a new subscription.
 - Purchase a new subscription with a [CSP](https://www.microsoft.com/solution-providers/home) and create a new subscription.
 
@@ -87,7 +87,7 @@ The current reservation order owner or reservation owner can delegate access to 
 To allow other people to manage reservations, you have two options:
 
 - Delegate access management for an individual reservation order by assigning the Owner role to a user at the resource scope of the reservation order. If you want to give limited access, select a different role.  
-     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+     For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 - Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement:
     - For an Enterprise Agreement, add users with the _Enterprise Administrator_ role to view and manage all reservation orders that apply to the Enterprise Agreement. Users with the _Enterprise Administrator (read only)_ role can only view the reservation. Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).

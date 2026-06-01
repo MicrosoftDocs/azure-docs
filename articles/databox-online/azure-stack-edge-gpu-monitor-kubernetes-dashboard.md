@@ -2,13 +2,13 @@
 title: Monitor your Azure Stack Edge Pro device via Kubernetes dashboard | Microsoft Docs 
 description: Describes how to access and use the Kubernetes dashboard to monitor your Azure Stack Edge Pro device.
 services: databox
-author: alkohli
+author: sipastak
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 08/31/2021
-ms.author: alkohli
+ms.author: sipastak
+ms.custom: sfi-image-nochange
 ---
 # Use Kubernetes dashboard to monitor your Azure Stack Edge Pro GPU device
 

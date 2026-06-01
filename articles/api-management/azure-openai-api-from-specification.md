@@ -1,63 +1,53 @@
 ---
-title: Import an Azure OpenAI API as REST API - Azure API Management
-description: How to import an Azure OpenAI API as a REST API from the Azure OpenAI Service or from an OpenAPI specification.
-ms.service: api-management
+title: Import an Azure OpenAI API as a REST API - Azure API Management
+description: How to import an Azure OpenAI API as a REST API from Azure OpenAI in Foundry Models or from an OpenAPI specification.
+ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 05/10/2024
+ms.date: 12/18/2025
+ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
-ms.custom: template-how-to, build-2024
+ms.custom:
+  - template-how-to
+  - build-2024
+  - sfi-image-nochange
 ---
 
-# Import an Azure OpenAI API 
+# Import an Azure OpenAI API as a REST API
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-This article shows two options to import an [Azure OpenAI Service](/azure/ai-services/openai/overview) API into an Azure API Management instance as a REST API:
+You can import AI model endpoints deployed in [Azure OpenAI in Foundry Models](/azure/ai-services/openai/overview) to your API Management instance as a REST API. Use AI gateway policies and other capabilities in API Management to simplify integration, improve observability, and enhance control over the model endpoints.
 
-- [Import an Azure OpenAI API directly from Azure OpenAI Service](#option-1-import-api-from-azure-openai-service)
-- [Download and add the OpenAPI specification](#option-2-add-an-openapi-specification-to-api-management) for Azure OpenAI and add it to API Management as an OpenAPI API.
+
+This article shows two options to import an Azure OpenAI API into an Azure API Management instance as a REST API:
+
+- [Import an Azure OpenAI API directly from a deployment in Microsoft Foundry](#option-1-import-openai-api-from-microsoft-foundry) (recommended)
+ 
+- [Download and edit the OpenAPI specification](#option-2-add-an-openapi-specification-to-api-management) for Azure OpenAI and add it to API Management as an OpenAPI API.
+
+Learn more about managing LLM APIs in API Management:
+
+* [AI gateway capabilities in Azure API Management](genai-gateway-capabilities.md)
 
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- Access granted to Azure OpenAI in the desired Azure subscription.
-    You can apply for access to Azure OpenAI by completing the form at https://aka.ms/oai/access. Open an issue on this repo to contact us if you have an issue.
-- An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](../ai-services/openai/how-to/create-resource.md).
+- (For import from Microsoft Foundry) A Microsoft Foundry project with an Azure OpenAI model deployed. For more information about model deployment in Azure OpenAI, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
 
-    Make a note of the ID (name) of the deployment. You'll need it when you test the imported API in API Management.
+    Make a note of the ID (name) of the deployment. You need it when you test the imported API in API Management.
+
 - Permissions to grant access to the Azure OpenAI resource from the API Management instance.
 
-## Option 1. Import API from Azure OpenAI Service
+## Option 1. Import OpenAI API from Microsoft Foundry 
+ 
+You can import an Azure OpenAI model deployment directly from Microsoft Foundry to API Management. For details, see [Import a Microsoft Foundry API](azure-ai-foundry-api.md). 
 
-You can import an Azure OpenAI API directly to API Management from the Azure OpenAI Service. When you import the API, API Management automatically configures:
+When you import the API:
 
-* Operations for each of the Azure OpenAI [REST API endpoints](/azure/ai-services/openai/reference).
-* A system-assigned identity with the necessary permissions to access the Azure OpenAI resource.
-* A [backend](backends.md) resource and [set-backend-service](set-backend-service-policy.md) policy that direct API requests to the Azure OpenAI Service endpoint.
-* An [authentication-managed-identity](authentication-managed-identity-policy.md) policy that can authenticate to the Azure OpenAI resource using the instance's system-assigned identity.
-* (optionally) Policies to help you monitor and manage token consumption by the Azure OpenAI API.
-
-To import an Azure OpenAI API to API Management:
-
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
-1. In the left menu, under **APIs**, select **APIs** > **+ Add API**.
-1. Under **Create from Azure resource**, select **Azure OpenAI Service**.
-
-    :::image type="content" source="media/azure-openai-api-from-specification/azure-openai-api.png" alt-text="Screenshot of creating an API from Azure OpenAI Service in the portal." :::
-
-1. On the **Basics** tab:
-    1. Select the Azure OpenAI resource that you want to import.
-    1. Optionally select an **Azure OpenAI API version**. If you don't select one, the latest production-ready REST API version is used by default.
-    1. Enter a **Display name** and optional **Description** for the API.
-    1. In **Base URL**, append a path that your API Management instance uses to access the Azure OpenAI API endpoints. If you enable **Ensure OpenAI SDK compatibility** (recommended), `/openai` is automatically appended to the base URL.
-    
-        For example, if your API Management gateway endpoint is `https://contoso.azure-api.net`, set a **Base URL** similar to `https://contoso.azure-api.net/my-openai-api/openai`.
-    1. Optionally select one or more products to associate with the API. Select **Next**.
-1. On the **Policies** tab, optionally enable policies to monitor and manage Azure OpenAI API token consumption. 
-    If selected, enter settings or accept defaults that define the `azure-openai-token-limit` and `azure-openai-emit-token-metric` policies for your API. You can also set or update the policy configuration later. Select **Review + Create**.
-1. After settings are validated, select **Create**. 
+* Specify the Microsoft Foundry service that hosts the Azure OpenAI model deployment.
+* Specify the **Azure OpenAI** client compatibility option. This option configures the API Management API with a `/openai` endpoint.
 
 ## Option 2. Add an OpenAPI specification to API Management
 
@@ -65,13 +55,13 @@ Alternatively, manually download the OpenAPI specification for the Azure OpenAI 
 
 ### Download the OpenAPI specification
 
-Download the OpenAPI specification for the Azure OpenAI REST API, such as the [2024-02-01 GA version](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-02-01/inference.json).
+Download the OpenAPI specification for the Azure OpenAI REST API, such as the [2024-10-21 GA version](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-10-21/inference.json).
 
 1. In a text editor, open the specification file that you downloaded.
-1. In the `servers` element in the specification, substitute the name of your Azure OpenAI Service endpoint in the placeholder values of `url` and `default` endpoint in the specification. For example, if your Azure OpenAI Service endpoint is `contoso.openai.azure.com`, update the `servers` element with the following values:
+1. In the `servers` element in the specification, substitute the name of your Azure OpenAI endpoint in the placeholder values of `url` and `default` endpoint. For example, if your Azure OpenAI endpoint is `contoso.openai.azure.com`, update the `servers` element with the following values:
 
-    * url: `https://contoso.openai.azure.com/openai`
-    * default endpoint: `contoso.openai.azure.com`
+    * **url**: `https://contoso.openai.azure.com/openai`
+    * **default** endpoint: `contoso.openai.azure.com`
   
     ```json
     [...]
@@ -87,55 +77,57 @@ Download the OpenAPI specification for the Azure OpenAI REST API, such as the [2
       ],
     [...]
     ```
-1. Make a note of the value of the API `version` in the specification. You'll need it to test the API. Example: `2024-02-01`.
+1. Make a note of the value of the API `version` in the specification. You need it to test the API. Example: `2024-10-21`.
 
 ### Add OpenAPI specification to API Management
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the [Azure portal](https://portal.azure.com), go to your API Management instance.
 1. In the left menu, select **APIs** > **+ Add API**.
 1. Under **Define a new API**, select **OpenAPI**. Enter a **Display name** and **Name** for the API.
-1. Enter an **API URL suffix** ending in `/openai` to access the Azure OpenAI API endpoints in your API Management instance. Example: `my-openai-api/openai`.  
+1. Enter an **API URL suffix** ending in `/openai` to access the Azure OpenAI API endpoints in your API Management instance. For example: `my-openai-api/openai`.  
 1. Select **Create**.
 
-The API is imported and displays operations from the OpenAPI specification.
+API Management imports the API and displays operations from the OpenAPI specification.
 
 ## Configure authentication to Azure OpenAI API
 
-To authenticate to the Azure OpenAI API, you supply an API key or a managed identity. If you imported the Azure OpenAI API directly to your API Management instance, authentication using the API Management instance's managed identity is automatically configured. 
+To authenticate to the Azure OpenAI API, provide an API key or use a managed identity. If you imported the Azure OpenAI API directly from Microsoft Foundry, authentication by using the API Management instance's managed identity is automatically configured.  
 
-If you added the Azure OpenAI API from its OpenAPI specification, you need to configure authentication. For more information about configuring authentication using API Management policies, see [Authenticate and authorize to Azure OpenAI API](api-management-authenticate-authorize-azure-openai.md).
+If you added the Azure OpenAI API from its OpenAPI specification, you need to configure authentication. For more information about configuring authentication by using API Management policies, see [Authenticate and authorize to LLM APIs](api-management-authenticate-authorize-ai-apis.md).
 
 ## Test the Azure OpenAI API
 
-To ensure that your Azure OpenAI API is working as expected, test it in the API Management test console. You need to supply a model deployment ID (name) configured in the Azure OpenAI resource to test the API.
+To make sure your Azure OpenAI API works as expected, test it in the API Management test console. You need to provide a model deployment ID (name) that you configured in the Microsoft Foundry project resource and the API version to test the API.
 
 1. Select the API you created in the previous step.
 1. Select the **Test** tab.
 1. Select an operation that's compatible with the model you deployed in the Azure OpenAI resource. 
     The page displays fields for parameters and headers.
 1. In **Template parameters**, enter the following values:
-    * `deployment-id` - the ID of a deployment in the Azure OpenAI service 
-    * `api-version` - a valid Azure OpenAI API version, such as the API version you selected when you imported the API.
-      :::image type="content" source="media/azure-openai-api-from-specification/test-azure-openai-api.png" alt-text="Screenshot of testing an Azure OpenAI Service API in the portal." lightbox="media/azure-openai-api-from-specification/test-azure-openai-api.png" :::
-1. Enter other parameters and headers as needed. Depending on the operation, you may need to configure or update a **Request body**.
+     * `deployment-id` - the ID of an Azure OpenAI model deployment in Microsoft Foundry   
+     * `api-version` - a valid Azure OpenAI API version, such as the API version you selected when you imported the API.
+      :::image type="content" source="media/azure-openai-api-from-specification/test-azure-openai-api.png" alt-text="Screenshot of testing an Azure OpenAI API in the portal." lightbox="media/azure-openai-api-from-specification/test-azure-openai-api.png" :::
+1. Enter other parameters and headers as needed. Depending on the operation and model, you might need to configure or update a **Request body**. For example, here's a basic request body for a chat completions operation:
+
+    ```json
+    {
+      "model": "any",
+      "messages": [
+        {
+          "role": "user",
+          "content": "Help me plan a vacation trip to Paris."
+        }
+      ],
+      "max_tokens": 100
+    }
+    ```
+
     > [!NOTE]
-    > In the test console, API Management automatically populates an **Ocp-Apim-Subscription-Key** header, and configures the subscription key of the built-in [all-access subscription](api-management-subscriptions.md#all-access-subscription). This key enables access to every API in the API Management instance. Optionally display the **Ocp-Apim-Subscription-Key** header by selecting the "eye" icon next to the **HTTP Request**.
+    > In the test console, API Management automatically adds an **Ocp-Apim-Subscription-Key** header and sets the subscription key for the built-in [all-access subscription](api-management-subscriptions.md#all-access-subscription). This key provides access to every API in the API Management instance. To optionally display the **Ocp-Apim-Subscription-Key** header, select the "eye" icon next to the **HTTP Request**.
 1. Select **Send**.
 
-    When the test is successful, the backend responds with a successful HTTP response code and some data. Appended to the response is token usage data to help you monitor and manage your Azure OpenAI API consumption.
+    When the test succeeds, the backend responds with a successful HTTP response code and some data. The response includes token usage data to help you monitor and manage your Azure OpenAI API token consumption.
+
     :::image type="content" source="media/azure-openai-api-from-specification/api-response-usage.png" alt-text="Screenshot of token usage data in API response in the portal." :::
-
-## Caching policies for Azure OpenAI APIs
-
-In addition to the `azure-openai-token-limit` and `azure-openai-emit-token-metric` policies that you can configure when importing an Azure OpenAI Service API, API Management provides the following caching policies to help you optimize performance and reduce latency for Azure OpenAI APIs: 
-
-* `azure-openai-semantic-cache-store`
-* `azure-openai-semantic-cache-lookup` 
-
-## Related content
-
-* [API Management policy reference](api-management-policies.md)
-* [Azure OpenAI Service as a central capability with Azure API Management](/samples/azure/enterprise-azureai/enterprise-azureai/)
-* [Azure API Management - Azure OpenAI sample](https://github.com/galiniliev/apim-azure-openai-sample)
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]

@@ -1,11 +1,10 @@
 ---
 title: 'Azure ExpressRoute Insights using Network Insights'
 description: Learn about Azure ExpressRoute Insights using Network Insights.
-services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 06/30/2023
+ms.date: 03/11/2026
 ms.author: duau
 ---
 
@@ -18,8 +17,6 @@ This article explains how Network Insights can help you view  your ExpressRoute 
 ## Visualize functional dependencies
 
 1. Navigate to the *Azure Monitor* page, then select *Networks*.
-
-    :::image type="content" source="./media/expressroute-network-insights/monitor-page.png" alt-text="Screenshot of the Monitor landing page.":::
 
 1. Select the *ExpressRoute Circuits* card. 
 
@@ -37,7 +34,7 @@ This article explains how Network Insights can help you view  your ExpressRoute 
 
 ## View a detailed and preloaded metrics dashboard
 
-Once you review the topology of your ExpressRoute setup using the functional dependency view, select **View detailed metrics** to navigated to the detailed metrics view to understand the performance of your circuit. This view offers an organized list of linked resources and a rich dashboard of important ExpressRoute metrics.
+Once you review the topology of your ExpressRoute setup using the functional dependency view, select **View detailed metrics** to navigate to the detailed metrics view to understand the performance of your circuit. This view offers an organized list of linked resources and a rich dashboard of important ExpressRoute metrics.
 
 The **Linked Resources** section lists the connected ExpressRoute gateways and configured peerings, which you can select on to navigate to the corresponding resource page.
 
@@ -82,4 +79,4 @@ Configure your ExpressRoute connection.
 * [Create and modify a circuit](expressroute-howto-circuit-arm.md)
 * [Create and modify peering configuration](expressroute-howto-routing-arm.md)
 * [Link a VNet to an ExpressRoute circuit](expressroute-howto-linkvnet-arm.md)
-* [Customize your metrics](expressroute-monitoring-metrics-alerts.md) and create a [Connection Monitor](../network-watcher/connection-monitor-overview.md)
+* [Customize your metrics](monitor-expressroute-reference.md) and create a [Connection Monitor](../network-watcher/connection-monitor-overview.md)

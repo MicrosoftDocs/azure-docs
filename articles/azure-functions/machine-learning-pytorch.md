@@ -19,7 +19,7 @@ In this article, you learn how to use Python, PyTorch, and Azure Functions to lo
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Python 3.7.4 or above](https://www.python.org/downloads/release/python-374/). (Python 3.8.x and Python 3.6.x are also verified with Azure Functions.)
 - The [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
 - A code editor such as [Visual Studio Code](https://code.visualstudio.com/)
@@ -27,7 +27,7 @@ In this article, you learn how to use Python, PyTorch, and Azure Functions to lo
 ### Prerequisite check
 
 1. In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 2.7.1846 or later.
-1. Run `python --version` (Linux/MacOS) or `py --version` (Windows) to check your Python version reports 3.7.x.
+1. Run `python --version` (Linux/macOS) or `py --version` (Windows) to check your Python version reports 3.7.x.
 
 ## Clone the tutorial repository
 

@@ -3,10 +3,9 @@ title: XML format
 titleSuffix: Azure Data Factory & Azure Synapse
 description: This topic describes how to deal with XML format in Azure Data Factory and Synapse Analytics pipelines.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/15/2024
 ms.author: jianleishen
 ---

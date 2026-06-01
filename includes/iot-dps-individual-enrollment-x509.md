@@ -1,14 +1,15 @@
 ---
-author: kgremban
-ms.service: iot-dps
+author: SoniaLopezBravo
+ms.service: azure-iot-hub
 ms.topic: include
-ms.date: 03/09/2023
-ms.author: kgremban
+ms.date: 07/25/2025
+ms.author: sonialopez
+ms.subservice: azure-iot-hub-dps
 ---
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
 
-1. Select **Manage enrollments** from the **Settings** section of the navigation menu.
+1. Select **Manage enrollments** from the **Settings** section of the resource menu.
 
 1. Select the **Individual enrollments** tab, then select **Add individual enrollment**.
 

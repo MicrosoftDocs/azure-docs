@@ -4,9 +4,11 @@ description: Learn about using NFSv4.x access control lists in Azure NetApp File
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 11/13/2023
+ms.topic: concept-article
+ms.date: 07/10/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
+# Customer intent: "As a system administrator managing data access in Azure NetApp Files, I want to understand NFSv4.x ACLs and their permissions so that I can effectively control access and secure our file storage while ensuring compliance with user management policies."
 ---
 
 # Understand NFSv4.x access control lists in Azure NetApp Files
@@ -15,12 +17,12 @@ The NFSv4.x protocol can provide access control in the form of [access control l
 
 :::image type="content" source="./media/nfs-access-control-lists/access-control-entity-to-client-diagram.png" alt-text="Diagram of access control entity to Azure NetApp Files." lightbox="./media/nfs-access-control-lists/access-control-entity-to-client-diagram.png":::
 
-Each NFSv4.x ACL is created with the format of `type:flags:principal:permissions`.
+Each NFSv4.x ACL uses the format of `type:flags:principal:permissions`.
 
 * **Type** – the type of ACL being defined. Valid choices include Access (A), Deny (D), Audit (U), Alarm (L). Azure NetApp Files supports Access, Deny and Audit ACL types, but Audit ACLs, while being able to be set, don't currently produce audit logs.
 * **Flags** – adds extra context for an ACL. There are three kinds of ACE flags: group, inheritance, and administrative. For more information on flags, see [NFSv4.x ACE flags](#nfsv4x-ace-flags).
 * **Principal** – defines the user or group that is being assigned the ACL. A principal on an NFSv4.x ACL uses the format of name@ID-DOMAIN-STRING.COM. For more detailed information on principals, see [NFSv4.x user and group principals](#nfsv4x-user-and-group-principals).
-* **Permissions** – where the access level for the principal is defined. Each permission is designated a single letter (for instance, read gets “r”, write gets “w” and so on). Full access would incorporate each available permission letter. For more information, see [NFSv4.x permissions](#nfsv4x-permissions).
+* **Permissions** – how the access level for the principal is defined. Permissions are designated by a single letter. For example "r" confers read permissions, "w" confers write permissions. Full access would incorporate each available permission letter. For more information, see [NFSv4.x permissions](#nfsv4x-permissions).
 
 `A:g:group1@contoso.com:rwatTnNcCy` is an example of a valid ACL, following the `type:flags:principal:permissions` format. The example ACL grants full access to the group `group1` in the contoso.com ID domain. 
 
@@ -32,7 +34,7 @@ Other flags can be used to control ACEs, such as inheritance and administrative 
 
 ### Access and deny flags
 
-Access (A) and deny (D) flags are used to control security ACE types. An access ACE controls the level of access permissions on a file or folder for a principal. A deny ACE explicitly prohibits a principal from accessing a file or folder, even if an access ACE is set that would allow that principal to access the object. Deny ACEs always overrule access ACEs. In general, avoid using deny ACEs, as NFSv4.x ACLs follow a “default deny” model, meaning if an ACL isn't added, then deny is implicit. Deny ACEs can create unnecessary complications in ACL management.
+Access (A) and deny (D) flags are used to control security ACE types. An access ACE controls the level of access permissions on a file or folder for a principal. A deny ACE explicitly prohibits a principal from accessing a file or folder, even if an access ACE is set that would allow that principal to access the object. Deny ACEs always overrule access ACEs. In general, avoid using deny ACEs, as NFSv4.x ACLs follow a "default deny" model, meaning if an ACL isn't added, then deny is implicit. Deny ACEs can create unnecessary complications in ACL management.
 
 ### Inheritance flags 
 
@@ -50,9 +52,9 @@ The following table describes available inheritance flags and their behaviors.
 ### NFSv4.x ACL examples
 
 In the following example, there are three different ACEs with distinct inheritance flags:
-* directory inherit only (di)
-* file inherit only (fi)
-* both file and directory inherit (fdi)
+* (di) - directory inherit only
+* (fi) - file inherit only
+* (fdi) - both file and directory inherit
 
 ```bash
 # nfs4_getfacl acl-dir
@@ -136,7 +138,7 @@ A:g:GROUP@:rtncy
 A::EVERYONE@:rtncy
 ```
 
-When a "no-propogate" (n) flag is set on an ACL, the flags clear on subsequent directory creations below the parent. In the following example, `user2` has the `n` flag set. As a result, the subdirectory clears the inherit flags for that principal and objects created below that subdirectory don’t inherit the ACE from `user2`.
+When a "no-propagate" (n) flag is set on an ACL, the flags clear on subsequent directory creations below the parent. In the following example, `user2` has the `n` flag set. As a result, the subdirectory clears the inherit flags for that principal and objects created below that subdirectory don’t inherit the ACE from `user2`.
 
 ```bash
 #  nfs4_getfacl /mnt/acl-dir
@@ -177,11 +179,13 @@ Inherit flags are a way to more easily manage your NFSv4.x ACLs, sparing you fro
 
 Administrative flags in NFSv4.x ACLs are special flags that are used only with Audit and Alarm ACL types. These flags define either success (`S`) or failure (`F`) access attempts for actions to be performed. 
 
-Azure NetApp Files supports _setting_ administrative flags for Audit ACEs, however the ACEs do not function. In addition, Alarm ACEs aren't supported in Azure NetApp Files.
+This Audit ACL is an example of that, where `user1` is audited for failed access attempts for any permission level: `U:F:user1@contoso.com:rwatTnNcCy`.
+
+Azure NetApp Files only supports setting administrative flags for Audit ACEs. Audit ACEs are required for [file access logs](manage-file-access-logs.md). Alarm ACEs aren't supported in Azure NetApp Files.
 
 ## NFSv4.x user and group principals
 
-With NFSv4.x ACLs, user and group principals define the specific objects that an ACE should apply to. Principals generally follow a format of name@ID-DOMAIN-STRING.COM. The “name” portion of a principal can be a user or group, but that user or group must be resolvable in Azure NetApp Files via the LDAP server connection when specifying the NFSv4.x ID domain. If the name@domain isn't resolvable by Azure NetApp Files, then the ACL operation fails with an “invalid argument” error.
+With NFSv4.x ACLs, user and group principals define the specific objects that an ACE should apply to. Principals generally follow a format of name@ID-DOMAIN-STRING.COM. The "name" portion of a principal can be a user or group, but that user or group must be resolvable in Azure NetApp Files via the LDAP server connection when specifying the NFSv4.x ID domain. If the name@domain isn't resolvable by Azure NetApp Files, then the ACL operation fails with an "invalid argument" error.
 
 ```bash
 # nfs4_setfacl -a A::noexist@CONTOSO.COM:rwaxtTnNcCy inherit-file
@@ -236,13 +240,13 @@ When a domain mismatch occurs between the NFS client and Azure NetApp Files, che
 August 19 13:14:29 nfsidmap[17481]: nss_getpwnam: name 'root@microsoft.com' does not map into domain ‘CONTOSO.COM'
 ```
 
-The NFS client’s ID domain can be overridden using the /etc/idmapd.conf file’s “Domain” setting. For example: `Domain = CONTOSO.COM`.
+The NFS client’s ID domain can be overridden using the /etc/idmapd.conf file’s "Domain" setting. For example: `Domain = CONTOSO.COM`.
 
 Azure NetApp Files also allows you to [change the NFSv4.1 ID domain](azure-netapp-files-configure-nfsv41-domain.md). For additional details, see [How-to: NFSv4.1 ID Domain Configuration for Azure NetApp Files](https://www.youtube.com/watch?v=UfaJTYWSVAY).
 
 ## NFSv4.x permissions
 
-NFSv4.x permissions are the way to control what level of access a specific user or group principal has on a file or folder. Permissions in NFSv3 only allow read/write/execute (rwx) levels of access definition, but NFSv4.x provides a slew of other granular access controls as an improvement over NFSv3 mode bits.
+NFSv4.x permissions are the way to control what level of access a specific user or group principal has on a file or folder. Permissions in NFSv3 only allow read/write/execute (`rwx`) levels of access definition, but NFSv4.x provides a slew of other granular access controls as an improvement over NFSv3 mode bits.
 
 There are 13 permissions that can be set for users, and 14 permissions that can be set for groups.
 
@@ -364,7 +368,7 @@ When NFSv4.x ACLs are in use on UNIX security style volumes, the following behav
 
 * Windows usernames need to map properly to UNIX usernames for proper access control resolution.
 * In UNIX security style volumes (where NFSv4.x ACLs would be applied), if no valid UNIX user exists in the LDAP server for a Windows user to map to, then a default UNIX user called `pcuser` (with uid numeric 65534) is used for mapping.
-* Files written with Windows users with no valid UNIX user mapping display as owned by numeric ID 65534, which corresponds to “nfsnobody” or “nobody” usernames in Linux clients from NFS mounts. This is different from the numeric ID 99 which is typically seen with NFSv4.x ID domain issues. To verify the numeric ID in use, use the `ls -lan` command.
+* Files written with Windows users with no valid UNIX user mapping display as owned by numeric ID 65534, which corresponds to "nfsnobody" or "nobody" usernames in Linux clients from NFS mounts. This is different from the numeric ID 99 which is typically seen with NFSv4.x ID domain issues. To verify the numeric ID in use, use the `ls -lan` command.
 * Files with incorrect owners don't provide expected results from UNIX mode bits or from NFSv4.x ACLs.
 * NFSv4.x ACLs are managed from NFS clients. SMB clients can neither view nor manage NFSv4.x ACLs.
 
@@ -382,7 +386,7 @@ In Azure NetApp Files, you can use change ownership (chown) and change mode bit 
 
 When using NFSv4.x ACLs, the more granular controls applied to files and folder lessens the need for chmod commands. Chown still has a place, as NFSv4.x ACLs don't assign ownership.
 
-When chmod is run in Azure NetApp Files on files and folders with NFSv4.x ACLs applied, mode bits are changed on the object. In addition, a set of system ACEs are modified to reflect those mode bits. If the system ACEs are removed, then mode bits are cleared. Examples and a more complete description can be found in the section on system ACEs below.
+When chmod is run in Azure NetApp Files on files and folders with NFSv4.x ACLs applied, mode bits are changed on the object. In addition, a set of system ACEs is modified to reflect those mode bits. If the system ACEs are removed, then mode bits are cleared. Examples and a more complete description can be found in the section on system ACEs below.
 
 When chown is run in Azure NetApp Files, the assigned owner can be modified. File ownership isn't as critical when using NFSv4.x ACLs as when using mode bits, as ACLs can be used to control permissions in ways that basic owner/group/everyone concepts couldn't. Chown in Azure NetApp Files can only be run as root (either as root or by using sudo), since export controls are configured to only allow root to make ownership changes. Since this is controlled by a default export policy rule in Azure NetApp Files, NFSv4.x ACL entries that allow ownership modifications don't apply.
 
@@ -399,7 +403,7 @@ The export policy rule on the volume can be modified to change this behavior. In
 
 :::image type="content" source="./media/nfs-access-control-lists/export-policy-unrestricted.png" alt-text="Screenshot of export policy menu changing chown mode to unrestricted." lightbox="./media/nfs-access-control-lists/export-policy-unrestricted.png":::
 
-Once modified, ownership can be changed by users other than root if they have appropriate access rights. This requires the “Take Ownership” NFSv4.x ACL permission (designated by the letter “o”). Ownership can also be changed if the user changing ownership currently owns the file or folder.
+Once modified, ownership can be changed by users other than root if they have appropriate access rights. This requires the "Take Ownership" NFSv4.x ACL permission (designated by the letter "o"). Ownership can also be changed if the user changing ownership currently owns the file or folder.
 
 ```bash
 A::user1@contoso.com:rwatTnNcCy  << no ownership flag (o)
@@ -449,7 +453,7 @@ A::OWNER@:rwaxtTnNcCy
 A:g:GROUP@:rxtncy
 ```
 
-If those system ACEs are removed, then the permission view changes such that the normal mode bits (rwx) show up as dashes.
+If those system ACEs are removed, then the permission view changes such that the normal mode bits (`rwx`) show up as dashes.
 
 ```bash 
 # nfs4_setfacl -x A::OWNER@:rwaxtTnNcCy user1-file
@@ -465,9 +469,9 @@ Removing system ACEs is a way to further secure files and folders, as only the u
 
 Root access with NFSv4.x ACLs can't be limited unless [root is squashed](network-attached-storage-permissions.md#root-squashing). Root squashing is where an export policy rule is configured where root is mapped to an anonymous user to limit access. Root access can be configured from a volume's **Export policy** menu by changing the policy rule of **Root access** to off. 
 
-To configure root squashing, navigate to the **Export policy** menu on the volume then change “Root access” to “off” for the policy rule.
+To configure root squashing, navigate to the **Export policy** menu on the volume then change "Root access" to "off" for the policy rule.
 
-:::image type="content" source="./media/nfs-access-control-lists/export-policy-root-access.png" alt-text="Screenshot of export policy menu with root access off." lightbox="./media/nfs-access-control-lists/export-policy-root-access.png":::
+:::image type="content" source="./media/nfs-access-control-lists/export-policy-root-access.png" alt-text="Screenshot of export policy menu with root access disabled." lightbox="./media/nfs-access-control-lists/export-policy-root-access.png":::
 
 The effect of disabling root access root squashes to anonymous user `nfsnobody:65534`. Root access is then unable to change ownership.
 

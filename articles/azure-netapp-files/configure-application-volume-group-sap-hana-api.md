@@ -4,9 +4,10 @@ description: Setting up your application volume groups for the SAP HANA API requ
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 04/09/2023
+ms.topic: concept-article
+ms.date: 05/22/2025
 ms.author: b-ahibbard
+# Customer intent: "As a cloud administrator, I want to configure application volume groups for SAP HANA using REST API, so that I can ensure proper volume management and deployment across single-host and multiple-host setups in Azure."
 ---
 # Configure application volume groups for SAP HANA using REST API
 
@@ -55,7 +56,7 @@ The following list describes all the possible volume types for application volum
     > A capacity pool can be resized at any time. For more information about changing a capacity pool, refer to [Manage a manual QoS capacity pool](manage-manual-qos-capacity-pool.md).
     1.	Create a NetApp storage account.
     2.	Create a manual QoS capacity pool.
-1. **Create AvSet and proximity placement group (PPG):** For production landscapes, you should create an AvSet that is manually pinned to a data center where Azure NetApp Files resources are available in proximity. The AvSet pinning ensures that VMs won't be moved on restart. The proximity placement group (PPG) needs to be assigned to the AvSet. With the help of application volume groups, the PPG can find the closest Azure NetApp Files hardware. For more information, see [Best practices about proximity placement groups](application-volume-group-considerations.md#best-practices-about-proximity-placement-groups).
+1. **Create AvSet and proximity placement group (PPG):** For production landscapes, you should create an AvSet that is manually pinned to a data center where Azure NetApp Files resources are available in proximity. The AvSet pinning ensures that VMs won't be moved on restart. The proximity placement group (PPG) needs to be assigned to the AvSet. With the help of application volume groups, the PPG can find the closest Azure NetApp Files hardware. For more information, see [Best practices about proximity placement groups](application-volume-group-considerations.md#best-practices-about-proximity-placement).
     1. Create AvSet.
     2. Create PPG.
     3. Assign PPG to AvSet.
@@ -87,7 +88,7 @@ In a create request, use the following URI format:
 
 The request body consists of the _outer_ parameters, the group properties, and an array of volumes to be created, each with their individual outer parameters and volume properties.
 
-The following table describes the request body parameters and group level properties required to create a SAP HANA application volume group.
+The following table describes the request body parameters and group level properties required to create an SAP HANA application volume group.
 
 | URI parameter | Description | Restrictions for SAP HANA |
 | ---- | ----- | ----- |
@@ -98,7 +99,7 @@ The following table describes the request body parameters and group level proper
 | `applicationIdentifier` | Application specific identifier string, following application naming rules | The SAP System ID, which should follow aforementioned naming rules, for example `SH9` | 
 | `volumes` | Array of volumes to be created (see the next table for volume-granular details) | Volume count depends upon host configuration: <ul><li>Single-host (3-5 volumes) <br /> **Required**: _data_, _log_ and _shared_ <br /> **Optional**: _data-backup_, _log-backup_ </li><li> Multiple-host (two volumes) <br /> **Required**: _data_ and _log_ </li></ul> |
 
-This table describes the request body parameters and volume properties for creating a volume in a SAP HANA application volume group.   
+This table describes the request body parameters and volume properties for creating a volume in an SAP HANA application volume group.   
 
 | Volume-level request parameter | Description | Restrictions for SAP HANA |
 | ---- | ----- | ----- |
@@ -107,33 +108,31 @@ This table describes the request body parameters and volume properties for creat
 | **Volume properties** | **Description** | **SAP HANA Value Restrictions** |
 | `creationToken` | Export path name, typically same as the volume name. | None. Example: `SH9-data-mnt00001` |
 | `throughputMibps` | QoS throughput | This must be between 1 Mbps and 4500 Mbps. You should set throughput based on volume type. | 
-| `usageThreshhold` | Size of the volume in bytes. This must be in the 100 GiB to 100-TiB range. For instance, 100 GiB = 107374182400 bytes. | None. You should set volume size depending on the volume type. | 
+| `usageThreshold` | Size of the volume in bytes. This must be in the 50 GiB to 100-TiB range. For instance, 100 GiB = 107374182400 bytes. | None. You should set volume size depending on the volume type. | 
 | `exportPolicyRule` | Volume export policy rule | At least one export policy rule must be specified for SAP HANA. Only the following rules values can be modified for SAP HANA, the rest _must_ have their default values: <ul><li>`unixReadOnly`: should be false</li><li>`unixReadWrite`: should be true</li><li>`allowedClients`: specify allowed clients. Use `0.0.0.0/0` for no restrictions.</li><li>`hasRootAccess`: must be true to install SAP.</li><li>`chownMode`: Specify `chown` mode.</li><li>`nfsv41`: true for data, log, and shared volumes, optionally true for data backup and log backup volumes</li><li>`nfsv3`: optionally true for data backup and log backup volumes</li><ul> All other rule values _must_ be left defaulted. |
 | `volumeSpecName` | Specifies the type of volume for the application volume group being created | SAP HANA volumes must have a value that is one of the following: <ul><li>"data"</li><li>"log"</li><li>"shared"</li><li>"data-backup"</li><li>"log-backup"</li></ul> | 
 | `proximityPlacementGroup` | Resource ID of the Proximity Placement Group (PPG) for proper placement of the volume. | <ul><li>The “data”, “log” and “shared” volumes must each have a PPG specified, preferably a common PPG.</li><li>A PPG must be specified for the “data-backup” and “log-backup” volumes, but it will be ignored during placement.</li></ul> |
 | `subnetId` | Delegated subnet ID for Azure NetApp Files. | In a normal case where there are sufficient resources available, the number of IP addresses required in the subnet depends on the order of the application volume group created in the subscription: <ol><li> First application volume group created: the creation usually requires to 3-4 IP addresses but can require up to 5</li><li> Second application volume group created: Normally requires two IP addresses</li><li></li>Third and subsequent application volume group created: Normally, more IP addresses are not required</ol> |
 | `capacityPoolResourceId` | ID of the capacity pool | The capacity pool must be of type manual QoS. Generally, all SAP volumes are placed in a common capacity pool, however this is not a requirement. |
 | `protocolTypes` | Protocol to use | This should be either NFSv3 or NFSv4.1 and should match the protocol specified in the Export Policy Rule described earlier in this table. | 
-
-The following properties are available with [Application volume group for SAP HANA extension one](application-volume-group-introduction.md#extension-1-features): 
-
-| Volume-level request parameter | Description | Restrictions for SAP HANA |
-| ---- | ----- | ----- |
 | `networkFeatures` | Network features | Both `basic` and `standard` are supported |
 | `zones` | Availability zone | Enter logical zone in the following format: `[“1”]` |
+| `endpointType` | Endpoint type for a replication configuration. | The allowed value is `dst` |
+| `remoteVolumeResourceId` |  The resource ID of the remote volume | The volume ID |
+| `replicationSchedule` |  The frequency of replication (daily, hourly, or every 10 minutes) | The allowed values are `daily`, `hourly`, or `_10minutely`. For guidance on which volume type supports which schedule, see [Replication schedules, RTO, and RPO](application-volume-group-disaster-recovery.md#replication-schedules-rto-and-rpo). |
 
 ## Example API request content: application volume group creation
 
 The examples in this section illustrate the values passed in the volume group creation request for various SAP HANA configurations. The examples demonstrate best practices for naming, sizing, and values as described in the tables.
 
 In the following examples, selected placeholders are specified. You should replace them with the values specific to your configuration. These values include:
-1.	`<SubscriptionId>`: Subscription ID. Example: `11111111-2222-3333-4444-555555555555`
+1.	`<SubscriptionId>`: Subscription ID. Example: `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`
 2.	`<ResourceGroup>`: Resource group. Example: `TestResourceGroup`
 3.	`<NtapAccount>`: NetApp account, for example: `TestAccount`
 4.	`<VolumeGroupName>`: Volume group name, for example: `SH9-Test-00001`
-5.	`<SubnetId>`: Subnet resource ID, for example: `/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/SH9_Subnet`
-6. `<CapacityPoolResourceId>`: Capacity pool resource ID, for example: `/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/SH9_Pool`
-7.	`<ProximityPlacementGroupResourceId>`: Proximity placement group, for example: `/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/test/providers/Microsoft.Compute/proximityPlacementGroups/SH9_PPG`
+5.	`<SubnetId>`: Subnet resource ID, for example: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/SH9_Subnet`
+6. `<CapacityPoolResourceId>`: Capacity pool resource ID, for example: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/SH9_Pool`
+7.	`<ProximityPlacementGroupResourceId>`: Proximity placement group, for example: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/test/providers/Microsoft.Compute/proximityPlacementGroups/SH9_PPG`
 8.	`<PartnerVolumeId>`: Partner volume ID (for HSR volumes).
 9.	`<ExampleJson>`: JSON Request from one of the examples in the API request tables below.
 
@@ -145,7 +144,7 @@ In the following examples, selected placeholders are specified. You should repla
 
 SAP HANA volume groups for the following examples can be created using a sample shell script that calls the API using curl:
 
-1. Extract the subscription ID. This automates the extraction of the subscription ID and generate the authorization token:
+1. Extract the subscription ID. This automates the extraction of the subscription ID and generates the authorization token:
     ```bash
     subId=$(az account list | jq ".[] | select (.name == \"Pay-As-You-Go\") | .id" -r)
     echo "Subscription ID: $subId"
@@ -169,431 +168,6 @@ To create the five volumes (data, log, shared, data-backup, log-backup) for a si
 >You need to replace the placeholders and adapt the parameters to meet your requirements.
 
 #### Example single-host SAP HANA application volume group creation request
-
-[!INCLUDE [Extension 1 interface call-out](./includes/extension-one.md)]
-
-##### [Without Extension 1](#tab/without-extension-1)
-
-This example pertains to data, log, shared, data-backup, and log-backup volumes demonstrating best practices for naming, sizing, and throughputs. This example serves as the primary volume if you're configuring an HSR pair. 
-
-1. Save the JSON template as `sh9.json`:
-    ```json
-    {
-        "location": "westus",
-        "properties": {
-            "groupMetaData": {
-                "groupDescription": "Test group for SH9",
-                "applicationType": "SAP-HANA",
-                "applicationIdentifier": "SH9"
-            },
-            "volumes": [
-                {
-                    "name": "SH9-data-mnt00001",
-                    "properties": {
-                        "creationToken": "SH9-data-mnt00001",
-                        "serviceLevel": "premium",
-                        "throughputMibps": 400,
-                        "exportPolicy": {
-                            "rules": [
-                                {
-                                    "ruleIndex": 1,
-                                    "unixReadOnly": false,
-                                    "unixReadWrite": true,
-                                    "kerberos5ReadOnly": false,
-                                    "kerberos5ReadWrite": false,
-                                    "kerberos5iReadOnly": false,
-                                    "kerberos5iReadWrite": false,
-                                    "kerberos5pReadOnly": false,
-                                    "kerberos5pReadWrite": false,
-                                    "cifs": false,
-                                    "nfsv3": false,
-                                    "nfsv41": true,
-                                    "allowedClients": "0.0.0.0/0",
-                                    "hasRootAccess": true
-                                }
-                            ]
-                        },
-                        "protocolTypes": [
-                            "NFSv4.1"
-                        ],
-                        "subnetId": <SubnetId>,
-                        "usageThreshold": 107374182400,
-                        "volumeSpecName": "data",
-                        "capacityPoolResourceId": <CapacityPoolResourceId>,
-                        "proximityPlacementGroup": <ProximityPlacementGroupResourceId>
-                    }
-                },
-                {
-                    "name": "SH9-log-mnt00001",
-                    "properties": {
-                        "creationToken": "SH9-log-mnt00001",
-                        "serviceLevel": "premium",
-                        "throughputMibps": 250,
-                        "exportPolicy": {
-                            "rules": [
-                                {
-                                    "ruleIndex": 1,
-                                    "unixReadOnly": false,
-                                    "unixReadWrite": true,
-                                    "kerberos5ReadOnly": false,
-                                    "kerberos5ReadWrite": false,
-                                    "kerberos5iReadOnly": false,
-                                    "kerberos5iReadWrite": false,
-                                    "kerberos5pReadOnly": false,
-                                    "kerberos5pReadWrite": false,
-                                    "cifs": false,
-                                    "nfsv3": false,
-                                    "nfsv41": true,
-                                    "allowedClients": "0.0.0.0/0",
-                                    "hasRootAccess": true
-                                }
-                            ]
-                        },
-                        "protocolTypes": [
-                            "NFSv4.1"
-                        ],
-                        "subnetId": <SubnetId>,
-                        "usageThreshold": 107374182400,
-                        "volumeSpecName": "log",
-                        "capacityPoolResourceId": <CapacityPoolResourceId>,
-                        "proximityPlacementGroup": <ProximityPlacementGroupResourceId>
-                    }
-                },
-                {
-                    "name": "SH9-shared",
-                    "properties": {
-                        "creationToken": "SH9-shared",
-                        "serviceLevel": "premium",
-                        "throughputMibps": 64,
-                        "exportPolicy": {
-                            "rules": [
-                                {
-                                    "ruleIndex": 1,
-                                    "unixReadOnly": false,
-                                    "unixReadWrite": true,
-                                    "kerberos5ReadOnly": false,
-                                    "kerberos5ReadWrite": false,
-                                    "kerberos5iReadOnly": false,
-                                    "kerberos5iReadWrite": false,
-                                    "kerberos5pReadOnly": false,
-                                    "kerberos5pReadWrite": false,
-                                    "cifs": false,
-                                    "nfsv3": false,
-                                    "nfsv41": true,
-                                    "allowedClients": "0.0.0.0/0",
-                                    "hasRootAccess": true
-                                }
-                            ]
-                        },
-                        "protocolTypes": [
-                            "NFSv4.1"
-                        ],
-                        "subnetId": <SubnetId>,
-                        "usageThreshold": 1099511627776,
-                        "volumeSpecName": "shared",
-                        "capacityPoolResourceId": <CapacityPoolResourceId>,
-                        "proximityPlacementGroup": <ProximityPlacementGroupResourceId>
-                    }
-                },
-                {
-                    "name": "SH9-data-backup",
-                    "properties": {
-                        "creationToken": "SH9-data-backup",
-                        "serviceLevel": "premium",
-                        "throughputMibps": 128,
-                        "exportPolicy": {
-                            "rules": [
-                                {
-                                    "ruleIndex": 1,
-                                    "unixReadOnly": false,
-                                    "unixReadWrite": true,
-                                    "kerberos5ReadOnly": false,
-                                    "kerberos5ReadWrite": false,
-                                    "kerberos5iReadOnly": false,
-                                    "kerberos5iReadWrite": false,
-                                    "kerberos5pReadOnly": false,
-                                    "kerberos5pReadWrite": false,
-                                    "cifs": false,
-                                    "nfsv3": false,
-                                    "nfsv41": true,
-                                    "allowedClients": "0.0.0.0/0",
-                                    "hasRootAccess": true
-                                }
-                            ]
-                        },
-                        "protocolTypes": [
-                            "NFSv4.1"
-                        ],
-                        "subnetId": <SubnetId>,
-                        "usageThreshold": 214748364800,
-                        "volumeSpecName": "data-backup",
-                        "capacityPoolResourceId": <CapacityPoolResourceId>,
-                        "proximityPlacementGroup": <ProximityPlacementGroupResourceId>
-                    }
-                },
-                {
-                    "name": "SH9-log-backup",
-                    "properties": {
-                        "creationToken": "SH9-log-backup",
-                        "serviceLevel": "premium",
-                        "throughputMibps": 250,
-                        "exportPolicy": {
-                            "rules": [
-                                {
-                                    "ruleIndex": 1,
-                                    "unixReadOnly": false,
-                                    "unixReadWrite": true,
-                                    "kerberos5ReadOnly": false,
-                                    "kerberos5ReadWrite": false,
-                                    "kerberos5iReadOnly": false,
-                                    "kerberos5iReadWrite": false,
-                                    "kerberos5pReadOnly": false,
-                                    "kerberos5pReadWrite": false,
-                                    "cifs": false,
-                                    "nfsv3": false,
-                                    "nfsv41": true,
-                                    "allowedClients": "0.0.0.0/0",
-                                    "hasRootAccess": true
-                                }
-                            ]
-                        },
-                        "protocolTypes": [
-                            "NFSv4.1"
-                        ],
-                        "subnetId": <SubnetId>,
-                        "usageThreshold": 549755813888,
-                        "volumeSpecName": "log-backup",
-                        "capacityPoolResourceId": <CapacityPoolResourceId>,
-                        "proximityPlacementGroup": <ProximityPlacementGroupResourceId>
-                    }
-                }
-            ]
-        }
-    }
-    ```
-1. Extract the subscription ID:
-    ```bash
-    subId=$(az account list | jq ".[] | select (.name == \"Pay-As-You-Go\") | .id" -r)
-    echo "Subscription ID: $subId"
-    ```
-1. Create the access token:
-    ```bash
-    response=$(az account get-access-token)
-    token=$(echo $response | jq ".accessToken" -r)
-    echo "Token: $token"
-    ```
-3. Call the REST API using curl
-    ```bash
-    echo "---"
-    curl -X PUT -H "Authorization: Bearer $token" -H "Content-Type:application/json" -H "Accept:application/json" -d @sh9.json https://management.azure.com/subscriptions/$subId/resourceGroups/rg-westus/providers/Microsoft.NetApp/netAppAccounts/ANF-WestUS-test/volumeGroups/SAP-HANA-SH9-00001?api-version=2022-03-01 | jq .
-    ```
-1. Sample result:
-```json
-{
-  "id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-westus/providers/Microsoft.NetApp/netAppAccounts/ANF-WestUS-test/volumeGroups/SAP-HANA-SH9-00001",
-  "name": "ANF-WestUS-test/SAP-HANA-SH9-00001",
-  "type": "Microsoft.NetApp/netAppAccounts/volumeGroups",
-  "location": "westus",
-  "properties": {
-    "provisioningState": "Creating",
-    "groupMetaData": {
-      "groupDescription": "Test group for SH9",
-      "applicationType": "SAP-HANA",
-      "applicationIdentifier": "SH9",
-      "volumesCount": 0
-    },
-    "volumes": [
-      {
-        "name": "SH9-data-mnt00001",
-        "properties": {
-          "serviceLevel": "premium",
-          "creationToken": "SH9-data-mnt00001",
-          "usageThreshold": 107374182400,
-          "exportPolicy": {
-            "rules": [
-              {
-                "ruleIndex": 1,
-                "unixReadOnly": false,
-                "unixReadWrite": true,
-                "cifs": false,
-                "nfsv3": false,
-                "nfsv41": true,
-                "allowedClients": "0.0.0.0/0",
-                "kerberos5ReadOnly": false,
-                "kerberos5ReadWrite": false,
-                "kerberos5iReadOnly": false,
-                "kerberos5iReadWrite": false,
-                "kerberos5pReadOnly": false,
-                "kerberos5pReadWrite": false,
-                "hasRootAccess": true
-              }
-            ]
-          },
-          "protocolTypes": [
-            "NFSv4.1"
-          ],
-          "subnetId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-westus/providers/Microsoft.Network/virtualNetworks/rg-westus-vnet/subnets/default",
-          "throughputMibps": 1,
-          "capacityPoolResourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-westus/providers/Microsoft.NetApp/netAppAccounts/ANF-WestUS-test/capacityPools/avg",
-          "proximityPlacementGroup": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-westus/providers/Microsoft.Compute/proximityPlacementGroups/ppg-westus-test",
-          "volumeSpecName": "data",
-          "maximumNumberOfFiles": 100000000
-        }
-      },
-      {
-        "name": "SH9-log-mnt00001",
-        "properties": {
-          "serviceLevel": "premium",
-          "creationToken": "SH9-log-mnt00001",
-          "usageThreshold": 107374182400,
-          "exportPolicy": {
-            "rules": [
-              {
-                "ruleIndex": 1,
-                "unixReadOnly": false,
-                "unixReadWrite": true,
-                "cifs": false,
-                "nfsv3": false,
-                "nfsv41": true,
-                "allowedClients": "0.0.0.0/0",
-                "kerberos5ReadOnly": false,
-                "kerberos5ReadWrite": false,
-                "kerberos5iReadOnly": false,
-                "kerberos5iReadWrite": false,
-                "kerberos5pReadOnly": false,
-                "kerberos5pReadWrite": false,
-                "hasRootAccess": true
-              }
-            ]
-          },
-          "protocolTypes": [
-            "NFSv4.1"
-          ],
-          "subnetId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-westus/providers/Microsoft.Network/virtualNetworks/rg-westus-vnet/subnets/default",
-          "throughputMibps": 1,
-          "capacityPoolResourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-westus/providers/Microsoft.NetApp/netAppAccounts/ANF-WestUS-test/capacityPools/avg",
-          "proximityPlacementGroup": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-westus/providers/Microsoft.Compute/proximityPlacementGroups/ppg-westus-test",
-          "volumeSpecName": "log",
-          "maximumNumberOfFiles": 100000000
-        }
-      },
-      {
-        "name": "SH9-shared",
-        "properties": {
-          "serviceLevel": "premium",
-          "creationToken": "SH9-shared",
-          "usageThreshold": 107374182400,
-          "exportPolicy": {
-            "rules": [
-              {
-                "ruleIndex": 1,
-                "unixReadOnly": false,
-                "unixReadWrite": true,
-                "cifs": false,
-                "nfsv3": false,
-                "nfsv41": true,
-                "allowedClients": "0.0.0.0/0",
-                "kerberos5ReadOnly": false,
-                "kerberos5ReadWrite": false,
-                "kerberos5iReadOnly": false,
-                "kerberos5iReadWrite": false,
-                "kerberos5pReadOnly": false,
-                "kerberos5pReadWrite": false,
-                "hasRootAccess": true
-              }
-            ]
-          },
-          "protocolTypes": [
-            "NFSv4.1"
-          ],
-          "subnetId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-westus/providers/Microsoft.Network/virtualNetworks/rg-westus-vnet/subnets/default",
-          "throughputMibps": 1,
-          "capacityPoolResourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-westus/providers/Microsoft.NetApp/netAppAccounts/ANF-WestUS-test/capacityPools/avg",
-          "proximityPlacementGroup": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-westus/providers/Microsoft.Compute/proximityPlacementGroups/ppg-westus-test",
-          "volumeSpecName": "shared",
-          "maximumNumberOfFiles": 100000000
-        }
-      },
-      {
-        "name": "SH9-data-backup",
-        "properties": {
-          "serviceLevel": "premium",
-          "creationToken": "SH9-data-backup",
-          "usageThreshold": 107374182400,
-          "exportPolicy": {
-            "rules": [
-              {
-                "ruleIndex": 1,
-                "unixReadOnly": false,
-                "unixReadWrite": true,
-                "cifs": false,
-                "nfsv3": false,
-                "nfsv41": true,
-                "allowedClients": "0.0.0.0/0",
-                "kerberos5ReadOnly": false,
-                "kerberos5ReadWrite": false,
-                "kerberos5iReadOnly": false,
-                "kerberos5iReadWrite": false,
-                "kerberos5pReadOnly": false,
-                "kerberos5pReadWrite": false,
-                "hasRootAccess": true
-              }
-            ]
-          },
-          "protocolTypes": [
-            "NFSv4.1"
-          ],
-          "subnetId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-westus/providers/Microsoft.Network/virtualNetworks/rg-westus-vnet/subnets/default",
-          "throughputMibps": 1,
-          "capacityPoolResourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-westus/providers/Microsoft.NetApp/netAppAccounts/ANF-WestUS-test/capacityPools/avg",
-          "proximityPlacementGroup": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-westus/providers/Microsoft.Compute/proximityPlacementGroups/ppg-westus-test",
-          "volumeSpecName": "data-backup",
-          "maximumNumberOfFiles": 100000000
-        }
-      },
-      {
-        "name": "SH9-log-backup",
-        "properties": {
-          "serviceLevel": "premium",
-          "creationToken": "SH9-log-backup",
-          "usageThreshold": 107374182400,
-          "exportPolicy": {
-            "rules": [
-              {
-                "ruleIndex": 1,
-                "unixReadOnly": false,
-                "unixReadWrite": true,
-                "cifs": false,
-                "nfsv3": false,
-                "nfsv41": true,
-                "allowedClients": "0.0.0.0/0",
-                "kerberos5ReadOnly": false,
-                "kerberos5ReadWrite": false,
-                "kerberos5iReadOnly": false,
-                "kerberos5iReadWrite": false,
-                "kerberos5pReadOnly": false,
-                "kerberos5pReadWrite": false,
-                "hasRootAccess": true
-              }
-            ]
-          },
-          "protocolTypes": [
-            "NFSv4.1"
-          ],
-          "subnetId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-westus/providers/Microsoft.Network/virtualNetworks/rg-westus-vnet/subnets/default",
-          "throughputMibps": 1,
-          "capacityPoolResourceId": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-westus/providers/Microsoft.NetApp/netAppAccounts/ANF-WestUS-test/capacityPools/avg",
-          "proximityPlacementGroup": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/rg-westus/providers/Microsoft.Compute/proximityPlacementGroups/ppg-westus-test",
-          "volumeSpecName": "log-backup",
-          "maximumNumberOfFiles": 100000000
-        }
-      }
-    ]
-  }
-}
-```
-
-##### [Extension 1](#tab/extension-1)
 
 The following example creates an application volume group for a single-host system via REST API call using Standard network feature and availability zone 1.
 
@@ -829,7 +403,6 @@ The following example creates an application volume group for a single-host syst
     echo "---"
     curl -X PUT -H "Authorization: Bearer $token" -H "Content-Type:application/json" -H "Accept:application/json" -d @sh9.json https://management.azure.com/subscriptions/$subId/resourceGroups/rg-westus/providers/Microsoft.NetApp/netAppAccounts/ANF-WestUS-test/volumeGroups/SAP-HANA-SH9-00001?api-version=2022-03-01 | jq .
     ```
----
 
 ### Example 2: Deploy volumes for an additional HANA Host for a multiple-host HANA configuration
 
@@ -1143,8 +716,8 @@ Cross-region replication is one way to set up a disaster recovery configuration 
 
 In this example, the following placeholders are specified and should be replaced by values specific to your configuration:
 1.	`<CapacityPoolResourceId3>`: DR capacity pool resource ID, for example:
-`/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/DR_SH9_HSR_Pool`
-2.	`<ProximityPlacementGroupResourceId3>`: DR proximity placement group, for example:`/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/test/providers/Microsoft.Compute/proximityPlacementGroups/DR_SH9_PPG`
+`/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/DR_SH9_HSR_Pool`
+2.	`<ProximityPlacementGroupResourceId3>`: DR proximity placement group, for example:`/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/test/providers/Microsoft.Compute/proximityPlacementGroups/DR_SH9_PPG`
 3.	`<SrcVolumeId_data>`, `<SrcVolumeId_shared>`, `<SrcVolumeId_data-backup>`, `<SrcVolumeId_log-backup>`: cross-region replication source volume IDs for the data, shared, and log-backup cross-region replication destination volumes.
 
 ```json

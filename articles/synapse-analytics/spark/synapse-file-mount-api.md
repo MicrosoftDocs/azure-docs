@@ -1,38 +1,38 @@
 ---
 title: Introduction to file APIs in Azure Synapse Analytics
 description: This tutorial describes how to use the file mount and file unmount APIs in Azure Synapse Analytics, for both Azure Data Lake Storage Gen2 and Azure Blob Storage.
-author: JeneZhang 
-ms.service: synapse-analytics 
+author: pimorano 
+ms.service: azure-synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 07/27/2022
-ms.author: jingzh
-ms.reviewer: whhender
-ms.custom: subject-rbac-steps
+ms.author: pimorano
+ms.custom:
+  - subject-rbac-steps
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Introduction to file mount/unmount APIs in Azure Synapse Analytics 
 
-The Azure Synapse Studio team built two new mount/unmount APIs in the Microsoft Spark Utilities (`mssparkutils`) package. You can use these APIs to attach remote storage (Azure Blob Storage or Azure Data Lake Storage Gen2) to all working nodes (driver node and worker nodes). After the storage is in place, you can use the local file API to access data as if it's stored in the local file system. For more information, see [Introduction to Microsoft Spark Utilities](microsoft-spark-utilities.md).
+The Azure Synapse Studio team built two new mount/unmount APIs in the Microsoft Spark Utilities (`mssparkutils`) package. You can use these APIs to attach remote storage (Azure Blob Storage, Azure Data Lake Storage Gen2 or Azure File Share) to all working nodes (driver node and worker nodes). After the storage is in place, you can use the local file API to access data as if it's stored in the local file system. For more information, see [Introduction to Microsoft Spark Utilities](microsoft-spark-utilities.md).
 
 The article shows you how to use mount/unmount APIs in your workspace. You'll learn: 
 
-+ How to mount Data Lake Storage Gen2 or Blob Storage.
++ How to mount Data Lake Storage Gen2, Blob Storage or Azure File Share.
 + How to access files under the mount point via the local file system API. 
-+ How to access files under the mount point by using the `mssparktuils fs` API. 
++ How to access files under the mount point by using the `mssparkutils fs` API. 
 + How to access files under the mount point by using the Spark read API.
 + How to unmount the mount point.
  
 > [!WARNING]
-> Azure file-share mounting is temporarily disabled. You can use Data Lake Storage Gen2 or Azure Blob Storage mounting instead, as described in the next section.
->
 > Azure Data Lake Storage Gen1 storage is not supported. You can migrate to Data Lake Storage Gen2 by following the [Azure Data Lake Storage Gen1 to Gen2 migration guidance](../../storage/blobs/data-lake-storage-migrate-gen1-to-gen2-azure-portal.md) before using the mount APIs.
 
 
 <a id="How-to-mount-Gen2/blob-Storage"></a>
 ## Mount storage
 
-This section illustrates how to mount Data Lake Storage Gen2 step by step as an example. Mounting Blob Storage works similarly. 
+This section illustrates how to mount Data Lake Storage Gen2 step by step as an example. Mounting Blob Storage and Azure File Share works similarly.
 
 The example assumes that you have one Data Lake Storage Gen2 account named `storegen2`. The account has one container named `mycontainer` that you want to mount to `/test` in your Spark pool. 
 
@@ -52,7 +52,7 @@ You can create a linked service for Data Lake Storage Gen2 or Blob Storage. Curr
 
     ![Screenshot of selections for creating a linked service by using an account key.](./media/synapse-file-mount-api/synapse-link-service-using-account-key.png)
 
-+ **Create a linked service by using a managed identity**
++ **Create a linked service using a system-assigned managed identity**
 
     ![Screenshot of selections for creating a linked service by using a managed identity.](./media/synapse-file-mount-api/synapse-link-service-using-managed-identity.png)
 
@@ -102,7 +102,7 @@ mssparkutils.fs.mount(
 
 In addition to mounting through a linked service, `mssparkutils` supports explicitly passing an account key or [shared access signature (SAS)](/samples/azure-samples/storage-dotnet-sas-getting-started/storage-dotnet-sas-getting-started/) token as a parameter to mount the target. 
 
-For security reasons, we recommend that you store account keys or SAS tokens in Azure Key Vault (as the following example screenshot shows). You can then retrieve them by using the `mssparkutil.credentials.getSecret` API. For more information, see [Manage storage account keys with Key Vault and the Azure CLI (legacy)](../../key-vault/secrets/overview-storage-keys.md).
+For security reasons, we recommend using managed identities and Microsoft Entra authentication instead of account keys or SAS tokens when possible. If you must use account keys, store them in Azure Key Vault (as the following example screenshot shows). You can then retrieve them by using the `mssparkutil.credentials.getSecret` API. For more information, see [Authorize access to data in Azure Storage](/azure/storage/common/authorize-data-access).
 
 ![Screenshot that shows a secret stored in a key vault.](./media/synapse-file-mount-api/key-vaults.png)
  
@@ -273,10 +273,6 @@ mssparkutils.fs.unmount("/test")
 + The unmount mechanism is not automatic. When the application run finishes, to unmount the mount point to release the disk space, you need to explicitly call an unmount API in your code. Otherwise, the mount point will still exist in the node after the application run finishes. 
 
 + Mounting a Data Lake Storage Gen1 storage account is not supported for now. 
-
-## Known issues:
-
-+ In Spark 3.4, the mount points might be unavailable when there are multiple active sessions running in parallel in the same cluster. You can mount with `workspace` scope to avoid this issue.
 
 ## Next steps
 

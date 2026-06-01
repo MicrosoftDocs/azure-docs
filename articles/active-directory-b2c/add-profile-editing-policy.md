@@ -6,13 +6,14 @@ description: Learn how to set up a profile editing flow in Azure Active Director
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer integrating Azure Active Directory B2C into my application, I want to set up a profile editing flow, so that users can manage their profile attributes such as display name, surname, given name, and city.
@@ -20,6 +21,8 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up a profile editing flow in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -41,7 +44,7 @@ If you haven't already done so, [register a web application in Azure Active Dire
 
 ## Create a profile editing user flow
 
-If you want to enable users to edit their profile in your application, you use a profile editing user flow.
+To enable users to edit their profile in your application, use a profile editing user flow.
 
 1. In the menu of the Azure AD B2C tenant overview page, select **User flows**, and then select **New user flow**.
 1. On the **Create a user flow** page, select the **Profile editing** user flow. 

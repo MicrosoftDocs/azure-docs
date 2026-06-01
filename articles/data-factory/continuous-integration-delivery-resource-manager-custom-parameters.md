@@ -1,13 +1,13 @@
 ---
 title: Custom parameters in a Resource Manager template 
 description: Learn how to use custom parameters in a Resource Manager template with continuous integration and delivery in Azure Data Factory.
-ms.service: data-factory
 ms.subservice: ci-cd
-author: nabhishek
-ms.author: abnarain
-ms.reviewer: jburchel
-ms.topic: conceptual
-ms.date: 08/11/2023
+author: kromerm
+ms.author: makromer
+ms.reviewer: whhender
+ms.topic: how-to
+ms.date: 01/29/2025
+ms.custom: sfi-ropc-nochange
 ---
 
 # Use custom parameters with the Resource Manager template
@@ -21,22 +21,22 @@ If your development instance has an associated Git repository, you can override 
 
     To handle custom parameter 256 limit, there are three options:    
   
-    * Use the custom parameter file and remove properties that don't need parameterization, i.e., properties that can keep a default value and hence decrease the parameter count.
-    * Refactor logic in the dataflow to reduce parameters, for example, pipeline parameters all have the same value, you can just use global parameters instead.
+    * Use the custom parameter file and remove properties that don't need parameterization, that is, properties that can keep a default value and hence decrease the parameter count.
+    * Refactor logic in the dataflow to reduce parameters, for example, pipeline parameters all have the same value. You can just use global parameters instead.
     * Split one data factory into multiple data factories.
 
-To override the default Resource Manager parameter configuration, go to the **Manage** hub and select **ARM template** in the "Source control" section. Under **ARM parameter configuration** section, click **Edit** icon in "Edit parameter configuration" to open the Resource Manager parameter configuration code editor.
+To override the default Resource Manager parameter configuration, go to the **Manage** hub and select **ARM template** in the "Source control" section. Under **ARM parameter configuration** section, select **Edit** icon in "Edit parameter configuration" to open the Resource Manager parameter configuration code editor.
 
 :::image type="content" source="media/author-management-hub/management-hub-custom-parameters.png" alt-text="Manage custom parameters":::
 
 > [!NOTE]
-> **ARM parameter configuration** is only enabled in "GIT mode". Currently it is disabled in "live mode" or "Data Factory" mode.
+> **ARM parameter configuration** is only enabled in "GIT mode". Currently it's disabled in "live mode" or "Data Factory" mode.
 
 Creating a custom Resource Manager parameter configuration creates a file named **arm-template-parameters-definition.json** in the root folder of your git branch. You must use that exact file name.
 
 :::image type="content" source="media/continuous-integration-delivery/custom-parameters.png" alt-text="Custom parameters file":::
 
-When publishing from the collaboration branch, Data Factory will read this file and use its configuration to generate which properties get parameterized. If no file is found, the default template is used.
+When publishing from the collaboration branch, Data Factory reads this file and use its configuration to generate which properties get parameterized. If no file is found, the default template is used.
 
 When exporting a Resource Manager template, Data Factory reads this file from whichever branch you're currently working on, not the collaboration branch. You can create or edit the file from a private branch, where you can test your changes by selecting **Export ARM Template** in the UI. You can then merge the file into the collaboration branch.
 
@@ -62,7 +62,7 @@ The following are some guidelines to follow when you create the custom parameter
  
 ## Sample parameterization template
 
-Here's an example of what an Resource Manager parameter configuration might look like.  It contains examples of a number of possible usages, including parameterization of nested activities within a pipeline and changing the defaultValue of a linked service parameter.
+Here's an example of what a Resource Manager parameter configuration might look like.  It contains examples of many possible usages, including parameterization of nested activities within a pipeline and changing the defaultValue of a linked service parameter.
 
 ```json
 {
@@ -157,7 +157,7 @@ Here's an explanation of how the preceding template is constructed, broken down 
 
 ### Pipelines
     
-* Any property in the path `activities/typeProperties/waitTimeInSeconds` is parameterized. Any activity in a pipeline that has a code-level property named `waitTimeInSeconds` (for example, the `Wait` activity) is parameterized as a number, with a default name. But it won't have a default value in the Resource Manager template. It will be a mandatory input during the Resource Manager deployment.
+* Any property in the path `activities/typeProperties/waitTimeInSeconds` is parameterized. Any activity in a pipeline that has a code-level property named `waitTimeInSeconds` (for example, the `Wait` activity) is parameterized as a number, with a default name. But it won't have a default value in the Resource Manager template. It is a mandatory input during the Resource Manager deployment.
 * Similarly, a property called `headers` (for example, in a `Web` activity) is parameterized with type `object` (JObject). It has a default value, which is the same value as that of the source factory.
 
 ### IntegrationRuntimes
@@ -171,16 +171,22 @@ Here's an explanation of how the preceding template is constructed, broken down 
 
 ### LinkedServices
 
-* Linked services are unique. Because linked services and datasets have a wide range of types, you can provide type-specific customization. In this example, for all linked services of type `AzureDataLakeStore`, a specific template will be applied. For all others (via `*`), a different template will be applied.
-* The `connectionString` property will be parameterized as a `securestring` value. It won't have a default value. It will have a shortened parameter name that's suffixed with `connectionString`.
+* Linked services are unique. Because linked services and datasets have a wide range of types, you can provide type-specific customization. In this example, for all linked services of type `AzureDataLakeStore`, a specific template is applied. For all others (via `*`), a different template is applied.
+* The `connectionString` property is parameterized as a `securestring` value. It won't have a default value. It has a shortened parameter name that's suffixed with `connectionString`.
 * The property `secretAccessKey` happens to be an `AzureKeyVaultSecret` (for example, in an Amazon S3 linked service). It's automatically parameterized as an Azure Key Vault secret and fetched from the configured key vault. You can also parameterize the key vault itself.
+
+> [!WARNING]
+> The `encryptedCredential` property in linked service definitions is encrypted using the source factory's encryption key and is **not transferable between factories**. If your source-controlled linked service JSON files contain `encryptedCredential`, deployment to any other factory will fail or produce non-functional linked services.
+> Before committing linked service definitions to source control, remove the `encryptedCredential` property entirely. Use one of the following portable alternatives instead:
+> - **Azure Key Vault reference** — store the secret in Key Vault and reference it using `AzureKeyVaultSecret` in the linked service definition.
+> - **Managed Identity (MSI)** — where the target service supports it, switch the authentication type to `ManagedServiceIdentity` to eliminate credential management entirely. Both approaches work across environments without modification and are the recommended patterns for CI/CD pipelines.
 
 ### Datasets
 
 * Although type-specific customization is available for datasets, you can provide configuration without explicitly having a \*-level configuration. In the preceding example, all dataset properties under `typeProperties` are parameterized.
 
 > [!NOTE]
-> If **Azure alerts and matrices** are configured for a pipeline, they are not currently supported as parameters for ARM deployments. To reapply the alerts and matrices in new environment, please follow [Data Factory Monitoring, Alerts and Matrices.](./monitor-metrics-alerts.md)
+> If **Azure alerts and matrices** are configured for a pipeline, they aren't currently supported as parameters for ARM template deployments. To reapply the alerts and matrices in new environment, follow [Data Factory Monitoring, Alerts, and Matrices.](./monitor-metrics-alerts.md)
 > 
 
 ## Default parameterization template
@@ -332,7 +338,7 @@ Below is the current default parameterization template. If you need to add only 
 
 ## Example: Parameterizing an existing Azure Databricks interactive cluster ID
 
-The following example shows how to add a single value to the default parameterization template. We only want to add an existing Azure Databricks interactive cluster ID for a Databricks linked service to the parameters file. Note that this file is the same as the previous file except for the addition of `existingClusterId` under the properties field of `Microsoft.DataFactory/factories/linkedServices`.
+The following example shows how to add a single value to the default parameterization template. We only want to add an existing Azure Databricks interactive cluster ID for a Databricks linked service to the parameters file. This file is the same as the previous file except for the addition of `existingClusterId` under the properties field of `Microsoft.DataFactory/factories/linkedServices`.
 
 ```json
 {

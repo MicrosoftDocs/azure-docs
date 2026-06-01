@@ -6,12 +6,12 @@ description: Learn how to register different apps types such as web app, web API
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer, I want to register my applications in Azure Active Directory B2C, so that I can enable authentication for various modern application architectures and specify the type of app that I want to register.
@@ -19,6 +19,7 @@ ms.subservice: B2C
 ---
 
 # Register apps in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Before your [applications](application-types.md) can interact with Azure Active Directory B2C (Azure AD B2C), you must register them in a tenant that you manage.
 
@@ -27,7 +28,7 @@ Azure AD B2C supports authentication for various modern application architecture
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-tenant.md), create one now. You can use an existing Azure AD B2C tenant.
 

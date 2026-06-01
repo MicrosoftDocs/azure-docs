@@ -1,13 +1,13 @@
 ---
 title: Quickstart - Create Intel SGX VM in the Azure Portal
-description: Get started with your deployments by learning how to quickly create an Intel SGX VM in the Azure Portal
-author: ju-shim
-ms.service: virtual-machines
-ms.subservice: workloads
+description: Get started with your deployments by learning how to quickly create an Intel SGX VM in the Azure portal
+author: cynthn
+ms.service: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 11/1/2021
-ms.author: jushiman
+ms.author: cynthn
 ms.custom: mode-ui, linux-related-content
+# Customer intent: "As a cloud engineer, I want to create an Intel SGX virtual machine in the Azure portal, so that I can leverage confidential computing capabilities for secure application deployment."
 ---
 
 
@@ -17,7 +17,7 @@ This tutorial guides you through the process of deploying Intel SGX VMs using Az
 
 ## Prerequisites
 
-If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) before you begin.
+If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 > [!NOTE]
 > Free trial accounts do not have access to the VMs in this tutorial. Please upgrade to a Pay-As-You-Go subscription.
@@ -25,7 +25,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 
 ## Sign in to Azure
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. At the top, select **Create a resource**.
 
@@ -69,7 +69,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
    * **Authentication type**: Select **SSH public key** if you're creating a Linux VM. 
 
         > [!NOTE]
-        > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+        > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
     * **Username**: Enter the Administrator name for the VM.
 
@@ -102,7 +102,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 1. In the **Review + create** pane, select **Create**.
 
 > [!NOTE]
-> Proceed to the next section and continue with this tutorial if you deployed a Linux VM. If you deployed a Windows VM, [follow these steps to connect to your Windows VM](../virtual-machines/windows/connect-logon.md) and then [install the OE SDK on Windows](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Windows.md).
+> Proceed to the next section and continue with this tutorial if you deployed a Linux VM. If you deployed a Windows VM, [follow these steps to connect to your Windows VM](/azure/virtual-machines/windows/connect-logon) and then [install the OE SDK on Windows](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Windows.md).
 
 
 ## Connect to the Linux VM
@@ -118,7 +118,7 @@ You can find the Public IP address of your VM in the Azure portal, under the Ove
 :::image type="content" source="media/quick-create-portal/public-ip-virtual-machine.png" alt-text="IP address in Azure portal":::
 
 
-For more information about connecting to Linux VMs, see [Create a Linux VM on Azure using the Portal](../virtual-machines/linux/quick-create-portal.md).
+For more information about connecting to Linux VMs, see [Create a Linux VM on Azure using the Portal](/azure/virtual-machines/linux/quick-create-portal).
 
 ## Install Azure DCAP Client
 
@@ -143,4 +143,4 @@ Discover how you can build confidential computing applications, by continuing to
 > [!div class="nextstepaction"]
 > [Building Open Enclave SDK Samples](https://github.com/openenclave/openenclave/blob/master/samples/README.md)
 
-Microsoft Azure Attestation is free and ECDSA-based attestation framework, for remotely verifying the trustworthiness of multiple TEEs and integrity of the binaries running inside it. Learn [more](../attestation/overview.md)
+Microsoft Azure Attestation is free and ECDSA-based attestation framework, for remotely verifying the trustworthiness of multiple TEEs and integrity of the binaries running inside it. Learn [more](/azure/attestation/overview)

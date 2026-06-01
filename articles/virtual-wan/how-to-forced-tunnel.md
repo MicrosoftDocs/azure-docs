@@ -3,9 +3,9 @@ title: 'Configure forced tunneling for Virtual WAN Point-to-site VPN'
 titleSuffix: Azure Virtual WAN
 description: Learn to configure forced tunneling for P2S VPN in Virtual WAN.
 author: wtnlee
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 08/24/2023
+ms.date: 03/26/2025
 ms.author: wellee
 
 ---
@@ -32,7 +32,7 @@ To create the Point-to-site VPN gateway and related profiles, see [Create a Poin
 
 There are a couple ways to configure forced-tunneling and advertise the default route (0.0.0.0/0) to your remote user VPN clients connected to Virtual WAN.
 
-* You can specify a static 0.0.0.0/0 route in the defaultRouteTable with next hop Virtual Network Connection. This will force all internet-bound traffic to be sent to a Network Virtual Appliance deployed in that spoke Virtual Network. For more detailed instructions, consider the alternate workflow described in [Route through NVAs](scenario-route-through-nvas-custom.md).
+* You can specify a static 0.0.0.0/0 route in the defaultRouteTable with next hop Virtual Network Connection. This will force all internet-bound traffic to be sent to a Network Virtual Appliance deployed in that spoke Virtual Network. For more detailed instructions, consider the alternate workflow described in [routing traffic to indirect spokes or the internet](indirect-spoke-architecture.md).
 * You can use Azure Firewall Manager to configure Virtual WAN to send all internet-bound traffic via Azure Firewall deployed in the Virtual WAN hub. For configuration steps and a tutorial, see the Azure Firewall Manager documentation [Securing virtual hubs](../firewall-manager/secure-cloud-network.md). Alternatively, this can also be configured via using an Internet Traffic Routing Policy. For more information, see [Routing Intent and Routing Policies](how-to-routing-policies.md).
 * You can use Firewall Manager to send internet traffic via a third-party security provider. For more information on this capability, see [Trusted security providers](../firewall-manager/deploy-trusted-security-partner.md).
 * You can configure one of your branches (Site-to-site VPN, ExpressRoute circuit) to advertise the 0.0.0.0/0 route to Virtual WAN.
@@ -60,8 +60,6 @@ The steps to configure forced-tunneling are different, depending on the operatin
 
 1. Validate the version of your Azure VPN client is compatible with forced tunneling. To do this, click on the three dots at the bottom of the Azure VPN client, and click on Help. Alternatively, the keyboard short cut to navigate to Help is Ctrl-H. The version number can be found towards the top of the screen. Ensure your version number is **2:1900:39.0** or later.
 
-   :::image type="content" source="./media/virtual-wan-forced-tunnel/vpn-client-version.png"alt-text="Screenshot showing how to configure N V A private routing policies."lightbox="./media/virtual-wan-forced-tunnel/vpn-client-version.png":::
-
 1. Open the zip-file downloaded from the previous section. You should see a folder titled **AzureVPN**. Open the folder and open **azurevpnconfig.xml** in your favorite XML editing tool.
 
 1. In **azureconfig.xml**, there's a field called **version**. If the number between the version tags is **1**, change the **version** number to **2**.
@@ -74,7 +72,7 @@ The steps to configure forced-tunneling are different, depending on the operatin
 
 1. Connect to the newly added connection. You are now force-tunneling all traffic to Azure Virtual WAN.
 
-### MacOS clients
+### macOS clients
 
 Once a macOS client learns the default route from Azure, forced tunneling is automatically configured on the client device. There are no extra steps to take. For instructions on how to use the macOS Azure VPN client to connect to the Virtual WAN Point-to-site VPN gateway, see the [macOS Configuration Guide](openvpn-azure-ad-client-mac.md).
 
@@ -92,7 +90,7 @@ To use user certificates to authenticate remote users, use the sample PowerShell
 # specify the name of the VPN Connection to be installed on the client
 $vpnConnectionName = "SampleConnectionName"
 
-# get the VPN Server FQDN from the profile downloaded from Azure Portal
+# get the VPN Server FQDN from the profile downloaded from Azure portal
 $downloadedXML = [xml] (Get-Content VpnSettings.xml)
 $vpnserverFQDN = $downloadedXML.VpnProfile.VpnServer
 
@@ -259,7 +257,7 @@ Below is a sample EAP XML file. Change the *TrustedRootCA* field to the thumbpri
                 <TLSExtensions xmlns="http://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV2">
                     <FilteringInfo xmlns="http://www.microsoft.com/provisioning/EapTlsConnectionPropertiesV3">
                         <CAHashList Enabled="true">
-                            <IssuerHash> ROOT CERTIFCATE THUMBPRINT  </IssuerHash>
+                            <IssuerHash> ROOT CERTIFICATE THUMBPRINT  </IssuerHash>
                         </CAHashList>
                     </FilteringInfo>
                 </TLSExtensions>

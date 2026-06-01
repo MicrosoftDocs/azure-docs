@@ -3,7 +3,7 @@ title: Define multiple instances of an output value
 description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when returning a value from a deployment.
 ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 06/20/2024
+ms.date: 07/23/2025
 ---
 
 # Output iteration in ARM templates
@@ -71,7 +71,7 @@ The following example creates a variable number of storage accounts and returns 
         "count": "[parameters('storageCount')]"
       },
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[format('{0}{1}', copyIndex(), variables('baseName'))]",
       "location": "[parameters('location')]",
       "sku": {
@@ -128,7 +128,7 @@ The next example returns three properties from the new storage accounts.
         "count": "[length(range(0, parameters('storageCount')))]"
       },
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2025-06-01",
       "name": "[format('{0}{1}', range(0, parameters('storageCount'))[copyIndex()], variables('baseName'))]",
       "location": "[parameters('location')]",
       "sku": {

@@ -7,8 +7,10 @@ manager: rdeltcheva
 ms.author: depadia
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.topic: conceptual
-ms.date: 05/08/2024
+ms.topic: concept-article
+ms.date: 04/29/2025
+ms.custom: sfi-image-nochange
+# Customer intent: As a SAP workload administrator, I want to develop a comprehensive disaster recovery strategy on Azure so that I can ensure business continuity and minimize downtime in the event of a disaster affecting my SAP applications.
 ---
 
 # Disaster recovery overview and infrastructure guidelines for SAP workload
@@ -40,7 +42,7 @@ There are different elements to consider when designing a disaster recovery solu
 
 - Customers who want to mimic their on-premises metro DR strategy on Azure can use [availability zones for disaster recovery](../../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md). But zone-to-zone DR strategy might fall short of resilience requirement if there’s geographically widespread natural disaster.
 
-- On Azure, each region is paired with another region within the same geography (except for Brazil South). This approach allows for platform provided replication of resources across region. The benefit of choosing paired region can be found in [region pairs document](../../virtual-machines/regions.md#region-pairs). If an organization chooses to use Azure paired regions several additional points for an SAP workload needs to be considered:  
+- On Azure, each region is paired with another region within the same geography (except for Brazil South). This approach allows for platform provided replication of resources across region. The benefit of choosing paired region can be found in [region pairs document](/azure/virtual-machines/regions#region-pairs). If an organization chooses to use Azure paired regions several additional points for an SAP workload needs to be considered:  
 
   - Not all Azure services offer cross-regional replication in paired region.
   - The Azure services and features in paired Azure regions might not be symmetrical. For example, Azure NetApp Files, VM SKUs like M-Series available in the Primary region might not be available in the paired region. To check if the Azure product or services is available in a region, see [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/).
@@ -64,7 +66,7 @@ Organizations should plan and design a DR strategy for their entire IT landscape
 
 ## Infrastructure components of DR solution for SAP workload
 
-An SAP workload running on Azure uses different infrastructure components to run a business solution. To plan DR for such solution, it's essential that all infrastructure components configured in the primary region are available, and can be configured in the DR region as well. Following infrastructure components should be factored in when designing DR solution for SAP workload on Azure.
+An SAP workload running on Azure uses different infrastructure components to run a business solution. To plan DR for such solution, it's essential that all infrastructure components configured in the primary region are available and can be configured in the DR region as well. Following infrastructure components should be factored in when designing DR solution for SAP workload on Azure.
 
 - Network
 - Compute
@@ -81,7 +83,7 @@ An SAP workload running on Azure uses different infrastructure components to run
 
 - Azure [Standard Load Balancer](../../load-balancer/load-balancer-overview.md) provides networking elements for the high-availability design of your SAP systems. For clustered systems, Standard Load Balancer provides the virtual IP address for the cluster service, like ASCS/SCS instances and databases running on VMs. To run highly available SAP system on the DR site, a separate load balancer must be created and the cluster configuration should be adjusted accordingly.
 
-- [Azure Application Gateway](../../application-gateway/overview.md) is a web traffic load-balancer. With its [Web Application Firewall](../../web-application-firewall/ag/ag-overview.md) functionality, its well suited service to expose web applications to the internet with improved security. Azure Application Gateway can service either public (internet) or private clients, or both, depending on the configuration. After failover, to accept similar incoming HTTPs traffic on DR region, a separate Azure Application Gateway must be configured in the DR region.
+- [Azure Application Gateway](../../application-gateway/overview.md) is a web traffic load-balancer. With its [Web Application Firewall](../../web-application-firewall/ag/ag-overview.md) functionality, its well suited service to expose web applications to the internet with improved security. Azure Application Gateway can service either public (internet) or private clients, or both, depending on the configuration. After failover, to accept similar incoming HTTPS traffic on DR region, a separate Azure Application Gateway must be configured in the DR region.
 
 - As networking components (like virtual network, firewall etc.) are created separately in the DR region, you need to make sure that the SAP workload on DR region is adapted to the networking changes like DNS update, firewall etc.
 
@@ -99,7 +101,7 @@ An SAP workload running on Azure uses different infrastructure components to run
   > [!NOTE]
   > It isn't advised using Azure Site Recovery for databases, as it doesn’t guarantee DB consistency and has [data churn limitation](../../site-recovery/azure-to-azure-support-matrix.md#limits-and-data-change-rates).
 
-- With production applications running on the primary region at all time, [reserve instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) are typically used to economize Azure costs. If using reserved instances, you need to sign up for 1-year or a 3-year term commitment that might not be cost effective for DR site. Also setting up Azure Site Recovery doesn’t guarantee you the capacity of the required VM SKU during your failover. To make sure that the VM SKU capacity is available, you can consider an option to enable [on-demand capacity reservation](../../virtual-machines/capacity-reservation-overview.md). It reserves compute capacity in an Azure region or an Azure availability zone for any duration of time without commitment. Azure Site Recovery is [integrated](https://azure.microsoft.com/updates/ondemand-capacity-reservation-with-azure-site-recovery-safeguards-vms-failover/) with on-demand capacity reservation. With this integration, you can use the power of capacity reservation with Azure Site Recovery to reserve compute capacity in the DR site and guarantee your failovers. For more information, read on-demand capacity reservation [limitations and restrictions](../../virtual-machines/capacity-reservation-overview.md#limitations-and-restrictions).
+- With production applications running on the primary region at all time, [reserve instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) are typically used to economize Azure costs. If using reserved instances, you need to sign up for 1-year or a 3-year term commitment that might not be cost effective for DR site. Also setting up Azure Site Recovery doesn’t guarantee you the capacity of the required VM SKU during your failover. To make sure that the VM SKU capacity is available, you can consider an option to enable [on-demand capacity reservation](/azure/virtual-machines/capacity-reservation-overview). It reserves compute capacity in an Azure region or an Azure availability zone for any duration of time without commitment. Azure Site Recovery is [integrated](https://azure.microsoft.com/updates/ondemand-capacity-reservation-with-azure-site-recovery-safeguards-vms-failover/) with on-demand capacity reservation. With this integration, you can use the power of capacity reservation with Azure Site Recovery to reserve compute capacity in the DR site and guarantee your failovers. For more information, read on-demand capacity reservation [limitations and restrictions](/azure/virtual-machines/capacity-reservation-overview#limitations-and-restrictions).
 
 - An Azure subscription has quotas for VM families (for example, Mv2 family) and other resources. Sometimes organizations want to use different Azure subscription for DR. Each subscription (primary and DR) might have different quotas assigned for each VM family. Make sure that the subscription used for the DR site has enough compute quotas available.
 
@@ -107,7 +109,7 @@ An SAP workload running on Azure uses different infrastructure components to run
 
 - On enabling Azure Site Recovery for a VM to set up DR, the local managed disks attached to the VMs are replicated to the DR region. During replication, the VM disk writes are sent to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data. When you fail over a VM during DR, a recovery point is used to restore the VM in the target region. But Azure Site Recovery doesn’t support all storages types that are available in Azure. For more information, see [Azure Site Recovery support matrix for storages](../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage).
 
-- For SAP system running on Windows with Azure shared disk, you could use [Azure Site Recovery with Azure Shared Disk (preview)](https://azure.microsoft.com/updates/public-preview-dr-for-shared-disks-azure-site-recovery/). As the feature is in public preview, we don't recommend implementing the scenario for most critical SAP production workloads. For more information on supported scenarios for Azure Shared Disk, see [Support matrix for shared disks in Azure VM disaster recovery (preview)](../../site-recovery/shared-disk-support-matrix.md)
+- For SAP system running on Windows with Azure shared disk, you could use [Azure Site Recovery with Azure Shared Disk](../../site-recovery/tutorial-shared-disk.md). For more information on supported scenarios for Azure Shared Disk, see [Support matrix for shared disks in Azure VM disaster recovery](../../site-recovery/shared-disk-support-matrix.md)
 
 - In addition to Azure managed data disks attached to VMs, different Azure native storage solutions are used to run SAP application on Azure. The DR approach for each Azure storage solution might differ, as not all storage services available in Azure are supported with Azure Site Recovery. Below are the list of storage type that is typically used for SAP workload.
 
@@ -116,7 +118,7 @@ An SAP workload running on Azure uses different infrastructure components to run
   | Managed disk                    | Azure Site Recovery                                          |
   | NFS on Azure files (LRS or ZRS) | Custom script to replicate data between two sites (for example, rsync) |
   | NFS on Azure NetApp Files       | Use [Cross-region replication of Azure NetApp Files volumes](../../azure-netapp-files/cross-region-replication-introduction.md) |
-  | Azure Shared Disk (LRS or ZRS)  | [Azure Site Recovery with Azure Shared Disk (in preview)](../../site-recovery/tutorial-shared-disk.md) |
+  | Azure Shared Disk (LRS or ZRS)  | [Azure Site Recovery with Azure Shared Disk](../../site-recovery/tutorial-shared-disk.md) |
   | SMB on Azure files (LRS or ZRS) | Use [RoboCopy](../../storage/files/storage-files-migration-robocopy.md) to copy files between two sites |
   | SMB on Azure NetApp Files       | Use [Cross-region replication of Azure NetApp Files volumes](../../azure-netapp-files/cross-region-replication-introduction.md) |
 
@@ -124,7 +126,7 @@ An SAP workload running on Azure uses different infrastructure components to run
 
 - Different native Azure storage services (like Azure Files, Azure NetApp Files) might not be not available in all regions. So to have similar SAP setup on the DR region after failover, ensure the respective storage service is offered in DR site. For more information, check [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/).
 
-- If you're using zone redundancy storage (ZRS) for Azure Files, and Azure Shared Disk in your primary region, and you want to maintain same ZRS redundancy option in DR region as well, refer to [Premium file shares ZRS support]([Azure Files zone-redundant storage (ZRS) support for premium file shares | Microsoft Learn](../../storage/files/redundancy-premium-file-shares.md)), and [ZRS for managed disks](../../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks) document for ZRS support in Azure regions.
+- If you're using zone redundancy storage (ZRS) for Azure Files, and Azure Shared Disk in your primary region, and you want to maintain same ZRS redundancy option in DR region as well, refer to [Premium file shares ZRS support]([Azure Files zone-redundant storage (ZRS) support for premium file shares | Microsoft Learn](../../storage/files/redundancy-premium-file-shares.md)), and [ZRS for managed disks](/azure/virtual-machines/disks-redundancy#zone-redundant-storage-for-managed-disks) document for ZRS support in Azure regions.
 
 - If using [availability zones for disaster recovery](../../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md), keep in mind the following points:
 

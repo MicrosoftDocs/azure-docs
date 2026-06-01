@@ -3,8 +3,8 @@ title: Send Azure Notification Hubs notifications to Android and iOS application
 description: Learn about the cross-platform capabilities of Azure Notification Hubs. 
 author: sethmanheim
 ms.author: sethm
-ms.service: notification-hubs
-ms.topic: conceptual
+ms.service: azure-notification-hubs
+ms.topic: sample
 ms.date: 06/14/2021
 ms.custom: template-concept
 ---
@@ -19,7 +19,7 @@ You can download the [complete sample from GitHub](https://github.com/Azure/azur
 
 To build the sample, you need the following prerequisites:
 
-- An Azure subscription. If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Microsoft Visual Studio 2019 or later. This sample uses [Visual Studio 2019](https://www.visualstudio.com/products).
 - Visual Studio 2019 with the following workloads installed:
   - .NET 5.0 SDK
@@ -339,7 +339,7 @@ public interface INotificationService
 
 To run the sample, the following prerequisites are required:
 
-- An Azure subscription. If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Firebase account to set up push notifications for Android.
 - Apple developer account to set up push notifications for iOS.
 - A Windows computer with Visual Studio 2019 installed, along with ASP.NET Core and UWP application development support.
@@ -379,15 +379,7 @@ Create a notification hub in the Azure portal as follows:
 
 ### Configure backend
 
-To configure the app backend, locate the **/NotificationHub.Sample.API/appsettings.json** file and configure the SQL Server connection string:
-
-```json
-"ConnectionStrings": {
-    "SQLServerConnectionString": "Server=tcp:<SERVER_NAME>,1433;Initial Catalog=<DB_NAME>;Persist Security Info=False;User ID=<DB_USER_NAME>;Password=<PASSWORD>;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
-  },
-```
-
-Replace `<SERVER_NAME>` with the name of your SQL server, `<DB_NAME>` with your deployed database URL, `<DB_USER_NAME>` with configured username, and `<PASSWORD>` with the configured password.
+To configure the app backend, locate the **/NotificationHub.Sample.API/appsettings.json** file and configure the SQL Server connection string.
 
 You can run the API solution locally or on any IIS server, or deploy it as an Azure Web App Service. Keep the URL of the API handy.
 
@@ -404,7 +396,7 @@ You can run the API solution locally or on any IIS server, or deploy it as an Az
 
 7. Once the backend is published, add the generated URL into **config.js**, located under the **/app** folder. Be sure to append `/api/` after the URL.
 
-## Run React native frontend application for Windows
+## Run React Native frontend application for Windows
 
 The application requires both the mobile application (either Android or iOS) and UWP manager application running simultaneously. Follow these steps to run both of them:
 

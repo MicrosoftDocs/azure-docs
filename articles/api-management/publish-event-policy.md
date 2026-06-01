@@ -4,9 +4,9 @@ description: Reference for the publish-event policy available for use in Azure A
 services: api-management
 author: dlepow
 
-ms.service: api-management
-ms.topic: article
-ms.date: 03/18/2024
+ms.service: azure-api-management
+ms.topic: reference
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
@@ -46,13 +46,14 @@ The `publish-event` policy publishes an event to one or more subscriptions speci
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) `http-response` element in `http-data-source` resolver
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) `http-response` element in `http-data-source` resolver
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) GraphQL resolver only
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption
 
 ### Usage notes
 
 * This policy is invoked only when a related GraphQL query or mutation is executed.
+* Resolver *should not* be defined for the corresponding subscription. Defining a `publish-event` policy on a source query or mutation is sufficient to trigger subscription events.
 
 ## Example
 

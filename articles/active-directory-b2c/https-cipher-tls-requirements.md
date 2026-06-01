@@ -6,12 +6,12 @@ description: Notes for developers on HTTPS cipher suite and TLS requirements whe
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 05/14/2026
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating Azure Active Directory B2C with my endpoints, I want to understand the TLS and cipher suite requirements, so that I can ensure my endpoints are compatible and establish a secure connection with Azure AD B2C.
@@ -19,6 +19,7 @@ ms.subservice: B2C
 ---
 
 # Azure Active Directory B2C TLS and cipher suite requirements
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) connects to your endpoints through [API connectors](api-connectors-overview.md) and [identity providers](oauth2-technical-profile.md) within [user flows](user-flow-overview.md). This article discusses the TLS and cipher suite requirements for your endpoints.
 
@@ -28,7 +29,7 @@ Azure AD B2C must be able to connect to your endpoints using the Transport Layer
 
 ## TLS versions
 
-TLS version 1.2 is a cryptographic protocol that provides authentication and data encryption between servers and clients. Your endpoint must support secure communication over **TLS version 1.2**. Older TLS versions 1.0 and 1.1 are deprecated. 
+TLS is a cryptographic protocol that provides authentication and data encryption between servers and clients. Azure AD B2C supports **TLS version 1.3** and **TLS version 1.2**. Your endpoint must support secure communication over TLS 1.2 or TLS 1.3. Older TLS versions 1.0 and 1.1 are deprecated. 
 
 ## Cipher suites
 
@@ -66,7 +67,7 @@ The following endpoints used in your Azure AD B2C environment must comply with t
 
 ## Check your endpoint compatibility
 
-To verify that your endpoints comply with the requirements described in this article, perform a test using a TLS cipher and scanner tool. Test your endpoint using [SSLLABS](https://www.ssllabs.com/ssltest/analyze.html).
+To verify that your endpoints comply with the requirements described in this article, perform a test using a TLS cipher and scanner tool. Test your endpoint using [SSL LABS](https://www.ssllabs.com/ssltest/analyze.html).
 
 
 ## Next steps

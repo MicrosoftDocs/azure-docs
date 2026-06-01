@@ -1,14 +1,15 @@
 ---
-title: System functions on Azure Monitor Logs
+title: System Functions for Azure Backup
 description: Write custom queries on Azure Monitor Logs using system functions
-ms.service: backup
-ms.topic: conceptual
-ms.date: 04/30/2024
+ms.service: azure-backup
+ms.topic: reference
+ms.date: 09/11/2024
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a data analyst, I want to utilize system functions for querying Azure Backup logs, so that I can generate custom reports and trends with minimal complexity and maintain compatibility with future schema changes.
 ---
 
-# System functions on Azure Monitor Logs
+# System Functions for Azure Backup
 
 This article describes how to write custom queries on Azure Monitor Logs using system functions.
 
@@ -30,7 +31,7 @@ We recommend you to use system functions for querying your backup data in LA wor
 * **Reduces possibility of custom queries breaking**: If Azure Backup introduces improvements to the schema of the underlying LA tables to accommodate future reporting scenarios, the definition of the functions will also be updated to take into account the schema changes. Thus, if you use system functions for creating custom queries, your queries won't break, even if there are changes in the underlying schema of the tables.
 
 > [!NOTE]
-> System functions are maintained by Microsoft and their definitions cannot be edited by users. If you require editable functions, you can create [saved functions](../azure-monitor/logs/functions.md) in LA.
+> System functions are maintained by Microsoft and their definitions cannot be edited by users. If you require editable functions, you can create [saved functions](/azure/azure-monitor/logs/functions) in LA.
 
 ## Types of system functions offered by Azure Backup
 

@@ -1,14 +1,16 @@
 ---
 title: Source Control Integration
 description: Enterprise-class Database DevOps experience for dedicated SQL pool with native source control integration using Azure Repos (Git and GitHub).
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 08/23/2019
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: overview
 ---
 # Source Control Integration for dedicated SQL pool in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This tutorial outlines how to integrate your SQL Server Data Tools (SSDT) database project with source control.  Source control integration is the first step in building your continuous integration and deployment pipeline with the dedicated SQL pool resource in Azure Synapse Analytics.
 

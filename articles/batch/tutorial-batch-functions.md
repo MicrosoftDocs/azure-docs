@@ -5,6 +5,7 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/21/2023
 ms.custom: mvc, devx-track-csharp
+# Customer intent: As a developer, I want to create an Azure Function that triggers a Batch job for OCR processing, so that I can automate the conversion of scanned documents into searchable text files upon upload.
 ---
 
 # Tutorial: Trigger a Batch job using Azure Functions
@@ -20,7 +21,7 @@ In this tutorial, you learn how to trigger a Batch job using [Azure Functions](.
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An Azure Batch account and a linked Azure Storage account. For more information on how to create and link accounts, see [Create a Batch account](quick-create-portal.md#create-a-batch-account).
 
 ## Sign in to Azure

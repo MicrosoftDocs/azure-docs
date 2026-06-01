@@ -3,11 +3,12 @@ title: Test reachability of Azure Public Load Balancer frontends with ping and t
 description: Learn how to test Azure Public Load Balancer frontend IPv4 and IPv6 addresses for reachability from an Azure VM or an external device. Supports ping and traceroute.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 06/26/2024
 ms.author: mbender
 ms.custom: template-how-to
+# Customer intent: As a network engineer, I want to test the reachability of Azure Public Load Balancer frontends using ping and traceroute, so that I can troubleshoot inbound connectivity issues to my Azure resources effectively.
 ---
 
 # Test reachability of Azure Public Load Balancer frontends with ping and traceroute
@@ -16,7 +17,7 @@ Standard Public Azure Load Balancer frontend IPv4 and IPv6 addresses support tes
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) and access to the Azure portal.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) and access to the Azure portal.
 
 - A standard public load balancer with an IPv4 and IPv6 frontend in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer](/azure/load-balancer/quickstart-load-balancer-standard-public-portal) to load balance VMs using the Azure portal.
 
@@ -104,9 +105,6 @@ This section describes how to test reachability of a standard public load balanc
 1. In the Search bar at the top of the portal, enter **Virtual machines** and select Virtual machines.
 1. In **Virtual machines**, select your virtual machine from the list.
 1. In the virtual machine’s menu, select **Networking** and then select **Add inbound port rule**.
-
-    :::image type="content" source="media/load-balancer-front-end-reachability-testing/virtual-machine-port-rules-thumb.png" alt-text="Screenshot of Virtual network page listing port rules and selection of add outbound port rule button." lightbox="media/load-balancer-front-end-reachability-testing/virtual-machine-port-rules.png":::
-
 1. In **Add inbound security rule**, enter or select the following information:
 
     | **Setting** | **Value** |
@@ -114,16 +112,13 @@ This section describes how to test reachability of a standard public load balanc
     | **Source** | Enter **Any** |
     | **Source port ranges** | Enter **\*** |
     | **Destination** | Enter **Any** |
-    | **Service** | Ender **Custom** |
+    | **Service** | Enter **Custom** |
     | **Destination port ranges** | Enter **\*** |
     | **Protocol** | Select **ICMP** |
     | **Action** | Select **Allow** |
     | **Priority** | Enter **100** or a priority of your choosing. |
     | **Name** | Enter **AllowICMP** or a name of your choosing |
     | **Description** | Leave as Blank or enter a description |
-
-    :::image type="content" source="media/load-balancer-front-end-reachability-testing/add-Inbound-port-rule-thumb.png" alt-text="Screenshot of Add inbound port rule windows with settings allowing ICMP echo messages."lightbox="media/load-balancer-front-end-reachability-testing/add-Inbound-port-rule.png":::
-
 1. Select **Add**.
 
 ### Connect to the virtual machine
@@ -216,12 +211,14 @@ Based on the current health probe state of your backend instances, you receive d
 
 - ICMP pings can't be disabled and are allowed by default on Standard Public Load Balancers.
 - ICMP pings with packet sizes larger than 64 bytes will be dropped, leading to timeouts.
-- Outbound ICMP pings are not supported on a Load Balancer.  
+- Outbound ICMP pings are not supported on a Standard Load Balancer.
+- ICMP pings are not supported on Global or Gateway Load Balancers.
+- ICMP pings are not supported for regional load balancers (load balancers that are deployed behind a Global Load Balancer). 
 
 > [!NOTE]
 > ICMP ping requests are not sent to the backend instances; they are handled by the Load Balancer.
 
 ## Next steps
 
-- To troubleshoot load balancer issues, see [Troubleshoot Azure Load Balancer](load-balancer-troubleshoot.md).
+- To troubleshoot load balancer issues, see [Support and troubleshooting for Azure Load Balancer](load-balancer-support-help.md).
 - Learn how to [Manage rules for Azure Load Balancer using the Azure portal](manage-rules-how-to.md).

@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: bobazile
 ms.date: 11/15/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.subservice: pstn
 ---
@@ -32,7 +32,6 @@ If you have any questions about the SBC certification program for Communication 
 
 |Vendor|Product|Software version|
 |:--- |:--- |:--- 
-|[Microsoft](https://azure.microsoft.com/products/communications-gateway/)|Azure Communications Gateway|2023-01-31|
 |[AudioCodes](https://www.audiocodes.com/media/lbjfezwn/mediant-sbc-with-microsoft-azure-communication-services.pdf)|Mediant Virtual Edition SBC|7.40A|
 ||Mediant 500 SBC|7.40A|
 ||Mediant 800 SBC|7.40A|

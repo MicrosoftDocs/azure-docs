@@ -1,8 +1,9 @@
 ---
 title: Batch service workflow and resources
 description: Learn about the features of the Batch service and its high-level workflow from a development standpoint.
-ms.topic: conceptual
-ms.date: 06/13/2024
+ms.topic: concept-article
+ms.date: 04/02/2025
+# Customer intent: "As a developer, I want to utilize the Batch service workflow for processing parallel workloads, so that I can efficiently build and deploy large-scale distributed applications using multiple compute resources."
 ---
 # Batch service workflow and resources
 
@@ -11,7 +12,7 @@ In this overview of the core components of the Azure Batch service, we discuss t
 Whether you're developing a distributed computational application or service that issues direct [REST API](/rest/api/batchservice/) calls or you're using another one of the [Batch SDKs](batch-apis-tools.md#batch-service-apis), you'll use many of the resources and features discussed here.
 
 > [!TIP]
-> For a higher-level introduction to the Batch service, see [What is Azure Batch?](batch-technical-overview.md). Also see the latest [Batch service updates](https://azure.microsoft.com/updates/?product=batch).
+> For a higher-level introduction to the Batch service, see [What is Azure Batch?](batch-technical-overview.md) Also see the latest [Batch service updates](https://azure.microsoft.com/updates/?product=batch).
 
 ## Basic workflow
 

@@ -1,7 +1,0 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: Dedicated HSM
-    tocHref: /azure/
-    topicHref: /azure/dedicated-hsm/index

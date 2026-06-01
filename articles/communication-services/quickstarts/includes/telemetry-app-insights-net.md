@@ -9,13 +9,15 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
-ms.custom: include file
 ms.author: peiliu
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The latest version [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
 - Create an [Application Insights Resources](/previous-versions/azure/azure-monitor/app/create-new-resource) in Azure portal.
@@ -134,7 +136,7 @@ After the SDK calls have been wrapped with Activities, you can add the OpenTelem
 
 You have the option of defining a dictionary with some resource attributes that will show up in Application Insights.
 Then, call `AddSource` and use the same Activity Source name that was defined in `TracedSample`.
-You will also need to grab the [connection string](../../../azure-monitor/app/sdk-connection-string.md) from your Application Insights resource and pass it to `AddAzureMonitorTraceExporter()`. This will funnel the telemetry data to your Application Insights resource.
+You will also need to grab the [connection string](/azure/azure-monitor/app/sdk-connection-string) from your Application Insights resource and pass it to `AddAzureMonitorTraceExporter()`. This will funnel the telemetry data to your Application Insights resource.
 
 Lastly, call and await the `TracedSample()` function where we have our SDK calls.
 

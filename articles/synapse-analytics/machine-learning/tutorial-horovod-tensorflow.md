@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Distributed training with Horovod and TensorFlow (deprecated)'
 description: Tutorial on how to run distributed training with the Horovod Runner and TensorFlow
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.date: 05/02/2024
@@ -22,11 +22,6 @@ Within Azure Synapse Analytics, users can quickly get started with Horovod using
 
 > [!NOTE]
 > The Preview for Azure Synapse GPU-enabled pools has now been deprecated.
-
-> [!CAUTION]
-> Deprecation and disablement notification for GPUs on the Azure Synapse Runtime for Apache Spark 3.1 and 3.2
-> - The GPU accelerated preview is now deprecated on the [Apache Spark 3.2 (deprecated) runtime](../spark/apache-spark-32-runtime.md). Deprecated runtimes will not have bug and feature fixes. This runtime and the corresponding GPU accelerated preview on Spark 3.2 has been retired and disabled as of July 8, 2024.
-> - The GPU accelerated preview is now deprecated on the [Azure Synapse 3.1 (deprecated) runtime](../spark/apache-spark-3-runtime.md). Azure Synapse Runtime for Apache Spark 3.1 has reached its end of support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
 
 ## Configure the Apache Spark session
 
@@ -87,7 +82,7 @@ remote_url = "<<abfss path to storage account>>
 
 ## Prepare dataset
 
-Next, we prepare the dataset for training. In this tutorial, we use the MNIST dataset from [Azure Open Datasets](../../open-datasets/dataset-mnist.md?tabs=azureml-opendatasets).
+Next, we prepare the dataset for training. In this tutorial, we use the MNIST dataset from [Azure Open Datasets](/azure/open-datasets/dataset-mnist?tabs=azureml-opendatasets).
 
 ```python
 def get_dataset(rank=0, size=1):

@@ -1,22 +1,22 @@
 ---
-title: How to Deploy Spring Boot applications from Azure CLI
+title: How to Deploy Spring Boot Applications from Azure CLI
 description: In this quickstart, learn how to launch your application in Azure Spring Apps directly from your source code
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 04/23/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-api
 ---
 
 # How to Deploy Spring Boot applications from Azure CLI
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
-**This article applies to:** ✔️ Java ❌ C#
+**This article applies to:** ✅ Java ❎ C#
 
-**This article applies to:** ✔️ Basic/Standard ❌️ Enterprise
+**This article applies to:** ✅ Basic/Standard ❎️ Enterprise
 
 Azure Spring Apps enables Spring Boot applications on Azure.
 
@@ -30,7 +30,7 @@ Before you begin, ensure that your Azure subscription has the required dependenc
 2. [Install JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 3. [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
 4. [Install the Azure CLI](/cli/azure/install-azure-cli)
-5. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
+5. [Sign up for an Azure subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 > [!TIP]
 > The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article.  It has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../../cloud-shell/overview.md)

@@ -3,10 +3,11 @@ metadata:
   title: Answers to common questions
   description: 'Answers to common questions about'
   ms.topic: faq
-  ms.service: backup
-  ms.date: 07/20/2023
+  ms.service: azure-backup
+  ms.date: 03/17/2026
   author: AbhishekMallick-MS
-  ms.author: v-abhmallick
+  ms.author: v-mallicka
+  ms.custom: engagement-fy24
 
 title: Azure Backup - Frequently asked questions
 summary: This article answers common questions about the Azure Backup service.
@@ -82,7 +83,7 @@ sections:
           Yes. To move a subscription (that contains a vault) to a different Microsoft Entra ID, see [Transfer subscription to a different directory](../role-based-access-control/transfer-subscription.md).
           
           >[!IMPORTANT]
-          >Ensure that you perform the following actions after moving the subscription:<ul><li>Role-based access control permissions and custom roles aren't transferrable. You must recreate the permissions and roles in the new Microsoft Entra ID.</li><li>You must recreate the Managed Identity (MI) of the vault by disabling and enabling it again. Also, you must evaluate and recreate the MI permissions.</li><li>If the vault uses features which leverage MI, such as [Private Endpoints](private-endpoints.md#before-you-start) and [Customer Managed Keys](encryption-at-rest-with-cmk.md#considerations), you must reconfigure the features.</li></ul>
+          >Ensure that you perform the following actions after moving the subscription:<ul><li>Role-based access control permissions and custom roles aren't transferable. You must recreate the permissions and roles in the new Microsoft Entra ID.</li><li>You must recreate the Managed Identity (MI) of the vault by disabling and enabling it again. Also, you must evaluate and recreate the MI permissions.</li><li>If the vault uses features which leverage MI, such as [Private Endpoints](private-endpoints.md#before-you-start) and [Customer Managed Keys](encryption-at-rest-with-cmk.md#considerations), you must reconfigure the features.</li></ul>
           
       - question: |
           Can I move a subscription that contains a Recovery Services Vault to a different tenant?
@@ -103,6 +104,43 @@ sections:
           | --- | --- |
           | Supported datasources: <br><br> - Azure Virtual Machine <br> - SQL in Azure VM <br> - Azure Files <br> - SAP HANA in Azure VM <br> - Azure Backup Server <br> - Azure Backup agent <br> - DPM    |   Supported datasources: <br><br> - Azure Disks <br> - Azure Blobs <br> - Azure Database for PostgreSQL server <br> - Kubernetes services (preview) |
 
+      - question: |
+          Can I copy restore points created by the Azure Backup service portal from one region to another?
+        answer: |
+          No. Currently, Azure Backup supports only copying restore points from one vault to another. You can [move snapshots to a different region using the VM restore point APIs](/azure/virtual-machines/manage-restore-points#copy-a-vm-restore-point-between-regions), but this isn't supported for Vault-tier recovery points.
+
+      - question: |
+          Why is Cross Region Restore not supported when Public Network access is set to Deny?
+        answer: |
+          Cross Region Restore (CRR) replicates data from the primary to the secondary region using Geo-redundant storage (GRS) with CRR enabled. When you deny public access and use a private endpoint, the system expects data sync to occur over a private network. However, the secondary region currently doesn’t support private endpoint configuration, which is essential for replication. Without a private connection in the secondary region, CRR can't perform the required replication.
+      - question: |
+          When GRS is enabled can we restore the VM on to the dedicated zone?
+        answer: |
+          No, we cannot restore on to the dedicated zone.
+      - question: |
+          Can I permanently delete the default Backup Policies in an Azure Recovery Services Vault?
+        answer: |
+          No, the default backup policies cannot be permanently deleted. Azure automatically recreates them to ensure baseline backup functionality. These policies are:
+          
+          - System-managed
+          - Non-deletable
+          - Non-deletable
+          - Used as fallback policies
+
+          So even if you delete them through the portal, PowerShell, CLI, or REST API, they will always reappear.
+         
+          **Recommended approach:**
+          - Simply ignore the default policies.
+          - Create and use your own custom policies with your preferred naming standards.
+          - Ensure no backup items are associated with the default ones.
+          
+  - name: Backup Vault
+    questions:
+      - question: |
+          Can I move a subscription that contains a Backup vault to a different tenant?
+        answer: |
+          No, Backup vaults aren't supported.
+
   - name: Azure Backup agent
     questions:
       - question: |
@@ -118,9 +156,9 @@ sections:
         answer: |
           Yes.
           
-          - You can back up Windows Server or Windows machines up to three times a day using MARS backup. You can set the scheduling policy to daily or weekly schedules.
+          - You can back up Windows Server or Windows machines up to three times a day by MARS backup. You can set the scheduling policy to daily or weekly schedules.
           - You can back up DPM up to twice a day. You can set the scheduling policy to daily, weekly, monthly, and yearly.
-          - You can back up Azure VMs once a day using Standard backup policy.
+          - You can back up Azure VMs once a day by Standard backup policy.
           
       - question: |
           What operating systems are supported for backup?
@@ -145,7 +183,7 @@ sections:
           
           Azure Backup doesn't support 32-bit operating systems.
           
-          For Azure VM Linux backups, Azure Backup supports [the list of distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md), except Core OS Linux and 32-bit operating system. Other bring-your-own Linux distributions might work as long as the VM agent is available on the VM, and support for Python exists.
+          For Azure VM Linux backups, Azure Backup supports [the list of distributions endorsed by Azure](/azure/virtual-machines/linux/endorsed-distros), except Core OS Linux and 32-bit operating system. Other bring-your-own Linux distributions might work as long as the VM agent is available on the VM, and support for Python exists.
 
           Learn more about the latest workloads supported by [DPM](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2022) and [MABS Server](backup-mabs-protection-matrix.md).
           
@@ -162,6 +200,8 @@ sections:
           Windows Server 2008, Windows Server 2008 R2 | 1700 GB
           Azure VM | See the [support matrix for Azure VM backup](./backup-support-matrix-iaas.md#vm-storage-support)
           
+          [!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
+
       - question: |
           How is the data source size determined?
         answer: |
@@ -274,6 +314,10 @@ sections:
           How long is data retained when stopping backups, but selecting the option to retain backup data?
         answer: |
           When backups are stopped and the data is retained, existing policy rules for data pruning will cease and data will be retained indefinitely until initiated by the administrator for deletion.
+      - question: |
+          I have an Azure VM stored in a zone with a Premium SSD ZRS disk. What happens if I restore this VM to a Paired region using CRR where ZRS is not supported?
+        answer: |
+          When restoring a VM to a peered region that does not support Zone-Redundant Storage (ZRS), Azure Backup will automatically create the disk in the same performance tier (e.g., Standard or Premium) as the original disk, but with Locally Redundant Storage (LRS) instead of ZRS. This ensures that the restore operation completes successfully, even though the redundancy model changes.
 
   - name: Encryption
     questions:

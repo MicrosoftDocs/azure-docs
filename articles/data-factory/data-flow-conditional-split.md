@@ -5,11 +5,10 @@ description: Split data into different streams using the conditional split trans
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 04/27/2026
 ---
 
 # Conditional split transformation in mapping data flow
@@ -18,9 +17,12 @@ ms.date: 01/05/2024
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
+> [!TIP]
+>  For the equivalent transformation (**Reference**) in Dataflow Gen2, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
+
 The conditional split transformation routes data rows to different streams based on matching conditions. The conditional split transformation is similar to a CASE decision structure in a programming language. The transformation evaluates expressions, and based on the results, directs the data row to the specified stream.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4wKCX]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=232f117d-99a3-4742-8c68-b6dc4d7c6172]
 
 ## Configuration
 

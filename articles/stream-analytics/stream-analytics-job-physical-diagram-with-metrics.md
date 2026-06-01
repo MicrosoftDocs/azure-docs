@@ -4,9 +4,10 @@ description: This article describes how to troubleshoot your Azure Stream Analyt
 titleSuffix: Azure Stream Analytics
 author: xujxu
 ms.author: xujiang1
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 2/17/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Debug using the physical job diagram (preview) in Azure portal

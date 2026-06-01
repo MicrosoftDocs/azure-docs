@@ -1,9 +1,9 @@
----
+﻿---
 title: Parameters in templates
 description: Describes how to define parameters in an Azure Resource Manager template (ARM template).
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 08/22/2023
+ms.date: 04/28/2025
 ---
 
 # Parameters in ARM templates
@@ -23,12 +23,10 @@ In addition to minValue, maxValue, minLength, maxLength, and allowedValues, [lan
 - [prefixItems](#prefixitems)
 - [properties](#properties)
 
-[!INCLUDE [VSCode ARM Tools extension doesn't support languageVersion 2.0](../../../includes/resource-manager-vscode-language-version-20.md)]
-
 > [!TIP]
 > We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [parameters](../bicep/parameters.md).
 
-You are limited to 256 parameters in a template. For more information, see [Template limits](./best-practices.md#template-limits).
+You're limited to 256 parameters in a template. For more information, see [Template limits](./best-practices.md#template-limits).
 
 For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
@@ -210,7 +208,7 @@ The following example would accept `{"foo": "string", "bar": 1}`, but reject `{"
 }
 ```
 
-All properties are required unless the property’s [type definition](./definitions.md) has the ["nullable": true](#nullable-constraint) constraint. To make both properties in the preceding example optional, it would look like:
+All properties are required unless the property's [type definition](./definitions.md) has the ["nullable": true](#nullable-constraint) constraint. To make both properties in the preceding example optional, it would look like:
 
 ```json
 "parameters": {
@@ -421,7 +419,6 @@ If the value is true, elements of the array whose index is greater than the larg
 }
 ```
 
-
 ## nullable constraint
 
 The nullable constraint can only be used with [languageVersion 2.0](./syntax.md#languageversion-20). It indicates that the value may be `null` or omitted. See [Properties](#properties) for an example.
@@ -459,7 +456,7 @@ To reference a parameter's value, use the [parameters](template-functions-deploy
   "resources": [
     {
       "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2021-06-01-preview",
+      "apiVersion": "2025-05-01",
       "name": "[parameters('vaultName')]",
       ...
     }
@@ -505,7 +502,7 @@ The following example shows a parameter that is an object. The default value sho
   "resources": [
     {
       "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2021-02-01",
+      "apiVersion": "2025-01-01",
       "name": "[parameters('vNetSettings').name]",
       "location": "[parameters('vNetSettings').location]",
       "properties": {
@@ -545,6 +542,7 @@ The following examples demonstrate scenarios for using parameters.
 
 ## Next steps
 
-* To learn about the available properties for parameters, see [Understand the structure and syntax of ARM templates](./syntax.md).
-* To learn about passing in parameter values as a file, see [Create Resource Manager parameter file](parameter-files.md).
-* For recommendations about creating parameters, see [Best practices - parameters](./best-practices.md#parameters).
+- To learn about the available properties for parameters, see [Understand the structure and syntax of ARM templates](./syntax.md).
+- To learn about passing in parameter values as a file, see [Create Resource Manager parameter file](parameter-files.md).
+- For recommendations about creating parameters, see [Best practices - parameters](./best-practices.md#parameters).
+

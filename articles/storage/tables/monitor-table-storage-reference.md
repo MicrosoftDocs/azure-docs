@@ -7,6 +7,7 @@ ms.topic: reference
 ms.service: azure-table-storage
 author: normesta
 ms.author: normesta
+# Customer intent: As a cloud administrator, I want to access monitoring metrics and logs for Azure Table Storage, so that I can effectively track performance and troubleshoot issues in my data storage solution.
 ---
 
 # Azure Table Storage monitoring data reference
@@ -20,12 +21,12 @@ See [Monitor Azure Table Storage](monitor-table-storage.md) for details on the d
 ### Supported metrics for Microsoft.Storage/storageAccounts
 The following table lists the metrics available for the Microsoft.Storage/storageAccounts resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Storage/storageAccounts](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-storage-storageaccounts-metrics-include.md)]
+[!INCLUDE [Microsoft.Storage/storageAccounts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-storage-storageaccounts-metrics-include.md)]
 
 ### Supported metrics for Microsoft.Storage/storageAccounts/tableServices
 The following table lists the metrics available for the Microsoft.Storage/storageAccounts/tableServices resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Storage/storageAccounts/tableServices](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-storage-storageaccounts-tableservices-metrics-include.md)]
+[!INCLUDE [Microsoft.Storage/storageAccounts/tableServices](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-storage-storageaccounts-tableservices-metrics-include.md)]
 
 <a id="metrics-dimensions"></a>
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
@@ -36,7 +37,7 @@ The following table lists the metrics available for the Microsoft.Storage/storag
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.Storage/storageAccounts/tableServices
-[!INCLUDE [Microsoft.Storage/storageAccounts/tableServices](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-storage-storageaccounts-tableservices-logs-include.md)]
+[!INCLUDE [Microsoft.Storage/storageAccounts/tableServices](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-storage-storageaccounts-tableservices-logs-include.md)]
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 

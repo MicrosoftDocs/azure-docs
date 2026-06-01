@@ -2,20 +2,15 @@
 title: Get small cost datasets on demand
 titleSuffix: Microsoft Cost Management
 description: The article explains how you can use the Cost Details API to get raw, unaggregated cost data that corresponds to your Azure bill.
-author: bandersmsft
-ms.author: banders
-ms.date: 01/24/2024
-ms.topic: conceptual
+author: vikramdesai01
+ms.author: vikdesai
+ms.date: 06/26/2025
+ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: vikdesai
 ---
-
 # Get small cost datasets on demand
-
-Use the [Cost Details](/rest/api/cost-management/generate-cost-details-report) API to get raw, unaggregated cost data that corresponds to your Azure bill. The API is useful when your organization needs a programmatic data retrieval solution. Consider using the API if you want to analyze smaller cost data sets of 2 GB (2 million rows) or less. However, you should use Exports for ongoing data ingestion workloads and for the download of larger datasets.
-
-If you want to get large amounts of exported data regularly, see [Retrieve large cost datasets recurringly with exports](../costs/ingest-azure-usage-at-scale.md).
 
 To learn more about the data in cost details (formerly referred to as *usage details*), see [Ingest cost details data](automation-ingest-usage-details-overview.md).
 
@@ -30,9 +25,9 @@ To use the Cost Details API, you need read only permissions for supported featur
 
 For more information, see: 
 
-- [Azure RBAC scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#feature-behavior-for-each-role)
-- [Enterprise Agreement scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#feature-behavior-for-each-role-1)
-- [Microsoft Customer Agreement scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#feature-behavior-for-each-role-2)
+- [Azure RBAC scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#feature-behavior-for-each-role-in-rbac-scopes)
+- [Enterprise Agreement scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#roles-used-in-cost-management-on-enterprise-agreement-scopes)
+- [Microsoft Customer Agreement scopes - role permissions for feature behavior](../costs/understand-work-scopes.md#feature-behavior-per-role-in-mca-billing-account-scope)
 
 ## Cost Details API best practices
 
@@ -46,7 +41,7 @@ If you want to get the latest cost data, we recommend you query at most once per
 
 Chunk your calls into small date ranges to get more manageable files that you can download over the network. For example, we recommend chunking by day or by week if you have a large Azure cost file month-to-month. If you have scopes with a large amount of cost data (for example a Billing Account), consider placing multiple calls to child scopes so you get more manageable files that you can download. For more information about Cost Management scopes, see [Understand and work with scopes](../costs/understand-work-scopes.md). After you download the data, use Excel to analyze data further with filters and pivot tables.
 
-If your dataset is more than 2 GB (or roughly 2 million rows) month-to-month, consider using [Exports](../costs/tutorial-export-acm-data.md) as a more scalable solution.
+If your dataset is more than 2 GB (or roughly 2 million rows) month-to-month, consider using [Exports](../costs/tutorial-improved-exports.md) as a more scalable solution.
 
 ### Latency and rate limits
 
@@ -95,7 +90,7 @@ Here's an example request for an ActualCost dataset for a specified date range.
 
 ```
 
-Available *{scope}* options to build the proper URI are documented at [Identify the resource ID for a scope](../costs/understand-work-scopes.md#identify-the-resource-id-for-a-scope).
+Available *{scope}* options to build the proper URI are documented at [Identify the resource ID for a scope](../costs/understand-work-scopes.md#using-scopes-with-cost-management-apis).
 
 Here are the available fields you can provide in the report request body.
 
@@ -129,8 +124,8 @@ GET https://management.azure.com/{scope}/providers/Microsoft.CostManagement/cost
 
 ```JSON
 {
-  "id": "subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/operationResults/00000000-0000-0000-0000-000000000000",
-  "name": "00000000-0000-0000-0000-000000000000",
+  "id": "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.CostManagement/operationResults/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+  "name": "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
   "status": "Completed",
   "manifest": {
     "manifestVersion": "2022-05-01",
@@ -139,7 +134,7 @@ GET https://management.azure.com/{scope}/providers/Microsoft.CostManagement/cost
     "byteCount": 160769,
     "compressData": false,
     "requestContext": {
-      "requestScope": "subscriptions/00000000-0000-0000-0000-000000000000",
+      "requestScope": "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
       "requestBody": {
         "metric": "ActualCost",
         "timePeriod": {
@@ -177,5 +172,5 @@ Here's a summary of the key fields in the API response:
 - Read the [Ingest cost details data](automation-ingest-usage-details-overview.md) article.
 - Learn more about [Choose a cost details solution](usage-details-best-practices.md).
 - [Understand cost details fields](understand-usage-details-fields.md).
-- [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with exports.
+- [Create and manage exported data](../costs/tutorial-improved-exports.md) in the Azure portal with exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.

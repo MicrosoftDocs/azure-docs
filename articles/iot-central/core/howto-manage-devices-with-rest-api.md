@@ -3,9 +3,9 @@ title: How to use the IoT Central REST API to manage devices
 description: Learn how to use the IoT Central REST API to add, modify, delete, and manage devices in an application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/01/2024
+ms.date: 08/06/2025
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 ---
@@ -17,8 +17,6 @@ The IoT Central REST API lets you develop client applications that integrate wit
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
-
-[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
 To learn how to manage devices by using the IoT Central UI, see [Manage individual devices in your Azure IoT Central application.](../core/howto-manage-devices-individually.md)
 
@@ -442,7 +440,7 @@ The request body has some required fields:
 * `@etag`: ETag used to prevent conflict in device updates.
 * `description`: Short summary of device group.
 
-The organizations field is only used when an application has an organization hierarchy defined. To learn more about organizations, see [Manage IoT Central organizations](howto-edit-device-template.md).
+The organizations field is only used when an application has an organization hierarchy defined. To learn more about organizations, see [Manage IoT Central organizations](howto-create-organizations.md).
 
 The response to this request looks like the following example:
 

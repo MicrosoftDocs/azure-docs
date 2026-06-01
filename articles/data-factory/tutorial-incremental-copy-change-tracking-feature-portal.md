@@ -3,10 +3,10 @@ title: Incrementally copy data by using change tracking in the Azure portal
 description: Learn how to create a data factory with a pipeline that loads delta data based on change tracking information from Azure SQL Database and moves it to Azure Blob Storage.
 ms.author: yexu
 author: dearandyxu
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 01/05/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
+ms.custom: sfi-image-nochange
 ---
 
 # Incrementally copy data from Azure SQL Database to Blob Storage by using change tracking in the Azure portal
@@ -51,7 +51,7 @@ In this tutorial, you create two pipelines that perform the following operations
 
 ## Prerequisites
 
-* **Azure subscription**. If you don't have one, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* **Azure subscription**. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * **Azure SQL Database**. You use a database in Azure SQL Database as the *source* data store. If you don't have one, see [Create a database in Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) for steps to create it.
 * **Azure storage account**. You use Blob Storage as the *sink* data store. If you don't have an Azure storage account, see [Create a storage account](../storage/common/storage-account-create.md) for steps to create one. Create a container named *adftutorial*. 
 
@@ -127,7 +127,7 @@ In this tutorial, you create two pipelines that perform the following operations
 
 1. Open the Microsoft Edge or Google Chrome web browser. Currently, only these browsers support the Data Factory user interface (UI).
 1. In the [Azure portal](https://ms.portal.azure.com/), on the left menu, select **Create a resource**.
-1. Select **Integration** > **Data Factory**.
+1. Select **Analytics** > **Data Factory** :
 
     ![Screenshot that shows selection of a data factory in creating a resource.](media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory-menu.png)
 1. On the **New data factory** page, enter **ADFTutorialDataFactory** for the name.

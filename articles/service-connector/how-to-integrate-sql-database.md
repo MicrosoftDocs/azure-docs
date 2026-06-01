@@ -1,30 +1,31 @@
 ---
 title: Integrate Azure SQL Database with Service Connector
-description: Integrate SQL into your application with Service Connector
+description: Learn how to integrate Azure SQL Database into your application with Service Connector by using the supported authentication methods and clients.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 02/02/2024
+ms.date: 02/02/2026
 ---
 
 # Integrate Azure SQL Database with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect compute services to Azure SQL Database using Service Connector. You might still be able to connect to Azure SQL Database using other methods. This page also shows default environment variable names and values you get when you create the service connection.
+In this article, we cover the supported authentication methods and clients that you can use to connect your apps to Azure SQL Database using Service Connector. For each supported method, we provide sample code and describe the default environment variable names, values, and configuration obtained when creating a service connection.
 
 ## Supported compute services
 
 Service Connector can be used to connect the following compute services to Azure SQL Database:
 
 - Azure App Service
-- Azure Functions
 - Azure Container Apps
+- Azure Functions
+- Azure Kubernetes Service (AKS)
 - Azure Spring Apps
 
 ## Supported authentication types and clients
 
-The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure SQL Database using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
+The following table shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure SQL Database using Service Connector. A *Yes* indicates that the combination is supported, while a *No* indicates that it isn't supported.
 
 | Client type        | System-assigned managed identity | User-assigned managed identity | Secret/connection string | Service principal |
 |--------------------|:--------------------------------:|:------------------------------:|:------------------------:|:-----------------:|
@@ -39,18 +40,17 @@ The table below shows which combinations of authentication methods and clients a
 | Ruby               |                No                |               No               |            Yes           |         No        |
 | None               |                Yes               |               Yes              |            Yes           |        Yes        |
 
-This table indicates that the Secret/connection string method is supported for all client types. The System-assigned managed identity, User-assigned managed identity, and Service principal methods are supported for .NET, Java, Java - Spring Boot, Node.js, Python, and None client types. These methods are not supported for Go, PHP, Django, and Ruby client types.
-
 > [!NOTE]
-> System-assigned managed identity,User-assigned managed identity and Service principal are only supported on Azure CLI.
+> System-assigned managed identity, user-assigned managed identity and service principal authentication is only supported on Azure CLI.
 
 ## Default environment variable names or application properties and sample code
 
-Use the connection details below to connect compute services to Azure SQL Database. For each example below, replace the placeholder texts `<sql-server>`, `<sql-database>`, `<sql-username>`, and `<sql-password>` with your own server name, database name, user ID and password. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+Use the following connection details to connect compute services to Azure SQL Database. For each example, replace the placeholder texts `<sql-server>`, `<sql-database>`, `<sql-username>`, and `<sql-password>` with your own server name, database name, user ID, and password. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
-### System-assigned Managed Identity
+### System-assigned managed identity
 
 #### [.NET](#tab/sql-me-id-dotnet)
+
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > | --------------------------------- | ------------| ------------ |
@@ -63,7 +63,7 @@ Use the connection details below to connect compute services to Azure SQL Databa
 > |-----------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 > | `AZURE_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;authentication=ActiveDirectoryMSI;` |
 
-#### [SpringBoot](#tab/sql-me-id-springBoot)
+#### [Spring Boot](#tab/sql-me-id-springBoot)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                            | Sample value                                                                                                       |
@@ -104,7 +104,7 @@ Use the connection details below to connect compute services to Azure SQL Databa
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure SQL Database using a system-assigned managed identity.
+To connect to Azure SQL Database using a system-assigned managed identity, refer to the following steps and sample code.
 [!INCLUDE [code sample for sql](./includes/code-sql-me-id.md)]
 
 
@@ -124,7 +124,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a syste
 > |-----------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 > | `AZURE_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;msiClientId=<msiClientId>;authentication=ActiveDirectoryMSI;` |
 
-#### [SpringBoot](#tab/sql-me-id-springBoot)
+#### [Spring Boot](#tab/sql-me-id-springBoot)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                            | Sample value                                                                                                       |
@@ -168,11 +168,14 @@ Refer to the steps and code below to connect to Azure SQL Database using a syste
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure SQL Database using a user-assigned managed identity.
+To connect to Azure SQL Database using a user-assigned managed identity, refer to the following steps and sample code.
 [!INCLUDE [code sample for sql](./includes/code-sql-me-id.md)]
 
 
-### Connection String
+### Connection string
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 #### [.NET](#tab/sql-secret-dotnet)
 
@@ -188,7 +191,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a user-
 > | --------------------------------- | ------------| ------------ |
 > | `AZURE_SQL_CONNECTIONSTRING` | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;user=<sql-username>;password=<sql-password>;` |
 
-#### [SpringBoot](#tab/sql-secret-springBoot)
+#### [Spring Boot](#tab/sql-secret-springBoot)
 
 > [!div class="mx-tdBreakAll"]
 >
@@ -274,11 +277,11 @@ Refer to the steps and code below to connect to Azure SQL Database using a user-
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure SQL Database using a connection string.
+To connect to Azure SQL Database using a connection string, refer to the following steps and sample code.
 [!INCLUDE [code sample for sql](./includes/code-sql-secret.md)]
 
 
-### Service Principal
+### Service principal
 
 #### [.NET](#tab/sql-me-id-dotnet)
 
@@ -298,7 +301,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a conne
 > | `AZURE_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-database>;user=<client-Id>;password=<client-secret>;authentication=ActiveDirectoryServicePrincipal;` |
 
 
-#### [SpringBoot](#tab/sql-me-id-springBoot)
+#### [Spring Boot](#tab/sql-me-id-springBoot)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                            | Sample value                                                                     |
@@ -350,13 +353,13 @@ Refer to the steps and code below to connect to Azure SQL Database using a conne
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure SQL Database using a service principal.
+To connect to Azure SQL Database using a service principal, refer to the following steps and sample code.
 [!INCLUDE [code sample for sql](./includes/code-sql-me-id.md)]
 
 
 ## Next steps
 
-Follow the tutorial listed below to learn more about Service Connector.
+To learn more about Service Connector, see the following tutorial.
 
 > [!div class="nextstepaction"]
 > [Learn about Service Connector concepts](./concept-service-connector-internals.md)

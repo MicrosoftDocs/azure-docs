@@ -2,7 +2,7 @@
 author: cherylmc
 ms.author: cherylmc
 ms.date: 10/24/2023
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: include
 ## This include is the main part of the article for VPN Gateway, ExpressRoute, and Virtual WAN. If you have changes to make to this include, verify that they apply in context for all 3 services. If not, go to the article page for the specific service and add the information as a separate section there.
@@ -30,7 +30,7 @@ Use the following steps to assign policy to the resources. If you're new to Powe
    * For TimeZone options, see [Time Zones](/rest/api/sql/2020-11-01-preview/time-zones/list-by-location).
 
    ```azurepowershell-interactive
-   New-AzMaintenanceConfiguration -ResourceGroupName <rgName> -Name <configurationName> -Location <arm location of resource> -MaintenanceScope Resource -ExtensionProperty @{"maintenanceSubScope"="NetworkGatewayMaintenance"} -StartDateTime "<date in YYYY-MM-DD HH:mm format>" -TimeZone "<Selected Time Zone>" -Duration "<Duration in HH:mm format>" -Visibility "Custom" -RecurEvery Day
+   New-AzMaintenanceConfiguration -ResourceGroupName <rgName> -Name <configurationName> -Location <arm location of resource> -MaintenanceScope Resource -ExtensionProperty @{"maintenanceSubScope"="NetworkGatewayMaintenance"} -StartDateTime "<date in YYYY-MM-DD HH:mm format>" -TimeZone "<Selected Time Zone>" -Duration "<Duration in HH:mm format>" -Visibility "Custom" -RecurEvery "1Day"
    ```
 
 1. Save the **maintenance configuration** as a variable named `$config`.

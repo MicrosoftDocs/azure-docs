@@ -2,13 +2,13 @@
 title: Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview
 titleSuffix: Microsoft Cost Management
 description: This article provides an overview about migrating from Azure Enterprise Reporting to Microsoft Cost Management APIs.
-author: bandersmsft
-ms.author: banders
-ms.date: 05/15/2024
-ms.topic: conceptual
+author: vikramdesai01
+ms.author: vikdesai
+ms.date: 07/01/2025
+ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: vikdesai
 ---
 
 # Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview
@@ -36,7 +36,7 @@ The following information describes the differences between the older Azure Ente
 | Authentication | API key provisioned in the Azure portal | Microsoft Entra authentication using user tokens or service principals. Service principals take the place of API keys. |
 | Scopes and permissions | All requests are at the enrollment scope. API Key permission assignments will determine whether data for the entire enrollment, a department, or a specific account is returned. No user authentication. | Users or service principals are assigned access to the enrollment, department, or account scope. |
 | URI Endpoint | `https://consumption.azure.com` | `https://management.azure.com` |
-| Development status | In maintenance mode. On the path to deprecation. | In active development |
+| Development status | None, the APIs are retired.| In active development |
 | Available APIs | Limited to what's currently available | Equivalent APIs are available to replace each EA API. Additional [Cost Management APIs](/rest/api/cost-management/) are also available, including: <br>- Budgets<br>- Alerts<br>- Exports |
 
 ## Migration checklist

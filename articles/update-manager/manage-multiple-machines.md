@@ -2,18 +2,18 @@
 title: Manage multiple machines in Azure Update Manager
 description: This article explains how to use Azure Update Manager in Azure to manage multiple supported machines and view their compliance state in the Azure portal.
 ms.service: azure-update-manager
-ms.date: 11/16/2023
-ms.topic: conceptual
-author: SnehaSudhirG
-ms.author: sudhirsneha
+ms.date: 12/04/2024
+ms.topic: overview
+author: habibaum
+ms.author: v-uhabiba
+ms.custom: sfi-image-nochange
+ms.update-cycle: 1095-days
+# Customer intent: "As an IT administrator managing multiple servers, I want to use a centralized update management tool, so that I can efficiently assess, deploy, and monitor updates across my Azure and on-premises environments."
 ---
 
 # Manage multiple machines with Azure Update Manager
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
-
-> [!IMPORTANT]
-> - For a seamless scheduled patching experience, we recommend that for all Azure VMs, you update the patch orchestration to **Customer Managed Schedules**. If you fail to update the patch orchestration, you can experience a disruption in business continuity because the schedules will fail to patch the VMs.[Learn more](prerequsite-for-schedule-patching.md).
 
 This article describes the various features that Azure Update Manager offers to manage the system updates on your machines. By using the Update Manager, you can:
 
@@ -26,20 +26,20 @@ This article describes the various features that Azure Update Manager offers to 
 Instead of performing these actions from a selected Azure VM or Azure Arc-enabled server, you can manage all your machines in the Azure subscription.
 
 
-## View update Manager status 
+## View update Manager status
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. To view update assessment across all machines, including Azure Arc-enabled servers  navigate to **Azure Update Manager**.
 
    :::image type="content" source="./media/manage-multiple-machines/overview-page-inline.png" alt-text="Screenshot that shows the Update Manager Overview page in the Azure portal." lightbox="./media/manage-multiple-machines/overview-page-expanded.png":::
-   
+
      On the **Overview** page, the summary tiles show the following status:
 
    - **Filters**: Use filters to focus on a subset of your resources. The selectors above the tiles return **Subscription**, **Resource group**, **Resource type** (Azure VMs and Azure Arc-enabled servers), **Location**, and **OS** type (Windows or Linux) based on the Azure role-based access rights you've been granted. You can combine filters to scope to a specific resource.
    - **Update status of machines**: Shows the update status information for assessed machines that had applicable or needed updates. You can filter the results based on classification types. By default, all [classifications](../automation/update-management/overview.md#update-classifications) are selected. According to the classification selection, the tile is updated.
 
-      The graph provides a snapshot for all your machines in your subscription, regardless of whether you've used Update Manager for that machine. This assessment data comes from Azure Resource Graph, and it stores the data for seven days.
+      The graph provides a snapshot for all your machines in your subscription, regardless of whether you've used Update Manager for that machine. This assessment data comes from Azure Resource Graph, and it stores the most recent assessment data for seven days.
 
       From the assessment data available, machines are classified into the following categories:
 
@@ -47,7 +47,7 @@ Instead of performing these actions from a selected Azure VM or Azure Arc-enable
       - **Updates available**: Updates are pending for these machines and these machines aren't up to date.
       - **Reboot required**: Pending a reboot for the updates to take effect.
       - **No updates data**: No assessment data is available for these machines.
-   
+
       The following reasons could explain why there's no assessment data:
       - No assessment has been done over the last seven days.
       - The machine has an unsupported OS.
@@ -55,17 +55,17 @@ Instead of performing these actions from a selected Azure VM or Azure Arc-enable
 
    - **Patch orchestration configuration of Azure virtual machines**: All the Azure machines inventoried in the subscription are summarized by each update orchestration method. Values are:
 
-      - **Customer Managed Schedules**—enables schedule patching on your existing VMs. 
-      - **Azure Managed - Safe Deployment**—this mode enables automatic VM guest patching for the Azure virtual machine. Subsequent patch installation is orchestrated by Azure. 
+      - **Customer Managed Schedules**—enables schedule patching on your existing VMs.
+      - **Azure Managed - Safe Deployment**—this mode enables automatic VM guest patching for the Azure virtual machine. Subsequent patch installation is orchestrated by Azure.
       - **Image Default**—for Linux machines, it uses the default patching configuration.
       - **OS orchestrated**—the OS automatically updates the machine.
-      - **Manual updates**—you control the application of patches to a machine by applying patches manually inside the machine. In this mode, automatic updates are disabled for Windows OS. 
-   
-    
- 
-   For more information about each orchestration method see, [automatic VM guest patching for Azure VMs](../virtual-machines/automatic-vm-guest-patching.md#patch-orchestration-modes). 
+      - **Manual updates**—you control the application of patches to a machine by applying patches manually inside the machine. In this mode, automatic updates are disabled for Windows OS.
 
-   For more information about each orchestration method, see [Automatic VM guest patching for Azure VMs](../virtual-machines/automatic-vm-guest-patching.md#patch-orchestration-modes).
+
+
+   For more information about each orchestration method see, [automatic VM guest patching for Azure VMs](/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
+
+   For more information about each orchestration method, see [Automatic VM guest patching for Azure VMs](/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 
    - **Update installation status**: By default, the tile shows the status for the last 30 days. By using the **Time** picker, you can choose a different range. The values are:
       - **Failed**: One or more updates in the deployment have failed.
@@ -91,21 +91,21 @@ Update Manager in Azure enables you to browse information about your Azure VMs a
    The table lists all the machines in the specified subscription, and for each machine it helps you understand the following details that show up based on the latest assessment:
 
    * **Customer Managed Schedules**—enables schedule patching on your existing VMs. The new patch orchestration option enables the two VM properties - **Patch mode = AutomaticByPlatform** and **BypassPlatformSafetyChecksOnUserSchedule = TRUE** on your behalf after receiving your consent.
-   * **Azure Managed - Safe Deployment**—for a group of virtual machines undergoing an update, the Azure platform will orchestrate updates. The VM is set to [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md).(i.e), the patch mode is **AutomaticByPlatform**.
+   * **Azure Managed - Safe Deployment**—for a group of virtual machines undergoing an update, the Azure platform will orchestrate updates. The VM is set to [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching).(i.e), the patch mode is **AutomaticByPlatform**.
    * **Automatic by OS**—the machine is automatically updated by the OS.
    * **Image Default**—for Linux machines, its default patching configuration is used.
    * **Manual**—you control the application of patches to a machine by applying patches manually inside the machine. In this mode automatic updates are disabled for Windows OS.
-   
+
 
 The **Patch orchestration** column in the machine's patch mode has the following values:
 
    * **Customer Managed Schedules (preview)**: Enables schedule patching on your existing VMs. The new patch orchestration option enables the two VM properties: `Patch mode = AutomaticByPlatform` and `BypassPlatformSafetyChecksOnUserSchedule = TRUE` on your behalf after receiving your consent.
-   * **Azure Managed - Safe Deployment**: For a group of virtual machines undergoing an update, the Azure platform orchestrates updates. The VM is set to [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md). For example, the patch mode is `AutomaticByPlatform`.
+   * **Azure Managed - Safe Deployment**: For a group of virtual machines undergoing an update, the Azure platform orchestrates updates. The VM is set to [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching). For example, the patch mode is `AutomaticByPlatform`.
    * **Automatic by OS**: The machine is automatically updated by the OS.
    * **Image default**: For Linux machines, its default patching configuration is used.
    * **Manual**: You control the application of patches to a machine by applying patches manually inside the machine. In this mode, automatic updates are disabled for Windows OS.
 
-**The machine's status**: For an Azure VM, it shows its [power state](../virtual-machines/states-billing.md#power-states-and-billing). For an Azure Arc-enabled server, it shows if it's connected or not.
+**The machine's status**: For an Azure VM, it shows its [power state](/azure/virtual-machines/states-billing#power-states-and-billing). For an Azure Arc-enabled server, it shows if it's connected or not.
 
 Use filters to focus on a subset of your resources. The selectors above the tiles return subscriptions, resource groups, resource types (that is, Azure VMs and Azure Arc-enabled servers), and regions. They're based on the Azure role-based access rights you've been granted. You can combine filters to scope to a specific resource.
 
@@ -131,7 +131,7 @@ For assessed machines that are reporting updates available, select one or more o
 
    :::image type="content" source="./media/manage-multiple-machines/update-center-install-updates-now-multi-selection-inline.png" alt-text="Screenshot that shows installing one-time updates for machines on the Updates (Preview) page." lightbox="./media/manage-multiple-machines/update-center-install-updates-now-multi-selection-expanded.png":::
 
- A notification confirms when an activity starts and another tells you when it's finished. After it's successfully finished, the installation operation results are available to view. You can use the **Update history** tab, when you select the machine from the **Machines** page. You can also select the **History** page. You're redirected to this page automatically after you begin the update deployment. You can view the status of the operation at any time from the [Azure activity log](../azure-monitor/essentials/activity-log.md).
+ A notification confirms when an activity starts and another tells you when it's finished. After it's successfully finished, the installation operation results are available to view. You can use the **Update history** tab, when you select the machine from the **Machines** page. You can also select the **History** page. You're redirected to this page automatically after you begin the update deployment. You can view the status of the operation at any time from the [Azure activity log](/azure/azure-monitor/essentials/activity-log).
 
 ### Set up a recurring update deployment
 

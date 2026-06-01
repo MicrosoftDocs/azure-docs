@@ -3,14 +3,15 @@ title: Set or change a blob's access tier with Python
 titleSuffix: Azure Storage 
 description: Learn how to set or change a blob's access tier in your Azure Storage account using the Python client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 12/20/2023
+ms.date: 08/05/2024
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: As a cloud developer, I want to set or change a blob's access tier using the Python client library, so that I can optimize storage costs and improve data retrieval efficiency based on access needs.
 ---
 
 # Set or change a block blob's access tier with Python
@@ -21,11 +22,23 @@ This article shows how to set or change the access tier for a block blob using t
 
 To learn about changing a blob's access tier using asynchronous APIs, see [Change a blob's access tier asynchronously](#change-a-blobs-access-tier-asynchronously).
 
-## Prerequisites
+[!INCLUDE [storage-dev-guide-prereqs-python](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-python.md)]
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Python. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
-- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to set the blob's access tier. To learn more, see the authorization guidance for the following REST API operation:
-    - [Set Blob Tier](/rest/api/storageservices/set-blob-tier#authorization)
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-python](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-python.md)]
+
+#### Add import statements
+
+Add the following `import` statements:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_access_tiers.py" id="Snippet_imports":::
+
+#### Authorization
+
+The authorization mechanism must have the necessary permissions to set a blob's access tier. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Set Blob Tier](/rest/api/storageservices/set-blob-tier#authorization).
+
+[!INCLUDE [storage-dev-guide-create-client-python](../../../includes/storage-dev-guides/storage-dev-guide-create-client-python.md)]
 
 [!INCLUDE [storage-dev-guide-about-access-tiers](../../../includes/storage-dev-guides/storage-dev-guide-about-access-tiers.md)]
 
@@ -115,3 +128,4 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 - [Access tiers best practices](access-tiers-best-practices.md)
 - [Blob rehydration from the archive tier](archive-rehydrate-overview.md)
+

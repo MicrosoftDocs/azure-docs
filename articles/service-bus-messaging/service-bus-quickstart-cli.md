@@ -5,8 +5,11 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 01/24/2024
 ms.author: spelluru
-ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
+ms.custom:
+  - mode-api
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Use the Azure CLI to create a Service Bus namespace and a queue
@@ -57,4 +60,4 @@ In this article, you created a Service Bus namespace and a queue in the namespac
 - [JavaScript](service-bus-nodejs-how-to-use-queues.md)
 - [Python](service-bus-python-how-to-use-queues.md)
 
-[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn

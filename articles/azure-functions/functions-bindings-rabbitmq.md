@@ -1,10 +1,8 @@
 ---
 title: Azure RabbitMQ bindings for Azure Functions
 description: Learn to send Azure RabbitMQ triggers and bindings in Azure Functions.
-author: cachai2
 ms.topic: reference
-ms.date: 11/15/2021
-ms.author: cachai
+ms.date: 08/20/2025
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -12,11 +10,11 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # RabbitMQ bindings for Azure Functions overview
 
-> [!NOTE]
-> The RabbitMQ bindings are only fully supported on [Premium](functions-premium-plan.md) and [Dedicated App Service](dedicated-plan.md) plans. Consumption plans aren't supported.  
-> RabbitMQ bindings are only supported for Azure Functions version 3.x and later versions.
- 
-Azure Functions integrates with [RabbitMQ](https://www.rabbitmq.com/) via [triggers and bindings](./functions-triggers-bindings.md). The Azure Functions RabbitMQ extension allows you to send and receive messages using the RabbitMQ API with Functions.
+Azure Functions integrates with [RabbitMQ](https://www.rabbitmq.com/) via [triggers and bindings](./functions-triggers-bindings.md). 
+
+[!INCLUDE [functions-rabbitmq-plans-support-note](../../includes/functions-rabbitmq-plans-support-note.md)]
+
+The Azure Functions RabbitMQ extension allows you to send and receive messages using the RabbitMQ API with Functions.
 
 | Action | Type |
 |---------|---------|
@@ -50,18 +48,35 @@ Add the extension to your project by installing this [NuGet package](https://www
 ---
 
 ::: zone-end  
-
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
-
-## Install bundle    
-
-The RabbitMQ extension is part of an [extension bundle], which is specified in your host.json project file. When you create a project that targets version 3.x or later, you should already have this bundle installed. To learn more, see [extension bundle].
-
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 ::: zone-end
+## host.json settings
 
-## Next steps
+[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
+
+```json
+{
+    "version": "2.0",
+    "extensions": {
+        "rabbitMQ": {
+            "prefetchCount": 100,
+            "queueName": "queue",
+            "connectionString": "%<MyConnectionAppSetting>%",
+            "port": 10
+        }
+    }
+}
+```
+
+|Property  |Default | Description |
+|---------|---------|---------|
+|`prefetchCount`|30|Gets or sets the number of messages that the message receiver can simultaneously request and is cached.|
+|`queueName`|n/a| Name of the queue to receive messages from.|
+|`connectionString`|n/a|The app setting that contains the RabbitMQ message queue connection string. |
+|`port`|0|(ignored if using connectionString) Gets or sets the Port used. Defaults to 0, which points to rabbitmq client's default port setting: 5672.|
+
+## Related articles
 
 - [Run a function when a RabbitMQ message is created (Trigger)](./functions-bindings-rabbitmq-trigger.md)
 - [Send RabbitMQ messages from Azure Functions (Output binding)](./functions-bindings-rabbitmq-output.md)
-
-[extension bundle]: ./functions-bindings-register.md#extension-bundles

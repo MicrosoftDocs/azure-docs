@@ -2,14 +2,15 @@
 title: Provide data feedback to Azure Maps
 titleSuffix: Microsoft Azure Maps
 description: Provide data feedback using Microsoft Azure Maps feedback tool.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 03/15/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-
-ms.custom: mvc
+ms.subservice: general
+ms.custom:
+  - mvc
+  - sfi-image-nochange
 ---
 
 # Provide data feedback to Azure Maps

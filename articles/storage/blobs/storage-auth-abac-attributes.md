@@ -2,12 +2,13 @@
 title: Actions and attributes for Azure role assignment conditions for Azure Blob Storage
 titleSuffix: Azure Storage
 description: Supported actions and attributes for Azure role assignment conditions and Azure attribute-based access control (Azure ABAC) for Azure Blob Storage. 
-author: pauljewellmsft
-ms.author: pauljewell
+author: normesta
+ms.author: normesta
 ms.service: azure-blob-storage
-ms.topic: conceptual
-ms.date: 04/01/2024
+ms.topic: concept-article
+ms.date: 07/08/2025
 ms.reviewer: nachakra
+# Customer intent: "As a security administrator, I want to configure attribute-based access control for Azure Blob Storage, so that I can enforce granular access permissions based on specific conditions and attributes for different storage operations."
 ---
 
 # Actions and attributes for Azure role assignment conditions for Azure Blob Storage
@@ -318,7 +319,7 @@ This section lists the supported Azure Blob Storage actions and suboperations yo
 > | **Principal attributes support** | [True](../../role-based-access-control/conditions-format.md#principal-attributes) |
 > | **Environment attributes** | [Is private link](#is-private-link)</br>[Private endpoint](#private-endpoint)</br>[Subnet](#subnet)</br>[UTC now](#utc-now)</br> |
 > | **Examples** | [Example: Read, write, or delete blobs in named containers](storage-auth-abac-examples.md#example-read-write-or-delete-blobs-in-named-containers)<br/>[Example: Read blobs in named containers with a path](storage-auth-abac-examples.md#example-read-blobs-in-named-containers-with-a-path)<br/>[Example: Read or list blobs in named containers with a path](storage-auth-abac-examples.md#example-read-or-list-blobs-in-named-containers-with-a-path)<br/>[Example: Write blobs in named containers with a path](storage-auth-abac-examples.md#example-write-blobs-in-named-containers-with-a-path)<br/>[Example: Read only current blob versions](storage-auth-abac-examples.md#example-read-only-current-blob-versions)<br/>[Example: Read current blob versions and any blob snapshots](storage-auth-abac-examples.md#example-read-current-blob-versions-and-any-blob-snapshots)<br/>[Example: Read only storage accounts with hierarchical namespace enabled](storage-auth-abac-examples.md#example-read-only-storage-accounts-with-hierarchical-namespace-enabled) |
-> | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
+> | **Learn more** | [Azure Data Lake Storage hierarchical namespace](data-lake-storage-namespace.md) |
 
 ## Azure Blob Storage attributes
 
@@ -379,7 +380,7 @@ The following table summarizes the available attributes by source:
 > | **Is key case sensitive** | True |
 > | **Hierarchical namespace support** | False |
 > | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags&$keys$&] ForAllOfAnyValues:StringEquals {'Project', 'Program'}`<br/>[Example: Existing blobs must have blob index tag keys](storage-auth-abac-examples.md#example-existing-blobs-must-have-blob-index-tag-keys) |
-> | **Learn more** | [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)<br/>[Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
+> | **Learn more** | [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)<br/>[Azure Data Lake Storage hierarchical namespace](data-lake-storage-namespace.md) |
 
 ### Blob index tags [Values in key]
 
@@ -394,7 +395,7 @@ The following table summarizes the available attributes by source:
 > | **Is key case sensitive** | True |
 > | **Hierarchical namespace support** | False |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:`*keyname*`<$key_case_sensitive$>`<br/>`@Resource[Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags:Project<$key_case_sensitive$>] StringEquals 'Cascade'`<br/>[Example: Read blobs with a blob index tag](storage-auth-abac-examples.md#example-read-blobs-with-a-blob-index-tag) |
-> | **Learn more** | [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)<br/>[Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
+> | **Learn more** | [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)<br/>[Azure Data Lake Storage hierarchical namespace](data-lake-storage-namespace.md) |
 
 ### Blob path
 
@@ -444,7 +445,7 @@ The following table summarizes the available attributes by source:
 > | Property | Value |
 > | --- | --- |
 > | **Display name** | Container metadata |
-> | **Description** | Metadata key/value pair associated with a container.<br/>Use when you want to check specific metadata for a container. *Currently in preview.* |
+> | **Description** | Metadata key/value pair associated with a container.<br/>Use when you want to check specific metadata for a container. |
 > | **Attribute** | `Microsoft.Storage/storageAccounts/blobServices/containers/metadata` |
 > | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
@@ -487,7 +488,7 @@ The following table summarizes the available attributes by source:
 > | **Attribute source** | [Resource](../../role-based-access-control/conditions-format.md#resource-attributes) |
 > | **Attribute type** | [Boolean](../../role-based-access-control/conditions-format.md#boolean-comparison-operators) |
 > | **Examples** | `@Resource[Microsoft.Storage/storageAccounts:isHnsEnabled] BoolEquals true`<br/>[Example: Read only storage accounts with hierarchical namespace enabled](storage-auth-abac-examples.md#example-read-only-storage-accounts-with-hierarchical-namespace-enabled) |
-> | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
+> | **Learn more** | [Azure Data Lake Storage hierarchical namespace](data-lake-storage-namespace.md) |
 
 ### Is private link
 
@@ -526,7 +527,7 @@ The following table summarizes the available attributes by source:
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
 > | **Applies to** | For copy operations using the following REST operations, this attribute only applies to the destination storage account, and not the source:<br><br>[Copy Blob](/rest/api/storageservices/copy-blob)<br>[Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url)<br>[Put Blob From URL](/rest/api/storageservices/put-blob-from-url)<br>[Put Block From URL](/rest/api/storageservices/put-block-from-url)<br>[Append Block From URL](/rest/api/storageservices/append-block-from-url)<br>[Put Page From URL](/rest/api/storageservices/put-page-from-url)<br><br>For all other read, write, create, delete, and rename operations, it applies to the storage account that is the target of the operation |
-> | **Examples** | `@Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'`<br/>[Example: Allow read access to a container only from a specific private endpoint](storage-auth-abac-examples.md#example-allow-access-to-a-container-only-from-a-specific-private-endpoint) |
+> | **Examples** | `@Environment[Microsoft.Network/privateEndpoints] StringEqualsIgnoreCase '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/example-group/providers/Microsoft.Network/privateEndpoints/privateendpoint1'`<br/>[Example: Allow read access to a container only from a specific private endpoint](storage-auth-abac-examples.md#example-allow-access-to-a-container-only-from-a-specific-private-endpoint) |
 > | **Learn more** | [Use private endpoints for Azure Storage](../common/storage-private-endpoints.md) |
 
 ### Snapshot
@@ -542,7 +543,7 @@ The following table summarizes the available attributes by source:
 > | **Exists support** | [True](../../role-based-access-control/conditions-format.md#exists) |
 > | **Hierarchical namespace support** | False |
 > | **Examples** | `Exists @Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:snapshot]`<br/>[Example: Read current blob versions and any blob snapshots](storage-auth-abac-examples.md#example-read-current-blob-versions-and-any-blob-snapshots) |
-> | **Learn more** | [Blob snapshots](snapshots-overview.md)<br/>[Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
+> | **Learn more** | [Blob snapshots](snapshots-overview.md)<br/>[Azure Data Lake Storage hierarchical namespace](data-lake-storage-namespace.md) |
 
 ### Subnet
 
@@ -555,7 +556,7 @@ The following table summarizes the available attributes by source:
 > | **Attribute source** | [Environment](../../role-based-access-control/conditions-format.md#environment-attributes) |
 > | **Attribute type** | [String](../../role-based-access-control/conditions-format.md#string-comparison-operators) |
 > | **Applies to** | For copy operations using the following REST operations, this attribute only applies to the destination storage account, and not the source:<br><br>[Copy Blob](/rest/api/storageservices/copy-blob)<br>[Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url)<br>[Put Blob From URL](/rest/api/storageservices/put-blob-from-url)<br>[Put Block From URL](/rest/api/storageservices/put-block-from-url)<br>[Append Block From URL](/rest/api/storageservices/append-block-from-url)<br>[Put Page From URL](/rest/api/storageservices/put-page-from-url)<br><br>For all other read, write, create, delete, and rename operations, it applies to the storage account that is the target of the operation |
-> | **Examples** | `@Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default'`<br/>[Example: Allow access to blobs in specific containers from a specific subnet](storage-auth-abac-examples.md#example-allow-access-to-blobs-in-specific-containers-from-a-specific-subnet) |
+> | **Examples** | `@Environment[Microsoft.Network/virtualNetworks/subnets] StringEqualsIgnoreCase '/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/example-group/providers/Microsoft.Network/virtualNetworks/virtualnetwork1/subnets/default'`<br/>[Example: Allow access to blobs in specific containers from a specific subnet](storage-auth-abac-examples.md#example-allow-access-to-blobs-in-specific-containers-from-a-specific-subnet) |
 > | **Learn more** | [Subnets](../../virtual-network/concepts-and-best-practices.md) |
 
 ### UTC now
@@ -583,7 +584,7 @@ The following table summarizes the available attributes by source:
 > | **Exists support** | [True](../../role-based-access-control/conditions-format.md#exists) |
 > | **Hierarchical namespace support** | False |
 > | **Examples** | `@Request[Microsoft.Storage/storageAccounts/blobServices/containers/blobs:versionId] DateTimeEquals '2022-06-01T23:38:32.8883645Z'`<br/>[Example: Read current blob versions and a specific blob version](storage-auth-abac-examples.md#example-read-current-blob-versions-and-a-specific-blob-version)<br/>[Example: Read current blob versions and any blob snapshots](storage-auth-abac-examples.md#example-read-current-blob-versions-and-any-blob-snapshots) |
-> | **Learn more** | [Azure Data Lake Storage Gen2 hierarchical namespace](data-lake-storage-namespace.md) |
+> | **Learn more** | [Azure Data Lake Storage hierarchical namespace](data-lake-storage-namespace.md) |
 
 ## See also
 

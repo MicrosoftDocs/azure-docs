@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 09/30/2023
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 ---
 
 # Use PaaS services in Azure DevTest Labs
@@ -15,6 +17,8 @@ This article describes platform-as-a-service (PaaS) support in Azure DevTest Lab
 The following image shows a SharePoint farm created as an environment in a lab.
 
 ![Screenshot of a SharePoint environment in a lab.](media/use-paas-services/environments.png)
+
+[!INCLUDE [direct-azure-deployment-environments](includes/direct-azure-deployment-environments.md)]  
 
 ## PaaS scenarios
 

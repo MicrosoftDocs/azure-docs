@@ -5,11 +5,12 @@ description: Describes how to configure reverse lookup zones for an SMTP banner 
 services: virtual-network
 author: asudbring
 manager: dcscontentpm
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.date: 10/31/2018
 ms.author: allensu
+# Customer intent: As a network administrator managing an SMTP server in Azure, I want to configure reverse lookup zones and PTR records so that I can resolve SMTP banner issues and ensure successful email delivery without receiving errors from remote mail servers.
 ---
 
 # Configure reverse lookup zones for an SMTP banner check

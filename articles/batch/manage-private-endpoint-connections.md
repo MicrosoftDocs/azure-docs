@@ -3,7 +3,8 @@ title: Manage private endpoint connections with Azure Batch accounts
 description: Learn how to manage private endpoint connections with Azure Batch accounts, including list, approve, reject and remove.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 05/26/2022
+ms.date: 06/24/2024
+# Customer intent: "As a cloud administrator, I want to manage private endpoint connections for my Batch account, so that I can ensure secure and appropriate access to resources."
 ---
 
 # Manage private endpoint connections with Azure Batch accounts

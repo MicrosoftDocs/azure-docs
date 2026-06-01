@@ -3,13 +3,14 @@ title: Deploy Bitnami virtual appliances
 description: Learn about the virtual appliances packed by Bitnami to deploy in your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 11/28/2023
+ms.date: 3/04/2026
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud administrator, I want to deploy Bitnami virtual appliances in my Azure VMware Solution private cloud, so that I can streamline the installation and configuration of essential applications for my development and production environments."
 ---
 
 # Bitnami appliance deployment
 
-Bitnami by VMware provides a rich catalog of turnkey virtual appliances. You can deploy any vSphere compatible appliance by Bitnami available in the [VMware Marketplace](https://marketplace.cloud.vmware.com/), including many of the most common open-source software projects.
+Bitnami by VMware provides a rich catalog of turnkey virtual appliances. You can deploy any vSphere compatible appliance by Bitnami available in the [VMware Marketplace](https://vcf.broadcom.com/vsc/), including many of the most common open-source software projects.
 
 In this article, learn how to install and configure the following virtual appliances packaged by Bitnami on your Azure VMware Solution private cloud:
 
@@ -36,19 +37,19 @@ In this article, learn how to install and configure the following virtual applia
 ## Step 1: Download the Bitnami virtual appliance OVA/OVF file
 
 
-1. Go to the [VMware Marketplace](https://marketplace.cloud.vmware.com/) and download the virtual appliance you want to install on your Azure VMware Solution private cloud:
+1. Go to the [VMware Marketplace](https://vcf.broadcom.com/vsc/) and download the virtual appliance you want to install on your Azure VMware Solution private cloud:
 
-   - [LAMP virtual appliance packaged by Bitnami](https://marketplace.cloud.vmware.com/services/details/lampstack?slug=true)
+   - [LAMP virtual appliance packaged by Bitnami](https://vcf.broadcom.com/vsc/services/details/lampstack?slug=true)
 
-   - [Jenkins](https://marketplace.cloud.vmware.com/services/details/jenkins?slug=true)
+   - [Jenkins](https://vcf.broadcom.com/vsc/services/details/jenkins?slug=true)
 
-   - [PostgreSQL](https://marketplace.cloud.vmware.com/services/details/postgresql?slug=true)
+   - [PostgreSQL](https://vcf.broadcom.com/vsc/services/details/postgresql?slug=true)
 
-   - [NGINX](https://marketplace.cloud.vmware.com/services/details/nginxstack?slug=true)
+   - [NGINX](https://vcf.broadcom.com/vsc/services/details/nginxstack?slug=true)
 
    - [RabbitMQ](https://marketplace.cloud.vmware.com/services/details/rabbitmq?slug=true)
 
-1. Select the version, select **Download**, and then accept the EULA license. 
+1. Select the version, select **Download**, and then accept the **EULA license**. 
 
    >[!NOTE]
    >Make sure the file is accessible from the virtual machine.
@@ -62,9 +63,9 @@ In this article, learn how to install and configure the following virtual applia
 
 1. Select your private cloud, and then **Manage** > **Identity**.
 
-1. Copy the vCenter Server URL, username, and password. You'll use them to access your virtual machine (VM). 
+1. Copy the vCenter Server URL, username, and password. Use them to access your virtual machine (VM). 
 
-1. Select **Overview**, select the VM, and then connect to it through RDP. If you need help with connecting, see [connect to a virtual machine](../virtual-machines/windows/connect-logon.md#connect-to-the-virtual-machine) for details.
+1. Select **Overview**, select the VM, and then connect to it through remote desktop protocol(RDP). If you need help with connecting, see [connect to a virtual machine](/azure/virtual-machines/windows/connect-logon#connect-to-the-virtual-machine) for details.
 
 1. In the VM, open a browser and navigate to the vCenter URL. 
 
@@ -94,20 +95,20 @@ In this article, learn how to install and configure the following virtual applia
 
 1. Review the configuration settings and then select **Finish**.
 
-1. From the **Task Console**, verify that the status of the OVF template deployment has completed successfully.
+1. From the **Task Console**, verify that the status of the OVF template deployment completed successfully.
 
 1. After the installation finishes, under **Actions**, select **Power on** to turn on the appliance. 
 
 1. From the vCenter Server console, select **Launch Web Console** and sign in to the Bitnami virtual appliance. Check the [Bitnami virtual appliance support documentation](https://docs.bitnami.com/vmware-marketplace/faq/get-started/find-credentials/) for the default username and password.
 
    >[!NOTE]
-   >You can change the default password to a more secure one. For more information, see ...
+   >You can change the default password to a more secure one.
 
 
 
 ## Step 4: Assign a static IP to the virtual appliance
 
-In this step, you'll modify the *bootproto* and *onboot* parameters and assign a static IP address to the Bitnami virtual appliance. 
+In this step, modify the *bootproto* and *onboot* parameters and assign a static IP address to the Bitnami virtual appliance. 
 
 1. Search for the network configuration file. 
 
@@ -146,7 +147,7 @@ In this step, you'll modify the *bootproto* and *onboot* parameters and assign a
 
 ## Step 5: Enable SSH access to the virtual appliance
 
-In this step, you'll enable SSH on your virtual appliance for remote access control. The SSH service is disabled by default. You'll also use an OpenSSH client to connect to the host console.
+In this step, enable SSH on your virtual appliance for remote access control. The SSH service is disabled by default. You use an OpenSSH client to connect to the host console.
 
 1. Enable and start the SSH service.
 

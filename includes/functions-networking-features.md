@@ -4,17 +4,18 @@ ms.service: azure-functions
 ms.custom:
   - build-2024
 ms.topic: include
-ms.date: 06/27/2024
+ms.date: 04/02/2026
 ms.author: glenga
 ---
 
-| Feature |[Consumption plan](../articles/azure-functions/consumption-plan.md)|[Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md)|[Premium plan](../articles/azure-functions/functions-premium-plan.md)|[Dedicated plan](../articles/azure-functions/dedicated-plan.md)/[ASE](../articles/app-service/environment/intro.md)|[Container Apps](../articles/azure-functions/functions-container-apps-hosting.md)<sup>*</sup> |  
-|----------------|-----------|----------------|---------|---------------| ---| --- |
-|[Inbound IP restrictions](../articles/azure-functions/functions-networking-options.md#inbound-networking-features)|✅Yes|✅Yes|✅Yes|✅Yes | ❌No | 
-|[Inbound Private Endpoints](../articles/azure-functions/functions-networking-options.md#inbound-networking-features)|❌No|✅Yes|✅Yes|✅Yes| ❌No |   
-|[Virtual network integration](../articles/azure-functions/functions-networking-options.md#virtual-network-integration)|❌No|✅Yes (Regional) |✅Yes (Regional)|✅Yes (Regional and Gateway)| ✅Yes| 
-|[Virtual network triggers (non-HTTP)](../articles/azure-functions/functions-networking-options.md#virtual-network-triggers-non-http)|❌No|✅Yes | ✅Yes |✅Yes| ✅Yes| 
-|[Hybrid connections](../articles/azure-functions/functions-networking-options.md#hybrid-connections) (Windows only)|❌No|❌ No |✅Yes|✅Yes| ❌No|
-|[Outbound IP restrictions](../articles/azure-functions/functions-networking-options.md#outbound-ip-restrictions)|❌No| ✅Yes | ✅Yes|✅Yes| ❌No| 
+| Feature |[Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md)|[Consumption plan](../articles/azure-functions/consumption-plan.md)|[Premium plan](../articles/azure-functions/functions-premium-plan.md)|[Dedicated plan](../articles/azure-functions/dedicated-plan.md)/[ASE](../articles/app-service/environment/overview.md)|[Container Apps](../articles/container-apps/functions-overview.md)<sup>1</sup> |  
+|----------------|-----------|----------------|---------|---------------| ---| 
+|[Inbound access restrictions](../articles/azure-functions/functions-networking-options.md#inbound-access-restrictions)|✅|✅|✅|✅|✅<sup>2</sup>| 
+|[Private endpoints (inbound)](../articles/azure-functions/functions-networking-options.md#private-endpoints)|✅|❌|✅|✅|❌|  
+|[Service endpoints (inbound)](../articles/azure-functions/functions-networking-options.md#service-endpoints)|✅|❌|✅|✅|✅|
+|[Virtual network integration (outbound)](../articles/azure-functions/functions-networking-options.md#virtual-network-integration)|✅|❌|✅|✅<sup>3</sup>|✅| 
+|[Hybrid Connections](../articles/azure-functions/functions-networking-options.md#hybrid-connections)|❌|❌|✅ (Windows only)|✅ (Windows only)|✅ (Windows only)|
 
-<sup>*</sup>For more information, see [Networking in Azure Container Apps environment](../articles/container-apps/networking.md). 
+1. For more information, see [Networking in Azure Container Apps environment](../articles/container-apps/networking.md). 
+2. Managed through the Container Apps environment [ingress configuration](../articles/container-apps/ip-restrictions.md).
+3. The Dedicated/ASE plan also supports [gateway-required virtual network integration](../articles/app-service/configure-gateway-required-vnet-integration.md).

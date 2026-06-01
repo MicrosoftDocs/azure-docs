@@ -4,9 +4,17 @@ description: This article describes how to migrate GCP VMs to Azure with Azure M
 author: vijain
 ms.author: vijain
 ms.topic: tutorial
-ms.date: 03/20/2024
+ms.date: 02/07/2025
 ms.service: azure-migrate
-ms.custom: MVC, engagement-fy24
+ms.reviewer: v-uhabiba
+ms.collection:
+ - migration
+ - gcp-to-azure
+ms.custom:
+  - MVC
+  - engagement-fy24
+  - sfi-image-nochange
+# Customer intent: "As a cloud migration specialist, I want to migrate Google Cloud Platform VMs to Azure, so that I can ensure seamless integration and improved resource management in our cloud environment."
 ---
 
 # Discover, assess, and migrate Google Cloud Platform (GCP) VMs to Azure
@@ -166,7 +174,7 @@ The first step of migration is to set up the replication appliance. To set up th
 A Mobility service agent must be preinstalled on the source GCP VMs to be migrated before you can initiate replication. The approach you choose to install the Mobility service agent might depend on your organization's preferences and existing tools. The "push" installation method built into Azure Site Recovery isn't currently supported. Approaches you might want to consider:
 
 - [System Center Configuration Manager](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md)
-- [Azure Arc for servers and custom script extensions](../azure-arc/servers/overview.md)
+- [Azure Arc for servers and custom script extensions](/azure/azure-arc/servers/overview)
 - [Install Mobility agent for Windows](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt-classic)
 - [Install Mobility agent for Linux](../site-recovery/vmware-physical-mobility-service-overview.md#linux-machine-1)
 
@@ -228,7 +236,7 @@ A Mobility service agent must be preinstalled on the source GCP VMs to be migrat
     - Double encryption with platform-managed and customer-managed keys.
 
    > [!NOTE]
-   > To replicate VMs with customer-managed keys, you need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.yml) under the target resource group. A disk encryption set object maps managed disks to an Azure Key Vault instance that contains the customer-managed key to use for server-side encryption.
+   > To replicate VMs with customer-managed keys, you need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) under the target resource group. A disk encryption set object maps managed disks to an Azure Key Vault instance that contains the customer-managed key to use for server-side encryption.
 
 1. In **Azure Hybrid Benefit**:
 
@@ -244,7 +252,7 @@ A Mobility service agent must be preinstalled on the source GCP VMs to be migrat
     - **Availability Zone**: Specify the availability zone to use.
     - **Availability Set**: Specify the availability set to use.
 
-1. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
+1. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (Standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, won't be present on the Azure VM after migration.
 
@@ -339,7 +347,7 @@ After you verify that the test migration works as expected, you can migrate the 
     - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just-in-time administration](../security-center/security-center-just-in-time.md).
     - Manage and govern updates on Windows and Linux machines with [Azure Update Manager](../update-manager/overview.md).
     - Restrict network traffic to management endpoints with [network security groups](../virtual-network/network-security-groups-overview.md).
-    - Deploy [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) to help secure disks and keep data safe from theft and unauthorized access.
+    - Deploy [Azure Disk Encryption](/azure/virtual-machines/disk-encryption-overview) to help secure disks and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) and [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
     - Consider deploying [Microsoft Cost Management](../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.

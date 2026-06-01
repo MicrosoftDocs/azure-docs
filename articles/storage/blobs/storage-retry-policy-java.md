@@ -2,12 +2,13 @@
 title: Implement a retry policy using the Azure Storage client library for Java
 titleSuffix: Azure Storage
 description: Learn about retry policies and how to implement them for Blob Storage. This article helps you set up a retry policy for Blob Storage requests using the Azure Storage client library for Java. 
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/03/2024
+ms.date: 08/05/2024
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: "As a Java developer, I want to implement a retry policy for Blob Storage requests, so that my application can handle transient faults and maintain stability during network interruptions or service busy periods."
 ---
 
 # Implement a retry policy with Java
@@ -45,7 +46,8 @@ BlobServiceClient client = new BlobServiceClientBuilder()
 
 In this example, each service request issued from the `BlobServiceClient` object uses the retry options as defined in the `RequestRetryOptions` instance. This policy applies to client requests. You can configure various retry strategies for service clients based on the needs of your app.
 
-## Related content
+## Next steps
 
+- This article is part of the Blob Storage developer guide for Java. See the full list of developer guide articles at [Build your app](storage-blob-java-get-started.md#build-your-app).
 - For architectural guidance and general best practices for retry policies, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 - For guidance on implementing a retry pattern for transient failures, see [Retry pattern](/azure/architecture/patterns/retry).

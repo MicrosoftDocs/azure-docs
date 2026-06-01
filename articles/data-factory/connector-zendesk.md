@@ -4,11 +4,12 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to transform data in Zendesk (Preview) by using Data Factory or Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.custom: synapse
+ms.topic: how-to
 ms.date: 01/05/2024
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 #  Transform data in Zendesk (Preview) using Azure Data Factory or Synapse Analytics

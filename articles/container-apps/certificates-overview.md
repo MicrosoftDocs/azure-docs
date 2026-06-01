@@ -3,9 +3,9 @@ title: Certificates in Azure Container Apps
 description: Learn the different options available to using and managing secure certificates in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
-ms.topic: conceptual
-ms.date: 04/15/2024
+ms.service: azure-container-apps
+ms.topic: concept-article
+ms.date: 05/26/2025
 ms.author: cshoe
 ---
 

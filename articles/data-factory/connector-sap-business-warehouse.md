@@ -4,11 +4,12 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SAP Business Warehouse to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.author: ulrichchrist
-ms.service: data-factory
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.custom: synapse
+ms.topic: how-to
 ms.date: 10/20/2023
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy data from SAP Business Warehouse using Azure Data Factory or Synapse Analytics

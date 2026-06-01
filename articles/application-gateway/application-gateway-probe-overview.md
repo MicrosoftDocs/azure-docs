@@ -2,12 +2,15 @@
 title: Health monitoring overview for Azure Application Gateway
 description: Azure Application Gateway monitors the health of all resources in its backend pool and automatically removes any resource considered unhealthy from the pool.
 services: application-gateway
-author: greg-lindsay
-ms.service: application-gateway
-ms.topic: article
-ms.date: 09/14/2023
-ms.author: greglin 
-ms.custom: devx-track-azurepowershell
+author: mbender-ms
+ms.service: azure-application-gateway
+ms.topic: concept-article
+ms.date: 04/09/2025
+ms.author: mbender 
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+# Customer intent: As a cloud architect, I want to configure and manage health probes for my Azure Application Gateway, so that I can ensure only healthy backend servers receive traffic and maintain application availability.
 ---
 
 # Application Gateway health probes overview
@@ -46,7 +49,7 @@ Once the probe detects a failed response, the counter for "Unhealthy threshold" 
 
 An application gateway automatically configures a default health probe when you don't set up any custom probe configuration. The monitoring behavior works by making an HTTP GET request to the IP addresses or FQDN configured in the backend pool. For default probes if the backend http settings are configured for HTTPS, the probe uses HTTPS to test health of the backend servers.
 
-For example: You configure your application gateway to use backend servers A, B, and C to receive HTTP network traffic on port 80. The default health monitoring tests the three servers every 30 seconds for a healthy HTTP response with a 30-second-timeout for each request. A healthy HTTP response has a [status code](/troubleshoot/developer/webapps/iis/www-administration-management/http-status-code) between 200 and 399. In this case, the HTTP GET request for the health probe looks like `http://127.0.0.1/`. Also see [HTTP response codes in Application Gateway](http-response-codes.md).
+For example: You configure your application gateway to use backend servers A, B, and C to receive HTTP network traffic on port 80. The default health monitoring tests the three servers every 30 seconds for a healthy HTTP response with a 30-second-timeout for each request. A healthy HTTP response has a [status code](/troubleshoot/developer/webapps/iis/www-administration-management/http-status-code) between 200 and 399. In this case, the HTTP GET Host header for the health probe appears as `http://127.0.0.1/`, unless a hostname is configured in the [Backend Settings](configuration-http-settings.md#configuring-the-host-name).
 
 If the default probe check fails for server A, the application gateway stops forwarding requests to this server. The default probe still continues to check for server A every 30 seconds. When server A responds successfully to one request from a default health probe, application gateway starts forwarding the requests to the server again.
 
@@ -54,7 +57,7 @@ If the default probe check fails for server A, the application gateway stops for
 
 | Probe property | Value | Description |
 | --- | --- | --- |
-| Probe URL |\<protocol\>://127.0.0.1:\<port\>/ |The protocol and port are inherited from the backend HTTP settings to which the probe is associated |
+| Probe URL |\<protocol\>://127.0.0.1:\<port\>/ |The protocol and port are inherited from the Backend Settings to which the probe is associated. The default host is 127.0.0.1 unless one is specified in the associated Backend Settings. |
 | Interval |30 |The amount of time in seconds to wait before the next health probe is sent.|
 | Time-out |30 |The amount of time in seconds the application gateway waits for a probe response before marking the probe as unhealthy. If a probe returns as healthy, the corresponding backend is immediately marked as healthy.|
 | Unhealthy threshold |3 |Governs how many probes to send in case there's a failure of the regular health probe. In v1 SKU, these additional health probes are sent in quick succession to determine the health of the backend quickly and don't wait for the probe interval. For v2 SKU, the health probes wait the interval. The backend server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
@@ -79,6 +82,10 @@ The following table provides definitions for the properties of a custom health p
 | Interval |Probe interval in seconds. This value is the time interval between two consecutive probes |
 | Time-out |Probe time-out in seconds. If a valid response isn't received within this time-out period, the probe is marked as failed  |
 | Unhealthy threshold |Probe retry count. The backend server is marked down after the consecutive probe failure count reaches the unhealthy threshold |
+| MinServers |Minimum number of servers that are always marked healthy. Default value is 0, which means health probe results determine the health status of all backend servers. When set to a value greater than 0, the specified number of servers are always marked as healthy regardless of probe results. This property is only configurable via PowerShell, Azure CLI, or ARM templates (not available in Azure portal).|
+
+> [!WARNING]
+> Use the **MinServers** parameter with caution. When MinServers is set to a value greater than 0, Application Gateway always marks that minimum number of backend servers as healthy, even if their health probes are failing. This can result in traffic being sent to unhealthy servers, potentially causing 502 Bad Gateway errors or other connectivity issues for clients. Only configure MinServers if you have specific availability requirements and understand the implications of overriding health probe results.
 
 ### Probe matching
 

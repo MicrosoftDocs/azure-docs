@@ -6,13 +6,13 @@ description: Learn how to enable a .NET web API to support tokens issued by mult
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.custom: devx-track-dotnet
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer migrating an OWIN-based web API to a new domain, I want to enable support for multiple token issuers, so that I can migrate my web applications in a staged manner and remove support for the old token issuer from the API.
@@ -20,6 +20,8 @@ ms.subservice: B2C
 ---
 
 # Migrate an OWIN-based web API to b2clogin.com or a custom domain
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article describes a technique for enabling support for multiple token issuers in web APIs that implement the [Open Web Interface for .NET (OWIN)](http://owin.org/). Supporting multiple token endpoints is useful when you're migrating Azure Active Directory B2C (Azure AD B2C) APIs and their applications from one domain to another. For example, from *login.microsoftonline.com* to *b2clogin.com*, or to a [custom domain](custom-domain.md).
 

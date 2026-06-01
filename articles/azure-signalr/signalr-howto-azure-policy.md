@@ -2,7 +2,7 @@
 title: Compliance using Azure Policy
 description: Assign built-in policies in Azure Policy to audit compliance of your Azure SignalR Service resources.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 07/18/2022
 ms.author: lianwei
@@ -20,7 +20,7 @@ There are no charges for using Azure Policy.
 
 The following built-in policy definitions are specific to Azure SignalR Service:
 
-[!INCLUDE [azure-policy-reference-policies-signalr](../../includes/policy/reference/bycat/policies-signalr.md)]
+[!INCLUDE [azure-policy-reference-policies-signalr](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policies-signalr.md)]
 
 ## Assign policy definitions
 

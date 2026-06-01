@@ -2,18 +2,20 @@
 title: Back up Azure Kubernetes Service (AKS) using Azure CLI
 description: This article explains how to back up Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: how-to
-ms.service: backup
-ms.date: 02/27/2024
+ms.service: azure-backup
+ms.date: 04/15/2026
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
+  - ignite-2024
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a Kubernetes administrator, I want to configure and execute backups for Azure Kubernetes Service (AKS) using Azure CLI, so that I can ensure data protection and recoverability for my applications running in AKS."
 ---
 
 # Back up Azure Kubernetes Service using Azure CLI 
 
-This article describes how to configure and back up Azure Kubernetes Service (AKS) using Azure CLI.
+This article describes how to configure and back up Azure Kubernetes Service (AKS) using Azure CLI. You can also back up AKS using [Azure PowerShell](azure-kubernetes-service-cluster-backup-using-powershell.md).
 
 Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. 
 
@@ -27,7 +29,7 @@ Azure Backup now allows you to back up AKS clusters (cluster resources and persi
 
 - You must [install the Backup Extension](azure-kubernetes-service-cluster-manage-backups.md#install-backup-extension) to configure backup and restore operations on an AKS cluster. Learn more [about Backup Extension](azure-kubernetes-service-cluster-backup-concept.md#backup-extension).
 
-- Ensure that `Microsoft.KubernetesConfiguration`, `Microsoft.DataProtection`, and the `TrustedAccessPreview` feature flag on `Microsoft.ContainerService` are registered for your subscription before initiating the backup configuration and restore operations.
+- Ensure that `Microsoft.KubernetesConfiguration`, `Microsoft.DataProtection`, and `Microsoft.ContainerService` are registered for your subscription before initiating the backup configuration and restore operations.
 
 - Ensure to perform [all the prerequisites](azure-kubernetes-service-cluster-backup-concept.md) before initiating backup or restore operation for AKS backup.
 
@@ -117,7 +119,7 @@ az dataprotection backup-policy get-default-policy-template --datasource-type Az
 
 ```
 
-The policy template consists of a trigger criteria (which decides the factors to trigger the backup job) and a lifecycle (which decides when to delete, copy, or move the backups). In AKS backup, the default value for trigger is a scheduled hourly trigger is *every 4 hours (PT4H)* and retention of each backup is *365 days*.
+The policy template consists of a trigger criteria (which decides the factors to trigger the backup job) and a lifecycle (which decides when to delete, copy, or move the backups). In AKS backup, the default value for trigger is a scheduled hourly trigger is *every 4 hours (PT4H)* and retention of each backup is *seven days*.
 
 
 ```azurecli
@@ -128,7 +130,8 @@ Scheduled trigger:
           "repeatingTimeIntervals": [
             "R/2023-01-04T09:00:00+00:00/PT4H"
           ]
-        },
+        }
+      }
 
 Default retention lifecycle:
       "lifecycles": [
@@ -142,22 +145,36 @@ Default retention lifecycle:
             "objectType": "DataStoreInfoBase"
           }
         }
-      ],
+      ]
 
 
 ```
 
-Backup for AKS provides multiple backups per day. If you require more frequent backups, choose the *Hourly backup frequency* that has the ability to take backups with intervals of every *4*, *6*, *8*, or *12* hours. The backups are scheduled based on the *Time interval* you've selected.
-
-For example, if you select *Every 4 hours*, then the backups are taken at approximately in the interval of *every 4 hours* so that the backups are distributed equally across the day. If *once a day backup* is sufficient, then choose the *Daily backup frequency*. In the daily backup frequency, you can specify the *time of the day* when your backups should be taken.
+Backup for AKS provides multiple backups per day. If you require more frequent backups, choose the *Hourly backup frequency* that has the ability to take backups with intervals of every *4*, *6*, *8*, or *12* hours. The backups are scheduled based on the *Time interval* you selected.
 
 >[!Important]
 >The time of the day indicates the backup start time and not the time when the backup completes.
+>The backup schedule follows the ISO 8601 duration format. However, the repeating interval prefix `R` is not supported, as backups are configured to run indefinitely. Any value specified with `R` will be ignored.
+
+Once you download the template as a JSON file, you can edit it for scheduling and retention as required. Then create a new policy with the resulting JSON. If you want to edit the hourly frequency or the retention period, use the `az dataprotection backup-policy trigger set` and/or `az dataprotection backup-policy retention-rule set` commands. 
 
 >[!Note]
->Though the selected vault has the global-redundancy setting, backup for AKS currently supports snapshot datastore only. All backups are stored in a resource group in your subscription, and aren't copied to the Backup vault storage.
+>To store your backup data in the **Vault tier** to either retain for long term for compliance purpose or for regional disaster recovery via cross region restore, you will need to define a new retention rule in the default template defining how long the backup should be stored in the Vault.
 
-Once you've downloaded the template as a JSON file, you can edit it for scheduling and retention as required. Then create a new policy with the resulting JSON. If you want to edit the hourly frequency or the retention period, use the `az dataprotection backup-policy trigger set` and/or `az dataprotection backup-policy retention-rule set` commands. Once the policy JSON has all the required values, proceed to create a new policy from the policy object using the `az dataprotection backup-policy create` command.
+
+Lets take an example where we'll update the default template for the backup policy and add a retention rule to retain **first successful backup per day** in the **Vault tier** for 30 days. 
+
+Use the command `az dataprotection backup-policy retention-rule create-lifecycle` to create a retention rule and then add the retention rule to the backup policy template with the command ``
+
+```azurecli
+
+az dataprotection backup-policy retention-rule create-lifecycle  --count 30 --retention-duration-type Days --copy-option ImmediateCopyOption --target-datastore VaultStore --source-datastore OperationalStore > ./retentionrule.json
+
+az dataprotection backup-policy retention-rule set --lifecycles ./retentionrule.json --name Daily --policy ./akspolicy.json > ./akspolicy.json
+
+```
+
+Once the policy JSON has all the required values, proceed to create a new policy from the policy object using the `az dataprotection backup-policy create` command.
 
 ```azurecli
 az dataprotection backup-policy create -g testBkpVaultRG --vault-name TestBkpVault -n mypolicy --policy policy.json
@@ -199,6 +216,23 @@ Once the vault and policy creation are complete, you need to perform the followi
    az k8s-extension create --name azure-aks-backup --extension-type microsoft.dataprotection.kubernetes --scope cluster --cluster-type managedClusters --cluster-name $akscluster --resource-group $aksclusterresourcegroup --release-train stable --configuration-settings blobContainer=$blobcontainer storageAccount=$storageaccount storageAccountResourceGroup=$storageaccountresourcegroup storageAccountSubscriptionId=$subscriptionId
    ```
 
+  In case the AKS cluster is within a virtual network, then you will have to create a private endpoint, connecting the storage account with the virtual network in which the AKS cluster resides.
+
+  ```azurecli
+  #Fetch the Subnet ID using the name of the virtual network and subnet in which cluster resides 
+  $PESubnetId = az network vnet subnet show --resource-group $aksMCResourceGroup --vnet-name $aksVnetName  --name $PESubnetName --query 'id' --output tsv
+
+  #Create a Private Endpoint between Storage Account and the Virtual Network.
+  az network private-endpoint create `
+    --resource-group $aksclusterresourcegroup `
+    --name $StoragePrivateEndpoint `
+    --vnet-name $aksVnetName `
+    --subnet $PESubnetId `
+    --private-connection-resource-id $(az storage account show --nameD $storageaccount --resource-group $storageaccountresourcegroup --query "id" --output tsv) `
+    --group-ids "blob" `
+    --connection-name "StoragePESharedVNetConnection"
+  ```
+
    As part of extension installation, a user identity is created in the AKS cluster's Node Pool Resource Group. For the extension to access the storage account, you need to provide this identity the **Storage Blob Data Contributor** role. To assign the required role, run the following command:
 
    ```azurecli
@@ -239,6 +273,7 @@ The configuration of backup is performed in two steps:
     "snapshot_volumes": true
    }
    ```
+The following namespaces are skipped from backup configuration and not configured for backups: kube-system, kube-node-lease, kube-public.
 
 2. Prepare the relevant request using the relevant vault, policy, AKS cluster, backup configuration, and snapshot resource group using the `az dataprotection backup-instance initialize` command.
 
@@ -288,6 +323,99 @@ Now, trigger an on-demand backup for the backup instance by running the followin
 az dataprotection backup-instance adhoc-backup --rule-name "BackupDaily" --ids /subscriptions/$subscriptionId/resourceGroups/$backupvaultresourcegroup/providers/Microsoft.DataProtection/backupVaults/$backupvault/backupInstances/$backupinstanceid
 
 ```
+## Configure backup using a single Azure CLI command
+
+Azure Backup provides a simplified experience to configure backup protection for Azure Kubernetes Service (AKS) clusters using a single Azure CLI command.
+
+   >[!Note]
+   >This procedure is an alternate approach. The earlier approach for creating backup instances using `az dataprotection backup-instance initialize-backupconfig` command continues to work as usual.
+
+The backup configuration for AKS clusters requires you to complete multiple manual steps, including Backup extension installation, storage resource provision, backup vault and policy creation, set up of Trusted Access between the AKS cluster and the backup vault, and backup instance initialization.
+
+
+To simplify this backup configuration, Microsoft provides an alternate approach to enable backup protection for an AKS cluster by running the following command:
+
+```azurecli
+az dataprotection enable-backup trigger \
+--datasource-type AzureKubernetesService \
+--datasource-id /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-cluster-name>
+```
+
+When you run this command, Azure Backup automatically performs the following configuration workflow:
+- Validate the AKS cluster state and backup compatibility
+- Creating or reusing a region-specific backup resource group
+- Installing the Backup extension in the AKS cluster (if not already present)
+- Creating or reusing storage resources required for backup
+- Creating or reusing a backup vault and backup policy
+- Enabling Trusted Access between the backup vault and AKS cluster
+- Initialize and create the backup instance
+
+**Provide optional backup configuration parameters**
+
+You can optionally provide a configuration file to use existing backup resources or apply custom settings during backup configuration.
+
+   >[!Note]
+   >To run this command, you must be on CLI version 1.9.0 and above. Follow these steps to install or update your CLI version: 
+   >- First-time install: `az extension add -n dataprotection` 
+   >- Upgrade if already installed: `az extension add -n dataprotection --upgrade` 
+   >- Verify version (must be >= 1.9.0): `az extension show -n dataprotection --query version -o tsv`
+
+Run the following command to enable backup using a configuration file:
+
+```azurecli
+az dataprotection enable-backup trigger \
+--datasource-type AzureKubernetesService \
+--datasource-id /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-cluster-name> \
+--backup-strategy <Strategy>\ 
+--backup-configuration-file @config.json
+```
+
+The configuration file can include the following parameters:
+
+| **Parameter** | **Description** |
+|-----------|-------------|
+| `backupVaultId`  | Use an existing backup vault |
+| `backupPolicyId` | Use an existing backup policy |
+| `storageAccountResourceId`  | Use an existing storage account |
+| `blobContainerName`  | Specify a custom container name |
+| `backupResourceGroupId` | Use an existing resource group |
+| `tags`  | Apply tags to created resources |
+
+Example configuration file:
+
+```azurecli
+{
+     "tags": {
+     "Owner": "azure@microsoft.com",
+     "Environment": "Production"
+    }
+}
+```
+
+**Supported backup strategies**
+
+Run the following command to configure backup using a predefined strategy:
+
+```azurecli
+az dataprotection enable-backup trigger \
+--datasource-type AzureKubernetesService \
+--datasource-id /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ContainerService/managedClusters/<aks-cluster-name> \
+--backup-strategy DisasterRecovery\
+
+```
+
+You can choose from the following predefined backup strategies:
+
+| **Strategy** | **Description** |
+|-----------|-------------|
+| `Week` (default)  | Retains backups in Operational store for 7 days |
+| `Month` | Retains backups in Operational store for 30 days |
+| `DisasterRecovery`  | Retains backups in Operational store for 7 days and Vault store for 90 days |
+| Custom  | Uses existing backup vault and policy |
+
+With *Custom* strategy, you will need to use the configuration file mentioned above.
+
+For more details, check the [CLI command here](/cli/azure/dataprotection/enable-backup?view=azure-cli-latest&preserve-view=true).
 
 ## Tracking jobs
 
@@ -309,6 +437,6 @@ az dataprotection job list-from-resourcegraph --datasource-type AzureKubernetesS
 
 ## Next steps
 
-- [Restore Azure Kubernetes Service cluster using Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)
+- Restore Azure Kubernetes Service cluster using [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md), [Azure PowerShell](azure-kubernetes-service-cluster-restore-using-powershell.md)
 - [Manage Azure Kubernetes Service cluster backups](azure-kubernetes-service-cluster-manage-backups.md)
 - [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-concept.md)

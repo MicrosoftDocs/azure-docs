@@ -4,8 +4,8 @@ description: Learn about recent updates about Azure Web PubSub
 author: kevinguo-ed
 ms.author: kevinguo
 ms.service: azure-web-pubsub
-ms.topic: conceptual
-ms.date: 11/15/2023
+ms.topic: article
+ms.date: 03/30/2026
 ms.custom: mode-other
 ---
 
@@ -13,6 +13,45 @@ ms.custom: mode-other
 
 On this page, you can read about recent updates about Azure Web PubSub. As we make continuous improvements to the capabilities and developer experience of the service, we welcome any feedback and suggestions. Reach out to the service team at **awps@microsoft.com**
 
+## Q1 2026
+
+### Wildcard group role patterns
+
+You can now grant client permissions to many related groups using a single wildcard pattern role instead of enumerating every group. Two new pattern-based roles are added:
+
+- `webpubsub.sendToGroups.{pattern}`
+- `webpubsub.joinLeaveGroups.{pattern}`
+
+Patterns support `?`, `*`, and `**` (where `**` can cross `.` separators) plus escaping. This reduces token size and simplifies hierarchical, path-style group authorization (for example: `clientA.**`). Existing literal roles (`webpubsub.sendToGroup.<group>` and `webpubsub.joinLeaveGroup.<group>`) continue to work unchanged.
+
+> [!div class="nextstepaction"]
+> [Learn how to use wildcard group role patterns](./concept-wildcard-group-roles.md)
+
+> [!div class="nextstepaction"]
+> [Generate client access URL with roles](./howto-generate-client-access-url.md)
+
+## Q3 2024
+
+### Serverless mode for Socket.IO in public preview
+
+This new serverless mode eliminates the need for developers to maintain persistent connections on their application servers, offering a more streamlined and scalable approach. In addition to the existing **default mode**, developers can now deploy Socket.IO applications in a serverless environment using Azure Functions. This provides a stateless, highly scalable infrastructure, simplifying the development of real-time features while reducing both operational costs and maintenance overhead.
+
+This capability is not natively supported by [Socket.IO library](http://socket.io) and is made possible by Azure Web PubSub for Socket.IO. It is part of our ongoing commitment to enhancing Socket.IO developers' experience and simplifying developing real-time applications.
+
+> [!div class="nextstepaction"]
+> [Learn more about serverless mode for Socket.IO](./socket-io-serverless-overview.md)
+
+## Q2 2024
+
+### MQTT support in public preview
+Web applications that communicate using MQTT over WebSocket can seamlessly connect to Azure Web PubSub to publish and receive messages. The service recognizes and translates MQTT messages into its native protocol, enabling cross-communication between MQTT web clients and other Web PubSub clients.
+
+This new capability addresses two key use cases:
+- **Real-time Applications With Mixed Protocols**: You can allow clients using different real-time protocols to exchange data through the Azure Web PubSub service.
+- **Support For Additional Programming Languages**: You can use any MQTT library to connect with the service, making it possible to integrate with applications written in languages like C++, beyond the existing SDKs in C#, JavaScript, Python, and Java.
+
+> [!div class="nextstepaction"]
+> [Learn more about MQTT support](./overview-mqtt.md)
 
 ## Q1 2024
 
@@ -37,7 +76,7 @@ Developers can manage Azure Web PubSub resources on Azure portal or using Azure 
 
 ## Q4 2023
 
-### Web PubSub for Socket.IO is now generally available 
+### Web PubSub for Socket.IO is now generally available
 
 [Read more about the journey of bringing the support for Socket.IO on Azure.](https://socket.io/blog/socket-io-on-azure-preview/)
 
@@ -52,7 +91,7 @@ Users enjoy the fact that they can offload scaling a Socket.IO app without chang
 
 ## Q3 2023
 ### Geo-replica is now in public preview
-The 99.9% and 99.95% uptime guarantees for the standard tier and premium tier are enough for most applications. Mission critical applications, however, demand even more stringent uptime. Developers had to set up two resources in different Azure regions and manage them with much complexity. With the geo-replication feature, it's now as simple as a few button clicks on Azure portal. 
+The 99.9% and 99.95% uptime guarantees for the standard tier and premium tier are enough for most applications. Mission critical applications, however, demand even more stringent uptime. Developers had to set up two resources in different Azure regions and manage them with much complexity. With the geo-replication feature, it's now as simple as a few button clicks on Azure portal.
 
 > [!div class="nextstepaction"]
 > [Learn more about all the benefits](./howto-enable-geo-replication.md)

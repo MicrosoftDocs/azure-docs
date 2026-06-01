@@ -1,202 +1,215 @@
 ---
-title: Troubleshoot Azure IoT Operations Preview
-description: Troubleshoot your Azure IoT Operations deployment
-author: kgremban
-ms.author: kgremban
+title: Troubleshoot Azure IoT Operations
+description: Troubleshoot your Azure IoT Operations deployment and configuration
+author: dominicbetts
+ms.author: dobett
 ms.topic: troubleshooting-general
 ms.custom:
   - ignite-2023
-ms.date: 01/22/2024
+ms.date: 05/07/2025
 ---
 
-# Troubleshoot Azure IoT Operations Preview
+# Troubleshoot Azure IoT Operations
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+This article contains troubleshooting tips for Azure IoT Operations.
 
-This article contains troubleshooting tips for Azure IoT Operations Preview.
+The troubleshooting guidance helps you diagnose and resolve issues you might encounter when deploying, configuring, or running Azure IoT Operations by:
 
-## General deployment troubleshooting
+- Collecting diagnostic information from the Azure IoT Operations service and the Azure IoT Operations components running on your cluster.
+- Providing solutions to common issues such as insufficient security permissions, missing secrets, or incorrect configuration settings.
 
-For general deployment and configuration troubleshooting, you can use the Azure CLI IoT Operations *check* and *support* commands.
+For information about known issues and temporary workarounds, see [Known issues: Azure IoT Operations](known-issues.md).
 
-[Azure CLI version 2.46.0 or higher](/cli/azure/install-azure-cli) is required and the [Azure IoT Operations extension](/cli/azure/iot/ops) installed.
+## Using health status for troubleshooting
 
-- Use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check) to evaluate Azure IoT Operations service deployment for health, configuration, and usability. The *check* command can help you find problems in your deployment and configuration.
+Azure IoT Operations provides [built-in health status reporting](../deploy-iot-ops/health-status-reporting.md) to help you understand the health of your edge workloads from the cloud. When a component reports **Degraded** or **Unavailable** health status, use the following approach to investigate and troubleshoot the issue:
 
-- Use [az iot ops support create-bundle](/cli/azure/iot/ops/support#az-iot-ops-support-create-bundle) to collect logs and traces to help you diagnose problems. The *support create-bundle* command creates a standard support bundle zip archive you can review or provide to Microsoft Support.
+1. **Check the reason code**: Each unhealthy resource includes a reason code (for example, `DataflowMqttSourceConnectionFailed`, `BrokerReplicaFailed`, `OpcUaConnectorInboundEndpointDisconnected`) and a human-readable message explaining the problem.
+1. **Look up the recommended action**: Check the [health status reason codes](../reference/health-status-reason-codes.md) for detailed descriptions and recommended actions for every reason code.
+1. **Check timestamps**: The `lastTransitionTime` shows when the issue started; `lastUpdateTime` shows the most recent status update.
+1. **Investigate further**: Use `az iot ops check`, pod logs, and the Grafana dashboard metrics to correlate the health status with runtime behavior.
 
-## Data Processor pipeline deployment troubleshooting
+## Troubleshoot Azure IoT Operations deployment
 
-If your Data Processor pipeline deployment status is showing as **Failed**, use the following commands to find the pipeline error codes.
+For general deployment and configuration troubleshooting, you can use the Azure CLI IoT Operations `check` and `support` commands.
 
-To list the Data Processor pipeline deployments, run the following command:
+[Azure CLI version 2.62.0 or higher](/cli/azure/install-azure-cli) is required and the [Azure IoT Operations extension](/cli/azure/iot/ops) installed.
 
-```bash
-kubectl get pipelines -A
-```
+- To evaluate Azure IoT Operations service deployment for health, configuration, and usability, use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check). The `check` command can help you find problems in your deployment and configuration.
 
-The output from the pervious command looks like the following example:
+- To collect logs and traces to help you diagnose problems, use [az iot ops support create-bundle](/cli/azure/iot/ops/support#az-iot-ops-support-create-bundle). The `support create-bundle` command creates a standard support bundle zip archive you can review or provide to Microsoft Support.
 
-```text
-NAMESPACE                NAME                           AGE
-azure-iot-operations     passthrough-data-pipeline      2d20h
-azure-iot-operations     reference-data-pipeline        2d20h
-azure-iot-operations     contextualized-data-pipeline   2d20h
-```
+### You see an UnauthorizedNamespaceError error message
 
-To view detailed information for a pipeline, run the following command:
-
-```bash
-kubectl describe pipelines passthrough-data-pipeline -n azure-iot-operations
-```
-
-The output from the previous command looks like the following example:
-
-```text
-...
-Status:
-  Provisioning Status:
-    Error
-      Code:  <ErrorCode>
-      Message: <ErrorMessage>
-    Status:        Failed
-Events:            <none>
-```
-
-If you see the following message when you try to access the **Pipelines** tab in the Azure IoT Operations (preview) portal:
-
-_Data Processor not found in the current deployment. Please re-deploy with the additional argument to include the Data Processor._
-
-You need to deploy Azure IoT Operations with the optional Data Processor component included. To do this, you need to add the `--include-dp` argument when you run the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command. You must use the `--include-dp` argument to include the Data Processor component when you first deploy Azure IoT Operations. You can't add this optional component to an existing deployment.
-
-> [!TIP]
-> If you want to delete the Azure IoT Operations deployment but plan on reinstalling it on your cluster, use the [az iot ops delete](/cli/azure/iot/ops?az-iot-ops-delete) command.
-
-## Azure IoT Layered Network Management Preview troubleshooting
-
-The troubleshooting guidance in this section is specific to Azure IoT Operations when using the Layered Network Management component. For more information, see [How does Azure IoT Operations Preview work in layered network?](../manage-layered-network/concept-iot-operations-in-layered-network.md).
-
-### Can't install Layered Network Management on the parent level
-
-If the Layered Network Management operator install fails or you can't apply the custom resource for a Layered Network Management instance:
-
-1. Verify the regions are supported for public preview. Public preview supports eight regions. For more information, see [Quickstart: Deploy Azure IoT Operations Preview](../get-started/quickstart-deploy.md#connect-a-kubernetes-cluster-to-azure-arc).
-1. If there are any other errors in installing Layered Network Management Arc extensions, follow the guidance included with the error. Try uninstalling and installing the extension.
-1. Verify the Layered Network Management operator is in the *Running and Ready* state.
-1. If applying the custom resource `kubectl apply -f cr.yaml` fails, the output of this command lists the reason for error. For example, CRD version mismatch or wrong entry in CRD.
-
-### Can't Arc-enable the cluster through the parent level Layered Network Management
-
-If you repeatedly remove and onboard a cluster with the same machine, you might get an error while Arc-enabling the cluster on nested layers. For example:
+If you see the following error message, you either didn't enable the required Azure-arc custom locations feature, or you enabled the custom locations feature with an incorrect custom locations RP OID.
 
 ```output
-Error: We found an issue with outbound network connectivity from the cluster to the endpoints required for onboarding.
-Please ensure to meet the following network requirements 'https://docs.microsoft.com/en-us/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli#meet-network-requirements'
-If your cluster is behind an outbound proxy server, please ensure that you have passed proxy parameters during the onboarding of your cluster.
+Message: Microsoft.ExtendedLocation resource provider does not have the required permissions to create a namespace on the cluster.
 ```
 
-1. Run the following command:
+To resolve the issue, follow [this guidance](/azure/azure-arc/kubernetes/custom-locations#enable-custom-locations-on-your-cluster) to enable the custom locations feature with the correct OID.
 
-    ```bash
-    sudo systemctl restart systemd-networkd
-    ```
+### You see a MissingResourceVersionOnHost error message
 
-1. Reboot the host machine.
+This error message indicates that the custom location resource associated with the deployment isn't properly configured. The custom location has the wrong the API version for the resources it's attempting to project to the cluster.
 
-### Other types of Arc-enablement failures
+```output
+Message: The resource {resource Id} extended location {custom location resource Id} does not support the resource type {IoT Operations resource type} or api version {IoT Operations ARM API}. Please check with the owner of the extended location to ensure the host has the CRD {custom resource name} with group {api group name}.iotoperations.azure.com, plural {custom resource plural name}, and versions [{api group version}] installed.
+```
 
-1. Add the `--debug` parameter when running the `connectedk8s` command.
-1. Capture and investigate a network packet trace. For more information, see [capture Layered Network Management packet trace](#capture-layered-network-management-packet-trace).
+To resolve, delete any provisioned resources associated with prior deployments including custom locations. You can use `az iot ops delete` or alternative mechanism. Due to a potential caching issue, waiting a few minutes after deletion before redeploying AIO or choosing a custom location name via `az iot ops create --custom-location` is recommended. The custom location name has a maximum length of 63 characters.
 
-### Can't install Azure IoT Operations on the isolated cluster
+### You see a LinkedAuthorizationFailed error message
 
-You can't install Azure IoT Operations components on nested layers. For example, Layered Network Management on level 4 is running but can't install Azure IoT Operations on level 3.
+If your deployment fails with the `"code":"LinkedAuthorizationFailed"` error, the message indicates that you don't have the required permissions on the resource group containing the cluster.
 
-1. Verify the nodes can access the Layered Network Management service running on parent level. For example, run `ping <IP-ADDRESS-L4-LNM>` from the node.
-1. Verify the DNS queries are being resolved to the Layered Network Management service running on the parent level using the following commands:
+The following message indicates that the logged-in principal doesn't have the required permissions to deploy resources to the resource group specified in the resource sync resource ID.
 
-    ```bash
-    nslookup management.azure.com
-    ```
+```output
+Message: The client {principal Id} with object id {principal object Id} has permission to perform action Microsoft.ExtendedLocation/customLocations/resourceSyncRules/write on scope {resource sync resource Id}; however, it does not have permission to perform action(s) Microsoft.Authorization/roleAssignments/write on the linked scope(s) {resource sync resource group} (respectively) or the linked scope(s) are invalid.
+```
 
-    DNS should respond with the IP address of the Layered Network Management service.
+To enable resource sync, the logged-in principal must have the `Microsoft.Authorization/roleAssignments/write` permission against the resource group that resources are being deployed to. This security constraint is necessary because edge to cloud resource hydration creates new resources in the target resource group.
 
-1. If the domain is being resolved correctly, verify the domain is added to the allowlist. For more information, see [Check the allowlist of Layered Network Management](#check-the-allowlist-of-layered-network-management).
-1. Capture and investigate a network packet trace. For more information, see [capture Layered Network Management packet trace](#capture-layered-network-management-packet-trace).
+To resolve the issue elevate principal permissions.
 
-### A pod fails when installing Azure IoT Operations on an isolated cluster
+> [!NOTE]
+> Legacy AIO CLIs had an opt-out mechanism by using the `--disable-rsync-rules`.
 
-When installing the Azure IoT Operations components to a cluster, the installation starts and proceeds. However, initialization of one or few of the components (pods) fails.
+### Deployment of MQTT broker fails
 
-1. Identify the failed pod
+A deployment might fail if the cluster doesn't have sufficient resources for the specified MQTT broker cardinality and memory profile. To resolve this situation, adjust the replica count, workers, sharding, and memory profile settings to appropriate values for your cluster.
 
-    ```bash
-    kubectl get pods -n azure-iot-operations
-    ```
+> [!WARNING]
+> Setting the replica count to one can result in data loss in node failure scenarios.
 
-1. Get details about the pod:
+> [!TIP]
+> If you set lower values for sharding, workers, or memory profile, the broker's capacity to handle message load is reduced. Before you deploy to production, test your scenario with the MQTT broker configuration, to ensure the broker can handle the maximum expected load.
 
-    ```bash
-    kubectl describe pod [POD NAME] -n azure-iot-operations
-    ```
+To learn more about how to choose suitable values for these parameters, see [Deployment planning](../deployment-plan/deployment-planning.md).
 
-1. Check the container image related information. If the image download fails, check if the domain name of download path is on the allowlist. For example:
+## Troubleshoot Azure IoT Operations uninstall
 
-    ```output
-    Warning  Failed  3m14s  kubelet  Failed to pull image "…
-    ```
+To uninstall Azure IoT Operations, always use `az iot ops delete`, which handles the proper sequencing automatically and avoids the following issues:
 
-### Check the allowlist of Layered Network Management
+### Namespace stuck in "Terminating" status
 
-Layered Network Management blocks traffic if the destination domain isn't on the allowlist.
+If you try to delete the namespace directly, finalizers on Azure IoT Operations resources such as the `Instance` custom resource block the deletion. The namespace gets stuck in a permanent "Terminating" state, leaving the cluster in a deadlock that's difficult to recover from without manual intervention.
 
-1. Run the following command to list the config maps.
+To resolve this issue, use `az iot ops delete` to delete an Azure IoT Operations instance.
 
-    ```bash
-    kubectl get cm -n azure-iot-operations
-    ```
+### Orphaned cluster-scoped resources
 
-1. The output should look like the following example:
+If you force-delete the namespace by manually removing finalizers, cluster-scoped resources such as `ClusterRoles`, `ClusterRoleBindings`, `ValidatingWebhookConfigurations`, and `MutatingWebhookConfigurations` remain behind. These orphaned resources can block future Azure IoT Operations installations, requiring you to either clean up each resource manually or reset the entire cluster.
 
-    ```output
-    NAME                           DATA   AGE
-    aio-lnm-level4-config          1      50s
-    aio-lnm-level4-client-config   1      50s
-    ```
+To resolve this issue, use `az iot ops delete` to delete an Azure IoT Operations instance.
 
-1. The *xxx-client-config* contains the allowlist. Run:
+### You see an "Instance must be deleted first" error message
 
-    ```bash
-    kubectl get cm aio-lnm-level4-client-config -o yaml
-    ```
+If you try to delete the Arc extension directly using `az k8s-extension delete`, a validation blocks the operation with a message saying the `Instance` must be deleted first. Don't try to manually delete the `Instance` custom resource.
 
-1. All the allowed domains are listed in the output.
+To resolve this issue, use `az iot ops delete` to delete an Azure IoT Operations instance and handle the proper sequencing automatically.
 
-### Capture Layered Network Management packet trace
+## Troubleshoot Azure Key Vault secret management
 
-In some cases, you might suspect that Layered Network Management instance at the parent level isn't forwarding network traffic to a particular endpoint. Connection to a required endpoint is causing an issue for the service running on your node. It's possible that the service you enabled is trying to connect to a new endpoint after an update. Or you're trying to install a new Arc extension or service that requires connection to endpoints that aren't on the default allowlist. Usually there would be information in the error message to notify the connection failure. However, if there's no clear information about the missing endpoint, you can capture the network traffic on the child node for detailed debugging.
+If you see the following error message related to secret management, update your Azure Key Vault contents:
 
-#### Windows host
+```output
+rpc error: code = Unknown desc = failed to mount objects, error: failed to get objectType:secret,
+objectName:nbc-eventhub-secret, objectVersion:: GET https://aio-kv-888f27b078.vault.azure.net/secrets/nbc-eventhub-secret/--------------------------------------------------------------------------------
+RESPONSE 404: 404 Not FoundERROR CODE: SecretNotFound--------------------------------------------------------------------------------{ "error": { "code": "SecretNotFound", "message": "A secret with (name/id) nbc-eventhub-secret was not found in this key vault.
+If you recently deleted this secret you may be able to recover it using the correct recovery command.
+For help resolving this issue, please see https://go.microsoft.com/fwlink/?linkid=2125182" }
+```
 
-1. Install Wireshark network traffic analyzer on the host.
-1. Run Wireshark and start capturing.
-1. Reproduce the installation or connection failure.
-1. Stop capturing.
+This error occurs when Azure IoT Operations tries to synchronize a secret from Azure Key Vault that doesn't exist. To resolve this issue, add the secret in Azure Key Vault before you create resources such as a secret provider class.
 
-#### Linux host
+## Troubleshoot permissions errors adding secrets or certificates
 
-1. Run the following command to start capturing:
+When you use the operations experience to add secrets or certificates, you might see permissions-related error messages if your Microsoft Entra ID account doesn't have the required permissions.
 
-    ```bash
-    sudo tcpdump -W 5 -C 10 -i any -w AIO-deploy -Z root
-    ```
+When you use the operations experience to add secrets or certificates, it adds them as secrets in your Azure Key Vault. Your Microsoft Entra ID account needs **Key Vault Secrets Officer** permissions at the resource level for the Azure Key Vault used by your Azure IoT Operations instance.
 
-1. Reproduce the installation or connection failure.
-1. Stop capturing.
+For more information about assigning the required permissions, see [Configure Azure Key Vault permissions](../secure-iot-ops/howto-manage-secrets.md#configure-azure-key-vault-permissions).
 
-#### Analyze the packet trace
+## Troubleshoot device and asset discovery
 
-Use Wireshark to open the trace file. Look for connection failures or unresponsive connections.
+Akri discovery requires that resource sync rules are enabled on your cluster. To enable resource sync rules, follow these steps:
 
-1. Filter the packets with the *ip.addr == [IP address]* parameter. Input the IP address of your custom DNS service address.
-1. Review the DNS query and response, check if there's a domain name that isn't on the allowlist of Layered Network Management.
+Run `enable-rsync` to enable resource sync rules on your Azure IoT Operations instance. This command also sets the required permissions on the custom location:
+
+```bash
+az iot ops enable-rsync - n <my instance> -g <my resource group>
+```
+
+If the signed-in CLI user doesn't have permission to look up the object ID (OID) of the K8 Bridge service principal, you can provide it explicitly using the `--k8-bridge-sp-oid` parameter:
+
+```bash
+az iot ops enable-rsync --k8-bridge-sp-oid <k8 bridge service principal object ID>
+```
+
+> [!NOTE]
+> You can manually look up the OID by a signed-in CLI principal that has MS Graph app read permissions. Run the following command to get the OID:
+> 
+> ```bash
+> az ad sp list --display-name "K8 Bridge" --query "[0].appId" -o tsv
+> ```
+
+## Troubleshoot OPC UA server connections
+
+An OPC UA server connection fails with a `BadSecurityModeRejected` error if the connector tries to connect to a server that only exposes endpoints with no security. There are two options to resolve this issue:
+
+- Overrule the restriction by explicitly setting the following values in the additional configuration for the device:
+
+    | Property | Value |
+    |----------|-------|
+    | `securityMode` | `none` |
+    | `securityPolicy` | `http://opcfoundation.org/UA/SecurityPolicy#None` |
+
+- To establish the connection, add a secure endpoint to the OPC UA server and set up the certificate mutual trust.
+
+### Data spike every 2.5 hours with some OPC UA simulators
+
+Data values spike every 2.5 hours when using some non-Microsoft OPC UA simulators causing CPU and memory spikes. This issue isn't seen with OPC PLC simulator used in the quickstarts.
+
+No data is lost, but you can see an increase in the volume of data published from the server to the MQTT broker.
+
+## Troubleshoot OPC PLC simulator
+
+### The OPC PLC simulator doesn't send data to the MQTT broker after you create a device for it
+
+To work around this issue, update the device inbound endpoint in the operations experience to automatically accept untrusted server certificates:
+
+:::image type="content" source="media/troubleshoot/auto-accept-certificate.png" alt-text="Screenshot that shows the option in the operations experience to automatically accept untrusted certificates.":::
+
+You can use the `az iot ops ns device endpoint inbound add opcua` to add endpoints to the device that automatically accept untrusted server certificates.
+
+> [!CAUTION]
+> Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
+
+## Troubleshoot access to the operations experience web UI
+
+To sign in to the [operations experience](https://iotoperations.azure.com) web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance.
+
+If you receive one of the following error messages:
+
+- A problem occurred getting unassigned instances
+- Message: The request is not authorized
+- Code: PermissionDenied
+
+To create a suitable Microsoft Entra ID account in your Azure tenant:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) with the same tenant and user name that you used to deploy Azure IoT Operations.
+1. In the Azure portal, go to the **Microsoft Entra ID** section, select **Users > +New user > Create new user**. Create a new user and make a note of the password, you need it to sign in later.
+1. In the Azure portal, go to the resource group that contains your **Kubernetes - Azure Arc** instance. On the **Access control (IAM)** page, select **+Add > Add role assignment**.
+1. On the **Add role assignment page**, select **Privileged administrator roles**. Then select **Contributor** and then select **Next**.
+1. On the **Members** page, add your new user to the role.
+1. Select **Review and assign** to complete setting up the new user.
+
+You can now use the new user account to sign in to the [operations experience](https://iotoperations.azure.com) web UI.
+
+## Troubleshoot data flows
+
+### You see a "Global error: AllBrokersDown" error message
+
+If you see a `Global error: AllBrokersDown` error message in the data flow logs, this means that the data flow hasn't processed any messages for about four or five minutes. Check that the data flow source is correctly configured and sending messages. For example, check that you're using the correct topic name from the MQTT broker.

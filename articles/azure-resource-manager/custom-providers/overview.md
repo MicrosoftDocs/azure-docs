@@ -1,13 +1,32 @@
----
+﻿---
 title: Overview of custom resource providers
 description: Learn about Azure Custom Resource Providers and how to extend the Azure API plane to fit your workflows.
 author: jjbfour
-ms.topic: conceptual
+ms.topic: article
 ms.date: 06/19/2019
 ms.author: jobreen
 ---
 
 # Azure Custom Resource Providers Overview
+
+> [!IMPORTANT]
+> Custom Resource Providers is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> In 2026, Azure Resource Manager will be deprecating the Custom Resource Provider (CuRP) service.
+>
+> We will retire the feature by **October 31, 2026**. We will be performing a scream test on February 24, 2026, as part of this deprecation. On July 31, 2026, creates, updates, patches, and actions to custom resources and resource providers will be blocked. You will only be able to read and delete your custom resources and resource providers.
+>
+> We understand that this deprecation may be an inconvenience to you and your team. Here are some potential CuRP alternatives you can use to support your existing workflows.
+> 
+> If your CuRP scenario:
+>
+> - Only involves triggering an endpoint without the need for persistent resource management, consider [Deployment Scripts](../templates/deployment-script-template.md).
+> - Only involves triggering an endpoint without the need for persistent resource management, and you use Bicep, consider [Bicep Extensions](../bicep/bicep-extension.md).
+> - Involves triggering several different endpoints or services for your solution, consider [Azure Functions](../../azure-functions/functions-overview.md).
+>
+> If you have any questions, please ask your Microsoft account manager to email curpdeprecation@microsoft.com with your name, company name, email contact, and subscription ID.
 
 Azure Custom Resource Providers is an extensibility platform to Azure. It allows you to define custom APIs that can be used to enrich the default Azure experience. This documentation describes:
 
@@ -16,11 +35,6 @@ Azure Custom Resource Providers is an extensibility platform to Azure. It allows
 - Where to find guides and code samples to get started.
 
 :::image type="content" source="./media/overview/overview.png" alt-text="Diagram of Azure Custom Resource Providers, displaying the relationship between Azure Resource Manager, custom resource providers, and resources.":::
-
-> [!IMPORTANT]
-> Custom Resource Providers is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## What can custom resource providers do
 
@@ -123,3 +137,4 @@ In this article, you learned about custom resource providers. Go to the next art
 - [Tutorial: Create custom actions and resources in Azure](./tutorial-get-started-with-custom-providers.md)
 - [How To: Adding Custom Actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [How To: Adding Custom Resources to Azure REST API](./custom-providers-resources-endpoint-how-to.md)
+

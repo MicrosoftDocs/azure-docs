@@ -1,12 +1,12 @@
 ---
 title: Migrate Azure Firewall configurations to Azure Firewall policy using PowerShell
 description: Learn How to migrate Azure Firewall configurations to Azure Firewall policy
-author: vhorne
-ms.service: firewall-manager
+author: duongau
+ms.service: azure-firewall-manager
 services: firewall-manager
 ms.topic: how-to
-ms.date: 09/12/2022
-ms.author: victorh 
+ms.date: 01/10/2025
+ms.author: duau 
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -214,7 +214,7 @@ If ($azfw.NatRuleCollections.Count -gt 0)
 				$parsedName = ParseRuleName($rule.Name)
 				If ($rule.SourceAddresses) 
 				{
-					$firewallPolicyNatRule = New-AzFirewallPolicyNatRule -Name $parsedName -SourceIpGroup  $rule.SourceAddresses -TranslatedAddress $rule.TranslatedAddress -TranslatedPort $rule.TranslatedPort -DestinationAddress $rule.DestinationAddresses -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
+					$firewallPolicyNatRule = New-AzFirewallPolicyNatRule -Name $parsedName -SourceAddress  $rule.SourceAddresses -TranslatedAddress $rule.TranslatedAddress -TranslatedPort $rule.TranslatedPort -DestinationAddress $rule.DestinationAddresses -DestinationPort $rule.DestinationPorts -Protocol $rule.Protocols
 				}
         elseif ($rule.SourceIpGroups)
         {

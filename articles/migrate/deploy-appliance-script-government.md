@@ -6,8 +6,10 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 07/02/2024
-ms.custom: engagement-fy24
+ms.date: 03/21/2025
+ms.reviewer: v-uhabiba
+ms.custom: engagement-fy25
+# Customer intent: "As an IT administrator in a government setting, I want to deploy an Azure Migrate appliance using a PowerShell script, so that I can efficiently discover, assess, and replicate servers from various environments to Azure Government cloud."
 ---
 
 
@@ -42,23 +44,14 @@ You can use the script to deploy the Azure Migrate appliance on an existing phys
 
 ### Download the script
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, click **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover server** > **Are your servers virtualized?**, select **Yes, with VMware vSphere hypervisor**.
 3. Provide an appliance name and generate a project key in the portal.
-3. Click **Download**, to download the zipped file.
+3. Select **Download**, to download the zipped file.
 
 ### Verify security
 
-Check that the zipped file is secure, before you deploy it.
-
-1. On the server to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the zipped file:
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-3.  Verify the latest appliance version and hash value:
-
-[!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]  
-
+Check that the zipped file is [secure](migrate-appliance.md#verify-security), before you deploy it.
 
 ### Run the script
 
@@ -101,24 +94,14 @@ Make sure that the appliance can connect to Azure URLs for [government clouds](m
 
 ### Download the script
 
-1.	In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, click **Discover**.
+1.	In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2.	In **Discover servers** > **Are your servers virtualized?**, select **Yes, with Hyper-V**.
 3. Provide an appliance name and generate a project key in the portal.
-3. Click **Download**, to download the zipped file. 
+3. Select **Download**, to download the zipped file. 
 
 ### Verify security
 
-Check that the zipped file is secure, before you deploy it.
-
-1. On the server to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the zipped file:
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-3.  Verify the latest appliance version and hash value:
-
-    **Download** | **Hash value**
-    --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 07783A31D1E66BE963349B5553DC1F1E94C70AA149E11AC7D8914F4076480731 
+Check that the zipped file is [secure](migrate-appliance.md#verify-security), before you deploy it.
 
 ### Run the script
 
@@ -162,24 +145,13 @@ Make sure that the appliance can connect to Azure URLs for [government clouds](m
 
 ### Download the script
 
-1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, click **Discover**.
+1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
 2. In **Discover servers** > **Are your servers virtualized?**, select **Physical or other (AWS, GCP, Xen etc.)**.
-3. Click **Download**, to download the zipped file.
+3. Select **Download**, to download the zipped file.
 
 ### Verify security
 
-Check that the zipped file is secure, before you deploy it.
-
-1. On the server to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the zipped file:
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-3.  Verify the latest appliance version and hash value:
-
-[!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
-
-> [!NOTE]
-> The same script can be used to set up Physical appliance for Azure Government cloud with either public or private endpoint connectivity.
+Check that the zipped file is [secure](migrate-appliance.md#verify-security), before you deploy it.
 
 ### Run the script
 
@@ -220,6 +192,4 @@ Make sure that the appliance can connect to Azure URLs for [government clouds](m
 
 After deploying the appliance, you need to configure it for the first time, and register it with the project.
 
-- Set up the appliance for [VMware](how-to-set-up-appliance-vmware.md#4-configure-the-appliance).
-- Set up the appliance for [Hyper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance).
-- Set up the appliance for [physical servers](how-to-set-up-appliance-physical.md).
+- Set up the appliance for [VMware](how-to-set-up-appliance-vmware.md#4-configure-the-appliance), [Hyper-V](how-to-set-up-appliance-hyper-v.md#configure-the-appliance), or [physical servers](how-to-set-up-appliance-physical.md).

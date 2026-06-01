@@ -4,13 +4,14 @@ description: 'In this article, you create an Azure Traffic Manager profile using
 services: traffic-manager
 ms.topic: quickstart
 ms.custom: devx-track-terraform
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 author: TomArcherMsft
 ms.author: tarcher
 ms.date: 6/8/2023
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+# Customer intent: As a cloud architect, I want to create an Azure Traffic Manager profile using Terraform, so that I can efficiently manage and route user traffic based on performance.
 ---
 
 # Quickstart: Create an Azure Traffic Manager profile using Terraform

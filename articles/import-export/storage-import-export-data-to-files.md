@@ -1,13 +1,14 @@
 ---
 title: Tutorial to transfer data to Azure Files with Azure Import/Export | Microsoft Docs
 description: Learn how to create import jobs in the Azure portal to transfer data to Azure Files.
-author: alkohli
+author: stevenmatthew
 services: storage
 ms.service: azure-import-export
 ms.topic: tutorial
 ms.date: 02/13/2023
-ms.author: alkohli
+ms.author: shaas
 ms.custom: tutorial, devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: As a data manager, I want to import large datasets to Azure Files using the Import/Export service, so that I can securely transfer storage media to Azure for efficient data management.
 ---
 # Tutorial: Transfer data to Azure Files with Azure Import/Export
 
@@ -41,7 +42,7 @@ Before you create an import job to transfer data into Azure Files, carefully rev
 
 ## Step 1: Prepare the drives
 
-This step generates a journal file. The journal file stores basic information such as drive serial number, encryption key, and storage account details.
+Attach the external disk to the file share and run WAImportExport.exe file. This step generates a journal file. The journal file stores basic information such as drive serial number, encryption key, and storage account details.
 
 Do the following steps to prepare the drives.
 

@@ -2,7 +2,7 @@
 title: Azure Event Grid trigger for Azure Functions
 description: Learn to run code when Event Grid events in Azure Functions are dispatched.
 ms.topic: reference
-ms.date: 04/02/2023
+ms.date: 08/20/2025
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
@@ -44,11 +44,11 @@ The type of the input parameter used with an Event Grid trigger depends on these
 
 When running your C# function in an isolated worker process, you need to define a custom type for event properties. The following example defines a `MyEventType` class.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="35-49":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="33-45":::
 
 The following example shows how the custom type is used in both the trigger and an Event Grid output binding:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="11-33":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="11-29":::
 
 # [In-process model](#tab/in-process)
 
@@ -342,7 +342,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated worker proces
 
 Here's an `EventGridTrigger` attribute in a method signature:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="13-16":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="11-14":::
 
 # [In-process model](#tab/in-process)
 
@@ -489,7 +489,7 @@ For explanations of the common and event-specific properties, see [Event propert
 
 ## Next steps
 
-* If you have questions, submit an issue to the team [here](https://github.com/Azure/azure-functions-eventgrid-extension/issues)
+* If you have questions, submit an issue to the team [here](https://github.com/Azure/azure-sdk-for-net/issues)
 * [Dispatch an Event Grid event](./functions-bindings-event-grid-output.md)
 
 [EventGridEvent]: /dotnet/api/microsoft.azure.eventgrid.models.eventgridevent

@@ -2,15 +2,19 @@
 title: Understanding Azure Content Delivery Network billing
 description: Learn about the billing structure for content hosted by Azure Content Delivery Network, including billing regions, delivery charges, and to manage costs.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
-ms.topic: article
-ms.date: 03/20/2024
-ms.author: duau
+ms.topic: concept-article
+ms.date: 02/28/2026
+ROBOTS: NOINDEX
+# Customer intent: As a content manager using a cloud-based content delivery network, I want to understand the billing structure and associated costs, so that I can effectively manage my expenses and optimize my content delivery strategies.
 ---
 
 # Understanding Azure Content Delivery Network billing
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 This FAQ describes the billing structure for content hosted by Azure Content Delivery Network.
 
@@ -59,7 +63,7 @@ If you're using Azure Blob storage as the origin for your content, you also incu
 - Transfers in GB: The amount of data transferred to fill the content delivery network caches.
 
 > [!NOTE]
-> Starting October 2019, if you are using Azure Content Delivery Network from Microsoft, the cost of data transfer from origins hosted in Azure to content delivery network PoPs is free of charge. Azure Content Delivery Network from Edgio is subject to the rates described as followed.
+> Starting October 2019, if you are using Azure Content Delivery Network from Microsoft, the cost of data transfer from origins hosted in Azure to content delivery network PoPs is free of charge.
 
 For more information about Azure Storage billing, see [Plan and manage costs for Azure Storage](../storage/common/storage-plan-manage-costs.md).
 

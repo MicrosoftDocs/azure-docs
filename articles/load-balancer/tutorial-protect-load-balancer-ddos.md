@@ -3,11 +3,14 @@ title: "Tutorial: Protect your public load balancer with Azure DDoS Protection"
 titleSuffix: Azure Load Balancer
 description: Learn how to set up a public load balancer and protect it with Azure DDoS protection.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: tutorial
-ms.date: 06/06/2023
+ms.date: 09/30/2024
 ms.author: mbender
-ms.custom: template-tutorial
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
+# Customer intent: As a cloud architect, I want to implement Azure DDoS Protection for my public load balancer, so that I can safeguard my applications against DDoS attacks and ensure their availability.
 ---
 
 # Tutorial: Protect your public load balancer with Azure DDoS Protection
@@ -15,7 +18,7 @@ ms.custom: template-tutorial
 Azure DDoS Protection enables enhanced DDoS mitigation capabilities such as adaptive tuning, attack alert notifications, and monitoring to protect your public load balancers from large scale DDoS attacks.
 
 > [!IMPORTANT]
-> Azure DDoS Protection incurs a cost when you use the Network Protection SKU. Overages charges only apply if more than 100 public IPs are protected in the tenant. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing]( https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md).
+> Azure DDoS Protection incurs a cost when you use the Network Protection SKU. Overages charges only apply if more than 100 public IPs are protected in the tenant. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing]( https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md)
 
 In this tutorial, you learn how to:
 
@@ -26,7 +29,7 @@ In this tutorial, you learn how to:
 > * Create a NAT gateway for outbound internet access for the backend pool.
 > * Create virtual machine, then install and configure IIS on the VMs to demonstrate the port forwarding and load-balancing rules.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 
@@ -169,7 +172,7 @@ During the creation of the load balancer, you'll configure:
 11. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
+    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json), you can select zone-redundant (default option) or a specific zone. The choice depends on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview).
 
 12. Leave the default of **Microsoft Network** for **Routing preference**.
 

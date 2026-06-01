@@ -2,13 +2,13 @@
 title: Key Vault secret with template
 description: Shows how to pass a secret from a key vault as a parameter during deployment.
 ms.topic: how-to
-ms.date: 06/20/2024
+ms.date: 07/23/2025
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Use Azure Key Vault to pass secure parameter value during deployment
 
-Instead of putting a secure value (like a password) directly in your template or parameter file, you can retrieve the value from an [Azure Key Vault](../../key-vault/general/overview.md) during a deployment. You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID.
+Instead of putting a secure value (like a password) directly in your template or parameter file, you can retrieve the value from an [Azure Key Vault](/azure/key-vault/general/overview) during a deployment. You retrieve the value by referencing the key vault and secret in your parameter file. The value is never exposed because you only reference its key vault ID.
 
 > [!IMPORTANT]
 > This article focuses on how to pass a sensitive value as a template parameter. When the secret is passed as a parameter, the key vault can exist in a different subscription than the resource group you're deploying to.
@@ -92,11 +92,11 @@ The access policies aren't needed if the user is deploying a template that retri
 
 For more information about creating key vaults and adding secrets, see:
 
-- [Set and retrieve a secret by using CLI](../../key-vault/secrets/quick-create-cli.md)
-- [Set and retrieve a secret by using PowerShell](../../key-vault/secrets/quick-create-powershell.md)
-- [Set and retrieve a secret by using the portal](../../key-vault/secrets/quick-create-portal.md)
-- [Set and retrieve a secret by using .NET](../../key-vault/secrets/quick-create-net.md)
-- [Set and retrieve a secret by using Node.js](../../key-vault/secrets/quick-create-node.md)
+- [Set and retrieve a secret by using CLI](/azure/key-vault/secrets/quick-create-cli)
+- [Set and retrieve a secret by using PowerShell](/azure/key-vault/secrets/quick-create-powershell)
+- [Set and retrieve a secret by using the portal](/azure/key-vault/secrets/quick-create-portal)
+- [Set and retrieve a secret by using .NET](/azure/key-vault/secrets/quick-create-net)
+- [Set and retrieve a secret by using Node.js](/azure/key-vault/secrets/quick-create-node)
 
 ## Grant deployment access to the secrets
 
@@ -108,51 +108,51 @@ For other users, grant the `Microsoft.KeyVault/vaults/deploy/action` permission.
 
 1. Create a custom role definition JSON file:
 
-    ```json
-    {
-      "Name": "Key Vault resource manager template deployment operator",
-      "IsCustom": true,
-      "Description": "Lets you deploy a resource manager template with the access to the secrets in the Key Vault.",
-      "Actions": [
-        "Microsoft.KeyVault/vaults/deploy/action"
-      ],
-      "NotActions": [],
-      "DataActions": [],
-      "NotDataActions": [],
-      "AssignableScopes": [
-        "/subscriptions/00000000-0000-0000-0000-000000000000"
-      ]
-    }
-    ```
+  ```json
+  {
+    "Name": "Key Vault resource manager template deployment operator",
+    "IsCustom": true,
+    "Description": "Lets you deploy a resource manager template with the access to the secrets in the Key Vault.",
+    "Actions": [
+      "Microsoft.KeyVault/vaults/deploy/action"
+    ],
+    "NotActions": [],
+    "DataActions": [],
+    "NotDataActions": [],
+    "AssignableScopes": [
+      "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
+    ]
+  }
+  ```
+  
+  Replace "00000000-0000-0000-0000-000000000000" with the subscription ID.
 
-    Replace "00000000-0000-0000-0000-000000000000" with the subscription ID.
+1. Create the new role using the JSON file:
 
-2. Create the new role using the JSON file:
-
-    # [Azure CLI](#tab/azure-cli)
-
-    ```azurecli-interactive
-    az role definition create --role-definition "<path-to-role-file>"
-    az role assignment create \
-      --role "Key Vault resource manager template deployment operator" \
-      --scope /subscriptions/<Subscription-id>/resourceGroups/<resource-group-name> \
-      --assignee <user-principal-name> \
-      --resource-group ExampleGroup
-    ```
-
-    # [PowerShell](#tab/azure-powershell)
-
-    ```azurepowershell-interactive
-    New-AzRoleDefinition -InputFile "<path-to-role-file>"
-    New-AzRoleAssignment `
-      -ResourceGroupName ExampleGroup `
-      -RoleDefinitionName "Key Vault resource manager template deployment operator" `
-      -SignInName <user-principal-name>
-    ```
-
-    ---
-
-    The samples assign the custom role to the user on the resource group level.
+  # [Azure CLI](#tab/azure-cli)
+  
+  ```azurecli-interactive
+  az role definition create --role-definition "<path-to-role-file>"
+  az role assignment create \
+    --role "Key Vault resource manager template deployment operator" \
+    --scope /subscriptions/<Subscription-id>/resourceGroups/<resource-group-name> \
+    --assignee <user-principal-name> \
+    --resource-group ExampleGroup
+  ```
+  
+  # [PowerShell](#tab/azure-powershell)
+  
+  ```azurepowershell-interactive
+  New-AzRoleDefinition -InputFile "<path-to-role-file>"
+  New-AzRoleAssignment `
+    -ResourceGroupName ExampleGroup `
+    -RoleDefinitionName "Key Vault resource manager template deployment operator" `
+    -SignInName <user-principal-name>
+  ```
+  
+  ---
+  
+  The samples assign the custom role to the user on the resource group level.
 
 When using a key vault with the template for a [Managed Application](../managed-applications/overview.md), you must grant access to the **Appliance Resource Provider** service principal. For more information, see [Access Key Vault secret when deploying Azure Managed Applications](../managed-applications/key-vault-access.md).
 
@@ -188,7 +188,7 @@ The following template deploys a SQL server that includes an administrator passw
   "resources": [
     {
       "type": "Microsoft.Sql/servers",
-      "apiVersion": "2021-11-01",
+      "apiVersion": "2024-05-01-preview",
       "name": "[parameters('sqlServerName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -312,7 +312,7 @@ The following template dynamically creates the key vault ID and passes it as a p
   "resources": [
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2020-10-01",
+      "apiVersion": "2025-04-01",
       "name": "dynamicSecret",
       "properties": {
         "mode": "Incremental",
@@ -339,7 +339,7 @@ The following template dynamically creates the key vault ID and passes it as a p
           "resources": [
             {
               "type": "Microsoft.Sql/servers",
-              "apiVersion": "2021-11-01",
+              "apiVersion": "2024-05-01-preview",
               "name": "[variables('sqlServerName')]",
               "location": "[parameters('location')]",
               "properties": {
@@ -379,6 +379,6 @@ The following template dynamically creates the key vault ID and passes it as a p
 
 ## Next steps
 
-- For general information about key vaults, see [What is Azure Key Vault?](../../key-vault/general/overview.md)
+- For general information about key vaults, see [What is Azure Key Vault?](/azure/key-vault/general/overview)
 - For complete examples of referencing key secrets, see [key vault examples](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples) on GitHub.
 - For a Learn module that covers passing a secure value from a key vault, see [Manage complex cloud deployments by using advanced ARM template features](/training/modules/manage-deployments-advanced-arm-template-features/).

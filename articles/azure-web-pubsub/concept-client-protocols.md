@@ -4,8 +4,9 @@ description: This article presents an overview of the client protocols for Azure
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
-ms.topic: conceptual 
-ms.date: 11/08/2021
+ms.topic: article
+ms.date: 03/30/2026
+ms.custom: sfi-ropc-nochange
 ---
 
 #  WebSocket client protocols for Azure Web PubSub
@@ -27,27 +28,27 @@ Here's a general authorization workflow:
 
 1. The client negotiates with your application server. The application server contains the authorization middleware, which handles the client request and signs a JWT for the client to connect to the service.
 1. The application server returns the JWT and the service URL to the client.
-1. The client tries to connect to the Web PubSub service by using the URL and the JWT token returned from the application server.
+1. The client tries to connect to the Web PubSub service by using the URL and the JWT returned from the application server.
 
 ### Supported claims
-You could also configure properties for the client connection when generating the access token by specifying special claims inside the JWT token:
+You could also configure properties for the client connection when generating the access token by specifying special claims inside the JWT:
 
 | Description | Claim type | Claim value | Notes |
 | --- | --- | --- | --- |
 | The `userId` for the client connection | `sub` | the userId | Only one `sub` claim is allowed. |
 | The lifetime of the token | `exp` | the expiration time | The `exp` (expiration time) claim identifies the expiration time on or after which the token MUST NOT be accepted for processing. |
 | The [permissions](#permissions) the client connection initially has | `role` | the role value defined in [permissions](#permissions) | Specify multiple `role` claims if the client has multiple permissions. |
-| The initial groups that the client connection joins once it connects to Azure Web PubSub | `group` | the group to join | Specify multiple `group` claims if the client joins multiple groups. |
+| The initial groups that the client connection joins once it connects to Azure Web PubSub | `webpubsub.group` | the group to join | Specify multiple `webpubsub.group` claims if the client joins multiple groups. |
 
 You could also add custom claims into the access token, and these values are preserved as the `claims` property in [connect upstream request body](./reference-cloud-events.md#system-connect-event).
 
-[Server SDKs](./howto-generate-client-access-url.md#generate-from-service-sdk) provides APIs to generate the access token for the clients. 
+[Server SDKs](./howto-generate-client-access-url.md#generate-from-service-sdk) provides APIs to generate the access token for the clients.
 
 <a name="simple_client"></a>
 
 ## The simple WebSocket client
 
-A **simple WebSocket client**, as the naming indicates, is a simple WebSocket connection. It can also have its own custom subprotocol. 
+A **simple WebSocket client**, as the naming indicates, is a simple WebSocket connection. It can also have its own custom subprotocol.
 
 For example, in JavaScript, you can create a simple WebSocket client by using the following code:
 
@@ -57,6 +58,25 @@ var client1 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1');
 
 // simple WebSocket client2 with some custom subprotocol
 var client2 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1', 'custom.subprotocol')
+```
+
+Simple WebSocket client has two modes: `sendEvent` and `sendToGroup`. The mode is determined once the connection is established and cannot be changed later.
+
+`sendEvent` is the default mode for the simple WebSocket client. In `sendEvent` mode, every WebSocket frame the client sent is considered as a `message` event. Users can configure [event handlers](./concept-service-internals.md#event-handler) or [event listeners](./concept-service-internals.md#event-listener) to handle these `message` events.
+
+```javascript
+// Every data frame is considered as a `message` event
+var client3 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1');
+
+// Or explicitly set the mode
+var client4 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1?webpubsub_mode=sendEvent');
+```
+
+In `sendToGroup` mode, every WebSocket frame the client sent is considered as a message to be published to a specific group. `group` is a required query parameter in this mode, and only a single value is allowed. The connection should also have corresponding [permissions](#permissions) to send messages to the target group. Both `webpubsub.sendToGroup.<group>` and `webpubsub.sendToGroup` roles work for it.
+
+For example, in JavaScript, you can create a simple WebSocket client in `sendToGroup` mode with `group=group1` by using the following code:
+```javascript
+var client5 = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub1?webpubsub_mode=sendToGroup&group=group1');
 ```
 
 ## The PubSub WebSocket client
@@ -82,7 +102,7 @@ var pubsubClient = new WebSocket('wss://test.webpubsub.azure.com/client/hubs/hub
 
 ```js
 let ackId = 0;
-pubsubClient.send(    
+pubsubClient.send(
     JSON.stringify({
         type: 'joinGroup',
         group: 'group1',
@@ -94,7 +114,7 @@ pubsubClient.send(
 
 ```js
 let ackId = 0;
-pubsubClient.send(    
+pubsubClient.send(
     JSON.stringify({
         type: 'sendToGroup',
         group: 'group1',
@@ -171,15 +191,17 @@ As you likely noticed in the earlier PubSub WebSocket client description, a clie
 | `webpubsub.sendToGroup` | The client can publish messages to any group. |
 | `webpubsub.joinLeaveGroup.<group>` | The client can join or leave group `<group>`. |
 | `webpubsub.sendToGroup.<group>` | The client can publish messages to group `<group>`. |
+| `webpubsub.joinLeaveGroups.<pattern>` | The client can join/leave any group whose name matches `<pattern>` (see [Wildcard group role patterns](./concept-wildcard-group-roles.md)). |
+| `webpubsub.sendToGroups.<pattern>` | The client can publish messages to any group whose name matches `<pattern>` (see [Wildcard group role patterns](./concept-wildcard-group-roles.md)). |
 | | |
 
 The permission of a client can be granted in several ways:
 
 #### 1. Assign the role to the client when generating the access token
 
-Client can connect to the service using a JWT token. The token payload can carry information such as the `role` of the client. When signing the JWT token to the client, you can grant permissions to the client by giving the client specific roles.
+Client can connect to the service using a JWT. The token payload can carry information such as the `role` of the client. When signing the JWT to the client, you can grant permissions to the client by giving the client specific roles.
 
-For example, let's sign a JWT token that has the permission to send messages to `group1` and `group2`: 
+For example, let's sign a JWT that has the permission to send messages to `group1` and `group2`:
 
 ```js
 let token = await serviceClient.getClientAccessToken({
@@ -210,6 +232,10 @@ let handler = new WebPubSubEventHandler("hub1", {
 let service = new WebPubSubServiceClient("<your_connection_string>", "test-hub");
 await service.grantPermission("<connection_id>", "joinLeaveGroup", { targetName: "group1" });
 ```
+
+> [!NOTE]
+> Assigning wildcard roles (e.g., `webpubsub.sendToGroups.<pattern>`)  through REST APIs or server SDKs are not supported yet. This feature will be supported in a future update.
+
 
 ## Next steps
 

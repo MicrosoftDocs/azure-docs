@@ -2,12 +2,13 @@
 title: "Tutorial: Configure item-level backup for an Azure Kubernetes Service cluster"
 description: Learn how to configure backup for an Azure Kubernetes Service (AKS) cluster, and use Azure Backup to back up specific items from the cluster.
 ms.topic: tutorial
-ms.date: 11/14/2023
-ms.service: backup
+ms.date: 01/09/2026
+ms.service: azure-backup
 ms.custom:
   - ignite-2023
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a Kubernetes administrator, I want to configure item-level backup for my AKS cluster, so that I can ensure application-consistent backups and protect specific components within the cluster.
 ---
 
 # Tutorial: Configure item-level backup for an Azure Kubernetes Service cluster
@@ -22,10 +23,14 @@ The Backup vault communicates with the cluster via the Backup extension to compl
 
 ## Prerequisites
 
+Before you configure item-level backup for an AKS cluster, complete the following prerequisites:
+
 - Identify or [create a Backup vault](create-manage-backup-vault.md) in the same region where you want to back up an AKS cluster.
 - [Install the Backup extension](quick-install-backup-extension.md) in the AKS cluster that you want to back up.
 
-## Configure backup for an AKS cluster
+## Configure item-level backup for an AKS cluster
+
+To configure item-level backup for an AKS cluster, follow these steps:
 
 1. In the Azure portal, go to the AKS cluster that you want to back up.
 
@@ -91,7 +96,7 @@ The Backup vault communicates with the cluster via the Backup extension to compl
 
 1. When validation is finished, if required roles aren't assigned to the vault in the snapshot resource group, an error appears.
 
-    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validation-error-on-permissions-not-assigned.png" alt-text="Screenshot that shows a validation error." lightbox="./media/azure-kubernetes-service-cluster-backup/validation-error-on-permissions-not-assigned.png":::  
+    :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/validation-error-permissions-not-assigned.png" alt-text="Screenshot that shows a validation error." lightbox="./media/azure-kubernetes-service-cluster-backup/validation-error-permissions-not-assigned.png":::  
 
 1. To resolve the error, under **Datasource name**, select the datasource, and then select **Assign missing roles**.
 
@@ -114,4 +119,4 @@ The Backup vault communicates with the cluster via the Backup extension to compl
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Restore a backup for an AKS cluster](./azure-kubernetes-service-cluster-restore.md)
+> Restore a backup for an AKS cluster using [Azure portal](./azure-kubernetes-service-cluster-restore.md), [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)

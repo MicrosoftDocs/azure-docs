@@ -3,11 +3,11 @@ metadata:
   title: FAQ - Azure DNS
   description: In this article, learn about frequently asked questions about Azure DNS
   services: dns
-  author: greg-lindsay
-  ms.service: dns
+  author: asudbring
+  ms.service: azure-dns
   ms.topic: faq
-  ms.date: 11/01/2023
-  ms.author: greglin
+  ms.date: 03/25/2026
+  ms.author: allensu
 title: Azure DNS FAQ
 summary: |
 
@@ -77,11 +77,9 @@ sections:
           The feature to buy domain names is tracked in the Azure backlog. Use the feedback site to [register your support for this feature](https://feedback.azure.com/d365community/idea/9e9f97ea-8526-ec11-b6e6-000d3a4f0789).
           
       - question: |
-          Does Azure DNS support DNSSEC?
+          Does Azure DNS support Domain Name System Security Extensions (DNSSEC)?
         answer: |
-          No. Azure DNS doesn't currently support the Domain Name System Security Extensions (DNSSEC).
-          
-          The DNSSEC feature is tracked in the Azure DNS backlog. Use the feedback site to [register your support for this feature](https://feedback.azure.com/d365community/idea/d403899e-8526-ec11-b6e6-000d3a4f0789).
+          Yes. Azure Public DNS supports DNSSEC. For more information, see [DNSSEC overview](dnssec.md).
           
       - question: |
           Does Azure DNS support zone transfers (AXFR/IXFR)?
@@ -107,6 +105,16 @@ sections:
           We follow [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zone file master format escape rules for TXT records. For example, `\` now actually escapes everything per the RFC. If you specify `A\B` as the TXT record value, it's represented and resolved as just `AB`. If you really want the TXT record to have `A\B` at resolution, you need to escape the `\` again. As an example, specify `A\\B`.
           
           This support currently isn't available for TXT records created from the Azure portal.
+
+      - question: |
+          Does Azure DNS support round-robin DNS?
+        answer: |
+          Azure DNS does not natively support round-robin DNS. However, this can be achieved through using Azure Traffic Manager. Users can create an Alias record in the DNS zone pointing to a traffic manager profile to achieve this. 
+          
+          [Tutorial](tutorial-alias-tm.md) for creating an alias record for use with a traffic manager profile. 
+
+          [Tutorial](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) for creating a weighted traffic manager profile.
+          
           
   - name: Alias records
     questions:
@@ -176,9 +184,7 @@ sections:
       - question: |
           What are the usage limits for Azure DNS?
         answer: |
-          The following default limits apply when you use Azure DNS.
-          
-          [!INCLUDE [dns-limits](../../includes/dns-limits.md)]
+          Refer to [Azure DNS limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits) for details on the usage limits for Azure DNS public zones.
           
       - question: |
           Can I move an Azure DNS zone between resource groups or between subscriptions?
@@ -216,9 +222,22 @@ sections:
       - question: |
           How do I set up an IDN in Azure DNS?
         answer: |
-          Internationalized domain names (IDNs) encode each DNS name by using [punycode](https://en.wikipedia.org/wiki/Punycode). DNS queries are made by using these punycode-encoded names.
+          Internationalized domain names (IDNs) encode each DNS name by using [Punycode](https://en.wikipedia.org/wiki/Punycode). DNS queries are made by using these Punycode-encoded names.
           
-          To configure IDNs in Azure DNS, convert the zone name or record set name to punycode. Azure DNS doesn't currently support built-in conversion to or from punycode.
+          To configure IDNs in Azure DNS, convert the zone name or record set name to Punycode. Azure DNS doesn't currently support built-in conversion to or from Punycode.
+
+      - question: |
+          What happens to auto-registered DNS records if I disable auto-registration on a virtual network link?
+        answer: |
+          Disabling auto-registration on an existing virtual network link immediately deletes all DNS records that were automatically registered through that link. Virtual machine records will be deleted and will only be available if they are manually re-created or auto-registration is re-enabled in the virtual network link settings.
+          
+          > [!WARNING]
+          > The records are permanently deleted. Use caution when modifying auto-registration settings on an existing virtual network link.
+
+      - question: |
+          Can I recover auto-registered DNS records after they have been deleted?
+        answer: |
+          Auto-registered DNS records that have been deleted cannot be restored.
           
 additionalContent: |
 

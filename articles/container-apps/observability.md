@@ -2,11 +2,11 @@
 title: Observability in Azure Container Apps
 description: Monitor your running app in Azure Container Apps
 services: container-apps
-author: v-jaswel
-ms.service: container-apps
-ms.topic: conceptual
-ms.date: 07/29/2022
-ms.author: v-wellsjason
+author: craigshoemaker
+ms.service: azure-container-apps
+ms.topic: concept-article
+ms.date: 11/06/2025
+ms.author: cshoe
 ---
 
 # Observability in Azure Container Apps
@@ -18,14 +18,14 @@ These features include:
 |Feature  |Description  |
 |---------|---------|
 |[Log streaming](log-streaming.md) | View streaming system and console logs from a container in near real-time. |
-|[Container console](container-console.md) | Connect to the Linux console in your containers to debug your application from inside the container. |
+|[Container console](container-console.md) | To debug your application from inside the container, connect to the Linux console in your containers. |
 |[Azure Monitor metrics](metrics.md)| View and analyze your application's compute and network usage through metric data. |
 |[Application logging](logging.md) | Monitor, analyze, and debug your app using log data.|
 |[Azure Monitor Log Analytics](log-monitoring.md) | Run queries to view and analyze your app's system and application logs. |
 |[Azure Monitor alerts](alerts.md) | Create and manage alerts to notify you of events and conditions based on metric and log data.|
 
 >[!NOTE]
-> While not a built-in feature, [Azure Monitor Application Insights](../azure-monitor/app/app-insights-overview.md) is a powerful tool to monitor your web and background applications. Although Container Apps doesn't support the Application Insights auto-instrumentation agent, you can instrument your application code using Application Insights SDKs. 
+> While not a built-in feature, [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) is a powerful tool to monitor your web and background applications. Although Container Apps doesn't support the Application Insights auto-instrumentation agent, you can instrument your application code using Application Insights SDKs. 
 
 ## Application lifecycle observability
 
@@ -40,7 +40,7 @@ During the development and test phase, real-time access to your containers' appl
 
 ### Deployment
 
-Once you deploy your container app, continuous monitoring helps you quickly identify problems that occur around error rates, performance, and resource consumption.
+After you deploy your container app, continuous monitoring helps you quickly identify problems related to error rates, performance, and resource consumption.
 
 Azure Monitor gives you the ability to track your app with the following features:
 

@@ -1,11 +1,12 @@
 ---
 title: Silent installation of Azure Backup Server V4
 description: Use a PowerShell script to silently install Azure Backup Server V4. This kind of installation is also called an unattended installation.
-ms.service: backup
+ms.service: azure-backup
 ms.topic: how-to
-ms.date: 04/18/2024
+ms.date: 07/14/2025
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a system administrator, I want to execute a silent installation of Azure Backup Server V4 using PowerShell, so that I can streamline the setup process without manual intervention.
 ---
 # Run an unattended installation of Azure Backup Server
 
@@ -27,6 +28,9 @@ To install the Backup Server, run the following command:
    ```
 3. On the server that hosts Azure Backup Server V4 or later, create a text file. (You can create the file in Notepad or in another text editor.) Save the file as MABSSetup.ini.
 4. Paste the following code in the MABSSetup.ini file. Replace the text inside the brackets (\< \>) with values from your environment. The following text is an example:
+
+   >[!Caution]
+   >Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. Ensure that you delete the **MABSSetup.ini** file once the installation is complete.
 
    ```text
    [OPTIONS]
@@ -64,7 +68,8 @@ You can use these flags for the installation:</br>
 
 After you install Backup Server, learn how to prepare your server, or begin protecting a workload.
 
-- [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md)
-- [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
-- [Use Backup Server to back up SQL Server](backup-azure-sql-mabs.md)
-- [Add Modern Backup Storage to Backup Server](backup-mabs-add-storage.md)
+- [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md).
+- [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md).
+- [Use Backup Server to back up SQL Server](backup-azure-sql-mabs.md).
+- [Add Modern Backup Storage to Backup Server](backup-mabs-add-storage.md).
+- [Manage telemetry settings in MABS](manage-telemetry.md).

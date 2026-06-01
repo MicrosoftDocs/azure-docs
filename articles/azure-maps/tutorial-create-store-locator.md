@@ -4,10 +4,10 @@ titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to use Microsoft Azure Maps to create store locator web applications.
 author: sinnypan
 ms.author: sipa
-ms.date: 11/01/2023
+ms.date: 09/05/2024
 ms.topic: tutorial
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ms.custom: mvc, devx-track-js
 ---
 
@@ -59,7 +59,7 @@ This section lists the Azure Maps features that are demonstrated in the Contoso 
 * A store logo on the header
 * A map that supports panning and zooming
 * A **My Location** button to search over the user's current location.
-* A Page layout that adjusts based on the width of the devices screen
+* A Page layout that adjusts based on the width of the device's screen
 * A search box and a search button
 
 ### Functionality features
@@ -79,7 +79,7 @@ The following screenshot shows the general layout of the Contoso Coffee store lo
 
 To maximize the usefulness of this store locator, we include a responsive layout that adjusts when a user's screen width is smaller than 700 pixels wide. A responsive layout makes it easy to use the store locator on a small screen, like on a mobile device. Here's a screenshot showing a sample of the small-screen layout:  
 
-:::image type="content" source="./media/tutorial-create-store-locator/store-locator-wireframe-mobile.png" alt-text="A screenshot showing what the Contoso Coffee store locator application looks like on a mobile device.":::
+:::image type="content" source="./media/tutorial-create-store-locator/store-locator-wireframe-mobile.png" lightbox="./media/tutorial-create-store-locator/store-locator-wireframe-mobile.png" alt-text="A screenshot showing what the Contoso Coffee store locator application looks like on a mobile device.":::
 
 <a id="create a data-set"></a>
 
@@ -151,7 +151,7 @@ If you open the text file in Notepad, it looks similar to the following text:
 
     Your workspace folder should now look like the following screenshot:
 
-    :::image type="content" source="./media/tutorial-create-store-locator/store-locator-workspace.png" alt-text="Screenshot of the images folder in the Contoso Coffee directory.":::
+    :::image type="content" source="./media/tutorial-create-store-locator/store-locator-workspace.png" lightbox="./media/tutorial-create-store-locator/store-locator-workspace.png" alt-text="Screenshot of the images folder in the Contoso Coffee directory.":::
 
 ## Create the HTML
 
@@ -438,7 +438,7 @@ To add the JavaScript:
 
 1. Open *index.js*.
 
-2. Add global options to make settings easier to update. Define the variables for the map, pop up window, data source, icon layer, and HTML marker. Set the HTML marker to indicate the center of a search area. And, define an instance of the Azure Maps search service client.
+2. Add global options to make settings easier to update. Define the variables for the map, pop up window, data source, icon layer, and HTML marker. Set the HTML marker to indicate the center of a search area. And, define an instance of the Azure Maps Search service client.
 
     ```JavaScript
     //The maximum zoom level to cluster data point data on the map.

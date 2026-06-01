@@ -235,7 +235,10 @@ If your function app is using the Python pickle library to load a Python object 
 
 ### Pyodbc connection collision
 
-If your function app is using the popular ODBC database driver [pyodbc](https://github.com/mkleehammer/pyodbc), it's possible that multiple connections are open within a single function app. To avoid this issue, use the singleton pattern, and ensure that only one pyodbc connection is used across the function app.
+If your function app is using the ODBC database driver [pyodbc](https://github.com/mkleehammer/pyodbc), it's possible that multiple connections are open within a single function app. To avoid this issue, use the singleton pattern, and ensure that only one pyodbc connection is used across the function app.
+
+> [!TIP]
+> Consider using [mssql-python](https://github.com/microsoft/mssql-python), Microsoft's official Python driver for SQL Server, which provides built-in Microsoft Entra authentication support and doesn't require manual ODBC driver management.
 
 ---
 
@@ -315,7 +318,7 @@ There are several common build issues that can cause Python functions to not be 
 
 * The agent pool must be running on Ubuntu to guarantee that packages are restored correctly from the build step. Make sure your deployment template requires an Ubuntu environment for build and deployment.
 
-* When the function app isn't at the root of the source repo, make sure that the `pip install` step references the correct location in which to create the `.python-packages` folder. Keep in mind that this location is case sensitive, such as in this command example:  
+* When the function app isn't at the root of the source repo, make sure that the `pip install` step references the correct location in which to create the `.python_packages` folder. Keep in mind that this location is case sensitive, such as in this command example:  
 
     ```
     pip install --target="./FunctionApp1/.python_packages/lib/site-packages" -r ./FunctionApp1/requirements.txt

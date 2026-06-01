@@ -9,7 +9,7 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
-ms.date: 03/12/2023
+ms.date: 12/06/2024
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -76,148 +76,21 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql --prerelease
 ::: zone-end
 
 
-::: zone pivot="programming-language-javascript, programming-language-powershell"
+::: zone pivot="programming-language-javascript, programming-language-powershell,programming-language-python,programming-language-java"
+[!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
-
-## Install bundle
-
-The SQL bindings extension is part of the v4 [extension bundle], which is specified in your host.json project file.
-
-
-# [Bundle v4.x](#tab/extensionv4)
-
-The extension bundle is specified by the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-```
-
-# [Preview Bundle v4.x](#tab/extensionv4p)
-
-You can use the preview extension bundle by adding or replacing the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-```
+If your app needs to use preview functionality, you should instead reference the latest version of the preview bundle. For more information, see [Work with preview extension bundles](extension-bundles.md#work-with-preview-extension-bundles).
 
 You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases).
 
 > [!NOTE]
 > Breaking changes between preview releases of the Azure SQL bindings for Azure Functions requires that all Functions targeting the same database use the same version of the SQL extension package.
 
----
-
-::: zone-end
-
-
-::: zone pivot="programming-language-python"
-
-## Functions runtime
-
-<!-- > [!NOTE]
-> Python language support for the SQL bindings extension is available starting with v4.5.0 of the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version).  You might need to update your install of Azure Functions [Core Tools](functions-run-local.md) for local development. -->
-
-
-## Install bundle
-
-The SQL bindings extension is part of the v4 [extension bundle], which is specified in your host.json project file.
-
-
-# [Bundle v4.x](#tab/extensionv4)
-
-The extension bundle is specified by the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-```
-
-# [Preview Bundle v4.x](#tab/extensionv4p)
-
-You can use the preview extension bundle by adding or replacing the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-```
-
-You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases).
-
-> [!NOTE]
-> Breaking changes between preview releases of the Azure SQL bindings for Azure Functions requires that all Functions targeting the same database use the same version of the SQL extension package.
-
----
-
-::: zone-end
-
-
-::: zone pivot="programming-language-java"
-
-
-## Install bundle
-
-The SQL bindings extension is part of the v4 [extension bundle], which is specified in your host.json project file.
-
-# [Bundle v4.x](#tab/extensionv4)
-
-The extension bundle is specified by the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-```
-
-# [Preview Bundle v4.x](#tab/extensionv4p)
-
-You can use the preview extension bundle by adding or replacing the following code in your `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.*, 5.0.0)"
-  }
-}
-```
-
-You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases).
-
-> [!NOTE]
-> Breaking changes between preview releases of the Azure SQL bindings for Azure Functions requires that all Functions targeting the same database use the same version of the SQL extension package.
-
----
-
+::: zone-end  
+::: zone pivot="programming-language-java"  
 ## Update packages
 
-Add the Java library for SQL bindings to your functions project with an update to the `pom.xml` file in your Java Azure Functions project as seen in the following snippet:
+Add the [Azure Functions Java SQL Types package](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-sql) to your functions project with an update to the `pom.xml` file in your project, as in this example:
 
 ```xml
 <dependency>
@@ -227,26 +100,20 @@ Add the Java library for SQL bindings to your functions project with an update t
 </dependency>
 ```
 
-You can use the preview extension bundle with an update to the `pom.xml` file in your Java Azure Functions project as seen in the following snippet:
-
-```xml
-<dependency>
-    <groupId>com.microsoft.azure.functions</groupId>
-    <artifactId>azure-functions-java-library-sql</artifactId>
-    <version>2.1.0-preview</version>
-</dependency>
-```
-
 ::: zone-end
 
 ## SQL connection string
 
-Azure SQL bindings for Azure Functions have a required property for the connection string on all bindings and triggers. These pass the connection string to the Microsoft.Data.SqlClient library and supports the connection string as defined in the [SqlClient ConnectionString documentation](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString).  Notable keywords include:
+Azure SQL bindings for Azure Functions have a required property for the connection string on all bindings and triggers. These pass the connection string to the Microsoft.Data.SqlClient library and supports the connection string as defined in the [SqlClient ConnectionString documentation](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString).  
 
-- `Authentication` allows a function to connect to Azure SQL with Microsoft Entra ID, including [Active Directory Managed Identity](./functions-identity-access-azure-sql-with-managed-identity.md)
-- `Command Timeout` allows a function to wait for specified amount of time in seconds before terminating a query (default 30 seconds)
-- `ConnectRetryCount` allows a function to automatically make additional reconnection attempts, especially applicable to Azure SQL Database serverless tier (default 1)
-- `Pooling` allows a function to reuse connections to the database, which can improve performance (default `true`). Additional settings for connection pooling include `Connection Lifetime`, `Max Pool Size`, and `Min Pool Size`. Learn more about connection pooling in the [ADO.NET documentation](/sql/connect/ado-net/sql-server-connection-pooling)
+[!INCLUDE [functions-sql-database-authentication-note](../../includes/functions-sql-database-authentication-note.md)]
+
+Notable keywords include:
+
+- `Authentication`: allows a function to connect to Azure SQL with Microsoft Entra ID and managed identities. For more information, see [Connect a function app to Azure SQL with managed identity and SQL bindings](functions-identity-access-azure-sql-with-managed-identity.md).
+- `Command timeout`: allows a function to wait for specified amount of time in seconds before terminating a query (default 30 seconds)
+- `ConnectRetryCount`: allows a function to automatically make additional reconnection attempts, especially applicable to Azure SQL Database serverless tier (default 1)
+- `Pooling`: allows a function to reuse connections to the database, which can improve performance (default `true`). Additional settings for connection pooling include `Connection Lifetime`, `Max Pool Size`, and `Min Pool Size`. Learn more about connection pooling in the [ADO.NET documentation](/sql/connect/ado-net/sql-server-connection-pooling)
 
 ## Considerations
 
@@ -254,6 +121,8 @@ Azure SQL bindings for Azure Functions have a required property for the connecti
 - Source code for the Azure SQL bindings can be found in [this GitHub repository](https://github.com/Azure/azure-functions-sql-extension).
 - This binding requires connectivity to an Azure SQL or SQL Server database.
 - Output bindings against tables with columns of data types `NTEXT`, `TEXT`, or `IMAGE` aren't supported and data upserts will fail. These types [will be removed](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) in a future version of SQL Server and aren't compatible with the `OPENJSON` function used by this Azure Functions binding.
+- Use [managed identities](/azure/azure-sql/database/authentication-azure-ad-user-assigned-managed-identity) instead of usernames and passwords.
+- Consider using an [Azure Key Value](/azure/app-service/app-service-key-vault-references) to store application settings.
 
 ## Samples
 
@@ -272,5 +141,5 @@ In addition to the samples for C#, Java, JavaScript, PowerShell, and Python avai
 - [Learn how to connect Azure Function to Azure SQL with managed identity](./functions-identity-access-azure-sql-with-managed-identity.md)
 
 [core tools]: ./functions-run-local.md
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[extension bundle]: ./extension-bundles.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack

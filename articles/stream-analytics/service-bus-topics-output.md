@@ -3,8 +3,8 @@ title: Service Bus topics output from Azure Stream Analytics
 description: This article describes Service Bus topics as output for Azure Stream Analytics.
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
-ms.topic: conceptual
+ms.service: azure-stream-analytics
+ms.topic: reference
 ms.date: 09/23/2020
 ---
 

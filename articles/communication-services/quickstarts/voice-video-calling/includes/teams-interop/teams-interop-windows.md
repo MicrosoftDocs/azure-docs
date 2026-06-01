@@ -321,7 +321,7 @@ namespace CallingQuickstart
 
             if (camera != null)
             {
-                cameraStream = new LocalOutgoingVideoStream(selectedCamerea);
+                cameraStream = new LocalOutgoingVideoStream(selectedCamera);
                 var localUri = await cameraStream.StartPreviewAsync();
                 LocalVideo.Source = MediaSource.CreateFromUri(localUri);
                 if (call != null) {

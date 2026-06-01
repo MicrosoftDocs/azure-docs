@@ -8,7 +8,7 @@ ms.author: v-vprasannak
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The latest version [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - Get the latest version of the [.NET Identity SDK](/dotnet/api/azure.identity).
 - Get the latest version of the [.NET Management SDK](../../../concepts/sdk-options.md).
@@ -75,7 +75,7 @@ When creating a Sender Username resource, you have to specify the resource group
 ```csharp
 // this example assumes you already have this CommunicationDomainResource created on azure
 // for more information of creating CommunicationDomainResource, please refer to the document of CommunicationDomainResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 string resourceGroupName = "contosoResourceGroup";
 string emailServiceName = "contosoEmailService";
 string domainName = "contoso.com";
@@ -108,7 +108,7 @@ Console.WriteLine($"Succeeded on id: {resourceData.Id}");
 ```csharp
 // this example assumes you already have this CommunicationDomainResource created on azure
 // for more information of creating CommunicationDomainResource, please refer to the document of CommunicationDomainResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 string resourceGroupName = "contosoResourceGroup";
 string emailServiceName = "contosoEmailService";
 string domainName = "contoso.com";
@@ -135,7 +135,7 @@ Console.WriteLine($"Succeeded");
 ```csharp
 // this example assumes you already have this CommunicationDomainResource created on azure
 // for more information of creating CommunicationDomainResource, please refer to the document of CommunicationDomainResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 string resourceGroupName = "contosoResourceGroup";
 string emailServiceName = "contosoEmailService";
 string domainName = "contoso.com";
@@ -157,7 +157,7 @@ Console.WriteLine($"Succeeded: {result}");
 ```csharp
 // this example assumes you already have this SenderUsernameResource created on azure
 // for more information of creating SenderUsernameResource, please refer to the document of SenderUsernameResource
-string subscriptionId = "11112222-3333-4444-5555-666677778888";
+string subscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e";
 string resourceGroupName = "MyResourceGroup";
 string emailServiceName = "MyEmailServiceResource";
 string domainName = "contoso.com";

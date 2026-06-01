@@ -1,16 +1,24 @@
 ---
+ROBOTS: NOINDEX
 title: 'Tutorial: Access storage blobs using an Azure Content Delivery Network custom domain over HTTPS'
 description: Learn how to add an Azure Content Delivery Network custom domain and enable HTTPS on that domain for your custom blob storage endpoint.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 06/26/2024
-ms.author: duau
+ms.date: 02/28/2026
 ms.custom: mvc
+# Customer intent: "As a web developer, I want to configure a custom domain with HTTPS for my Azure Content Delivery Network endpoint, so that I can securely deliver my blob storage content to users."
 ---
 
 # Tutorial: Access storage blobs using an Azure Content Delivery Network custom domain over HTTPS
+
+> [!IMPORTANT]
+> - Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support new domain onboarding or profile creation. Migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) to create new domains or profiles and avoid service disruption. [Learn more](https://azure.microsoft.com/updates?id=498522)
+> - Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support Managed certificates. To avoid service disruption, either [switch to Bring Your Own Certificate (BYOC)](/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate) or migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) by this date. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026. [Learn more](https://azure.microsoft.com/updates?id=498522)
+> - Azure CDN Standard from Microsoft (classic) will be retired on September 30, 2027. To avoid service disruption ⁠[migrate to AFD Standard or Premium](/azure/cdn/migrate-tier). ⁠[Learn more.](https://azure.microsoft.com/updates?id=Azure-CDN-Standard-from-Microsoft-classic-will-be-retired-on-30-September-2027)
+> - Azure CDN from Edgio was retired on January 15, 2025. ⁠[Learn more.](/previous-versions/azure/cdn/edgio-retirement-faq?toc=%2Fazure%2Ffrontdoor%2FTOC.json)
 
 After you've integrated your Azure Storage account with Azure Content Delivery Network, you can add a custom domain and enable HTTPS on that domain for your custom blob storage endpoint.
 
@@ -39,15 +47,11 @@ If you create multiple SAS URLs for the same blob endpoint, consider enabling qu
 
 ## HTTP-to-HTTPS redirection
 
-You can elect to redirect HTTP traffic to HTTPS by creating a URL redirect rule with the [Standard rules engine](cdn-standard-rules-engine.md) or the [Edgio Premium rules engine](cdn-verizon-premium-rules-engine.md). Standard Rules engine is available only for Azure Content Delivery Network from Microsoft profiles, while Edgio premium rules engine is available only from Azure Content Delivery Network Premium from Edgio profiles.
+You can redirect HTTP traffic to HTTPS by creating a URL redirect rule with the [Standard rules engine](cdn-standard-rules-engine.md).
 
 ![Microsoft redirect rule](./media/cdn-storage-custom-domain-https/cdn-standard-redirect-rule.png)
 
 In the above rule, leaving Hostname, Path, Query string, and Fragment results in the incoming values being used in the redirect.
-
-![Edgio redirect rule](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
-
-In the above rule, *Cdn-endpoint-name* refers to the name that you configured for your content delivery network endpoint. The value for *origin-path* refers to the path within your origin storage account where your static content resides. If you're hosting all static content in a single container, replace *origin-path* with the name of that container.
 
 ## Pricing and billing
 

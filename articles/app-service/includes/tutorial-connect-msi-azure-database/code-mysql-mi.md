@@ -4,6 +4,7 @@ ms.service: service-connector
 ms.topic: include
 ms.date: 11/13/2023
 ms.author: xiaofanzhou
+ms.custom: sfi-ropc-nochange
 ---
 
 # [.NET](#tab/dotnet-mysql-mi)
@@ -47,12 +48,12 @@ await connection.OpenAsync();
     <dependency>
         <groupId>mysql</groupId>
         <artifactId>mysql-connector-java</artifactId>
-        <version>8.0.30</version>
+        <version>8.0.33</version>
     </dependency>
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-identity-extensions</artifactId>
-        <version>1.1.5</version>
+        <version>1.2.0</version>
     </dependency>
     ```
 
@@ -65,7 +66,7 @@ await connection.OpenAsync();
         pluginName + "&authenticationPlugins=" + pluginName);
     ```
 
-For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](../../../mysql/flexible-server/connect-java.md?tabs=passwordless).
+For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/connect-java?tabs=passwordless).
 
 # [Python](#tab/python-mysql-mi)
 

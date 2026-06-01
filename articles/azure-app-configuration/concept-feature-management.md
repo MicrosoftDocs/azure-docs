@@ -5,15 +5,15 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.custom: devdivchpfy22
-ms.topic: conceptual
-ms.date: 02/20/2024
+ms.topic: concept-article
+ms.date: 11/21/2025
 ---
 
 # Feature management overview
 
 Traditionally, shipping a new application feature requires a complete redeployment of the application itself. Testing a feature often requires multiple deployments of the application. Each deployment might change the feature or expose the feature to different customers for testing.  
 
-Feature management is a modern software-development practice that decouples feature release from code deployment and enables quick changes to feature availability on demand. It uses a technique called *feature flags* (also known as *feature toggles* and *feature switches*) to dynamically administer a feature's lifecycle.
+Feature management is a software-development practice that decouples feature release from code deployment and enables quick changes to feature availability on demand. It uses a technique called *feature flags* (also known as *feature toggles* and *feature switches*) to dynamically administer a feature's lifecycle.
 
 Feature management helps developers address the following problems:
 
@@ -82,6 +82,9 @@ To start using feature flags with Azure App Configuration, continue to the follo
 > [ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
 
 > [!div class="nextstepaction"]
+> [Aspire](./quickstart-feature-flag-aspire.md)
+
+> [!div class="nextstepaction"]
 > [.NET/.NET Framework](./quickstart-feature-flag-dotnet.md)
 
 > [!div class="nextstepaction"]
@@ -92,6 +95,15 @@ To start using feature flags with Azure App Configuration, continue to the follo
 
 > [!div class="nextstepaction"]
 > [Python](./quickstart-feature-flag-python.md)
+
+> [!div class="nextstepaction"]
+> [JavaScript](./quickstart-feature-flag-javascript.md)
+
+> [!div class="nextstepaction"]
+> [Go](./quickstart-feature-flag-go-console.md)
+
+> [!div class="nextstepaction"]
+> [Go Gin](./quickstart-feature-flag-go-gin.md)
 
 > [!div class="nextstepaction"]
 > [Azure Kubernetes Service](./quickstart-feature-flag-azure-kubernetes-service.md)

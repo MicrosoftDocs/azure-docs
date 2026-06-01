@@ -1,9 +1,8 @@
 ---
  title: include file
  description: include file
- services: event-grid
  author: robece
- ms.service: event-grid
+ ms.service: azure-event-grid
  ms.topic: include
  ms.date: 05/08/2024
  ms.author: robece
@@ -12,10 +11,10 @@ ms.custom: include file, build-2024
 
 ## Subscribe to partner events
 
-At this point, Microsoft Graph API events should be arriving on your activated partner topic whenever three are changes to the resources specified when your created the Microsoft Graph API subscription. In order to process the events, you must create an event subscription that forwards the events to an event handler like a webhook or any of the [supported Azure services](../event-handlers.md).
+At this point, Microsoft Graph API events should be arriving on your activated partner topic whenever there are changes to the resources specified when your created the Microsoft Graph API subscription. In order to process the events, you must create an event subscription that forwards the events to an event handler like a webhook or any of the [supported Azure services](../event-handlers.md).
 
 >[!IMPORTANT]
->In this section you find a way to receive events using a sample application, the [Event Grid Viewer](https://github.com/Azure-Samples/azure-event-grid-viewer). This application helps you test the data pipeline to receive events before you create your own application to handle the events according to your business requirements. When you are ready to build your application, see the complete [application samples](../subscribe-to-graph-api-events.md#samples-with-detailed-instructions).
+>In this section, you find a way to receive events using a sample application, the [Event Grid Viewer](https://github.com/Azure-Samples/azure-event-grid-viewer). This application helps you test the data pipeline to receive events before you create your own application to handle the events according to your business requirements. When you're ready to build your application, see the complete [application samples](../subscribe-to-graph-api-events.md#samples-with-detailed-instructions).
 
 ### Deploy the Event viewer application
 
@@ -44,7 +43,7 @@ To test your partner topic, deploy the [Event Viewer](https://github.com/Azure-S
     :::image type="content" source="../media/blob-event-quickstart-portal/web-site.png" alt-text="Screenshot that shows the App Service page with the link to the site highlighted.":::
 6. Confirm that you see the site but no events are posted to it yet.
 
-    :::image type="content" source="../media/blob-event-quickstart-portal/view-site.png" alt-text="Screenshot that shows the Event Grid Viewer sample app.":::    
+    :::image type="content" source="../media/blob-event-quickstart-portal/event-grid-viewer-site.png" alt-text="Screenshot that shows the Event Grid Viewer sample app.":::    
 
 ### Create an event subscription
 

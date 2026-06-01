@@ -4,12 +4,16 @@ titlesuffix: Azure virtual network
 description: Use this tutorial to learn how to configure routing preference for an Azure Kubernetes Service.
 author: mbender-ms
 ms.author: mbender
-ms.date: 08/24/2023
-ms.service: virtual-network
+ms.date: 08/12/2024
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: tutorial
-ms.custom: template-tutorial, devx-track-azurecli
 ms.devlang: azurecli
+ms.custom:
+  - template-tutorial
+  - devx-track-azurecli
+  - sfi-image-nochange
+# Customer intent: As a cloud engineer, I want to configure routing preferences for my Azure Kubernetes Service using the Azure CLI, so that I can ensure optimal network performance and proper public IP management for my Kubernetes cluster.
 ---
 
 # Tutorial: Configure routing preference for an Azure Kubernetes Service using the Azure CLI
@@ -24,18 +28,18 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - This article requires version 2.0.49 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group in the **East US** Azure region:
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group in the **West Europe** Azure region:
 
 ```azurecli-interactive
   az group create \
     --name TutorAKSRP-rg \
-    --location eastus
+    --location westeurope
 
 ```
 
@@ -43,15 +47,15 @@ Create a resource group with the [az group create](/cli/azure/group#az-group-cre
 
 Create a public IP address with routing preference of **Internet** type using command [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create).
 
-The following command creates a new public IP with **Internet** routing preference in the **East US** Azure region.
+The following command creates a new public IP with **Internet** routing preference in the **West Europe** Azure region.
 
 ```azurecli-interactive
   az network public-ip create \
-    --resource-group TutorAKSRP-rg \
     --name myPublicIP-IR \
-    --version IPv4 \
+    --resource-group TutorAKSRP-rg \
     --ip-tags 'RoutingPreference=Internet' \
     --sku Standard \
+    --version IPv4 \
     --zone 1 2 3
 ```
 > [!NOTE]
@@ -88,7 +92,7 @@ The following command creates the Kubernetes cluster and uses the variable for t
 
 To validate, search for the public IP created in the earlier step in Azure portal. The public IP is associated with the load balancer. The load balancer is associated with the Kubernetes cluster as shown below:
 
-  :::image type="content" source="./media/routing-preference-azure-kubernetes-service-cli/verify-aks-ip.png" alt-text="Screenshot of AKS cluster public IP address.":::
+  :::image type="content" source="./media/routing-preference-azure-kubernetes-service-cli/verify-aks-ip.png" alt-text="Screenshot of AKS cluster public IP address." lightbox="./media/routing-preference-azure-kubernetes-service-cli/verify-aks-ip.png":::
 
 ## Clean up resources
 

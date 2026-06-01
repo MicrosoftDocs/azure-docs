@@ -3,8 +3,11 @@ title: Use the Azure Automation graphical runbook SDK (preview)
 description: This article tells how to use the Azure Automation graphical runbook SDK (preview).
 services: automation
 ms.subservice: process-automation
-ms.date: 07/20/2018
-ms.topic: conceptual
+ms.date: 11/17/2025
+ms.topic: how-to
+ms.service: azure-automation
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Use the Azure Automation graphical runbook SDK (preview)

@@ -6,11 +6,11 @@ summary: Learn how to use API Management to publish APIs to external, partner, a
 metadata:
   title: API Management documentation
   description: Learn how to use API Management to publish APIs to external, partner, and employee developers securely and at scale. Shows you how to create and manage modern API gateways for existing backend services hosted anywhere.
-  ms.service: api-management
+  ms.service: azure-api-management
   ms.topic: landing-page
   author: dlepow
   ms.author: danlep
-  ms.date: 01/08/2024
+  ms.date: 09/12/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -29,7 +29,7 @@ landingContent:
           - text: Gateway capabilities
             url: api-management-gateways-overview.md
           - text: Hybrid and multicloud management
-            url: self-hosted-gateway-overview.md          
+            url: self-hosted-gateway-overview.md   
       - linkListType: architecture
         links:
           - text: Basic enterprise integration
@@ -73,6 +73,8 @@ landingContent:
             url: configure-custom-domain.md
           - text: Integrate with Application Insights 
             url: api-management-howto-app-insights.md
+          - text: Create a workspace
+            url: how-to-create-workspace.md
           - text: Deploy to VNet - external mode
             url: api-management-using-with-vnet.md
           - text: Deploy to VNet - internal mode
@@ -91,27 +93,31 @@ landingContent:
             url: api-management-howto-policies.md
           - text: Networking options
             url: virtual-network-concepts.md
-          - text: High availability
-            url: high-availability.md
+          - text: Reliability
+            url: /azure/reliability/reliability-api-management
       - linkListType: reference
         links:
           - text: API Management policy reference
             url: api-management-policies.md
 # Card
-  - title: New content
+  - title: AI gateway
     linkLists:
-      -  linkListType: how-to-guide
-         links:
-          - text: Import API from Azure OpenAI service
-            url: azure-openai-api-from-specification.md
-          - text: Enable semantic caching for Azure OpenAI APIs
-            url: azure-openai-enable-semantic-caching.md   
-          - text: Authenticate and authorize to Azure OpenAI APIs
-            url: api-management-authenticate-authorize-azure-openai.md
       - linkListType: concept
         links:
-          - text: New v2 service tiers
-            url: v2-service-tiers-overview.md
+          - text: AI gateway capabilities
+            url: genai-gateway-capabilities.md
+          - text: Manage MCP servers
+            url: mcp-server-overview.md
+      -  linkListType: how-to-guide
+         links:
+          - text: Import Microsoft Foundry API
+            url: azure-ai-foundry-api.md
+          - text: Import Azure OpenAI API
+            url: azure-openai-api-from-specification.md
+          - text: Import OpenAI-compatible LLM API
+            url: openai-compatible-llm-api.md
+          - text: Expose REST API as MCP server
+            url: export-rest-mcp-server.md      
 # Card
   - title: Related services
     linkLists:

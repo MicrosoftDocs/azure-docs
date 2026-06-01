@@ -5,12 +5,20 @@ description: This quickstart shows how to create a load balancer by using an Azu
 services: load-balancer
 author: mbender-ms
 manager: KumudD
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 10/25/2023
+ms.date: 01/28/2026
 ms.author: mbender
-ms.custom: mvc, subject-armqs, mode-arm, template-quickstart, engagement-fy23, devx-track-arm-template
+ms.custom:
+  - mvc
+  - subject-armqs
+  - mode-arm
+  - template-quickstart
+  - engagement-fy23
+  - devx-track-arm-template
+  - sfi-image-nochange
 #Customer intent: I want to create a load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
+# Customer intent: As a cloud architect, I want to deploy a standard load balancer using an ARM template, so that I can efficiently distribute internet traffic across multiple virtual machines.
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs using an ARM template
@@ -29,13 +37,13 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the template
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/load-balancer-standard-create/).
 
-Load balancer and public IP SKUs must match. When you create a standard load balancer, you must also create a new standard public IP address that is configured as the frontend for the standard load balancer. If you want to create a basic load balancer, use [this template](https://azure.microsoft.com/resources/templates/2-vms-loadbalancer-natrules/). Microsoft recommends using standard SKU for production workloads.
+Load balancer and public IP SKUs must match. When you create a standard load balancer, you must also create a new standard public IP address that is configured as the frontend for the standard load balancer. Microsoft recommends using standard SKU for production workloads.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/load-balancer-standard-create/azuredeploy.json":::
 
@@ -63,7 +71,7 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
 
    ```azurepowershell-interactive
    $projectName = Read-Host -Prompt "Enter a project name with 12 or less letters or numbers that is used to generate Azure resource names"
-   $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+   $location = Read-Host -Prompt "Enter the location (i.e. EastUS)"
    $adminUserName = Read-Host -Prompt "Enter the virtual machine administrator account name"
    $adminPassword = Read-Host -Prompt "Enter the virtual machine administrator password" -AsSecureString
 
@@ -84,7 +92,7 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
 
 1. Enter the values.
 
-   The template deployment creates three availability zones. Availability zones are supported only in [certain regions](../availability-zones/az-overview.md). Use one of the supported regions. If you aren't sure, enter **centralus**.
+   The template deployment creates three availability zones. Availability zones are supported only in [certain regions](/azure/reliability/availability-zones-overview). Use one of the supported regions. If you aren't sure, enter **EastUS**.
 
    The resource group name is the project name with **`rg`** appended. You need the resource group name in the next section.
 

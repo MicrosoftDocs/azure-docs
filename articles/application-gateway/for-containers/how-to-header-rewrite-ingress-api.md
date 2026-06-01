@@ -2,12 +2,12 @@
 title: Header rewrite for Azure Application Gateway for Containers - Ingress API
 description: Learn how to rewrite headers in Ingress API for Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
-ms.service: application-gateway
-ms.subservice: appgw-for-containers
-ms.topic: conceptual
-ms.date: 5/9/2024
-ms.author: greglin
+author: mbender-ms
+ms.service: azure-appgw-for-containers
+ms.topic: how-to
+ms.date: 10/27/2025
+ms.author: mbender
+# Customer intent: "As a cloud architect, I want to implement header rewriting in the Ingress API for Application Gateway for Containers, so that I can modify request and response headers for backend services to meet application requirements and facilitate better control over traffic management."
 ---
 
 # Header rewrite for Azure Application Gateway for Containers - Ingress API
@@ -28,13 +28,13 @@ The following figure illustrates an example of a request with a specific user ag
 
 ## Prerequisites
 
-1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md))
+2. If following the ALB managed deployment strategy, ensure you have provisioned your ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTP application
    Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate the header rewrite.
 
    ```bash
-   kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
+   kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/traffic-split-scenario/deployment.yaml
    ```
   
    This command creates the following on your cluster:
@@ -135,9 +135,9 @@ kind: Ingress
 metadata:
   annotations:
     alb.networking.azure.io/alb-frontend: FRONTEND_NAME
-    alb.networking.azure.io/alb-id: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz
+    alb.networking.azure.io/alb-id: /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz
     kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"alb.networking.azure.io/alb-frontend":"FRONTEND_NAME","alb.networking.azure.io/alb-id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz", "alb.networking.azure.io/alb-ingress-extension":"header-rewrite"},"name"
+      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"alb.networking.azure.io/alb-frontend":"FRONTEND_NAME","alb.networking.azure.io/alb-id":"/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz", "alb.networking.azure.io/alb-ingress-extension":"header-rewrite"},"name"
 :"ingress-01","namespace":"test-infra"},"spec":{"ingressClassName":"azure-alb-external","rules":[{"host":"contoso.com","http":{"paths":[{"backend":{"service":{"name":"backend-v1","port":{"number":8080}}},"path":"/","pathType":"Prefix"}]}}]}}
   creationTimestamp: "2023-07-22T18:02:13Z"
   generation: 2
@@ -173,9 +173,6 @@ In this example, we set a static user-agent with a value of `rewritten-user-agen
 
 This example also demonstrates addition of a new header called `AGC-Header-Add` with a value of `AGC-value` and removes a request header called `client-custom-header`.
 
-> [!TIP]
-> For this example, while we can use the HTTPHeaderMatch of "Exact" for a string match, a demonstration is used in regular expression for illistration of further capabilities.
-
 ```bash
 kubectl apply -f - <<EOF
 apiVersion: alb.networking.azure.io/v1
@@ -199,6 +196,9 @@ spec:
               - "client-custom-header"
 EOF
 ```
+
+>[!Note]
+>Modifying the `Host` header is not supported with a `requestHeaderModifier` rule. To override the `Host` value specified to the backend target, use a [URLRewrite](how-to-url-rewrite-ingress-api.md#deploy-the-required-ingress-api-resources) filter.
 
 Once the IngressExtension resource is created, ensure the resource returns _No validation errors_ and is valid.
 

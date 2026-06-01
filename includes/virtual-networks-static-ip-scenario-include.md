@@ -1,9 +1,10 @@
 ---
 author: genlin
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: include
 ms.date: 02/14/2020
 ms.author: genli
+ms.custom: sfi-image-nochange
 ---
 ## Scenario
 

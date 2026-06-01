@@ -6,8 +6,8 @@ author: vicancy
 ms.author: lianwei
 ms.reviewer: zhshang
 ms.date: 11/13/2019
-ms.topic: conceptual
-ms.service: signalr
+ms.topic: concept-article
+ms.service: azure-signalr-service
 ---
 
 # Reacting to Azure SignalR Service events

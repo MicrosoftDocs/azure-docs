@@ -1,6 +1,6 @@
 ---
 author: aaronpowell
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: include
 ms.date: 05/08/2020
 ms.author: aapowell

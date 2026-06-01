@@ -9,6 +9,7 @@ ms.author: darmour
 ms.date: 06/26/2023
 ms.topic: include
 ms.service: azure-communication-services
+ms.subservice: advanced-messaging
 ---
 
  1. After WhatsApp Account signup, select existing **Meta Business Account**. Then select on the **Continue** button.

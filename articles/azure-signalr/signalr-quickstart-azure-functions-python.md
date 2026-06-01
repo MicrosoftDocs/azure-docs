@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.date: 01/23/2024
 ms.topic: quickstart
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.devlang: python
 ms.custom: devx-track-python, mode-api
 zone_pivot_groups: python-mode-functions
@@ -17,16 +17,18 @@ Get started with Azure SignalR Service by using Azure Functions and Python to bu
 > [!NOTE]
 > You can get the code in this article from [GitHub](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/QuickStartServerless/python).
 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
+
 ## Prerequisites
 
 This quickstart can be run on macOS, Windows, or Linux.  You will need the following:
 
 | Prerequisite | Description |
 | --- | --- |
-| An Azure subscription |If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)|
+| An Azure subscription |If you don't have an Azure subscription, create an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)|
 | A code editor | You'll need a code editor such as [Visual Studio Code](https://code.visualstudio.com/). |
 | [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)| Requires version 2.7.1505 or higher to run Python Azure Function apps locally.|
-| [Python 3.7+](https://www.python.org/downloads/)| Azure Functions requires Python 3.7+. See [Supported Python versions](../azure-functions/functions-reference-python.md#python-version). |
+| [Python 3.7+](https://www.python.org/downloads/)| Azure Functions requires Python 3.7+. See [Supported Python versions](../azure-functions/functions-reference-python.md#supported-python-versions). |
 | [Azurite](../storage/common/storage-use-azurite.md)| SignalR binding needs Azure Storage.  You can use a local storage emulator when a function is running locally. |
 | [Azure CLI](/cli/azure/install-azure-cli)| Optionally, you can use the Azure CLI to create an Azure SignalR Service instance. |
 
@@ -62,7 +64,7 @@ When you run the `func new` command from the root directory of the project, the 
 
 You can use this sample function as a template for your own functions.  
 
-Open the file `function_app.py`. This file will contain your functions. First, modify the file to include the neccessary import statements, and define global variables that we will be using in the following functions.
+Open the file `function_app.py`. This file will contain your functions. First, modify the file to include the necessary import statements, and define global variables that we will be using in the following functions.
 
 ```python
 import azure.functions as func
@@ -89,7 +91,9 @@ This function hosts a web page for a client.
 
 ### Create the negotiate function
 
-Add the function `negotiate` by adding the following code
+Add the function `negotiate` by adding the following code.
+
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
   ```python
   @app.route(route="negotiate", auth_level=func.AuthLevel.ANONYMOUS, methods=["POST"])

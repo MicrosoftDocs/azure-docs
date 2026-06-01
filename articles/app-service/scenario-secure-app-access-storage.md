@@ -1,18 +1,14 @@
 ---
 title: "Tutorial - .NET Web app accesses storage by using managed identities | Azure"
 description: In this tutorial, you learn how to access Azure Storage for a .NET app by using managed identities.
-services: storage, app-service-web
-author: rwike77
-manager: CelesteDG
-ms.service: app-service
+author: cephalin
+ms.author: cephalin
+ms.service: azure-app-service
 ms.topic: tutorial
-ms.date: 07/31/2023
-ms.author: ryanwi
-ms.reviewer: stsoneff
+ms.date: 03/17/2026
 ms.devlang: csharp
 # ms.devlang: csharp, azurecli
 ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, devx-track-dotnet, AppServiceIdentity
-ms.subservice: web-apps
 #Customer intent: As an application developer, I want to learn how to access Azure Storage for an app by using managed identities.
 ---
 
@@ -21,7 +17,6 @@ ms.subservice: web-apps
 [!INCLUDE [tutorial-content-above-code](./includes/tutorial-dotnet-storage-managed-identity/introduction.md)]
 
 ## Access Blob Storage
-
 
 The [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class is used to get a token credential for your code to authorize requests to Azure Storage. Create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class, which uses the managed identity to fetch tokens and attach them to the service client. The following code example gets the authenticated token credential and uses it to create a service client object, which uploads a new blob.
 
@@ -80,7 +75,7 @@ static public async Task UploadBlob(string accountName, string containerName, st
 
     try
     {
-        // Create the container if it does not exist.
+        // Create the container if it doesn't exist.
         await containerClient.CreateIfNotExistsAsync();
 
         // Upload text to a new block blob.

@@ -1,17 +1,19 @@
 ---
 title: Encrypt backup data by using customer-managed keys
 description: Learn how to use Azure Backup to encrypt your backup data by using customer-managed keys (CMKs).
-ms.topic: conceptual
-ms.date: 06/12/2024
+ms.topic: how-to
+ms.date: 05/26/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-azurepowershell-azurecli, devx-track-azurecli
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a backup administrator, I want to configure encryption for my Recovery Services vault using customer-managed keys, so that I can maintain full control over the encryption keys and enhance the security of my backup data."
 ---
 
 # Encrypt backup data by using customer-managed keys
 
-You can use Azure Backup to encrypt your backup data via customer-managed keys (CMKs) instead of platform-managed keys (PMKs), which are enabled by default. Your keys to encrypt the backup data must be stored in [Azure Key Vault](../key-vault/index.yml).
+You can use Azure Backup to encrypt your backup data via customer-managed keys (CMKs) instead of platform-managed keys (PMKs), which are enabled by default. Your keys to encrypt the backup data must be stored in [Azure Key Vault](/azure/key-vault/).
 
 The encryption key that you use for encrypting backups might be different from the one that you use for the source. An AES 256-based data encryption key (DEK) helps protect the data. Your key encryption keys (KEKs), in turn, help protect the DEK. You have full control over the data and the keys.
 
@@ -34,9 +36,9 @@ In this article, you learn how to:
 
 - This feature currently *doesn't support backup via the Microsoft Azure Recovery Services (MARS) agent*, and you might not be able to use a CMK-encrypted vault for backup via the MARS agent. The MARS agent uses passphrase-based encryption. This feature also doesn't support backup of virtual machines (VMs) that you created in the classic deployment model.
 
-- This feature isn't related to [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md), which uses guest-based encryption of a VM's disk by using BitLocker for Windows and DM-Crypt for Linux.
+- This feature isn't related to [Azure Disk Encryption](/azure/virtual-machines/disk-encryption-overview), which uses guest-based encryption of a VM's disk by using BitLocker for Windows and DM-Crypt for Linux.
 
-- You can encrypt the Recovery Services vault only by using keys that are stored in Azure Key Vault and located in the *same region*. Also, keys must be [supported](../key-vault/keys/about-keys.md#key-types-and-protection-methods) RSA keys and must be in the enabled state.
+- You can encrypt the Recovery Services vault only by using keys that are stored in Azure Key Vault and located in the *same region*. Also, keys must be [supported](/azure/key-vault/keys/about-keys#key-types-and-protection-methods) RSA keys and must be in the enabled state.
 
 - Moving a CMK-encrypted Recovery Services vault across resource groups and subscriptions isn't currently supported.
 
@@ -226,7 +228,7 @@ Choose a client:
 
 5. Select **Save** to save changes that you made to the access policy of the key vault.
 
-You can also assign an RBAC role to the Recovery Services vault that contains the previously mentioned permissions, such as the [Key Vault Crypto Officer](../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations) role. This role might contain additional permissions.
+You can also assign an RBAC role to the Recovery Services vault that contains the previously mentioned permissions, such as the [Key Vault Crypto Officer](/azure/key-vault/general/rbac-guide#azure-built-in-roles-for-key-vault-data-plane-operations) role. This role might contain additional permissions.
 
 # [PowerShell](#tab/powershell)
 
@@ -260,7 +262,7 @@ Choose a client:
 
 # [Azure portal](#tab/portal)
 
-You can enable soft delete and purge protection from the Azure Key Vault interface, as shown in the following screenshot. Alternatively, you can set these properties while creating the key vault. [Learn more about these Key Vault properties](../key-vault/general/soft-delete-overview.md).
+You can enable soft delete and purge protection from the Azure Key Vault interface, as shown in the following screenshot. Alternatively, you can set these properties while creating the key vault. [Learn more about these Key Vault properties](/azure/key-vault/general/soft-delete-overview).
 
 :::image type="content" source="./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png" alt-text="Screenshot that shows the toggles for enabling soft delete and purge protection." lightbox="./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png":::
 
@@ -585,6 +587,10 @@ If you don't follow the steps in the article and you proceed to protect items, t
 ### Does using CMK encryption add to the cost of my backups?
 
 Using CMK encryption for Backup doesn't incur any additional costs. But you might continue to incur costs for using your key vault where your key is stored.
+
+### What happens to data encrypted with a CMK after its expiration?
+
+When a Customer Managed Key (CMK) expires, it can still unwrap keys, allowing backup and restore operations to succeed. However, it cannot encrypt new vaults. To ensure continuity, enable key rotation to automatically generate a new version upon expiration. Learn about [Key types, algorithms, and operations](/azure/key-vault/keys/about-keys-details).
 
 ## Next steps
 

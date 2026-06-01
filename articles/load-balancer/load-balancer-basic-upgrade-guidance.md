@@ -1,19 +1,18 @@
 ---
 title: Upgrading from Basic Load Balancer - Guidance
-description: Upgrade guidance for migrating basic Load Balancer to standard Load Balancer.
+description: Upgrade guidance for migrating Basic Load Balancer to Standard Load Balancer.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.author: mbender
-ms.topic: conceptual
-ms.date: 09/27/2023
-ms.custom: template-concept
-# Customer intent: As an cloud engineer with basic Load Balancer services, I need guidance and direction on migrating my workloads off basic to standard SKUs
+ms.topic: concept-article
+ms.date: 01/29/2026
+# Customer intent: As an cloud engineer with Basic Load Balancer services, I need guidance and direction on migrating my workloads off Basic to Standard SKUs
 ---
 
-# Upgrading from basic Load Balancer - Guidance
+# Upgrading from Basic Load Balancer - Guidance
 
->[!Important]
->On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. This article will help guide you through the upgrade process. 
+> [!IMPORTANT]
+> On September 30, 2025, Basic Load Balancer was retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer as soon as possible. This article will help guide you through the upgrade process. 
 
 In this article, we discuss guidance for upgrading your Basic Load Balancer instances to Standard Load Balancer. Standard Load Balancer is recommended for all production instances and provides many [key differences](#basic-load-balancer-sku-vs-standard-load-balancer-sku) to your infrastructure.
 
@@ -27,7 +26,7 @@ We recommend the following approach for upgrading to Standard Load Balancer:
 1. Perform migration with [automated PowerShell scripts](#upgrade-using-automated-scripts-recommended) for your scenario or create a new Standard Load Balancer with the Basic Load Balancer configurations.
 1. Verify your application and workloads are receiving traffic through the Standard Load Balancer. Then delete your Basic Load Balancer resource. 
 
-## Basic Load Balancer SKU vs. standard Load Balancer SKU 
+## Basic Load Balancer SKU vs. Standard Load Balancer SKU 
 
 This section lists out some key differences between these two Load Balancer SKUs. 
 
@@ -58,16 +57,19 @@ For information on limits, see [Load Balancer limits](../azure-resource-manager/
 
 Use these PowerShell scripts to help with upgrading from Basic to Standard SKU:
 
-- [Upgrading a basic to standard public load balancer with PowerShell](./upgrade-basic-standard-with-powershell.md)
+- [Upgrading a Basic to Standard public load balancer with PowerShell](./upgrade-basic-standard-with-powershell.md)
 
 ## Upgrade manually
 
 > [!NOTE]
-> Although manually upgrading your Basic Load Balancer to a Standard Load Balancer using the Portal is an option, we recommend using the [**automated script option**](./upgrade-basic-standard-with-powershell.md) above, due to the number of steps and complexity of the migration. The automation ensures a consistent migration and minimizes downtime to load balanced applications. 
+> Although manually upgrading your Basic Load Balancer to a Standard Load Balancer using the Portal is an option, we recommend using the [**automated script option**](./upgrade-basic-standard-with-powershell.md) above, due to the number of steps and complexity of the migration. The automation ensures a consistent migration and minimizes downtime to load balanced applications.
+
+> [!WARNING]
+> Before manually upgrading a Basic Load Balancer, make sure that all Public IPs associated with both the Load Balancer and its backend Virtual Machines are set to 'static'. If you disassociate a Public IP or remove all backend VMs before changing the IP allocation to static, the IP address may be lost.
 
 When manually migrating from a Basic to Standard SKU Load Balancer, there are a couple key considerations to keep in mind:
 
-- It is not possible to mix Basic and Standard SKU IPs or Load Balancers. All Public IPs associated with a Load Balancer and its backend pool members must match.
+- It isn't possible to mix Basic and Standard SKU IPs or Load Balancers. All Public IPs associated with a Load Balancer and its backend pool members must match.
 - Public IP allocation method must be set to 'static' when a Public IP is disassociated from a Load Balancer or Virtual Machine, or the allocated IP will be lost. 
 - Standard SKU public IP addresses are secure by default, requiring that a Network Security Group explicitly allow traffic to any public IPs
 - Standard SKU Load Balancers block outbound access by default. To enable outbound access, a public load balancer needs an outbound rule for backend members. For private load balancers, either configure a NAT Gateway on the backend pool members' subnet or add instance-level public IP addresses to each backend member. 
@@ -77,7 +79,7 @@ Suggested order of operations for manually upgrading a Basic Load Balancer in co
 1. Change all Public IPs associated with the Basic Load Balancer and backend Virtual Machines to 'static' allocation
 1. For private Load Balancers, record the private IP addresses allocated to the frontend IP configurations
 1. Record the backend pool membership of the Basic Load Balancer
-1. Record the load balancing rules, NAT rules and health probe configuration of the Basic Load Balancer
+1. Record the load balancing rules, NAT rules, and health probe configuration of the Basic Load Balancer
 1. Create a new Standard SKU Load Balancer, matching the public or private configuration of the Basic Load Balancer. Name the frontend IP configuration something temporary. For public load balancers, use a new Public IP address for the frontend configuration. For guidance, see [Create a Public Load Balancer in the Portal](./quickstart-load-balancer-standard-public-portal.md) or [Create an Internal Load Balancer in the Portal](./quickstart-load-balancer-standard-internal-portal.md)
 1. Duplicate the Basic SKU Load Balancer configuration for the following:
     1. Backend pool names
@@ -85,11 +87,11 @@ Suggested order of operations for manually upgrading a Basic Load Balancer in co
     1. Health probes
     1. Load balancing rules - use the temporary frontend configuration
     1. NAT rules - use the temporary frontend configuration
-1. For public load balancers, if you do not have one already, [create a new Network Security Group](../virtual-network/tutorial-filter-network-traffic.md) with allow rules for the traffic coming through the Load Balancer rules
-1. For Virtual Machine Scale Set backends, remove the Load Balancer association in the Networking settings and [update the instances](../virtual-machine-scale-sets/virtual-machine-scale-sets-perform-manual-upgrades.md) 
+1. For public load balancers, if you don't have one already, [create a new Network Security Group](../virtual-network/tutorial-filter-network-traffic.md) with allow rules for the traffic coming through the Load Balancer rules
+1. For Virtual Machine Scale Set backends, remove the Load Balancer association in the Networking settings and [update the instances](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-perform-manual-upgrades) 
 1. Delete the Basic Load Balancer 
    > [!NOTE]
-   > For Virtual Machine Scale Set backends, you will need to remove the load balancer association in the Networking settings. Once removed, you will also need to [**update the instances**](../virtual-machine-scale-sets/virtual-machine-scale-sets-perform-manual-upgrades.md) 
+   > For Virtual Machine Scale Set backends, you'll need to remove the load balancer association in the Networking settings. Once removed, you'll also need to [**update the instances**](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-perform-manual-upgrades) 
 1. [Upgrade all Public IPs](../virtual-network/ip-services/public-ip-upgrade-portal.md) previously associated with the Basic Load Balancer and backend Virtual Machines to Standard SKU. For Virtual Machine Scale Sets, remove any instance-level public IP configuration, update the instances, then add a new one with Standard SKU and update the instances again. 
 1. Recreate the frontend configurations from the Basic Load Balancer on the newly created Standard Load Balancer, using the same public or private IP addresses as on the Basic Load Balancer
 1. Update the load balancing and NAT rules to use the appropriate frontend configurations
@@ -100,11 +102,14 @@ Suggested order of operations for manually upgrading a Basic Load Balancer in co
 ## FAQ
 
 ### Will the Basic Load Balancer retirement impact Cloud Services Extended Support (CSES) deployments?
-No, this retirement will not impact your existing or new deployments on CSES. This means that you can still create and use Basic Load Balancers for CSES deployments. However, we advise using Standard SKU on ARM native resources (those that do not depend on CSES) when possible, because Standard has more advantages than Basic.
+No, this retirement won't impact your existing or new deployments on CSES. This means that you can still create and use Basic Load Balancers for CSES deployments. However, we advise using Standard SKU on Azure Resource Manager (ARM) native resources (those that don't depend on CSES) when possible, because Standard has more advantages than Basic.
+
+### What will happen to my Basic Load Balancer resource post-retirement (September 30, 2025)?
+Basic Load Balancers will remain operational after September 30, 2025, giving users more time to transition to Standard SKU. Customers who choose to continue using Basic Load Balancers after retirement date accept the risks and acknowledge that the service is unsupported and not covered by SLA guarantees.
 
 ## Next Steps
 
-For guidance on upgrading basic Public IP addresses to Standard SKUs, see:
+For guidance on upgrading Basic Public IP addresses to Standard SKUs, see:
 
 > [!div class="nextstepaction"]
 > [Upgrading a Basic Public IP to Standard Public IP - Guidance](../virtual-network/ip-services/public-ip-basic-upgrade-guidance.md)

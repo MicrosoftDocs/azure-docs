@@ -1,19 +1,21 @@
 ---
-title: About Azure CDN from Microsoft (classic) to Azure Front Door migration (preview)
+title: About Azure CDN from Microsoft (classic) to Azure Front Door migration
 description: This article explains the migration process and changes expected when changing from Azure CDN from Microsoft (classic) to Azure Front Door Standard or Premium tier.
 services: frontdoor
-author: duongau
-ms.service: frontdoor
-ms.topic: conceptual
-ms.date: 06/25/2024
-ms.author: duau
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-frontdoor
+ms.topic: concept-article
+ms.date: 02/28/2026
+ROBOTS: NOINDEX
+# Customer intent: As a cloud administrator, I want to migrate from Azure CDN (classic) to Azure Front Door Standard or Premium, so that I can leverage enhanced features and ensure zero-downtime during the transition while improving the performance and security of my web applications.
 ---
 
-# About Azure CDN from Microsoft (classic) to Azure Front Door migration (preview)
+# About Azure CDN from Microsoft (classic) to Azure Front Door migration
 
-> [!IMPORTANT]
-> Azure CDN from Microsoft to Azure Front Door migration is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+**Applies to:** :heavy_check_mark: CDN Standard from Microsoft (classic)
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 Azure Front Door Standard and Premium tier were released in March 2022 as the next generation content delivery network service. The newer tiers combine the capabilities of Azure Front Door (classic), Microsoft CDN (classic), and Web Application Firewall (WAF). With features such as Private Link integration, enhanced rules engine and advanced diagnostics you have the ability to secure and accelerate your web applications to bring a better experience to your customers.
 
@@ -36,9 +38,6 @@ The migration tool checks to see if your Azure CDN from Microsoft (classic) prof
 * There's a one to one mapping for an Azure CDN from Microsoft (classic) and Azure Front Door Standard or Premium endpoint. A CDN from Microsoft (classic) endpoint in a *Stopped* state can't be migrated. You need to either start the endpoint or delete it before you can validate again.
 
 * Web Application Firewall (WAF) for Azure CDN from Microsoft is only in preview. If you have a WAF policy associated with your Azure CDN from Microsoft (classic) profile, you need to remove the association before you can validate again. You can create a new WAF policy in Azure Front Door Standard or Premium after migration.
-
-> [!NOTE]
-> Managed certificate is currently **not supported** for Azure Front Door Standard or Premium tier in Azure Government Cloud. You'll need to use Bring Your Own Certificate (BYOC) for Azure Front Door Standard or Premium tier in Azure Government Cloud or wait until managed certificate is supported.
 
 #### Prepare for migration
 

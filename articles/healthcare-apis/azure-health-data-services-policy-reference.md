@@ -1,10 +1,10 @@
 ---
 title: Built-in policy definitions for Azure Health Data Services
 description: Explore the index of Azure Policy’s built-in definitions tailored for Azure Health Data Services. Enhance security and compliance through detailed policy descriptions, effects, and GitHub sources.
-ms.date: 04/30/2024
+ms.date: 06/02/2025
 author: expekesheth
 ms.author: kesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.custom: subject-policy-reference
@@ -12,13 +12,13 @@ ms.custom: subject-policy-reference
 # Azure Policy built-in definitions for Azure Health Data Services
 
 This article provides an index of built-in [Azure Policy](./../../articles/governance/policy/overview.md) definitions for Azure Health Data Services. For more information, see
-[Azure Policy built-in policies](./../../articles/governance/policy/samples/built-in-policies.md).
+[Azure Policy built-in policies](/azure/governance/policy/samples/built-in-policies).
 
 The name of each built-in policy definition links to the policy definition in the Azure portal. Use
 the link in the **GitHub version** column to view the source on the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy).
 
-|Azure Portal Name |Description |Effects |GitHub version |
+|Azure portal Name |Description |Effects |GitHub version |
 |---|---|---|---|
 |[Azure Health Data Services workspace should use Private Link](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F64528841-2f92-43f6-a137-d52e5c3dbeac) |The Azure Health Data Services workspace needs at least one approved private endpoint connection. Clients in a virtual network can securely access resources that have private endpoint connections through private links. For more information, see: [Configure Private Link for Azure Health Data Services](healthcare-apis-configure-private-link.md). |Audit, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Health%20Data%20Services%20workspace/PrivateLink_Audit.json) |
 |[CORS shouldn't allow every domain to access the FHIR&reg; service](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffe1c9040-c46a-4e81-9aea-c7850fbb3aa6) |Cross-origin resource sharing (CORS) shouldn't allow all domains to access the FHIR service. To protect the FHIR service, remove access for all domains and explicitly define the domains allowed to connect. |audit, Audit, disabled, Disabled |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Healthcare%20APIs/FHIR_Service_RestrictCORSAccess_Audit.json) |

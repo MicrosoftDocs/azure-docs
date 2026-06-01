@@ -5,6 +5,7 @@ services: azure-government
 ms.service: azure-government
 ms.topic: article
 ms.date: 10/01/2021
+ms.custom: sfi-image-nochange
 ---
 
 # Develop with SQL Server Management Studio 

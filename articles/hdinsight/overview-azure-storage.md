@@ -1,8 +1,11 @@
 ---
 title: Azure Storage overview in HDInsight
 description: Overview of Azure Storage in HDInsight.
-ms.service: hdinsight
-ms.topic: conceptual
+ms.service: azure-hdinsight
+ms.topic: overview
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 06/13/2024
 ---
 
@@ -46,7 +49,7 @@ Consider the following principles when using an Azure Storage account with HDIns
 The storage accounts that are defined in the creation process and their keys are stored in %HADOOP_HOME%/conf/core-site.xml on the cluster nodes. By default, HDInsight uses the storage accounts defined in the core-site.xml file. You can modify this setting by using [Apache Ambari](./hdinsight-hadoop-manage-ambari.md). For more information about the storage account settings that can be modified or placed in the core-site.xml file, see these articles:
 
 - [Hadoop Azure Support: Azure Blob Storage](https://hadoop.apache.org/docs/stable/hadoop-azure/index.html)
-- [Hadoop Azure Support: ABFS — Azure Data Lake Storage Gen2](https://hadoop.apache.org/docs/stable/hadoop-azure/abfs.html)
+- [Hadoop Azure Support: ABFS — Azure Data Lake Storage Gen2](https://hadoop.apache.org/docs/stable/hadoop-azure/index.html)
 
 Multiple WebHCat jobs, including Apache Hive. And MapReduce, Apache Hadoop streaming, and Apache Pig, carry a description of storage accounts and metadata. (This aspect is currently true for Pig with storage accounts but not for metadata.) For more information, see [Using an HDInsight cluster with alternate storage accounts and metastores](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
@@ -77,6 +80,5 @@ Certain MapReduce jobs and packages might create intermediate results that you w
 
 - [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
 - [Introduction to Azure Storage](../storage/common/storage-introduction.md)
-- [Azure Data Lake Storage Gen1 overview](./overview-data-lake-storage-gen1.md)
 - [Use Azure storage with Azure HDInsight clusters](hdinsight-hadoop-use-blob-storage.md)
 - [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-storage-gen2.md)

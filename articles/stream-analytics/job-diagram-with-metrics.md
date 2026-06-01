@@ -4,8 +4,8 @@ description: This article describes the Azure Stream Analytics job diagram with 
 titleSuffix: Azure Stream Analytics
 author: xujxu
 ms.author: xujiang1
-ms.service: stream-analytics
-ms.topic: conceptual
+ms.service: azure-stream-analytics
+ms.topic: feature-guide
 ms.date: 2/17/2023
 ---
 

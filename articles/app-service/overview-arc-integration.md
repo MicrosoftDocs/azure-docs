@@ -1,14 +1,22 @@
 ---
 title: 'App Service on Azure Arc'
 description: An introduction to App Service integration with Azure Arc for Azure operators.
-ms.topic: article
+ms.topic: overview
 ms.custom: devx-track-azurecli
-ms.date: 12/05/2023
-author: msangapu-msft
+ms.date: 10/07/2025
+author: apwestgarth
 ms.author: msangapu
+ROBOTS: NOINDEX
+ms.service: azure-app-service
+
+# Customer intent: As an Azure operator, I want to learn about App Service integration with Azure Arc so that I can evaluate whether it meets my needs. 
+
 ---
 
 # App Service, Functions, and Logic Apps on Azure Arc (Preview)
+
+> [!IMPORTANT]
+> [Azure App Service on Arc enabled Kubernetes will be **retired on March 31, 2026**](https://azure.microsoft.com/updates/?id=500016). From September 30, 2025, customers will no longer be able to install the extension. We request you [migrate to other solutions such as Azure Container Apps on Arc enabled Kubernetes](migrate-app-service-arc.md), migrating also allows you to take advantage of [Logic Apps Hybrid](/azure/logic-apps/set-up-standard-workflows-hybrid-deployment-requirements) for your integration workloads.
 
 You can run App Service, Functions, and Logic Apps on an Azure Arc-enabled Kubernetes cluster. The Kubernetes cluster can be on-premises or hosted in a third-party cloud. This approach lets app developers take advantage of the features of App Service. At the same time, it lets their IT administrators maintain corporate compliance by hosting the App Service apps on internal infrastructure. It also lets other IT operators safeguard their prior investments in other cloud providers by running App Service on existing Kubernetes clusters.
 
@@ -17,9 +25,9 @@ You can run App Service, Functions, and Logic Apps on an Azure Arc-enabled Kuber
 
 In most cases, app developers need to know nothing more than how to deploy to the correct Azure region that represents the deployed Kubernetes environment. For operators who provide the environment and maintain the underlying Kubernetes infrastructure, you must be aware of the following Azure resources:
 
-- The connected cluster, which is an Azure projection of your Kubernetes infrastructure. For more information, see [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md).
-- A cluster extension, which is a subresource of the connected cluster resource. The App Service extension [installs the required pods into your connected cluster](#pods-created-by-the-app-service-extension). For more information about cluster extensions, see [Cluster extensions on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md).
-- A custom location, which bundles together a group of extensions and maps them to a namespace for created resources. For more information, see [Custom locations on top of Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md).
+- The connected cluster, which is an Azure projection of your Kubernetes infrastructure. For more information, see [What is Azure Arc-enabled Kubernetes?](/azure/azure-arc/kubernetes/overview)
+- A cluster extension, which is a subresource of the connected cluster resource. The App Service extension [installs the required pods into your connected cluster](#pods-created-by-the-app-service-extension). For more information about cluster extensions, see [Cluster extensions on Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-extensions).
+- A custom location, which bundles together a group of extensions and maps them to a namespace for created resources. For more information, see [Custom locations on top of Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-custom-locations).
 - An App Service Kubernetes environment, which enables configuration common across apps but not related to cluster operations. Conceptually, it's deployed into the custom location resource, and app developers create apps into this environment. This resource is described in greater detail in [App Service Kubernetes environment](#app-service-kubernetes-environment).
 
 ## Public preview limitations
@@ -30,6 +38,7 @@ The following public preview limitations apply to App Service Kubernetes environ
 |---------------------------------------------------------|---------------------------------------------------------------------------------------|
 | Supported Azure regions                                 | East US, West Europe                                                                  |
 | Cluster networking requirement                          | Must support `LoadBalancer` service type |
+| Node OS requirement                                     | **Linux** only.                                                                       | 
 | Cluster storage requirement                             | Must have cluster attached storage class available for use by the extension to support deployment and build of code-based apps where applicable                      |
 | Feature: Networking                                     | [Not available (rely on cluster networking)](#are-all-networking-features-supported)      |
 | Feature: Managed identities                             | [Not available](#are-managed-identities-supported)                                    |
@@ -68,6 +77,7 @@ Only one Kubernetes environment resource can be created in a custom location. In
 
 - [How much does it cost?](#how-much-does-it-cost)
 - [Are both Windows and Linux apps supported?](#are-both-windows-and-linux-apps-supported)
+- [Can the extension be installed on Windows nodes?](#can-the-extension-be-installed-on-windows-nodes)
 - [Which built-in application stacks are supported?](#which-built-in-application-stacks-are-supported)
 - [Are all app deployment types supported?](#are-all-app-deployment-types-supported)
 - [Which App Service features are supported?](#which-app-service-features-are-supported)
@@ -76,7 +86,7 @@ Only one Kubernetes environment resource can be created in a custom location. In
 - [Are there any scaling limits?](#are-there-any-scaling-limits)
 - [What logs are collected?](#what-logs-are-collected)
 - [What do I do if I see a provider registration error?](#what-do-i-do-if-i-see-a-provider-registration-error)
-- [Can I deploy the Application services extension on an ARM64 based cluster?](#can-i-deploy-the-application-services-extension-on-an-arm64-based-cluster)
+- [Can I deploy the Application services extension on an Arm64 based cluster?](#can-i-deploy-the-application-services-extension-on-an-arm64-based-cluster)
 - [Which Kubernetes distributions can I deploy the extension on?](#which-kubernetes-distributions-can-i-deploy-the-extension-on)
 
 ### How much does it cost?
@@ -86,6 +96,10 @@ App Service on Azure Arc is free during the public preview.
 ### Are both Windows and Linux apps supported?
 
 Only Linux-based apps are supported, both code and custom containers. Windows apps aren't supported.
+
+### Can the extension be installed on Windows nodes?
+
+No, the extension cannot be installed on Windows nodes. The extension supports installation on **Linux** nodes **only**.
 
 ### Which built-in application stacks are supported?
 
@@ -113,21 +127,21 @@ All applications deployed with Azure App Service on Kubernetes with Azure Arc ar
 
 ### What logs are collected?
 
-Logs for both system components and your applications are written to standard output. Both log types can be collected for analysis using standard Kubernetes tools. You can also configure the App Service cluster extension with a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md), and it sends all logs to that workspace.
+Logs for both system components and your applications are written to standard output. Both log types can be collected for analysis using standard Kubernetes tools. You can also configure the App Service cluster extension with a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview), and it sends all logs to that workspace.
 
 By default, logs from system components are sent to the Azure team. Application logs aren't sent. You can prevent these logs from being transferred by setting `logProcessor.enabled=false` as an extension configuration setting. This configuration setting will also disable forwarding of application to your Log Analytics workspace. Disabling the log processor might impact time needed for any support cases, and you will be asked to collect logs from standard output through some other means.
 
 ### What do I do if I see a provider registration error?
 
-When creating a Kubernetes environment resource, some subscriptions might see a "No registered resource provider found" error. The error details might include a set of locations and api versions that are considered valid. If this error message is returned, the subscription must be re-registered with the Microsoft.Web provider, an operation that has no impact on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.Web --wait`. Then reattempt the Kubernetes environment command.
+When you create a Kubernetes environment resource, you might see a "No registered resource provider found" error. The error details might include a set of locations and API versions that are considered valid. If this error message is returned, the subscription must be re-registered with the Microsoft.Web provider, an operation that has no impact on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.Web --wait`. Then reattempt the Kubernetes environment command.
 
-### Can I deploy the Application services extension on an ARM64 based cluster?
+### Can I deploy the Application services extension on an Arm64 based cluster?
 
-ARM64 based clusters aren't supported at this time.  
+Arm64 based clusters aren't supported at this time.  
 
 ### Which Kubernetes distributions can I deploy the extension on?
 
-The extension has been validated on AKS, AKS on Azure Stack HCI, Google Kubernetes Engine, Amazon Elastic Kubernetes Service and Kubernetes Cluster API.
+The extension has been validated on AKS, AKS on Azure Local, Google Kubernetes Engine, Amazon Elastic Kubernetes Service and Kubernetes Cluster API.
 
 ## Extension Release Notes
 
@@ -243,6 +257,6 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
     az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.13.5
 ```
 
-## Next steps
+## Related content
 
-[Create an App Service Kubernetes environment (Preview)](manage-create-arc-environment.md)
+- [Create an App Service Kubernetes environment (Preview)](manage-create-arc-environment.md)

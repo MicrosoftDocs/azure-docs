@@ -1,32 +1,32 @@
 ### YamlMime:FAQ
 metadata:
-  title: FAQ - Backing up SQL Server databases on Azure VMs
-  description: Find answers to common questions about backing up SQL Server databases on Azure VMs with Azure Backup.
+  title: FAQ - Backing up SQL Server databases on Azure Virtual Machines (VMs)
+  description: Find answers to common questions about backing up SQL Server databases on an Azure Virtual Machine (VM) with Azure Backup.
   ms.reviewer: vijayts
   ms.topic: faq
-  ms.service: backup
-  ms.date: 03/05/2024
+  ms.service: azure-backup
+  ms.date: 02/13/2026
   author: AbhishekMallick-MS
-  ms.author: v-abhmallick
+  ms.author: v-mallicka
 
     
 title: FAQ about SQL Server databases that are running on an Azure VM backup
 summary: |
-  This article answers common questions about backing up SQL Server databases that run on Azure virtual machines (VMs) and use the [Azure Backup](backup-overview.md) service.
+  This article answers common questions about backing up SQL Server databases that run on Azure virtual machines (VMs) and use the [Azure Backup](backup-overview.md) service. To understand the SQL database backup and restore support scenarios, see the [support matrix](sql-support-matrix.md).
   
 
 sections:
   - name: Backup
     questions:
       - question: |
-          Can I use Azure Backup for IaaS VM as well as SQL Server on the same machine?
+          Can I use Azure Backup for IaaS VM and SQL Server on the same machine?
         answer: |
-          Yes, you can have both VM backup and SQL backup on the same VM. In this case, we internally trigger copy-only full backup on the VM to not truncate the logs.
+          Yes, both VM and SQL backups can coexist on the same VM. To avoid interfering with database backups using other backup tools, IaaS VM backups trigger copy-only full backups.
 
       - question: |
           Does the solution retry or auto-heal the backups?
         answer: |
-          Under some circumstances, the Azure Backup service triggers remedial backups. Auto-heal can happen for any of the six conditions mentioned below:
+          Under some circumstances, the Azure Backup service triggers remedial backups. Auto-heal can happen for any of the following six conditions:
           
           - If log or differential backup fails due to LSN Validation Error, next log or differential backup is instead converted to a full backup.
           - If no full backup has happened before a log or differential backup, that log or differential backup is instead converted to a full backup.
@@ -43,22 +43,26 @@ sections:
           1. On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create or edit the **ExtensionSettingsOverrides.json** file.
           1. In the **ExtensionSettingsOverrides.json** file, set `{"EnableAutoHealer": false}`.
           1. Save the changes and close the file.
-          1. On the SQL Server instance, open **Task Manage**, and then restart the **AzureWLBackupCoordinatorSvc** service.
+          1. On the **SQL Server instance**, open **Task Manager**, stop `AzureWLBackupPluginSvs` and `AzureWLBackupInquirySvc` services, and then restart the `AzureWLBackupCoordinatorSvc` service.
           
+             `AzureWLBackupPluginSvs` and `AzureWLBackupInquirySvc` services auto-start when new tasks arrive. Avoid restarting `AzureWLBackupCoordinatorSvc` during active backups; otherwise, it aborts them and might trigger full remedial backups.
+
       - question: |
           Can I control how many concurrent backups run on the SQL server?
         answer: |
           Yes. You can throttle the rate at which the backup policy runs to minimize the impact on a SQL Server instance. To change the setting:
           
           1. On the SQL Server instance, in the *C:\Program Files\Azure Workload Backup\bin* folder, create the *ExtensionSettingsOverrides.json* file.
-          2. In the **ExtensionSettingsOverrides.json** file, change the `DefaultBackupTasksThreshold` setting to a lower value (for example, 5). <br>
+          1. In the **ExtensionSettingsOverrides.json** file, change the `DefaultBackupTasksThreshold` setting to a lower value (for example, 5). <br>
             `{"DefaultBackupTasksThreshold": 5}`
           <br>
           The default value of DefaultBackupTasksThreshold is **20**.
           
-          3. Save your changes and close the file.
-          4. On the SQL Server instance, open **Task Manager**. Restart the **AzureWLBackupCoordinatorSvc** service.<br/> <br/>
-           While this method helps if the backup application is consuming a large quantity of resources, SQL Server [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) is a more generic way to specify limits on the amount of CPU, physical IO, and memory that incoming application requests can use.
+          1. Save your changes and close the file.
+          1. On the **SQL Server instance**, open **Task Manager**, stop `AzureWLBackupPluginSvs` and `AzureWLBackupInquirySvc` services, and then restart the `AzureWLBackupCoordinatorSvc` service.
+          
+             `AzureWLBackupPluginSvs` and `AzureWLBackupInquirySvc` services auto-start when new tasks arrive. Avoid restarting `AzureWLBackupCoordinatorSvc` during active backups; otherwise, it aborts them and might trigger full remedial backups. For more generic control over CPU, I/O, and memory usage by backup applications, use **SQL Server Resource Governor**.
+
           
           > [!NOTE]
           > In the UX you can still go ahead and schedule as many backups at any given time. However they'll be processed in a sliding window of say, 5, according to the above example.
@@ -100,7 +104,10 @@ sections:
           Can I use Azure Site Recovery for SQL machine as well as Azure SQL database backup on the same machine?
         answer: |
           Yes. Azure Site Recovery will trigger a *copy-only full backup* while taking the *application consistent snapshot* on the VM not to truncate the logs. [Learn more](../site-recovery/site-recovery-sql.md#combining-bcdr-technologies-with-site-recovery).   
-
+      - question: |
+          What happens if I rename the SQL Server VM at the OS level? Will backups and restores still work?
+        answer: |
+          Renaming the VM at the OS level is supported. Azure Backup for SQL Server relies on the Azure Resource URI and SQL Server instance registration, not the OS hostname. Backups will continue to work as long as the Azure Backup Plugin can connect to the SQL Server instance. 
   - name: Manage
     questions:
       - question: |
@@ -140,8 +147,22 @@ sections:
         answer: |
           Yes, you need a file path in a registered VM to download files. That path can be a network share too. Configure a network share from the unregistered VM to the registered VM and then choose the registered VM as target and the network share as the target file path. Once files are downloaded, you could simply unmount the network share from the registered VM and the files are now available in the unregistered VM.
 
+      - question: |
+          Connecting the Azure environment to on-premises network using ExpressRoute and  configured forced tunneling directs all the traffic to the on-premises network. How can I configure the settings so that Azure SQL Server workload backup traffic won't pass through the on-premises network and directly connects to Recovery Services vault?
+        answer: |
+          During the backup operation, the *backup job* connects to three Service Endpoints - `AzureBackup`, `AzureStorage`, and `Microsoft Entra ID`. In this scenario, we recommend you to configure the Service Endpoint to `AzureStorage`, which helps to send the traffic from the Virtual Network to the Storage directly. For Azure Backup and Microsoft Entra ID, you can configure UDR over service tags so that the traffic travels to backbone network instead of on-premises.
+
+      - question: |
+          Why do I need write permission on the source SQL Server to restore to another SQL Server?
+        answer: |
+          You need write access to the source VM during a PowerShell-based SQL ALR restore to confirm that the data owner is initiating the restore. This check prevents unauthorized access through the Recovery Services Vault. If the source VM no longer exists, the vault skips validation and lets you restore to any VM without needing write access to the original source.
+
 
 additionalContent: |
 
   ## Next steps
-  Learn how to [back up a SQL Server database](backup-azure-sql-database.md) that's running on an Azure VM.
+
+  - [Back up a SQL Server database running on an Azure VM](backup-azure-sql-database.md).
+  - [Restore backed up SQL Server databases](restore-sql-database-azure-vm.md).
+  - [Manage and monitor backed up SQL Server databases using Azure portal](manage-monitor-sql-database-backup.md).
+

@@ -1,9 +1,11 @@
 ---
 title: 'Quickstart: Use the Azure portal to create a Batch account and run a job'
 description: Follow this quickstart to use the Azure portal to create a Batch account, a pool of compute nodes, and a job that runs basic tasks on the pool.
-ms.date: 06/13/2024
+ms.date: 03/14/2025
+ms.service: azure-batch
 ms.topic: quickstart
 ms.custom: mvc, mode-ui
+# Customer intent: As a developer, I want to create a Batch account and configure compute nodes to run jobs, so that I can efficiently process large-scale workloads using parallel computing resources.
 ---
 
 # Quickstart: Use the Azure portal to create a Batch account and run a job
@@ -59,6 +61,7 @@ Next, create a pool of Windows compute nodes in your Batch account. The followin
    - **Publisher**: Select **microsoftwindowsserver**.
    - **Sku**: Select **2019-datacenter-core-smalldisk**.
 
+1. Under **OS disk storage account type**, select **Standard LRS**.
 1. Scroll down to **Node size**, and for **VM size**, select **Standard_A1_v2**.
 
 1. Under **Scale**, for **Target dedicated nodes**, enter *2*.

@@ -1,29 +1,29 @@
 ---
-author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: include
-ms.date: 04/30/2024
-ms.author: cshoe
+ms.date: 02/03/2025
+author: v1212
+ms.author: wujia
 ---
 
 ## Set environment variables
 
-Set the following environment variables. Replace \<PLACEHOLDERS\> with your values:
+Set the following environment variables. Replace the `<placeholders>` with your values.
 
 # [Bash](#tab/bash)
 
 ```azurecli
-RESOURCE_GROUP="<RESOURCE_GROUP>"
-LOCATION="<LOCATION>"
-CONTAINERAPPS_ENVIRONMENT="<CONTAINERAPPS_ENVIRONMENT>"
+RESOURCE_GROUP="<new-resource-group>"
+LOCATION="<location>"
+CONTAINERAPPS_ENVIRONMENT="<containerapps-environment>"
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```azurepowershell
-$ResourceGroupName = '<RESOURCE_GROUP>'
-$Location = '<LOCATION>'
-$ContainerAppsEnvironment = '<CONTAINERAPPS_ENVIRONMENT>'
+$ResourceGroupName = '<new-resource-group>'
+$Location = '<location>'
+$ContainerAppsEnvironment = '<containerapps-environment>'
 ```
 
 ---

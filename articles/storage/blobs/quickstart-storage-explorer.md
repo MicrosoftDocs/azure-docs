@@ -9,6 +9,7 @@ ms.topic: quickstart
 ms.date: 10/28/2021
 ms.author: shaas
 ms.custom: mode-other
+# Customer intent: As a cloud user, I want to utilize a storage management tool to create and manage blobs, so that I can easily transfer files between local storage and cloud storage while maintaining organization and access control.
 ---
 
 # Quickstart: Use Azure Storage Explorer to create a blob
@@ -28,7 +29,7 @@ On first launch, the **Microsoft Azure Storage Explorer - Connect to Azure Stora
 - Subscription
 - Storage account
 - Blob container
-- ADLS Gen2 container or directory
+- Azure Data Lake Storage container or directory
 - File share
 - Queue
 - Table

@@ -4,12 +4,12 @@ description: Describes how to troubleshoot issues seen during data copy in Azure
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.custom: linux-related-content
 ms.topic: troubleshooting
 ms.date: 06/13/2019
 ms.author: shaas
+# Customer intent: "As a Linux user, I want to troubleshoot data copy issues with Azure Data Box Disk, so that I can ensure data integrity and successful transfers during my workflow."
 ---
 
 # Troubleshoot data copy issues in Azure Data Box Disk

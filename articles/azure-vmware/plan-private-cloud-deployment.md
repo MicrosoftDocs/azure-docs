@@ -4,7 +4,8 @@ description: In this tutorial, learn how to plan your Azure VMware Solution depl
 ms.topic: tutorial
 ms.custom: engagement-fy23
 ms.service: azure-vmware
-ms.date: 12/19/2023
+ms.date: 01/08/2025
+# Customer intent: As a cloud architect, I want to plan and document my Azure VMware Solution deployment, so that I can ensure a successful production-ready environment for virtual machines and facilitate smooth migration processes.
 ---
 
 # Plan the Azure VMware Solution deployment
@@ -122,8 +123,8 @@ VMware HCX Connector deploys a subset of virtual appliances (automated) that req
 
 Optionally, you can extend network segments from on-premises to Azure VMware Solution. If you extend network segments, identify those networks now following these guidelines:
 
-- Networks must connect to a [vSphere Distributed Switch (vDS)](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-B15C6A13-797E-4BCB-B9D9-5CBC5A60C3A6.html) in your on-premises VMware environment.  
-- Networks that are on a [vSphere Standard Switch](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.networking.doc/GUID-350344DE-483A-42ED-B0E2-C811EE927D59.html) can't be extended.
+- Networks must connect to a [vSphere Distributed Switch (vDS)](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-networking-8-0/basic-networking-with-vnetwork-distributed-switches.html) in your on-premises VMware environment.  
+- Networks that are on a [vSphere Standard Switch](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-networking-8-0/setting-up-networking-with-vnetwork-standard-switches.html) can't be extended.
 
 >[!IMPORTANT]
 >These networks are extended as a final step of the configuration, not during deployment.

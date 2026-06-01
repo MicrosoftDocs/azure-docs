@@ -1,13 +1,12 @@
 ---
 title: Troubleshoot assessments FAQ in Azure Migrate
 description: FAQs for Troubleshooting assessments in Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.date: 02/16/2024
+ms.reviewer: v-uhabiba
+ms.date: 08/20/2024
 ms.custom: engagement-fy24
+# Customer intent: As a cloud administrator, I want to troubleshoot issues in Azure Migrate assessments, so that I can ensure accurate and effective migration planning for my on-premises resources.
 ---
 
 # Troubleshoot assessment - FAQ
@@ -19,8 +18,8 @@ This article provides answers to some of the most common questions about trouble
 Azure VM assessment might recommend a bigger disk based on the type of assessment:
 
 - Disk sizing depends on two assessment properties: sizing criteria and storage type.
-- If the sizing criteria are **Performance-based** and the storage type is set to **Automatic**, the IOPS and throughput values of the disk are considered when identifying the target disk type (Standard HDD, Standard SSD, Premium, or Ultra disk). A disk SKU from the disk type is then recommended, and the recommendation considers the size requirements of the on-premises disk.
-- If the sizing criteria are **Performance-based** and the storage type is **Premium**, a premium disk SKU in Azure is recommended based on the IOPS, throughput, and size requirements of the on-premises disk. The same logic is used to perform disk sizing when the sizing criteria is **As on-premises** and the storage type is **Standard HDD**, **Standard SSD**, **Premium**, or **Ultra disk**.
+- If the sizing criteria are **Performance-based** and the storage type is set to **Automatic**, the IOPS and throughput values of the disk are considered when identifying the target disk type (Standard HDD, Standard SSD, Premium, or Ultra Disk). A disk SKU from the disk type is then recommended, and the recommendation considers the size requirements of the on-premises disk.
+- If the sizing criteria are **Performance-based** and the storage type is **Premium**, a premium disk SKU in Azure is recommended based on the IOPS, throughput, and size requirements of the on-premises disk. The same logic is used to perform disk sizing when the sizing criteria is **As on-premises** and the storage type is **Standard HDD**, **Standard SSD**, **Premium**, or **Ultra Disk**.
 
 For example, say you have an on-premises disk with 32 GB of memory, but the aggregated read and write IOPS for the disk is 800 IOPS. The Azure VM assessment recommends a premium disk because of the higher IOPS requirements. It also recommends a disk SKU that can support the required IOPS and size. The nearest match in this example would be P15 (256 GB, 1100 IOPS). Even though the size required by the on-premises disk was 32 GB, the Azure VM assessment recommended a larger disk because of the high IOPS requirement of the on-premises disk.
 
@@ -57,7 +56,7 @@ If any of the performance counters are missing, the Azure SQL assessment recomme
 
 ## Why is the confidence rating of my assessment low?
 
-The confidence rating is calculated for **Performance-based** assessments based on the percentage of [available data points](./concepts-assessment-calculation.md#ratings) needed to compute the assessment. An assessment could get a low confidence rating for the following reasons:
+The confidence rating is calculated for **Performance-based** assessments based on the percentage of [available data points](assessment-report.md#coverage) needed to compute the assessment. An assessment could get a low confidence rating for the following reasons:
 
 - You didn't profile your environment for the duration for which you're creating the assessment. For example, if you're creating an assessment with performance duration set to one week, you need to wait for at least a week after you start the discovery for all the data points to get collected. If you can't wait for the duration, change the performance duration to a shorter period and recalculate the assessment.
 - The assessment isn't able to collect the performance data for some or all the servers in the assessment period. For a high confidence rating, ensure that: 
@@ -69,8 +68,9 @@ The confidence rating is calculated for **Performance-based** assessments based 
 
     Recalculate the assessment to reflect the latest changes in confidence rating.
 
-- For Azure VM and Azure VMware Solution assessments, few servers were created after discovery had started. For example, say you're creating an assessment for the performance history of the past month, but a few servers were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-assessment-calculation.md#confidence-ratings-performance-based).
-- For Azure SQL assessments, few SQL instances or databases were created after discovery had started. For example, say you're creating an assessment for the performance history of the past month, but a few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](./concepts-azure-sql-assessment-calculation.md#confidence-ratings).
+- For Azure VM and Azure VMware Solution assessments, few servers were created after discovery had started. For example, say you're creating an assessment for the performance history of the past month, but a few servers were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](assessment-report.md#coverage).
+
+- For Azure SQL assessments, few SQL instances or databases were created after discovery had started. For example, say you're creating an assessment for the performance history of the past month, but a few SQL instances or databases were created in the environment only a week ago. In this case, the performance data for the new servers won't be available for the entire duration and the confidence rating would be low. [Learn more](assessment-report.md#coverage).
 
 ## Why is my RAM utilization greater than 100%?
 
@@ -84,23 +84,23 @@ An Azure VM assessment currently considers the operating system license cost onl
 
 An Azure VM assessment continuously collects performance data of on-premises servers and uses it to recommend the VM SKU and disk SKU in Azure. [Learn more](concepts-assessment-calculation.md#calculate-sizing-performance-based) about how performance-based data is collected.
 
-## Can I migrate my disks to an Ultra disk by using Azure Migrate?
+## Can I migrate my disks to an Ultra Disk by using Azure Migrate?
 
-No. Currently, both Azure Migrate and Azure Site Recovery don't support migration to Ultra disks. [Learn more](../virtual-machines/disks-enable-ultra-ssd.md?tabs=azure-portal#deploy-an-ultra-disk) about deploying an Ultra disk.
+No. Currently, both Azure Migrate and Azure Site Recovery don't support migration to Ultra Disks. [Learn more](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal#deploy-an-ultra-disk) about deploying an Ultra Disk.
 
-## Why are the provisioned IOPS and throughput in my Ultra disk more than my on-premises IOPS and throughput?
+## Why are the provisioned IOPS and throughput in my Ultra Disk more than my on-premises IOPS and throughput?
 
-As per the [official pricing page](https://azure.microsoft.com/pricing/details/managed-disks/), Ultra disk is billed based on the provisioned size, provisioned IOPS, and provisioned throughput. For example, if you provisioned a 200-GiB Ultra disk with 20,000 IOPS and 1,000 MB/second and deleted it after 20 hours, it will map to the disk size offer of 256 GiB. You'll be billed for 256 GiB, 20,000 IOPS, and 1,000 MB/second for 20 hours.
+As per the [official pricing page](https://azure.microsoft.com/pricing/details/managed-disks/), Ultra Disk is billed based on the provisioned size, provisioned IOPS, and provisioned throughput. For example, if you provisioned a 200-GiB Ultra Disk with 20,000 IOPS and 1,000 MB/second and deleted it after 20 hours, it will map to the disk size offer of 256 GiB. You'll be billed for 256 GiB, 20,000 IOPS, and 1,000 MB/second for 20 hours.
 
 IOPS to be provisioned = (Throughput discovered) * 1024/256
 
-## Does the Ultra disk recommendation consider latency?
+## Does the Ultra Disk recommendation consider latency?
 
 No, currently only disk size, total throughput, and total IOPS are used for sizing and costing.
 
-## I can see M series supports Ultra disk, but in my assessment where Ultra disk was recommended, it says "No VM found for this location"
+## I can see M series supports Ultra Disk, but in my assessment where Ultra Disk was recommended, it says "No VM found for this location"
 
-This result is possible because not all VM sizes that support Ultra disks are present in all Ultra disk supported regions. Change the target assessment region to get the VM size for this server.
+This result is possible because not all VM sizes that support Ultra Disks are present in all Ultra Disk supported regions. Change the target assessment region to get the VM size for this server.
 
 ## Why is my assessment showing a warning that it was created with an invalid offer?
 
@@ -108,11 +108,11 @@ Your assessment was created with an offer that is no longer valid and hence, the
 
 ## Why is my assessment showing a warning that it was created with a target Azure location that has been deprecated?
 
-Your assessment was created with an Azure region that has been deprecated and hence the **Edit** and **Recalculate** buttons are disabled. You can [create a new assessment](how-to-create-assessment.md) with any of the valid target locations. [Learn more](concepts-assessment-calculation.md#whats-in-an-azure-vm-assessment).
+Your assessment was created with an Azure region that has been deprecated and hence the **Edit** and **Recalculate** buttons are disabled. You can [create a new assessment](how-to-create-assessment.md) with any of the valid target locations. [Learn more](concepts-assessment-overview.md#how-are-assessments-calculated).
 
 ## Why is my assessment showing a warning that it was created with an invalid combination of Reserved Instances, VM uptime, and Discount (%)?
 
-When you select **Reserved Instances**, the **Discount (%)** and **VM uptime** properties aren't applicable. As your assessment was created with an invalid combination of these properties, the **Edit** and **Recalculate** buttons are disabled. Create a new assessment. [Learn more](./concepts-assessment-calculation.md#whats-an-assessment).
+When you select **Reserved Instances**, the **Discount (%)** and **VM uptime** properties aren't applicable. As your assessment was created with an invalid combination of these properties, the **Edit** and **Recalculate** buttons are disabled. Create a new assessment. [Learn more](./concepts-assessment-overview.md#how-are-assessments-calculated).
 
 ## Why are some of my assessments marked as "to be upgraded to latest assessment version"? 
 
@@ -129,11 +129,11 @@ This issue can happen if the physical server has Hyper-V virtualization enabled.
 
 ## The recommended Azure VM SKU for my physical server is oversized
 
-This issue can happen if the physical server has Hyper-V virtualization enabled. On these servers, Azure Migrate currently discovers both the physical and virtual network adapters. As a result, the number of network adapters discovered is higher than the actual number. The Azure VM assessment picks an Azure VM that can support the required number of network adapters, which can potentially result in an oversized VM. [Learn more](./concepts-assessment-calculation.md#calculating-sizing) about the impact of the number of network adapters on sizing. This product gap will be addressed going forward.
+This issue can happen if the physical server has Hyper-V virtualization enabled. On these servers, Azure Migrate currently discovers both the physical and virtual network adapters. As a result, the number of network adapters discovered is higher than the actual number. The Azure VM assessment picks an Azure VM that can support the required number of network adapters, which can potentially result in an oversized VM. [Learn more](./concepts-assessment-calculation.md#whats-in-an-azure-vm-assessment) about the impact of the number of network adapters on sizing. This product gap will be addressed going forward.
 
 ## The readiness category is marked "Not ready" for my physical server
 
-The readiness category might be incorrectly marked as **Not ready** in the case of a physical server that has Hyper-V virtualization enabled. On these servers, because of a product gap, Azure Migrate currently discovers both the physical and virtual adapters. As a result, the number of network adapters discovered is higher than the actual number. In both **As on-premises** and **Performance-based** assessments, the Azure VM assessment picks an Azure VM that can support the required number of network adapters. If the number of network adapters is discovered to be higher than 32, the maximum number of NICs supported on Azure VMs, the server will be marked **Not ready**. [Learn more](./concepts-assessment-calculation.md#calculating-sizing) about the impact of number of NICs on sizing.
+The readiness category might be incorrectly marked as **Not ready** in the case of a physical server that has Hyper-V virtualization enabled. On these servers, because of a product gap, Azure Migrate currently discovers both the physical and virtual adapters. As a result, the number of network adapters discovered is higher than the actual number. In both **As on-premises** and **Performance-based** assessments, the Azure VM assessment picks an Azure VM that can support the required number of network adapters. If the number of network adapters is discovered to be higher than 32, the maximum number of NICs supported on Azure VMs, the server will be marked **Not ready**. [Learn more](./concepts-assessment-calculation.md#whats-in-an-azure-vm-assessment) about the impact of number of NICs on sizing.
 
 ## The number of discovered NICs is higher than actual for physical servers
 

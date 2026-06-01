@@ -2,10 +2,12 @@
 title: Use PowerShell to back up Windows Server to Azure
 description: In this article, learn how to use PowerShell to set up Azure Backup on Windows Server or a Windows client, and manage backup and recovery.
 ms.topic: how-to
-ms.date: 08/29/2023
-ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref, engagement-fy24
+ms.date: 07/29/2025
+ms.service: azure-backup
+ms.custom: devx-track-azurepowershell, no-azure-ad-ps-ref, engagement-fy24
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a system administrator, I want to implement Azure Backup using PowerShell for Windows Server, so that I can automate the backup and recovery processes efficiently and ensure data protection in the cloud."
 ---
 
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell
@@ -31,7 +33,7 @@ The following steps lead you through creating a Recovery Services vault. A Recov
 2. The Recovery Services vault is an Azure Resource Manager resource, so you need to place it within a Resource Group. You can use an existing resource group, or create a new one. When creating a new resource group, specify the name and location for the resource group.
 
     ```powershell
-    New-AzResourceGroup –Name "test-rg" –Location "WestUS"
+    New-AzResourceGroup -Name "test-rg" -Location "WestUS"
     ```
 
 3. Use the **New-AzRecoveryServicesVault** cmdlet to create the new vault. Be sure to specify the same location for the vault as was used for the resource group.
@@ -48,8 +50,9 @@ The following steps lead you through creating a Recovery Services vault. A Recov
    >
 
     ```powershell
-    $Vault1 = Get-AzRecoveryServicesVault –Name "testVault"
+    $Vault1 = Get-AzRecoveryServicesVault -Name "testVault" 
     Set-AzRecoveryServicesBackupProperties -Vault $Vault1 -BackupStorageRedundancy GeoRedundant
+
     ```
 
 ## View the vaults in a subscription
@@ -139,14 +142,14 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault1 
 In the latest Az module of PowerShell, because of underlying platform limitations, downloading the vault credentials requires a self-signed certificate. The following example shows how to provide a self-signed certificate and download the vault credentials.
 
 ```powershell
-$dt = $(Get-Date).ToString("M-d-yyyy")
+
 $cert = New-SelfSignedCertificate -CertStoreLocation Cert:\CurrentUser\My -FriendlyName 'test-vaultcredentials' -subject "Windows Azure Tools" -KeyExportPolicy Exportable -NotAfter $(Get-Date).AddHours(48) -NotBefore $(Get-Date).AddHours(-24) -KeyProtection None -KeyUsage None -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2") -Provider "Microsoft Enhanced Cryptographic Provider v1.0"
-$certficate = [convert]::ToBase64String($cert.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pfx))
-$CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -Path $CredsPath -Certificate $certficate
+$certificate = [convert]::ToBase64String($cert.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pfx))
+$CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Backup -Vault $Vault -Path $CredsPath -Certificate $certificate
 ```
 
 On the Windows Server or Windows client machine, run the [Start-OBRegistration](/powershell/module/msonlinebackup/start-obregistration) cmdlet to register the machine with the vault.
-This, and other cmdlets used for backup, are from the MSONLINE module, which the MARS AgentInstaller added as part of the installation process.
+This, and other cmdlets used for backup, are from a PowerShell module that the MARS AgentInstaller added as part of the installation process.
 
 The Agent installer doesn't update the $Env:PSModulePath variable. This means module auto-load fails. To resolve this, you can do the following:
 
@@ -168,7 +171,7 @@ Start-OBRegistration -VaultCredentials $CredsFilename.FilePath -Confirm:$false
 
 ```output
 CertThumbprint      : 7a2ef2caa2e74b6ed1222a5e89288ddad438df2
-SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
+SubscriptionID      : aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ServiceResourceName : testvault
 Region              : WestUS
 Machine registration succeeded.

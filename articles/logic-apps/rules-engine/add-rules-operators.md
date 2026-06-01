@@ -1,26 +1,25 @@
 ---
-title: Add arithmetic and logical operators to rules
-description: Learn how to add arithmetic and logical operators to the rules in your ruleset using the Microsoft Rules Composer.
-ms.service: logic-apps
+title: Add Arithmetic and Logical operators to Rules
+description: Add arithmetic and logical operators to the rules in your ruleset using the Microsoft Rules Composer.
+services: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 06/10/2024
-
-#CustomerIntent: As a developer, I want to understand how use arithmetic and logic operators in the rules that I create for my Azure Logic Apps Rules Engine project.
+ms.date: 03/10/2026
+ms.date-cycle: 1095-days
+ms.custom:
+  - build-2025
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to use arithmetic and logic operators in the rules that I create for my Azure Logic Apps Rules Engine project.
 ---
 
-# Add arithmetic and logical operators to rules using Microsoft Rules Composer (Preview)
+# Add arithmetic and logical operators to rules using Microsoft Rules Composer
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
-> [!IMPORTANT]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This guide describes how to add arithmetic and logical operators to the rules in your ruleset using the Microsoft Rules Composer.
+This guide shows how to add arithmetic and logical operators to the rules in your ruleset using the Microsoft Rules Composer.
 
 ## Prerequisites
 
@@ -134,6 +133,11 @@ As another possible solution, you can create a rule such as the following exampl
 
 In the preceding example, the `<CheckQuantityAndDoSomething>` function checks the parameter value and executes if the condition is met.
 
+To determine whether an existing argument is null, use the composer:
+
+`argument is equal to <null>`
+ 
+
 > [!NOTE]
 >
 > Alternatively, you can modify the **XPath Field** property for the 
@@ -142,6 +146,6 @@ In the preceding example, the `<CheckQuantityAndDoSomething>` function checks th
 ## Related content
 
 - [Create rules with the Microsoft Rules Composer](create-rules.md)
-- [Add control functions to actions for optimizing rules exection](add-rules-control-functions.md)
+- [Add control functions to actions for optimizing rules execution](add-rules-control-functions.md)
 - [Test your rulesets](test-rulesets.md)
 - [Create an Azure Logic Apps Rules Engine project](create-rules-engine-project.md)

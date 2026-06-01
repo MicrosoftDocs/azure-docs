@@ -1,20 +1,22 @@
 ---
 title: Change Azure subscription offer
 description: Learn about how to change your Azure subscription and switch to a different offer.
-author: bandersmsft
-ms.reviewer: amberb
+author: Nicholak-MS
+ms.author: kenday
+ms.reviewer: kenday
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/13/2024
-ms.author: banders
+ms.date: 12/29/2025
+ms.custom: sfi-image-nochange
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # Change your Azure subscription to a different offer
 
-As a customer with a [pay-as-you-go subscription](https://azure.microsoft.com/offers/ms-azr-0003p/), you can switch your Azure subscription to another offer in the Azure portal. For example, you can use this feature to take advantage of the [monthly credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
+As a customer with a [pay-as-you-go subscription](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn), you can switch your Azure subscription to another offer in the Azure portal. For example, you can use this feature to take advantage of the [monthly credits for Visual Studio subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-If you have an expired Visual Studio subscription, you can switch to a [pay-as-you-go subscription](https://azure.microsoft.com/offers/ms-azr-0003p/) .
+If you have an expired Visual Studio subscription, you can switch to a [pay-as-you-go subscription](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn) .
 
 **Just want to upgrade from Free Trial?** See [upgrade your subscription](upgrade-azure-subscription.md).
 
@@ -28,7 +30,7 @@ You can switch from a pay-as-you-go subscription to:
 - [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)
 - [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/)
 
-You can also switch from an expired [Visual Studio Enterprise subscription](https://azure.microsoft.com/offers/ms-azr-0063p/) to a [pay-as-you-go subscription](https://azure.microsoft.com/offers/ms-azr-0003p/). 
+You can also switch from an expired [Visual Studio Enterprise subscription](https://azure.microsoft.com/offers/ms-azr-0063p/) to a [pay-as-you-go subscription](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn). 
 
 > [!NOTE]
 > For other offer changes, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
@@ -73,7 +75,7 @@ The following sections answer commonly asked questions about switching from a pa
 
 ### What is an Azure offer?
 
-An Azure offer is the *type* of the Azure subscription you have. For example, [a subscription with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/), and [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) are all Azure offers. Each offer has different [terms](https://azure.microsoft.com/support/legal/offer-details/) and some have special benefits. The offer of your subscription is shown on the subscription details page.
+An Azure offer is the *type* of the Azure subscription you have. For example, [a subscription with pay-as-you-go rates](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn), [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/), and [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) are all Azure offers. Each offer has different [terms](https://azure.microsoft.com/support/legal/offer-details/) and some have special benefits. The offer of your subscription is shown on the subscription details page.
 
 :::image type="content" source="./media/switch-azure-offer/subscription-details.png" alt-text="Screenshot showing the subscription details page with the offer type." lightbox="./media/switch-azure-offer/subscription-details.png" :::
 
@@ -81,8 +83,8 @@ An Azure offer is the *type* of the Azure subscription you have. For example, [a
 
 You might not see the **Switch Offer** option if:
 
-* You don't have a [subscription with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/). Currently only subscriptions with pay-as-you-go rates can be converted to another offer.
-  * If you have a [Free Trial](https://azure.microsoft.com/free/), learn how to [upgrade to Pay-As-You-Go](upgrade-azure-subscription.md).
+* You don't have a [subscription with pay-as-you-go rates](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn). Currently only subscriptions with pay-as-you-go rates can be converted to another offer.
+  * If you have a [Free Trial](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn), learn how to [upgrade to Pay-As-You-Go](upgrade-azure-subscription.md).
   * To switch offer from a different subscription, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 * You're still in your first billing period; you must wait for your first billing period to end before you can switch offers.
 
@@ -101,7 +103,7 @@ There's no service downtime for any users associated with the subscription. Howe
 
 #### Quota increases are reset
 
-When you switch offers, any [limit or quota increases above the default limit](../../azure-portal/supportability/regional-quota-requests.md) are reset. There's no service downtime, even if you have more resources beyond the default limit. For example, you're using 200 cores on your subscription, then switching offers resets your cores quota back to the default of 20 cores. The VMs that use the 200 cores are unaffected and would continue to run. If you don't make another quota increase request, however, you can't provision any more cores.
+When you switch offers, any [limit or quota increases above the default limit](/azure/azure-portal/supportability/regional-quota-requests) are reset. There's no service downtime, even if you have more resources beyond the default limit. For example, you're using 200 cores on your subscription, then switching offers resets your cores quota back to the default of 20 cores. The VMs that use the 200 cores are unaffected and would continue to run. If you don't make another quota increase request, however, you can't provision any more cores.
 
 #### Billing
 

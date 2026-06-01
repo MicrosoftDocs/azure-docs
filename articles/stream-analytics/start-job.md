@@ -3,7 +3,7 @@ title: How to start an Azure Stream Analytics job
 description: This article describes how to start a Stream Analytics job from Azure portal, PowerShell, and Visual Studio.
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 04/03/2019 
 ---
@@ -48,7 +48,7 @@ Start-AzStreamAnalyticsJob `
 
 There are three options for **OutputStartMode**: *JobStartTime*, *CustomTime*, and *LastOutputEventTime*. If this property is absent, the default is *JobStartTime*. See above for more information about these options.
 
-For more information on the `Start-AzStreamAnalyitcsJob` cmdlet, view the [Start-AzStreamAnalyticsJob reference](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob).
+For more information on the `Start-AzStreamAnalyticsJob` cmdlet, view the [Start-AzStreamAnalyticsJob reference](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob).
 
 ## Next steps
 

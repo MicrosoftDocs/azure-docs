@@ -2,8 +2,10 @@
 title: Manage databases in Azure SQL databases using Azure Automation
 description: This article explains on how to use Azure SQL server database using a system assigned managed identity in Azure Automation.
 services: automation
-ms.date: 09/23/2023
-ms.topic: conceptual
+ms.date: 09/15/2024
+ms.topic: how-to
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Manage databases in Azure SQL database using Azure Automation

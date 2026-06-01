@@ -1,8 +1,8 @@
 ---
 title: Get resource changes
 description: Get resource changes at scale using Change Analysis and Azure Resource Graph queries.
-author: iancarter-msft
-ms.author: iancarter
+author: juliamwang6
+ms.author: juliawang
 ms.date: 06/14/2024
 ms.topic: how-to
 ---
@@ -20,9 +20,9 @@ In this article, you learn:
 - How to query resource changes through Resource Graph using either the CLI, PowerShell, or the Azure portal.
 - Query examples and best practices for querying resource changes.
 - Change analysis uses _Change Actor_ functionality:
-  - `changedBy`: Who initiated a change in your resource, like an app ID or authorized person's email address.
+  - `changedBy`: Who initiated a change in your resource, like an application ID or authorized person's email address.
   - `clientType`: Which client made the change, like _Azure portal_.
-  - `operation`: Which [operation](../../../role-based-access-control/resource-provider-operations.md) was called, like `Microsoft.Compute/virtualmachines/write`.
+  - `operation`: Which [operation](../../../role-based-access-control/resource-provider-operations.md) was called, like `Microsoft.Compute/virtualmachines/write`. The `operation` field in the resource changes data represents the [Azure role-based access control permissions](../../../role-based-access-control/resource-provider-operations.md) used to initiate the change.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ In this article, you learn:
 
 ## Understand change event properties
 
-When a resource is created, updated, or deleted, a new change resource (`Microsoft.Resources/changes`) is created to extend the modified resource and represent the changed properties. Change records should be available in less than five minutes. The following example JSON payload demonstrates the change resource properties:
+When a resource is created, updated, or deleted, a new change resource (`Microsoft.Resources/changes`) is created to extend the modified resource and represent the changed properties. Change records should be available in less than five minutes. Some change details may show up before others. The following example JSON payload demonstrates the change resource properties:
 
 ```json
 {
@@ -53,21 +53,29 @@ When a resource is created, updated, or deleted, a new change resource (`Microso
     "properties.provisioningState": {
       "newValue": "Succeeded",
       "previousValue": "Updating",
-      "changeCategory": "System",
-      "propertyChangeType": "Update",
       "isTruncated": "true"
     },
     "tags.key1": {
       "newValue": "NewTagValue",
       "previousValue": "null",
-      "changeCategory": "User",
-      "propertyChangeType": "Insert"
     }
   }
 }
 ```
 
 [See the full reference guide for change resource properties.](/rest/api/resources/changes)
+
+The `operation` field in the resource changes data represents the [Azure role-based access control permissions](../../../role-based-access-control/resource-provider-operations.md) used to initiate the change. This field does not always describe the actual operation performed but rather the permission (authorization action) that was used. For example, `Microsoft.Compute/virtualmachines/write` corresponds to the permission for the operation `PUT/providers/Microsoft.Compute/virtualmachines`.
+
+For understanding the type of change that was captured in the resource (i.e. Create, Delete, Update), we recommend that you use the `changeType` field rather than the `operation` field, which instead represents the [Azure role-based access control permissions](../../../role-based-access-control/resource-provider-operations.md) used to initiate the change.
+
+If the client type is known, the `clientType` field will show the client name, such as "Azure Portal." If the client is supplied but not known, the field will show the client application ID.
+
+> [!NOTE]
+> Snapshots are not currently supported for deleted resources.
+> For records with `changeType`: Delete, the `changesCount` is shown as 0 because the resource itself gets deleted, and there are no properties remaining. For records with `changeType`: Create, the `changesCount` is also shown as 0 because every resource property gets modified during resource creation, and logging every property change would cause too much noise.
+>
+> When new properties are introduced, they will not be shown as changes. For example, this can occur when a new API version introduces new properties. Similarly, if new keys are added to tags without any values, these changes will not be shown.
 
 ## Run a query
 
@@ -181,11 +189,11 @@ Resource Graph Explorer also provides a clean interface for converting the resul
 With Resource Graph, you can query either the `resourcechanges`, `resourcecontainerchanges`, or `healthresourcechanges` tables to filter or sort by any of the change resource properties. The following examples query the `resourcechanges` table, but can also be applied to the `resourcecontainerchanges` or `healthresourcechanges` table.
 
 > [!NOTE]
-> Learn more about the `healthresourcechanges` data in [the Project Flash documentation.](../../../virtual-machines/flash-azure-resource-graph.md#azure-resource-graph---healthresources)
+> Learn more about the `healthresourcechanges` data in [the Project Flash documentation.](/azure/virtual-machines/flash-azure-resource-graph#azure-resource-graph---healthresources)
 
 ### Examples
 
-Before querying and analyzing changes in your resources, review the following best practices.
+Before querying and analyzing changes in your resources, review the following best practices and definitions.
 
 - Query for change events during a specific window of time and evaluate the change details.
    - This query works best during incident management to understand _potentially_ related changes.
@@ -197,9 +205,14 @@ Before querying and analyzing changes in your resources, review the following be
    - The `order by` command orders the query results by the change time.
    - The `limit` command then limits the ordered results to ensure that you get the five most recent results.
 - What does **Unknown** mean? 
-   -  Unknown is displayed when the change happened on a client that's unrecognized. Clients are recognized based on the user agent and client application ID associated with the original change request.
+   -  "Unknown" is displayed when the change happened on a client that's unrecognized. Clients are recognized based on the user agent and client application ID associated with the original change request. In this case, the identity/client information was present but did not match any known client.
+   -  "Unknown" can be shown for the `clientType` value.
+- What does **Unspecified** mean? 
+   -  "Unspecified" is displayed when no identity or client information was available for the change. The notification event carried no changedBy, client application ID, or user agent information, and the resource's system metadata also did not contain a `lastModifiedBy` or `createdBy` value.
+   -  "Unspecified" can be shown for the `changedBy`, `changedByType`, `clientType`, and `operation` values.
 - What does **System** mean?
-  - System is displayed as a `changedBy` value when a background change occurred that wasn't correlated with any direct user action.
+  - "System" is displayed when a background platform change occurred that wasn't correlated with any direct user action.
+  - "System" can be shown for the `changedBy` and `changedByType` values. 
 
 #### All changes in the past 24-hour period
 

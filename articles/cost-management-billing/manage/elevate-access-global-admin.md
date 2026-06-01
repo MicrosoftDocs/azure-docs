@@ -2,13 +2,17 @@
 title: Elevate access to manage billing accounts
 titleSuffix: Microsoft Cost Management
 description: Describes how to elevate access for a Global Administrator to manage billing accounts using the Azure portal or REST API.
-author: bandersmsft
-ms.reviewer: amberb
+author: jkinma39
+ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/21/2024
-ms.author: banders
+ms.date: 01/14/2026
+ms.author: jkinma
+ms.custom:
+- sfi-image-nochange
+- sfi-ga-nochange
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Elevate access to manage billing accounts
@@ -49,8 +53,7 @@ All Global Administrators in Microsoft Entra ID get read-only access to all Micr
 6. Select **Access Control (IAM)** on the left side of the page.
 7. Select **Add** at the top of the page.  
     :::image type="content" source="./media/elevate-access-global-admin/role-assignment-list.png" alt-text="Screenshot showing global admins selecting Add." lightbox="./media/elevate-access-global-admin/role-assignment-list.png" :::
-8. In the Add permission window, in the **Role** list, select **Billing account owner**. Under the **Select** area, select your user name, and then select **Save** at the bottom of the window.   
-    :::image type="content" source="./media/elevate-access-global-admin/role-assignment-add.png" alt-text="Screenshot showing a global admin adding themself as an owner." lightbox="./media/elevate-access-global-admin/role-assignment-add.png" :::
+1. In the Add permission window, in the **Role** list, select **Billing account owner**. Under the **Select** area, select your user name, and then select **Add** at the bottom of the window.
 
 ### [REST API](#tab/rest)
 
@@ -132,17 +135,17 @@ The API response returns list of roles available to your billing account.
 {
     "value": [
         {
-            "id": "/providers/Microsoft.Billing/billingAccounts/6e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingRoleDefinitions/50000000-aaaa-bbbb-cccc-100000000000",
-            "name": "50000000-aaaa-bbbb-cccc-100000000000",
+            "id": "/providers/Microsoft.Billing/billingAccounts/6e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingRoleDefinitions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
+            "name": "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
             "properties": {
                 "description": "The Owner role gives the user all permissions including access management on a billing account.",
                 "permissions": [
                     {
                         "actions": [
-                            "50000000-aaaa-bbbb-cccc-200000000000",
-                            "50000000-aaaa-bbbb-cccc-200000000001",
-                            "50000000-aaaa-bbbb-cccc-200000000002",
-                            "50000000-aaaa-bbbb-cccc-200000000003"
+                            "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
+                            "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
+                            "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
+                            "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1"
                         ]
                     }
                 ],
@@ -151,16 +154,16 @@ The API response returns list of roles available to your billing account.
             "type": "Microsoft.Billing/billingAccounts/billingRoleDefinitions"
         },
         {
-            "id": "/providers/Microsoft.Billing/billingAccounts/6e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingRoleDefinitions/50000000-aaaa-bbbb-cccc-100000000001",
-            "name": "50000000-aaaa-bbbb-cccc-100000000001",
+            "id": "/providers/Microsoft.Billing/billingAccounts/6e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingRoleDefinitions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
+            "name": "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
             "properties": {
                 "description": "The Contributor role gives the user all permissions except access management on a billing account.",
                 "permissions": [
                     {
                         "actions": [
-                            "50000000-aaaa-bbbb-cccc-200000000001",
-                            "50000000-aaaa-bbbb-cccc-200000000002",
-                            "50000000-aaaa-bbbb-cccc-200000000003",
+                            "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
+                            "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
+                            "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
                         ]
                     }
                 ],
@@ -169,16 +172,16 @@ The API response returns list of roles available to your billing account.
             "type": "Microsoft.Billing/billingAccounts/billingRoleDefinitions"
         },
         {
-            "id": "/providers/Microsoft.Billing/billingAccounts/6e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingRoleDefinitions/50000000-aaaa-bbbb-cccc-100000000002",
-            "name": "50000000-aaaa-bbbb-cccc-100000000002",
+            "id": "/providers/Microsoft.Billing/billingAccounts/6e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx_xxxx-xx-xx/billingRoleDefinitions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
+            "name": "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
             "properties": {
                 "description": "The Reader role gives the user read permissions to a billing account.",
                 "permissions": [
                     {
                         "actions": [
-                            "50000000-aaaa-bbbb-cccc-200000000001",
-                            "50000000-aaaa-bbbb-cccc-200000000006",
-                            "50000000-aaaa-bbbb-cccc-200000000007",
+                            "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
+                            "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
+                            "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
                         ]
                     }
                 ],
@@ -190,7 +193,7 @@ The API response returns list of roles available to your billing account.
 }
 ```
 
-Use the `roleName` property to identify the owner role definition. Copy the `name` of the role definition. For example, from the above API response, you'd copy `50000000-aaaa-bbbb-cccc-100000000000`. Paste this value somewhere so that you can use it in the next step.
+Use the `roleName` property to identify the owner role definition. Copy the `name` of the role definition. For example, from the above API response, you'd copy `a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1`. Paste this value somewhere so that you can use it in the next step.
 
 ### Add yourself as an owner
 

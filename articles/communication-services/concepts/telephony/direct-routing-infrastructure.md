@@ -6,7 +6,7 @@ manager: nmurav
 services: azure-communication-services
 ms.author: bobazile
 ms.date: 12/05/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: pstn
 ---
@@ -55,7 +55,7 @@ Learn more:
 
 [Program Requirements — Microsoft Trusted Root Program](/security/trusted-root/program-requirements)
  
-[Included CA Certificate List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT)
+[Included CA Certificate List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT)
 
 >[!IMPORTANT]
 >Azure Communication Services direct routing supports only TLS 1.2. To avoid any service impact, ensure that your SBCs are configured to support TLS1.2 and can connect using one of the following cipher suites for SIP signaling: 
@@ -69,7 +69,7 @@ Learn more:
 
 SBC pairing works on the Communication Services resource level. It means you can pair many SBCs to a single Communication Services resource. Still, you can't pair a single SBC to more than one Communication Services resource. Unique SBC FQDNs are required for pairing to different resources.
 
-If Mutual TLS (MTLS) support is enabled for the direct routing connection on the SBC, then you must install the Baltimore CyberTrust Root **and** the DigiCert Global Root G2 certificates in the SBC Trusted Root Store of the direct routing TLS context. (This is because the Microsoft service certificates use one of these two root certificates.) To download these root certificates, see [Office 365 Encryption chains](/microsoft-365/compliance/encryption-office-365-certificate-chains). For more information, see [Office TLS Certificate Changes](/microsoft-365/compliance/encryption-office-365-tls-certificates-changes).
+If Mutual TLS (MTLS) support is enabled for the Teams connection on the SBC, then you must install all the CAs listed under the 'Root Certificate Authorities' section in Azure Certificate Authority details page in the SBC Trusted Root Store of the Teams TLS context. (This is because the Microsoft service certificates use these root certificates).  To download the root certificates, see [Microsoft 365 Encryption chains](/microsoft-365/compliance/encryption-office-365-certificate-chains). For more information, see [Office TLS Certificate Changes](/microsoft-365/compliance/encryption-office-365-tls-certificates-changes).
 
 ## SIP Signaling: FQDNs 
 
@@ -87,7 +87,7 @@ These three FQDNs in order are required to:
 The FQDNs — sip.pstnhub.microsoft.com, sip2.pstnhub.microsoft.com, and sip3.pstnhub.microsoft.com — resolve to one of the following IP addresses:
 
 - `52.112.0.0/14 (IP addresses from 52.112.0.0 to 52.115.255.255)`
-- `52.120.0.0/14 (IP addresses from 52.120.0.0 to 52.123.255.255)`
+- `52.122.0.0/15 (IP addresses from 52.122.0.0 to 52.123.255.255)`
 
 Open firewall ports for all these IP address ranges to allow incoming and outgoing traffic to and from the addresses for signaling.
 

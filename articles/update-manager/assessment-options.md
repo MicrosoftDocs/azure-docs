@@ -2,10 +2,12 @@
 title: Assessment options in Update Manager.
 description: The article describes the assessment options available in Update Manager.
 ms.service: azure-update-manager
-ms.date: 02/03/2024
-ms.topic: conceptual
-author: snehasudhirG
-ms.author: sudhirsneha
+ms.date: 12/06/2024
+ms.topic: overview
+author: kamalmaini
+ms.author: v-uhabiba
+ms.update-cycle: 1095-days
+# Customer intent: "As an IT administrator, I want to utilize Update Manager to perform periodic and on-demand update assessments on my machines, so that I can ensure they are compliant with the latest updates and manage installations effectively."
 ---
 
 # Assessment options in Update Manager
@@ -18,19 +20,20 @@ Update Manager provides you with the flexibility to assess the status of availab
 
 ## Periodic assessment
  
- Periodic assessment is an update setting on a machine that allows you to enable automatic periodic checking of updates by Update Manager. We recommend that you enable this property on your machines as it allows Update Manager to fetch latest updates for your machines every 24 hours and enables you to view the latest compliance status of your machines. You can enable this setting using update settings flow as detailed [here](manage-update-settings.md#configure-settings-on-a-single-vm) or enable it at scale by using [Policy](periodic-assessment-at-scale.md). Learn more on [Azure VM extensions](prerequisites.md#vm-extensions).
+ Periodic assessment is an update setting on a machine that allows you to enable automatic periodic checking of updates by Update Manager. We recommend that you enable this property on your machines as it allows Update Manager to fetch latest updates for your machines every 24 hours and enables you to view the status of your machines. You can enable this setting using update settings flow as detailed [here](manage-update-settings.md#configure-settings-on-a-single-vm) or enable it at scale by using [Policy](periodic-assessment-at-scale.md). Learn more on [Azure VM extensions](prerequisites.md#vm-extensions).
 
 :::image type="content" source="media/updates-maintenance/periodic-assessment-inline.png" alt-text="Screenshot showing periodic assessment option." lightbox="media/updates-maintenance/periodic-assessment-expanded.png":::
 
 > [!NOTE]
-> For Arc-enabled servers, ensure that the subscription in which the Arc-server is onboarded is registered to Microsoft.Compute resource provider. For more information on how to register to the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+> - For Arc-enabled servers, ensure that the subscription in which the Arc-server is onboarded is registered to Microsoft.Compute resource provider. For more information on how to register to the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+> - Assessments retrieve the latest updates only for Azure Virtual Machines in the **Running** state. Machines in the **Stopped** or **Stopped (deallocated)** states are not scanned for missing updates.
 
 ## Check for updates now/On-demand assessment
 
 Update Manager allows you to check for latest updates on your machines at any time, on-demand. You can view the latest update status and act accordingly. Go to **Updates** blade on any VM and select **Check for updates** or select multiple machines from Update Manager and check for updates for all machines at once. For more information, see [check and install on-demand updates](view-updates.md).
 
 ## Update assessment scan
- You can initiate a software updates compliance scan on a machine to get a current list of operating system updates available. 
+ You can initiate a software updates scan on a machine to get a current list of operating system updates available. 
 
  - **On Windows** - the software update scan is performed by the Windows Update Agent. 
  - **On Linux** -  The software update scan is performed using the package manager that returns the missing updates as per the configured repositories.

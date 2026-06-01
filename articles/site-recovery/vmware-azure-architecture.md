@@ -1,43 +1,46 @@
 ---
 title: VMware VM disaster recovery architecture in Azure Site Recovery - Classic
 description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery - Classic
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 12/15/2023
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.service: azure-site-recovery
+ms.topic: concept-article
+ms.date: 04/06/2026
+ms.author: v-gajeronika
+ms.reviewer: v-gajeronika
+author: Jeronika-MS
+# Customer intent: "As a cloud architect, I want to implement disaster recovery for my on-premises VMware VMs to Azure, so that I can ensure business continuity and minimize downtime during outages."
 ---
 
 # VMware to Azure disaster recovery architecture - Classic
 
-This article describes the architecture and processes used when you deploy disaster recovery replication, failover, and recovery of VMware virtual machines (VMs) between an on-premises VMware site and Azure using the [Azure Site Recovery](site-recovery-overview.md) service - Classic.
+This article describes the architecture and processes you use when you deploy disaster recovery replication, failover, and recovery of VMware virtual machines (VMs) between an on-premises VMware site and Azure by using the [Azure Site Recovery](site-recovery-overview.md) service - Classic.
 
-For details about modernized architecture, [see this article](vmware-azure-architecture-modernized.md)
+For details about modernized architecture, [see this article](vmware-azure-architecture-modernized.md).
 
+[!INCLUDE [vmware-to-azure-classic-experience-retirement-note.md](./includes/vmware-to-azure-classic-experience-retirement-note.md)]
 
 ## Architectural components
 
-The following table and graphic provide a high-level view of the components used for VMware VMs/Physical machines disaster recovery to Azure.
+The following table and graphic provide a high-level view of the components used for VMware VMs and physical machines disaster recovery to Azure.
 
 **Component** | **Requirement** | **Details**
 --- | --- | ---
-**Azure** | An Azure subscription, Azure Storage account for cache, Managed Disk, and Azure network. | Replicated data from on-premises VMs is stored in Azure storage. Azure VMs are created with the replicated data when you run a failover from on-premises to Azure. The Azure VMs connect to the Azure virtual network when they're created.
-**Configuration server machine** | A single on-premises machine. We recommend that you run it as a VMware VM that can be deployed from a downloaded OVF template.<br/><br/> The machine runs all on-premises Site Recovery components, which include the configuration server, process server, and master target server. | **Configuration server**: Coordinates communications between on-premises and Azure, and manages data replication.<br/><br/> **Process server**: Installed by default on the configuration server. It receives replication data; optimizes it with caching, compression, and encryption; and sends it to Azure Storage. The process server also installs Azure Site Recovery Mobility Service on VMs you want to replicate, and performs automatic discovery of on-premises machines. As your deployment grows, you can add additional, separate process servers to handle larger volumes of replication traffic.<br/><br/> **Master target server**: Installed by default on the configuration server. It handles replication data during failback from Azure. For large deployments, you can add an additional, separate master target server for failback.
-**VMware servers** | VMware VMs are hosted on on-premises vSphere ESXi servers. We recommend a vCenter server to manage the hosts. | During Site Recovery deployment, you add VMware servers to the Recovery Services vault.
-**Replicated machines** | Mobility Service is installed on each VMware VM that you replicate. | We recommend that you allow automatic installation from the process server. Alternatively, you can install the service manually or use an automated deployment method, such as Configuration Manager.
+**Azure** | An Azure subscription, Azure Storage account for cache, Managed Disk, and Azure network. | You store replicated data from on-premises VMs in Azure storage. You create Azure VMs with the replicated data when you run a failover from on-premises to Azure. The Azure VMs connect to the Azure virtual network when they're created.
+**Configuration server machine** | A single on-premises machine. Run it as a VMware VM that you deploy from a downloaded OVF template.<br/><br/> The machine runs all on-premises Site Recovery components, which include the configuration server, process server, and master target server. | **Configuration server**: Coordinates communications between on-premises and Azure, and manages data replication.<br/><br/> **Process server**: Installed by default on the configuration server. It receives replication data, optimizes it with caching, compression, and encryption, and sends it to Azure Storage. The process server also installs Azure Site Recovery Mobility Service on VMs you want to replicate, and performs automatic discovery of on-premises machines. As your deployment grows, you can add extra, separate process servers to handle larger volumes of replication traffic.<br/><br/> **Master target server**: Installed by default on the configuration server. It handles replication data during failback from Azure. For large deployments, you can add an extra, separate master target server for failback.
+**VMware servers** | You host VMware VMs on on-premises vSphere ESXi servers. Use a vCenter server to manage the hosts. | During Site Recovery deployment, you add VMware servers to the Recovery Services vault.
+**Replicated machines** | Install Mobility Service on each VMware VM that you replicate. | Allow automatic installation from the process server. Alternatively, you can install the service manually or use an automated deployment method, such as Configuration Manager.
 
-![Diagram showing VMware to Azure replication architecture relationships.](./media/vmware-azure-architecture/arch-enhanced.png)
+:::image type="content" source="./media/vmware-azure-architecture/arch-enhanced.png" alt-text="Diagram showing VMware to Azure replication architecture relationships.":::
 
 ## Set up outbound network connectivity
 
-For Site Recovery to work as expected, you need to modify outbound network connectivity to allow your environment to replicate.
+For Site Recovery to work as expected, modify outbound network connectivity to allow your environment to replicate.
 
 > [!NOTE]
-> Site Recovery of VMware/Physical machines using Classic architecture doesn't support using an authentication proxy to control network connectivity. The same is supported when using the [modernized architecutre](vmware-azure-architecture-modernized.md).
+> Site Recovery of VMware and physical machines by using Classic architecture doesn't support using an authentication proxy to control network connectivity. The same proxy is supported when using the [modernized architecture](vmware-azure-architecture-modernized.md).
 
 ### Outbound connectivity for URLs
 
-If you're using a URL-based firewall proxy to control outbound connectivity, allow access to these URLs:
+If you use a URL-based firewall proxy to control outbound connectivity, allow access to these URLs:
 
 | **Name**                  | **Commercial**                               | **Government**                                 | **Description** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
@@ -46,7 +49,7 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 | Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.us`   | Allows the VM to communicate with the Site Recovery service. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |
 
-For exhaustive list of URLs to be filtered for communication between on-premises Azure Site Recovery infrastructure and Azure services, refer to [network requirements section in the prerequisites article](vmware-azure-deploy-configuration-server.md#prerequisites).
+For an exhaustive list of URLs to filter for communication between on-premises Azure Site Recovery infrastructure and Azure services, see the [network requirements section in the prerequisites article](vmware-azure-deploy-configuration-server.md#prerequisites).
 
 ## Replication process
 
@@ -70,7 +73,7 @@ For exhaustive list of URLs to be filtered for communication between on-premises
     - The process server receives replication data, optimizes, and encrypts it, and sends it to Azure storage over port 443 outbound.
 5. The replication data logs first land in a cache storage account in Azure. These logs are processed and the data is stored in an Azure Managed Disk (called as Azure Site Recovery seed disk). The recovery points are created on this disk.
 
-![Diagram showing the VMware to Azure replication process.](./media/vmware-azure-architecture/v2a-architecture-henry.png)
+:::image type="content" source="./media/vmware-azure-architecture/v2a-architecture-henry.png" alt-text="Diagram showing the VMware to Azure replication process.":::
 
 ## Resynchronization process
 
@@ -120,7 +123,7 @@ A crash consistent snapshot captures data that was on the disk when the snapshot
 
 **Description** | **Details** | **Recommendation**
 --- | --- | ---
-App-consistent recovery points are created from app-consistent snapshots.<br/><br/> An app-consistent snapshot contain all the information in a crash-consistent snapshot, plus all the data in memory and transactions in progress. | App-consistent snapshots use the Volume Shadow Copy Service (VSS):<br/><br/>   1) Azure Site Recovery uses Copy Only backup (VSS_BT_COPY) method which does not change Microsoft SQL's transaction log backup time and sequence number </br></br> 2) When a snapshot is initiated, VSS perform a copy-on-write (COW) operation on the volume.<br/><br/>   3) Before it performs the COW, VSS informs every app on the machine that it needs to flush its memory-resident data to disk.<br/><br/>   4) VSS then allows the backup/disaster recovery app (in this case Site Recovery) to read the snapshot data and proceed. | App-consistent snapshots are taken in accordance with the frequency you specify. This frequency should always be less than you set for retaining recovery points. For example, if you retain recovery points using the default setting of 24 hours, you should set the frequency at less than 24 hours.<br/><br/>They're more complex and take longer to complete than crash-consistent snapshots.<br/><br/> They affect the performance of apps running on a VM enabled for replication.
+App-consistent recovery points are created from app-consistent snapshots.<br/><br/> An app-consistent snapshot contains all the information in a crash-consistent snapshot, plus all the data in memory and transactions in progress. | App-consistent snapshots use the Volume Shadow Copy Service (VSS):<br/><br/>   1) Azure Site Recovery uses Copy Only backup (VSS_BT_COPY) method which does not change Microsoft SQL's transaction log backup time and sequence number </br></br> 2) When a snapshot is initiated, VSS perform a copy-on-write (COW) operation on the volume.<br/><br/>   3) Before it performs the COW, VSS informs every app on the machine that it needs to flush its memory-resident data to disk.<br/><br/>   4) VSS then allows the backup/disaster recovery app (in this case Site Recovery) to read the snapshot data and proceed. | App-consistent snapshots are taken in accordance with the frequency you specify. This frequency should always be less than you set for retaining recovery points. For example, if you retain recovery points using the default setting of 24 hours, you should set the frequency at less than 24 hours.<br/><br/>They're more complex and take longer to complete than crash-consistent snapshots.<br/><br/> They affect the performance of apps running on a VM enabled for replication.
 
 ## Failover and failback process
 
@@ -143,8 +146,7 @@ After replication is set up and you run a disaster recovery drill (test failover
     - Stage 3: After workloads have failed back, you reenable replication for the on-premises VMs.
 
 
-
-![Diagram showing VMware failback from Azure.](./media/vmware-azure-architecture/enhanced-failback.png)
+:::image type="content" source="./media/vmware-azure-architecture/enhanced-failback.png" alt-text="Diagram showing VMware failback from Azure.":::
 
 
 ## Next steps

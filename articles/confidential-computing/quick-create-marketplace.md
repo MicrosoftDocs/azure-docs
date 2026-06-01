@@ -1,13 +1,16 @@
 ---
 title: Quickstart - Create Intel SGX VM in the Azure Marketplace
 description: Get started with your deployments by learning how to quickly create an Intel SGX VM with Marketplace.
-author: ju-shim
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+author: cynthn
+ms.service: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 11/01/2021
-ms.author: jushiman
-ms.custom: mode-other, linux-related-content
+ms.author: cynthn
+ms.custom:
+  - mode-other
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: "As a cloud engineer, I want to deploy an Intel SGX VM from the Azure Marketplace, so that I can utilize secure computing capabilities for my applications."
 ---
 
 # Quickstart: Create Intel SGX VM in the Azure Marketplace
@@ -16,7 +19,7 @@ This tutorial guides you through the process of deploying Intel SGX VMs using Az
 
 ## Prerequisites
 
-If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) before you begin.
+If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 > [!NOTE]
 > Free trial accounts do not have access to the VMs in this tutorial. Please upgrade to a Pay-As-You-Go subscription.
@@ -59,7 +62,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
    * **Authentication type**: Select **SSH public key** if you're creating a Linux VM.
 
         > [!NOTE]
-        > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+        > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
     * **Username**: Enter the Administrator name for the VM.
 
@@ -88,7 +91,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 1. In the **Review + create** pane, select **Create**.
 
 > [!NOTE]
-> Proceed to the next section and continue with this tutorial if you deployed a Linux VM. If you deployed a Windows VM, [follow these steps to connect to your Windows VM](../virtual-machines/windows/connect-logon.md)
+> Proceed to the next section and continue with this tutorial if you deployed a Linux VM. If you deployed a Windows VM, [follow these steps to connect to your Windows VM](/azure/virtual-machines/windows/connect-logon)
 
 
 ## Connect to the Linux VM

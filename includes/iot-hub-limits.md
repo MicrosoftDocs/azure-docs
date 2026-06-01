@@ -1,9 +1,9 @@
 ---
-author: kgremban
-ms.author: kgremban
-ms.service: iot-hub
+author: SoniaLopezBravo
+ms.author: sonialopez
+ms.service: azure-iot-hub
 ms.topic: include
-ms.date: 0/02/2022
+ms.date: 11/05/2025
 ---
 The following table lists the limits associated with the different service tiers S1, S2, S3, and F1. For information about the cost of each *unit* in each tier, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -61,3 +61,32 @@ IoT Hub throttles requests when the following quotas are exceeded.
 | Jobs operations <br/> (create, update, list, and delete) | 83.33/sec/unit (5,000/min/unit) (for S3), 1.67/sec/unit (100/min/unit) (for S2), 1.67/sec/unit (100/min/unit) (for S1). |
 | Jobs per-device operation throughput | 50/sec/unit (for S3), maximum of 10/sec or 1/sec/unit (for S2), 10/sec (for S1). |
 | Device stream initiation rate | 5 new streams/sec (for S1, S2, S3, and F1 only). |
+
+### IoT Hub with ADR integration and Microsoft-backed X.509 certificate management (preview) limits
+
+The following table lists the limits that apply to IoT Hub (preview) instances.
+
+|Feature|Limit|
+|----------------------------------|-------------------------------|
+|Number of devices per IoT Hub (preview) instance	| 10,000|
+|Number of IoT Hub (preview) instances per ADR namespace | 3|
+|Protocols supported for certificate provisioning|HTTP, MQTT, and MQTT-Web-Sockets protocols. |
+
+All other throttles, limits to IoT Hub preview resources are equivalent to a S1 standard IoT Hub
+
+The following table lists the limits that apply to [ADR integration](../articles/iot-hub/iot-hub-device-registry-overview.md) and [certificate management](../articles/iot-hub/iot-hub-certificate-management-overview.md) preview features.
+
+| Feature	| Limit|
+|----------------------------------|-------------------------------|
+|Number of ADR namespaces per Azure subscription	| 100|
+|Number of device create per minute	| 500 devices per minute per subscription|
+|Number of devices to be disabled per minute	| 500|
+|Number of devices to be enabled per minute	| 500|
+|Number of certificates issued by PKI (by a device DPS instance) during provisioning|500 per minute|
+|Number of certificate renewals|500 per minute|
+|Number of credential resources per tenant|2|
+|Number of credential resources per ADR namespace|1|
+|Number of policies per credential resource|1|
+
+For more information, you can view the [full list of ADR limits](#azure-device-registry-limits).
+

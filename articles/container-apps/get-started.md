@@ -3,9 +3,9 @@ title: 'Quickstart: Deploy your first container app with containerapp up'
 description: Deploy your first application to Azure Container Apps using the Azure CLI containerapp up command.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: quickstart
-ms.date: 01/10/2024
+ms.date: 03/26/2026
 ms.author: cshoe
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
@@ -20,30 +20,10 @@ In this quickstart, you create and deploy your first container app using the `az
 ## Prerequisites
 
 - An Azure account with an active subscription.
-  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
-
-## Create an Azure resource group
-
-Create a resource group to organize the services related to your container app deployment.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az group create \
-  --name my-container-apps \
-  --location centralus
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-New-AzResourceGroup -Location centralus -Name my-container-apps
-```
-
----
 
 ## Create and deploy the container app
 
@@ -70,7 +50,7 @@ az containerapp up \
   --query properties.configuration.ingress.fqdn
 ```
 
-# [Azure PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/powershell)
 
 ```powershell
 az containerapp up `
@@ -104,7 +84,7 @@ The following message is displayed when the container app is deployed:
 If you're not going to continue to use this application, run the following command to delete the resource group along with all the resources created in this quickstart.
 
 >[!CAUTION]
-> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this quickstart exist in the specified resource group, they will also be deleted.
+> The following command deletes the specified resource group and all resources contained within it. If resources outside the scope of this quickstart exist in the specified resource group, they'll also be deleted.
 
 
 ```azurecli

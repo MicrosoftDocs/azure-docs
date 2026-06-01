@@ -1,10 +1,9 @@
 ---
 title: Develop secure applications on Microsoft Azure
 description: This article discusses best practices to consider during the implementation and verification phases of your web application project.
-author: TerryLanfear
-manager: rkarlin
-ms.author: terrylan
-ms.date: 08/30/2023
+author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 05/28/2025
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -83,8 +82,8 @@ This means fewer people have access to your real data, which reduces your attack
 
 To defend against brute-force and dictionary-based guessing, you must implement a strong password policy to ensure that users create a complex password (for example, 12 characters minimum length and requiring alphanumeric and special characters).
 
-Azure Active Directory B2C helps you with password management, by providing
-[self-service password reset](../../active-directory-b2c/add-password-reset-policy.md), [force password reset](../../active-directory-b2c/force-password-reset.md), and more.
+Microsoft Entra External ID in external tenants help you with password management, by providing
+[self-service password reset](/entra/external-id/customers/how-to-enable-password-reset-customers) and more.
 
 To defend against attacks on default accounts, verify that all keys and passwords are replaceable and that they're generated or replaced after you install resources.
 
@@ -94,7 +93,7 @@ If the application must autogenerate passwords, ensure that the generated passwo
 
 If your application allows [file uploads](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload), consider precautions that you can take for this risky activity. The first step in many attacks is to get some malicious code into a system that is under attack. Using a file upload helps the attacker accomplish this. OWASP offers solutions for validating a file to ensure that the file you're uploading is safe.
 
-Antimalware protection helps identify and remove viruses, spyware, and other malicious software. You can install [Microsoft Antimalware](../fundamentals/antimalware.md) or a Microsoft partner's endpoint protection solution ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Microsoft Defender Antivirus in Windows](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10), and [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
+Antimalware protection helps identify and remove viruses, spyware, and other malicious software. You can install [Microsoft Antimalware](../fundamentals/antimalware.md) or a Microsoft partner's endpoint protection solution ([Trend Micro](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/en-us/antivirus.html), [Microsoft Defender Antivirus in Windows](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10), and [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 [Microsoft Antimalware](../fundamentals/antimalware.md) includes features like real-time protection, scheduled scanning, malware remediation, signature updates, engine updates, samples reporting, and exclusion event collection. You can integrate Microsoft Antimalware and partner solutions with [Microsoft Defender for Cloud](../../security-center/security-center-partner-integration.md) for ease of deployment and built-in detections (alerts and incidents).
 
@@ -128,7 +127,7 @@ In [fuzz testing](https://www.microsoft.com/security/blog/2007/09/20/fuzz-testin
 
 Reviewing the attack surface after code completion helps ensure that any design or implementation changes to an application or system has been considered. It helps ensure that any new attack vectors that were created as a result of the changes, including threat models, has been reviewed and mitigated.
 
-You can build a picture of the attack surface by scanning the application. Microsoft offers an attack surface analysis tool called [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=58105). You can choose from many commercial dynamic testing and vulnerability scanning tools or services, including [OWASP Attack Surface Detector](https://owasp.org/www-project-attack-surface-detector/), [Arachni](http://arachni-scanner.com/), and [w3af](http://w3af.sourceforge.net/). These scanning tools crawl your app and map the parts of the application that are accessible over the web. You can also search the Azure Marketplace for similar [developer tools](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1).
+You can build a picture of the attack surface by scanning the application. Microsoft offers an attack surface analysis tool called [Attack Surface Analyzer](https://www.microsoft.com/download/details.aspx?id=58105). You can choose from many commercial dynamic testing and vulnerability scanning tools or services, including [OWASP Attack Surface Detector](https://owasp.org/www-project-attack-surface-detector/), [Arachni](https://github.com/Arachni/arachni), and [w3af](http://w3af.sourceforge.net/). These scanning tools crawl your app and map the parts of the application that are accessible over the web. You can also search the Azure Marketplace for similar [developer tools](https://azuremarketplace.microsoft.com/marketplace/apps/category/developer-tools?page=1).
 
 ### Perform security penetration testing
 

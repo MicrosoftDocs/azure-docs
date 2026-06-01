@@ -6,12 +6,12 @@ description: Learn how to deploy Azure AD B2C custom policies in a CI/CD pipelin
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer managing Azure AD B2C custom policies, I want to automate the deployment process using Azure Pipelines, so that I can consistently test, build, and ship my code to any target.
@@ -19,6 +19,7 @@ ms.subservice: B2C
 ---
 
 # Deploy custom policies with Azure Pipelines
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [Azure Pipelines](/azure/devops/pipelines) supports continuous integration (CI) and continuous delivery (CD) to constantly and consistently test, build, and ship a code to any target. This article describes how to automate the deployment process of the Azure Active Directory B2C (Azure AD B2C) [custom policies](user-flow-overview.md) using Azure Pipelines.
 

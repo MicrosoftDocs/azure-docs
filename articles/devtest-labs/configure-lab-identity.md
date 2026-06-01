@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 08/20/2020
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 ---
 
 # Configure a lab identity
@@ -46,7 +48,15 @@ This section demonstrates how to configure lab's identity policy.
 
 ## User-assigned managed identity  
 
-A user-assigned managed identity is created as a standalone Azure resource. Through a create process, Azure creates an identity in the Microsoft Entra tenant that's trusted by the subscription in use. After the identity is created, the identity can be assigned to one or more Azure service instances. The life cycle of a user-assigned identity is managed separately from the life cycle of the Azure service instances to which it's assigned. 
+A user-assigned managed identity is created as a standalone Azure resource. Through a create process, Azure creates an identity in the Microsoft Entra tenant that's trusted by the subscription in use. After the identity is created, the identity can be assigned to one or more Azure service instances. The life cycle of a user-assigned identity is managed separately from the life cycle of the Azure service instances to which it's assigned.
+
+## User-assigned managed identity to access the lab storage account
+
+During lab creation, setting a user-assigned managed identity to access the lab storage account also sets that particular user-assigned managed identity for the virtual machines. The managed identity you select on the create lab page under the lab artifacts storage account option will also be visible in the Virtual Machine section of the Identity page under Configuration and Policies settings.
+
+:::image type="content" source="./media/configure-lab-identity/create-lab-with-managed-identity.png" alt-text="Screenshot of the Basic Settings tab in the Create DevTest Labs form.":::
+
+:::image type="content" source="./media/configure-lab-identity/virtual-machine-with-ua-managed-identity.png" alt-text="Screenshot of the Virtual Machine Managed Identity settings page.":::
 
 DevTest Labs supports user assigned identities for both virtual machines and Azure Resource Manager based environments.  For more information, see the following topics:
 

@@ -2,9 +2,10 @@
 title: Create a pool with disk encryption enabled
 description: Learn how to use disk encryption configuration to encrypt nodes with a platform-managed key.
 ms.topic: how-to
-ms.date: 06/29/2023
+ms.date: 03/06/2026
 ms.devlang: csharp
 ms.custom: devx-track-azurecli
+# Customer intent: "As a cloud administrator, I want to create a Batch pool with disk encryption enabled, so that I can safeguard data on the compute nodes while reducing management overhead."
 ---
 
 # Create a pool with disk encryption enabled
@@ -19,19 +20,19 @@ With a Batch pool, you can access and store data on the OS and temporary disks o
 
 Batch will apply one of these disk encryption technologies on compute nodes, based on pool configuration and regional supportability.
 
-- [Managed disk encryption at rest with platform-managed keys](../virtual-machines/disk-encryption.md#platform-managed-keys)
-- [Encryption at host using a platform-managed Key](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data)
-- [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md)
+- [Managed disk encryption at rest with platform-managed keys](/azure/virtual-machines/disk-encryption#platform-managed-keys)
+- [Encryption at host using a platform-managed Key](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data)
+- [Azure Disk Encryption](/azure/virtual-machines/disk-encryption-overview)
 
 You won't be able to specify which encryption method will be applied to the nodes in your pool. Instead, you provide the target disks you want to encrypt on their nodes, and Batch can choose the appropriate encryption method, ensuring the specified disks are encrypted on the compute node. The following image depicts how Batch makes that choice.
 
 > [!IMPORTANT]
-> If you are creating your pool with a Linux [custom image](batch-sig-images.md), you can only enable disk encryption only if your pool is using an [Encryption At Host Supported VM size](../virtual-machines/disk-encryption.md#supported-vm-sizes).
-> Encryption At Host is not currently supported on User Subscription Pools until the feature becomes [publicly available in Azure](../virtual-machines/disks-enable-host-based-encryption-portal.md#prerequisites).
+> If you are creating your pool with a Linux [custom image](batch-sig-images.md), you can only enable disk encryption only if your pool is using an [Encryption At Host Supported VM size](/azure/virtual-machines/disk-encryption#supported-vm-sizes).
+> Encryption At Host is not currently supported on User Subscription Pools until the feature becomes [publicly available in Azure](/azure/virtual-machines/disks-enable-host-based-encryption-portal#prerequisites).
 
 ![Screenshot of the Pool Creation in the Azure portal.](./media/disk-encryption/decision-tree.svg)
 
-Some disk encryption configurations require that the VM family of the pool supports encryption at host. See [End-to-end encryption using encryption at host](../virtual-machines/disks-enable-host-based-encryption-portal.md) to determine which VM families support encryption at host.
+Some disk encryption configurations require that the VM family of the pool supports encryption at host. See [End-to-end encryption using encryption at host](/azure/virtual-machines/disks-enable-host-based-encryption-portal) to determine which VM families support encryption at host.
 
 ## Azure portal
 
@@ -45,14 +46,54 @@ After the pool is created, you can see the disk encryption configuration targets
 
 ## Examples
 
-The following examples show how to encrypt the OS and temporary disks on a Batch pool using the Batch .NET SDK, the Batch REST API, and the Azure CLI.
+The following examples show how to encrypt the OS and temporary disks on a Batch pool using the Azure.ResourceManager.Batch SDK, the Batch REST API, and the Azure CLI.
 
-### Batch .NET SDK
+### Azure.ResourceManager.Batch SDK
 
 ```csharp
-pool.VirtualMachineConfiguration.DiskEncryptionConfiguration = new DiskEncryptionConfiguration(
-    targets: new List<DiskEncryptionTarget> { DiskEncryptionTarget.OsDisk, DiskEncryptionTarget.TemporaryDisk }
-    );
+using Azure;
+using Azure.Identity;
+using Azure.ResourceManager;
+using Azure.ResourceManager.Batch;
+using Azure.ResourceManager.Batch.Models;
+
+//...
+
+public async Task SetDiskEncryption()
+{
+    ArmClient client = new ArmClient(new DefaultAzureCredential());
+
+    ResourceIdentifier batchAccountResourceId =
+        BatchAccountResource.CreateResourceIdentifier("subscriptionId", "resourceGroupName", "accountName");
+    BatchAccountResource batchAccount = client.GetBatchAccountResource(batchAccountResourceId);
+
+    BatchAccountPoolCollection poolCollection = batchAccount.GetBatchAccountPools();
+
+    BatchAccountPoolData poolData = new BatchAccountPoolData()
+    {
+        VmSize = "standard_ds1_v2",
+        DeploymentConfiguration = new BatchDeploymentConfiguration()
+        {
+            VmConfiguration = new BatchVmConfiguration(
+                imageReference: new BatchImageReference()
+                {
+                    Publisher = "Canonical",
+                    Offer = "UbuntuServer",
+                    Sku = "22.04-LTS"
+                },
+                nodeAgentSkuId: "batch.node.ubuntu 22.04")
+            {
+                 DiskEncryptionConfiguration = new BatchDiskEncryptionConfiguration()
+                 {
+                     Targets = { BatchDiskEncryptionTarget.OSDisk, BatchDiskEncryptionTarget.TemporaryDisk }
+                 }
+            }
+        }
+    };
+
+    ArmOperation<BatchAccountPoolResource> pool = await poolCollection.CreateOrUpdateAsync(
+        WaitUntil.Completed, "diskencryptionPool", poolData);
+}
 ```
 
 ### Batch REST API
@@ -107,5 +148,5 @@ az batch pool create \
 
 ## Next steps
 
-- Learn more about [server-side encryption of Azure Disk Storage](../virtual-machines/disk-encryption.md).
+- Learn more about [server-side encryption of Azure Disk Storage](/azure/virtual-machines/disk-encryption).
 - For an in-depth overview of Batch, see [Batch service workflow and resources](batch-service-workflow-features.md).

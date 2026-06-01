@@ -3,7 +3,7 @@ title: Add and delete jobs in an Azure Stream Analytics cluster
 description: Learn how to managed Stream Analytics jobs in an Azure Stream Analytics cluster
 author: xujxu
 ms.author: xujiang1
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 12/21/2022

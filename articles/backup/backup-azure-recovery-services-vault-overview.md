@@ -1,18 +1,19 @@
 ---
 title: Overview of Recovery Services vaults
 description: An overview of Recovery Services vaults.
-ms.topic: conceptual
-ms.date: 03/26/2024
-ms.service: backup
+ms.topic: overview
+ms.date: 11/10/2025
+ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator, I want to utilize a Recovery Services vault for backing up data and managing recovery points, so that I can ensure data security, minimize management overhead, and efficiently restore backups in various scenarios.
 ---
 # Recovery Services vaults overview
 
 This article describes the features of a Recovery Services vault.
 
-A Recovery Services vault is a storage entity in Azure that houses data. The data is typically copies of data, or configuration information for virtual machines (VMs), workloads, servers, or workstations. You can use Recovery Services vaults to hold backup data for various Azure services such as IaaS VMs (Linux or Windows) and SQL Server in Azure VMs. Recovery Services vaults support System Center DPM, Windows Server, Azure Backup Server, and more. Recovery Services vaults make it easy to organize your backup data, while minimizing management overhead. 
+A Recovery Services vault is a storage entity in Azure that houses data. The data is typically copies of data or configuration information for virtual machines (VMs), workloads, servers, or workstations. You can use Recovery Services vaults to hold backup data for various Azure services such as IaaS VMs (Linux or Windows) and SQL Server in Azure VMs. Recovery Services vaults support System Center DPM, Windows Server, Azure Backup Server, and more. Recovery Services vaults make it easy to organize your backup data while minimizing management overhead. Learn about the [types of vault supported for backup and restore](/azure/backup/backup-azure-backup-faq#what-are-the-various-vaults-supported-for-backup-and-restore-).
 
 ## Key features
 
@@ -20,7 +21,9 @@ Recovery Services vaults are based on the Azure Resource Manager model of Azure,
 
 - **Enhanced capabilities to help secure backup data**: With Recovery Services vaults, Azure Backup provides security capabilities to protect cloud backups. The security features ensure you can secure your backups, and safely recover data, even if production and backup servers are compromised. [Learn more](backup-azure-security-feature.md)
 
-- **Central monitoring for your hybrid IT environment**: With Recovery Services vaults, you can monitor not only your [Azure IaaS VMs](backup-azure-manage-vms.md) but also your [on-premises assets](backup-azure-manage-windows-server.md#manage-backup-items) from a central portal. [Learn more](backup-azure-monitoring-built-in-monitor.md)
+- **Central monitoring for your hybrid IT environment**: With Recovery Services vaults, you can monitor not only your [Azure IaaS VMs](backup-azure-manage-vms.md) but also other workloads and your [on-premises (System Center Data Protection Manager) assets](backup-azure-manage-windows-server.md#manage-backup-items) from a central portal. Monitoring  your asset helps you to get a transparent view of your Azure Backup and Azure Site Recovery jobs, get notification of an undesirable event with alerts, monitor metrics and health, and track your historical data with  reports. [Learn more](backup-azure-monitoring-built-in-monitor.md).
+
+  Monitoring your asset involves getting a transparent view of your Azure Backup and Azure Site Recovery jobs, get notified of an undesirable event with alerts, monitor metrics and health, and track your historical data with reports.
 
 - **Azure role-based access control (Azure RBAC)**: Azure RBAC provides fine-grained access management control in Azure. [Azure provides various built-in roles](../role-based-access-control/built-in-roles.md), and Azure Backup has three [built-in roles to manage recovery points](backup-rbac-rs-vault.md). Recovery Services vaults are compatible with Azure RBAC, which restricts backup and restore access to the defined set of user roles. [Learn more](backup-rbac-rs-vault.md)
 
@@ -37,7 +40,7 @@ A Recovery Services vault is an entity that stores the backups and recovery poin
 
 - Azure Backup automatically handles storage for the vault. See how [storage settings can be changed](./backup-create-rs-vault.md#set-storage-redundancy).
 
-- To learn more about storage redundancy, see these articles on [geo](../storage/common/storage-redundancy.md#geo-zone-redundant-storage), [local](../storage/common/storage-redundancy.md#locally-redundant-storage) and [zonal](../storage/common/storage-redundancy.md#zone-redundant-storage) redundancy.
+- To learn more about storage redundancy, see these articles on [geo](../storage/common/storage-redundancy.md#geo-zone-redundant-storage), [local](../storage/common/storage-redundancy.md#locally-redundant-storage) and [zone](../storage/common/storage-redundancy.md#zone-redundant-storage) redundancy.
 
 ## Encryption settings in the Recovery Services vault
 
@@ -55,9 +58,9 @@ Read more about how to encrypt your backup data [using customer-managed keys](en
 
 ## Azure Advisor
 
-[Azure Advisor](../advisor/index.yml) is a personalized cloud consultant that helps optimize the use of Azure. It analyzes your Azure usage and provides timely recommendations to help optimize and secure your deployments. It provides recommendations in four categories: High Availability, Security, Performance, and Cost.
+[Azure Advisor](/azure/advisor/) is a personalized cloud consultant that helps optimize the use of Azure. It analyzes your Azure usage and provides timely recommendations to help optimize and secure your deployments. It provides recommendations in four categories: High Availability, Security, Performance, and Cost.
 
-Azure Advisor provides hourly [recommendations](../advisor/advisor-high-availability-recommendations.md#protect-your-virtual-machine-data-from-accidental-deletion) for VMs that aren't backed up, so you never miss backing up important VMs. You can also control the recommendations by snoozing them.  You can select the recommendation and enable backup on VMs in-line by specifying the vault (where backups will be stored) and the backup policy (schedule of backups and retention of backup copies).
+Azure Advisor provides hourly [recommendations](/azure/advisor/advisor-high-availability-recommendations#protect-your-virtual-machine-data-from-accidental-deletion) for VMs that aren't backed up, so you never miss backing up important VMs. You can also control the recommendations by snoozing them.  You can select the recommendation and enable backup on VMs in-line by specifying the vault (where backups will be stored) and the backup policy (schedule of backups and retention of backup copies).
 
 ![Screenshot shows the Azure Advisor page.](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 
@@ -70,6 +73,9 @@ Azure Advisor provides hourly [recommendations](../advisor/advisor-high-availabi
 
 Use the following articles to:
 
-- [Back up an IaaS VM](backup-azure-arm-vms-prepare.md)
-- [Back up an Azure Backup Server](backup-azure-microsoft-azure-backup.md)
-- [Back up a Windows Server](backup-windows-with-mars-agent.md)
+- Create a Recovery Services vault using [Azure portal](backup-create-recovery-services-vault.md#create-a-recovery-services-vault), [REST API](backup-azure-arm-userestapi-createorupdatevault.md).
+- [Update the soft delete state for Recovery Services vault using REST API](use-restapi-update-vault-properties.md).
+- [Back up an IaaS VM](backup-azure-arm-vms-prepare.md).
+- [Back up an Azure Backup Server](backup-azure-microsoft-azure-backup.md).
+- [Back up a Windows Server](backup-windows-with-mars-agent.md).
+- [Reconfigure backup for datasources in an alternate vault](../business-continuity-center/tutorial-reconfigure-backup-alternate-vault.md).

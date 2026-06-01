@@ -2,13 +2,12 @@
 title: Monitor VM activity on Azure Stack Edge Pro GPU device
 description: Learn how to monitor VM activity on an Azure Stack Edge Pro GPU device in the Azure portal.
 services: databox
-author: v-dalc
+author: sipastak
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 08/03/2021
-ms.author: alkohli
+ms.author: sipastak
 # Customer intent: As an IT admin, I need to be able to review VM activity in real-time for the compute workloads on my Azure Stack Edge Pro GPU device.
 ---
 
@@ -39,7 +38,7 @@ To view activity logs for the virtual machines on your Azure Stack Edge Pro GPU 
 
     ![Screenshot showing the Activity logs page for Virtual Machines on an Azure Stack Edge device. An expanded operation is highlighted in the list.](./media/azure-stack-edge-gpu-monitor-virtual-machine-activity/activity-log-03.png)<!--Reshoot to remove pointer. May be able to replace drop-down only.-->
 
-On any **Activity log** pane in Azure, you can filter and sort activities, select columns to display, drill down to details for a specific activity, and get **Quick Insights** into errors, failed deployments, alerts, service health, and security changes over the last 24 hours. For more information about the logs and the filtering options, see [View activity logs](../azure-monitor/essentials/activity-log.md).
+On any **Activity log** pane in Azure, you can filter and sort activities, select columns to display, drill down to details for a specific activity, and get **Quick Insights** into errors, failed deployments, alerts, service health, and security changes over the last 24 hours. For more information about the logs and the filtering options, see [View activity logs](/azure/azure-monitor/essentials/activity-log).
 
 ## Next steps
 

@@ -1,16 +1,19 @@
 ---
-title: "Tutorial: Create a multiple virtual machine inbound NAT rule - Azure portal"
+title: "Tutorial: Create Inbound NAT rule V2 - Azure portal"
 titleSuffix: Azure Load Balancer
 description: In this tutorial, learn how to configure port forwarding using Azure Load Balancer to create a connection to multiple virtual machines in an Azure virtual network.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: tutorial
-ms.date: 09/27/2023
-ms.custom: template-tutorial
+ms.date: 09/30/2024
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
+# Customer intent: "As a network administrator, I want to set up inbound NAT rules using an Azure Load Balancer, so that I can efficiently manage connections to multiple virtual machines in my virtual network."
 ---
 
-# Tutorial: Create a multiple virtual machine inbound NAT rule using the Azure portal
+# Tutorial: Create inbound NAT rule V2 using the Azure portal
 
 Inbound NAT rules allow you to connect to virtual machines (VMs) in an Azure virtual network by using an Azure Load Balancer public IP address and port number. 
 
@@ -27,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create virtual network and virtual machines
 
@@ -147,7 +150,7 @@ You create a load balancer in this section. The frontend IP, backend pool, load-
 11. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
+    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json), you can select zone-redundant (default option) or a specific zone. The choice depends on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview).
 
 12. Leave the default of **Microsoft Network** for **Routing preference**.
 
@@ -240,7 +243,7 @@ In this section, you create a multiple instance inbound NAT rule to the backend 
 
 In this section, you create a NAT gateway for outbound internet access for resources in the virtual network. 
 
-For more information about outbound connections and Azure Virtual Network NAT, see [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md) and [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md).
+For more information about outbound connections and Azure Virtual Network NAT, see [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md) and [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)
 
 1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 

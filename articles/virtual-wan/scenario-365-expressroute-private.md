@@ -5,10 +5,11 @@ description: Learn about how to connect to Microsoft 365 through Virtual WAN usi
 services: virtual-wan
 author: floklaffenbach
 
-ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 08/24/2023
-ms.author: flofox
+ms.service: azure-virtual-wan
+ms.topic: concept-article
+ms.date: 03/26/2025
+ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 # Scenario: Connect to Microsoft 365 via Virtual WAN using ExpressRoute private peering

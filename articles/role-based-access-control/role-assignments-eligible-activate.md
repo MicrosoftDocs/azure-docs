@@ -1,26 +1,22 @@
 ---
-title: Activate eligible Azure role assignments (Preview) - Azure RBAC
+title: Activate eligible Azure role assignments - Azure RBAC
 description: Learn how to activate eligible Azure role assignments in Azure role-based access control (Azure RBAC) using the Azure portal.
 author: rolyon
-manager: amycolannino
+manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 06/27/2024
+ms.date: 12/12/2024
 ms.author: rolyon
 ---
 
-# Activate eligible Azure role assignments (Preview)
-
-> [!IMPORTANT]
-> Azure role assignment integration with Privileged Identity Management is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Activate eligible Azure role assignments
 
 Eligible Azure role assignments provide just-in-time access to a role for a limited period of time. Microsoft Entra Privileged Identity Management (PIM) role activation has been integrated into the Access control (IAM) page in the Azure portal. If you have been made eligible for an Azure role, you can activate that role using the Azure portal. This capability is being deployed in stages, so it might not be available yet in your tenant or your interface might look different.
 
 ## Prerequisites
 
 - Microsoft Entra ID P2 license or Microsoft Entra ID Governance license
-- [Eligible role assignment](./role-assignments-portal.yml#step-6-select-assignment-type-(preview))
+- [Eligible role assignment](pim-integration.md#pim-functionality)
 - `Microsoft.Authorization/roleAssignments/read` permission, such as [Reader](./built-in-roles/general.md#reader)
 
 ## Activate group membership (if needed)
@@ -35,19 +31,17 @@ These steps describe how to activate an eligible role assignment using the Azure
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Click **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, **Resource groups**, or a resource.
+1. Click **All services** and then select the scope. For example, you can select **Management groups**, **Subscriptions**, or **Resource groups**.
+
+    On the Access control (IAM) page, you can activate eligible role assignments at management group, subscription, and resource group scope, but not at resource scope.
 
 1. Click the specific resource.
 
 1. Click **Access control (IAM)**.
 
-1. Click **Activate role**.
-
-    The **assignments** pane appears and lists your eligible role assignments.
-
     :::image type="content" source="./media/role-assignments-eligible-activate/activate-role.png" alt-text="Screenshot of Access control page and Activate role assignments pane." lightbox="./media/role-assignments-eligible-activate/activate-role.png":::
 
-1. Add a check mark next to a role you want to activate and then click **Activate role**.
+1. In the **Action** column, click **Activate** for the role you want to activate.
 
     The **Activate** pane appears with activate settings.
 
@@ -69,9 +63,9 @@ These steps describe how to activate an eligible role assignment using the Azure
 
     When activation is complete, you see a message that the role was successfully activated.
 
-    Once an eligible role assignment has been activated, it will be listed as an active time-bound role assignment on the **Role assignments** tab. For more information, see [List Azure role assignments using the Azure portal](./role-assignments-list-portal.yml#list-role-assignments-at-a-scope).
+    Once an eligible role assignment has been activated, it will be listed as an active time-bound role assignment on the **Check access** and  **Role assignments** tabs. For more information, see [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-at-a-scope).
 
 ## Next steps
 
-- [Integration with Privileged Identity Management (Preview)](./role-assignments.md#integration-with-privileged-identity-management-preview)
+- [Eligible and time-bound role assignments in Azure RBAC](./pim-integration.md)
 - [Activate my Azure resource roles in Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-activate-your-roles)

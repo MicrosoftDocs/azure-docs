@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about the mapping data flow Unpivot Transformation in Azure Data Factory and Synapse Analytics.
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: synapse
-ms.date: 05/15/2024
+ms.date: 04/27/2026
 ---
 
 # Unpivot transformation in mapping data flow
@@ -17,11 +16,14 @@ ms.date: 05/15/2024
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
+> [!TIP]
+>  For the equivalent transformation (**Unpivot columns**) in Dataflow Gen2, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
+
 Use Unpivot in a mapping data flow as a way to turn an unnormalized dataset into a more normalized version by expanding values from multiple columns in a single record into multiple records with the same values in a single column.
 
 :::image type="content" source="media/data-flow/unpivot1.png" alt-text="Screenshot shows Unpivot selected from the menu.":::
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B1RR]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=8746f3b9-b71e-4cd3-8def-550d8d6a44e2]
 
 ## Ungroup By
 

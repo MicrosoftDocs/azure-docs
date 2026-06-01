@@ -1,23 +1,24 @@
 ---
-title: Use Java to manage data in Azure Data Lake Storage Gen2
+title: Use Java to manage data in Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Use Azure Storage libraries for Java to manage directories and files in storage accounts that have a hierarchical namespace enabled.
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.service: azure-data-lake-storage
 ms.date: 08/08/2023
 ms.devlang: java
 ms.topic: how-to
 ms.reviewer: prishet
 ms.custom: devx-track-java, devx-track-extended-java
+# Customer intent: As a Java developer, I want to manage directories and files in Azure Data Lake Storage, so that I can efficiently organize and manipulate data within a hierarchical storage environment.
 ---
 
-# Use Java to manage directories and files in Azure Data Lake Storage Gen2
+# Use Java to manage directories and files in Azure Data Lake Storage
 
 This article shows you how to use Java to create and manage directories and files in storage accounts that have a hierarchical namespace.
 
-To learn about how to get, set, and update the access control lists (ACL) of directories and files, see [Use .Java to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-java.md).
+To learn about how to get, set, and update the access control lists (ACL) of directories and files, see [Use .Java to manage ACLs in Azure Data Lake Storage](data-lake-storage-acl-java.md).
 
 [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [API reference](/java/api/overview/azure/storage-file-datalake-readme) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
 
@@ -185,3 +186,4 @@ The following code example uses `deleteWithResponse` to delete a nonempty direct
 - [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 - [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
+

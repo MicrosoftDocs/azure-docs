@@ -1,21 +1,22 @@
 ---
-title: Virtual network flow logs
+title: Virtual Network Flow Logs
 titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher virtual network flow logs and how to use them to record your virtual network's traffic. 
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 07/11/2024
+ms.date: 02/10/2026
+ms.custom: build-2025
 
-#CustomerIntent: As an Azure administrator, I want to learn about virtual network flow logs so that I can log my network traffic to analyze and optimize network performance.
+# Customer intent: As an Azure administrator, I want to implement virtual network flow logs so that I can effectively monitor network traffic, optimize performance, and ensure compliance within my virtual network.
 ---
 
 # Virtual network flow logs
 
 Virtual network flow logs are a feature of Azure Network Watcher. You can use them to log information about IP traffic flowing through a virtual network.
 
-Flow data from virtual network flow logs is sent to Azure Storage. From there, you can access the data and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS). Virtual network flow logs overcome some of the limitations of [Network security group flow logs](nsg-flow-logs-overview.md).
+Flow data from virtual network flow logs is sent to Azure Storage. From there, you can access the data and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS). Virtual network flow logs overcome some of the limitations of [Network security group flow logs](nsg-flow-logs-overview.md) and are more cost efficient.
 
 ## Why use flow logs?
 
@@ -59,7 +60,9 @@ Virtual network flow logs also avoid the need to enable multiple-level flow logg
 In addition to existing support to identify traffic that [network security group rules](../virtual-network/network-security-groups-overview.md) allow or deny, Virtual network flow logs support identification of traffic that [Azure Virtual Network Manager security admin rules](../virtual-network-manager/concept-security-admins.md) allow or deny. Virtual network flow logs also support evaluating the encryption status of your network traffic in scenarios where you're using [virtual network encryption](../virtual-network/virtual-network-encryption-overview.md?toc=/azure/network-watcher/toc.json).
 
 > [!IMPORTANT]
-> We recommend disabling network security group flow logs before enabling virtual network flow logs on the same underlying workloads to avoid duplicate traffic recording and additional costs. If you enable network security group flow logs on the network security group of a subnet, then you enable virtual network flow logs on the same subnet or parent virtual network, you might get duplicate logging (both network security group flow logs and virtual network flow logs generated for all supported workloads in that particular subnet).
+> We recommend disabling network security group flow logs before enabling virtual network flow logs on the same underlying workloads to avoid duplicate traffic recording and additional costs.
+> 
+> If you enable network security group flow logs on the network security group of a subnet, then you enable virtual network flow logs on the same subnet or parent virtual network, you might get duplicate logging or only virtual network flow logs.
 
 ## How logging works
 
@@ -70,13 +73,14 @@ Key properties of virtual network flow logs include:
 - Logs are written in the JavaScript Object Notation (JSON) format.
 - Each log record contains the network interface that the flow applies to, 5-tuple information, traffic direction, flow state, encryption state, and throughput information.
 - All traffic flows in your network are evaluated through the applicable [network security group rules](../virtual-network/network-security-groups-overview.md) or [Azure Virtual Network Manager security admin rules](../virtual-network-manager/concept-security-admins.md).
+- Virtual Network flow logs operate at the virtual network level and therefore capture traffic for resources such as gateways by default. As a result, traffic passing through these gateways is included, which can lead to a higher volume of log data.
 
 ## Log format
 
 Virtual network flow logs have the following properties:
 
 - `time`: Time in UTC when the event was logged.
-- `flowLogVersion`: Version of the flow log schema.
+- `flowLogVersion`: Version of the flow log.
 - `flowLogGUID`: Resource GUID of the `FlowLog` resource.
 - `macAddress`: MAC address of the network interface where the event was captured.
 - `category`: Category of the event. The category is always `FlowLogFlowEvent`.
@@ -132,36 +136,36 @@ In the following example of virtual network flow logs, multiple records follow t
         {
             "time": "2022-09-14T09:00:52.5625085Z",
             "flowLogVersion": 4,
-            "flowLogGUID": "abcdef01-2345-6789-0abc-def012345678",
-            "macAddress": "00224871C205",
+            "flowLogGUID": "66aa66aa-bb77-cc88-dd99-00ee00ee00ee",
+            "macAddress": "112233445566",
             "category": "FlowLogFlowEvent",
-            "flowLogResourceID": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_EASTUS2EUAP/FLOWLOGS/VNETFLOWLOG",
-            "targetResourceID": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet",
+            "flowLogResourceID": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_EASTUS2EUAP/FLOWLOGS/VNETFLOWLOG",
+            "targetResourceID": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVNet",
             "operationName": "FlowLogFlowEvent",
             "flowRecords": {
                 "flows": [
                     {
-                        "aclID": "00000000-1234-abcd-ef00-c1c2c3c4c5c6",
+                        "aclID": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
                         "flowGroups": [
                             {
                                 "rule": "DefaultRule_AllowInternetOutBound",
                                 "flowTuples": [
-                                    "1663146003599,10.0.0.6,52.239.184.180,23956,443,6,O,B,NX,0,0,0,0",
-                                    "1663146003606,10.0.0.6,52.239.184.180,23956,443,6,O,E,NX,3,767,2,1580",
-                                    "1663146003637,10.0.0.6,40.74.146.17,22730,443,6,O,B,NX,0,0,0,0",
-                                    "1663146003640,10.0.0.6,40.74.146.17,22730,443,6,O,E,NX,3,705,4,4569",
-                                    "1663146004251,10.0.0.6,40.74.146.17,22732,443,6,O,B,NX,0,0,0,0",
-                                    "1663146004251,10.0.0.6,40.74.146.17,22732,443,6,O,E,NX,3,705,4,4569",
-                                    "1663146004622,10.0.0.6,40.74.146.17,22734,443,6,O,B,NX,0,0,0,0",
-                                    "1663146004622,10.0.0.6,40.74.146.17,22734,443,6,O,E,NX,2,134,1,108",
-                                    "1663146017343,10.0.0.6,104.16.218.84,36776,443,6,O,B,NX,0,0,0,0",
-                                    "1663146022793,10.0.0.6,104.16.218.84,36776,443,6,O,E,NX,22,2217,33,32466"
+                                    "1663146003599,10.0.0.6,192.0.2.180,23956,443,6,O,B,NX,0,0,0,0",
+                                    "1663146003606,10.0.0.6,192.0.2.180,23956,443,6,O,E,NX,3,767,2,1580",
+                                    "1663146003637,10.0.0.6,203.0.113.17,22730,443,6,O,B,NX,0,0,0,0",
+                                    "1663146003640,10.0.0.6,203.0.113.17,22730,443,6,O,E,NX,3,705,4,4569",
+                                    "1663146004251,10.0.0.6,203.0.113.17,22732,443,6,O,B,NX,0,0,0,0",
+                                    "1663146004251,10.0.0.6,203.0.113.17,22732,443,6,O,E,NX,3,705,4,4569",
+                                    "1663146004622,10.0.0.6,203.0.113.17,22734,443,6,O,B,NX,0,0,0,0",
+                                    "1663146004622,10.0.0.6,203.0.113.17,22734,443,6,O,E,NX,2,134,1,108",
+                                    "1663146017343,10.0.0.6,198.51.100.84,36776,443,6,O,B,NX,0,0,0,0",
+                                    "1663146022793,10.0.0.6,198.51.100.84,36776,443,6,O,E,NX,22,2217,33,32466"
                                 ]
                             }
                         ]
                     },
                     {
-                        "aclID": "01020304-abcd-ef00-1234-102030405060",
+                        "aclID": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
                         "flowGroups": [
                             {
                                 "rule": "BlockHighRiskTCPPortsFromInternet",
@@ -173,13 +177,13 @@ In the following example of virtual network flow logs, multiple records follow t
                             {
                                 "rule": "Internet",
                                 "flowTuples": [
-                                    "1663145989563,20.106.221.10,10.0.0.6,50557,44357,6,I,D,NX,0,0,0,0",
-                                    "1663145989679,20.55.117.81,10.0.0.6,62797,35945,6,I,D,NX,0,0,0,0",
-                                    "1663145989709,20.55.113.5,10.0.0.6,51961,65515,6,I,D,NX,0,0,0,0",
-                                    "1663145990049,13.65.224.51,10.0.0.6,40497,40129,6,I,D,NX,0,0,0,0",
-                                    "1663145990145,20.55.117.81,10.0.0.6,62797,30472,6,I,D,NX,0,0,0,0",
-                                    "1663145990175,20.55.113.5,10.0.0.6,51961,28184,6,I,D,NX,0,0,0,0",
-                                    "1663146015545,20.106.221.10,10.0.0.6,50557,31244,6,I,D,NX,0,0,0,0"
+                                    "1663145989563,192.0.2.10,10.0.0.6,50557,44357,6,I,D,NX,0,0,0,0",
+                                    "1663145989679,203.0.113.81,10.0.0.6,62797,35945,6,I,D,NX,0,0,0,0",
+                                    "1663145989709,203.0.113.5,10.0.0.6,51961,65515,6,I,D,NX,0,0,0,0",
+                                    "1663145990049,198.51.100.51,10.0.0.6,40497,40129,6,I,D,NX,0,0,0,0",
+                                    "1663145990145,203.0.113.81,10.0.0.6,62797,30472,6,I,D,NX,0,0,0,0",
+                                    "1663145990175,203.0.113.5,10.0.0.6,51961,28184,6,I,D,NX,0,0,0,0",
+                                    "1663146015545,192.0.2.10,10.0.0.6,50557,31244,6,I,D,NX,0,0,0,0"
                                 ]
                             }
                         ]
@@ -196,20 +200,64 @@ In the following example of virtual network flow logs, multiple records follow t
 
 :::image type="content" source="media/vnet-flow-logs-overview/vnet-flow-log-format.png" alt-text="Table that shows the format of a virtual network flow log."lightbox="media/vnet-flow-logs-overview/vnet-flow-log-format.png"
 
-Here's an example bandwidth calculation for flow tuples from a TCP conversation between `185.170.185.105:35370` and `10.2.0.4:23`:
+Here's an example bandwidth calculation for flow tuples from a TCP conversation between `203.0.113.105:35370` and `10.0.0.5:23`:
 
-`1493763938,185.170.185.105,10.2.0.4,35370,23,6,I,B,NX,,,,`
-`1493695838,185.170.185.105,10.2.0.4,35370,23,6,I,C,NX,1021,588096,8005,4610880`
-`1493696138,185.170.185.105,10.2.0.4,35370,23,6,I,E,NX,52,29952,47,27072`
+`1708978215,203.0.113.105,10.0.0.5,35370,23,6,I,B,NX,,,,`
+`1708978215,203.0.113.105,10.0.0.5,35370,23,6,I,C,NX,1021,588096,8005,4610880`
+`1708978215,203.0.113.105,10.0.0.5,35370,23,6,I,E,NX,52,29952,47,27072`
 
 For continuation (`C`) and end (`E`) flow states, byte and packet counts are aggregate counts from the time of the previous flow's tuple record. In the example conversation, the total number of packets transferred is 1,021 + 52 + 8,005 + 47 = 9,125. The total number of bytes transferred is 588,096 + 29,952 + 4,610,880 + 27,072 = 5,256,000.
 
-## Storage account considerations for virtual network flow logs 
+## Platform Rules
+
+#### What is a platform rule in flow logs
+
+In flow logs, a platform rule represents network traffic that is processed by the Azure platform itself rather than by user‑configured rules, such as Network Security Groups (NSGs) or Azure Virtual Network Manager rules. This traffic is handled automatically by the platform and is not the result of an explicit allow or deny rule defined within a deployment. Platform rule entries provide visibility into system‑managed or infrastructure‑level traffic. If analysis is focused only on traffic evaluated by explicitly configured rules, these entries can be filtered out during log analysis.
+
+In some scenarios, traffic associated with you application or workload may appear under a platform rule. This can occur in a limited number of well‑understood cases, such as when load‑balanced connections are recreated as part of normal platform operations, or when return traffic does not require rule evaluation for the response path. In these cases, the traffic is processed as expected, but the flow log may associate it with a platform rule instead of a user‑defined rule.
+
+#### Does the presence of platform rules affect traffic?
+
+No. Platform rules do not change your traffic behavior, connectivity, security posture, or performance. They only affect how certain network flows are represented in flow logs. Platform rule entries are provided for informational purposes. Excluding them from analysis does not impact how traffic is handled. If traffic appears under a platform rule and does not align with the scenarios described above, the behavior can be investigated further. In such cases, reaching out through Azure support channels is recommended so the flow logs can be reviewed in detail.
+
+## Considerations for virtual network flow logs
+
+### Storage account
 
 - **Location**: The storage account must be in the same region as the virtual network.
 - **Subscription**: The storage account must be in the same subscription of the virtual network or in a subscription associated with the same Microsoft Entra tenant of the virtual network's subscription.
 - **Performance tier**: The storage account must be standard. Premium storage accounts aren't supported.
-- **Self-managed key rotation**: If you change or rotate the access keys to your storage account, virtual network flow logs stop working. To fix this problem, you must disable and then re-enable virtual network flow logs.
+- **Self-managed key rotation**: If you change or rotate the customer-managed encryption keys to your storage account, virtual network flow logs stop working. To fix this problem, you must disable and then re-enable virtual network flow logs.
+- **Retention policy rules:** Currently, a storage account supports 100 rules, and each rule can accommodate 10 blob prefixes. For more information, see [How many retention policy rules can a storage account have?](frequently-asked-questions.yml#how-many-retention-policy-rules-can-a-storage-account-have-)
+- **Blob operations:** Virtual network flow logs are ingested into a block blob at one-minute intervals by appending blocks. While ingestion is in progress, don't perform operations that modify the blob's block structure, such as editing, overwriting, or deleting the blob content. These operations can cause all subsequent flow log write operations to fail for that specific hour's blob.
+
+### ExpressRoute gateway traffic
+
+Outbound flows from virtual machines (VMs) to ExpressRoute circuit aren't recorded if flow logging is enabled on the ExpressRoute gateway subnet. Such flows must be recorded at the subnet or NIC of the VM. Traffic also bypasses the ExpressRoute gateway when [FastPath](../expressroute/about-fastpath.md) is enabled and isn't recorded if flow logging is enabled on the ExpressRoute gateway subnet.
+
+### Private endpoint traffic
+
+Traffic can't be recorded at the private endpoint itself. You can capture traffic to a private endpoint at the source VM. The traffic is recorded with source IP address of the VM and destination IP address of the private endpoint. You can use `PrivateEndpointResourceId` field to identify traffic flowing to a private endpoint. For more information, see [Traffic analytics schema](traffic-analytics-schema.md?tabs=vnet#traffic-analytics-schema).
+
+### Incompatible services
+
+Currently, these Azure services don't support virtual network flow logs:
+
+- [Azure Container Instances](/azure/container-instances/container-instances-overview?toc=/azure/network-watcher/toc.json)
+- [Azure Container Apps](/azure/container-apps/overview?toc=/azure/network-watcher/toc.json)
+- [Azure Logic Apps](../logic-apps/logic-apps-overview.md?toc=/azure/network-watcher/toc.json) 
+- [Azure Functions](../azure-functions/functions-overview.md?toc=/azure/network-watcher/toc.json)
+- [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md?toc=/azure/network-watcher/toc.json)
+- [App Service](../app-service/overview.md?toc=/azure/network-watcher/toc.json)
+- [Azure Database for MariaDB](/azure/mariadb/overview?toc=/azure/network-watcher/toc.json)
+- [Azure Database for MySQL](/azure/mysql/single-server/overview?toc=/azure/network-watcher/toc.json)
+- [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview?toc=/azure/network-watcher/toc.json)
+- [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview?toc=/azure/network-watcher/toc.json)
+- [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction?toc=/azure/network-watcher/toc.json)
+- [Microsoft Power Platform](/power-platform?toc=/azure/network-watcher/toc.json)
+
+> [!NOTE]
+> App services deployed under an Azure App Service plan don't support virtual network flow logs. To learn more, see [How virtual network integration works](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works).
 
 ## Pricing
 
@@ -218,13 +266,32 @@ For continuation (`C`) and end (`E`) flow states, byte and packet counts are agg
 - If traffic analytics is enabled with virtual network flow logs, traffic analytics pricing applies at per gigabyte processing rates. Traffic analytics isn't offered with a free tier of pricing. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
 - Storage of logs is charged separately. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+  
+- Virtual Network Flow Logs extend logging coverage beyond network security boundaries to include platform and application‑level traffic scenarios. This broader scope supports additional use cases and traffic patterns, which may result in higher log volumes compared to more narrowly scoped flow logging configurations.
+
+## Supported scenarios
+
+The following table outlines the support scope of flow logs.
+
+| Scope | Network security group flow logs | Virtual network flow logs |
+| --- | --- | --- |
+| Bytes and packets in stateless flows | Not supported | Supported |
+| Identification of virtual network encryption  | Not supported | Supported |
+| Azure API management  | Not supported | Supported |
+| Azure Application Gateway | Not supported | Supported |
+| Azure Virtual Network Manager | Not supported | Supported |
+| ExpressRoute gateway | Not supported | Supported |
+| Virtual machine scale sets | Supported | Supported |
+| VPN gateway | Not supported | Supported |
 
 ## Availability
 
-Virtual network flow logs are generally available in all Azure public regions.
+The following tables list the supported regions where you can enable virtual network flow logs.
+
+[!INCLUDE [Traffic analytics availability](../../includes/network-watcher-flow-logs-availability.md)]
 
 ## Related content
 
-- To learn how to create, change, enable, disable, or delete virtual network flow logs, see the [Azure portal](vnet-flow-logs-portal.md), [PowerShell](vnet-flow-logs-powershell.md), or [Azure CLI](vnet-flow-logs-cli.md) guides.
-- To learn about traffic analytics, see [Traffic analytics overview](traffic-analytics.md) and [Schema and data aggregation in Azure Network Watcher traffic analytics](traffic-analytics-schema.md).
-- To learn how to use Azure built-in policies to audit or enable traffic analytics, see [Manage traffic analytics using Azure Policy](traffic-analytics-policy-portal.md).
+- [Tutorial: Log network traffic to and from a virtual network using the Azure portal](vnet-flow-logs-tutorial.md)
+- [Create, change, enable, disable, or delete virtual network flow logs](vnet-flow-logs-manage.md)
+- [Traffic analytics overview](traffic-analytics.md)

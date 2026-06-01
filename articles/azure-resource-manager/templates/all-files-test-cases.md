@@ -3,7 +3,7 @@ title: All files test cases for Azure Resource Manager test toolkit
 description: Describes the tests that are run for all files by the Azure Resource Manager template test toolkit.
 ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 06/20/2024
+ms.date: 07/23/2025
 ---
 
 # Test cases for all files
@@ -24,11 +24,11 @@ The following example fails because in _azuredeploy.json_ the leading curly brac
 {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
-  "parameters":
-    "comboBox":
+  "parameters": {
+    "comboBox": {
       "type": "string"
     },
-    "location":
+    "location": {
       "type": "string"
     }
   },
@@ -104,7 +104,7 @@ The following example **passes**.
 }
 ```
 
-### CreateUiDefintion example
+### CreateUiDefinition example
 
 The following example **fails** because in _createUiDefinition.json_ the leading curly brace (`{`) is missing from the `outputs` section.
 

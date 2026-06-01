@@ -3,7 +3,7 @@ title: Troubleshoot manifest ingestion in Microsoft Azure Data Manager for Energ
 description: Find out how to troubleshoot manifest ingestion by using Airflow task logs.
 author: bharathim
 ms.author: bselvaraj
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: troubleshooting-general
 ms.date: 02/06/2023
 ---
@@ -25,7 +25,7 @@ One single manifest file is used to trigger the manifest ingestion workflow.
 |`update_status_running_task` | Calls the workflow service and marks the status of the DAG as `running` in the database.        |
 |`check_payload_type` | Validates whether the type of ingestion is batch or single manifest.|
 |`validate_manifest_schema_task` | Ensures that all the schema types mentioned in the manifest are present and there's referential schema integrity. All invalid values are evicted from the manifest. |
-|`provide_manifest_intergrity_task` | Validates references inside the OSDU&reg; R3 manifest and removes invalid entities. This operator is responsible for parent/child validation. All orphan-like entities are logged and excluded from the validated manifest. Any external referenced records are searched. If none are found, the manifest entity is dropped. All surrogate key references are also resolved. |
+|`provide_manifest_integrity_task` | Validates references inside the OSDU&reg; R3 manifest and removes invalid entities. This operator is responsible for parent/child validation. All orphan-like entities are logged and excluded from the validated manifest. Any external referenced records are searched. If none are found, the manifest entity is dropped. All surrogate key references are also resolved. |
 |`process_single_manifest_file_task` | Performs ingestion of the final manifest entities obtained from the previous step. Data records are ingested via the storage service. |
 |`update_status_finished_task` | Calls the workflow service and marks the status of the DAG as `finished` or `failed` in the database. |
 
@@ -38,7 +38,7 @@ Multiple manifest files are part of the same workflow service request. The manif
 |`update_status_running_task` | Calls the workflow service and marks the status of the DAG as `running` in the database.        |
 |`check_payload_type` | Validates whether the type of ingestion is batch or single manifest.|
 |`batch_upload` | Divides the list of manifests into three batches to be processed in parallel. (No task logs are emitted.) |
-|`process_manifest_task_(1 / 2 / 3)` | Divides the list of manifests into groups of three and processes them. All the steps performed in `validate_manifest_schema_task`, `provide_manifest_intergrity_task`, and `process_single_manifest_file_task` are condensed and performed sequentially in these tasks. |
+|`process_manifest_task_(1 / 2 / 3)` | Divides the list of manifests into groups of three and processes them. All the steps performed in `validate_manifest_schema_task`, `provide_manifest_integrity_task`, and `process_single_manifest_file_task` are condensed and performed sequentially in these tasks. |
 |`update_status_finished_task` | Calls the workflow service and marks the status of the DAG as `finished` or `failed` in the database. |
 
 Based on the payload type (single or batch), the `check_payload_type` task chooses the appropriate branch and skips the tasks in the other branch.
@@ -109,7 +109,7 @@ Records weren't ingested because schema validation failed.
 * The manifest body doesn't conform to the schema type.
 * The schema references are incorrect.
 * The schema service is throwing 5xx errors.
-  
+
 ### Workflow status
 
 The workflow status is marked as `finished`. You don't observe a failure in the workflow status because the invalid entities are skipped and the ingestion is continued.
@@ -163,7 +163,7 @@ Records weren't ingested because reference checks failed.
 * Referenced records weren't found.
 * Parent records weren't found.
 * The search service is throwing 5xx errors.
-  
+
 ### Workflow status
 
 The workflow status is marked as `finished`. You don't observe a failure in the workflow status because the invalid entities are skipped and the ingestion is continued.
@@ -205,7 +205,7 @@ Records weren't ingested because the manifest contains invalid legal tags or acc
 * ACLs are incorrect.
 * Legal tags are incorrect.
 * The storage service is throwing 5xx errors.
-  
+
 ### Workflow status
 
 The workflow status is marked as `finished`. You don't observe a failure in the workflow status.
@@ -240,6 +240,26 @@ The output indicates records that were retrieved. Manifest entity records that c
     [2023-02-05, 16:58:46 IST] {authorization.py:137} ERROR - {"code":400,"reason":"Validation error.","message":"createOrUpdateRecords.records[0].acl: Invalid group name 'data1.default.viewers@contoso-dp1.dataservices.energy'"}
     [2023-02-05, 16:58:46 IST] {single_manifest_processor.py:83} WARNING - Can't process entity SRN: surrogate-key:0ef20853-f26a-456f-b874-3f2f5f35b6fb
 ```
+## Skipped records logging
+During manifest ingestion, some records may be skipped due to validation failures, missing references, or other issues. Logging of skipped record IDs, Manifest Kind along with the reasons has been implemented to aid in debugging. A full skipped records report will be logged as part of final task along with total count of Skipped records.
+
+
+### How to use
+Check the Airflow task logs for provide_manifest_integrity_task, or validate_manifest_schema_task.
+Sample Kusto query:
+
+```kusto
+    OEPAirFlowTask
+    | where RunID has "<run_id>"
+```
+Look for entries like:
+```md
+=== SKIPPED ENTITIES REPORT ===
+Total skipped entities: 5
+Skipped entities Data: {'validate_manifest_schema_task': [{'id': 'opendes:master-data--Well:1112-1', 'kind': 'osdu:wks:master-data--Well:77777771.0.0', 'reason': 'Kind osdu:wks:master-data--Well:77777771.0.0 is not present in Schema service.'}], 'provide_manifest_integrity_task': [{'id': 'opendes:work-product--WorkProduct:feb22:11', 'kind': 'osdu:wks:work-product--WorkProduct:1.0.0', 'reason': 'Missing parents: {SRN: opendes:work-product-component--WellboreMarkerSet:feb22:11}'}, {'id': 'opendes:work-product-component--WellboreMarkerSet:feb22:11', 'kind': 'osdu:wks:work-product-component--WellboreMarkerSet:1.0.0', 'reason': 'Missing parents: {SRN: opendes:dataset--File.Generic:feb22:11}'}], 'process_single_manifest_file_task': [{'id': 'opendes:dataset--File.Generic:feb22:1', 'kind': 'osdu:wks:dataset--File.Generic:1.0.0', 'reason': 'Record storage failed: Invalid legal tags: mstest3807-data-R3FullManifest-Legal-Tag-Test3332279'}, {'id': 'opendes:reference-data--FacilityType:Well-11123', 'kind': 'osdu:wks:reference-data--FacilityType:1.0.0', 'reason': 'Record storage failed: Invalid legal tags: mstest3807-data-R3FullManifest-Legal-Tag-Test3332279'}]}
+=== END SKIPPED ENTITIES REPORT ===
+```
+This will help in identifying which specific records were excluded from ingestion.
 
 ## Known issues
 

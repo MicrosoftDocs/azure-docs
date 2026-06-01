@@ -1,12 +1,11 @@
 ---
 title: "PowerShell script: Monitor usage of an Azure Data Share"
 description: This PowerShell script retrieves usage metrics of a sent data share.
-author: sidontha
-ms.service: data-share
-ms.topic: article
-ms.date: 12/19/2023
-ms.author: sidontha 
-ms.custom:
+author: chvukosw
+ms.author: chvukosw
+ms.service: azure-data-share
+ms.topic: concept-article
+ms.date: 01/23/2026
 ---
 
 # Use PowerShell to monitor the usage of a sent data share
@@ -40,7 +39,7 @@ This script uses the following commands:
 | [Get-AzDataShareSynchronizationDetails](/powershell/module/az.datashare/get-azdatasharesynchronizationdetail) | Gets synchronization details of a share synchronization. |
 |||
 
-## Next steps
+## Related content
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
 

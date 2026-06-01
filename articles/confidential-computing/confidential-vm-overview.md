@@ -1,14 +1,15 @@
 ---
 title: About Azure confidential VMs
 description: Learn about Azure confidential virtual machines. These series are for tenants with high security and confidentiality requirements.
-author: ju-shim
+author: cynthn
 ms.author: mmcrey
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.reviewer: mattmcinnes
+ms.service: azure-confidential-computing
 ms.custom:
   - ignite-2023
 ms.topic: overview
 ms.date: 11/14/2023
+# Customer intent: "As a cloud architect, I want to deploy Azure confidential VMs, so that I can ensure strong security and confidentiality for sensitive applications during cloud migrations without modifying existing code."
 ---
 
 # About Azure confidential VMs 
@@ -30,18 +31,24 @@ Azure confidential VMs offer strong security and confidentiality for tenants. Th
 - VM encryption keys that the platform or the customer (optionally) owns and manages.
 - Secure key release with cryptographic binding between the platform's successful attestation and the VM's encryption keys.
 - Dedicated virtual [Trusted Platform Module (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-overview) instance for attestation and protection of keys and secrets in the virtual machine.
-- Secure boot capability similar to [Trusted launch for Azure VMs](../virtual-machines/trusted-launch.md)
+- Secure boot capability similar to [Trusted launch for Azure VMs](/azure/virtual-machines/trusted-launch)
 
 ## Confidential OS disk encryption
 
 Azure confidential VMs offer a new and enhanced disk encryption scheme. This scheme protects all critical partitions of the disk. It also binds disk encryption keys to the virtual machine's TPM and makes the protected disk content accessible only to the VM. These encryption keys can securely bypass Azure components, including the hypervisor and host operating system. To minimize the attack potential, a dedicated and separate cloud service also encrypts the disk during the initial creation of the VM.
 
-If the compute platform is missing critical settings for your VM's isolation, [Azure Attestation](../attestation/index.yml) will not attest to the platform's health during boot, and will instead prevent the VM from starting. This scenario happens if you haven't enabled SEV-SNP, for example.
+If the compute platform is missing critical settings for your VM's isolation, [Azure Attestation](/azure/attestation/) will not attest to the platform's health during boot, and will instead prevent the VM from starting. This scenario happens if you haven't enabled SEV-SNP, for example.
 
 Confidential OS disk encryption is optional, as this process can lengthen the initial VM creation time. You can choose between:
 
-- A confidential VM with Confidential OS disk encryption before VM deployment that uses platform-managed keys (PMK) or a customer-managed key (CMK).
-- A confidential VM without Confidential OS disk encryption before VM deployment.
+- A confidential VM with Confidential OS disk encryption that uses platform-managed keys (PMK) or a customer-managed key (CMK).
+
+- A confidential VM without Confidential OS disk encryption.
+
+
+
+> [!NOTE]
+> Confidential OS disk encryption setting can't be changed after VM deployment
 
 For further integrity and protection, confidential VMs offer [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot) by default when confidential OS disk encryption is selected.
 
@@ -59,7 +66,7 @@ This feature can be enabled through an opt-in process. To learn more, read [the 
 
 Azure confidential VMs use both the OS disk and a small encrypted virtual machine guest state (VMGS) disk of several megabytes. The VMGS disk contains the security state of the VM's components. Some components include the vTPM and UEFI bootloader. The small VMGS disk might incur a monthly storage cost.
 
-From July 2022, encrypted OS disks will incur higher costs. For more information, see [the pricing guide for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+From March 30 2026, encrypted OS disks will incur higher costs. For more information, see [the pricing guide for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## Attestation and TPM
 
@@ -82,27 +89,32 @@ The following limitations exist for confidential VMs. For frequently asked quest
 
 Confidential VMs support the following VM sizes:
 
-- General Purpose without local disk: DCasv5-series, DCesv5-series
-- General Purpose with local disk: DCadsv5-series, DCedsv5-series
-- Memory Optimized without local disk: ECasv5-series, ECesv5-series
-- Memory Optimized with local disk: ECadsv5-series, ECedsv5-series
+- General Purpose without local disk: DCasv5-series, DCasv6-series DCesv6-series
+- General Purpose with local disk: DCadsv5-series, DCadsv6-series DCedsv6-series
+- Memory Optimized without local disk: ECasv5-series, ECasv6-series ECesv6-series
+- Memory Optimized with local disk: ECadsv5-series, ECadsv6-series ECedsv6-series
+- NVIDIA H100 Tensor Core GPU powered NCCadsH100v5-series
 
 ### OS support
+OS images for confidential VMs must meet specific security requirements. These qualified images are designed to support an optional confidential OS disk encryption and ensure isolation from the underlying cloud infrastructure. Meeting these requirements helps protect sensitive data and maintain system integrity.
+
 Confidential VMs support the following OS options:
 
-| Linux                                                                                    | Windows Client                                   | Windows Server                |
-|------------------------------------------------------------------------------------------|--------------------------------------------------|-------------------------------|
-| **Ubuntu**                                                                               | **Windows 11**                                   | **Windows Server Datacenter** |
-| 20.04 <span class="pill purple">LTS</span> (AMD SEV-SNP Only)                            | 22H2 Pro                                         | 2019 Server Core              |
-| 22.04 <span class="pill purple">LTS</span>                                               | 22H2 Pro <span class="pill red">ZH-CN</span>     |                               |
-|                                                                                          | 22H2 Pro N                                       | 2022 Server Core              |
-| **RHEL**                                                                                 | 22H2 Enterprise                                  | 2022 Azure Edition            |
-| 9.3 <span class="pill purple">(AMD SEV-SNP Only)</span>                                  | 22H2 Enterprise N                                | 2022 Azure Edition Core       |
-| [9.3 <span class="pill purple">Preview (Intel TDX Only)](https://aka.ms/tdx-rhel-93-preview)</span>                       | 22H2 Enterprise Multi-session                    |                               |
-|                                                                                          |                                                  |                               |
-| **SUSE (Tech Preview)**                                                                                 |                                                  |                               |
-| [15 SP5 <span class="pill purple">(Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)</span>            |                                                  |                               |
-| [15 SP5 for SAP <span class="pill purple">(Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)</span>    |                                                  |                               |
+| Linux | Windows Client | Windows Server |
+|-------|----------------|--------------  |
+| **Ubuntu** | **Windows 11**| **Windows Server Datacenter** |
+| 20.04 LTS (AMD SEV-SNP Only) | 21H2, 21H2 Pro, 21H2 Enterprise, 21H2 Enterprise N, 21H2 Enterprise Multi-session | 2019 Server Core |
+| 22.04 LTS | 22H2, 22H2 Pro, 22H2 Enterprise, 22H2 Enterprise N, 22H2 Enterprise Multi-session  | 2019 Datacenter  |
+| 24.04 LTS | 23H2, 23H2 Pro, 23H2 Enterprise, 23H2 Enterprise N, 23H2 Enterprise Multi-session | 2022 Server Core |
+| **RHEL**  | **Windows 10**  | 2022 Azure Edition|
+| 9.4 (or later) | 22H2, 22H2 Pro, 22H2 Enterprise, 22H2 Enterprise N, 22H2 Enterprise Multi-session | 2022 Azure Edition Core|
+| | | 2022 Datacenter  |
+| **SUSE (Tech Preview)** | | 2025 Server Core |
+| [15 SP5 <span class="pill purple">(Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)</span>|  | 2025 Datacenter |
+| [15 SP5 for SAP <span class="pill purple">(Intel TDX, AMD SEV-SNP)](https://aka.ms/cvm-sles-preview)</span>    | | 2025 Azure Edition |
+||| 2025 Azure Edition Core |
+| **Rocky** |||
+| [9.4](https://portal.azure.com/#create/ciq.rocky-ltsciqrl94lts-cvm) |||
 
 ### Regions
 
@@ -116,18 +128,15 @@ Pricing depends on your confidential VM size. For more information, see the [Pri
 
 Confidential VMs *don't support*:
 
-- Azure Batch
-- Azure Backup
-- Azure Site Recovery
-- Azure Dedicated Host 
-- Microsoft Azure Virtual Machine Scale Sets with Confidential OS disk encryption enabled
-- Limited Azure Compute Gallery support
-- Shared disks
-- Ultra disks
-- Accelerated Networking
-- Live migration
-- Screenshots under boot diagnostics
-
+- [Azure Backup](/azure/backup/backup-overview)
+- [Azure Site Recovery](https://azure.microsoft.com/products/site-recovery/)
+- Limited [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery) support
+- [Accelerated Networking](/azure/virtual-network/accelerated-networking-overview)
+- [Live migration](/windows-server/virtualization/hyper-v/manage/live-migration-overview)
+- [Screenshots under boot diagnostics](/azure/virtual-machines/boot-diagnostics#boot-diagnostics-view)
+- [Dynamic memory](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831766(v=ws.11))
+- Confidential disk encryption is only supported for disks that are smaller than 128 GB. For larger disks, it is recommended to opt for Premium SSDs, particularly for disks exceeding 32 GB.
+- Auto keyrotation is not supported, only [offline key rotation](/azure/confidential-computing/key-rotation-offline#change-customer-managed-key) is supported. 
 
 ## Next steps
 

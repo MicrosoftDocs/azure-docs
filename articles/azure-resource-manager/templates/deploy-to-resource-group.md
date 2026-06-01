@@ -1,17 +1,17 @@
 ---
-title: Deploy resources to resource groups
-description: Describes how to deploy resources in an Azure Resource Manager template. It shows how to target more than one resource group.
+title: Use Azure Resource Manager templates to deploy resources to resource groups
+description: Learn how to deploy resources in an Azure Resource Manager template and how to target more than one resource group.
 ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 03/26/2024
+ms.date: 10/27/2025
 ---
 
-# Resource group deployments with ARM templates
+# Use Azure Resource Manager templates to deploy resources to resource groups
 
 This article describes how to scope your deployment to a resource group. You use an Azure Resource Manager template (ARM template) for the deployment. The article also shows how to expand the scope beyond the resource group in the deployment operation.
 
 > [!TIP]
-> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [resource group deployments](../bicep/deploy-to-resource-group.md).
+> [Bicep](../bicep/overview.md) is recommended since it offers the same capabilities as ARM templates, and the syntax is easier to use. To learn more, see [resource group deployments](../bicep/deploy-to-resource-group.md).
 
 ## Supported resources
 
@@ -43,7 +43,7 @@ To deploy to a resource group, use the resource group deployment commands.
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create). The following example deploys a template to create a resource group. The resource group you specify in the `--resource-group` parameter is the **target resource group**.
+For the Azure CLI, use [`az deployment group create`](/cli/azure/deployment/group#az-deployment-group-create). The following example deploys a template to create a resource group. The resource group you specify in the `--resource-group` parameter is the **target resource group**:
 
 ```azurecli-interactive
 az deployment group create \
@@ -53,9 +53,9 @@ az deployment group create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
-For the PowerShell deployment command, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). The following example deploys a template to create a resource group. The resource group you specify in the `-ResourceGroupName` parameter is the **target resource group**.
+For the Azure PowerShell deployment command, use [`New-AzResourceGroupDeployment`](/powershell/module/az.resources/new-azresourcegroupdeployment). The following example deploys a template to create a resource group. The resource group you specify in the `-ResourceGroupName` parameter is the **target resource group**:
 
 ```azurepowershell-interactive
 New-AzResourceGroupDeployment `
@@ -69,11 +69,11 @@ New-AzResourceGroupDeployment `
 
 For more detailed information about deployment commands and options for deploying ARM templates, see:
 
-* [Deploy resources with ARM templates and Azure portal](deploy-portal.md)
-* [Deploy resources with ARM templates and Azure CLI](deploy-cli.md)
+* [Deploy resources with ARM templates and the Azure portal](deploy-portal.md)
+* [Deploy resources with ARM templates and the Azure CLI](deploy-cli.md)
 * [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md)
 * [Deploy resources with ARM templates and Azure Resource Manager REST API](deploy-rest.md)
-* [Use a deployment button to deploy templates from GitHub repository](deploy-to-azure-button.md)
+* [Use a deployment button to deploy templates from a GitHub repository](deploy-to-azure-button.md)
 * [Deploy ARM templates from Cloud Shell](deploy-cloud-shell.md)
 
 ## Deployment scopes
@@ -87,7 +87,7 @@ When deploying to a resource group, you can deploy resources to:
 
 [!INCLUDE [Scope transitions](../../../includes/resource-manager-scope-transition.md)]
 
-An [extension resource](scope-extension-resources.md) can be scoped to a target that is different than the deployment target.
+An [extension resource](scope-extension-resources.md) can be scoped to a target that's different from the deployment target.
 
 The user deploying the template must have access to the specified scope.
 
@@ -95,9 +95,17 @@ This section shows how to specify different scopes. You can combine these differ
 
 ### Scope to target resource group
 
-To deploy resources to the target resource, add those resources to the resources section of the template.
+To deploy resources to the target resource, add those resources to the **resources** section of the template:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-rg.json" highlight="5":::
+```{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    resource-group-resources
+  ],
+  "outputs": {}
+}
+```
 
 For an example template, see [Deploy to target resource group](#deploy-to-target-resource-group).
 
@@ -105,25 +113,87 @@ For an example template, see [Deploy to target resource group](#deploy-to-target
 
 To deploy resources to a different resource group in the same subscription, add a nested deployment and include the `resourceGroup` property. If you don't specify the subscription ID or resource group, the subscription and resource group from the parent template are used. All the resource groups must exist before running the deployment.
 
-In the following example, the nested deployment targets a resource group named `demoResourceGroup`.
+In the following example, the nested deployment targets a resource group named `demoResourceGroup`:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/same-sub-to-resource-group.json" highlight="9,13":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "nestedDeployment",
+      "resourceGroup": "demoResourceGroup",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          resource-group-resources
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
 
 For an example template, see [Deploy to multiple resource groups](#deploy-to-multiple-resource-groups).
 
 ### Scope to resource group in different subscription
 
-To deploy resources to a resource group in a different subscription, add a nested deployment and include the `subscriptionId` and `resourceGroup` properties. In the following example, the nested deployment targets a resource group named `demoResourceGroup`.
+To deploy resources to a resource group in a different subscription, add a nested deployment and include the `subscriptionId` and `resourceGroup` properties. In the following example, the nested deployment targets a resource group named `demoResourceGroup`:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/different-sub-to-resource-group.json" highlight="9,10,14":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "nestedDeployment",
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "resourceGroup": "demoResourceGroup",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          resource-group-resources
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
 
 For an example template, see [Deploy to multiple resource groups](#deploy-to-multiple-resource-groups).
 
 ### Scope to subscription
 
-To deploy resources to a subscription, add a nested deployment and include the `subscriptionId` property. The subscription can be the subscription for the target resource group, or any other subscription in the tenant. Also, set the `location` property for the nested deployment.
+To deploy resources to a subscription, add a nested deployment and include the `subscriptionId` property. The subscription can be the subscription for the target resource group or any other subscription in the tenant. Also, set the `location` property for the nested deployment:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-subscription.json" highlight="9,10,14":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "nestedDeployment",
+      "location": "centralus",
+      "subscriptionId": "0000000-0000-0000-0000-000000000000",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          subscription-resources
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
 
 For an example template, see [Create resource group](#create-resource-group).
 
@@ -131,38 +201,211 @@ For an example template, see [Create resource group](#create-resource-group).
 
 To create resources at the tenant, set the `scope` to `/`. The user deploying the template must have the [required access to deploy at the tenant](deploy-to-tenant.md#required-access).
 
-To use a nested deployment, set `scope` and `location`.
+To use a nested deployment, set `scope` and `location`:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-to-tenant.json" highlight="9,10,14":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "nestedDeployment",
+      "location": "centralus",
+      "scope": "/",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          tenant-resources
+        }
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
 
-Or, you can set the scope to `/` for some resource types, like management groups.
+Or, you can set the scope to `/` for some resource types like management groups:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/resource-group-create-mg.json" highlight="12,15":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "mgName": {
+      "type": "string",
+      "defaultValue": "[concat('mg-', uniqueString(newGuid()))]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Management/managementGroups",
+      "apiVersion": "2024-02-01-preview",
+      "name": "[parameters('mgName')]",
+      "scope": "/",
+      "location": "eastus",
+      "properties": {}
+    }
+  ],
+  "outputs": {
+    "output": {
+      "type": "string",
+      "value": "[parameters('mgName')]"
+    }
+  }
+}
+```
 
 For more information, see [Management group](deploy-to-management-group.md#management-group).
 
 ## Deploy to target resource group
 
-To deploy resources in the target resource group, define those resources in the `resources` section of the template. The following template creates a storage account in the resource group that is specified in the deployment operation.
+To deploy resources in the target resource group, define those resources in the `resources` section of the template. The following template creates a storage account in the resource group that's specified in the **deployment** operation:
 
-:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 11
+    },
+    "storageSKU": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_RAGRS",
+        "Standard_ZRS",
+        "Premium_LRS",
+        "Premium_ZRS",
+        "Standard_GZRS",
+        "Standard_RAGZRS"
+      ]
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "variables": {
+    "uniqueStorageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2025-06-01",
+      "name": "[variables('uniqueStorageName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('storageSKU')]"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "supportsHttpsTrafficOnly": true
+      }
+    }
+  ],
+  "outputs": {
+    "storageEndpoint": {
+      "type": "object",
+      "value": "[reference(variables('uniqueStorageName')).primaryEndpoints]"
+    }
+  }
+}
+```
 
 ## Deploy to multiple resource groups
 
-You can deploy to more than one resource group in a single ARM template. To target a resource group that is different than the one for parent template, use a [nested or linked template](linked-templates.md). Within the deployment resource type, specify values for the subscription ID and resource group that you want the nested template to deploy to. The resource groups can exist in different subscriptions.
+You can deploy to more than one resource group in a single ARM template. To target a resource group that's different from the one for the parent template, use a [nested or linked template](linked-templates.md). Within the deployment resource type, specify values for the subscription ID and resource group to which you want to deploy the nested template.
 
 > [!NOTE]
-> You can deploy to **800 resource groups** in a single deployment. Typically, this limitation means you can deploy to one resource group specified for the parent template, and up to 799 resource groups in nested or linked deployments. However, if your parent template contains only nested or linked templates and does not itself deploy any resources, then you can include up to 800 resource groups in nested or linked deployments.
+> You can deploy to **800 resource groups** in a single deployment. Typically, this limitation means you can deploy to one resource group specified for the parent template and up to 799 resource groups in nested or linked deployments. However, if your parent template contains only nested or linked templates and doesn't deploy any resources, then you can include up to 800 resource groups in nested or linked deployments.
 
 The following example deploys two storage accounts. The first storage account is deployed to the resource group specified in the deployment operation. The second storage account is deployed to the resource group specified in the `secondResourceGroup` and `secondSubscriptionID` parameters:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/crosssubscription.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storagePrefix": {
+      "type": "string",
+      "maxLength": 11
+    },
+    "secondResourceGroup": {
+      "type": "string"
+    },
+    "secondSubscriptionID": {
+      "type": "string",
+      "defaultValue": ""
+    },
+    "secondStorageLocation": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "variables": {
+    "firstStorageName": "[concat(parameters('storagePrefix'), uniqueString(resourceGroup().id))]",
+    "secondStorageName": "[concat(parameters('storagePrefix'), uniqueString(parameters('secondSubscriptionID'), parameters('secondResourceGroup')))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2025-06-01",
+      "name": "[variables('firstStorageName')]",
+      "location": "[resourceGroup().location]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2025-04-01",
+      "name": "nestedTemplate",
+      "resourceGroup": "[parameters('secondResourceGroup')]",
+      "subscriptionId": "[parameters('secondSubscriptionID')]",
+      "properties": {
+        "mode": "Incremental",
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {},
+          "variables": {},
+          "resources": [
+            {
+              "type": "Microsoft.Storage/storageAccounts",
+              "apiVersion": "2025-06-01",
+              "name": "[variables('secondStorageName')]",
+              "location": "[parameters('secondStorageLocation')]",
+              "sku": {
+                "name": "Standard_LRS"
+              },
+              "kind": "Storage",
+              "properties": {
+              }
+            }
+          ]
+        },
+        "parameters": {}
+      }
+    }
+  ]
+}
+```
 
 If you set `resourceGroup` to the name of a resource group that doesn't exist, the deployment fails.
 
-To test the preceding template and see the results, use PowerShell or Azure CLI.
+To test the preceding template and see the results, use PowerShell or the Azure CLI.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 To deploy two storage accounts to two resource groups in the **same subscription**, use:
 
@@ -248,7 +491,7 @@ az deployment group create \
 
 ## Create resource group
 
-From a resource group deployment, you can switch to the level of a subscription and create a resource group. The following template deploys a storage account to the target resource group, and creates a new resource group in the specified subscription.
+From a resource group deployment, you can switch to the subscription level and create a resource group. The following template deploys a storage account to the target resource group and creates a new resource group in the specified subscription:
 
 ```json
 {
@@ -276,7 +519,7 @@ From a resource group deployment, you can switch to the level of a subscription 
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-06-01",
       "name": "[variables('storageName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -288,7 +531,7 @@ From a resource group deployment, you can switch to the level of a subscription 
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2021-04-01",
+      "apiVersion": "2025-04-01",
       "name": "demoSubDeployment",
       "location": "westus",
       "subscriptionId": "[parameters('nestedSubscriptionID')]",
@@ -302,7 +545,7 @@ From a resource group deployment, you can switch to the level of a subscription 
           "resources": [
             {
               "type": "Microsoft.Resources/resourceGroups",
-              "apiVersion": "2021-04-01",
+              "apiVersion": "2025-04-01",
               "name": "[parameters('newResourceGroupName')]",
               "location": "[parameters('location')]",
               "properties": {}
@@ -318,4 +561,4 @@ From a resource group deployment, you can switch to the level of a subscription 
 
 ## Next steps
 
-* For an example of deploying workspace settings for Microsoft Defender for Cloud, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
+For an example of deploying workspace settings for Microsoft Defender for Cloud, see [_deployASCwithWorkspaceSettings.json_](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).

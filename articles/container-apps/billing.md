@@ -3,17 +3,18 @@ title: Billing in Azure Container Apps
 description: Learn how billing is calculated in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom:
   - ignite-2023
-ms.topic: conceptual
-ms.date: 05/02/2024
+  - ignite-2024
+ms.topic: concept-article
+ms.date: 12/09/2025
 ms.author: cshoe
 ---
 
 # Billing in Azure Container Apps
 
-Billing in Azure Container Apps is based on your [plan type](plans.md).
+Billing in Azure Container Apps depends on your [plan type](plans.md) (Consumption or Dedicated). Your plan type depends on the workload profile you use within your environment. The default environment type is workload profiles, which supports both Consumption and Dedicated plans.
 
 | Plan type | Description |
 |--|--|
@@ -22,6 +23,8 @@ Billing in Azure Container Apps is based on your [plan type](plans.md).
 
 - Your plan selection determines billing calculations.
 - Different applications in an environment can use different plans.
+
+In addition, features such as private endpoints and planned maintenance are subject to a **Dedicated Plan Management** charge regardless of whether you use the Consumption or Dedicated plans.
 
 This article describes how to calculate the cost of running your container app. For pricing details in your account's currency, see [Azure Container Apps Pricing](https://azure.microsoft.com/pricing/details/container-apps/).
 
@@ -38,19 +41,20 @@ The following resources are free during each calendar month, per subscription:
 - The first 360,000 GiB-seconds
 - The first 2 million HTTP requests
 
-Free usage doesn't appear on your bill. You're only charged as your resource usage exceeds the monthly free grants amounts.
+Free usage doesn't appear on your bill. You're only charged when your resource usage exceeds the monthly free grants amounts.
 
 > [!NOTE]
-> If you use Container Apps with [your own virtual network](networking.md#managed-resources) or your apps utilize other Azure resources, additional charges may apply.
+> If you use Container Apps with [your own virtual network](custom-virtual-networks.md#managed-resources) or your apps utilize other Azure resources, additional charges might apply. The managed OpenTelemetry agent, when enabled, runs at no extra compute cost.
 
 ### Resource consumption charges
 
 Azure Container Apps runs replicas of your application based on the [scaling rules and replica count limits](scale-app.md) you configure for each revision. [Azure Container Apps jobs](jobs.md) run replicas when job executions are triggered. You're charged for the amount of resources allocated to each replica while it's running.
 
-There are 2 meters for resource consumption:
+Two meters track resource consumption:
 
 - **vCPU-seconds**: The number of vCPU cores allocated to your container app on a per-second basis.
 - **GiB-seconds**: The amount of memory allocated to your container app on a per-second basis.
+- **GPU-seconds**: The number of GPUs allocated to your container apps on a per-second basis.
 
 The first 180,000 vCPU-seconds and 360,000 GiB-seconds in each subscription per calendar month are free.
 
@@ -68,6 +72,9 @@ Idle usage charges might apply when a container app's revision is running under 
 
 - Configured with a [minimum replica count](scale-app.md) greater than zero
 - Scaled to the minimum replica count
+
+> [!NOTE]
+> Idle usage charges don't apply to serverless GPU apps. They're always billed for active usage.
 
 Usage charges are calculated individually for each replica. A replica is considered idle when *all* of the following conditions are true:
 
@@ -110,6 +117,9 @@ Billing for apps and jobs running in the Dedicated plan is based on workload pro
 
 Make sure to optimize the applications you deploy to a dedicated workload profile. Evaluate the needs of your applications so that they can use the most amount of resources available to the profile.
 
+> [!NOTE]
+> The managed OpenTelemetry agent, when enabled in a Dedicated plan environment, runs at no additional cost beyond the standard Dedicated plan charges.
+
 ## Dynamic sessions
 
 Dynamic sessions has two types of session pools: code interpreter and custom container. Each session type has its own billing model.
@@ -121,6 +131,12 @@ Code interpreter sessions are billed based on running duration for the number al
 ### Custom container
 
 Custom container sessions are billed using the [Dedicated plan](#dedicated-plan), based on the amount of compute resources used to run the session pool and active sessions.
+
+Each custom container session pool runs on dedicated *E16* compute instances. The number of instances allocated to the session pool is based on the number of active and ready sessions in the pool. To view the number of instances currently allocated to a session pool, use the following Azure CLI command to retrieve the pool's `nodeCount` property. Replace the `<PLACEHOLDERS>` with your values.
+
+```bash
+az containerapp sessionpool show --resource-group <RESOURCE_GROUP> --name <POOL_NAME> --query "properties.nodeCount"
+```
 
 ## General terms
 

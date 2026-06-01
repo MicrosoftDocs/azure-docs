@@ -1,12 +1,14 @@
 ---
 title: Azure Firewall Premium certificates
 description: To properly configure TLS inspection on Azure Firewall Premium, you must configure and install Intermediate CA certificates.
-author: vhorne
-ms.service: firewall
+author: duongau
+ms.service: azure-firewall
 services: firewall
-ms.topic: conceptual
-ms.date: 12/11/2022
-ms.author: victorh
+ms.topic: concept-article
+ms.date: 03/23/2026
+ms.author: duau
+ms.custom: sfi-image-nochange
+# Customer intent: As a network engineer, I want to configure TLS inspection on Azure Firewall Premium using Intermediate CA certificates stored in Azure Key Vault, so that I can ensure secure traffic management and compliance with organizational standards.
 ---
 
 # Azure Firewall Premium certificates 
@@ -19,15 +21,15 @@ There are three types of certificates used in a typical deployment:
 
 - **Intermediate CA Certificate (CA Certificate)**
 
-   A Certificate Authority (CA) is an organization that is trusted to sign digital certificates. A CA verifies identity and legitimacy of a company or individual requesting a certificate. If the verification is successful, the CA issues a signed certificate. When the server presents the certificate to the client (for example, your web browser) during a SSL/TLS handshake, the client attempts to verify the signature against a list of *known good* signers. Web browsers normally come with lists of CAs that they implicitly trust to identify hosts. If the authority is not in the list, as with some sites that sign their own certificates, the browser alerts the user that the certificate is not signed by a recognized authority and asks the user if they wish to continue communications with unverified site.
+   A Certificate Authority (CA) is an organization that is trusted to sign digital certificates. A CA verifies identity and legitimacy of a company or individual requesting a certificate. If the verification is successful, the CA issues a signed certificate. When the server presents the certificate to the client (for example, your web browser) during a SSL/TLS handshake, the client attempts to verify the signature against a list of *known good* signers. Web browsers normally come with lists of CAs that they implicitly trust to identify hosts. If the authority is not in the list, as with some sites that sign their own certificates, the browser alerts the user that no recognized authority signed the certificate. The browser and asks the user if they wish to continue communications with unverified site.
 
 - **Server Certificate (Website certificate)**
 
    A certificate associated with a specific domain name. If a website has a valid certificate, it means that a certificate authority has taken steps to verify that the web address actually belongs to that organization. When you type a URL or follow a link to a secure website, your browser checks the certificate for the following characteristics:
    - The website address matches the address on the certificate.
-   - The certificate is signed by a certificate authority that the browser recognizes as a *trusted* authority.
+   - A certificate authority that the browser recognizes as a *trusted* authority signed the certificate.
    
-   Occasionally users may connect to a server with an untrusted certificate. Azure Firewall will drop the connection as if the server terminated the connection.
+   Occasionally users may connect to a server with an untrusted certificate. Azure Firewall drops the connection as if the server terminated the connection.
 
 - **Root CA Certificate (root certificate)**
 
@@ -60,16 +62,18 @@ Ensure your CA certificate complies with the following requirements:
 
 ## Azure Key Vault
 
-[Azure Key Vault](../key-vault/general/overview.md) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Firewall Premium supports integration with Key Vault for server certificates that are attached to a Firewall Policy.
+[Azure Key Vault](/azure/key-vault/general/overview) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Firewall Premium supports integration with Key Vault for server certificates that are attached to a Firewall Policy.
  
 To configure your key vault:
 
-- You need to import an existing certificate with its key pair into your key vault. 
-- Alternatively, you can also use a key vault secret that's stored as a password-less, base-64 encoded PFX file.  A PFX file is a digital certificate containing both private key and public key.
-- It's recommended to use a CA certificate import because it allows you to configure an alert based on certificate expiration date.
-- After you've imported a certificate or a secret, you need to define access policies in the key vault to allow the identity to be granted get access to the certificate/secret.
+- Store your intermediate CA certificate as a **Key Vault secret** using a password-less, base-64 encoded PFX file. A PFX file is a digital certificate containing both a private key and public key. Azure Firewall accesses the certificate exclusively through the Key Vault **Secrets** interface.
+- Alternatively, you can import the certificate using the Key Vault **Certificates** feature. When you do this, Key Vault automatically creates a corresponding secret with the same name, which Azure Firewall uses to access the certificate. Using the Certificates feature is recommended because it lets you configure expiration alerts.
+- After you store the certificate, define access policies in the key vault to grant the managed identity **Get** and **List** permissions under **Secret Permissions**.
+
+> [!NOTE]
+> Azure Firewall does not support accessing certificates stored solely as Key Vault Certificate objects without a corresponding secret. Regardless of how you import the certificate, the managed identity must have **Secret** permissions (not Certificate permissions) on the key vault.
 - The provided CA certificate needs to be trusted by your Azure workload. Ensure they are deployed correctly.
-- Since Azure Firewall Premium is listed as Key Vault [Trusted Service](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services), it allows you to bypass Key Vault internal Firewall and to eliminate any exposure of your Key Vault to the Internet.
+- Since Azure Firewall Premium is listed as Key Vault [Trusted Service](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services), it allows you to bypass Key Vault internal Firewall and to eliminate any exposure of your Key Vault to the Internet.
 
 > [!NOTE]
 > Whenever you import a new Firewall CA certificate into Azure Key Vault (either for the first time or replacing an expired CA certification), you should *explicitly* update the Azure Firewall Policy TLS setting with the new certificate.
@@ -77,7 +81,7 @@ To configure your key vault:
 You can either create or reuse an existing user-assigned managed identity, which Azure Firewall uses to retrieve certificates from Key Vault on your behalf. For more information, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
-> Azure role-based access control (Azure RBAC) is not currently supported for authorization. Use the access policy model instead. For more information, see [Azure role-based access control (Azure RBAC) vs. access policies](../key-vault/general/rbac-access-policy.md).
+> Azure role-based access control (Azure RBAC) is not currently supported for authorization. Use the access policy model instead. For more information, see [Azure role-based access control (Azure RBAC) vs. access policies](/azure/key-vault/general/rbac-access-policy).
 
 ## Configure a certificate in your policy
 
@@ -94,7 +98,7 @@ To configure a CA certificate in your Firewall Premium policy, select your polic
 If you want to create your own certificates to help you test and verify TLS inspection, you can use the following scripts to create your own self-signed Root CA and Intermediate CA.
 
 > [!IMPORTANT]
-> For production, you should use your corporate PKI to create an Intermediate CA certificate. A corporate PKI leverages the existing infrastructure and handles the Root CA distribution to all endpoint machines. 
+> For production, you should use your corporate PKI to create an Intermediate CA certificate. A corporate PKI uses the existing infrastructure and handles the Root CA distribution to all endpoint machines. 
 > For more information, see [Deploy and configure Enterprise CA certificates for Azure Firewall](premium-deploy-certificates-enterprise-ca.md).
 
 There are two versions of this script:
@@ -106,15 +110,15 @@ There are two versions of this script:
 The scripts generate the following files:
 - rootCA.crt/rootCA.key - Root CA public certificate and private key.
 - interCA.crt/interCA.key - Intermediate CA public certificate and private key
-- interCA.pfx - Intermediate CA pkcs12 package which will be used by firewall
+- interCA.pfx - Intermediate CA pkcs12 package that the firewall uses
 
 > [!IMPORTANT]
 > rootCA.key should be stored in a secure offline location. The scripts generate a certificate with validity of 1024 days.
-> The scripts require openssl binaries installed in your local machine. For more information see https://www.openssl.org/
+> The scripts require openssl binaries installed in your local machine. For more information, see https://www.openssl.org/
 > 
 After the certificates are created, deploy them to the following locations:
 - rootCA.crt - Deploy on endpoint machines (Public certificate only).
-- interCA.pfx - Import as certificate on a Key Vault and assign to firewall policy.
+- interCA.pfx - Store as a secret in Azure Key Vault and assign to firewall policy.
 
 ### **openssl.cnf**
 ```

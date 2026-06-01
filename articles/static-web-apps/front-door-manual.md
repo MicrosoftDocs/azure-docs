@@ -1,16 +1,17 @@
 ---
-title: "Tutorial: Configure Azure Front Door for Azure Static Web Apps"
-description: Learn how to set up Azure Front Door for Azure Static Web Apps
+title: "Tutorial: Configure a CDN for Azure Static Web Apps"
+description: Learn how to set up a content delivery network (CDN) for Azure Static Web Apps
 services: static-web-apps
-author: craigshoemaker
-ms.service: static-web-apps
+author: cjk7989
+ms.service: azure-static-web-apps
 ms.topic: how-to
-ms.date: 01/24/2023
-ms.author: cshoe
+ms.date: 10/01/2024
+ms.author: jikunchen
 zone_pivot_groups: static-web-apps-afd-methods
+ms.custom: sfi-image-nochange
 ---
 
-# Tutorial: Configure Azure Front Door for Azure Static Web Apps
+# Tutorial: Configure a CDN for Azure Static Web Apps
 
 By adding [Azure Front Door](../frontdoor/front-door-overview.md) as the CDN for your static web app, you benefit from a secure entry point for fast delivery of your web applications. 
 
@@ -35,6 +36,7 @@ In this tutorial, you learn to add Azure Front Door to your static web app.
 
 ### Prerequisites
 
+* Registered `Microsoft.Cdn` [resource provider](/azure/azure-resource-manager/management/resource-providers-and-types).
 * [Custom domain](./custom-domain.md) configured for your static web app with a time to live (TTL) set to less than 48 hrs.
 * An application deployed with [Azure Static Web Apps](./get-started-portal.md) that uses the Standard hosting plan.
 
@@ -69,7 +71,7 @@ az staticwebapp enterprise-edge enable -n my-static-webapp -g my-resource-group
 
 ### Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An Azure Static Web Apps site. [Build your first static web app](get-started-portal.md)
 - Azure Static Web Apps Standard and Azure Front Door Standard / Premium plans. For more information, see [Static Web Apps pricing](https://azure.microsoft.com/pricing/details/app-service/static/)
 - Consider using [enterprise-grade edge](enterprise-edge.md) for faster page loads, enhanced security, and optimized reliability for global applications.

@@ -3,21 +3,22 @@ title: Delete and restore a blob with .NET
 titleSuffix: Azure Storage
 description: Learn how to delete and restore a blob in your Azure Storage account using the .NET client library
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
-ms.date: 05/11/2023
+ms.author: shaas
+ms.date: 08/12/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to delete and restore blobs using the Azure Storage client library, so that I can manage data effectively and recover from accidental deletions.
 ---
 
 # Delete and restore a blob with .NET
 
 [!INCLUDE [storage-dev-guide-selector-delete-blob](../../../includes/storage-dev-guides/storage-dev-guide-selector-delete-blob.md)]
 
-This article shows how to delete blobs with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage). If you've enabled [soft delete for blobs](soft-delete-blob-overview.md), you can restore deleted blobs during the retention period.
+This article shows how to delete blobs with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage), and how to restore [soft-deleted](soft-delete-blob-overview.md) blobs during the retention period.
 
 [!INCLUDE [storage-dev-guide-prereqs-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-dotnet.md)]
 
@@ -31,7 +32,9 @@ The authorization mechanism must have the necessary permissions to delete a blob
 
 ## Delete a blob
 
-To delete a blob, call either of these methods:
+[!INCLUDE [storage-dev-guide-delete-blob-note](../../../includes/storage-dev-guides/storage-dev-guide-delete-blob-note.md)]
+
+To delete a blob, call any of the following methods:
 
 - [Delete](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.delete)
 - [DeleteAsync](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.deleteasync)
@@ -89,6 +92,10 @@ The following code example shows how to get the latest version of a deleted blob
 
 To learn more about how to delete blobs and restore deleted blobs using the Azure Blob Storage client library for .NET, see the following resources.
 
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/dotnet/BlobDevGuideBlobs/DeleteBlob.cs)
+
 ### REST API operations
 
 The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for deleting blobs and restoring deleted blobs use the following REST API operations:
@@ -96,13 +103,11 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 - [Delete Blob](/rest/api/storageservices/delete-blob) (REST API)
 - [Undelete Blob](/rest/api/storageservices/undelete-blob) (REST API)
 
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/dotnet/BlobDevGuideBlobs/DeleteBlob.cs)
-
 [!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
 
 ### See also
 
 - [Soft delete for blobs](soft-delete-blob-overview.md)
 - [Blob versioning](versioning-overview.md)
+
+[!INCLUDE [storage-dev-guide-next-steps-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-dotnet.md)]

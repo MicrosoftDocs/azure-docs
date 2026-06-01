@@ -3,8 +3,9 @@ title: Tutorial - Network planning checklist
 description: In this tutorial, learn about the network requirements for network connectivity and network ports on Azure VMware Solution.
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 5/15/2024
+ms.date: 12/16/2025
 ms.custom: engagement-fy23
+# Customer intent: As a network architect, I want to understand the network requirements for Azure VMware Solution, so that I can ensure proper connectivity and compliance for deploying a VMware private cloud environment.
 ---
 
 # Networking planning checklist for Azure VMware Solution
@@ -41,10 +42,11 @@ The private cloud logical networking includes a pre-provisioned NSX configuratio
 
 The Azure VMware Solution private cloud connects to your Azure virtual network using an Azure ExpressRoute connection. This high bandwidth, low latency connection allows you to access services running in your Azure subscription from your private cloud environment. The routing uses Border Gateway Protocol (BGP), is automatically provisioned, and enabled by default for each private cloud deployment.
 
-Azure VMware Solution private clouds require a minimum `/22` CIDR network address block for subnets. This network complements your on-premises networks, so the address block shouldn't overlap with address blocks used in other virtual networks in your subscription and on-premises networks. Management, provisioning, and vMotion networks are provisioned automatically within this address block.
+Azure VMware Solution private clouds require a minimum `/22` CIDR network address block for subnets. This network complements your on-premises networks, so the address block shouldn't overlap with address blocks used in other virtual networks in your subscription and on-premises networks. Management, vMotion, and Replication networks are provisioned automatically within this address block.
 
 > [!NOTE]
 > Permitted ranges for your address block are the RFC 1918 private address spaces (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), except for 172.17.0.0/16.
+> Replication network is not applicable to AV64 nodes and is slated for general deprecation at a future date.
 
 > [!IMPORTANT]
 > Avoid using the following IP schemas reserved for NSX usage:
@@ -99,6 +101,7 @@ The subnets:
 | Interconnect (HCX-IX)| L2C | TCP (HTTPS) | 443 | Send management instructions from Interconnect to L2C when L2C uses the same path as the Interconnect. |
 | HCX Manager, Interconnect (HCX-IX) | ESXi Hosts | TCP | 80,443,902 | Management and OVF deployment. |
 | Interconnect (HCX-IX), Network Extension (HCX-NE) at Source| Interconnect (HCX-IX), Network Extension (HCX-NE) at Destination| UDP | 4500 | Required for IPSEC<br>   Internet key exchange (IKEv2) to encapsulate workloads for the bidirectional tunnel. Supports Network Address Translation-Traversal (NAT-T). |
+| Interconnect (HCX-IX) / Network Extension (HCX-NE) | Remote Interconnect (HCX-IX) / Network Extension (HCX-NE) | TCP,UDP | 5201 | Required for Service Mesh diagnostics for the perftest uplink test. (Moved from port 4500 with HCX 4.8). |
 | On-premises Interconnect (HCX-IX) | Cloud Interconnect (HCX-IX) | UDP | 4500 | Required for IPSEC<br> Internet Key Exchange (ISAKMP) for the bidirectional tunnel. |
 | On-premises vCenter Server network | Private Cloud management network | TCP | 8000 |  vMotion of VMs from on-premises vCenter Server to Private Cloud vCenter Server   |
 | HCX Connector | connect.hcx.vmware.com<br> hybridity.depot.vmware.com | TCP | 443 | `connect` is needed to validate license key.<br> `hybridity` is needed for updates. |

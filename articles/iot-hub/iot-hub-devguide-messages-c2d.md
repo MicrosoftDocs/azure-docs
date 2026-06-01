@@ -1,18 +1,18 @@
 ---
 title: Understand Azure IoT Hub cloud-to-device messaging
 description: This developer guide discusses how to use cloud-to-device messaging with your IoT hub. It includes information about the message life cycle and configuration options.
-author: kgremban
-
-ms.author: kgremban
-ms.service: iot-hub
+author: sethmanheim
+ms.author: sethm
+ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 12/20/2022
+ms.date: 02/11/2026
 ms.custom: mqtt, devx-track-azurecli
+ai-usage: ai-assisted
 ---
 
-# Send cloud-to-device messages from an IoT hub
+# Understand cloud-to-device messaging from an IoT hub
 
-To send one-way notifications to a device app from your solution back end, send cloud-to-device messages from your IoT hub to your device. For a discussion of other cloud-to-device options supported by Azure IoT Hub, see [Cloud-to-device communications guidance](iot-hub-devguide-c2d-guidance.md).
+Cloud-to-device messages are one-way notifications from your solution back end to a device application. For a discussion of other cloud-to-device options supported by Azure IoT Hub, see [Cloud-to-device communications guidance](iot-hub-devguide-c2d-guidance.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -22,47 +22,60 @@ To target each cloud-to-device message at a single device, your IoT hub sets the
 
 Each device queue holds, at most, 50 cloud-to-device messages. An error occurs if you try to send more messages to the same device.
 
+This article discusses the concepts and processes around cloud-to-device messages. For guidance on developing applications that handle cloud-to-device messages, see [Send and receive cloud-to-device messages](how-to-cloud-to-device-messaging.md).
+
+
 ## The cloud-to-device message life cycle
 
 To guarantee at-least-once message delivery, your IoT hub persists cloud-to-device messages in per-device queues. Devices must explicitly acknowledge *completion* of a message before the IoT hub removes the message from the queue. This approach guarantees resiliency against connectivity and device failures.
 
-The life-cycle state graph is displayed in the following diagram:
+The life cycle state graph is displayed in the following diagram:
 
-:::image type="content" source="./media/iot-hub-devguide-messages-c2d/lifecycle.png" alt-text="Diagram showing the life-cycle state graph of cloud-to-device messages.":::
+:::image type="content" source="./media/iot-hub-devguide-messages-c2d/lifecycle.png" alt-text="Diagram showing the life cycle state graph of cloud-to-device messages.":::
 
-When the IoT hub service sends a message to a device, the service sets the message state to *Enqueued*. When a device wants to *receive* a message, the IoT hub *locks* the message by setting the state to *Invisible*. This state allows other threads on the device to start receiving other messages. When a device thread completes the processing of a message, it notifies the IoT hub by *completing* the message. The IoT hub then sets the state to *Completed*.
+When the IoT hub service sends a message to a device, the service sets the message state to *Enqueued*. When a device thread is ready to receive a message, the IoT hub locks the message by setting the state to *Invisible*. This state allows other threads on the device to start receiving other messages. When a device thread completes the processing of a message, it notifies the IoT hub by completing the message. The IoT hub then sets the state to *Completed*.
 
 A device can also:
 
-* *Reject* the message, which causes the IoT hub to set it to the *Dead lettered* state. Devices that connect over the Message Queuing Telemetry Transport (MQTT) protocol can't reject cloud-to-device messages.
+* *Reject* the message, which causes the IoT hub to set it to the *Dead lettered* state. There's no dead letter queue for recovering these messages. Devices that connect over the Message Queuing Telemetry Transport (MQTT) protocol can't reject cloud-to-device messages.
 
 * *Abandon* the message, which causes the IoT hub to put the message back in the queue, with the state set to *Enqueued*. Devices that connect over the MQTT protocol can't abandon cloud-to-device messages.
 
-A thread could fail to process a message without notifying the IoT hub. In this case, messages automatically transition from the *Invisible* state back to the *Enqueued* state after a *visibility* time-out (or *lock* time-out). The value of this time-out is one minute and cannot be changed.
+A thread could fail to process a message without notifying the IoT hub. In this case, messages automatically transition from the *Invisible* state back to the *Enqueued* state after a visibility timeout (or lock timeout). The length of this timeout is one minute and can't be changed.
 
-The **max delivery count** property on the IoT hub determines the maximum number of times a message can transition between the *Enqueued* and *Invisible* states. After that number of transitions, the IoT hub sets the state of the message to *Dead lettered*. Similarly, the IoT hub sets the state of a message to *Dead lettered* after its expiration time. For more information, see [Message expiration (time to live)](#message-expiration-time-to-live).
+The **max delivery count** property on the IoT hub applies only when a device explicitly abandons a message. Each explicit abandon transitions a message from *Invisible* back to *Enqueued* and increments the delivery count. If the lock expires, the message returns to *Enqueued* but the delivery count does not increment. After the delivery count reaches the max, the IoT hub sets the message state to *Dead lettered*. The IoT hub also sets a message to *Dead lettered* after its expiration time.
 
-The [How to send cloud-to-device messages with IoT Hub](c2d-messaging-dotnet.md) article shows you how to send cloud-to-device messages from the cloud and receive them on a device.
+### Understanding delivery count behavior
 
-A device ordinarily completes a cloud-to-device message when the loss of the message doesn't affect the application logic. An example of this completion might be when the device has persisted the message content locally or has successfully executed an operation. The message could also carry transient information, whose loss wouldn't impact the functionality of the application. Sometimes, for long-running tasks, you can:
+IoT Hub increments the delivery count only when your device explicitly abandons a message. If a message lock expires without explicit completion, rejection, or abandonment, the message returns to the queue without incrementing the delivery count. This behavior means that messages might be redelivered more times than the configured max delivery count.
 
-* Complete the cloud-to-device message after the device has persisted the task description in local storage.
+To avoid unexpected message redelivery behavior, consider the following guidance when you design your device code:
+
+* Design your device code to explicitly abandon messages that can't be processed successfully.
+* Monitor message lock timeouts and handle them appropriately in your application logic.
+* Consider implementing retry logic that explicitly abandons messages after a certain number of local processing attempts.
+
+Without explicit abandonment, messages continue cycling between the Enqueued and Invisible states indefinitely until they expire based on time-to-live.
+
+A device ordinarily completes a cloud-to-device message when the loss of the message doesn't affect the application logic. An example of this completion might be when the device persists the message content locally or successfully executes an operation. The message could also carry transient information, whose loss wouldn't impact the functionality of the application. Sometimes, for long-running tasks, you can:
+
+* Complete the cloud-to-device message after the device persists the task description in local storage.
 
 * Notify the solution back end with one or more device-to-cloud messages at various stages of progress of the task.
 
 ## Message expiration (time to live)
 
-Every cloud-to-device message has an expiration time. This time is set by either of the following options:
+Every cloud-to-device message has an expiration time. Either of the following options sets the expiration time:
 
 * The **ExpiryTimeUtc** property in the service
-* The IoT hub, by using the default *time to live* that's specified as an IoT hub property
+* The IoT hub, by using the default *time to live* specified as an IoT hub property
 
 For more information about message expiration, see [Cloud-to-device configuration options](#cloud-to-device-configuration-options).
 
-A common way to take advantage of a message expiration and to avoid sending messages to disconnected devices is to set short *time to live* values. This approach achieves the same result as maintaining the device connection state, but it is more efficient. When you request message acknowledgments, the IoT hub notifies you which devices are:
+A common way to take advantage of a message expiration and to avoid sending messages to disconnected devices is to set short *time to live* values. This approach achieves the same result as maintaining the device connection state, but it's more efficient. When you request message acknowledgments, the IoT hub notifies you which devices:
 
-* Able to receive messages.
-* Are not online or have failed.
+* Are able to receive messages.
+* Aren't online or have failed.
 
 ## Message feedback
 
@@ -75,17 +88,17 @@ When you send a cloud-to-device message, the service can request the delivery of
 | negative | If the cloud-to-device message reaches the *Dead lettered* state, the IoT hub generates a feedback message. |
 | full     | The IoT hub generates a feedback message in either case. |
 
-If the **Ack** property value is set to *full*, and you don't receive a feedback message, it means that the feedback message has expired. The service can't know what happened to the original message. In practice, a service should ensure that it can process the feedback before it expires. The maximum expiration time is two days, which leaves time to get the service running again if a failure occurs.
+If the **Ack** property value is set to *full*, and you don't receive a feedback message, it means that the feedback message expired. The service can't know what happened to the original message. In practice, a service should ensure that it can process the feedback before it expires. The maximum expiration time is two days, which leaves time to get the service running again if a failure occurs.
 
-As explained in [Endpoints](iot-hub-devguide-endpoints.md), the IoT hub delivers feedback through a service-facing endpoint, */messages/servicebound/feedback*, as messages. The semantics for receiving feedback are the same as for cloud-to-device messages. Whenever possible, message feedback is batched in a single message, with the following format:
+As explained in [IoT Hub endpoints](iot-hub-devguide-endpoints.md), the IoT hub delivers feedback through a service-facing endpoint, */messages/servicebound/feedback*, as messages. The semantics for receiving feedback are the same as for cloud-to-device messages. Whenever possible, message feedback is batched in a single message, with the following format:
 
 | Property     | Description |
 | ------------ | ----------- |
-| EnqueuedTime | A timestamp that indicates when the feedback message was received by the hub. |
+| EnqueuedTime | A timestamp that indicates when the hub received the feedback message. |
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
 
-The system will send out the feedback either when the batch reaches to 64 messages, or in 15 seconds from last sent, whichever comes first. 
+The system sends out the feedback either when the batch reaches to 64 messages, or in 15 seconds from last sent, whichever comes first. 
 
 The body is a JSON-serialized array of records, each with the following properties:
 
@@ -93,7 +106,7 @@ The body is a JSON-serialized array of records, each with the following properti
 | ------------------ | ----------- |
 | enqueuedTimeUtc    | A timestamp that indicates when the outcome of the message happened. For example, a timestamp that indicates when the hub received the feedback message or the original message expired. |
 | originalMessageId  | The *MessageId* of the cloud-to-device message to which this feedback information relates. |
-| statusCode         | A required string, used in feedback messages that are generated by the IoT hub: <br/> *Success* <br/> *Expired* <br/> *DeliveryCountExceeded* <br/> *Rejected* <br/> *Purged* |
+| statusCode         | A required string, used by the IoT hub when generating feedback messages: <br/> *Success* <br/> *Expired* <br/> *DeliveryCountExceeded* <br/> *Rejected* <br/> *Purged* |
 | description        | String values for *StatusCode*. |
 | deviceId           | The *DeviceId* of the target device of the cloud-to-device message to which this piece of feedback relates. |
 | deviceGenerationId | The *DeviceGenerationId* of the target device of the cloud-to-device message to which this piece of feedback relates. |
@@ -137,11 +150,11 @@ Each IoT hub exposes the following configuration options for cloud-to-device mes
 | feedback.maxDeliveryCount | Maximum delivery count for the feedback queue | 1 to 100; default: 10 |
 | feedback.lockDurationAsIso8601 | Lock duration for the feedback queue | ISO_8601 interval from 5 to 300 seconds (minimum five seconds); default: 60 seconds. |
 
-You can set the configuration options in one of the following ways:
+You can set the configuration options in the Azure portal or Azure CLI:
 
-* **Azure portal**: Under **Hub settings** on your IoT hub, select **Built-in endpoints** and go to **Cloud to device messaging**. (Setting the **feedback.maxDeliveryCount** and **feedback.lockDurationAsIso8601** properties is not currently supported in Azure portal.)
+* **Azure portal**: Under **Hub settings** on your IoT hub, select **Built-in endpoints** and go to **Cloud to device messaging**. (Setting the **feedback.maxDeliveryCount** or **feedback.lockDurationAsIso8601** property isn't currently supported in Azure portal.)
 
-:::image type="content" source="./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png" alt-text="Set configuration options for cloud-to-device messaging in the portal" border="true":::
+  :::image type="content" source="./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png" alt-text="Set configuration options for cloud-to-device messaging in the portal" border="true":::
 
 * **Azure CLI**: Use the [az iot hub update](/cli/azure/iot/hub#az-iot-hub-update) command:
 
@@ -164,6 +177,6 @@ You can set the configuration options in one of the following ways:
 
 ## Next steps
 
-For information about the SDKs that you can use to receive cloud-to-device messages, see [Azure IoT Hub SDKs](iot-hub-devguide-sdks.md).
+For information about the SDKs that you can use to handle cloud-to-device messages, see [Azure IoT Hub SDKs](iot-hub-devguide-sdks.md).
 
-To try out receiving cloud-to-device messages, see the [Send cloud-to-device](c2d-messaging-dotnet.md) tutorial.
+For guidance on developing applications that handle cloud-to-device messages, see [Send and receive cloud-to-device messages](how-to-cloud-to-device-messaging.md).

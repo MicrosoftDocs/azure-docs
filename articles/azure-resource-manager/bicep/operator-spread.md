@@ -1,9 +1,9 @@
----
+﻿---
 title: Bicep spread operator
 description: Describes Bicep spread operator.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 05/21/2024
+ms.date: 10/30/2025
 ---
 
 # Bicep spread operator
@@ -21,15 +21,15 @@ The spread operator is used to copy properties from one object to another or to 
 The following example shows the spread operator used in an object: 
 
 ```bicep
-var objA = { bar: 'bar' }
-output objB object = { foo: 'foo', ...objA } 
+var objA = { color: 'white' }
+output objB object = { shape: 'circle', ...objA } 
 ```
 
 Output from the example:
 
 | Name | Type | Value |
 |------|------|-------|
-| `objB` | object | { foo: 'foo', bar: 'bar' } |
+| `objB` | object | { shape: 'circle', color: 'white' } |
 
 The following example shows the spread operator used in an array: 
 
@@ -60,10 +60,10 @@ Output from the example:
 The following example shows spread used in a multi-line operation:
 
 ```bicep
-var objA = { foo: 'foo' }
-var objB = { bar: 'bar' }
-output combined object = { 
-  ...objA
+var objA = { color: 'white' }
+var objB = { shape: 'circle'}
+output objCombined object = { 
+  ...objA 
   ...objB
 } 
 ```
@@ -72,39 +72,88 @@ In this usage, comma isn't used between the two lines.  Output from the example:
 
 | Name | Type | Value |
 |------|------|-------|
-| `combined` | object | { foo: 'foo', bar: 'bar' } |
+| `objCombined` | object | { color: 'white', shape: 'circle' } |
 
-The spread operation can be used to avoid setting an optional property. For example:
+The following example shows how to conditionally add an array element:
 
 ```bicep
-param vmImageResourceId string = ''
+@allowed(['white', 'black'])
+param color string = 'black'
 
-var bar = vmImageResourceId != '' ? {
-  id: vmImageResourceId
-} : {}
+var colorWhite = { color: 'white' }
+var colorBlack = { color: 'black' }
 
-output foo object = {
-  ...bar
-  alwaysSet: 'value'
-}
+output objB object = ((color == 'white')? { shape: 'circle', ...colorWhite} : { shape: 'circle', ...colorBlack})
 ```
 
 Output from the example:
 
 | Name | Type | Value |
 |------|------|-------|
-| `foo` | object | {"alwaysSet":"value"} |
+| `objB` | object | { shape: 'circle', color: 'black' } |
+
+The spread operation can be used to avoid setting an optional property. In the following example, _accessTier_ is set only if the parameter _tier_ isn't an empty string.
+
+```bicep
+param location string = resourceGroup().location
+param tier string = 'Hot'
+
+var storageAccountName = uniqueString(resourceGroup().id)
+var accessTier = tier != '' ? {accessTier: tier} : {}
+
+resource mystorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
+  name: storageAccountName
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+  properties: {
+    ...accessTier
+  } 
+}
+```
 
 The preceding example can also be written as:
 
 ```bicep
-param vmImageResourceId string = ''
+param location string = resourceGroup().location
+param tier string = 'Hot'
 
-output foo object = {
-  ...(vmImageResourceId != '' ? {
-    id: vmImageResourceId
-  } : {})
-  alwaysSet: 'value'
+var storageAccountName = uniqueString(resourceGroup().id)
+
+resource mystorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
+  name: storageAccountName
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+  properties: {
+    ...(tier != '' ? {accessTier: tier} : {})
+  } 
+}
+```
+
+The spread operator can be used to override existing properties. 
+
+```bicep
+param location string = resourceGroup().location
+param storageProperties {
+  accessTier: string?
+}
+
+resource mystorage 'Microsoft.Storage/storageAccounts@2025-06-01' = {
+  name: uniqueString(resourceGroup().id)
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+  properties: {
+    accessTier: 'Cold'
+    ...storageProperties
+  }
 }
 ```
 
@@ -113,3 +162,4 @@ output foo object = {
 - To run the examples, use Azure CLI or Azure PowerShell to [deploy a Bicep file](./quickstart-create-bicep-use-visual-studio-code.md#deploy-the-bicep-file).
 - To create a Bicep file, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
 - For information about how to resolve Bicep type errors, see [Any function for Bicep](./bicep-functions-any.md).
+

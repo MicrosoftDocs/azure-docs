@@ -4,13 +4,15 @@ description:  This article discusses how to use Azure Active Directory B2C to si
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
-ms.custom: "b2c-support"
+ms.subservice: b2c
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
 
 
 #Customer intent: As an iOS app developer, I want to configure authentication in my app using Azure AD B2C, so that I can securely sign users in and out, acquire tokens, and validate them for accessing protected resources.
@@ -18,6 +20,7 @@ ms.custom: "b2c-support"
 ---
 
 # Configure authentication in a sample iOS Swift app by using Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article uses a sample [iOS Swift](https://developer.apple.com/swift/) application to illustrate how to add Azure Active Directory B2C (Azure AD B2C) authentication to your mobile apps.
 

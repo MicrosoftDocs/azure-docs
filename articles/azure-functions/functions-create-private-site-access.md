@@ -4,6 +4,7 @@ description: Learn to set up Azure virtual network private site access for Azure
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: Establish Azure Functions private site access
@@ -24,7 +25,7 @@ In this tutorial, you learn how to configure private site access for your functi
 > * Create and deploy an Azure Function
 > * Invoke the function from outside and within the virtual network
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Topology
 
@@ -177,7 +178,11 @@ The next step is to configure [access restrictions](../app-service/app-service-i
     If you try to access the function app now from your computer outside of your virtual network, you'll receive an HTTP 403 page indicating that access is forbidden.
 1. Return to the resource group and select the previously created virtual machine. In order to access the site from the VM, you need to connect to the VM via the Azure Bastion service.
 1. Select **Connect** and then choose **Bastion**.
-1. Provide the required username and password to log into the virtual machine.
+1. Provide the required username and password to log into the virtual machine. 
+
+    > [!NOTE]  
+    > For enhanced security, you should require Microsoft Entra authentication to access your virtual machines in Azure.
+
 1. Select **Connect**. A new browser window will pop up to allow you to interact with the virtual machine.
 It's possible to access the site from the web browser on the VM because the VM is accessing the site through the virtual network.  While the site is only accessible from within the designated virtual network, a public DNS entry remains.
 
@@ -187,10 +192,10 @@ The next step in this tutorial is to create an HTTP-triggered Azure Function. In
 
 1. Follow one of the following quickstarts to create and deploy your Azure Functions app.
 
-    * [Visual Studio Code](./create-first-function-vs-code-csharp.md)
+    * [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-csharp)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
-    * [Command line](./create-first-function-cli-csharp.md)
-    * [Maven (Java)](./create-first-function-cli-java.md?tabs=bash,browser)
+    * [Command line](./how-to-create-function-azure-cli.md?pivots=programming-language-csharp)
+    * [Maven (Java)](./how-to-create-function-azure-cli.md?pivots=programming-language-java)
 
 1. When publishing your Azure Functions project, choose the function app resource that you created earlier in this tutorial.
 1. Verify the function is deployed.

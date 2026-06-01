@@ -4,11 +4,11 @@ titleSuffix: Azure Confidential Computing
 description: Confidential AI services and solutions
 services: virtual-machines
 author: kapilv
-ms.service: virtual-machines
-ms.subservice: confidential-computing
-ms.topic: conceptual
+ms.service: azure-confidential-computing
+ms.topic: concept-article
 ms.date: 05/17/2023
-ms.author: kapilv
+ms.author: mattmcinnes
+# Customer intent: "As a data scientist, I want to utilize confidential AI technologies for training and deploying models, so that I can protect sensitive data and ensure compliance while enhancing the performance and accuracy of AI applications."
 ---
 
 # Confidential AI
@@ -56,7 +56,7 @@ Azure already provides state-of-the-art offerings to secure data and AI workload
 
 -   [Confidential VMs on SNP](./confidential-vm-overview.md) and [TDX](./tdx-confidential-vm-overview.md) (in limited preview). CPU based AI workloads, for example data pre-processing, and training and inferencing for smaller models can use Confidential VMs based on SNP and TDX to protect sensitive code and data in use.
 
--   [Confidential Containers on ACI](../container-instances/container-instances-confidential-overview.md).
+-   [Confidential Containers on ACI](/azure/container-instances/container-instances-confidential-overview).
     Confidential Containers on ACI are another way of deploying containerized workloads on Azure. In addition to protection from the cloud administrators, confidential containers offer protection from tenant admins and strong integrity properties using container policies. This makes them a great match for low-trust, multi-party collaboration scenarios. See [here](https://github.com/microsoft/confidential-ai) for a sample demonstrating confidential inferencing based on unmodified NVIDIA Triton inferencing server.
 
 For AI workloads that rely on GPUs, Microsoft and NVIDIA are collaborating to bring confidential computing to NVIDIA GPUs. [Azure Confidential GPU VMs](https://azure.microsoft.com/blog/azure-confidential-computing-with-nvidia-gpus-for-trustworthy-ai/) based on AMD SEV-SNP and A100 GPUs are currently in [limited preview](https://aka.ms/accgpusignup).

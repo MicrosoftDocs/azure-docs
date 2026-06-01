@@ -1,21 +1,21 @@
 ---
-author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  include
 ms.date: 07/21/2023
-ms.author: cshoe
+author: cjk7989
+ms.author: jikunchen
 ---
 
 ::: zone pivot="github"
 | Resource | Notes |
 |---|---|
-| Azure subscription | If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free). |
+| Azure subscription | If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
 | GitHub account | If you don't have a GitHub account, you can [create one for free](https://github.com). |
 ::: zone-end
 
 ::: zone pivot="azure-devops"
 | Resource | Notes |
 |---|---|
-| Azure subscription | If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free). |
+| Azure subscription | If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
 | Azure DevOps account | If you don't have a GitHub account, you can [create one](https://azure.microsoft.com/services/devops). |
 ::: zone-end

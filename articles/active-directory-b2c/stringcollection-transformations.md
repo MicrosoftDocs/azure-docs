@@ -6,12 +6,12 @@ description: StringCollection claims transformation examples for the Identity Ex
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to understand how to use string collection claims transformations, so that I can add, parameterize, extract, and check values in string collections for claims.
@@ -28,7 +28,7 @@ Adds a string claim to a new unique values stringCollection claim. Check out the
 
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Element | string | The ClaimType to be added to the output claim. |
+| InputClaim | item | string | The ClaimType to be added to the output claim. |
 | InputClaim | collection | stringCollection | The string collection to be added to the output claim. If the collection contains items, the claims transformation copies the items, and adds the item to the end of the output collection claim. |
 | OutputClaim | collection | stringCollection | The ClaimType that is produced after this claims transformation has been invoked, with the value specified in the input claim. |
 
@@ -63,7 +63,7 @@ Adds a string parameter to a new unique values stringCollection claim. Check out
 | Element | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | The string collection to be added to the output claim. If the collection contains items, the claims transformation copies the items, and adds the item to the end of the output collection claim. |
-| InputParameter | Element | string | The value to be added to the output claim. |
+| InputParameter | item | string | The value to be added to the output claim. |
 | OutputClaim | collection | stringCollection | The ClaimType that is produced after this claims transformation has been invoked, with the value specified in the input parameter. |
 
 ### Example of AddParameterToStringCollection

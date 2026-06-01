@@ -1,15 +1,18 @@
 ---
 title: What is Azure Web Application Firewall on Azure Front Door?
 description: Learn how Azure Web Application Firewall on Azure Front Door protects your web applications from malicious attacks.
-services: web-application-firewall
-author: sowmyam2019
-ms.service: web-application-firewall
-ms.topic: conceptual
-ms.date: 10/04/2023
-ms.author: victorh
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-web-application-firewall
+ms.topic: concept-article
+ms.date: 02/25/2026
+
+# Customer intent: As a security administrator, I want to configure Azure Web Application Firewall policies on Azure Front Door, so that I can protect my web applications from malicious attacks and ensure compliance with security standards while maintaining high availability.
 ---
 
 # Azure Web Application Firewall on Azure Front Door
+
+**Applies to:** :heavy_check_mark: Front Door Standard/Premium :heavy_check_mark: Front Door (classic) :heavy_check_mark: CDN Standard from Microsoft (classic)
 
 Azure Web Application Firewall on Azure Front Door provides centralized protection for your web applications. A web application firewall (WAF) defends your web services against common exploits and vulnerabilities. It keeps your service highly available for your users and helps you meet compliance requirements.
 
@@ -17,7 +20,7 @@ Azure Web Application Firewall on Azure Front Door is a global and centralized s
 
 A WAF prevents malicious attacks close to the attack sources before they enter your virtual network. You get global protection at scale without sacrificing performance. A WAF policy easily links to any Azure Front Door profile in your subscription. New rules can be deployed within minutes, so you can respond quickly to changing threat patterns.
 
-![Screenshot that shows Azure Web Application Firewall.](../media/overview/wafoverview.png)
+:::image type="content" source="../media/overview/wafoverview.png" alt-text="Screenshot that shows Azure Web Application Firewall.":::
 
 [!INCLUDE [ddos-waf-recommendation](../../../includes/ddos-waf-recommendation.md)]
 
@@ -106,19 +109,22 @@ For more information, see [Web Application Firewall Default Rule Set rule groups
 
 You can enable a managed bot protection rule set to take custom actions on requests from all bot categories.
 
-Three bot categories are supported: *Bad*, *Good*, and *Unknown*. Bot signatures are managed and dynamically updated by the WAF platform.
+Three bot categories are supported: *Bad*, *Good*, and *Unknown*. The WAF platform manages and dynamically updates bot signatures.
 
-- **Bad**: Bad bots are bots with malicious IP addresses and bots that have falsified their identities. Bad bots includes malicious IP addresses that are sourced from the Microsoft Threat Intelligence feed’s high confidence IP Indicators of Compromise and IP reputation feeds. Bad bots also include bots that identify themselves as good bots but their IP addresses don’t belong to legitimate bot publishers.
+- **Bad**: Bad bots are bots with malicious IP addresses and bots that falsified their identities. Bad bots include malicious IP addresses that are sourced from the Microsoft Threat Intelligence feed’s high confidence IP Indicators of Compromise and IP reputation feeds. Bad bots also include bots that identify themselves as good bots but their IP addresses don’t belong to legitimate bot publishers.
 - **Good**: Good Bots are trusted user agents. Good bot rules are categorized into multiple categories to provide granular control over WAF policy configuration. These categories include verified search engine bots (such as Googlebot and Bingbot), validated link checker bots, verified social media bots (such as Facebookbot and LinkedInBot), verified advertising bots, verified content checker bots, and validated miscellaneous bots.
 - **Unknown**: Unknown bots are user agents without additional validation. Unknown bots also include malicious IP addresses that are sourced from Microsoft Threat Intelligence feed’s medium confidence IP Indicators of Compromise.
 
 The WAF platform manages and dynamically updates bot signatures. You can set custom actions to block, allow, log, or redirect for different types of bots.
 
-![Screenshot that shows a bot protection rule set.](../media/afds-overview/botprotect2.png)
+:::image type="content" source="../media/afds-overview/botprotect2.png" alt-text="Screenshot that shows a bot protection rule set." lightbox="../media/afds-overview/botprotect2.png":::
 
 If bot protection is enabled, incoming requests that match bot rules are blocked, allowed, or logged based on the configured action. Bad bots are blocked, good bots are allowed, and unknown bots are logged by default. You can set custom actions to block, allow, log, or JS challenge for different types of bots. You can access WAF logs from a storage account, event hub, log analytics, or send logs to a partner solution.
 
 The Bot Manager 1.1 rule set is available on Azure Front Door premium version.
+
+For more information, see [Azure WAF’s Bot Manager 1.1 and JavaScript Challenge: Navigating the Bot Threat Terrain](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-waf-s-bot-manager-1-1-and-javascript-challenge-navigating/ba-p/4249652).
+
 
 ## Configuration
 

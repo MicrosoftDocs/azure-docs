@@ -5,7 +5,7 @@ summary: Learn how to use Azure Virtual Network IP Services. Quickstarts, tutori
 metadata:
   title: Azure Virtual Network IP Services Documentation - Tutorials, quickstarts, API references
   description: Learn how to use Azure Virtual Network IP Services. Quickstarts, tutorials, samples, and more, show you how to deploy a NAT gateway.
-  ms.service: virtual-network
+  ms.service: azure-virtual-network
   ms.subservice: ip-services
   ms.topic: landing-page
   author: mbender-ms

@@ -1,12 +1,13 @@
 ---
-title: Tutorial - Extend Windows file servers with Azure File Sync
-description: Learn how to extend Windows file servers with Azure File Sync, from start to finish.
+title: Extend Windows File Servers with Azure File Sync
+description: Learn how to extend Windows file servers to the cloud while maintaining fast local access to frequently used data with Azure File Sync.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: tutorial
-ms.date: 06/21/2022
+ms.date: 08/08/2024
 ms.author: kendownie
-#Customer intent: As an IT administrator, I want see how to extend Windows file servers with Azure File Sync, so I can evaluate the process for extending the storage capacity of my Windows servers.
+ms.custom: sfi-image-nochange
+# Customer intent: As an IT administrator, I want to learn how to extend the storage capacity of Windows file servers with Azure File Sync, so that I can effectively manage data storage and access across local and cloud environments.
 ---
 
 # Tutorial: Extend Windows file servers with Azure File Sync
@@ -21,7 +22,7 @@ The article demonstrates the basic steps for extending the storage capacity of a
 > - Create a sync group and a cloud endpoint
 > - Create a server endpoint
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Sign in to Azure
 
@@ -32,7 +33,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 For this tutorial, you need to do the following before you can deploy Azure File Sync:
 
 - Create an Azure storage account and file share
-- Set up a Windows Server 2019 Datacenter VM
+- Set up a Windows Server VM
 - Prepare the Windows Server VM for Azure File Sync
 
 ### Create a folder and .txt file
@@ -167,7 +168,7 @@ Now you can add the data disk to the VM.
 
 ### Install the Azure PowerShell module
 
-Next, in the Windows Server 2019 Datacenter VM, install the Azure PowerShell module on the server. The `Az` module is a rollup module for the Azure PowerShell cmdlets. Installing it downloads all the available Azure Resource Manager modules and makes their cmdlets available for use.
+Next, in the Windows Server VM, install the Azure PowerShell module on the server. The `Az` module is a rollup module for the Azure PowerShell cmdlets. Installing it downloads all the available Azure Resource Manager modules and makes their cmdlets available for use.
 
 1. In the VM, open an elevated PowerShell window (run as administrator).
 1. Run the following command:
@@ -313,7 +314,7 @@ If you'd like to clean up the resources you created in this tutorial, first remo
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
-## Next steps
+## Next step
 
 In this tutorial, you learned the basic steps to extend the storage capacity of a Windows server by using Azure File Sync. For a more thorough look at planning for an Azure File Sync deployment, see:
 

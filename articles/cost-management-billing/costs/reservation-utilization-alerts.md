@@ -1,13 +1,14 @@
 ---
 title: Reservation utilization alerts
 description: This article helps you set up and use reservation utilization alerts.
-author: bandersmsft
-ms.author: banders
-ms.date: 08/30/2023
+author: vikramdesai01
+ms.author: vikdesai
+ms.date: 06/26/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: vikdesai
+ms.custom: sfi-image-nochange
 ---
 
 # Reservation utilization alerts
@@ -16,7 +17,21 @@ This article helps you set up and use reservation utilization alerts. The alerts
 
 ## Reservations that you can monitor
 
-The reservation utilization alert is used to monitor the utilization of most categories of reservations. However, utilization alerts don't support prepurchase plans, including [Databricks](../reservations/prepay-databricks-reserved-capacity.md) and [Synapse Analytics - Pre-Purchase](../reservations/synapse-analytics-pre-purchase-plan.md).
+The reservation utilization alert is used to monitor the utilization of most categories of reservations. However, utilization alerts don't support prepurchase plans, including [Databricks](../reservations/prepay-databricks-reserved-capacity.md), [Microsoft Defender for Cloud](/azure/defender-for-cloud/prepurchase-plan), and [Synapse Analytics - Pre-Purchase](../reservations/synapse-analytics-pre-purchase-plan.md).
+
+### Regular reservations
+
+Regular reservations, such as those for Virtual Machines (VMs), must be utilized within the committed duration. If these reservations are not used during that period, the reserved amount will remain unutilized and ultimately wasted. To help customers manage this, Cost Management provides reservation utilization alerts. This alert rule notifies customers about underutilization of their reservation commitments, allowing them to take necessary actions to optimize usage.
+
+### Prepurchase plan-based reservations
+
+On the other hand, prepurchase plan-based reservations offer more flexibility. These reservations can be fully utilized at any time during the coverage period. This means that the regular reservation utilization alert is not effective for these types of reservations, as the utilization pattern differs.
+
+To illustrate:
+
+- **Regular reservations**: If you reserve a Virtual Machine for one year but don't fully use it during that year, the reserved amount is wasted. The reservation utilization alert helps by notifying you if the reservation is underutilized.
+
+- **Prepurchase plan-based reservations**: If you purchase a plan that covers a year, you can utilize the reserved amount at any time during that year, without concern for specific time frames. The regular reservation utilization alert does not apply in this scenario.
 
 ## Supported scopes and required permissions
 
@@ -26,7 +41,7 @@ You can create a reservation utilization alert rule at any of the following scop
 | --- | --- | --- | --- |
 | Enterprise Agreement | Billing account | Enterprise admin, enterprise read only| Create, read, update, delete |
 |• Microsoft Customer Agreement (MCA) in the Enterprise motion where you buy Azure services through a Microsoft representative. Also called an MCA-E agreement.<br><br>• Microsoft Customer Agreement (MCA) that you bought through the Azure website. Also called an MCA-online agreement. | Billing profile |Billing profile owner, billing profile contributor, billing profile reader, and invoice manager | Create, read, update, delete|
-| Microsoft Partner Agreement (MPA) | Customer scope | Global admin, admin agent | Create, read, update, delete |
+| Microsoft Partner Agreement (MPA) | Customer scope | Admin agent, billing admin | Create, read, update, delete |
 
 For more information, see [scopes and roles](understand-work-scopes.md).
 
@@ -49,7 +64,7 @@ The following table explains the fields in the alert rule form.
 | --- | --- | --- | --- |
 | Alert type|Mandatory | The type of alert that you want to create. | Reservation utilization |
 | Services | Optional | Select if you want to filter the alert rule for any specific reservation type. **Note**: If you haven’t applied a filter, then the alert rule monitors all available services by default. |Virtual machine, SQL Database, and so on. |
-| Reservations | Optional | Select if you want to filter the alert rule for any specific reservations. **Note**: If you haven’t  applied a filter, then the alert rule monitors all available reservations by default. | Contoso\_Sub\_alias-SQL\_Server\_Standard\_Edition. |
+| Reservations | Optional | Select if you want to filter the alert rule for any specific reservations. **Note**: If you haven’t applied a filter, then the alert rule monitors all available reservations by default. | Contoso\_Sub\_alias-SQL\_Server\_Standard\_Edition. |
 | Utilization percentage | Mandatory | When any of the reservations have a utilization that is less than the target percentage, then the alert notification is sent. | Utilization is less than 95% |
 | Time grain | Mandatory | Choose the time over which reservation utilization value should be averaged. For example, if you choose Last 7-days, then the alert rule evaluates the last 7-day average reservation  utilization of all reservations. **Note**: Last day reservation utilization is subject to change because the usage data refreshes. So, Cost Management relies on the last 7-day or 30-day averaged utilization, which is more accurate. | Last 7-days, Last 30-days|
 | Start on | Mandatory | The start date for the alert rule. | Current or any future date |
@@ -88,7 +103,7 @@ The following information provides more detail.
 
 **Creation portal** - Azure portal of partner tenant.
 
-**Permissions required for creation and management** - Global admin or admin agent.
+**Permissions required for creation and management** - Admin agent or [billing admin](/partner-center/account-settings/permissions-overview#billing-admin-role).
 
 **Supported scope** - Customer scope. All the reservations that are active for the selected customer are monitored by default.
 
@@ -97,6 +112,9 @@ The following information provides more detail.
 **Alert email’s landing page** - Reservations page in the customer tenant.
 
 **Permissions needed to view reservations** - For partners to review reservations in the customer tenant, partners require foreign principal access to the customer subscription. The default permissions required for managing reservations are explained at [Who can manage a reservation by default](../reservations/view-reservations.md#who-can-manage-a-reservation-by-default).
+
+> [!NOTE]
+> Filtering options to monitor specific reservation categories or individual reservations aren't supported within this scope. As a result, the alert rule evaluates the utilization of all available reservations by default.
 
 ## Next steps
 

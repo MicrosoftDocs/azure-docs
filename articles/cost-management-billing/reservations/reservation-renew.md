@@ -1,24 +1,23 @@
 ---
 title: Automatically renew Azure reservations
-description: Learn how you can automatically renew Azure reservations to continue getting reservation discounts.
-author: bandersmsft
+description: Learn how to automatically renew Azure reservations to maintain reservation discounts, avoid manual renewals, and ensure continuous savings benefits.
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 06/05/2024
-ms.author: banders
+ms.date: 03/19/2026
+ms.author: primittal
+# customer intent: As a reservation purchaser, I want learn about renewing reservations so that I can decide to renew manually, automatically, or not at all.
 ---
 
 # Automatically renew reservations
 
-You can renew reservations to automatically purchase a replacement when an existing reservation expires. Automatic renewal provides an easy way to continue getting reservation discounts. It also saves you from having to closely monitor a reservation's expiration. With automatic renewal, you prevent savings benefits loss by not having to manually renew. *The renewal setting is turned on by default*. Enable or disable the renewal setting anytime, up to the expiration of the existing reservation. You can also opt in to automatically renew at time of purchase.
+You can renew reservations to automatically purchase a replacement when an existing reservation expires. Automatic renewal provides an easy way to continue getting reservation discounts. It also saves you from having to closely monitor a reservation's expiration. With automatic renewal, you prevent savings benefits loss by not having to manually renew. *The renewal setting is turned on by default* when you make a purchase. You can manually turn off the renewal setting at the time of purchase. After purchase, you can enable or disable the renewal setting 48 hours before the expiry date time by selecting your reservation at Azure portal>Reservations, up to the expiration of the existing reservation. *When auto-renew is enabled, you have to manually turn it off to stop automatic renewal*.
 
-Renewing a reservation creates a new reservation when the existing reservation expires. It doesn't extend the term of the existing reservation.
+The renewal price is available 30 days before the expiry of existing reservation. You can view the current rates and discounts by selecting your reservation at Azure portal>Reservations. When you enable renewal more than 30 days before the reservation expiration, you're sent an email detailing renewal costs before expiration. The reservation price might change between the time that you lock the renewal price and the renewal time. If so, your renewal will not be processed and you can purchase a new reservation in order to continue getting the benefit.
 
-Opt in to automatically renew at any time. The renewal price is available 30 days before the expiry of existing reservation. When you enable renewal more than 30 days before the reservation expiration, you're sent an email detailing renewal costs 30 days before expiration. The reservation price might change between the time that you lock the renewal price and the renewal time. If so, your renewal will not be processed and you can purchase a new reservation in order to continue getting the benefit.
-
-There's no obligation to renew and you can opt out of the renewal at any time before the existing reservation expires.
+Renewing a reservation creates a new reservation when the existing reservation expires. It doesn't extend the term of the existing reservation. When the replacement reservation is purchased, the new reservation is automatically set to auto-renew off.
 
 ## Set up renewal
 
@@ -80,7 +79,7 @@ You'll receive an email notification if any of the preceding conditions occur an
 
 ## Renewal notification
 
-Renewal notification emails are sent 30 days before expiration and again on the expiration date. The sending email address is `azure-noreply@microsoft.com`. You might want to add the email address to your safe senders or allowlist.
+Renewal notification emails are sent 30 days before expiration for terms greater or equal to 1 year and 5 days for terms less than an year and again on the expiration date. The sending email address is `azure-noreply@microsoft.com`. You might want to add the email address to your safe senders or allowlist.
 
 Emails are sent to different people depending on your purchase method:
 
@@ -93,6 +92,6 @@ Emails are sent to different people depending on your purchase method:
 - Individual subscription customers with pay-as-you-go rates
     - Emails are sent to users who are set up as account administrators, reservation owners, and the reservation administrator.
 
-## Next steps
+## Related content
 
 - To learn more about Azure Reservations, see [What are Azure Reservations?](save-compute-costs-reservations.md)

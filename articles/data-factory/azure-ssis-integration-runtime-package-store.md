@@ -1,12 +1,12 @@
 ---
 title: Manage packages with Azure-SSIS Integration Runtime package store
 description: Learn how to manage packages with Azure-SSIS Integration Runtime package store.
-ms.service: data-factory
 ms.subservice: integration-services
-ms.topic: conceptual
+ms.topic: how-to
 author: chugugrace
 ms.author: chugu
 ms.date: 10/20/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Manage packages with Azure-SSIS Integration Runtime package store

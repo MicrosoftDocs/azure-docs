@@ -5,11 +5,13 @@ description: Learn about Virtual WAN routing scenarios to prevent VNets from bei
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 08/24/2023
+ms.service: azure-virtual-wan
+ms.topic: concept-article
+ms.date: 03/26/2025
 ms.author: cherylmc
-ms.custom: fasttrack-edit
+ms.custom:
+  - fasttrack-edit
+  - sfi-image-nochange
 
 ---
 # Scenario: Isolating VNets

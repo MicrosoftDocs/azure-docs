@@ -3,12 +3,17 @@ title: Azure VMs high availability for SAP NW on RHEL with NFS on Azure Files| M
 description: Establish high availability for SAP NetWeaver on Azure Virtual Machines Red Hat Enterprise Linux (RHEL) with NFS on Azure Files.
 author: rdeltcheva
 manager: juergent
-ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.date: 06/18/2024
+ms.date: 04/16/2026
 ms.author: radeltch
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: "As a system architect, I want to configure high availability for SAP NetWeaver on Azure VMs using NFS on Azure Files, so that I can ensure resilience and fault tolerance for critical enterprise applications."
 ---
 
 # High availability for SAP NetWeaver on VMs on RHEL with NFS on Azure Files
@@ -67,6 +72,7 @@ This article describes how to deploy and configure virtual machines (VMs), insta
 * Azure-specific RHEL documentation:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
+  * [What is the fast_stop option for a Filesystem resource in a Pacemaker cluster?](https://access.redhat.com/solutions/4801371)
 
 ## Overview
 
@@ -129,7 +135,7 @@ NFS on Azure Files runs on top of [Azure Files premium storage][afs-azure-doc]. 
 There are two options for redundancy within an Azure region:
 
 * [Locally redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage), which offers local, in-zone synchronous data replication.
-* [Zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#zone-redundant-storage), which replicates your data synchronously across the three [availability zones](../../availability-zones/az-overview.md) in the region.
+* [Zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#zone-redundant-storage), which replicates your data synchronously across the three [availability zones](/azure/reliability/availability-zones-overview) in the region.
 
 Check if your selected Azure region offers NFS 4.1 on Azure Files with the appropriate redundancy. Review the [availability of Azure Files by Azure region][afs-avail-matrix] under **Premium Files Storage**. If your scenario benefits from ZRS, [verify that premium file shares with ZRS are supported in your Azure region](../../storage/common/storage-redundancy.md#zone-redundant-storage).
 
@@ -168,28 +174,31 @@ Next, deploy the NFS shares in the storage account you created. In this example,
 1. On the resource menu for **sapafsnfs**, under **Data storage**, select **File shares**.
 1. On the **File shares** page, select **File share**.
    1. For **Name**, enter `sapnw1`, `saptrans`.
-   1. Select an appropriate share size. For example, **128 GB**.  Consider the size of the data stored on the share and IOPS and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
+   1. Select an appropriate share size. For example, **128 GB**.  Consider the size of the data stored on the share and IOPS and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md).
    1. Select **NFS** as the protocol.
    1. Select **No root Squash**. Otherwise, when you mount the shares on your VMs, you can't see the file owner or group.
 
 > [!IMPORTANT]
-> The preceding share size is only an example. Make sure to size your shares appropriately. Size is not only based on the size of the of data stored on the share but also based on the requirements for IOPS and throughput. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).  
+> The preceding share size is only an example. Make sure to size your shares appropriately. Size is not only based on the size of data stored on the share but also based on the requirements for IOPS and throughput. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md).  
 
-The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](../../virtual-machines/disks-types.md#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage.
+The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](/azure/virtual-machines/disks-types#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage.
+
+> [!Note]
+> Azure Files NFS supports Encryption in Transit (EiT). If you would like to use Encryption in Transit, read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md) to learn how to configure and deploy.
 
 ### Important considerations for NFS on Azure Files shares
 
 When you plan your deployment with NFS on Azure Files, consider the following important points:  
 
-* The minimum share size is 100 GiB. You only pay for the [capacity of the provisioned shares](../../storage/files/understanding-billing.md#provisioned-model).
-* Size your NFS shares not only based on capacity requirements but also on IOPS and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
+* The minimum share size is 100 GiB. You only pay for the [capacity of the provisioned shares](../../storage/files/understanding-billing.md#provisioned-v1-model).
+* Size your NFS shares not only based on capacity requirements but also on IOPS and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md).
 * Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, see [Troubleshoot Azure file share performance](../../storage/files/files-troubleshoot-performance.md).
 * For SAP J2EE systems, it's not supported to place `/usr/sap/<SID>/J<nr>` on NFS on Azure Files.
 * If your SAP system has a heavy batch jobs load, you might have millions of job logs. If the SAP batch job logs are stored in the file system, pay special attention to the sizing of the `sapmnt` share. As of SAP_BASIS 7.52, the default behavior for the batch job logs is to be stored in the database. For more information, see [Job log in the database][2360818].
 * Deploy a separate `sapmnt` share for each SAP system.
 * Don't use the `sapmnt` share for any other activity, such as interfaces, or `saptrans`.
 * Don't use the `saptrans` share for any other activity, such as interfaces, or `sapmnt`.
-* Avoid consolidating the shares for too many SAP systems in a single storage account. There are also [storage account performance scale targets](../../storage/files/storage-files-scale-targets.md#storage-account-scale-targets). Be careful not to exceed the limits for the storage account, too.
+* Avoid consolidating the shares for too many SAP systems in a single storage account. There are also [storage account performance scale targets](../../storage/files/storage-files-scale-targets.md#storage-account-data-plane-limits). Be careful not to exceed the limits for the storage account, too.
 * In general,  don't consolidate the shares for more than five SAP systems in a single storage account. This guideline helps avoid exceeding the storage account limits and simplifies performance analysis.
 * In general, avoid mixing shares like `sapmnt` for nonproduction and production SAP systems in the same storage account.
 * We recommend that you deploy on RHEL 8.4 or higher to benefit from [NFS client improvements](../../storage/files/files-troubleshoot-linux-nfs.md#ls-hangs-for-large-directory-enumeration-on-some-kernels).
@@ -227,7 +236,7 @@ The following items are prefixed with:
      # IP address of cluster node 1
      10.90.90.7    sap-cl1
      # IP address of cluster node 2
-     10.90.90.8     sap-cl2
+     10.90.90.8    sap-cl2
      # IP address of the load balancer frontend configuration for SAP Netweaver ASCS
      10.90.90.10   sapascs
      # IP address of the load balancer frontend configuration for SAP Netweaver ERS
@@ -296,6 +305,9 @@ The following items are prefixed with:
     mount -a 
     ```
 
+    > [!Note]
+    > For Encryption in Transit enabled File systems, use ‘aznfs’ as filesystem type in the mount command syntax. Read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md), to learn how to enable Encryption in Transit and mounting the file systems.
+
 7. **[A]** Configure the SWAP file.
 
     ```bash
@@ -341,16 +353,18 @@ The following items are prefixed with:
    
     sudo pcs resource create fs_NW1_ASCS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1ascs' \
       directory='/usr/sap/NW1/ASCS00' fstype='nfs' force_unmount=safe options='noresvport,vers=4,minorversion=1,sec=sys' \
-      op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
-      --group g-NW1_ASCS
+      fast_stop=no op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40
    
     sudo pcs resource create vip_NW1_ASCS IPaddr2 \
-      ip=10.90.90.10 \
-      --group g-NW1_ASCS
+      ip=10.90.90.10
    
-    sudo pcs resource create nc_NW1_ASCS azure-lb port=62000 \
-      --group g-NW1_ASCS
+    sudo pcs resource create nc_NW1_ASCS azure-lb port=62000
+ 
+    sudo pcs resource group add g-NW1_ASCS fs_NW1_ASCS vip_NW1_ASCS nc_NW1_ASCS
     ```
+
+   > [!Note]
+   > For Encryption in Transit enabled File systems for ‘/usr/sap/NW1/ASCS00’, use fstype=’aznfs’ as filesystem type in the cluster resource agent setup command syntax. Read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md), to learn how to enable Encryption in Transit and mounting the file systems.
 
    Make sure that the cluster status is okay and that all resources are started. Which node the resources are running on isn't important.
 
@@ -397,16 +411,18 @@ The following items are prefixed with:
     
     sudo pcs resource create fs_NW1_AERS Filesystem device='sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/usrsapNW1ers' \
       directory='/usr/sap/NW1/ERS01' fstype='nfs' force_unmount=safe options='noresvport,vers=4,minorversion=1,sec=sys' \
-      op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40 \
-     --group g-NW1_AERS
+      fast_stop=no op start interval=0 timeout=60 op stop interval=0 timeout=120 op monitor interval=200 timeout=40
    
     sudo pcs resource create vip_NW1_AERS IPaddr2 \
-      ip=10.90.90.9 \
-     --group g-NW1_AERS
+      ip=10.90.90.9
    
-    sudo pcs resource create nc_NW1_AERS azure-lb port=62101 \
-     --group g-NW1_AERS
+    sudo pcs resource create nc_NW1_AERS azure-lb port=62101
+
+    sudo pcs resource group add g-NW1_AERS fs_NW1_AERS vip_NW1_AERS nc_NW1_AERS
     ```
+
+   > [!Note]
+   > For Encryption in Transit enabled File systems for ‘/usr/sap/NW1/ERS01’, use fstype=’aznfs’ as filesystem type in the cluster resource agent setup command syntax. Read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md), to learn how to enable Encryption in Transit and mounting the file systems.
 
    Make sure that the cluster status is okay and that all resources are started. Which node the resources are running on isn't important.
 
@@ -461,7 +477,7 @@ The following items are prefixed with:
      Start_Program_01 = local $(_EN) pf=$(_PF)
    
      # Add the keep alive parameter, if using ENSA1
-     enque/encni/set_so_keepalive = true
+     enque/encni/set_so_keepalive = TRUE
      ```
 
      For both ENSA1 and ENSA2, make sure that the `keepalive` OS parameters are set as described in SAP Note [1410736](https://launchpad.support.sap.com/#/notes/1410736).  
@@ -507,7 +523,7 @@ The following items are prefixed with:
    > [!IMPORTANT]
    > With the systemd based SAP Startup Framework, SAP instances can now be managed by systemd. The minimum required Red Hat Enterprise Linux (RHEL) version is RHEL 8 for SAP. As described in SAP Note [3115048](https://me.sap.com/notes/3115048), a fresh installation of a SAP kernel with integrated systemd based SAP Startup Framework support will always result in a systemd controlled SAP instance. After an SAP kernel upgrade of an existing SAP installation to a kernel which has systemd based SAP Startup Framework support, however, some manual steps have to be performed as documented in SAP Note [3115048](https://me.sap.com/notes/3115048) to convert the existing SAP startup environment to one which is systemd controlled.
    >
-   > When utilizing Red Hat HA services for SAP (cluster configuration) to manage SAP application server instances such as SAP ASCS and SAP ERS, additional modifications will be necessary to ensure compatibility between the SAPInstance resource agent and the new systemd-based SAP startup framework. So once the SAP application server instances has been installed or switched to a systemd enabled SAP Kernel as per SAP Note [3115048](https://me.sap.com/notes/3115048), the steps mentioned in [Red Hat KBA 6884531](https://access.redhat.com/articles/6884531) must be completed successfully on all cluster nodes.
+   > When utilizing Red Hat HA services for SAP (cluster configuration) to manage SAP application server instances such as SAP ASCS and SAP ERS, additional modifications will be necessary to ensure compatibility between the SAPInstance resource agent and the new systemd-based SAP startup framework. So once the SAP application server instances have been installed or switched to a systemd enabled SAP Kernel as per SAP Note [3115048](https://me.sap.com/notes/3115048), the steps mentioned in [Red Hat KBA 6884531](https://access.redhat.com/articles/6884531) must be completed successfully on all cluster nodes.
 
 9. **[1]** Create the SAP cluster resources.
 
@@ -525,20 +541,24 @@ The following items are prefixed with:
      AUTOMATIC_RECOVER=false \
      meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
      op monitor interval=20 on-fail=restart timeout=60 \
-     op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-     --group g-NW1_ASCS
+     op start interval=0 timeout=600 op stop interval=0 timeout=600
     
+    sudo pcs resource group add g-NW1_ASCS rsc_sap_NW1_ASCS00
     sudo pcs resource meta g-NW1_ASCS resource-stickiness=3000
 
     sudo pcs resource create rsc_sap_NW1_ERS01 SAPInstance \
      InstanceName=NW1_ERS01_sapers START_PROFILE="/sapmnt/NW1/profile/NW1_ERS01_sapers" \
      AUTOMATIC_RECOVER=false IS_ERS=true \
-     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-     --group g-NW1_AERS
-     
-    sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS -5000
-    sudo pcs constraint location rsc_sap_NW1_ASCS00 rule score=2000 runs_ers_NW1 eq 1
+     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600
+    
+    sudo pcs resource group add g-NW1_AERS rsc_sap_NW1_ERS01
+
     sudo pcs constraint order start g-NW1_ASCS then stop g-NW1_AERS kind=Optional symmetrical=false
+    sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS score=-5000
+    # On RHEL 7.x, 8.x, 9.x
+    sudo pcs constraint location rsc_sap_NW1_ASCS00 rule score=2000 runs_ers_NW1 eq 1
+    # On RHEL 10.x
+    sudo pcs constraint location rsc_sap_NW1_ASCS00 rule score=2000 "runs_ers_NW1 eq 1"
     
     sudo pcs node unstandby sap-cl1
     sudo pcs property set maintenance-mode=false
@@ -554,23 +574,21 @@ The following items are prefixed with:
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 \
     op monitor interval=20 on-fail=restart timeout=60 \
-    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-NW1_ASCS
-   
+    op start interval=0 timeout=600 op stop interval=0 timeout=600
+
+    sudo pcs resource group add g-NW1_ASCS rsc_sap_NW1_ASCS00
     sudo pcs resource meta g-NW1_ASCS resource-stickiness=3000
 
     sudo pcs resource create rsc_sap_NW1_ERS01 SAPInstance \
     InstanceName=NW1_ERS01_sapers START_PROFILE="/sapmnt/NW1/profile/NW1_ERS01_sapers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
-    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-NW1_AERS
-      
-    sudo pcs resource meta rsc_sap_NW1_ERS01  resource-stickiness=3000
+    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600
+    
+    sudo pcs resource group add g-NW1_AERS rsc_sap_NW1_ERS01
 
-    sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS -5000
-    sudo pcs constraint order start g-NW1_ASCS then start g-NW1_AERS kind=Optional symmetrical=false
     sudo pcs constraint order start g-NW1_ASCS then stop g-NW1_AERS kind=Optional symmetrical=false
-   
+    sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS score=-5000
+
     sudo pcs node unstandby sap-cl1
     sudo pcs property set maintenance-mode=false
     ```
@@ -607,7 +625,7 @@ The following items are prefixed with:
 10. **[1]** Run the following step to configure `priority-fencing-delay` (applicable only as of pacemaker-2.0.4-6.el8 or higher).
 
     > [!NOTE]
-    > If you have a two-node cluster, you have the option to configure the `priority-fencing-delay` cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521).
+    > If you have a two-node cluster, you have the option to configure the `priority-fencing-delay` cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521)
     >
     > The property `priority-fencing-delay` is applicable for pacemaker-2.0.4-6.el8 version or higher. If you set up `priority-fencing-delay` on an existing cluster, make sure to clear the `pcmk_delay_max` setting in the fencing device.  
 
@@ -628,6 +646,12 @@ The following items are prefixed with:
     sudo firewall-cmd --zone=public --add-port={62101,3201,3301,50113,50114,50116}/tcp --permanent
     sudo firewall-cmd --zone=public --add-port={62101,3201,3301,50113,50114,50116}/tcp
     ```
+
+> [!Note]
+> SAP ASCS/ERS cluster can be extended from 2-node to 3-node cluster with 3rd node as a spare node for failover of ASCS or ERS services.
+> - 3-node setup can only be used for SAP systems using SAP Enqueue Replication Server 2 (ENSA2).
+> - The cluster property `priority-fencing-delay` should not be used in a 3-node cluster.
+
 
 ## SAP NetWeaver application server preparation
 
@@ -688,6 +712,9 @@ The following items are prefixed with:
     # Mount the file systems
     mount -a 
     ```
+
+    > [!Note]
+    > For Encryption in Transit enabled File systems, use ‘aznfs’ as filesystem type in the mount command syntax. Read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md), to learn how to enable Encryption in Transit and mounting the file systems.
 
 1. **[A]** Configure the SWAP file.
 
@@ -782,5 +809,5 @@ Thoroughly test your Pacemaker cluster. For more information, see [Execute the t
 * See [Azure Virtual Machines planning and implementation for SAP][planning-guide].
 * See [Azure Virtual Machines deployment for SAP][deployment-guide].
 * See [Azure Virtual Machines DBMS deployment for SAP][dbms-guide].
-* To learn how to establish HA and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](../../virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery.md).
+* To learn how to establish HA and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery).
 * To learn how to establish HA and plan for disaster recovery of SAP HANA on Azure VMs, see [High availability of SAP HANA on Azure Virtual Machines][sap-hana-ha].

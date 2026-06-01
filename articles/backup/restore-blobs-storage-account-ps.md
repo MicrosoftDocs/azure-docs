@@ -3,14 +3,17 @@ title: Restore Azure Blobs using Azure PowerShell
 description: Learn how to restore Azure blobs to any point-in-time using Azure PowerShell.
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 07/01/2024
+ms.date: 06/17/2025
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to restore Azure blobs to a specific point-in-time using PowerShell, so that I can recover lost data efficiently and ensure business continuity."
 ---
 
 # Restore Azure Blobs using Azure PowerShell
 
-This article describes how to use the PowerShell to perform restores for Azure Blob from [operational](blob-backup-overview.md?tabs=operational-backup) or [vaulted](blob-backup-overview.md?tabs=vaulted-backup) backups. With operational backups, you can restore all block blobs in storage accounts with operational backup configured or a subset of blob content to any point-in-time within the retention range. With vaulted backups (preview), you can perform restores using a recovery point created, based on your backup schedule.
+This article describes how to use the PowerShell to perform restores for Azure Blob from [operational](blob-backup-overview.md?tabs=operational-backup) or [vaulted](blob-backup-overview.md?tabs=vaulted-backup) backups. With operational backups, you can restore all block blobs in storage accounts with operational backup configured or a subset of blob content to any point-in-time within the retention range. With vaulted backups, you can perform restores using a recovery point created, based on your backup schedule.
+
+You can also restore Azure Blobs by Azure Backup using [Azure portal](blob-restore.md), [Azure CLI](restore-blobs-storage-account-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-blobs.md).
 
 > [!IMPORTANT]
 > Support for Azure blobs is available from version **Az 5.9.0**.
@@ -101,7 +104,7 @@ You can restore a subset of blobs using a prefix match. You can specify up to 10
 ```azurepowershell-interactive
 $restorerequest = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureBlob -SourceDataStore OperationalStore -RestoreLocation $TestBkpVault.Location  -RestoreType OriginalLocation -PointInTime (Get-Date -Date "2021-04-23T02:47:02.9500000Z") -BackupInstance $AllInstances[2] -ItemLevelRecovery -FromPrefixPattern "containerabc/aaa","containerabc/ccc" -ToPrefixPattern "containerabc/bbb","containerabc/ddd"
 ```
-# [Vaulted backup (preview)](#tab/vaulted-backup)
+# [Vaulted backup](#tab/vaulted-backup)
 
 [!INCLUDE [blob-vaulted-backup-restore-ps.md](../../includes/blob-vaulted-backup-restore-ps.md)]
 

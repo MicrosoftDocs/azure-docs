@@ -1,12 +1,14 @@
 ---
-title: Manage a manual QoS capacity pool for Azure NetApp Files  | Microsoft Docs
+title: Manage a manual QoS capacity pool for Azure NetApp Files 
 description: Describes how to manage a capacity pool that uses the manual QoS type, including setting up a manual QoS capacity pool and changing a capacity pool to use manual QoS.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/14/2021
+ms.date: 03/24/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to manage a manual QoS capacity pool for Azure NetApp Files, so that I can optimize throughput and ensure performance according to my application's specific requirements.
 ---
 # Manage a manual QoS capacity pool
 
@@ -40,7 +42,7 @@ You can change a capacity pool that currently uses the auto QoS type to use the 
 
 ## Monitor the throughput of a manual QoS capacity pool  
 
-Metrics are available to help you monitor the read and write throughput of a volume.  See [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md).  
+Metrics are available to help you monitor the read and write throughput of a volume. See [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md).  
 
 ## Modify the allotted throughput of a manual QoS volume 
 
@@ -51,6 +53,18 @@ If a volume is contained in a manual QoS capacity pool, you can modify the allot
 2. Select **Change throughput**. Specify the **Throughput (MiB/S)** that you want. Select **OK**. 
 
     ![Change QoS throughput](./media/manage-manual-qos-capacity-pool/change-qos-throughput.png)
+
+## Modify the throughput of a Flexible service level capacity pool 
+
+With the Flexible service level, you can adjust the throughput of the capacity pool as needed. You can increase the throughput of a Flexible service level pool at any time. Decreases to throughput on Flexible service level capacity pools can only occur following a 24-hour cool-down period. The 24-hour cool-down period initiates after any change to the throughput of the Flexible service level capacity pool.
+
+1. From your NetApp account, select **Capacity pools** to display existing capacity pools.   
+ 
+1. Right-click the capacity pool whose throughput you want to modify then select **Change throughput**.
+
+1. Enter a value between 128 and 2560 MiB/s. 
+
+1. Select **OK**. 
 
 ## Next steps  
 

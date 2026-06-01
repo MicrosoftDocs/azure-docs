@@ -3,10 +3,12 @@ title: How to enable CORS - Azure Data Manager for Energy
 description: Guide on CORS in Azure data manager for Energy and how to set up CORS
 author: NandiniMurali
 ms.author: Nandinim
-ms.service: energy-data-services
+ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 02/28/2023
-ms.custom: template-how-to-pattern
+ms.custom:
+  - template-how-to-pattern
+  - sfi-image-nochange
 ---
 # Use CORS for resource sharing in Azure Data Manager for Energy
 This document is to help you as user of Azure Data Manager for Energy to set up CORS policies.

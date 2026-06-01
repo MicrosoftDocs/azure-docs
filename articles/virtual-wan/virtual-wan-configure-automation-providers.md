@@ -4,8 +4,8 @@ description: Set up an automation environment to connect and configure an on-pre
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
-ms.topic: conceptual
+ms.service: azure-virtual-wan
+ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: cherylmc
 #Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.

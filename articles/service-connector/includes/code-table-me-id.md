@@ -2,7 +2,7 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/24/2023
+ms.date: 07/28/2025
 ms.author: wchi
 ---
 
@@ -10,11 +10,13 @@ ms.author: wchi
 ### [.NET](#tab/dotnet)
 
 1. Install dependencies.
+
     ```bash
     dotnet add package Azure.Identity
     dotnet add package Azure.Data.Tables
     ```
-1. You can use [`azure-identity`](https://www.nuget.org/packages/Azure.Identity/) to authenticate using a managed identity or a service principal. Get the Azure Table Storage endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+
+1. You can use [azure-identity](https://www.nuget.org/packages/Azure.Identity/) to authenticate using a managed identity or a service principal. Get the Azure Table Storage endpoint URL from the environment variable added by Service Connector. When you use the following code, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```csharp
     using Azure.Identity;
@@ -23,7 +25,7 @@ ms.author: wchi
     // get Table endpoint
     var tableEndpoint = Environment.GetEnvironmentVariable("AZURE_STORAGETABLE_RESOURCEENDPOINT");
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // system-assigned managed identity
     // var credential = new DefaultAzureCredential();
     
@@ -61,13 +63,13 @@ ms.author: wchi
         <version>1.1.5</version>
     </dependency>
     ```
-1. Authenticate using `azure-identity` and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
+1. Authenticate using `azure-identity` and get the endpoint URL from the environment variable added by Service Connector. When you use the following code, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```java
     String url = System.getenv("AZURE_STORAGETABLE_RESOURCEENDPOINT");  
 
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-assigned managed identity
     // DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder().build();
 
@@ -91,12 +93,13 @@ ms.author: wchi
 
 ### [Python](#tab/python)
 1. Install dependencies.
+
    ```bash
    pip install azure-identity
    pip install azure-data-tables
    ```
-1. Authenticate using the `azure-identity` library and get the Azure Table Storage endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
+1. Authenticate using the `azure-identity` library and get the Azure Table Storage endpoint URL from the environment variable added by Service Connector. When you use the following code, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```python
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
@@ -105,7 +108,7 @@ ms.author: wchi
     
     account_url = os.getenv('AZURE_STORAGETABLE_RESOURCEENDPOINT')
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # system assigned managed identity
     # cred = ManagedIdentityCredential()
     
@@ -124,11 +127,13 @@ ms.author: wchi
 
 ### [NodeJS](#tab/nodejs)
 1. Install dependencies.
+
    ```bash
    npm install --save @azure/identity
    npm install @azure/data-tables
    ```
-2. Authenticate using the `@azure/identity` library and get the Azure Table Storage endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+
+1. Authenticate using the `@azure/identity` library and get the Azure Table Storage endpoint URL from the environment variable added by Service Connector. When you use the following code, uncomment the part of the code snippet for the authentication type you want to use.
 
 
     ```javascript
@@ -137,7 +142,7 @@ ms.author: wchi
     
     const account_url = process.env.AZURE_STORAGETABLE_RESOURCEENDPOINT;
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system assigned managed identity
     // const credential = new DefaultAzureCredential();
     

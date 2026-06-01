@@ -2,12 +2,12 @@
 title: URL Rewrite for Azure Application Gateway for Containers - Ingress API
 description: Learn how to rewrite URLs in Ingress API for Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
-ms.service: application-gateway
-ms.subservice: appgw-for-containers
-ms.topic: conceptual
-ms.date: 02/27/2024
-ms.author: greglin
+author: mbender-ms
+ms.service: azure-appgw-for-containers
+ms.topic: how-to
+ms.date: 11/05/2024
+ms.author: mbender
+# Customer intent: "As a cloud architect, I want to implement URL rewriting in the Ingress API for Application Gateway for Containers, so that I can efficiently manage and route client requests to the appropriate backend services based on URL patterns."
 ---
 
 # URL Rewrite for Azure Application Gateway for Containers - Ingress API
@@ -24,16 +24,16 @@ URL rewrite enables you to translate an incoming request to a different URL when
 
 The following figure illustrates a request destined for _contoso.com/shop_ being rewritten to _contoso.com/ecommerce_ when the request is initiated to the backend target by Application Gateway for Containers:
 
-[ ![A diagram showing the Application Gateway for Containers rewriting a URL to the backend.](./media/how-to-url-rewrite-gateway-api/url-rewrite.png) ](./media/how-to-url-rewrite-gateway-api/url-rewrite.png#lightbox)
+[![A diagram showing the Application Gateway for Containers rewriting a URL to the backend.](./media/how-to-url-rewrite-gateway-api/url-rewrite.png)](./media/how-to-url-rewrite-gateway-api/url-rewrite.png#lightbox)
 
 ## Prerequisites
 
-1. If following the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
-2. If following the ALB managed deployment strategy, ensure you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provision the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+1. If following the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)).
+2. If following the ALB managed deployment strategy, ensure you provision your ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)) and provision the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTP application:<br>
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate path, query, and header based routing.  
   ```bash
-  kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
+  kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/traffic-split-scenario/deployment.yaml
   ```
   
   This command creates the following on your cluster:
@@ -184,9 +184,9 @@ kind: Ingress
 metadata:
   annotations:
     alb.networking.azure.io/alb-frontend: FRONTEND_NAME
-    alb.networking.azure.io/alb-id: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz
+    alb.networking.azure.io/alb-id: /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz
     kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"alb.networking.azure.io/alb-frontend":"FRONTEND_NAME","alb.networking.azure.io/alb-id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz"},"name"
+      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"alb.networking.azure.io/alb-frontend":"FRONTEND_NAME","alb.networking.azure.io/alb-id":"/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz"},"name"
 :"ingress-01","namespace":"test-infra"},"spec":{"ingressClassName":"azure-alb-external","rules":[{"host":"contoso.com","http":{"paths":[{"backend":{"service":{"name":"backend-v2","port":{"number":8080}}},"path":"/","pathType":"Prefix"}]}}]}}
   creationTimestamp: "2023-07-22T18:02:13Z"
   generation: 2

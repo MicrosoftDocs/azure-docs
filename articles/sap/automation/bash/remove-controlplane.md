@@ -10,6 +10,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-automation
 title: remove_controlplane.sh
 description: Removes the SAP Control Plane (Deployer, Library) using a shell script.
+# Customer intent: "As a cloud administrator, I want to execute a script to remove the SAP control plane, so that I can properly clean up the associated resources and ensure compliance with infrastructure management practices."
 ---
 
 # remove_controlplane.sh

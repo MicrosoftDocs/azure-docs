@@ -3,13 +3,18 @@ title: Azure Cloud Services (extended support) support and help options
 description: How to obtain help and support for questions or problems when you create solutions using Azure Cloud Services (extended support). 
 author: mimckitt
 ms.author: mimckitt
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-classic
 ms.topic: troubleshooting
-ms.date: 4/28/2021
-ms.custom: support-help-page
+ms.date: 07/24/2024
+ms.update-cycle: 365-days
+ms.custom: support-help-page, cloud-services-extended-support
+# Customer intent: As a developer working with Azure Cloud Services (extended support), I want access to relevant troubleshooting resources and support options so that I can resolve issues efficiently and continue developing reliable cloud solutions.
 ---
 
 # Support and troubleshooting for Azure Cloud Services (extended support)
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 Here are suggestions for where you can get help when developing your Azure Cloud Services (extended support) solutions.
 
@@ -39,7 +44,7 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=compute).
 
-News and information about Azure Cloud Services (extended support) is shared at the [Azure blog](https://azure.microsoft.com/blog/topics/virtual-machines/).
+News and information about Azure Cloud Services (extended support) is shared at the [Azure blog](https://azure.microsoft.com/blog/product/virtual-machines/).
 
 
 ## Next steps

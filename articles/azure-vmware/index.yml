@@ -21,9 +21,9 @@ highlightedContent:
     - title: What's Azure VMware Solution? 
       itemType: overview
       url: /azure/azure-vmware/introduction
-    - title: Architecture and design 
-      itemType: get-started
-      url: architecture-network-design-considerations.md
+    - title: Introduction to Azure VMware Solution Generation 2 Private Clouds
+      itemType: overview
+      url: /azure/azure-vmware/native-introduction
     - title: Networking
       itemType: how-to-guide
       url: tutorial-expressroute-global-reach-private-cloud.md
@@ -107,6 +107,8 @@ additionalContent:
         # Card
         - title: Well Architected Framework (WAF)
           links:
+          - text: Reliability in Azure VMware Solution
+            url: /azure/reliability/reliability-vmware-solution?pivots=avs-gen1
           - text: Azure VMware Solution design principles
             url: /azure/well-architected/azure-vmware/design-principles
           - text: Infrastructure and provisioning considerations
@@ -215,15 +217,23 @@ additionalContent:
           - text: Configure VMware HCX network extension
             url: configure-hcx-network-extension.md
           - text: VMware HCX Mobility Optimized Networking (MON) guidance
-            url: vmware-hcx-mon-guidance.md	
+            url: vmware-hcx-mon-guidance.md
+          - text: Migrate workloads between Azure VMware Solution private clouds
+            url: migrate-between-private-clouds.md
         # Card
         - title: Operate and monitor
           links:
             - text: Run Command
               url: using-run-command.md
+            - text: Use Set-ToolsRepo Run Command
+              url: use-set-toolsrepo-run-command.md
             - text: Configure VMware Syslogs
               url: configure-vmware-syslogs.md
+            - text: Send syslogs to log management solutions via Azure Logic Apps
+              url: logs-via-logic-app.md
             - text: Configure Alerts
               url: configure-alerts-for-azure-vmware-solution.md
+            - text: Configure Newest Metrics for Azure VMware Solution
+              url: configure-azure-vmware-solution-metrics.md
             - text: Arc-enabled Azure VMware Solution
               url: deploy-arc-for-azure-vmware-solution.md

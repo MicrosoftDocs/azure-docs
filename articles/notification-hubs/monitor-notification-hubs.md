@@ -3,10 +3,10 @@ title: Monitor Azure Notification Hubs
 description: Start here to learn how to monitor Azure Notification Hubs.
 ms.date: 03/21/2024
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: how-to
 author: sethmanheim
 ms.author: sethm
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ---
 
 # Monitor Azure Notification Hubs

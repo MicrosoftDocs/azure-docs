@@ -4,13 +4,15 @@ description:  This article discusses how to use Azure Active Directory B2C to si
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 10/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
-ms.custom: "b2c-support"
+ms.subservice: b2c
+ms.custom:
+  - "b2c-support"
+  - sfi-image-nochange
 
 
 #Customer intent: As a developer building a single-page application, I want to configure Azure AD B2C authentication in my application, so that users can sign up, sign in, and access protected resources using the OIDC PKCE flow.
@@ -18,6 +20,7 @@ ms.custom: "b2c-support"
 ---
 
 # Configure authentication in a sample single-page application by using Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article uses a sample JavaScript single-page application (SPA) to illustrate how to add Azure Active Directory B2C (Azure AD B2C) authentication to your SPAs.
 
@@ -60,7 +63,7 @@ The app architecture and registrations are illustrated in the following diagram:
 A computer that's running:
 
 * [Visual Studio Code](https://code.visualstudio.com/), or another code editor.
-* [Node.js runtime](https://nodejs.org/en/download/)
+* [Node.js runtime](https://nodejs.org/en/download/package-manager/)
 
 ## Step 1: Configure your user flow
 
@@ -100,15 +103,20 @@ Record the **Application (client) ID** to use later, when you configure the web 
 
 ### Step 2.4: Enable the implicit grant flow
 
-In your own environment, if your SPA app uses MSAL.js 1.3 or earlier and the implicit grant flow or you configure [https://jwt.ms/](https://jwt.ms/) app for testing a user flow or custom policy, you need to enable the implicit grant flow in the app registration:
+You can enable implicit grant flow for two reasons, when you’re using MSAL.js version 1.3 or earlier version or when you use an app registration to [test a user flow for testing purposes](add-sign-up-and-sign-in-policy.md?pivots=b2c-user-flow#test-the-user-flow).
 
-1. In the left menu, under **Manage**, select **Authentication**.
+Use these steps to enable implicit grant flow for your app:
+
+1. Select the app registration you created.
+
+1. Under **Manage**, select **Authentication**.
 
 1. Under **Implicit grant and hybrid flows**, select both the **Access tokens (used for implicit flows)** and **ID tokens (used for implicit and hybrid flows)** check boxes.
 
 1. Select **Save**.
 
-If your app uses MSAL.js 2.0 or later, don't enable implicit flow grant as MSAL.js 2.0+ supports the authorization code flow with PKCE. The SPA app in this article uses PKCE flow, and so you don't need to enable implicit grant flow.   
+> [!NOTE]
+> If your app uses MSAL.js 2.0 or later, don't enable implicit grant flow as MSAL.js 2.0+ supports the [OAuth 2.0 Authorization code flow (with PKCE)](./authorization-code-flow.md). If you enable implicit grant to test a user flow, make sure you disable the implicit grant flow settings before you deploy your app to production.  
 
 ### Step 2.5: Grant permissions
 
@@ -152,7 +160,7 @@ const msalConfig = {
       clientId: "<your-MyApp-application-ID>", // This is the ONLY mandatory field; everything else is optional.
       authority: b2cPolicies.authorities.signUpSignIn.authority, // Choose sign-up/sign-in user-flow as your default.
       knownAuthorities: [b2cPolicies.authorityDomain], // You must identify your tenant's domain as a known authority.
-      redirectUri: "http://localhost:6420", // You must register this URI on Azure Portal/App Registration. Defaults to "window.location.href".
+      redirectUri: "http://localhost:6420", // You must register this URI on Azure portal/App Registration. Defaults to "window.location.href".
     },
     cache: {
       cacheLocation: "sessionStorage",  

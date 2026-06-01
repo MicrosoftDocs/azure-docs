@@ -1,20 +1,69 @@
 ---
 title: Troubleshoot Azure Application Consistent Snapshot tool - Azure NetApp Files
-description: Troubleshoot communication issues, test failures, and other SAP HANA issues when using the Azure Application Consistent Snapshot (AzAcSnap) tool.
+description: Troubleshoot communication issues, test failures, and other issues when using the Azure Application Consistent Snapshot (AzAcSnap) tool.
 services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: troubleshooting
-ms.date: 05/15/2024
+ms.date: 12/18/2025
 ms.author: phjensen
 ms.custom: kr2b-contr-experiment
+# Customer intent: "As a system administrator using Azure Application Consistent Snapshot tool, I want to troubleshoot command execution issues, so that I can ensure successful operations and maintain reliable backups of my applications."
 ---
 
 # Troubleshoot the Azure Application Consistent Snapshot (AzAcSnap) tool
 
-This article describes how to troubleshoot issues when using the Azure Application Consistent Snapshot (AzAcSnap) tool for Azure NetApp Files and Azure Large Instance.
+This article describes how to troubleshoot issues when using the Azure Application Consistent Snapshot ([AzAcSnap](https://aka.ms/azacsnap)) tool.
 
-You might encounter several common issues when running AzAcSnap commands. Follow the instructions to troubleshoot the issues. If you still have issues, open a Service Request for Microsoft Support from the Azure portal and assign the request to the SAP HANA Large Instance queue.
+You might encounter several common issues when running AzAcSnap commands. Follow the instructions to troubleshoot the issues. 
+
+> [!IMPORTANT]
+> To ensure accurate troubleshooting and support, issues should be reproduced using the latest AzAcSnap release. Update to the most recent version before reporting any problems.
+> If you still have issues, go to the Azure portal and select Support + troubleshooting and search for guidance on issues with AzAcSnap, this allows you to open a Service Request for Microsoft Support.
+
+## Check log files, result files, and syslog
+
+Some of the best sources of information for investigating AzAcSnap issues are the log files, result files, and the system log.
+
+### Log files
+
+The AzAcSnap log files are stored in the directory configured by the `logPath` parameter in the AzAcSnap configuration file. The default configuration filename is *azacsnap.json*, and the default value for `logPath` is *./logs*, which means the log files are written into the *./logs* directory relative to where the `azacsnap` command runs. If you make the `logPath` an absolute location, such as */home/azacsnap/logs*, `azacsnap` always outputs the logs into */home/azacsnap/logs*, regardless of where you run the `azacsnap` command.
+
+The log filename is based on the application name, `azacsnap`, the command run with `-c`, such as `backup`, `test`, or `details`, and the default configuration filename, such as *azacsnap.json*. With the `-c backup` command, a default log filename would be *azacsnap-backup-azacsnap.log*, written into the directory configured by `logPath`.
+
+This naming convention allows for multiple configuration files, one per database, to help locate the associated log files. If the configuration filename is *SID.json*, then the log filename when using the `azacsnap -c backup --configfile SID.json` option is *azacsnap-backup-SID.log*.
+
+### Result files and syslog
+
+For the `-c backup` command, AzAcSnap writes to a *\*.result* file. The purpose of the *\*.result* file is to provide high-level confirmation of success/failure. If the *\*.result* file is empty, then assume failure. Any output written to the *\*.result* file is also output to the system log (for example, `/var/log/messages`) by using the `logger` command. The *\*.result* filename has the same base name as the log file to allow for matching the result file with the configuration file and the backup log file. The *\*.result* file goes into the same location as the other log files and is a simple one line output file.
+
+- Example for successful completion:
+
+   - Output to *\*.result* file:
+   
+      ```output
+      Database # 1 (PR1) : completed ok
+      ```
+
+   - Output to `/var/log/messages`:
+
+      ```output
+      Dec 17 09:01:13 azacsnap-rhel azacsnap: Database # 1 (PR1) : completed ok
+      ```
+
+- Example output where a failure occurred and AzAcSnap captured the failure:
+
+   - Output to *\*.result* file:
+   
+      ```output
+      Database # 1 (PR1) : failed
+      ```
+
+   - Output to `/var/log/messages`:
+
+      ```output
+      Dec 19 09:00:30 azacsnap-rhel azacsnap: Database # 1 (PR1) : failed
+      ```
 
 ## AzAcSnap command won't run
 
@@ -22,7 +71,7 @@ In some cases AzAcSnap won't start due to the user's environment.
 
 ### Failed to create CoreCLR
 
-AzAcSnap is written in .NET and the CoreCLR is an execution engine for .NET apps, performing functions such as IL byte code loading, compilation to machine code and garbage collection.  In this case there is an environmental problem blocking the CoreCLR engine from starting.
+AzAcSnap is written in .NET and the CoreCLR is an execution engine for .NET apps.  It performs functions such as IL byte code loading, compilation to machine code, and garbage collection.  In the case of CoreCLR errors, there's an environmental problem blocking the CoreCLR engine from starting.
 
 A common cause is limited permissions or environmental setup for the AzAcSnap operating system user, usually 'azacsnap'.
 
@@ -82,51 +131,7 @@ Make a `TMPDIR` for the `azacsnap` user:
 ```
 
 > [!IMPORTANT]
-> Changing the user's `TMPDIR` would need to be made permanent by changing the user's profile (e.g. `$HOME/.bashrc` or `$HOME/.bash_profile`).  There would also be a need to clean-up the `TMPDIR` on system reboot, this is typically automatic for `/tmp`.
-
-## Check log files, result files, and syslog
-
-Some of the best sources of information for investigating AzAcSnap issues are the log files, result files, and the system log.
-
-### Log files
-
-The AzAcSnap log files are stored in the directory configured by the `logPath` parameter in the AzAcSnap configuration file. The default configuration filename is *azacsnap.json*, and the default value for `logPath` is *./logs*, which means the log files are written into the *./logs* directory relative to where the `azacsnap` command runs. If you make the `logPath` an absolute location, such as */home/azacsnap/logs*, `azacsnap` always outputs the logs into */home/azacsnap/logs*, regardless of where you run the `azacsnap` command.
-
-The log filename is based on the application name, `azacsnap`, the command run with `-c`, such as `backup`, `test`, or `details`, and the default configuration filename, such as *azacsnap.json*. With the `-c backup` command, a default log filename would be *azacsnap-backup-azacsnap.log*, written into the  directory configured by `logPath`.
-
-This naming convention allows for multiple configuration files, one per database, to help locate the associated log files. If the configuration filename is *SID.json*, then the log filename when using the `azacsnap -c backup --configfile SID.json` option is *azacsnap-backup-SID.log*.
-
-### Result files and syslog
-
-For the `-c backup` command, AzAcSnap writes to a *\*.result* file.  The purpose of the *\*.result* file is to provide high-level confirmation of success/failure.  If the *\*.result* file is empty, then assume failure.  Any output written to the *\*.result* file is also output to the system log (for example, `/var/log/messages`) by using the `logger` command. The *\*.result* filename has the same base name as the log file to allow for matching the result file with the configuration file and the backup log file.  The *\*.result* file goes into the same location as the other log files and is a simple one line output file.
-
-1. Example for successful completion:
-
-   1. Output to *\*.result* file:
-   
-      ```output
-      Database # 1 (PR1) : completed ok
-      ```
-
-   1. Output to `/var/log/messages`:
-
-      ```output
-      Dec 17 09:01:13 azacsnap-rhel azacsnap: Database # 1 (PR1) : completed ok
-      ```
-
-1. Example output where a failure has occurred and AzAcSnap captured the failure:
-
-   1. Output to *\*.result* file:
-   
-      ```output
-      Database # 1 (PR1) : failed
-      ```
-
-   1. Output to `/var/log/messages`:
-
-      ```output
-      Dec 19 09:00:30 azacsnap-rhel azacsnap: Database # 1 (PR1) : failed
-      ```
+> Changing the user's `TMPDIR` would need to be made permanent by changing the user's profile (for example, `$HOME/.bashrc` or `$HOME/.bash_profile`). Making this change means a manual clean up of the `TMPDIR` would be needed on system reboot. This `TMPDIR` clean up is typically automatic for `/tmp`.
 
 ## Troubleshoot failed 'test storage' command
 
@@ -141,34 +146,34 @@ Communication with Azure NetApp Files might fail or time out. To troubleshoot, m
 
 ### Use Cloud Shell to validate configuration files
 
-You can test whether the service principal is configured correctly by using Cloud Shell through the Azure portal. Using Cloud Shell tests for correct configuration, bypassing network controls within a virtual network or virtual machine (VM).
+You can test the AzAcSnap configuration by using Cloud Shell through the Azure portal. Using Cloud Shell tests for correct configuration, bypassing network controls within a virtual network or virtual machine (VM).
 
-1. In the Azure portal, open a [Cloud Shell](../cloud-shell/overview.md) session.
+> [!IMPORTANT]
+> Resolving any permission related issues are outside the scope of this guide.
+
+1. In the Azure portal, open a `bash` [Cloud Shell](../cloud-shell/overview.md) session.
 1. Make a test directory, for example `mkdir azacsnap`.
-1. Switch to the *azacsnap* directory, and download the latest version of AzAcSnap.
+1. Switch to the `azacsnap` directory, and download the latest version of AzAcSnap.
    
    ```bash
-   wget https://aka.ms/azacsnapinstaller
+   cd azacsnap
+   wget https://aka.ms/azacsnap-linux
    ```
-1. Make the installer executable, for example `chmod +x azacsnapinstaller`.
-1. Extract the binary for testing.
+
+1. Make the downloaded binary executable.
+   
+   ```bash
+   chmod +x azacsnap-linux
+   ```
+
+1. Create the AzAcSnap configuration file (for example `azacsnap.json`) for testing.  This can be done using the `vi` program or use the Cloud Shell Upload/Download icon to upload the AzAcSnap configuration file, and optionally the service principal file (for example `azureauth.json`) if still using this method for authentication.
+1. List snapshot details.
 
    ```bash
-   ./azacsnapinstaller -X -d .
-   ```
-   The results look like the following output:
-
-   ```output
-   +-----------------------------------------------------------+
-   | Azure Application Consistent Snapshot Tool Installer |
-   +-----------------------------------------------------------+
-   |-> Installer version '5.0.2_Build_20210827.19086'
-   |-> Extracting commands into ..
-   |-> Cleaning up .NET extract dir
+   ./azacsnap -c details
    ```
 
-1. Use the Cloud Shell Upload/Download icon to upload the service principal file, *azureauth.json*, and the AzAcSnap configuration file, such as *azacsnap.json*, for testing.
-1. Run the `storage` test.
+1. Run a storage test.
 
    ```bash
    ./azacsnap -c test --test storage
@@ -176,6 +181,61 @@ You can test whether the service principal is configured correctly by using Clou
 
    > [!NOTE]
    > The test command can take about 90 seconds to complete.
+
+### 'SubscriptionNotFound'
+
+When using AzAcSnap in a non-Public Cloud environment, such as US Government Cloud, connectivity to Azure Resource Manager might be targeting the wrong Azure management endpoint.  In this case AzAcSnap could return an error code `SubscriptionNotFound` with an error message `The subscription '99z999zz-99z9-99zz-99zz-9z9zz999zz99' could not be found.`  In this case you will need to configure [AzAcSnap to use the correct environment](azacsnap-tips.md#global-override-settings-to-control-azacsnap-behavior).
+
+### Failed test with Azure NetApp Files
+
+The following error example is from running a storage test with `azacsnap` with Azure NetApp Files:
+
+```bash
+azacsnap -c test --test storage
+```
+
+#### 'Does not have authorization'
+
+Example output from the log file:
+
+```output
+The client '00001111-aaaa-2222-bbbb-3333cccc4444' with object id 'aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb' does not have authorization to perform action 'Microsoft.NetApp/netAppAccounts/read' over scope ...
+```
+
+This error can be caused by having both a System Assigned Managed Identity and User Assigned Identity in use on the Virtual Machine for authentication.
+
+To resolve this issue use one of the following solutions:
+
+- Disable or Delete the System Assigned Managed Identity.
+- Configure AzAcSnap to use the [Service Principal method](azacsnap-configure-storage.md?tabs=azure-netapp-files#generate-a-service-principal-file) for authentication.
+
+
+#### 'Could not create StorageANF object'
+
+```output
+BEGIN : Test process started for 'storage'
+BEGIN : Storage test snapshots on 'data' volumes
+BEGIN : 1 task(s) to Test Snapshots for Storage Volume Type 'data'
+ERROR: Could not create StorageANF object [authFile = 'azureauth.json']
+```
+
+To troubleshoot this error:
+
+1. Check for the existence of the service principal file, *azureauth.json*, as set in the *azacsnap.json* configuration file.
+1. Check the log file, for example, *logs/azacsnap-test-azacsnap.log*, to see if the service principal file has the correct content. The following log file output shows that the client secret key is invalid.
+
+   ```output
+   [19/Nov/2020:18:39:49 +13:00] DEBUG: [PID:0020080:StorageANF:659] [1] Innerexception: Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException AADSTS7000215: Invalid client secret is provided.
+   ```
+
+1. Check the log file to see if the service principal is expired. The following log file example shows that the client secret keys are expired.
+
+   ```output
+   [19/Nov/2020:18:41:10 +13:00] DEBUG: [PID:0020257:StorageANF:659] [1] Innerexception: Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException AADSTS7000222: The provided client secret keys are expired. Visit the Azure portal to create new keys for your app, or consider using certificate credentials for added security: https://learn.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials
+   ```
+
+> [!TIP]
+> For more information on generating a new Service Principal, see the section [Enable communication with Storage](azacsnap-configure-storage.md?tabs=azure-netapp-files#enable-communication-with-storage) in the [Install Azure Application Consistent Snapshot tool](azacsnap-installation.md) guide.
 
 ### Failed test on Azure Large Instance
 
@@ -187,7 +247,7 @@ azacsnap -c test --test storage
 
 ```output
 The authenticity of host '172.18.18.11 (172.18.18.11)' can't be established.
-ECDSA key fingerprint is SHA256:QxamHRn3ZKbJAKnEimQpVVCknDSO9uB4c9Qd8komDec.
+ECDSA key fingerprint is SHA256:AA11BB22CC33DD44EE55FF66AA77BB88CC99DD00.
 Are you sure you want to continue connecting (yes/no)?
 ```
 
@@ -211,39 +271,6 @@ vserver volume
 osa33-hana-c01v250-client25-nprod hana_data_h80_mnt00001_t020_vol
 osa33-hana-c01v250-client25-nprod hana_data_h80_mnt00002_t020_vol
 ```
-
-### Failed test with Azure NetApp Files
-
-The following error example is from running `azacsnap` with Azure NetApp Files:
-
-```bash
-azacsnap --configfile azacsnap.json.NOT-WORKING -c test --test storage
-```
-
-```output
-BEGIN : Test process started for 'storage'
-BEGIN : Storage test snapshots on 'data' volumes
-BEGIN : 1 task(s) to Test Snapshots for Storage Volume Type 'data'
-ERROR: Could not create StorageANF object [authFile = 'azureauth.json']
-```
-
-To troubleshoot this error:
-
-1. Check for the existence of the service principal file, *azureauth.json*, as set in the *azacsnap.json* configuration file.
-1. Check the log file, for example, *logs/azacsnap-test-azacsnap.log*, to see if the service principal file has the correct content. The following log file output shows that the client secret key is invalid.
-
-   ```output
-   [19/Nov/2020:18:39:49 +13:00] DEBUG: [PID:0020080:StorageANF:659] [1] Innerexception: Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException AADSTS7000215: Invalid client secret is provided.
-   ```
-
-1. Check the log file to see if the service principal has expired. The following log file example shows that the client secret keys are expired.
-
-   ```output
-   [19/Nov/2020:18:41:10 +13:00] DEBUG: [PID:0020257:StorageANF:659] [1] Innerexception: Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException AADSTS7000222: The provided client secret keys are expired. Visit the Azure Portal to create new keys for your app, or consider using certificate credentials for added security: https://learn.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials
-   ```
-
-> [!TIP]
-> For more information on generating a new Service Principal, refer to the section [Enable communication with Storage](azacsnap-configure-storage.md?tabs=azure-netapp-files#enable-communication-with-storage) in the [Install Azure Application Consistent Snapshot tool](azacsnap-installation.md) guide.
 
 ## Troubleshoot failed 'test hana' command
 
@@ -277,7 +304,7 @@ Make sure the installer added the location of these files to the AzAcSnap user's
 
 ### Invalid value for key
 
-This command output shows that the connection key hasn't been set up correctly with the `hdbuserstore Set` command.
+This command output shows that the connection key isn't set up correctly with the `hdbuserstore Set` command.
 
 ```bash
 hdbsql -n 172.18.18.50 -i 00 -U AZACSNAP "select version from sys.m_database"
@@ -289,7 +316,7 @@ hdbsql -n 172.18.18.50 -i 00 -U AZACSNAP "select version from sys.m_database"
 
 For more information on setup of the `hdbuserstore`, see [Get started with AzAcSnap](azacsnap-get-started.md).
 
-### Failed test
+### Failed test with SAP HANA
 
 When validating communication with SAP HANA by running a test with `azacsnap -c test --test hana`, you might get the following error:
 
@@ -325,7 +352,7 @@ To troubleshoot this error:
    sql port      : saphana1:30013
    ```
 
-### Insufficient privilege error
+### Insufficient privilege error with SAP HANA
 
 If running `azacsnap` presents an error such as `* 258: insufficient privilege`, check that the user has the appropriate AZACSNAP database user privileges set up per the [installation guide](azacsnap-configure-database.md#enable-communication-with-the-database). Verify the user's privileges with the following command:
 
@@ -357,5 +384,5 @@ In the preceding example, adding the `DATABASE BACKUP ADMIN` privilege to the SY
 
 ## Next steps
 
-- [Tips and tricks for using AzAcSnap](azacsnap-tips.md)
+- [Tips for using AzAcSnap](azacsnap-tips.md)
 - [AzAcSnap command reference](azacsnap-cmd-ref-configure.md)

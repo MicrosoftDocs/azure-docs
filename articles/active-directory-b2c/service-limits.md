@@ -5,16 +5,17 @@ description: Reference for service limits and restrictions for Azure Active Dire
 author: kengaderdus
 ms.author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 05/11/2024
-ms.subservice: B2C
+ms.date: 03/02/2026
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 
 #Customer intent: As an Azure AD B2C user, I want to understand the service limits and restrictions, so that I can ensure that my application stays within the allowed usage constraints and request limits.
-
+ms.custom:
+  - build-2025
 ---
 
 # Azure Active Directory B2C service limits and restrictions
@@ -37,7 +38,7 @@ The number of users able to authenticate through an Azure AD B2C tenant is gated
 
 ## Endpoint request usage
 
-Azure AD B2C is compliant with [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749), [OpenID Connect (OIDC)](https://openid.net/certification/), and [SAML](http://saml.xml.org/saml-specifications) protocols. It provides user authentication and single sign-on (SSO) functionality, with the endpoints listed in the following table. 
+Azure AD B2C is compliant with [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749), [OpenID Connect (OIDC)](https://openid.net/certification/), and [SAML](https://docs.oasis-open.org/security/saml/v2.0/) protocols. It provides user authentication and single sign-on (SSO) functionality, with the endpoints listed in the following table. 
 
 The frequency of requests made to Azure AD B2C endpoints determines the overall token issuance capability. Azure AD B2C exposes endpoints, which consume a different number of requests. Review the [Authentication Protocols](./protocols-overview.md) article for more information on which endpoints are consumed by your application.
 
@@ -168,14 +169,100 @@ The following table lists the administrative configuration limits in the Azure A
 |Number of sign-out URLs per application        |1          |
 |String Limit per Attribute      |250 Chars          |
 |Number of B2C tenants per subscription      |20         |
-|Total number of objects (user accounts and applications) per tenant (default limit)|1.25 million |
-|Total number of objects (user accounts and applications) per tenant (using a verified custom domain). If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md).|5.25 million |
+|Number of objects (user accounts and applications) per tenant (default limit)  <sup>2</sup>|1.25 million|
+|Number of objects (user accounts and applications) per tenant (using a verified custom domain) <sup>3</sup>. If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md).|5.25 million|
+|Number of objects per tenant for Japan Go-Local Azure AD B2C tenants (default limit) <sup>4</sup>|310K|
+|Number of objects per tenant for Japan Go-Local Azure AD B2C tenants (using a verified custom domain) <sup>5</sup>. If you want to increase this limit, please contact [Microsoft Support](find-help-open-support-ticket.md).|570K|
 |Levels of [inheritance](custom-policy-overview.md#inheritance-model) in custom policies     |10         |
 |Number of policies per Azure AD B2C tenant (user flows + custom policies)     |200          |
 |Maximum policy file size      |1024 KB          |
 |Number of API connectors per tenant     |20         |
 
-<sup>1</sup> See also [Microsoft Entra service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
+- <sup>1</sup> See also [Microsoft Entra service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
+- <sup>2</sup> 1M user accounts and 250K applications.
+- <sup>3</sup> 5M user accounts and 250K applications.
+- <sup>4</sup> 60K user accounts and 250K applications.
+- <sup>5</sup> 320K user accounts and 250K applications.
+
+## Region specific service limits 
+
+As a protection for our customers, Microsoft places some restrictions on telephony verification for certain region codes. The following table lists the region codes and their corresponding limits. These limits apply to both SMS and Voice verification.
+
+| Region Code | Region Name                                    | Limit per tenant per 60 minutes | Limit per tenant per 24 hours            |                         
+|:----------- |:---------------------------------------------- |:------------------------------- | :----------------------------------------|
+| 20  | Egypt | 50 | 200 | 
+| 211 |	South Sudan |	10	| 30 |
+| 212 | Morocco | 20 | 100 |
+| 213 | Algeria | 20 | 100 |
+| 216 | Tunisia | 20 | 100 |
+| 221 | Senegal | 10 | 30 |
+| 223 | Mali | 20 | 100 |
+| 224 | Guinea | 20 | 100 |
+| 225 |	Ivory Coast|	10	| 30 |
+| 226 |  Burina Faso   | 10  |  30  |
+| 228 |  Togo  | 10  |  30  |
+| 233 |	Ghana|	10	| 30 |
+| 234 | Nigeria | 20 | 100 |
+| 235 | Chad | 10 | 30 |
+| 236 |	Central African Republic  |	10	| 30 |
+| 238 | Cape Verde | 10 | 30 |
+| 249 |  Sudan | 10  |  30  |
+| 251 |	Ethiopia  |	10	| 30 |
+| 252 |  Somalia   | 10  |  30  |  
+| 255 | Tanzania | 10 | 50 |
+| 256 | Uganda | 20 | 100 |
+| 257 |  Uzbek | 10  |  30  |
+| 258 |  Mozambique| 50  |  200 | 
+| 260 | Zambia | 50 | 200 | 
+| 261 | Madagascar | 10 | 30 |
+| 263 | Zimbabwe | 10 | 30 |
+| 265 |	Malawi  |	10	| 30 |
+| 266 | Lesotho | 10 | 30 |
+| 359 | Bulgaria | 20 | 100 
+| 373 |	Moldova |	20	| 100 |
+| 375 |	Belarus   |	10	| 30 |
+| 380 | Ukraine | 50 | 200 |
+| 381 | Serbia | 50 | 200 |
+| 386 | Slovenia | 10 | 50 |
+| 501 |  Belize| 10  |  30  |
+| 502 | Guatemala | 10 | 50 | 
+| 503 | El Salvador | 10 | 30 |
+| 504 | Honduras | 50 | 200 |
+| 52 | Mexico | 100 | 500 |
+| 53 | Cuba | 10 | 30 |
+| 58 |	Venezuela|	10	| 30 |
+| 591 | Bolivia | 10 | 30 |
+| 593 | Ecuador | 20 | 100 |
+| 60 | Malaysia | 50 | 200 |
+| 62 |  Indonesia | 50  |  200 |
+| 63 |  Philippines   | 50  |  200 |
+| 670 |	East Timor (Timor-Leste)  |	10	| 30 |
+| 675 |	Papua New Guinea  |	10	| 30 |
+| 7 |  Russia | 100  |  1000 |
+| 84 |  Vietnam   | 150  |  500 |
+| 855 |  Cambodia  | 50  |  200 |
+| 856 | Laos | 50 | 200 |
+| 880 | Bangladesh | 50 | 200 | 
+| 92 |  Pakistan| 100  |  1000 |
+| 93 |	Afghanistan  |	10	| 30 |
+| 94 |  Sri Lanka | 100  |  500 |
+| 95 |	Myanmar (Burma) | 10	| 30 |
+| 961 |	Lebanon  |	10	| 30 |
+| 963 |	Syria  |	10	| 30 |
+| 964 | Iraq | 50 | 200 |
+| 965 | Kuwait | 50 | 200 |
+| 967 |	Yemen	|10	| 30 |
+| 970 |  State of Palestine| 10  |  30  |
+| 972 |	Israel  |	50	| 200 |
+| 975 | Bhutan | 20 | 100 |
+| 976 |	Mongolia  |	10	| 30 |
+| 977 | Nepal | 20 | 100 |
+| 992 | Tajikistan | 10 | 30 |
+| 993 | Turkmenistan | 10 | 30 |
+| 994 | Azerbaijan | 50 | 200 | 
+| 995 | Georgia | 10 | 30 |
+| 996 |	Kyrgyzstan  |	10	| 30 |
+| 998 | Uzbekistan | 10 | 30 |
 
 ## Next steps
 

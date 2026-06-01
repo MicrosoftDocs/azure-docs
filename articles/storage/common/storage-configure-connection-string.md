@@ -3,13 +3,14 @@ title: Configure a connection string
 titleSuffix: Azure Storage
 description: Configure a connection string for an Azure storage account. A connection string contains the information needed to authorize access to a storage account from your application at runtime using Shared Key authorization.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: khdownie
+ms.author: kendownie
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 05/10/2024
 ms.reviewer: nachakra
+# Customer intent: As a software developer, I want to configure a connection string for my Azure storage account, so that my application can securely access data at runtime using Shared Key authorization.
 ---
 
 # Configure Azure Storage connection strings
@@ -30,7 +31,7 @@ To learn how to view your account access keys and copy a connection string, see 
 
 Your application needs to access the connection string at runtime to authorize requests made to Azure Storage. You have several options for storing your account access keys or connection string:
 
-- You can store your account keys securely in Azure Key Vault. For more information, see [About Azure Key Vault managed storage account keys](../../key-vault/secrets/about-managed-storage-account-keys.md).
+- Microsoft recommends using Microsoft Entra ID to authorize access to Azure Storage instead of account keys. If you must use account keys, store them securely in Azure Key Vault. For more information, see [Authorize access to data in Azure Storage](/azure/storage/common/authorize-data-access).
 - You can store your connection string in an environment variable.
 - An application can store the connection string in an **app.config** or **web.config** file. Add the connection string to the **AppSettings** section in these files.
 

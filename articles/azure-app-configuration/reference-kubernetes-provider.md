@@ -7,12 +7,13 @@ ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 04/12/2023
 ms.author: junbchen
+ms.custom: sfi-ropc-nochange
 #Customer intent: As an Azure Kubernetes Service user, I want to manage all my app settings in one place using Azure App Configuration.
 ---
 
 # Azure App Configuration Kubernetes Provider reference
 
-The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v1.3.0`. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
+The following reference outlines the properties supported by the Azure App Configuration Kubernetes Provider `v2.3.0` or later. See [release notes](https://github.com/Azure/AppConfiguration/blob/main/releaseNotes/KubernetesProvider.md) for more information on the change.
 
 ## Properties
 
@@ -23,6 +24,7 @@ An `AzureAppConfigurationProvider` resource has the following top-level child pr
 |endpoint|The endpoint of Azure App Configuration, which you would like to retrieve the key-values from.|alternative|string|
 |connectionStringReference|The name of the Kubernetes Secret that contains Azure App Configuration connection string.|alternative|string|
 |replicaDiscoveryEnabled|The setting that determines whether replicas of Azure App Configuration are automatically discovered and used for failover. If the property is absent, a default value of `true` is used.|false|bool|
+|loadBalancingEnabled|The setting that enables your workload to distribute requests to App Configuration across all available replicas. If the property is absent, a default value of `false` is used.|false|bool|
 |target|The destination of the retrieved key-values in Kubernetes.|true|object|
 |auth|The authentication method to access Azure App Configuration.|false|object|
 |configuration|The settings for querying and processing key-values in Azure App Configuration.|false|object|
@@ -52,19 +54,11 @@ The `spec.auth` property isn't required if the connection string of your App Con
 |workloadIdentity|The settings for using workload identity.|false|object|
 |managedIdentityClientId|The client ID of user-assigned managed identity of virtual machine scale set.|false|string|
 
-The `spec.auth.workloadIdentity` property has the following child properties. One of them must be specified.
+The `spec.auth.workloadIdentity` property has the following child property.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|managedIdentityClientId|The client ID of the user-assigned managed identity associated with the workload identity.|alternative|string|
-|managedIdentityClientIdReference|The client ID of the user-assigned managed identity can be obtained from a ConfigMap. The ConfigMap must be in the same namespace as the Kubernetes provider.|alternative|object|
-
-The `spec.auth.workloadIdentity.managedIdentityClientIdReference` property has the following child properties.
-
-|Name|Description|Required|Type|
-|---|---|---|---|
-|configMap|The name of the ConfigMap where the client ID of a user-assigned managed identity can be found.|true|string|
-|key|The key name that holds the value for the client ID of a user-assigned managed identity.|true|string|
+|serviceAccountName|The name of the service account associated with the workload identity.|true|string|
 
 The `spec.configuration` has the following child properties. 
   
@@ -80,6 +74,7 @@ If the `spec.configuration.selectors` property isn't set, all key-values with no
 |---|---|---|---|
 |keyFilter|The key filter for querying key-values. This property and the `snapshotName` property should not be set at the same time.|alternative|string|
 |labelFilter|The label filter for querying key-values. This property and the `snapshotName` property should not be set at the same time.|false|string|
+|tagFilters|The tag filters for querying key-values. This property and the `snapshotName` property should not be set at the same time. Tag filter must be formatted as `tag1=value1`.|false|string array|
 |snapshotName|The name of a snapshot from which key-values are loaded. This property should not be used in conjunction with other properties.|alternative|string|
 
 The `spec.configuration.refresh` property has the following child properties.
@@ -87,7 +82,7 @@ The `spec.configuration.refresh` property has the following child properties.
 |Name|Description|Required|Type|
 |---|---|---|---|
 |enabled|The setting that determines whether key-values from Azure App Configuration is automatically refreshed. If the property is absent, a default value of `false` is used.|false|bool|
-|monitoring|The key-values monitored for change detection, aka sentinel keys. The key-values from Azure App Configuration are refreshed only if at least one of the monitored key-values is changed.|true|object|
+|monitoring|The key-values monitored for change detection, aka sentinel keys. The key-values from Azure App Configuration are refreshed only if at least one of the monitored key-values is changed. If this property is absent, all the selected key-values will be monitored for refresh. |false|object|
 |interval|The interval at which the key-values are refreshed from Azure App Configuration. It must be greater than or equal to 1 second. If the property is absent, a default value of 30 seconds is used.|false|duration string|
 
 The `spec.configuration.refresh.monitoring.keyValues` is an array of objects, which have the following child properties.
@@ -110,13 +105,22 @@ The `spec.secret.target` property has the following child property.
 |Name|Description|Required|Type|
 |---|---|---|---|
 |secretName|The name of the Kubernetes Secret to be created.|true|string|
+|secretData|The setting that specifies how the retrieved data should be populated in the generated Secret.|true|string|
+
+If the `spec.secret.target.secretData` property is not set, the generated Secret is populated with the list of key-values retrieved from Key Vaults, which allows the Secret to be consumed as environment variables. Update this property if you wish to consume the Secret as a mounted file. This property has the following child properties.
+
+|Name|Description|Required|Type|
+|---|---|---|---|
+|type|The setting that indicates how the retrieved data is constructed in the generated Secret. The allowed values include `default`, `json`, `yaml` and `properties`.|optional|string|
+|key|The key name of the retrieved data when the `type` is set to `json`, `yaml` or `properties`. Set it to the file name if the Secret is set up to be consumed as a mounted file.|conditional|string|
+|separator|The delimiter that is used to output the Secret data in hierarchical format when the type is set to `json` or `yaml`. The separator is empty by default and the generated Secret contains key-values in their original form. Configure this setting only if the configuration file loader used in your application can't load key-values without converting them to the hierarchical format.|optional|string|
 
 If the `spec.secret.auth` property isn't set, the system-assigned managed identity is used. It has the following child properties.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
 |servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with Key Vaults that don't have individual authentication methods specified.|false|string|
-|workloadIdentity|The settings of the workload identity used for authentication with Key Vaults that don't have individual authentication methods specified. It has the same child properties as `spec.auth.workloadIdentity`.|false|object|
+|workloadIdentity|The settings of the workload identity used for authentication with Key Vaults that don't have individual authentication methods specified. It has the same child property as `spec.auth.workloadIdentity`.|false|object|
 |managedIdentityClientId|The client ID of a user-assigned managed identity of virtual machine scale set used for authentication with Key Vaults that don't have individual authentication methods specified.|false|string|
 |keyVaults|The authentication methods for individual Key Vaults.|false|object array|
 
@@ -126,7 +130,7 @@ The authentication method of each *Key Vault* can be specified with the followin
 |---|---|---|---|
 |uri|The URI of a Key Vault.|true|string|
 |servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with a Key Vault.|false|string|
-|workloadIdentity|The settings of the workload identity used for authentication with a Key Vault. It has the same child properties as `spec.auth.workloadIdentity`.|false|object|
+|workloadIdentity|The settings of the workload identity used for authentication with a Key Vault. It has the same child property as `spec.auth.workloadIdentity`.|false|object|
 |managedIdentityClientId|The client ID of a user-assigned managed identity of virtual machine scale set used for authentication with a Key Vault.|false|string|
 
 The `spec.secret.refresh` property has the following child properties.
@@ -149,6 +153,7 @@ If the `spec.featureFlag.selectors` property isn't set, feature flags are not do
 |---|---|---|---|
 |keyFilter|The key filter for querying feature flags. This property and the `snapshotName` property should not be set at the same time.|alternative|string|
 |labelFilter|The label filter for querying feature flags. This property and the `snapshotName` property should not be set at the same time.|false|string|
+|tagFilters|The tag filters for querying feature flags. This property and the `snapshotName` property should not be set at the same time. Tag filter must be formatted as `tag1=value1`.|false|string array|
 |snapshotName|The name of a snapshot from which feature flags are loaded. This property should not be used in conjunction with other properties.|alternative|string|
 
 The `spec.featureFlag.refresh` property has the following child properties.
@@ -161,7 +166,7 @@ The `spec.featureFlag.refresh` property has the following child properties.
 ## Installation
 
 Use the following `helm install` command to install the Azure App Configuration Kubernetes Provider. See [helm-values.yaml](https://github.com/Azure/AppConfiguration-KubernetesProvider/blob/main/deploy/parameter/helm-values.yaml) for the complete list of parameters and their default values. You can override the default values by passing the `--set` flag to the command.
- 
+
 ```bash
 helm install azureappconfiguration.kubernetesprovider \
     oci://mcr.microsoft.com/azure-app-configuration/helmchart/kubernetes-provider \
@@ -172,6 +177,18 @@ helm install azureappconfiguration.kubernetesprovider \
 ### Autoscaling
 
 By default, autoscaling is disabled. However, if you have multiple `AzureAppConfigurationProvider` resources to produce multiple ConfigMaps/Secrets, you can enable horizontal pod autoscaling by setting `autoscaling.enabled` to `true`.
+
+```bash
+helm install azureappconfiguration.kubernetesprovider \
+    oci://mcr.microsoft.com/azure-app-configuration/helmchart/kubernetes-provider \
+    --namespace azappconfig-system \
+    --create-namespace
+    --set autoscaling.enabled=true
+```
+
+## Data collection
+
+The software may collect information about you and your use of the software and send it to Microsoft. Microsoft may use this information to provide services and improve our products and services. You may turn off the telemetry by setting the `requestTracing.enabled=false` while installing the Azure App Configuration Kubernetes Provider. There are also some features in the software that may enable you and Microsoft to collect data from users of your applications. If you use these features, you must comply with applicable law, including providing appropriate notices to users of your applications together with a copy of Microsoft’s privacy statement. Our privacy statement is located at https://go.microsoft.com/fwlink/?LinkID=824704. You can learn more about data collection and use in the help documentation and our privacy statement. Your use of the software operates as your consent to these practices.
 
 ## Examples
 
@@ -248,17 +265,31 @@ By default, autoscaling is disabled. However, if you have multiple `AzureAppConf
 
 1. [Get the OIDC issuer URL](/azure/aks/workload-identity-deploy-cluster#retrieve-the-oidc-issuer-url) of the AKS cluster.
 
-1. [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) and note down its client ID after creation.
+1. [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) and note down its client ID, tenant ID, name, and resource group.
 
-1. Create the federated identity credential between the managed identity, OIDC issuer, and subject using the Azure CLI.
+1. [Grant the user-assigned managed identity **App Configuration Data Reader** role](/azure/azure-app-configuration/concept-enable-rbac#assign-azure-roles-for-access-rights) in Azure App Configuration.
+   
+1. Create a service account by adding a YAML file (e.g., *serviceAccount.yaml*) with the following content to the directory containing your AKS deployment files. The service account will be created when you apply all your deployment changes to your AKS cluster (e.g., using `kubectl apply`). Replace `<your-managed-identity-client-id>` with the client ID and `<your-managed-identity-tenant-id>` with the tenant ID of the user-assigned managed identity that has just been created. Replace `<your-service-account-name>` with your preferred name.
 
-   ``` azurecli
-   az identity federated-credential create --name "${FEDERATED_IDENTITY_CREDENTIAL_NAME}" --identity-name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:azappconfig-system:az-appconfig-k8s-provider --audience api://AzureADTokenExchange
-   ```
+    ``` yaml
+    apiVersion: v1
+    kind: ServiceAccount
+    metadata:
+      name: <your-service-account-name>
+      annotations:
+        azure.workload.identity/client-id: <your-managed-identity-client-id>
+        azure.workload.identity/tenant-id: <your-managed-identity-tenant-id>
+    ```
 
-1. [Grant the user-assigned managed identity **App Configuration Data Reader** role](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vmss#user-assigned-managed-identity) in Azure App Configuration.
+1. Create a federated identity credential for the user-assigned managed identity using the Azure CLI. Replace `<user-assigned-identity-name>` with the name and `<resource-group>` with the resource group of the newly created user-assigned managed identity. Replace `<aks-oidc-issuer>` with the OIDC issuer URL of the AKS cluster. Replace `<your-service-account-name>` with the name of the newly created service account. Replace `<federated-identity-credential-name>` with your preferred name for the federated identity credential.
 
-1. Set the `spec.auth.workloadIdentity.managedIdentityClientId` property to the client ID of the user-assigned managed identity in the following sample `AzureAppConfigurationProvider` resource and deploy it to the AKS cluster.
+    ``` azurecli
+    az identity federated-credential create --name "<federated-identity-credential-name>" --identity-name "<user-assigned-identity-name>" --resource-group "<resource-group>" --issuer "<aks-oidc-issuer>" --subject system:serviceaccount:default:<your-service-account-name> --audience api://AzureADTokenExchange
+    ```
+
+    Note that the subject of the federated identity credential should follow this format: `system:serviceaccount:<service-account-namespace>:<service-account-name>`.
+
+1. Set the `spec.auth.workloadIdentity.serviceAccountName` property to the name of the service account in the following sample `AzureAppConfigurationProvider` resource. Be sure that the `AzureAppConfigurationProvider` resource and the service account are in the same namespace.
 
     ``` yaml
     apiVersion: azconfig.io/v1
@@ -271,7 +302,7 @@ By default, autoscaling is disabled. However, if you have multiple `AzureAppConf
         configMapName: configmap-created-by-appconfig-provider
       auth:
         workloadIdentity:
-          managedIdentityClientId: <your-managed-identity-client-id>
+          serviceAccountName: <your-service-account-name>
     ```
 
 #### Use connection string
@@ -327,6 +358,24 @@ spec:
         labelFilter: development
 ```
 
+Tag filters can also be used to filter key-values. In the following sample, only key-values with the tag `env=prod` are downloaded.
+
+``` yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - keyFilter: '*'
+        tagFilters:
+          - env=prod
+``` 
+
 A snapshot can be used alone or together with other key-value selectors. In the following sample, you load key-values of common configuration from a snapshot and then override some of them with key-values for development.
 
 ``` yaml
@@ -364,9 +413,7 @@ spec:
 
 ### Configuration refresh
 
-When you make changes to your data in Azure App Configuration, you might want those changes to be refreshed automatically in your Kubernetes cluster. It's common to update multiple key-values, but you don't want the cluster to pick up a change midway through the update. To maintain configuration consistency, you can use a key-value to signal the completion of your update. This key-value is known as the sentinel key. The Kubernetes provider can monitor this key-value, and the ConfigMap and Secret will only be regenerated with updated data once a change is detected in the sentinel key.
-
-In the following sample, a key-value named `app1_sentinel` is polled every minute, and the configuration is refreshed whenever changes are detected in the sentinel key.
+When you make changes to your data in Azure App Configuration, you might want those changes to be refreshed automatically in your Kubernetes cluster. In the following sample, the Kubernetes provider checks Azure App Configuration for updates every minute. The associated ConfigMap and Secret are regenerated only when changes are detected. For more information about monitoring configuration changes, see [Best practices for configuration refresh](./howto-best-practices.md#configuration-refresh).
 
 ``` yaml
 apiVersion: azconfig.io/v1
@@ -384,11 +431,16 @@ spec:
     refresh:
       enabled: true
       interval: 1m
-      monitoring:
-        keyValues:
-          - key: app1_sentinel
-            label: common
 ```
+
+### Snapshot reference
+
+A snapshot reference is a configuration setting that references a snapshot in the same App Configuration store. When loaded, the provider resolves it and adds all key-values from that snapshot. Using snapshot references enables switching between snapshots at runtime, unlike adding a snapshot selector, which requires code changes and/or restarts to switch to a new snapshot.
+
+For more information about creating a snapshot reference, go to [snapshot reference concept](./concept-snapshot-references.md).
+
+> [!NOTE] 
+> To use snapshot references, use the version *2.6.0* or later of Azure App Configuration Kubernetes provider.
 
 ### Key Vault references
 
@@ -425,6 +477,57 @@ Two Kubernetes built-in [types of Secrets](https://kubernetes.io/docs/concepts/c
 |Name|Value|
 |---|---|
 |.kubernetes.secret.type|kubernetes.io/tls|
+
+The following examples show how the data is populated in the generated Secrets with different types.
+
+Assuming an App Configuration store has these Key Vault references:
+
+|key|value|tags|
+|---|---|---|
+|app1-secret1|<Key Vault reference 1>|`{}`|
+|app1-secret2|<Key Vault reference 2>|`{}`|
+|app1-certificate|<Key Vault reference 3>|`{".kubernetes.secret.type": "kubernetes.io/tls"}`|
+
+The following sample generates Secrets of both Opaque and TLS types.
+
+``` yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - keyFilter: app1*
+  secret:
+    target:
+      secretName: secret-created-by-appconfig-provider
+    auth:
+      managedIdentityClientId: <your-user-assigned-managed-identity-client-id>
+```
+
+The generated Secrets are populated with the following data:
+
+```yaml
+name: secret-created-by-appconfig-provider
+type: Opaque
+data:
+  app1-secret1: <secret value retrieved from Key Vault>
+  app1-secret2: <secret value retrieved from Key Vault>
+```
+
+```yaml
+name: app1-certificate
+type: kubernetes.io/tls
+data:
+  tls.crt: |
+    <certificate data retrieved from Key Vault>
+  tls.key: |
+    <certificate key retrieved from Key Vault>
+```
 
 #### Refresh of secrets from Key Vault
 
@@ -478,6 +581,34 @@ spec:
     refresh:
       enabled: true
       interval: 10m
+```
+
+### On-demand Refresh
+
+While you can set up automatic data refresh, there are times when you might want to trigger an on-demand refresh to get the latest data from App Configuration and Key Vault. This can be done by adding or updating any annotations in the `metadata.annotations` section of the `AzureAppConfigurationProvider`. The Kubernetes provider will then reconcile and update the ConfigMap and Secret with the latest data from your App Configuration store and Key Vault.
+
+In the following example, the `AzureAppConfigurationProvider` is updated with a new annotation. After the modification, apply the changes using `kubectl apply` to trigger an on-demand refresh.
+
+``` yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+  annotations:
+    key1: value1
+spec:
+  endpoint: <your-app-configuration-store-endpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    selectors:
+      - keyFilter: app1*
+        labelFilter: common
+  secret:
+    target:
+      secretName: secret-created-by-appconfig-provider
+    auth:
+      managedIdentityClientId: <your-user-assigned-managed-identity-client-id>
 ```
 
 ### ConfigMap Consumption

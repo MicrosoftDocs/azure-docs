@@ -1,10 +1,10 @@
 ---
 title: Hierarchy model in Azure Data Manager for Agriculture 
 description: Get information on the data model to organize your agriculture-related data. 
-author: gourdsay
-ms.author: angour
-ms.service: data-manager-for-agri
-ms.topic: conceptual
+author: BlackRider97
+ms.author: ramithar
+ms.service: azure-data-manager-agriculture
+ms.topic: concept-article
 ms.date: 08/22/2023
 ms.custom: template-concept
 ---

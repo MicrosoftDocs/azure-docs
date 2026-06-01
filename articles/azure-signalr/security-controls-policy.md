@@ -5,7 +5,7 @@ ms.date: 02/06/2024
 ms.topic: sample
 author: vicancy
 ms.author: lianwei
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure SignalR
@@ -19,7 +19,7 @@ with the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-signalr](../../includes/policy/standards/byrp/microsoft.signalrservice.md)]
+[!INCLUDE [azure-policy-compliancecontrols-signalr](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.signalrservice.md)]
 
 ## Next steps
 

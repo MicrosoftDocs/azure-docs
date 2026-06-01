@@ -4,11 +4,13 @@ titleSuffix: Azure SignalR Service
 description: Overview of private endpoints for secure access to Azure SignalR Service from virtual networks.
 services: signalr
 author: vicancy
-ms.service: signalr
-ms.custom: devx-track-azurecli
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 12/09/2022
 ms.author: lianwei
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Use private endpoints for Azure SignalR Service
@@ -37,7 +39,7 @@ When you create a private endpoint for an Azure SignalR Service in your VNet, a 
 Azure SignalR Service owners can manage consent requests and the private endpoints, through the '*Private endpoints*' tab for the Azure SignalR Service in the [Azure portal](https://portal.azure.com).
 
 > [!TIP]
-> If you want to restrict access to your Azure SignalR Service through the private endpoint only, [configure the Network Access Control](howto-network-access-control.md#managing-network-access-control) to deny or control access through the public endpoint.
+> If you want to restrict access to your Azure SignalR Service through the private endpoint only, [configure the Network Access Control](howto-network-access-control.md) to deny or control access through the public endpoint.
 
 ### Connecting to private endpoints
 
@@ -90,11 +92,7 @@ For more information on configuring your own DNS server to support private endpo
 
 1. When creating a new Azure SignalR Service, select **Networking** tab. Choose **Private endpoint** as connectivity method.
 
-    ![Create Azure SignalR Service - Networking tab](media/howto-private-endpoints/portal-create-blade-networking-tab.png)
-
 1. Select **Add**. Fill in subscription, resource group, location, name for the new private endpoint. Choose a virtual network and subnet.
-
-    ![Create Azure SignalR Service - Add private endpoint](media/howto-private-endpoints/portal-create-blade-add-private-endpoint.png)
 
 1. Select **Review + create**.
 
@@ -106,19 +104,11 @@ For more information on configuring your own DNS server to support private endpo
 
 1. Select the button **+ Private endpoint** on the top.
 
-    ![Private endpoint connections blade](media/howto-private-endpoints/portal-private-endpoint-connections-blade.png)
-
 1. Enter subscription, resource group, resource name and region for the new private endpoint.
-    
-    ![Create private endpoint - Basics](media/howto-private-endpoints/portal-create-private-endpoint-basics.png)
 
 1. Choose target Azure SignalR Service resource.
 
-    ![Create private endpoint - Resource](media/howto-private-endpoints/portal-create-private-endpoint-resource.png)
-
 1. Choose target virtual network
-
-    ![Create private endpoint - Configuration](media/howto-private-endpoints/portal-create-private-endpoint-configuration.png)
 
 1. Select **Review + create**.
 
@@ -176,6 +166,39 @@ For more information on configuring your own DNS server to support private endpo
     ```azurecli
     az network private-endpoint show --resource-group {RG} --name {Private Endpoint Name}
     ```
+
+## Private endpoints with geo-replication
+
+Azure SignalR Service is exposed to a private endpoint as a whole. You don't create a private endpoint that points to a specific replica. Instead, one private endpoint on the parent resource is enough — it automatically routes traffic to a healthy replica, the same way as in the public network, based on health and performance metrics.
+
+The following diagram illustrates how traffic flows from a client in a virtual network to a replica through a single private endpoint:
+
+```
+            ┌──────────────────────────────────┐
+            │  Client in VNet                  │
+            └────────────────┬─────────────────┘
+                             │
+                             ▼
+            ┌──────────────────────────────────┐
+            │  Private endpoint                │
+            │  (private IP in your subnet)     │
+            └────────────────┬─────────────────┘
+                             │
+                             ▼
+            ┌──────────────────────────────────┐
+            │  Closest healthy replica         │
+            └──────────────────────────────────┘
+```
+
+
+**Example.** Assume the client VM is in *East US*, the primary Azure SignalR Service resource is in *West US*, and a replica is in *East US*. When the client connects to Azure SignalR Service through the private endpoint, the *East US* replica is selected for its better performance in routing.
+
+### Failover
+
+If the replica currently serving traffic becomes unavailable, Azure network infrastructure automatically routes new traffic to another healthy replica. The private endpoint always resolves to the same private IP inside your virtual network, so no client-side change is needed. The failover can take **several minutes** to complete.
+
+To manually trigger and validate failover, stop the connected replica, wait a few minutes, and reconnect from a test client. The client should land on a different replica.
+
 
 ## Pricing
 

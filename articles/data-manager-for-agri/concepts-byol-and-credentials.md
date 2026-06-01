@@ -1,12 +1,14 @@
 ---
 title: Storing your license keys in Azure Data Manager for Agriculture
 description: Provides information on using third party keys 
-author: gourdsay
-ms.author: angour
-ms.service: data-manager-for-agri
-ms.topic: conceptual
+author: BlackRider97
+ms.author: ramithar
+ms.service: azure-data-manager-agriculture
+ms.topic: how-to
 ms.date: 06/23/2023
-ms.custom: template-concept
+ms.custom:
+  - template-concept
+  - sfi-image-nochange
 ---
 
 # Store and use your own license keys
@@ -17,7 +19,7 @@ Azure Data Manager for Agriculture supports a range of data ingress connectors t
 
 ## Prerequisites
 
-To use BYOL, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+To use BYOL, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 
 ## Overview
@@ -81,6 +83,9 @@ Add an access policy in the key vault for your Data Manager for Agriculture inst
 
 ### Step 5: Invoke control plane API call
 Use the [API call](/rest/api/data-manager-for-agri/controlplane-version2023-06-01-preview/data-connectors) to specify connector credentials. Key vault URI/ key name/ key version can be found after creating secret as shown in the following figure.
+
+> [!NOTE] 
+>For making control plane calls, you need owner access on ADMA resource scope.
 
 :::image type="content" source="./media/concepts-byol-and-credentials/details-key-vault.png" alt-text="Screenshot showing where key name and key version is available.":::
 

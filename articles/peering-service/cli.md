@@ -1,14 +1,14 @@
 ---
-title: Create, change, or delete a Peering Service connection - Azure CLI 
+title: Manage a Peering Service Connection - Azure CLI
 description: Learn how to create, change, or delete a Peering Service connection using the Azure CLI.
 author: halkazwini
 ms.author: halkazwini
-ms.service: peering-service
+ms.service: azure-peering-service
 ms.topic: how-to
-ms.date: 02/08/2024
+ms.date: 02/25/2026
 ms.custom: devx-track-azurecli
 
-#CustomerIntent: As an administrator, I want to learn how to create and manage a Peering Service connection using the Azure CLI so I can enhance the connectivity to Microsoft services over the public internet.
+# Customer intent: As a network administrator, I want to create, manage, and delete Peering Service connections using the Azure CLI, so that I can optimize connectivity to Microsoft cloud services over the public internet.
 ---
 
 # Create, change, or delete a Peering Service connection using the Azure CLI
@@ -19,7 +19,7 @@ In this article, you learn how to create, change, and delete a Peering Service c
 
 ## Prerequisites 
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Azure Cloud Shell or Azure CLI installed locally.
 
@@ -40,12 +40,12 @@ az provider register --name Microsoft.Peering
 
 ## List Peering Service locations and service providers 
 
-Use [az peering service country list](/cli/azure/peering/service/country#az-peering-service-country-list) to list the countries/regions where Peering Service is available and [az peering service location list](/cli/azure/peering/service/location#az-peering-service-location-list) to list the available metro locations in a specific country where you can get the Peering Service:
+Use [az peering service country list](/cli/azure/peering/service/country#az-peering-service-country-list) to list the countries/regions where Peering Service is available and [az peering service location list](/cli/azure/peering/service/location#az-peering-service-location-list) to list the available metro locations in a specific country/region where you can get the Peering Service:
 
 ```azurecli-interactive
 # List the countries/regions available for Peering Service.
 az peering service country list --out table
-# List metro locations serviced in a country
+# List metro locations serviced in a country/region
 az peering service location list --country "united states" --output table
 ```
 

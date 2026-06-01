@@ -3,7 +3,7 @@ title: "Azure Healthcare APIs limits include file"
 description: "Limits for Azure Healthcare APIs include file"
 services: healthcare-apis
 author: stevewohl
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: "include"
 ms.date: 03/15/2022
 ms.author: v-stevewohl
@@ -21,4 +21,3 @@ Each FHIR service instance in Azure Health Data Services has a storage limit of 
 |Workspace |10|[Contact support](https://azure.microsoft.com/support/options/) |Limit per subscription|
 |FHIR |10|[Contact support](https://azure.microsoft.com/support/options/) |Limit per workspace|
 |DICOM |10|[Contact support](https://azure.microsoft.com/support/options/) |Limit per workspace|
-|MedTech |10|N/A |Limit per workspace, can't be increased|

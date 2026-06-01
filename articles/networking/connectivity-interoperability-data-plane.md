@@ -2,10 +2,12 @@
 title: Interoperability in Azure - Data plane analysis
 description: This article provides the data plane analysis of the test setup you can use to analyze interoperability between ExpressRoute, a site-to-site VPN, and virtual network peering in Azure.
 author: asudbring
-ms.service: virtual-network
-ms.topic: article
+ms.service: azure-virtual-network
+ms.topic: concept-article
 ms.date: 03/24/2023
 ms.author: allensu
+ms.custom: sfi-image-nochange
+# Customer intent: "As a network engineer, I want to analyze packet forwarding paths across Azure network configurations, so that I can ensure seamless connectivity and troubleshoot interoperability between on-premises and virtual networks."
 ---
 
 # Interoperability in Azure - Data plane analysis

@@ -6,8 +6,9 @@ services: storage
 ms.service: azure-import-export
 ms.topic: how-to
 ms.date: 03/14/2022
-ms.author: alkohli
+ms.author: shaas
 
+# Customer intent: "As a data engineer, I want to review error and copy logs for import/export jobs, so that I can troubleshoot data transfer issues and ensure successful completion of my data migration tasks."
 ---
 
 # Use logs to troubleshoot imports and exports via Azure Import/Export

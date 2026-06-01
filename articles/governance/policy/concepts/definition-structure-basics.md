@@ -1,8 +1,8 @@
 ---
 title: Details of Azure Policy definition structure basics
 description: Describes how Azure Policy definition basics are used to establish conventions for Azure resources in your organization.
-ms.date: 07/10/2024
-ms.topic: conceptual
+ms.date: 03/04/2025
+ms.topic: concept-article
 ---
 
 # Azure Policy definition structure basics
@@ -63,7 +63,7 @@ For example, the following JSON shows a policy that limits where resources are d
 }
 ```
 
-For more information, go to the [policy definition schema](https://schema.management.azure.com/schemas/2020-10-01/policyDefinition.json). Azure Policy built-ins and patterns are at [Azure Policy samples](../samples/index.md).
+For more information, go to the [policy definition schema](https://schema.management.azure.com/schemas/2020-10-01/policyDefinition.json). Azure Policy built-ins and patterns are at [Azure Policy samples](/azure/governance/policy/samples/index).
 
 ## Display name and description
 
@@ -98,21 +98,22 @@ For example, resource `Microsoft.Network/routeTables` supports tags and location
 
 We recommend that you set `mode` to `all` in most cases. All policy definitions created through the portal use the `all` mode. If you use PowerShell or Azure CLI, you can specify the `mode` parameter manually. If the policy definition doesn't include a `mode` value, it defaults to `all` in Azure PowerShell and to `null` in Azure CLI. A `null` mode is the same as using `indexed` to support backward compatibility.
 
-`indexed` should be used when creating policies that enforce tags or locations. While not required, it prevents resources that don't support tags and locations from showing up as non-compliant in the compliance results. The exception is resource groups and subscriptions. Policy definitions that enforce location or tags on a resource group or subscription should set `mode` to `all` and specifically target the `Microsoft.Resources/subscriptions/resourceGroups` or `Microsoft.Resources/subscriptions` type. For an example, see [Pattern: Tags - Sample #1](../samples/pattern-tags.md). For a list of resources that support tags, see [Tag support for Azure resources](../../../azure-resource-manager/management/tag-support.md).
+`indexed` should be used when creating policies that enforce tags or locations. While not required, it prevents resources that don't support tags and locations from showing up as non-compliant in the compliance results. The exception is resource groups and subscriptions. Policy definitions that enforce location or tags on a resource group or subscription should set `mode` to `all` and specifically target the `Microsoft.Resources/subscriptions/resourceGroups` or `Microsoft.Resources/subscriptions` type. For an example, see [Pattern: Tags - Sample #1](/azure/governance/policy/samples/pattern-tags). For a list of resources that support tags, see [Tag support for Azure resources](../../../azure-resource-manager/management/tag-support.md).
 
 ### Resource Provider modes
 
 The following Resource Provider modes are fully supported:
 
-- `Microsoft.Kubernetes.Data` for managing Kubernetes clusters and components such as pods, containers, and ingresses. Supported for Azure Kubernetes Service clusters and [Azure Arc-enabled Kubernetes clusters](../../../aks/what-is-aks.md). Definitions using this Resource Provider mode use the effects _audit_, _deny_, and _disabled_.
-- `Microsoft.KeyVault.Data` for managing vaults and certificates in [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy  definitions, see [Integrate Azure Key Vault with Azure Policy](../../../key-vault/general/azure-policy.md).
+- `Microsoft.Kubernetes.Data` for managing Kubernetes clusters and components such as pods, containers, and ingresses. Supported for Azure Kubernetes Service clusters and [Azure Arc-enabled Kubernetes clusters](/azure/aks/what-is-aks). Definitions using this Resource Provider mode use the effects _audit_, _deny_, and _disabled_.
+- `Microsoft.KeyVault.Data` for managing vaults and certificates in [Azure Key Vault](/azure/key-vault/general/overview). For more information on these policy  definitions, see [Integrate Azure Key Vault with Azure Policy](/azure/key-vault/general/azure-policy).
 - `Microsoft.Network.Data` for managing [Azure Virtual Network Manager](../../../virtual-network-manager/overview.md) custom membership policies using Azure Policy.
 
 The following Resource Provider modes are currently supported as a [preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/):
 
-- `Microsoft.ManagedHSM.Data` for managing [Managed Hardware Security Module (HSM)](../../../key-vault/managed-hsm/azure-policy.md) keys using Azure Policy.
+- `Microsoft.ManagedHSM.Data` for managing [Managed Hardware Security Module (HSM)](/azure/key-vault/managed-hsm/azure-policy) keys using Azure Policy.
 - `Microsoft.DataFactory.Data` for using Azure Policy to deny [Azure Data Factory](../../../data-factory/introduction.md) outbound traffic domain names not specified in an allowlist. This Resource Provider mode is enforcement only and doesn't report compliance in public preview.
-- `Microsoft.MachineLearningServices.v2.Data` for managing [Azure Machine Learning](../../../machine-learning/overview-what-is-azure-machine-learning.md) model deployments. This Resource Provider mode reports compliance for newly created and updated components. During public preview, compliance records remain for 24 hours. Model deployments that exist before these policy definitions are assigned don't report compliance.
+- `Microsoft.MachineLearningServices.v2.Data` for managing [Azure Machine Learning](/azure/machine-learning/overview-what-is-azure-machine-learning) model deployments. This Resource Provider mode reports compliance for newly created and updated components. During public preview, compliance records remain for 24 hours. Model deployments that exist before these policy definitions are assigned don't report compliance.
+- `Microsoft.LoadTestService.Data` for restricting [Azure Load Testing](../../../app-testing/load-testing/how-to-use-azure-policy.md) instances to private endpoints.
 
 > [!NOTE]
 > Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
@@ -123,11 +124,11 @@ When Azure Policy versioning is released, the following Resource Provider modes 
 - `Microsoft.MachineLearningServices.v2.Data`
 - `Microsoft.ManagedHSM.Data`
 
-## Version (preview)
+## Version
 
-Built-in policy definitions can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version-preview)
+Built-in policy definitions can host multiple versions with the same `definitionID`. If no version number is specified, all experiences will show the latest version of the definition. To see a specific version of a built-in, it must be specified in API, SDK or UI. To reference a specific version of a definition within an assignment, see [definition version within assignment](../concepts/assignment-structure.md#policy-definition-id-and-version)
 
-The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of change to a built-in policy definition or initiative and state. The format of `version` is: `{Major}.{Minor}.{Patch}`. Specific states, such as _deprecated_ or _preview_, are appended to the `version` property or in another property as a **boolean**.
+The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey state and level of change to a built-in policy definition or initiative. The format of `version` is: `{Major}.{Minor}.{Patch}`. When a policy definition is in preview state, the suffix _preview_ is appended to the `version` property and treated as a **boolean**. When a policy definition is deprecated, the deprecation is captured as a boolean in the definition's metadata using `"deprecated": "true"`.
 
 - Major Version (example: 2.0.0): introduce breaking changes such as major rule logic changes, removing parameters, adding an enforcement effect by default.
 - Minor Version (example: 2.1.0): introduce changes such as minor rule logic changes, adding new parameter allowed values, change to `roleDefinitionIds`, adding or moving definitions within an initiative.
@@ -162,7 +163,7 @@ For more information, see [Understand scope in Azure Policy](./scope.md#definiti
 
 - For more information about policy definition structure, go to [parameters](./definition-structure-parameters.md), [policy rule](./definition-structure-policy-rule.md), and [alias](./definition-structure-alias.md).
 - For initiatives, go to [initiative definition structure](./initiative-definition-structure.md).
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review [Understanding policy effects](effect-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).

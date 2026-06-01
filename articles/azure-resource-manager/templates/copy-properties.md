@@ -3,7 +3,7 @@ title: Define multiple instances of a property
 description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when creating a property on a resource.
 ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 03/20/2024
+ms.date: 04/28/2025
 ---
 
 # Property iteration in ARM templates
@@ -73,7 +73,7 @@ The following example shows how to apply copy loop to the `dataDisks` property o
   "resources": [
     {
       "type": "Microsoft.Compute/virtualMachines",
-      "apiVersion": "2022-11-01",
+      "apiVersion": "2025-04-01",
       ...
       "properties": {
         "storageProfile": {
@@ -105,7 +105,7 @@ The deployed template becomes:
 {
   "name": "examplevm",
   "type": "Microsoft.Compute/virtualMachines",
-  "apiVersion": "2020-06-01",
+  "apiVersion": "2025-04-01",
   "properties": {
     "storageProfile": {
       "dataDisks": [
@@ -193,7 +193,7 @@ The `copy` element is an array so you can specify more than one property for the
 ```json
 {
   "type": "Microsoft.Network/loadBalancers",
-  "apiVersion": "2017-10-01",
+  "apiVersion": "2025-01-01",
   "name": "exampleLB",
   "properties": {
     "copy": [
@@ -221,7 +221,7 @@ You can use resource and property iterations together. Reference the property it
 ```json
 {
   "type": "Microsoft.Network/virtualNetworks",
-  "apiVersion": "2018-04-01",
+  "apiVersion": "2025-01-01",
   "name": "[format('{0}{1}', parameters('vnetname'), copyIndex())]",
   "copy":{
     "count": 2,

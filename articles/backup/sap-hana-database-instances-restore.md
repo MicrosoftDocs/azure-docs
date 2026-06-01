@@ -1,11 +1,13 @@
 ---
 title: Restore SAP HANA database instances on Azure VMs
 description: In this article, you'll learn how to restore SAP HANA database instances on Azure virtual machines.
-ms.topic: conceptual
-ms.date: 11/02/2023
-ms.service: backup
+ms.topic: how-to
+ms.date: 02/16/2026
+ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+ms.custom: sfi-ropc-nochange
+# Customer intent: "As a database administrator, I want to restore SAP HANA database instances from snapshots on Azure virtual machines, so that I can recover critical data efficiently and ensure business continuity."
 ---
 
 # Restore SAP HANA database instance snapshots on Azure VMs
@@ -27,6 +29,8 @@ Here are the two workflows:
 >
 >- Both the backed-up VM and the target VM have the same backup key (including username and password). This means that the HANA backup service can connect with the same credentials and continue to recover tenant databases.
 >- If the backed-up VM and the target VM have different keys, the preregistration script must be run after the system database recovery. This action updates the credentials on the target VM, and then the tenant databases can be recovered.
+
+To learn about the supported SAP HANA database backup and restore scenarios, region availability, and limitations, see the [support matrix](backup-azure-sql-database.md). For common questions, see the [frequently asked questions](sap-hana-faq-backup-azure-vm.yml).
 
 ## Prerequisites
 
@@ -143,4 +147,6 @@ The managed disk snapshots don't get transferred to the Recovery Services vault.
 ## Next steps
 
 - [About SAP HANA database backup on Azure VMs](sap-hana-db-about.md).
-- [Manage SAP HANA database instances on Azure VMs](sap-hana-database-manage.md).
+- [Manage SAP HANA database instances on Azure VMs using Azure portal](sap-hana-database-manage.md).
+- [Manage SAP HANA databases that are backed up by Azure Backup using Azure CLI](tutorial-sap-hana-manage-cli.md).
+- [Troubleshoot SAP HANA snapshot backup jobs on Azure Backup](sap-hana-database-instance-troubleshoot.md).

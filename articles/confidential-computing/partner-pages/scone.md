@@ -3,11 +3,11 @@ title: Scontain
 description: Confidential computing solutions from Scontain on Azure
 services: virtual-machines
 author: ananyagarg
-ms.service: virtual-machines
-ms.subservice: confidential-computing
-ms.topic: conceptual
+ms.service: azure-confidential-computing
+ms.topic: concept-article
 ms.date: 03/29/2023
 ms.author: ananyagarg
+# Customer intent: "As a software developer, I want to utilize the SCONE platform on Azure so that I can build and deploy confidential cloud-native applications without altering my existing codebase."
 ---
 
 # Scontain
@@ -32,7 +32,7 @@ Head to this offering on  [Azure Marketplace to learn more](https://azuremarketp
 ## SCONE Confidential Computing Playground
 The SCONE Playground Virtual Machine has everything you need to evaluate the SCONE Confidential Computing Platform. The Virtual Machine includes our internal tooling (scone-build and sconify-image for effortlessly transforming standard container images into confidential ones), preloaded container images and Helm charts, a local Kubernetes cluster, as well as many practical examples, from simple "Hello World" applications to complex, distributed, multi-stakeholder Machine Learning scenarios with TensorFlow and Spark. This way one can try our solutions without the need to set up everything from scratch (install all the tooling, manage access tokens, setup Kubernetes clusters, and so on...).
 
-This is the easiest way to get started with SCONE, now available on  [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/scontainug1595751515785.scone-demos?tab=Overview).
+This is the easiest way to get started with SCONE, now available on  [Azure Marketplace](https://marketplace.microsoft.com).
 
 
 ## Learn more

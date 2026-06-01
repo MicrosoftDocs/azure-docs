@@ -4,11 +4,11 @@ description: Describes critical open issues and resolutions for the Azure Stack 
 services: databox
 author: stevenmatthew
  
-ms.service: databox
-ms.subservice: gateway
-ms.topic: article
+ms.service: azure-data-box-gateway
+ms.topic: release-notes
 ms.date: 11/11/2020
 ms.author: shaas
+# Customer intent: "As a cloud administrator, I want to access the release notes for Azure Stack Edge and Data Box Gateway to ensure that I am aware of critical issues and fixes before deploying the latest software version."
 ---
 
 # Azure Stack Edge and Azure Data Box Gateway 2007 release notes

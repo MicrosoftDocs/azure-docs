@@ -1,11 +1,12 @@
 ---
-title: Azure Policy definitions for Azure NetApp Files  | Microsoft Docs
+title: Azure Policy definitions for Azure NetApp Files
 description: Describes the Azure Policy custom definitions and built-in definitions that you can use with Azure NetApp Files.
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 06/02/2022
+ms.topic: concept-article
+ms.date: 06/02/2025
 ms.author: anfdocs
+# Customer intent: As an Azure administrator, I want to implement Azure Policy definitions for Azure NetApp Files, so that I can enforce compliance and enhance security for my organization's data storage solutions.
 ---
 # Azure Policy definitions for Azure NetApp Files  
 

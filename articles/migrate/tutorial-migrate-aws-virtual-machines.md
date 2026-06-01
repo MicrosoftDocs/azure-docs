@@ -5,16 +5,21 @@ author: vijain
 ms.author: vijain
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 07/05/2024
-ms.custom: MVC, engagement-fy24
+ms.reviewer: v-uhabiba
+ms.date: 02/07/2025
+ms.collection:
+  - migration
+  - aws-to-azure
+ms.custom:
+  - MVC
+  - engagement-fy24
+  - sfi-image-nochange
+# Customer intent: "As a cloud architect, I want to migrate AWS EC2 instances to Azure, so that I can leverage Azure's infrastructure while maintaining operational continuity and optimizing costs."
 ---
 
-# Discover, assess, and migrate Amazon Web Services (AWS) VMs to Azure
+# Discover, assess, and migrate Amazon Web Services (AWS) EC2 instances to Azure
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that's nearing end-of-life status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
-This tutorial shows you how to discover, assess, and migrate Amazon Web Services (AWS) virtual machines (VMs) to Azure VMs by using Azure Migrate: Server Assessment and the Migration and modernization tool.
+This tutorial shows you how to discover, assess, and migrate Amazon Web Services (AWS) EC2 instances to Azure VMs by using Azure Migrate: Server Assessment and the Migration and modernization tool.
 
 > [!NOTE]
 > You migrate AWS VMs to Azure by treating them as physical servers.
@@ -59,6 +64,8 @@ To set up an assessment:
 1. Then, follow this [tutorial](./tutorial-assess-physical.md) to set up an Azure Migrate project and appliance to discover and assess your AWS VMs.
 
 Although we recommend that you try out an assessment, performing an assessment isn't a mandatory step to be able to migrate VMs.
+
+To plan to migrate an AWS workload to Azure, see [Migrate compute from Amazon Web Services to Azure](/azure/migration/migrate-compute-from-aws), which includes [example migration scenarios](/azure/migration/migrate-compute-from-aws#migration-scenarios) that might align to your use case.
 
 ## Prerequisites
 
@@ -112,7 +119,7 @@ The Migration and modernization tool uses a replication appliance to replicate m
 
 To prepare for appliance deployment:
 
-- Set up a separate EC2 VM to host the replication appliance. This instance must be running Windows Server 2012 R2 or Windows Server 2016. [Review](./migrate-replication-appliance.md#appliance-requirements) the hardware, software, and networking requirements for the appliance.
+- Set up a separate EC2 VM to host the replication appliance. This instance must be running Windows Server 2022. [Review](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance) the hardware, software, and networking requirements for the appliance.
 - The appliance shouldn't be installed on a source VM that you want to replicate or on the Azure Migrate: Discovery and assessment appliance you might have installed before. It should be deployed on a different VM.
 - The source AWS VMs to be migrated should have a network line of sight to the replication appliance. Configure necessary security group rules to enable this capability. We recommend that you deploy the replication appliance in the same virtual private cloud (VPC) as the source VMs to be migrated. If the replication appliance needs to be in a different VPC, the VPCs must be connected through VPC peering.
 - The source AWS VMs communicate with the replication appliance on ports HTTPS 443 (control channel orchestration) and TCP 9443 (data transport) inbound for replication management and replication data transfer. The replication appliance in turn orchestrates and sends replication data to Azure over port HTTPS 443 outbound. To configure these rules, edit the security group inbound/outbound rules with the appropriate ports and source IP information.
@@ -150,7 +157,7 @@ The first step of migration is to set up the replication appliance. To set up th
 
     ![Screenshot that shows the Download button.](media/tutorial-migrate-physical-virtual-machines/download-provider.png)
 
-1. Copy the appliance setup file and key file to the Windows Server 2016 or Windows Server 2012 AWS VM you created for the replication appliance.
+1. Copy the appliance setup file and key file to the Windows Server 2022 AWS VM you created for the replication appliance.
 1. Run the replication appliance setup file, as described in the next procedure.
     1. Under **Before You Begin**, select **Install the configuration server and process server**. Then select **Next**.
     1. In **Third-Party Software License**, select **I accept the third-party license agreement**. Then select **Next**.
@@ -177,7 +184,7 @@ A Mobility service agent must be preinstalled on the source AWS VMs to be migrat
 
 - [AWS System Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html)
 - [System Center Configuration Manager](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md)
-- [Azure Arc for servers and custom script extensions](../azure-arc/servers/overview.md)
+- [Azure Arc for servers and custom script extensions](/azure/azure-arc/servers/overview)
 - [Install Mobility agent for Windows](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt-classic)
 - [Install Mobility agent for Linux](../site-recovery/vmware-physical-mobility-service-overview.md#linux-machine-1)
 
@@ -240,7 +247,7 @@ A Mobility service agent must be preinstalled on the source AWS VMs to be migrat
     - Double encryption with platform-managed and customer-managed keys.
 
    > [!NOTE]
-   > To replicate VMs with customer-managed keys, you need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.yml) under the target resource group. A disk encryption set object maps managed disks to an Azure Key Vault instance that contains the customer-managed key to use for server-side encryption.
+   > To replicate VMs with customer-managed keys, you need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) under the target resource group. A disk encryption set object maps managed disks to an Azure Key Vault instance that contains the customer-managed key to use for server-side encryption.
 
 1. In **Azure Hybrid Benefit**:
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then select **Next**.
@@ -254,7 +261,7 @@ A Mobility service agent must be preinstalled on the source AWS VMs to be migrat
     - **Availability Zone**: Specify the availability zone to use.
     - **Availability Set**: Specify the availability set to use.
 
-1. In **Disks**, specify whether the VM disks should be replicated to Azure and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
+1. In **Disks**, specify whether the VM disks should be replicated to Azure and select the disk type (Standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, they won't be present on the Azure VM after migration.
 
@@ -349,7 +356,7 @@ After you verify that the test migration works as expected, you can migrate the 
     - Lock down and limit inbound traffic access with [Microsoft Defender for Cloud - Just-in-time administration](../security-center/security-center-just-in-time.md).
     - Manage and govern updates on Windows and Linux machines with [Azure Update Manager](../update-manager/overview.md).
     - Restrict network traffic to management endpoints with [network security groups](../virtual-network/network-security-groups-overview.md).
-    - Deploy [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md) to help secure disks and keep data safe from theft and unauthorized access.
+    - Deploy [Azure Disk Encryption](/azure/virtual-machines/disk-encryption-overview) to help secure disks and keep data safe from theft and unauthorized access.
     - Read more about [securing IaaS resources](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/) and [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/).
 - For monitoring and management:
     - Consider deploying [Microsoft Cost Management](../cost-management-billing/cost-management-billing-overview.md) to monitor resource usage and spending.
@@ -383,7 +390,7 @@ After you verify that the test migration works as expected, you can migrate the 
 
 **Question:** Can I migrate AWS VMs running the Amazon Linux operating system?<br>
 **Answer:** VMs running Amazon Linux can't be migrated as is because the Amazon Linux OS is only supported on AWS.
-To migrate workloads running on Amazon Linux, you can spin up a CentOS/RHEL VM in Azure. Then you can migrate the workload running on the AWS Linux machine by using a relevant workload migration approach. For example, depending on the workload, there might be workload-specific tools to aid the migration. These tools might be for databases or deployment tools for web servers.
+To migrate workloads running on Amazon Linux, you can spin up a RHEL VM in Azure. Then you can migrate the workload running on the AWS Linux machine by using a relevant workload migration approach. For example, depending on the workload, there might be workload-specific tools to aid the migration. These tools might be for databases or deployment tools for web servers.
 
 ## Next steps
 

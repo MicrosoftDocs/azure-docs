@@ -4,11 +4,13 @@ description: include file
 services: site-recovery
 author: mayurigupta13
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: include
 ms.date: 02/28/2019
 ms.author: mayg
-ms.custom: include file
+ms.custom:
+  - include file
+  - sfi-image-nochange
 
 ---
 

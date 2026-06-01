@@ -5,9 +5,11 @@ author: vijain
 ms.author: vijain
 ms.manager: kmadnani
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: tutorial
-ms.date: 12/07/2021
+ms.date: 02/06/2025
 ms.custom: engagement-fy23
+# Customer intent: "As a DevOps engineer, I want to set up a continuous deployment pipeline for my containerized applications, so that I can automate the build and deployment processes and improve efficiency in managing updates and Day 2 operations."
 ---
 
 # Continuous deployment for containerized applications with Azure DevOps
@@ -63,7 +65,7 @@ You'll need to upload the artifacts to a source repository that will be used wit
 
 ## Sign in to Azure Pipelines
 
-Sign in to [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines). After you sign in, your browser goes to https://dev.azure.com/my-organization-name and displays your Azure DevOps dashboard.
+Sign in to [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines). After you sign in, your browser goes to `https://dev.azure.com/my-organization-name` and displays your Azure DevOps dashboard.
 
 Within your selected organization, create a *project*. If you don't have any projects in your organization, you see a **Create a project to get started** screen. Otherwise, select the **Create Project** button in the upper-right corner of the dashboard.
 
@@ -95,3 +97,9 @@ Now that you've created both the service connections, you can configure your pip
 9. When you're ready, **Save** to commit the new pipeline into your repo. 
 
 Your pipeline is all setup to build and deploy your containerized for Day 2 operations. You can [customize your pipeline](/azure/devops/pipelines/customize-pipeline#prerequisite) to meet your organizational needs. 
+
+## Next steps
+
+- Containerizing Java web apps on Apache Tomcat (on Linux servers) and deploying them on Linux containers on AKS. [Learn more](./tutorial-app-containerization-java-kubernetes.md)
+- Containerizing ASP.NET web apps and deploying them on Windows containers on AKS. [Learn more](./tutorial-app-containerization-aspnet-kubernetes.md)
+- Containerizing ASP.NET web apps and deploying them on Windows containers on Azure App Service. [Learn more](./tutorial-app-containerization-aspnet-app-service.md)

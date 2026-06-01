@@ -2,7 +2,7 @@
 title: Understand the query language
 description: Describes Resource Graph tables and the available Kusto data types, operators, and functions usable with Azure Resource Graph.
 ms.date: 03/20/2024
-ms.topic: conceptual
+ms.topic: reference
 ---
 
 # Understanding the Azure Resource Graph query language
@@ -62,7 +62,6 @@ Resource Graph tables support the `join` flavors:
 | ManagedServicesResources | Yes | Includes resources _related_ to `Microsoft.ManagedServices`. |
 | MigrateResources | Yes | Includes resources _related_ to `Microsoft.OffAzure`. |
 | NetworkResources | Yes | Includes resources _related_ to `Microsoft.Network`. |
-| OrbitalResources | Yes | Includes resources _related_ to `Microsoft.Orbital`. |
 | PatchAssessmentResources| Yes | Includes resources _related_ to Azure Virtual Machines patch assessment `Microsoft.Compute` and `Microsoft.HybridCompute`. |
 | PatchInstallationResources| Yes | Includes resources _related_ to Azure Virtual Machines patch installation `Microsoft.Compute` and `Microsoft.HybridCompute`. |
 | PolicyResources | Yes | Includes resources _related_ to `Microsoft.PolicyInsights`. |
@@ -181,7 +180,7 @@ This query first uses the shared query, and then uses `limit` to further restric
 Resource Graph supports a subset of KQL [data types](/azure/data-explorer/kusto/query/scalar-data-types/),
 [scalar functions](/azure/data-explorer/kusto/query/scalarfunctions),
 [scalar operators](/azure/data-explorer/kusto/query/binoperators), and
-[aggregation functions](/azure/data-explorer/kusto/query/any-aggfunction). Specific
+[aggregation functions](/kusto/query/aggregation-functions). Specific
 [tabular operators](/azure/data-explorer/kusto/query/queries) are supported by Resource Graph, some of which have different behaviors.
 
 ### Supported tabular/top level operators
@@ -193,10 +192,10 @@ Here's the list of KQL tabular operators supported by Resource Graph with specif
 |[count](/azure/data-explorer/kusto/query/countoperator) |[Count key vaults](../samples/starter.md#count-key-vault-resources) | |
 |[distinct](/azure/data-explorer/kusto/query/distinctoperator) |[Show resources that contain storage](../samples/starter.md#show-resources-that-contain-storage) | |
 |[extend](/azure/data-explorer/kusto/query/extendoperator) |[Count virtual machines by OS type](../samples/starter.md#count-virtual-machines-by-os-type) | |
-|[join](/azure/data-explorer/kusto/query/joinoperator) |[Key vault with subscription name](../samples/advanced.md#key-vaults-with-subscription-name) |Join flavors supported: [innerunique](/azure/data-explorer/kusto/query/joinoperator#default-join-flavor), [inner](/azure/data-explorer/kusto/query/joinoperator#inner-join), [leftouter](/azure/data-explorer/kusto/query/joinoperator#left-outer-join), and [fullouter](/azure/data-explorer/kusto/query/join-fullouter). Limit of three `join` in a single query, one of which might be a cross-table `join`. If all cross-table `join` use is between _Resource_ and _ResourceContainers_, then three cross-table `join` are allowed. Custom join strategies, such as broadcast join, aren't allowed. For which tables can use `join`, go to [Resource Graph tables](#resource-graph-tables). |
+|[join](/azure/data-explorer/kusto/query/joinoperator) |[Key vault with subscription name](../samples/advanced.md#key-vaults-with-subscription-name) |Join flavors supported: [innerunique](/azure/data-explorer/kusto/query/joinoperator#default-join-flavor), [inner](/azure/data-explorer/kusto/query/joinoperator#inner-join), [leftouter](/azure/data-explorer/kusto/query/joinoperator#left-outer-join), and [fullouter](/azure/data-explorer/kusto/query/join-fullouter). Limit of three `join` or `union` operations (or a combination of the two) in a single query, counted together, one of which might be a cross-table join. If all cross-table `join` use is between _Resource_ and _ResourceContainers_, then three cross-table `join` are allowed. Custom join strategies, such as broadcast join, aren't allowed. For which tables can use `join`, go to [Resource Graph tables](#resource-graph-tables). |
 |[limit](/azure/data-explorer/kusto/query/limitoperator) |[List all public IP addresses](../samples/starter.md#list-all-public-ip-addresses) |Synonym of `take`. Doesn't work with [Skip](./work-with-data.md#skipping-records). |
 |[mvexpand](/azure/data-explorer/kusto/query/mvexpandoperator) | | Legacy operator, use `mv-expand` instead. _RowLimit_ max of 2,000. The default is 128. |
-|[mv-expand](/azure/data-explorer/kusto/query/mvexpandoperator) |[List Azure Cosmos DB with specific write locations](../samples/advanced.md#list-azure-cosmos-db-with-specific-write-locations) |_RowLimit_ max of 2,000. The default is 128. Limit of 2 `mv-expand` in a single query.|
+|[mv-expand](/azure/data-explorer/kusto/query/mvexpandoperator) |[List Azure Cosmos DB with specific write locations](../samples/advanced.md#list-azure-cosmos-db-with-specific-write-locations) |_RowLimit_ max of 2,000. The default is 128. Limit of 3 `mv-expand` in a single query.|
 |[order](/azure/data-explorer/kusto/query/orderoperator) |[List resources sorted by name](../samples/starter.md#list-resources-sorted-by-name) |Synonym of `sort` |
 |[parse](/azure/data-explorer/kusto/query/parseoperator) |[Get virtual networks and subnets of network interfaces](../samples/advanced.md#get-virtual-networks-and-subnets-of-network-interfaces) |It's optimal to access properties directly if they exist instead of using `parse`. |
 |[project](/azure/data-explorer/kusto/query/projectoperator) |[List resources sorted by name](../samples/starter.md#list-resources-sorted-by-name) | |
@@ -220,7 +219,7 @@ To support the _Open Query_ portal experience, Azure Resource Graph Explorer has
 The scope of the subscriptions or [management groups](../../management-groups/overview.md) from
 which resources are returned by a query defaults to a list of subscriptions based on the context of
 the authorized user. If a management group or a subscription list isn't defined, the query scope is
-all resources, and includes [Azure Lighthouse](../../../lighthouse/overview.md) delegated
+all resources, and includes [Azure Lighthouse](/azure/lighthouse/overview) delegated
 resources.
 
 The list of subscriptions or management groups to query can be manually defined to change the scope
@@ -328,6 +327,81 @@ query or the property name is interpreted incorrectly and doesn't provide the ex
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type
     ```
+
+## RBAC permission evaluation functions in Azure Resource Graph
+
+Azure Resource Graph (ARG) provides two functions that allow you to evaluate whether the *current querying identity* has specific permissions on individual resources:
+
+- `hasPermission()`
+- `hasDataPermission()`
+
+These functions return a boolean value (`1` or `0`) per resource and enable scenarios such as filtering or summarizing resources based on access.
+
+> [!NOTE]
+> These functions are evaluated in the context of a **resource instance and effective RBAC assignments**. They do **not** operate on role definitions directly.
+
+### hasPermission()
+
+The `hasPermission()` function evaluates whether the querying identity has a specific **control‑plane** permission on a resource.
+
+Use the following format for `hasPermission()`:
+
+```kusto
+hasPermission('<permission-string>')
+```
+
+The `hasPermission()` function uses effective RBAC assignments for the querying identity and evaluates per resource row. The function returns **1** is the identity has the specified permission on the resource, and **0** if the identity does not. 
+
+#### Example Check write access to Azure Container Registries
+
+```kusto
+resources
+| where type =~ 'Microsoft.ContainerRegistry/registries'
+| extend canPush = hasPermission('Microsoft.ContainerRegistry/registries/push/write')
+```
+
+In this example each container registry resource is evaluated individually, and `canPush` indicates whether the querying identity can perform the specified write action on that resource. The results can be used for filtering, aggregating, or summarizing based on the returned value.
+
+### hasDataPermission()
+
+The `hasDataPermission()` evaluates whether the querying identity has a specific data‑plane permission on a resource.
+
+Use the following format for `hasDataPermission()`:
+
+```kusto
+hasDataPermission('<permission-string>')
+```
+The `hasDataPermission()` function uses effective data‑plane access evaluation for the querying identity and is evaluated per resource row. The function returns 1 if the identity has the specified data‑plane permission on the resource, and 0 if the identity does not.
+
+#### Example: Check data-plane read access to Azure Blob Storage
+
+```kusto
+resources
+| where type =~ 'Microsoft.Storage/storageAccounts'
+| extend canReadBlobs = hasDataPermission('Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read')
+```
+
+In this example, each storage resource is evaluated individually. The `hasDataPermissions()` function checks whether the querying identity has the specified data-plne permissions. The returned value can be used for filtering, summarizing, or reporting. 
+
+#### Example: Check data-plane read access to Azure Blob Storage with filtering 
+
+```kusto
+resources
+| where type =~ 'Microsoft.Storage/storageAccounts'
+| where hasDataPermission('Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read') == 1
+```
+
+This example returns only the storage accounts where the querying identity has blob read access.
+
+### Important limitations
+
+These functions are frequently confused with role or permission discovery scenarios. The following limitations are important to understand:
+
+- The `hasPermission()` and `hasDataPermission()` functions do not determine what permissions a role definition grants.
+- They cannot be used to query or filter *microsoft.authorization/roledefinitions* resources.
+- They are not intended for answering questions such as:
+    - “Which roles grant this permission?”
+    - “What actions does this role definition include?”
 
 ## Next steps
 

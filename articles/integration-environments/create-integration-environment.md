@@ -1,11 +1,14 @@
 ---
 title: Create integration environments for Azure resources
 description: Create an integration environment to centrally organize and manage Azure resources related to your integration solutions.
-ms.service: integration-environments
+ms.service: azure
+ms.subservice: azure-integration-environments
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 06/07/2024
-# CustomerIntent: As an integration developer, I want a way to centrally and logically organize Azure resoruces related to my organization's integration solutions.
+ms.date: 09/11/2025
+ms.update-cycle: 1095-days
+ms.custom: sfi-image-nochange
+# Customer intent: As an integration developer, I want a way to centrally and logically organize Azure resources related to my organization's integration solutions.
 ---
 
 # Create an integration environment (Preview)
@@ -19,7 +22,7 @@ To centrally and logically organize and manage Azure resources associated with y
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
   > [!NOTE]
   >

@@ -2,12 +2,12 @@
 title: Backend MTLS with Application Gateway for Containers - Gateway API
 description: Learn how to configure Application Gateway for Containers with support for backend MTLS authentication.
 services: application-gateway
-author: greglin
-ms.service: application-gateway
-ms.subservice: appgw-for-containers
+author: mbender-ms
+ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 02/27/2024
-ms.author: greglin
+ms.date: 11/05/2024
+ms.author: mbender
+# Customer intent: "As a cloud architect, I want to configure backend mutual TLS authentication for an application using Application Gateway for Containers, so that I can enhance the security of communications between clients and backend services."
 ---
 
 # Backend MTLS with Application Gateway for Containers - Gateway API
@@ -28,14 +28,14 @@ See the following figure:
 
 ## Prerequisites
 
-1. If following the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
-2. If following the ALB managed deployment strategy, ensure you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provision the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+1. If following the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)).
+2. If following the ALB managed deployment strategy, ensure you provision your ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)) and provision the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTP application:
 
    Apply the following deployment.yaml file on your cluster to create a sample web application and deploy sample secrets to demonstrate backend mutual authentication (mTLS).
 
    ```bash
-   kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/end-to-end-ssl-with-backend-mtls/deployment.yaml
+   kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/https-scenario/end-to-end-ssl-with-backend-mtls/deployment.yaml
    ```
   
    This command creates the following on your cluster:

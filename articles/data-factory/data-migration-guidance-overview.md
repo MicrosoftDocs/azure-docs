@@ -3,9 +3,8 @@ title: Migrate data from data lake and data warehouse to Azure
 description: Use Azure Data Factory to migrate data from your data lake and data warehouse to Azure.
 author: dearandyxu
 ms.author: yexu
-ms.service: data-factory
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 05/15/2024
 ---
 

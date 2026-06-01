@@ -2,16 +2,20 @@
 title: Manage web traffic - Azure PowerShell
 description: Learn how to create an application gateway with a virtual machine scale set to manage web traffic using Azure PowerShell.
 services: application-gateway
-author: greg-lindsay
-ms.service: application-gateway
+author: mbender-ms
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 07/19/2019
-ms.author: greglin
-ms.custom: mvc, devx-track-azurepowershell
+ms.author: mbender
+ms.custom:
+  - mvc
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to create an application gateway with a virtual machine scale set using PowerShell so that I can efficiently manage and secure web traffic to my backend servers.
 ---
 # Manage web traffic with an application gateway using Azure PowerShell
 
-Application gateway is used to manage and secure web traffic to servers that you maintain. You can use Azure PowerShell to create an [application gateway](overview.md) that uses a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for backend servers to manage web traffic. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
+Application gateway is used to manage and secure web traffic to servers that you maintain. You can use Azure PowerShell to create an [application gateway](overview.md) that uses a [virtual machine scale set](/azure/virtual-machine-scale-sets/overview) for backend servers to manage web traffic. In this example, the scale set contains two virtual machine instances that are added to the default backend pool of the application gateway.
 
 In this article, you learn how to:
 
@@ -21,7 +25,7 @@ In this article, you learn how to:
 
 If you prefer, you can complete this procedure using [Azure CLI](tutorial-manage-web-traffic-cli.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 

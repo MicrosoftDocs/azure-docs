@@ -1,7 +1,7 @@
 ---
 title: Azure Event Grid - Monitor data reference (push delivery)
 description: This article provides reference documentation for metrics and diagnostic logs for Azure Event Grid's push delivery of events.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom:
   - build-2023
   - ignite-2023
@@ -125,7 +125,7 @@ Diagnostic settings allow Event Grid users to capture and view **publish and del
 ```json
 {
     "time": "2019-11-01T00:17:13.4389048Z",
-    "resourceId": "/SUBSCRIPTIONS/SAMPLE-SUBSCTIPTION-ID /RESOURCEGROUPS/SAMPLE-RESOURCEGROUP-NAME/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/SAMPLE-TOPIC-NAME ",
+    "resourceId": "/SUBSCRIPTIONS/SAMPLE-SUBSCRIPTION-ID /RESOURCEGROUPS/SAMPLE-RESOURCEGROUP-NAME/PROVIDERS/MICROSOFT.EVENTGRID/TOPICS/SAMPLE-TOPIC-NAME ",
     "eventSubscriptionName": "SAMPLEDESTINATION",
     "category": "DeliveryFailures",
     "operationName": "Deliver",

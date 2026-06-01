@@ -3,9 +3,9 @@ title: "Tutorial: Azure IoT continuous patient monitoring"
 description: In this tutorial, you deploy and use the continuous patient monitoring application template for IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/10/2023
+ms.date: 10/14/2024
 ms.topic: tutorial
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ---
 
@@ -40,7 +40,7 @@ Azure IoT Central is HIPAA-compliant and HITRUST&reg; certified. You can send pa
 
 ### Machine learning (4)
 
-Use machine learning models with your FHIR data to generate insights and support decision making by your care team. To learn more, see the [Azure Machine Learning documentation](../../machine-learning/index.yml).
+Use machine learning models with your FHIR data to generate insights and support decision making by your care team. To learn more, see the [Azure Machine Learning documentation](/azure/machine-learning/).
 
 ### Provider dashboard (5)
 
@@ -53,7 +53,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create application
 

@@ -5,9 +5,10 @@ services: storage
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 04/02/2021
+ms.date: 10/28/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
+# Customer intent: As a cloud storage administrator, I want to use a command-line utility to transfer data from Google Cloud Storage to Azure Storage, so that I can manage and consolidate my data across different cloud environments efficiently.
 ---
 
 # Copy data from Google Cloud Storage to Azure Storage by using AzCopy
@@ -25,15 +26,15 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
 > [!NOTE]
-> The examples in this article assume that you've provided authorization credentials by using Microsoft Entra ID.
+> The examples in this article assume that you provide authorization credentials by using Microsoft Entra ID.
 >
 > If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ### Authorize with Google Cloud Storage
 
-To authorize with Google Cloud Storage, you'll use a service account key. For information about how to create a service account key, see [Creating and managing service account keys](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
+To authorize with Google Cloud Storage, use a service account key. For information about how to create a service account key, see [Creating and managing service account keys](https://cloud.google.com/iam/docs/creating-managing-service-account-keys).
 
-After you've obtained a service key, set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable to absolute path to the service account key file:
+After you obtain a service key, set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable to the absolute path to the service account key file:
 
 | Operating system | Command  |
 |--------|-----------|
@@ -79,7 +80,7 @@ azcopy copy 'https://storage.cloud.google.com/mybucket/mydirectory' 'https://mys
 ```
 
 > [!NOTE]
-> This example appends the `--recursive` flag to copy files in all sub-directories.
+> This example appends the `--recursive` flag to copy files in all subdirectories.
 
 ### Copy the contents of a directory
 
@@ -111,7 +112,7 @@ azcopy copy 'https://storage.cloud.google.com/mybucket' 'https://mystorageaccoun
 
 ### Copy all buckets in a Google Cloud project
 
-First, set the `GOOGLE_CLOUD_PROJECT` to project ID of Google Cloud project.
+First, set the `GOOGLE_CLOUD_PROJECT` to the project ID of your Google Cloud project.
 
 Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hierarchical namespace.
 
@@ -127,7 +128,7 @@ azcopy copy 'https://storage.cloud.google.com/' 'https://mystorageaccount.blob.c
 
 ### Copy a subset of buckets in a Google Cloud project
 
-First, set the `GOOGLE_CLOUD_PROJECT` to project ID of Google Cloud project.
+First, set the `GOOGLE_CLOUD_PROJECT` to the project ID of your Google Cloud project.
 
 Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hierarchical namespace.
 
@@ -145,25 +146,25 @@ azcopy copy 'https://storage.cloud.google.com/my*bucket' 'https://mystorageaccou
 
 Google Cloud Storage has a different set of naming conventions for bucket names as compared to Azure blob containers. You can read about them [here](https://cloud.google.com/storage/docs/naming-buckets). If you choose to copy a group of buckets to an Azure storage account, the copy operation might fail because of naming differences.
 
-AzCopy handles three of the most common issues that can arise; buckets that contain periods, buckets that contain consecutive hyphens, and buckets that contain underscores. Google Cloud Storage bucket names can contain periods and consecutive hyphens, but a container in Azure can't. AzCopy replaces periods with hyphens and consecutive hyphens with a number that represents the number of consecutive hyphens (For example: a bucket named `my----bucket` becomes `my-4-bucket`. If the bucket name has an underscore (`_`), then AzCopy replaces the underscore with a hyphen. For example, a bucket named `my_bucket` becomes `my-bucket`.
+AzCopy handles three of the most common issues that can arise: buckets that contain periods, buckets that contain consecutive hyphens, and buckets that contain underscores. Google Cloud Storage bucket names can contain periods and consecutive hyphens, but a container in Azure can't. AzCopy replaces periods with hyphens and consecutive hyphens with a number that represents the number of consecutive hyphens (for example: a bucket named `my----bucket` becomes `my-4-bucket`). If the bucket name has an underscore (`_`), then AzCopy replaces the underscore with a hyphen. For example, a bucket named `my_bucket` becomes `my-bucket`.
 
 ## Handle differences in object naming rules
 
 Google Cloud Storage has a different set of naming conventions for object names as compared to Azure blobs. You can read about them [here](https://cloud.google.com/storage/docs/naming-objects).
 
-Azure Storage does not permit object names (or any segment in the virtual directory path) to end with trailing dots (For example `my-bucket...`). Trailing dots are trimmed off when the copy operation is performed.
+Azure Storage doesn't permit object names (or any segment in the virtual directory path) to end with trailing dots (for example `my-bucket...`). Trailing dots are trimmed off when the copy operation is performed.
 
 ## Handle differences in object metadata
 
 Google Cloud Storage and Azure allow different sets of characters in the names of object keys. You can read about metadata in Google Cloud Storage [here](https://cloud.google.com/storage/docs/metadata). On the Azure side, blob object keys adhere to the naming rules for [C# identifiers](/dotnet/csharp/language-reference/).
 
-As part of an AzCopy `copy` command, you can provide a value for optional the `s2s-handle-invalid-metadata` flag that specifies how you would like to handle files where the metadata of the file contains incompatible key names. The following table describes each flag value.
+As part of an AzCopy `copy` command, you can provide a value for the optional `s2s-handle-invalid-metadata` flag that specifies how you want to handle files where the metadata of the file contains incompatible key names. The following table describes each flag value.
 
 | Flag value | Description  |
 |--------|-----------|
 | **ExcludeIfInvalid** | (Default option) The metadata isn't included in the transferred object. AzCopy logs a warning. |
 | **FailIfInvalid** | Objects aren't copied. AzCopy logs an error and includes that error in the failed count that appears in the transfer summary.  |
-| **RenameIfInvalid**  | AzCopy resolves the invalid metadata key, and copies the object to Azure using the resolved metadata key value pair. To learn exactly what steps AzCopy takes to rename object keys, see the [How AzCopy renames object keys](#rename-logic) section below. If AzCopy is unable to rename the key, then the object won't be copied. |
+| **RenameIfInvalid**  | AzCopy resolves the invalid metadata key, and copies the object to Azure using the resolved metadata key value pair. To learn exactly what steps AzCopy takes to rename object keys, see the [How AzCopy renames object keys](#rename-logic) section. If AzCopy is unable to rename the key, then the object isn't copied. |
 
 <a id="rename-logic"></a>
 
@@ -181,6 +182,10 @@ AzCopy performs these steps:
    This key will be used to save original metadata invalid **key**.
    You can use this key to try to recover the metadata in Azure side since metadata key is preserved as a value on the Blob storage service.
 
+## Specify source and destination types
+
+AzCopy uses the `--from-to` parameter to explicitly define the source and destination resource types when automatic detection may fail-such as in piping scenarios or emulators. This helps AzCopy understand the context of the transfer and optimize accordingly. You can set this parameter to `GCPBlob`to explicitly indicate that the command is copying from Google Cloud Storage to Azure Blob Storage.
+
 ## Next steps
 
 Find more examples in these articles:
@@ -191,7 +196,6 @@ Find more examples in these articles:
 - [Examples: Synchronize](storage-use-azcopy-blobs-synchronize.md)
 - [Examples: Amazon S3 buckets](storage-use-azcopy-s3.md)
 - [Examples: Azure Files](storage-use-azcopy-files.md)
-- [Tutorial: Migrate on-premises data to cloud storage by using AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 
 See these articles to configure settings, optimize performance, and troubleshoot issues:
 

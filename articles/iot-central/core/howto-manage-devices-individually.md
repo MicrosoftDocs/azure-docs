@@ -3,9 +3,9 @@ title: Manage devices individually in your application
 description: Learn how to manage devices individually in your Azure IoT Central application. Monitor, manage, create, delete, and update devices.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/01/2024
+ms.date: 08/06/2025
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 # Operator
 ---
@@ -90,7 +90,7 @@ Watch the following video to learn more about how to monitor device connection s
 
 > [!VIDEO https://www.youtube.com/embed/EUZH_6Ihtto]
 
-You can include connection and disconnection events in  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md). To learn more, see [React to IoT Hub events > Limitations for device connected and device disconnected events](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connection-state-events).
+You can include connection and disconnection events in  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md). To learn more, see [React to IoT Hub events by using Event Grid to trigger actions > Limitations for device connection state events](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connection-state-events).
 
 ## Add a device
 
@@ -127,7 +127,7 @@ To find these values:
 
 1. Choose **Devices** on the left pane.
 
-1. To see the device details, click on the device in the device list.
+1. To see the device details, select the device in the device list.
 
 1. Select **Connect** to view the connection information. The QR code encodes a JSON document that includes the **ID Scope**, **Device ID**, and **Primary key** derived from the default **SAS-IoT-Devices** device connection group.
 
@@ -182,7 +182,7 @@ To delete either a real or simulated device from your Azure IoT Central applicat
 
 ## Change a property
 
-Cloud properties are the device metadata associated with the device, such as city and serial number. Cloud properties only exist in the IoT Central application and aren't synchronized to your devices. Writable properties control the behavior of a device and let you set the state of a device remotely, for example by setting the target temperature of a thermostat device. Device properties are set by the device and are read-only within IoT Central. You can view and update properties on the **Device Details** views for your device.
+Cloud properties are the device metadata associated with the device, such as city and serial number. Cloud properties only exist in the IoT Central application and aren't synchronized to your devices. Writable properties control the behavior of a device and let you set the state of a device remotely, for example by setting the target temperature of a thermostat device. The device sets device properties, which are read-only within IoT Central. You can view and update properties on the **Device Details** views for your device.
 
 1. Choose **Devices** on the left pane.
 

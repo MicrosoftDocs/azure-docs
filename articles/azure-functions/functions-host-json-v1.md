@@ -1,7 +1,7 @@
 ---
 title: host.json reference for Azure Functions 1.x
 description: Reference documentation for the Azure Functions host.json file with the v1 runtime.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/19/2018
 ---
 
@@ -135,7 +135,7 @@ Configuration settings for the [Azure Cosmos DB trigger and bindings](functions-
 |Property  |Default | Description |
 |---------|---------|---------|
 |GatewayMode|Gateway|The connection mode used by the function when connecting to the Azure Cosmos DB service. Options are `Direct` and `Gateway`|
-|Protocol|Https|The connection protocol used by the function when connection to the Azure Cosmos DB service.  Read [here for an explanation of both modes](../cosmos-db/performance-tips.md#networking)|
+|Protocol|Https|The connection protocol used by the function when connection to the Azure Cosmos DB service.  Read [here for an explanation of both modes](/azure/cosmos-db/performance-tips#networking)|
 |leasePrefix|n/a|Lease prefix to use across all functions in an app.|
 
 ## durableTask

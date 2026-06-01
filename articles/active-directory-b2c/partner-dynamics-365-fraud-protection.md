@@ -5,16 +5,18 @@ description: Tutorial to configure Azure AD B2C with Microsoft Dynamics 365 Frau
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developer, and I want to integrate Microsoft Dynamics 365 Fraud Protection with Azure Active Directory B2C. I need to assess risk during attempts to create fraudulent accounts and sign-ins, and then block or challenge suspicious attempts.
 ---
 
 # Tutorial: Configure Microsoft Dynamics 365 Fraud Protection with Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Organizations can use Microsoft Dynamics 365 Fraud Protection (DFP) to assess risk during attempts to create fraudulent accounts and sign-ins. Customers use Microsoft DFP assessment to block or challenge suspicious attempts to create new, fake accounts, or to compromise accounts.
 
@@ -27,7 +29,7 @@ Learn more: [Overview of Microsoft Dynamics 365 Fraud Protection](/dynamics365/f
 To get started, you'll need:
 
 - An Azure subscription
-  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - A Microsoft DFP subscription
   - See, [Dynamics 365 pricing](https://dynamics.microsoft.com/pricing/#Sales)
@@ -92,7 +94,7 @@ Learn more: [UI customization documentation](./customize-ui-with-html.md?pivots=
 
 ### Add policy keys for your Microsoft DFP client app ID and secret
 
-1. In the Microsoft Entra tenant where Microsoft DFP is set up, create an [Microsoft Entra application and grant admin consent](/dynamics365/fraud-protection/integrate-real-time-api#create-azure-active-directory-applications).
+1. In the Microsoft Entra tenant where Microsoft DFP is set up, create a [Microsoft Entra application and grant admin consent](/dynamics365/fraud-protection/integrate-real-time-api#create-azure-active-directory-applications).
 2. Create a secret value for this application registration. Note the application client ID and client secret value.
 3. Save the client ID and client secret values as [policy keys in your Azure AD B2C tenant](./policy-keys-overview.md).
 
@@ -109,15 +111,15 @@ In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integr
 |{Settings:Tenant}|Your tenant short name |`your-tenant` - from your-tenant.onmicrosoft.com|
 |{Settings:DeploymentMode}|Application Insights deployment mode to use|`Production` or `Development`|
 |{Settings:DeveloperMode}|Whether to deploy the policies in Application Insights developer mode|`true` or `false`|
-|{Settings:AppInsightsInstrumentationKey}|Instrumentation key of your Application Insights instance*|`01234567-89ab-cdef-0123-456789abcdef`|
-|{Settings:IdentityExperienceFrameworkAppId}App ID of the IdentityExperienceFramework app configured in your Azure AD B2C tenant|`01234567-89ab-cdef-0123-456789abcdef`|
-|{Settings:ProxyIdentityExperienceFrameworkAppId}|App ID of the ProxyIdentityExperienceFramework app configured in your Azure AD B2C tenant|`01234567-89ab-cdef-0123-456789abcdef`|
+|{Settings:AppInsightsInstrumentationKey}|Instrumentation key of your Application Insights instance*|`00001111-aaaa-2222-bbbb-3333cccc4444`|
+|{Settings:IdentityExperienceFrameworkAppId}App ID of the IdentityExperienceFramework app configured in your Azure AD B2C tenant|`00001111-aaaa-2222-bbbb-3333cccc4444`|
+|{Settings:ProxyIdentityExperienceFrameworkAppId}|App ID of the ProxyIdentityExperienceFramework app configured in your Azure AD B2C tenant|`00001111-aaaa-2222-bbbb-3333cccc4444`|
 |{Settings:FacebookClientId}|App ID of the Facebook app you configured for federation with B2C| `000000000000000`|
 |{Settings:FacebookClientSecretKeyContainer}| Name of the policy key, in which you saved Facebook's app secret |`B2C_1A_FacebookAppSecret`|
 |{Settings:ContentDefinitionBaseUri}|Endpoint in where you deployed the UI files|`https://<my-storage-account>.blob.core.windows.net/<my-storage-container>`|
-|{Settings:DfpApiBaseUrl}|The base path for your DFP API instance, found in the DFP portal| `https://tenantname-01234567-89ab-cdef-0123-456789abcdef.api.dfp.dynamics.com/v1.0/`|
+|{Settings:DfpApiBaseUrl}|The base path for your DFP API instance, found in the DFP portal| `https://tenantname-aaaabbbb-0000-cccc-1111-dddd2222eeee.api.dfp.dynamics.com/v1.0/`|
 |{Settings:DfpApiAuthScope}|The client_credentials scope for the DFP API service|`https://api.dfp.dynamics-int.com/.default or https://api.dfp.dynamics.com/.default`|
-|{Settings:DfpTenantId}|The ID of the Microsoft Entra tenant (not B2C) where DFP is licensed and installed|`01234567-89ab-cdef-0123-456789abcdef` or `consoto.onmicrosoft.com` |
+|{Settings:DfpTenantId}|The ID of the Microsoft Entra tenant (not B2C) where DFP is licensed and installed|`00001111-aaaa-2222-bbbb-3333cccc4444` or `contoso.onmicrosoft.com` |
 |{Settings:DfpAppClientIdKeyContainer}|Name of the policy key-in which you save the DFP client ID|`B2C_1A_DFPClientId`|
 |{Settings:DfpAppClientSecretKeyContainer}|Name of the policy key-in which you save the DFP client secret |`B2C_1A_DFPClientSecret`|
 |{Settings:DfpEnvironment}| The ID of the DFP environment.|Environment ID is a global unique identifier of the DFP environment that you send the data to. Your custom policy should call the API endpoint, including the query string parameter `x-ms-dfpenvid=your-env-id>`|

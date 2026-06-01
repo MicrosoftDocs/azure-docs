@@ -3,14 +3,18 @@ title: Get started with Azure Notification Hubs using Baidu | Microsoft Docs
 description: In this tutorial, you learn how to use Azure Notification Hubs to push notifications to Android devices using Baidu.
 services: notification-hubs
 author: sethmanheim
-manager: femila
-ms.service: notification-hubs
+manager: lizross
+ms.service: azure-notification-hubs
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: tutorial
 ms.tgt_pltfrm: mobile-baidu
 ms.date: 07/17/2023
 ms.author: sethm
-ms.custom: devx-track-java, devx-track-csharp, devx-track-dotnet
+ms.custom:
+  - devx-track-java
+  - devx-track-csharp
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 ---
 
 # Get started with Notification Hubs using Baidu
@@ -408,7 +412,7 @@ Make a note of the `DefaultListenSharedAccessSignature` and `DefaultFullSharedAc
 
 You can quickly test receiving notifications from the [Azure portal] via the **Send** button in the notification hub configuration screen, as shown in the following screens:
 
-![Screenshot of the Azure Portal with the Test Send option outlined in red and a red arrow pointing to it.](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
+![Screenshot of the Azure portal with the Test Send option outlined in red and a red arrow pointing to it.](./media/notification-hubs-baidu-get-started/BaiduTestSendButton.png)
 ![Screenshot to the Baidu Test Send page in the Azure portal.](./media/notification-hubs-baidu-get-started/BaiduTestSend.png)
 
 Push notifications are normally sent in a back-end service like Mobile Services or ASP.NET using a compatible library. If a library is not available for your back-end, you can use the REST API directly to send notification messages.

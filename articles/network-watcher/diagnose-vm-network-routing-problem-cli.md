@@ -1,45 +1,63 @@
 ---
-title: Diagnose a VM network routing problem - Azure CLI
+title: Diagnose a VM Network Routing Problem - Azure CLI
 titleSuffix: Azure Network Watcher
 description: In this article, you learn how to use Azure CLI to diagnose a virtual machine network routing problem using the next hop capability of Azure Network Watcher.
-services: network-watcher
 author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: network-watcher
-ms.date: 03/18/2022
+ms.date: 02/25/2026
 ms.author: halkazwini
-ms.custom: engagement-fy23, devx-track-azurecli
+ms.custom: devx-track-azurecli
+
 # Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
 ---
 
-# Diagnose a virtual machine network routing problem - Azure CLI
+# Diagnose a virtual machine network routing problem using the Azure CLI
 
-In this article, you deploy a virtual machine (VM), and then check communications to an IP address and URL. You determine the cause of a communication failure and how you can resolve it.
+In this article, you learn how to use Azure Network Watcher [next hop](network-watcher-next-hop-overview.md) tool to troubleshoot and diagnose a VM routing problem that's preventing it from correctly communicating with other resources. 
 
-[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+## Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- This article requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
+- Azure Cloud Shell or Azure CLI.
 
-- The Azure CLI commands in this article are formatted to run in a Bash shell.
+    The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-## Create a VM
+    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. This article requires the Azure CLI version 2.0 or later. Run [az --version](/cli/azure/reference-index#az-version) command to find the installed version. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
 
-Before you can create a VM, you must create a resource group to contain the VM. Create a resource group with [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+## Create a resource group
+
+Create a resource group with [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a VM with [az vm create](/cli/azure/vm#az-vm-create). If SSH keys do not already exist in a default key location, the command creates them. To use a specific set of keys, use the `--ssh-key-value` option. The following example creates a VM named *myVm*:
+## Create a network security group
+
+Create a network security group with [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create). The default rules in the network security group block all inbound access from the internet.
+
+```azurecli-interactive
+az network nsg create \
+  --resource-group myResourceGroup \
+  --name myNSG
+```
+
+> [!NOTE]
+> The default rules of the network security group block all inbound access from the internet, including SSH. To connect to the virtual machine, use Azure Bastion. For more information, see [Quickstart: Deploy Azure Bastion with default settings](../bastion/quickstart-host-portal.md).
+
+## Create a virtual machine
+
+Create a VM with [az vm create](/cli/azure/vm#az-vm-create). The following example creates a VM named *myVm*. If SSH keys don't already exist in a default key location, the command creates them.
 
 ```azurecli-interactive
 az vm create \
   --resource-group myResourceGroup \
   --name myVm \
   --image Ubuntu2204 \
+  --nsg myNSG \
+  --public-ip-address "" \
   --generate-ssh-keys
 ```
 

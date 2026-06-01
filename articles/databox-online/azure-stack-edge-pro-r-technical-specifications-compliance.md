@@ -2,13 +2,12 @@
 title: Microsoft Azure Stack Edge Pro R technical specifications and compliance| Microsoft Docs
 description: Learn about the technical specifications and compliance for your Azure Stack Edge Pro R device
 services: databox
-author: alkohli
+author: sipastak
 
-ms.service: databox
-ms.subservice: edge
-ms.topic: conceptual
+ms.service: azure-stack-edge
+ms.topic: concept-article
 ms.date: 04/12/2023
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Azure Stack Edge Pro R technical specifications
 
@@ -34,7 +33,7 @@ A Graphics Processing Unit (GPU) is included on every device that enables Kubern
 
 | Specification           | Value                      |
 |-------------------------|----------------------------|
-| GPU   | One nVidia T4 GPU <br> For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). | 
+| GPU   | One NVIDIA T4 GPU <br> For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). | 
 
 ## Power supply unit specifications
 

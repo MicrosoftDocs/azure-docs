@@ -12,6 +12,7 @@ ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli
+# Customer intent: As a cloud security administrator, I want to configure Azure Storage encryption with customer-managed keys using a managed HSM, so that I can maintain control over encryption keys and ensure compliance with organizational security policies.
 ---
 
 # Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM
@@ -25,7 +26,7 @@ This article shows how to configure encryption with customer-managed keys stored
 
 ## Assign an identity to the storage account
 
-First, assign a system-assigned managed identity to the storage account. You'll use this managed identity to grant the storage account permissions to access the managed HSM. For more information about system-assigned managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
+First, assign a system-assigned managed identity to the storage account. You'll use this managed identity to grant the storage account permissions to access the managed HSM. For more information about system-assigned managed identities, see [What are managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md)
 
 To assign a managed identity using Azure CLI, call [az storage account update](/cli/azure/storage/account#az-storage-account-update). Remember to replace the placeholder values in brackets with your own values:
 
@@ -58,7 +59,7 @@ az keyvault role assignment create \
 
 ## Configure encryption with a key in the managed HSM
 
-Finally, configure Azure Storage encryption with customer-managed keys to use a key stored in the managed HSM. Supported key types include RSA-HSM keys of sizes 2048, 3072 and 4096. To learn how to create a key in a managed HSM, see [Create an HSM key](../../key-vault/managed-hsm/key-management.md#create-an-hsm-key).
+Finally, configure Azure Storage encryption with customer-managed keys to use a key stored in the managed HSM. Supported key types include RSA-HSM keys of sizes 2048, 3072 and 4096. To learn how to create a key in a managed HSM, see [Create an HSM key](/azure/key-vault/managed-hsm/key-management#create-an-hsm-key).
 
 Install Azure CLI 2.12.0 or later to configure encryption to use a customer-managed key in a managed HSM. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 

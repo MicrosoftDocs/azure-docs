@@ -4,11 +4,13 @@ description: Learn how to copy data from supported source data stores to or from
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.custom: synapse
-ms.date: 01/05/2024
+ms.topic: how-to
+ms.date: 12/25/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Copy data to or from Azure Cosmos DB for MongoDB using Azure Data Factory or Synapse Analytics
@@ -34,7 +36,7 @@ You can copy data from Azure Cosmos DB for MongoDB to any supported sink data st
 
 You can use the Azure Cosmos DB for MongoDB connector to:
 
-- Copy data from and to the [Azure Cosmos DB for MongoDB](../cosmos-db/mongodb-introduction.md).
+- Copy data from and to the [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction).
 - Write to Azure Cosmos DB as **insert** or **upsert**.
 - Import and export JSON documents as-is, or copy data from or to a tabular dataset. Examples include a SQL database and a CSV file. To copy documents as-is to or from JSON files or to or from another Azure Cosmos DB collection, see Import or export JSON documents.
 
@@ -263,6 +265,28 @@ After copy activity execution, below BSON ObjectId is generated in sink:
     "_id": ObjectId("592e07800000000000000000")
 }
 ``` 
+
+## Data type mapping for Azure Cosmos DB for MongoDB
+
+When copying data from Azure Cosmos DB for MongoDB, the following mappings are used from Azure Cosmos DB for MongoDB data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+
+| Azure Cosmos DB for MongoDB data type | Interim service data type |
+| ------ | ------ |
+| Date | Int64 |
+| ObjectId | String |
+| Decimal128 | String |
+| TimeStamp | The most significant 32 bits -> Int64<br>The least significant 32 bits -> Int64 |
+| String | String |
+| Double | Double |
+| Int32 | Int64 |
+| Int64 | Int64 |
+| Boolean | Boolean |
+| Null | Null |
+| JavaScript | String |
+| Regular Expression | String |
+| Min key | Int64 |
+| Max key | Int64 |
+| Binary | String |
 
 ## Related content
 

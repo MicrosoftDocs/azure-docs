@@ -1,13 +1,14 @@
 ---
 title: "Design and performance for Oracle migrations"
 description: Learn how Oracle and Azure Synapse SQL databases differ in their approach to high query performance on exceptionally large data volumes.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: best-practice
 author: ajagadish-24
 ms.author: ajagadish
-ms.reviewer: wiassaf
+
 ms.date: 02/13/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Design and performance for Oracle migrations
@@ -170,7 +171,7 @@ SSMA for Oracle can help you migrate an Oracle data warehouse or data mart to Az
 
 Data Factory can be used to migrate data at source to Azure SQL target. This offline data movement helps to reduce migration downtime significantly.
 
-[Azure Database Migration Services](../../../dms/dms-overview.md) can help you plan and perform a migration from environments like Oracle.
+[Azure Database Migration Services](/azure/dms/dms-overview) can help you plan and perform a migration from environments like Oracle.
 
 When you're planning to use Azure facilities to manage the migration process, create metadata that lists all the data tables to be migrated and their location.
 
@@ -377,7 +378,7 @@ You can also use [third-party](../../partner/data-integration.md) migration and 
 
 #### Data extraction from Oracle
 
-You can extract raw table data from Oracle tables to flat delimited files, such as CSV files, using standard Oracle utilities like Oracle SQL Developer, [SQL\*Plus](https://www.oracle.com/database/technologies/instant-client/downloads.html), and [SCLcl](https://www.oracle.com/database/technologies/appdev/sqlcl.html). Then, you can compress the flat delimited files using gzip, and upload the compressed files to Azure Blob Storage using AzCopy or Azure data transport tools like Azure Data Box.
+You can extract raw table data from Oracle tables to flat delimited files, such as CSV files, using standard Oracle utilities like Oracle SQL Developer, [SQL\*Plus](https://www.oracle.com/database/technologies/instant-client/downloads.html), and [SQLcl](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/). Then, you can compress the flat delimited files using gzip, and upload the compressed files to Azure Blob Storage using AzCopy or Azure data transport tools like Azure Data Box.
 
 Extract table data as efficiently as possible&mdash;especially when migrating large fact tables. For Oracle tables, use parallelism to maximize extraction throughput. You can achieve parallelism by running multiple processes that individually extract discrete segments of data, or by using tools capable of automating parallel extraction through partitioning.
 

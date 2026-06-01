@@ -3,11 +3,13 @@
  description: include file
  services: load-balancer
  author: mbender-ms
- ms.service: load-balancer
+ ms.service: azure-load-balancer
  ms.topic: include
  ms.date: 12/04/2023
  ms.author: mbender
- ms.custom: include file
+ ms.custom:
+   - include file
+   - sfi-image-nochange
 ---
 
 ## Install IIS

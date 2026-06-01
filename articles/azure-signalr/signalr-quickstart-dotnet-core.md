@@ -2,7 +2,7 @@
 title: Quickstart to learn how to use Azure SignalR Service
 description: A quickstart for using Azure SignalR Service to create a chat room with ASP.NET Core web apps.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ms.topic: quickstart
@@ -21,6 +21,8 @@ You can use any code editor to complete the steps in this quickstart. One option
 The code for this tutorial is available for download in the [AzureSignalR-samples GitHub repository](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom). You can create the Azure resources used in this quickstart by following [Create a SignalR Service script](scripts/signalr-cli-create-service.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note-dotnet.md)]
+
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
 
 Ready to start?
 
@@ -63,6 +65,8 @@ In this section, you'll add the [Secret Manager tool](/aspnet/core/security/app-
    ```
 
 1. Add a secret named *Azure:SignalR:ConnectionString* to Secret Manager.
+
+    [!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
 
     This secret will contain the connection string to access your SignalR Service resource. *Azure:SignalR:ConnectionString* is the default configuration key that SignalR looks for to establish a connection. Replace the value in the following command with the connection string for your SignalR Service resource.
 

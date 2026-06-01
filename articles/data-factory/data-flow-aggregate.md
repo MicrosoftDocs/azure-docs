@@ -1,15 +1,14 @@
 ---
 title: Aggregate transformation in mapping data flow
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to aggregate data at scale in Azure Data Factory and Synapse Analyatics with the mapping data flow Aggregate transformation.
+description: Learn how to aggregate data at scale in Azure Data Factory and Synapse Analytics with the mapping data flow Aggregate transformation.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 04/27/2026
 ---
 
 # Aggregate transformation in mapping data flow
@@ -17,6 +16,9 @@ ms.date: 01/05/2024
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
+> [!TIP]
+>  For the equivalent transformation (**Group by**) in Dataflow Gen2, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
 
 The Aggregate transformation defines aggregations of columns in your data streams. Using the Expression Builder, you can define different types of aggregations such as SUM, MIN, MAX, and COUNT grouped by existing or computed columns.
 

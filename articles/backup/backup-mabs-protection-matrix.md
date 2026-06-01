@@ -1,12 +1,13 @@
 ---
 title: MABS (Azure Backup Server) V4 protection matrix
 description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server v4 protects.
-ms.date: 07/05/2024
-ms.topic: conceptual
-ms.service: backup
+ms.date: 03/09/2026
+ms.topic: reference
+ms.service: azure-backup
 ms.custom: linux-related-content, engagement-fy24
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator, I want to understand the Azure Backup Server v4 protection matrix, so that I can determine what workloads and data types I can back up and ensure my data protection strategy is effective."
 ---
 
 # MABS (Azure Backup Server) V4 (and later) protection matrix
@@ -47,9 +48,9 @@ The following sections details the protection support matrix for MABS:
 
 | **Workload**                                                 | **Version**                                             | **Azure  Backup Server   installation**                      | **Supported  Azure Backup Server** | **Protection  and recovery**                                 |
 | ------------------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Hyper-V  host - MABS protection agent on Hyper-V host server, cluster, or VM | Windows  Server 2022, 2019, 2016, 2012 R2, 2012               | Physical  server  <br><br>    Hyper-V virtual machine <br><br>    VMware  virtual machine | V4                                 | Protect:  Virtual machines, cluster shared volumes (CSVs)  <br><br>    Recover: Virtual machine, Item-level recovery of files and folders available  only for Windows, volumes, virtual hard drives |
-| Azure Stack HCI  |       V1, 20H2, 21H2, 22H2, and 23H2      |    Physical server        <br><br>     Hyper-V / Azure Stack HCI virtual machine     <br><br>    VMware virtual machine     |    V4   | Protect: Virtual machines, cluster shared volumes (CSVs)      <br><br>     Recover: Virtual machine, Item-level recovery of files and folders available only for Windows, volumes, virtual hard drives <br><br> Recovery of Arc VMs is supported in a limited capacity in Azure Stack HCI, version 23H2. [Learn more](back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md). |
-| VMware  VMs                                                  | VMware  server 6.5, 6.7, 7.0, 8.0 (Licensed Version) | Hyper-V  virtual machine  <br><br>   VMware  virtual machine         | V4                             | Protect:  VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage   <br><br>     Recover:  Virtual machine, Item-level recovery of files and folders available only for  Windows, volumes, virtual hard drives <br><br>    VMware  vApps aren't supported.        <br><br> vSphere 8.0 DataSets feature isn't supported for backup. |
+| Hyper-V  host - MABS protection agent on Hyper-V host server, cluster, or VM | Windows  Server 2022, 2019, 2016, 2012 R2, 2012               | Physical  server  <br><br>    Hyper-V virtual machine <br><br>    VMware  virtual machine | V4                                 | Protect:  Virtual machines, cluster shared volumes (CSVs)  <br><br>    Recover: Virtual machine, Item-level recovery of files and folders available  only for Windows, volumes, virtual hard drives <br><br> Note that Item Level Recovery isn't supported for Virtual Machine volumes that have BitLocker enabled. |
+| Azure Local  |       Lastest Major Release [Learn More](/azure/azure-local/release-information-23h2?view=azloc-2602&preserve-view=true&tabs=OS-build-26100-xxxx%2COS-build-25398-xxx)       |    Physical server        <br><br>     Hyper-V / Azure Local virtual machine     <br><br>    VMware virtual machine     |    V4   | Protect: Virtual machines, cluster shared volumes (CSVs)      <br><br>     Recover: Virtual machine, Item-level recovery of files and folders available only for Windows, volumes, virtual hard drives <br><br> Recovery of Arc VMs is supported in a limited capacity in Azure Local, version 23H2. [Learn more](back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md). <br><br> Note that Application Control should be in audit mode for agent installation.|
+| VMware  VMs                                                  | VMware  server 6.5, 6.7, 7.0, 8.0 (Licensed Version) | Hyper-V  virtual machine  <br><br>   VMware  virtual machine         | V4                             | Protect:  VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage   <br><br>     Recover:  Virtual machine, Item-level recovery of files and folders available only for  Windows, volumes, virtual hard drives <br><br>    Note that Item Level Recovery isn't supported for Virtual Machine volumes that have BitLocker enabled. <br><br> VMware  vApps aren't supported.        <br><br> vSphere 8.0 DataSets feature isn't supported for backup. |
 
 >[!NOTE]
 > MABS doesn't support backup of virtual machines with pass-through disks or those that use a remote VHD. We recommend that in these scenarios you use guest-level backup using MABS, and install an agent on the virtual machine to back up the data.
@@ -58,7 +59,7 @@ The following sections details the protection support matrix for MABS:
 
 | **Workload** | **Version**                               | **Azure  Backup Server   installation**                      | **Supported  Azure Backup Server** | **Protection  and recovery**                                 |
 | ------------ | ----------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Linux        | Linux running as [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) or [VMware](backup-azure-backup-server-vmware.md) or [Stack](backup-mabs-install-azure-stack.md) guest | Physical  server,    On-premises Hyper-V VM, Stack VM or VMware VM running Windows Server. | V4                             | Hyper-V  must be running on Windows Server 2016, Windows Server 2019, or Windows Server 2022. Protect:  Entire virtual machine   <br><br>   Recover: Entire virtual machine   <br><br>    Only file-consistent snapshots are supported.    <br><br>   For a complete list of supported Linux distributions and versions, see the  article, [Linux on distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md). |
+| Linux        | Linux running as [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) or [VMware](backup-azure-backup-server-vmware.md) or [Stack](backup-mabs-install-azure-stack.md) guest | Physical  server,    On-premises Hyper-V VM, Stack VM or VMware VM running Windows Server. | V4                             | Hyper-V  must be running on Windows Server 2016, Windows Server 2019, or Windows Server 2022. Protect:  Entire virtual machine   <br><br>   Recover: Entire virtual machine   <br><br>    Only file-consistent snapshots are supported.    <br><br>   For a complete list of supported Linux distributions and versions, see the  article, [Linux on distributions endorsed by Azure](/azure/virtual-machines/linux/endorsed-distros). |
 
 ## Operating systems and applications at end of support
 
@@ -71,6 +72,9 @@ For on-premises or hosted environments that you can't upgrade or migrate to Azur
 |Workload |Version |Azure Backup Server installation |Azure Backup Server |Protection and recovery |
 |------------|-----------|---------------|--------------|--------------|
 |Servers (64-bit) | Windows Server 2008 R2 SP1, Windows Server 2008 SP2 (You need to install [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)), Windows Server 2012, Windows Server 2012 R2. | Physical server <br><br> Hyper-V virtual machine <br><br> VMware virtual machine | Volume, share, folder, file, system state/bare metal |
+
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
+
 
 ## Cluster support
 
@@ -151,4 +155,11 @@ MABS doesn't support protecting the following data types:
 
 ## Next steps
 
-* [Support matrix for backup with Microsoft Azure Backup Server or System Center DPM](backup-support-matrix-mabs-dpm.md)
+* [Support matrix for backup with Microsoft Azure Backup Server or System Center DPM](backup-support-matrix-mabs-dpm.md).
+
+## Related content
+
+- [Run an unattended installation of MABS](backup-mabs-unattended-install.md).
+- [Back up a SharePoint farm on Azure Stack](backup-mabs-sharepoint-azure-stack.md).
+- [Back up SQL Server on Azure Stack](backup-mabs-sql-azure-stack.md).
+- [Azure Backup Server V3 RTM protection matrix](microsoft-azure-backup-server-protection-v3.md).

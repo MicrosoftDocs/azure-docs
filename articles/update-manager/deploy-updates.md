@@ -2,11 +2,15 @@
 title: Deploy updates and track results in Azure Update Manager
 description: This article details how to use Azure Update Manager in the Azure portal to deploy updates and view results for supported machines.
 ms.service: azure-update-manager
-ms.date: 02/26/2024
-ms.topic: conceptual
-author: SnehaSudhirG
-ms.author: sudhirsneha
-ms.custom: references_regions
+ms.date: 03/07/2025
+ms.topic: how-to
+author: habibaum
+ms.author: v-uhabiba
+ms.update-cycle: 1095-days
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
+# Customer intent: "As a system administrator, I want to deploy updates across multiple virtual machines, so that I can ensure they are secure and compliant with the latest software requirements."
 ---
 
 # Deploy updates now and track results with Azure Update Manager
@@ -22,7 +26,7 @@ See the following sections for more information:
 
 ## Supported regions
 
-Update Manager is available in all [Azure public regions](support-matrix.md#supported-regions). 
+Update Manager is available in all [Azure public regions](supported-regions.md#azure-public-cloud). 
 
 ## Configure reboot settings
 
@@ -40,8 +44,7 @@ To install one-time updates on a single VM:
 
 1. On **Update Manager** > **Overview**, select your subscription and select **One-time update** to install updates.
 
-   :::image type="content" source="./media/deploy-updates/install-updates-now-inline.png" alt-text="Screenshot that shows an example of installing one-time updates." lightbox="./media/deploy-updates/install-updates-now-expanded.png":::
-
+   
 1. Select **Install now** to proceed with the one-time updates:
 
    - **Install one-time updates**: Select **Add machine** to add the machine for deploying one time.
@@ -57,13 +60,11 @@ To install one-time updates on a single VM:
 
    - Select **Include update classification**. Select the appropriate classifications that must be installed on your machines.
    
-      :::image type="content" source="./media/deploy-updates/include-update-classification-inline.png" alt-text="Screenshot that shows update classification." lightbox="./media/deploy-updates/include-update-classification-expanded.png":::
    
-   - Select **Include KB ID/package** to include in the updates. You can add multiple KB IDs and package names. When you add KB ID/package name, the next row appears. The package can have both name and version. . For example, use `3103696` or `3134815`. For Windows, you can refer to the [MSRC webpage](https://msrc.microsoft.com/update-guide/deployments) to get the details of the latest Knowledge Base release. For supported Linux distros, you specify a comma separated list of packages by the package name, and you can include wildcards. For example, use `kernel*`, `glibc`, or `libc=1.0.1`. Based on the options specified, Update Manager shows a preview of OS updates under the **Selected Updates** section.
+   - Select **Include KB ID/package** to include in the updates. You can add multiple KB IDs and package names. When you add KB ID/package name, the next row appears. The package can have both name and version. For example, use `3103696` or `3134815`. For Windows, you can refer to the [MSRC webpage](https://msrc.microsoft.com/update-guide/deployments) to get the details of the latest Knowledge Base release. For supported Linux distros, you specify a comma separated list of packages by the package name, and you can include wildcards. For example, use `kernel*`, `glibc`, or `libc=1.0.1`. Based on the options specified, Update Manager shows a preview of OS updates under the **Selected Updates** section.
    - To exclude updates that you don't want to install, select **Exclude KB ID/package**. We recommend selecting this option because updates that aren't displayed here might be installed, as newer updates might be available. You can exclude multiple KB IDs and package names.
    - To ensure that the updates published are on or before a specific date, select **Include by maximum patch publish date**. Select the date and select **Add** > **Next**.
    
-      :::image type="content" source="./media/deploy-updates/include-patch-publish-date-inline.png" alt-text="Screenshot that shows the patch publish date." lightbox="./media/deploy-updates/include-patch-publish-date-expanded.png":::
 
 1. On the **Properties** pane, specify the reboot and maintenance window:
    - Use the **Reboot** option to specify the way to handle reboots during deployment. The following options are available:
@@ -89,7 +90,7 @@ To install one-time updates on a single VM:
 
 1. On the **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next**, and follow the procedure from step 4 listed in **From Overview pane** of [Install updates on a single VM](#install-updates-on-a-single-vm).
 
-   A notification informs you when the activity starts, and another tells you when it's finished. After it's successfully finished, you can view the installation operation results in **History**. You can view the status of the operation at any time from the [Azure activity log](../azure-monitor/essentials/activity-log.md).
+   A notification informs you when the activity starts, and another tells you when it's finished. After it's successfully finished, you can view the installation operation results in **History**. You can view the status of the operation at any time from the [Azure activity log](/azure/azure-monitor/essentials/activity-log).
 
 # [From a selected VM](#tab/singlevm-deploy-home)
 
@@ -116,7 +117,6 @@ You can schedule updates.
 
 1. On **Update Manager** > **Overview**, select your subscription and select **One-time update** > **Install now** to install updates.
 
-   :::image type="content" source="./media/deploy-updates/install-updates-now-inline.png" alt-text="Screenshot that shows installing one-time updates." lightbox="./media/deploy-updates/install-updates-now-expanded.png":::
 
 1. On the **Install one-time updates** pane, you can select the resources and machines to install the updates.
 
@@ -140,15 +140,13 @@ You can schedule updates.
 
 ----
 
-A notification informs you when the activity starts, and another tells you when it's finished. After it's successfully finished, you can view the installation operation results in **History**. You can view the status of the operation at any time from the [Azure activity log](../azure-monitor/essentials/activity-log.md).
+A notification informs you when the activity starts, and another tells you when it's finished. After it's successfully finished, you can view the installation operation results in **History**. You can view the status of the operation at any time from the [Azure activity log](/azure/azure-monitor/essentials/activity-log).
 
 ## View update history for a single VM
 
 You can browse information about your Azure VMs and Azure Arc-enabled servers across your Azure subscriptions. For more information, see [Update deployment history](manage-multiple-machines.md#update-deployment-history).
 
 After your scheduled deployment starts, you can see its status on the **History** tab. It displays the total number of deployments, including the successful and failed deployments.
-
-:::image type="content" source="./media/deploy-updates/updates-history-inline.png" alt-text="Screenshot that shows update history." lightbox="./media/deploy-updates/updates-history-expanded.png":::
 
 Currently, the **Windows update history** for a VM doesn't show the updates that are installed from Azure Update Manager. To view a summary of the updates applied on your machines, go to **Azure Update Manager** > **Manage** > **History** in [Azure portal](https://portal.azure.com).
 
@@ -159,8 +157,6 @@ Currently, the **Windows update history** for a VM doesn't show the updates that
 A list of the deployments created are shown in the update deployment grid and include relevant information about the deployment. Every update deployment has a unique GUID, represented as **Operation ID**, which is listed along with **Status**, **Updates Installed** and **Time** details. You can filter the results listed in the grid.
 
 Select any one of the update deployments from the list to open the **Update deployment run** page. Here, you can see a detailed breakdown of the updates and the installation results for the Azure VM or Azure Arc-enabled server.
-
-:::image type="content" source="./media/deploy-updates/update-deployment-run.png" alt-text="Screenshot that shows the Update deployment run page.":::
 
  The available values are:
 

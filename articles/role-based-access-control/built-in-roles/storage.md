@@ -2,12 +2,12 @@
 title: Azure built-in roles for Storage - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the Storage category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: pmwongera
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -168,6 +168,120 @@ Used by the Avere vFXT cluster to manage the cluster
 }
 ```
 
+## Azure File Sync Administrator
+
+Provides full access to manage all Azure File Sync (Storage Sync Service) resources. Also allows read/write access to all data contained in a storage account via access to storage account keys. Includes an ABAC condition to constrain role assignments.
+
+[Learn more](/azure/storage/file-sync/file-sync-deployment-guide)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.StorageSync](../permissions/storage.md#microsoftstoragesync)/register/action | Registers the subscription for the Storage Sync Provider |
+> | [Microsoft.StorageSync](../permissions/storage.md#microsoftstoragesync)/unregister/action | Unregisters the subscription for the Storage Sync Provider |
+> | [Microsoft.StorageSync](../permissions/storage.md#microsoftstoragesync)/locations/* |  |
+> | [Microsoft.StorageSync](../permissions/storage.md#microsoftstoragesync)/deployments/preflight/action | Validate all resources before we deploy the resources successfully. |
+> | [Microsoft.StorageSync](../permissions/storage.md#microsoftstoragesync)/storageSyncServices/* |  |
+> | [Microsoft.StorageSync](../permissions/storage.md#microsoftstoragesync)/operations/read | Gets a list of the Supported Operations |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/shares/read | List file shares |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/read | Get file service properties |
+> | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+> | **Condition** |  |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR ((@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {c12c1c16-33a1-487b-954d-41c89c60f349, 69566ab7-960f-475b-8e7c-b3118f30c6bd, 17d1049b-9a84-46fb-8f53-869881c3d3ab}) AND (@Request[Microsoft.Authorization/roleAssignments:PrincipalType] StringEqualsIgnoreCase 'ServicePrincipal'))) | Add role assignments to service principals for the following roles:<br/>Reader and Data Access<br/>Storage File Data Privileged Contributor<br/>Storage Account Contributor |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides full access to manage all Azure File Sync (Storage Sync Service) resources.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/92b92042-07d9-4307-87f7-36a593fc5850",
+  "name": "92b92042-07d9-4307-87f7-36a593fc5850",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.StorageSync/register/action",
+        "Microsoft.StorageSync/unregister/action",
+        "Microsoft.StorageSync/locations/*",
+        "Microsoft.StorageSync/deployments/preflight/action",
+        "Microsoft.StorageSync/storageSyncServices/*",
+        "Microsoft.StorageSync/operations/read",
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Insights/AlertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Storage/storageAccounts/fileServices/shares/read",
+        "Microsoft.Storage/storageAccounts/fileServices/read",
+        "Microsoft.Support/*",
+        "Microsoft.Authorization/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": [],
+      "conditionVersion": "2.0",
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR ((@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {c12c1c16-33a1-487b-954d-41c89c60f349, 69566ab7-960f-475b-8e7c-b3118f30c6bd, 17d1049b-9a84-46fb-8f53-869881c3d3ab}) AND (@Request[Microsoft.Authorization/roleAssignments:PrincipalType] StringEqualsIgnoreCase 'ServicePrincipal')))"
+    }
+  ],
+  "roleName": "Azure File Sync Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure File Sync Reader
+
+Provides read access to Azure File Sync service (Storage Sync Service).
+
+[Learn more](/azure/storage/file-sync/file-sync-deployment-guide)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.StorageSync](../permissions/storage.md#microsoftstoragesync)/*/read |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides read access to Azure File Sync service (Storage Sync Service).",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/754c1a27-40dc-4708-8ad4-2bffdeee09e8",
+  "name": "754c1a27-40dc-4708-8ad4-2bffdeee09e8",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.StorageSync/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure File Sync Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Backup Contributor
 
 Lets you manage backup service, but can't create vaults and give access to others
@@ -242,6 +356,7 @@ Lets you manage backup service, but can't create vaults and give access to other
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/findRestorableTimeRanges/action | Finds Restorable Time Ranges |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/operationResults/read | Returns Backup Operation Result for Backup Vault. |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/write | Update BackupVault operation updates an Azure resource of type 'Backup Vault' |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/operationResults/read | Gets Operation Result of a Patch Operation for a Backup Vault |
@@ -254,6 +369,17 @@ Lets you manage backup service, but can't create vaults and give access to other
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/operations/read | Operation returns the list of Operations for a Resource Provider |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupResourceGuardProxies/delete | The Delete ResourceGuard proxy operation deletes the specified Azure resource of type 'ResourceGuard proxy' |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupResourceGuardProxies/read | Get the list of ResourceGuard proxies for a resource |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupResourceGuardProxies/unlockDelete/action | Unlock delete ResourceGuard proxy operation unlocks the next delete critical operation |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupResourceGuardProxies/write | Create ResourceGuard proxy operation creates an Azure resource of type 'ResourceGuard Proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/read | Get ResourceGuard proxy operation gets an object representing the Azure resource of type 'ResourceGuard proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/write | Create ResourceGuard proxy operation creates an Azure resource of type 'ResourceGuard Proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/delete | The Delete ResourceGuard proxy operation deletes the specified Azure resource of type 'ResourceGuard proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/unlockDelete/action | Unlock delete ResourceGuard proxy operation unlocks the next delete critical operation |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/validateForModifyBackup/action | Validates for modification of Backup Instance |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/SuspendBackups/action | Suspend Backups operation stops only backups of backup instance. Retention activities will continue and hence data will be ratained as per policy. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/resumeProtection/action | Resume protection of a ProtectionStopped BI. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -337,6 +463,7 @@ Lets you manage backup service, but can't create vaults and give access to other
         "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints/read",
         "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints/read",
         "Microsoft.DataProtection/backupVaults/backupInstances/findRestorableTimeRanges/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/operationResults/read",
         "Microsoft.DataProtection/backupVaults/write",
         "Microsoft.DataProtection/backupVaults/read",
         "Microsoft.DataProtection/backupVaults/operationResults/read",
@@ -348,7 +475,18 @@ Lets you manage backup service, but can't create vaults and give access to other
         "Microsoft.DataProtection/locations/operationStatus/read",
         "Microsoft.DataProtection/locations/operationResults/read",
         "Microsoft.DataProtection/backupVaults/validateForBackup/action",
-        "Microsoft.DataProtection/operations/read"
+        "Microsoft.DataProtection/operations/read",
+        "Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/delete",
+        "Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/read",
+        "Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/unlockDelete/action",
+        "Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/write",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/read",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/write",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/delete",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/unlockDelete/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/validateForModifyBackup/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/SuspendBackups/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/resumeProtection/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -356,6 +494,142 @@ Lets you manage backup service, but can't create vaults and give access to other
     }
   ],
   "roleName": "Backup Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Backup MUA Admin
+
+Backup MultiUser-Authorization. Can create/delete ResourceGuard 
+
+[Learn more](/azure/backup/multi-user-authorization-concept)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/*/read |  |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/*/resourceGuards/write |  |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/resourceGuards/write | Update ResourceGuard operation updates an Azure resource of type 'ResourceGuard' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/resourceGuards/delete | The Delete ResourceGuard operation deletes the specified Azure resource of type 'ResourceGuard' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/resourceGuards/read | Gets list of ResourceGuards in a Resource Group |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/getBackupStatus/action | Check Backup Status for Recovery Services Vaults |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/checkFeatureSupport/action | Validates if a feature is supported |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Features](../permissions/management-and-governance.md#microsoftfeatures)/features/read | Gets the features of a subscription. |
+> | [Microsoft.Features](../permissions/management-and-governance.md#microsoftfeatures)/providers/features/read | Gets the feature of a subscription in a given resource provider. |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/* |  |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/read | Get ResourceGuard proxy operation gets an object representing the Azure resource of type 'ResourceGuard proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/write | Create ResourceGuard proxy operation creates an Azure resource of type 'ResourceGuard Proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/delete | The Delete ResourceGuard proxy operation deletes the specified Azure resource of type 'ResourceGuard proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/unlockDelete/action | Unlock delete ResourceGuard proxy operation unlocks the next delete critical operation |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/providers/resourceGuards/read | Gets list of ResourceGuards in a Subscription |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/resourceGuards/{operationName}/read | Gets ResourceGuard default operation request info |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Backup MultiUser-Authorization. Can create/delete ResourceGuard ",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/c2a970b4-16a7-4a51-8c84-8a8ea6ee0bb8",
+  "name": "c2a970b4-16a7-4a51-8c84-8a8ea6ee0bb8",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DataProtection/*/read",
+        "Microsoft.DataProtection/*/resourceGuards/write",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/write",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/delete",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/read",
+        "Microsoft.DataProtection/locations/operationResults/read",
+        "Microsoft.DataProtection/locations/operationStatus/read",
+        "Microsoft.DataProtection/locations/getBackupStatus/action",
+        "Microsoft.DataProtection/locations/checkFeatureSupport/action",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/operationStatus/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Features/features/read",
+        "Microsoft.Features/providers/features/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/read",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/write",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/delete",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/unlockDelete/action",
+        "Microsoft.DataProtection/subscriptions/providers/resourceGuards/read",
+        "Microsoft.DataProtection/subscriptions/resourceGroups/providers/resourceGuards/{operationName}/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Backup MUA Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Backup MUA Operator
+
+Backup MultiUser-Authorization. Allows user to perform critical operation protected by resourceguard
+
+[Learn more](/azure/backup/multi-user-authorization-concept)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/*/action |  |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/*/read |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Backup MultiUser-Authorization. Allows user to perform critical operation protected by resourceguard",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/f54b6d04-23c6-443e-b462-9c16ab7b4a52",
+  "name": "f54b6d04-23c6-443e-b462-9c16ab7b4a52",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DataProtection/*/action",
+        "Microsoft.DataProtection/*/read",
+        "Microsoft.Authorization/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Backup MUA Operator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -438,6 +712,8 @@ Lets you manage backup services, except removal of backup, vault creation and gi
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/operationResults/read | Returns Backup Operation Result for Backup Vault. |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/write | Creates a Backup Instance |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/deletedBackupInstances/read | List soft-deleted Backup Instances in a Backup Vault. |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
@@ -462,6 +738,15 @@ Lets you manage backup services, except removal of backup, vault creation and gi
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action | Get cross region restore job details from secondary region. |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action | Returns recovery points from secondary region for cross region restore enabled Backup Vaults. |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/checkFeatureSupport/action | Validates if a feature is supported |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupResourceGuardProxies/delete | The Delete ResourceGuard proxy operation deletes the specified Azure resource of type 'ResourceGuard proxy' |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupResourceGuardProxies/read | Get the list of ResourceGuard proxies for a resource |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupResourceGuardProxies/unlockDelete/action | Unlock delete ResourceGuard proxy operation unlocks the next delete critical operation |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupResourceGuardProxies/write | Create ResourceGuard proxy operation creates an Azure resource of type 'ResourceGuard Proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/read | Get ResourceGuard proxy operation gets an object representing the Azure resource of type 'ResourceGuard proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/write | Create ResourceGuard proxy operation creates an Azure resource of type 'ResourceGuard Proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/delete | The Delete ResourceGuard proxy operation deletes the specified Azure resource of type 'ResourceGuard proxy' |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupResourceGuardProxies/unlockDelete/action | Unlock delete ResourceGuard proxy operation unlocks the next delete critical operation |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/validateForModifyBackup/action | Validates for modification of Backup Instance |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -548,6 +833,8 @@ Lets you manage backup services, except removal of backup, vault creation and gi
         "Microsoft.Support/*",
         "Microsoft.DataProtection/backupVaults/backupInstances/read",
         "Microsoft.DataProtection/backupVaults/backupInstances/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/operationResults/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/write",
         "Microsoft.DataProtection/backupVaults/deletedBackupInstances/read",
         "Microsoft.DataProtection/backupVaults/backupPolicies/read",
         "Microsoft.DataProtection/backupVaults/backupPolicies/read",
@@ -571,7 +858,16 @@ Lets you manage backup services, except removal of backup, vault creation and gi
         "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action",
         "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action",
         "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchSecondaryRecoveryPoints/action",
-        "Microsoft.DataProtection/locations/checkFeatureSupport/action"
+        "Microsoft.DataProtection/locations/checkFeatureSupport/action",
+        "Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/delete",
+        "Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/read",
+        "Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/unlockDelete/action",
+        "Microsoft.RecoveryServices/Vaults/backupResourceGuardProxies/write",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/read",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/write",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/delete",
+        "Microsoft.DataProtection/backupVaults/backupResourceGuardProxies/unlockDelete/action",
+        "Microsoft.DataProtection/backupVaults/backupInstances/validateForModifyBackup/action"
       ],
       "notActions": [],
       "dataActions": [],
@@ -636,16 +932,13 @@ Can view backup services, but can't make changes
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/locations/backupCrrOperationResults/read | Returns CRR Operation Result for Recovery Services Vault. |
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/locations/backupCrrOperationsStatus/read | Returns CRR Operation Status for Recovery Services Vault. |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/getBackupStatus/action | Check Backup Status for Recovery Services Vaults |
-> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/write | Creates a Backup Instance |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/read | Returns all Backup Instances |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/deletedBackupInstances/read | List soft-deleted Backup Instances in a Backup Vault. |
-> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/backup/action | Performs Backup on the Backup Instance |
-> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/validateRestore/action | Validates for Restore of the Backup Instance |
-> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/restore/action | Triggers restore on the Backup Instance |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupPolicies/read | Returns all Backup Policies |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/recoveryPoints/read | Returns all Recovery Points |
+> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/operationResults/read | Returns Backup Operation Result for Backup Vault. |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/backupInstances/findRestorableTimeRanges/action | Finds Restorable Time Ranges |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/operationResults/read | Gets Operation Result of a Patch Operation for a Backup Vault |
@@ -654,7 +947,6 @@ Can view backup services, but can't make changes
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/read | Gets list of Backup Vaults in a Resource Group |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/operationStatus/read | Returns Backup Operation Status for Backup Vault. |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/locations/operationResults/read | Returns Backup Operation Result for Backup Vault. |
-> | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/backupVaults/validateForBackup/action | Validates for backup of Backup Instance |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/operations/read | Operation returns the list of Operations for a Resource Provider |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action | List cross region restore jobs of backup instance from secondary region. |
 > | [Microsoft.DataProtection](../permissions/security.md#microsoftdataprotection)/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action | Get cross region restore job details from secondary region. |
@@ -721,16 +1013,13 @@ Can view backup services, but can't make changes
         "Microsoft.RecoveryServices/locations/backupCrrOperationResults/read",
         "Microsoft.RecoveryServices/locations/backupCrrOperationsStatus/read",
         "Microsoft.DataProtection/locations/getBackupStatus/action",
-        "Microsoft.DataProtection/backupVaults/backupInstances/write",
         "Microsoft.DataProtection/backupVaults/backupInstances/read",
         "Microsoft.DataProtection/backupVaults/deletedBackupInstances/read",
-        "Microsoft.DataProtection/backupVaults/backupInstances/backup/action",
-        "Microsoft.DataProtection/backupVaults/backupInstances/validateRestore/action",
-        "Microsoft.DataProtection/backupVaults/backupInstances/restore/action",
         "Microsoft.DataProtection/backupVaults/backupPolicies/read",
         "Microsoft.DataProtection/backupVaults/backupPolicies/read",
         "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints/read",
         "Microsoft.DataProtection/backupVaults/backupInstances/recoveryPoints/read",
+        "Microsoft.DataProtection/backupVaults/backupInstances/operationResults/read",
         "Microsoft.DataProtection/backupVaults/backupInstances/findRestorableTimeRanges/action",
         "Microsoft.DataProtection/backupVaults/read",
         "Microsoft.DataProtection/backupVaults/operationResults/read",
@@ -739,7 +1028,6 @@ Can view backup services, but can't make changes
         "Microsoft.DataProtection/backupVaults/read",
         "Microsoft.DataProtection/locations/operationStatus/read",
         "Microsoft.DataProtection/locations/operationResults/read",
-        "Microsoft.DataProtection/backupVaults/validateForBackup/action",
         "Microsoft.DataProtection/operations/read",
         "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJobs/action",
         "Microsoft.DataProtection/subscriptions/resourceGroups/providers/locations/fetchCrossRegionRestoreJob/action",
@@ -812,7 +1100,7 @@ Lets you manage classic storage accounts, but not access to them.
 
 Classic Storage Account Key Operators are allowed to list and regenerate keys on Classic Storage Accounts
 
-[Learn more](/azure/key-vault/secrets/overview-storage-keys)
+[Learn more](/azure/storage/common/authorize-data-access)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1052,12 +1340,17 @@ Grants access to read blobs and update index tags. This role is used by the data
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/read | Returns list of containers |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/read | Returns blob service properties or statistics |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/shares/read | List file shares |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/tags/write | Returns the result of writing blob tags |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/tags/read | Returns the result of reading blob tags |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/delete | Returns the result of deleting a blob |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read File Backup Semantics Privilege |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1072,18 +1365,72 @@ Grants access to read blobs and update index tags. This role is used by the data
   "permissions": [
     {
       "actions": [
-        "Microsoft.Storage/storageAccounts/blobServices/containers/read"
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/blobServices/read",
+        "Microsoft.Storage/storageAccounts/fileServices/shares/read"
       ],
       "notActions": [],
       "dataActions": [
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
         "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write",
-        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read"
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read",
+        "Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action"
       ],
       "notDataActions": []
     }
   ],
   "roleName": "Defender for Storage Data Scanner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Elastic SAN Network Admin
+
+Allows access to create Private Endpoints on SAN resources, and to read SAN resources
+
+[Learn more](/azure/storage/elastic-san/elastic-san-networking)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ElasticSan](../permissions/storage.md#microsoftelasticsan)/elasticSans/*/read |  |
+> | [Microsoft.ElasticSan](../permissions/storage.md#microsoftelasticsan)/elasticSans/PrivateEndpointConnectionsApproval/action |  |
+> | [Microsoft.ElasticSan](../permissions/storage.md#microsoftelasticsan)/elasticSans/privateEndpointConnections/write |  |
+> | [Microsoft.ElasticSan](../permissions/storage.md#microsoftelasticsan)/elasticSans/privateEndpointConnections/delete |  |
+> | [Microsoft.ElasticSan](../permissions/storage.md#microsoftelasticsan)/locations/asyncoperations/read | Polls the status of an asynchronous operation. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows access to create Private Endpoints on SAN resources, and to read SAN resources",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/fa6cecf6-5db3-4c43-8470-c540bcb4eafa",
+  "name": "fa6cecf6-5db3-4c43-8470-c540bcb4eafa",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ElasticSan/elasticSans/*/read",
+        "Microsoft.ElasticSan/elasticSans/PrivateEndpointConnectionsApproval/action",
+        "Microsoft.ElasticSan/elasticSans/privateEndpointConnections/write",
+        "Microsoft.ElasticSan/elasticSans/privateEndpointConnections/delete",
+        "Microsoft.ElasticSan/locations/asyncoperations/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Elastic SAN Network Admin",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1448,6 +1795,217 @@ Permits listing and regenerating storage account access keys.
 }
 ```
 
+## Storage Actions Blob Data Operator
+
+Used by the Storage Actions - Storage Task to list & perform operations on the Storage Account blobs
+
+[Learn more](/azure/storage-actions/storage-tasks/storage-task-authorization-roles)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/read | Returns list of containers |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/write | Returns the result of put blob container |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/write | Returns the result of writing a blob |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/delete | Returns the result of deleting a blob |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/add/action | Returns the result of adding blob content |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/tags/read | Returns the result of reading blob tags |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/tags/write | Returns the result of writing blob tags |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action | Returns the result of the blob command |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/immutableStorage/runAsSuperUser/action |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Used by the Storage Actions - Storage Task to list & perform operations on the Storage Account blobs",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/4bad4d9e-2a13-4888-94bb-c8432f6f3040",
+  "name": "4bad4d9e-2a13-4888-94bb-c8432f6f3040",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/write"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/immutableStorage/runAsSuperUser/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage Actions Blob Data Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Storage Actions Contributor
+
+Used by the Storage Actions author to create, read, update, and delete Storage Actions
+
+[Learn more](/azure/storage-actions/storage-tasks/storage-task-authorization-roles)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.StorageActions/storageTasks/read | Gets the properties for the specified storage task |
+> | Microsoft.StorageActions/storageTasks/write | Creates or updates storage task |
+> | Microsoft.StorageActions/storageTasks/delete | Deletes an existing storage task |
+> | Microsoft.StorageActions/storageTasks/storageTaskAssignments/read | List all storage task assignments of a storage task |
+> | Microsoft.StorageActions/storageTasks/reports/read | List run statuses of a storage task |
+> | Microsoft.StorageActions/locations/previewActions/action | previewActions |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Used by the Storage Actions author to create, read, update, and delete Storage Actions",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/bd8acdb0-202c-4493-a7fe-ef98eefbfbc4",
+  "name": "bd8acdb0-202c-4493-a7fe-ef98eefbfbc4",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.StorageActions/storageTasks/read",
+        "Microsoft.StorageActions/storageTasks/write",
+        "Microsoft.StorageActions/storageTasks/delete",
+        "Microsoft.StorageActions/storageTasks/storageTaskAssignments/read",
+        "Microsoft.StorageActions/storageTasks/reports/read",
+        "Microsoft.StorageActions/locations/previewActions/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage Actions Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Storage Actions Task Assignment Contributor
+
+Used by the Storage Actions assigner to create a Task Assignment on their target Storage Account, with RBAC privileges for Managed Identity
+
+Includes an ABAC condition to constrain role assignments.
+
+[Learn more](/azure/storage-actions/storage-tasks/storage-task-authorization-roles-assign)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/reports/read |  |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/read | Returns blob service properties or statistics |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/storageTaskAssignments/read |  |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/storageTaskAssignments/write |  |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/storageTaskAssignments/delete |  |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/storageTaskAssignments/reports/read |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+> | **Actions** |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/delete | Delete a role assignment at the specified scope. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+> | **Condition** |  |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{4bad4d9e2a13488894bbc8432f6f3040})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{4bad4d9e2a13488894bbc8432f6f3040})) | Add or remove role assignments for the following roles:<br/>Storage Actions Blob Data Operator |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Used by the Storage Actions assigner to create a Task Assignment on their target Storage Account, with RBAC privileges for Managed Identity",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/77789c21-1643-48a2-8f27-47f858540b51",
+  "name": "77789c21-1643-48a2-8f27-47f858540b51",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Storage/storageAccounts/reports/read",
+        "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Storage/storageAccounts/blobServices/read",
+        "Microsoft.Storage/storageAccounts/storageTaskAssignments/read",
+        "Microsoft.Storage/storageAccounts/storageTaskAssignments/write",
+        "Microsoft.Storage/storageAccounts/storageTaskAssignments/delete",
+        "Microsoft.Storage/storageAccounts/storageTaskAssignments/reports/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    },
+    {
+      "actions": [
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": [],
+      "conditionVersion": "2.0",
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{4bad4d9e2a13488894bbc8432f6f3040})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{4bad4d9e2a13488894bbc8432f6f3040}))"
+    }
+  ],
+  "roleName": "Storage Actions Task Assignment Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Storage Blob Data Contributor
 
 Read, write, and delete Azure Storage containers and blobs. To learn which actions are required for a given data operation, see [Permissions for calling data operations](/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-data-operations).
@@ -1636,6 +2194,142 @@ Get a user delegation key, which can then be used to create a shared access sign
 }
 ```
 
+## Storage Connector Contributor
+
+Allows creating and managing storage connectors to access remote data sources in-place in a storage account. This role is in preview and subject to change.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/listServiceSas/action | Returns the Service SAS token for the specified storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/read | Returns blob service properties or statistics |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/read | Returns list of containers |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/write | Returns the result of put blob container |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/locations/DataManagementRPOperationStatuses/read | Get a DataManagamentRP operation status |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/locations/DataManagementRPOperationStatuses/write | Creates or updates a DataManagamentRP operation status |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/connectors/read | Returns the list of storage connectors or gets the properties of specified storage connector. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/connectors/delete | Delete a storage connector. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/connectors/write | Creates or updates a storage connector. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/connectors/testExistingConnection/action | Test the connection of an existing storage connector. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/write | Returns the result of writing a blob |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows creating and managing storage connectors to access remote data sources in-place in a storage account. This role is in preview and subject to change.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/9d819e60-1b9f-4871-b492-4e6cdee0b50a",
+  "name": "9d819e60-1b9f-4871-b492-4e6cdee0b50a",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Storage/storageAccounts/listServiceSas/action",
+        "Microsoft.Storage/storageAccounts/blobServices/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/write",
+        "Microsoft.Storage/locations/DataManagementRPOperationStatuses/read",
+        "Microsoft.Storage/locations/DataManagementRPOperationStatuses/write",
+        "Microsoft.Storage/storageAccounts/connectors/read",
+        "Microsoft.Storage/storageAccounts/connectors/delete",
+        "Microsoft.Storage/storageAccounts/connectors/write",
+        "Microsoft.Storage/storageAccounts/connectors/testExistingConnection/action"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage Connector Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Storage DataShare Contributor
+
+Allows creating and managing storage dataShares to share data from storage accounts in-place. This role is in preview and subject to change.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/listServiceSas/action | Returns the Service SAS token for the specified storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/read | Returns blob service properties or statistics |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/read | Returns list of containers |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/locations/DataManagementRPOperationStatuses/read | Get a DataManagamentRP operation status |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/locations/DataManagementRPOperationStatuses/write | Creates or updates a DataManagamentRP operation status |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/dataShares/read | Returns the list of storage data shares or gets the properties of specified storage data share. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/dataShares/delete | Delete a storage data share. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/dataShares/write | Creates or updates a storage data share. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows creating and managing storage dataShares to share data from storage accounts in-place. This role is in preview and subject to change.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/35c49d44-ccc1-4b18-8267-cfb3bacdd396",
+  "name": "35c49d44-ccc1-4b18-8267-cfb3bacdd396",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Storage/storageAccounts/listServiceSas/action",
+        "Microsoft.Storage/storageAccounts/blobServices/read",
+        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+        "Microsoft.Storage/locations/DataManagementRPOperationStatuses/read",
+        "Microsoft.Storage/locations/DataManagementRPOperationStatuses/write",
+        "Microsoft.Storage/storageAccounts/dataShares/read",
+        "Microsoft.Storage/storageAccounts/dataShares/delete",
+        "Microsoft.Storage/storageAccounts/dataShares/write"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage DataShare Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Storage File Data Privileged Contributor
 
 Allows for read, write, delete, and modify ACLs on files/directories in Azure file shares by overriding existing ACLs/NTFS permissions. This role has no built-in equivalent on Windows file servers.
@@ -1651,8 +2345,8 @@ Allows for read, write, delete, and modify ACLs on files/directories in Azure fi
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/delete | Returns the result of deleting a file/folder |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/modifypermissions/action | Returns the result of modifying permission on a file/folder |
-> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read File Backup Sematics Privilege |
-> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/writeFileBackupSemantics/action | Write File Backup Sematics Privilege |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read File Backup Semantics Privilege |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/writeFileBackupSemantics/action | Write File Backup Semantics Privilege |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1697,7 +2391,7 @@ Allows for read access on files/directories in Azure file shares by overriding e
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders |
-> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read File Backup Sematics Privilege |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read File Backup Semantics Privilege |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1721,6 +2415,110 @@ Allows for read access on files/directories in Azure file shares by overriding e
     }
   ],
   "roleName": "Storage File Data Privileged Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Storage File Data SMB Admin
+
+Allows for admin access equivalent to storage account key for end users over SMB.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/delete | Returns the result of deleting a file/folder |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/modifypermissions/action | Returns the result of modifying permission on a file/folder |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read File Backup Semantics Privilege |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/writeFileBackupSemantics/action | Write File Backup Semantics Privilege |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/takeOwnership/action | File Take Ownership Privilege |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for admin access equivalent to storage account key for end users over SMB.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/bbf004e3-0e4b-4f86-ae4f-1f8fb47b357b",
+  "name": "bbf004e3-0e4b-4f86-ae4f-1f8fb47b357b",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action",
+        "Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action",
+        "Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action",
+        "Microsoft.Storage/storageAccounts/fileServices/takeOwnership/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage File Data SMB Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Storage File Data SMB MI Admin
+
+Allows for admin-level access for managed identities on files/directories in Azure file shares.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/readFileBackupSemantics/action | Read File Backup Semantics Privilege |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/writeFileBackupSemantics/action | Write File Backup Semantics Privilege |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/takeOwnership/action | File Take Ownership Privilege |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/runAsBuiltInFileAdministrator/action | Permission that gives built-in admin privilege for file share mounts via managed identity |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/delete | Returns the result of deleting a file/folder |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/fileshares/files/modifypermissions/action | Returns the result of modifying permission on a file/folder |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for admin-level access for managed identities on files/directories in Azure file shares.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/a235d3ee-5935-4cfb-8cc5-a3303ad5995e",
+  "name": "a235d3ee-5935-4cfb-8cc5-a3303ad5995e",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/fileServices/readFileBackupSemantics/action",
+        "Microsoft.Storage/storageAccounts/fileServices/writeFileBackupSemantics/action",
+        "Microsoft.Storage/storageAccounts/fileServices/takeOwnership/action",
+        "Microsoft.Storage/storageAccounts/fileServices/runAsBuiltInFileAdministrator/action",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete",
+        "Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage File Data SMB MI Admin",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1854,6 +2652,86 @@ Allows for read access on files/directories in Azure file shares. This role is e
     }
   ],
   "roleName": "Storage File Data SMB Share Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Storage File Data SMB Take Ownership
+
+Allows end user to assume ownership of a file/directory
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/takeOwnership/action | File Take Ownership Privilege |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows end user to assume ownership of a file/directory",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/5d9bac3f-34b2-432f-bde5-78aa8e73ce6b",
+  "name": "5d9bac3f-34b2-432f-bde5-78aa8e73ce6b",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Storage/storageAccounts/fileServices/takeOwnership/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage File Data SMB Take Ownership",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Storage File Delegator
+
+Get a user delegation key, which can then be used to create a shared access signature for a file or Azure file share that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
+
+[Learn more](/rest/api/storageservices/get-user-delegation-key)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/fileServices/generateUserDelegationKey/action | Returns a user delegation key for the file service |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for generation of a user delegation key, which can then be used to create a shared access signature for a file or Azure file share that is signed with Entra ID credentials.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/765a04e0-5de8-4bb2-9bf6-b2a30bc03e91",
+  "name": "765a04e0-5de8-4bb2-9bf6-b2a30bc03e91",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Storage/storageAccounts/fileServices/generateUserDelegationKey/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage File Delegator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -2039,6 +2917,47 @@ Read and list Azure Storage queues and queue messages. To learn which actions ar
 }
 ```
 
+## Storage Queue Delegator
+
+Get a user delegation key, which can then be used to create a shared access signature for an Azure Storage queue that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
+
+[Learn more](/rest/api/storageservices/get-user-delegation-key)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/queueServices/generateUserDelegationKey/action | Returns a user delegation key for the queue service |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for generation of a user delegation key, which can then be used to create a shared access signature for an Azure Storage queue that is signed with Entra ID credentials.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/7ee386e9-84f0-448e-80a6-f185f6533131",
+  "name": "7ee386e9-84f0-448e-80a6-f185f6533131",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Storage/storageAccounts/queueServices/generateUserDelegationKey/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage Queue Delegator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Storage Table Data Contributor
 
 Allows for read, write and delete access to Azure Storage tables and entities
@@ -2128,6 +3047,47 @@ Allows for read access to Azure Storage tables and entities
     }
   ],
   "roleName": "Storage Table Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Storage Table Delegator
+
+Get a user delegation key, which can then be used to create a shared access signature for an Azure Storage table that is signed with Azure AD credentials. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
+
+[Learn more](/rest/api/storageservices/get-user-delegation-key)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/tableServices/generateUserDelegationKey/action | Returns a user delegation key for the table service |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Allows for generation of a user delegation key, which can then be used to create a shared access signature for an Azure Storage table that is signed with Entra ID credentials.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/965033a5-c8eb-4f35-b82f-fef460a3606d",
+  "name": "965033a5-c8eb-4f35-b82f-fef460a3606d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Storage/storageAccounts/tableServices/generateUserDelegationKey/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Storage Table Delegator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

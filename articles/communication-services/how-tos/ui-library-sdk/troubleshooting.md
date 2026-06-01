@@ -21,7 +21,7 @@ In this article, you use the Azure Communication Services UI Library to get esse
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A user access token to enable the call client. [Get a user access token](../../quickstarts/identity/access-tokens.md).
 - Optional: Completion of the [quickstart for getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md).
@@ -31,7 +31,7 @@ In this article, you use the Azure Communication Services UI Library to get esse
 ::: zone pivot="platform-web"
 For detailed documentation and quickstarts about the Web UI Library, see the [Web UI Library Storybook](https://azure.github.io/communication-ui-library).
 
-To learn more, see [Troubleshooting](https://azure.github.io/communication-ui-library/?path=/docs/troubleshooting--page) in the Web UI Library.
+To learn more, see [Troubleshooting](https://azure.github.io/communication-ui-library/?path=/docs/concepts-troubleshooting--docs) in the Web UI Library.
 ::: zone-end
 
 ::: zone pivot="platform-android"

@@ -1,11 +1,11 @@
 ---
 title: What is Azure Communication Services?
 description: Learn how Azure Communication Services helps you develop rich user experiences with real-time communications.
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
 
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
@@ -13,7 +13,7 @@ ms.service: azure-communication-services
 
 # What is Azure Communication Services?
 
-[!INCLUDE [Survey Request](./includes/survey-request.md)]
+<!-- [!INCLUDE [Survey Request](includes/survey-request.md)] -->
 
 Azure Communication Services offers multichannel communication APIs for adding voice, video, chat, text messaging/SMS, email, and more to all your applications. 
 

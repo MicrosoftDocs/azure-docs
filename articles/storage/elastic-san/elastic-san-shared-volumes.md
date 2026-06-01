@@ -1,39 +1,40 @@
 ---
 title: Use clustered applications on Azure Elastic SAN
-description: Use clustered applications on an Elastic SAN volume and share Elastic SAN volumes between compute clients.
+description: Learn how to deploy clustered applications on an Elastic SAN volumes and share Elastic SAN volumes between compute clients.
 author: roygara
 ms.service: azure-elastic-san-storage
-ms.topic: conceptual
-ms.date: 05/31/2024
+ms.topic: concept-article
+ms.date: 01/08/2026
 ms.author: rogarana
 ms.custom:
   - references_regions
   - ignite-2023-elastic-SAN
+# Customer intent: As a cloud administrator, I want to deploy clustered applications on Azure Elastic SAN volumes, so that I can enhance data consistency and availability across multiple compute clients while managing reservations and access controls effectively.
 ---
 
 # Deploy clustered applications on Azure Elastic SAN
 
-Azure Elastic SAN volumes can be simultaneously attached to multiple compute clients, allowing you to deploy or migrate cluster applications to Azure. You need to use a cluster manager to share an Elastic SAN volume, like Windows Server Failover Cluster (WSFC), or Pacemaker. The cluster manager handles cluster node communications and write locking. Elastic SAN doesn't natively offer a fully managed filesystem that can be accessed over SMB or NFS.
+You can attach Azure Elastic SAN volumes to multiple compute clients at the same time, so you can deploy or migrate cluster applications to Azure. To share an Elastic SAN volume, you need to use a cluster manager, such as Windows Server Failover Cluster (WSFC) or Pacemaker. The cluster manager handles cluster node communications and write locking. Elastic SAN doesn't natively offer a fully managed filesystem that can be accessed over SMB or NFS.
 
-When used as a shared volume, elastic SAN volumes can be shared across availability zones or regions. Sharing a volume in a local-redundant storage SAN across zones reduces your performance due to increased latency between the volume and clients.
+When used as a shared volume, Elastic SAN volumes can be shared across availability zones or regions. Sharing a volume in a local-redundant storage SAN across zones reduces your performance due to increased latency between the volume and clients.
 
 ## Limitations
 
-- Elastic SAN connection scripts can be used to attach shared volumes to virtual machines in Virtual Machine Scale Sets or virtual machines in Availability Sets. Fault domain alignment isn't supported.
-- The maximum number of sessions a shared volume supports is 128.
+- You can use Elastic SAN connection scripts to attach shared volumes to virtual machines in Virtual Machine Scale Sets or virtual machines in Availability Sets. Fault domain alignment isn't supported.
+- A shared volume supports up to 128 sessions.
     - An individual client can create multiple sessions to an individual volume for increased performance. For example, if you create 32 sessions on each of your clients, only four clients could connect to a single volume.
 
-See [Support for Azure Storage features](elastic-san-introduction.md#support-for-azure-storage-features) for other limitations of Elastic SAN.
+For other limitations of Elastic SAN, see [Support for Azure Storage features](elastic-san-introduction.md#support-for-azure-storage-features).
 
 ## How it works
 
-Elastic SAN shared volumes use [SCSI-3 Persistent Reservations](https://www.t10.org/members/w_spc3.htm) to allow initiators (clients) to control access to a shared elastic SAN volume. This protocol enables an initiator to reserve access to an elastic SAN volume, limit write (or read) access by other initiators, and persist the reservation on a volume beyond the lifetime of a session by default.
+Elastic SAN shared volumes use [SCSI-3 Persistent Reservations](https://www.t10.org/members/w_spc3.htm) to allow initiators (clients) to control access to a shared Elastic SAN volume. This protocol enables an initiator to reserve access to an Elastic SAN volume, limit write (or read) access by other initiators, and persist the reservation on a volume beyond the lifetime of a session by default.
 
-SCSI-3 PR has a pivotal role in maintaining data consistency and integrity within shared volumes in cluster scenarios. Compute nodes in a cluster can read or write to their attached elastic SAN volumes based on the reservation chosen by their cluster applications.
+SCSI-3 PR plays a pivotal role in maintaining data consistency and integrity within shared volumes in cluster scenarios. Compute nodes in a cluster can read or write to their attached Elastic SAN volumes based on the reservation chosen by their cluster applications.
 
 ## Persistent reservation flow
 
-The following diagram illustrates a sample 2-node clustered database application that uses SCSI-3 PR to enable failover from one node to the other.
+The following diagram illustrates a sample two-node clustered database application that uses SCSI-3 PR to enable failover from one node to the other.
 
 :::image type="content" source="media/elastic-san-shared-volumes/elastic-san-shared-volume-cluster.png" alt-text="Diagram that shows clustered application." lightbox="media/elastic-san-shared-volumes/elastic-san-shared-volume-cluster.png":::
 
@@ -58,7 +59,7 @@ The flow is as follows:
 
 ## Supported SCSI PR commands
 
-The following commands are supported with Elastic SAN volumes:
+Elastic SAN volumes support the following commands:
 
 To interact with the volume, start with the appropriate persistent reservation action:
 - PR_REGISTER_KEY
@@ -69,7 +70,7 @@ To interact with the volume, start with the appropriate persistent reservation a
 - PR_CLEAR_RESERVATION
 - PR_RELEASE_RESERVATION
 
-When using PR_RESERVE, PR_PREEMPT_RESERVATION, or PR_RELEASE_RESERVATION, provide one of the following persistent reservation type:
+When you use PR_RESERVE, PR_PREEMPT_RESERVATION, or PR_RELEASE_RESERVATION, provide one of the following persistent reservation types:
 - PR_NONE
 - PR_WRITE_EXCLUSIVE
 - PR_EXCLUSIVE_ACCESS
@@ -78,7 +79,7 @@ When using PR_RESERVE, PR_PREEMPT_RESERVATION, or PR_RELEASE_RESERVATION, provid
 - PR_WRITE_EXCLUSIVE_ALL_REGISTRANTS
 - PR_EXCLUSIVE_ACCESS_ALL_REGISTRANTS
 
-Persistent reservation type determines access to the volume from each node in the cluster.
+The persistent reservation type determines access to the volume from each node in the cluster.
 
 |Persistent Reservation Type  |Reservation Holder  |Registered  |Others  |
 |---------|---------|---------|---------|
@@ -90,7 +91,7 @@ Persistent reservation type determines access to the volume from each node in th
 |WRITE EXCLUSIVE - ALL REGISTRANTS     |Read-Write         |Read-Write         |Read-Only         |
 |EXCLUSIVE ACCESS - ALL REGISTRANTS     |Read-Write         |Read-Write         |No Access         |
 
-You also need to provide a persistent-reservation-key when using:
+Provide a persistent-reservation-key when you use:
 - PR_RESERVE
 - PR_REGISTER_AND_IGNORE 
 - PR_REGISTER_KEY 

@@ -12,8 +12,8 @@ zone_pivot_groups: programming-languages-set-functions-nodejs
 
 # Migrate to version 4 of the Node.js programming model for Azure Functions
 
-This article discusses the differences between version 3 and version 4 of the Node.js programming model and how to upgrade an existing v3 app. If you want to create a new v4 app instead of upgrading an existing v3 app, see the tutorial for either [Visual Studio Code (VS Code)](./create-first-function-cli-node.md) or [Azure Functions Core Tools](./create-first-function-vs-code-node.md). This article uses "tip" alerts to highlight the most important concrete actions that you should take to upgrade your app.
 
+This article discusses the differences between version 3 and version 4 of the Node.js programming model and how to upgrade an existing v3 app. If you want to create a new v4 app instead of upgrading an existing v3 app, see the tutorial for either [Visual Studio Code (VS Code)](./how-to-create-function-azure-cli.md?pivots=programming-language-javascript) or [Azure Functions Core Tools](./how-to-create-function-vs-code.md?pivot=programming-language-javascript). This article uses "tip" alerts to highlight the most important concrete actions that you should take to upgrade your app.
 Version 4 is designed to provide Node.js developers with the following benefits:
 
 - Provide a familiar and intuitive experience to Node.js developers.
@@ -28,13 +28,13 @@ Version 4 of the Node.js programming model requires the following minimum versio
 
 :::zone pivot="programming-language-javascript"
 - [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package v4.0.0
-- [Node.js](https://nodejs.org/en/download/releases/) v18+
+- [Node.js](https://nodejs.org/en/about/previous-releases) v18+
 - [Azure Functions Runtime](./functions-versions.md) v4.25+
 - [Azure Functions Core Tools](./functions-run-local.md) v4.0.5382+ (if running locally)
 :::zone-end
 :::zone pivot="programming-language-typescript"
 - [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package v4.0.0
-- [Node.js](https://nodejs.org/en/download/releases/) v18+
+- [Node.js](https://nodejs.org/en/about/previous-releases) v18+
 - [TypeScript](https://www.typescriptlang.org/) v4+
 - [Azure Functions Runtime](./functions-versions.md) v4.25+
 - [Azure Functions Core Tools](./functions-run-local.md) v4.0.5382+ (if running locally)

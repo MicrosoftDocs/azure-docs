@@ -3,9 +3,9 @@ title: Azure Container Apps samples
 description: Learn how to use Azure Container Apps from existing samples 
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
-ms.topic: conceptual
-ms.date: 05/31/2024
+ms.service: azure-container-apps
+ms.topic: sample
+ms.date: 12/05/2025
 ms.author: cshoe
 ---
 
@@ -22,3 +22,16 @@ Refer to the following samples to learn how to use Azure Container Apps in diffe
 | [ASP.NET Core front-end with two back-end APIs on Azure Container Apps](https://github.com/Azure-Samples/dotNET-FrontEnd-to-BackEnd-on-Azure-Container-Apps)<br /> | This sample demonstrates ASP.NET Core 6.0 can be used to build a cloud-native application hosted in Azure Container Apps. |
 | [ASP.NET Core front-end with two back-end APIs on Azure Container Apps (with Dapr)](https://github.com/Azure-Samples/dotNET-FrontEnd-to-BackEnd-with-DAPR-on-Azure-Container-Apps)<br /> | Demonstrates how ASP.NET Core 6.0 is used to build a cloud-native application hosted in Azure Container Apps using Dapr. |
 | [Deploy Drupal on Azure Container Apps](https://github.com/Azure-Samples/drupal-on-azure-container-apps) | Demonstrates how to deploy a Drupal site to Azure Container Apps, with Azure Database for MariaDB, and Azure Files to store static assets.|
+| [Launch your first Java app on Azure Container Apps](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/spring-petclinic) |A monolithic Java application called PetClinic built with Spring Framework. PetClinic is a well-known sample application provided by the Spring Framework community. |
+| [Launch your first Java microservice app on Azure Container Apps](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/spring-petclinic-microservices) |A microservices-based version of PetClinic with Spring, built with Spring Framework, showcasing configuration management, service discovery, and health/metrics monitoring on Azure Container Apps.|
+| [Launch Your first Java Spring Batch app on Azure Container Apps](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/spring-batch-football) |A Java Spring Batch application showcasing an ephemeral statistics loading job, adapted from the Spring Batch Football Job sample, and deployable to Azure Container Apps. |
+| [Launch Your first Java AI application on Azure Container Apps](https://github.com/Azure-Samples/spring-petclinic-ai) |A Java AI application built with the Spring-AI Framework, demonstrating how to integrate with Azure OpenAI capabilities to enhance PetClinic application with an intelligent Chatbot, and deploy it to Azure Container Apps. |
+| [mTLS Server Application on Azure Container Apps](https://github.com/Azure-Samples/azure-container-apps-java-samples/tree/main/azure-container-apps-mtls-certificate-filter) | A Java sample using different Java APIs to demonstrate how to extract X.509 certificates from incoming requests, including Servlet Jakarta API, Servlet Javax API, and Reactive API. Additionally, to provide a complete user experience of verifying the certificates in Azure Container Apps other than Spring Security, the samples also demonstrate loading a custom trust store to validate the certificates. |
+| [ChatGPT + Enterprise data with Azure OpenAI and Azure AI Search (JavaScript)](https://github.com/Azure-Samples/azure-search-openai-javascript) | Demonstrates Retrieval-Augmented Generation (RAG) using Azure OpenAI and Azure AI Search with a full frontend and backend, sample data, and `azd` deployment scripts for end-to-end testing. |
+| [Azure OpenAI RAG workshop (Node.js)](https://github.com/Azure-Samples/azure-openai-rag-workshop) | A monorepo showing how to build RAG chat experiences with LangChain.js, Fastify, and optional vector stores; includes step-by-step exercises and deployment guidance. |
+| [Node.js Microservices Workshop](https://github.com/Azure-Samples/nodejs-microservices) | Teaches microservices fundamentals using Node.js, Docker, and Azure Container Apps with example services built using Express, Fastify, and NestJS plus docker-compose and deployment scripts. |
+| [AI Travel Agents — Agentic Orchestration](https://github.com/Azure-Samples/azure-ai-travel-agents) | A modular reference app that demonstrates multi-agent orchestration (LangChain.js, LlamaIndex.TS, Microsoft Agent Framework) and MCP servers, packaged for deployment to Azure Container Apps. Uses Python, Node.js, Java, .NET. |
+| [Remote MCP with Azure Container Apps (Node.js/TypeScript)](https://github.com/Azure-Samples/mcp-container-ts) | Quickstart template for running a Model Context Protocol (MCP) HTTP server on Azure Container Apps; includes JWT-based auth, examples, and `azd` deployment instructions. |
+| [Serverless RAG with LlamaIndex + Azure Dynamic Sessions](https://github.com/Azure-Samples/llama-index-azure-code-interpreter) | Full-stack Next.js RAG application using LlamaIndex and Azure Dynamic Sessions (code interpreter tooling), deployable to Azure Container Apps with `azd` templates. Uses React. |
+| [LlamaIndex Quickstart (JavaScript)](https://github.com/Azure-Samples/llama-index-javascript) | Serverless quickstart that shows how to build a LlamaIndex-based chat app with Azure OpenAI and Azure Container Apps; includes ingestion for common file types and local `azd` deployment guidance. |
+| [LlamaIndex Vector Search (JavaScript)](https://github.com/Azure-Samples/llama-index-vector-search-javascript) | A LlamaIndex RAG chat sample that combines Azure OpenAI embeddings and Azure AI Search for vector retrieval, with sample data and deployment instructions for Azure Container Apps. |

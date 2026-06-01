@@ -4,11 +4,12 @@ description: Learn how to copy data from SAP Cloud for Customer to supported sin
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.author: ulrichchrist
-ms.service: data-factory
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.custom: synapse
+ms.topic: how-to
 ms.date: 01/05/2024
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy data from or to SAP Cloud for Customer (C4C) using Azure Data Factory or Synapse Analytics

@@ -2,12 +2,13 @@
 title: Implement a retry policy using the Azure Storage client library for Python
 titleSuffix: Azure Storage
 description: Learn about retry policies and how to implement them for Blob Storage. This article helps you set up a retry policy for Blob Storage requests using the Azure Storage client library for Python. 
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 04/29/2024
+ms.date: 08/05/2024
 ms.custom: devx-track-python, devguide-python
+# Customer intent: "As a developer working with Azure Blob Storage in Python, I want to implement a configurable retry policy, so that my application can effectively handle transient faults and improve its stability and resiliency during service interruptions."
 ---
 
 # Implement a retry policy with Python
@@ -73,7 +74,8 @@ The following code example shows how to configure the retry options using an ins
 
 :::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_retry.py" id="Snippet_retry_linear":::
 
-## Related content
+## Next steps
 
+- This article is part of the Blob Storage developer guide for Python. See the full list of developer guide articles at [Build your app](storage-blob-python-get-started.md#build-your-app).
 - For architectural guidance and general best practices for retry policies, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 - For guidance on implementing a retry pattern for transient failures, see [Retry pattern](/azure/architecture/patterns/retry).

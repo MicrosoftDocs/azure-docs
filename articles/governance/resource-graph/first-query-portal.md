@@ -11,7 +11,7 @@ This quickstart describes how to run an Azure Resource Graph query in the Azure 
 
 ## Prerequisites
 
-If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure account, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Run a query
 
@@ -124,7 +124,7 @@ Queries that result in a list can also be pinned to the dashboard. The feature i
 
 When a query is run from the portal, you can select **Directory** to change the query's scope for the directory, management group, or subscription of the resources you want to query. When **Pin to dashboard** is selected, the results are added to your Azure dashboard with the scope used when the query was run.
 
-For more information about working with dashboards, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md).
+For more information about working with dashboards, see [Create a dashboard in the Azure portal](/azure/azure-portal/azure-portal-dashboards).
 
 ## Clean up resources
 

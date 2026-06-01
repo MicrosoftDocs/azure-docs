@@ -2,11 +2,12 @@
 title: Azure DDoS Rapid Response
 description: Learn how to engage DDoS experts during an active attack for specialized support.
 services: ddos-protection
-author: AbdullahBell
-ms.service: ddos-protection
+author: duongau
+ms.service: azure-ddos-protection
 ms.topic: how-to
-ms.date: 07/17/2024
-ms.author: abell
+ms.date: 03/17/2026
+ms.author: duau
+# Customer intent: "As a network administrator, I want to engage the DDoS Rapid Response team during an active attack, so that I can receive specialized support to mitigate the attack and ensure the availability of my protected resources."
 ---
 # Azure DDoS Rapid Response
 
@@ -14,7 +15,7 @@ During an active attack, Azure DDoS Network Protection customers have access to 
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Before you can complete the steps in this guide, you must first create a [Azure DDoS Protection plan](manage-ddos-protection.md).
 
 ## When to engage DRR

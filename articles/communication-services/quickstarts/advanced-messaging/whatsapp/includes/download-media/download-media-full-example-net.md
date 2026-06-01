@@ -4,11 +4,13 @@ description: Include file
 services: azure-communication-services
 author: memontic-ms
 ms.service: azure-communication-services
-ms.subservice: messages
-ms.date: 07/15/2024
+ms.subservice: advanced-messaging
+ms.date: 05/01/2025
 ms.topic: include
-ms.custom: include file
 ms.author: memontic
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ```csharp

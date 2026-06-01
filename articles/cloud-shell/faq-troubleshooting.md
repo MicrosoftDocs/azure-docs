@@ -1,7 +1,6 @@
 ---
 description: This article answers common questions and explains how to troubleshoot Cloud Shell issues.
-ms.contributor: jahelmic
-ms.date: 11/08/2023
+ms.date: 02/09/2026
 ms.topic: troubleshooting
 tags: azure-resource-manager
 ms.custom: has-azure-ad-ps-ref
@@ -26,17 +25,25 @@ Cloud Shell supports the latest versions of following browsers:
 The keys used for copy and paste vary by operating system and browser. The following list contains
 the most common key combinations:
 
-- Windows: <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy and <kbd>CTRL</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd> or
+- Windows: <kbd>Ctrl</kbd>+<kbd>c</kbd> to copy and <kbd>CTRL</kbd>+<kbd>v</kbd> or
   <kbd>Shift</kbd>+<kbd>Insert</kbd> to paste.
-  - FireFox might not support clipboard permissions properly.
+  - Firefox might not support clipboard permissions properly.
 - macOS: <kbd>Cmd</kbd>+<kbd>c</kbd> to copy and <kbd>Cmd</kbd>+<kbd>v</kbd> to paste.
-- Linux: <kbd>CTRL</kbd>+<kbd>c</kbd> to copy and <kbd>CTRL</kbd>+<kbd>Shift</kbd>+<kbd>v</kbd> to
-  paste.
+- Linux: <kbd>CTRL</kbd>+<kbd>c</kbd> to copy and <kbd>CTRL</kbd>+<kbd>v</kbd> to paste.
 
 > [!NOTE]
 > If no text is selected when you type <kbd>Ctrl</kbd>+<kbd>C</kbd>, Cloud Shell sends the `Ctrl-c`
 > character to the shell. The shell can interpret `Ctrl-c` as a **Break** signal and terminate the
 > currently running command.
+
+When using the Bash shell, pasted text is automatically highlighted due to bracketed paste mode. To
+disable highlighting, run the following command:
+
+```bash
+bind 'set enable-bracketed-paste off'
+```
+
+This setting only persists if you have a mounted storage account.
 
 ## Frequently asked questions
 
@@ -60,23 +67,30 @@ your anticipated usage date.
 ### I created some files in Cloud Shell, but they're gone. What happened?
 
 The machine that provides your Cloud Shell session is temporary and is recycled after your session
-is inactive for 20 minutes. Cloud Shell uses an Azure fileshare mounted to the `clouddrive` folder
-in your session. The fileshare contains the image file that contains your `$HOME` directory. Only
-files that you upload or create in the `clouddrive` folder are persisted across sessions. Any files
-created outside your `clouddrive` directory aren't persisted.
+is inactive for 20 minutes.
 
-Files stored in the `clouddrive` directory are visible in the Azure portal using Storage browser.
-However, any files created in the `$HOME` directory are stored in the image file and aren't visible
-in the portal.
+When you started Cloud Shell the first time, you were prompted to choose a storage option.
+
+- If you chose the **Mount storage account** option, Cloud Shell mounts an Azure fileshare to the
+  `clouddrive` folder in your session. Files stored in the `clouddrive` folder are visible in the
+  Azure portal using Storage browser. Files stored in the `clouddrive` folder persist across
+  sessions.
+
+- If you chose the **No storage account required** option, you can only write files to your `$HOME`
+  folder.
+
+In both scenarios, you can write files to the `$HOME` folder. However, the `$HOME` folder only
+exists in the Cloud Shell container image that you're currently using. Files in the `$HOME` folder
+aren't visible in the Storage browser and are deleted when your session ends.
 
 ### I create a file in the Azure: drive, but I don't see it. What happened?
 
-PowerShell users can use the `Azure:` drive to access Azure resources. The `Azure:` drive is created
-by a PowerShell provider that structures data as a file system drive. The `Azure:` drive is a
-virtual drive that doesn't allow you to create files.
+Cloud Shell loads a PowerShell provider for Azure that presents Azure resource data as a file system
+drive. PowerShell users can use the `Azure:` drive to access Azure resources. The `Azure:` drive is
+a virtual drive that doesn't allow you to create files.
 
 Files that you create a new file using other tools, such as `vim` or `nano` while your current
-location is the `Azure:` drive, are saved to your `$HOME` directory.
+location is the `Azure:` drive, are saved to your `$HOME` folder.
 
 ### I want to install a tool in Cloud Shell that requires `sudo`. Is that possible?
 
@@ -90,8 +104,10 @@ command that requires elevated permissions.
 - **Details**: When creating the Cloud Shell storage account for first-time users, it's
   unsuccessful due to an Azure Policy assignment placed by your admin. The error message includes:
 
-  > The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by
-  > one or more policies.
+  ```
+  The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by
+  one or more policies.
+  ```
 
 - **Resolution**: Contact your Azure administrator to remove or update the Azure Policy assignment
   denying storage creation.
@@ -111,6 +127,108 @@ command that requires elevated permissions.
   following domains:
   - `*.console.azure.com`
   - `*.servicebus.windows.net`
+  - `*.servicebus.usgovcloudapi.net` for Azure Government Cloud
+
+### Failed to request a terminal - Accessing Cloud Shell from a network that uses a private DNS resolver
+
+- **Details**: Cloud Shell uses Azure Relay for terminal connections. Cloud Shell can fail to
+  request a terminal due to DNS resolution problems. This failure can be caused when you launch a
+  Cloud Shell session from a host in a network that has a private DNS Zone for the `servicebus`
+  domain. This error can also occur if you're using a private on-premises DNS server.
+
+- **Resolution**: You can add a DNS record for the Azure Relay instance that Cloud Shell uses.
+
+  The following steps show you how to identify the DNS name of the Cloud Shell instance and how to
+  create a DNS record for that name.
+
+  1. Try to start Cloud Shell using your web browser. Use the browser's Developer Tools to find the
+     Azure Relay instance name. In Microsoft Edge or Google Chrome, hit the <kbd>F12</kbd> key to
+     open the Developer Tools. Select the **Network** tab. Find the **Search** box in the top right
+     corner. Search for `terminals?` to find the request for a Cloud Shell terminal. Select the one
+     of the request entries found by the search. In the **Headers** tab, find the hostname in the
+     **Request URL**. The name is similar to
+     `ccon-prod-<region-name>-aci-XX.servicebus.windows.net`. In the Azure Government Cloud, the
+     hostnames are `ccon-fairfax-usgovvirginia-dedicated-aci-02.servicebus.usgovcloudapi.net` and
+     `ccon-fairfax-arizona-aci-dedicated-01.servicebus.usgovcloudapi.net`.
+
+     The following screenshot shows the Developer Tools in Microsoft Edge for a successful request
+     for a terminal. The hostname is `ccon-prod-southcentalus-aci-02.servicebus.windows.net`. In
+     your case, the request should be unsuccessful, but you can find the hostname you need to
+     resolve.
+
+     [![Screenshot of the browser developer tools.][06]][07]
+
+     For information about accessing the Developer Tools in other browsers, see
+     [Capture a browser trace for troubleshooting][01].
+
+  1. From a host outside of your private network, run the `nslookup` command to find the IP address
+     of the hostname as found in the previous step.
+
+     ```bash
+     nslookup ccon-prod-southcentalus-aci-02.servicebus.windows.net
+     ```
+
+     The results should look similar to the following example:
+
+     ```Output
+     Server:         168.63.129.16
+     Address:        168.63.129.16
+
+     Non-authoritative answer:
+     ccon-prod-southcentralus-aci-02.servicebus.windows.net  canonical name = ns-sb2-prod-sn3-012.cloudapp.net.
+     Name:   ns-sb2-prod-sn3-012.cloudapp.net
+     Address: 40.84.152.91
+     ```
+
+  1. Add an A record for the public IP in the Private DNS Zone of your private network. For this
+     example, the DNS record would have the following properties:
+
+     - Name: ccon-prod-southcentralus-aci-02
+     - Type: A
+     - TTL: 1 hour
+     - IP Address: 40.84.152.91
+
+     For more information about creating DNS records in a private DNS zone, see
+     [Manage DNS record sets and records with Azure DNS][03].
+
+     > [!NOTE]
+     > This IP address is subject to change periodically. You might need to repeat this process to
+     > discover the new IP address.
+
+  Alternately, you can deploy your own private Cloud Shell instance. For more information, see
+  [Deploy Cloud Shell in a virtual network][02].
+
+### Terminal output - Sorry, your Cloud Shell failed to provision: {"code":"TenantDisabled" ...}
+
+- **Details**: In rare cases, Azure might flag out-of-the-ordinary resource consumption based in
+  from Cloud Shell as fraudulent activity. When this occurs, Azure disables Cloud Shell at the
+  tenant level and you see the following error message:
+
+  > Sorry, your Cloud Shell failed to provision: {"code":"TenantDisabled","message":"Cloud Shell has
+  > been disabled in directory<>."} Please refresh the page.
+
+  There can be legitimate use cases where CPU usage in your Azure Cloud Shell instance exceeds the
+  thresholds that trigger fraud prevention and block your tenant. Large AZCopy jobs could be the
+  cause this event. The Microsoft Azure engineering team can help to figure out why the tenant was
+  disabled and re-enable it.
+
+- **Resolution**: To investigate the cause and re-enable Cloud Shell for your tenant, open a new
+  Azure support request. Include the following details:
+
+  1. Tenant ID
+  2. The business justification and a description of how you use Cloud Shell.
+
+### Terminal Output - Audience `<service-audience-url>` is not a supported MSI token audience
+
+- **Details**: Cloud Shell was unable to fetch the necessary token for the Azure service that the
+  command required. This error happens when Cloud Shell doesn't support the token audience requested
+  by the command.
+- **Resolution**: Run the following command in Cloud Shell to sign in interactively and acquire the
+  necessary credentials before retrying your original command: `az login --use-device-code`.
+
+  > [!NOTE]
+  > The `https://appservice.azure.com/` audience was added as a supported token audience in the
+  > February 2026 update.
 
 ## Managing Cloud Shell
 
@@ -155,10 +273,23 @@ Use the following steps to delete your user settings.
 ### Block Cloud Shell in a locked down network environment
 
 - **Details**: Administrators might wish to disable access to Cloud Shell for their users. Cloud
-  Shell depends on access to the `ux.console.azure.com` domain, which can be denied, stopping any
-  access to Cloud Shell's entry points including `portal.azure.com`, `shell.azure.com`, Visual
-  Studio Code Azure Account extension, and `learn.microsoft.com`. In the US Government cloud, the
-  entry point is `ux.console.azure.us`; there's no corresponding `shell.azure.us`.
-- **Resolution**: Restrict access to `ux.console.azure.com` or `ux.console.azure.us` from your
-  network. The Cloud Shell icon still exists in the Azure portal, but you can't connect to the
+  Shell depends on access to the `console.azure.com` domain, which can be denied, stopping any
+  access to Cloud Shell's entry points including from `portal.azure.com` and `learn.microsoft.com`.
+  In the US Government cloud, Cloud Shell depends on access to the `console.azure.us` domain.
+- **Resolution**: Restrict access to `*.console.azure.com` or `*.console.azure.us` from your
+  network. The icon for Cloud Shell still exists in the Azure portal, but you can't connect to the
   service.
+
+  > [!NOTE]
+  > Restricting those domains doesn't cover all potential Cloud Shell entry points, notably from
+  > [VS Code for the Web - Azure][05] and [Windows Terminal][04]. To block all Cloud Shell entry
+  > points in a tenant, open a support ticket.
+
+<!-- link references -->
+[01]: /azure/azure-portal/capture-browser-trace
+[02]: /azure/cloud-shell/vnet/overview
+[03]: /azure/dns/dns-operations-recordsets-portal
+[04]: /shows/it-ops-talk/azure-cloud-shell-in-the-windows-terminal
+[05]: https://code.visualstudio.com/docs/azure/vscodeforweb
+[06]: media/faq-troubleshooting/devtools-small.png
+[07]: media/faq-troubleshooting/devtools-large.png#lightbox

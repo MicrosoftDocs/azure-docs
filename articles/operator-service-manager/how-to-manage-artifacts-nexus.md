@@ -1,12 +1,13 @@
 ---
 title: How to push and pull images and other artifacts to/from an Azure Container Registry (ACR) backed artifact store.
 description: Learn how to push and pull images and other artifacts to/from an Azure Container Registry (ACR) backed artifact store.
-author: pjw711
-ms.author: peterwhiting
+author: JAC0BSMITH
+ms.author: jacobsmith
 ms.date: 03/18/2024
 ms.topic: how-to
 ms.service: azure-operator-service-manager
 ms.custom:
+  - sfi-image-nochange
 ---
 # Push and pull images and other artifacts to/from an Azure Container Registry (ACR) backed artifact store
 
@@ -29,7 +30,7 @@ This How-To article describes how to push artifacts to and pull artifacts from a
 - [Enable AOSM](quickstart-onboard-subscription-azure-operator-service-manager.md) on your Azure subscription
 - Install the [Azure CLI](/cli/azure/install-azure-cli)
 - Deploy an Artifact Store resource of type Azure Container Registry
-- Deploy an Artifact manifest resource that contains an entry for the artifact you want to install. This example shows the artifact manifest BICEP definition for a fictional Contoso CNF container image
+- Deploy an Artifact manifest resource that contains an entry for the artifact you want to install. This example shows the artifact manifest Bicep definition for a fictional Contoso CNF container image
 
 ```bicep
 resource acrArtifactManifest 'Microsoft.Hybridnetwork/publishers/artifactStores/artifactManifests@2023-09-01' = {

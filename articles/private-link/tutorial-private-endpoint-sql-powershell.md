@@ -2,12 +2,12 @@
 title: 'Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint - PowerShell'
 description: Use this tutorial to learn how to create an Azure SQL server with a private endpoint using Azure PowerShell
 services: private-link
-author: abell
+author: asudbring
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: tutorial
-ms.date: 10/31/2020
-ms.author: abell
+ms.date: 02/20/2026
+ms.author: allensu
 ms.custom: template-tutorial, fasttrack-edit, devx-track-azurepowershell
 ---
 
@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
@@ -42,9 +42,9 @@ New-AzResourceGroup -Name 'CreateSQLEndpointTutorial-rg' -Location 'eastus'
 
 ## Create a virtual network and bastion host
 
-In this section, you'll create a virtual network, subnet, and bastion host. 
+In this section, you create a virtual network, subnet, and bastion host. 
 
-The bastion host will be used to connect securely to the virtual machine for testing the private endpoint.
+The bastion host is used to connect securely to the virtual machine for testing the private endpoint.
 
 Create a virtual network and bastion host with:
 
@@ -85,6 +85,7 @@ $parameters3 = @{
     Name = 'myBastion'
     PublicIpAddress = $publicip
     VirtualNetwork = $vnet
+    Sku = 'Basic'
 }
 New-AzBastion @parameters3
 ```
@@ -93,7 +94,7 @@ It can take a few minutes for the Azure Bastion host to deploy.
 
 ## Create test virtual machine
 
-In this section, you'll create a virtual machine that will be used to test the private endpoint.
+In this section, you create a virtual machine that is used to test the private endpoint.
 
 Create the virtual machine with:
 
@@ -148,7 +149,7 @@ New-AzVM -ResourceGroupName 'CreateSQLEndpointTutorial-rg' -Location 'eastus' -V
 
 ## Create an Azure SQL server
 
-In this section, you'll create a SQL server and database using:
+In this section, you create a SQL server and database using:
 
 * [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver)
 * [New-AzSQlDatabase](/powershell/module/az.sql/new-azsqldatabase)
@@ -181,7 +182,7 @@ New-AzSqlDatabase @parameters2
 
 ## Create private endpoint
 
-In this section, you'll create the private endpoint and connection using:
+In this section, you create the private endpoint and connection using:
 
 * [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/New-AzPrivateLinkServiceConnection)
 * [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint)
@@ -217,7 +218,7 @@ New-AzPrivateEndpoint @parameters2
 ```
 ## Configure the private DNS zone
 
-In this section you'll create and configure the private DNS zone using:
+In this section you create and configure the private DNS zone using:
 
 * [New-AzPrivateDnsZone](/powershell/module/az.privatedns/new-azprivatednszone)
 * [New-AzPrivateDnsVirtualNetworkLink](/powershell/module/az.privatedns/new-azprivatednsvirtualnetworklink)
@@ -263,7 +264,7 @@ New-AzPrivateDnsZoneGroup @parameters4
 
 ## Test connectivity to private endpoint
 
-In this section, you'll use the virtual machine you created in the previous step to connect to the SQL server across the private endpoint.
+In this section, you use the virtual machine you created in the previous step to connect to the SQL server across the private endpoint.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
  
@@ -281,11 +282,11 @@ In this section, you'll use the virtual machine you created in the previous step
 
 8. Open Windows PowerShell on the server after you connect.
 
-9. Enter `nslookup <sqlserver-name>.database.windows.net`. Replace **\<sqlserver-name>** with the name of the SQL server you created in the previous steps.  You'll receive a message similar to what is displayed below:
+9. Enter `nslookup <sqlserver-name>.database.windows.net`. Replace **\<sqlserver-name>** with the name of the SQL server you created in the previous steps. You receive a message similar to what is displayed below:
 
     ```powershell
     Server:  UnKnown
-    Address:  168.63.129.16
+    Address:  172.63.129.16
 
     Non-authoritative answer:
     Name:    mysqlserver8675.privatelink.database.windows.net
@@ -293,7 +294,7 @@ In this section, you'll use the virtual machine you created in the previous step
     Aliases:  mysqlserver8675.database.windows.net
     ```
 
-    A private IP address of **10.0.0.5** is returned for the SQL server name.  This address is in the subnet of the virtual network you created previously.
+    A private IP address of **10.0.0.5** is returned for the SQL server name. This address is in the subnet of the virtual network you created previously.
 
 
 10. Install [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?preserve-view=true&view=sql-server-2017) on **myVM**.
@@ -338,6 +339,6 @@ In this tutorial, you created a:
 
 You used the virtual machine to test connectivity securely to the SQL server across the private endpoint.
 
-As a next step, you may also be interested in the **Web app with private connectivity to Azure SQL database** architecture scenario, which connects a web application outside of the virtual network to the private endpoint of a database.
+As a next step, review the **Web app with private connectivity to Azure SQL database** architecture scenario, which connects a web application outside of the virtual network to the private endpoint of a database.
 > [!div class="nextstepaction"]
 > [Web app with private connectivity to Azure SQL database](/azure/architecture/example-scenario/private-web-app/private-web-app)

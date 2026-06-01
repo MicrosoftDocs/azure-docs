@@ -2,12 +2,12 @@
 title: Deploy a virtual machine scale set using a hardened Linux image
 description: Learn how to use vmss to deploy a scale set using the hardened linux image.
 author: samyaktelsang-msft
-ms.service: virtual-machines
-mms.subservice: confidential-computing
+ms.service: azure-confidential-computing
 ms.topic: how-to
 ms.date: 9/12/2023
 ms.author: satelsan
 ms.custom: devx-track-azurecli, linux-related-content
+# Customer intent: "As a cloud architect, I want to deploy a virtual machine scale set using a hardened Linux image, so that I can ensure enhanced security while managing the limitations of removing the Azure Linux Agent."
 ---
 
 # Deploy a virtual machine scale set using a hardened Linux image
@@ -21,8 +21,8 @@ However, if you have chosen to create a hardened linux image by removing the Azu
 This "how to" document describes the steps to deploy a virtual machine scale set instance while comprehending the functional limitations of the hardened image on deploying the vmss instance.
 ## Prerequisites
 
-- Azure subscription - If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- If your free trial accounts don't have access to the VMs used in this tutorial, one option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
+- Azure subscription - If you don't have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+- If your free trial accounts don't have access to the VMs used in this tutorial, one option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A hardened linux image - you can create one from this [article](harden-a-linux-image-to-remove-azure-guest-agent.md).
   
 ### VMSS confidential VM deployment from a hardened Linux image
@@ -68,7 +68,7 @@ Steps to deploy a scale set using VMSS and a hardened image are as follows:
     For the admin credentials, you will be able to use the credentials that you set from the hardened image while you create the vm.
 
     > [!NOTE]
-    > For specalized images, [osprofile properties](/azure/virtual-machines/shared-image-galleries) are handled differently than generalized images.
+    > For specialized images, [osprofile properties](/azure/virtual-machines/shared-image-galleries) are handled differently than generalized images.
     > Using a [load balancer](/azure/load-balancer/load-balancer-overview) is optional but is encouraged for these reasons.
     
     ```azurecli-interactive

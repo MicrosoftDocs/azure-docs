@@ -14,7 +14,7 @@ In this quickstart, you use Bicep to create an Azure Resource Graph shared query
 
 ## Prerequisites
 
-- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) or [PowerShell](/powershell/scripting/install/installing-powershell) and [Azure PowerShell](/powershell/azure/install-azure-powershell).
 - [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -48,7 +48,7 @@ Set-AzContext -Subscription <subscriptionID>
 
 ## Review the Bicep file
 
-In this quickstart, you create a shared query called _Count VMs by OS_. To try this query in SDK or in portal with Resource Graph Explorer, see [Samples - Count virtual machines by OS type](/previous-versions/azure/governance/resource-graph/samples/starter#count-virtual-machines-by-os-type).
+In this quickstart, you create a shared query called _Count VMs by OS_. To try this query in SDK or in portal with Resource Graph Explorer, see [Samples - Count virtual machines by OS type](../resource-graph/samples/starter.md#count-virtual-machines-by-os-type).
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/resourcegraph-sharedquery-countos/).
 

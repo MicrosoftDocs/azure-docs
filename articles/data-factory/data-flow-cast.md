@@ -5,11 +5,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 author: kromerm
 ms.author: makromer
 ms.reviewer: makromer
-ms.service: data-factory
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 04/27/2026
 ---
 
 # Cast transformation in mapping data flow 
@@ -17,6 +16,9 @@ ms.date: 01/05/2024
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
+> [!TIP]
+>  For the equivalent transformation (**Data type**) in Dataflow Gen2, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
 
 Use the cast transformation to easily modify the data types of individual columns in a data flow. The cast transformation also enables an easy way to check for casting errors.
 
@@ -31,7 +33,7 @@ To modify the data type for columns in your data flow, add columns to "Cast sett
 **Type:** Choose the data type to cast your column to. If you pick "complex", you can then select "Define complex type" and define structures, arrays, and maps inside the expression builder.
 
 > [!NOTE]
-> Support for complex data type casting from the Cast transformation is currently unavailable. Use a Derived Column transformation instead. In the Derived Column, type conversion errors always result in NULL and require explicity error handling using an Assert. The Cast transformation can automatically trap conversion errors using the "Assert type check" property.
+> Support for complex data type casting from the Cast transformation is currently unavailable. Use a Derived Column transformation instead. In the Derived Column, type conversion errors always result in NULL and require explicitly error handling using an Assert. The Cast transformation can automatically trap conversion errors using the "Assert type check" property.
 
 **Format:** Some data types, like decimal and dates, will allow for additional formatting options.
 

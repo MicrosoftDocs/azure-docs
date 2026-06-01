@@ -6,11 +6,12 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.date: 06/01/2023
-ms.topic: conceptual
+ms.date: 03/10/2025
+ms.topic: concept-article
 ms.author: normesta
 ms.reviewer: ozgun
 ms.custom: engagement-fy23
+# Customer intent: As a cloud architect, I want to implement encryption scopes for Blob storage, so that I can create secure boundaries for data belonging to different customers within the same storage account.
 ---
 
 # Encryption scopes for Blob storage
@@ -31,7 +32,7 @@ When you define an encryption scope, you can specify whether the scope is protec
 
 If you define an encryption scope with a customer-managed key, then you can choose to update the key version either automatically or manually. If you choose to automatically update the key version, then Azure Storage checks the key vault or managed HSM daily for a new version of the customer-managed key and automatically updates the key to the latest version. For more information about updating the key version for a customer-managed key, see [Update the key version](../common/customer-managed-keys-overview.md#update-the-key-version).
 
-Azure Policy provides a built-in policy to require that encryption scopes use customer-managed keys. For more information, see the **Storage** section in [Azure Policy built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
+Azure Policy provides a built-in policy to require that encryption scopes use customer-managed keys. For more information, see the **Storage** section in [Azure Policy built-in policy definitions](/azure/governance/policy/samples/built-in-policies#storage).
 
 A storage account may have up to 10,000 encryption scopes that are protected with customer-managed keys for which the key version is automatically updated. If your storage account already has 10,000 encryption scopes that are protected with customer-managed keys that are being automatically updated, then the key version must be updated manually for any additional encryption scopes that are protected with customer-managed keys.
 
@@ -62,7 +63,7 @@ A default encryption scope must be specified for a container at the time that th
 If no default encryption scope is specified for the container, then you can upload a blob using any encryption scope that you've defined for the storage account. The encryption scope must be specified at the time that the blob is uploaded.
 
 > [!NOTE]
-> When you upload a new blob with an encryption scope, you cannot change the default access tier for that blob. You also cannot change the access tier for an existing blob that uses an encryption scope. For more information about access tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
+> When you upload a new blob with an encryption scope, you cannot change the default access tier for that blob. You also cannot set the access tier to the **archive** tier for an existing blob that uses an encryption scope. For more information about access tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
 
 ## Disabling an encryption scope
 
@@ -72,8 +73,8 @@ If your encryption scope is protected with a customer-managed key, and you revok
 
 Keep in mind that customer-managed keys are protected by soft delete and purge protection in the key vault, and a deleted key is subject to the behavior defined for by those properties. For more information, see one of the following topics in the Azure Key Vault documentation:
 
-- [How to use soft-delete with PowerShell](../../key-vault/general/key-vault-recovery.md)
-- [How to use soft-delete with CLI](../../key-vault/general/key-vault-recovery.md)
+- [How to use soft-delete with PowerShell](/azure/key-vault/general/key-vault-recovery)
+- [How to use soft-delete with CLI](/azure/key-vault/general/key-vault-recovery)
 
 > [!IMPORTANT]
 > It is not possible to delete an encryption scope.
@@ -97,5 +98,5 @@ To learn about pricing for encryption scopes, see [Blob Storage pricing](https:/
 - [Azure Storage encryption for data at rest](../common/storage-service-encryption.md)
 - [Create and manage encryption scopes](encryption-scope-manage.md)
 - [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md)
-- [What is Azure Key Vault?](../../key-vault/general/overview.md)
+- [What is Azure Key Vault?](/azure/key-vault/general/overview)
 

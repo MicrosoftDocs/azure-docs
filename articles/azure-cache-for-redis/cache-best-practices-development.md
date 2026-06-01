@@ -1,16 +1,18 @@
 ---
 title: Best practices for development
-titleSuffix: Azure Cache for Redis
 description: Learn how to develop code for Azure Cache for Redis.
-author: flang-msft
-ms.service: cache
-ms.topic: conceptual
+ms.topic: best-practice
+ms.custom:
+  - ignite-2024
 ms.date: 04/18/2024
-ms.author: franlanglois
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 
 # Development
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 ## Connection resilience and server load
 
@@ -50,7 +52,7 @@ Resolutions for large response sizes are varied but include:
 
 ## Key distribution
 
-If you're planning to use Redis clustering, first read [Redis Clustering Best Practices with Keys](https://redislabs.com/blog/redis-clustering-best-practices-with-keys/).
+If you're planning to use Redis clustering, first read [Redis Clustering Best Practices with Keys](https://redis.io/blog/redis-clustering-best-practices-with-keys/).
 
 ## Use pipelining
 
@@ -76,22 +78,19 @@ Locate your cache instance and your application in the same region. Connecting t
 
 While you can connect from outside of Azure, it isn't recommended, especially when using Redis as a cache. If you're using Redis server as just a key/value store, latency might not be the primary concern.
 
-## Rely on hostname not public IP address
+## Rely on hostname, not a public or private IP address
 
-The public IP address assigned to your cache can change as a result of a scale operation or backend improvement. We recommend relying on the hostname instead of an explicit public IP address. Here are the recommended forms for the various tiers:
+The IP address assigned to your cache can change as a result of a scale operation or backend improvement. We recommend relying on the hostname instead of an explicit public or private IP address. The configured static IP address for a cache in a virtual network isn't an immutable guarantee and might change during certain operations, although changes are rare. Here are the recommended forms for the various SKUs:
 
-|Tier | Form |
+|SKUs| Form |
 |----|----|
-| Basic, Standard, Premium | `<cachename>.redis.cache.windows.net` |
-| Enterprise, Enterprise Flash | `<DNS name>.<Azure region>.redisenterprise.cache.azure.net.`  |
+| Basic, Standard, Premium | `<DNS name>.redis.cache.windows.net` |
+| Enterprise, Enterprise Flash | `<DNS name>.<Azure region>.redisenterprise.cache.azure.net`  |
+| Azure Managed Redis | `<DNS name>.<Azure region>.redis.azure.net` |
 
 ## Choose an appropriate Redis version
 
 The default version of Redis that is used when creating a cache can change over time. Azure Cache for Redis might adopt a new version when a new version of open-source Redis is released. If you need a specific version of Redis for your application, we recommend choosing the Redis version explicitly when you create the cache.
-
-## Specific guidance for the Enterprise tiers
-
-Because the _Enterprise_ and _Enterprise Flash_ tiers are built on Redis Enterprise rather than open-source Redis, there are some differences in development best practices. For more information, see [Best Practices for the Enterprise and Enterprise Flash tiers](cache-best-practices-enterprise-tiers.md).
 
 ## Use TLS encryption
 

@@ -1,6 +1,6 @@
 ---
-title: Azure AI services on Azure Government
-description: Guidance for developing Azure AI services applications for Azure Government
+title: Foundry Tools on Azure Government
+description: Guidance for developing Foundry Tools applications for Azure Government
 services: azure-government
 cloud: gov
 
@@ -10,9 +10,9 @@ ms.date: 08/30/2021
 ms.custom: references_regions, devx-track-azurepowershell
 ---
 
-# Azure AI services on Azure Government
+# Foundry Tools on Azure Government
 
-This article provides developer guidance for using Computer Vision, Face API, Text Analytics, and Translator Azure AI services. For feature variations and limitations, see [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md).
+This article provides developer guidance for using Computer Vision, Face API, Text Analytics, and Translator Foundry Tools. For feature variations and limitations, see [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md).
 
 ## Prerequisites
 
@@ -23,9 +23,9 @@ This article provides developer guidance for using Computer Vision, Face API, Te
 
 <a name='part-1-provision-cognitive-services-accounts'></a>
 
-## Provision Azure AI services accounts
+## Provision Foundry Tools accounts
 
-In order to access any of the Azure AI services APIs, you must first provision an Azure AI services account for each of the APIs you want to access. You can create Azure AI services in the [Azure Government portal](https://portal.azure.us/), or you can use Azure PowerShell to access the APIs and services as described in this article.
+In order to access any of the Foundry Tools APIs, you must first provision a Foundry Tools account for each of the APIs you want to access. You can create Foundry Tools in the [Azure Government portal](https://portal.azure.us/), or you can use Azure PowerShell to access the APIs and services as described in this article.
 
 > [!NOTE]
 > You must go through the process of creating an account and retrieving account key (explained below) **for each** of the APIs you want to access.
@@ -89,17 +89,17 @@ Now you are ready to make calls to the APIs.
 
 ## Follow API quickstarts
 
-The quickstarts below will help you to get started with the APIs available through Azure AI services in Azure Government.
+The quickstarts below will help you to get started with the APIs available through Foundry Tools in Azure Government.
 
 > [!NOTE]
 > The URI for accessing Azure AI Services resources in Azure Government is different than in Azure. For a list of Azure Government endpoints, see [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md#guidance-for-developers).
 
-- [Azure AI Vision](../ai-services/computer-vision/index.yml) | [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40?tabs=visual-studio%2Cwindows&pivots=programming-language-csharp)
-- [Azure Face](../ai-services/computer-vision/overview-identity.md) | [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/identity-client-library?tabs=windows%2Cvisual-studio&pivots=programming-language-rest-api)
-- [Azure AI Language](/azure/ai-services/language-service/) | [quickstart](../ai-services/language-service/language-detection/overview.md?tabs=version-3-1&pivots=programming-language-csharp)
-- [Azure AI Translator](../ai-services/translator/translator-overview.md) | [quickstart](/azure/ai-services/translator/quickstart-text-rest-api?tabs=csharp)
+- [Azure Vision in Foundry Tools](/azure/ai-services/computer-vision/) | [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/image-analysis-client-library-40?tabs=visual-studio%2Cwindows&pivots=programming-language-csharp)
+- [Azure Face](/azure/ai-services/computer-vision/overview-identity) | [quickstart](/azure/ai-services/computer-vision/quickstarts-sdk/identity-client-library?tabs=windows%2Cvisual-studio&pivots=programming-language-rest-api)
+- [Azure Language in Foundry Tools](/azure/ai-services/language-service/) | [quickstart](/azure/ai-services/language-service/language-detection/overview?tabs=version-3-1&pivots=programming-language-csharp)
+- [Azure Translator in Foundry Tools](/azure/ai-services/translator/translator-overview) | [quickstart](/azure/ai-services/translator/quickstart-text-rest-api?tabs=csharp)
     > [!NOTE]
-    > [Virtual Network support](../ai-services/cognitive-services-virtual-networks.md) for Translator service is limited to only `US Gov Virginia` region. The URI for accessing the API is:
+    > [Virtual Network support](/azure/ai-services/cognitive-services-virtual-networks) for Translator service is limited to only `US Gov Virginia` region. The URI for accessing the API is:
     >  - `https://<your-custom-domain>.cognitiveservices.azure.us/translator/text/v3.0`
     >  - You can find your custom domain endpoint in the overview blade on the Azure Government portal once the resource is created. 
     > There are two regions: `US Gov Virginia` and `US Gov Arizona`.

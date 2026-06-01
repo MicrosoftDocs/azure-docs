@@ -1,12 +1,13 @@
 ---
 title: Azure Private Link availability
 description: In this article, learn about which Azure services support Private Link.
-author: abell
-ms.author: abell
-ms.service: private-link
-ms.topic: conceptual
-ms.date: 07/10/2024
-ms.custom: template-concept, references_regions
+author: asudbring
+ms.author: allensu
+ms.service: azure-private-link
+ms.topic: concept-article
+ms.date: 03/30/2026
+ms.custom: template-concept, references_regions, ignite-2024
+# Customer intent: "As a cloud architect, I want to understand the availability of Azure services that support Private Link, so that I can securely connect resources in my virtual network and enhance data privacy."
 ---
 
 # Azure Private Link availability
@@ -16,6 +17,9 @@ Azure Private Link enables you to access Azure PaaS Services (for example, Azure
 > [!IMPORTANT]
 > Azure Private Link is now generally available. Both Private Endpoint and Private Link service (service behind standard load balancer) are generally available. For known limitations, see [Private Endpoint](private-endpoint-overview.md#limitations) and [Private Link Service](private-link-service-overview.md#limitations).
 
+> [!NOTE]
+> The feature Private Link Service Direct Connect, which allows you to connect to any privately routable destination IP address, is now in public preview. For more information and known limitations, see [Private Link Service Direct Connect](configure-private-link-service-direct-connect.md)
+
 ## Service availability
 
 The following tables list the Private Link services and the regions where they're available.
@@ -24,10 +28,11 @@ The following tables list the Private Link services and the regions where they'r
 
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
-|Azure Machine Learning | All public regions    |  | GA   <br/> [Learn how to create a private endpoint for Azure Machine Learning.](../machine-learning/how-to-configure-private-link.md)   |
+|Azure Machine Learning | All public regions    |  | GA   <br/> [Learn how to create a private endpoint for Azure Machine Learning.](/azure/machine-learning/how-to-configure-private-link)   |
 |Azure Bot Service | All public regions | Supported only on Direct Line App Service extension | GA </br> [Learn how to create a private endpoint for Azure Bot Service](/azure/bot-service/dl-network-isolation-concept) |
-| Azure AI services | All public regions<br/>All Government regions      |   | GA   <br/> [Use private endpoints.](../ai-services/cognitive-services-virtual-networks.md#use-private-endpoints)  |
-| Azure AI Search | All public regions | | GA </br> [Learn how to create a private endpoint for Azure AI Search](../search/service-create-private-endpoint.md) |
+| Azure AI Search | All public regions | | GA </br> [Learn how to create a private endpoint for Azure AI Search](/azure/search/service-create-private-endpoint) |
+| Foundry Tools | All public regions<br/>All Government regions      |   | GA   <br/> [Use private endpoints.](/azure/ai-services/cognitive-services-virtual-networks#use-private-endpoints)  |
+| Azure AI Video Indexer | All public regions  |   | GA   <br/> [Use private endpoints with Azure AI Video Indexer.](/azure/azure-video-indexer/private-endpoint-overview)  |
 
 ### Analytics
 
@@ -35,7 +40,7 @@ The following tables list the Private Link services and the regions where they'r
 |:-------------------|:-----------------|:----------------|:--------|
 |Azure Synapse Analytics| All public regions <br/> All Government regions |  Supported for Proxy [connection policy](/azure/azure-sql/database/connectivity-architecture#connection-policy) |GA <br/> [Learn how to create a private endpoint for Azure Synapse Analytics.](/azure/azure-sql/database/private-endpoint-overview)|
 |Azure Event Hubs | All public regions<br/>All Government regions      |   | GA   <br/> [Learn how to create a private endpoint for Azure Event Hubs.](../event-hubs/private-link-service.md)  |
-| Azure Monitor <br/>(Log Analytics & Application Insights) | All public regions      |  | GA   <br/> [Learn how to create a private endpoint for Azure Monitor.](../azure-monitor/logs/private-link-security.md)   |
+| Azure Monitor <br/>(Log Analytics & Application Insights) | All public regions      |  | GA   <br/> [Learn how to create a private endpoint for Azure Monitor.](/azure/azure-monitor/logs/private-link-security)   |
 |Azure Data Factory | All public regions<br/> All Government regions<br/>All China regions    | Credentials need to be stored in an Azure key vault| GA   <br/> [Learn how to create a private endpoint for Azure Data Factory.](../data-factory/data-factory-private-link.md)   |
 |Azure HDInsight | All public regions<br/>All Government regions      |   | GA   <br/> [Learn how to create a private endpoint for Azure HDInsight.](../hdinsight/hdinsight-private-link.md)  |
 | Azure Data Explorer | All public regions | | GA </br> [Learn how to create a private endpoint for Azure Data Explorer.](/azure/data-explorer/security-network-private-endpoint) |
@@ -45,7 +50,7 @@ The following tables list the Private Link services and the regions where they'r
 
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
-|Azure-managed Disks | All public regions<br/> All Government regions<br/>All China regions    | [Select for known limitations](../virtual-machines/disks-enable-private-links-for-import-export-portal.yml#limitations) | GA   <br/> [Learn how to create a private endpoint for Azure Managed Disks.](../virtual-machines/disks-enable-private-links-for-import-export-portal.yml)   |
+|Azure managed disks | All public regions<br/> All Government regions<br/>All China regions    | [Select for known limitations](/azure/virtual-machines/disks-enable-private-links-for-import-export-portal#limitations) | GA   <br/> [Learn how to create a private endpoint for Azure managed disks.](/azure/virtual-machines/disks-enable-private-links-for-import-export-portal)   |
 | Azure Batch (batchAccount) | All public regions<br/> All Government regions<br/>All China regions  | | GA <br/> [Learn how to create a private endpoint for Azure Batch.](../batch/private-connectivity.md) |
 | Azure Batch (nodeManagement) | [Selected regions](../batch/simplified-compute-node-communication.md#supported-regions) | Supported for [simplified compute node communication](../batch/simplified-compute-node-communication.md) | GA <br/> [Learn how to create a private endpoint for Azure Batch.](../batch/private-connectivity.md) |
 | Azure Functions | All public regions | | GA </br> [Learn how to create a private endpoint for Azure Functions.](../azure-functions/functions-create-vnet.md) |
@@ -54,8 +59,9 @@ The following tables list the Private Link services and the regions where they'r
 
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
-|Azure Container Registry | All public regions<br/> All Government regions    | Supported with premium tier of container registry. [Select for tiers](../container-registry/container-registry-skus.md)| GA   <br/> [Learn how to create a private endpoint for Azure Container Registry.](../container-registry/container-registry-private-link.md)   |
-|Azure Kubernetes Service - Kubernetes API | All public regions <br/> All Government regions  |  | GA   <br/> [Learn how to create a private endpoint for Azure Kubernetes Service.](../aks/private-clusters.md)   |
+|Azure Container Registry | All public regions<br/> All Government regions    | Supported with premium tier of container registry. [Select for tiers](/azure/container-registry/container-registry-skus)| GA   <br/> [Learn how to create a private endpoint for Azure Container Registry.](/azure/container-registry/container-registry-private-link)   |
+| Azure Container Apps | All public regions | Supported for workload profile environments for both Consumption and Dedicated plans. | Public Preview <br/> [Learn how to create a private endpoint for Azure Container Apps](/azure/container-apps/how-to-use-private-endpoint) |
+|Azure Kubernetes Service - Kubernetes API | All public regions <br/> All Government regions  |  | GA   <br/> [Learn how to create a private endpoint for Azure Kubernetes Service.](/azure/aks/private-clusters)   |
 
 ### Databases
 
@@ -63,11 +69,14 @@ The following tables list the Private Link services and the regions where they'r
 |:-------------------|:-----------------|:----------------|:--------|
 |  Azure SQL Database         | All public regions <br/> All Government regions<br/>All China regions      |  Supported for Proxy [connection policy](/azure/azure-sql/database/connectivity-architecture#connection-policy) | GA <br/> [Learn how to create a private endpoint for Azure SQL](./tutorial-private-endpoint-sql-portal.md)      |
 | Azure Cosmos DB|  All public regions<br/> All Government regions</br> All China regions | |GA <br/> [Learn how to create a private endpoint for Azure Cosmos DB.](./tutorial-private-endpoint-cosmosdb-portal.md)|
-|  Azure Database for PostgreSQL - Single server         | All public regions <br/> All Government regions<br/>All China regions     | Supported for General Purpose and Memory Optimized pricing tiers | GA <br/> [Learn how to create a private endpoint for Azure Database for PostgreSQL Single Server.](../postgresql/concepts-data-access-and-security-private-link.md)      |
-|  Azure Database for PostgreSQL - Flexible server         | All public regions <br/> All Government regions<br/>All China regions     |   | GA <br/> [Learn how to create a private endpoint for Azure Database for PostgreSQL Flexible Server.](../postgresql/flexible-server/concepts-networking-private-link.md)      |
-|  Azure Database for MySQL         | All public regions<br/> All Government regions<br/>All China regions      |  | GA <br/> [Learn how to create a private endpoint for Azure Database for MySQL.](../mysql/concepts-data-access-security-private-link.md)     |
-|  Azure Database for MariaDB         | All public regions<br/> All Government regions<br/>All China regions     |  | GA <br/> [Learn how to create a private endpoint for Azure Database for MariaDB.](../mariadb/concepts-data-access-security-private-link.md)      |
+|  Azure Database for PostgreSQL - Single server         | All public regions <br/> All Government regions<br/>All China regions     | Supported for General Purpose and Memory Optimized pricing tiers | GA <br/> [Learn how to create a private endpoint for Azure Database for PostgreSQL Single Server.](/azure/postgresql/concepts-data-access-and-security-private-link)      |
+|  Azure Database for PostgreSQL - Flexible server         | All public regions <br/> All Government regions<br/>All China regions     |   | GA <br/> [Learn how to create a private endpoint for Azure Database for PostgreSQL Flexible Server.](/azure/postgresql/flexible-server/concepts-networking-private-link)      |
+|  Azure Database for MySQL         | All public regions<br/> All Government regions<br/>All China regions      |  | GA <br/> [Learn how to create a private endpoint for Azure Database for MySQL.](/azure/mysql/concepts-data-access-security-private-link)     |
+|  Azure Database for MariaDB         | All public regions<br/> All Government regions<br/>All China regions     |  | GA <br/> [Learn how to create a private endpoint for Azure Database for MariaDB.](/azure/mariadb/concepts-data-access-security-private-link)      |
 | Azure Cache for Redis | All public regions<br/> All Government regions<br/>All China regions |  | GA <br/> [Learn how to create a private endpoint for Azure Cache for Redis.](../azure-cache-for-redis/cache-private-link.md) |
+
+> [!NOTE]
+> Azure Cache for Redis is being retired in September 2028. New cache creation will be unavailable starting April 2026. We recommend migrating to [Azure Managed Redis](/azure/azure-cache-for-redis/retirement-faq).
 
 ### Integration
 
@@ -77,6 +86,7 @@ The following tables list the Private Link services and the regions where they'r
 |Azure Service Bus | All public region<br/>All Government regions  | Supported with premium tier of Azure Service Bus. [Select for tiers](../service-bus-messaging/service-bus-premium-messaging.md) | GA   <br/> [Learn how to create a private endpoint for Azure Service Bus.](../service-bus-messaging/private-link-service.md)  |
 | Azure API Management | All public regions  |  | GA   <br/> [Connect privately to API Management using a private endpoint.](../api-management/private-endpoint.md) |
 | Azure Logic Apps | All public regions  |  | GA   <br/> [Learn how to create a private endpoint for Azure Logic Apps.](../logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint.md) |
+| Azure Data Manager for Energy | See [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=energy-data-services&regions=all) | | GA <br/> [Create a private endpoint for Azure Data Manager for Energy](../energy-data-services/how-to-set-up-private-links.md) |
 
 ### Internet of Things (IoT)
 
@@ -99,8 +109,8 @@ The following tables list the Private Link services and the regions where they'r
 
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
-|  Azure Key Vault         | All public regions<br/> All Government regions      |  | GA   <br/> [Learn how to create a private endpoint for Azure Key Vault.](../key-vault/general/private-link-service.md)   |
-|Azure App Configuration | All public regions      |  | GA  </br> [Learn how to create a private endpoint for Azure App Configuration](../azure-app-configuration/concept-private-endpoint.md) |
+|  Azure Key Vault         | All public regions<br/> All Government regions      |  | GA   <br/> [Learn how to create a private endpoint for Azure Key Vault.](/azure/key-vault/general/private-link-service)   |
+|Azure App Configuration | All public regions<br/> All Government regions<br/>All China regions      |  | GA  </br> [Learn how to create a private endpoint for Azure App Configuration](../azure-app-configuration/concept-private-endpoint.md) |
 |Azure Application Gateway | All public regions      |  | GA  </br> [Azure Application Gateway Private Link](../application-gateway/private-link.md) |
 
 
@@ -118,15 +128,16 @@ The following tables list the Private Link services and the regions where they'r
 |:-------------------|:-----------------|:----------------|:--------|
 | Azure SignalR | All Public Regions<br/> All China regions<br/> All Government Regions      | Supported on Standard Tier or above | GA   <br/> [Learn how to create a private endpoint for Azure SignalR.](../azure-signalr/howto-private-endpoints.md)   |
 |Azure App Service | All public regions<br/> China North 2 & East 2    | Supported with Basic, Standard, Premium v2, Premium v3, Isolated v2 App Service Plans and Function Apps Premium plan  | GA   <br/> [Learn how to create a private endpoint for Azure App Service.](../app-service/networking/private-endpoint.md)   |
-|Azure Search | All public regions <br/> All Government regions | Supported with service in Private Mode | GA   <br/> [Learn how to create a private endpoint for Azure Search.](../search/service-create-private-endpoint.md)    |
+|Azure Search | All public regions <br/> All Government regions | Supported with service in Private Mode | GA   <br/> [Learn how to create a private endpoint for Azure Search.](/azure/search/service-create-private-endpoint)    |
 |Azure Relay | All public regions      |  | GA   <br/> [Learn how to create a private endpoint for Azure Relay.](../azure-relay/private-link-service.md)  |
 |Azure Static Web Apps | All public regions      |  | GA <br/> [Configure private endpoint in Azure Static Web Apps](../static-web-apps/private-endpoint.md)  |
 
-### Private Link service with a standard load balancer
+### Private Link service
 
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
-|Private Link services behind standard Azure Load Balancer | All public regions<br/> All Government regions<br/>All China regions  | Supported on Standard Load Balancer | GA <br/> [Learn how to create a private link service.](create-private-link-service-portal.md) |
+|Private Link services behind standard Azure Load Balancer | All public regions<br/> All Government regions<br/>All China regions  | Only supported on Standard Load Balancer with VM based backends | GA <br/> [Learn how to create a private link service.](create-private-link-service-portal.md) |
+|Private Link Service Direct Connect | North Central US, East US 2, Central US, South Central US, West US, West US 2, West US 3, Asia Southeast, Australia East, Spain Central  | [See known limitations and considerations](configure-private-link-service-direct-connect.md#limitations) | Public Preview <br/> [Learn how to create Private Link Service Direct Connect](configure-private-link-service-direct-connect.md) |
 
 ## Next steps
 

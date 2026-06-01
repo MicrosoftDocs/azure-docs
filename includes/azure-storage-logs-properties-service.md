@@ -2,7 +2,7 @@
  author: normesta
  ms.service: storage
  ms.topic: include
- ms.date: 09/28/2020
+ ms.date: 10/25/2024
  ms.author: normesta
 ---
 
@@ -37,3 +37,7 @@
 |**smbSessionID** | The SMB2 **SessionId** established at session setup time. For example: `0x8530280128000049` |
 |**smbCommandMajor	uint32** | Value in the **SMB2_HEADER.Command**. Currently, this is a number between 0 and 18 inclusive. For example: `0x6` |
 |**smbCommandMinor** | The subclass of **SmbCommandMajor**, where appropriate. For example: `DirectoryCloseAndDelete` |
+|**accessTier**|The access tier of an existing blob when an operation such as `GetBlob` or `GetBlobProperties` is used (for example: `Hot`). Can also be the access tier provided in the `x-ms-access-tier` header for operations such as `SetBlobTier`, `PutBlob`, `PutBlockList`, or `CopyBlob`. |
+|**sourceAccessTier**|The access tier of the source blob of a copy operation (for example: `Hot`).|
+|**rehydrationPriority**|The priority used to rehydrate an archived blob (for example: `High` or `Standard`).|
+|**downloadRange**|Indicates that only a part of the blob (the specified byte range) was requested and transferred. For example, if the value of `downloadRange` field is `bytes=0-1023`, then the request retrieved the first `1024` bytes of the blob (from byte offset 0 to 1023).|

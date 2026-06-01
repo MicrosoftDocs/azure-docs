@@ -2,12 +2,13 @@
 title: Azure DDoS Protection Overview
 description: Get always-on traffic monitoring, adaptive real-time tuning, and DDoS mitigation analytics with Azure DDoS Protection. Sign up now.
 services: ddos-protection
-author: AbdullahBell
-ms.service: ddos-protection
+author: duongau
+ms.service: azure-ddos-protection
 ms.topic: overview
-ms.date: 04/26/2024
-ms.author: abell
+ms.date: 07/08/2025
+ms.author: duau
 ms.custom: references_regions
+# Customer intent: As a cloud infrastructure manager, I want to implement DDoS protection for my applications, so that I can enhance security and ensure high availability during potential DDoS attacks.
 ---
 
 # What is Azure DDoS Protection?
@@ -19,6 +20,9 @@ Azure DDoS Protection, combined with application design best practices, provides
 :::image type="content" source="./media/ddos-best-practices/ddos-protection-overview-architecture.png" alt-text="Diagram of the reference architecture for an Azure DDoS protected PaaS web application." lightbox="./media/ddos-best-practices/ddos-protection-overview-architecture.png":::
 
 Azure DDoS Protection protects at layer 3 and layer 4 network layers. For web applications protection at layer 7, you need to add protection at the application layer using a WAF offering. For more information, see [Application DDoS protection](../web-application-firewall/shared/application-ddos-protection.md).
+
+> [!NOTE]
+> Azure DDoS Protections is one of the services that make up the Network Security category in Azure. Other services in this category include [Azure Firewall](../firewall/overview.md) and [Azure Web Application Firewall](../web-application-firewall/overview.md). Each service has its own unique features and use cases. For more information on this service category, see [Network Security](../networking/security/network-security.md).
 
 ## Tiers
 
@@ -43,7 +47,7 @@ For more information about the tiers, see [DDoS Protection tier comparison](ddos
 - **DDoS Protection analytics, metrics, and alerting:**
 Azure DDoS Protection applies three auto-tuned mitigation policies (TCP SYN, TCP, and UDP) for each public IP of the protected resource, in the virtual network that has DDoS enabled. The policy thresholds are auto-configured via machine learning-based network traffic profiling. DDoS mitigation occurs for an IP address under attack only when the policy threshold is exceeded.
     - **Attack analytics:**
-Get detailed reports in five-minute increments during an attack, and a complete summary after the attack ends. Stream mitigation flow logs to [Microsoft Sentinel](../sentinel/data-connectors/azure-ddos-protection.md) or an offline security information and event management (SIEM) system for near real-time monitoring during an attack. See [View and configure DDoS diagnostic logging](diagnostic-logging.md) to learn more.
+Get detailed reports in five-minute increments during an attack, and a complete summary after the attack ends. Stream mitigation flow logs to [Microsoft Sentinel](/azure/sentinel/data-connectors-reference#azure-ddos-protection) or an offline security information and event management (SIEM) system for near real-time monitoring during an attack. See [View and configure DDoS diagnostic logging](diagnostic-logging.md) to learn more.
 
     - **Attack metrics:**
  Summarized metrics from each attack are accessible through Azure Monitor. See [View and configure DDoS protection telemetry](telemetry.md) to learn more.
@@ -53,7 +57,7 @@ Get detailed reports in five-minute increments during an attack, and a complete 
 ](alerts.md) to learn more.
 
 - **Azure DDoS Rapid Response:**
- During an active attack, customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack and post-attack analysis. For more information, see [Azure DDoS Rapid Response](ddos-rapid-response.md).
+ During an active attack, Azure DDoS Network Protection enabled customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack and post-attack analysis. For more information, see [Azure DDoS Rapid Response](ddos-rapid-response.md).
  
 - **Native platform integration:**
  Natively integrated into Azure. Includes configuration through the Azure portal. Azure DDoS Protection understands your resources and resource configuration.

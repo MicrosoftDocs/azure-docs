@@ -3,9 +3,9 @@ title: Azure Container Apps overview
 description: Learn about common scenarios and uses for Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: overview
-ms.date: 11/14/2023
+ms.date: 03/31/2026
 ms.author: cshoe
 ms.custom: build-2023
 ---
@@ -26,7 +26,7 @@ Additionally, applications built on Azure Container Apps can dynamically scale b
 - HTTP traffic
 - Event-driven processing
 - CPU or memory load
-- Any [KEDA-supported scaler](https://keda.sh/docs/scalers/)
+- Any [KEDA-supported scaler](https://keda.sh/docs/2.19/scalers/)
 
 :::image type="content" source="media/overview/azure-container-apps-example-scenarios.png" alt-text="Example scenarios for Azure Container Apps.":::
 
@@ -43,13 +43,15 @@ With Azure Container Apps, you can:
 
 - [**Use the Azure CLI extension, Azure portal or ARM templates**](get-started.md) to manage your applications.
 
-- [**Enable HTTPS or TCP ingress**](ingress.md) without having to manage other Azure infrastructure.
+- [**Enable HTTPS or TCP ingress**](ingress-overview.md) without having to manage other Azure infrastructure.
 
 - [**Build microservices with Dapr**](microservices.md) and [access its rich set of APIs](./dapr-overview.md).
 
 - [**Run jobs**](jobs.md) on-demand, on a schedule, or based on events.
 
-- Add [**Azure Functions**](https://aka.ms/functionsonaca) and [**Azure Spring Apps**](https://aka.ms/asaonaca) to your Azure Container Apps environment.
+- [**Run Azure Functions**](../container-apps/functions-overview.md) for [event-driven scenarios](../azure-functions/functions-scenarios.md) using triggers, bindings, and automatic scaling.
+
+- Add [**Azure Spring Apps**](https://aka.ms/asaonaca) to your Azure Container Apps environment.
 
 - [**Use specialized hardware**](plans.md) for access to increased compute resources.
 
@@ -75,7 +77,7 @@ With Azure Container Apps, you can:
 
 ## Introductory video
 
-> [!VIDEO https://www.youtube.com/embed/b3dopSTnSRg]
+> [!VIDEO https://www.youtube.com/embed/OxmVds31qL8]
 
 ### Next steps
 

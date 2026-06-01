@@ -2,12 +2,12 @@
 title: Troubleshoot Application Gateway for Containers
 description: Learn how to troubleshoot common issues with Application Gateway for Containers.
 services: application-gateway
-author: greglin
-ms.service: application-gateway
-ms.subservice: appgw-for-containers
+author: mbender-ms
+ms.service: azure-appgw-for-containers
 ms.topic: troubleshooting
-ms.date: 5/9/2024
-ms.author: greglin
+ms.date: 2/7/2026
+ms.author: mbender
+# Customer intent: As a cloud platform administrator, I want to troubleshoot issues with Application Gateway for Containers, so that I can ensure the service operates smoothly and effectively resolves any deployment or configuration problems.
 ---
 
 # Troubleshooting in Application Gateway for Containers
@@ -26,12 +26,11 @@ Example output:
 
 | NAME                     | READY | UP-TO-DATE | AVAILABLE | AGE  | CONTAINERS              | IMAGES                                                                          | SELECTOR |
 | ------------------------ | ----- | ---------- | --------- | ---- | ----------------------- | ------------------------------------------------------------------------------- | -------- |
-| alb-controller           | 2/2   | 2          | 2         | 18d | alb-controller           | mcr.microsoft.com/application-lb/images/alb-controller:**1.0.2**           | app=alb-controller |
-| alb-controller-bootstrap | 1/1   | 1          | 1         | 18d | alb-controller-bootstrap | mcr.microsoft.com/application-lb/images/alb-controller-bootstrap:**1.0.2** | app=alb-controller-bootstrap |
+| alb-controller           | 2/2   | 2          | 2         | 18d | alb-controller           | mcr.microsoft.com/application-lb/images/alb-controller:**1.9.13**           | app=alb-controller |
 
-In this example, the ALB controller version is **1.0.2**.
+In this example, the ALB controller version is **1.9.13**.
 
-The ALB Controller version can be upgraded by running the `helm upgrade alb-controller` command. For more information, see [Install the ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#install-the-alb-controller).
+The ALB Controller version can be upgraded by running the `helm upgrade alb-controller` command. For more information, see the ALB Controller install guide for [Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md).
 
 > [!Tip]
 > The latest ALB Controller version can be found in the [ALB Controller release notes](alb-controller-release-notes.md#latest-release-recommended).
@@ -54,11 +53,10 @@ Logs can be collected from the ALB Controller by using the _kubectl logs_ comman
     | ---------------------------------------- | ----- | ------- | -------- | ---- |
     | alb-controller-6648c5d5c-sdd9t           | 1/1   | Running | 0        | 4d6h |
     | alb-controller-6648c5d5c-au234           | 1/1   | Running | 0        | 4d6h |
-    | alb-controller-bootstrap-6648c5d5c-hrmpc | 1/1   | Running | 0        | 4d6h |
 
     ALB controller uses an election provided by controller-runtime manager to determine an active and standby pod for high availability.
 
-    Copy the name of each alb-controller pod (not the bootstrap pod, in this case: `alb-controller-6648c5d5c-sdd9t` and `alb-controller-6648c5d5c-au234`) and run the following command to determine the active pod.
+    Copy the name of each alb-controller pod (in this case: `alb-controller-6648c5d5c-sdd9t` and `alb-controller-6648c5d5c-au234`) and run the following command to determine the active pod.
 
     # [Linux](#tab/active-pod-linux)
 
@@ -117,12 +115,12 @@ The following logs are repeated by the primary alb-controller pod.
 
 ```text
 {"level":"info","version":"x.x.x","Timestamp":"2024-02-26T20:31:53.760150719Z","message":"Stream opened for config updates"}
-{"level":"info","version":"x.x.x","operationID":"1ea7ffd4-b2c4-460b-bce7-4d3f855ce8d5","Timestamp":"2024-02-26T20:31:53.760313623Z","message":"Successfully sent config update request"}
-{"level":"error","version":"x.x.x","error":"rpc error: code = PermissionDenied desc = ALB Controller with object id '5b26a949-297d-40c7-b10f-5d1cf2e3259d' does not have authorization to perform action on Application Gateway for Containers resource.Please check RBAC delegations to the Application Gateway for Containers resource.","Timestamp":"2024-02-26T20:31:53.769444995Z","message":"Unable to capture config update response"}
+{"level":"info","version":"x.x.x","operationID":"aaaa0000-bb11-2222-33cc-444444dddddd","Timestamp":"2024-02-26T20:31:53.760313623Z","message":"Successfully sent config update request"}
+{"level":"error","version":"x.x.x","error":"rpc error: code = PermissionDenied desc = ALB Controller with object id 'aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb' does not have authorization to perform action on Application Gateway for Containers resource.Please check RBAC delegations to the Application Gateway for Containers resource.","Timestamp":"2024-02-26T20:31:53.769444995Z","message":"Unable to capture config update response"}
 {"level":"info","version":"x.x.x","Timestamp":"2024-02-26T20:31:53.769504489Z","message":"Retrying to open config update stream"}
 {"level":"info","version":"x.x.x","Timestamp":"2024-02-26T20:31:54.461487406Z","message":"Stream opened up for endpoint updates"}
 {"level":"info","version":"x.x.x","operationID":"808825c2-b0a8-476b-b83a-8e7357c55750","Timestamp":"2024-02-26T20:31:54.462070039Z","message":"Successfully sent endpoint update request"}
-{"level":"error","version":"x.x.x","error":"rpc error: code = PermissionDenied desc = ALB Controller with object id '5b26a949-297d-40c7-b10f-5d1cf2e3259d' does not have authorization to perform action on Application Gateway for Containers resource.Please check RBAC delegations to the Application Gateway for Containers resource.","Timestamp":"2024-02-26T20:31:54.470728646Z","message":"Unable to capture endpoint update response"}
+{"level":"error","version":"x.x.x","error":"rpc error: code = PermissionDenied desc = ALB Controller with object id 'aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb' does not have authorization to perform action on Application Gateway for Containers resource.Please check RBAC delegations to the Application Gateway for Containers resource.","Timestamp":"2024-02-26T20:31:54.470728646Z","message":"Unable to capture endpoint update response"}
 {"level":"info","version":"x.x.x","Timestamp":"2024-02-26T20:31:54.47077373Z","message":"Retrying to open up endpoint update stream"}
 ```
 
@@ -152,7 +150,7 @@ status:
       Assertion Subject: 'system:serviceaccount:azure-application-lb-system:gateway-controller-sa'.
       Assertion Audience: 'api://AzureADTokenExchange'. https://docs.microsoft.com/en-us/azure/active-directory/develop/workload-identity-federation\\r\\nTrace
       ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\\r\\nCorrelation ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\\r\\nTimestamp:
-      2023-04-28 22:08:46Z\",\"error_codes\":[70021],\"timestamp\":\"2023-04-28 22:08:46Z\",\"trace_id\":\"08079978-7238-4ae3-9406-ba3b479db000\",\"correlation_id\":\"b2f10283-8dc6-4493-bb0e-b0cd009b17fb\",\"error_uri\":\"https://login.microsoftonline.com/error?code=70021\"}
+      2023-04-28 22:08:46Z\",\"error_codes\":[70021],\"timestamp\":\"2023-04-28 22:08:46Z\",\"trace_id\":\"0000aaaa-11bb-cccc-dd22-eeeeee333333\",\"correlation_id\":\"aaaa0000-bb11-2222-33cc-444444dddddd\",\"error_uri\":\"https://login.microsoftonline.com/error?code=70021\"}
       DefaultAzureCredential: failed to acquire a token.\nAttempted credentials:\n\tEnvironmentCredential:
       incomplete environment variable configuration. Only AZURE_TENANT_ID and AZURE_CLIENT_ID
       are set\n\tManagedIdentityCredential: IMDS token request timed out\n\tAzureCLICredential:
@@ -167,4 +165,4 @@ status:
 
 Ensure the federated credentials of the managed identity for the ALB Controller pod to make changes to Application Gateway for Containers are configured in Azure. Instructions on how to configure federated credentials can be found in the quickstart guides:
 
-- [Quickstart: Deploy ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md#install-the-alb-controller)
+- Quickstart: Deploy ALB Controller - [Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)

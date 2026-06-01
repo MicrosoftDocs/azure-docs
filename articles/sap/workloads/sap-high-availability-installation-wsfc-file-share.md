@@ -7,9 +7,10 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 12/16/2022
+ms.date: 11/19/2024
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an SAP system administrator, I want to install and configure a high-availability SAP NetWeaver system on an Azure Windows failover cluster, so that I can ensure continuous operation and reliability for SAP ASCS/SCS instances.
 ---
 
 # Install SAP NetWeaver high availability on a Windows failover cluster and file share for SAP ASCS/SCS instances on Azure
@@ -21,8 +22,8 @@ ms.custom: H1Hack27Feb2017
 [sap-high-availability-guide-wsfc-file-share]:sap-high-availability-guide-wsfc-file-share.md
 [sap-high-availability-infrastructure-wsfc-file-share]:sap-high-availability-infrastructure-wsfc-file-share.md
 
-[sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host]:sap-high-availability-installation-wsfc-shared-disk.md#a97ad604-9094-44fe-a364-f89cb39bf097
-[sap-high-availability-installation-wsfc-shared-disk-add-probe-port]:sap-high-availability-installation-wsfc-shared-disk.md#10822f4f-32e7-4871-b63a-9b86c76ce761
+[sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host]:sap-high-availability-installation-wsfc-shared-disk.md#create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance
+[sap-high-availability-installation-wsfc-shared-disk-add-probe-port]:sap-high-availability-installation-wsfc-shared-disk.md#add-a-probe-port
 
 This article describes how to install and configure a high-availability SAP system on Azure, with Windows Server Failover Cluster (WSFC) and Scale-Out File Server as an option for clustering SAP ASCS/SCS instances.
 
@@ -43,7 +44,7 @@ You need the following executables and DLLs from SAP:
 
 > [!IMPORTANT]
 >
-> Clustering SAP ASCS/SCS instances by using a file share is supported for SAP NetWeaver 7.40 (and later), with SAP Kernel 7.49 (and later).  
+> Clustering SAP ASCS/SCS instances by using a file share is supported for SAP NetWeaver 7.40 (and later), with SAP Kernel 7.49 (and later).
 > The setup must meet the following requirement: the SAP ASCS/SCS instances and the SOFS share must be deployed in separate clusters.
 
 We do not describe the Database Management System (DBMS) setup because setups vary depending on the DBMS you use. However, we assume that high-availability concerns with the DBMS are addressed with the functionalities that various DBMS vendors support for Azure. Such functionalities include Always On or database mirroring for SQL Server, and Oracle Data Guard for Oracle databases. In the scenario we use in this article, we didn't add more protection to the DBMS.
@@ -51,7 +52,7 @@ We do not describe the Database Management System (DBMS) setup because setups va
 There are no special considerations when various DBMS services interact with this kind of clustered SAP ASCS/SCS configuration in Azure.
 
 > [!NOTE]
-> The installation procedures of SAP NetWeaver ABAP systems, Java systems, and ABAP+Java systems are almost identical. The most significant difference is that an SAP ABAP system has one ASCS instance. The SAP Java system has one SCS instance. The SAP ABAP+Java system has one ASCS instance and one SCS instance running in the same Microsoft failover cluster group. Any installation differences for each SAP NetWeaver installation stack are explicitly mentioned. You can assume that all other parts are the same.  
+> The installation procedures of SAP NetWeaver ABAP systems, Java systems, and ABAP+Java systems are almost identical. The most significant difference is that an SAP ABAP system has one ASCS instance. The SAP Java system has one SCS instance. The SAP ABAP+Java system has one ASCS instance and one SCS instance running in the same Microsoft failover cluster group. Any installation differences for each SAP NetWeaver installation stack are explicitly mentioned. You can assume that all other parts are the same.
 
 ## Prepare an SAP global host on the SOFS cluster
 
@@ -143,10 +144,10 @@ Update parameters in the SAP ASCS/SCS instance profile \<SID>_ASCS/SCS\<Nr>_\<Ho
 | Parameter name | Parameter value |
 | --- | --- |
 | gw/netstat_once | **0** |
-| enque/encni/set_so_keepalive  | **true** |
+| enque/encni/set_so_keepalive  | **TRUE** |
 | service/ha_check_node | **1** |
 
-Parameter `enque/encni/set_so_keepalive` is only needed if using ENSA1.  
+Parameter `enque/encni/set_so_keepalive` is only needed if using ENSA1.
 Restart the SAP ASCS/SCS instance.
 Set `KeepAlive` parameters on both SAP ASCS/SCS cluster nodes follow the instructions to [Set registry entries on the cluster nodes of the SAP ASCS/SCS instance](./sap-high-availability-infrastructure-wsfc-shared-disk.md#add-registry-entries-on-both-cluster-nodes-of-the-ascsscs-instance).
 

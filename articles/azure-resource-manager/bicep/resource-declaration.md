@@ -1,20 +1,21 @@
----
+﻿---
 title: Declare resources in Bicep
 description: Describes how to declare resources to deploy in Bicep.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 10/24/2025
 ---
 
 # Resource declaration in Bicep
 
-This article describes the syntax you use to add a resource to your Bicep file. You are limited to 800 resources in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
+This article describes the syntax you use to add a resource to your Bicep file. You're limited to 800 resources in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
-## Declaration
+## Define resources
 
 Add a resource declaration by using the `resource` keyword. You set a symbolic name for the resource. The symbolic name isn't the same as the resource name. You use the symbolic name to reference the resource in other parts of your Bicep file.
 
 ```bicep
+@<decorator>(<argument>)
 resource <symbolic-name> '<full-type-name>@<api-version>' = {
   <resource-properties>
 }
@@ -23,7 +24,7 @@ resource <symbolic-name> '<full-type-name>@<api-version>' = {
 So, a declaration for a storage account can start with:
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   ...
 }
 ```
@@ -59,12 +60,70 @@ resource <symbolic-name> '<full-type-name>@<api-version>' = {
 }
 ```
 
+## Use decorators
+
+Decorators are written in the format `@expression` and are placed above resource declarations. The following table shows the available decorators for resources.
+
+| Decorator | Argument | Description |
+| --------- | ----------- | ------- |
+| [batchSize](./bicep-import.md#export-variables-types-and-functions) | none | Set up instances to deploy sequentially. |
+| [description](#description) | string | Provide descriptions for the resource. |
+| [onlyIfNotExists](#onlyifnotexists) | none | Deploy the resource only if it doesn't already exist in the target scope. |
+
+Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a parameter named `description`, you must add the sys namespace when using the **description** decorator.
+
+### BatchSize
+
+You can only apply `@batchSize()` to a resource or module definition that uses a [`for` expression](./loops.md).
+
+By default, resources are deployed in parallel. When you add the `batchSize(int)` decorator, you deploy instances serially.
+
+```bicep
+@batchSize(3)
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2025-06-01' = [for storageName in storageAccounts: {
+  ...
+}]
+```
+
+For more information, see [Deploy in batches](loops.md#deploy-in-batches).
+
+### Description
+
+To add explanation, add a description to resource declarations. For example:
+
+```bicep
+@description('Create a number of storage accounts')
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2025-06-01' = [for storageName in storageAccounts: {
+  ...
+}]
+```
+
+Markdown-formatted text can be used for the description text.
+
+### onlyIfNotExists
+
+By default, when a Bicep deployment runs, Azure Resource Manager (ARM) creates the resource if it doesn't exist or updates it if it does. If an existing resource has properties that differ from your template, ARM might attempt to update it-or fail if updates aren't permitted.
+
+Starting with Bicep version v0.38.3, the `@onlyIfNotExists()` decorator instructs ARM to create the resource only if it does not already exist. If a resource with the resource ID is found, ARM skips creation and leaves the existing resource unchanged.
+
+```bicep
+@onlyIfNotExists()
+resource example 'Microsoft.Storage/storageAccounts@2025-06-01' = {
+  name: 'mystorageacct'
+  location: resourceGroup().location
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}
+```
+
 ## Resource name
 
 Each resource has a name. When setting the resource name, pay attention to the [rules and restrictions for resource names](../management/resource-name-rules.md).
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'examplestorage'
   ...
 }
@@ -77,18 +136,18 @@ Typically, you'd set the name to a parameter so you can pass in different values
 @maxLength(24)
 param storageAccountName string
 
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   ...
 }
 ```
 
-## Location
+## Resource location
 
 Many resources require a location. You can determine if the resource needs a location either through intellisense or [template reference](/azure/templates/). The following example adds a location parameter that is used for the storage account.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'examplestorage'
   location: 'eastus'
   ...
@@ -100,7 +159,7 @@ Typically, you'd set location to a parameter so you can deploy to different loca
 ```bicep
 param location string = resourceGroup().location
 
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'examplestorage'
   location: location
   ...
@@ -127,11 +186,11 @@ az provider show \
 
 ---
 
-## Tags
+## Resource tags
 
 You can apply tags to a resource during deployment. Tags help you logically organize your deployed resources. For examples of the different ways you can specify the tags, see [ARM template tags](../management/tag-resources-bicep.md).
 
-## Managed identities for Azure resources
+## Managed identities for resources
 
 Some resources support [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Those resources have an identity object at the root level of the resource declaration.
 
@@ -140,7 +199,7 @@ You can use either system-assigned or user-assigned identities.
 The following example shows how to configure a system-assigned identity for an Azure Kubernetes Service cluster.
 
 ```bicep
-resource aks 'Microsoft.ContainerService/managedClusters@2024-02-01' = {
+resource aks 'Microsoft.ContainerService/managedClusters@2025-08-02-preview' = {
   name: clusterName
   location: location
   tags: tags
@@ -154,7 +213,7 @@ The next example shows how to configure a user-assigned identity for a virtual m
 ```bicep
 param userAssignedIdentity string
 
-resource vm 'Microsoft.Compute/virtualMachines@2024-03-01' = {
+resource vm 'Microsoft.Compute/virtualMachines@2025-04-01' = {
   name: vmName
   location: location
   identity: {
@@ -172,7 +231,7 @@ The preceding properties are generic to most resource types. After setting those
 Use intellisense or [Bicep resource reference](/azure/templates/) to determine which properties are available and which ones are required. The following example sets the remaining properties for a storage account.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource stg 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: 'examplestorage'
   location: 'eastus'
   sku: {
@@ -191,3 +250,4 @@ resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 - To conditionally deploy a resource, see [Conditional deployment in Bicep](./conditional-resource-deployment.md).
 - To reference an existing resource, see [Existing resources in Bicep](existing-resource.md).
 - To learn about how deployment order is determined, see [Resource dependencies in Bicep](resource-dependencies.md).
+

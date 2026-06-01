@@ -1,11 +1,12 @@
 ---
 title: Run a failover during disaster recovery with Azure Site Recovery 
 description: How to fail over VMs/physical servers to Azure with Azure Site Recovery.
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 12/10/2019
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: v-gajeronika
+author: Jeronika-MS
+# Customer intent: As an IT administrator responsible for disaster recovery, I want to execute a failover of on-premises machines to the cloud, so that I can ensure business continuity and minimize downtime during a disaster.
 ---
 # Run a failover from on-premises to Azure
 

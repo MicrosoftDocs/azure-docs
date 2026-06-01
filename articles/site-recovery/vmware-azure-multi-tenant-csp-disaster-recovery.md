@@ -1,13 +1,17 @@
 ---
 title: Set up VMware disaster recovery to Azure in a multi-tenancy environment using Site Recovery and the Cloud Solution Provider (CSP) program | Microsoft Docs
-description: Describes how to set up VMware disaster recovery in a multi-tenant environment with Azure Site Recovery.
-ms.author: ankitadutta
-author: ankitaduttaMSFT
-manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 04/03/2022
-ms.custom: subject-rbac-steps, engagement-fy23
+ms.reviewer: v-gajeronika
+description: Describes how to set up VMware disaster recovery in a multitenant environment with Azure Site Recovery.
+ms.author: v-gajeronika
+author: Jeronika-MS
+ms.service: azure-site-recovery
+ms.topic: how-to
+ms.date: 12/08/2025
+ms.custom:
+  - subject-rbac-steps
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: As a cloud service partner, I want to set up and manage VMware disaster recovery for multiple tenants using Azure, so that I can provide efficient disaster recovery solutions tailored to my customers' needs while optimizing resource usage.
 ---
 
 # Set up VMware disaster recovery in a multi-tenancy environment with the Cloud Solution Provider (CSP) program
@@ -16,7 +20,7 @@ The [CSP program](https://partner.microsoft.com/cloud-solution-provider) fosters
 
 With [Azure Site Recovery](site-recovery-overview.md), as partners you can manage disaster recovery for customers directly through CSP. Alternately, you can use CSP to set up Site Recovery environments, and let customers manage their own disaster recovery needs in a self-service manner. In both scenarios, partners are the liaison between Site Recovery and their customers. Partners service the customer relationship, and bill customers for Site Recovery usage.
 
-This article describes how you as a partner can create and manage tenant subscriptions through CSP, for a multi-tenant VMware replication scenario.
+This article describes how you as a partner can create and manage tenant subscriptions through CSP, for a multitenant VMware replication scenario.
 
 ## Prerequisites
 
@@ -24,7 +28,7 @@ To set up VMware replication, you need to do the following:
 
 - [Prepare](tutorial-prepare-azure.md) Azure resources, including an Azure subscription, an Azure virtual network, and a storage account.
 - [Prepare](vmware-azure-tutorial-prepare-on-premises.md) on-premises VMware servers and VMs.
-- For each tenant, create a separate management server that can communicate with the tenant VMs, and your vCenter servers. Only you as a partner should have access rights to this management server. Learn more about [multi-tenant environments](vmware-azure-multi-tenant-overview.md).
+- For each tenant, create a separate management server that can communicate with the tenant VMs, and your vCenter servers. Only you as a partner should have access rights to this management server. Learn more about [multitenant environments](vmware-azure-multi-tenant-overview.md).
 
 ## Create a tenant account
 
@@ -33,7 +37,7 @@ To set up VMware replication, you need to do the following:
 3. On the page that opens, click the **Add customer** button.
 4. In **New Customer** page, fill in the account information details for the tenant.
 
-	![The Account Info page](./media/vmware-azure-multi-tenant-csp-disaster-recovery/customer-add-filled.png)
+	:::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/customer-add-filled.png" alt-text="Screenshot of the Account Info page.":::
 
 5. Then click **Next: Subscriptions**.
 6. On the subscriptions selection page, select **Microsoft Azure** check box. You can add other subscriptions now or at any other time.
@@ -50,11 +54,11 @@ You can access the tenant’s subscription through the Microsoft Partner Center 
 2. In the **Subscriptions** page of the tenant account, you can monitor the existing account subscriptions and add more subscriptions, as required.
 3. To manage the tenant’s disaster-recovery operations, select **All resources (Azure portal)**. This grants you access to the tenant’s Azure subscriptions.
 
-	![The All Resources link](./media/vmware-azure-multi-tenant-csp-disaster-recovery/all-resources-select.png)  
+	:::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/all-resources-select.png" alt-text="Screenshot of the All Resources link.":::
 
 4. You can verify access by clicking the Microsoft Entra ID link on the top right of the Azure portal.
 
-	![Microsoft Entra ID link](./media/vmware-azure-multi-tenant-csp-disaster-recovery/aad-admin-display.png)
+	:::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/aad-admin-display.png" alt-text="Screenshot of Microsoft Entra ID link.":::
 
 You can now perform and manage all Site Recovery operations for the tenant in the Azure portal. To access the tenant subscription through CSP for managed disaster recovery, follow the previously described process.
 
@@ -67,13 +71,13 @@ You can add a new user to the tenant subscription through the CSP portal as foll
 
 1. Go to the tenant’s CSP subscription page, and then select the **Users and licenses** option.
 
-    ![The tenant's CSP subscription page](./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-and-licences.png)
+    :::image type="content" source="./media/vmware-azure-multi-tenant-csp-disaster-recovery/users-licenses.png" alt-text="Screenshot of the tenant's CSP subscription page.":::
 
 1. Create a new user by entering the relevant details and selecting permissions, or by uploading the list of users in a CSV file.
 
 1. After you've created a new user, go back to the Azure portal. 
 
-The following steps describe how to assign a role to a user. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+The following steps describe how to assign a role to a user. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 1. In the **Subscription** page, select the relevant subscription.
 
@@ -81,13 +85,13 @@ The following steps describe how to assign a role to a user. For detailed steps,
 
 1. Select **Add** > **Add role assignment**.
 
-   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open." lightbox="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png":::
 
 1. On the **Role** tab, select a role.
 
     For most management operations, the *Contributor* role is sufficient. Users with this access level can do everything on a subscription except change access levels (for which *Owner*-level access is required).
 
-    Site Recovery also has three [predefined user roles](site-recovery-role-based-linked-access-control.md), that can be used to further restrict access levels as required.
+    Site Recovery also has three [predefined user roles](site-recovery-role-based-linked-access-control.md) that can be used to further restrict access levels as required.
 
     :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-role-generic.png" alt-text="Screenshot that shows Add role assignment page with the Role tab selected.":::
 
@@ -95,9 +99,9 @@ The following steps describe how to assign a role to a user. For detailed steps,
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-## Multi-tenant environments
+## Multitenant environments
 
-There are three major multi-tenant models:
+There are three major multitenant models:
 
 * **Shared Hosting Services Provider (HSP)**: The partner owns the physical infrastructure, and uses shared resources (vCenter, datacenters, physical storage, and so on) to host multiple tenant VMs on the same infrastructure. The partner can provide disaster-recovery management as a managed service, or the tenant can own disaster recovery as a self-service solution.
 
@@ -105,10 +109,10 @@ There are three major multi-tenant models:
 
 * **Managed Services Provider (MSP)**: The customer owns the physical infrastructure that hosts the VMs, and the partner provides disaster-recovery enablement and management.
 
-By setting up tenant subscriptions as described in this article, you can quickly start enabling customers in any of the relevant multi-tenant models. You can learn more about the different multi-tenant models and enabling on-premises access controls [here](vmware-azure-multi-tenant-overview.md).
+By setting up tenant subscriptions as described in this article, you can quickly start enabling customers in any of the relevant multitenant models. You can learn more about the different multitenant models and enabling on-premises access controls [here](vmware-azure-multi-tenant-overview.md).
 
 ## Next steps
 - Learn more about [Azure role-based access control (Azure RBAC)](site-recovery-role-based-linked-access-control.md) to manage Azure Site Recovery deployments.
 - Learn more about VMware to Azure [replication architecture](vmware-azure-architecture.md).
 - [Review the tutorial](vmware-azure-tutorial.md) for replicating VMware VMs to Azure.
-Learn more about [multi-tenant environments](vmware-azure-multi-tenant-overview.md) for replicating VMware VMs to Azure.
+Learn more about [multitenant environments](vmware-azure-multi-tenant-overview.md) for replicating VMware VMs to Azure.

@@ -2,11 +2,12 @@
 title: Back up Azure VMs using REST API in Azure Backup
 description: In this article, learn how to configure, initiate, and manage backup operations of Azure VM Backup using REST API.
 ms.topic: how-to
-ms.date: 04/24/2024
+ms.date: 02/20/2026
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: As an IT administrator, I want to configure and manage Azure VM backups using REST API, so that I can automate backup operations and maintain data protection efficiently.
 ---
 
 # Back up an Azure VM using Azure Backup via REST API
@@ -415,7 +416,7 @@ X-Powered-By: ASP.NET
 }
 ```
 
-Since the backup job is a long running operation, it needs to be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+Since the backup job is a long running operation, it needs to be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#track-the-backup-and-restore-jobs).
 
 ## Modify the backup configuration for a protected Azure VM
 
@@ -458,7 +459,7 @@ To remove protection on a protected VM but retain the data already backed up, re
 }
 ```
 
-The response will follow the same format as mentioned [for triggering an on-demand backup](#example-responses-for-on-demand-backup). The resultant job should be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+The response will follow the same format as mentioned [for triggering an on-demand backup](#example-responses-for-on-demand-backup). The resultant job should be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#track-the-backup-and-restore-jobs).
 
 ### Stop protection and delete data
 
@@ -488,7 +489,7 @@ It returns two responses: 202 (Accepted) when another operation is created, and 
 |202 Accepted     |         |     Accepted    |
 
 > [!IMPORTANT]
-> In order to protect against accidental delete scenarios, there's a [soft-delete feature available](use-restapi-update-vault-properties.md#soft-delete-state) for Recovery Services vault. If the soft-delete state of the vault is set to enabled, then the delete operation won't immediately delete the data. It will be kept for 14 days and then permanently purged. You aren't charged for storage for this 14 days period. To undo the deletion operation, refer to the [undo-delete section](#undo-the-deletion).
+> In order to protect against accidental delete scenarios, there's a [soft-delete feature available](use-restapi-update-vault-properties.md#manage-soft-delete-operations-in-recovery-services-vault) for Recovery Services vault. If the soft-delete state of the vault is set to enabled, then the delete operation won't immediately delete the data. It will be kept for 14 days and then permanently purged. You aren't charged for storage for this 14 days period. To undo the deletion operation, refer to the [undo-delete section](#undo-the-deletion).
 
 ### Undo the deletion
 
@@ -507,7 +508,7 @@ Undo deletion is a *PUT* operation which is very similar to [changing the policy
 }
 ```
 
-The response will follow the same format as mentioned [for triggering an on-demand backup](#example-responses-for-on-demand-backup). The resultant job should be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
+The response will follow the same format as mentioned [for triggering an on-demand backup](#example-responses-for-on-demand-backup). The resultant job should be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#track-the-backup-and-restore-jobs).
 
 ## Next steps
 

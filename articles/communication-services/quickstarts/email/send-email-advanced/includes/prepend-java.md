@@ -8,9 +8,12 @@ ms.author: natekimball
 ms.date: 04/07/2023
 ms.topic: include
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-blocked
 ---
 
 Get started with Azure Communication Services by using the Communication Services Java Email SDK to send Email messages.
+
+Completing this quick start incurs a small cost of a few USD cents or less in your Azure account.
 
 > [!TIP]
 > Jump-start your email sending experience with Azure Communication Services by skipping straight to the [Basic Email Sending](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email) and [Advanced Email Sending](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/send-email-advanced) sample code on GitHub.
@@ -22,7 +25,7 @@ The following classes and interfaces handle some of the major features of the Az
 | Name | Description |
 | ---- |-------------|
 | EmailAddress | This class contains an email address and an option for a display name. |
-| EmailAttachment | This interface creates an email attachment by accepting a unique ID, email attachment [MIME type](../../../../concepts/email/email-attachment-allowed-mime-types.md) string, and a string of content bytes. |
+| EmailAttachment | This interface creates an email attachment by accepting a unique ID, email attachment [MIME type](../../../../concepts/email/email-attachment-allowed-mime-types.md) string, a string of content bytes, and an optional content ID to define it as an inline attachment. |
 | EmailClient | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages. |
 | EmailMessage | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
 | EmailSendResult | This class holds the results of the email send operation. It has an operation ID, operation status and error object (when applicable). |
@@ -39,7 +42,7 @@ EmailSendResult returns the following status on the email operation performed.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Java Development Kit (JDK)](https://www.microsoft.com/openjdk) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - A deployed Communication Services resource and connection string. For details, see [Create a Communication Services resource](../../../create-communication-resource.md).

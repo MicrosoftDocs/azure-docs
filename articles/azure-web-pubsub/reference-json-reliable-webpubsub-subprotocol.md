@@ -4,7 +4,7 @@ description: The reference describes Azure Web PubSub supported WebSocket subpro
 author: zackliu
 ms.author: chenyl
 ms.service: azure-web-pubsub
-ms.topic: conceptual 
+ms.topic: reference
 ms.date: 01/09/2023
 ---
 
@@ -60,7 +60,7 @@ Reliable PubSub WebSocket client must send a sequence ack message once it receiv
 
 ## Responses
 
-Messages received by the client can be several types: `ack`, `message`, and `system`. Messages with type `message` have `sequenceId` property. Client must send a [Sequence Ack](#sequence-ack) to the service once it receives a message.
+Messages received by the client can be several types: `ack`, `message`, `system`, and `pong`. Messages with type `message` have `sequenceId` property. Client must send a [Sequence Ack](#sequence-ack) to the service once it receives a message.
 
 ### Ack response
 
@@ -162,7 +162,19 @@ If the REST API is sending a string `Hello World` using `application/json` conte
 
 ### System response
 
-The Web PubSub service can return system-related responses to the client. 
+The Web PubSub service can return system-related responses to the client.
+
+### Pong response
+
+The Web PubSub service sends a `pong` message to the client when it receives a `ping` message from the client.
+
+Format:
+
+```json
+{
+    "type": "pong",
+}
+```
 
 #### Connected
 

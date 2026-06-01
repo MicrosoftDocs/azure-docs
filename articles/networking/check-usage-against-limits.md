@@ -4,16 +4,19 @@ description: Learn how to check your Azure resource usage against Azure subscrip
 services: networking
 author: mbender-ms
 ms.author: mbender
-ms.custom: devx-track-azurecli
 ms.service: azure
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/05/2018
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to monitor my Azure resource usage against subscription limits so that I can manage resources efficiently and plan for future scaling.
 ---
 # Check resource usage against limits
 
-In this article, you learn how to see the number of each network resource type that you've deployed in your subscription and what your [subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits) are. The ability to view resource usage against limits is helpful to track current usage, and plan for future use. You can use the [Azure Portal](#azure-portal), [PowerShell](#powershell), or the [Azure CLI](#azure-cli) to track usage.
+In this article, you learn how to see the number of each network resource type that you've deployed in your subscription and what your [subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#azure-networking-limits) are. The ability to view resource usage against limits is helpful to track current usage, and plan for future use. You can use the [Azure portal](#azure-portal), [PowerShell](#powershell), or the [Azure CLI](#azure-cli) to track usage.
 
-## Azure Portal
+## Azure portal
 
 1. Log into the Azure [portal](https://portal.azure.com).
 2. At the top, left corner of the Azure portal, select **All services**.
@@ -30,7 +33,7 @@ In this article, you learn how to see the number of each network resource type t
 
        ![View usage data](./media/check-usage-against-limits/view-usage.png)
 
-     You can sort the columns by selecting the column heading. The limits shown are the limits for your subscription. If you need to increase a default limit, select **Request Increase**, then complete and submit the support request. All resources have a maximum limit listed in Azure [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits). If your current limit is already at the maximum number, the limit can't be increased.
+     You can sort the columns by selecting the column heading. The limits shown are the limits for your subscription. If you need to increase a default limit, select **Request Increase**, then complete and submit the support request. All resources have a maximum limit listed in Azure [limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#azure-networking-limits). If your current limit is already at the maximum number, the limit can't be increased.
 
 ## PowerShell
 

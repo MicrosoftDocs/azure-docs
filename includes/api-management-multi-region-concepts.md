@@ -1,8 +1,8 @@
 ---
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: include
-ms.date: 02/12/2024
+ms.date: 03/31/2025
 ms.author: danlep
 ---
 
@@ -13,11 +13,13 @@ ms.author: danlep
 
 * Gateway configurations such as APIs and policy definitions are regularly synchronized between the primary and secondary regions you add. Propagation of updates to the regional gateways normally takes less than 10 seconds. Multi-region deployment provides availability of the API gateway in more than one region and provides service availability if one region goes offline.
 
-* When API Management receives public HTTP requests to the traffic manager endpoint (applies for the external VNet and non-networked modes of API Management), traffic is routed to a regional gateway based on lowest latency, which can reduce latency experienced by geographically distributed API consumers.
+* When API Management receives public HTTP requests to the traffic manager endpoint (applies for the external VNet and non-networked modes of API Management), traffic is routed to a regional gateway based on lowest latency, which can reduce latency experienced by geographically distributed API consumers. In internal VNet mode, customers must configure their own solution to route and load-balance traffic across the regional gateways. For details, see [Networking considerations](/azure/api-management/api-management-howto-deploy-multi-region#virtual-networking).
 
 *  The gateway in each region (including the primary region) has a regional DNS name that follows the URL pattern of `https://<service-name>-<region>-01.regional.azure-api.net`, for example `https://contoso-westus2-01.regional.azure-api.net`.
 
 * If a region goes offline, API requests are automatically routed around the failed region to the next closest gateway.
 
 * If the primary region goes offline, the API Management management plane and developer portal become unavailable, but secondary regions continue to serve API requests using the most recent gateway configuration.
+
+* If configured, the [rate-limit](/azure/api-management/rate-limit-policy) and [rate-limit-by-key](/azure/api-management/rate-limit-by-key-policy) policies count calls separately at each regional gateway in the deployment. The policies don't aggregate all call data for the instance. Similarly, the [azure-openai-token-limit](/azure/api-management/azure-openai-token-limit-policy) and [llm-token-limit](/azure/api-management/llm-token-limit-policy) policies count token usage separately at each regional gateway in the deployment. 
   

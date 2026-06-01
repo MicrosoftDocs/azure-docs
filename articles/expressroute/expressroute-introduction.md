@@ -3,9 +3,9 @@ title: 'Azure ExpressRoute Overview: Connect over a private connection'
 description: The ExpressRoute Technical Overview explains how an ExpressRoute connection works to extend your on-premises network to Azure over a private connection.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: overview
-ms.date: 07/16/2024
+ms.date: 03/03/2026
 ms.author: duau
 ---
 
@@ -19,7 +19,8 @@ Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethern
 
 > [!NOTE]
 > In the context of ExpressRoute, the Microsoft Edge describes the edge routers on the Microsoft side of the ExpressRoute circuit. This is the ExpressRoute circuit's point of entry into Microsoft's network.
-> 
+>
+> Azure ExpressRoute is one of the services that make up the Hybrid Connectivity category in Azure. Other services in this category include [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) and [Virtual WAN](../virtual-wan/virtual-wan-about.md). Each service has its own unique features and use cases. For more information on this service category, see [Hybrid Connectivity](../networking/hybrid-connectivity/hybrid-connectivity.md).
 
 ## Key benefits
 
@@ -29,7 +30,7 @@ Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethern
 * Dynamic routing between your network and Microsoft via BGP.
 * Built-in redundancy in every peering location for higher reliability.
 * Connection uptime [SLA](https://azure.microsoft.com/support/legal/sla/).
-* QoS support for Skype for Business.
+* QoS support for Microsoft Teams.
 
 For more information, see the [ExpressRoute FAQ](expressroute-faqs.md).
 
@@ -99,7 +100,7 @@ Microsoft operates isolated cloud environments for special geopolitical regions 
 
 ### ExpressRoute Direct
 
-ExpressRoute Direct provides customers the opportunity to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. ExpressRoute Direct provides dual 100-Gbps connectivity, which supports Active/Active connectivity at scale.
+ExpressRoute Direct provides customers the opportunity to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. ExpressRoute Direct provides dual 10-Gbps, 100-Gbps or 400-Gbps connectivity, which supports Active/Active connectivity at scale.
 
 Key features that ExpressRoute Direct provides include, but aren't limited to:
 
@@ -145,7 +146,7 @@ For frequently asked questions about ExpressRoute, see [ExpressRoute FAQ](expres
 
 ## <a name="new"></a>What's new?
 
-Subscribe to the RSS feed and view the latest ExpressRoute feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=ExpressRoute) page.
+Subscribe to the RSS feed and view the latest ExpressRoute feature updates on the [Azure Updates](https://azure.microsoft.com/updates?filters=%5B%22Azure+ExpressRoute%22%5D) page.
 
 ## Next steps
 

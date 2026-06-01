@@ -4,9 +4,10 @@ description: Steps to create an Azure VMware Solution private cloud using the Az
 ms.topic: include
 ms.service: azure-vmware
 ms.custom: devx-track-azurecli, engagement-fy23
-ms.date: 1/03/2024
+ms.date: 12/5/2024
 author: suzizuber
 ms.author: v-szuber
+# Customer intent: As a cloud architect, I want to create an Azure VMware Solution private cloud using either the Azure portal or CLI, so that I can efficiently deploy and manage virtualized infrastructure in the cloud.
 ---
 
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
@@ -51,7 +52,7 @@ You can create an Azure VMware Solution private cloud using the Azure portal or 
 1. Verify the information entered, and if correct, select **Create**.  
 
    > [!NOTE]
-   > This step takes roughly 3-4 hours. Adding a single host in an existing or the same cluster takes between 30 - 45 minutes.
+   > This step takes an estimated 4+ hours. Adding a single host in an existing cluster takes an estimated 1 hour. If you are adding a new cluster with maximum nodes (16), it can take an estimated 4+ hours.
 
 1. Verify that the deployment was successful. Navigate to the resource group you created and select your private cloud.  You see the status of **Succeeded** when the deployment is finished. 
 

@@ -5,16 +5,18 @@ description: Learn to configure Azure AD B2C with Saviynt for cross-application 
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: As a security manager, I want to integrate Azure Active Directory B2C with Saviynt. I need visibility, security, and governance over user life-cycle management and access control.
 ---
 
 # Tutorial to configure Saviynt with Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Learn to integrate Azure Active Directory B2C (Azure AD B2C) with the Saviynt Security Manager platform, which has visibility, security, and governance. Saviynt incorporates application risk and governance, infrastructure management, privileged account management, and customer risk analysis.
 
@@ -35,7 +37,7 @@ To get started, you need:
 
 * An Azure subscription
 
-  * If you don't have on, get an [Azure free account](https://azure.microsoft.com/free/)
+  * If you don't have on, get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 * Go to saviynt.com [Contact Us](https://saviynt.com/contact-us/) to request a demo
 

@@ -1,15 +1,19 @@
 ---
 title: Continuous integration and deployment for dedicated SQL pool
 description: Enterprise-class Database DevOps experience for dedicated SQL pool in Azure Synapse Analytics with built-in support for continuous integration and deployment using Azure Pipelines.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 02/04/2020
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: how-to
-ms.custom: azure-synapse
+ms.custom:
+  - azure-synapse
+  - sfi-image-nochange
 ---
 # Continuous integration and deployment for dedicated SQL pool in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This simple tutorial outlines how to integrate your SQL Server Data tools (SSDT) database project with Azure DevOps and leverage Azure Pipelines to set up continuous integration and deployment. This tutorial is the second step in building your continuous integration and deployment pipeline for data warehousing.
 

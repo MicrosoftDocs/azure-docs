@@ -2,19 +2,20 @@
 title: Register for Android SDK push notifications using FCM v1
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to register for Android SDK push notifications using Google Firebase Cloud Messaging (FCM HTTP v1).
-author: jiminwen
+author: awang119
 services: azure-communication-services
-ms.author: jiminwen
+ms.author: anniewang
 ms.date: 05/31/2024
 ms.topic: tutorial
 ms.service: azure-communication-services
+ms.subservice: chat
 ---
 
 # Register for Android SDK push notifications using Firebase Cloud Messaging HTTP v1 
 
 This article applies to call and chat applications using Android SDK with Firebase Cloud Messaging (FCM) push notification. FCM was previously known as Google Cloud Messaging (GCM/FCM).
 
-On June 20, 2023, Google announced that it [deprecated sending messages using the FCM legacy APIs](https://firebase.google.com/docs/cloud-messaging). Google is removing the legacy FCM from service in June 2024. Google recommends [migrating from legacy FCM APIs to FCM HTTP v1](https://firebase.google.com/docs/cloud-messaging/migrate-v1).
+On June 20, 2023, Google announced that it [deprecated sending messages using the FCM legacy APIs](https://firebase.google.com/docs/cloud-messaging). Google is removing the legacy FCM from service in June 2024. Google recommends [migrating from legacy FCM APIs to FCM HTTP v1](/azure/notification-hubs/firebase-migration-rest).
 
 If your existing Android application uses the push notification feature, you need to [migrate to the FCM HTTP v1 endpoint](./call-chat-migrate-android-push-fcm-v1.md).
 

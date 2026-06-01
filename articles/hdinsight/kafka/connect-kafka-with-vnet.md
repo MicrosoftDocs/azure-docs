@@ -1,9 +1,12 @@
 ---
 title: Connect HDInsight Kafka cluster with client VM in different VNet on Azure HDInsight
 description: Learn how to connect HDInsight Kafka cluster with Client VM in different VNet on Azure HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: tutorial
-ms.date: 08/10/2023
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
+ms.date: 09/06/2024
 ---
 
 # Connect HDInsight Kafka cluster with client VM in different VNet

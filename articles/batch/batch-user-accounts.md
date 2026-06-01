@@ -2,19 +2,18 @@
 title: Run tasks under user accounts
 description: Learn the types of user accounts and how to configure them.
 ms.topic: how-to
-ms.date: 05/16/2023
+ms.date: 05/20/2026
 ms.custom:
 ms.devlang: csharp
 # ms.devlang: csharp, java, python
+# Customer intent: "As an Azure Batch user, I want to configure user accounts for my tasks so that I can control permissions and manage access based on the specific requirements of my workloads."
 ---
 # Run tasks under user accounts in Batch
 
 > [!NOTE]
 > The user accounts discussed in this article are different from user accounts used for Remote Desktop Protocol (RDP) or Secure Shell (SSH), for security reasons.
 >
-> To connect to a node running the Linux virtual machine configuration via SSH, see [Install and configure xrdp to use Remote Desktop with Ubuntu](../virtual-machines/linux/use-remote-desktop.md). To connect to nodes running Windows via RDP, see [How to connect and sign on to an Azure virtual machine running Windows](../virtual-machines/windows/connect-logon.md).
->
-> To connect to a node running the  via RDP, see [Enable Remote Desktop Connection for a Role in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
+> To connect to a node running the Linux virtual machine configuration via SSH, see [Install and configure xrdp to use Remote Desktop with Ubuntu](/azure/virtual-machines/linux/use-remote-desktop). To connect to nodes running Windows via RDP, see [How to connect and sign on to an Azure virtual machine running Windows](/azure/virtual-machines/windows/connect-logon).
 
 A task in Azure Batch always runs under a user account. By default, tasks run under standard user accounts, without administrator permissions. For certain scenarios, you may want to configure the user account under which you want a task to run. This article discusses the types of user accounts and how to configure them for your scenario.
 
@@ -22,7 +21,7 @@ A task in Azure Batch always runs under a user account. By default, tasks run un
 
 Azure Batch provides two types of user accounts for running tasks:
 
-- **Auto-user accounts.** Auto-user accounts are built-in user accounts that are created automatically by the Batch service. By default, tasks run under an auto-user account. You can configure the auto-user specification for a task to indicate under which auto-user account a task should run. The auto-user specification allows you to specify the elevation level and scope of the auto-user account that will run the task.
+- **Auto-user accounts.** Auto-user accounts are built-in user accounts that are created automatically by the Batch service. By default, tasks run under an auto-user account. You can configure the auto-user specification for a task to indicate under which auto-user account a task should run. The auto-user specification allows you to specify the elevation level and scope of the auto-user account that runs the task.
 
 - **A named user account.** You can specify one or more named user accounts for a pool when you create the pool. Each user account is created on each node of the pool. In addition to the account name, you specify the user account password, elevation level, and, for Linux pools, the SSH private key. When you add a task, you can specify the named user account under which that task should run.
 
@@ -34,6 +33,12 @@ Azure Batch provides two types of user accounts for running tasks:
 Both an auto-user account and a named user account have read/write access to the task's working directory, shared directory, and multi-instance tasks directory. Both types of accounts have read access to the startup and job preparation directories.
 
 If a task runs under the same account that was used for running a start task, the task has read-write access to the start task directory. Similarly, if a task runs under the same account that was used for running a job preparation task, the task has read-write access to the job preparation task directory. If a task runs under a different account than the start task or job preparation task, then the task has only read access to the respective directory.
+
+> [!IMPORTANT]
+> Distinct task users in Batch aren't a sufficient security boundary for isolation between tasks and its associated task data.
+> In Batch, the security isolation boundary is at the pool level. However improper access control of the Batch
+> API can lead to access of all pools under a Batch account with sufficient permission. Refer to best practices about
+> [pool security](best-practices.md#pool-security).
 
 For more information on accessing files and directories from a task, see [Files and directories](files-and-directories.md).
 
@@ -57,22 +62,32 @@ There are four possible configurations for the auto-user specification, each of 
 - Non-admin access with pool scope
 - Admin access with pool scope
 
-> [!IMPORTANT]
-> Tasks running under task scope do not have de facto access to other tasks on a node. However, a malicious user with access to the account could work around this restriction by submitting a task that runs with administrator privileges and accesses other task directories. A malicious user could also use RDP or SSH to connect to a node. It's important to protect access to your Batch account keys to prevent such a scenario. If you suspect your account may have been compromised, be sure to regenerate your keys.
+> [!NOTE]
+> Auto-user accounts with elevated admin access have direct write access to all other task directories on the compute node executing
+> the task. Consider running your tasks with the least privilege required for successful execution.
 
 ### Run a task as an auto-user with elevated access
 
 You can configure the auto-user specification for administrator privileges when you need to run a task with elevated access. For example, a start task may need elevated access to install software on the node.
 
 > [!NOTE]
-> Use elevated access only when necessary. Best practices recommend granting the minimum privilege necessary to achieve the desired outcome. For example, if a start task installs software for the current user, instead of for all users, you may be able to avoid granting elevated access to tasks. You can configure the auto-user specification for pool scope and non-admin access for all tasks that need to run under the same account, including the start task.
+> Use elevated access only when necessary. A typical use case for using elevated admin access is for a start task that must install
+> software on the compute node before other tasks can be scheduled. For subsequent tasks, you should use the installed software
+> as a task user without elevation.
 
 The following code snippets show how to configure the auto-user specification. The examples set the elevation level to `Admin` and the scope to `Task`.
 
 #### Batch .NET
 
-```csharp
-task.UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin, scope: AutoUserScope.Task));
+```C# Snippet:user_accounts_admin_autouser
+task.UserIdentity = new UserIdentity()
+{
+    AutoUser = new AutoUserSpecification()
+    {
+        ElevationLevel = ElevationLevel.Admin,
+        Scope = AutoUserScope.Task
+    }
+};
 ```
 
 #### Batch Java
@@ -88,16 +103,16 @@ taskToAdd.withId(taskId)
 
 #### Batch Python
 
-```python
-user = batchmodels.UserIdentity(
-    auto_user=batchmodels.AutoUserSpecification(
-        elevation_level=batchmodels.ElevationLevel.admin,
-        scope=batchmodels.AutoUserScope.task))
-task = batchmodels.TaskAddParameter(
+```python Snippet:user_accounts_admin_autouser_python
+user = models.UserIdentity(
+    auto_user=models.AutoUserSpecification(
+        elevation_level=models.ElevationLevel.ADMIN,
+        scope=models.AutoUserScope.TASK))
+task = models.BatchTaskCreateOptions(
     id='task_1',
     command_line='cmd /c "echo hello world"',
     user_identity=user)
-batch_client.task.add(job_id=jobid, task=task)
+batch_client.create_task(job_id=jobid, task=task)
 ```
 
 ### Run a task as an auto-user with pool scope
@@ -106,19 +121,23 @@ When a node is provisioned, two pool-wide auto-user accounts are created on each
 
 When you specify pool scope for the auto-user, all tasks that run with administrator access run under the same pool-wide auto-user account. Similarly, tasks that run without administrator permissions also run under a single pool-wide auto-user account.
 
-> [!NOTE]
-> The two pool-wide auto-user accounts are separate accounts. Tasks running under the pool-wide administrative account can't share data with tasks running under the standard account, and vice versa.
-
-The advantage to running under the same auto-user account is that tasks are able to share data with other tasks running on the same node.
+The advantage to running under the same auto-user account is that tasks are able to easily share data with other tasks running
+on the same node. There are also performance benefits to user account reuse.
 
 Sharing secrets between tasks is one scenario where running tasks under one of the two pool-wide auto-user accounts is useful. For example, suppose a start task needs to provision a secret onto the node that other tasks can use. You could use the Windows Data Protection API (DPAPI), but it requires administrator privileges. Instead, you can protect the secret at the user level. Tasks running under the same user account can access the secret without elevated access.
 
-Another scenario where you may want to run tasks under an auto-user account with pool scope is a Message Passing Interface (MPI) file share. An MPI file share is useful when the nodes in the MPI task need to work on the same file data. The head node creates a file share that the child nodes can access if they are running under the same auto-user account.
+Another scenario where you may want to run tasks under an auto-user account with pool scope is a Message Passing Interface (MPI) file share. An MPI file share is useful when the nodes in the MPI task need to work on the same file data. The head node creates a file share that the child nodes can access if they're running under the same auto-user account.
 
 The following code snippet sets the auto-user's scope to pool scope for a task in Batch .NET. The elevation level is omitted, so the task runs under the standard pool-wide auto-user account.
 
-```csharp
-task.UserIdentity = new UserIdentity(new AutoUserSpecification(scope: AutoUserScope.Pool));
+```C# Snippet:user_accounts_pool_scope
+task.UserIdentity = new UserIdentity()
+{
+    AutoUser = new AutoUserSpecification()
+    {
+        Scope = AutoUserScope.Pool
+    }
+};
 ```
 
 ## Named user accounts
@@ -139,95 +158,108 @@ To create named user accounts in Batch, add a collection of user accounts to the
 
 #### Batch .NET example (Windows)
 
-```csharp
-CloudPool pool = null;
+```C# Snippet:user_accounts_pool_windows
 Console.WriteLine("Creating pool [{0}]...", poolId);
 
-// Create a pool using Virtual Machine Configuration.
-pool = batchClient.PoolOperations.CreatePool(
-    poolId: poolId,
-    targetDedicatedComputeNodes: 3,
-    virtualMachineSize: "standard_d1_v2",
-    VirtualMachineConfiguration: new VirtualMachineConfiguration(
-    imageReference: new ImageReference(
-                        publisher: "MicrosoftWindowsServer",
-                        offer: "WindowsServer",
-                        sku: "2019-datacenter-core",
-                        version: "latest"),
-    nodeAgentSkuId: "batch.node.windows amd64");
-
-// Add named user accounts.
-pool.UserAccounts = new List<UserAccount>
+BatchAccountPoolData poolData = new BatchAccountPoolData()
 {
-    new UserAccount("adminUser", "xyz123", ElevationLevel.Admin),
-    new UserAccount("nonAdminUser", "123xyz", ElevationLevel.NonAdmin),
+    VmSize = "standard_d2s_v3",
+    DeploymentConfiguration = new BatchDeploymentConfiguration()
+    {
+        VmConfiguration = new BatchVmConfiguration(
+            imageReference: new BatchImageReference()
+            {
+                Publisher = "MicrosoftWindowsServer",
+                Offer = "WindowsServer",
+                Sku = "2022-datacenter-core",
+                Version = "latest"
+            },
+            nodeAgentSkuId: "batch.node.windows amd64")
+    },
+    ScaleSettings = new BatchAccountPoolScaleSettings()
+    {
+        FixedScale = new BatchAccountFixedScaleSettings() { TargetDedicatedNodes = 2 }
+    },
+    UserAccounts =
+    {
+        new BatchUserAccount("adminUser", "A1bC2d") { ElevationLevel = BatchUserAccountElevationLevel.Admin },
+        new BatchUserAccount("nonAdminUser", "A1bC2d") { ElevationLevel = BatchUserAccountElevationLevel.NonAdmin },
+    }
 };
 
-// Commit the pool.
-await pool.CommitAsync();
+await batchAccount.GetBatchAccountPools().CreateOrUpdateAsync(WaitUntil.Completed, poolId, poolData);
 ```
 
 #### Batch .NET example (Linux)
 
-```csharp
-CloudPool pool = null;
-
+```C# Snippet:user_accounts_pool_linux
 // Obtain a collection of all available node agent SKUs.
-List<NodeAgentSku> nodeAgentSkus =
-    batchClient.PoolOperations.ListNodeAgentSkus().ToList();
+List<BatchSupportedImage> images = new List<BatchSupportedImage>();
+await foreach (BatchSupportedImage img in batchClient.GetSupportedImagesAsync())
+{
+    images.Add(img);
+}
 
 // Define a delegate specifying properties of the VM image to use.
-Func<ImageReference, bool> isUbuntu1804 = imageRef =>
+bool IsUbuntu2404(Azure.Compute.Batch.BatchVmImageReference imageRef) =>
     imageRef.Publisher == "Canonical" &&
-    imageRef.Offer == "UbuntuServer" &&
-    imageRef.Sku.Contains("20.04-LTS");
+    imageRef.Offer == "ubuntu-24_04-lts" &&
+    imageRef.Sku.Contains("server");
 
-// Obtain the first node agent SKU in the collection that matches
-// Ubuntu Server 20.04.
-NodeAgentSku ubuntuAgentSku = nodeAgentSkus.First(sku =>
-    sku.VerifiedImageReferences.Any(isUbuntu2004));
+// Pick the first supported image that matches.
+BatchSupportedImage ubuntuImage = null;
+foreach (var img in images)
+{
+    if (IsUbuntu2404(img.ImageReference)) { ubuntuImage = img; break; }
+}
 
-// Select an ImageReference from those available for node agent.
-ImageReference imageReference =
-    ubuntuAgentSku.VerifiedImageReferences.First(isUbuntu2004);
-
-// Create the virtual machine configuration to use to create the pool.
-VirtualMachineConfiguration virtualMachineConfiguration =
-    new VirtualMachineConfiguration(imageReference, ubuntuAgentSku.Id);
+// Create the BatchVmConfiguration to use to create the pool.
+BatchVmConfiguration vmConfiguration = new BatchVmConfiguration(
+    imageReference: new BatchImageReference()
+    {
+        Publisher = ubuntuImage.ImageReference.Publisher,
+        Offer = ubuntuImage.ImageReference.Offer,
+        Sku = ubuntuImage.ImageReference.Sku,
+        Version = ubuntuImage.ImageReference.Version
+    },
+    nodeAgentSkuId: ubuntuImage.NodeAgentSkuId);
 
 Console.WriteLine("Creating pool [{0}]...", poolId);
 
-// Create the unbound pool.
-pool = batchClient.PoolOperations.CreatePool(
-    poolId: poolId,
-    targetDedicatedComputeNodes: 3,
-    virtualMachineSize: "Standard_A1",
-    virtualMachineConfiguration: virtualMachineConfiguration);
-// Add named user accounts.
-pool.UserAccounts = new List<UserAccount>
+BatchAccountPoolData poolData = new BatchAccountPoolData()
 {
-    new UserAccount(
-        name: "adminUser",
-        password: "xyz123",
-        elevationLevel: ElevationLevel.Admin,
-        linuxUserConfiguration: new LinuxUserConfiguration(
-            uid: 12345,
-            gid: 98765,
-            sshPrivateKey: new Guid().ToString()
-            )),
-    new UserAccount(
-        name: "nonAdminUser",
-        password: "123xyz",
-        elevationLevel: ElevationLevel.NonAdmin,
-        linuxUserConfiguration: new LinuxUserConfiguration(
-            uid: 45678,
-            gid: 98765,
-            sshPrivateKey: new Guid().ToString()
-            )),
+    VmSize = "Standard_d2s_v3",
+    DeploymentConfiguration = new BatchDeploymentConfiguration() { VmConfiguration = vmConfiguration },
+    ScaleSettings = new BatchAccountPoolScaleSettings()
+    {
+        FixedScale = new BatchAccountFixedScaleSettings() { TargetDedicatedNodes = 2 }
+    },
+    UserAccounts =
+    {
+        new BatchUserAccount("adminUser", "A1bC2d")
+        {
+            ElevationLevel = BatchUserAccountElevationLevel.Admin,
+            LinuxUserConfiguration = new BatchLinuxUserConfiguration()
+            {
+                Uid = 12345,
+                Gid = 98765,
+                SshPrivateKey = Guid.NewGuid().ToString()
+            }
+        },
+        new BatchUserAccount("nonAdminUser", "A1bC2d")
+        {
+            ElevationLevel = BatchUserAccountElevationLevel.NonAdmin,
+            LinuxUserConfiguration = new BatchLinuxUserConfiguration()
+            {
+                Uid = 45678,
+                Gid = 98765,
+                SshPrivateKey = Guid.NewGuid().ToString()
+            }
+        },
+    }
 };
 
-// Commit the pool.
-await pool.CommitAsync();
+await batchAccount.GetBatchAccountPools().CreateOrUpdateAsync(WaitUntil.Completed, poolId, poolData);
 ```
 
 #### Batch Java example
@@ -247,26 +279,26 @@ batchClient.poolOperations().createPool(addParameter);
 
 #### Batch Python example
 
-```python
+```python Snippet:user_accounts_pool_python
 users = [
-    batchmodels.UserAccount(
+    models.UserAccount(
         name='pool-admin',
-        password='******',
-        elevation_level=batchmodels.ElevationLevel.admin)
-    batchmodels.UserAccount(
+        password='A1bC2d',
+        elevation_level=models.ElevationLevel.ADMIN),
+    models.UserAccount(
         name='pool-nonadmin',
-        password='******',
-        elevation_level=batchmodels.ElevationLevel.non_admin)
+        password='A1bC2d',
+        elevation_level=models.ElevationLevel.NON_ADMIN),
 ]
-pool = batchmodels.PoolAddParameter(
+pool = models.BatchPoolCreateOptions(
     id=pool_id,
     user_accounts=users,
-    virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+    virtual_machine_configuration=models.VirtualMachineConfiguration(
         image_reference=image_ref_to_use,
         node_agent_sku_id=sku_to_use),
     vm_size=vm_size,
-    target_dedicated=vm_count)
-batch_client.pool.add(pool)
+    target_dedicated_nodes=vm_count)
+batch_client.create_pool(pool=pool)
 ```
 
 ### Run a task under a named user account with elevated access
@@ -275,9 +307,11 @@ To run a task as an elevated user, set the task's **UserIdentity** property to a
 
 This code snippet specifies that the task should run under a named user account. This named user account was defined on the pool when the pool was created. In this case, the named user account was created with admin permissions:
 
-```csharp
-CloudTask task = new CloudTask("1", "cmd.exe /c echo 1");
-task.UserIdentity = new UserIdentity(AdminUserAccountName);
+```C# Snippet:user_accounts_task_named
+BatchTaskCreateOptions task = new BatchTaskCreateOptions("1", "cmd.exe /c echo 1")
+{
+    UserIdentity = new UserIdentity() { Username = AdminUserAccountName }
+};
 ```
 
 ## Update your code to the latest Batch client library

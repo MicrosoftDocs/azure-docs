@@ -3,16 +3,18 @@ title: Using dynamic SQL
 description: Tips for development solutions using dynamic SQL for dedicated SQL pools in Azure Synapse Analytics.
 author: MSTehrani
 ms.author: emtehran
-ms.reviewer: wiassaf
+
 ms.date: 04/17/2018
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - azure-synapse
 ---
 
 # Dynamic SQL for dedicated SQL pools in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Included in this article are tips for development solutions using dynamic SQL in dedicated SQL pools.
 

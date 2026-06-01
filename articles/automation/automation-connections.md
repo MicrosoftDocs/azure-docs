@@ -3,9 +3,12 @@ title: Manage connections in Azure Automation
 description: This article tells how to manage Azure Automation connections to external services or applications and how to work with them in runbooks.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 04/12/2023
-ms.topic: conceptual
+ms.date: 11/17/2025
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-python
+ms.service: azure-automation
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Manage connections in Azure Automation

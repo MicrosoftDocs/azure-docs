@@ -3,14 +3,15 @@ title: Create and manage container leases with .NET
 titleSuffix: Azure Storage 
 description: Learn how to manage a lock on a container in your Azure Storage account using the .NET client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 04/10/2023
+ms.date: 08/05/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to create and manage leases on Azure Storage containers, so that I can control access and optimize workflow for concurrent operations.
 ---
 
 # Create and manage container leases with .NET
@@ -93,18 +94,20 @@ The following example breaks a lease on a container:
 
 To learn more about managing container leases using the Azure Blob Storage client library for .NET, see the following resources.
 
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/dotnet/BlobDevGuideBlobs/LeaseContainer.cs)
+
 ### REST API operations
 
 The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for managing container leases use the following REST API operation:
 
 - [Lease Container](/rest/api/storageservices/lease-container)
 
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/dotnet/BlobDevGuideBlobs/LeaseContainer.cs)
-
 [!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
 
 ### See also
 
 - [Managing Concurrency in Blob storage](concurrency-manage.md)
+
+[!INCLUDE [storage-dev-guide-next-steps-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-dotnet.md)]

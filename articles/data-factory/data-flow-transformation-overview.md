@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: An overview of the different transformations available in mapping data flow
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.topic: conceptual
-ms.date: 05/15/2024
+ms.topic: reference
+ms.date: 04/27/2026
 ---
 
 # Mapping data flow transformation overview
@@ -16,6 +15,9 @@ ms.date: 05/15/2024
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)] 
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
+> [!TIP]
+>  To compare these transformations to their Dataflow Gen2 equivalents, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
 
 Below is a list of the transformations currently supported in mapping data flow. Click on each transformations to learn its configuration details.
 

@@ -3,9 +3,9 @@ title: Update and deploy changes in Azure Container Apps
 description: Learn how to use revisions to make changes in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
-ms.topic: conceptual
-ms.date: 02/01/2024
+ms.service: azure-container-apps
+ms.topic: concept-article
+ms.date: 10/27/2025
 ms.author: cshoe
 ms.custom: build-2023
 ---
@@ -26,7 +26,7 @@ Key characteristics of revisions include:
 
 - **Scoped changes**: While revisions remain static, [application-scope](#change-types) changes can affect all revisions, while [revision-scope](#change-types) changes create a new revision.
 
-- **Historical record**: By default, you have access to 100 inactive revisions, but you can [adjust this threshold manually](#change-inactive-revision-limit).
+- **Historical record**: By default, you have access to 100 inactive revisions, but you can [adjust this threshold manually](#change-inactive-revision-limit-preview).
 
 - **Multiple revisions**: You can run multiple revisions concurrently. This feature is especially beneficial when you need to manage different versions of your app simultaneously.
 
@@ -65,9 +65,15 @@ After a container app is successfully provisioned, a revision enters its operati
 
 Revisions can also enter an inactive state. These revisions don't possess provisioning or running states. However, Azure Container Apps maintains a list of these revisions, accommodating up to 100 inactive entries. You can activate a revision at any time.
 
-### Change inactive revision limit
+### Change inactive revision limit (preview)
 
 You can use the `--max-inactive-revisions` parameter with the `containerapp create` or `containerapp update` commands to control the number of inactive revisions tracked by Container Apps.
+
+First, make sure you have installed the Container Apps extension, with preview features enabled, for the Azure CLI:
+
+```azurecli
+az extension add --name containerapp --upgrade --allow-preview true
+```
 
 This example demonstrates how to create a new container app that tracks 50 inactive revisions:
 
@@ -82,7 +88,8 @@ Azure Container Apps support two revision modes. Your choice of mode determines 
 | Revision modes | Description | Default |
 |---|---|---|
 | Single | New revisions are automatically provisioned, activated, and scaled to the desired size. Once all the replicas are running as defined by the [scale rule](scale-app.md), then traffic is diverted from the old version to the new one. If an update fails, traffic remains pointed to the old revision. Old revisions are automatically deprovisioned. | Yes |
-| Multiple | You can have multiple active revisions, split traffic between revisions, and choose when to deprovision old revisions. This level of control is helpful for testing multiple versions of an app, blue-green testing, or taking full control of app updates. Refer to [traffic splitting](traffic-splitting.md) for more detail.
+| Deployment labels (preview) | Assign meaningful names (such as dev, staging, prod) to specific container revisions. Use for traffic splitting & A/B testing, auto swapping staging release revisions, and simplified rollbacks. | No |
+| Multiple | You can have multiple active revisions, split traffic between revisions, and choose when to deprovision old revisions. This level of control is helpful for testing multiple versions of an app, blue-green testing, or taking full control of app updates. Refer to [traffic splitting](traffic-splitting.md) for more detail. | No |
 
 ### Labels
 
@@ -96,9 +103,9 @@ To switch traffic between revisions, you can move the label from one revision to
 - Labels are most useful when the app is in *multiple revision mode*.
 - You can enable labels, traffic splitting or both.
 
-Labels are useful for testing new revisions.  For example, when you want to give access to a set of test users, you can give them the label's URL. Then when you want to move your users to a different revision, you can move the label to that revision.
+Labels are useful for testing new revisions. For example, when you want to give access to a set of test users, you can give them the label's URL. Then when you want to move your users to a different revision, you can move the label to that revision.
 
-Labels work independently of traffic splitting.  Traffic splitting distributes traffic going to the container app's application URL to revisions based on the percentage of traffic.  When traffic is directed to a label's URL, the traffic is routed to one specific revision.
+Labels work independently of traffic splitting. Traffic splitting distributes traffic going to the container app's application URL to revisions based on the percentage of traffic. When traffic is directed to a label's URL, the traffic is routed to one specific revision.
 
 A label name must:
 
@@ -129,7 +136,7 @@ A new revision is considered ready when:
 
 - The revision has provisioned successfully
 - The revision has scaled up to match the previous revisions replica count (respecting the new revision's min and max replica count)
-- All the replicas have passed their startup and readiness probes 
+- All the replicas have passed their startup and readiness probes
 
 In *multiple revision* mode, you can control when revisions are activated or deactivated and which revisions receive ingress traffic. If a [traffic splitting rule](./revisions-manage.md#traffic-splitting) is configured with `latestRevision` set to `true`, traffic doesn't switch to the latest revision until it's ready.
 

@@ -2,12 +2,12 @@
 title: Attestation for SGX enclaves
 description: You can use attestation to verify that your Azure confidential computing SGX enclave is secure.
 services: virtual-machines
-author: ju-shim
-ms.service: virtual-machines
-ms.subservice: confidential-computing
-ms.topic: conceptual
+author: cynthn
+ms.service: azure-confidential-computing
+ms.topic: concept-article
 ms.date: 12/20/2021
-ms.author: jushiman
+ms.author: cynthn
+# Customer intent: As a developer, I want to implement attestation for my Intel SGX enclaves, so that I can ensure my applications run securely and maintain trust in the confidential computing environment.
 ---
 
 # Attestation for SGX Enclaves
@@ -22,7 +22,7 @@ For example, an enclave can ask the underlying hardware to generate a credential
 
 :::image type="content" source="./media/attestation/attestation.png" alt-text="Diagram of attestation process, showing client's secure exchange with enclave that holds the data and application code.":::
 
-Implement attestation with a secure attestation service that is compatible with the system software and silicon. Two options are [Microsoft Azure Attestation](../attestation/overview.md), and [Intel's attestation and provisioning services](https://software.intel.com/sgx/attestation-services).Both services are compatible with Intel SGX **DCsv2-series** VMs in Azure confidential computing. However, **DCsv3-series** and **DCdsv3-series** VMs aren't compatible with Intel attestation service. 
+Implement attestation with a secure attestation service that is compatible with the system software and silicon. Two options are [Microsoft Azure Attestation](/azure/attestation/overview), and [Intel's attestation and provisioning services](https://software.intel.com/sgx/attestation-services).Both services are compatible with Intel SGX **DCsv2-series** VMs in Azure confidential computing. However, **DCsv3-series** and **DCdsv3-series** VMs aren't compatible with Intel attestation service. 
 
 ## Next step
 

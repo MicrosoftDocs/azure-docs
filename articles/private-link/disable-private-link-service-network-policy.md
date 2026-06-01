@@ -1,14 +1,14 @@
 ---
 title: 'Disable network policies for Azure Private Link service source IP address'
 description: Learn how to disable network policies for Azure Private Link.
-services: private-link
-author: abell
-ms.service: private-link
+author: asudbring
+ms.service: azure-private-link
 ms.topic: how-to
-ms.date: 03/28/2024
-ms.author: abell 
+ms.date: 03/30/2026
+ms.author: allensu
 ms.custom: template-how-to
 ms.devlang: azurecli
+# Customer intent: "As a network administrator, I want to disable network policies on the Azure Private Link service for a specific subnet, so that I can ensure proper access control while maintaining network security for other resources."
 ---
 
 # Disable network policies for Private Link service source IP
@@ -52,7 +52,7 @@ az network vnet subnet update \
     --name default \
     --vnet-name MyVnet \
     --resource-group myResourceGroup \
-    --disable-private-link-service-network-policies yes
+    --private-link-service-network-policies Disabled
 ```
 
 # [**JSON**](#tab/private-link-network-policy-json)
@@ -63,7 +63,7 @@ This section describes how to disable subnet private endpoint policies by using 
 { 
     "name": "myVNet", 
     "type": "Microsoft.Network/virtualNetworks", 
-    "apiVersion": "2019-04-01", 
+    "apiVersion": "2024-05-01", 
     "location": "WestUS", 
     "properties": { 
         "addressSpace": { 

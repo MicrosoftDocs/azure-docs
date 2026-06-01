@@ -1,11 +1,14 @@
 ---
-title: Start an Azure Automation runbook from a webhook
+title: Start an Azure Automation Runbook from a Webhook
 description: This article tells how to use a webhook to start a runbook in Azure Automation from an HTTP call.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/21/2023
-ms.topic: conceptual 
+ms.date: 04/15/2026
+ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
+ms.service: azure-automation
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Start a runbook from a webhook
@@ -87,7 +90,10 @@ Consider the following strategies:
 ## Create a webhook
 
 > [!NOTE]
-> When you use the webhook with PowerShell 7 runbook, it auto-converts the webhook input parameter to an invalid JSON. For more information, see [Known issues - PowerShell 7.1 (preview)](./automation-runbook-types.md#limitations-and-known-issues). We recommend that you use the webhook with PowerShell 5 runbook.
+> * When you use the webhook with PowerShell 7 runbook, it auto-converts the webhook input parameter to an invalid JSON. For more information, see [Known issues - PowerShell 7.1 (preview)](./automation-runbook-types.md#limitations-and-known-issues). We recommend that you use the webhook with PowerShell 5 runbook.
+> * Using a webhook to start a Python runbook isn't supported.
+
+To create a webhook, follow these steps:
 
 1. Create PowerShell runbook with the following code:
 
@@ -124,6 +130,8 @@ Consider the following strategies:
 
     # [Azure portal](#tab/portal)
 
+    To create a webhook using the Azure portal, do the following:
+
     1. Sign in to the [Azure portal](https://portal.azure.com/).
 
     1. In the Azure portal, navigate to your Automation account.
@@ -142,9 +150,9 @@ Consider the following strategies:
 
     1. Enter in the **Name** for the webhook. The expiration date for the field **Expires** defaults to one year from the current date.
 
-    1. Click the copy icon or press <kbd>Ctrl + C</kbd> copy the URL of the webhook. Then save the URL to a secure location.
+    1. Select the copy icon or press <kbd>Ctrl + C</kbd> copy the URL of the webhook. Then, save the URL to a secure location.
 
-        :::image type="content" source="media/automation-webhooks/create-new-webhook.png" alt-text="Creaye webhook page with URL highlighted.":::
+        :::image type="content" source="media/automation-webhooks/create-new-webhook.png" alt-text="Create webhook page with URL highlighted.":::
 
         > [!IMPORTANT]
         > Once you create the webhook, you cannot retrieve the URL again. Make sure you copy and record it as above.
@@ -160,6 +168,8 @@ Consider the following strategies:
     1. From the **Add Webhook** page, select **Create**. The webhook is created and you're returned to the Runbook **Overview** page.
 
     # [PowerShell](#tab/powershell)
+
+    To create a webhook using PowerShell, do the following:
 
     1. Verify you have the latest version of the PowerShell [Az Module](/powershell/azure/new-azureps-module-az) installed.
 
@@ -210,6 +220,8 @@ Consider the following strategies:
         ```
 
     # [REST API](#tab/rest)
+
+    To create a webhook using REST API, do the following:
 
     The PUT command is documented at [Webhook - Create Or Update](/rest/api/automation/webhook/create-or-update). This example uses the PowerShell cmdlet [Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod) to send the PUT request.
 
@@ -299,6 +311,8 @@ Consider the following strategies:
 
 This example uses the PowerShell cmdlet [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) to send the POST request to your new webhook.
 
+To use a webhook, follow these steps:
+
 1. Prepare values to pass to the runbook as the body for the webhook call. For relatively simple values, you could script the values as follows:
 
     ```powershell
@@ -311,7 +325,7 @@ This example uses the PowerShell cmdlet [Invoke-WebRequest](/powershell/module/m
     $body = ConvertTo-Json -InputObject $Names
     ```
 
-1. For larger sets, you may wish to use a file. Create a file named `names.json` and then paste the following code::
+1. For larger sets, you may wish to use a file. Create a file named `names.json` and then paste the following code:
 
     ```json
     [
@@ -377,7 +391,7 @@ This example uses the PowerShell cmdlet [Invoke-WebRequest](/powershell/module/m
 
 ## Update a webhook
 
-When a webhook is created, it has a validity time period of 10 years, after which it automatically expires. Once a webhook has expired, you can't reactivate it. You can only remove and then recreate it. You can extend a webhook that hasn't reached its expiration time. To extend a webhook, perform the following steps.
+When a webhook is created, it has a validity time period of 10 years, after which it automatically expires. Once a webhook has expired, you can't reactivate it. You can only remove and then recreate it. You can extend a webhook that hasn't reached its expiration time. To extend a webhook, perform the following steps:
 
 1. Navigate to the runbook that contains the webhook.
 1. Under **Resources**, select **Webhooks**, and then the webhook that you want to extend.
@@ -409,6 +423,10 @@ Here are examples of removing a webhook from an Automation runbook.
 ## Create runbook and webhook with ARM template
 
 Automation webhooks can also be created using [Azure Resource Manager](../azure-resource-manager/templates/overview.md) templates. This sample template creates an Automation account, four runbooks, and a webhook for the named runbook.
+> [!NOTE]
+> Azure Resource Manager (ARM) template outputs are persisted in deployment history and are accessible to any principal with Reader access to the resource group. Avoid including sensitive information, such as secrets or webhook URLs in output to prevent unintended exposure.
+
+To create a webhook using an ARM template, follow these steps:
 
 1. Create a file named `webhook_deploy.json` and then paste the following code:
 
@@ -534,3 +552,4 @@ Automation webhooks can also be created using [Azure Resource Manager](../azure-
 ## Next steps
 
 * To trigger a runbook from an alert, see [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md).
+* For troubleshooting issues related to starting Azure Automation runbooks using webhooks, see [Troubleshoot runbook issues](troubleshoot/runbooks.md).

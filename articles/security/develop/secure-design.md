@@ -1,10 +1,9 @@
 ---
 title: Design secure applications on Microsoft Azure
 description: This article discusses best practices to consider during the requirement and design phases of your web application project.
-author: TerryLanfear
-manager: rkarlin
-ms.author: terrylan
-ms.date: 09/26/2023
+author: msmbaldwin
+ms.author: mbaldwin
+ms.date: 05/28/2025
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -132,7 +131,7 @@ Apps, like package management, staging environments, custom domains,
 SSL/TLS certificates, and continuous deployment from Azure DevOps,
 GitHub, Docker Hub, and other sources.
 
-Azure offers other services that you can use to host websites and web applications. For most scenarios, Web Apps is the best choice. For a micro service architecture, consider [Azure Service Fabric](../../service-fabric/index.yml). If you need more control over the VMs that your code runs on, consider [Azure Virtual Machines](../../virtual-machines/index.yml). For more information about how to choose between these Azure services, see a [comparison of Azure App Service, Virtual Machines, Service Fabric, and Cloud Services](/azure/architecture/guide/technology-choices/compute-decision-tree).
+Azure offers other services that you can use to host websites and web applications. For most scenarios, Web Apps is the best choice. For a micro service architecture, consider [Azure Service Fabric](/azure/service-fabric/). If you need more control over the VMs that your code runs on, consider [Azure Virtual Machines](/azure/virtual-machines/). For more information about how to choose between these Azure services, see a [comparison of Azure App Service, Virtual Machines, Service Fabric, and Cloud Services](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ### Apply updates to components
 
@@ -161,7 +160,7 @@ Modeling the application design and enumerating [STRIDE](https://docs.google.com
 | Threat | Security property | Potential Azure platform mitigation |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Spoofing               | Authentication        | [Require HTTPS connections](/aspnet/core/security/enforcing-ssl?tabs=visual-studio). |
-| Tampering              | Integrity             | Validate SSL/TLS certificates. Applications that use SSL/TLS must fully verify the X.509 certificates of the entities they connect to. Use Azure Key Vault certificates to [manage your x509 certificates](../../key-vault/general/about-keys-secrets-certificates.md). |
+| Tampering              | Integrity             | Validate SSL/TLS certificates. Applications that use SSL/TLS must fully verify the X.509 certificates of the entities they connect to. Use Azure Key Vault certificates to [manage your x509 certificates](/azure/key-vault/general/about-keys-secrets-certificates). |
 | Repudiation            | Non-repudiation       | Enable Azure [monitoring and diagnostics](/azure/architecture/best-practices/monitoring).|
 | Information Disclosure | Confidentiality       | Encrypt sensitive data [at rest](../fundamentals/encryption-atrest.md) and [in transit](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
 | Denial of Service      | Availability          | Monitor performance metrics for potential denial of service conditions. Implement connection filters. [Azure DDoS protection](../../ddos-protection/ddos-protection-overview.md), combined with application design best practices, provides defense against DDoS attacks.|
@@ -238,11 +237,11 @@ Use two-factor authentication. Two-factor authentication is the current standard
 
 #### Use strong authentication and authorization platforms
 
-Use platform-supplied authentication and authorization mechanisms instead of custom code. This is because developing custom authentication code can be prone to error. Commercial code (for example, from Microsoft) often is extensively reviewed for security. [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md) (Microsoft Entra ID) is the Azure solution for identity and access management. These Microsoft Entra tools and services help with secure development:
+Use platform-supplied authentication and authorization mechanisms instead of custom code. This is because developing custom authentication code can be prone to error. Commercial code (for example, from Microsoft) often is extensively reviewed for security. [Microsoft Entra ID](/entra/fundamentals/what-is-entra) (Microsoft Entra ID) is the Azure solution for identity and access management. These Microsoft Entra tools and services help with secure development:
 
 * [Microsoft identity platform](../../active-directory/develop/index.yml) is a set of components that developers use to build apps that securely sign in users. The platform assists developers who are building single-tenant, line-of-business (LOB) apps and developers who are looking to develop multitenant apps. In addition to basic sign-in, apps built by using the Microsoft identity platform can call Microsoft APIs and custom APIs. The Microsoft identity platform supports industry-standard protocols like OAuth 2.0 and OpenID Connect.
 
-* [Azure Active Directory B2C](../../active-directory-b2c/index.yml) (Azure AD B2C) is an identity management service you use to customize and control how customers sign up, sign in, and manage their profiles when they use your applications. This includes applications that are developed for iOS, Android, and .NET, among others. Azure AD B2C enables these actions while protecting customer identities.
+* [Microsoft Entra External ID in external tenants](/entra/external-id/customers/overview-customers-ciam) is an identity management service you use to customize and control how customers sign up, sign in, and manage their profiles when they use your applications. This includes applications that are developed for iOS, Android, and .NET, among others. Azure AD B2C enables these actions while protecting customer identities.
 
 #### Apply the principle of least privilege
 
@@ -284,7 +283,7 @@ manual techniques to find keys and secrets that are stored in code
 repositories like GitHub. Don't put keys and secrets in these public
 code repositories or on any other server.
 
-Always put your keys, certificates, secrets, and connection strings in a key management solution. You can use a centralized solution in which keys and secrets are stored in hardware security modules (HSMs). Azure provides you with an HSM in the cloud with [Azure Key Vault](../../key-vault/general/overview.md).
+Always put your keys, certificates, secrets, and connection strings in a key management solution. You can use a centralized solution in which keys and secrets are stored in hardware security modules (HSMs). Azure provides you with an HSM in the cloud with [Azure Key Vault](/azure/key-vault/general/overview).
 
 Key Vault is a *secret store*: it's a centralized cloud service for
 storing application secrets. Key Vault keeps your confidential data safe
@@ -329,7 +328,7 @@ When you put comments in your code, ensure that you don't save any sensitive inf
 
 Basically, assume that everything in your development project is public knowledge when it's deployed. Avoid including sensitive data of any kind in the project.
 
-Earlier, we discussed [Azure Key Vault](../../key-vault/general/overview.md). You can use Key Vault to store secrets like keys and passwords instead of hard-coding them. When you use Key Vault in combination with managed identities for Azure resources, your Azure web app can access secret configuration values easily and securely without storing any secrets in your source control or configuration. To learn more, see [Manage secrets in your server apps with Azure Key Vault](/training/modules/manage-secrets-with-azure-key-vault/).
+Earlier, we discussed [Azure Key Vault](/azure/key-vault/general/overview). You can use Key Vault to store secrets like keys and passwords instead of hard-coding them. When you use Key Vault in combination with managed identities for Azure resources, your Azure web app can access secret configuration values easily and securely without storing any secrets in your source control or configuration. To learn more, see [Manage secrets in your server apps with Azure Key Vault](/training/modules/manage-secrets-with-azure-key-vault/).
 
 ### Implement fail-safe measures
 

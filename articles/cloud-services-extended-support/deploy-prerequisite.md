@@ -1,15 +1,21 @@
 ---
 title: Prerequisites for deploying Cloud Services (extended support)
 description: Learn about the prerequisites for deploying Azure Cloud Services (extended support).
-ms.topic: article
-ms.service: cloud-services-extended-support
+ms.topic: concept-article
+ms.service: azure-cloud-services-classic
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
-ms.date: 06/16/2024
+ms.date: 07/24/2024
+ms.update-cycle: 1095-days
+ms.custom: sfi-ropc-nochange, cloud-services-extended-support
+# Customer intent: As a cloud solutions architect, I want to understand the prerequisites for deploying cloud services with extended features, so that I can properly prepare configurations, eliminate deprecated components, and set up access controls for successful deployments.
 ---
 
 # Prerequisites for deploying Azure Cloud Services (extended support)
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 To help ensure a successful Azure Cloud Services (extended support) deployment, review the following steps. Complete each prerequisitive before you begin to create a deployment.
 
@@ -128,7 +134,7 @@ The subscription that contains networking resources must have the [Network Contr
 
 ## Key vault creation
 
-Azure Key Vault stores certificates that are associated with Cloud Services (extended support). Add the certificates to a key vault, and then reference the certificate thumbprints in the configuration (.cscfg) file for your deployment. You also must enable the key vault access policy (in the portal) for **Azure Virtual Machines for deployment** so that the Cloud Services (extended support) resource can retrieve the certificate that's stored as secrets in the key vault. You can create a key vault in the [Azure portal](../key-vault/general/quick-create-portal.md) or by using [PowerShell](../key-vault/general/quick-create-powershell.md). You must create the key vault in the same region and subscription as the cloud service. For more information, see [Use certificates with Cloud Services (extended support)](certificates-and-key-vault.md).
+Azure Key Vault stores certificates that are associated with Cloud Services (extended support). Add the certificates to a key vault, and then reference the certificate thumbprints in the configuration (.cscfg) file for your deployment. You also must enable the key vault access policy (in the portal) for **Azure Virtual Machines for deployment** so that the Cloud Services (extended support) resource can retrieve the certificate stored as secrets in the key vault. You can create a key vault in the [Azure portal](/azure/key-vault/general/quick-create-portal) or by using [PowerShell](/azure/key-vault/general/quick-create-powershell). You must create the key vault in the same region and subscription as the cloud service. For more information, see [Use certificates with Cloud Services (extended support)](certificates-and-key-vault.md).
 
 ## Related content
 

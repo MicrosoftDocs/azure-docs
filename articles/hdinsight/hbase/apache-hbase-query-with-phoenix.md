@@ -1,10 +1,13 @@
 ---
 title: 'Quickstart: Apache HBase & Apache Phoenix - Azure HDInsight'
 description: In this quickstart, you learn how to use Apache Phoenix in HDInsight. Also, learn how to install and set up SQLLine on your computer to connect to an HBase cluster in HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: hdinsightactive, mode-other
 ms.topic: quickstart
-ms.date: 09/15/2023
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: nijelsf
+ms.date:  09/06/2024
 #Customer intent: As a HBase user, I want learn Apache Phoenix so that I can run HBase queries in Azure HDInsight.
 ---
 
@@ -12,7 +15,7 @@ ms.date: 09/15/2023
 
 In this quickstart, you learn how to use the Apache Phoenix to run HBase queries in Azure HDInsight. Apache Phoenix is a SQL query engine for Apache HBase. It is accessed as a JDBC driver, and it enables querying and managing HBase tables by using SQL. [SQLLine](http://sqlline.sourceforge.net/) is a command-line utility to execute SQL.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

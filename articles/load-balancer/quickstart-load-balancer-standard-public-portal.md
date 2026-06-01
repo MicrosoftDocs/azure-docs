@@ -3,12 +3,18 @@ title: "Quickstart: Create a public load balancer - Azure portal"
 titleSuffix: Azure Load Balancer
 description: Learn how to create a public load balancer using the Azure portal.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 06/28/2024 
+ms.date: 01/09/2026
 ms.author: mbender
-ms.custom: mvc, mode-ui, template-quickstart, engagement-fy23
+ms.custom:
+  - mvc
+  - mode-ui
+  - template-quickstart
+  - engagement-fy23
+  - sfi-image-nochange
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
+# Customer intent: As a cloud engineer, I want to create a public load balancer to distribute internet traffic across multiple virtual machines, so that I can ensure high availability and efficient resource utilization for my applications.
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs using the Azure portal
@@ -19,7 +25,7 @@ Get started with Azure Load Balancer by using the Azure portal to create a publi
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Sign in to Azure
 
@@ -81,7 +87,7 @@ During the creation of the load balancer, you configure:
 1. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear.</br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
+    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json), you can select zone-redundant (default option) or a specific zone. The choice depends on your specific domain failure requirements. In regions without Availability Zones, this field won't appear.</br> For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview).
 
 1. Leave the default of **Microsoft Network** for **Routing preference**.
 

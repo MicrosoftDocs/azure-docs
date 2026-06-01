@@ -2,11 +2,11 @@
 title: "Quickstart: Building your first static site with the Azure Static Web Apps"
 description: Learn to deploy a static site to Azure Static Web Apps.
 services: static-web-apps
-author: craigshoemaker
-ms.service: static-web-apps
+author: cjk7989
+ms.service: azure-static-web-apps
 ms.topic: quickstart
 ms.date: 04/02/2024
-ms.author: cshoe
+ms.author: jikunchen
 ms.custom: mode-other
 ---
 
@@ -14,7 +14,7 @@ ms.custom: mode-other
 
 Azure Static Web Apps publishes a website by building an app from a code repository. In this quickstart, you deploy an application to Azure Static Web apps using the Visual Studio Code extension.
 
-If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
+If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 
@@ -124,6 +124,10 @@ If you don't already have the [Azure Static Web Apps extension for Visual Studio
 If you're not going to continue to use this application, you can delete the Azure Static Web Apps instance through the extension.
 
 In the Visual Studio Code Azure window, return to the _Resources_ section and under _Static Web Apps_, right-click **my-first-static-web-app** and select **Delete**.
+
+## Related content
+
+* [Video series: Deploy websites to the cloud with Azure Static Web Apps](https://aka.ms/azure/beginnervideos/learn/swa)
 
 ## Next steps
 

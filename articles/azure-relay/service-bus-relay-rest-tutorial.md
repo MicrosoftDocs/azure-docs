@@ -2,8 +2,11 @@
 title: 'Tutorial: REST tutorial using Azure Relay'
 description: 'Tutorial: Build an Azure Relay host application that exposes a REST-based interface.'
 ms.topic: tutorial
-ms.custom: devx-track-csharp
-ms.date: 08/11/2023
+ms.date: 01/24/2026
+ms.custom:
+  - devx-track-csharp
+  - sfi-ropc-nochange
+# Customer intent: I want to learn how to build an Azure Relay host application that exposes a REST-based interface.
 ---
 
 # Tutorial: Azure WCF Relay REST tutorial
@@ -27,7 +30,7 @@ You do the following tasks in this tutorial:
 
 To complete this tutorial, you need the following prerequisites:
 
-* An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * [Visual Studio 2015 or later](https://www.visualstudio.com). The examples in this tutorial use Visual Studio 2019.
 * Azure SDK for .NET. Install it from the [SDK downloads page](https://azure.microsoft.com/downloads/).
 
@@ -619,7 +622,7 @@ After building the solution, do the following to run the application:
 1. Copy and paste the address from the command prompt into a browser to see the image.
 1. When you're finished, select Enter in the command prompt window to close the app.
 
-## Next steps
+## Related content
 
 Now that you've built an application that uses the Azure Relay service, see the following articles to learn more:
 

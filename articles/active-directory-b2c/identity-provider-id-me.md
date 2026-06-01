@@ -6,12 +6,12 @@ description: Provide sign-up and sign-in to customers with ID.me accounts in you
 author: garrodonnell
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer Intent: As a developer, I want to set up sign-up and sign-in with an ID.me account using Azure Active Directory B2C, so that I can enable users to authenticate with their ID.me accounts.
@@ -19,6 +19,8 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up sign-up and sign-in with a ID.me account using Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -38,7 +40,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create an ID.me application
 
-To enable sign-in for users with an ID.me account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [ID.me Developer Resources for API & SDK](https://developers.id.me/). For more information, see [OAuth Integration Guide](https://developers.id.me/documentation/). If you don't already have an ID.me developer account, you can sign up at [https://developers.id.me/registration/new](https://developers.id.me/registration/new).
+To enable sign-in for users with an ID.me account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [ID.me Developer Resources for API & SDK](https://developers.id.me/). For more information, see [OAuth Integration Guide](https://developers.id.me/documentation/). If you don't already have an ID.me developer account, you can sign up at [https://developers.id.me/register](https://developers.id.me/register).
 
 1. Sign in to the [ID.me Developer Resources for API & SDK](https://developers.id.me/) with your ID.me account credentials.
 1. Select **View My Applications**, and select **Continue**.

@@ -3,11 +3,13 @@
  description: include file
  services: notification-hubs
  author: sethmanheim
- ms.service: notification-hubs
+ ms.service: azure-notification-hubs
  ms.topic: include
  ms.date: 11/07/2019
  ms.author: sethm
- ms.custom: include file
+ ms.custom:
+   - include file
+   - sfi-ropc-nochange
 ---
 
 In this section, you send breaking news as tagged template notifications from a .NET console app.

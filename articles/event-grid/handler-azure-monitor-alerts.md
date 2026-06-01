@@ -1,7 +1,7 @@
 ---
 title: How to send Event Grid events to Azure monitor alerts
 description: This article describes how Azure Event Grid delivers Azure Key Vault events as Azure Monitor alerts.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - ignite-2023
   - build-2024
@@ -10,7 +10,7 @@ author: robece
 ms.author: robece
 ---
 
-# How to send events to Azure monitor alerts (Preview)
+# How to send events to Azure monitor alerts
 
 This article describes how Azure Event Grid delivers Azure Key Vault events as Azure Monitor alerts.
 
@@ -19,13 +19,13 @@ This article describes how Azure Event Grid delivers Azure Key Vault events as A
 
 ## Overview
 
-[Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md) help you detect and address issues before users notice them by proactively notifying you when Azure Monitor data indicates there might be a problem with your infrastructure or application.
+[Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview) help you detect and address issues before users notice them by proactively notifying you when Azure Monitor data indicates there might be a problem with your infrastructure or application.
 
 Azure Monitor alerts as a destination in Event Grid event subscriptions allow you to receive notification of critical events via Short Message Service (SMS), email, push notification, and more. You can use the low latency event delivery of Event Grid with the direct notification system of Azure Monitor alerts.
 
 ## Azure Monitor alerts
 
-Azure Monitor alerts have three resources: [alert rules](../azure-monitor/alerts/alerts-overview.md), [alert processing rules](../azure-monitor/alerts/alerts-processing-rules.md), and [action groups](../azure-monitor/alerts/action-groups.md). Each of these resources is its own independent resource and can be mixed and matched with each other.
+Azure Monitor alerts have three resources: [alert rules](/azure/azure-monitor/alerts/alerts-overview), [alert processing rules](/azure/azure-monitor/alerts/alerts-processing-rules), and [action groups](/azure/azure-monitor/alerts/action-groups). Each of these resources is its own independent resource and can be mixed and matched with each other.
 
 - **Alert rules**: defines a resource scope and conditions on the resources’ telemetry. If conditions are met, it fires an alert.
 - **Alert processing rules**: modify the fired alerts as they're being fired. You can use these rules to add or suppress action groups, apply filters, or have the rule processed on a predefined schedule.

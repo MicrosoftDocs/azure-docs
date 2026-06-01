@@ -1,6 +1,6 @@
 ---
 title: include file
-description: Multiple recipients .NET SDK include file
+description: Multiple recipients .NET SDK
 author: natekimball-msft
 manager: koagbakp
 services: azure-communication-services
@@ -76,4 +76,4 @@ dotnet run
 
 ### Sample code
 
-You can download the sample app demonstrating this action from [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/SendEmailToMultipleRecipients)
+You can download the sample app demonstrating this action from GitHub Azure Samples [Send Email for .NET](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/SendEmailAdvanced/SendEmailToMultipleRecipients).

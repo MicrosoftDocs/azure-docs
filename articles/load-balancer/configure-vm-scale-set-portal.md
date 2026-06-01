@@ -1,25 +1,30 @@
 ---
 title: Configure Virtual Machine Scale Set with an existing Azure Load Balancer - Azure portal/CLI/PowerShell
-description: Learn to configure a Virtual Machine Scale Set with an existing Azure standard Load Balancer using the Azure portal, Azure CLI or Azure PowerShell.
+description: Learn to configure a Virtual Machine Scale Set with an existing Azure standard Load Balancer using the Azure portal, Azure CLI, or Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 01/11/2024
-ms.custom: template-quickstart, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
+ms.date: 09/11/2024
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+# Customer intent: As an IT administrator, I want to configure a Virtual Machine Scale Set with an existing load balancer using the Azure portal, CLI, or PowerShell, so that I can efficiently manage and scale my virtual machine instances.
 ---
 
 # Configure a Virtual Machine Scale Set with an existing Azure Standard Load Balancer
 
-In this article, you'll learn how to configure a Virtual Machine Scale Set with an existing Azure Load Balancer. With an existing virtual network and standard sku load balancer, you can deploy a Virtual Machine Scale Set with a few clicks in the Azure portal, or with a few lines of code in the Azure CLI or Azure PowerShell using the tabs below.
+In this article, you'll learn how to configure a Virtual Machine Scale Set with an existing Azure Load Balancer. With an existing virtual network and standard sku load balancer, you can deploy a Virtual Machine Scale Set with a few clicks in the Azure portal, or with a few lines of code in the Azure CLI, or Azure PowerShell using the following tabs.
 
-# [Azure Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 ## Prerequisites
 
-- An Azure subscription.
-- An existing standard sku load balancer in the subscription where the Virtual Machine Scale Set will be deployed.
-- An Azure Virtual Network for the Virtual Machine Scale Set.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- - An [Azure Virtual Network](../virtual-network/quick-create-portal.md) for the Virtual Machine Scale Set and the load balancer.
+- An existing [standard sku load balancer](quickstart-load-balancer-standard-internal-portal.md) in the subscription where the Virtual Machine Scale Set will be deployed. Ensure the load balancer has a backend pool.
+
 
 ## Sign in to the Azure portal
 
@@ -50,52 +55,48 @@ In this section, you'll create a Virtual Machine Scale Set in the Azure portal w
     | **Orchestration** |                    |
     | Orchestration mode | Select **Uniform** |
     | Security type | Select **Standard** |
+    | **Scaling** |  |
+    | Scaling mode | Select **Manual** |
+    | Instance count | Enter **2** |
     | **Instance details**           |                                                                                                       |
-    | Image                          | Select **Ubuntu Server 18.04 LTS**                                                                    |
+    | Image                          | Select **Ubuntu Server 22.04 LTS**                                                                    |
     | Azure Spot instance            | Select **No**                                                                                         |
     | Size                           | Leave at default                                                                                      |
     | **Administrator account**      |                                                                                                       |
-    | Authentication type            | Select **Password**                                                                                   |
-    | Username                       | Enter your admin username        |
-    | Password                       | Enter your admin password    |
-    | Confirm password               | Reenter your admin password |
+    | Authentication type            | Select **SSH public key**                                                                                   |
+    | Username                       | Enter a username for the SSH public key. |
+    | SSH public key source | Select **Generate new key pair**. |
+    | SSH key type | Select **RSA SSH Format**. |
+    | Key pair name | Enter a name for the key pair. |
 
-    :::image type="content" source="media/vm-scale-sets/create-virtual-machine-scale-set-thumb.png" alt-text="Screenshot of Create a Virtual Machine Scale Set page." lightbox="media/vm-scale-sets/create-virtual-machine-scale-set.png":::
+2. Select the **Networking** tab or select **Next: Spot > Next: Disks > Next: Networking**.
 
-4. Select the **Networking** tab.
-
-5. Enter or select this information in the **Networking** tab:
+3. Enter or select this information in the **Networking** tab:
 
     | Setting                           | Value                                                    |
     |-----------------------------------|----------------------------------------------------------|
     | **Virtual Network Configuration** |                                                          |
     | Virtual network                   | Select **myVNet** or your existing virtual network.      |
-    | **Load balancing**                |                                                          |
-    | Use a load balancer               | Select **Yes**                                           |
-    | **Load balancing settings**       |                                                          |
+    | **Load balancing**       |                                                          |
     | Load balancing options            | Select **Azure load balancer**                           |
     | Select a load balancer            | Select **myLoadBalancer** or your existing load balancer |
-    | Select a backend pool             | Select **myBackendPool** or your existing backend pool.  |
+    | Select a backend pool             | Select **myBackendPool** or your existing backend pool. | 
 
-    :::image type="content" source="media/vm-scale-sets/create-virtual-machine-scale-set-network-thumb.png" alt-text="Screenshot shows the Create Virtual Machine Scale Set Networking tab." lightbox="media/vm-scale-sets/create-virtual-machine-scale-set-network.png":::
+4. Select the **Management** tab.
 
-6. Select the **Management** tab.
+5. In the **Management** tab, set **Boot diagnostics** to **Off**.
 
-7. In the **Management** tab, set **Boot diagnostics** to **Off**.
+6. Select the blue **Review + create** button.
 
-8. Select the blue **Review + create** button.
-
-9. Review the settings and select the **Create** button.
+7. Review the settings and select the **Create** button.
 
 # [Azure CLI](#tab/cli)
 
 ## Prerequisites 
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
-- You need an existing standard sku load balancer in the subscription where the Virtual Machine Scale Set will be deployed.
-
-- You need an Azure Virtual Network for the Virtual Machine Scale Set.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- You need an existing [standard sku load balancer](quickstart-load-balancer-standard-internal-cli.md) in the subscription where the Virtual Machine Scale Set will be deployed. Ensure the load balancer has a backend pool.
+- You need an [Azure Virtual Network](../virtual-network/quick-create-cli.md) for the Virtual Machine Scale Set.
  
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -135,7 +136,7 @@ The below example deploys a Virtual Machine Scale Set with:
 az vmss create \
     --resource-group myResourceGroup \
     --name myVMSS \
-    --image Canonical:UbuntuServer:18.04-LTS:latest \
+    --image Ubuntu2204 \
     --admin-username adminuser \
     --generate-ssh-keys \
     --upgrade-policy-mode Automatic \
@@ -146,17 +147,17 @@ az vmss create \
     --backend-pool-name myBackendPool
 ```
 > [!NOTE]
-> After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
+> After the scale set has been created, the backend port can't be modified for a load-balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
 
 
 # [Azure PowerShell](#tab/powershell)
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An existing resource group for all resources.
-- An existing standard sku load balancer in the subscription where the Virtual Machine Scale Set will be deployed.
-- An Azure Virtual Network for the Virtual Machine Scale Set.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- - An [Azure Virtual Network](../virtual-network/quick-create-powershell.md) for the Virtual Machine Scale Set and the load balancer.
+- An existing [standard sku load balancer](quickstart-load-balancer-standard-internal-powershell.md) in the subscription where the Virtual Machine Scale Set will be deployed. Ensure the load balancer has a backend pool.
+
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
@@ -184,6 +185,7 @@ $lbn = <load-balancer-name>
 $pol = <upgrade-policy-mode>
 $img = <image-name>
 $bep = <backend-pool-name>
+$img = <image-name>
 
 $lb = Get-AzLoadBalancer -ResourceGroupName $rsg -Name $lbn
 
@@ -203,25 +205,26 @@ The below example deploys a Virtual Machine Scale Set with the following values:
 ```azurepowershell-interactive
 
 $rsg = "myResourceGroup"
-$loc = "East US 2"
+$loc = "East US"
 $vms = "myVMSS"
-$vnt = "myVnet"
-$sub = "mySubnet"
+$vnt = "myVNet"
+$sub = "default"
 $pol = "Automatic"
 $lbn = "myLoadBalancer"
 $bep = "myBackendPool"
+$img = "Ubuntu2204"
 
 $lb = Get-AzLoadBalancer -ResourceGroupName $rsg -Name $lbn
 
-New-AzVmss -ResourceGroupName $rsg -Location $loc -VMScaleSetName $vms -VirtualNetworkName $vnt -SubnetName $sub -LoadBalancerName $lb -UpgradePolicyMode $pol -BackendPoolName $bep
+New-AzVmss -ResourceGroupName $rsg -Location $loc -VMScaleSetName $vms -VirtualNetworkName $vnt -SubnetName $sub -LoadBalancerName $lb -UpgradePolicyMode $pol -BackendPoolName $bep -ImageName $img
 
 ```
 > [!NOTE]
-> After the scale set has been created, the backend port cannot be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
+> After the scale set has been created, the backend port can't be modified for a load balancing rule used by a health probe of the load balancer. To change the port, you can remove the health probe by updating the Azure virtual machine scale set, update the port and then configure the health probe again.
 
 ## Next steps
 
 In this article, you deployed a Virtual Machine Scale Set with an existing Azure Load Balancer.  To learn more about Virtual Machine Scale Sets and load balancer, see:
 
 - [What is Azure Load Balancer?](load-balancer-overview.md)
-- [What are Virtual Machine Scale Sets?](../virtual-machine-scale-sets/overview.md)
+- [What are Virtual Machine Scale Sets?](/azure/virtual-machine-scale-sets/overview)

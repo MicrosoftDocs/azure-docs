@@ -1,33 +1,52 @@
 ---
 title: Monitor executions in Azure Functions
-description: Learn how to use Azure Application Insights with Azure Functions to monitor function executions.
+description: Learn how to use Azure Application Insights with Azure Functions to monitor function executions. Application Insights collects log, performance, and error data.
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
-ms.topic: conceptual
-ms.date: 07/05/2022
-ms.custom: devx-track-csharp, fasttrack-edit
+ms.topic: concept-article
+ms.date: 05/07/2025
+ms.custom:
+  - devx-track-csharp
+  - fasttrack-edit
+  - sfi-ropc-nochange
 # Customer intent: As a developer, I want to understand what facilities are provided to help me monitor my functions so I can know if they're running correctly.
 ---
 
 # Monitor executions in Azure Functions
 
-[Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) to monitor functions executions. This article provides an overview of the monitoring capabilities provided by Azure for monitoring Azure Functions.
+[Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor function executions. This article provides an overview of the monitoring capabilities provided by Azure for monitoring Azure Functions, including how to choose a telemetry exporter.
 
-Application Insights collects log, performance, and error data. By automatically detecting performance anomalies and featuring powerful analytics tools, you can more easily  diagnose issues and better understand how your functions are used. These tools are designed to help you continuously improve performance and usability of your functions. You can even use Application Insights during local function app project development. For more information, see [What is Application Insights?](../azure-monitor/app/app-insights-overview.md).
+Application Insights collects log, performance, and error data. By automatically detecting performance anomalies and featuring powerful analytics tools, you can more easily diagnose issues and better understand how your functions are used. These tools are designed to help you continuously improve performance and usability of your functions. You can even use Application Insights during local function app project development.
 
-As Application Insights instrumentation is built into Azure Functions, you need a valid instrumentation key to connect your function app to an Application Insights resource. The instrumentation key is added to your application settings as you create your function app resource in Azure. If your function app doesn't already have this key, you can [set it manually](configure-monitoring.md#enable-application-insights-integration).  
+As Application Insights instrumentation is built into Azure Functions, you need a valid connection string or instrumentation key to connect your function app to an Application Insights resource. This connection is configured as an application setting when you create your function app resource in Azure. If your function app doesn't already have this setting, you can [set it manually](configure-monitoring.md#enable-application-insights-integration).  
 
-You can also monitor the function app itself by using Azure Monitor. To learn more, see [Monitoring Azure Functions with Azure Monitor](monitor-functions.md).
+You can also monitor the function app itself by using Azure Monitor. To learn more, see [Monitor Azure Functions](monitor-functions.md).
+
+## Telemetry export options
+
+Azure Functions generates telemetry data from both the Functions host process and the language-specific worker process where your function code runs. You can choose how this telemetry data is exported:
+
+| Export method | Description | Recommendation |
+| --- | --- | --- |
+| **OpenTelemetry with Azure Monitor Exporter** | Exports telemetry in an OpenTelemetry format to Application Insights and optionally to any OTLP-compliant endpoint. | **Recommended** for new and existing apps. |
+| **Built-in Application Insights integration** | The default integration that sends telemetry to Application Insights without extra code. | Good for basic monitoring needs. |
+| **Classic Application Insights SDKs** | Language-specific SDKs that provide fine-grained control over custom telemetry. | **Legacy.** Plan to migrate to OpenTelemetry. |
+
+> [!IMPORTANT]
+> For new and existing applications, the recommended approach is to use the [Azure Monitor OpenTelemetry Exporter](opentelemetry-howto.md) to send telemetry to Application Insights. If you're currently using a classic Application Insights SDK to customize your exported telemetry, plan to migrate to OpenTelemetry for long-term support and access to the latest observability capabilities. The classic Application Insights SDKs won't receive new feature updates. OpenTelemetry isn't supported for [C# in-process apps](functions-dotnet-class-library.md).
+>
+> The Azure Monitor OpenTelemetry Exporter requires an Application Insights connection string (`APPLICATIONINSIGHTS_CONNECTION_STRING`) and doesn't support the use of an instrumentation key.
+
+To learn how to configure OpenTelemetry in your function app, see [Use OpenTelemetry with Azure Functions](opentelemetry-howto.md).
 
 ## Application Insights pricing and limits
 
 You can try out Application Insights integration with Azure Functions for free featuring a daily limit to how much data is processed for free.
 
-If you enable Applications Insights during development, you might hit this limit during testing. Azure provides portal and email notifications when you're approaching your daily limit. If you miss those alerts and hit the limit, new logs won't appear in Application Insights queries. Be aware of the limit to avoid unnecessary troubleshooting time. For more information, see [Application Insights billing](../azure-monitor/logs/cost-logs.md#application-insights-billing).
+If you enable Applications Insights during development, you might hit this limit during testing. Azure provides portal and email notifications when you're approaching your daily limit. If you miss those alerts and hit the limit, new logs don't appear in Application Insights queries. Be aware of the limit to avoid unnecessary troubleshooting time. For more information, see [Application Insights billing](/azure/azure-monitor/logs/cost-logs#application-insights-billing).
 
 > [!IMPORTANT]
-> Application Insights has a [sampling](../azure-monitor/app/sampling.md) feature that can protect you from producing too much telemetry data on completed executions at times of peak load. Sampling is enabled by default. If you appear to be missing data, you might need to adjust the sampling settings to fit your particular monitoring scenario. To learn more, see [Configure sampling](configure-monitoring.md#configure-sampling).
+> Application Insights has a [sampling](/azure/azure-monitor/app/sampling) feature that can protect you from producing too much telemetry data on completed executions at times of peak load. Sampling is enabled by default. If you appear to be missing data, you might need to adjust the sampling settings to fit your particular monitoring scenario. To learn more, see [Configure sampling](configure-monitoring.md#configure-sampling).
 
-The full list of Application Insights features available to your function app is detailed in [Application Insights for Azure Functions supported features](../azure-monitor/app/azure-functions-supported-features.md).
 
 ## Application Insights integration
 
@@ -38,9 +57,9 @@ Typically, you create an Application Insights instance when you create your func
 
 The following table details the supported features of Application Insights available for monitoring your function apps:
 
-| Azure Functions runtime version   | 1.x     | 2.x+ | 
+| Azure Functions runtime version   | 1.x     | 4.x+ |
 |-----------------------------------|:---------------:|:------------------:|
-| | | | 
+| | | |
 | **Automatic  collection of**        |               |                  |
 | &bull; Requests                     | ✓           | ✓              |
 | &bull; Exceptions                   | ✓           | ✓              |
@@ -52,26 +71,26 @@ The following table details the supported features of Application Insights avail
 | &nbsp;&nbsp;&nbsp;&mdash; SQL\*       |               | ✓              |
 | | | | 
 | **Supported features**              |               |                  |
-| &bull; QuickPulse/LiveMetrics       | Yes           | Yes              | 
-| &nbsp;&nbsp;&nbsp;&mdash; Secure Control Channel |               | Yes | 
-| &bull; Sampling                     | Yes           | Yes              | 
-| &bull; Heartbeats                   | | Yes              | 
+| &bull; QuickPulse/LiveMetrics       | Yes           | Yes              |
+| &nbsp;&nbsp;&nbsp;&mdash; Secure Control Channel |               | Yes |
+| &bull; Sampling                     | Yes           | Yes              |
+| &bull; Heartbeats                   | | Yes              |
 | | | |
 | **Correlation**                    |               |                  |
 | &bull; Service Bus                  |               | Yes              |
 | &bull; Event Hubs                    |               | Yes              |
 | | | | 
-| **Configurable**                  |               |                  |           
-| &bull;[Fully configurable](#custom-telemetry-data)           |               | Yes                 | 
+| **Configurable**                  |               |                  |
+| &bull;[Fully configurable](#custom-telemetry-data)           |               | Yes                 |
 
 \* To enable the collection of SQL query string text, see [Enable SQL query collection](./configure-monitoring.md#enable-sql-query-collection).
 
 ## Collecting telemetry data
 
-With Application Insights integration enabled, telemetry data is sent to your connected Application Insights instance. This data includes logs generated by the Functions host, traces written from your functions code, and performance data. 
+With Application Insights integration enabled, telemetry data is sent to your connected Application Insights instance. This data includes logs generated by the Functions host, traces written from your functions code, and performance data.
 
 >[!NOTE]
->In addition to data from your functions and the Functions host, you can also collect data from the [Functions scale controller](#scale-controller-logs).   
+>In addition to data from your functions and the Functions host, you can also collect data from the [Functions scale controller](#scale-controller-logs).
 
 ### Log levels and categories
 
@@ -85,49 +104,52 @@ By assigning logged items to a category, you have more control over telemetry ge
 
 ### Custom telemetry data
 
-In [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions), [JavaScript](functions-reference-node.md#track-custom-data), and [Python](functions-reference-python.md#log-custom-telemetry), you can use an Application Insights SDK to write custom telemetry data.
+To write custom telemetry data from your functions, the recommended approach is to use the [OpenTelemetry exporter](opentelemetry-howto.md), which provides standards-based telemetry that can be sent to Application Insights and any OTLP-compliant endpoint.
+
+You can also use language-specific classic Application Insights SDKs to write custom telemetry in [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions), [JavaScript](functions-reference-node.md#track-custom-data), and [Python](functions-reference-python.md#logging-and-monitoring). However, these classic SDKs are legacy and won't receive new feature updates. Plan to [migrate to OpenTelemetry](opentelemetry-howto.md) for long-term support.
 
 ### Dependencies
 
-Starting with version 2.x of Functions, Application Insights automatically collects data on dependencies for bindings that use certain client SDKs. Application Insights distributed tracing and dependency tracking aren't currently supported for C# apps running in an [isolated worker process](dotnet-isolated-process-guide.md). Application Insights collects data on the following dependencies:
+Starting with version 2.x of Functions, Application Insights automatically collects data on dependencies for bindings that use certain client SDKs. Application Insights collects data on the following dependencies:
 
-+ Azure Cosmos DB 
-+ Azure Event Hubs
-+ Azure Service Bus
-+ Azure Storage services (Blob, Queue, and Table)
+- Azure Cosmos DB
+- Azure Event Hubs
+- Azure Service Bus
+- Azure Storage services (Blob, Queue, and Table)
 
-HTTP requests and database calls using `SqlClient` are also captured. For the complete list of dependencies supported by Application Insights, see [automatically tracked dependencies](../azure-monitor/app/asp-net-dependencies.md#automatically-tracked-dependencies).
+HTTP requests and database calls using `SqlClient` are also captured. For the complete list of dependencies supported by Application Insights, see [automatically tracked dependencies](/azure/azure-monitor/app/asp-net-dependencies#automatically-tracked-dependencies).
 
 Application Insights generates an _application map_ of collected dependency data. The following is an example of an application map of an HTTP trigger function with a Queue storage output binding.  
 
-![Application map with dependency](./media/functions-monitoring/app-map.png)
+:::image type="content" source="./media/functions-monitoring/app-map.png" alt-text="Screenshot shows an application map with dependency in the Azure portal.":::
 
-Dependencies are written at the `Information` level. If you filter at `Warning` or above, you won't see the dependency data. Also, automatic collection of dependencies happens at a non-user scope. To capture dependency data, make sure the level is set to at least `Information` outside the user scope (`Function.<YOUR_FUNCTION_NAME>.User`) in your host.
+Dependencies are written at the `Information` level. If you filter at `Warning` or above, you don't see the dependency data. Also, automatic collection of dependencies happens at a non-user scope. To capture dependency data, make sure the level is set to at least `Information` outside the user scope (`Function.<YOUR_FUNCTION_NAME>.User`) in your host.
 
-In addition to automatic dependency data collection, you can also use one of the language-specific Application Insights SDKs to write custom dependency information to the logs. For an example how to write custom dependencies, see one of the following language-specific examples:
+In addition to automatic dependency data collection, you can write custom dependency information to the logs. The recommended approach is to use the [OpenTelemetry exporter](opentelemetry-howto.md) for standards-based dependency tracking.
 
-+ [Log custom telemetry in C# functions](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions)
-+ [Log custom telemetry in JavaScript functions](functions-reference-node.md#track-custom-data) 
-+ [Log custom telemetry in Python functions](functions-reference-python.md#log-custom-telemetry)
+You can also use language-specific classic Application Insights SDKs, but these are legacy and won't receive new feature updates:
+
+- [Log custom telemetry in C# functions](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions)
+- [Log custom telemetry in JavaScript functions](functions-reference-node.md#track-custom-data) 
+- [Log custom telemetry in Python functions](functions-reference-python.md#logging-and-monitoring)
 
 ### Performance Counters
 
 Automatic collection of Performance Counters isn't supported when running on Linux.
 
-## Writing to logs 
+## Writing to logs
 
-The way that you write to logs and the APIs you use depend on the language of your function app project.   
-See the developer guide for your language to learn more about writing logs from your functions.
+The way that you write to logs and the APIs you use depend on the language of your function app project. See the developer guide for your language to learn more about writing logs from your functions.
 
-+ [C# (.NET class library)](functions-dotnet-class-library.md#logging)
-+ [Java](functions-reference-java.md#logger)
-+ [JavaScript](functions-reference-node.md#logging) 
-+ [PowerShell](functions-reference-powershell.md#logging)
-+ [Python](functions-reference-python.md#logging)
+- [C# (.NET class library)](functions-dotnet-class-library.md#logging)
+- [Java](functions-reference-java.md#logger)
+- [JavaScript](functions-reference-node.md#logging) 
+- [PowerShell](functions-reference-powershell.md#logging)
+- [Python](functions-reference-python.md#logging-and-monitoring)
 
 ## Analyze data
 
-By default, the data collected from your function app is stored in Application Insights. In the [Azure portal](https://portal.azure.com), Application Insights provides an extensive set of visualizations of your telemetry data. You can drill into error logs and query events and metrics. To learn more, including basic examples of how to view and query your collected data, see [Analyze Azure Functions telemetry in Application Insights](analyze-telemetry-data.md). 
+By default, the data collected from your function app is stored in Application Insights. In the [Azure portal](https://portal.azure.com), Application Insights provides an extensive set of visualizations of your telemetry data. You can drill into error logs and query events and metrics. To learn more, including basic examples of how to view and query your collected data, see [Analyze Azure Functions telemetry in Application Insights](analyze-telemetry-data.md).
 
 ## Streaming Logs
 
@@ -135,9 +157,9 @@ While developing an application, you often want to see what's being written to t
 
 There are two ways to view a stream of the log data being generated by your function executions.
 
-* **Built-in log streaming**: the App Service platform lets you view a stream of your application log files. This stream is equivalent to the output seen when you debug your functions during [local development](functions-develop-local.md) and when you use the **Test** tab in the portal. All log-based information is displayed. For more information, see [Stream logs](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). This streaming method supports only a single instance, and can't be used with an app running on Linux in a Consumption plan.
+- **Built-in log streaming**: the App Service platform lets you view a stream of your application log files. This stream is equivalent to the output seen when you debug your functions during [local development](functions-develop-local.md) and when you use the **Test** tab in the portal. All log-based information is displayed. For more information, see [Stream logs](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). This streaming method supports only a single instance, and can't be used with an app running on Linux in a Consumption plan.
 
-* **Live Metrics Stream**: when your function app is [connected to Application Insights](configure-monitoring.md#enable-application-insights-integration), you can view log data and other metrics in near real time in the Azure portal using [Live Metrics Stream](../azure-monitor/app/live-stream.md). Use this method when monitoring functions running on multiple-instances or on Linux in a Consumption plan. This method uses [sampled data](configure-monitoring.md#configure-sampling).
+- **Live Metrics Stream**: when your function app is [connected to Application Insights](configure-monitoring.md#enable-application-insights-integration), you can view log data and other metrics in near real time in the Azure portal using [Live Metrics Stream](/azure/azure-monitor/app/live-stream). Use this method when monitoring functions running on multiple-instances or on Linux in a Consumption plan. This method uses [sampled data](configure-monitoring.md#configure-sampling).
 
 Log streams can be viewed both in the portal and in most local development environments. To learn how to enable log streams, see [Enable streaming execution logs in Azure Functions](streaming-logs.md).
 
@@ -145,17 +167,17 @@ Log streams can be viewed both in the portal and in most local development envir
 
 Application Insights lets you export telemetry data to long-term storage or other analysis services.  
 
-Because Functions also integrates with Azure Monitor, you can also use diagnostic settings to send telemetry data to various destinations, including Azure Monitor logs. To learn more, see [Monitoring Azure Functions with Azure Monitor Logs](functions-monitor-log-analytics.md).
+Because Functions also integrates with Azure Monitor, you can also use diagnostic settings to send telemetry data to various destinations, including Azure Monitor logs. To learn more, see [Monitor Azure Functions](functions-monitor-log-analytics.md).
 
 ## Scale controller logs
 
-The [Azure Functions scale controller](./event-driven-scaling.md#runtime-scaling) monitors instances of the Azure Functions host on which your app runs. This controller makes decisions about when to add or remove instances based on current performance. You can have the scale controller emit logs to Application Insights to better understand the decisions the scale controller is making for your function app. You can also store the generated logs in Blob storage for analysis by another service. 
+The [Azure Functions scale controller](./event-driven-scaling.md#runtime-scaling) monitors instances of the Azure Functions host on which your app runs. This controller makes decisions about when to add or remove instances based on current performance. You can have the scale controller emit logs to Application Insights to better understand the decisions the scale controller is making for your function app. You can also store the generated logs in Blob storage for analysis by another service.
 
 To enable this feature, you add an application setting named `SCALE_CONTROLLER_LOGGING_ENABLED` to your function app settings. To learn how, see [Configure scale controller logs](configure-monitoring.md#configure-scale-controller-logs).
 
 ## Azure Monitor metrics
 
-In addition to log-based telemetry data collected by Application Insights, you can also get data about how the function app is running from [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md). To learn more, see [Monitoring with Azure Monitor](monitor-functions.md).
+In addition to log-based telemetry data collected by Application Insights, you can also get data about how the function app is running from [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics). To learn more, see [Monitor Azure Functions](monitor-functions.md).
 
 ## Report issues
 
@@ -165,5 +187,5 @@ To report an issue with Application Insights integration in Functions, or to mak
 
 For more information, see the following resources:
 
-* [Application Insights](../azure-monitor/app/app-insights-overview.md)
-* [ASP.NET Core logging](/aspnet/core/fundamentals/logging/)
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview)
+- [ASP.NET Core logging](/aspnet/core/fundamentals/logging/)

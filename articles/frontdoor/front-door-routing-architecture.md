@@ -1,13 +1,12 @@
 ---
-title: Routing architecture
+title: Routing Architecture
 titleSuffix: Azure Front Door
 description: This article helps you understand the global view aspect of Front Door's architecture.
-services: front-door
-author: duongau
-ms.service: frontdoor
-ms.topic: conceptual
-ms.date: 04/04/2023
-ms.author: duau
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-frontdoor
+ms.topic: concept-article
+ms.date: 02/24/2026
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -15,11 +14,11 @@ zone_pivot_groups: front-door-tiers
 
 Azure Front Door traffic routing takes place over multiple stages. First, traffic is routed from the client to the Front Door. Then, Front Door uses your configuration to determine the origin to send the traffic to. The Front Door web application firewall, routing rules, rules engine, and caching configuration can all affect the routing process.
 
-The following diagram illustrates the routing architecture:
-
 ::: zone pivot="front-door-standard-premium"
 
-![Diagram that shows the Front Door routing architecture, including each step and decision point.](media/front-door-routing-architecture/routing-process-standard-premium.png)
+The following diagram illustrates the routing architecture:
+
+:::image type="content" source="media/front-door-routing-architecture/routing-process-standard-premium.png" alt-text="Diagram that shows the Front Door routing architecture, including each step and decision point." lightbox="media/front-door-routing-architecture/routing-process-standard-premium.png":::
 
 ::: zone-end
 
@@ -27,19 +26,23 @@ The following diagram illustrates the routing architecture:
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
-![Diagram that shows the Front Door routing architecture, including each step and decision point.](media/front-door-routing-architecture/routing-process-classic.png)
+The following diagram illustrates the routing architecture:
+
+:::image type="content" source="media/front-door-routing-architecture/routing-process-classic.png" alt-text="Diagram that shows the Front Door routing architecture, including each step and decision point." lightbox="media/front-door-routing-architecture/routing-process-classic.png":::
 
 ::: zone-end
 
-The rest of this article describes these steps in detail.
-
-## Select and connect to the Front Door edge location
-
-The user or client application initiates a connection to the Front Door. The connection terminates at an edge location closest to the end user. Front Door's edge location processes the request.
-
-For more information about how requests are made to Front Door, see [Front Door traffic acceleration](front-door-traffic-acceleration.md).
+The following sections describe these steps in detail.
 
 ::: zone pivot="front-door-standard-premium"
+
+## Name resolution by Azure Front Door's Traffic Manager profile returns PoP unicast IP
+
+The user or client application initiates a connection to the origin behind Azure Front Door. The domain name resolves to the Front Door's Azure Traffic Manager endpoint. The Traffic Manager consumes health and availability signals from all the Front Door PoPs across the world. It determines the optimal PoP to serve the request and returns the unicast IP of that PoP.
+
+## Connect to Azure Front Door PoP Unicast IP
+
+Client makes a direct connection to the returned IP address of the Front Door PoP location.
 
 ## Match request to a Front Door profile
 
@@ -49,29 +52,35 @@ When Front Door receives an HTTP request, it uses the request's `Host` header to
 
 ::: zone pivot="front-door-classic"
 
+## Select and connect to the Front Door edge location
+
+The user or client application initiates a connection to the Front Door. The connection terminates at an edge location closest to the end user. Front Door's edge location processes the request.
+
+For more information about how requests are made to Front Door, see [Front Door traffic acceleration](front-door-traffic-acceleration.md).
+
 ## Match request to a front door
 
 When Front Door receives an HTTP request, it uses the request's `Host` header to match the request to the correct customer's Front Door instance. If the request is using a [custom domain name](front-door-custom-domain.md), the domain name must be registered with Front Door to enable requests to get matched to your Front door.
 
 ::: zone-end
 
-The client and server perform a TLS handshake using the TLS certificate you've configured for your custom domain name, or by using the Front Door certificate when the `Host` header ends with `*.azurefd.net`.
+The client and server perform a TLS handshake using the TLS certificate you configured for your custom domain name, or by using the Front Door certificate when the `Host` header ends with `*.azurefd.net`.
 
 ## Evaluate WAF rules
 
 ::: zone pivot="front-door-standard-premium"
 
-If your domain has enabled the Web Application Firewall, WAF rules are evaluated.
+If your domain has Web Application Firewall enabled, WAF rules are evaluated.
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
 
-If your frontend has enabled the Web Application Firewall, WAF rules are evaluated.
+If your frontend has Web Application Firewall enabled, WAF rules are evaluated.
 
 ::: zone-end
 
-If a rule has been violated, Front Door returns an error to the client and the request processing stops.
+If a rule gets violated, Front Door returns an error to the client and the request processing stops.
 
 ::: zone pivot="front-door-standard-premium"
 
@@ -97,7 +106,7 @@ The route specifies the [backend pool](front-door-backend-pool.md) that the requ
 
 ## Evaluate rule sets
 
-If you have defined [rule sets](front-door-rules-engine.md) for the route, they're executed in the order they're configured. [Rule sets can override the origin group](front-door-rules-engine-actions.md#RouteConfigurationOverride) specified in a route. Rule sets can also trigger a redirection response to the request instead of forwarding it to an origin.
+If you define [rule sets](front-door-rules-engine.md) for the route, they get process in the order configured. [Rule sets can override the origin group](front-door-rules-engine-actions.md#RouteConfigurationOverride) specified in a route. Rule sets can also trigger a redirection response to the request instead of forwarding it to an origin.
 
 ::: zone-end
 
@@ -105,7 +114,7 @@ If you have defined [rule sets](front-door-rules-engine.md) for the route, they'
 
 ## Evaluate rules engines
 
-If you have defined [rules engines](front-door-rules-engine.md) for the route, they're executed in the order they're configured. [Rules engines can override the backend pool](front-door-rules-engine-actions.md#route-configuration-overrides) specified in a routing rule. Rules engines can also trigger a redirection response to the request instead of forwarding it to a backend.
+If you define [rules engines](front-door-rules-engine.md) for the route, they get process in the order configured. [Rules engines can override the backend pool](front-door-rules-engine-actions.md#route-configuration-overrides) specified in a routing rule. Rules engines can also trigger a redirection response to the request instead of forwarding it to a backend.
 
 ::: zone-end
 
@@ -133,11 +142,11 @@ If caching is disabled or no response is available, the request is forwarded to 
 
 Front Door selects an origin to use within the origin group. Origin selection is based on several factors, including:
 
-- The health of each origin, which Front Door monitors by using [health probes](front-door-health-probes.md).
-- The [routing method](front-door-routing-methods.md) for your origin group.
-- Whether you have enabled [session affinity](front-door-routing-methods.md#affinity)
+- Health of each origin, which Front Door monitors by using [health probes](front-door-health-probes.md).
+- [Routing method](front-door-routing-methods.md) for your origin group.
+- If you enable [session affinity](front-door-routing-methods.md#affinity)
 
-## Forward request to origin
+## Forward the request to the origin
 
 Finally, the request is forwarded to the origin.
 
@@ -149,26 +158,28 @@ Finally, the request is forwarded to the origin.
 
 Front Door selects a backend to use within the backend pool. Backend selection is based on several factors, including:
 
-- The health of each backend, which Front Door monitors by using [health probes](front-door-health-probes.md).
-- The [routing method](front-door-routing-methods.md) for your backend pool.
-- Whether you have enabled [session affinity](front-door-routing-methods.md#affinity)
+- Health of each backend, which Front Door monitors by using [health probes](front-door-health-probes.md).
+- [Routing method](front-door-routing-methods.md) for your backend pool.
+- If you have enable [session affinity](front-door-routing-methods.md#affinity)
 
-## Forward request to backend
+## Forward the request to the backend
 
 Finally, the request is forwarded to the backend.
 
 ::: zone-end
 
-## Next steps
+## Next step
 
 ::: zone pivot="front-door-standard-premium"
 
-- Learn how to [create a Front Door profile](standard-premium/create-front-door-portal.md).
+> [!div class="nextstepaction"]
+> [Create an Azure Front Door profile](standard-premium/create-front-door-portal.md)
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
 
-- Learn how to [create a Front Door profile](quickstart-create-front-door.md).
+> [!div class="nextstepaction"]
+> [Create an Azure Front Door (classic) profile](quickstart-create-front-door.md)
 
 ::: zone-end

@@ -2,13 +2,12 @@
 title: Microsoft Azure Stack Edge Pro R system requirements| Microsoft Docs
 description: Learn about the software and networking requirements for your Azure Stack Edge Pro R
 services: databox
-author: alkohli
+author: sipastak
 
-ms.service: databox
-ms.subservice: edge
-ms.topic: conceptual
+ms.service: azure-stack-edge
+ms.topic: reference
 ms.date: 06/26/2024
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Azure Stack Edge Pro R system requirements
 
@@ -80,7 +79,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Azu
 
 > [!NOTE]
 > - The device (source) IPs should always be set to all the cloud-enabled network interfaces.
-> - The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> - The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### URL patterns for gateway feature
 

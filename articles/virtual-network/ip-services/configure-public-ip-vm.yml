@@ -7,12 +7,13 @@ metadata:
   author: mbender-ms
   ms.author: mbender
   ms.date: 08/24/2023
-  ms.service: virtual-network
+  ms.service: azure-virtual-network
   ms.subservice: ip-services
   ms.topic: how-to
   ms.custom:
-    - template-how-to
+    - sfi-image-nochange
     - ge-structured-content-pilot
+    - template-how-to
 
 title: |
   Manage a public IP address with an Azure Virtual Machine
@@ -27,9 +28,9 @@ introduction: |
 
 prerequisites: 
   summary: |
-    There are three itmes required:
+    There are three items required:
   dependencies:
-    - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+    - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
     - Two standard SKU public IP addresses in your subscription. The IP address can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](./create-public-ip-portal.md). For the examples in this article, name the new public IP addresses **myStandardPublicIP-1** and **myStandardPublicIP-2**.
     - One standard SKU public IP address with the routing preference of **Internet** in your subscription. For more information on creating a public IP with the **Internet** routing preference, see [Configure routing preference for a public IP address using the Azure portal](./routing-preference-portal.md). For the example in this article, name the new public IP address **myStandardPublicIP-3**.
 procedureSection:
@@ -88,9 +89,9 @@ procedureSection:
         Select **Create**.
 
         > [!NOTE]
-        > This is a simple deployment of Azure Virtual Machine. For advanced configuration and setup, see [Quickstart: Create a Windows virtual machine in the Azure portal](../../virtual-machines/windows/quick-create-portal.md)
+        > This is a simple deployment of Azure Virtual Machine. For advanced configuration and setup, see [Quickstart: Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
         >
-        > For more information on Azure Virtual Machines, see [Windows virtual machines in Azure](../../virtual-machines/windows/overview.md)
+        > For more information on Azure Virtual Machines, see [Windows virtual machines in Azure](/azure/virtual-machines/windows/overview)
   - title: |
       Change public IP address
     summary: |

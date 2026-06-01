@@ -3,10 +3,11 @@ title: Monitor Azure Blob Storage
 description: Start here to learn how to monitor Azure Blob Storage.
 ms.date: 02/07/2024
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: concept-article
 author: normesta
 ms.author: normesta
 ms.service: azure-blob-storage
+# Customer intent: As a cloud administrator, I want to monitor Azure Blob Storage metrics and logs, so that I can ensure optimal performance, analyze usage patterns, and troubleshoot any issues effectively.
 ---
 
 # Monitor Azure Blob Storage
@@ -31,7 +32,7 @@ For a list of available metrics for Azure Blob Storage, see [Azure Blob Storage 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Blob Storage, see [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md#resource-logs).
 > [!NOTE]
-> Data Lake Storage Gen2 doesn't appear as a storage type because Data Lake Storage Gen2 is a set of capabilities available to Blob storage.
+> Data Lake Storage doesn't appear as a storage type because Data Lake Storage is a set of capabilities available to Blob storage.
 
 #### Destination limitations
 
@@ -160,7 +161,7 @@ The following example shows how to list a metric definition at the account level
 
         foreach (var metricDefinition in metricDefinitions)
         {
-            // Enumrate metric definition:
+            // Enumerate metric definition:
             //    Id
             //    ResourceId
             //    Name
@@ -207,7 +208,7 @@ The following example shows how to read `UsedCapacity` data at the account level
 
         foreach (var metric in Response.Value)
         {
-            // Enumrate metric value
+            // Enumerate metric value
             //    Id
             //    Name
             //    Type
@@ -224,7 +225,7 @@ The following example shows how to read `UsedCapacity` data at the account level
 
 For multidimensional metrics, you need to define metadata filters if you want to read metric data on specific dimension values.
 
-The following example shows how to read metric data on the metric supporting multidimension:
+The following example shows how to read metric data on the metric supporting multidimensional values:
 
 ```csharp
     public static async Task ReadStorageMetricValueTest()
@@ -260,7 +261,7 @@ The following example shows how to read metric data on the metric supporting mul
 
         foreach (var metric in Response.Value)
         {
-            //Enumrate metric value
+            // Enumerate metric value
             //    Id
             //    Name
             //    Type
@@ -312,7 +313,7 @@ All other failed anonymous requests aren't logged. For a full list of the logged
 
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-Here are some queries that you can enter in the **Log search** bar to help you monitor your Blob storage. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
+Here are some queries that you can enter in the **Log search** bar to help you monitor your Blob storage. These queries work with the [new language](/azure/azure-monitor/logs/log-query-overview).
 
 - To list the 10 most common errors over the last three days.
 

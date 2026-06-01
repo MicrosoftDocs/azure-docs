@@ -1,14 +1,15 @@
 ---
-title: Set up disaster recovery for SQL Server with Azure Site Recovery 
+title: Set up disaster recovery for SQL Server with Azure Site Recovery
+ms.reviewer: v-gajeronika
 description: This article describes how to set up disaster recovery for SQL Server by using SQL Server and Azure Site Recovery.
-services: site-recovery
-author: ankitaduttaMSFT
-manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 03/28/2023
-ms.author: ankitadutta
+author: Jeronika-MS
+ms.service: azure-site-recovery
+ms.topic: how-to
+ms.date: 12/08/2025
+ms.author: v-gajeronika
+ms.custom: sfi-image-nochange
 
+# Customer intent: "As a database administrator, I want to set up disaster recovery for SQL Server using cloud-based technologies, so that I can ensure business continuity and minimize downtime during outages."
 ---
 # Set up disaster recovery for SQL Server
 
@@ -33,7 +34,7 @@ SQL Server on an Azure infrastructure as a service (IaaS) virtual machine (VM) o
 SQL Server on an Azure IaaS VM or at on-premises.| [Failover clustering (Always On FCI)](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | The time taken to fail over between the nodes. | Because Always On FCI uses shared storage, the same view of the storage instance is available on failover.
 SQL Server on an Azure IaaS VM or at on-premises.| [Database mirroring (high-performance mode)](/sql/database-engine/database-mirroring/database-mirroring-sql-server) | The time taken to force the service, which uses the mirror server as a warm standby server. | Replication is asynchronous. The mirror database might lag somewhat behind the principal database. The lag is typically small. But it can become large if the principal or mirror server's system is under a heavy load.<br/><br/>Log shipping can be a supplement to database mirroring. It's a favorable alternative to asynchronous database mirroring.
 SQL as platform as a service (PaaS) on Azure.<br/><br/>This deployment type includes single databases and elastic pools. | Active geo-replication | 30 seconds after failover is triggered.<br/><br/>When failover is activated for one of the secondary databases, all other secondaries are automatically linked to the new primary. | RPO of five seconds.<br/><br/>Active geo-replication uses the Always On technology of SQL Server. It asynchronously replicates committed transactions on the primary database to a secondary database by using snapshot isolation.<br/><br/>The secondary data is guaranteed to never have partial transactions.
-SQL as PaaS configured with active geo-replication on Azure.<br/><br/>This deployment type includes a managed instances, elastic pools, and single databases. | Auto-failover groups | RTO of one hour. | RPO of five seconds.<br/><br/>Auto-failover groups provide the group semantics on top of active geo-replication. But the same asynchronous replication mechanism is used.
+SQL as PaaS configured with active geo-replication on Azure.<br/><br/>This deployment type includes managed instances, elastic pools, and single databases. | Auto-failover groups | RTO of one hour. | RPO of five seconds.<br/><br/>Auto-failover groups provide the group semantics on top of active geo-replication. But the same asynchronous replication mechanism is used.
 SQL Server on an Azure IaaS VM or at on-premises.| Replication with Azure Site Recovery | RTO is typically less than 15 minutes. To learn more, read the [RTO SLA provided by Site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | One hour for application consistency and five minutes for crash consistency. If you are looking for lower RPO, use other BCDR technologies.
 
 > [!NOTE]
@@ -96,23 +97,23 @@ Some BCDR technologies such as SQL Always On don't natively support test failove
 
 1. Before triggering test failover of the recovery plan, recover the VM from the backup taken in the previous step.
 
-    ![Screenshot showing window for restoring a configuration from Azure Backup](./media/site-recovery-sql/restore-from-backup.png)
+    :::image type="content" source="./media/site-recovery-sql/restore-from-backup.png" alt-text="Screenshot showing window for restoring a configuration from Azure Backup.":::
 
 1. [Force a quorum](/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) in the VM that was restored from backup.
 
 1. Update the IP address of the listener to be an address available in the test failover network.
 
-    ![Screenshot of rules window and IP address properties dialog](./media/site-recovery-sql/update-listener-ip.png)
+    :::image type="content" source="./media/site-recovery-sql/update-listener-ip.png" alt-text="Screenshot of rules window and IP address properties dialog.":::
 
 1. Bring the listener online.
 
-    ![Screenshot of window labeled Content_AG showing server names and statuses](./media/site-recovery-sql/bring-listener-online.png)
+    :::image type="content" source="./media/site-recovery-sql/bring-listener-online.png" alt-text="Screenshot of window labeled Content_AG showing server names and statuses.":::
 
 1. Ensure that the load balancer in the failover network has one IP address, from the front-end IP address pool that corresponding to each availability group listener, and with the SQL Server VM in the back-end pool.
 
-     ![Screenshot of window titled "SQL-AlwaysOn-LB - Frontend IP Pool](./media/site-recovery-sql/create-load-balancer1.png)
+     :::image type="content" source="./media/site-recovery-sql/create-load-balancer1.png" alt-text="Screenshot of window titled 'SQL-AlwaysOn-LB - Frontend IP Pool.":::
 
-    ![Screenshot of window titled "SQL-AlwaysOn-LB - Backend IP Pool](./media/site-recovery-sql/create-load-balancer2.png)
+    :::image type="content" source="./media/site-recovery-sql/create-load-balancer2.png" alt-text="Screenshot of window titled 'SQL-AlwaysOn-LB - Backend IP Pool.":::
 
 1. In later recovery groups, add failover of your application tier followed by your web tier for this recovery plan.
 
@@ -140,7 +141,7 @@ Site Recovery doesn't provide guest cluster support when replicating to an Azure
 
 1. Use Site Recovery replication to replicate the new SQL Server instance to the secondary site. As it's a high-safety mirror copy, it is synchronized with the primary cluster but replicated using Site Recovery replication.
 
-   ![Image of a standard cluster that shows the relationship and flow among a primary site, Site Recovery, and Azure](./media/site-recovery-sql/standalone-cluster-local.png)
+   :::image type="content" source="./media/site-recovery-sql/standalone-cluster-local.png" alt-text="Screenshot of a standard cluster that shows the relationship and flow among a primary site, Site Recovery, and Azure.":::
 
 ### Failback considerations
 
@@ -156,9 +157,9 @@ Site Recovery replication for SQL Server is covered under the Software Assurance
 
 Site Recovery is application agnostic. Site Recovery can help protect any version of SQL Server that is deployed on a supported operating system. For more, see the [support matrix for recovery](vmware-physical-azure-support-matrix.md#replicated-machines) of replicated machines.
 
-### Does ASR Work with SQL Transactional Replication?
+### Does Azure Site Recovery Work with SQL Transactional Replication?
 
-Due to ASR using file-level copy, SQL cannot guarantee that the servers in an associated SQL replication topology are in sync at the time of ASR failover. This may cause the logreader and/or distribution agents to fail due to LSN mismatch, which can break replication. If you failover the publisher, distributor, or subscriber in a replication topology, you need to rebuild replication. It is recommended to [reinitialize the subscription to SQL Server](/sql/relational-databases/replication/reinitialize-a-subscription).
+Due to Azure Site Recovery using file-level copy, SQL cannot guarantee that the servers in an associated SQL replication topology are in sync at the time of Azure Site Recovery failover. This may cause the log reader and/or distribution agents to fail due to LSN mismatch, which can break replication. If you fail over the publisher, distributor, or subscriber in a replication topology, you need to rebuild replication. It is recommended to [reinitialize the subscription to SQL Server](/sql/relational-databases/replication/reinitialize-a-subscription).
 
 
 ## Next steps

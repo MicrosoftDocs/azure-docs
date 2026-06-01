@@ -1,19 +1,20 @@
 ---
-title: Back up Windows system state to Azure by using Azure Backup
-description: Learn how to back up the system state of Windows Server computers to Azure.
+title: Back up Windows system state to Azure using Azure Backup
+description: Learn how to back up Windows Server system state to Azure using Azure Backup.
 ms.topic: how-to
-ms.date: 02/27/2024
+ms.date: 03/09/2026
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
-ms.service: backup
+ms.author: v-mallicka
+ms.service: azure-backup
 ms.custom: engagement-fy24
+# Customer intent: As a system administrator, I want to back up the Windows Server system state to cloud storage, so that I can ensure data recovery and maintain business continuity in case of system failures.
 ---
 
-# Back up Windows system state to Azure
+# Back up Windows system state to Azure using Azure Backup
 
-This article describes how to back up your Windows Server system state to Azure. It's intended to walk you through the basics.
+This article describes how to back up Windows Server system state to Azure using Azure Backup. It's intended to walk you through the basics.
 
-For more information about Azure Backup, see the [overview article](backup-overview.md). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) that lets you access any Azure service.
+For more information about Azure Backup, see the [overview article](backup-overview.md). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) that lets you access any Azure service.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -66,7 +67,7 @@ To configure the vault, follow these steps:
 
     After you select **OK**, a checkmark appears next to **Backup goal**, and the **Prepare infrastructure** blade opens.
 
-    ![Screenshot shows how to prepare infrastructure.](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
+    :::image type="content" source="./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png" alt-text="Screenshot shows how to prepare infrastructure." lightbox="./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png":::
 
 4. On the **Prepare infrastructure** blade, select **Download Agent for Windows Server or Windows Client**.
 
@@ -137,9 +138,12 @@ The initial backup includes two tasks:
 To complete the initial backup, use the Microsoft Azure Recovery Services agent.
 
 > [!NOTE]
-> You can back up System State on Windows Server 2008 R2 through Windows Server 2016. System State back up isn't supported on client SKUs. System State isn't shown as an option for Windows clients, or Windows Server 2008 SP2 machines.
+> You can back up System State on Windows Server 2022 through Windows Server 2025. System State back up isn't supported on client SKUs. System State isn't shown as an option for Windows clients, or Windows Server 2008 SP2 machines.
 >
 >
+
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
+
 
 ### Schedule the backup job
 
@@ -192,6 +196,6 @@ After the initial backup is completed, the **Job completed** status appears in t
 
 ## Next steps
 
-* Get more details about [backing up Windows machines](backup-windows-with-mars-agent.md).
-* Now that you've backed up your Windows Server System State, you can [manage your vaults and servers](backup-azure-manage-windows-server.md).
-* If you need to restore a backup, use this article to [restore files to a Windows machine](backup-azure-restore-windows-server.md).
+- [Back up Windows machines](backup-windows-with-mars-agent.md).
+- [Manage vaults and servers](backup-azure-manage-windows-server.md).
+- [Restore files to Windows Server using the MARS Agent](backup-azure-restore-windows-server.md).

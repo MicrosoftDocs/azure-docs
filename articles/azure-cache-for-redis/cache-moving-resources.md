@@ -1,17 +1,17 @@
 ---
 title: Move Azure Cache for Redis instances to different regions
 description: How to move Azure Cache for Redis instances to a different Azure region.
-author: flang-msft
-
-ms.author: franlanglois
-ms.service: cache
 ms.topic: how-to
 ms.custom: subject-moving-resources, engagement-fy23
 ms.date: 10/20/2022
+appliesto:
+  - ✅ Azure Cache for Redis
 
 ---
 
 # Move Azure Cache for Redis instances to different regions
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 In this article, you learn how to move Azure Cache for Redis instances to a different Azure region. You might move your resources to another region for many reasons:
 
@@ -127,7 +127,7 @@ Once your new cache in the targeted region is populated with all necessary data,
 
 ### Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 ### Prepare
 
@@ -159,7 +159,7 @@ Open-source Redis defines a standard mechanism for taking a snapshot of a cache'
 
 ### Prepare
 
-To move your cache instance to another region, you'll need to create [a second premium cache instance](quickstart-create-redis.md) or [a second enterprise cache instance](quickstart-create-redis-enterprise.md) in the desired region.
+To move your cache instance to another region, you'll need to create [a second premium cache instance](quickstart-create-redis.md) in the desired region.
 
 ### Move
 
@@ -169,7 +169,7 @@ To move your cache instance to another region, you'll need to create [a second p
 
 ### Verify
 
-You can monitor the progress of the import operation by following the notifications from the Azure portal, or by viewing the events in the [audit log](../azure-monitor/essentials/activity-log.md).
+You can monitor the progress of the import operation by following the notifications from the Azure portal, or by viewing the events in the [audit log](/azure/azure-monitor/essentials/activity-log).
 
 ### Clean up source resources
 

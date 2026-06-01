@@ -2,12 +2,13 @@
 title: Quickstart - Install Azure Backup extension in an AKS cluster
 description: In this quickstart, learn how to install the Azure Backup extension in an AKS cluster and get it ready to configure backup.
 ms.topic: quickstart
-ms.date: 11/14/2023
-ms.service: backup
+ms.date: 01/09/2026
+ms.service: azure-backup
 ms.custom:
-  - ignite-2023
+  - ignite-2023, engagement-fy24
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a DevOps engineer, I want to install the backup extension in an AKS cluster, so that I can efficiently manage backup and restore operations for my containerized applications."
 ---
 
 # Quickstart: Install Azure Backup extension in an AKS cluster  
@@ -27,7 +28,7 @@ Before you start:
 2. In case you have the cluster in a Private Virtual Network and Firewall, apply the following FQDN/application rules: `*.microsoft.com`, `*.azure.com`, `*.core.windows.net`, `*.azmk8s.io`, `*.digicert.com`, `*.digicert.cn`, `*.geotrust.com`, `*.msocsp.com`. Learn [how to apply FQDN rules](../firewall/dns-settings.md).
 
 3. Backup extension requires a storage account and a blob container in input. In case the AKS cluster is inside a private virtual network, enable private endpoint between the storage account and the AKS cluster by following these steps.
-   1. Before you install the Backup extension in an AKS cluster, ensure that the CSI drivers and snapshots are enabled for your cluster. If they're disabled, [enable these settings](../aks/csi-storage-drivers.md#enable-csi-storage-drivers-on-an-existing-cluster).
+   1. Before you install the Backup extension in an AKS cluster, ensure that the CSI drivers and snapshots are enabled for your cluster. If they're disabled, [enable these settings](/azure/aks/csi-storage-drivers#enable-csi-storage-drivers-on-an-existing-cluster).
    2. In case you have Azure Active Directory pod identity enabled on the AKS cluster, create a pod-identity exception in AKS cluster which works only for `dataprotection-microsoft` namespace by [following these steps](/cli/azure/aks/pod-identity/exception?view=azure-cli-latest&preserve-view=true#az-aks-pod-identity-exception-add)
 
 ## Install Backup extension in an AKS cluster
@@ -57,6 +58,7 @@ Follow these steps:
 
 ## Next steps
 
-- [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-backup-overview.md)
-
+- [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-backup-overview.md).
+- Configure AKS backup using [Azure portal](azure-kubernetes-service-cluster-backup.md), [Azure PowerShell](azure-kubernetes-service-cluster-backup-using-powershell.md), [Azure CLI](azure-kubernetes-service-cluster-backup-using-cli.md), [ARM template](quick-kubernetes-backup-arm.md), [Bicep template](quick-kubernetes-backup-bicep.md), [Terraform](quick-kubernetes-backup-terraform.md).
+- [Configure item-level backup for an AKS cluster](tutorial-configure-backup-aks.md).
  

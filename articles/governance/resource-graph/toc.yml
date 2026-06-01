@@ -51,6 +51,14 @@
     href: ./tutorials/logic-app-calling-arg.md
 - name: Samples
   items:
+  - name: Starter query samples
+    displayName: samples, starter
+    href: ./samples/starter.md
+  - name: Advanced query samples
+    displayName: samples, advanced
+    href: ./samples/advanced.md
+  - name: Samples by category
+    href: ./samples/samples-by-category.md
   - name: Alerts samples
     displayName: samples, alerts
     href: ./samples/alerts-samples.md
@@ -68,9 +76,15 @@
   - name: Work with large data sets
     displayName: page, first, skip, token
     href: ./concepts/work-with-data.md
+  - name: Guidance for paging results
+    href: ./concepts/paging-results.md
   - name: Guidance for throttled requests
     displayName: pagination, batching, throttling, parallel
     href: ./concepts/guidance-for-throttled-requests.md
+  - name: Guidance for the Azure Resource Graph GET/LIST API 
+    href: ./concepts/azure-resource-graph-get-list-api.md
+  - name: Differences between the Azure Resource Graph GET/LIST API and Azure Resource Graph Query service
+    href: ./concepts/get-list-query-service-differences.md
   - name: Security
     items:
     - name: Security baseline for Azure Security Benchmark
@@ -98,6 +112,8 @@
   items:
   - name: Keyboard shortcuts
     href: ./reference/keyboard-shortcuts.md
+  - name: Supported Azure Resource Manager resource types
+    href: ./reference/supported-tables-resources.md 
   - name: CLI and SDK
     items:
     - name: Azure CLI

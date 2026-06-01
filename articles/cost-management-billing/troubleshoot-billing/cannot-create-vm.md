@@ -2,13 +2,17 @@
 title: Error when creating a VM as an Azure Enterprise user
 description: Provides several solutions to an issue in which you can't create a VM as an Enterprise Agreement (EA) user in portal.
 ms.topic: troubleshooting
-ms.date: 04/15/2024
-ms.author: banders
-author: bandersmsft
-ms.reviewer: jarrettr
+author: Nicholak-MS
+ms.author: kenday
+ms.reviewer: kenday
 ms.service: cost-management-billing
 ms.subservice: billing
+ms.date: 12/29/2025
+ms.custom:
+- build-2025
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
+
 # Error when creating a VM as an Azure Enterprise user: Contact your reseller for accurate pricing
 
 This article provides several solutions to an issue in which you can't create a VM as an Azure Enterprise Agreement (EA) user in portal.
@@ -66,8 +70,8 @@ When you use an EA dev/test subscription under an account that isn't marked as d
 
 For other assistance, follow these links:
 
-* [How to manage an Azure support request](../../azure-portal/supportability/how-to-manage-azure-support-request.md)
+* [How to manage an Azure support request](/azure/azure-portal/supportability/how-to-manage-azure-support-request)
 * [Azure support ticket REST API](/rest/api/support)
-* Engage with us on [Twitter](https://twitter.com/azuresupport)
+* Engage with us on [X](https://x.com/azuresupport)
 * Get help from your peers in the [Microsoft question and answer](/answers/products/azure)
 * Learn more in [Azure Support FAQ](https://azure.microsoft.com/support/faq)

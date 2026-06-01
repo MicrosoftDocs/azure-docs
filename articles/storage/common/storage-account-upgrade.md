@@ -11,22 +11,31 @@ ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: akashdubey
 ms.custom: devx-track-azurecli, engagement
+# Customer intent: As a cloud engineer, I want to upgrade my general-purpose v1 storage account to a general-purpose v2 account, so that I can take advantage of the latest features and optimize my storage costs based on access tiers.
 ---
 
 # Upgrade to a general-purpose v2 storage account
 
-General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of general-purpose v1 and Blob storage accounts. General-purpose v2 accounts are recommended for most storage scenarios. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices. General-purpose v2 accounts support default account access tiers of hot or cool and blob level tiering between hot, cool, or archive.
+General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of general-purpose v1 and blob storage accounts. General-purpose v2 accounts are recommended for most storage scenarios. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, and industry-competitive transaction prices. General-purpose v2 accounts support default account access tiers of hot or cool and blob level tiering between hot, cool, cold, or archive.
 
-Upgrading to a general-purpose v2 storage account from your general-purpose v1 or Blob storage accounts is straightforward. You can upgrade using the Azure portal, PowerShell, or Azure CLI. There's no downtime or risk of data loss associated with upgrading to a general-purpose v2 storage account. The account upgrade happens via a simple Azure Resource Manager operation that changes the account type.
+Upgrading to a general-purpose v2 storage account from your general-purpose v1 or blob storage accounts is straightforward. You can upgrade using the Azure portal, PowerShell, or Azure CLI. There's **no downtime** or risk of data loss associated with upgrading to a general-purpose v2 storage account. The account upgrade happens via a simple Azure Resource Manager operation that changes the account type.
 
 > [!IMPORTANT]
-> Upgrading a general-purpose v1 or Blob storage account to general-purpose v2 is permanent and cannot be undone.
+> Microsoft will retire general-purpose v1 storage accounts on **October 13, 2026**, with new account creation blocked in **Q1 2026**. All GPv1 accounts must be upgraded to GPv2 by this date to avoid service disruption. 
+> If you do not migrate your general-purpose v1 storage account to GPv2 by October 2026, all existing general-purpose v1 accounts will be auto migrated over to a GPv2 account, which may result in higher billing costs. Your decision not to migrate an existing general-purpose v1 account will be construed as consent for Microsoft to migrate the account on your behalf.
+> For more information, see [GPv1 storage account retirement overview](../common/general-purpose-version-1-account-migration-overview.md).
 
-[!INCLUDE [GPv1 support statement](../../../includes/storage-account-gpv1-support.md)]
+If you have a general-purpose v1 storage account, you can upgrade it to a general-purpose v2 storage account, but you can't downgrade it back to a general-purpose v1 storage account. If you have a Blob storage account, you can upgrade it to a general-purpose v2 storage account, but you can't downgrade it back to a blob storage account.
+
+## Billing Impact of upgrading
+Upgrading from GPv1 to GPv2 may result in higher transactional costs, especially for workloads with high read/write operations. While GPv2 offers lower storage costs and tiering flexibility, transactional pricing is more granular and can significantly affect billing. It's recommended to review your current usage patterns and estimate costs before upgrading.
+
+> [!TIP] 
+>Use the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the costs of a general-purpose v2 storage account based on your current usage patterns.
 
 ## Upgrade an account
 
-To upgrade a general-purpose v1 or Blob storage account to a general-purpose v2 account, use Azure portal, PowerShell, or Azure CLI.
+To upgrade a general-purpose v1 or blob storage account to a general-purpose v2 account, use Azure portal, PowerShell, or Azure CLI.
 
 # [Portal](#tab/azure-portal)
 
@@ -65,11 +74,11 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ## Specify an access tier for blob data
 
-General-purpose v2 accounts support all Azure storage services and data objects, but access tiers are available only to block blobs within Blob storage. When you upgrade to a general-purpose v2 storage account, you can specify a default account access tier of hot or cool, which indicates the default tier your blob data will be uploaded as if the individual blob access tier parameter isn't specified.
+General-purpose v2 accounts support all Azure storage services and data objects, but access tiers are available only to block blobs within Blob storage. When you upgrade to a general-purpose v2 storage account, you can specify a default account access tier of hot or cool, which indicates the default tier your blob data is uploaded as if the individual blob access tier parameter isn't specified.
 
-Blob access tiers enable you to choose the most cost-effective storage based on your anticipated usage patterns. Block blobs can be stored in a hot, cool, or archive tiers. For more information on access tiers, see [Azure Blob storage: Hot, Cool, and Archive storage tiers](../blobs/access-tiers-overview.md).
+Blob access tiers enable you to choose the most cost-effective storage based on your anticipated usage patterns. Block blobs can be stored in a hot, cool, or archive tiers. For more information on access tiers, see [Azure blob storage: hot, cool, and archive storage tiers](../blobs/access-tiers-overview.md).
 
-By default, a new storage account is created in the hot access tier, and a general-purpose v1 storage account can be upgraded to either the hot or cool account tier. If an account access tier isn't specified on upgrade, it will be upgraded to hot by default. If you're exploring which access tier to use for your upgrade, consider your current data usage scenario. There are two typical user scenarios for migrating to a general-purpose v2 account:
+By default, a new storage account is created in the hot access tier, and a general-purpose v1 storage account can be upgraded to either the hot or cool account tier. If an account access tier isn't specified on upgrade, it is upgraded to hot by default. If you're exploring which access tier to use for your upgrade, consider your current data usage scenario. There are two typical user scenarios for migrating to a general-purpose v2 account:
 
 - You have an existing general-purpose v1 storage account and want to evaluate an upgrade to a general-purpose v2 storage account, with the right storage access tier for blob data.
 - You have decided to use a general-purpose v2 storage account or already have one and want to evaluate whether you should use the hot or cool storage access tier for blob data.
@@ -113,7 +122,7 @@ To decide on the best access tier for your needs, it can be helpful to determine
 
 ### Monitoring existing storage accounts
 
-To monitor your existing storage accounts and gather this data, you can make use of storage metrics in Azure Monitor. Azure Monitor stores metrics that include aggregated transaction statistics and capacity data about requests to the storage service. Azure Storage sends metric data to the Azure Monitor back end. Azure Monitor provides a unified monitoring experience that includes data from the Azure portal as well as data that is ingested. For more information, see any of these articles:
+To monitor your existing storage accounts and gather this data, you can make use of storage metrics in Azure Monitor. Azure Monitor stores metrics that include aggregated transaction statistics and capacity data about requests to the storage service. Azure Storage sends metric data to the Azure Monitor back end. Azure Monitor provides a unified monitoring experience that includes data from the Azure portal and data that is ingested. For more information, see any of these articles:
 
 - [Monitoring Azure Blob Storage](../blobs/monitor-blob-storage.md)
 - [Monitoring Azure Files](../files/storage-files-monitoring.md)
@@ -139,3 +148,4 @@ The cost of geo-replication data transfer for Blob storage accounts can also be 
 - [Create a storage account](storage-account-create.md)
 - [Move an Azure Storage account to another region](storage-account-move.md)
 - [Recover a deleted storage account](storage-account-recover.md)
+

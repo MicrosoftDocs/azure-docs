@@ -1,11 +1,12 @@
 ---
 title: Transport Layer Security in Azure Site Recovery
 description: Learn how to enable Azure Site Recovery to use the encryption protocol Transport Layer Security (TLS) to keep data secure when being transferred over a network.
-ms.topic: conceptual
-ms.service: site-recovery
+ms.topic: faq
+ms.service: azure-site-recovery
 ms.date: 12/15/2023
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: v-gajeronika
+author: Jeronika-MS
+# Customer intent: "As an IT administrator, I want to enable TLS 1.2 for Azure Site Recovery, so that I can ensure secure data transfer and protect against potential security vulnerabilities."
 ---
 
 # Transport Layer Security in Azure Site Recovery
@@ -15,6 +16,8 @@ Transport Layer Security (TLS) is an encryption protocol that keeps data secure 
 ## Enable TLS on older versions of Windows
 
 If the machine is running earlier versions of Windows, ensure to install the corresponding updates as detailed below and make the registry changes as documented in the respective KB articles.
+
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
 |Operating system  |KB article |
 |---------|---------|
@@ -48,12 +51,10 @@ Use the following registry keys to configure .NET Framework that supports strong
 ```reg
 [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
     "SystemDefaultTlsVersions"=dword:00000001
-    "SchUseStrongCrypto" = dword:00000001
-
-[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
-    "SystemDefaultTlsVersions"=dword:00000001
-    "SchUseStrongCrypto" = dword:00000001
 ```
+
+> [!NOTE]
+> If the registry keys are absent, you don't need to create them for Windows Server 2012 R2 or later versions if TLS 1.2 is enabled in SChannel protocols.
 
 ## Frequently asked questions
 

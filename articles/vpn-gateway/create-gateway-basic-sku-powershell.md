@@ -3,16 +3,20 @@ title: 'Create a Basic SKU virtual network gateway: PowerShell'
 titleSuffix: Azure VPN Gateway
 description: Learn how to create a Basic SKU virtual network gateway for a VPN connection to your on-premises network, or to connect virtual networks. Use these instructions to create either a policy-based, or route-based VPN gateway.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 07/17/2024
+ms.date: 01/23/2026
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
+# Customer intent: "As a network engineer, I want to create a Basic SKU VPN gateway using PowerShell, so that I can establish a secure connection between my virtual network and on-premises infrastructure or other virtual networks."
 ---
 
 # Create a Basic SKU VPN gateway using PowerShell
 
 This article helps you create a Basic SKU Azure VPN gateway using PowerShell. The VPN gateway you create can be either RouteBased, or PolicyBased, depending on your connection requirements. A VPN gateway is used when creating a VPN connection to your on-premises network. You can also use a VPN gateway to connect VNets.
+
+> [!IMPORTANT]
+> The Basic SKU has certain feature and performance limitations and shouldn't be used for production purposes. For more information about gateway SKUs, see [About gateway SKUs](about-gateway-skus.md).
 
 :::image type="content" source="./media/create-gateway-basic-sku/gateway-diagram.png" alt-text="Diagram that shows a virtual network and a VPN gateway." lightbox="./media/create-gateway-basic-sku/gateway-diagram-expand.png":::
 
@@ -21,15 +25,13 @@ This article helps you create a Basic SKU Azure VPN gateway using PowerShell. Th
 
 The steps in this article create a virtual network, a subnet, a gateway subnet, and a VPN gateway (virtual network gateway) using the Basic SKU. The article steps specify a **RouteBased** VPN type. You can also specify a **PolicyBased** VPN type using the steps in this article. Once the gateway creation completes, you can then create connections. If you want to create a gateway using a SKU other than the Basic SKU, see the [Portal article](tutorial-create-gateway-portal.md).
 
-Basic SKU VPN gateways have limitations. For more information about SKUs and Basic SKU limitations, see [About gateway SKUs](about-gateway-skus.md). A few of the limitations that affect the settings used in this article are:
+The Basic SKU has certain feature and performance limitations and shouldn't be used for production purposes. Some of the limitations of the Basic SKU are:
 
-* A Basic SKU VPN gateway must use the Dynamic allocation method for public IP address, not Static.
-* A Basic SKU VPN gateway uses a Basic SKU public IP address, not Standard.
-* You can't create a Basic SKU VPN gateway using the Azure portal.
+[!INCLUDE [Basic SKU limitations](../../includes/vpn-gateway-basic-sku-limitations.md)]
 
 ## Before you begin
 
-These steps require an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+These steps require an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ### Working with Azure PowerShell
 
@@ -94,10 +96,10 @@ $vnet | Set-AzVirtualNetwork
 
 ## <a name="PublicIP"></a>Request a public IP address
 
-Each VPN gateway must have an allocated public IP address. At this time, Basic SKU VPN gateways still use **Dynamic** allocation method public IP address and the **Basic** public IP address SKU. These requirements are different from other VPN Gateway SKUs.
+Each VPN gateway must have an allocated public IP address. At this time, new Basic SKU VPN gateways use the **Static** allocation method for public IP address and the **Standard** public IP address SKU. These requirements may be different from previously created Basic SKU VPN gateways. Use the following example to create a public IP address for your VPN gateway.
 
 ```azurepowershell-interactive
-$gwpip = New-AzPublicIpAddress -Name "VNet1GWIP" -ResourceGroupName "TestRG1" -Location "EastUS" -AllocationMethod Dynamic -Sku Basic
+$gwpip = New-AzPublicIpAddress -Name "VNet1GWIP" -ResourceGroupName "TestRG1" -Location "EastUS" -AllocationMethod Static -Sku Standard -Zone 1,2,3
 ```
 
 ## <a name="GatewayIPConfig"></a>Create the gateway IP address configuration
@@ -150,6 +152,6 @@ Remove-AzResourceGroup -Name TestRG1
 
 Once the gateway finishes creating, you can create a connection between your virtual network and another virtual network. Or, create a connection between your virtual network and an on-premises location. See the following articles:
 
-* [Create a site-to-site connection](vpn-gateway-create-site-to-site-rm-powershell.md)
+* [Add or remove a site-to-site connection](add-remove-site-to-site-connections.md)
 * [Create a point-to-site connection](vpn-gateway-howto-point-to-site-rm-ps.md)
 * [Create a connection to another virtual network](vpn-gateway-vnet-vnet-rm-ps.md)

@@ -6,15 +6,27 @@ items:
   expanded: true
   items:
     - name: What is Azure Machine Configuration?
-      href: ./overview.md
+      href: ./overview/01-overview-concepts.md
+    - name: Prerequisites and Environment Setup
+      href: ./overview/02-setup-prerequisites.md
+    - name: Network Requirements
+      href: ./overview/03-network-requirements.md
+    - name: Troubleshooting Machine Configuration
+      href: ./overview/04-operations-troubleshooting.md
     # Planned, not yet written
     # - name: Glossary
     #   href: ./glossary.md
 
 - name: What's new in Machine Configuration
   items:
-    - name: What's new in the agent
-      href: ./whats-new/agent.md
+    - name: What's new in the Azure machine configuration agent
+      items:
+      - name: Overview
+        href: ./whats-new/agent/index.md
+      - name: Windows agent release notes
+        href: ./whats-new/agent/windows.md
+      - name: Linux agent release notes
+        href: ./whats-new/agent/linux.md
     # Planned, not yet written
     # - name: What's new in the service
     #   href: ./whats-new/service.md
@@ -24,13 +36,25 @@ items:
       href: ./whats-new/docs.md
     - name: Migrating from Azure Automation DSC
       href: ./whats-new/migrating-from-azure-automation.md
-    - name: Migrating from DSC extension for Linux
+    - name: Migrating from Azure DSC Extension
       href: ./whats-new/migrating-from-dsc-extension.md
     - name: Behavioral changes for PowerShell DSC
       href: ./whats-new/psdsc-in-machine-configuration.md
 
 - name: How-to guides
   items:
+    - name: Discover and assign built-in policies
+      href: ./how-to/assign-built-in-policies.md
+    - name: (Preview) Assign customizable security baselines 
+      items:
+        - name: Security baselines overview
+          href: ./how-to/assign-security-baselines/overview-page.md
+        - name: Specify custom parameters for baseline policy
+          href: ./how-to/assign-security-baselines/specify-custom-parameters-for-baseline-policy.md
+        - name: Understand the baseline settings parameter format
+          href: ./how-to/assign-security-baselines/understand-baseline-settings-parameter.md
+        - name: Deploy a baseline policy assignment
+          href: ./how-to/assign-security-baselines/deploy-a-baseline-policy-assignment.md
     - name: Develop a custom package
       items:
         - name: Overview
@@ -43,11 +67,15 @@ items:
           href: ./how-to/develop-custom-package/3-test-package.md
         - name: 4. Publish a custom package
           href: ./how-to/develop-custom-package/4-publish-package.md
-        - name: 5. Sign a custom package
-          href: ./how-to/develop-custom-package/5-sign-package.md
+        - name: 5. Access a custom package
+          href: ./how-to/develop-custom-package/5-access-package.md
+        - name: 6. Sign a custom package
+          href: ./how-to/develop-custom-package/6-sign-package.md
     # Planned, not written
     # - name: Update a custom configuration
     #   href: ./how-to/update-configuration.md
+    - name: Create a custom policy definition
+      href: ./how-to/create-policy-definition.md
     - name: Assign a configuration
       items:
         - name: Overview
@@ -56,10 +84,13 @@ items:
           href: ./how-to/assign-configuration/azure-resource-manager.md
         - name: Using Bicep
           href: ./how-to/assign-configuration/bicep.md
+        - name: Using Rest API
+          href: ./how-to/assign-configuration/rest-api.md
         - name: Using Terraform
           href: ./how-to/assign-configuration/terraform.md
-    - name: Create a custom policy definition
-      href: ./how-to/create-policy-definition.md
+    - name: View compliance reporting
+      href: ./how-to/view-compliance.md
+
 
 - name: Concepts
   items:

@@ -3,16 +3,26 @@ title: Overview and architecture of the SAP CDC capabilities
 titleSuffix: Azure Data Factory
 description: Learn about the SAP change data capture (CDC) capabilities in Azure Data Factory and understand its architecture.
 author: ukchrist
-ms.service: data-factory
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.date: 05/15/2024
+ms.topic: concept-article
+ms.date: 02/13/2025
 ms.author: ulrichchrist
 ---
 
 # Overview and architecture of the SAP CDC capabilities
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!IMPORTANT]
+> A recent update of SAP Note 3255746 announces a security patch that blocks incoming calls to the ODP RFC API from third-party clients including Azure Data Factory’s SAP CDC connector. We advise customers to review this note for potential impacts before installing it in their SAP system. More information can be found in SAP notes 3255746 and 3439624.
+
+Microsoft Fabric offers various alternatives to the SAP CDC connector in Azure Data Factory that are not affected by SAP Note 3255746, including: 
+- **Mirroring for SAP Datasphere in Fabric (Generally Available)**: Provides an SAP supported way to export data via SAP Datasphere premium outbound integration and continuously mirror it into Microsoft Fabric for analytics and AI scenarios. Details can be found [here](/fabric/mirroring/sap).
+- **SAP Business Data Cloud Connect for Microsoft Fabric (Announced at Microsoft Ignite 2025, available later this year)**: An SAP and Microsoft jointly announced approach that enables customers to share data between SAP Business Data Cloud and Microsoft Fabric for analytics. Please review the SAP terms and conditions regarding limitations on using this data in downstream data solutions. Please see the joint announcement here: [SAP and Microsoft accelerate business insights and AI innovation with SAP Business Data Cloud Connect for Microsoft Fabric](https://community.fabric.microsoft.com/t5/Fabric-Updates-Blog/SAP-and-Microsoft-accelerate-business-insights-and-AI-innovation/ba-p/5172482).
+- **Copy Job in Fabric for SAP with ABAP Add-on (publicly available at Microsoft Build 2026)**: An extraction option based on an ABAP Add-on provided by Microsoft that enables customers to incrementally copy SAP data into external targets, which is not using the ODP RFC API.
+- **Third Party partner solutions with Open Mirroring in Fabric**: SAP certified partner offerings provide alternative integration paths for extracting and integrating SAP data into Microsoft Fabric. For details, see: [Open Mirroring Partner Ecosystem](/fabric/mirroring/open-mirroring-partners-ecosystem).
+
+## Introduction
 
 Learn about the SAP change data capture (CDC) capabilities in Azure Data Factory and understand the architecture.
 
@@ -64,7 +74,7 @@ In this process, the SAP data sources are *providers*. The providers run on SAP 
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-cdc-shir-architecture-diagram.png" border="false" alt-text="Diagram of the architecture of the SAP ODP framework through a self-hosted integration runtime.":::
 
-Because ODP completely decouples providers from subscribers, any SAP documentation that offers provider configurations are applicable to Data Factory as a subscriber. For more information about ODP, see [Introduction to operational data provisioning](https://wiki.scn.sap.com/wiki/display/BI/Introduction+to+Operational+Data+Provisioning).
+Because ODP completely decouples providers from subscribers, any SAP documentation that offers provider configurations are applicable to Data Factory as a subscriber. For more information about ODP, see [Introduction to operational data provisioning](https://learning.sap.com/courses/upgrading-your-sap-bw-skills-to-sap-bw-4hana).
 
 ## Related content
 

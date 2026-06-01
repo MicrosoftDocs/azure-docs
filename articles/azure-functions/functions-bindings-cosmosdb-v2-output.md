@@ -5,8 +5,14 @@ ms.topic: reference
 ms.date: 10/05/2023
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
+ms.custom:
+  - devx-track-csharp
+  - devx-track-python
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-ts
+  - sfi-ropc-nochange
 ---
 
 # Azure Cosmos DB output binding for Azure Functions 2.x and higher
@@ -102,7 +108,7 @@ namespace CosmosDBSamplesV2
 
 ### Queue trigger, write one doc (v4 extension)
 
-Apps using [Azure Cosmos DB extension version 4.x](./functions-bindings-cosmosdb-v2.md?tabs=extensionv4) or higher will have different attribute properties which are shown below. The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
+Apps using [Azure Cosmos DB extension version 4.x](./functions-bindings-cosmosdb-v2.md?tabs=extensionv4) or higher have different attribute properties which are shown below. The following example shows a [C# function](functions-dotnet-class-library.md) that adds a document to a database, using data provided in message from Queue storage.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -206,7 +212,7 @@ public String cosmosDbQueryById(
 
 #### HTTP trigger, save one document to database via return value
 
-The following example shows a Java function whose signature is annotated with `@CosmosDBOutput` and has return value of type `String`. The JSON document returned by the function will be automatically written to the corresponding Azure Cosmos DB collection.
+The following example shows a Java function whose signature is annotated with `@CosmosDBOutput` and has return value of type `String`. The JSON document returned by the function is automatically written to the corresponding Azure Cosmos DB collection.
 
 ```java
     @FunctionName("WriteOneDoc")
@@ -338,7 +344,7 @@ The following example shows a Java function that writes multiple documents to Az
     }
 ```
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that will be written to Azure Cosmos DB.  The annotation parameter type should be `OutputBinding<T>`, where `T` is either a native Java type or a POJO.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@CosmosDBOutput` annotation on parameters that is written to Azure Cosmos DB. The annotation parameter type should be `OutputBinding<T>`, where `T` is either a native Java type or a POJO.
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
@@ -467,7 +473,7 @@ Here's the JavaScript code:
     };
 ```
 
-For bulk insert form the objects first and then run the stringify function. Here's the JavaScript code:
+For bulk insert form the objects first and then, run the stringify function. Here's the JavaScript code:
 
 ```javascript
     module.exports = async function (context) {
@@ -632,8 +638,8 @@ For Python v2 functions defined using a decorator, the following properties on t
 | Property    | Description |
 |-------------|-----------------------------|
 |`arg_name` | The variable name used in function code that represents the list of documents with changes. |
-|`database_name`  | The name of the Azure Cosmos DB database with the collection being monitored. |
-|`collection_name`  | The name of the Azure Cosmos DB collection being monitored. |
+|`database_name`  | The name of the Azure Cosmos DB database with the container being monitored. |
+|`container_name`  | The name of the Azure Cosmos DB container being monitored. |
 |`create_if_not_exists`  | A Boolean value that indicates whether the database and collection should be created if they do not exist. |
 |`connection_string_setting` | The connection string of the Azure Cosmos DB being monitored. |
 
@@ -704,6 +710,12 @@ By default, when you write to the output parameter in your function, a document 
 
 > [!NOTE]  
 > When you specify the ID of an existing document, it gets overwritten by the new output document.
+
+::: zone pivot="programming-language-python" 
+
+The output function parameter must be defined as `func.Out[func.Document]`. Refer to the [output example](#example) for details.
+
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"  
 

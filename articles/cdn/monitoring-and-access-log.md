@@ -2,16 +2,20 @@
 title: Monitoring, metrics, and raw logs for Azure CDN
 description: This article describes how to set up and use Azure CDN monitoring, metrics, and raw logs.
 services: cdn
-author: duongau
+author: halkazwini
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
+ms.date: 02/28/2026
 ms.author: yuajia 
 ms.custom: devx-track-azurepowershell
+ROBOTS: NOINDEX
+# Customer intent: "As a CDN administrator, I want to set up and configure real-time monitoring and logging for Azure CDN, so that I can effectively troubleshoot performance issues and analyze traffic patterns for better resource management."
 ---
 
 # Real-time Monitoring, metrics, and access Logs for Azure CDN
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 With Azure CDN from Microsoft, you can monitor resources in the following ways to help you troubleshoot, track, and debug issues.
 
@@ -23,7 +27,7 @@ With Azure CDN from Microsoft, you can monitor resources in the following ways t
 > [!IMPORTANT]
 > The HTTP raw logs feature is available for Azure CDN from Microsoft.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Sign in to Azure
 
@@ -55,8 +59,6 @@ To configure Raw logs for your Azure CDN from Microsoft profile:
         - Select the **Subscription** and the **Storage Account**.
     - **Stream to an event hub**
         - Select the **Subscription**, **Event hub namespace**, **Event hub name (optional)**, and **Event hub policy name**.
-
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Configure destination for log settings." border="true":::
 
 7. Select **Save**.
 
@@ -156,7 +158,7 @@ Azure CDN from Microsoft Service currently provides Raw logs. Raw logs provide i
 | ClientIp | The IP address of the client that made the request. If there was an X-Forwarded-For header in the request, then the Client IP is picked from the same. |
 | ClientPort | The IP port of the client that made the request. |
 | HttpMethod | HTTP method used by the request. |
-| HttpStatusCode | The HTTP status code returned from the proxy. If a request to the origin timeouts the value for HttpStatusCode is set to **0**.|
+| HttpStatusCode | The HTTP status code returned from the proxy. If a request to the origin timeouts, the value for HttpStatusCode is set to **0**.|
 | HttpStatusDetails | Resulting status on the request. Meaning of this string value can be found at a Status reference table. |
 | HttpVersion | Type of the request or connection. |
 | POP | Short name of the edge where the request landed. |
@@ -175,6 +177,7 @@ Azure CDN from Microsoft Service currently provides Raw logs. Raw logs provide i
 | TimeToFirstByte | The length of time in milliseconds from when Microsoft CDN receives the request to the time the first byte gets sent to the client. The time is measured only from the Microsoft side. Client-side data isn't measured. |
 | Result | `SSLMismatchedSNI` is a status code that signifies a successful request with a mismatch warning between the Server Name Indication (SNI) and the host header. This status code implies domain fronting, a technique that violates Azure Front Door's terms of service. Requests with `SSLMismatchedSNI` will be rejected after January 22, 2024.|
 | SNI | This field specifies the Server Name Indication (SNI) that is sent during the TLS/SSL handshake. It can be used to identify the exact SNI value if there was a `SSLMismatchedSNI` status code. Additionally, it can be compared with the host value in the `requestUri` field to detect and resolve the mismatch issue. |
+| SslJA4 | TLS Client Hello fingerprint, enabling identification of client applications and detection of anomalous or malicious traffic patterns across encrypted connections. |
 
 > [!NOTE]
 > The logs can be viewed under your Log Analytics profile by running a query. A sample query would look like:
@@ -215,7 +218,7 @@ The Metrics are displayed in charts and accessible via PowerShell, CLI, and API.
 
 Azure CDN from Microsoft measures and sends its metrics in 60-second intervals. The metrics can take up to 3 mins to appear in the portal.
 
-For more information, see [Azure Monitor metrics](../azure-monitor/essentials/data-platform-metrics.md).
+For more information, see [Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).
 
 **Metrics supported by Azure CDN from Microsoft**
 
@@ -242,8 +245,6 @@ Scenarios excluded in bytes hit ratio calculation:
 
 2. Under **Monitoring**, select **Metrics**:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-03.png" alt-text="Metrics for CDN profile." border="true":::
-
 3. Select **Add metric**, select the metric to add:
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-04.png" alt-text="Add and select metric for CDN profile." border="true":::
@@ -268,7 +269,7 @@ Select **New alert rule** for metrics listed in Metrics section:
 
 :::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configure alerts for CDN endpoint." border="true":::
 
-Alert is charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](../azure-monitor/alerts/alerts-overview.md).
+Alert is charged based on Azure Monitor. For more information about alerts, see [Azure Monitor alerts](/azure/azure-monitor/alerts/alerts-overview).
 
 ### More Metrics
 
@@ -278,15 +279,10 @@ You can enable more metrics using Azure Log Analytics and raw logs for an extra 
 
 2. Select the Log Analytics workspace you created:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-09.png" alt-text="Screenshot of the select Log Analytics workspace menu." border="true":::
-
 3. Select **Logs** under **General** in the Log Analytics workspace. Then select **Get Started**:
 
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-10.png" alt-text="Screenshot of the Log Analytics resource workspace." border="true":::
 
 4. Select **CDN Profiles**. Select an example query to RUN or close the example screen to enter a custom query:
-
-    :::image type="content" source="./media/cdn-raw-logs/raw-logs-11.png" alt-text="Screenshot of example query screen." border="true":::
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-12.png" alt-text="Screenshot of the query execution." border="true":::
 
@@ -302,6 +298,6 @@ For more information on Azure CDN and the other Azure services mentioned in this
 
 - [Analyze](cdn-log-analysis.md) Azure CDN usage patterns.
 
-- Learn more about [Azure Monitor](../azure-monitor/overview.md).
+- Learn more about [Azure Monitor](/azure/azure-monitor/overview).
 
-- Configure [Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
+- Configure [Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-tutorial).

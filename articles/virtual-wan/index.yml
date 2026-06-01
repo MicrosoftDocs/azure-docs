@@ -6,7 +6,7 @@ summary: Learn how to configure, create, and manage an Azure Virtual WAN. Azure 
 metadata:
   title: Virtual WAN documentation 
   description: Learn about Virtual WAN
-  ms.service: virtual-wan
+  ms.service: azure-virtual-wan
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc
@@ -100,7 +100,7 @@ landingContent:
           - text: About Route-maps
             url: route-maps-about.md
           - text: Scenario - Route traffic through an NVA
-            url: scenario-route-through-nva.md
+            url: indirect-spoke-architecture.md
           - text: Scenario - Any spoke to any spoke
             url: scenario-any-to-any.md
           - text: Scenario - Isolate a VNet
@@ -108,7 +108,9 @@ landingContent:
           - text: Scenario - Route to a shared services VNet
             url: scenario-shared-services-vnet.md
           - text: Scenario - Custom routing via Azure Firewall
-            url: scenario-route-between-vnets-firewall.md
+            url: static-routes-firewall-basic.md
+          - text: Scenario - Connect spoke VNets at scale by using Virtual Network Manager
+            url: virtual-network-manager-integration.md
       - linkListType: how-to-guide
         links:
           - text: Configure virtual hub routing
@@ -122,6 +124,24 @@ landingContent:
             url: monitor-virtual-wan.md
           - text: Monitor using Azure Monitor Insights
             url: azure-monitor-insights.md
+ 
+   # Card
+  - title: Related hybrid connectivity services
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: What is hybrid connectivity?
+            url: /azure/networking/hybrid-connectivity/hybrid-connectivity
+          - text: Learn more about hybrid connectivity
+            url: /azure/networking/hybrid-connectivity/
+      - linkListType: overview
+        links:
+          - text: Azure ExpressRoute
+            url: ../expressroute/expressroute-introduction.md
+          - text: Azure VPN Gateway
+            url: ../vpn-gateway/vpn-gateway-about-vpngateways.md
+
+
  # Card
   - title: Reference
     linkLists:

@@ -3,13 +3,16 @@ title: Synapse SQL Distribution Advisor
 description: This article describes how a user can receive advice on the best distribution strategy to utilize on tables based on user queries.
 author: mariyaali
 ms.author: mariyaali
-ms.reviewer: wiassaf
-ms.service: synapse-analytics
-ms.topic: conceptual
+
+ms.service: azure-synapse-analytics
+ms.topic: feature-guide
 ms.date: 07/16/2023
 ---
 
 # Distribution Advisor in Azure Synapse SQL
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 **Applies to:** Azure Synapse Analytics dedicated SQL pools (formerly SQL DW)
 
 In Azure Synapse SQL, each table is distributed using the strategy chosen by the customer (Round Robin, Hash Distributed, Replicated). The chosen distribution strategy can affect query performance substantially.

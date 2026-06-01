@@ -4,16 +4,18 @@ description: Learn about the Azure Migrate replication appliance for agent-based
 author: piyushdhore-microsoft 
 ms.author: piyushdhore
 ms.manager: vijain
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
-ms.date: 08/29/2023
-ms.custom: engagement-fy23
+ms.reviewer: v-uhabiba
+ms.date: 09/26/2024
+ms.custom: engagement-fy25
+# Customer intent: As a system administrator, I want to deploy the Azure Migrate replication appliance for agent-based migration of VMware VMs and physical servers, so that I can efficiently manage data replication to Azure and facilitate a seamless migration process.
 ---
 
 
 # Replication appliance
 
-This article describes the replication appliance used by the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool when migrating VMware VMs, physical machines, and private/public cloud VMs to Azure, using agent-based migration. 
+This article describes the replication appliance used by the [Migration and modernization](migrate-services-overview.md) tool when migrating VMware VMs, physical machines, and private/public cloud VMs to Azure, using agent-based migration. 
 
 
 ## Overview
@@ -42,7 +44,7 @@ When you set up the replication appliance using the OVA template provided in the
 **Component** | **Requirement**
 --- | ---
  | **VMware VM appliance**
-PowerCLI | [PowerCLI version 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) should be installed if the replication appliance is running on a VMware VM.
+PowerCLI | [PowerCLI version 6.0](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.install.doc/GUID-F02D0C2D-B226-4908-9E5C-2E783D41FE2D.html) should be installed if the replication appliance is running on a VMware VM.
 NIC type | VMXNET3 (if the appliance is a VMware VM)
  | **Hardware settings**
 CPU cores | 8
@@ -54,7 +56,7 @@ Operating system | Windows Server 2016 or Windows Server 2012 R2
 License | The appliance comes with a Windows Server 2016 evaluation license, which is valid for 180 days. <br>If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
 Operating system locale | English (en-us)
 TLS | TLS 1.2 should be enabled.
-.NET Framework | .NET Framework 4.6 or later should be installed on the machine (with strong cryptography enabled.
+.NET Framework | .NET Framework 4.6 or later should be installed on the machine with strong cryptography enabled.
 MySQL | MySQL should be installed on the appliance. <br> MySQL should be installed. You can install it manually, or Azure Migrate can install it during the appliance deployment.
 Other apps | Don't run other apps on the replication appliance.
 Windows Server roles | Don't enable these roles: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
@@ -158,8 +160,8 @@ Process server | The process server receives replication data, optimizes, and en
 
 The appliance is upgraded manually from the Azure Migrate hub. We recommend that you always run the latest version.
 
-1. In Azure Migrate > Servers > Azure Migrate: Server Assessment, Infrastructure servers, select **Configuration servers**.
-2. In **Configuration servers**, a link appears in **Agent Version** when a new version of the replication appliance is available. 
+1. In Azure Migrate > Servers, databases and web apps> Migration and modernization > Overview > Migration > Infrastructure servers  select **Configuration servers**.
+2. In **Configuration servers** screen, a link appears in **Agent Version** when a new version of the replication appliance is available. 
 3. Download the installer to the replication appliance machine, and install the upgrade. The installer detects the version currently running on the appliance.
  
 ## Next steps

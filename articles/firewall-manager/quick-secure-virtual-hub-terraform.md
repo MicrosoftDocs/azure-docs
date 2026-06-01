@@ -2,11 +2,11 @@
 title: 'Quickstart: Secure virtual hub using Azure Firewall Manager - Terraform'
 description: In this quickstart, you learn how to secure your virtual hub using Azure Firewall Manager and Terraform.
 services: firewall-manager
-author: cshea-msft
-ms.author: chashea
-ms.date: 09/05/2023
+author: duongau
+ms.author: duau
+ms.date: 01/09/2025
 ms.topic: quickstart
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.custom: devx-track-terraform
 content_well_notifications:
   - AI-Contribution
@@ -16,11 +16,11 @@ content_well_notifications:
 
 In this quickstart, you use Terraform to secure your virtual hub using Azure Firewall Manager. The deployed firewall has an application rule that allows connections to `www.microsoft.com` . Two Windows Server 2019 virtual machines are deployed to test the firewall. One jump server is used to connect to the workload server. From the workload server, you can only connect to `www.microsoft.com`.
 
-For more information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md).
+For more information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md)
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](~/azure-dev-docs-pr/articles/includes/open-source-devops-prereqs-azure-subscription.md)]
 

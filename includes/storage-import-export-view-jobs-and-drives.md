@@ -8,7 +8,9 @@ ms.service: azure-storage
 ms.topic: include
 ms.date: 12/22/2021
 ms.author: shaas
-ms.custom: include file
+ms.custom:
+  - include file
+  - sfi-image-nochange
 ---
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).

@@ -1,7 +1,7 @@
 ---
-title: Azure Communication Services Call Automation how-to for passing call contextual data in Call Automation 
+title: Azure Communication Services Call Automation How-to for Passing Call Contextual Data in Call Automation 
 titleSuffix: An Azure Communication Services how-to document
-description: Provides a how-to guide for passing contextual information with Call Automation.
+description: The article shows how to pass contextual information with Call Automation.
 author: jutik0
 ms.topic: how-to
 ms.service: azure-communication-services
@@ -12,38 +12,54 @@ manager: visho
 services: azure-communication-services
 ---
 
-# How to pass contextual data between calls
+# Pass contextual data between calls
 
-Call Automation allows developers to pass along custom contextual information when routing calls. Developers can pass metadata about the call, callee or any other information that is relevant to their application or business logic. This allows businesses to manage, and route calls across networks without having to worry about losing context.
+Call Automation allows developers to pass along custom contextual information when routing calls. Developers can pass metadata about the call, caller, or any other information that's relevant to their application or business logic. Businesses can then manage and route calls across networks without having to worry about losing context.
 
-Passing context is supported by specifying custom headers. These are an optional list of key-value pairs that can be included as part of `AddParticipant` or `Transfer` actions. The context can be later retrieved as part of the `IncomingCall` event payload.
+Passing context is supported by specifying custom headers. This optional list of key/value pairs is included as part of `AddParticipant` or `Transfer` actions. The context is retrieved later as part of the `IncomingCall` event payload.
 
-Custom call context is also forwarded to the SIP protocol, this includes both the freeform custom headers as well as the standard User-to-User Information (UUI) SIP header. When routing an inbound call from your telephony network, the data set from your SBC in the custom headers and UUI is similarly included in the `IncomingCall` event payload. 
+Custom call context is also forwarded to the Session Initiation Protocol (SIP), which includes both the freeform custom headers and the standard user-to-user information (UUI) SIP header. When an inbound call from your telephony network is routed, the data set from your Session Border Controller (SBC) in the custom headers and UUI is similarly included in the `IncomingCall` event payload.
 
-All custom context data is opaque to Call Automation or SIP protocols and its content is unrelated to any basic functions.
+All custom context data is opaque to Call Automation or SIP protocols, and its content is unrelated to any basic functions.
 
-Below are samples on how to get started using custom context headers in Call Automation. 
+The following samples show how to get started by using custom context headers in Call Automation.
 
-As a prerequisite, we recommend you to read these articles to make the most of this guide:
+## Prerequisites
 
-- Call Automation [concepts guide](../../concepts/call-automation/call-automation.md#call-actions) that describes the action-event programming model and event callbacks.
-- Learn about [user identifiers](../../concepts/identifiers.md#the-communicationidentifier-type) like CommunicationUserIdentifier and PhoneNumberIdentifier used in this guide.
+- Read the Call Automation [concepts article](../../concepts/call-automation/call-automation.md#call-actions) that describes the action-event programming model and event callbacks.
+- Learn about the [user identifiers](../../concepts/identifiers.md#the-communicationidentifier-type) like `CommunicationUserIdentifier` and PhoneNumberIdentifier` that are used in this article.
 
-For all the code samples, `client` is CallAutomationClient object that can be created as shown and `callConnection` is the CallConnection object obtained from Answer or CreateCall response. You can also obtain it from callback events received by your application.
+For all the code samples, `client` is the `CallAutomationClient` object that you can create, and `callConnection` is the `CallConnection` object that you obtain from an `Answer` or `CreateCall` response. You can also obtain it from callback events that your application receives.
 
 ## Technical parameters
-Call Automation supports up to 5 custom SIP headers and 1000 custom VOIP headers. Additionally, developers can include a dedicated User-To-User header as part of SIP headers list.
 
-The custom SIP header key must start with a mandatory ‘X-MS-Custom-’ prefix.  The maximum length of a SIP header key is 64 chars, including the X-MS-Custom prefix. The SIP header key may consist of alphanumeric characters and a few selected symbols which includes `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`. The maximum length of SIP header value is 256 chars. The same limitations apply when configuring the SIP headers on your SBC. The SIP header value may consist of alphanumeric characters and a few selected symbols which includes `=`, `;`, `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`.
+Call Automation supports up to five custom SIP headers and 1,000 custom voice-over-IP (VoIP) headers. Developers can include a dedicated user-to-user header as part of a SIP headers list.
 
-The maximum length of a VOIP header key is 64 chars. These headers can be sent without ‘x-MS-Custom’ prefix. The maximum length of VOIP header value is 1024 chars.
+Custom SIP header keys can now start with either the **X-\*** prefix or the **X-MS-Custom-\*** prefix.  
+- **X-\*** is newly supported.  
+- **X-MS-Custom-\*** remains supported for backward compatibility.  
+- Any other **X-MS-\*** prefix is reserved and must not be used.
 
-## Adding custom context when inviting a participant
+The maximum length of a SIP header key is **64 characters**, including the prefix, while the maximum length of a SIP header value is **256 characters**. The key can contain alphanumeric characters and the following symbols:  
+```
+`.`, `!`, `%`, `*`, `_`, `+`, `~`, and `-`
+```
+The SIP header value consists also of alphanumeric characters and a few selected symbols, which include:
+```
+`=`, `;`, `.`, `!`, `%`, `*`, `_`, `+`, `~`, and `-`.
+```
+> [!NOTE]
+> The same limitations apply when configuring SIP headers on your SBC.
 
-### [csharp](#tab/csharp)
+
+For VoIP header, the maximum length of a VoIP header key is **64 characters** while the maximum length of a VoIP header value is **1,024 characters**. These headers can be sent without the custom prefix. 
+
+## Add custom context when you invite a participant
+
+### [C#](#tab/csharp)
 
 ```csharp
-// Invite a communication services user and include one VOIP header
+// Invite an Azure Communication Services user and include one VOIP header
 var addThisPerson = new CallInvite(new CommunicationUserIdentifier("<user_id>"));
 addThisPerson.CustomCallingContext.AddVoip("myHeader", "myValue");
 AddParticipantsResult result = await callConnection.AddParticipantAsync(addThisPerson);
@@ -54,13 +70,15 @@ var addThisPerson = new CallInvite(new PhoneNumberIdentifier("+16041234567"), ca
 // Set custom UUI header. This key is sent on SIP protocol as User-to-User
 addThisPerson.CustomCallingContext.AddSipUui("value");
 
-// This provided key will be automatically prefixed with X-MS-Custom on SIP protocol, such as 'X-MS-Custom-{key}'
+// The provided key will be automatically prefixed with X-MS-Custom on SIP protocol, such as 'X-MS-Custom-{key}'
 addThisPerson.CustomCallingContext.AddSipX("header1", "customSipHeaderValue1");
+// The provided key prefix is based on SipHeaderPrefix param: SipHeaderPrefix.X → 'X-{key}', SipHeaderPrefix.XmsCustom → 'X-MS-Custom-{key}'
+addThisPerson.CustomCallingContext.AddSipX("header2", "customSipHeaderValue2", SipHeaderPrefix.X);
 AddParticipantsResult result = await callConnection.AddParticipantAsync(addThisPerson);
 ```
 ### [Java](#tab/java)
 ```java
-// Invite a communication services user and include one VOIP header
+// Invite an Azure Communication Services user and include one VOIP header
 CallInvite callInvite = new CallInvite(new CommunicationUserIdentifier("<user_id>"));
 callInvite.getCustomCallingContext().addVoip("voipHeaderName", "voipHeaderValue");
 AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite);
@@ -70,14 +88,17 @@ Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsyn
 PhoneNumberIdentifier callerIdNumber = new PhoneNumberIdentifier("+16044561234");
 CallInvite callInvite = new CallInvite(new PhoneNumberIdentifier("+16041234567"), callerIdNumber);
 callInvite.getCustomCallingContext().addSipUui("value");
+// The provided key will be automatically prefixed with X-MS-Custom on SIP protocol, such as 'X-MS-Custom-{key}'
 callInvite.getCustomCallingContext().addSipX("header1", "customSipHeaderValue1");
+// The provided key prefix is based on SipHeaderPrefix param: SipHeaderPrefix.X → 'X-{key}', SipHeaderPrefix.X_MS_CUSTOM → 'X-MS-Custom-{key}'
+callInvite.getCustomCallingContext().addSipX("header2", "customSipHeaderValue2", SipHeaderPrefix.X);
 AddParticipantOptions addParticipantOptions = new AddParticipantOptions(callInvite);
 Response<AddParticipantResult> addParticipantResultResponse = callConnectionAsync.addParticipantWithResponse(addParticipantOptions).block();
 ```
 
 ### [JavaScript](#tab/javascript)
 ```javascript
-// Invite a communication services user and include one VOIP header
+// Invite an Azure Communication Services user and include one VOIP header
 const customCallingContext: CustomCallingContext = [];
 customCallingContext.push({ kind: "voip", key: "voipHeaderName", value: "voipHeaderValue" })
 const addThisPerson = {
@@ -90,7 +111,10 @@ const addParticipantResult = await callConnection.addParticipant(addThisPerson);
 const callerIdNumber = { phoneNumber: "+16044561234" };
 const customCallingContext: CustomCallingContext = [];
 customCallingContext.push({ kind: "sipuui", key: "", value: "value" });
-customCallingContext.push({ kind: "sipx", key: "headerName", value: "headerValue" })
+// The provided key will be automatically prefixed with X-MS-Custom on SIP protocol, such as 'X-MS-Custom-{key}'
+customCallingContext.push({ kind: "sipx", key: "headerName", value: "headerValue" });
+// The provided key prefix is based on sipHeaderPrefix param: X- → 'X-{key}', X-MS-Custom- → 'X-MS-Custom-{key}'
+customCallingContext.push({ kind: "sipx", key: "headerName2", value: "headerValue2", sipHeaderPrefix: "X-" });
 const addThisPerson = {
     targetParticipant: { phoneNumber: "+16041234567" }, 
     sourceCallIdNumber: callerIdNumber,
@@ -101,7 +125,7 @@ const addParticipantResult = await callConnection.addParticipant(addThisPerson);
 
 ### [Python](#tab/python)
 ```python
-#Invite a communication services user and include one VOIP header
+#Invite an Azure Communication Services user and include one VOIP header
 voip_headers = {"voipHeaderName", "voipHeaderValue"}
 target = CommunicationUserIdentifier("<acs_user_id>")
 result = call_connection_client.add_participant(
@@ -113,7 +137,10 @@ result = call_connection_client.add_participant(
 caller_id_number = PhoneNumberIdentifier("+16044561234")
 sip_headers = {}
 sip_headers["User-To-User"] = "value"
+# Specify dict key with X-MS-Custom prefix
 sip_headers["X-MS-Custom-headerName"] = "headerValue"
+# Specify dict key with X- prefix
+sip_headers["X-headerName2"] = "headerValue2"
 target = PhoneNumberIdentifier("+16041234567")
 result = call_connection_client.add_participant(
     target,
@@ -123,12 +150,12 @@ result = call_connection_client.add_participant(
 ```
 
 -----
-## Adding custom context during call transfer
+## Add a custom context during a call transfer
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
-//Transfer to communication services user and include one VOIP header
+//Transfer to an Azure Communication Services user and include one VOIP header
 var transferDestination = new CommunicationUserIdentifier("<user_id>"); 
 var transferOption = new TransferToParticipantOptions(transferDestination);   
 var transferOption = new TransferToParticipantOptions(transferDestination) {
@@ -142,29 +169,35 @@ TransferCallToParticipantResult result = await callConnection.TransferCallToPart
 var transferDestination = new PhoneNumberIdentifier("<target_phoneNumber>");
 var transferOption = new TransferToParticipantOptions(transferDestination);
 transferOption.CustomCallingContext.AddSipUui("uuivalue");
+// The provided key will be automatically prefixed with X-MS-Custom on SIP protocol, such as 'X-MS-Custom-{key}'
 transferOption.CustomCallingContext.AddSipX("header1", "headerValue");
+// The provided key prefix is based on SipHeaderPrefix param: SipHeaderPrefix.X → 'X-{key}', SipHeaderPrefix.XmsCustom → 'X-MS-Custom-{key}'
+transferOption.CustomCallingContext.AddSipX("header2", "headerValue2", SipHeaderPrefix.X);
 TransferCallToParticipantResult result = await callConnection.TransferCallToParticipantAsync(transferOption)
 ```
 
 ### [Java](#tab/java)
 ```java
-//Transfer to communication services user and include one VOIP header
+//Transfer to an Azure Communication Services user and include one VOIP header
 CommunicationIdentifier transferDestination = new CommunicationUserIdentifier("<user_id>");
 TransferCallToParticipantOptions options = new TransferCallToParticipantOptions(transferDestination);
 options.getCustomCallingContext().addVoip("voipHeaderName", "voipHeaderValue");
 Response<TransferCallResult> transferResponse = callConnectionAsync.transferToParticipantCallWithResponse(options).block();
 
 //Transfer a PSTN call to phone number and set UUI and custom SIP headers
-CommunicationIdentifier transferDestination = new PhoneNumberIdentifier("<taget_phoneNumber>");
+CommunicationIdentifier transferDestination = new PhoneNumberIdentifier("<target_phoneNumber>");
 TransferCallToParticipantOptions options = new TransferCallToParticipantOptions(transferDestination);
 options.getCustomCallingContext().addSipUui("UUIvalue");
+// The provided key will be automatically prefixed with X-MS-Custom on SIP protocol, such as 'X-MS-Custom-{key}'
 options.getCustomCallingContext().addSipX("sipHeaderName", "value");
+// The provided key prefix is based on SipHeaderPrefix param: SipHeaderPrefix.X → 'X-{key}', SipHeaderPrefix.X_MS_CUSTOM → 'X-MS-Custom-{key}'
+options.getCustomCallingContext().addSipX("sipHeaderName2", "value2", SipHeaderPrefix.X);
 Response<TransferCallResult> transferResponse = callConnectionAsync.transferToParticipantCallWithResponse(options).block();
 ```
 
 ### [JavaScript](#tab/javascript)
 ```javascript
-//Transfer to communication services user and include one VOIP header
+//Transfer to an Azure Communication Services user and include one VOIP header
 const transferDestination = { communicationUserId: "<user_id>" };
 const transferee = { communicationUserId: "<transferee_user_id>" };
 const options = { transferee: transferee, operationContext: "<Your_context>", operationCallbackUrl: "<url_endpoint>" };
@@ -174,51 +207,57 @@ options.customCallingContext = customCallingContext;
 const result = await callConnection.transferCallToParticipant(transferDestination, options);
 
 //Transfer a PSTN call to phone number and set UUI and custom SIP headers
-const transferDestination = { phoneNumber: "<taget_phoneNumber>" };
+const transferDestination = { phoneNumber: "<target_phoneNumber>" };
 const transferee = { phoneNumber: "<transferee_phoneNumber>" };
 const options = { transferee: transferee, operationContext: "<Your_context>", operationCallbackUrl: "<url_endpoint>" };
 const customCallingContext: CustomCallingContext = [];
 customCallingContext.push({ kind: "sipuui", key: "", value: "uuivalue" });
-customCallingContext.push({ kind: "sipx", key: "headerName", value: "headerValue" })
+// The provided key will be automatically prefixed with X-MS-Custom on SIP protocol, such as 'X-MS-Custom-{key}'
+customCallingContext.push({ kind: "sipx", key: "headerName", value: "headerValue" });
+// The provided key prefix is based on sipHeaderPrefix param: X- → 'X-{key}', X-MS-Custom- → 'X-MS-Custom-{key}'
+customCallingContext.push({ kind: "sipx", key: "headerName2", value: "headerValue2", sipHeaderPrefix: "X-" });
 options.customCallingContext = customCallingContext;
 const result = await callConnection.transferCallToParticipant(transferDestination, options);
 ```
 
 ### [Python](#tab/python)
 ```python
-#Transfer to communication services user and include one VOIP header
+#Transfer to an Azure Communication Services user and include one VOIP header
 transfer_destination = CommunicationUserIdentifier("<user_id>")
-transferee = CommnunicationUserIdentifer("transferee_user_id")
+transferee = CommunicationUserIdentifier("transferee_user_id")
 voip_headers = {"customVoipHeader1", "customVoipHeaderValue1"}
 result = call_connection_client.transfer_call_to_participant(
     target_participant=transfer_destination,
     transferee=transferee,
     voip_headers=voip_headers,
-    opration_context="Your context",
+    operation_context="Your context",
     operationCallbackUrl="<url_endpoint>"
 )
 
 #Transfer a PSTN call to phone number and set UUI and custom SIP headers
-transfer_destination = PhoneNumberIdentifer("<target_phoneNumber>")
-transferee = PhoneNumberIdentifer("transferee_phoneNumber")
+transfer_destination = PhoneNumberIdentifier("<target_phoneNumber>")
+transferee = PhoneNumberIdentifier("transferee_phoneNumber")
 sip_headers={}
-sip_headers["X-MS-Custom-headerName"] = "headerValue"
 sip_headers["User-To-User"] = "uuivalue"
+# Specify dict key with X-MS-Custom prefix
+sip_headers["X-MS-Custom-headerName"] = "headerValue"
+# Specify dict key with X- prefix
+sip_headers["X-headerName2"] = "headerValue2"
 result = call_connection_client.transfer_call_to_participant(
     target_participant=transfer_destination,
     transferee=transferee,
     sip_headers=sip_headers,
-    opration_context="Your context",
+    operation_context="Your context",
     operationCallbackUrl="<url_endpoint>"
 )
 ```
 
-Transfer of a VoIP call to a phone number is currently not supported.
+Currently, transfer of a VoIP call to a phone number isn't supported.
 
 -----
-## Reading custom context from an incoming call event
+## Read custom context from an incoming call event
 
-### [csharp](#tab/csharp)
+### [C#](#tab/csharp)
 
 ```csharp
 AcsIncomingCallEventData incomingEvent = <incoming call event from Event Grid>;
@@ -282,8 +321,7 @@ userToUser = sipHeaders["user-To-User"]
 ```
 
 -----
-## Additional resources
+## Related content
 
-- For a sample payload of the incoming call, refer to this [guide](../../../event-grid/communication-services-voice-video-events.md#microsoftcommunicationincomingcall).
-
+- For a sample payload of the incoming call, see [Azure Communication Services: Voice and video calling events](../../../event-grid/communication-services-voice-video-events.md#microsoftcommunicationincomingcall).
 - Learn more about [SIP protocol details for direct routing](../../concepts/telephony/direct-routing-sip-specification.md).

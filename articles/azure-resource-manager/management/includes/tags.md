@@ -2,9 +2,7 @@
 ms.service: azure-resource-manager
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: include
-ms.date: 07/07/2022
-author: mumian
-ms.author: jgao
+ms.date: 09/15/2025
 ---
 
 ### Find storage accounts with a specific case-insensitive tag on the resource group

@@ -1,5 +1,5 @@
 ---
-title: Enforce a minimum required version of Transport Layer Security (TLS) for incoming requests
+title: Enforce a Minimum Required Version of Transport Layer Security (TLS)
 titleSuffix: Azure Storage
 description: Configure a storage account to require a minimum version of Transport Layer Security (TLS) for clients making requests against Azure Storage.
 services: storage
@@ -7,24 +7,25 @@ author: normesta
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 03/22/2024
+ms.date: 01/28/2026
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
+# Customer intent: "As a cloud administrator, I want to enforce a minimum version of Transport Layer Security (TLS) for my storage accounts, so that I can ensure secure communications and protect sensitive data from potential vulnerabilities."
 ---
 
 # Enforce a minimum required version of Transport Layer Security (TLS) for requests to a storage account
 
 Communication between a client application and an Azure Storage account is encrypted using Transport Layer Security (TLS). TLS is a standard cryptographic protocol that ensures privacy and data integrity between clients and services over the Internet. For more information about TLS, see [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security).
 
-Azure Storage currently supports three versions of the TLS protocol: 1.0, 1.1, and 1.2. Azure Storage uses TLS 1.2 on public HTTPS endpoints, but TLS 1.0 and TLS 1.1 are still supported for backward compatibility.
+Azure Storage supports two versions of the TLS protocol: 1.2 and 1.3. While TLS 1.3 is now supported, the ability to enforce it as the minimum TLS version for Azure Storage accounts isn't currently supported. The recommended minimum TLS version is TLS 1.2. Clients using the latest TLS versions will automatically negotiate to use TLS 1.3 if available.
 
 > [!TIP]
-> Azure Storage relies on Windows implementation of SSL that is not based on OpenSSL and therefore is not exposed to OpenSSL related vulnerabilities.
+> Azure Storage relies on Windows implementation of SSL that isn't based on OpenSSL and therefore isn't exposed to OpenSSL related vulnerabilities.
 
-Azure Storage accounts permit clients to send and receive data with the oldest version of TLS, TLS 1.0, and above. To enforce stricter security measures, you can configure your storage account to require that clients send and receive data with a newer version of TLS. If a storage account requires a minimum version of TLS, then any requests made with an older version will fail.
+Azure Storage accounts permit clients to send and receive data with TLS versions 1.2 and above. When a storage account requires a minimum TLS version, any request that uses an older version will fail.
 
 This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to continuously manage secure TLS for your storage accounts.
 
@@ -39,11 +40,11 @@ When you enforce a minimum TLS version for your storage account, you risk reject
 
 To log requests to your Azure Storage account and determine the TLS version used by the client, you can use Azure Storage logging in Azure Monitor. For more information, see [Monitor Azure Storage](../blobs/monitor-blob-storage.md).
 
-Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](../../azure-monitor/logs/log-analytics-tutorial.md).
+Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. To create a diagnostic setting in the Azure portal, follow these steps:
 
-1. Create a new Log Analytics workspace in the subscription that contains your Azure Storage account. After you configure logging for your storage account, the logs will be available in the Log Analytics workspace. For more information, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md).
+1. Create a new Log Analytics workspace in the subscription that contains your Azure Storage account. After you configure logging for your storage account, the logs will be available in the Log Analytics workspace. For more information, see [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 1. Navigate to your storage account in the Azure portal.
 1. In the Monitoring section, select **Diagnostic settings**.
 1. Select the Azure Storage service for which you want to log requests. For example, choose **Blob** to log requests to Blob storage.
@@ -54,7 +55,7 @@ To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analy
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="Screenshot showing how to create a diagnostic setting for logging requests":::
 
-After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting. For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
+After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting. For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](/azure/azure-monitor/essentials/diagnostic-settings).
 
 For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](../blobs/monitor-blob-storage-reference.md#resource-logs).
 
@@ -97,7 +98,7 @@ When you are confident that traffic from clients using older versions of TLS is 
 
 To configure the minimum TLS version for a storage account, set the **MinimumTlsVersion** version for the account. This property is available for all storage accounts that are created with the Azure Resource Manager deployment model. For more information about the Azure Resource Manager deployment model, see [Storage account overview](storage-account-overview.md).
 
-The default value of the **MinimumTlsVersion** property is different depending on how you set it. When you create a storage account with the Azure portal, the minimum TLS version is set to 1.2 by default. When you create a storage account with PowerShell, Azure CLI, or an Azure Resource Manager template, the **MinimumTlsVersion** property is not set by default and does not return a value until you explicitly set it.
+The default value of the **MinimumTlsVersion** property is different depending on how you set it. When you create a storage account with the Azure portal, the minimum TLS version is set to 1.2 by default. When creating a storage account using PowerShell, Azure CLI, or an Azure Resource Manager template, the `MinimumTlsVersion` property is not set by default and will not return a value until explicitly configured."
 
 When the **MinimumTlsVersion** property is not set, its value may be displayed as either **null** or an empty string, depending on the context. The storage account will permit requests sent with TLS version 1.0 or greater if the property is not set.
 

@@ -1,24 +1,23 @@
 ---
 title:  Manage the backup jobs using REST API in Azure Backup
 description: In this article, learn how to track and manage the backup and restore jobs of Azure Backup using REST API.
-ms.service: backup
+ms.service: azure-backup
 ms.topic: how-to
-ms.date: 04/09/2024
+ms.date: 02/20/2026
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: As a cloud administrator, I want to manage and track backup and restore jobs using a REST API, so that I can automate backup processes and monitor their status efficiently.
 ---
 
 # Track the backup and restore jobs using REST API in Azure Backup
 
-This article describes how to monitor the backup and restore jobs using REST API in Azure Backup.
+This article describes how to fetch, track, and monitor Azure Backup job status by using REST APIs. You learn how to identify job IDs from backup and restore operations, retrieve job details to track progress, and access extended information for completed jobs, such as task-level status, backup metrics, and protected entity details. Azure Backup runs these jobs in the background for operations like backup, restore, and disable backup, and REST API endpoints provide end-to-end visibility into job execution and completion status.
 
-The Azure Backup service triggers jobs that run in background in various scenarios such as triggering backup, restore operations, disabling backup. You can track these jobs using their IDs.
+## Fetch Job information from backup and restore operations
 
-## Fetch Job information from operations
-
-An operation such as triggering backup will always return a jobID. For example: The final response of a [trigger backup REST API operation](backup-azure-arm-userestapi-backupazurevms.md#example-responses-for-on-demand-backup) is as follows:
+Triggering a backup operation always returns a jobID. The following example provides the final response of a [trigger backup REST API operation](backup-azure-arm-userestapi-backupazurevms.md#example-responses-for-on-demand-backup):
 
 ```http
 {
@@ -34,15 +33,15 @@ An operation such as triggering backup will always return a jobID. For example: 
 }
 ```
 
-The Azure VM backup job is identified by "jobId" field and can be tracked as mentioned [here](/rest/api/backup/job-details) using a simple *GET* request.
+You can identify the Azure Virtual Machine (VM) backup job by the "jobId" field. Track the job  as mentioned [here](/rest/api/backup/job-details) using a simple `GET` request.
 
-## Tracking the job
+## Track the backup and restore jobs
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
-The `{jobName}` is "jobId" mentioned above. The response is always 200 OK with the "status" field indicating the current status of the job. Once it's *Completed* or *CompletedWithWarnings*, the 'extendedInfo' section reveals more details about the job.
+The `{jobName}` is `jobId`. The response is always 200 OK with the "status" field indicating the current status of the job. Once the job is complete with the message `Completed` or `CompletedWithWarnings`, the *extendedInfo* section provides more details about the job.
 
 ### Response
 
@@ -52,7 +51,7 @@ The `{jobName}` is "jobId" mentioned above. The response is always 200 OK with t
 
 #### Example response
 
-Once the *GET* URI submission is complete, a 200 (OK) response is returned.
+Once the `GET` URI submission is complete, a 200 (OK) response is returned.
 
 ```http
 HTTP/1.1 200 OK
@@ -112,4 +111,9 @@ X-Powered-By: ASP.NET
 ```
 ## Next steps
 
-[About Azure Backup](backup-overview.md).
+- [Support matrix for automation in Azure Backup](backup-support-automation.md).
+- [Back up an Azure VM using Azure Backup via REST API](backup-azure-arm-userestapi-backupazurevms.md).
+- [Restore Azure Virtual machines using REST API](backup-azure-arm-userestapi-restoreazurevms.md).
+- [Backup Azure Files using Azure Backup via REST API](backup-azure-file-share-rest-api.md).
+- [Restore Azure Files using REST API](restore-azure-file-share-rest-api.md).
+- [Back up SQL server databases in Azure VMs using Azure Backup via REST API](backup-azure-sql-vm-rest-api.md).

@@ -3,11 +3,9 @@ title: What's new in Azure Data Factory
 description: This page highlights new features and recent improvements for Azure Data Factory. Data Factory is a managed cloud service that's built for complex hybrid extract-transform-and-load (ETL), extract-load-and-transform (ELT), and data integration projects.
 author: pennyzhou-msft
 ms.author: xupzhou
-ms.service: data-factory
-ms.subservice: concepts
 ms.topic: overview
 ms.custom: references_regions
-ms.date: 10/11/2023
+ms.date: 03/26/2026
 ---
 
 # What's new in Azure Data Factory
@@ -20,9 +18,59 @@ Azure Data Factory is improved on an ongoing basis. To stay up to date with the 
 - Deprecated functionality.
 - Plans for changes.
 
-This page is updated monthly, so revisit it regularly.  For older months' updates, refer to the [What's new archive](whats-new-archive.md).
+For older months' updates, refer to the [What's new archive](whats-new-archive.md).
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update videos.
+
+>[!TIP]
+>Also check [what's new for Data Factory in Microsoft Fabric](/fabric/fundamentals/whats-new?toc=%2Ffabric%2Fdata-factory%2Ftoc.json#data-factory-in-microsoft-fabric)
+
+## March 2026
+
+### Migration
+- Upgrading your Azure Data Factory pipelines to Fabric. [Learn more](how-to-upgrade-your-azure-data-factory-pipelines-to-fabric-data-factory.md).
+- Upgrading your Azure Synapse Analytics pipelines to Fabric. [Learn more](how-to-upgrade-your-azure-synapse-analytics-pipelines-to-fabric-data-factory.md).
+
+## January 2026
+
+### Migration
+Assessing your Azure Data Factory and Synapse pipelines for migration to Fabric. [Learn more](how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration.md).
+
+## December 2025
+
+### Data movement
+
+HDInsight Hive activity now supports Managed Identity authentication to ADLS Gen2 Storage accounts for Bring Your Own Compute. [Learn more](compute-linked-services.md).
+
+## October 2025
+
+### Data movement
+
+HDInsight Hive activity now supports Managed Identity authentication to ADLS Gen2 Storage accounts for Bring Your Own Compute. [Learn more](compute-linked-services.md).
+
+## August 2025
+
+### Data flow
+
+We're updating Azure Data Factory Mapping Data Flows to use to use Spark 3.4.
+
+## August 2024
+
+### Data movement
+
+HDInsight On-demand Spark activity now supports Managed Identity authentication. [Learn more](connector-azure-table-storage.md).
+
+## June 2025
+
+### Data movement
+
+Azure Data Factory Connector Upgrade Advisor now supports additional connectors. [Learn more](connector-upgrade-advisor.md).
+
+## May 2025
+
+### Migration
+
+Mounting your Azure Data Factory in Fabric is now generally available. [Learn more](/fabric/data-factory/tutorial-bring-azure-data-factory-to-fabric).
 
 ## June 2024
 
@@ -53,7 +101,7 @@ Pipeline activity limit lifted to 80 activities. [Learn more](https://techcommun
 
 ### Data movement
 
-- Mysql Connector driver upgrade available for Copy activity. [Learn more](connector-mysql.md)
+- MySQL Connector driver upgrade available for Copy activity. [Learn more](connector-mysql.md)
 - MariaDB Connector driver upgrade available for Copy activity. [Learn more](connector-mariadb.md)
 - We added native UI support of parameterization for the following linked services: SAP HANA; MariaDB; Google BigQuery. [Learn more](parameterize-linked-services.md#supported-linked-service-types)
 
@@ -85,17 +133,11 @@ General Availability of Time to Live (TTL) for Managed Virtual Network [Learn mo
 
 Azure Data Factory is generally available in Poland Central [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/continued-region-expansion-azure-data-factory-is-generally/ba-p/3965769)
 
-## September 2023
-
-### Pipelines
-
-Added support for metadata driven pipelines for dynamic full and incremental processing in Azure SQL [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/metadata-driven-pipelines-for-dynamic-full-and-incremental/ba-p/3925362)
-
 ## Related content
 
 - [What's new archive](whats-new-archive.md)
 - [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv)
 - [Blog - Azure Data Factory](https://techcommunity.microsoft.com/t5/azure-data-factory/bg-p/AzureDataFactoryBlog)
 - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-data-factory)
-- [Twitter](https://twitter.com/AzDataFactory?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
+- [X](https://x.com/AzDataFactory?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor)
 - [Videos](https://www.youtube.com/channel/UC2S0k7NeLcEm5_IhHUwpN0g/featured)

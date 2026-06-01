@@ -693,6 +693,9 @@ There are two options for outputting an Event Grid message from a function:
 - **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as an Event Grid message.
 - **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as an Event Grid message.
 
+
+The output function parameter must be defined as `func.Out[str]`, `func.Out[bytes]`, `func.Out[func.EventGridOutputEvent]`, or `func.Out[List[func.EventGridOutputEvent]]`. Refer to the [output example](#example) for details.
+
 ::: zone-end
 
 ## Connections
@@ -716,7 +719,7 @@ Use the following steps to configure a topic key:
 
 ### Identity-based authentication
 
-When using version 3.3.x or higher of the extension, you can connect to an Event Grid topic using an [Microsoft Entra identity](../active-directory/fundamentals/active-directory-whatis.md) to avoid having to obtain and work with topic keys. 
+When using version 3.3.x or higher of the extension, you can connect to an Event Grid topic using a [Microsoft Entra identity](../active-directory/fundamentals/active-directory-whatis.md) to avoid having to obtain and work with topic keys. 
 
 You need to create an application setting that returns the topic endpoint URI. The name of the setting should combine a _unique common prefix_ (for example, `myawesometopic`) with the value `__topicEndpointUri`. Then, you must use that common prefix (in this case, `myawesometopic`) when you define the `Connection` property in the binding.
 
@@ -729,7 +732,7 @@ In this mode, the extension requires the following properties:
 More properties can be used to customize the connection. See [Common properties for identity-based connections](functions-reference.md#common-properties-for-identity-based-connections).
 
 > [!NOTE]
-> When using [Azure App Configuration](../azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](../key-vault/general/overview.md) to provide settings for managed identity-based connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
+> When using [Azure App Configuration](../azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](/azure/key-vault/general/overview) to provide settings for managed identity-based connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
 > 
 > For example, `<CONNECTION_NAME_PREFIX>:topicEndpointUri`.
 

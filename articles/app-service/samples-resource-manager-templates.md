@@ -5,10 +5,12 @@ author: tfitzmac
 tags: azure-service-management
 
 ms.topic: sample
-ms.date: 08/26/2020
+ms.date: 03/17/2026
 ms.author: tomfitz
 ms.custom: mvc, fasttrack-edit, devx-track-arm-template
+ms.service: azure-app-service
 ---
+
 # Azure Resource Manager templates for App Service
 
 The following table includes links to Azure Resource Manager templates for Azure App Service. For recommendations about avoiding common errors when you're creating app templates, see [Guidance on deploying apps with Azure Resource Manager templates](deploy-resource-manager-template.md).
@@ -26,7 +28,7 @@ To learn about the JSON syntax and properties for App Services resources, see [M
 |**Configuring an app**| **Description** |
 | [App certificate from Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-certificate-from-key-vault)| Deploys an App Service app certificate from an Azure Key Vault secret and uses it for TLS/SSL binding. |
 | [App with a custom domain and SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-custom-domain-and-ssl)| Deploys an App Service app with a custom host name, and gets an app certificate from Key Vault for TLS/SSL binding. |
-| [App with Java 8 and Tomcat 8](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-java-tomcat)| Deploys an App Service app with Java 8 and Tomcat 8 enabled. You can then run Java applications in Azure. |
+| [App with Java 13 and Tomcat 9](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-java-tomcat)| Deploys an App Service app with Java 13 and Tomcat 9 enabled. You can then run Java applications in Azure. |
 | [App with regional VNet integration](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/app-service-regional-vnet-integration)| Deploys an App Service app with regional VNet integration enabled. |
 |**Protecting an app**| **Description** |
 | [App integrated with Azure Application Gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-with-app-gateway-v2)| Deploys an App Service app and an Application Gateway, and isolates the traffic using service endpoint and access restrictions. |
@@ -43,7 +45,4 @@ To learn about the JSON syntax and properties for App Services resources, see [M
 | [App connected to a backend webapp with staging slots](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-secure-ntier)| Deploys two web apps (frontend and backend) with staging slots securely connected together with VNet injection and Private Endpoint. |
 | [Two apps in separate regions with Azure Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-multi-region-front-door) | Deploys two identical web apps in separate regions with Azure Front Door to direct traffic. |
 |**App Service Environment**| **Description** |
-| [Create an App Service environment v2](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-asev2-create) | Creates an App Service environment v2 in your virtual network. |
-| [Create an App Service environment v2 with an ILB address](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-asev2-ilb-create) | Creates an App Service environment v2 in your virtual network with a private internal load balancer address. |
-| [Configure the default SSL certificate for an ILB App Service environment or an ILB App Service environment v2](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-ase-ilb-configure-default-ssl) | Configures the default TLS/SSL certificate for an ILB App Service environment or an ILB App Service environment v2. |
-| | |
+| [Create an App Service environment v3](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-asp-app-on-asev3-create) | Creates an App Service environment v3, App Service plan, App Service, and all associated networking resources. |

@@ -29,6 +29,67 @@
             "source_path_from_root": "/articles/azure-netapp-files/backup-disable.md",
             "redirect_url": "/azure/azure-netapp-files/backup-configure-manual",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/reserved-capacity.md",
+            "redirect_url": "/azure/azure-netapp-files/reservations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/optimize-costs-reserved-capacity.md",
+            "redirect_url": "/azure/azure-netapp-files/reservations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/access-smb-volume-from-windows-client.md",
+            "redirect_url": "/azure/azure-netapp-files/mount-volumes-vms-smb",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/use-availability-zones.md",
+            "redirect_url": "/azure/reliability/reliability-netapp-files",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/cross-zone-replication-introduction.md",
+            "redirect_url": "/azure/azure-netapp-files/replication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/cross-zone-region-replication.md",
+            "redirect_url": "/azure/azure-netapp-files/replication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/cross-region-replication-introduction.md",
+            "redirect_url": "/azure/azure-netapp-files/replication",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root":"/articles/azure-netapp-files/cross-region-replication-requirements-considerations.md",
+            "redirect_url": "/azure/azure-netapp-files/replication-requirements",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root":"/articles/azure-netapp-files/cross-zone-replication-requirements-considerations.md",
+            "redirect_url": "/azure/azure-netapp-files/replication-requirements",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root":"/articles/azure-netapp-files/snapshots-edit-hide-path.md",
+            "redirect_url": "/azure/azure-netapp-files/snapshots-manage-policy#edit-the-hide-snapshot-path-option",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-netapp-files/elastic-resource-limits.md",
+            "redirect_url": "/azure/azure-netapp-files/azure-netapp-files-resource-limits",
+            "redirect_document_id": false
+        },
+         {
+            "source_path_from_root": "/articles/azure-netapp-files/enable-cross-subscription-replication.md",
+            "redirect_url": "/azure/azure-netapp-files/cross-region-replication-introduction", 
+            "redirect_document_id": false
         }
+        
     ]
 }

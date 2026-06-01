@@ -2,11 +2,12 @@
 title: Connect to self-hosted Prometheus on an AKS cluster via managed private endpoint
 titleSuffix: Azure Managed Grafana
 description: In this tutorial, learn how to connect to self-hosted Prometheus on an AKS Cluster using a managed private endpoint.
-services: managed-grafana
-author: weng5e
+ms.service: azure-managed-grafana
+author: maud-lv
 ms.topic: tutorial
-ms.date: 02/21/2024
-ms.author: wuweng
+ms.date: 11/21/2025
+ms.author: malev
+ms.custom: sfi-image-nochange
 ---
 
 # Tutorial: connect to a self-hosted Prometheus service on an AKS cluster using a managed private endpoint
@@ -26,7 +27,7 @@ In this tutorial, you learn how to:
 
 Before you begin, make sure you have the following:
 
-- An [Azure account](https://azure.microsoft.com/free)
+- An [Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - The [Azure CLI](/cli/azure/install-azure-cli).
 - [kubectl](https://kubernetes.io/docs/tasks/tools/)
 - [Helm](https://helm.sh/docs/intro/install/)
@@ -154,12 +155,10 @@ spec:
 
 1. The private link service with name `promManagedPls` is created in the AKS managed resource group. This process takes a few minutes.
 
-    :::image type="content" source="media/tutorial-managed-private-endpoint/private-link-service-prometheus.png" alt-text="Screenshot of the Azure platform: showing the created Private Link Service resource.":::
-
 ## Connect with a managed private endpoint
 
 1. If you don't have an Azure Managed Grafana workspace yet, create one by following the [Azure Managed Grafana quickstart](./quickstart-managed-grafana-portal.md).
-1. Open your Azure Managed Grafana workspace and go to **Networking** > **Managed Private Endpoint** > **Create**.
+1. Open your Azure Managed Grafana workspace and go to **Networking** > **Managed Private Endpoint** > **Add**.
 
     :::image type="content" source="media/tutorial-managed-private-endpoint/create-managed-private-endpoint.png" alt-text="Screenshot of the Azure platform showing the managed private endpoints page within an Azure Managed Grafana resource.":::
 

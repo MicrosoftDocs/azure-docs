@@ -1,13 +1,15 @@
 ---
 author: KarlErickson
 ms.author: v-muyaofeng
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: include
-ms.date: 11/20/2023
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.custom: sfi-image-nochange
 ---
 
 <!-- 
-For clarity of structure, a separate markdown file is used to describe how to validate the app using Azure Portal.
+For clarity of structure, a separate markdown file is used to describe how to validate the app using Azure portal.
 
 [!INCLUDE [validate-the-app-portal](includes/quickstart-deploy-restful-api-app/validate-the-app-portal.md)]
 
@@ -31,7 +33,7 @@ Use the following steps to register an application in Microsoft Entra ID, which 
 
 1. Under **Manage**, select **App registrations** > **New registration**.
 
-1. Enter a name for your application in the **Name** field - for example, *ToDoWeb*. Users of your app might see this name, and you can change it later.
+1. Enter a name for your application in the **Name** field - for example, **ToDoWeb**. Users of your app might see this name, and you can change it later.
 
 1. For **Supported account types**, use the default value **Accounts in this organizational directory only**.
 

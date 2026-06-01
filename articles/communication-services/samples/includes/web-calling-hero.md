@@ -8,8 +8,10 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 09/13/2023
 ms.topic: include
-ms.custom: include file
 ms.author: rifox
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 The Azure Communication Services **Group Calling Hero Sample** demonstrates how the Communication Services Calling Web SDK can be used to build a group calling experience.
@@ -48,8 +50,8 @@ Below you can find more information on prerequisites and steps to set up the sam
 
 ## Prerequisites
 
-- An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Node.js (12.18.4 and above)](https://nodejs.org/en/download/)
+- An Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
+- [Node.js (12.18.4 and above)](https://nodejs.org/en/download/package-manager/)
 - [Visual Studio Code (Stable Build)](https://code.visualstudio.com/Download)
 - An Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). You need to record your resource **connection string** for this quickstart.
 

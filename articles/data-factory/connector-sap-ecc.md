@@ -4,11 +4,12 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SAP ECC to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
 ms.author: ulrichchrist
-ms.service: data-factory
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.custom: synapse
-ms.date: 10/20/2023
+ms.topic: how-to
+ms.date: 09/26/2024
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy data from SAP ECC using Azure Data Factory or Synapse Analytics

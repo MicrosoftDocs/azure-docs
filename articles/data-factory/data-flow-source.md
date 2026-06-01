@@ -4,10 +4,9 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to set up a source transformation in a mapping data flow in Azure Data Factory or Azure Synapse Analytics pipelines.
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
-ms.topic: conceptual
-ms.date: 10/20/2023
+ms.topic: how-to
+ms.date: 04/27/2026
 ---
 
 # Source transformation in mapping data flows
@@ -15,6 +14,9 @@ ms.date: 10/20/2023
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
+> [!TIP]
+>  For the equivalent transformation (**Get Data**) in Dataflow Gen2, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
 
 A source transformation configures your data source for the data flow. When you design data flows, your first step is always configuring a source transformation. To add a source, select the **Add Source** box in the data flow canvas.
 
@@ -125,7 +127,7 @@ The **Source options** tab contains settings specific to the connector and forma
 
 ## Projection
 
-Like schemas in datasets, the projection in a source defines the data columns, types, and formats from the source data. For most dataset types, such as SQL and Parquet, the projection in a source is fixed to reflect the schema defined in a dataset. When your source files aren't strongly typed (for example, flat .csv files rather than Parquet files), you can define the data types for each field in the source transformation.
+Like schemas in datasets, the projection in a source defines the data columns, types, and formats from the source data. For most dataset types, such as SQL and Parquet, the projection in a source is fixed to reflect the schema defined in a dataset, which will vary based on the source. When your source files aren't strongly typed (for example, flat .csv files rather than Parquet files), you can define the data types for each field in the source transformation. The following image shows an example projection:
 
 :::image type="content" source="media/data-flow/source-3.png" alt-text="Screenshot that shows settings on the Projection tab.":::
 

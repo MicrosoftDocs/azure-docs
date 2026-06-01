@@ -3,22 +3,22 @@ title: Template functions - scope
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about deployment scope.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 03/20/2024
+ms.date: 08/08/2025
 ---
 
 # Scope functions for ARM templates
 
-Resource Manager provides the following functions for getting deployment scope values in your Azure Resource Manager template (ARM template):
+Azure Resource Manager provides the following functions for getting deployment scope values in your Azure Resource Manager template (ARM template):
 
-* [managementGroup](#managementgroup)
-* [resourceGroup](#resourcegroup)
-* [subscription](#subscription)
-* [tenant](#tenant)
+* [`managementGroup`](#managementgroup)
+* [`resourceGroup`](#resourcegroup)
+* [`subscription`](#subscription)
+* [`tenant`](#tenant)
 
-To get values from parameters, variables, or the current deployment, see [Deployment value functions](template-functions-deployment.md).
+To get values from parameters, variables, or the current deployment, see [deployment value functions](template-functions-deployment.md).
 
 > [!TIP]
-> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [scope](../bicep/bicep-functions-scope.md) functions.
+> [Bicep](../bicep/overview.md) is recommended since it offers the same capabilities as ARM templates, and the syntax is easier to use. To learn more, see [`scope`](../bicep/bicep-functions-scope.md) functions.
 
 ## managementGroup
 
@@ -26,11 +26,11 @@ To get values from parameters, variables, or the current deployment, see [Deploy
 
 Returns an object with properties from the management group in the current deployment.
 
-In Bicep, use the [managementGroup](../bicep/bicep-functions-scope.md#managementgroup) scope function.
+In Bicep, use the [`managementGroup`](../bicep/bicep-functions-scope.md#managementgroup) scope function.
 
 ### Remarks
 
-`managementGroup()` can only be used on a [management group deployments](deploy-to-management-group.md). It returns the current management group for the deployment operation. Use to get properties for the current management group.
+`managementGroup()` can only be used on [management-group deployments](deploy-to-management-group.md). It returns the current management group for the deployment operation. Use it to get properties for the current management group.
 
 ### Return value
 
@@ -38,7 +38,7 @@ An object with the properties for the current management group.
 
 ### Management group example
 
-The following example returns properties for the current management group.
+The following example returns properties for the current management group:
 
 ```json
 {
@@ -77,14 +77,14 @@ It returns:
         "version": "1"
       },
       "displayName": "Example MG 1",
-      "tenantId": "00000000-0000-0000-0000-000000000000"
+      "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
     },
     "type": "/providers/Microsoft.Management/managementGroups"
   }
 }
 ```
 
-The next example creates a new management group and uses this function to set the parent management group.
+The next example creates a new management group and uses this function to set the parent management group:
 
 ```json
 {
@@ -99,7 +99,7 @@ The next example creates a new management group and uses this function to set th
   "resources": [
     {
       "type": "Microsoft.Management/managementGroups",
-      "apiVersion": "2020-05-01",
+      "apiVersion": "2024-02-01-preview",
       "scope": "/",
       "name": "[parameters('mgName')]",
       "properties": {
@@ -126,7 +126,7 @@ The next example creates a new management group and uses this function to set th
 
 Returns an object that represents the current resource group.
 
-In Bicep, use the [resourceGroup](../bicep/bicep-functions-scope.md#resourcegroup) scope function.
+In Bicep, use the [`resourceGroup`](../bicep/bicep-functions-scope.md#resourcegroup) scope function.
 
 ### Return value
 
@@ -151,9 +151,9 @@ The **managedBy** property is returned only for resource groups that contain res
 
 ### Remarks
 
-The `resourceGroup()` function can't be used in a template that is [deployed at the subscription level](deploy-to-subscription.md). It can only be used in templates that are deployed to a resource group. You can use the `resourceGroup()` function in a [linked or nested template (with inner scope)](linked-templates.md) that targets a resource group, even when the parent template is deployed to the subscription. In that scenario, the linked or nested template is deployed at the resource group level. For more information about targeting a resource group in a subscription level deployment, see [Deploy Azure resources to more than one subscription or resource group](./deploy-to-resource-group.md).
+The `resourceGroup()` function can't be used in a template that's [deployed at the subscription level](deploy-to-subscription.md). It can only be used in templates that are deployed to a resource group. You can use the `resourceGroup()` function in a [linked or nested template (with inner scope)](linked-templates.md) that targets a resource group, even when the parent template is deployed to the subscription. In that scenario, the linked or nested template is deployed at the resource-group level. For more information about targeting a resource group in a subscription-level deployment, see [Deploy Azure resources to more than one subscription or resource group](./deploy-to-resource-group.md).
 
-A common use of the resourceGroup function is to create resources in the same location as the resource group. The following example uses the resource group location for a default parameter value.
+A common use of the `resourceGroup` function is to create resources in the same location as the resource group. The following example uses the resource group location for a default parameter value.
 
 ```json
 "parameters": {
@@ -170,9 +170,21 @@ When using nested templates to deploy to multiple resource groups, you can speci
 
 ### Resource group example
 
-The following example returns the properties of the resource group.
+The following example returns the properties of the resource group:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/resourcegroup.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "resourceGroupOutput": {
+      "type": "object",
+      "value": "[resourceGroup()]"
+    }
+  }
+}
+```
 
 The preceding example returns an object in the following format:
 
@@ -194,7 +206,7 @@ The preceding example returns an object in the following format:
 
 Returns details about the subscription for the current deployment.
 
-In Bicep, use the [subscription](../bicep/bicep-functions-scope.md#subscription) scope function.
+In Bicep, use the [`subscription`](../bicep/bicep-functions-scope.md#subscription) scope function.
 
 ### Return value
 
@@ -211,13 +223,25 @@ The function returns the following format:
 
 ### Remarks
 
-When using nested templates to deploy to multiple subscriptions, you can specify the scope for evaluating the subscription function. For more information, see [Deploy Azure resources to more than one subscription or resource group](./deploy-to-resource-group.md).
+When using nested templates to deploy to multiple subscriptions, you can specify the scope for evaluating the `subscription` function. For more information, see [Deploy Azure resources to more than one subscription or resource group](./deploy-to-resource-group.md).
 
 ### Subscription example
 
-The following example shows the subscription function called in the outputs section.
+The following example shows the `subscription` function called in the **outputs** section:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/resource/subscription.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "subscriptionOutput": {
+      "type": "object",
+      "value": "[subscription()]"
+    }
+  }
+}
+```
 
 ## tenant
 
@@ -225,7 +249,7 @@ The following example shows the subscription function called in the outputs sect
 
 Returns the tenant of the user.
 
-In Bicep, use the [tenant](../bicep/bicep-functions-scope.md#tenant) scope function.
+In Bicep, use the [`tenant`](../bicep/bicep-functions-scope.md#tenant) scope function.
 
 ### Remarks
 
@@ -239,7 +263,7 @@ An object with properties about the current tenant.
 
 ### Tenant example
 
-The following example returns the properties for a tenant.
+The following example returns the properties for a tenant:
 
 ```json
 {
@@ -267,14 +291,14 @@ It returns:
     "countryCode": "US",
     "displayName": "Contoso",
     "id": "/tenants/00000000-0000-0000-0000-000000000000",
-    "tenantId": "00000000-0000-0000-0000-000000000000"
+    "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
   }
 }
 ```
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](./syntax.md).
-* To merge multiple templates, see [Using linked and nested templates when deploying Azure resources](linked-templates.md).
-* To iterate a specified number of times when creating a type of resource, see [Resource iteration in ARM templates](copy-resources.md).
-* To see how to deploy the template you've created, see [Deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).
+- To learn more about the sections in an ARM template, see [the structure and syntax of ARM templates](./syntax.md).
+- To merge multiple templates, see [linked and nested templates when deploying Azure resources](linked-templates.md).
+- To iterate a specified number of times when creating a type of resource, see [resource iteration in ARM templates](copy-resources.md).
+- To learn about deploying the template you've created, see how to [deploy resources with ARM templates and Azure PowerShell](deploy-powershell.md).

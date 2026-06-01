@@ -2,11 +2,12 @@
 title: Build message-driven applications with NServiceBus and Azure Service Bus
 description: Learn how to solve complex problems with distributed systems on Azure Service Bus using the NServiceBus framework.
 author: kbaley                      
-ms.author: spelluru                  
-ms.service: service-bus-messaging    
+ms.author: spelluru
 ms.topic: how-to                     
 ms.date: 03/29/2023                 
-ms.custom: template-how-to           
+ms.custom:
+  - template-how-to
+  - sfi-ropc-nochange
 ---
 
 # Build message-driven business applications with NServiceBus and Azure Service Bus
@@ -141,7 +142,7 @@ public class SenderWorker : BackgroundService
             var round = 0;
             while (!stoppingToken.IsCancellationRequested)
             {
-                await messageSession.Send(new Ping { Round = round++ });;
+                await messageSession.Send(new Ping { Round = round++ });
 
                 logger.LogInformation($"Message #{round}");
 

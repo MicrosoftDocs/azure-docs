@@ -3,16 +3,19 @@ title: Mapping data flows
 description: An overview of mapping data flows in Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 10/20/2023
+ms.date: 04/27/2026
 ---
 
 # Mapping data flows in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!TIP]
+> - To compare mapping data flow transformations to their Dataflow Gen2 equivalents, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
+> - For data transformations in Microsoft Fabric, see [Dataflow Gen2 overview](/fabric/data-factory/dataflows-gen2-overview).
 
 ## What are mapping data flows?
 
@@ -35,7 +38,7 @@ Mapping data flow has a unique authoring canvas designed to make building transf
 
 ### Graph
 
-The graph displays the transformation stream. It shows the lineage of source data as it flows into one or more sinks. To add a new source, select **Add source**. To add a new transformation, select the plus sign on the lower right of an existing transformation. Learn more on how to [manage the data flow graph](concepts-data-flow-manage-graph.md).
+The graph displays the transformation stream. It shows the lineage of source data as it flows into one or more sinks. Sinks can be any data source destinations where you want to move the results of your transformed data. To add a new source, select **Add source**. To add a new transformation, select the plus sign on the lower right of an existing transformation. Learn more on how to [manage the data flow graph](concepts-data-flow-manage-graph.md).
 
 :::image type="content" source="media/data-flow/canvas-2.png" alt-text="Screenshot shows the graph part of the canvas with a Search text box.":::
 
@@ -61,7 +64,7 @@ The **Inspect** tab provides a view into the metadata of the data stream that yo
 
 :::image type="content" source="media/data-flow/inspect1.png" alt-text="Inspect":::
 
-As you change the shape of your data through transformations, you'll see the metadata changes flow in the **Inspect** pane. If there isn't a defined schema in your source transformation, then metadata won't be visible in the **Inspect** pane. Lack of metadata is common in schema drift scenarios.
+As you change the shape of your data through transformations, you can see the metadata changes flow in the **Inspect** pane. If there isn't a defined schema in your source transformation, then metadata isn't visible in the **Inspect** pane. Lack of metadata is common in schema drift scenarios.
 
 #### Data preview
 
@@ -97,7 +100,7 @@ Mapping data flows are operationalized within ADF pipelines using the [data flow
 
 ## Debug mode
 
-Debug mode allows you to interactively see the results of each transformation step while you build and debug your data flows. The debug session can be used both in when building your data flow logic and running pipeline debug runs with data flow activities. To learn more, see the [debug mode documentation](concepts-data-flow-debug-mode.md).
+Debug mode allows you to interactively see the results of each transformation step while you build and debug your data flows. The debug session can be used both when building your data flow logic and when running pipeline debug runs with data flow activities. To learn more, see the [debug mode documentation](concepts-data-flow-debug-mode.md).
 
 ## Monitoring data flows
 

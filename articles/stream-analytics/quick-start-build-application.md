@@ -1,11 +1,12 @@
 ---
 title: Build a clickstream analyzer using one-click deployment
 description: This quickstart shows you how to get started ASA using a GitHub repository and PowerShell scripts with data generator. 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 author: alexlzx
 ms.author: zhenxilin
 ms.date: 03/15/2023
 ms.topic: quickstart
+ms.custom: sfi-image-nochange
 ---
 
 # Quickstart: Build an e2e Streaming Application for Clickstream Analysis
@@ -19,7 +20,7 @@ Here are the typical scenarios for processing and analyzing clickstream:
 - Join clickstream with a file
 
 ## Prerequisites
-* Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
+* Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Install [Git](https://git-scm.com/downloads).
 * Azure PowerShell module. [Visit here to install or upgrade](/powershell/azure/install-azure-powershell).
 

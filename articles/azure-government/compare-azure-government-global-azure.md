@@ -5,9 +5,11 @@ ms.service: azure-government
 ms.topic: article
 author: EliotSeattle
 ms.author: eliotgra
-ms.custom: references_regions
 recommendations: false
-ms.date: 07/12/2024
+ms.date: 08/21/2025
+ms.custom:
+  - references_regions
+  - sfi-ropc-nochange
 ---
 
 # Compare Azure Government and global Azure
@@ -63,18 +65,18 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 |Service category|Service name|Azure Public|Azure Government|Notes|
 |-----------|-----------|-------|----------|----------------------|
 |**AI + machine learning**|Azure Bot Service|botframework.com|botframework.azure.us||
-||Azure AI Document Intelligence|cognitiveservices.azure.com|cognitiveservices.azure.us||
+||Azure Document Intelligence in Foundry Tools|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||Azure OpenAI Service|openai.azure.com|openai.azure.us||
 ||Computer Vision|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||Custom Vision|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://www.customvision.azure.us/)||
 ||Content Moderator|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||Face API|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||Language Understanding|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)|Part of [Azure AI Language](../ai-services/language-service/index.yml)|
+||Language Understanding|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)|Part of [Azure Language in Foundry Tools](/azure/ai-services/language-service/)|
 ||Personalizer|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||QnA Maker|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](../ai-services/language-service/index.yml)|
-||Speech service|See [STT API docs](../ai-services/speech-service/rest-speech-to-text-short.md#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](../ai-services/Speech-Service/sovereign-clouds.md)</br></br>**Speech translation endpoints**</br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`</br>Arizona: `https://usgovarizona.s2s.speech.azure.us`</br>||
-||Text Analytics|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](../ai-services/language-service/index.yml)|
-||Translator|See [Translator API docs](../ai-services/translator/reference/v3-0-reference.md#base-urls)|cognitiveservices.azure.us||
+||QnA Maker|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Language](/azure/ai-services/language-service/)|
+||Speech service|See [STT API docs](/azure/ai-services/speech-service/rest-speech-to-text-short#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](/azure/ai-services/speech-service/sovereign-clouds)</br></br>**Speech translation endpoints**</br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`</br>Arizona: `https://usgovarizona.s2s.speech.azure.us`</br>||
+||Text Analytics|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Language](/azure/ai-services/language-service/)|
+||Translator|See [Translator API docs](/azure/ai-services/translator/reference/v3-0-reference#base-urls)|cognitiveservices.azure.us||
 |**Analytics**|Azure HDInsight|azurehdinsight.net|azurehdinsight.us||
 ||Event Hubs|servicebus.windows.net|servicebus.usgovcloudapi.net||
 ||Power BI|app.powerbi.com|app.powerbigov.us|[Power BI US Gov](https://powerbi.microsoft.com/documentation/powerbi-service-govus-overview/)|
@@ -82,7 +84,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Cloud Services|cloudapp.net|usgovcloudapp.net||
 |**Containers**|Azure Service Fabric|cloudapp.azure.com|cloudapp.usgovcloudapi.net||
 ||Container Registry|azurecr.io|azurecr.us||
-|**Databases**|Azure Cache for Redis|redis.cache.windows.net|redis.cache.usgovcloudapi.net|See [How to connect to other clouds](../azure-cache-for-redis/cache-how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)|
+|**Databases**|Azure Cache for Redis|redis.cache.windows.net|redis.cache.usgovcloudapi.net|See [How to connect to other clouds](../redis/how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds)|
 ||Azure Cosmos DB|documents.azure.com|documents.azure.us||
 ||Azure Database for MariaDB|mariadb.database.azure.com|mariadb.database.usgovcloudapi.net||
 ||Azure Database for MySQL|mysql.database.azure.com|mysql.database.usgovcloudapi.net||
@@ -96,8 +98,9 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Azure Maps|atlas.microsoft.com|atlas.azure.us||
 ||Notification Hubs|servicebus.windows.net|servicebus.usgovcloudapi.net||
 |**Management and governance**|Azure Automation|azure-automation.net|azure-automation.us||
-||Azure Monitor|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
-|||ods.opinsights.azure.com|ods.opinsights.azure.us|[Data collector API](../azure-monitor/logs/data-collector-api.md)|
+||Azure Monitor<br>*Application Insights*|{region}.in.applicationinsights.azure.com|{region}.in.applicationinsights.azure.us|[Additional endpoints](/azure/azure-monitor/ip-addresses#outgoing-ports)|
+||Azure Monitor<br>*Log Analytics*|mms.microsoft.com|oms.microsoft.us|Log Analytics workspace portal|
+|||ods.opinsights.azure.com|ods.opinsights.azure.us|[Data collector API](/azure/azure-monitor/logs/data-collector-api)|
 |||oms.opinsights.azure.com|oms.opinsights.azure.us||
 |||portal.loganalytics.io|portal.loganalytics.us||
 |||api.loganalytics.io|api.loganalytics.us||
@@ -106,7 +109,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Azure Resource Manager|management.azure.com|management.usgovcloudapi.net||
 ||Gallery URL|gallery.azure.com|gallery.azure.us||
 ||Microsoft Azure portal|portal.azure.com|portal.azure.us||
-||Microsoft Intune|enterpriseregistration.windows.net|enterpriseregistration.microsoftonline.us|Enterprise registration|
+||Microsoft Intune|enterpriseresgistration.windows.net|enterpriseregistration.microsoftonline.us|Enterprise registration|
 |||manage.microsoft.com|manage.microsoft.us|Enterprise enrollment|
 |**Migration**|Azure Site Recovery|hypervrecoverymanager.windowsazure.com|hypervrecoverymanager.windowsazure.us|Site Recovery service|
 |||backup.windowsazure.com|backup.windowsazure.us|Protection service|
@@ -119,14 +122,14 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Queue|queue.core.windows.net|queue.core.usgovcloudapi.net||
 ||Table|table.core.windows.net|table.core.usgovcloudapi.net||
 ||File|file.core.windows.net|file.core.usgovcloudapi.net||
-|**Virtual desktop infrastructure**|Azure Virtual Desktop|See [AVD docs](../virtual-desktop/safe-url-list.md)|See [AVD docs](../virtual-desktop/safe-url-list.md)||
+|**Virtual desktop infrastructure**|Azure Virtual Desktop|See [AVD docs](/azure/virtual-desktop/safe-url-list)|See [AVD docs](/azure/virtual-desktop/safe-url-list)||
 |**Web**|API Management|management.azure.com|management.usgovcloudapi.net||
 ||API Management Gateway|azure-api.net|azure-api.us||
 ||API Management management|management.azure-api.net|management.azure-api.us||
 ||API Management Portal|portal.azure-api.net|portal.azure-api.us||
 ||App Configuration|azconfig.io|azconfig.azure.us||
 ||App Service|azurewebsites.net|azurewebsites.us||
-||Azure AI Search|search.windows.net|search.windows.us||
+||Azure AI Search|search.windows.net|search.azure.us||
 ||Azure Functions|azurewebsites.net|azurewebsites.us||
 
 ## Service availability
@@ -152,13 +155,13 @@ The following Azure Bot Service **features aren't currently available** in Azure
 
 For information on how to deploy Bot Framework and Azure Bot Service bots to Azure Government, see [Configure Bot Framework bots for US Government customers](/azure/bot-service/how-to-deploy-gov-cloud-high).
 
-### [Azure Machine Learning](../machine-learning/index.yml)
+### [Azure Machine Learning](/azure/machine-learning/)
 
-For feature variations and limitations, see [Azure Machine Learning feature availability across cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md).
+For feature variations and limitations, see [Azure Machine Learning feature availability across cloud regions](/azure/machine-learning/reference-machine-learning-cloud-parity).
 
 <a name='cognitive-services-content-moderator'></a>
 
-### [Azure AI services: Content Moderator](../ai-services/content-moderator/index.yml)
+### [Foundry Tools: Content Moderator](/azure/ai-services/content-moderator/)
 
 The following Content Moderator **features aren't currently available** in Azure Government:
 
@@ -166,46 +169,30 @@ The following Content Moderator **features aren't currently available** in Azure
 
 <a name='cognitive-services-language-understanding-luis'></a>
 
-### [Azure AI Language Understanding (LUIS)](../ai-services/luis/index.yml)
+### [Language Understanding (LUIS)](/azure/ai-services/luis/)
 
 The following Language Understanding **features aren't currently available** in Azure Government:
 
 - Speech Requests
 - Prebuilt Domains
 
-Azure AI Language Understanding (LUIS) is part of [Azure AI Language](../ai-services/language-service/index.yml).
+Language Understanding (LUIS) is part of [Language](/azure/ai-services/language-service/).
 
 <a name='cognitive-services-speech'></a>
 
-### [Azure AI Speech](../ai-services/speech-service/index.yml)
+### [Azure Speech in Foundry Tools](/azure/ai-services/speech-service/)
 
-For feature variations and limitations, including API endpoints, see [Speech service in sovereign clouds](../ai-services/speech-service/sovereign-clouds.md).
+For feature variations and limitations, including API endpoints, see [Speech service in sovereign clouds](/azure/ai-services/speech-service/sovereign-clouds).
 
 <a name='cognitive-services-translator'></a>
 
-### [Azure AI services: OpenAI Service](../ai-services/openai/overview.md)
+### [Foundry Tools: OpenAI Service](/azure/ai-services/openai/overview)
 
-The following features of Azure OpenAI are available in Azure Government:
+For feature variations and limitations see [Azure OpenAI in Azure Gov](/azure/ai-services/openai/azure-government).
 
-|Feature|Azure OpenAI|
-|--------|--------|
-|Models available|US Gov Arizona:<br>&nbsp;&nbsp;&nbsp;GPT-4 (1106-Preview)<br>&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (1106)<br>&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (0125)<br>&nbsp;&nbsp;&nbsp;text-embedding-ada-002 (version 2)<br><br>US Gov Virginia:<br>&nbsp;&nbsp;&nbsp;GPT-4 (1106-Preview)<br>&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (0125)<br>&nbsp;&nbsp;&nbsp;text-embedding-ada-002 (version 2)<br><br>Learn more in [Azure OpenAI Service models](../ai-services/openai/concepts/models.md)|
-|Virtual network support & private link support| Yes. |
-| Connect your data | Available in US Gov Virginia and Arizona. Virtual network and private links are supported. Deployment to a web app or a copilot in Copilot Studio is not supported. |
-|Managed Identity|Yes, via Microsoft Entra ID|
-|UI experience|**Azure portal** for account & resource management<br>**Azure OpenAI Studio** for model exploration|
-|Abuse Monitoring|Not all features of Abuse Monitoring are enabled for AOAI in Azure Government. You will be responsible for implementing reasonable technical and operational measures to detect and mitigate any use of the service in violation of the Product Terms. [Automated Content Classification and Filtering](../ai-services/openai/concepts/content-filter.md) remains enabled by default for Azure Government.|
-|Data Storage|In AOAI, customer data is only stored at rest as part of our Finetuning solution. Since Finetuning is not enabled within Azure Gov, there is no customer data stored at rest in Azure Gov associated with AOAI. However, Customer Managed Keys (CMK) can still be enabled in Azure Gov to support use of the same policies in Azure Gov as in Public cloud. Note also that if Finetuning is enabled in Azure Gov in the future, any existing CMK deployment would be applied to that data at that time.|
+### [Azure Translator in Foundry Tools](/azure/ai-services/translator/)
 
-**Next steps**
-* Get started by requesting access to Azure OpenAI Service in Azure Government at [https://aka.ms/AOAIgovaccess](https://aka.ms/AOAIgovaccess)
-* Request quota increases for the pay-as-you-go consumption model, please fill out a separate form at [https://aka.ms/AOAIGovQuota](https://aka.ms/AOAIGovQuota)
-* If modified content filters are required, apply at [https://aka.ms/AOAIGovModifyContentFilter](https://aka.ms/AOAIGovModifyContentFilter)
-
-
-### [Azure AI services: Translator](../ai-services/translator/index.yml)
-
-For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](../ai-services/translator/sovereign-clouds.md).
+For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](/azure/ai-services/translator/sovereign-clouds).
 
 ## Analytics
 
@@ -223,11 +210,11 @@ For secured virtual networks, you'll want to allow network security groups (NSGs
 |US Gov Virginia|13.72.49.126 </br> 13.72.55.55 </br> 13.72.184.124 </br> 13.72.190.110| 443|
 |US Gov Arizona|52.127.3.176 </br> 52.127.3.178| 443|
 
-For a demo on how to build data-centric solutions on Azure Government using HDInsight, see Azure AI services, HDInsight, and Power BI on Azure Government.
+For a demo on how to build data-centric solutions on Azure Government using HDInsight, see Foundry Tools, HDInsight, and Power BI on Azure Government.
 
 ### [Power BI](/power-bi/fundamentals/)
 
-For usage guidance, feature variations, and limitations, see [Power BI for US government customers](/power-bi/admin/service-govus-overview). For a demo on how to build data-centric solutions on Azure Government using Power BI, see Azure AI services, HDInsight, and Power BI on Azure Government.
+For usage guidance, feature variations, and limitations, see [Power BI for US government customers](/power-bi/admin/service-govus-overview). For a demo on how to build data-centric solutions on Azure Government using Power BI, see Foundry Tools, HDInsight, and Power BI on Azure Government.
 
 ### [Power BI Embedded](/power-bi/developer/embedded/)
 
@@ -237,19 +224,19 @@ To learn how to embed analytical content within your business process applicatio
 
 This section outlines variations and considerations when using Databases services in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir,data-factory,sql-server-stretch-database,redis-cache,database-migration,synapse-analytics,postgresql,mariadb,mysql,sql-database,cosmos-db&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
-### [Azure Database for MySQL](../mysql/index.yml)
+### [Azure Database for MySQL](/azure/mysql/)
 
 The following Azure Database for MySQL **features aren't currently available** in Azure Government:
 
 - Advanced Threat Protection
 
-### [Azure Database for PostgreSQL](../postgresql/index.yml)
+### [Azure Database for PostgreSQL](/azure/postgresql/)
 
-For Flexible Server availability in Azure Government regions, see [Azure Database for PostgreSQL – Flexible Server](../postgresql/flexible-server/overview.md#azure-regions).
+For Flexible Server availability in Azure Government regions, see [Azure Database for PostgreSQL – Flexible Server](/azure/postgresql/flexible-server/overview#azure-regions).
 
 The following Azure Database for PostgreSQL **features aren't currently available** in Azure Government:
 
-- Azure Cosmos DB for PostgreSQL, formerly Azure Database for PostgreSQL – Hyperscale (Citus). For more information about supported regions, see [Regional availability for Azure Cosmos DB for PostgreSQL](../cosmos-db/postgresql/resources-regions.md).
+- Azure Cosmos DB for PostgreSQL, formerly Azure Database for PostgreSQL – Hyperscale (Citus). For more information about supported regions, see [Regional availability for Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/resources-regions).
 - The following features of the Single Server deployment option
   - Advanced Threat Protection
   - Backup with long-term retention
@@ -262,6 +249,42 @@ This section outlines variations and considerations when using Developer tools i
 
 - Enterprise Dev/Test subscription offer in existing or separate tenant is currently available only in Azure public as documented in [Azure EA portal administration](../cost-management-billing/manage/ea-portal-administration.md#enterprise-devtest-offer).
 
+## Hybrid and multicloud
+
+This section outlines variations and considerations when using hybrid and multicloud services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=load-testing,app-configuration,devtest-lab,lab-services,azure-devops&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
+
+### [Edge RAG Preview enabled by Azure Arc](/azure/azure-arc/edge-rag/)
+
+The process to deploy Edge RAG is the same as the public cloud with a few exceptions:
+
+- The steps for [Install networking and observability components](/azure/azure-arc/edge-rag/prepare-networking-observability) don't apply.
+- The steps in [Configure authentication](/azure/azure-arc/edge-rag/prepare-authentication) are the same as the public cloud, but you complete them in the Fairfax portal (portal.azure.us).
+- Installation of the Edge RAG extension is only available for Azure Government by using Azure CLI. To deploy the Edge RAG extension, run the following cli command with corresponding parameters:
+
+  ```powershell
+  $akscluster = <clustername>
+  $rg = <resource group name>
+  $gpu_enabled="true" <or false, depending on whether environment has gpu>  
+  $autoUpgrade = "false"  
+  $localextname = <extension name> 
+  $tenantId = <rag app entra tenant id>
+  $appId = <rag app entra app id>
+  $domainName = <domain name. Eg: "arcrag.contoso.com" >
+  $extension = "microsoft.arc.rag"  
+  $release = "preview" 
+  $metallbip = <metallb ip range>
+  $armid = <cluster armid>
+   
+  az k8s-extension create --cluster-type connectedClusters --cluster-name $akscluster --resource-group $rg --name $localextname --extension-type $extension --debug ` 
+  --release-train $release --auto-upgrade $autoUpgrade --configuration-settings gpu_enabled=$gpu_enabled ` 
+  --configuration-settings AgentOperationTimeoutInMinutes=60 --configuration-settings auth.tenantId=$tenantId ` 
+  --configuration-settings auth.clientId=$appId --configuration-settings ingress.domainname=$domainName --configuration-settings logLevel="DEBUG" ` 
+  --configuration-settings cloudEnvironment="fairfax" --configuration-settings isAldo="true"  ` 
+  --configuration-settings metallb.ipRange=$metallbip --configuration-settings global.azure.extension.resourceId=$armid  
+  ```
+
+  For more information, see [Deploy the extension for Edge RAG Preview enabled by Azure Arc](/azure/azure-arc/edge-rag/deploy).
+
 ## Identity
 
 This section outlines variations and considerations when using Identity services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=information-protection,active-directory-ds,active-directory&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
@@ -272,15 +295,15 @@ This section outlines variations and considerations when using Identity services
 
 For feature variations and limitations, see [Cloud feature availability](../active-directory/authentication/feature-availability.md).
 
-For information on how to use Power BI capabilities for collaboration between Azure and Azure Government, see [Cross-cloud B2B](/power-bi/enterprise/service-admin-azure-ad-b2b#cross-cloud-b2b).
+For information on how to use Power BI capabilities for collaboration between Azure and Azure Government, see [Cross-cloud B2B](/power-platform/admin/new-admin-center#cross-cloud-b2b).
 
 The following features have known limitations in Azure Government:
 
 - Limitations with B2B Collaboration in supported Azure US Government tenants:
   - For more information about B2B collaboration limitations in Azure Government and to find out if B2B collaboration is available in your Azure Government tenant, see [Microsoft Entra B2B in government and national clouds](../active-directory/external-identities/b2b-government-national-clouds.md).
 
-- Limitations with multi-factor authentication:
-    - Trusted IPs isn't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multi-factor authentication should and shouldn't be required based off the user's current IP address.
+- Limitations with multifactor authentication:
+    - Trusted IPs isn't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and shouldn't be required based off the user's current IP address.
 
 ### [Azure Active Directory B2C](../active-directory-b2c/index.yml)
 
@@ -289,6 +312,22 @@ Azure Active Directory B2C is **not available** in Azure Government.
 ### [Microsoft Authentication Library (MSAL)](../active-directory/develop/msal-overview.md)
 
 The Microsoft Authentication Library (MSAL) enables developers to acquire security tokens from the Microsoft identity platform to authenticate users and access secured web APIs. For feature variations and limitations, see [National clouds and MSAL](../active-directory/develop/msal-national-cloud.md).
+
+## Internet of Things
+
+This section outlines variations and considerations when using Internet of Things services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=notification-hubs,azure-maps,iot-hub,iot-central&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
+
+### [Azure IoT Hub](../iot-hub/index.yml)
+
+When you use Microsoft Entra ID to authenticate requests to IoT Hub service APIs in Azure Government, you need to use a different audience URI than in global Azure. The audience URI is the OAuth 2.0 resource endpoint that you use when requesting Microsoft Entra tokens for IoT Hub service APIs.
+
+For Azure Government, use the following audience URI when authenticating to IoT Hub service APIs:
+
+`https://iothubs.azure.us`
+
+In comparison, global Azure uses `https://iothubs.azure.net` as the audience URI.
+
+For more information about authenticating to IoT Hub with Microsoft Entra ID, see [Control access to IoT Hub by using Microsoft Entra ID](../iot-hub/authenticate-authorize-azure-ad.md).
 
 ## Management and governance
 
@@ -300,11 +339,11 @@ The following Automation **features aren't currently available** in Azure Govern
 
 - Automation analytics solution
 
-### [Azure Advisor](../advisor/index.yml)
+### [Azure Advisor](/azure/advisor/)
 
-For feature variations and limitations, see [Azure Advisor in sovereign clouds](../advisor/advisor-sovereign-clouds.md).
+For feature variations and limitations, see [Azure Advisor in sovereign clouds](/azure/advisor/advisor-sovereign-clouds).
 
-### [Azure Lighthouse](../lighthouse/index.yml)
+### [Azure Lighthouse](/azure/lighthouse/)
 
 The following Azure Lighthouse **features aren't currently available** in Azure Government:
 
@@ -316,7 +355,7 @@ The following Azure Lighthouse **features aren't currently available** in Azure 
 
 The following document contains information about Azure Managed Grafana feature availability in Azure Government: [Azure Managed Grafana: Feature availability in sovereign clouds](../managed-grafana/known-limitations.md?#feature-availability-in-sovereign-clouds).
 
-### [Azure Monitor](../azure-monitor/index.yml)
+### [Azure Monitor](/azure/azure-monitor/)
 
 Azure Monitor enables the same features in both Azure and Azure Government.
 
@@ -327,7 +366,7 @@ The following options are available for previous versions of System Center Opera
 - Integrating System Center Operations Manager 2016 with Azure Government requires an updated Advisor management pack that is included with Update Rollup 2 or later.
 - System Center Operations Manager 2012 R2 requires an updated Advisor management pack included with Update Rollup 3 or later.
 
-For more information, see [Connect Operations Manager to Azure Monitor](../azure-monitor/agents/om-agents.md).
+For more information, see [Connect Operations Manager to Azure Monitor](/azure/azure-monitor/agents/om-agents).
 
 **Frequently asked questions**
 
@@ -336,28 +375,24 @@ For more information, see [Connect Operations Manager to Azure Monitor](../azure
 - Can I switch between Azure and Azure Government workspaces from the Operations Management Suite portal?
   - No. The portals for Azure and Azure Government are separate and don't share information.
 
-#### [Application Insights](../azure-monitor/app/app-insights-overview.md)
+#### [Application Insights](/azure/azure-monitor/app/app-insights-overview)
 
 Application Insights (part of Azure Monitor) enables the same features in both Azure and Azure Government. This section describes the supplemental configuration that is required to use Application Insights in Azure Government.
 
-**Visual Studio** – In Azure Government, you can enable monitoring on your ASP.NET, ASP.NET Core, Java, and Node.js based applications running on Azure App Service. For more information, see [Application monitoring for Azure App Service overview](../azure-monitor/app/azure-web-apps.md). In Visual Studio, go to Tools|Options|Accounts|Registered Azure Clouds|Add New Azure Cloud and select Azure US Government as the Discovery endpoint. After that, adding an account in File|Account Settings will prompt you for which cloud you want to add from.
+**Visual Studio** – In Azure Government, you can enable monitoring on your ASP.NET, ASP.NET Core, Java, and Node.js based applications running on Azure App Service. For more information, see [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps). In Visual Studio, go to Tools|Options|Accounts|Registered Azure Clouds|Add New Azure Cloud and select Azure US Government as the Discovery endpoint. After that, adding an account in File|Account Settings will prompt you for which cloud you want to add from.
 
 **SDK endpoint modifications** – In order to send data from Application Insights to an Azure Government region, you'll need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications, as described in [Application Insights overriding default endpoints](/previous-versions/azure/azure-monitor/app/create-new-resource#override-default-endpoints).
 
-**Firewall exceptions** – Application Insights uses several IP addresses. You might need to know these addresses if the app that you're monitoring is hosted behind a firewall. For more information, see [IP addresses used by Azure Monitor](../azure-monitor/ip-addresses.md) from where you can download Azure Government IP addresses.
+**Firewall exceptions** – Application Insights uses several IP addresses. You might need to know these addresses if the app that you're monitoring is hosted behind a firewall. For more information, see [IP addresses used by Azure Monitor](/azure/azure-monitor/ip-addresses) from where you can download Azure Government IP addresses.
 
 >[!NOTE]
 >Although these addresses are static, it's possible that we'll need to change them from time to time. All Application Insights traffic represents outbound traffic except for availability monitoring and webhooks, which require inbound firewall rules.
 
-You need to open some **outgoing ports** in your server's firewall to allow the Application Insights SDK and/or Status Monitor to send data to the portal:
-
-|Purpose|URL|IP address|Ports|
-|-------|---|----------|-----|
-|Telemetry|dc.applicationinsights.us|23.97.4.113|443|
+To allow the Application Insights SDK/agent to send data to the Application Insights resource, you need to allow access to the regional endpoint defined in your connection string and open the **outgoing port 443** in your firewall. To learn more about the endpoint suffix, see [Connection strings in Application Insights](/azure/azure-monitor/app/connection-strings#connection-string-with-an-endpoint-suffix).
 
 ### [Cost Management and Billing](../cost-management-billing/index.yml)
 
-The following Azure Cost Management + Billing **features aren't currently available** in Azure Government:
+The following Microsoft Cost Management + Billing **features aren't currently available** in Azure Government:
 
 - Cost Management + Billing for cloud solution providers (CSPs)
 
@@ -383,7 +418,7 @@ The following Azure Migrate **features aren't currently available** in Azure Gov
 - Containerizing ASP.NET apps and deploying them on Windows containers on App Service.
 - You can only create assessments for Azure Government as target regions and using Azure Government offers.
 
-For more information, see [Azure Migrate support matrix](../migrate/migrate-support-matrix.md#azure-government). For a list of Azure Government URLs needed by the Azure Migrate appliance when connecting to the internet, see [Azure Migrate appliance URL access](../migrate/migrate-appliance.md#url-access).
+For more information, see [Azure Migrate support matrix](../migrate/supported-geographies.md#azure-government). For a list of Azure Government URLs needed by the Azure Migrate appliance when connecting to the internet, see [Azure Migrate appliance URL access](../migrate/migrate-appliance.md#url-access).
 
 ## Networking
 
@@ -391,14 +426,11 @@ This section outlines variations and considerations when using Networking servic
 
 ### [Azure ExpressRoute](../expressroute/index.yml)
 
-For an overview of ExpressRoute, see [What is Azure ExpressRoute?](../expressroute/expressroute-introduction.md). For an overview of how **BGP communities** are used with ExpressRoute in Azure Government, see [BGP community support in National Clouds](../expressroute/expressroute-routing.md#bgp-community-support-in-national-clouds).
+For an overview of ExpressRoute, see [What is Azure ExpressRoute?](../expressroute/expressroute-introduction.md) For an overview of how **BGP communities** are used with ExpressRoute in Azure Government, see [BGP community support in National Clouds](../expressroute/expressroute-routing.md#bgp-community-support-in-national-clouds).
 
 ### [Azure Front Door](../frontdoor/index.yml)
 
-Azure Front Door (AFD) Standard and Premium tiers are available in general availability in Azure Government regions US Gov Arizona and US Gov Texas. The following Azure Front Door feature **isn’t supported** in Azure Government:
-
-- Managed certificate for enabling HTTPS; instead use your own certificate.
-
+Azure Front Door (AFD) Standard and Premium tiers are available in general availability in Azure Government regions US Gov Arizona and US Gov Texas.
 
 ### [Private Link](../private-link/index.yml)
 
@@ -417,7 +449,7 @@ This section outlines variations and considerations when using Security services
 
 For feature variations and limitations, see [Microsoft Defender for Endpoint for US Government customers](/microsoft-365/security/defender-endpoint/gov).
 
-### [Microsoft Defender for IoT](../defender-for-iot/index.yml)
+### [Microsoft Defender for IoT](/azure/defender-for-iot/)
 
 For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-defender-for-iot).
 
@@ -425,11 +457,11 @@ For feature variations and limitations, see [Cloud feature availability for US G
 
 Azure Information Protection Premium is part of the [Enterprise Mobility + Security](/enterprise-mobility-security) suite. For details on this service and how to use it, see [Azure Information Protection Premium Government Service Description](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
 
-### [Microsoft Defender for Cloud](../defender-for-cloud/index.yml)
+### [Microsoft Defender for Cloud](/azure/defender-for-cloud/)
 
 For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-defender-for-cloud).
 
-### [Microsoft Sentinel](../sentinel/index.yml)
+### [Microsoft Sentinel](/azure/sentinel/)
 
 For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-sentinel).
 

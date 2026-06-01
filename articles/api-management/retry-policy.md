@@ -4,9 +4,9 @@ description: Reference for the retry policy available for use in Azure API Manag
 services: api-management
 author: dlepow
 
-ms.service: api-management
-ms.topic: article
-ms.date: 03/18/2024
+ms.service: azure-api-management
+ms.topic: reference
+ms.date: 09/11/2025
 ms.author: danlep
 ---
 
@@ -15,6 +15,8 @@ ms.author: danlep
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `retry` policy executes its child policies once and then retries their execution until the retry `condition` becomes `false` or retry `count` is exhausted.
+
+The `retry` policy may contain any other policies as its child elements, except for `wait` policy.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -49,19 +51,23 @@ The `retry` policy executes its child policies once and then retries their execu
 
 * When only the `interval` is specified, **fixed** interval retries are performed.
 * When only the `interval` and `delta` are specified, a **linear** interval retry algorithm is used. The  wait time between retries increases according to the following formula: `interval + (count - 1)*delta`.
-* When the `interval`, `max-interval` and `delta` are specified, an **exponential** interval retry algorithm is applied. The wait time between the retries increases exponentially according to the following formula: `interval + (2^count - 1) * random(delta * 0.8, delta * 1.2)`, up to a maximum interval set by `max-interval`. 
+* When the `interval`, `max-interval` and `delta` are specified, an **exponential** interval retry algorithm is applied. The wait time between the retries increases exponentially according to the following formula: `interval + (2^(count - 1)) * random(delta * 0.8, delta * 1.2)`, up to a maximum interval set by `max-interval`. 
 
     For example, when `interval` and `delta` are both set to 10 seconds, and `max-interval` is 100 seconds, the approximate wait time between retries increases as follows: 10 seconds, 20 seconds, 40 seconds, 80 seconds, with 100 seconds wait time used for remaining retries.
 
 ## Elements
 
-The `retry` policy may contain any other policies as its child elements.
+The `retry` policy may contain any other policies as its child elements, except for `wait` policy.
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
+
+### Usage notes
+
+* The policy executes the child policies in the `retry` block before it evaluates the `condition` for executing the first retry attempt.
 
 ## Examples
 
@@ -102,6 +108,28 @@ In the following example, sending a request to a URL other than the defined back
 		</send-request>
 </retry>
 ```
+
+### Switch backend when error received
+
+In the following example, the initial request is dispatched to the primary backend. If a `429 Too Many Requests` response status code is returned, the request is retried immediately and forwarded to the secondary backend. 
+
+```xml
+<backend>
+    <retry
+        condition="@(context.Response != null && context.Response.StatusCode == 429)"
+        count="1"
+        interval="1"
+        first-fast-retry="true">
+           <set-variable name="attempt-count" value="@(context.Variables.GetValueOrDefault<int>("attempt-count", 0)+1)" />
+           <set-backend-service backend-id="@(context.Variables.GetValueOrDefault<int>("attempt-count") < 2 ? "primary-backend" : "secondary-backend" )" />
+           <forward-request />
+    </retry>
+</backend>
+```
+
+> [!TIP]
+> As an alternative, you can configure a [backend resource](backends.md) with circuit breaker rules to detect failure conditions and a load-balanced pool that distributes requests across multiple backends.
+> 
 
 ## Related policies
 

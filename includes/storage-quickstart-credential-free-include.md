@@ -7,7 +7,9 @@ ms.service: azure-storage
 ms.topic: include
 ms.date: 01/30/2024
 ms.author: pauljewell
-ms.custom: include file
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ### Authenticate to Azure and authorize access to blob data
@@ -63,7 +65,7 @@ You can authorize access to data in your storage account using the following ste
 A connection string includes the storage account access key and uses it to authorize requests. Always be careful to never expose the keys in an unsecure location.
 
 > [!NOTE]
-> To authorize data access with the storage account access key, you'll need permissions for the following Azure RBAC action: [Microsoft.Storage/storageAccounts/listkeys/action](../articles/role-based-access-control/resource-provider-operations.md#microsoftstorage). The least privileged built-in role with permissions for this action is [Reader and Data Access](../articles/role-based-access-control/built-in-roles.md#reader-and-data-access), but any role which includes this action will work.
+> To authorize data access with the storage account access key, you'll need permissions for the following Azure RBAC action: [Microsoft.Storage/storageAccounts/listkeys/action](../articles/role-based-access-control/permissions/storage.md#microsoftstorage). The least privileged built-in role with permissions for this action is [Reader and Data Access](../articles/role-based-access-control/built-in-roles.md#reader-and-data-access), but any role which includes this action will work.
 
 [!INCLUDE [retrieve credentials](retrieve-credentials.md)]
 

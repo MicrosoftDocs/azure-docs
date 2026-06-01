@@ -2,18 +2,18 @@
 title: "Quickstart: Building your first static site with the Azure Static Web Apps using the CLI"
 description: Learn to deploy a static site to Azure Static Web Apps with the Azure CLI.
 services: static-web-apps
-author: craigshoemaker
-ms.service: static-web-apps
+author: cjk7989
+ms.service: azure-static-web-apps
 ms.topic:  quickstart
-ms.date: 03/21/2024
-ms.author: cshoe
+ms.date: 09/18/2024
+ms.author: jikunchen
 ms.custom: mode-api, devx-track-azurecli, innovation-engine, linux-related-content
 ms.devlang: azurecli
 ---
 
 # Quickstart: Building your first static site using the Azure CLI
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://go.microsoft.com/fwlink/?linkid=2262845)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://go.microsoft.com/fwlink/?linkid=2286315)
 
 Azure Static Web Apps publishes websites to production by building apps from a code repository.
 
@@ -23,7 +23,7 @@ In this quickstart, you deploy a web application to Azure Static Web apps using 
 
 - [GitHub](https://github.com) account.
 - [Azure](https://portal.azure.com) account.
-  - If you don't have an Azure subscription, you can [create a free trial account](https://azure.microsoft.com/free).
+  - If you don't have an Azure subscription, you can [create a free trial account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure CLI](/cli/azure/install-azure-cli) installed (version 2.29.0 or higher).
 - [A Git setup](https://www.git-scm.com/downloads). 
 
@@ -160,6 +160,10 @@ Go to https://github.com/login/device and enter the code you get from GitHub to 
 ## Clean up resources (optional)
 
 If you're not going to continue to use this application, delete the resource group and the static web app using the [az group delete](/cli/azure/group#az-group-delete) command.
+
+## Related content
+
+* [Video series: Deploy websites to the cloud with Azure Static Web Apps](https://aka.ms/azure/beginnervideos/learn/swa)
 
 ## Next steps
 

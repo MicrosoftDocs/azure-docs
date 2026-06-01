@@ -1,16 +1,17 @@
 ---
 title: Restore Azure Managed Disks via Azure PowerShell
 description: Learn how to restore Azure Managed Disks using Azure PowerShell.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 03/26/2021
+ms.date: 02/13/2026
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to restore Azure Managed Disks using PowerShell, so that I can efficiently recover data from backup while ensuring minimal disruption to existing resources."
 ---
 
 # Restore Azure Managed Disks using Azure PowerShell
 
-This article explains how to restore [Azure Managed Disks](../virtual-machines/managed-disks-overview.md) from a restore point created by Azure Backup.
+This article describes how to restore [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) from a restore point created by Azure Backup. You can also restore Managed Disk using [Azure portal](restore-managed-disks.md), [Azure CLI](restore-managed-disks-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).
 
 Currently, the Original-Location Recovery (OLR) option of restoring by replacing existing the source disk from where the backups were taken isn't supported. You can restore from a recovery point to create a new disk either in the same resource group as that of the source disk from where the backups were taken or in any other resource group. This is known as Alternate-Location Recovery (ALR) and this helps to keep both the source disk and the restored (new) disk.
 
@@ -26,6 +27,8 @@ We will refer to an existing backup vault "TestBkpVault" under the resource grou
 $TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault -ResourceGroupName "testBkpVaultRG"
 ```
 
+To view the supported Azure Disk backup and restore scenarios, region availability, and limitations, see the [support matrix](disk-backup-support-matrix.md). For common questions, see the [frequently asked questions](disk-backup-faq.yml).
+
 ## Restore to create a new disk
 
 ### Setting up permissions
@@ -34,7 +37,7 @@ Backup Vault uses Managed Identity to access other Azure resources. To restore f
 
 Backup vault uses a system assigned managed identity, which is restricted to one per resource and is tied to the lifecycle of this resource. You can grant permissions to the managed identity by using Azure role-based access control (Azure RBAC). Managed identity is a service principal of a special type that may only be used with Azure resources. Learn more about [Managed Identities](../active-directory/managed-identities-azure-resources/overview.md).
 
-Assign the relevant permissions for vault's system assigned managed identity on the target resource group where the disks will be restored/created as mentioned [here](restore-managed-disks.md#restore-to-create-a-new-disk).
+Assign the relevant permissions for vault's system assigned managed identity on the target resource group where the disks will be restored/created as mentioned [here](restore-managed-disks.md#restore-a-new-disk-from-a-recovery-point).
 
 ### Fetching the relevant recovery point
 
@@ -90,4 +93,5 @@ $job = Search-AzDataProtectionJobInAzGraph -Subscription $sub -ResourceGroupName
 
 ## Next steps
 
-- [Azure Disk Backup FAQ](disk-backup-faq.yml)
+- [Azure Disk Backup FAQ](disk-backup-faq.yml).
+- [Troubleshoot Azure Disk backup](disk-backup-troubleshoot.md).

@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 05/13/2024
+ms.date: 11/21/2025
 ---
 
 # What is Azure App Configuration?
@@ -52,8 +52,9 @@ The easiest way to add an App Configuration store to your application is through
 | ASP.NET Core                      | App Configuration [provider](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) for .NET      | ASP.NET Core [quickstart](./quickstart-aspnet-core-app.md) |
 | .NET Framework and ASP.NET        | App Configuration [builder](https://go.microsoft.com/fwlink/?linkid=2074663) for .NET                            | .NET Framework [quickstart](./quickstart-dotnet-app.md)    |
 | Java Spring                       | App Configuration [provider](https://go.microsoft.com/fwlink/?linkid=2180917) for Spring Cloud                   | Java Spring [quickstart](./quickstart-java-spring-app.md)  |
-| JavaScript/Node.js                | App Configuration [provider](https://github.com/Azure/AppConfiguration-JavaScriptProvider) for JavaScript                       | Javascript/Node.js [quickstart](./quickstart-javascript-provider.md)|
+| JavaScript/Node.js                | App Configuration [provider](https://github.com/Azure/AppConfiguration-JavaScriptProvider) for JavaScript                       | JavaScript/Node.js [quickstart](./quickstart-javascript-provider.md)|
 | Python                            | App Configuration [provider](https://pypi.org/project/azure-appconfiguration-provider/) for Python                           | Python [quickstart](./quickstart-python-provider.md)                |
+| Go                            | App Configuration [provider](https://github.com/Azure/AppConfiguration-GoProvider) for Go                           | Go [quickstart](./quickstart-go-console-app.md)                |
 | Other                             | App Configuration [REST API](/rest/api/appconfiguration/)                                                        | None                                                       |
 
 ## Next steps

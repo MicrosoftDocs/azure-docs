@@ -1,3 +1,4 @@
+items:
 - name: Microsoft Azure Data Manager for Energy Documentation
   href: index.yml
 - name: Overview
@@ -27,12 +28,22 @@
       href: tutorial-seismic-ddms-sdutil.md
     - name: Use Seismic Store DDMS APIs
       href: tutorial-seismic-ddms.md
+    - name: Change tier for seismic workloads
+      href: tutorial-seismic-change-tier.md
     - name: Use Wellbore DDMS APIs
       href: tutorial-wellbore-ddms.md
     - name: Use Well Delivery DDMS APIs
       href: tutorial-well-delivery-ddms.md
     - name: Use Petrel DDMS APIs
       href: tutorial-petrel-ddms.md
+    - name: Use Reservoir DDMS APIs
+      href: tutorial-reservoir-ddms-apis.md
+    - name: Use Reservoir DDMS websocket APIs
+      href: tutorial-reservoir-ddms-websocket.md
+    - name: Use Rock and Fluid Samples DDMS APIs
+      href: tutorial-rock-and-fluid-samples-ddms.md
+    - name: Use Analytics Consumption Zone (ACZ) APIs
+      href: tutorial-analytics-consumption-zone-apis.md
 - name: Concepts
   items:
     - name: OSDU® services available on Azure Data Manager for Energy
@@ -52,10 +63,14 @@
     - name: Reliability
       items:
         - name: Reliability overview 
-          href: ../reliability/reliability-energy-data-services.md?toc=/azure/energy-data-services/toc.json&bc=/azure/energy-data-services/breadcrumb/toc.json
+          href: reliability-energy-data-services.md
           displayName: availability zones, high-availability, zone redundancy
     - name: Tier details
       href: concepts-tier-details.md
+    - name: Syncing reference data values
+      href: concepts-reference-data-values.md
+    - name: Analytics consumption zone (ACZ)
+      href: concepts-analytics-consumption-zone.md
 - name: How-to guides
   items:
     - name: Administration
@@ -68,12 +83,20 @@
           href: how-to-manage-legal-tags.md
         - name: Manage data partitions
           href: how-to-add-more-data-partitions.md
+        - name: Deploy Geospatial Consumption Zone (GCZ)
+          href: how-to-deploy-gcz.md
         - name: Deploy OSDU Admin UI
           href: how-to-deploy-osdu-admin-ui.md
-        - name: How to enable External Data Sources (EDS)
-          href: how-to-enable-external-data-sources.md
-        - name: How to register External Data Sources (EDS)
-          href: how-to-register-external-data-sources.md
+        - name: How to enable External Data Services (EDS)
+          href: how-to-enable-external-data-services.md
+        - name: How to register External Data Services (EDS)
+          href: how-to-register-external-data-services.md
+        - name: How to enable legal tags restricted COO
+          href: how-to-enable-legal-tags-restricted-country-of-origin.md
+        - name: How to manage upgrade settings
+          href: how-to-manage-upgrade-settings.md
+        - name: How to enable the Analytics Consumption Zone (ACZ)
+          href: how-to-enable-analytics-consumption-zone.md
     - name: Monitoring
       items:
         - name: Airflow task logs integration with Azure Monitor
@@ -108,6 +131,10 @@
       href: how-to-generate-auth-token.md
     - name: Upload large files using file service
       href: how-to-upload-large-files-using-file-service.md
+    - name: Connect Analytics Consumption Zone (ACZ) to Microsoft Fabric
+      href: how-to-connect-analytics-consumption-zone-to-fabric.md
+    - name: Connect Analytics Consumption Zone (ACZ) to Azure Databricks
+      href: how-to-connect-analytics-consumption-zone-to-databricks.md
 - name: References
   items:
   - name: REST API
@@ -124,3 +151,8 @@
     href: resources-partner-solutions.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/energy-data-services/
+- name: Support and troubleshooting
+  items:
+    - name: Troubleshooting manifest ingestion
+      href: troubleshoot-manifest-ingestion.md
+    

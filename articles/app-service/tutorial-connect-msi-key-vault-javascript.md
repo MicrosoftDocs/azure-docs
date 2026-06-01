@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: JavaScript connect to Azure services securely with Key Vault'
-description: Learn how to secure connectivity to back-end Azure services that don't support managed identity natively from a JavaScript web app
+description: Learn how to secure connectivity to back-end Azure services that don't support managed identity natively using a JavaScript web app.
 ms.devlang: javascript
 # ms.devlang: javascript, azurecli
 ms.topic: tutorial
-ms.date: 10/26/2021
+ms.date: 03/31/2026
 author: cephalin
 ms.author: cephalin
-
-ms.reviewer: madsd 
+ms.reviewer: jordanselig 
 ms.custom: devx-track-azurecli, devx-track-js, AppServiceConnectivity
+ms.service: azure-app-service
+#customer intent: As a developer, I need to support back-end services, such as a JavaScript app, that don't support managed identities and still require connection secrets.
 ---
 
 # Tutorial: Secure Cognitive Service connection from JavaScript App Service using Key Vault
-
 
 [!INCLUDE [tutorial-content-above-code](./includes/tutorial-connect-msi-key-vault/introduction.md)]
 
@@ -25,22 +25,23 @@ Clone the sample repository locally and deploy the sample application to App Ser
 # Clone and prepare sample application
 git clone https://github.com/Azure-Samples/app-service-language-detector.git
 cd app-service-language-detector/javascript
-zip default.zip *.*
+zip -r default.zip .
 
 # Save app name as variable for convenience
 appName=<app-name>
 
 az appservice plan create --resource-group $groupName --name $appName --sku FREE --location $region --is-linux
-az webapp create --resource-group $groupName --plan $appName --name $appName --runtime "node|14-lts"
+az webapp create --resource-group $groupName --plan $appName --name $appName --runtime "node:24-lts"
 az webapp config appsettings set --resource-group $groupName --name $appName --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
-az webapp deployment source config-zip --resource-group $groupName --name $appName --src ./default.zip
+az webapp deploy --resource-group $groupName --name $appName --src-path ./default.zip
 ```
 
 The preceding commands:
-* Create a linux app service plan
-* Create a web app for Node.js 14 LTS
-* Configure the web app to install the npm packages on deployment
-* Upload the zip file, and install the npm packages
+
+- Create a Linux App Service plan
+- Create a web app for Node.js 24 LTS
+- Configure the web app to install the npm packages on deployment
+- Upload the zip file, and install the npm packages
 
 ## Configure secrets as app settings
 

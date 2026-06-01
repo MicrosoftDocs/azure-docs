@@ -1,12 +1,14 @@
 ---
-title: Set up failover of Hyper-V VMs to Azure in Azure Site Recovery 
+title: Set up failover of Hyper-V VMs to Azure in Azure Site Recovery
+ms.reviewer: v-gajeronika
 description: Learn how to fail over Hyper-V VMs to Azure with Azure Site Recovery.
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 12/15/2023
+ms.date: 12/08/2025
 ms.custom: MVC
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: v-gajeronika
+author: Jeronika-MS
+# Customer intent: As an IT administrator managing Hyper-V environments, I want to execute a failover of Hyper-V VMs to cloud infrastructure, so that I can ensure business continuity and recover from on-premises site failures effectively.
 ---
 
 # Fail over Hyper-V VMs to Azure
@@ -28,6 +30,7 @@ This tutorial is the fifth tutorial in a series. It assumes that you have alread
 [Learn about](failover-failback-overview.md#types-of-failover) different types of failover. If you want to fail over multiple VMs in a recovery plan, review [this article](site-recovery-failover.md).
 
 ## Prepare for failover 
+
 Make sure there are no snapshots on the VM, and that the on-premises VM is turned off during failback. It helps ensure data consistency during replication. Don't turn on on-premises VM during failback. 
 
 Failover and failback have three stages:
@@ -46,7 +49,7 @@ In **Protected Items**, click **Replicated Items** > VM.
    latest available recovery points. Click **Properties** to view more details.
 
 1. In **Compute and Network**, you can modify the Azure name, resource group, target size,
-   [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and managed disk settings.
+   [availability set](/azure/virtual-machines/windows/tutorial-availability-sets), and managed disk settings.
 
 1. You can view and modify network settings, including the network/subnet in which the Azure VM
    will be located after failover, and the IP address that will be assigned to it.
@@ -67,7 +70,7 @@ In **Protected Items**, click **Replicated Items** > VM.
 ## Connect to failed-over VM
 
 1. If you want to connect to Azure VMs after failover by using Remote Desktop Protocol (RDP) and Secure Shell (SSH), [verify that the requirements have been met](failover-failback-overview.md#connect-to-azure-after-failover).
-2. After failover, go to the VM and validate by [connecting](../virtual-machines/windows/connect-logon.md) to it.
+2. After failover, go to the VM and validate by [connecting](/azure/virtual-machines/windows/connect-logon) to it.
 3. Use **Change recovery point** if you want to use a different recovery point after failover. After you commit the failover in the next step, this option will no longer be available.
 4. After validation, select **Commit** to finalize the recovery point of the VM after failover.
 5. After you commit, all the other available recovery points are deleted. This step completes the failover.

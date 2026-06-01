@@ -4,12 +4,13 @@ description: Use this tutorial to learn how to sign up and order an Azure Data B
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
-ms.custom: devx-track-azurecli
+ms.service: azure-data-box-disk
 ms.topic: tutorial
 ms.date: 04/22/2024
 ms.author: shaas
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 
 # Doc scores:
 #    09/24/23: 100 (1996/0)

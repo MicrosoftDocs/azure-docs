@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ms.topic: tutorial
-ms.date: 02/20/2024
+ms.date: 11/12/2024
 ms.author: zhiyuanliang
 #Customer intent: I want to dynamically update my .NET background service to use the latest configuration data in App Configuration.
 ---
@@ -25,8 +25,8 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [.NET SDK 6.0 or later](https://dotnet.microsoft.com/download) - also available in the [Azure Cloud Shell](https://shell.azure.com).
 
 ## Add a key-value
@@ -70,8 +70,39 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-1. Connect to App Configuration.
+1. Connect to App Configuration using Microsoft Entra ID (recommended), or a connection string.
 
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader role**. Be sure to allow sufficient time for the permission to propagate before running your application.
+ 
+    ```csharp
+    // Existing code in Program.cs
+    // ... ...
+    
+    var builder = Host.CreateApplicationBuilder(args);
+    
+    builder.Configuration.AddAzureAppConfiguration(options =>
+    {
+        string endpoint = Environment.GetEnvironmentVariable("Endpoint"); 
+        options.Connect(new Uri(endpoint), new DefaultAzureCredential());
+            // Load all keys that start with `TestApp:` and have no label.
+            .Select("TestApp:*")
+            // Reload configuration if any selected key-values have changed.
+            .ConfigureRefresh(refreshOptions =>
+            {
+                refreshOptions.RegisterAll();
+            });
+    
+        // Register the refresher so that the Worker service can consume it through DI
+        builder.Services.AddSingleton(options.GetRefresher());
+    });
+    
+    // The rest of existing code in Program.cs
+    // ... ...
+    ```    
+
+    ### [Connection string](#tab/connection-string)
     ```csharp
     // Existing code in Program.cs
     // ... ...
@@ -81,12 +112,12 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     builder.Configuration.AddAzureAppConfiguration(options =>
     {
         options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-            // Load all keys that start with `TestApp:`.
+            // Load all keys that start with `TestApp:` and have no label.
             .Select("TestApp:*")
-            // Configure to reload the key 'TestApp:Settings:Message' if it is modified.
+            // Reload configuration if any selected key-values have changed.
             .ConfigureRefresh(refreshOptions =>
             {
-                refreshOptions.Register("TestApp:Settings:Message");
+                refreshOptions.RegisterAll();
             });
 
         // Register the refresher so that the Worker service can consume it through DI
@@ -96,8 +127,12 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     // The rest of existing code in Program.cs
     // ... ...
     ```
+    ---
 
-    In the `ConfigureRefresh` method, a key within your App Configuration store is registered for change monitoring. The `Register` method has an optional boolean parameter `refreshAll` that can be used to indicate whether all configuration values should be refreshed if the registered key changes. In this example, only the key *TestApp:Settings:Message* will be refreshed. All settings registered for refresh have a default cache expiration of 30 seconds before a new refresh is attempted. It can be updated by calling the `AzureAppConfigurationRefreshOptions.SetCacheExpiration` method.
+    Inside the `ConfigureRefresh` method, you call the `RegisterAll` method to instruct the App Configuration provider to reload the entire configuration whenever it detects a change in any of the selected key-values (those starting with *TestApp:* and having no label). For more information about monitoring configuration changes, see [Best practices for configuration refresh](./howto-best-practices.md#configuration-refresh).
+    
+    > [!TIP]
+    > You can add a call to the `refreshOptions.SetRefreshInterval` method to specify the minimum time between configuration refreshes. In this example, you use the default value of 30 seconds. Adjust to a higher value if you need to reduce the number of requests made to your App Configuration store.
 
 1. Open *Worker.cs*. Inject `IConfiguration` and `IConfigurationRefresher` to the `Worker` service and log the configuration data from App Configuration.
 
@@ -133,46 +168,53 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     }
     ```
 
-    Calling the `ConfigureRefresh` method alone won't cause the configuration to refresh automatically. You call the `TryRefreshAsync` method from the interface `IConfigurationRefresher` to trigger a refresh. This design is to avoid requests sent to App Configuration even when your application is idle. You can include the `TryRefreshAsync` call where you consider your application active. For example, it can be when you process an incoming message, an order, or an iteration of a complex task. It can also be in a timer if your application is active all the time. In this example, you call `TryRefreshAsync` every time the background service is executed. Note that, even if the call `TryRefreshAsync` fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured cache expiration time has passed and the `TryRefreshAsync` call is triggered by your application activity again. Calling `TryRefreshAsync` is a no-op before the configured cache expiration time elapses, so its performance impact is minimal, even if it's called frequently.
+    Calling the `ConfigureRefresh` method alone won't cause the configuration to refresh automatically. You call the `TryRefreshAsync` method from the interface `IConfigurationRefresher` to trigger a refresh. This design is to avoid requests sent to App Configuration even when your application is idle. You can include the `TryRefreshAsync` call where you consider your application active. For example, it can be when you process an incoming message, an order, or an iteration of a complex task. It can also be in a timer if your application is active all the time. In this example, you call `TryRefreshAsync` every time the background service is executed. Note that, even if the call `TryRefreshAsync` fails for any reason, your application will continue to use the cached configuration. Another attempt will be made when the configured refresh interval has passed and the `TryRefreshAsync` call is triggered by your application activity again. Calling `TryRefreshAsync` is a no-op before the configured refresh interval elapses, so its performance impact is minimal, even if it's called frequently.
 
 ## Build and run the app locally
 
-1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. At the command line, run the following command.
+1. Set an environment variable.
 
-    ### [Windows command prompt](#tab/windowscommandprompt)
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
+    Set the environment variable named **Endpoint** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
-    To build and run the app locally using the Windows command prompt, run the following command.
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
-    ```console
-    setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```cmd
+    setx Endpoint "<endpoint-of-your-app-configuration-store>"
     ```
 
-    Restart the command prompt to allow the change to take effect. Print the value of the environment variable to validate that it's set properly.
+    If you use PowerShell, run the following command:
 
-    ### [PowerShell](#tab/powershell)
-
-    If you use Windows PowerShell, run the following command.
-
-    ```azurepowershell
-    $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```powershell
+    $Env:Endpoint = "<endpoint-of-your-app-configuration-store>"
     ```
 
-    ### [macOS](#tab/unix)
+    If you use macOS or Linux, run the following command:
 
-    If you use macOS, run the following command.
-
-    ```console
-    export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```bash
+    export Endpoint='<endpoint-of-your-app-configuration-store>'
     ```
 
-    ### [Linux](#tab/linux)
+    ### [Connection string](#tab/connection-string)
+    Set the environment variable named **ConnectionString** to the read-only connection string of your App Configuration store found under *Access keys* of your store in the Azure portal.
 
-    If you use Linux, run the following command.
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
-    ```console
-    export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```cmd
+    setx ConnectionString "<connection-string-of-your-app-configuration-store>"
     ```
 
+   If you use PowerShell, run the following command:
+
+    ```powershell
+    $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
+    ```
+
+    If you use macOS or Linux, run the following command:
+
+    ```bash
+    export ConnectionString='<connection-string-of-your-app-configuration-store>'
+    ```
     ---
 
 1. Run the following command to build the app.

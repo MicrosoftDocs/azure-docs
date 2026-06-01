@@ -1,41 +1,47 @@
 ---
-author: kgremban
-ms.author: kgremban
-ms.service: iot-hub
+author: SoniaLopezBravo
+ms.author: sonialopez
+ms.service: azure-iot-hub
 ms.devlang: nodejs
 ms.topic: include
-ms.date: 06/20/2024
-ms.custom: [amqp, mqtt, devx-track-js]
+ms.date: 12/19/2024
+ms.custom:
+  - amqp
+  - mqtt
+  - devx-track-js
+  - sfi-ropc-nochange
 ---
 
-## Install the Node.js messaging packages
-
-Run these commands to install the **azure-iot-device** and **azure-iothub** packages on your development machine:
-
-```cmd/sh
-npm install azure-iot-device --save
-npm install azure-iothub --save
-```
-
-The [azure-iot-device](/javascript/api/azure-iot-device) package contains objects that interface with IoT devices. This article describes `Client` class code that receives messages from IoT Hub.
-
-The [azure-iothub](/javascript/api/azure-iothub) package contains objects that interface with IoT Hub. This article describes `Client` class code that sends a message from an application to a device via IoT Hub.
-
-## Receive messages in the device application
+## Create a device application
 
 This section describes how to receive cloud-to-device messages using the [azure-iot-device](/javascript/api/azure-iot-device) package in the Azure IoT SDK for Node.js.
 
 For a Node.js-based device application to receive cloud-to-device messages, it must connect to IoT Hub, then set up a callback listener and message handler to process incoming messages from IoT Hub. The device application should also be able to detect and handle disconnects in case the device-to-IoT Hub message connection is broken.
 
-### Create a client module
+### Install SDK packages
 
-From the `azure-iot-device` package, create a `Client` using the [Client](/javascript/api/azure-iot-device/client) class. The `Client` class contains methods that a device can use to receive from and send to IoT Hub.
+The [azure-iot-device](/javascript/api/azure-iot-device) package contains objects that interface with IoT devices. Run this command to install the **azure-iot-device** device SDK on your development machine:
 
-```javascript
-const Client = require('azure-iot-device').Client;
+```cmd/sh
+npm install azure-iot-device --save
 ```
 
-### Choose a transport protocol
+### Connect a device to IoT Hub
+
+A device app can authenticate with IoT Hub using the following methods:
+
+* X.509 certificate
+* Shared access key
+
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
+
+#### Authenticate using an X.509 certificate
+
+[!INCLUDE [iot-hub-howto-auth-device-cert-node](iot-hub-howto-auth-device-cert-node.md)]
+
+#### Authenticate using a shared access key
+
+##### Choose a transport protocol
 
 The `Client` object supports these protocols:
 
@@ -45,6 +51,14 @@ The `Client` object supports these protocols:
 * `MqttWs`
 * `AmqpWs`
 
+Install needed transport protocols on your development machine.
+
+For example, this command installs the `Amqp` protocol:
+
+```cmd/sh
+npm install azure-iot-device-amqp --save
+```
+
 For more information about the differences between MQTT, AMQP, and HTTPS support, see [Cloud-to-device communications guidance](../articles/iot-hub/iot-hub-devguide-c2d-guidance.md) and [Choose a communication protocol](../articles/iot-hub/iot-hub-devguide-protocols.md).
 
 This example assigns the AMQP protocol to a `Protocol` variable. This Protocol variable is passed to the `Client.fromConnectionString` method in the **Add the connection string** section of this article.
@@ -53,11 +67,11 @@ This example assigns the AMQP protocol to a `Protocol` variable. This Protocol v
 const Protocol = require('azure-iot-device-mqtt').Amqp;
 ```
 
-#### Message completion, rejection, and abandon capabilities
+###### Message completion, rejection, and abandon capabilities
 
 Message completion, rejection, and abandon methods can be used depending on the protocol chosen.
 
-##### AMQP and HTTP
+###### AMQP and HTTP
 
 The AMQP and HTTP transports can complete, reject, or abandon a message:
 
@@ -65,23 +79,45 @@ The AMQP and HTTP transports can complete, reject, or abandon a message:
 * [Reject](/javascript/api/azure-iothub/client.servicereceiver?#azure-iothub-client-servicereceiver-reject) - To reject a message, the service that sent the cloud-to-device message is notified that the message is not processed by the device. IoT Hub permanently removes the message from the device queue. The method takes the form of `client.reject(message, callback function)`.
 * [Abandon](/javascript/api/azure-iothub/client.servicereceiver?#azure-iothub-client-servicereceiver-abandon) - To abandon a message, IoT Hub immediately tries to resend it. IoT Hub retains the message in the device queue for future consumption. The method takes the form of `client.abandon(message, callback function)`.
 
-##### MQTT
+###### MQTT
 
 MQTT does not support message complete, reject, or abandon functions. Instead, MQTT accepts a message by default and the message is removed from the IoT Hub message queue.
 
-### Redelivery attempts
+###### Redelivery attempts
 
 If something happens that prevents the device from completing, abandoning, or rejecting the message, IoT Hub will, after a fixed timeout period, queue the message for delivery again. For this reason, the message processing logic in the device app must be *idempotent*, so that receiving the same message multiple times produces the same result.
 
-### Add the IoT Hub string and transport protocol
+##### Create a client object
 
-Call [fromConnectionString](/javascript/api/azure-iot-device/client?#azure-iot-device-client-fromconnectionstring) to establish a device-to-IoT hub connection using these parameters:
+Create a `Client` object using the installed package.
 
-* **connStr** - A connection string which encapsulates "device connect" permissions for an IoT hub. The connection string contains Hostname, Device ID & Shared Access Key in this format:
-"HostName=<iothub_host_name>;DeviceId=<device_id>;SharedAccessKey=<device_key>"
-* **transportCtor** - The transport protocol.
+For example:
 
 ```javascript
+const Client = require('azure-iot-device').Client;
+```
+
+##### Create a protocol object
+
+Create a `Protocol` object using an installed transport package.
+
+This example assigns the AMQP protocol:
+
+```javascript
+const Protocol = require('azure-iot-device-amqp').Amqp;
+```
+
+##### Add the device connection string and transport protocol
+
+Call [fromConnectionString](/javascript/api/azure-iot-device/client?#azure-iot-device-client-fromconnectionstring) to supply device connection parameters:
+
+* **connStr** - The device connection string.
+* **transportCtor** - The transport protocol.
+
+This example uses the `Amqp` transport protocol:
+
+```javascript
+const deviceConnectionString = "{IoT hub device connection string}"
 const Protocol = require('azure-iot-device-mqtt').Amqp;
 let client = Client.fromConnectionString(deviceConnectionString, Protocol);
 ```
@@ -149,15 +185,27 @@ client.open()
 });
 ```
 
-### SDK receive message sample
+### SDK device samples
+
+The Azure IoT SDK for Node.js provides a working sample of a device app that handles message receive. For more information, see:
 
 [simple_sample_device](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples) - A device app that connects to your IoT hub and receives cloud-to-device messages.
 
-## Send cloud-to-device messages
+## Create a backend application
 
-This section describes how to send a cloud-to-device message using the [azure-iothub](/javascript/api/azure-iothub) package from the Azure IoT SDK for Node.js. As discussed previously, a solution backend application connects to an IoT Hub and messages are sent to IoT Hub encoded with a destination device. IoT Hub stores incoming messages to its message queue, and messages are delivered from the IoT Hub message queue to the target device.
+This section describes how to send a cloud-to-device message. As discussed previously, a solution backend application connects to an IoT Hub and messages are sent to IoT Hub encoded with a destination device. IoT Hub stores incoming messages to its message queue, and messages are delivered from the IoT Hub message queue to the target device.
 
 A solution backend application can also request and receive delivery feedback for a message sent to IoT Hub that is destined for device delivery via the message queue.
+
+### Install service SDK package
+
+The [azure-iothub](/javascript/api/azure-iothub) package contains objects that interface with IoT Hub. This article describes `Client` class code that sends a message from an application to a device via IoT Hub.
+
+Run this command to install **azure-iothub** on your development machine:
+
+```cmd/sh
+npm install azure-iothub --save
+```
 
 ### Load the client and message modules
 
@@ -171,21 +219,27 @@ var Client = require('azure-iothub').Client;
 var Message = require('azure-iot-common').Message;
 ```
 
-### Create the Client object
+### Connect to IoT hub
 
-Create the [Client](/javascript/api/azure-iothub/client) using [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring) using these parameters:
+You can connect a backend service to IoT Hub using the following methods:
 
-* IoT Hub connection string
-* Transport type
+* Shared access policy
+* Microsoft Entra
+
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
+
+#### Connect using a shared access policy
+
+Use [fromConnectionString](/javascript/api/azure-iothub/client?#azure-iothub-client-fromconnectionstring) to connect to IoT hub.
 
 In this example, the `serviceClient` object is created with the `Amqp` transport type.
 
   ```javascript
-  var connectionString = '{IoT Hub connection string}';
+  var connectionString = '{IoT hub device connection string}';
   var serviceClient = Client.fromConnectionString(connectionString,`Amqp`);
   ```
 
-### Open the Client connection
+##### Open the Client connection
 
 Call the `Client` [open](/javascript/api/azure-iothub/client?#azure-iothub-client-open-1) method to open a connection between an application and IoT Hub.
 
@@ -198,6 +252,10 @@ serviceClient.open(function (err)
 if (err)
   console.error('Could not connect: ' + err.message);
 ```
+
+#### Connect using Microsoft Entra
+
+[!INCLUDE [iot-hub-howto-connect-service-iothub-entra-node](iot-hub-howto-connect-service-iothub-entra-node.md)]
 
 ### Create a message
 
@@ -316,5 +374,7 @@ serviceClient.open(function (err) {
 ```
 
 ### SDK send message sample
+
+The Azure IoT SDK for Node.js provides working samples of a service app that handles send message tasks. For more information, see:
 
 [send_c2d_message.js](https://github.com/Azure/azure-iot-hub-node/tree/main/samples) - Send C2D messages to a device through IoT Hub.

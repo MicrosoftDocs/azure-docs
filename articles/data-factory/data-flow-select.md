@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about the mapping data flow Select Transformation in Azure Data Factory and Synapse Analytics pipelines.
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.custom: synapse
-ms.date: 05/15/2024
+ms.date: 04/27/2026
 ---
 
 # Select transformation in mapping data flow
@@ -16,6 +15,9 @@ ms.date: 05/15/2024
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
+> [!TIP]
+>  For the equivalent transformation (**Choose columns**) in Dataflow Gen2, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
 
 Use the select transformation to rename, drop, or reorder columns. This transformation doesn't alter row data, but chooses which columns are propagated downstream. 
 
@@ -39,7 +41,7 @@ Fixed mappings can be used to map a subcolumn of a hierarchical column to a top-
 ## Rule-based mapping
 
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xiXz]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=f1d4575c-e0e0-4827-bc0b-6e85bca986b5]
 
 If you wish to map many columns at once or pass drifted columns downstream, use rule-based mapping to define your mappings using column patterns. Match based on the `name`, `type`, `stream`, and `position` of columns. You can have any combination of fixed and rule-based mappings. By default, all projections with greater than 50 columns will default to a rule-based mapping that matches on every column and outputs the inputted name. 
 

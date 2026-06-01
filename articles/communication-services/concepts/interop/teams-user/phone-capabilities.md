@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: tchladek
 ms.date: 12/01/2021
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---
@@ -79,8 +79,10 @@ The following list of capabilities is supported for scenarios where at least one
 |                   | Render remote video stream                                                                                          | ✔️*        |
 | Recording & transcription | Manage Teams convenient recording                                                                           | ❌ |
 |                   | Receive information of call being recorded                                                                          |   ✔️      |
+|                   | Give explicit consent to Teams cloud recording                                                                     |   ✔️      |
 |                   | Manage Teams transcription                                                                                          | ❌ |
 |                   | Receive information of call being transcribed                                                                       |   ✔️      |
+|                   | Give explicit consent to Teams transcription                                                                        |   ✔️      |
 |                   | Support for compliance recording                                                                                    |   ✔️      |
 | Media             | Support for early media                                                                                             | ✔️        |
 |                   | Place a phone call honors location-based routing                                                                    |   ❌      |

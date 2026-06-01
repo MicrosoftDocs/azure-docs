@@ -2,13 +2,15 @@
 title: Run SSIS package with Stored Procedure Activity - Azure 
 description: This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Stored Procedure Activity.
 author: chugugrace
-ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2024
 ms.author: chugu 
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 # Run an SSIS package with the Stored Procedure activity
 
@@ -29,7 +31,7 @@ Finally, you will also require an Azure-SSIS integration runtime if you don't ha
 
 ## Create a pipeline with stored procedure activity
 
-In this step, you use the Data Factory UI to create a pipeline.  If you have not navigated to the Azure Data Factory Studio already, open your data factory in the Azure Portal and click the **Open Azure Data Factory Studio** button to open it.
+In this step, you use the Data Factory UI to create a pipeline.  If you have not navigated to the Azure Data Factory Studio already, open your data factory in the Azure portal and click the **Open Azure Data Factory Studio** button to open it.
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png" alt-text="Screenshot of the Azure Data Factory home page.":::
 
@@ -43,7 +45,7 @@ Next, you will add a stored procedure activity to a new pipeline and configure i
 
     :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png" alt-text="Drag-and-drop stored procedure activity":::
 
-3. Select the **Stored procedure** activity you just added to the designer surface, and then the **Settings** tab, and click **+ New** beside the **Linked service**. You create a connection to the database in Azure SQL Database that hosts the SSIS Catalog (SSIDB database). 
+3. Select the **Stored procedure** activity you just added to the designer surface, and then the **Settings** tab, and click **+ New** beside the **Linked service**. You create a connection to the database in Azure SQL Database that hosts the SSIS Catalog (SSISDB database). 
    
     :::image type="content" source="./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png" alt-text="New linked service button":::
 

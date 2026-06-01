@@ -1,9 +1,8 @@
 ---
  title: include file
  description: include file
- services: service-bus-messaging, event-hubs
  author: spelluru
- ms.service: service-bus-messaging, event-hubs
+ ms.service: azure-service-bus
  ms.topic: include
  ms.date: 12/12/2020
  ms.author: spelluru

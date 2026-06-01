@@ -9,13 +9,15 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
-ms.custom: include file
 ms.author: jbeauregardb
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 8 or above.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../create-communication-resource.md).
@@ -93,7 +95,7 @@ Initialize a `CommunicationIdentityClient` with your connection string. Learn ho
         .buildClient();
 ```
 
-First, in order to create the span that will allow you to trace the requests in the Azure Monitor, you will have to create an instance of an `AzureMonitorTraceExporter` object. You will need to provide the [connection string](../../../azure-monitor/app/sdk-connection-string.md) from your Application Insights Resource.
+First, in order to create the span that will allow you to trace the requests in the Azure Monitor, you will have to create an instance of an `AzureMonitorTraceExporter` object. You will need to provide the [connection string](/azure/azure-monitor/app/sdk-connection-string) from your Application Insights Resource.
 
 ```java
     AzureMonitorTraceExporter exporter = new AzureMonitorExporterBuilder()

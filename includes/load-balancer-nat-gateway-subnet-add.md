@@ -3,7 +3,7 @@
  description: include file
  services: load-balancer
  author: mbender-ms
- ms.service: load-balancer
+ ms.service: azure-load-balancer
  ms.topic: include
  ms.date: 12/04/2023
  ms.author: mbender
@@ -32,8 +32,6 @@ In this section, you'll create a NAT gateway for outbound internet access for re
     | Region | Select **East US**. |
     | Availability zone | Select **None**. |
     | Idle timeout (minutes) | Enter **15**. |
-
-    :::image type="content" source="./media/load-balancer-internal-create-bastion-include/create-nat-gateway.png" alt-text="Screenshot of Create network address translation gateway window in the Azure portal.":::
 
 1. Select the **Outbound IP** tab or select the **Next: Outbound IP** button at the bottom of the page.
 

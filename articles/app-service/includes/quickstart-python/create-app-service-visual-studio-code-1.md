@@ -3,6 +3,7 @@ author: DavidCBerry13
 ms.author: daberry
 ms.topic: include
 ms.date: 01/29/2022
+ms.service: azure-app-service
 ---
 Locate the Azure icon in the left-hand toolbar. Select it to bring up the Azure Tools for VS Code extension.<br>
 <br>

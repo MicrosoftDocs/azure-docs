@@ -3,7 +3,7 @@ title: Tutorial - Write C# user defined functions for Azure Stream Analytics job
 description: This tutorial shows how to write C# user defined functions for Stream Analytics jobs in Visual Studio.
 author: ajetasin
 ms.author: ajetasi
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: tutorial
 ms.date: 02/26/2024
 ms.custom: devx-track-csharp
@@ -33,7 +33,7 @@ In this tutorial, you learn how to:
 
 Before you start, make sure you've completed the following prerequisites:
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Install [Stream Analytics tools for Visual Studio](stream-analytics-tools-for-visual-studio-install.md) and the **Azure development** or **Data Storage and Processing** workloads.
 * Take a look at the existing [Stream Analytics Edge development guide](stream-analytics-tools-for-visual-studio-edge-jobs.md) if you're building an IoT Edge job.
 

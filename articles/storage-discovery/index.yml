@@ -1,0 +1,88 @@
+### YamlMime:Hub
+
+title: Azure Storage Discovery documentation
+summary: Storage Discovery provides insights on storage capacity, transactions, and configurations - providing visibility into the storage estate of entire organizations.
+brand: azure
+
+metadata:
+  title: Azure Storage Discovery documentation
+  description: Azure Storage Discovery provides organizations with deep, actionable insights into their data estate. Discovery addresses the growing complexity of managing large-scale, distributed data by offering visibility into capacity, operations, resource, and security configurations. 
+  ms.service: azure-storage-discovery
+  ms.topic: hub-page
+  author: fauhse
+  ms.author: fauhse
+  ms.date: 10/09/2025
+
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  items:
+    # Card
+    - title: What is Azure Storage Discovery?
+      itemType: overview
+      url: overview.md
+    - title: Plan a Storage Discovery deployment
+      itemType: concept
+      url: deployment-planning.md
+    - title: Deploy Azure Storage Discovery and use the Azure portal and Copilot to unlock insights
+      itemType: tutorial
+      url: get-storage-estate-insights.md
+
+conceptualContent:
+  items:
+    # Card 1 
+    - title: Concepts
+      summary: These articles help you understand the Storage Discovery basics.
+      links:
+      - text: Plan for a Storage Discovery deployment
+        url: deployment-planning.md
+        itemType: concept
+      - text: View pricing plan options
+        url: pricing.md
+        itemType: concept
+      - text: Understand management components
+        url: management-components.md
+        itemType: concept
+      - text: Azure Storage reliability
+        url: /azure/reliability/reliability-storage-discovery?toc=/azure/storage-discovery/toc.json
+        itemType: concept
+
+    # Card 2    
+    - title: Resources
+      summary: Links to articles inside and outside the Storage Discovery documentation.
+      links:
+      - text: Frequently Asked Questions
+        url: frequently-asked-questions.md        
+        itemType: reference
+      - text: Release notes
+        url: release-notes.md
+        itemType: reference
+
+# additionalContent section (optional)
+# Card with links style
+additionalContent:
+  # Supports up to 3 sections
+  sections:
+    - title: How-To
+      items:
+        # Card
+        - title: Deploy
+          links:
+          - url: deployment-planning.md
+            text: Planning for a Storage Discovery deployment
+          - url: create-workspace.md
+            text: Deploying a Storage Discovery resource
+          - url: create-workspace-bicep.md
+            text: Bicep deployment template
+        # Card
+        - title: Explore insights
+          links:
+          - url: get-started-reports.md
+            text: Discovery reports in the Azure portal
+          - url: /azure/copilot/discover-storage-estate-insights?toc=/azure/storage-discovery/toc.json
+            text: Use Azure Copilot to retrieve insights
+        # Card
+        - title: Manage
+          links:
+          - url: resource-move.md
+            text: Move resources to other locations in Azure

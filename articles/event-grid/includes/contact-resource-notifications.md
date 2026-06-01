@@ -1,9 +1,8 @@
 ---
  title: include file
  description: include file
- services: event-grid
  author: spelluru
- ms.service: event-grid
+ ms.service: azure-event-grid
  ms.topic: include
  ms.date: 11/07/2023
  ms.author: spelluru
@@ -11,7 +10,7 @@
 ---
 
 ## Contact us
-If you have any questions or feedback on this feature, don't hesitate to reach us at [arnsupport@microsoft.com](mailto:arnsupport@microsoft.com). 
+If you have any questions or feedback on this feature, don't hesitate to reach us at this [stackoverflow link](https://stackoverflow.microsoft.com/posts/tagged/24358)
 
 To better assist you with specific feedback about a certain event, provide the following information: 
  

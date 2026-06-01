@@ -5,7 +5,8 @@ author: ahartoon
 ms.author: anboisve
 ms.topic: troubleshooting
 ms.date: 05/07/2020
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
+ms.custom: sfi-ropc-nochange
 ---
 
 # Azure Stream Analytics configuration error codes

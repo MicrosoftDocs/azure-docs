@@ -3,10 +3,9 @@ title: Set up diagnostic logs via the Azure Monitor REST API
 description: Learn how to set up diagnostic logs for Azure Data Factory by using the Azure Monitor REST API.
 author: nabhishek
 ms.author: abnarain
-ms.reviewer: jburchel
-ms.service: data-factory
+ms.reviewer: whhender
 ms.subservice: monitoring
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/20/2023
 ---
 

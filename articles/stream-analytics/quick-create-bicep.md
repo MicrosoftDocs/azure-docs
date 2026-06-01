@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Create an Azure Stream Analytics job using Bicep
 description: This quickstart shows how to use Bicep to create an Azure Stream Analytics job.
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: quickstart
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-bicep
 ms.date: 05/17/2022
@@ -15,7 +15,7 @@ In this quickstart, you use Bicep to create an Azure Stream Analytics job. Once 
 
 ## Prerequisites
 
-To complete this article, you need to have an Azure subscription. [Create one for free](https://azure.microsoft.com/free/).
+To complete this article, you need to have an Azure subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Review the Bicep file
 

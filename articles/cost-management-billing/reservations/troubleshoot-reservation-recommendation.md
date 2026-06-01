@@ -1,13 +1,14 @@
 ---
 title: Troubleshoot Azure reservation recommendations
 description: This article helps you understand and troubleshoot Azure reservation recommendations shown in the Azure portal.
-author: bandersmsft
+author: pri-mittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.author: banders
+ms.author: primittal
 ms.reviewer: primittal
 ms.topic: troubleshooting
-ms.date: 03/21/2024
+ms.date: 03/19/2026
+ms.custom: sfi-image-nochange
 ---
 
 # Troubleshoot Azure reservation recommendations

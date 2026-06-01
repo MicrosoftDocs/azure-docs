@@ -1,31 +1,32 @@
 ---
 author: stevenmatthew
-ms.service: databox  
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: include
-ms.date: 10/21/2021
+ms.date: 10/14/2025
 ms.author: shaas
 ---
 
 Take the following steps if returning the device in Hong Kong Special Administrative Region.
 
 1. Pack the device for return shipment in the original box.
-2. Spool and securely place the power cord that was provided with the device in the back of the device.
-3. Call the **Quantium Solutions** hotline at **(852) 2318 1213** during office hours (9am to 6pm, Monday to Friday).  
-4. Quote Microsoft Azure pickup and the reference number and tracking number (above barcode) on the return shipping label to arrange for a collection.
-5. You'll get a verbal confirmation of the pickup schedule. If the courier doesn't arrive for collection, call the Quantium Solutions hotline for alternate arrangements.
-6. Upon booking a pickup with Quantium Solutions, share the confirmation with [Microsoft Data Box Operations Asia](mailto:adbo@microsoft.com) using the following template:
+2. Power off the device and remove the cables.
+3. Spool and securely place the power cord that was provided with the device in the back of the device.
+4. Write your company name and address information on the consignment note as your sender information.
+5. Email adbops@microsoft.com using the following template: 
+    * If you have multiple orders, email to ensure individual pickup.
 
-    ```output
-    To: adbo@microsoft.com
-    Subject: Microsoft Data Box Job: [order name] has completed copy
+    ```
+    To: adbops@microsoft.com
+    Subject: Microsoft Azure return shipment Pickup | [Order Name] 
     Body:
-    We have confirmed the pickup details with Quantium Solutions.
-
-       * Requestor name:
-       * Requestor contact number:
-       * Pickup Date:  
-       * Pickup time:
+    -  Name:
+    -  Contact Number:
+    -  Collection Address:
+    -  Preferred Collection Date and Time:
     ```
 
-If you come across any issues, email Data Box Operations Asia [adbo@microsoft.com](mailto:adbo@microsoft.com) with details of the issue(s), and put the job name in the Subject: line.
+6. Print two copies of the reverse shipping label. Affix one label to the outside of the package. Use the second label to obtain a signature from the carrier team as acknowledgment.
+7. If you encounter pickup issues:
+   * Contact Azure Data Box Operations at adbops@microsoft.com for assistance.
+   * Include the Order Name and a description of the issue in the subject line.
+8. Once the device is picked up and scanned by the carrier, the order status in the Azure portal will update to “Picked Up” and a tracking ID will be displayed.

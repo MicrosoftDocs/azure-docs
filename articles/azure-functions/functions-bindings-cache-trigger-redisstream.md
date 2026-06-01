@@ -1,26 +1,32 @@
 ---
 title: RedisStreamTrigger for Azure Functions
-description: Learn how to use RedisStreamTrigger Azure Function for Azure Cache for Redis.
+description: Learn how to use RedisStreamTrigger Azure Function for Azure Managed Redis.
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 ms.author: franlanglois
 ms.service: azure-functions
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, ignite-2024
 ms.topic: reference
-ms.date: 05/20/2024
+ms.date: 07/12/2024
 ---
 
 # RedisStreamTrigger for Azure Functions
 
 The `RedisStreamTrigger` reads new entries from a stream and surfaces those elements to the function.
 
-| Tier    | Basic | Standard, Premium | Enterprise, Enterprise Flash |
-|---------|:-----:|:-----------------:|:----------------------------:|
-| Streams | Yes   | Yes               | Yes                          |
+## Scope of availability for functions triggers
+
+| Trigger Type    | Azure Managed Redis | Azure Cache for Redis |
+|---------|:-----:|:-----------------:|
+| Streams | Yes   | Yes               |
 
 > [!IMPORTANT]
-> Redis triggers aren't currently supported for functions running in the [Consumption plan](consumption-plan.md).
+> When using Azure Managed Redis or the Enterprise tiers of Azure Cache for Redis, use port 10000 rather than port 6380 or 6379.
+>
+
+> [!IMPORTANT]
+> Redis triggers aren't currently supported for functions running on a [Consumption plan](consumption-plan.md) or a [Flex Consumption plan](/azure/azure-functions/flex-consumption-plan).
 >
 
 ::: zone pivot="programming-language-javascript"  
@@ -47,7 +53,6 @@ The `RedisStreamTrigger` reads new entries from a stream and surfaces those elem
 [!INCLUDE [dotnet-execution](../../includes/functions-dotnet-execution-model.md)]
 
 ### [Isolated worker model](#tab/isolated-process)
-
 
 ```csharp
 ﻿using Microsoft.Extensions.Logging;
@@ -333,7 +338,6 @@ Each functions instance uses the [`WEBSITE_INSTANCE_ID`](/azure/app-service/refe
 ## Related content
 
 - [Introduction to Azure Functions](functions-overview.md)
-- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
-- [Using Azure Functions and Azure Cache for Redis to create a write-behind cache](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
+- [Overview of Azure functions for Azure Redis](/azure/azure-functions/functions-bindings-cache)
 - [Redis connection string](functions-bindings-cache.md#redis-connection-string)
-- [Redis streams](https://redis.io/docs/data-types/streams/)
+- [Redis streams](https://redis.io/docs/latest/operate/rs/databases/active-active/develop/data-types/streams/)

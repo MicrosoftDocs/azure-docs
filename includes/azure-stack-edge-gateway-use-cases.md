@@ -1,12 +1,12 @@
 ---
 author: alkohli
-ms.service: databox  
+ms.service: azure-databox
 ms.topic: include
 ms.date: 02/07/2022
 ms.author: alkohli
 ---
 
-- **Inference with Azure Machine Learning** - With this solution, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information, see how to [Deploy Azure ML hardware accelerated models on Azure Stack Edge](../articles/machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
+- **Inference with Azure Machine Learning** - With this solution, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information, see how to [Deploy Azure ML hardware accelerated models on Azure Stack Edge](/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Preprocess data** - Transform data before sending it to Azure via compute options such as containerized workloads and Virtual Machines to create a more actionable dataset. Preprocessing can be used to: 
 

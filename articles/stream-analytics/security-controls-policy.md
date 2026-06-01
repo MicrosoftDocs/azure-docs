@@ -5,7 +5,7 @@ ms.date: 02/06/2024
 ms.topic: sample
 author: ajetasin
 ms.author: ajetasi
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Stream Analytics
@@ -19,7 +19,7 @@ compliant with the specific standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-streamanalytics](../../includes/policy/standards/byrp/microsoft.streamanalytics.md)]
+[!INCLUDE [azure-policy-compliancecontrols-streamanalytics](~/azure-policy-autogen-docs/includes/policy/standards/byrp/microsoft.streamanalytics.md)]
 
 ## Next steps
 

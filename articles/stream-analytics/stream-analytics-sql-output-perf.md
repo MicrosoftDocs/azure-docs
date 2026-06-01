@@ -4,8 +4,8 @@ description: Learn about outputting data to SQL Azure from Azure Stream Analytic
 author: chetanmsft
 ms.author: chetang
 
-ms.service: stream-analytics
-ms.topic: conceptual
+ms.service: azure-stream-analytics
+ms.topic: how-to
 ms.date: 03/18/2019
 ---
 # Increase throughput performance to Azure SQL Database from Azure Stream Analytics

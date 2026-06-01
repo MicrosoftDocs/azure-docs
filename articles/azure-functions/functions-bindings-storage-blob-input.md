@@ -5,8 +5,15 @@ ms.topic: reference
 ms.date: 05/12/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
+ms.custom:
+  - devx-track-csharp
+  - devx-track-python
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-ts
+  - build-2025
+  - sfi-ropc-nochange
 ---
 
 # Azure Blob storage input binding for Azure Functions
@@ -59,8 +66,8 @@ public static void Run(
 
 This section contains the following examples:
 
-* [HTTP trigger, look up blob name from query string](#http-trigger-look-up-blob-name-from-query-string)
-* [Queue trigger, receive blob name from queue message](#queue-trigger-receive-blob-name-from-queue-message)
+* [HTTP trigger: look up blob name from query string](#http-trigger-look-up-blob-name-from-query-string)
+* [Queue trigger: receive blob name from queue message](#queue-trigger-receive-blob-name-from-queue-message)
 
 #### HTTP trigger, look up blob name from query string
 
@@ -87,7 +94,7 @@ This section contains the following examples:
   }
 ```
 
-#### Queue trigger, receive blob name from queue message
+#### Queue trigger: receive blob name from queue message
 
  The following example shows a Java function that uses the `QueueTrigger` annotation to receive a message containing the name of a file in a blob storage container. The `BlobInput` annotation then reads the file and passes its contents to the function as a `byte[]`.
 
@@ -109,12 +116,14 @@ This section contains the following examples:
   }
 ```
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@BlobInput` annotation on parameters whose value would come from a blob.  This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@BlobInput` annotation on parameters whose value would come from a blob. This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 
 # [Model v4](#tab/nodejs-v4)
+
+[!INCLUDE [functions-blob-storage-sdk-types-node](../../includes/functions-blob-storage-sdk-types-node.md)]
 
 The following example shows a queue triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
 
@@ -219,11 +228,11 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 
 This example uses SDK types to directly access the underlying `BlobClient` object provided by the Blob storage input binding: 
 
-:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="9-14,42-52"::: 
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="9-12,40-50"::: 
 
-For examples of using other SDK types, see the [`ContainerClient`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_containerclient/function_app.py) and [`StorageStreamDownloader`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_storagestreamdownloader/function_app.py) samples.
+For examples of using other SDK types, see the [`ContainerClient`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_containerclient/function_app.py) and [`StorageStreamDownloader`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_storagestreamdownloader/function_app.py) samples. For a step-by-step tutorial on how to include SDK-type bindings in your function app, follow the [Python SDK Bindings for Blob Sample](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-python).
 
-To learn more, including how to enable SDK type bindings in your project, see [SDK type bindings](functions-reference-python.md#sdk-type-bindings-preview).
+To learn more, including what other SDK type bindings are supported, see [SDK type bindings](functions-reference-python.md#sdk-type-bindings).
 
 The code creates a copy of a blob.
 
@@ -236,11 +245,11 @@ app = func.FunctionApp()
 @app.function_name(name="BlobOutput1")
 @app.route(route="file")
 @app.blob_input(arg_name="inputblob",
-                path="sample-workitems/test.txt",
-                connection="<BLOB_CONNECTION_SETTING>")
+                path="PATH/TO/BLOB",
+                connection="CONNECTION_SETTING")
 @app.blob_output(arg_name="outputblob",
-                path="newblob/test.txt",
-                connection="<BLOB_CONNECTION_SETTING>")
+                path="PATH/TO/NEW/BLOB",
+                connection="CONNECTION_SETTING")
 def main(req: func.HttpRequest, inputblob: str, outputblob: func.Out[str]):
     logging.info(f'Python Queue trigger function processed {len(inputblob)} bytes')
     outputblob.set(inputblob)
@@ -448,7 +457,7 @@ See [Binding types](./functions-bindings-storage-blob.md?tabs=in-process#binding
 
 ---
 
-Binding to `string`, or `Byte[]` is only recommended when the blob size is small. This is recommended because the entire blob contents are loaded into memory. For most blobs, use a `Stream` or `BlobClient` type. For more information, see [Concurrency and memory usage](./functions-bindings-storage-blob-trigger.md#memory-usage-and-concurrency).
+Binding to `string`, or `Byte[]` is only recommended when the blob size is small, since the entire blob contents are loaded into memory. For most blobs, use a `Stream` or `BlobClient` type. For more information, see [Concurrency and memory usage](./functions-bindings-storage-blob-trigger.md#memory-usage-and-concurrency).
 
 If you get an error message when trying to bind to one of the Storage SDK types, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-blob.md#tabpanel_2_functionsv1_in-process).
 
@@ -482,8 +491,11 @@ Functions also supports Python SDK type bindings for Azure Blob storage, which l
 + [`ContainerClient`](/python/api/azure-storage-blob/azure.storage.blob.containerclient)
 + [`StorageStreamDownloader`](/python/api/azure-storage-blob/azure.storage.blob.storagestreamdownloader)
 
+> [!NOTE]  
+> Only synchronous SDK types are supported.
+
 > [!IMPORTANT]  
-> SDK types support for Python is currently in preview and is only supported for the Python v2 programming model. For more information, see [SDK types in Python](./functions-reference-python.md#sdk-type-bindings-preview).
+> SDK types support for Python is generally available and is only supported for the Python v2 programming model. For more information, see [SDK types in Python](./functions-reference-python.md#sdk-type-bindings).
 ::: zone-end  
 
 [!INCLUDE [functions-storage-blob-connections](../../includes/functions-storage-blob-connections.md)]

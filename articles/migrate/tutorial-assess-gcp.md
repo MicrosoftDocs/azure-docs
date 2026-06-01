@@ -1,14 +1,13 @@
 ---
 title: Assess GCP VM instances for migration to Azure with Azure Migrate
 description: Describes how to assess GCP VM instances for migration to Azure using Azure Migrate.
-author: rashi-ms
-ms.author: rajosh
-ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 02/26/2024
+ms.date: 02/06/2025
 ms.service: azure-migrate
-ms.custom: MVC, engagement-fy23
-#Customer intent: As a server admin, I want to assess my GCP instances in preparation for migration to Azure.
+ms.reviewer: v-uhabiba
+ms.custom: MVC, engagement-fy25
+monikerRange:
+# Customer intent: As a server administrator, I want to assess my Google Cloud Platform VM instances for migration to Azure, so that I can evaluate their readiness, estimate costs, and identify any potential risks in the migration process.
 ---
 
 # Tutorial: Assess Google Cloud Platform (GCP) VM instances for migration to Azure
@@ -51,9 +50,6 @@ Run an assessment as follows:
    ![Location of Assess and migrate servers button](./media/tutorial-assess-vmware-azure-vm/assess.png)
 
 2. In **Azure Migrate: Discovery and assessment**, select **Assess**.
-
-    ![Location of the Assess button](./media/tutorial-assess-vmware-azure-vm/assess-servers.png)
-
 3. In **Assess servers** > **Assessment type**, select **Azure VM**.
 4. In **Discovery source**:
 
@@ -67,13 +63,13 @@ Run an assessment as follows:
 1. In **Assessment properties** > **Target Properties**, do the following:
     - In **Target location**, specify the Azure region to which you want to migrate.
         - Size and cost recommendations are based on the location that you specify. Once you change the target location from default, you'll be prompted to specify **Reserved Instances** and **VM series**.
-        - In Azure Government, you can target assessments in [these regions](migrate-support-matrix.md#azure-government).
+        - In Azure Government, you can target assessments in [these regions](supported-geographies.md#azure-government).
     - In **Storage type**,
         - If you want to use performance-based data in the assessment, select **Automatic** for Azure Migrate to recommend a storage type, based on the disk IOPS and throughput.
         - Alternatively, select the storage type you want to use for VM when you migrate it.
     - In **Savings options (compute)**, specify the savings option that you want the assessment to consider, helping to optimize your Azure compute cost. 
         - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.
-        - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
+        - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-overview.md) (1 year or 3 year savings plan) provide additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation will be consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
         - When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.
         - You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' and 'VM uptime' properties aren't applicable.
  1. In **VM Size**:
@@ -115,7 +111,7 @@ Run an assessment as follows:
 
 1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
 
-1. After the assessment is created, view it in **Servers** > **Azure Migrate: Discovery and assessment** > **Assessments**.
+1. After the assessment is created, view it in **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** > **Assessments**.
 
 1. Select **Export assessment** to download it as an Excel file.
     > [!NOTE]
@@ -163,31 +159,9 @@ The assessment summary shows the estimated compute and storage cost of running V
 2. Review monthly storage costs. The view shows the aggregated storage costs for the assessed group, split over different types of storage disks. 
 3. You can drill down to see cost details for specific VMs.
 
-### Review confidence rating
-
-Azure Migrate assigns a confidence rating to performance-based assessments. Rating is from one star (lowest) to five stars (highest).
-
-![Confidence rating](./media/tutorial-assess-gcp/confidence-rating.png)
-
-The confidence rating helps you estimate the reliability of  size recommendations in the assessment. The rating is based on the availability of data points needed to compute the assessment.
-
-> [!NOTE]
-> Confidence ratings aren't assigned if you create an assessment based on a CSV file.
-
-
-Confidence ratings are as follows.
-
-**Data point availability** | **Confidence rating**
---- | ---
-0%-20% | 1 star
-21%-40% | 2 stars
-41%-60% | 3 stars
-61%-80% | 4 stars
-81%-100% | 5 stars
-
-[Learn more](concepts-assessment-calculation.md#confidence-ratings-performance-based) about confidence ratings.
 
 ## Next steps
 
 - Find server dependencies using [dependency mapping](concepts-dependency-visualization.md).
 - Set up [agent-based](how-to-create-group-machine-dependencies.md) dependency mapping.
+- Learn to migrate [GCP VMs](tutorial-migrate-gcp-virtual-machines.md).

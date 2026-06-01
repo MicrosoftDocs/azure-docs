@@ -3,7 +3,6 @@ title: Troubleshoot the ORC format connector
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the ORC format connector in Azure Data Factory and Azure Synapse Analytics. 
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 10/20/2023
@@ -20,7 +19,7 @@ This article provides suggestions to troubleshoot common problems with the ORC f
 ## Error code: OrcJavaInvocationException
 
 - **Message**: `An error occurred when invoking Java, message: %javaException;.`
-- **Causes and recommendations**: Different causes may lead to this error. Check below list for possible cause analysis and related recommendation.
+- **Causes and recommendations**: Different causes could lead to this error. Check this list for possible cause analysis and related recommendation.
 
     | Cause analysis                                               | Recommendation                                               |
     | :----------------------------------------------------------- | :----------------------------------------------------------- |
@@ -34,7 +33,7 @@ This article provides suggestions to troubleshoot common problems with the ORC f
 
 - **Message**: `The Ticks value '%ticks;' for the datetime column must be between valid datetime ticks range -621355968000000000 and 2534022144000000000.`
 
-- **Cause**: If the datetime value is '0001-01-01 00:00:00', it could be caused by the differences between the [Julian calendar and the Gregorian calendar](https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar#Difference_between_Julian_and_proleptic_Gregorian_calendar_dates).
+- **Cause**: If the datetime value is '0001-01-01 00:00:00', it could be differences between the [Julian calendar and the Gregorian calendar](https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar#Difference_between_Julian_and_proleptic_Gregorian_calendar_dates).
 
 - **Recommendation**:  Check the ticks value and avoid using the datetime value '0001-01-01 00:00:00'.
 
@@ -45,7 +44,7 @@ For more troubleshooting help, try these resources:
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
 - [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
-- [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+- [Azure videos](/shows/data-exposed/?products=azure&terms=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-- [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
+- [X information about Data Factory](https://x.com/hashtag/DataFactory)

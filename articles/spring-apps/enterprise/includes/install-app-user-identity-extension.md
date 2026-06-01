@@ -1,9 +1,10 @@
 ---
 author: jiec
 ms.author: jiec
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: include
-ms.date: 04/02/2022
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 <!-- 

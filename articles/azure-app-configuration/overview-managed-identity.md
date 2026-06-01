@@ -2,14 +2,14 @@
 title: Configure managed identities with Azure App Configuration
 description: Learn how managed identities work in Azure App Configuration and how to configure a managed identity
 author: maud-lv
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/24/2024
 ms.author: malev
 ms.service: azure-app-configuration
 ms.custom: devx-track-azurecli
 ---
 
-# How to use managed identities for Azure App Configuration
+# Add managed identities for Azure App Configuration
 
 This article shows you how to create a managed identity for Azure App Configuration. A managed identity from Microsoft Entra ID allows Azure App Configuration to easily access other Microsoft Entra protected resources. The identity is managed by the Azure platform. It doesn't require you to provision or rotate any secrets. For more about managed identities in Microsoft Entra ID, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 

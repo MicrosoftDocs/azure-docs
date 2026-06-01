@@ -6,12 +6,12 @@ description: Learn how to integrate a sample online payment app in Azure AD B2C 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to integrate IDology with Azure AD B2C, so that I can verify and authenticate user identities using IDology's identity verification and proofing solutions.
@@ -20,13 +20,15 @@ ms.subservice: B2C
 
 # Tutorial for configuring IDology with Azure Active Directory B2C 
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 In this sample tutorial, we provide guidance on how to integrate Azure AD B2C with [IDology](https://www.idology.com/solutions/). IDology is an identity verification and proofing provider with multiple solutions. In this sample, we will cover ExpectID solution by IDology.
 
 ## Prerequisites
 
 To get started, you'll need:
 
-* An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
+* An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
 ## Scenario description

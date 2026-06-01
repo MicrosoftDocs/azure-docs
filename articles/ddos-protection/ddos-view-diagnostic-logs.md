@@ -2,11 +2,13 @@
 title: 'Tutorial: View Azure DDoS Protection logs in Log Analytics workspace'
 description: Learn how to view DDoS protection diagnostic logs in Log Analytics workspace.
 services: ddos-protection
-author: AbdullahBell
-ms.service: ddos-protection
+author: duongau
+ms.service: azure-ddos-protection
 ms.topic: tutorial
-ms.date: 07/17/2024
-ms.author: abell
+ms.date: 03/17/2026
+ms.author: duau
+ms.custom: sfi-image-nochange
+# Customer intent: As a network administrator, I want to view DDoS protection diagnostic logs in a Log Analytics workspace, so that I can monitor attack notifications, mitigation reports, and flow logs to ensure effective security and response during DDoS attacks.
 ---
 
 # Tutorial: View Azure DDoS Protection logs in Log Analytics workspace
@@ -22,7 +24,7 @@ Attack mitigation reports use the Netflow protocol data, which is aggregated to 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [DDoS Network Protection](manage-ddos-protection.md) must be enabled on a virtual network or [DDoS IP Protection](manage-ddos-protection-powershell-ip.md) must be enabled on a public IP address. 
 - Configure DDoS Protection diagnostic logs. To learn more, see [Configure diagnostic logs](diagnostic-logging.md).
 - Simulate an attack using one of our simulation partners. To learn more, see [Test with simulation partners](test-through-simulations.md).
@@ -49,9 +51,7 @@ For more information on log schemas, see [View diagnostic logs](ddos-view-diagno
 1. Under the **Log analytics workspaces** blade, select your log analytics workspace.
 
 
-1. On the left side pane, select **Logs**.
-
-    :::image type="content" source="./media/ddos-attack-telemetry/ddos-workspace-diagnostic-logs.png" alt-text="Screenshot of log query in Log analytics workspaces.":::
+1. On the left side pane, select **Logs**. Here you see the query explorer. 
 
 1. In Query explorer, type in the following Kusto Query and change the time range to Custom and change the time range to last three months. Then hit Run.
 
@@ -157,8 +157,8 @@ The following table lists the field names and descriptions:
 | **TrafficOverview** | Degradation of attack traffic. The keys include `Total packets`, `Total packets dropped`, `Total TCP packets`, `Total TCP packets dropped`, `Total UDP packets`, `Total UDP packets dropped`, `Total Other packets`, and `Total Other packets dropped`. |
 | **Protocols**  | Breakdown of protocols included. The keys include `TCP`, `UDP`, and `Other`.   |
 | **DropReasons** | Analysis of causes of dropped packets. The keys include `Protocol violation invalid TCP`. `syn Protocol violation invalid TCP`, `Protocol violation invalid UDP`, `UDP reflection`, `TCP rate limit exceeded`, `UDP rate limit exceeded`, `Destination limit exceeded`, `Other packet flood Rate limit exceeded`, and `Packet was forwarded to service`. Protocol violation invalid drop reasons refer to malformed packets. |
-| **TopSourceCountries** | Breakdown of the top 10 source countries into inbound traffic. |
-| **TopSourceCountriesForDroppedPackets** | Analysis of the top 10 source countries for attack traffic that have been throttled. |
+| **TopSourceCountries** | Breakdown of the top 10 source countries/regions into inbound traffic. |
+| **TopSourceCountriesForDroppedPackets** | Analysis of the top 10 source countries/regions for attack traffic that have been throttled. |
 | **TopSourceASNs** | Analysis of the top 10 sources of autonomous system numbers (ASNs) of incoming traffic.  |
 | **SourceContinents** | Analysis of the source continent for inbound traffic. |
 | **Type** | Type of notification. Possible values include `MitigationStarted`. `MitigationStopped`. |

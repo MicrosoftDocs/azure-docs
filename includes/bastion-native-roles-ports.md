@@ -1,8 +1,8 @@
 ---
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: include
-ms.date: 06/12/2023
+ms.date: 01/28/2025
 ms.author: cherylmc
 ---
 ### Required roles

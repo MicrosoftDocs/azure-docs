@@ -2,20 +2,19 @@
 title: Metrics and alerts for Azure NAT Gateway
 titleSuffix: Azure NAT Gateway
 description: Get started learning about Azure Monitor metrics and alerts available for monitoring Azure NAT Gateway.
-author: asudbring
-ms.service: nat-gateway
+author: alittleton
+ms.service: azure-nat-gateway
 ms.topic: how-to
-ms.date: 04/29/2024
-ms.author: allensu
+ms.date: 09/09/2025
+ms.author: alittleton
 # Customer intent: As an IT administrator, I want to understand available Azure Monitor metrics and alerts for Virtual Network NAT.
 ---
 # What is Azure NAT Gateway metrics and alerts?
 
 This article provides an overview of all NAT gateway metrics and diagnostic capabilities. This article provides general guidance on how to use metrics and alerts to monitor, manage, and [troubleshoot](troubleshoot-nat.md) your NAT gateway resource. 
 
-Azure NAT Gateway provides the following diagnostic capabilities:  
+All metrics are the same for Standard and StandardV2 NAT Gateway.  
 
-- Multi-dimensional metrics and alerts through Azure Monitor. You can use these metrics to monitor and manage your NAT gateway and to assist you in troubleshooting issues. 
 
 - Network Insights: Azure Monitor Insights provides you with visual tools to view, monitor, and assist you in diagnosing issues with your NAT gateway resource. Insights provide you with a topological map of your Azure setup and metrics dashboards. 
 
@@ -25,16 +24,9 @@ Azure NAT Gateway provides the following diagnostic capabilities:
 
 ## Metrics overview
 
-NAT gateway provides the following multi-dimensional metrics in Azure Monitor:
+[!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 
-| Metric | Description | Recommended aggregation | Dimensions |
-|---|---|---|---|
-| Bytes | Bytes processed inbound and outbound | Sum | **Direction (In; Out)**, **Protocol (6 TCP; 17 UDP)** |
-| Packets | Packets processed inbound and outbound | Sum | **Direction (In; Out)**, **Protocol (6 TCP; 17 UDP)** |
-| Dropped Packets | Packets dropped by the NAT gateway | Sum | / |
-| SNAT Connection Count | Number of new SNAT connections over a given interval of time | Sum | **Connection State (Attempted, Failed)**, **Protocol (6 TCP; 17 UDP)** |
-| Total SNAT Connection Count | Total number of active SNAT connections | Sum | **Protocol (6 TCP; 17 UDP)** |
-| Datapath Availability | Availability of the data path of the NAT gateway. Used to determine whether the NAT gateway endpoints are available for outbound traffic flow. | Avg | **Availability (0, 100)** |
+[!INCLUDE [Microsoft.Network/natgateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-network-natgateways-metrics-include.md)]
 
 >[!NOTE]
 > Count aggregation is not recommended for any of the NAT gateway metrics. Count aggregation adds up the number of metric values and not the metric values themselves. Use Sum aggregation instead to get the best representation of data values for connection count, bytes, and packets metrics.
@@ -77,7 +69,7 @@ The following sections detail how to use each NAT gateway metric to monitor, man
 
 ### Bytes
 
-The **Bytes** metric shows you the amount of data going outbound through NAT gateway and returning inbound in response to an outbound connection. 
+The Bytes metric shows you the amount of data going outbound through NAT gateway and returning inbound in response to an outbound connection. 
 
 Use this metric to:
 
@@ -99,11 +91,11 @@ To view the amount of data passing through NAT gateway:
 
 1. To see data processed inbound or outbound as their own individual lines in the metric graph, select **Apply splitting**. 
 
-1.  In the **Values** drop-down menu, select **Direction (Out | In)**.
+1. In the **Values** drop-down menu, select **Direction (Out | In)**.
 
 ### Packets
 
-The packets metric shows you the number of data packets passing through NAT gateway. 
+The Packets metric shows you the number of data packets passing through NAT gateway. 
 
 Use this metric to:
   
@@ -113,9 +105,9 @@ Use this metric to:
 
 To view the number of packets sent in one or both directions through NAT gateway, follow the same steps in the [Bytes](#bytes) section. 
 
-### Dropped packets
+### Dropped Packets
 
-The dropped packets metric shows you the number of data packets dropped by NAT gateway when traffic goes outbound or returns inbound in response to an outbound connection. 
+The Dropped Packets metric shows you the number of data packets dropped by NAT gateway when traffic goes outbound or returns inbound in response to an outbound connection. 
 
 Use this metric to: 
 
@@ -127,9 +119,9 @@ Possible reasons for dropped packets:
 
 - Outbound connectivity failure can cause packets to drop. Connectivity failure can happen for various reasons. See the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity) to help you further diagnose. 
 
-### SNAT connection count
+### SNAT Connection Count
 
-The SNAT connection count metric shows you the number of new SNAT connections within a specified time frame. This metric can be filtered by **Attempted** and **Failed** connection states. A failed connection volume greater than zero can indicate SNAT port exhaustion.
+The SNAT Connection Count metric shows you the number of new SNAT connections within a specified time frame. This metric can be filtered by **Attempted** and **Failed** connection states. A failed connection volume greater than zero can indicate SNAT port exhaustion.
 
 Use this metric to: 
 
@@ -159,9 +151,9 @@ To view the connection state of your connections:
 
     :::image type="content" source="./media/nat-metrics/nat-metrics-3.png" alt-text="Screenshot of the metrics configuration.":::
 
-### Total SNAT connection count
+### Total SNAT Connection Count
 
-The **Total SNAT connection count** metric shows you the total number of active SNAT connections passing through NAT gateway. 
+The Total SNAT Connection Count metric shows you the total number of active SNAT connections passing through NAT gateway. 
 
 You can use this metric to:
 
@@ -178,7 +170,7 @@ Possible reasons for failed connections:
 >[!NOTE]
 > When NAT gateway is attached to a subnet and public IP address, the Azure platform verifies NAT gateway is healthy by conducting health checks. These health checks appear in NAT gateway's SNAT Connection Count metrics. The amount of health check related connections may vary as the health check service is optimized, but is negligible and doesn’t impact NAT gateway’s ability to connect outbound.
 
-### Datapath availability
+### Datapath Availability
 
 The datapath availability metric measures the health of the NAT gateway resource over time. This metric indicates if NAT gateway is available for directing outbound traffic to the internet. This metric is a reflection of the health of the Azure infrastructure. 
 
@@ -200,7 +192,7 @@ Possible reasons for a drop in data path availability include:
 
 Alerts can be configured in Azure Monitor for all NAT gateway metrics. These alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address potential issues with NAT gateway. 
 
-For more information about how metric alerts work, see [Azure Monitor Metric Alerts](../azure-monitor/alerts/alerts-metric-overview.md). The following guidance describes how to configure some common and recommended types of alerts for your NAT gateway. 
+For more information about how metric alerts work, see [Azure Monitor Metric Alerts](/azure/azure-monitor/alerts/alerts-metric-overview). The following guidance describes how to configure some common and recommended types of alerts for your NAT gateway. 
 
 ### Alerts for datapath availability degradation
 
@@ -238,7 +230,7 @@ Setting the aggregation granularity to less than 5 minutes may trigger false pos
 
 ### Alerts for SNAT port exhaustion 
 
-Set up an alert on the **SNAT connection count** metric to notify you of connection failures on your NAT gateway. A failed connection volume greater than zero can indicate that you reached the connection limit on your NAT gateway or that you hit SNAT port exhaustion. Investigate further to determine the root cause of these failures.
+Set up an alert on the **SNAT Connection Count** metric to notify you of connection failures on your NAT gateway. A failed connection volume greater than zero can indicate that you reached the connection limit on your NAT gateway or that you hit SNAT port exhaustion. Investigate further to determine the root cause of these failures.
 
 To create the alert, use the following steps:
 
@@ -271,7 +263,46 @@ To create the alert, use the following steps:
 1. Select **Create** to create the alert rule.
 
 >[!NOTE]
->SNAT port exhaustion on your NAT gateway resource is uncommon. If you see SNAT port exhaustion, check if NAT gateway's idle timeout timer is set higher than the default amount of 4 minutes. A long idle timeout timer setting can cause SNAT ports too be in hold down for longer, which results in exhausting SNAT port inventory sooner. You can also scale your NAT gateway with additional public IPs to increase NAT gateway's overall SNAT port inventory. To troubleshoot these kinds of issues, refer to the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity#snat-exhaustion-due-to-nat-gateway-configuration). 
+>SNAT port exhaustion on your NAT gateway resource is uncommon. If you see SNAT port exhaustion, check if NAT gateway's idle timeout timer is set higher than the default amount of 4 minutes. A long idle timeout timer setting can cause SNAT ports to be in hold down for longer, which results in exhausting SNAT port inventory sooner. You can also scale your NAT gateway with additional public IPs to increase NAT gateway's overall SNAT port inventory. To troubleshoot these kinds of issues, refer to the [NAT gateway connectivity troubleshooting guide](/azure/nat-gateway/troubleshoot-nat-connectivity#snat-exhaustion-due-to-nat-gateway-configuration). 
+
+### Alerts for nearing total SNAT connection count limit
+
+Standard NAT gateway and StandardV2 NAT gateway each have a total active connection limit of 2 million connections. 
+
+The recommended guidance is to alert on NAT gateway’s Total SNAT Connection Count when it hits 80% of the total NAT gateway connection count limit, 1.6 million connections. 
+>[!Note]
+> The 80% threshold is a recommended starting point. You can adjust the threshold value based on your NAT gateway usage patterns and connection volume. Depending on the number of public IPs associated to your NAT gateway, and the amount of destination endpoints being reached, you could hit the connection limit sooner than 2 million. NAT gateway supports up to 50,000 connections per public IP address per destination endpoint.
+
+To set up a Total SNAT Connection count alert, follow these steps: 
+
+1. From the NAT gateway resource page, select **Alerts**. 
+
+2. Select **Create alert rule**. 
+
+3. From the signal list, select **Total SNAT Connection Count**. 
+
+4. In the Alert logic section, set **Threshold type** to **Static**. 
+
+5. From the Aggregation type drop-down menu, select **Total**. 
+
+6. From the **Value is** drop-down menu, select **Greater than**. 
+
+7. From the **Unit** drop-down menu, select **Count**. 
+
+8. In the **Threshold value** box, enter **1,600,000**. 
+
+9. In the **When to evaluate** section, set **Check every** to **1 minute**. 
+
+10. Set the **Lookback Period** to **5 minutes**. 
+ 
+>[!Note]
+>The lookback period may need to be adjusted based on the connection patterns of your outbound traffic through NAT gateway. If you find that you’re alert is too noisy, set the look back period to a longer time duration.
+
+11. Create an **Action** for your alert by providing a name, notification type, and type of action that is performed when the alert is triggered.
+
+12. Before deploying your action, **test the action group**. 
+
+13. Select **Create** to create the alert rule. 
 
 ### Alerts for NAT gateway resource health
 
@@ -317,7 +348,7 @@ For more information on what each metric is showing you and how to analyze these
 
 ### What type of metrics are available for NAT gateway?
 
-The NAT gateway supports [multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics). You can filter the multi-dimensional metrics by different dimensions to gain greater insight into the provided data. The [SNAT connection count](#snat-connection-count) metric allows you to filter the connections by Attempted and Failed connections, enabling you to distinguish between different types of connections made by the NAT gateway.
+Standard and StandardV2 NAT gateway supports [multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics). You can filter the multi-dimensional metrics by different dimensions to gain greater insight into the provided data. The [SNAT Connection Count](#snat-connection-count) metric allows you to filter the connections by Attempted and Failed connections, enabling you to distinguish between different types of connections made by the NAT gateway.
 
 Refer to the dimensions column in the [metrics overview](#metrics-overview) table to see which dimensions are available for each NAT gateway metric. 
 
@@ -338,6 +369,6 @@ Refer to [troubleshooting metrics charts](/azure/azure-monitor/essentials/metric
 
 * Learn about [Azure NAT Gateway](nat-overview.md)
 * Learn about [NAT gateway resource](nat-gateway-resource.md)
-* Learn about [Azure Monitor](../azure-monitor/overview.md)
+* Learn about [Azure Monitor](/azure/azure-monitor/overview)
 * Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
 * Learn about [troubleshooting NAT gateway connectivity](/azure/nat-gateway/troubleshoot-nat-connectivity)

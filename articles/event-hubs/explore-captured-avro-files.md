@@ -1,7 +1,7 @@
 ---
 title: Exploring captured Avro files in Azure Event Hubs
 description: This article provides the schema of Avro files captured by Azure Event Hubs and a list of tools to explore them. 
-ms.topic: article
+ms.topic: concept-article
 ms.date: 09/26/2022
 ---
 
@@ -23,7 +23,7 @@ An easy way to explore Avro files is by using the [Avro Tools][Avro Tools] jar f
 
 - [HDInsight: Address files in Azure storage][HDInsight: Address files in Azure storage]
 - [Azure Databricks: Azure Blob storage][Azure Databricks: Azure Blob Storage]. See the following sample: [Streaming at Scale with Event Hubs Capture](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-capture-databricks-delta).
-- [Azure Kubernetes Service](../aks/spark-job.md) 
+- [Azure Kubernetes Service](/azure/aks/spark-job) 
 
 ## Use Avro Tools
 
@@ -75,5 +75,5 @@ Event Hubs Capture is the easiest way to get data into Azure. Using Azure Data L
 [Python]: https://avro.apache.org/docs/1.11.1/getting-started-python/
 [Event Hubs overview]: ./event-hubs-about.md
 [HDInsight: Address files in Azure storage]: ../hdinsight/hdinsight-hadoop-use-blob-storage.md
-[Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
+[Azure Databricks: Azure Blob Storage]:/azure/databricks/archive/storage/azure-storage
 [Streaming at Scale: Event Hubs Capture]:https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture

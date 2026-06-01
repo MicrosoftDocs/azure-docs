@@ -2,12 +2,13 @@
 title: 'Quickstart: Create a private link service - ARM template'
 titleSuffix: Azure Private Link
 description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a private link service.
-author: abell
-ms.service: private-link
+author: asudbring
+ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 03/12/2024
-ms.author: abell
+ms.date: 03/30/2026
+ms.author: allensu
 ms.custom: subject-armqs, mode-arm, template-quickstart, devx-track-arm-template
+# Customer intent: As a cloud architect, I want to deploy a private link service using an ARM template, so that I can securely connect Azure resources while ensuring private network access.
 ---
 
 # Quickstart: Create a private link service using an ARM template
@@ -26,7 +27,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-You need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+You need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Review the template
 

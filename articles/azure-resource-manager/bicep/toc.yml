@@ -1,10 +1,11 @@
+items:
 - name: Bicep documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Bicep?
-    href: overview.md
     displayName: benefits,faq,playground
+    href: overview.md
   - name: Compare JSON and Bicep
     href: compare-template-syntax.md
   - name: Frequently asked questions
@@ -12,16 +13,19 @@
 - name: Install
   items:
   - name: Install Bicep tools
-    href: install.md
     displayName: nightly
+    href: install.md
   - name: Troubleshoot installation
     href: installation-troubleshoot.md
 - name: Quickstarts
   items:
-  - name: Create Bicep templates - VS Code
-    displayName: vscode
+  - name: Create Bicep files - VS Code
+    displayName: vscode,vs code
     href: quickstart-create-bicep-use-visual-studio-code.md
-  - name: Create Bicep templates - Visual Studio
+  - name: Create Bicep files - Bicep MCP Server
+    displayName: vscode,vs code
+    href: quickstart-create-bicep-use-visual-studio-code-model-context-protocol.md
+  - name: Create Bicep files - Visual Studio
     href: quickstart-create-bicep-use-visual-studio.md
   - name: Create template specs
     href: quickstart-create-template-specs.md
@@ -43,30 +47,26 @@
       displayName: continuous, ci, cd, CI/CD
       href: deploy-github-actions.md
     - name: Bicep with MSBuild
-      href: msbuild-bicep-file.md
       displayName: continuous, ci, cd, CI/CD
+      href: msbuild-bicep-file.md
 - name: Tutorials
   items:
-  - name: Learn modules for Bicep
-    href: learn-bicep.md
   - name: Learn Live - Bicep
     href: /events/learntv/learnlive-iac-and-bicep/
   - name: Learn Live - Bicep and GitHub Actions
     href: /events/learn-events/learnlive-automate-azure-deployments-bicep-github-actions/
-  - name: Use deployment stacks
-    href: ./tutorial-use-deployment-stacks.md
 - name: Samples - Azure Services
   items:
   - name: AI + Machine Learning
     items:
     - name: Cognitive Search
-      href: ../../search/search-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
-    - name: Azure AI services
-      href: ../../ai-services/create-account-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/search/search-get-started-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Foundry Tools
+      href: /azure/ai-services/create-account-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Data Science Virtual Machine
-      href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/machine-learning/data-science-virtual-machine/dsvm-tutorial-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Machine Learning secure workspace
-      href: ../../machine-learning/tutorial-create-secure-workspace-template.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/machine-learning/tutorial-create-secure-workspace-template?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Analytics
     items:
     - name: Analysis Services
@@ -96,37 +96,37 @@
     - name: Functions
       href: ../../azure-functions/functions-create-first-function-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Linux virtual machine
-      href: ../../virtual-machines/linux/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/virtual-machines/linux/quick-create-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Windows virtual machine scale sets
-      href: ../../virtual-machine-scale-sets/quick-create-bicep-windows.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/virtual-machine-scale-sets/quick-create-bicep-windows?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Windows virtual machine
-      href: ../../virtual-machines/windows/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/virtual-machines/windows/quick-create-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Containers
     items:
     - name: AKS
-      href: ../../aks/learn/quick-kubernetes-deploy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/aks/learn/quick-kubernetes-deploy-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Container Instances
-      href: ../../container-instances/container-instances-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/container-instances/container-instances-quickstart-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Container Registry
-      href: ../../container-registry/container-registry-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/container-registry/container-registry-get-started-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Service Fabric
-      href: ../../service-fabric/quickstart-cluster-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/service-fabric/quickstart-cluster-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Databases
     items:
     - name: Cache for Redis
-      href: ../../azure-cache-for-redis/cache-redis-cache-bicep-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: ../../redis/redis-cache-bicep-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Azure Cosmos DB
-      href: ../../cosmos-db/sql/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/cosmos-db/sql/quick-create-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database for MariaDB
-      href: ../../mariadb/quickstart-create-mariadb-server-database-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/mariadb/quickstart-create-mariadb-server-database-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database for MySQL
-      href: ../../mysql/quickstart-create-mysql-server-database-using-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/mysql/quickstart-create-mysql-server-database-using-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database for PostgreSQL
-      href: ../../postgresql/quickstart-create-postgresql-server-database-using-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/postgresql/quickstart-create-postgresql-server-database-using-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database for PostgreSQL - Flexible Server
-      href: ../../postgresql/flexible-server/quickstart-create-server-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/postgresql/flexible-server/quickstart-create-server-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database Migration Service
-      href: ../../dms/create-dms-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/dms/create-dms-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: SQL Database
       href: /azure/azure-sql/database/single-database-create-bicep-quickstart
     - name: SQL Managed Instance
@@ -153,24 +153,24 @@
       href: ../../service-bus-messaging/service-bus-resource-manager-namespace-queue-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Internet of Things
     items:
+    - name: Firmware analysis
+      href: ../../firmware-analysis/quickstart-firmware-analysis-bicep.md
     - name: IoT Edge
       href: ../../iot-edge/how-to-install-iot-edge-ubuntuvm-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
-    - name: IoT Hub
-      href: ../../iot-hub/quickstart-bicep-route-messages.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: IoT Hub Device Provisioning Service
       href: ../../iot-dps/quick-setup-auto-provision-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Management and Governance
     items:
     - name: Advisor
-      href: ../../advisor/advisor-alerts-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/advisor/advisor-alerts-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Backup
-      href: ../../backup/quick-backup-vm-bicep-template.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: ../../backup/quick-backup-vm-bicep-file.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Cost Management + Billing
       href: ../../cost-management-billing/costs/quick-create-budget-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Microsoft Purview account
       href: ../../purview/quickstart-bicep-create-azure-purview.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Monitor
-      href: ../../azure-monitor/essentials/resource-manager-diagnostic-settings.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/azure-monitor/essentials/resource-manager-diagnostic-settings?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Policy
       href: ../../governance/policy/assign-policy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Resource Graph
@@ -180,7 +180,7 @@
     - name: Role-based access control - role assignment
       href: ../../role-based-access-control/quickstart-role-assignments-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Service Health
-      href: ../../service-health/alerts-activity-log-service-notifications-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/service-health/alerts-activity-log-service-notifications-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Site Recovery
       href: ../../site-recovery/quickstart-create-vault-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Media Services
@@ -209,8 +209,6 @@
       href: ../../firewall-manager/quick-firewall-policy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Firewall Manager - virtual hub
       href: ../../firewall-manager/quick-secure-virtual-hub-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
-    - name: Front Door
-      href: ../../frontdoor/quickstart-create-front-door-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Front Door - Standard/Premium
       href: ../../frontdoor/create-front-door-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Load Balancer - internal
@@ -232,13 +230,13 @@
   - name: Security
     items:
     - name: Attestation
-      href: ../../attestation/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/attestation/quickstart-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Defender for Cloud
-      href: ../../defender-for-cloud/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/defender-for-cloud/quickstart-automation-alert?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Key Vault - key
-      href: ../../key-vault/keys/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/key-vault/keys/quick-create-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Key Vault - secret
-      href: ../../key-vault/secrets/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/key-vault/secrets/quick-create-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Storage
     items:
     - name: Data Share
@@ -251,72 +249,72 @@
       href: ../../api-management/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Notification Hubs
       href: ../../notification-hubs/create-notification-hub-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
-    - name: Redis Web App
-      href: ../../azure-cache-for-redis/cache-web-app-bicep-with-redis-cache-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: SignalR Service
       href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
 - name: Concepts
-  expanded: true
   items:
   - name: Bicep file
-    href: file.md
     displayName: parameters,variables,resources,outputs,condition,syntax
+    href: file.md
   - name: Data types
+    displayName: any,supported types,arrays,booleans,integers,objects,strings,secure,interpolation
     href: data-types.md
-    displayName: supported types,arrays,booleans,integers,objects,strings,secure,interpolation
-  - name: User-defined data types (type)
-    displayName: custom
-    href: user-defined-data-types.md
-  - name: User-defined functions (func)
-    displayName: custom
-    href: user-defined-functions.md
   - name: Parameters (param)
+    displayName: decorator,secure,objects,constraints
     href: parameters.md
-    displayName: decorators,secure,objects,constraints
   - name: Variables (var)
+    displayName: decorator,configuration
     href: variables.md
-    displayName: configuration
+  - name: Resources (resource)
+    displayName: batchsize,onlyifnotexists,description,decorator
+    href: resource-declaration.md
+  - name: Outputs (output)
+    displayName: decorator,dynamic number of outputs,modules
+    href: outputs.md
+  - name: Modules (module)
+    displayName: decorator,scopes,consume,registry,module registry,private module registry,public module registry,avm,azure verified modules
+    href: modules.md
+  - name: Using (using/using none)
+    displayName: avm,azure verified modules,using none
+    href: bicep-using.md
   - name: Import (import)
     href: bicep-import.md
-  - name: Resources (resource)
-    href: resource-declaration.md
+  - name: User-defined data types (type)
+    displayName: decorator,custom,resourceInput,resourceOutput,resource-derived types
+    href: user-defined-data-types.md
+  - name: User-defined functions (func)
+    displayName: custom,decorator
+    href: user-defined-functions.md
   - name: Existing resources (existing)
     href: existing-resource.md
   - name: Child resources (parent)
-    href: child-resource-name-type.md
     displayName: parent,parent resource,sub,nested
+    href: child-resource-name-type.md
   - name: Extension resources (scope)
     href: scope-extension-resources.md
   - name: Dependencies (dependsOn)
     href: resource-dependencies.md
-  - name: Modules (module)
-    href: modules.md
-    displayName: scopes,consume,registry,module registry,private module registry,public module registry,avm,azure verified modules 
-  - name: Outputs (output)
-    href: outputs.md
-    displayName: dynamic number of outputs,modules
   - name: Loops (for)
-    href: loops.md
     displayName: multiple
+    href: loops.md
   - name: Conditions (if)
     href: conditional-resource-deployment.md
-  - name: Using (using)
-    displayName: avm,azure verified modules 
-    href: bicep-using.md
+  - name: Extension (extension)
+    href: bicep-extension.md
   - name: Scopes (targetScope)
     items:
     - name: Resource group
-      href: deploy-to-resource-group.md
       displayName: deployment commands,multiple resource groups,scope
+      href: deploy-to-resource-group.md
     - name: Subscription
-      href: deploy-to-subscription.md
       displayName: Azure Policy,policy,access control,scope
+      href: deploy-to-subscription.md
     - name: Management group
-      href: deploy-to-management-group.md
       displayName: policy,Azure Policy,scope
+      href: deploy-to-management-group.md
     - name: Tenant
-      href: deploy-to-tenant.md
       displayName: assign role,scope
+      href: deploy-to-tenant.md
   - name: Functions
     items:
     - name: All functions
@@ -333,13 +331,16 @@
       displayName: dateTimeAdd,dateTimeFromEpoch,dateTimeToEpoch,utcNow
       href: bicep-functions-date.md
     - name: Deployment functions
-      displayName: deployment,environment
+      displayName: deployer,deployment,environment
       href: bicep-functions-deployment.md
     - name: File functions
       displayName: loadFileAsBase64,loadJsonContent,loadYamlContent,loadTextContent
       href: bicep-functions-files.md
+    - name: Flow-control functions
+      displayName: fail
+      href: bicep-functions-flow-control.md
     - name: Lambda functions
-      displayName: filter,map,reduce,sort,toObject
+      displayName: filter,groupBy,map,mapValue,reduce,sort,toObject
       href: bicep-functions-lambda.md
     - name: Logical functions
       displayName: bool
@@ -348,13 +349,13 @@
       displayName: int,max,min
       href: bicep-functions-numeric.md
     - name: Object functions
-      displayName: contains,empty,intersection,items,json,length,union
+      displayName: contains,empty,intersection,items,json,length,objectKeys,shallowMerge,union
       href: bicep-functions-object.md
     - name: Parameters file functions
-      displayName: getSecret,readEnvironmentVariable
+      displayName: externalInput,getSecret,readEnvironmentVariable
       href: bicep-functions-parameters-file.md
     - name: Resource functions
-      displayName: extensionResourceId,getSecret,list,pickZones,providers,reference,resourceId,subscriptionResourceId,managementGroupResourceId,tenantResourceId
+      displayName: extensionResourceId,getSecret,listAccountSas,ListKeys,listSecrets,list,managementGroupResourceId,pickZones,providers,reference,resourceId,roleDefinitions,subscriptionResourceId,tenantResourceId,toLogicalZone,toLogicalZones,toPhysicalZone,toPhysicalZones
       href: bicep-functions-resource.md
     - name: Scope functions
       displayName: managementGroup,resourceGroup,subscription,tenant
@@ -378,7 +379,7 @@
       href: operators-numeric.md
     - name: Safe-dereference operator
       href: operator-safe-dereference.md
-    - name: Spread 
+    - name: Spread
       href: operator-spread.md
 - name: How to
   items:
@@ -387,11 +388,13 @@
     - name: Best practices
       href: best-practices.md
     - name: Visual Studio Code
-      displayName: vscode,vs code
+      displayName: vscode,vs code,deployment pane
       href: visual-studio-code.md
+    - name: Bicep MCP server
+      href: bicep-mcp-server.md
     - name: Private module registry
-      href: private-module-registry.md
       displayName: module registry,private module registry
+      href: private-module-registry.md
     - name: Deployment script
       items:
       - name: Use deployment script resource
@@ -411,11 +414,13 @@
       href: template-specs.md
     - name: Deployment stacks
       href: deployment-stacks.md
-    - name: Bicep extensibility
+    - name: Bicep extensions
       items:
-      - name: Kubernetes provider
-        href: ./bicep-extensibility-kubernetes-provider.md
-      - name: Microsoft Graph provider
+      - name: Kubernetes extension
+        displayName: provider
+        href: ./bicep-kubernetes-extension.md
+      - name: Microsoft Graph extension
+        displayName: provider
         href: https://aka.ms/graphbicep
     - name: Patterns
       items:
@@ -488,8 +493,10 @@
         displayName: linter
         href: linter-rule-no-conflicting-metadata.md
       - name: No deployments resources
-        displayName: linter
         href: linter-rule-no-deployments-resources.md
+      - name: No explicit Any
+        displayName: linter
+        href: linter-rule-no-explicit-any.md
       - name: No hardcoded environment URLs
         displayName: linter
         href: linter-rule-no-hardcoded-environment-urls.md
@@ -505,6 +512,9 @@
       - name: No unused existing resources
         displayName: linter
         href: linter-rule-no-unused-existing-resources.md
+      - name: No unused imports
+        displayName: linter
+        href: linter-rule-no-unused-imports.md
       - name: No unused parameters
         displayName: linter
         href: linter-rule-no-unused-parameters.md
@@ -544,6 +554,12 @@
       - name: Use recent API versions
         displayName: linter
         href: linter-rule-use-recent-api-versions.md
+      - name: Use recent AZ PowerShell version
+        displayName: linter
+        href: linter-rule-use-recent-az-powershell-version.md
+      - name: Use recent module versions
+        displayName: linter
+        href: linter-rule-use-recent-module-versions.md
       - name: Use resource ID functions
         displayName: linter
         href: linter-rule-use-resource-id-functions.md
@@ -562,11 +578,17 @@
       - name: Use stable VM image
         displayName: linter
         href: linter-rule-use-stable-vm-image.md
+      - name: What-if short-circuiting
+        displayName: linter
+        href: linter-rule-what-if-short-circuiting.md
   - name: Deploy
     items:
     - name: What-if check
-      href: deploy-what-if.md
       displayName: whatif, what if
+      href: deploy-what-if.md
+    - name: Preflight check
+      displayName: preflight, pre-flight
+      href: deploy-preflight.md
     - name: Deploy - VS Code
       displayName: visual studio code,vscode
       href: deploy-vscode.md
@@ -576,6 +598,10 @@
       href: deploy-powershell.md
     - name: Deploy - Cloud Shell
       href: deploy-cloud-shell.md
+  - name: Export
+    items:
+    - name: Portal
+      href: export-bicep-portal.md
   - name: Configure settings
     items:
     - name: Bicep config file
@@ -590,8 +616,10 @@
     - name: Recommended workflow
       href: migrate.md
     - name: Decompile
-      href: decompile.md
       displayName: conversion issues,export,convert,playground
+      href: decompile.md
+    - name: Blueprint to deployment stack
+      href: migrate-blueprint.md
   - name: Contribute to Bicep
     href: contribute.md
 - name: Reference
@@ -599,35 +627,160 @@
   - name: Resource reference
     href: /azure/templates/
   - name: Bicep CLI
+    displayName: build,console,decompile,decompile-params, format,generate-params,install,jsonrpc,lint,list-versions,list versions,publish,restore,upgrade,version,module,registry
     href: bicep-cli.md
-    displayName: build,decompile,install,list-versions,list versions,upgrade,version,module,registry
-  - name: Azure PowerShell
-    href: /powershell/module/az.resources/
-  - name: Bicep warnings and errors 
-    items:
-    - name: All codes
-      href: bicep-error-codes.md
-    - name: BCP033
-      href: bicep-error-bcp033.md
-    - name: BCP035
-      href: bicep-error-bcp035.md
-    - name: BCP036
-      href: bicep-error-bcp036.md
-    - name: BCP037
-      href: bicep-error-bcp037.md
-    - name: BCP040
-      href: bicep-error-bcp040.md
-    - name: BCP072
-      href: bicep-error-bcp072.md
-    - name: BCP073
-      href: bicep-error-bcp073.md
-    - name: BCP327
-      href: bicep-error-bcp327.md
-    - name: BCP328
-      href: bicep-error-bcp328.md
-    - name: BCP332
-      href: bicep-error-bcp332.md
-    - name: BCP333
-      href: bicep-error-bcp333.md
   - name: Azure CLI
     href: /cli/azure/resource
+  - name: Azure PowerShell
+    href: /powershell/module/az.resources/
+  - name: Bicep core diagnostics
+    items:
+    - name: All codes
+      href: bicep-core-diagnostics.md
+    - name: BCP007
+      href: diagnostics/bcp007.md
+    - name: BCP009
+      href: diagnostics/bcp009.md
+    - name: BCP018
+      href: diagnostics/bcp018.md
+    - name: BCP029
+      href: diagnostics/bcp029.md
+    - name: BCP033
+      href: diagnostics/bcp033.md
+    - name: BCP034
+      href: diagnostics/bcp034.md
+    - name: BCP035
+      href: diagnostics/bcp035.md
+    - name: BCP036
+      href: diagnostics/bcp036.md
+    - name: BCP037
+      href: diagnostics/bcp037.md
+    - name: BCP040
+      href: diagnostics/bcp040.md
+    - name: BCP048
+      href: diagnostics/bcp048.md
+    - name: BCP052
+      href: diagnostics/bcp052.md
+    - name: BCP053
+      href: diagnostics/bcp053.md
+    - name: BCP055
+      href: diagnostics/bcp055.md
+    - name: BCP057
+      href: diagnostics/bcp057.md
+    - name: BCP062
+      href: diagnostics/bcp062.md
+    - name: BCP063
+      href: diagnostics/bcp063.md
+    - name: BCP070
+      href: diagnostics/bcp070.md
+    - name: BCP071
+      href: diagnostics/bcp071.md
+    - name: BCP072
+      href: diagnostics/bcp072.md
+    - name: BCP073
+      href: diagnostics/bcp073.md
+    - name: BCP076
+      href: diagnostics/bcp076.md
+    - name: BCP077
+      href: diagnostics/bcp077.md
+    - name: BCP078
+      href: diagnostics/bcp078.md
+    - name: BCP081
+      href: diagnostics/bcp081.md
+    - name: BCP082
+      href: diagnostics/bcp082.md
+    - name: BCP083
+      href: diagnostics/bcp083.md
+    - name: BCP088
+      href: diagnostics/bcp088.md
+    - name: BCP089
+      href: diagnostics/bcp089.md
+    - name: BCP091
+      href: diagnostics/bcp091.md
+    - name: BCP124
+      href: diagnostics/bcp124.md
+    - name: BCP125
+      href: diagnostics/bcp125.md
+    - name: BCP126
+      href: diagnostics/bcp126.md
+    - name: BCP127
+      href: diagnostics/bcp127.md
+    - name: BCP128
+      href: diagnostics/bcp128.md
+    - name: BCP129
+      href: diagnostics/bcp129.md
+    - name: BCP130
+      href: diagnostics/bcp130.md
+    - name: BCP132
+      href: diagnostics/bcp132.md
+    - name: BCP135
+      href: diagnostics/bcp135.md
+    - name: BCP138
+      href: diagnostics/bcp138.md
+    - name: BCP139
+      href: diagnostics/bcp139.md
+    - name: BCP144
+      href: diagnostics/bcp144.md
+    - name: BCP147
+      href: diagnostics/bcp147.md
+    - name: BCP152
+      href: diagnostics/bcp152.md
+    - name: BCP153
+      href: diagnostics/bcp153.md
+    - name: BCP166
+      href: diagnostics/bcp166.md
+    - name: BCP170
+      href: diagnostics/bcp170.md
+    - name: BCP192
+      href: diagnostics/bcp192.md
+    - name: BCP201
+      href: diagnostics/bcp201.md
+    - name: BCP226
+      href: diagnostics/bcp226.md
+    - name: BCP238
+      href: diagnostics/bcp238.md
+    - name: BCP266
+      href: diagnostics/bcp266.md
+    - name: BCP288
+      href: diagnostics/bcp288.md
+    - name: BCP290
+      href: diagnostics/bcp290.md
+    - name: BCP292
+      href: diagnostics/bcp292.md
+    - name: BCP293
+      href: diagnostics/bcp293.md
+    - name: BCP294
+      href: diagnostics/bcp294.md
+    - name: BCP302
+      href: diagnostics/bcp302.md
+    - name: BCP311
+      href: diagnostics/bcp311.md
+    - name: BCP318
+      href: diagnostics/bcp318.md
+    - name: BCP327
+      href: diagnostics/bcp327.md
+    - name: BCP328
+      href: diagnostics/bcp328.md
+    - name: BCP332
+      href: diagnostics/bcp332.md
+    - name: BCP333
+      href: diagnostics/bcp333.md
+    - name: BCP335
+      href: diagnostics/bcp335.md
+    - name: BCP337
+      href: diagnostics/bcp337.md
+    - name: BCP338
+      href: diagnostics/bcp338.md
+    - name: BCP401
+      href: diagnostics/bcp401.md
+    - name: BCP414
+      href: diagnostics/bcp414.md
+    - name: BCP416
+      href: diagnostics/bcp416.md
+    - name: BCP420
+      href: diagnostics/bcp420.md
+    - name: BCP422
+      href: diagnostics/bcp422.md
+  - name: Programmatic Bicep usage with JSON-RPC
+    href: bicep-cli-jsonrpc.md
+    displayName: jsonrpc,json-rpc,rpc,pipe,socket,stdio,programmatic

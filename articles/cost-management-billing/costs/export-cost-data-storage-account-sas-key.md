@@ -1,27 +1,29 @@
 ---
 title: Export cost data with an Azure Storage account SAS key
 description: This article helps partners create a SAS key and configure Cost Management exports.
-author: bandersmsft
-ms.author: banders
-ms.date: 12/06/2023
+author: vikramdesai01
+ms.author: vikdesai
+ms.date: 06/26/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
+ms.reviewer: vikdesai
 ---
 
 # Export cost data with an Azure Storage account SAS key
 
 The following information applies to Microsoft partners only.
 
-Often, partners don't have their own Azure subscriptions in the tenant associated with their own Microsoft Partner Agreement. Partners with a Microsoft Partner Agreement plan who are global admins of their billing account can export and copy cost data into a storage account in a different tenant using a shared access service (SAS) key. In other words, a storage account with a SAS key allows the partner to use a storage account that's outside of their partner agreement to receive exported information. This article helps partners create a SAS key and configure Cost Management exports.
+Often, partners don't have their own Azure subscriptions in the tenant associated with their own Microsoft Partner Agreement. Partners with a Microsoft Partner Agreement plan who are billing admins of their billing account can export and copy cost data into a storage account in a different tenant using a shared access service (SAS) key. In other words, a storage account with a SAS key allows the partner to use a storage account that's outside of their partner agreement to receive exported information. This article helps partners create a SAS key and configure Cost Management exports.
 
 ## Requirements
 
+- **Availability:** This feature is available only in the public cloud. 
+
 - You must be a partner with a Microsoft Partner Agreement. Your customers on the Azure plan must have a signed Microsoft Customer Agreement.
-    - SAS key-based export isn't supported for indirect enterprise agreements.
+- SAS key-based export isn't supported for indirect enterprise agreements.
 - SAS key-based export is available for partners that sign in to the Azure portal from a partner tenant. However, the SAS key option isn't supported if you're using Azure Lighthouse for customer management.
-- You must be global admin for your partner organization's billing account.
+- You must be a [billing admin](/partner-center/account-settings/permissions-overview#billing-admin-role) for your partner organization's billing account.
 - You must have access to configure a storage account that's in a different tenant of your partner organization. You're responsible for maintaining permissions and data access when your export data to your storage account.
 - The storage account must not have a firewall configured.
 - The storage account configuration must have the **Permitted scope for copy operations (preview)** option set to **From any storage account**.
@@ -65,7 +67,7 @@ The SAS token-based export only works while the token remains valid. Reset the t
 The following are common issues that might happen when you configure or use SAS token-based exports.
 
 - You don't see the SAS key option in the Azure portal.
-  - Verify that you're a partner that has a Microsoft Partner Agreement and that you have global admin permission to the billing account. They're the only people who can export with a SAS key.
+  - Verify that you're a partner that has a Microsoft Partner Agreement and that you have billing admin permission to the billing account. They're the only people who can export with a SAS key.
 
 - You get the following error message when trying to configure your export:
 
@@ -84,5 +86,5 @@ The following are common issues that might happen when you configure or use SAS 
 
 ## Next steps
 
-- For more information about exporting Cost Management data, see [Create and export data](tutorial-export-acm-data.md).
+- For more information about exporting Cost Management data, see [Create and export data](tutorial-improved-exports.md).
 - For information about exporting large amounts of usage data, see [Retrieve large datasets with exports](ingest-azure-usage-at-scale.md).

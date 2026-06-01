@@ -4,12 +4,12 @@ description: Learn about the software and networking requirements for your Azure
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.custom: linux-related-content
-ms.topic: article
+ms.topic: concept-article
 ms.date: 04/18/2024
 ms.author: shaas
+# Customer intent: As a systems administrator, I want to review the system and software requirements for Azure Data Box Disk, so that I can ensure my environment is properly configured for deployment and data transfer.
 ---
 
 ::: zone target="docs"
@@ -17,7 +17,7 @@ ms.author: shaas
 # Azure Data Box Disk system requirements
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article describes the important system requirements for your Microsoft Azure Data Box Disk solution and for the clients connecting to the Data Box Disk. We recommend that you review the information carefully before you deploy your Data Box Disk, and then refer back to it as necessary during the deployment and subsequent operation.
 
@@ -105,9 +105,9 @@ The following table contains supported storage types for Data Box Disks.
 | **Storage account** | **Supported access tiers** |
 | --- | --- |
 | Classic Standard | |
-| General-purpose v1 Standard  | Hot, Cool |
+| General-purpose v1 Standard  | Hot, Cool, Cold, Archive |
 | General-purpose v1 Premium   |  |
-| General-purpose v2 Standard<sup>*</sup> | Hot, Cool |
+| General-purpose v2 Standard<sup>*</sup> | Hot, Cool, Cold, Archive |
 | General-purpose v2 Premium   |  |
 | Blob storage account | |
 | Block Blob storage Premium | |

@@ -2,10 +2,12 @@
 title: Interoperability in Azure - Control plane analysis
 description: This article provides the control plane analysis of the test setup you can use to analyze interoperability between ExpressRoute, a site-to-site VPN, and virtual network peering in Azure.
 author: asudbring
-ms.service: virtual-network
-ms.topic: article
+ms.service: azure-virtual-network
+ms.topic: concept-article
 ms.date: 03/24/2023
 ms.author: allensu
+ms.custom: sfi-image-nochange
+# Customer intent: As a network architect, I want to analyze control plane configurations for interoperability between ExpressRoute, VPN connections, and virtual network peering, so that I can ensure optimal network routing and connectivity across cloud and on-premises environments.
 ---
 
 # Interoperability in Azure - Control plane analysis

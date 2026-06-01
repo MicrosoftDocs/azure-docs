@@ -23,7 +23,7 @@ This article includes two examples of alerts:
 
 ## Prerequisites
 
-- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Resources deployed in Azure like virtual machines or storage accounts.
 - To use the example for the Azure Resource Graph and Log Analytics query, you need at least one Azure virtual machine with the Azure Monitor Agent.
 
@@ -300,7 +300,7 @@ It takes a few minutes for the _Log Analytics Reader_ to display on the **Azure 
 
 Use your browser's back button to return to the **Identity** and then select **Overview** to return to the alert rule. Select the link to your resource group named _demo-arg-alert-rg_.
 
-Although out of scope for this article, for an Azure Data Explorer cluster add the _Reader_ role to the system-assigned managed identity. For more information, at the end of this article select the link _Role assignments for Azure Data Explorer clusters_.
+Although out of scope for this article, if you're querying an Azure Data Explorer cluster, you must add the _Reader_ role to the system-assigned managed identity. For more information, at the end of this article select the link _Role assignments for Azure Data Explorer clusters_.
 
 # [Azure Resource Graph and Log Analytics](#tab/arg-log-analytics)
 
@@ -456,6 +456,6 @@ For more information about the query language or how to explore resources, go to
 - [Troubleshoot Azure Resource Graph alerts](./troubleshoot/alerts.md)
 - [Understanding the Azure Resource Graph query language](./concepts/query-language.md)
 - [Explore your Azure resources with Resource Graph](./concepts/explore-resources.md)
-- [Overview of Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-overview.md)
-- [Collect events and performance counters from virtual machines with Azure Monitor Agent](../..//azure-monitor/agents/data-collection-rule-azure-monitor-agent.md)
-- [Role assignments for Azure Data Explorer clusters](../../azure-monitor/alerts/alerts-create-log-alert-rule.md#configure-alert-rule-details)
+- [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
+- [Collect events and performance counters from virtual machines with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent)
+- [Role assignments for Azure Data Explorer clusters](/azure/azure-monitor/alerts/alerts-create-log-alert-rule#configure-alert-rule-details)

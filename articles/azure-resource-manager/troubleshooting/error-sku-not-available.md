@@ -3,7 +3,7 @@ title: SKU not available errors
 description: Describes how to troubleshoot the SKU not available error when deploying resources with an Azure Resource Manager template (ARM template) or Bicep file.
 ms.topic: troubleshooting
 ms.custom: devx-track-arm-template, devx-track-bicep
-ms.date: 06/20/2024
+ms.date: 04/28/2025
 ---
 
 # Resolve errors for SKU not available
@@ -37,7 +37,7 @@ Please try another size or deploy to a different location or zones.
 You receive this error in the following scenarios:
 
 - When the resource SKU you've selected, such as VM size, isn't available for a location or zone.
-- If you're deploying an Azure Spot VM or Spot scale set instance, and there isn't any capacity for Azure Spot in this location. For more information, see [Spot error messages](../../virtual-machines/error-codes-spot.md).
+- If you're deploying an Azure Spot VM or Spot scale set instance, and there isn't any capacity for Azure Spot in this location. For more information, see [Spot error messages](/azure/virtual-machines/error-codes-spot).
 
 ## Solution
 
@@ -240,5 +240,6 @@ The command returns available SKUs and locations in JSON format:
   "restrictions": []
 }
 ```
+Sometimes, a size (SKU) shows as available in the Azure portal or via CLI commands, but attempts to deploy or start resources (such as Virtual Machines, VM Scale Sets, or Kubernetes clusters) result in a **"SKU not available"** error.
 
 ---

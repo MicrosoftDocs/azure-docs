@@ -4,10 +4,9 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: The Wait activity in Azure Data Factory and Synapse Analytics pauses the execution of a pipeline for a specified period. 
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/20/2023
 ---
 
@@ -25,7 +24,7 @@ To use a Wait activity in a pipeline, complete the following steps:
 
    :::image type="content" source="media/control-flow-wait-activity/wait-activity.png" alt-text="Shows the UI for a Wait activity.":::
 
-1. Enter a number of seconds for the activity to wait. This can be a literal number, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
+1. Enter a number of seconds for the activity to wait. This can be a literal number, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#expressions-with-parameters).
 
 ## Syntax
 

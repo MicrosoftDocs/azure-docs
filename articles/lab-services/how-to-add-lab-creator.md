@@ -4,9 +4,9 @@ titleSuffix: Azure Lab Services
 description: Learn how to grant a user access to create labs.
 ms.topic: tutorial
 services: lab-services
-ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
+ms.service: azure-lab-services
+author: RoseHJM
+ms.author: rosemalcolm
 ms.date: 06/27/2024
 ms.custom: subject-rbac-steps
 ---
@@ -17,7 +17,7 @@ ms.custom: subject-rbac-steps
 
 To grant people the permission to create labs, add them to the Lab Creator role.
 
-Follow these steps to [assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+Follow these steps to [assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 > [!NOTE]
 > Azure Lab Services automatically assigns the Lab Creator role to the Azure account you use to create the lab account.

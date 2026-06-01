@@ -6,7 +6,7 @@ manager: rcole
 services: azure-communication-services
 ms.author: bobazile
 ms.date: 04/03/2024
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.subservice: pstn
 ---
@@ -31,6 +31,7 @@ This article provides information about limitations and known issues related to 
 - In-band Dual-tone multi-frequency (DTMF) isn't supported. Use RFC 2833 DTMF instead.
 - Multiple IP addresses mapped with the same FQDN on the SBC side aren't supported.
 - Maximum call duration is 30 hours.
+- Early media isn't supported for group calls.
 
 ## Next steps
 

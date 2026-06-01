@@ -2,17 +2,18 @@
 title: Use multi-instance tasks to run MPI applications
 description: Learn how to execute Message Passing Interface (MPI) applications using the multi-instance task type in Azure Batch.
 ms.topic: how-to
-ms.date: 06/13/2024
+ms.date: 05/20/2026
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
+# Customer intent: As a data scientist, I want to run MPI applications on multiple compute nodes in parallel using multi-instance tasks, so that I can achieve high-performance computing for complex data processing.
 ---
 
 # Use multi-instance tasks to run Message Passing Interface (MPI) applications in Batch
 
-Multi-instance tasks allow you to run an Azure Batch task on multiple compute nodes simultaneously. These tasks enable high performance computing scenarios like Message Passing Interface (MPI) applications in Batch. In this article, you learn how to execute multi-instance tasks using the [Batch .NET](/dotnet/api/microsoft.azure.batch) library.
+Multi-instance tasks allow you to run an Azure Batch task on multiple compute nodes simultaneously. These tasks enable high performance computing scenarios like Message Passing Interface (MPI) applications in Batch. In this article, you learn how to execute multi-instance tasks using the [Azure.Compute.Batch](/dotnet/api/azure.compute.batch) library.
 
 > [!NOTE]
-> While the examples in this article focus on Batch .NET, MS-MPI, and Windows compute nodes, the multi-instance task concepts discussed here are applicable to other platforms and technologies (Python and Intel MPI on Linux nodes, for example).
+> While the examples in this article focus on Azure.Compute.Batch, MS-MPI, and Windows compute nodes, the multi-instance task concepts discussed here are applicable to other platforms and technologies (Python and Intel MPI on Linux nodes, for example).
 
 ## Multi-instance task overview
 
@@ -29,35 +30,51 @@ When you submit a task with multi-instance settings to a job, Batch performs sev
 5. The primary task executes the **application command** on the master node *after* the coordination command has been completed successfully by the primary and all subtasks. The application command is the command line of the multi-instance task itself, and is executed only by the primary task. In an [MS-MPI](/message-passing-interface/microsoft-mpi) -based solution, this is where you execute your MPI-enabled application using `mpiexec.exe`.
 
 > [!NOTE]
-> Though it is functionally distinct, the "multi-instance task" is not a unique task type like the [StartTask](/dotnet/api/microsoft.azure.batch.starttask) or [JobPreparationTask](/dotnet/api/microsoft.azure.batch.jobpreparationtask). The multi-instance task is simply a standard Batch task ([CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) in Batch .NET) whose multi-instance settings have been configured. In this article, we refer to this as the **multi-instance task**.
+> Though it is functionally distinct, the "multi-instance task" is not a unique task type like the [BatchStartTask](/dotnet/api/azure.compute.batch.batchstarttask) or [BatchJobPreparationTask](/dotnet/api/azure.compute.batch.batchjobpreparationtask). The multi-instance task is simply a standard Batch task ([BatchTask](/dotnet/api/azure.compute.batch.batchtask) in Azure.Compute.Batch) whose multi-instance settings have been configured. In this article, we refer to this as the **multi-instance task**.
 
 ## Requirements for multi-instance tasks
 
-Multi-instance tasks require a pool with **inter-node communication enabled**, and with **concurrent task execution disabled**. To disable concurrent task execution, set the [CloudPool.TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) property to 1.
+Multi-instance tasks require a pool with **inter-node communication enabled**, and with **concurrent task execution disabled**. To disable concurrent task execution, set the [BatchAccountPoolData.TaskSlotsPerNode](/dotnet/api/azure.resourcemanager.batch.batchaccountpooldata) property to 1.
 
 > [!NOTE]
 > Batch [limits](batch-quota-limit.md#pool-size-limits) the size of a pool that has inter-node communication enabled.
 
-This code snippet shows how to create a pool for multi-instance tasks using the Batch .NET library.
+This code snippet shows how to create a pool for multi-instance tasks using the Azure.ResourceManager.Batch library.
 
-```csharp
-CloudPool myCloudPool =
-    myBatchClient.PoolOperations.CreatePool(
-        poolId: "MultiInstanceSamplePool",
-        targetDedicatedComputeNodes: 3
-        virtualMachineSize: "standard_d1_v2",
-        VirtualMachineConfiguration: new VirtualMachineConfiguration(
-        imageReference: new ImageReference(
-                        publisher: "MicrosoftWindowsServer",
-                        offer: "WindowsServer",
-                        sku: "2019-datacenter-core",
-                        version: "latest"),
-        nodeAgentSkuId: "batch.node.windows amd64");
+```C# Snippet:mpi_pool_create
+ArmClient armClient = new ArmClient(new DefaultAzureCredential());
 
-// Multi-instance tasks require inter-node communication, and those nodes
-// must run only one task at a time.
-myCloudPool.InterComputeNodeCommunicationEnabled = true;
-myCloudPool.TaskSlotsPerNode = 1;
+ResourceIdentifier batchAccountResourceId =
+    BatchAccountResource.CreateResourceIdentifier("subscriptionId", "resourceGroupName", "accountName");
+BatchAccountResource batchAccount = armClient.GetBatchAccountResource(batchAccountResourceId);
+
+BatchAccountPoolCollection poolCollection = batchAccount.GetBatchAccountPools();
+
+BatchAccountPoolData poolData = new BatchAccountPoolData()
+{
+    VmSize = "standard_d1_v2",
+    DeploymentConfiguration = new BatchDeploymentConfiguration()
+    {
+        VmConfiguration = new BatchVmConfiguration(
+            imageReference: new BatchImageReference()
+            {
+                Publisher = "MicrosoftWindowsServer",
+                Offer = "WindowsServer",
+                Sku = "2019-datacenter-core",
+                Version = "latest"
+            },
+            nodeAgentSkuId: "batch.node.windows amd64")
+    },
+    ScaleSettings = new BatchAccountPoolScaleSettings()
+    {
+        FixedScale = new BatchAccountFixedScaleSettings() { TargetDedicatedNodes = 3 }
+    },
+
+    // Multi-instance tasks require inter-node communication, and those nodes
+    // must run only one task at a time.
+    InterNodeCommunication = InterNodeCommunicationState.Enabled,
+    TaskSlotsPerNode = 1
+};
 ```
 
 > [!NOTE]
@@ -67,59 +84,70 @@ myCloudPool.TaskSlotsPerNode = 1;
 
 ### Use a StartTask to install MPI
 
-To run MPI applications with a multi-instance task, you first need to install an MPI implementation (MS-MPI or Intel MPI, for example) on the compute nodes in the pool. This is a good time to use a [StartTask](/dotnet/api/microsoft.azure.batch.starttask), which executes whenever a node joins a pool, or is restarted. This code snippet creates a StartTask that specifies the MS-MPI setup package as a [resource file](/dotnet/api/microsoft.azure.batch.resourcefile). The start task's command line is executed after the resource file is downloaded to the node. In this case, the command line performs an unattended install of MS-MPI.
+To run MPI applications with a multi-instance task, you first need to install an MPI implementation (MS-MPI or Intel MPI, for example) on the compute nodes in the pool. This is a good time to use a [BatchAccountPoolStartTask](/dotnet/api/azure.resourcemanager.batch.models.batchaccountpoolstarttask), which executes whenever a node joins a pool, or is restarted. This code snippet adds a start task to the pool definition that specifies the MS-MPI setup package as a [resource file](/dotnet/api/azure.resourcemanager.batch.models.batchresourcefile). The start task's command line is executed after the resource file is downloaded to the node. In this case, the command line performs an unattended install of MS-MPI.
 
-```csharp
-// Create a StartTask for the pool which we use for installing MS-MPI on
+```C# Snippet:mpi_pool_starttask
+// Add a start task to the pool which we use for installing MS-MPI on
 // the nodes as they join the pool (or when they are restarted).
-StartTask startTask = new StartTask
+poolData.StartTask = new BatchAccountPoolStartTask()
 {
     CommandLine = "cmd /c MSMpiSetup.exe -unattend -force",
-    ResourceFiles = new List<ResourceFile> { new ResourceFile("https://mystorageaccount.blob.core.windows.net/mycontainer/MSMpiSetup.exe", "MSMpiSetup.exe") },
-    UserIdentity = new UserIdentity(new AutoUserSpecification(elevationLevel: ElevationLevel.Admin)),
-    WaitForSuccess = true
+    UserIdentity = new BatchUserIdentity()
+    {
+        AutoUser = new BatchAutoUserSpecification() { ElevationLevel = BatchUserAccountElevationLevel.Admin }
+    },
+    WaitForSuccess = true,
 };
-myCloudPool.StartTask = startTask;
+poolData.StartTask.ResourceFiles.Add(new BatchResourceFile()
+{
+    HttpUri = new Uri("https://mystorageaccount.blob.core.windows.net/mycontainer/MSMpiSetup.exe"),
+    FilePath = "MSMpiSetup.exe"
+});
 
-// Commit the fully configured pool to the Batch service to actually create
-// the pool and its compute nodes.
-await myCloudPool.CommitAsync();
+// Create the fully configured pool.
+ArmOperation<BatchAccountPoolResource> pool = await poolCollection.CreateOrUpdateAsync(
+    WaitUntil.Completed, "MultiInstanceSamplePool", poolData);
 ```
 
 ### Remote direct memory access (RDMA)
 
-When you choose an [RDMA-capable size](../virtual-machines/sizes-hpc.md?toc=/azure/virtual-machines/windows/toc.json) such as A9 for the compute nodes in your Batch pool, your MPI application can take advantage of Azure's high-performance, low-latency remote direct memory access (RDMA) network.
+When you choose an [RDMA-capable size](/azure/virtual-machines/sizes-hpc?toc=/azure/virtual-machines/windows/toc.json) such as A9 for the compute nodes in your Batch pool, your MPI application can take advantage of Azure's high-performance, low-latency remote direct memory access (RDMA) network.
 
-Look for the sizes specified as "RDMA capable" in [Sizes for virtual machines in Azure](../virtual-machines/sizes.md) (for VirtualMachineConfiguration pools) or [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (for CloudServicesConfiguration pools).
+Look for the sizes specified as "RDMA capable" in [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes) (for VirtualMachineConfiguration pools) or [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (for CloudServicesConfiguration pools).
 
 > [!NOTE]
 > To take advantage of RDMA on [Linux compute nodes](batch-linux-nodes.md), you must use **Intel MPI** on the nodes.
 
-## Create a multi-instance task with Batch .NET
+## Create a multi-instance task with Azure.Compute.Batch
 
-Now that we've covered the pool requirements and MPI package installation, let's create the multi-instance task. In this snippet, we create a standard [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask), then configure its [MultiInstanceSettings](/dotnet/api/microsoft.azure.batch.cloudtask) property. As mentioned earlier, the multi-instance task is not a distinct task type, but a standard Batch task configured with multi-instance settings.
+Now that we've covered the pool requirements and MPI package installation, let's create the multi-instance task. In this snippet, we create a standard [BatchTaskCreateOptions](/dotnet/api/azure.compute.batch.batchtaskcreateoptions), then configure its [MultiInstanceSettings](/dotnet/api/azure.compute.batch.multiinstancesettings) property. As mentioned earlier, the multi-instance task is not a distinct task type, but a standard Batch task configured with multi-instance settings.
 
-```csharp
+```C# Snippet:mpi_task_create
 // Create the multi-instance task. Its command line is the "application command"
 // and will be executed *only* by the primary, and only after the primary and
 // subtasks execute the CoordinationCommandLine.
-CloudTask myMultiInstanceTask = new CloudTask(id: "mymultiinstancetask",
-    commandline: "cmd /c mpiexec.exe -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe");
-
-// Configure the task's MultiInstanceSettings. The CoordinationCommandLine will be executed by
-// the primary and all subtasks.
-myMultiInstanceTask.MultiInstanceSettings =
-    new MultiInstanceSettings(numberOfNodes) {
-    CoordinationCommandLine = @"cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d",
-    CommonResourceFiles = new List<ResourceFile> {
-    new ResourceFile("https://mystorageaccount.blob.core.windows.net/mycontainer/MyMPIApplication.exe",
-                     "MyMPIApplication.exe")
+BatchTaskCreateOptions myMultiInstanceTask = new BatchTaskCreateOptions(
+    id: "mymultiinstancetask",
+    commandLine: "cmd /c mpiexec.exe -wdir %AZ_BATCH_TASK_SHARED_DIR% MyMPIApplication.exe")
+{
+    // Configure the task's MultiInstanceSettings. The CoordinationCommandLine will be executed by
+    // the primary and all subtasks.
+    MultiInstanceSettings = new MultiInstanceSettings(
+        @"cmd /c start cmd /c ""%MSMPI_BIN%\smpd.exe"" -d")
+    {
+        NumberOfInstances = numberOfNodes
     }
 };
 
+myMultiInstanceTask.MultiInstanceSettings.CommonResourceFiles.Add(new ResourceFile()
+{
+    HttpUri = new Uri("https://mystorageaccount.blob.core.windows.net/mycontainer/MyMPIApplication.exe"),
+    FilePath = "MyMPIApplication.exe"
+});
+
 // Submit the task to the job. Batch will take care of splitting it into subtasks and
 // scheduling them for execution on the nodes.
-await myBatchClient.JobOperations.AddTaskAsync("mybatchjob", myMultiInstanceTask);
+await myBatchClient.CreateTaskAsync("mybatchjob", myMultiInstanceTask);
 ```
 
 ## Primary task and subtasks
@@ -128,9 +156,12 @@ When you create the multi-instance settings for a task, you specify the number o
 
 These tasks are assigned an integer ID in the range of 0 to *numberOfInstances* - 1. The task with ID 0 is the primary task, and all other IDs are subtasks. For example, if you create the following multi-instance settings for a task, the primary task would have an ID of 0, and the subtasks would have IDs 1 through 9.
 
-```csharp
+```C# Snippet:mpi_set_node_count
 int numberOfNodes = 10;
-myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings(numberOfNodes);
+myMultiInstanceTask.MultiInstanceSettings = new MultiInstanceSettings("coord-cmd")
+{
+    NumberOfInstances = numberOfNodes
+};
 ```
 
 ### Master node
@@ -195,44 +226,41 @@ If any of the subtasks fail, exiting with a non-zero return code, for example, t
 
 When you delete a multi-instance task, the primary and all subtasks are also deleted by the Batch service. All subtask directories and their files are deleted from the compute nodes, just as for a standard task.
 
-[TaskConstraints](/dotnet/api/microsoft.azure.batch.taskconstraints) for a multi-instance task, such as the [MaxTaskRetryCount](/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount), [MaxWallClockTime](/dotnet/api/microsoft.azure.batch.taskconstraints.maxwallclocktime), and [RetentionTime](/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime) properties, are honored as they are for a standard task, and apply to the primary and all subtasks. However, if you change theRetentionTime property after adding the multi-instance task to the job, this change is applied only to the primary task, and all of the subtasks continue to use the original RetentionTime.
+[BatchTaskConstraints](/dotnet/api/azure.compute.batch.batchtaskconstraints) for a multi-instance task, such as the [MaxTaskRetryCount](/dotnet/api/azure.compute.batch.batchtaskconstraints), [MaxWallClockTime](/dotnet/api/azure.compute.batch.batchtaskconstraints), and [RetentionTime](/dotnet/api/azure.compute.batch.batchtaskconstraints) properties, are honored as they are for a standard task, and apply to the primary and all subtasks. However, if you change theRetentionTime property after adding the multi-instance task to the job, this change is applied only to the primary task, and all of the subtasks continue to use the original RetentionTime.
 
 A compute node's recent task list reflects the ID of a subtask if the recent task was part of a multi-instance task.
 
 ## Obtain information about subtasks
 
-To obtain information on subtasks by using the Batch .NET library, call the [CloudTask.ListSubtasks](/dotnet/api/microsoft.azure.batch.cloudtask.listsubtasks) method. This method returns information on all subtasks, and information about the compute node that executed the tasks. From this information, you can determine each subtask's root directory, the pool ID, its current state, exit code, and more. You can use this information in combination with the [PoolOperations.GetNodeFile](/dotnet/api/microsoft.azure.batch.pooloperations.getnodefile) method to obtain the subtask's files. Note that this method does not return information for the primary task (ID 0).
+To obtain information on subtasks by using the Azure.Compute.Batch library, call the [BatchClient.GetTaskSubTasks](/dotnet/api/azure.compute.batch.batchclient) method. This method returns information on all subtasks, and information about the compute node that executed the tasks. From this information, you can determine each subtask's root directory, the pool ID, its current state, exit code, and more. You can use this information in combination with the [BatchClient.GetNodeFile](/dotnet/api/azure.compute.batch.batchclient) method to obtain the subtask's files. Note that this method does not return information for the primary task (ID 0).
 
 > [!NOTE]
-> Unless otherwise stated, Batch .NET methods that operate on the multi-instance [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) itself apply *only* to the primary task. For example, when you call the [CloudTask.ListNodeFiles](/dotnet/api/microsoft.azure.batch.cloudtask.listnodefiles) method on a multi-instance task, only the primary task's files are returned.
+> Unless otherwise stated, Azure.Compute.Batch methods that operate on the multi-instance [BatchTask](/dotnet/api/azure.compute.batch.batchtask) itself apply *only* to the primary task. For example, when you call the `GetTaskFiles` method on a multi-instance task, only the primary task's files are returned.
 
 The following code snippet shows how to obtain subtask information, as well as request file contents from the nodes on which they executed.
 
-```csharp
-// Obtain the job and the multi-instance task from the Batch service
-CloudJob boundJob = batchClient.JobOperations.GetJob("mybatchjob");
-CloudTask myMultiInstanceTask = boundJob.GetTask("mymultiinstancetask");
+```C# Snippet:mpi_iterate_subtasks
+// Obtain the multi-instance task from the Batch service
+BatchTask myMultiInstanceTask = await batchClient.GetTaskAsync("mybatchjob", "mymultiinstancetask");
+_ = myMultiInstanceTask;
 
-// Now obtain the list of subtasks for the task
-IPagedEnumerable<SubtaskInformation> subtasks = myMultiInstanceTask.ListSubtasks();
-
-// Asynchronously iterate over the subtasks and print their stdout and stderr
+// Now iterate over the subtasks for the task and print their stdout and stderr
 // output if the subtask has completed
-await subtasks.ForEachAsync(async (subtask) =>
+await foreach (BatchSubtask subtask in batchClient.GetSubTasksAsync("mybatchjob", "mymultiinstancetask"))
 {
     Console.WriteLine("subtask: {0}", subtask.Id);
     Console.WriteLine("exit code: {0}", subtask.ExitCode);
 
-    if (subtask.State == SubtaskState.Completed)
+    if (subtask.State == BatchSubtaskState.Completed)
     {
-        ComputeNode node =
-            await batchClient.PoolOperations.GetComputeNodeAsync(subtask.ComputeNodeInformation.PoolId,
-                                                                 subtask.ComputeNodeInformation.ComputeNodeId);
+        BatchNode node = await batchClient.GetNodeAsync(
+            subtask.NodeInfo.PoolId,
+            subtask.NodeInfo.NodeId);
 
-        NodeFile stdOutFile = await node.GetNodeFileAsync(subtask.ComputeNodeInformation.TaskRootDirectory + "\\" + Constants.StandardOutFileName);
-        NodeFile stdErrFile = await node.GetNodeFileAsync(subtask.ComputeNodeInformation.TaskRootDirectory + "\\" + Constants.StandardErrorFileName);
-        stdOut = await stdOutFile.ReadAsStringAsync();
-        stdErr = await stdErrFile.ReadAsStringAsync();
+        BinaryData stdOut = await batchClient.GetNodeFileAsync(
+            subtask.NodeInfo.PoolId, node.Id, $"{subtask.NodeInfo.TaskRootDirectory}/stdout.txt");
+        BinaryData stdErr = await batchClient.GetNodeFileAsync(
+            subtask.NodeInfo.PoolId, node.Id, $"{subtask.NodeInfo.TaskRootDirectory}/stderr.txt");
 
         Console.WriteLine("node: {0}:", node.Id);
         Console.WriteLine("stdout.txt: {0}", stdOut);
@@ -242,7 +270,7 @@ await subtasks.ForEachAsync(async (subtask) =>
     {
         Console.WriteLine("\tSubtask {0} is in state {1}", subtask.Id, subtask.State);
     }
-});
+}
 ```
 
 ## Code sample

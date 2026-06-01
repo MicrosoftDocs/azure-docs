@@ -4,12 +4,12 @@ description: Describes Azure Data Box Gateway, a virtual appliance storage solut
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: gateway
+ms.service: azure-data-box-gateway
 ms.topic: overview
 ms.date: 05/26/2021
 ms.author: shaas
 #Customer intent: As an IT admin, I need to understand what Data Box Gateway is and how it works so I can use it to send data to Azure.
+# Customer intent: As an IT admin, I want to understand the Azure Data Box Gateway solution and its key capabilities, so that I can effectively implement it for seamless data transfer to Azure for archival, disaster recovery, or continuous data ingestion.
 ---
 # What is Azure Data Box Gateway?
 
@@ -85,7 +85,7 @@ The Data Box Gateway solution comprises of Data Box Gateway resource, Data Box G
 
 Data Box Gateway device, Azure resource, and target storage account to which you transfer data do not all have to be in the same region.
 
-- **Resource availability** - For a list of all the regions where the Azure Data Box Gateway resource is available, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Data Box Gateway can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](../azure-government/documentation-government-welcome.md).
+- **Resource availability** - For a list of all the regions where the Azure Data Box Gateway resource is available, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=databox). Data Box Gateway can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](../azure-government/documentation-government-welcome.md)
 
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions.
 

@@ -2,16 +2,25 @@
 title: 'Tutorial: Configure HTTPS on an Azure CDN custom domain'
 description: In this tutorial, you learn how to enable and disable HTTPS on your Azure CDN endpoint custom domain.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 06/21/2024
-ms.author: duau
+ms.date: 02/28/2026
 ms.custom: mvc
-#Customer intent: As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
+ROBOTS: NOINDEX
+
+# Customer intent: As a website owner, I want to configure HTTPS for my custom domain on a CDN endpoint, so that I can ensure the secure delivery of sensitive data to my users.
 ---
 
 # Tutorial: Configure HTTPS on an Azure CDN custom domain
+
+> [!IMPORTANT]
+> - Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support new domain onboarding or profile creation. Migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) to create new domains or profiles and avoid service disruption. [Learn more](https://azure.microsoft.com/updates?id=498522)
+> - Starting August 15, 2025, Azure CDN from Microsoft (classic) will [no longer support Managed certificates](/azure/security/fundamentals/managed-tls-changes). To avoid service disruption, either [switch to Bring Your Own Certificate (BYOC)](/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate) or migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) by this date. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026. [Learn more](https://azure.microsoft.com/updates?id=498522)
+> - Azure CDN Standard from Microsoft (classic) will be retired on September 30, 2027. To avoid service disruption ⁠[migrate to AFD Standard or Premium](/azure/cdn/migrate-tier). ⁠[Learn more.](https://azure.microsoft.com/updates?id=Azure-CDN-Standard-from-Microsoft-classic-will-be-retired-on-30-September-2027)
+> - Azure CDN from Edgio was retired on January 15, 2025. ⁠[Learn more.](/previous-versions/azure/cdn/edgio-retirement-faq?toc=%2Fazure%2Ffrontdoor%2FTOC.json)
+
 
 This tutorial shows how to enable the HTTPS protocol for a custom domain associated with an Azure CDN endpoint.
 
@@ -45,10 +54,6 @@ Before you can complete the steps in this tutorial, create a CDN profile and at 
 
 Associate an Azure CDN custom domain on your CDN endpoint. For more information, see [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md).
 
-> [!IMPORTANT]
-> CDN-managed certificates are not available for root or apex domains. If your Azure CDN custom domain is a root or apex domain, you must use the Bring your own certificate feature.
->
-
 ---
 
 ## TLS/SSL certificates
@@ -57,30 +62,25 @@ To enable HTTPS on an Azure CDN custom domain, you use a TLS/SSL certificate. Yo
 
 # [Option 1 (default): Enable HTTPS with a CDN-managed certificate](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
 
-Azure CDN handles certificate management tasks such as procurement and renewal. After you enable the feature, the process starts immediately.
+Using a certificate managed by Azure CDN allows you to enable HTTPS with a few settings changes. Azure CDN handles all certificate management tasks, including procurement and renewal. This is supported for custom domains with direct CNAME to Azure CDN endpoint.
 
-If the custom domain is already mapped to the CDN endpoint, no further action is needed. Azure CDN processes the steps and completes your request automatically.
-
-If your custom domain is mapped elsewhere, use email to validate your domain ownership.
+> [!IMPORTANT]
+> - As of May 8, 2025, DigiCert no longer supports the WHOIS-based domain validation method. If your domain uses an indirect CNAME mapping to Azure Front Door Classic endpoint, you must use the **Bring Your Own Certificate (BYOC)** feature.
+> - Due to changes in WHOIS-based domain validation, managed certificates issued using WHOIS-based domain validation can't be autorenewed until you have a direct CNAME pointing to Azure Front Door Classic.
+> - CDN-managed certificates aren't available for root or apex domains. If your Azure CDN custom domain is a root or apex domain, you must use the **Bring Your Own Certificate (BYOC)** feature.
+> - Managed certificate autorenewal requires that your custom domain be directly mapped to your Azure CDN endpoint using a CNAME record.
 
 To enable HTTPS on a custom domain, follow these steps:
 
 1. Go to the [Azure portal](https://portal.azure.com) to find a certificate managed by your Azure CDN. Search for and select **CDN profiles**.
 
-2. Choose your profile:
-    - **Azure CDN Standard from Microsoft**
-    - **Azure CDN Standard from Edgio**
-    - **Azure CDN Premium from Edgio**
+2. Choose **Azure CDN Standard from Microsoft (classic)**.
 
 3. In the list of CDN endpoints, select the endpoint containing your custom domain.
 
-    ![Endpoints list](./media/cdn-custom-ssl/cdn-select-custom-domain-endpoint.png)
-
-    The **Endpoint** page appears.
-
 4. In the list of custom domains, select the custom domain for which you want to enable HTTPS.
 
-    ![Screenshot shows the Custom domain page with the option to Use my own certificate.](./media/cdn-custom-ssl/cdn-custom-domain.png)
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-custom-domain.png" alt-text="Screenshot of the custom domain page with the option to use my own certificate.":::
 
     The **Custom domain** page appears.
 
@@ -88,17 +88,13 @@ To enable HTTPS on a custom domain, follow these steps:
 
 6. Select **On** to enable HTTPS.
 
-    ![Custom domain HTTPS status](./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png)
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-select-cdn-managed-certificate.png" alt-text="Screen shot of the custom domain HTTPS status.":::
 
 7. Continue to [Validate the domain](#validate-the-domain).
 
 # [Option 2: Enable HTTPS with your own certificate](#tab/option-2-enable-https-with-your-own-certificate)
 
-> [!IMPORTANT]
-> * This option is available only with **Azure CDN from Microsoft**.
-> * The option to use your own certificate with Azure CDN from Edgio has undergone maintenance on June 20, 2024. This feature will be unavailable during this time and will be available again in early 2025.
-
-You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure CDN uses this secure mechanism to get your certificate and it requires a few extra steps. When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT). If you use a nonallowed CA, your request is rejected. If a certificate without complete chain is presented, requests, which involve that certificate aren't guaranteed to work as expected.
+You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure CDN uses this secure mechanism to get your certificate and it requires a few extra steps. When you create your TLS/SSL certificate, you must create a complete certificate chain with an allowed certificate authority (CA) that is part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT). If you use a nonallowed CA, your request is rejected. If a certificate without complete chain is presented, requests, which involve that certificate aren't guaranteed to work as expected.
 
 ### Prepare your Azure Key Vault account and certificate
 
@@ -108,7 +104,7 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 
 > [!NOTE]
 > - Azure Content Delivery Network only supports PFX certificates.
-> - The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb-public.secure.force.com/microsoft/IncludedCACertificateReportForMSFT).
+> - The certificate must have a complete certificate chain with leaf and intermediate certificates, and root CA must be part of the [Microsoft Trusted CA List](https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT).
 
 ### Set up managed identity for Azure CDN
 
@@ -145,12 +141,6 @@ Follow the steps in [Configure managed identity for Azure CDN](managed-identity.
 
 ## Validate the domain
 
-If you have a custom domain in use mapped to your custom endpoint with a CNAME record or you're using your own certificate, continue to [Custom domain mapped to your Content Delivery Network endpoint](#custom-domain-is-mapped-to-your-cdn-endpoint-by-a-cname-record).
-
-Otherwise, if the CNAME record entry for your endpoint no longer exists or it contains the cdnverify subdomain, continue to [Custom domain not mapped to your CDN endpoint](#custom-domain-isnt-mapped-to-your-cdn-endpoint).
-
-### Custom domain is mapped to your CDN endpoint by a CNAME record
-
 When you added a custom domain to your endpoint, you created a CNAME record in the DNS domain registrar mapped to your CDN endpoint hostname.
 
 If that CNAME record still exists and doesn't contain the cdnverify subdomain, the DigiCert CA uses it to automatically validate ownership of your custom domain.
@@ -168,49 +158,18 @@ Your CNAME record should be in the following format:
 
 For more information about CNAME records, see [Create the CNAME DNS record](./cdn-map-content-to-custom-domain.md).
 
-If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a certificate for your domain. DigitCert doesn't send you a verification email and you don't need to approve your request. The certificate is valid for one year and will be autorenewed before it expires. Continue to [Wait for propagation](#wait-for-propagation).
+If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a certificate for your domain. The certificate is valid for one year and will be autorenewed before it expires. Automatic validation typically takes a few hours. If you don't see your domain validated in 24 hours, open a support ticket.
 
-Automatic validation typically takes a few hours. If you don't see your domain validated in 24 hours, open a support ticket.
-
->[!NOTE]
-> If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include the appropriate CAs for authorization. DigiCert is the CA for Microsoft and Edgio profiles. For information about managing CAA records, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/). For a CAA record tool, see [CAA Record Helper](https://sslmate.com/caa/).
-
-### Custom domain isn't mapped to your CDN endpoint
-
-If the CNAME record entry contains the cdnverify subdomain, follow the rest of the instructions in this step.
-
-DigiCert sends a verification email to the following email addresses. Verify that you can approve directly from one of the following addresses:
-
-- **admin@your-domain-name.com**
-- **administrator@your-domain-name.com**
-- **webmaster@your-domain-name.com**
-- **hostmaster@your-domain-name.com**
-- **postmaster@your-domain-name.com**
-
-You should receive an email in a few minutes for you to approve the request. In case you're using a spam filter, add verification@digicert.com to its allowlist. If you don't receive an email within 24 hours, contact Microsoft support.
-
-![Domain validation email](./media/cdn-custom-ssl/domain-validation-email.png)
-
-When you select the approval link, you're directed to the following online approval form:
-
-![Domain validation form](./media/cdn-custom-ssl/domain-validation-form.png)
-
-Follow the instructions on the form; you have two verification options:
-
-- You can approve all future orders placed through the same account for the same root domain; for example, contoso.com. This approach is recommended if you plan to add other custom domains for the same root domain.
-
-- You can approve just the specific host name used in this request. Another approval is required for later requests.
-
-After approval, DigiCert completes the certificate creation for your custom domain name. The certificate is valid for one year.  If the CNAME record for your custom domain is added or updated to map to your endpoint hostname after verification, then it will be autorenewed before it's expired.
+Continue to [Wait for propagation](#wait-for-propagation).
 
 >[!NOTE]
-> Managed certificate autorenewal requires that your custom domain be directly mapped to your CDN endpoint by a CNAME record.
+> If you have a Certificate Authority Authorization (CAA) record with your DNS provider, it must include the appropriate CAs for authorization. DigiCert is the CA for Azure CDN profiles. For information about managing CAA records, see [Manage CAA records](https://support.dnsimple.com/articles/manage-caa-record/). For a CAA record tool, see [CAA Record Helper](https://sslmate.com/caa/).
 
 ## Wait for propagation
 
 After the domain name is validated, it can take up to 6-8 hours for the custom domain HTTPS feature to be activated. When the process completes, the custom HTTPS status in the Azure portal is changed to **Enabled**. The four operation steps in the custom domain dialog are marked as complete. Your custom domain is now ready to use HTTPS.
 
-![Enable HTTPS dialog](./media/cdn-custom-ssl/cdn-enable-custom-ssl-complete.png)
+:::image type="content" source="./media/cdn-custom-ssl/cdn-enable-custom-ssl-complete.png" alt-text="Screenshot of the enable HTTPS dialog.":::
 
 ### Operation progress
 
@@ -246,46 +205,29 @@ In this section, you learn how to disable HTTPS for your custom domain.
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **CDN profiles**.
 
-2. Choose your **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Edgio**, or **Azure CDN Premium from Edgio** profile.
+2. Select your **Azure CDN Standard from Microsoft (classic)** profile.
 
 3. In the list of endpoints, pick the endpoint containing your custom domain.
 
 4. Choose the custom domain for which you want to disable HTTPS.
 
-    ![Custom domains list](./media/cdn-custom-ssl/cdn-custom-domain-HTTPS-enabled.png)
-
 5. Choose **Off** to disable HTTPS, then select **Apply**.
 
-    ![Custom HTTPS dialog](./media/cdn-custom-ssl/cdn-disable-custom-ssl.png)
+    :::image type="content" source="./media/cdn-custom-ssl/cdn-disable-custom-ssl.png" alt-text="Screenshot of the custom HTTPS dialog.":::
 
 ### Wait for propagation
 
-After the custom domain HTTPS feature is disabled, it can take up to 6-8 hours for it to take effect. When the process is complete, the custom HTTPS status in the Azure portal is changed to **Disabled**. The three operation steps in the custom domain dialog are marked as complete. Your custom domain can no longer use HTTPS.
-
-![Disable HTTPS dialog](./media/cdn-custom-ssl/cdn-disable-custom-ssl-complete.png)
-
-#### Operation progress
-
-The following table shows the operation progress that occurs when you disable HTTPS. After you disable HTTPS, three operation steps appear in the custom domain dialog. When a step becomes active, details appear under the step. After a step successfully completes, a green check mark appears next to it.
-
-| Operation progress | Operation details |
-| --- | --- |
-| 1 Submitting request | Submitting your request |
-| 2 Certificate deprovisioning | Deleting certificate |
-| 3 Complete | Certificate deleted |
+After the custom domain HTTPS feature is disabled, it can take up to 6-8 hours for it to take effect. When the process is complete, the custom HTTPS status in the Azure portal is changed to **Disabled**. Your custom domain can no longer use HTTPS.
 
 ## Frequently asked questions
 
 1. *Who is the certificate provider and what type of certificate is used?*
 
-    A dedicated certificate provided by Digicert is used for your custom domain for:
-
-    - **Azure Content Delivery Network from Edgio**
-    - **Azure Content Delivery Network from Microsoft**
+    A dedicated certificate provided by Digicert is used for your custom domain for **Azure Content Delivery Network from Microsoft (classic)**.
 
 2. *Do you use IP-based or Server Name Indication (SNI) TLS/SSL?*
 
-    Both **Azure CDN from Edgio** and **Azure CDN Standard from Microsoft** use SNI TLS/SSL.
+    **Azure CDN Standard from Microsoft (classic)** use SNI TLS/SSL.
 
 3. *What if I don't receive the domain verification email from DigiCert?*
 
@@ -301,19 +243,9 @@ The following table shows the operation progress that occurs when you disable HT
 
     Certificate Authority Authorization record isn't currently required. However, if you do have one, it must include DigiCert as a valid CA.
 
-6. *On June 20, 2018, Azure CDN from Edgio started using a dedicated certificate with SNI TLS/SSL by default. What happens to my existing custom domains using Subject Alternative Names (SAN) certificate and IP-based TLS/SSL?*
-
-    Your existing domains are gradually migrated to single certificate in the upcoming months if Microsoft analyzes that only SNI client requests are made to your application.
-
-    If non-SNI clients are detected, your domains stay in the SAN certificate with IP-based TLS/SSL. Requests to your service or clients that are non-SNI, are unaffected.
-
-7. *How do cert renewals work with Bring Your Own Certificate?*
+6. *How do cert renewals work with Bring Your Own Certificate?*
 
     To ensure a newer certificate is deployed to POP infrastructure, upload your new certificate to Azure Key Vault. In your TLS settings on Azure Content Delivery Network, choose the newest certificate version and select save. Azure Content Delivery Network will then propagate your new updated cert.
-
-    > [!IMPORTANT]
-    > * As of June 20, 2024, Azure CDN Standard and Premium from Edgio won't support the **Use my own certificates** feature. This feature will be reintroduced again in early 2025.
-    > * What are the required actions for custom domains using this feature? BYOC certificates already deployed on the Edgio platform will remain valid until its expiration date. No action is required for certificates expiring in 2025. We encourage you to switch over to *CDN Managed* for certificates requiring an update or will be expiring this year. If you're requiring additional assistance, submit a support request to work with a support engineer.
 
 ## Next steps
 

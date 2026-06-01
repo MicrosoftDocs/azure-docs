@@ -3,15 +3,18 @@ title: 'Tutorial: Connect serverless SQL pool to Power BI Desktop & create repor
 description: In this tutorial, learn how to connect serverless SQL pool in Azure Synapse Analytics to Power BI desktop and create a demo report based on a view.
 services: synapse analytics
 author: azaricstefan
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
-ms.date: 05/20/2020
+ms.date: 02/04/2026
 ms.author: stefanazaric
-ms.reviewer: whhender 
+ms.custom: sfi-image-nochange
+ 
 ---
 
 # Tutorial: Use serverless SQL pool with Power BI Desktop & create a report
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 In this tutorial, you'll learn how to:
 
@@ -31,7 +34,7 @@ To complete this tutorial, you need the following prerequisites:
 
 Optional:
 
-- A SQL query tool, such as [Azure Data Studio](/azure-data-studio/download-azure-data-studio), or [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
+- A SQL query tool, such as the [MSSQL extension for Visual Studio Code](/sql/tools/visual-studio-code-extensions/mssql/mssql-extension-visual-studio-code), or [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 Values for the following parameters:
 
@@ -65,7 +68,7 @@ A data source is necessary for the serverless SQL pool service to access files i
 Create the data source by running the following Transact-SQL (T-SQL) script:
 
 ```sql
--- There is no credential in data surce. We are using public storage account which doesn't need a secret.
+-- There is no credential in data source. We are using public storage account which doesn't need a secret.
 CREATE EXTERNAL DATA SOURCE AzureOpenData
 WITH ( LOCATION = 'https://azureopendatastorage.blob.core.windows.net/')
 ```

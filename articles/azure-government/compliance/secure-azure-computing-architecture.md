@@ -5,6 +5,7 @@ ms.topic: article
 ms.service: azure-government
 recommendations: false
 ms.date: 10/03/2022
+ms.custom: sfi-image-nochange
 ---
 
 # Secure Azure Computing Architecture (SACA)
@@ -106,17 +107,17 @@ As mentioned earlier, you can build the SACA reference by using a variety of app
 - There are Azure services that can meet requirements for log analytics, host-based protection, and IDS functionality. It's possible that some services aren’t generally available in Microsoft Azure DoD regions. In this case, you might need to use third-party tools if these Azure services can’t meet your requirements. Look at the tools you're comfortable with and the feasibility of using Azure native tooling.
 - We recommend that you use as many Azure native tools as possible. They're built with cloud security in mind and seamlessly integrate with the rest of the Azure platform. Use the Azure native tools in the following list to meet various SCCA requirements:
 
-    - [Azure Monitor](../../azure-monitor/overview.md)
-    - [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md)
+    - [Azure Monitor](/azure/azure-monitor/overview)
+    - [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
     - [Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md)
-    - [Azure Key Vault](../../key-vault/general/overview.md)
+    - [Azure Key Vault](/azure/key-vault/general/overview)
     - [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md)
     - [Application Gateway](../../application-gateway/overview.md)
     - [Azure Firewall](../../firewall/overview.md)
     - [Azure Front Door](../../frontdoor/front-door-overview.md)
     - [Network security groups](../../virtual-network/network-security-groups-overview.md)
     - [Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)
-    - [Microsoft Sentinel](../../sentinel/overview.md)
+    - [Microsoft Sentinel](/azure/sentinel/overview)
 - Sizing
     - A sizing exercise must be completed. Look at the number of concurrent connections you might have through the SACA instance and the network throughput requirements.
     - This step is critical. It helps to size the VMs, ExpressRoute circuits, and identify the licenses that are required from the various vendors you use in your SACA deployment.
@@ -203,5 +204,5 @@ For the Citrix documentation and deployment script, see [SACA based deployment](
 - [DoD Impact Level 6](/azure/compliance/offerings/offering-dod-il6)
 - [Azure and other Microsoft cloud services compliance scope](./azure-services-in-fedramp-auditscope.md)
 - [Azure Policy overview](../../governance/policy/overview.md)
-- [Azure Policy regulatory compliance built-in initiatives](../../governance/policy/samples/index.md#regulatory-compliance)
+- [Azure Policy regulatory compliance built-in initiatives](/azure/governance/policy/samples/index#regulatory-compliance)
 - [Security control mapping with Azure landing zones](/azure/cloud-adoption-framework/ready/control-mapping/security-control-mapping)

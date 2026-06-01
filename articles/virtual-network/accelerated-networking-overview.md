@@ -1,23 +1,19 @@
 ---
-title: Accelerated Networking overview
-description: Learn how Accelerated Networking can improve the networking performance of Azure VMs.
-author: EllieMelissa
-ms.service: virtual-network
-ms.custom: linux-related-content
+title: Azure Accelerated Networking Overview and Benefits
+description: Discover how Azure Accelerated Networking enhances VM performance by reducing latency and CPU usage. Learn benefits, limitations, and supported configurations for high-demand applications.
+author: mattreatMSFT
+ms.author: mareat
+ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 04/18/2023
-ms.author: ealume
+ms.date: 02/05/2026
+ms.custom: linux-related-content
+# Customer intent: "As a cloud architect, I want to implement Accelerated Networking on Azure VMs, so that I can enhance networking performance by reducing latency and CPU utilization for my high-demand applications."
 ---
 
-# Accelerated Networking overview
+# Azure Accelerated Networking overview
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
-This article describes the benefits, constraints, and supported configurations of Accelerated Networking. Accelerated Networking enables [single root I/O virtualization (SR-IOV)](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-) on supported virtual machine (VM) types, greatly improving networking performance. This high-performance data path bypasses the host, which reduces latency, jitter, and CPU utilization for the most demanding network workloads.
-
->[!NOTE]
->For more information on Microsoft Azure Network Adapter (MANA) preview, please refer to the [Azure MANA Docs](./accelerated-networking-mana-overview.md)
+Azure Accelerated Networking significantly improves virtual machine networking performance by reducing latency and CPU utilization. This article describes the benefits, constraints, and supported configurations of Accelerated Networking. Accelerated Networking enables [single root I/O virtualization (SR-IOV)](/windows-hardware/drivers/network/overview-of-single-root-i-o-virtualization--sr-iov-) on supported virtual machine (VM) types, greatly improving networking performance.
+This high-performance data path bypasses the host, which reduces latency, jitter, and CPU utilization for the most demanding network workloads.
 
 The following diagram illustrates how two VMs communicate with and without Accelerated Networking.
 
@@ -31,7 +27,7 @@ The following diagram illustrates how two VMs communicate with and without Accel
 
 Accelerated Networking has the following benefits:
 
-- **Lower latency and higher packets per second (pps)**. Removing the virtual switch from the data path eliminates the time that packets spend in the host for policy processing. It also increases the number of packets that the VM can process.
+- **Lower latency and higher packets per second**. Removing the virtual switch from the data path eliminates the time that packets spend in the host for policy processing. It also increases the number of packets that the VM can process.
 
 - **Reduced jitter**. Processing time for virtual switches depends on the amount of policy to apply and the workload of the CPU that does the processing. Offloading policy enforcement to the hardware removes that variability by delivering packets directly to the VM. Offloading also removes the host-to-VM communication, all software interrupts, and all context switches.
 
@@ -47,7 +43,7 @@ Accelerated Networking has the following benefits:
 
 - You can't deploy virtual machines (classic) with Accelerated Networking through Azure Resource Manager.
 
-- The Azure platform does not update the Mellanox NIC drivers in the VM. For VMs running Linux and FreeBSD, customers are encouraged to stay current with the latest kernel updates offered by the distribution. For VMs running Windows, customers should apply updated drivers from the Nvidia support page if any issues are later encountered with the driver delivered with the Marketplace image or applied to a custom image.
+- The Azure platform doesn't update the Mellanox NIC or MANA drivers in the VM. For VMs running Linux and FreeBSD, you should stay current with the latest kernel updates offered by the distribution. For VMs running Windows, apply updated drivers from the NVIDIA support page if you encounter any issues with the driver delivered with the Marketplace image or applied to a custom image. The latest MANA drivers can be found at the documentation page for [MANA on Windows](./accelerated-networking-mana-windows.md)
 
 ### Supported regions
 
@@ -55,34 +51,43 @@ Accelerated Networking is available in all global Azure regions and the Azure Go
 
 ### Supported operating systems
 
-The following versions of Windows support Accelerated Networking:
+The following versions of Windows support Accelerated Networking for all interfaces:
 
 - Windows Server 2022
-- Windows Server 2019 Standard/Datacenter
-- Windows Server 2016 Standard/Datacenter
-- Windows Server 2012 R2 Standard/Datacenter
-- Windows 10 version 21H2 or later, including Windows 10 Enterprise multisession
-- Windows 11, including Windows 11 Enterprise multisession
+- Windows Server 2019
+- Windows Server 2016
+- Windows 11
 
 The following Linux and FreeBSD distributions from Azure Marketplace support Accelerated Networking out of the box:
 
-- Ubuntu 14.04 with the linux-azure kernel
-- Ubuntu 16.04 or later
-- SLES12 SP3 or later
-- RHEL 7.4 or later
-- CentOS 7.4 or later
-- CoreOS Linux
-- Debian "Stretch" with backports kernel
-- Debian "Buster" or later
-- Oracle Linux 7.4 and later with Red Hat Compatible Kernel (RHCK)
-- Oracle Linux 7.5 and later with UEK version 5
-- FreeBSD 10.4, 11.1, 12.0, or later
+- Azure Linux 3
+- Ubuntu 24.04 LTS
+- Ubuntu 22.04 LTS
+- Red Hat Enterprise Linux 10.0
+- Red Hat Enterprise Linux 9.6
+- AlmaLinux 10.0
+- AlmaLinux 9.6
+- Rocky Linux 10.0
+- Rocky Linux 9.6
+- SUSE Linux Enterprise Server 16
+- SUSE Linux Enterprise Server 15 SP7
+- SUSE Linux Enterprise Server 15 SP6
+- Debian 13 "Trixie"
+- Debian 12 "Bookworm"
+- Oracle Linux UEK R8
+- Oracle Linux UEK R7
+
+For users of non endorsed Linux distributions or utilizing custom kernels, we recommend the Linux Kernel 6.14 or later found at [kernel.org](https://www.kernel.org/)
+
+> [!NOTE]
+> Newer MANA features are under active development and Linux distribution vendors partner with Microsoft to update their kernels with upstream changes. The Cadence of updates varies by distribution vendor. The newer your distribution and kernel is, the more likely it is to have the latest updates.
+
 
 ### Supported VM instances
 
 Most general-purpose and compute-optimized VM instance sizes with two or more vCPUs support Accelerated Networking. On instances that support hyperthreading, VM instances with four or more vCPUs support Accelerated Networking.
 
-To check whether a VM size supports Accelerated Networking, see [Sizes for virtual machines in Azure](../virtual-machines/sizes.md).
+To check whether a VM size supports Accelerated Networking, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
 
 You can directly query the list of VM SKUs that support Accelerated Networking by using the Azure CLI [az vm list-skus](/cli/azure/vm#az-vm-list-skus) command:
 
@@ -95,69 +100,91 @@ You can directly query the list of VM SKUs that support Accelerated Networking b
     --output table
   ```
 
-  >[!NOTE]
-  >Although NC and NV sizes appear in the command output, those sizes don't support Accelerated Networking. Enabling Accelerated Networking on NC or NV VMs has no effect.
+  > [!NOTE]
+  > Although NC and NV sizes appear in the command output, those sizes don't support Accelerated Networking. Enabling Accelerated Networking on NC or NV VMs has no effect.
 
 ### Custom VM images
 
-If you use a custom image that supports Accelerated Networking, make sure you have the required drivers to work with Mellanox ConnectX-3, ConnectX-4 Lx, and ConnectX-5 NICs on Azure. Accelerated Networking also requires network configurations that exempt configuration of the virtual functions on the mlx4_en and mlx5_core drivers.
+If you use a custom image that supports Accelerated Networking, make sure you meet the following requirements.
 
-Images with cloud-init version 19.4 or later have networking correctly configured to support Accelerated Networking during provisioning.
+#### Device and driver support
 
-# [RHEL, CentOS](#tab/redhat)
+Any custom image supporting Accelerated Networking must include drivers that enable Single Root I/O Virtualization for the network interface cards (NIC) which are used on Azure platforms. This hardware list includes NVIDIA ConnectX-3, ConnectX-4 Lx, ConnectX-5 and the [Microsoft Azure Network Adapter (MANA)](accelerated-networking-mana-overview.md).
 
-The following example shows a sample configuration drop-in for `NetworkManager` on RHEL or CentOS:
+#### Dynamic binding and revocation of virtual function
+
+Accelerated Networking requires guest OS images to properly handle the virtual function being removed or added dynamically. Scenarios such as host maintenance or live migration will result in dynamic revocation of the virtual function and restoration after the maintenance event. Additionally, applications must ensure that they bind to the synthetic device and not the virtual function in order to maintain network connectivity during these events.
+
+For more information about application binding requirements, see [How Accelerated Networking works in Linux and FreeBSD VMs](create-vm-accelerated-networking-cli.md?tabs=windows#handle-dynamic-binding-and-revocation-of-virtual-function).
+
+#### Configure drivers to be unmanaged
+
+Accelerated Networking requires configuring the NVIDIA drivers as unmanaged devices in your network settings. Images using cloud-init version 23.2 or later automatically apply the correct network configuration to support Accelerated Networking during provisioning. We strongly recommend avoiding concurrent network interface management tools (such as ifupdown and networkd) on custom images, and not running dhcpclient directly on multiple interfaces.
+
+# [NetworkManager](#tab/NetworkManager)
+Ensure azure-vm-utils version 0.6.0 or later is installed. 
+Verify ```/usr/lib/udev/rules.d/10-azure-unmanaged-sriov.rules``` exists.  
+If it's not available for the distro, then use a custom udev rule in ```/etc/udev/rules.d/10-azure-unmanaged-sriov.rules``` with the content:
 
 ```bash
-sudo mkdir -p /etc/NetworkManager/conf.d
-sudo cat > /etc/NetworkManager/conf.d/99-azure-unmanaged-devices.conf <<EOF
-# Ignore SR-IOV interface on Azure, since it's transparently bonded
-# to the synthetic interface
-[keyfile]
-unmanaged-devices=driver:mlx4_core;driver:mlx5_core
-EOF
+# Azure VMs with accelerated networking may have MANA, mlx4, or mlx5 SR-IOV devices which are transparently bonded to a synthetic
+# hv_netvsc device.  Mark devices with the 0x800 bit set as unmanaged devices:
+#   AZURE_UNMANAGED_SRIOV=1 for 01-azure-unmanaged-sriov.network
+#   ID_NET_MANAGED_BY=unmanaged for systemd-networkd >= 255
+#   NM_UNMANAGED=1 for NetworkManager
+#
+# ATTR{flags}=="0x?[89ABCDEF]??" checks the 0x800 bit.
+SUBSYSTEM=="net", ACTION!="remove", DRIVERS=="mana|mlx4_core|mlx5_core", ATTR{flags}=="0x?[89ABCDEF]??", ENV{AZURE_UNMANAGED_SRIOV}="1", ENV{ID_NET_MANAGED_BY}="unmanaged", ENV{NM_UNMANAGED}="1"
 ```
 
-# [openSUSE, SLES](#tab/suse)
-
-The following example shows a sample configuration drop-in for `networkd` on openSUSE or SLES:
+# [networkd](#tab/networkd)
+Ensure azure-vm-utils version 0.6.0 or later is installed. 
+Verify ```/usr/lib/udev/rules.d/10-azure-unmanaged-sriov.rules``` exists.  
+If it's not available for the distro, then use a custom udev rule in ```/etc/udev/rules.d/10-azure-unmanaged-sriov.rules``` with the content:
 
 ```bash
-sudo mkdir -p /etc/systemd/network
-sudo cat > /etc/systemd/network/99-azure-unmanaged-devices.network <<EOF
-# Ignore SR-IOV interface on Azure, since it's transparently bonded
-# to the synthetic interface
+# Azure VMs with accelerated networking may have MANA, mlx4, or mlx5 SR-IOV devices which are transparently bonded to a synthetic
+# hv_netvsc device.  Mark devices with the 0x800 bit set as unmanaged devices:
+#   AZURE_UNMANAGED_SRIOV=1 for 01-azure-unmanaged-sriov.network
+#   ID_NET_MANAGED_BY=unmanaged for systemd-networkd >= 255
+#   NM_UNMANAGED=1 for NetworkManager
+#
+# ATTR{flags}=="0x?[89ABCDEF]??" checks the 0x800 bit.
+SUBSYSTEM=="net", ACTION!="remove", DRIVERS=="mana|mlx4_core|mlx5_core", ATTR{flags}=="0x?[89ABCDEF]??", ENV{AZURE_UNMANAGED_SRIOV}="1", ENV{ID_NET_MANAGED_BY}="unmanaged", ENV{NM_UNMANAGED}="1"
+```
+If using networkd <255, add the following to ```/usr/lib/systemd/network/01-azure-unmanaged-sriov.network```
+```bash
+# Azure VMs with accelerated networking may have MANA, mlx4, or mlx5 SR-IOV
+# devices which are transparently bonded to a synthetic hv_netvsc device.
+# 10-azure-unmanaged-sriov.rules will mark these devices with
+# AZURE_UNMANAGED_SRIOV=1 so this can configure the devices as unmanaged.
+ 
 [Match]
-Driver=mlx4_en mlx5_en mlx4_core mlx5_core
+Property=AZURE_UNMANAGED_SRIOV=1
+ 
 [Link]
 Unmanaged=yes
-EOF
 ```
+---
 
-# [Ubuntu, Debian](#tab/ubuntu)
+#### Network traffic uses the Accelerated Networking data path
 
-The following example shows a sample configuration drop-in for `networkd` on Ubuntu, Debian, or Flatcar:
+For NVIDIA drivers: Verify that the packets are flowing over the VF interface
 
-```bash
-sudo mkdir -p /etc/systemd/network
-sudo cat > /etc/systemd/network/99-azure-unmanaged-devices.network <<EOF
-# Ignore SR-IOV interface on Azure, since it's transparently bonded
-# to the synthetic interface
-[Match]
-Driver=mlx4_en mlx5_en mlx4_core mlx5_core
-[Link]
-Unmanaged=yes
-EOF
-```
+- [Linux documentation](accelerated-networking-how-it-works.md#application-usage)
+- [Windows documentation](create-vm-accelerated-networking-cli.md?tabs=windows#confirm-that-accelerated-networking-is-enabled)
 
->[!NOTE]
->We strongly advise that you don't run competing network interface software (such as ifupdown and networkd) on custom images, and that you don't run dhcpclient directly on multiple interfaces.
+For MANA driver: Verify that the traffic is flowing through MANA
+
+- [Linux documentation](accelerated-networking-mana-linux.md#verify-that-traffic-is-flowing-through-mana)
+- [Windows documentation](accelerated-networking-mana-windows.md#verify-that-traffic-is-flowing-through-mana)
 
 ---
 
-## Next steps
+## Related content
 
 - [How Accelerated Networking works in Linux and FreeBSD VMs](./accelerated-networking-how-it-works.md)
 - [Create a VM with Accelerated Networking by using PowerShell](./create-vm-accelerated-networking-powershell.md)
 - [Create a VM with Accelerated Networking by using the Azure CLI](./create-vm-accelerated-networking-cli.md)
-- [Proximity placement groups](../virtual-machines/co-location.md)
+- [Proximity placement groups](/azure/virtual-machines/co-location)
+

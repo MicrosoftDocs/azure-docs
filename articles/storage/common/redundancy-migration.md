@@ -7,22 +7,23 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 02/07/2024
+ms.date: 10/10/2025
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23, references_regions, devx-track-azurepowershell
+# Customer intent: "As a cloud administrator, I want to change the replication settings of my storage account, so that I can optimize cost and availability based on my organization's data protection requirements."
 ---
 
 <!--
 Initial: 81 (3717/68)
-Current: 98 (3765/4)
+Current: 98 (3761/0)
 -->
 
-# Change the redundancy configuration for a storage account
+# Change how a storage account is replicated
 
 Azure Storage always stores multiple copies of your data to protect it in the face of both planned and unplanned events. These events include transient hardware failures, network or power outages, and massive natural disasters. Data redundancy ensures that your storage account meets the [Service-Level Agreement (SLA) for Azure Storage](https://azure.microsoft.com/support/legal/sla/storage/), even in the face of failures.
 
-This article describes the process of changing replication setting(s) for an existing storage account.
+This article describes the process of changing replication settings for an existing storage account.
 
 ## Options for changing the replication type
 
@@ -44,6 +45,10 @@ There are three ways to change the replication settings:
 
 Geo-redundancy and read-access can be changed at the same time. However, any change that also involves zone-redundancy requires a conversion and must be performed separately using a two-step process. These two steps can be performed in any order.
 
+For answers to common questions about changing replication types, see the [Storage redundancy change FAQ](storage-redundancy-change-faq.md) article.
+> [!NOTE]
+> For storage accounts that leverage smart tier, redundancy conversions and account failover scenarios have additional dependencies. For more information, see [Optimize costs with smart tier](../blobs/access-tiers-smart.md)
+
 ### Changing redundancy configuration
 
 The following table provides an overview of how to switch between replication types.
@@ -62,7 +67,7 @@ The following table provides an overview of how to switch between replication ty
 <sup>2</sup> If your storage account contains blobs in the archive tier, review the [access tier limitations](#access-tier) before changing the redundancy type to geo- or zone-redundant.<br />
 <sup>3</sup> The type of conversion supported depends on the storage account type. For more information, see the [storage account table](#storage-account-type).<br />
 <sup>4</sup> Conversion to ZRS or GZRS for an LRS account resulting from a failover isn't supported. For more information, see [Failover and failback](#failover-and-failback).<br />
-<sup>5</sup> Converting from LRS to ZRS [isn't supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares](#protocol-support). <br />
+<sup>5</sup> Converting from LRS to ZRS [isn't supported if the NFSv3 protocol support is enabled for Azure Blob Storage or if the storage account contains Azure Files NFSv4.1 shares with public endpoints configured](#protocol-support). <br />
 <sup>6</sup> Even though enabling geo-redundancy appears to occur instantaneously, failover to the secondary region can't be initiated until data synchronization between the two regions is complete.<br />
 
 ## Change the replication setting
@@ -97,6 +102,25 @@ Set-AzStorageAccount -ResourceGroupName <resource_group> `
     -Name <storage_account> `
     -SkuName <sku>
 ```
+<!--
+You can also add or remove zone redundancy to your storage account. To change between locally redundant and zone-redundant storage with PowerShell, call the [Start-AzStorageAccountMigration](/powershell/module/az.storage/start-azstorageaccountmigration) command and specify the `-TargetSku` parameter:
+
+```powershell
+Start-AzStorageAccountMigration
+    -AccountName <String>
+    -ResourceGroupName <String>
+    -TargetSku <String>
+    -AsJob
+```
+
+To track the current migration status of the conversion initiated on your storage account, call the [Get-AzStorageAccountMigration](/powershell/module/az.storage/get-azstorageaccountmigration) cmdlet:
+
+```powershell
+Get-AzStorageAccountMigration
+   -AccountName <String>
+   -ResourceGroupName <String>
+```
+-->
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -111,6 +135,27 @@ az storage account update \
     --sku <sku>
 ```
 
+<!--
+You can also add or remove zone redundancy to your storage account. To change between locally redundant and zone-redundant storage with Azure CLI, call the [az storage account migration start](/cli/azure/storage/account/migration#az-storage-account-migration-start) command and specify the `--sku` parameter:
+
+```azurecli-interactive
+az storage account migration start \
+    --account-name <string> \
+    --g <string> \
+    --sku <string> \
+    --no-wait
+```
+
+To track the current migration status of the conversion initiated on your storage account, use the [az storage account migration show](/cli/azure/storage/account/migration#az-storage-account-migration-show) command:
+
+```azurecli-interactive
+az storage account migration show \
+    --account-name <string> \
+    - g <string> \
+    -n "default"
+```
+-->
+
 ---
 
 ### Perform a conversion
@@ -124,19 +169,20 @@ There are two ways to initiate a conversion:
 - [Customer-initiated](#customer-initiated-conversion)
 - [Support-initiated](#support-initiated-conversion)
 
+> [!IMPORTANT]
+> There's no SLA for completion of a conversion. If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Conversion times can vary depending on the size of your account, current resource demands within a region, and other factors.
+
 > [!TIP]
-> Microsoft recommends using a customer-initiated conversion instead of support-initiated conversion whenever possible. A customer-initiated conversion allows you to initiate the conversion and monitor its progress directly from within the Azure portal. Because the conversion is initiated by the customer, there is no need to create and manage a support request.
+> Microsoft recommends using a [customer-initiated conversion](#customer-initiated-conversion) instead of support-initiated conversion whenever possible. You can initiate a conversion and monitor its progress directly from within the Azure portal or with client tool such as PowerShell and the Azure CLI. Because the customer initiates the conversion, there's no need to create and manage a support request.
 
 #### Customer-initiated conversion
 
-Instead of opening a support request, customers in most regions can start a conversion and monitor its progress. This option eliminates potential delays related to creating and managing support requests. For help determining the regions in which customer-initiated conversion is supported, see the [region limitations](#region) article.
+Instead of opening a support request, customers in most regions can start a conversion and monitor its progress. This option eliminates potential delays related to creating and managing support requests. For help with determining the regions in which customer-initiated conversion is supported, refer to the [region limitations](#region) article.
 
-Customer-initiated conversion can be completed in supported regions using the Azure portal, PowerShell, or the Azure CLI. After initiation, the conversion could still take up to 72 hours to begin.
+Customer-initiated conversion can be undertaken in supported regions using the [Azure portal](redundancy-migration.md?tabs=portal#customer-initiated-conversion), [PowerShell](redundancy-migration.md?tabs=powershell#customer-initiated-conversion), or the [Azure CLI](redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion). A conversion typically begins within 72 hours after initiation, but can take longer due to resource availability, data volume, and other factors.
 
 > [!IMPORTANT]
-> There is no SLA for completion of a conversion. 
->
-> If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your account, the longer it takes to replicate that data to other zones or regions.
+> If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Conversion times can vary depending on the size of your account, current resource demands within a region, and other factors.
 >
 > For more information about the timing of a customer-initiated conversion, see [Timing and frequency](#timing-and-frequency).
 
@@ -162,6 +208,46 @@ Start-AzStorageAccountMigration
     -TargetSku <String>
     -AsJob
 ```
+To begin converting multiple storage accounts from locally redundant storage (LRS) to zone-redundant storage (ZRS), start by creating a CSV file that lists the accounts. The file should include columns such as:
+
+| storageAccount | resourceGroup | targetSku | 
+|-----------------| ----------------|------------|
+| mystorageaccount1 | myresourcegroup1 | Standard_ZRS |
+| mystorageaccount2 | myresourcegroup2 | Standard_ZRS |
+
+Then, use the following script as an example:
+
+```powershell
+# Define the CSV file path 
+ $csvFilePath = "path\to\your\input.csv" 
+
+# Read the CSV file 
+ Write-Host "Reading CSV file..." 
+ $storageAccounts = Import-Csv -Path $csvFilePath 
+
+# Iterate through each storage account in the CSV file 
+ foreach ($account in $storageAccounts) { 
+     $storageAccountName = $account.'storageAccount' 
+     $resourceGroupName = $account.'resourceGroup' 
+     $targetSku = $account.'targetSku'
+ 
+    Write-Host "Processing storage account: $storageAccountName in resource group: $resourceGroupName to target SKU: $targetSku"
+ 
+    # Get the storage account 
+     $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+
+    # Example of adding a check for the SKU 
+    if ($storageAccount.Sku.Name -ne "Standard_LRS") { 
+         Write-Host "Storage account $storageAccountName is not using Standard_LRS. Skipping..." 
+         continue 
+     }
+
+    # Submit the storage account SKU conversion 
+     Write-Host "Submitting storage account $storageAccountName conversion to target SKU: $targetSku..." 
+     Start-AzStorageAccountMigration -AccountName $storageAccountName -ResourceGroupName $resourceGroupName  -TargetSku $targetSku -NoWait 
+ }
+```
+
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -169,12 +255,47 @@ To change between locally redundant and zone-redundant storage with Azure CLI, c
 
 ```azurecli-interactive
 az storage account migration start  \
-    -- account-name <string> \
-    -- g <string> \
+    --account-name <string> \
+    --resource-group <string> \
     --sku <string> \
     --no-wait
 ```
+To begin converting multiple storage accounts from locally redundant storage (LRS) to zone-redundant storage (ZRS), start by creating a CSV file that lists the accounts. The file should include columns such as:
 
+| storageAccountName | resourceGroupName | targetSku | 
+|-----------------| ----------------|------------|
+| mystorageaccount1 | myresourcegroup1 | Standard_ZRS |
+| mystorageaccount2 | myresourcegroup2 | Standard_ZRS |
+
+Then, use the following script as an example:
+```azurecli-interactive
+# Define the CSV file path  
+csvFilePath='path\to\your\input.csv'
+
+# Read the CSV file  
+echo 'Reading CSV file...'  
+
+# Iterate through each storage account in the CSV file 
+# each row should have values for storageAccountName, resourceGroupName, targetSku
+while IFS=',' read -r storageAccountName resourceGroupName targetSku 
+do 
+    echo "Processing storage account: $storageAccountName in resource group: $resourceGroupName to target SKU: $targetSku" 
+    # Get the storage account  
+    sku=$(az storage account show --resource-group $resourceGroupName --name $storageAccountName  --query sku.name) 
+	
+    # Example of adding a check for the SKU 
+    if [ $sku != '"Standard_LRS"' ] ; then 
+        echo "Storage account $storageAccountName is not using Standard_LRS. Skipping..." 
+        continue  
+    fi 
+
+    # Submit the storage account SKU conversion 
+    echo "Submitting storage account $storageAccountName conversion to target SKU: $targetSku"  
+    az storage account migration start --account-name $storageAccountName --resource-group $resourceGroupName --target-sku-name $targetSku --no-wait --yes   
+
+    echo '--------------' 
+done < <(tr -d '\r' < $csvFilePath | tail -n +2) 
+```
 ---
 
 ##### Monitoring customer-initiated conversion progress
@@ -187,13 +308,13 @@ As the conversion request is evaluated and processed, the status should progress
 | In Progress<sup>1</sup>                        | The conversion is in progress.                                                |
 | Completed<br>**- or -**</br>Failed<sup>2</sup> | The conversion is completed successfully.<br>**- or -**</br>The conversion failed.                 |
 
-<sup>1</sup> Once initiated, the conversion could take up to 72 hours to begin. If the conversion doesn't enter the "In Progress" status within 96 hours of initiating the request, submit a support request to Microsoft to determine why. For more information about the timing of a customer-initiated conversion, see [Timing and frequency](#timing-and-frequency).<br />
+<sup>1</sup> A conversion typically begins within 72 hours after initiation, but can take longer due to resource availability, data volume, and other factors. For more information about the timing of a customer-initiated conversion, see [Timing and frequency](#timing-and-frequency).<br />
 <sup>2</sup> If the conversion fails, submit a support request to Microsoft to determine the reason for the failure.<br />
 
 > [!NOTE]
-> While Microsoft handles your request for a conversion promptly, there's no guarantee as to when it will complete. If you need your data converted by a certain date, Microsoft recommends that you perform a manual migration instead.
+> While Microsoft acts upon your request for a conversion promptly, there's no guarantee as to when it completes. If you need your data converted by a certain date, Microsoft recommends that you perform a manual migration instead.
 >
-> Generally, the more data you have in your account, the longer it takes to replicate that data to other zones in the region.
+> Conversion times can vary depending on the size of your account, current resource demands within a region, and other factors.
 
 # [Portal](#tab/portal)
 
@@ -210,17 +331,67 @@ Get-AzStorageAccountMigration
    -AccountName <String>
    -ResourceGroupName <String>
 ```
+To monitor conversions for multiple storage accounts simultaneously, start by creating a CSV file that lists each account. For example, your columns might include:
+
+| storageAccount | resourceGroup | targetSku | 
+|-----------------| ----------------|------------|
+| mystorageaccount1 | myresourcegroup1 | Standard_ZRS |
+| mystorageaccount2 | myresourcegroup2 | Standard_ZRS |
+
+Then, use the following script as an example:
+```powershell
+# Define the CSV file path 
+ $csvFilePath = "path\to\your\input.csv"
+
+# Read the CSV file 
+ Write-Host "Reading CSV file..." 
+ $storageAccounts = Import-Csv -Path $csvFilePath 
+
+# Iterate through each storage account in the CSV file 
+ foreach ($account in $storageAccounts) { 
+     $storageAccountName = $account.'storageAccount' 
+     $resourceGroupName = $account.'resourceGroup' 
+
+     # Get the storage account migration status 
+     Get-AzStorageAccountMigration -AccountName $storageAccountName -ResourceGroupName $resourceGroupName  | ft ResourceGroupName,@{Name="StorageAccountName"; Expression={$storageAccountName}},DetailMigrationStatus,DetailTargetSkuName
+ }
+```
 
 # [Azure CLI](#tab/azure-cli)
 
-To track the current migration status of the conversion initiated on your storage account, call the [Get-AzStorageAccountMigration](/powershell/module/az.storage/get-azstorageaccountmigration) cmdlet:
+To track the current migration status of the conversion initiated on your storage account, use the [az storage account migration show](/cli/azure/storage/account/migration#az-storage-account-migration-show) command:
 
-```powershell
-Get-AzStorageAccountMigration
-   -AccountName <String>
-   -ResourceGroupName <String>
+```azurecli-interactive
+az storage account migration show \
+    --account-name <string> \
+    --resource-group <string> \
+    --name "default"
 ```
+To monitor conversions for multiple storage accounts simultaneously, start by creating a CSV file that lists each account. For example, your columns might include:
 
+| storageAccountName | resourceGroupName | targetSku | 
+|-----------------| ----------------|------------|
+| mystorageaccount1 | myresourcegroup1 | Standard_ZRS |
+| mystorageaccount2 | myresourcegroup2 | Standard_ZRS |
+
+Then, use the following script as an example:
+```azurecli-interactive
+# Define the CSV file path 
+csvFilePath="path\to\your\input.csv" 
+
+# Read the CSV file 
+echo 'Reading CSV file...' 
+# Iterate through each storage account in the CSV file
+# each row should have values for storageAccountName, resourceGroupName, targetSku
+while IFS=',' read -r storageAccountName resourceGroupName targetSku
+do
+    echo "Checking status for storage account: $storageAccountName in resource group: $resourceGroupName"
+    # Get the storage account 
+    az storage account migration show --account-name $storageAccountName --resource-group $resourceGroupName -n default -o table
+
+    echo '--------------'
+done < <(tr -d '\r' < $csvFilePath | tail -n +2)  
+```
 ---
 
 #### Support-initiated conversion
@@ -228,7 +399,8 @@ Get-AzStorageAccountMigration
 Customers can still request a conversion by opening a support request with Microsoft.
 
 > [!TIP]
-> If you need to convert more than one storage account, create a single support ticket and specify the names of the accounts to convert on the **Additional details** tab.
+> If you need to convert more than one storage account, create a single support ticket and specify the names of the accounts to convert on the **Additional details** tab. 
+> You can also submit multiple conversion requests at once using PowerShell or Azure CLI scripts. See [customer-initiated conversion](#customer-initiated-conversion) for script examples.
 
 Follow these steps to request a conversion from Microsoft:
 
@@ -245,12 +417,12 @@ Follow these steps to request a conversion from Microsoft:
 
     :::image type="content" source="media/redundancy-migration/request-live-migration-problem-desc-portal-sml.png" alt-text="Screenshot showing how to request a conversion - Problem description tab." lightbox="media/redundancy-migration/request-live-migration-problem-desc-portal.png":::
 
-1. Select **Next**. The **Recommended solution** tab might be displayed briefly before it switches to the **Solutions** page. On the **Solutions** page, you can check the eligibility of your storage account(s) for conversion:
+1. Select **Next**. The **Recommended solution** tab might be displayed briefly before it switches to the **Solutions** page. On the **Solutions** page, you can check the eligibility of your storage accounts for conversion:
     - **Target replication type**: (choose the desired option from the drop-down)
     - **Storage accounts from**: (enter a single storage account name or a list of accounts separated by semicolons)
     - Select **Submit**.
 
-    :::image type="content" source="media/redundancy-migration/request-live-migration-solutions-portal-sml.png" alt-text="Screenshot showing how to check the eligibility of your storage account(s) for conversion - Solutions page." lightbox="media/redundancy-migration/request-live-migration-solutions-portal.png":::
+    :::image type="content" source="media/redundancy-migration/request-live-migration-solutions-portal-sml.png" alt-text="Screenshot showing how to check the eligibility of your storage accounts for conversion - Solutions page." lightbox="media/redundancy-migration/request-live-migration-solutions-portal.png":::
 
 1. Take the appropriate action if the results indicate your storage account isn't eligible for conversion. Otherwise, select **Return to support request**.
 
@@ -271,7 +443,7 @@ You must perform a manual migration if:
 - Your storage account includes data in the archive tier and rehydrating the data isn't desired.
 
 > [!IMPORTANT]
-> A manual migration can result in application downtime. If your application requires high availability, Microsoft also provides a [conversion](#perform-a-conversion) option. A conversion is an in-place migration with no downtime.
+> A manual migration can result in application downtime. If your application requires high availability, Microsoft also provides a [conversion](#perform-a-conversion) option.
 
 With a manual migration, you copy the data from your existing storage account to a new storage account. To perform a manual migration, you can use one of the following options:
 
@@ -281,9 +453,6 @@ With a manual migration, you copy the data from your existing storage account to
 For more detailed guidance on how to perform a manual migration, see [Move an Azure Storage account to another region](storage-account-move.md).
 
 ## Limitations for changing replication types
-
-> [!IMPORTANT]
-> Boot diagnostics doesn't support premium storage accounts or zone-redundant storage accounts. When either premium or zone-redundant storage accounts are used for boot diagnostics, users receive a `StorageAccountTypeNotSupported` error upon starting their virtual machine (VM).
 
 Limitations apply to some replication change scenarios depending on:
 
@@ -298,23 +467,13 @@ Limitations apply to some replication change scenarios depending on:
 
 Make sure the region where your storage account is located supports all of the desired replication settings. For example, if you're converting your account to zone-redundant (ZRS, GZRS, or RA-GZRS), make sure your storage account is in a region that supports it. See the lists of supported regions for [Zone-redundant storage](storage-redundancy.md#zone-redundant-storage) and [Geo-zone-redundant storage](storage-redundancy.md#geo-zone-redundant-storage).
 
-> [!IMPORTANT]
-> [Customer-initiated conversion](#customer-initiated-conversion) from LRS to ZRS is available in all public regions that support ZRS except for the following:
->
-> - (Europe) Italy North
-> - (Europe) UK South
-> - (Europe) Poland Central
-> - (Europe) West Europe
-> - (Middle East) Israel Central
-> - (North America) Canada Central
-> - (North America) East US
-> - (North America) East US 2
->
-> [Customer-initiated conversion](#customer-initiated-conversion) from existing ZRS accounts to LRS is available in all public regions.
-
 ### Feature conflicts
 
 Some storage account features aren't compatible with other features or operations. For example, the ability to fail over to the secondary region is the key feature of geo-redundancy, but other features aren't compatible with failover. For more information about features and services not supported with failover, see [Unsupported features and services](storage-disaster-recovery-guidance.md#unsupported-features-and-services). The conversion of an account to GRS, GZRS, or RA-GZRS might be blocked if a conflicting feature is enabled, or it might be necessary to disable the feature later before initiating a failover.
+
+Boot diagnostics doesn't support premium storage accounts or zone-redundant storage accounts. When either premium or zone-redundant storage accounts are used for boot diagnostics, users receive a `StorageAccountTypeNotSupported` error upon starting their virtual machine (VM). 
+
+Any conversion attempts to add zone redundancy, such as LRS to ZRS or GRS to GZRS, fail. To convert your account to a zone-redundant SKU, disable boot diagnostics on your account and resubmit the request. To learn more about boot diagnostics, review the [Azure boot diagnostics](/azure/virtual-machines/boot-diagnostics#enable-managed-boot-diagnostics) article.
 
 ### Storage account type
 
@@ -324,10 +483,10 @@ Some storage account types only support certain redundancy configurations, which
 
 The following table provides an overview of redundancy options available for storage account types and whether conversion and manual migration are supported:
 
-| Storage account type        | Supports LRS | Supports ZRS | Supports conversion<br>(from the portal) | Supports conversion<br>(by support request) | Supports manual migration |
+| Storage account type        | Supports LRS | Supports ZRS | Supports conversion<br>(from the Azure portal) | Supports conversion<br>(by support request) | Supports manual migration |
 |:----------------------------|:------------:|:------------:|:-----------------------:|:-------------------------:|:-------------------------:|
 | Standard general purpose v2 | &#x2705;     | &#x2705;     | &#x2705;                | &#x2705;                  | &#x2705;                  |
-| Premium file shares         | &#x2705;     | &#x2705;     |                         | &#x2705; <sup>1</sup>     | &#x2705;                  |
+| Premium file shares         | &#x2705;     | &#x2705;     | &#x2705;                | &#x2705; <sup>1</sup>     | &#x2705;                  |
 | Premium block blob          | &#x2705;     | &#x2705;     |                         |                           | &#x2705;                  |
 | Premium page blob           | &#x2705;     |              |                         |                           |                           |
 | Managed disks<sup>2</sup>   | &#x2705;     | &#x2705;     | &#x2705;                |                           | &#x2705;                  |
@@ -335,15 +494,12 @@ The following table provides an overview of redundancy options available for sto
 | ZRS Classic<sup>4</sup><br /><sub>(available in standard general purpose v1 accounts)</sub> | &#x2705; |  |  |  |                           |
 
 
-<sup>1</sup> Conversion for premium file shares is only available by [opening a support request](#support-initiated-conversion); [Customer-initiated conversion](#customer-initiated-conversion) isn't currently supported.<br />
-<sup>2</sup> Managed disks are available for LRS and ZRS, though ZRS disks have some [limitations](../../virtual-machines/disks-redundancy.md#limitations). If an LRS disk is regional (no zone specified), it can be converted by [changing the SKU](../../virtual-machines/disks-convert-types.md). If an LRS disk is zonal, then it can only be manually migrated by following the process in [Migrate your managed disks](../../reliability/migrate-vm.md#migrate-your-managed-disks). You can store snapshots and images for standard SSD managed disks on standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](../../virtual-machines/managed-disks-overview.md#integration-with-availability-sets).<br />
+<sup>1</sup> Customer-initiated conversion for premium file shares can be undertaken using the [Azure portal](../common/redundancy-migration.md?tabs=portal#customer-initiated-conversion), [PowerShell](redundancy-migration.md?tabs=powershell#customer-initiated-conversion), or the [Azure CLI](redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion). You can also [open a support request](#support-initiated-conversion).<br />
+<sup>2</sup> Managed disks are available for LRS and ZRS, though ZRS disks have some [limitations](/azure/virtual-machines/disks-redundancy#limitations). If an LRS disk is regional (no zone specified), it can be converted by [changing the SKU](/azure/virtual-machines/disks-convert-types). If an LRS disk is zonal, then it can only be manually migrated by following the process in [Convert a disk from LRS to ZRS](/azure/virtual-machines/disks-migrate-lrs-zrs). You can store snapshots and images for Standard SSD managed disks on Standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview#integration-with-availability-sets).<br />
 <sup>3</sup> If your storage account is v1, you need to upgrade it to v2 before performing a conversion. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).<br />
 <sup>4</sup> ZRS Classic storage accounts are deprecated. For information about converting ZRS Classic accounts, see [Converting ZRS Classic accounts](#converting-zrs-classic-accounts).<br />
 
 #### Converting ZRS Classic accounts
-
-> [!IMPORTANT]
-> ZRS Classic accounts were deprecated on March 31, 2021. Customers can no longer create ZRS Classic accounts. If you still have some, you should upgrade them to general purpose v2 accounts.
 
 ZRS Classic was available only for **block blobs** in general-purpose V1 (GPv1) storage accounts. For more information about storage accounts, see [Azure storage account overview](storage-account-overview.md).
 
@@ -386,38 +542,44 @@ If you want to migrate your data into a zone-redundant storage account located i
 
 ### Access tier
 
-Make sure the desired redundancy option supports the access tiers currently used in the storage account. For example, ZRS, GZRS and RA-GZRS storage accounts don't support the archive tier. For more information, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md). To convert an LRS, GRS or RA-GRS account to one that supports zone-redundancy, first move the archived blobs to a storage account that supports blobs in the archive tier. Then convert the source account to ZRS, GZRS and RA-GZRS.
+Make sure the desired redundancy option supports the access tiers currently used in the storage account. For example, ZRS, GZRS and RA-GZRS storage accounts don't support the archive tier. For more information, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md). To convert an LRS, GRS or RA-GRS account to one that supports zone-redundancy, first move the archived blobs to a storage account that supports blobs in the archive tier. Then convert the source account to ZRS, GZRS, and RA-GZRS.
 
 An LRS storage account containing blobs in the archive tier can be switched to GRS or RA-GRS after rehydrating all archived blobs to the Hot or Cool tier. You can also perform a [manual migration](#manual-migration).
 
 > [!TIP]
-> Microsoft recommends that you avoid changing the redundancy configuration for a storage account that contains archived blobs if at all possible, because rehydration operations can be costly and time-consuming. But if you must change it, a [manual migration](#manual-migration) can save you the expense of rehydration.
+> Rehydrating archived blobs can be costly and time-consuming. Microsoft recommends that you avoid changing the redundancy configuration for a storage account that contains archived blobs. If such a redundancy configuration is required, you should use a [manual migration](#manual-migration) to selectively rehydrate only the data you want migrated.
 
 ### Protocol support
 
-You can't convert storage accounts to zone-redundancy (ZRS, GZRS or RA-GZRS) if either of the following cases are true:
+Customer and support initiated conversions aren't supported if either of the following cases are true:
 
 - NFSv3 protocol support is enabled for Azure Blob Storage
-- The storage account contains Azure Files NFSv4.1 shares
+- The storage account contains Azure Files NFSv4.1 shares with public endpoint access enabled
+
+**Converting NFSv4.1 shares with public endpoints enabled isn't supported.** To change redundancy for NFS shares with public endpoints, follow these steps in order:
+
+1. [Disable access](../files/storage-files-networking-endpoints.md#restrict-public-endpoint-access) to the storage account's public endpoint.
+1. Submit the conversion request to change redundancy of the given storage account.
+1. Once the storage account is migrated, [configure private or public endpoints](../files/storage-files-networking-endpoints.md) as required. 
 
 ### Failover and failback
 
 After an account failover to the secondary region, it's possible to initiate a failback from the new primary back to the new secondary with PowerShell or Azure CLI (version 2.30.0 or later). [Initiate the failover](storage-initiate-account-failover.md#initiate-the-failover).
 
-If you performed a customer-managed account failover to recover from an outage for your GRS or RA-GRS account, the account becomes locally redundant (LRS) in the new primary region after the failover. Conversion to ZRS or GZRS for an LRS account resulting from a failover isn't supported, even for so-called failback operations. For example, if you perform an account failover from RA-GRS to LRS in the secondary region, and then configure it again as RA-GRS, it remains LRS in the new secondary region (the original primary). If you then perform another account failover to failback to the original primary region, it remains LRS again in the original primary. In this case, you can't perform a conversion to ZRS, GZRS or RA-GZRS in the primary region. Instead, perform a manual migration to add zone-redundancy.
+If you performed a customer-managed account failover to recover from an outage for your GRS or RA-GRS account, the account becomes locally redundant (LRS) in the new primary region after the failover. Conversion to ZRS or GZRS for an LRS account resulting from a failover isn't supported. Instead, perform a manual migration to add zone-redundancy.
 
 ## Downtime requirements
 
-During a [conversion](#perform-a-conversion), you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and no data is lost during a conversion. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
+During a [conversion](#perform-a-conversion), you can access data in your storage account with no loss of durability, and non-HNS-enabled accounts experience no interruption to availability. However, HNS-enabled accounts might experience a brief pause while the account switches to the new resiliency level. This pause lasts less than 30 seconds and requests will complete automatically after the pause. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and no data is lost during a conversion. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
 
 If you choose to perform a manual migration, downtime is required but you have more control over the timing of the migration process.
 
 ## Timing and frequency
 
-If you initiate a zone-redundancy [conversion](#customer-initiated-conversion) from the Azure portal, the conversion process could take up to 72 hours to begin. It could take longer to start if you [request a conversion by opening a support request](#support-initiated-conversion). If a customer-initiated conversion doesn't enter the "In Progress" status within 96 hours of initiating the request, submit a support request to Microsoft to determine why. To monitor the progress of a customer-initiated conversion, see [Monitoring customer-initiated conversion progress](#monitoring-customer-initiated-conversion-progress).
+When you initiate a zone-redundancy [conversion](#customer-initiated-conversion) from the Azure portal, the conversion process typically begins within 72 hours after initiation, but can take longer due to resource availability, data volume, and other factors. To monitor the progress of a customer-initiated conversion, see [Monitoring customer-initiated conversion progress](#monitoring-customer-initiated-conversion-progress).
 
 > [!IMPORTANT]
-> There is no SLA for completion of a conversion. If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Generally, the more data you have in your account, the longer it takes to replicate that data to other zones or regions.
+> There's no SLA for completion of a conversion. If you need more control over when a conversion begins and finishes, consider a [Manual migration](#manual-migration). Conversion times can vary depending on the size of your account, current resource demands within a region, and other factors.
 
 After a zone-redundancy conversion, you must wait at least 72 hours before changing the redundancy setting of the storage account again. The temporary hold allows background processes to complete before making another change, ensuring the consistency and integrity of the account. For example, going from LRS to GZRS is a 2-step process. You must add zone redundancy in one operation, then add geo-redundancy in a second. After going from LRS to ZRS, you must wait at least 72 hours before going from ZRS to GZRS.
 
@@ -446,6 +608,7 @@ If you remove geo-redundancy (change from GRS to LRS), there's no cost for makin
 ## See also
 
 - [Azure Storage redundancy](storage-redundancy.md)
+- [Storage redundancy change FAQ](storage-redundancy-change-faq.md)
 - [Use geo-redundancy to design highly available applications](geo-redundant-design.md)
 - [Move an Azure Storage account to another region](storage-account-move.md)
 - [Check the Last Sync Time property for a storage account](last-sync-time-get.md)

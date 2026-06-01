@@ -4,10 +4,12 @@ description: Learn how to use the IoT Central data export capability to continuo
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/05/2024
+ms.date: 04/25/2025
 ms.topic: how-to
-ms.service: iot-central
-ms.custom: devx-track-azurecli
+ms.service: azure-iot-central
+ms.custom:
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Export IoT data to Blob Storage
@@ -16,7 +18,7 @@ This article describes how to configure data export to send data to the Blob Sto
 
 [!INCLUDE [iot-central-data-export](../../../includes/iot-central-data-export.md)]
 
-To learn how to manage data export by using the IoT Central REST API, see [How to use the IoT Central REST API to manage data exports.](../core/howto-manage-data-export-with-rest-api.md)
+To learn how to manage data export by using the IoT Central REST API, see [How to use the IoT Central REST API to manage data exports.](../core/howto-manage-data-export-with-rest-api.md).
 
 ## Set up a Blob Storage export destination
 
@@ -40,7 +42,7 @@ Blob Storage destinations let you configure the connection with a *connection st
 
 # [Managed identity](#tab/managed-identity)
 
-This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a manged identity.
+This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a managed identity.
 
 If you don't have an existing Azure storage account to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Azure Storage account, and blob container. The script then enables the managed identity for your IoT Central application and assigns the role it needs to access your storage account:
 
@@ -96,7 +98,7 @@ To create the Blob Storage destination in IoT Central on the **Data export** pag
 
 1. Select **Save**.
 
-If you don't see data arriving in your destination service, see [Troubleshoot issues with data exports from your Azure IoT Central application](troubleshooting.md).
+If you don't see data arriving in your destination service, see [Troubleshooting in Azure IoT Central](troubleshooting.md).
 
 # [Connection string](#tab/connection-string)
 
@@ -151,7 +153,7 @@ The following example shows an exported telemetry message:
 ```json
 
 {
-    "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+    "applicationId": "00001111-aaaa-2222-bbbb-3333cccc4444",
     "messageSource": "telemetry",
     "deviceId": "1vzb5ghlsg1",
     "schema": "default@v1",
@@ -189,7 +191,7 @@ The following snippet shows a property change message exported to Blob Storage:
 
 ```json
 {
-    "applicationId": "fb74969c-8682-4708-af01-33499a7f7d98",
+    "applicationId": "11112222-bbbb-3333-cccc-4444dddd5555",
     "messageSource": "properties",
     "deviceId": "Pepjmh1Hcc",
     "enqueuedTime": "2023-03-02T10:35:39.281Z",
@@ -230,7 +232,7 @@ The following example shows an exported device connectivity message received in 
 
 ```json
 {
-  "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+  "applicationId": "00001111-aaaa-2222-bbbb-3333cccc4444",
   "messageSource": "deviceConnectivity",
   "messageType": "connected",
   "deviceId": "1vzb5ghlsg1",
@@ -252,7 +254,7 @@ The following example shows an exported device lifecycle message received in Azu
 
 ```json
 {
-  "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+  "applicationId": "00001111-aaaa-2222-bbbb-3333cccc4444",
   "messageSource": "deviceLifecycle",
   "messageType": "registered",
   "deviceId": "1vzb5ghlsg1",
@@ -273,7 +275,7 @@ The following example shows an exported device lifecycle message received in Azu
 
 ```json
 {
-  "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
+  "applicationId": "00001111-aaaa-2222-bbbb-3333cccc4444",
   "messageSource": "deviceTemplateLifecycle",
   "messageType": "created",
   "schema": "default@v1",
@@ -295,7 +297,7 @@ The following example shows an exported audit log message received in Azure Blob
     "id": "test-audit",
     "type": "apiToken"
     },
-  "applicationId": "570c2d7b-1111-2222-abcd-000000000000",
+  "applicationId": "22223333-cccc-4444-dddd-5555eeee6666",
   "enqueuedTime": "2022-07-25T21:54:40.000Z",
   "enrichments": {},
   "messageSource": "audit",
@@ -311,4 +313,4 @@ The following example shows an exported audit log message received in Azure Blob
 
 ## Next steps
 
-Now that you know how to export to Blob Storage, a suggested next step is to learn [Export to Service Bus](howto-export-to-service-bus.md).
+Now that you know how to export to Blob Storage, a suggested next step is to learn how to [Export IoT data to Service Bus](howto-export-to-service-bus.md).

@@ -2,12 +2,14 @@
 title: Get started with the FHIR service in Azure Health Data Services
 description: Learn how to set up the FHIR service in Azure Health Data Services with steps to create workspaces, register apps, and manage data.
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 06/06/2022
+ms.date: 02/25/2026
 ms.author: kesheth
-ms.custom: mode-api
+ms.custom:
+  - mode-api
+  - sfi-image-blocked
 ---
 
 # Get started with the FHIR service
@@ -20,7 +22,7 @@ As a prerequisite, you need an Azure subscription and permissions to create Azur
 
 ## Create a workspace in your Azure subscription
 
-You can create a workspace from the [Azure portal](../healthcare-apis-quickstart.md), or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
+Create a workspace from the [Azure portal](../healthcare-apis-quickstart.md), or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
 > [!NOTE]
 > There are limits to the number of workspaces and the number of FHIR service instances you can create in each Azure subscription.
@@ -29,11 +31,11 @@ You can create a workspace from the [Azure portal](../healthcare-apis-quickstart
 
 You can create a FHIR service instance from the [Azure portal](../fhir/fhir-portal-quickstart.md), or using PowerShell, Azure CLI, and REST API. You can find scripts from the [Azure Health Data Services samples](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/scripts).
 
-Optionally, you can create a [DICOM service](../dicom/deploy-dicom-services-in-azure.md) and [MedTech service](../iot/deploy-iot-connector-in-azure.md) in the workspace.
+Optionally, you can create a [DICOM service](../dicom/deploy-dicom-services-in-azure.md) in the workspace.
 
 ## Access the FHIR service
 
-The FHIR service is secured by Microsoft Entra ID that can't be disabled. To access the service API, you must create a client application also referred to as a service principal in Microsoft Entra ID and grant it with the right permissions.
+The FHIR service is secured by Microsoft Entra ID that can't be disabled. To access the service API, you must create a client application (also referred to as a service principal) in Microsoft Entra ID, and grant it the right permissions.
 
 ### Register a client application
 
@@ -49,7 +51,7 @@ You can grant access permissions or assign roles in the [Azure portal](../config
 
 ### Perform create, read, update, and delete (CRUD) transactions
 
-You can perform Create, Read (search), Update, and Delete (CRUD) transactions against the FHIR service in your applications or by using tools such as Postman, REST Client, and cURL. Because the FHIR service is secured by default, you need to obtain an access token and include it in your transaction request.
+You can perform Create, Read (search), Update, and Delete - CRUD - transactions against the FHIR service in your applications or by using tools such as REST Client, and cURL. Because the FHIR service is secured by default, you need to obtain an access token and include it in your transaction request.
 
 #### Get an access token
 
@@ -57,9 +59,9 @@ You can obtain a Microsoft Entra access token by using PowerShell, Azure CLI, RE
 
 #### Access using existing tools
 
-- [Postman](../fhir/use-postman.md)
 - [REST Client](../fhir/using-rest-client.md)
 - [cURL](../fhir/using-curl.md)
+- There are tools available online offering intuitive interfaces for API testing and development. To use tools for accessing the FHIR service, refer to the open-source sample. [Starter collection of FHIR sample queries](https://github.com/Azure-Samples/azure-health-data-services-samples/tree/main/samples/sample-postman-queries) 
 
 #### Load data
 
@@ -71,7 +73,7 @@ You can find more details on interoperability and patient access, search, profil
 
 ### Export data
 
-Optionally, you can export ($export) data to [Azure Storage](../data-transformation/export-data.md) and use it in your analytics or machine-learning projects. You can export the data "as-is" or [deID](../data-transformation/de-identified-export.md) in `ndjson` format. 
+Optionally, you can export ($export) data to [Azure Storage](../data-transformation/export-data.md) and use it in your analytics or machine-learning projects. You can export the data "as-is" or [de-identified](../data-transformation/de-identified-export.md) in `ndjson` format. 
 
 ### Convert data
 
@@ -79,10 +81,8 @@ Optionally, you can convert [HL7 v2](convert-data-overview.md) data and other fo
 
 ### Using FHIR data in Power BI dashboard
 
-Optionally, you can create Power BI dashboard reports with FHIR data.
+Optionally, you can create Power BI dashboard reports with FHIR data. For more information, see [Power Query connector for FHIR](/power-query/connectors/fhir/fhir)
 
-- [Power Query connector for FHIR](/power-query/connectors/fhir/fhir)
-- [MedTech service and Microsoft Power BI](../iot/iot-connector-power-bi.md)
 
 ## Next steps
 

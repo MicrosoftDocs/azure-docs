@@ -2,12 +2,12 @@
 title: URL Redirect for Azure Application Gateway for Containers - Ingress API
 description: Learn how to redirect URLs in Ingress API for Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
-ms.service: application-gateway
-ms.subservice: appgw-for-containers
-ms.topic: conceptual
-ms.date: 5/9/2024
-ms.author: greglin
+author: mbender-ms
+ms.service: azure-appgw-for-containers
+ms.topic: how-to
+ms.date: 03/07/2025
+ms.author: mbender
+# Customer intent: As a cloud infrastructure administrator, I want to configure URL redirection using an ingress API for my application gateway, so that I can manage client requests effectively, ensuring proper routing between HTTP and HTTPS and specific resource paths.
 ---
 
 # URL Redirect for Azure Application Gateway for Containers - Ingress API
@@ -29,26 +29,26 @@ A redirect sets the response status code returned to clients to understand the p
 
 - Protocol redirection is commonly used to tell the client to move from an unencrypted traffic scheme to traffic, such as HTTP to HTTPS redirection.
 
-- Hostname redirection matches the fully qualified domain name (fqdn) of the request. This is commonly observed in redirecting an old domain name to a new domain name; such as `contoso.com` to `fabrikam.com`.
+- Hostname redirection matches the fully qualified domain name (FQDN) of the request. This is commonly observed in redirecting an old domain name to a new domain name; such as `contoso.com` to `fabrikam.com`.
 
 - Path redirection has two different variants: `prefix` and `full`.
   - `Prefix` redirection type will redirect all requests starting with a defined value. For example, a prefix of /shop would match /shop and any text after. For example, /shop, /shop/checkout, and /shop/item-a would all redirect to /shop as well.
   - `Full` redirection type matches an exact value. For example, /shop could redirect to /store, but /shop/checkout wouldn't redirect to /store.
 
-The following figure illustrates an example of a request destined for _contoso.com/summer-promotion_ being redirected to _contoso.com/shop/category/5_. In addition, a second request initiated to contoso.com via http protocol is returned a redirect to initiate a new connection to its https variant.
+The following figure illustrates an example of a request destined for _contoso.com/summer-promotion_ being redirected to _contoso.com/shop/category/5_. In addition, a second request initiated to contoso.com via http protocol returns a redirect to initiate a new connection to its https variant.
 
-[ ![A diagram showing the Application Gateway for Containers returning a redirect URL to a client.](./media/how-to-url-redirect-ingress-api/url-redirect.png) ](./media/how-to-url-redirect-ingress-api/url-redirect.png#lightbox)
+[![A diagram showing the Application Gateway for Containers returning a redirect URL to a client.](./media/how-to-url-redirect-ingress-api/url-redirect.png)](./media/how-to-url-redirect-ingress-api/url-redirect.png#lightbox)
 
 ## Prerequisites
 
-1. If following the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
-2. If following the ALB managed deployment strategy, ensure you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provision the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+1. If following the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)).
+2. If following the ALB managed deployment strategy, ensure you provision your ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)) and provision the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTP application:
 
     Apply the following deployment.yaml file on your cluster to deploy a sample TLS certificate to demonstrate redirect capabilities.
   
     ```bash
-    kubectl apply -f kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/ssl-termination/deployment.yaml
+    kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/https-scenario/ssl-termination/deployment.yaml
     ```
 
     This command creates the following on your cluster:
@@ -394,4 +394,4 @@ Via the response we should see:
 * Connection #0 to host contoso.com left intact
 ```
 
-Congratulations, you have installed ALB Controller, deployed a backend application, and used Ingress API to configure both an HTTP to HTTPs redirect and path based redirection to specific client requests.
+Congratulations, you have installed ALB Controller, deployed a backend application, and used Ingress API to configure both an HTTP to HTTPS redirect and path based redirection to specific client requests.

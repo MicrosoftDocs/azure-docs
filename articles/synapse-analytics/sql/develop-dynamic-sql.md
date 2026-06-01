@@ -3,14 +3,15 @@ title: Use dynamic SQL in Synapse SQL
 description: Tips for using dynamic SQL in Synapse SQL.
 author: filippopovic
 ms.author: fipopovi
-ms.reviewer: whhender
 ms.date: 04/15/2020
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Dynamic SQL in Synapse SQL
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 In this article, you'll find tips for using dynamic SQL and developing solutions using Synapse SQL.
 

@@ -4,22 +4,23 @@ titleSuffix: Azure Load Balancer
 description: Get started learning how to retrieve load balancer metadata using Azure Instance Metadata Service.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 06/28/2024
+ms.date: 01/29/2026
 ms.author: mbender
 ms.custom: template-how-to
+# Customer intent: As a cloud operator, I want to retrieve load balancer metadata using the Instance Metadata Service, so that I can analyze network traffic and manage IP configurations for virtual machines effectively.
 ---
 
 # Retrieve load balancer metadata using Azure Instance Metadata Service (IMDS)
 
 ## Prerequisites
 
-* Use the [latest API version](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#supported-api-versions) for your request.
+* Use the [latest API version](/azure/virtual-machines/windows/instance-metadata-service?tabs=windows#supported-api-versions) for your request.
 
 ## Sample request and response
 > [!IMPORTANT]
-> This example bypasses proxies. You **must** bypass proxies when querying IMDS. For more information, see [Proxies](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#proxies).
+> This example bypasses proxies. You **must** bypass proxies when querying IMDS. For more information, see [Proxies](/azure/virtual-machines/windows/instance-metadata-service?tabs=windows#proxies).
 
 ## Schema breakdown
 
@@ -35,7 +36,7 @@ ms.custom: template-how-to
 Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254:80/metadata/loadbalancer?api-version=2020-10-01" | ConvertTo-Json
 ```
 > [!NOTE]
-> The -NoProxy parameter was introduced in PowerShell 6.0. If you are using an older version of PowerShell, remove -NoProxy in the request body and make sure you are not using a proxy while retrieving IMDS info. Learn more [here](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#proxies).
+> The -NoProxy parameter was introduced in PowerShell 6.0. If you are using an older version of PowerShell, remove -NoProxy in the request body and make sure you are not using a proxy while retrieving IMDS info. Learn more [here](/azure/virtual-machines/windows/instance-metadata-service?tabs=windows#proxies).
 > 
 ### [Linux](#tab/linux/)
 
@@ -77,7 +78,7 @@ curl -H "Metadata:true" --noproxy "*" "http://169.254.169.254:80/metadata/loadba
          "privateIpAddress":"10.1.0.4"
       },
       {
-         "frotendIpAddress":"2603:10e1:100:2::1:1",
+         "frontendIpAddress":"2603:10e1:100:2::1:1",
          "privateIpAddress":"ace:cab:deca:deed::1"
       }
     ]
@@ -87,10 +88,10 @@ curl -H "Metadata:true" --noproxy "*" "http://169.254.169.254:80/metadata/loadba
 ```
 
 ## Next steps
-[Common error codes and troubleshooting steps](troubleshoot-load-balancer-imds.md)
+[Support and troubleshooting for Azure Load Balancer](load-balancer-support-help.md)
 
-Learn more about [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md)
+Learn more about [Azure Instance Metadata Service](/azure/virtual-machines/windows/instance-metadata-service)
 
-[Retrieve all metadata for an instance](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#access-azure-instance-metadata-service)
+[Retrieve all metadata for an instance](/azure/virtual-machines/windows/instance-metadata-service?tabs=windows#access-azure-instance-metadata-service)
 
 [Deploy a standard load balancer](quickstart-load-balancer-standard-public-portal.md)

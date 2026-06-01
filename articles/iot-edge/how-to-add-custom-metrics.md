@@ -1,13 +1,12 @@
 ---
 title: How to add custom metrics - Azure IoT Edge
 description: Augment built-in metrics with scenario-specific metrics from custom modules
-author: veyalla
-
-ms.author: veyalla
-ms.date: 08/11/2021
-ms.topic: conceptual
-ms.reviewer: kgremban
-ms.service: iot-edge 
+author: sethmanheim
+ms.author: sethm
+ms.date: 08/08/2025
+ms.topic: concept-article
+ms.reviewer: sonialopez
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 
@@ -59,9 +58,9 @@ InsightsMetrics
 | where Name == 'replace-with-custom-metric-name'
 ```
 
-Once you have confirmed ingestion, you can either create a new workbook or augment an existing workbook. Use [workbooks docs](../azure-monitor/visualize/workbooks-overview.md) and queries from the curated [IoT Edge workbooks](how-to-explore-curated-visualizations.md) as a guide.
+Once you have confirmed ingestion, you can either create a new workbook or augment an existing workbook. Use [workbooks docs](/azure/azure-monitor/visualize/workbooks-overview) and queries from the curated [IoT Edge workbooks](how-to-explore-curated-visualizations.md) as a guide.
 
-When happy with the results, you can [share the workbook](../azure-monitor/visualize/workbooks-overview.md#access-control) with your team or [deploy them programmatically](../azure-monitor/visualize/workbooks-automate.md) as part of your organization's resource deployments.
+When happy with the results, you can [share the workbook](/azure/azure-monitor/visualize/workbooks-overview#access-control) with your team or [deploy them programmatically](/azure/azure-monitor/visualize/workbooks-automate) as part of your organization's resource deployments.
 
 ## Next steps
 

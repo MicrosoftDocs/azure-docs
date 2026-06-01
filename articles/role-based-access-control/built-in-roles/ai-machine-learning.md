@@ -2,12 +2,12 @@
 title: Azure built-in roles for AI + machine learning - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the AI + machine learning category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: amycolannino
+manager: pmwongera
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -16,11 +16,128 @@ ms.custom: generated
 This article lists the Azure built-in roles in the AI + machine learning category.
 
 
+## Azure AI Administrator
+
+A Built-In Role that has all control plane permissions to work with Azure AI and its dependencies. Applies to Azure Machine Learning and Foundry hubs only.
+
+[Learn more](/azure/machine-learning/how-to-assign-roles)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/* |  |
+> | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/* |  |
+> | [Microsoft.DocumentDb](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/* |  |
+> | [Microsoft.Features](../permissions/management-and-governance.md#microsoftfeatures)/features/read | Gets the features of a subscription. |
+> | [Microsoft.Features](../permissions/management-and-governance.md#microsoftfeatures)/providers/features/read | Gets the feature of a subscription in a given resource provider. |
+> | [Microsoft.Features](../permissions/management-and-governance.md#microsoftfeatures)/providers/features/register/action | Registers the feature for a subscription in a given resource provider. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/components/* | Create and manage Insights components |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/generateLiveToken/read | Live Metrics get token |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/logDefinitions/read | Read log definitions |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metricAlerts/* |  |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metricdefinitions/read | Read metric definitions |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metrics/read | Read metrics |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/scheduledqueryrules/* |  |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/topology/read | Read Topology |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/transactions/read | Read Transactions |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/webtests/* | Create and manage Insights web tests |
+> | [Microsoft.KeyVault](../permissions/security.md#microsoftkeyvault)/* |  |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/* |  |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. Not alertable. |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/* |  |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/write | Creates or updates a resource group. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/* | Create and manage storage accounts |
+> | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/write | Creates or updates the search service. |
+> | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/read | Reads the search service. |
+> | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/delete | Deletes the search service. |
+> | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/indexes/* |  |
+> | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/listAdminKeys/action | Reads the admin keys. |
+> | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/privateEndpointConnections/* |  |
+> | [Microsoft.DataFactory](../permissions/analytics.md#microsoftdatafactory)/factories/* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "A Built-In Role that has all control plane permissions to work with Azure AI and its dependencies.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/b78c5d69-af96-48a3-bf8d-a8b4d589de94",
+  "name": "b78c5d69-af96-48a3-bf8d-a8b4d589de94",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.CognitiveServices/*",
+        "Microsoft.ContainerRegistry/registries/*",
+        "Microsoft.DocumentDb/databaseAccounts/*",
+        "Microsoft.Features/features/read",
+        "Microsoft.Features/providers/features/read",
+        "Microsoft.Features/providers/features/register/action",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/components/*",
+        "Microsoft.Insights/diagnosticSettings/*",
+        "Microsoft.Insights/generateLiveToken/read",
+        "Microsoft.Insights/logDefinitions/read",
+        "Microsoft.Insights/metricAlerts/*",
+        "Microsoft.Insights/metricdefinitions/read",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.Insights/scheduledqueryrules/*",
+        "Microsoft.Insights/topology/read",
+        "Microsoft.Insights/transactions/read",
+        "Microsoft.Insights/webtests/*",
+        "Microsoft.KeyVault/*",
+        "Microsoft.MachineLearningServices/workspaces/*",
+        "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/write",
+        "Microsoft.Storage/storageAccounts/*",
+        "Microsoft.Support/*",
+        "Microsoft.Search/searchServices/write",
+        "Microsoft.Search/searchServices/read",
+        "Microsoft.Search/searchServices/delete",
+        "Microsoft.Search/searchServices/indexes/*",
+        "Microsoft.Search/searchServices/listAdminKeys/action",
+        "Microsoft.Search/searchServices/privateEndpointConnections/*",
+        "Microsoft.DataFactory/factories/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure AI Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Azure AI Developer
 
-Can perform all actions within an Azure AI resource besides managing the resource itself.
+Can perform all actions within an Azure Machine Learning workspace besides managing the workspace itself. For Foundry project access, use the Foundry User or Foundry Owner roles instead.
 
-[Learn more](/azure/ai-studio/concepts/rbac-ai-studio)
+[Learn more](/azure/ai-foundry/concepts/rbac-azure-ai-foundry)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -40,10 +157,14 @@ Can perform all actions within an Azure AI resource besides managing the resourc
 > | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/hubs/delete | Deletes the Machine Learning Services Hub Workspace(s) |
 > | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/featurestores/write | Creates or Updates the Machine Learning Services FeatureStore(s) |
 > | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/featurestores/delete | Deletes the Machine Learning Services FeatureStore(s) |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/evaluations/results/labels/read | Reads evaluation results' label from a Machine Learning Services Workspace |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/evaluations/results/reasonings/read | Reads evaluation results' reasoning from a Machine Learning Services Workspace |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/simulations/results/images/read | Reads image simulation results from a Machine Learning Services Workspace |
 > | **DataActions** |  |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/* |  |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/* |  |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/ContentSafety/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/MaaS/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -52,7 +173,7 @@ Can perform all actions within an Azure AI resource besides managing the resourc
   "assignableScopes": [
     "/"
   ],
-  "description": "Can perform all actions within an Azure AI resource besides managing the resource itself.",
+  "description": "Can perform all actions within an Azure Machine Learning workspace besides managing the workspace itself. For Foundry project access, use the Foundry User or Foundry Owner roles instead.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/64702f94-c441-49e6-a78b-ef80e0188fee",
   "name": "64702f94-c441-49e6-a78b-ef80e0188fee",
   "permissions": [
@@ -73,12 +194,16 @@ Can perform all actions within an Azure AI resource besides managing the resourc
         "Microsoft.MachineLearningServices/workspaces/hubs/write",
         "Microsoft.MachineLearningServices/workspaces/hubs/delete",
         "Microsoft.MachineLearningServices/workspaces/featurestores/write",
-        "Microsoft.MachineLearningServices/workspaces/featurestores/delete"
+        "Microsoft.MachineLearningServices/workspaces/featurestores/delete",
+        "Microsoft.MachineLearningServices/workspaces/evaluations/results/labels/read",
+        "Microsoft.MachineLearningServices/workspaces/evaluations/results/reasonings/read",
+        "Microsoft.MachineLearningServices/workspaces/simulations/results/images/read"
       ],
       "dataActions": [
         "Microsoft.CognitiveServices/accounts/OpenAI/*",
         "Microsoft.CognitiveServices/accounts/SpeechServices/*",
-        "Microsoft.CognitiveServices/accounts/ContentSafety/*"
+        "Microsoft.CognitiveServices/accounts/ContentSafety/*",
+        "Microsoft.CognitiveServices/accounts/MaaS/*"
       ],
       "notDataActions": []
     }
@@ -98,6 +223,10 @@ Can approve private endpoint connections to Azure AI common dependency resources
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/privateEndpointConnections/read | Get Private Endpoint Connections |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/privateEndpointConnections/write | Approve Or Reject Private Endpoint Connections |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/privateLinkResources/read | Get Private Link Group resources |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/read | Read metadata for an API Management Service instance |
 > | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnectionsApproval/action | Auto Approves a Private Endpoint Connection |
 > | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnections/read | Gets the properties of private endpoint connection or list all the private endpoint connections for the specified container registry |
 > | [Microsoft.ContainerRegistry](../permissions/containers.md#microsoftcontainerregistry)/registries/privateEndpointConnections/write | Approves/Rejects the private endpoint connection |
@@ -115,7 +244,22 @@ Can approve private endpoint connections to Azure AI common dependency resources
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/privateEndpointConnections/read | Reads private endpoint connections. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/privateEndpointConnections/write | Writes a private endpoint connections. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/privateLinkResources/read | Reads private link resources for an account. |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/privateEndpointConnectionsApproval/action | Determines if the user is allowed to approve a private endpoint connection |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/privateEndpointConnections/read | Returns the list of private endpoint connections or gets the properties for the specified private endpoint connection. |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/privateEndpointConnections/write | Approves or rejects an existing private endpoint connection |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/privateLinkResources/read | Return a list containing private link resource or gets the specified private link resource. |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/read | Return the list of servers or gets the properties for the specified server. |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/serverGroupsv2/privateEndpointConnectionsApproval/action | Determines if user is allowed to approve a private endpoint connection for PostgreSQL SGv2 |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/serverGroupsv2/privateEndpointConnections/read | Returns the list of private endpoint connections or gets the properties for the specified private endpoint connection |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/serverGroupsv2/privateEndpointConnections/write | Approves or rejects an existing private endpoint connection |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/serverGroupsv2/privateLinkResources/read | Get the private link resources for the corresponding PostgreSQL SGv2 |
+> | [Microsoft.DBforMySQL](../permissions/databases.md#microsoftdbformysql)/flexibleServers/privateEndpointConnectionsApproval/action | Determines if user is allowed to approve a private endpoint connection |
+> | [Microsoft.DBforMySQL](../permissions/databases.md#microsoftdbformysql)/flexibleServers/privateEndpointConnections/read |  |
+> | [Microsoft.DBforMySQL](../permissions/databases.md#microsoftdbformysql)/flexibleServers/privateEndpointConnections/write | Approves or rejects an existing private endpoint connection |
+> | [Microsoft.DBforMySQL](../permissions/databases.md#microsoftdbformysql)/flexibleServers/privateLinkResources/read | Get the private link resources for the corresponding MySQL Server |
+> | [Microsoft.DBforMySQL](../permissions/databases.md#microsoftdbformysql)/flexibleServers/read | Returns the list of servers or gets the properties for the specified server. |
 > | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/privateEndpointConnectionsApproval/action | Manage a private endpoint connection of Database Account |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/privateEndpointConnections/operationResults/read | Read Status of privateEndpointConnections asynchronous operation |
 > | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/privateEndpointConnections/read | Read a private endpoint connection or list all the private endpoint connections of a Database Account |
 > | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/privateEndpointConnections/write | Create or update a private endpoint connection of a Database Account |
 > | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/privateLinkResources/read | Read a private link resource or list all the private link resources of a Database Account |
@@ -125,6 +269,11 @@ Can approve private endpoint connections to Azure AI common dependency resources
 > | [Microsoft.KeyVault](../permissions/security.md#microsoftkeyvault)/vaults/privateEndpointConnections/write | Change the state of a connection to a Private Endpoint resource of Microsoft.Network provider |
 > | [Microsoft.KeyVault](../permissions/security.md#microsoftkeyvault)/vaults/privateLinkResources/read | Get the available private link resources for the specified instance of Key Vault |
 > | [Microsoft.KeyVault](../permissions/security.md#microsoftkeyvault)/vaults/read | View the properties of a key vault |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/registries/privateEndpointConnectionsApproval/action | Approve or reject a connection to a Private Endpoint resource of Microsoft.Network provider |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/registries/privateEndpointConnections/read | View the state of a connection to a Private Endpoint resource of Microsoft.Network provider |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/registries/privateEndpointConnections/write | Change the state of a connection to a Private Endpoint resource of Microsoft.Network provider |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/registries/privateLinkResources/read | Gets the available private link resources for the specified instance of the Machine Learning Services registry(ies) |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/registries/read | Gets the Machine Learning Services registry(ies) |
 > | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/privateEndpointConnectionsApproval/action | Approve or reject a connection to a Private Endpoint resource of Microsoft.Network provider |
 > | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/privateEndpointConnections/read | View the state of a connection to a Private Endpoint resource of Microsoft.Network provider |
 > | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/privateEndpointConnections/write | Change the state of a connection to a Private Endpoint resource of Microsoft.Network provider |
@@ -134,11 +283,35 @@ Can approve private endpoint connections to Azure AI common dependency resources
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/privateEndpointConnections/write | Put Private Endpoint Connection |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/privateLinkResources/read | Get StorageAccount groupids |
 > | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/PrivateEndpointConnectionsApproval/action | Approve Private Endpoint Connections |
 > | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/privateEndpointConnectionsApproval/action | Determines if user is allowed to approve a private endpoint connection |
 > | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/privateEndpointConnections/read | Returns the list of private endpoint connections or gets the properties for the specified private endpoint connection. |
 > | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/privateEndpointConnections/write | Approves or rejects an existing private endpoint connection |
 > | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/privateLinkResources/read | Get the private link resources for the corresponding sql server |
 > | [Microsoft.Sql](../permissions/databases.md#microsoftsql)/servers/read | Return the list of servers or gets the properties for the specified server. |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/namespaces/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connection |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/namespaces/privateEndpointConnections/read | Get Private Endpoint Connection |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/namespaces/privateEndpointConnections/write | Create or Update Private Endpoint Connection |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/namespaces/privateLinkResources/read | Gets the resource types that support private endpoint connections |
+> | [Microsoft.EventHub](../permissions/integration.md#microsofteventhub)/namespaces/read | Get the list of Namespace Resource Description |
+> | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/privateEndpointConnectionsApproval/action | Approve Private Endpoint Connection |
+> | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/privateEndpointConnections/read | Returns the list of private endpoint connections or gets the properties for the specified private endpoint connections |
+> | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/privateEndpointConnections/write | Creates a private endpoint connections with the specified parameters or updates the properties or tags for the specified private endpoint connections |
+> | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/sharedPrivateLinkResources/read | Returns the list of shared private link resources or gets the properties for the specified shared private link resource |
+> | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/read | Reads the search service. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privatelinkscopes/privateEndpointConnectionsApproval/action | Approve or reject a connection to a Private Endpoint resource of Microsoft.Network provider |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privatelinkscopes/privateEndpointConnections/read | Read a private endpoint connection |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privatelinkscopes/privateEndpointConnections/write | Create or update a private endpoint connection |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privatelinkscopes/privateLinkResources/read | Read a private link resource |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privatelinkscopes/read | Read a private link scope |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateLinkServices/privateEndpointConnectionsApproval/action | Approve or reject PrivateEndpoint connection on PrivateLinkService |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateLinkServices/privateEndpointConnections/read | Gets an private endpoint connection definition. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateLinkServices/privateEndpointConnections/write | Creates a new private endpoint connection, or updates an existing private endpoint connection. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateLinkServices/read | Gets an private link service resource. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/applicationGateways/privateEndpointConnections/read | Gets Application Gateway PrivateEndpoint Connections |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/applicationGateways/privateEndpointConnections/write | Updates Application Gateway PrivateEndpoint Connection |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/applicationGateways/privateLinkResources/read | Gets ApplicationGateway PrivateLink Resources |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/applicationGateways/read | Gets an application gateway |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -157,6 +330,10 @@ Can approve private endpoint connections to Azure AI common dependency resources
   "permissions": [
     {
       "actions": [
+        "Microsoft.ApiManagement/service/privateEndpointConnections/read",
+        "Microsoft.ApiManagement/service/privateEndpointConnections/write",
+        "Microsoft.ApiManagement/service/privateLinkResources/read",
+        "Microsoft.ApiManagement/service/read",
         "Microsoft.ContainerRegistry/registries/privateEndpointConnectionsApproval/action",
         "Microsoft.ContainerRegistry/registries/privateEndpointConnections/read",
         "Microsoft.ContainerRegistry/registries/privateEndpointConnections/write",
@@ -174,7 +351,22 @@ Can approve private endpoint connections to Azure AI common dependency resources
         "Microsoft.CognitiveServices/accounts/privateEndpointConnections/read",
         "Microsoft.CognitiveServices/accounts/privateEndpointConnections/write",
         "Microsoft.CognitiveServices/accounts/privateLinkResources/read",
+        "Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnectionsApproval/action",
+        "Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnections/read",
+        "Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnections/write",
+        "Microsoft.DBforPostgreSQL/flexibleServers/privateLinkResources/read",
+        "Microsoft.DBforPostgreSQL/flexibleServers/read",
+        "Microsoft.DBforPostgreSQL/serverGroupsv2/privateEndpointConnectionsApproval/action",
+        "Microsoft.DBforPostgreSQL/serverGroupsv2/privateEndpointConnections/read",
+        "Microsoft.DBforPostgreSQL/serverGroupsv2/privateEndpointConnections/write",
+        "Microsoft.DBforPostgreSQL/serverGroupsv2/privateLinkResources/read",
+        "Microsoft.DBforMySQL/flexibleServers/privateEndpointConnectionsApproval/action",
+        "Microsoft.DBforMySQL/flexibleServers/privateEndpointConnections/read",
+        "Microsoft.DBforMySQL/flexibleServers/privateEndpointConnections/write",
+        "Microsoft.DBforMySQL/flexibleServers/privateLinkResources/read",
+        "Microsoft.DBforMySQL/flexibleServers/read",
         "Microsoft.DocumentDB/databaseAccounts/privateEndpointConnectionsApproval/action",
+        "Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/operationResults/read",
         "Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/read",
         "Microsoft.DocumentDB/databaseAccounts/privateEndpointConnections/write",
         "Microsoft.DocumentDB/databaseAccounts/privateLinkResources/read",
@@ -184,6 +376,11 @@ Can approve private endpoint connections to Azure AI common dependency resources
         "Microsoft.KeyVault/vaults/privateEndpointConnections/write",
         "Microsoft.KeyVault/vaults/privateLinkResources/read",
         "Microsoft.KeyVault/vaults/read",
+        "Microsoft.MachineLearningServices/registries/privateEndpointConnectionsApproval/action",
+        "Microsoft.MachineLearningServices/registries/privateEndpointConnections/read",
+        "Microsoft.MachineLearningServices/registries/privateEndpointConnections/write",
+        "Microsoft.MachineLearningServices/registries/privateLinkResources/read",
+        "Microsoft.MachineLearningServices/registries/read",
         "Microsoft.MachineLearningServices/workspaces/privateEndpointConnectionsApproval/action",
         "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/read",
         "Microsoft.MachineLearningServices/workspaces/privateEndpointConnections/write",
@@ -193,11 +390,35 @@ Can approve private endpoint connections to Azure AI common dependency resources
         "Microsoft.Storage/storageAccounts/privateEndpointConnections/write",
         "Microsoft.Storage/storageAccounts/privateLinkResources/read",
         "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Storage/storageAccounts/PrivateEndpointConnectionsApproval/action",
         "Microsoft.Sql/servers/privateEndpointConnectionsApproval/action",
         "Microsoft.Sql/servers/privateEndpointConnections/read",
         "Microsoft.Sql/servers/privateEndpointConnections/write",
         "Microsoft.Sql/servers/privateLinkResources/read",
-        "Microsoft.Sql/servers/read"
+        "Microsoft.Sql/servers/read",
+        "Microsoft.EventHub/namespaces/privateEndpointConnectionsApproval/action",
+        "Microsoft.EventHub/namespaces/privateEndpointConnections/read",
+        "Microsoft.EventHub/namespaces/privateEndpointConnections/write",
+        "Microsoft.EventHub/namespaces/privateLinkResources/read",
+        "Microsoft.EventHub/namespaces/read",
+        "Microsoft.Search/searchServices/privateEndpointConnectionsApproval/action",
+        "Microsoft.Search/searchServices/privateEndpointConnections/read",
+        "Microsoft.Search/searchServices/privateEndpointConnections/write",
+        "Microsoft.Search/searchServices/sharedPrivateLinkResources/read",
+        "Microsoft.Search/searchServices/read",
+        "Microsoft.Insights/privatelinkscopes/privateEndpointConnectionsApproval/action",
+        "Microsoft.Insights/privatelinkscopes/privateEndpointConnections/read",
+        "Microsoft.Insights/privatelinkscopes/privateEndpointConnections/write",
+        "Microsoft.Insights/privatelinkscopes/privateLinkResources/read",
+        "Microsoft.Insights/privatelinkscopes/read",
+        "Microsoft.Network/privateLinkServices/privateEndpointConnectionsApproval/action",
+        "Microsoft.Network/privateLinkServices/privateEndpointConnections/read",
+        "Microsoft.Network/privateLinkServices/privateEndpointConnections/write",
+        "Microsoft.Network/privateLinkServices/read",
+        "Microsoft.Network/applicationGateways/privateEndpointConnections/read",
+        "Microsoft.Network/applicationGateways/privateEndpointConnections/write",
+        "Microsoft.Network/applicationGateways/privateLinkResources/read",
+        "Microsoft.Network/applicationGateways/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -214,7 +435,7 @@ Can approve private endpoint connections to Azure AI common dependency resources
 
 Can perform all actions required to create a resource deployment within a resource group.
 
-[Learn more](/azure/ai-studio/concepts/rbac-ai-studio)
+[Learn more](/azure/ai-foundry/concepts/hub-rbac-azure-ai-foundry)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -365,6 +586,90 @@ Can perform all actions within an Azure Machine Learning workspace, except for c
 }
 ```
 
+## AzureML Metrics Writer (preview)
+
+Lets you write metrics to AzureML workspace
+
+[Learn more](/azure/machine-learning/concept-endpoints-online-auth)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/workspaces/metrics/*/write |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you write metrics to AzureML workspace",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/635dd51f-9968-44d3-b7fb-6d9a6bd613ae",
+  "name": "635dd51f-9968-44d3-b7fb-6d9a6bd613ae",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.MachineLearningServices/workspaces/metrics/*/write"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "AzureML Metrics Writer (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## AzureML Registry User
+
+Can perform all actions on Machine Learning Services Registry assets as well as get Registry resources.
+
+[Learn more](/azure/machine-learning/how-to-assign-roles)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/registries/read | Gets the Machine Learning Services registry(ies) |
+> | [Microsoft.MachineLearningServices](../permissions/ai-machine-learning.md#microsoftmachinelearningservices)/registries/assets/* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can perform all actions on Machine Learning Services Registry assets as well as get Registry resources.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/1823dd4f-9b8c-4ab6-ab4e-7397a3684615",
+  "name": "1823dd4f-9b8c-4ab6-ab4e-7397a3684615",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.MachineLearningServices/registries/read",
+        "Microsoft.MachineLearningServices/registries/assets/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "AzureML Registry User",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Cognitive Services Contributor
 
 Lets you create, read, update, delete and manage keys of Cognitive Services.
@@ -393,7 +698,10 @@ Lets you create, read, update, delete and manage keys of Cognitive Services.
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
-> | *none* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/raiPolicy/write | Write Subscription RaiPolicy |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/raiPolicy/delete |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/raiExternalSafetyProviders/write | Write External Safety Providers |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/raiExternalSafetyProviders/delete |  |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -429,7 +737,12 @@ Lets you create, read, update, delete and manage keys of Cognitive Services.
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*"
       ],
-      "notActions": [],
+      "notActions": [
+        "Microsoft.CognitiveServices/raiPolicy/write",
+        "Microsoft.CognitiveServices/raiPolicy/delete",
+        "Microsoft.CognitiveServices/raiExternalSafetyProviders/write",
+        "Microsoft.CognitiveServices/raiExternalSafetyProviders/delete"
+      ],
       "dataActions": [],
       "notDataActions": []
     }
@@ -693,9 +1006,11 @@ View, edit projects and train the models, including the ability to publish, unpu
 }
 ```
 
-## Cognitive Services Data Reader (Preview)
+## Cognitive Services Data Reader
 
 Lets you read Cognitive Services data.
+
+[Learn more](/azure/ai-services/speech-service/role-based-access-control)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -726,7 +1041,7 @@ Lets you read Cognitive Services data.
       "notDataActions": []
     }
   ],
-  "roleName": "Cognitive Services Data Reader (Preview)",
+  "roleName": "Cognitive Services Data Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -748,7 +1063,7 @@ Lets you perform detect, verify, identify, group, and find similar operations on
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Face/identify/action | 1-to-many identification to find the closest matches of the specific query person face from a person group or large person group. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Face/group/action | Divide candidate faces into groups based on face similarity. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Face/findsimilars/action | Given query face's faceId, to search the similar-looking faces from a faceId array, a face list or a large face list. faceId |
-> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Face/detectliveness/multimodal/action | <p>Performs liveness detection on a target face in a sequence of infrared, color and/or depth images, and returns the liveness classification of the target face as either &lsquo;real face&rsquo;, &lsquo;spoof face&rsquo;, or &lsquo;uncertain&rsquo; if a classification cannot be made with the given inputs.</p> |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Face/detectliveness/multimodal/action |  |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Face/detectliveness/singlemodal/action | <p>Performs liveness detection on a target face in a sequence of images of the same modality (e.g. color or infrared), and returns the liveness classification of the target face as either &lsquo;real face&rsquo;, &lsquo;spoof face&rsquo;, or &lsquo;uncertain&rsquo; if a classification cannot be made with the given inputs.</p> |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Face/detectlivenesswithverify/singlemodal/action | Detects liveness of a target face in a sequence of images of the same stream type (e.g. color) and then compares with VerifyImage to return confidence score for identity scenarios. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Face/*/sessions/action |  |
@@ -793,6 +1108,407 @@ Lets you perform detect, verify, identify, group, and find similar operations on
 }
 ```
 
+## Cognitive Services Immersive Reader User
+
+Provides access to create Immersive Reader sessions and call APIs
+
+[Learn more](/azure/ai-services/immersive-reader/security-how-to-update-role-assignment)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/ImmersiveReader/getcontentmodelforreader/action | Creates an Immersive Reader session |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides access to create Immersive Reader sessions and call APIs",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/b2de6794-95db-4659-8781-7e080d3f2b9d",
+  "name": "b2de6794-95db-4659-8781-7e080d3f2b9d",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/ImmersiveReader/getcontentmodelforreader/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Cognitive Services Immersive Reader User",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Cognitive Services Language Owner
+
+Has access to all Read, Test, Write, Deploy and Delete functions under Language portal
+
+[Learn more](/azure/ai-services/language-service/concepts/role-based-access-control)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/*/read |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/listkeys/action | List keys |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleDefinitions/read | Get information about a role definition. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/LanguageAuthoring/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/ConversationalLanguageUnderstanding/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Language/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/* |  |
+> | **NotDataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnaMaker/* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Has access to all Read, Test, Write, Deploy and Delete functions under Language portal",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/f07febfe-79bc-46b1-8b37-790e26e6e498",
+  "name": "f07febfe-79bc-46b1-8b37-790e26e6e498",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/*/read",
+        "Microsoft.CognitiveServices/accounts/listkeys/action",
+        "Microsoft.Authorization/roleAssignments/read",
+        "Microsoft.Authorization/roleDefinitions/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/LanguageAuthoring/*",
+        "Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/*",
+        "Microsoft.CognitiveServices/accounts/Language/*",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/*"
+      ],
+      "notDataActions": [
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnaMaker/*"
+      ]
+    }
+  ],
+  "roleName": "Cognitive Services Language Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Cognitive Services Language Reader
+
+Has access to Read and Test functions under Language portal
+
+[Learn more](/azure/ai-services/language-service/concepts/role-based-access-control)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/*/read |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleDefinitions/read | Get information about a role definition. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/LanguageAuthoring/*/read |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/ConversationalLanguageUnderstanding/*/read |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/ConversationalLanguageUnderstanding/projects/export/action | Triggers a job to export project data in JSON format. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Language/*/read |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Language/*/projects/export/action |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Language/query-text/action | Answer Text. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Language/query-dataverse/action | Query Dataverse. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Language/analyze-text/jobs/action | Submit a collection of text documents for analysis. Specify one or more unique tasks to be executed. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Language/analyze-text/action | Submit a collection of text documents for analysis.  Specify a single unique task to be executed immediately. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Language/analyze-text/jobscancel/action | Cancel a long-running Text Analysis job. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Language/analyze-conversations/action | Analyzes the input conversation. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Language/analyze-conversations/jobscancel/action | Cancel a long-running analysis job on conversation. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Language/analyze-conversations/jobs/action | Submit a long conversation for analysis. Specify one or more unique tasks to be executed as a long-running operation. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Language/query-knowledgebases/action | Answer Knowledgebase. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Language/generate/action | Language generation. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/* |  |
+> | **NotDataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnaMaker/* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Has access to Read and Test functions under Language portal",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/7628b7b8-a8b2-4cdc-b46f-e9b35248918e",
+  "name": "7628b7b8-a8b2-4cdc-b46f-e9b35248918e",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/*/read",
+        "Microsoft.Authorization/roleAssignments/read",
+        "Microsoft.Authorization/roleDefinitions/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/LanguageAuthoring/*/read",
+        "Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/*/read",
+        "Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/projects/export/action",
+        "Microsoft.CognitiveServices/accounts/Language/*/read",
+        "Microsoft.CognitiveServices/accounts/Language/*/projects/export/action",
+        "Microsoft.CognitiveServices/accounts/Language/query-text/action",
+        "Microsoft.CognitiveServices/accounts/Language/query-dataverse/action",
+        "Microsoft.CognitiveServices/accounts/Language/analyze-text/jobs/action",
+        "Microsoft.CognitiveServices/accounts/Language/analyze-text/action",
+        "Microsoft.CognitiveServices/accounts/Language/analyze-text/jobscancel/action",
+        "Microsoft.CognitiveServices/accounts/Language/analyze-conversations/action",
+        "Microsoft.CognitiveServices/accounts/Language/analyze-conversations/jobscancel/action",
+        "Microsoft.CognitiveServices/accounts/Language/analyze-conversations/jobs/action",
+        "Microsoft.CognitiveServices/accounts/Language/query-knowledgebases/action",
+        "Microsoft.CognitiveServices/accounts/Language/generate/action",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/*"
+      ],
+      "notDataActions": [
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnaMaker/*"
+      ]
+    }
+  ],
+  "roleName": "Cognitive Services Language Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Cognitive Services Language Writer
+
+ Has access to all Read, Test, and Write functions under Language Portal
+
+[Learn more](/azure/ai-services/language-service/concepts/role-based-access-control)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/*/read |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleDefinitions/read | Get information about a role definition. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/LanguageAuthoring/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/ConversationalLanguageUnderstanding/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Language/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/* |  |
+> | **NotDataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/LanguageAuthoring/projects/publish/action | Trigger publishing job. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/ConversationalLanguageUnderstanding/projects/deployments/write | Trigger job to create new deployment or replace an existing deployment. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnaMaker/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Language/*/projects/delete |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Language/*/projects/deployments/write |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Language/*/projects/deployments/delete |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/Language/*/projects/deployments/swap/action |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": " Has access to all Read, Test, and Write functions under Language Portal",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/f2310ca1-dc64-4889-bb49-c8e0fa3d47a8",
+  "name": "f2310ca1-dc64-4889-bb49-c8e0fa3d47a8",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/*/read",
+        "Microsoft.Authorization/roleAssignments/read",
+        "Microsoft.Authorization/roleDefinitions/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/LanguageAuthoring/*",
+        "Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/*",
+        "Microsoft.CognitiveServices/accounts/Language/*",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/*"
+      ],
+      "notDataActions": [
+        "Microsoft.CognitiveServices/accounts/LanguageAuthoring/projects/publish/action",
+        "Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/projects/deployments/write",
+        "Microsoft.CognitiveServices/accounts/TextAnalytics/QnaMaker/*",
+        "Microsoft.CognitiveServices/accounts/Language/*/projects/delete",
+        "Microsoft.CognitiveServices/accounts/Language/*/projects/deployments/write",
+        "Microsoft.CognitiveServices/accounts/Language/*/projects/deployments/delete",
+        "Microsoft.CognitiveServices/accounts/Language/*/projects/deployments/swap/action"
+      ]
+    }
+  ],
+  "roleName": "Cognitive Services Language Writer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Cognitive Services LUIS Owner
+
+ Has access to all Read, Test, Write, Deploy and Delete functions under LUIS
+
+[Learn more](/azure/ai-services/luis/role-based-access-control)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/*/read |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/listkeys/action | List keys |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleDefinitions/read | Get information about a role definition. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/LUIS/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": " Has access to all Read, Test, Write, Deploy and Delete functions under LUIS",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/f72c8140-2111-481c-87ff-72b910f6e3f8",
+  "name": "f72c8140-2111-481c-87ff-72b910f6e3f8",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/*/read",
+        "Microsoft.CognitiveServices/accounts/listkeys/action",
+        "Microsoft.Authorization/roleAssignments/read",
+        "Microsoft.Authorization/roleDefinitions/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/LUIS/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Cognitive Services LUIS Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Cognitive Services LUIS Reader
+
+Has access to Read and Test functions under LUIS.
+
+[Learn more](/azure/ai-services/luis/role-based-access-control)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/*/read |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleDefinitions/read | Get information about a role definition. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/LUIS/*/read |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/LUIS/apps/testdatasets/write | Updates last test results of an existing batch test data set for a given application. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Has access to Read and Test functions under LUIS.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/18e81cdc-4e98-4e29-a639-e7d10c5a6226",
+  "name": "18e81cdc-4e98-4e29-a639-e7d10c5a6226",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/*/read",
+        "Microsoft.Authorization/roleAssignments/read",
+        "Microsoft.Authorization/roleDefinitions/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/LUIS/*/read",
+        "Microsoft.CognitiveServices/accounts/LUIS/apps/testdatasets/write"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Cognitive Services LUIS Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Cognitive Services LUIS Writer
+
+Has access to all Read, Test, and Write functions under LUIS
+
+[Learn more](/azure/ai-services/luis/role-based-access-control)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/*/read |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleDefinitions/read | Get information about a role definition. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/LUIS/* |  |
+> | **NotDataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/LUIS/apps/delete | Deletes an application. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/LUIS/apps/move/action | Moves the app to a different LUIS authoring Azure resource. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/LUIS/apps/publish/action | Publishes a specific version of the application. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/LUIS/apps/settings/write | Updates the application settings |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/LUIS/apps/azureaccounts/action | Assigns an Azure account to the application. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/LUIS/apps/azureaccounts/delete | Gets the LUIS Azure accounts for the user using his Azure Resource Manager token. |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Has access to all Read, Test, and Write functions under LUIS",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/6322a993-d5c9-4bed-b113-e49bbea25b27",
+  "name": "6322a993-d5c9-4bed-b113-e49bbea25b27",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/*/read",
+        "Microsoft.Authorization/roleAssignments/read",
+        "Microsoft.Authorization/roleDefinitions/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/LUIS/*"
+      ],
+      "notDataActions": [
+        "Microsoft.CognitiveServices/accounts/LUIS/apps/delete",
+        "Microsoft.CognitiveServices/accounts/LUIS/apps/move/action",
+        "Microsoft.CognitiveServices/accounts/LUIS/apps/publish/action",
+        "Microsoft.CognitiveServices/accounts/LUIS/apps/settings/write",
+        "Microsoft.CognitiveServices/accounts/LUIS/apps/azureaccounts/action",
+        "Microsoft.CognitiveServices/accounts/LUIS/apps/azureaccounts/delete"
+      ]
+    }
+  ],
+  "roleName": "Cognitive Services LUIS Writer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Cognitive Services Metrics Advisor Administrator
 
 Full access to the project, including the system level configuration.
@@ -831,6 +1547,51 @@ Full access to the project, including the system level configuration.
     }
   ],
   "roleName": "Cognitive Services Metrics Advisor Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Cognitive Services Metrics Advisor User
+
+Access to the project.
+
+[Learn more](/dotnet/api/overview/azure/ai.metricsadvisor-readme)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/*/read |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/MetricsAdvisor/* |  |
+> | **NotDataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/MetricsAdvisor/stats/* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Access to the project.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/3b20f47b-3825-43cb-8114-4bd2201156a8",
+  "name": "3b20f47b-3825-43cb-8114-4bd2201156a8",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/MetricsAdvisor/*"
+      ],
+      "notDataActions": [
+        "Microsoft.CognitiveServices/accounts/MetricsAdvisor/stats/*"
+      ]
+    }
+  ],
+  "roleName": "Cognitive Services Metrics Advisor User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -922,11 +1683,16 @@ Read access to view files, models, deployments. The ability to create completion
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/search/action | Search for the most relevant documents using the current engine. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/completions/action | Create a completion from a chosen model. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/chat/completions/action | Creates a completion for the chat message |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/realtime/action | Creates a realtime connection to the deployment. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/extensions/chat/completions/action | Creates a completion for the chat message with extensions |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/deployments/embeddings/action | Return the embeddings for a given prompt. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/images/generations/action | Create image generations. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/video/generations/*/action |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/video/generations/*/delete |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/assistants/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/responses/* |  |
 > | **NotDataActions** |  |
-> | *none* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/OpenAI/stored-completions/read | Query completions data using filters or Get single completion data using completion Id or Get metadata for the given account |
 
 ```json
 {
@@ -953,11 +1719,18 @@ Read access to view files, models, deployments. The ability to create completion
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/search/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/completions/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/chat/completions/action",
+        "Microsoft.CognitiveServices/accounts/OpenAI/deployments/realtime/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/extensions/chat/completions/action",
         "Microsoft.CognitiveServices/accounts/OpenAI/deployments/embeddings/action",
-        "Microsoft.CognitiveServices/accounts/OpenAI/images/generations/action"
+        "Microsoft.CognitiveServices/accounts/OpenAI/images/generations/action",
+        "Microsoft.CognitiveServices/accounts/OpenAI/video/generations/*/action",
+        "Microsoft.CognitiveServices/accounts/OpenAI/video/generations/*/delete",
+        "Microsoft.CognitiveServices/accounts/OpenAI/assistants/*",
+        "Microsoft.CognitiveServices/accounts/OpenAI/responses/*"
       ],
-      "notDataActions": []
+      "notDataActions": [
+        "Microsoft.CognitiveServices/accounts/OpenAI/stored-completions/read"
+      ]
     }
   ],
   "roleName": "Cognitive Services OpenAI User",
@@ -981,7 +1754,7 @@ Let's you create, edit, import and export a KB. You cannot publish or delete a K
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker/knowledgebases/read | Gets List of Knowledgebases or details of a specific knowledgebaser. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker/knowledgebases/read | Gets List of Knowledgebases or details of a specific knowledgebase. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker/knowledgebases/download/read | Download the knowledgebase. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker/knowledgebases/create/write | Asynchronous operation to create a new knowledgebase. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker/knowledgebases/write | Asynchronous operation to modify a knowledgebase or Replace knowledgebase contents. |
@@ -992,9 +1765,9 @@ Let's you create, edit, import and export a KB. You cannot publish or delete a K
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker/endpointkeys/read | Gets endpoint keys for an endpoint |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker/endpointkeys/refreshkeys/action | Re-generates an endpoint key. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker/endpointsettings/read | Gets endpoint settings for an endpoint |
-> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker/endpointsettings/write | Update endpoint seettings for an endpoint. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker/endpointsettings/write | Update endpoint settings for an endpoint. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker/operations/read | Gets details of a specific long running operation. |
-> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/knowledgebases/read | Gets List of Knowledgebases or details of a specific knowledgebaser. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/knowledgebases/read | Gets List of Knowledgebases or details of a specific knowledgebase. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/knowledgebases/download/read | Download the knowledgebase. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/knowledgebases/create/write | Asynchronous operation to create a new knowledgebase. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/knowledgebases/write | Asynchronous operation to modify a knowledgebase or Replace knowledgebase contents. |
@@ -1005,9 +1778,9 @@ Let's you create, edit, import and export a KB. You cannot publish or delete a K
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointkeys/read | Gets endpoint keys for an endpoint |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointkeys/refreshkeys/action | Re-generates an endpoint key. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointsettings/read | Gets endpoint settings for an endpoint |
-> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointsettings/write | Update endpoint seettings for an endpoint. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointsettings/write | Update endpoint settings for an endpoint. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/operations/read | Gets details of a specific long running operation. |
-> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/read | Gets List of Knowledgebases or details of a specific knowledgebaser. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/read | Gets List of Knowledgebases or details of a specific knowledgebase. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/download/read | Download the knowledgebase. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/create/write | Asynchronous operation to create a new knowledgebase. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/write | Asynchronous operation to modify a knowledgebase or Replace knowledgebase contents. |
@@ -1018,7 +1791,7 @@ Let's you create, edit, import and export a KB. You cannot publish or delete a K
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointkeys/read | Gets endpoint keys for an endpoint |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointkeys/refreshkeys/action | Re-generates an endpoint key. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointsettings/read | Gets endpoint settings for an endpoint |
-> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointsettings/write | Update endpoint seettings for an endpoint. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/endpointsettings/write | Update endpoint settings for an endpoint. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/operations/read | Gets details of a specific long running operation. |
 > | **NotDataActions** |  |
 > | *none* |  |
@@ -1104,19 +1877,19 @@ Let's you read and test a KB only.
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker/knowledgebases/read | Gets List of Knowledgebases or details of a specific knowledgebaser. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker/knowledgebases/read | Gets List of Knowledgebases or details of a specific knowledgebase. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker/knowledgebases/download/read | Download the knowledgebase. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker/knowledgebases/generateanswer/action | GenerateAnswer call to query the knowledgebase. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker/alterations/read | Download alterations from runtime. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker/endpointkeys/read | Gets endpoint keys for an endpoint |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker/endpointsettings/read | Gets endpoint settings for an endpoint |
-> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/knowledgebases/read | Gets List of Knowledgebases or details of a specific knowledgebaser. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/knowledgebases/read | Gets List of Knowledgebases or details of a specific knowledgebase. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/knowledgebases/download/read | Download the knowledgebase. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/knowledgebases/generateanswer/action | GenerateAnswer call to query the knowledgebase. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/alterations/read | Download alterations from runtime. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointkeys/read | Gets endpoint keys for an endpoint |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointsettings/read | Gets endpoint settings for an endpoint |
-> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/read | Gets List of Knowledgebases or details of a specific knowledgebaser. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/read | Gets List of Knowledgebases or details of a specific knowledgebase. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/download/read | Download the knowledgebase. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/knowledgebases/generateanswer/action | GenerateAnswer call to query the knowledgebase. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TextAnalytics/QnAMaker/alterations/read | Download alterations from runtime. |
@@ -1165,6 +1938,154 @@ Let's you read and test a KB only.
     }
   ],
   "roleName": "Cognitive Services QnA Maker Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Cognitive Services Speech Contributor
+
+Full access to Speech projects, including read, write and delete all entities, for real-time speech recognition and batch transcription tasks, real-time speech synthesis and long audio tasks, custom speech and custom voice.
+
+[Learn more](/azure/ai-services/speech-service/role-based-access-control)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/*/read |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleDefinitions/read | Get information about a role definition. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/CustomVoice/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/AudioContentCreation/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TTSPlayer/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/VideoTranslation/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/CustomAvatar/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/BatchAvatar/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/BatchTextToSpeech/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full access to Speech projects, including read, write and delete all entities, for real-time speech recognition and batch transcription tasks, real-time speech synthesis and long audio tasks, custom speech and custom voice.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/0e75ca1e-0464-4b4d-8b93-68208a576181",
+  "name": "0e75ca1e-0464-4b4d-8b93-68208a576181",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/*/read",
+        "Microsoft.Authorization/roleAssignments/read",
+        "Microsoft.Authorization/roleDefinitions/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/SpeechServices/*",
+        "Microsoft.CognitiveServices/accounts/CustomVoice/*",
+        "Microsoft.CognitiveServices/accounts/AudioContentCreation/*",
+        "Microsoft.CognitiveServices/accounts/TTSPlayer/*",
+        "Microsoft.CognitiveServices/accounts/VideoTranslation/*",
+        "Microsoft.CognitiveServices/accounts/CustomAvatar/*",
+        "Microsoft.CognitiveServices/accounts/BatchAvatar/*",
+        "Microsoft.CognitiveServices/accounts/BatchTextToSpeech/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Cognitive Services Speech Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Cognitive Services Speech User
+
+Access to the real-time speech recognition and batch transcription APIs, real-time speech synthesis and long audio APIs, as well as to read the data/test/model/endpoint for custom models, but can't create, delete or modify the data/test/model/endpoint for custom models.
+
+[Learn more](/azure/ai-services/speech-service/role-based-access-control)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/*/read |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/read | Get information about a role assignment. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleDefinitions/read | Get information about a role definition. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/*/read |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/*/transcriptions/read |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/*/transcriptions/write |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/*/transcriptions/delete |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/*/transcriptions/action |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/*/frontend/action |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/text-dependent/*/action |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/text-independent/*/action |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/voiceagent/realtime/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/SpeechServices/voicelive/realtime/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/CustomVoice/*/read |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/CustomVoice/evaluations/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/CustomVoice/longaudiosynthesis/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/AudioContentCreation/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/TTSPlayer/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/VideoTranslation/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/CustomAvatar/*/read |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/BatchAvatar/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/BatchTextToSpeech/* |  |
+> | **NotDataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/CustomVoice/datasets/files/read | Gets the files of the dataset identified by the given ID. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/CustomVoice/datasets/utterances/read | Gets utterances of the specified training set. |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Access to the real-time speech recognition and batch transcription APIs, real-time speech synthesis and long audio APIs, as well as to read the data/test/model/endpoint for custom models, but can't create, delete or modify the data/test/model/endpoint for custom models.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/f2dc8367-1007-4938-bd23-fe263f013447",
+  "name": "f2dc8367-1007-4938-bd23-fe263f013447",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/*/read",
+        "Microsoft.Authorization/roleAssignments/read",
+        "Microsoft.Authorization/roleDefinitions/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/SpeechServices/*/read",
+        "Microsoft.CognitiveServices/accounts/SpeechServices/*/transcriptions/read",
+        "Microsoft.CognitiveServices/accounts/SpeechServices/*/transcriptions/write",
+        "Microsoft.CognitiveServices/accounts/SpeechServices/*/transcriptions/delete",
+        "Microsoft.CognitiveServices/accounts/SpeechServices/*/transcriptions/action",
+        "Microsoft.CognitiveServices/accounts/SpeechServices/*/frontend/action",
+        "Microsoft.CognitiveServices/accounts/SpeechServices/text-dependent/*/action",
+        "Microsoft.CognitiveServices/accounts/SpeechServices/text-independent/*/action",
+        "Microsoft.CognitiveServices/accounts/SpeechServices/voiceagent/realtime/*",
+        "Microsoft.CognitiveServices/accounts/SpeechServices/voicelive/realtime/*",
+        "Microsoft.CognitiveServices/accounts/CustomVoice/*/read",
+        "Microsoft.CognitiveServices/accounts/CustomVoice/evaluations/*",
+        "Microsoft.CognitiveServices/accounts/CustomVoice/longaudiosynthesis/*",
+        "Microsoft.CognitiveServices/accounts/AudioContentCreation/*",
+        "Microsoft.CognitiveServices/accounts/TTSPlayer/*",
+        "Microsoft.CognitiveServices/accounts/VideoTranslation/*",
+        "Microsoft.CognitiveServices/accounts/CustomAvatar/*/read",
+        "Microsoft.CognitiveServices/accounts/BatchAvatar/*",
+        "Microsoft.CognitiveServices/accounts/BatchTextToSpeech/*"
+      ],
+      "notDataActions": [
+        "Microsoft.CognitiveServices/accounts/CustomVoice/datasets/files/read",
+        "Microsoft.CognitiveServices/accounts/CustomVoice/datasets/utterances/read"
+      ]
+    }
+  ],
+  "roleName": "Cognitive Services Speech User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1278,6 +2199,523 @@ Lets you read and list keys of Cognitive Services.
 }
 ```
 
+## Foundry Account Owner
+
+Grants full access to manage AI projects and accounts. Includes an ABAC condition to constrain role assignments. Grants conditional assignment of the Foundry User role to other user principles. Applies for new Foundry resources.
+
+[Learn more](/azure/ai-foundry/concepts/rbac-azure-ai-foundry)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/delete | Delete a role assignment at the specified scope. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/* |  |
+> | [Microsoft.Features](../permissions/management-and-governance.md#microsoftfeatures)/features/read | Gets the features of a subscription. |
+> | [Microsoft.Features](../permissions/management-and-governance.md#microsoftfeatures)/providers/features/read | Gets the feature of a subscription in a given resource provider. |
+> | [Microsoft.Features](../permissions/management-and-governance.md#microsoftfeatures)/providers/features/register/action | Registers the feature for a subscription in a given resource provider. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/logDefinitions/read | Read log definitions |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metricdefinitions/read | Read metric definitions |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metrics/read | Read metrics |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/* |  |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+> | **Condition** |  |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d})) | Add or remove role assignments for the following roles:<br/>Foundry User |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants full access to manage Foundry projects and accounts. Grants conditional assignment of the Foundry User role to other user principles.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/e47c6f54-e4a2-4754-9501-8e0985b135e1",
+  "name": "e47c6f54-e4a2-4754-9501-8e0985b135e1",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete",
+        "Microsoft.CognitiveServices/*",
+        "Microsoft.Features/features/read",
+        "Microsoft.Features/providers/features/read",
+        "Microsoft.Features/providers/features/register/action",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/diagnosticSettings/*",
+        "Microsoft.Insights/logDefinitions/read",
+        "Microsoft.Insights/metricdefinitions/read",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": [],
+      "conditionVersion": "2.0",
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d}))"
+    }
+  ],
+  "roleName": "Foundry Account Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Foundry Owner
+
+Grants full to manage AI project and accounts. Grants reader access to AI projects, reader access to AI accounts, and data actions for an AI project. Applies for new Foundry resources.
+
+[Learn more](/azure/ai-foundry/concepts/rbac-azure-ai-foundry)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/actionRules/* |  |
+> | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/alerts/* |  |
+> | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/issues/* |  |
+> | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/prometheusRuleGroups/* |  |
+> | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/smartDetectorAlertRules/* |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/* |  |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/activityLogAlerts/* |  |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metricalerts/* |  |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/scheduledqueryrules/* |  |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/operations/read | Gets or lists deployment operations. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourcegroups/deployments/* |  |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants full to manage Foundry project and accounts. Grants reader access to Foundry projects, reader access to Foundry accounts, and data actions for a Foundry project.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/c883944f-8b7b-4483-af10-35834be79c4a",
+  "name": "c883944f-8b7b-4483-af10-35834be79c4a",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.AlertsManagement/actionRules/*",
+        "Microsoft.AlertsManagement/alerts/*",
+        "Microsoft.AlertsManagement/issues/*",
+        "Microsoft.AlertsManagement/prometheusRuleGroups/*",
+        "Microsoft.AlertsManagement/smartDetectorAlertRules/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.CognitiveServices/*",
+        "Microsoft.Insights/activityLogAlerts/*",
+        "Microsoft.Insights/metricalerts/*",
+        "Microsoft.Insights/scheduledqueryrules/*",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/operations/read",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourcegroups/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Foundry Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Foundry Project Manager
+
+Lets you perform developer actions and management actions on Foundry Projects. Includes an ABAC condition to constrain role assignments. Allows for making role assignments, but limited to Foundry User role. Applies for new Foundry resources.
+
+[Learn more](/azure/ai-foundry/concepts/rbac-azure-ai-foundry)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/delete | Delete a role assignment at the specified scope. |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/*/read |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/projects/* |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/locations/*/read |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+> | **Condition** |  |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d})) | Add or remove role assignments for the following roles:<br/>Foundry User |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you perform developer actions and management actions on Microsoft Foundry Projects. Allows for making role assignments, but limited to Cognitive Service User role.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/eadc314b-1a2d-4efa-be10-5d325db5065e",
+  "name": "eadc314b-1a2d-4efa-be10-5d325db5065e",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete",
+        "Microsoft.CognitiveServices/accounts/*/read",
+        "Microsoft.CognitiveServices/accounts/projects/*",
+        "Microsoft.CognitiveServices/locations/*/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/*"
+      ],
+      "notDataActions": [],
+      "conditionVersion": "2.0",
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d}))"
+    }
+  ],
+  "roleName": "Foundry Project Manager",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Foundry User
+
+Grants reader access to Foundry projects, reader access to Foundry accounts, and data actions for an Foundry project.
+
+[Learn more](/azure/ai-foundry/concepts/rbac-azure-ai-foundry)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/*/read |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/accounts/listkeys/action | List keys |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/read | Read a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/read | Read a resource diagnostic setting |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/logDefinitions/read | Read log definitions |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metricdefinitions/read | Read metric definitions |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metrics/read | Read metrics |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/operationresults/read | Get the subscription operation results. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants reader access to Foundry projects, reader access to Foundry accounts, and data actions for an Foundry project.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/53ca6127-db72-4b80-b1b0-d745d6d5456d",
+  "name": "53ca6127-db72-4b80-b1b0-d745d6d5456d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.CognitiveServices/*/read",
+        "Microsoft.CognitiveServices/accounts/listkeys/action",
+        "Microsoft.Insights/alertRules/read",
+        "Microsoft.Insights/diagnosticSettings/read",
+        "Microsoft.Insights/logDefinitions/read",
+        "Microsoft.Insights/metricdefinitions/read",
+        "Microsoft.Insights/metrics/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/operationresults/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Foundry User",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Healthcare Agent Admin
+
+Users with admin access can sign in, view and edit all of the bot resources, scenarios and configuration setting including the bot instance keys & secrets.
+
+[Learn more](/azure/health-bot/portal-users)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/ResourceData/Read | Get global data and properties about Healthcare Agent service |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Metadata/Read | Get metadata and configurations related to the bot |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/CopilotStudioSolution/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Feedback/Read | Participate and answer on surveys and feedbacks about Healthcare Agent service |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Users/Read | Read portal users as configured in classic access control |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/AuditTrails/Read | Audit all activity in your bot |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/AnalyticReport/Read | Access for getting analytic report data |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/ExposedSkill/Read | View the agent's exposed skill enablement status and details |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/RegisteredSkills/Read | List registered skills and view manifest URLs and details |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Configuration/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Localization/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/AuthenticationProviders/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Channels/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/DataConnections/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/OpenAPIPlugins/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Scenarios/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/LanguageModels/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Resources/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Admin/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Users with admin access can sign in, view and edit all of the bot resources, scenarios and configuration setting including the bot instance keys & secrets.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/f1082fec-a70f-419f-9230-885d2550fb38",
+  "name": "f1082fec-a70f-419f-9230-885d2550fb38",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthBot/healthBots/ResourceData/Read",
+        "Microsoft.HealthBot/healthBots/Metadata/Read",
+        "Microsoft.HealthBot/healthBots/CopilotStudioSolution/*",
+        "Microsoft.HealthBot/healthBots/Feedback/Read",
+        "Microsoft.HealthBot/healthBots/Users/Read",
+        "Microsoft.HealthBot/healthBots/AuditTrails/Read",
+        "Microsoft.HealthBot/healthBots/AnalyticReport/Read",
+        "Microsoft.HealthBot/healthBots/ExposedSkill/Read",
+        "Microsoft.HealthBot/healthBots/RegisteredSkills/Read",
+        "Microsoft.HealthBot/healthBots/Configuration/*",
+        "Microsoft.HealthBot/healthBots/Localization/*",
+        "Microsoft.HealthBot/healthBots/AuthenticationProviders/*",
+        "Microsoft.HealthBot/healthBots/Channels/*",
+        "Microsoft.HealthBot/healthBots/DataConnections/*",
+        "Microsoft.HealthBot/healthBots/OpenAPIPlugins/*",
+        "Microsoft.HealthBot/healthBots/Scenarios/*",
+        "Microsoft.HealthBot/healthBots/LanguageModels/*",
+        "Microsoft.HealthBot/healthBots/Resources/*",
+        "Microsoft.HealthBot/healthBots/Admin/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Healthcare Agent Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Healthcare Agent Editor
+
+Users with editor access can sign in, view and edit all the bot resources, scenarios and configuration setting except for the bot instance keys & secrets and the end-user inputs (including Feedback, Unrecognized utterances and Conversation logs). A read-only access to the bot skills and channels.
+
+[Learn more](/azure/health-bot/portal-users)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/ResourceData/Read | Get global data and properties about Healthcare Agent service |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Metadata/Read | Get metadata and configurations related to the bot |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/CopilotStudioSolution/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Feedback/Read | Participate and answer on surveys and feedbacks about Healthcare Agent service |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Users/Read | Read portal users as configured in classic access control |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/AuditTrails/Read | Audit all activity in your bot |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/AnalyticReport/Read | Access for getting analytic report data |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/ExposedSkill/Read | View the agent's exposed skill enablement status and details |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/RegisteredSkills/Read | List registered skills and view manifest URLs and details |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Configuration/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Localization/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/AuthenticationProviders/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Channels/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/DataConnections/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/OpenAPIPlugins/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Scenarios/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/LanguageModels/* |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Resources/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Users with editor access can sign in, view and edit all the bot resources, scenarios and configuration setting except for the bot instance keys & secrets and the end-user inputs (including Feedback, Unrecognized utterances and Conversation logs). A read-only access to the bot skills and channels.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/af854a69-80ce-4ff7-8447-f1118a2e0ca8",
+  "name": "af854a69-80ce-4ff7-8447-f1118a2e0ca8",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthBot/healthBots/ResourceData/Read",
+        "Microsoft.HealthBot/healthBots/Metadata/Read",
+        "Microsoft.HealthBot/healthBots/CopilotStudioSolution/*",
+        "Microsoft.HealthBot/healthBots/Feedback/Read",
+        "Microsoft.HealthBot/healthBots/Users/Read",
+        "Microsoft.HealthBot/healthBots/AuditTrails/Read",
+        "Microsoft.HealthBot/healthBots/AnalyticReport/Read",
+        "Microsoft.HealthBot/healthBots/ExposedSkill/Read",
+        "Microsoft.HealthBot/healthBots/RegisteredSkills/Read",
+        "Microsoft.HealthBot/healthBots/Configuration/*",
+        "Microsoft.HealthBot/healthBots/Localization/*",
+        "Microsoft.HealthBot/healthBots/AuthenticationProviders/*",
+        "Microsoft.HealthBot/healthBots/Channels/*",
+        "Microsoft.HealthBot/healthBots/DataConnections/*",
+        "Microsoft.HealthBot/healthBots/OpenAPIPlugins/*",
+        "Microsoft.HealthBot/healthBots/Scenarios/*",
+        "Microsoft.HealthBot/healthBots/LanguageModels/*",
+        "Microsoft.HealthBot/healthBots/Resources/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Healthcare Agent Editor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Healthcare Agent Reader
+
+Users with reader access can sign in, have read-only access to the bot resources, scenarios and configuration setting except for the bot instance keys & secrets (including Authentication, Data Connection and Channels keys) and the end-user inputs (including Feedback, Unrecognized utterances and Conversation logs).
+
+[Learn more](/azure/health-bot/portal-users)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/ResourceData/Read | Get global data and properties about Healthcare Agent service |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Metadata/Read | Get metadata and configurations related to the bot |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/CopilotStudioSolution/RestoreBuiltinTemplate/Read | Apply copilot features when opening the management portal |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Feedback/Read | Participate and answer on surveys and feedbacks about Healthcare Agent service |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Users/Read | Read portal users as configured in classic access control |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/AuditTrails/Read | Audit all activity in your bot |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/AnalyticReport/Read | Access for getting analytic report data |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/ExposedSkill/Read | View the agent's exposed skill enablement status and details |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/RegisteredSkills/Read | List registered skills and view manifest URLs and details |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Configuration/Read | View agent's configuration, including healthcare intelligence configurations and environment variables |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Localization/Read | Access for getting language localization data |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/AuthenticationProviders/Read | List and view details of agent's authentication providers |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/DataConnections/Read | List and view details of reusable data connections |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/OpenAPIPlugins/Read | List and view OpenAPI plugins' details |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Scenarios/*/Read |  |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/LanguageModels/Read | Access for getting language models data |
+> | [Microsoft.HealthBot](../permissions/ai-machine-learning.md#microsofthealthbot)/healthBots/Resources/Files/Read | Allows reading and listing of resource files in the Health Bot. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Users with reader access can sign in, have read-only access to the bot resources, scenarios and configuration setting except for the bot instance keys & secrets (including Authentication, Data Connection and Channels keys) and the end-user inputs (including Feedback, Unrecognized utterances and Conversation logs).",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/eb5a76d5-50e7-4c33-a449-070e7c9c4cf2",
+  "name": "eb5a76d5-50e7-4c33-a449-070e7c9c4cf2",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthBot/healthBots/ResourceData/Read",
+        "Microsoft.HealthBot/healthBots/Metadata/Read",
+        "Microsoft.HealthBot/healthBots/CopilotStudioSolution/RestoreBuiltinTemplate/Read",
+        "Microsoft.HealthBot/healthBots/Feedback/Read",
+        "Microsoft.HealthBot/healthBots/Users/Read",
+        "Microsoft.HealthBot/healthBots/AuditTrails/Read",
+        "Microsoft.HealthBot/healthBots/AnalyticReport/Read",
+        "Microsoft.HealthBot/healthBots/ExposedSkill/Read",
+        "Microsoft.HealthBot/healthBots/RegisteredSkills/Read",
+        "Microsoft.HealthBot/healthBots/Configuration/Read",
+        "Microsoft.HealthBot/healthBots/Localization/Read",
+        "Microsoft.HealthBot/healthBots/AuthenticationProviders/Read",
+        "Microsoft.HealthBot/healthBots/DataConnections/Read",
+        "Microsoft.HealthBot/healthBots/OpenAPIPlugins/Read",
+        "Microsoft.HealthBot/healthBots/Scenarios/*/Read",
+        "Microsoft.HealthBot/healthBots/LanguageModels/Read",
+        "Microsoft.HealthBot/healthBots/Resources/Files/Read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Healthcare Agent Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Search Index Data Contributor
 
 Grants full access to Azure Cognitive Search index data.
@@ -1290,6 +2728,7 @@ Grants full access to Azure Cognitive Search index data.
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/indexes/documents/* |  |
+> | [Microsoft.Search](../permissions/ai-machine-learning.md#microsoftsearch)/searchServices/indexes/contentSecurity/elevatedOperations/read | Enable the option to read all documents in an index regardless of permission filters. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1306,7 +2745,8 @@ Grants full access to Azure Cognitive Search index data.
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.Search/searchServices/indexes/documents/*"
+        "Microsoft.Search/searchServices/indexes/documents/*",
+        "Microsoft.Search/searchServices/indexes/contentSecurity/elevatedOperations/read"
       ],
       "notDataActions": []
     }

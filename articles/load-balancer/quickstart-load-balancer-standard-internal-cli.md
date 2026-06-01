@@ -3,17 +3,24 @@ title: 'Quickstart: Create an internal load balancer - Azure CLI'
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create an internal load balancer using the Azure CLI.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 05/01/2023
+ms.date: 02/25/2026
 ms.author: mbender
-ms.custom: mvc, devx-track-azurecli, mode-api, template-quickstart, engagement-fy23
+ms.custom:
+  - mvc
+  - devx-track-azurecli
+  - mode-api
+  - template-quickstart
+  - engagement-fy23
+  - sfi-image-nochange
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
+# Customer intent: As a cloud engineer, I want to create an internal load balancer using the command line, so that I can efficiently manage and distribute internal traffic to virtual machines in my network.
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using the Azure CLI
 
-Get started with Azure Load Balancer by using the Azure CLI to create an internal load balancer and two virtual machines. Additional resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
+Get started with Azure Load Balancer by using the Azure CLI to create an internal load balancer and two virtual machines. Other resources include Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
 
 :::image type="content" source="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png" alt-text="Diagram of resources deployed for internal load balancer." lightbox="media/quickstart-load-balancer-standard-internal-portal/internal-load-balancer-resources.png":::
 
@@ -32,7 +39,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 ```azurecli-interactive
     az group create \
       --name CreateIntLBQS-rg \
-      --location westus3
+      --location westus2
 ```
 
 When you create an internal load balancer, a virtual network is configured as the network for the load balancer.
@@ -46,7 +53,7 @@ Create a virtual network by using [az network vnet create](/cli/azure/network/vn
 ```azurecli-interactive
   az network vnet create \
     --resource-group CreateIntLBQS-rg \
-    --location westus3 \
+    --location westus2 \
     --name myVNet \
     --address-prefixes 10.1.0.0/16 \
     --subnet-name myBackendSubnet \
@@ -88,12 +95,17 @@ az network vnet subnet create \
 Use [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create) to create a host.
 
 ```azurecli-interactive
+az config set extension.use_dynamic_install=yes_without_prompt
+
 az network bastion create \
     --resource-group CreateIntLBQS-rg  \
     --name myBastionHost \
     --public-ip-address myBastionIP \
     --vnet-name myVNet \
-    --location westus3
+    --location westus2 \
+    --sku Basic \
+    --only-show-errors \
+    --no-wait
 ```
 
 It can take a few minutes for the Azure Bastion host to deploy.
@@ -237,7 +249,7 @@ Create the virtual machines with [az vm create](/cli/azure/vm#az-vm-create).
     --resource-group CreateIntLBQS-rg \
     --name myVM$n \
     --nics myNicVM$n \
-    --image win2019datacenter \
+    --image win2022datacenter \
     --admin-username azureuser \
     --zone $n \
     --no-wait
@@ -353,19 +365,19 @@ Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) to instal
 
 1. [Sign in](https://portal.azure.com) to the Azure portal.
 
-2. On the **Overview** page, find the private IP address for the load balancer. In the menu on the left, select **All services** > **All resources** > **myLoadBalancer**.
+1. On the **Overview** page, find the private IP address for the load balancer. In the menu on the left, select **All services** > **All resources** > **myLoadBalancer**.
 
-3. In the overview of **myLoadBalancer**, copy the address next to **Private IP Address**. If **Private IP address** isn't visible, select **See more**.
+1. In the overview of **myLoadBalancer**, copy the address next to **Private IP Address**. If **Private IP address** isn't visible, select **See more**.
 
-4. In the menu on the left, select **All services** > **All resources**. From the resources list, in the **CreateIntLBQS-rg** resource group, select **myTestVM**.
+1. In the menu on the left, select **All services** > **All resources**. From the resources list, in the **CreateIntLBQS-rg** resource group, select **myTestVM**.
 
-5. On the **Overview** page, select **Connect** > **Bastion**.
+1. On the **Overview** page, select **Connect** > **Bastion**.
 
-6. Enter the username and password that you entered when you created the VM.
+1. Enter the username and password that you entered when you created the VM.
 
-7. On **myTestVM**, open **Internet Explorer**.
+1. On **myTestVM**, open **Internet Explorer**.
 
-8. Enter the IP address from the previous step into the address bar of the browser. The default page of the IIS web server is shown on the browser.
+1. Enter the IP address from the previous step into the address bar of the browser. The default page of the IIS web server is shown on the browser.
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Screenshot of the IP address in the address bar of the browser." border="true":::
 

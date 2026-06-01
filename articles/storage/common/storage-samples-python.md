@@ -2,9 +2,9 @@
 title: Azure Storage samples using Python
 titleSuffix: Azure Storage
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the Python storage client libraries.
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 05/23/2024
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
@@ -12,6 +12,7 @@ ms.topic: sample
 ms.devlang: python
 ms.custom: devx-track-python, py-fresh-zinc
 ai-usage: ai-assisted
+# Customer intent: As a Python developer, I want to access comprehensive Azure Storage code samples and developer guides, so that I can efficiently implement storage functionalities in my applications.
 ---
 
 # Azure Storage samples using Python client libraries
@@ -109,7 +110,7 @@ Check out the following guides if you're looking for instructions on how to inst
 
 - [Quickstart: Azure Blob Storage client library for Python](../blobs/storage-quickstart-blobs-python.md)
 - [Quickstart: Azure Queue Storage client library for Python](../queues/storage-quickstart-queues-python.md)
-- [Getting Started with Azure Table Service in Python](../../cosmos-db/table-storage-how-to-use-python.md)
+- [Getting Started with Azure Table Service in Python](/azure/cosmos-db/table-storage-how-to-use-python)
 - [Develop for Azure Files with Python](../files/storage-python-how-to-use-file-storage.md)
 
 ## Next steps
@@ -121,3 +122,4 @@ For information on samples for other languages:
 - JavaScript/Node.js: [Azure Storage samples using JavaScript](storage-samples-javascript.md)
 - C++: [Azure Storage samples using C++](storage-samples-c-plus-plus.md)
 - All other languages: [Azure Storage samples](storage-samples.md)
+

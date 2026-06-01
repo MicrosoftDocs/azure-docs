@@ -3,14 +3,15 @@ title: Set or change a blob's access tier with .NET
 titleSuffix: Azure Storage 
 description: Learn how to set or change a blob's access tier in your Azure Storage account using the .NET client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 07/03/2023
+ms.date: 08/05/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to set or change a block blob's access tier in Azure Storage, so that I can manage data storage costs and optimize access based on my application's requirements.
 ---
 
 # Set or change a block blob's access tier with .NET
@@ -69,6 +70,10 @@ To learn more about copying a blob with .NET, see [Copy a blob with .NET](storag
 
 To learn more about setting access tiers using the Azure Blob Storage client library for .NET, see the following resources.
 
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/dotnet/BlobDevGuideBlobs/AccessTiers.cs)
+
 ### REST API operations
 
 The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library methods for setting access tiers use the following REST API operation:
@@ -77,11 +82,9 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 
 [!INCLUDE [storage-dev-guide-resources-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-resources-dotnet.md)]
 
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/dotnet/BlobDevGuideBlobs/AccessTiers.cs)
-
 ### See also
 
 - [Access tiers best practices](access-tiers-best-practices.md)
 - [Blob rehydration from the archive tier](archive-rehydrate-overview.md)
+
+[!INCLUDE [storage-dev-guide-next-steps-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-dotnet.md)]

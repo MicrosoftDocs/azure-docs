@@ -1,11 +1,12 @@
 ---
-title: Data protection overview for Azure Files
+title: Data Protection Overview for Azure Files
 description: Learn how to protect your data in Azure Files. Understand the concepts and processes involved with backup and recovery of Azure file shares.
 author: khdownie
 ms.service: azure-file-storage
-ms.topic: conceptual
-ms.date: 07/26/2023
+ms.topic: overview
+ms.date: 07/25/2025
 ms.author: kendownie
+# Customer intent: "As a systems administrator, I want to implement data protection for Azure file shares, so that I can ensure recovery from accidental loss, protect against ransomware, and maintain business continuity."
 ---
 
 # Azure Files data protection overview
@@ -34,7 +35,7 @@ There are several reasons why you should protect your file share data.
 - **Business continuity:** Prepare your infrastructure to be highly available for critical workloads.
 
 ## Back up and restore Azure file shares
-You can configure [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json) to back up your file shares using the Azure portal, Azure PowerShell, Azure CLI, or REST API. You can also [use Azure File Sync](#use-azure-file-sync-for-hybrid-cloud-backups) to back up on-premises file server data on an Azure file share.
+You can configure [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json) to back up SMB Azure file shares by using the Azure portal, Azure PowerShell, Azure CLI, or REST API. You can also [use Azure File Sync](#use-azure-file-sync-for-hybrid-cloud-backups) to back up on-premises file server data on an SMB Azure file share.
 
 # [Azure portal](#tab/portal)
 
@@ -74,12 +75,18 @@ To learn how to back up and restore Azure file shares using the REST API, see th
 Azure Files offers multiple redundancy options, including geo-redundancy, to help protect your data from service outages due to hardware problems or natural disasters. To find out which option is best for your use case, see [Azure Files data redundancy](files-redundancy.md).
 
 > [!IMPORTANT]
-> Azure Files only supports geo-redundancy (GRS or GZRS) for standard SMB file shares. Premium file shares and NFS file shares must use locally redundant storage (LRS) or zone redundant storage (ZRS).
+> Azure Files only supports geo-redundancy (GRS or GZRS) for HDD file shares. SSD file shares must use locally redundant storage (LRS) or zone redundant storage (ZRS).
 
 ## Disaster recovery and failover
-In the case of a disaster or unplanned outage, restoring access to file share data is usually critical to keeping the business operational. Depending on the criticality of the data hosted in your file shares, you might need a disaster recovery strategy that includes failing your Azure file shares over to a secondary region.
+In the case of a disaster or unplanned outage, restoring access to file share data is critical to keeping the business operational. Depending on the criticality of the data hosted in your file shares, you might need a disaster recovery strategy that includes failing your Azure file shares over to a secondary region.
 
-Azure Files offers customer-managed failover for standard storage accounts if the data center in the primary region becomes unavailable. See [Disaster recovery and failover for Azure Files](files-disaster-recovery.md).
+Azure Files offers customer-managed unplanned failover for HDD file shares if the data center in the primary region becomes unavailable. Customer-managed planned failover can also be utilized in multiple scenarios, including planned disaster recovery testing, a proactive approach to large scale disasters, or to recover from non-storage related outages.
+
+[!INCLUDE [storage-failover.planned-preview](../../../includes/storage-failover.planned-preview.md)]
+
+[!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]
+
+See [Disaster recovery and failover for Azure Files](files-disaster-recovery.md).
 
 ## Prevent accidental deletion of storage accounts and file shares
 
@@ -93,6 +100,16 @@ Storage account locks enable admins to lock the storage account to prevent users
 - **ReadOnly** lock prevents users from deleting a storage account or modifying its configuration.
 
 For more information, see [Apply an Azure Resource Manager lock to a storage account](../common/lock-account-resource.md).
+
+### Storage account recovery
+
+You can recover an accidentally deleted storage account if the following criteria are met:
+- The storage account was deleted within the past 14 days.
+- The storage account was created with the Azure Resource Manager deployment model.
+- A new storage account with the same name hasn't been created since the original account was deleted.
+- The user who is recovering the storage account must be assigned an Azure RBAC role that provides the Microsoft.Storage/storageAccounts/write permission. 
+
+Storage account recovery is a feature and can't be disabled. For more information and step-by-step instructions, see [Recover a deleted storage account](../common/storage-account-recover.md).
 
 ### Soft delete
 

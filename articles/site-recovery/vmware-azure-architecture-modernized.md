@@ -1,16 +1,19 @@
 ---
 title: VMware VM disaster recovery architecture in Azure Site Recovery - Modernized
 description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises VMware VMs to Azure with Azure Site Recovery - Modernized
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 12/04/2023
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.service: azure-site-recovery
+ms.topic: concept-article
+ms.date: 04/06/2026
+ms.author: v-gajeronika
+author: Jeronika-MS
+# Customer intent: "As a VMware administrator, I want to configure disaster recovery for on-premises VMs to Azure, so that I can ensure business continuity and minimize downtime in the event of system failures."
 ---
 
 # VMware to Azure disaster recovery architecture - Modernized
 
 This article describes the architecture and processes used when you deploy disaster recovery replication, failover, and recovery of VMware virtual machines (VMs) between an on-premises VMware site and Azure using the Modernized VMware/Physical machine protection experience.
+
+[!INCLUDE [vmware-to-azure-classic-experience-retirement-note.md](./includes/vmware-to-azure-classic-experience-retirement-note.md)]
 
 >[!NOTE]
 > Ensure you create a new Recovery Services vault for setting up the ASR replication appliance. Don't use an existing vault.
@@ -37,7 +40,7 @@ The following table and graphic provide a high-level view of the components used
 For Site Recovery to work as expected, you need to modify outbound network connectivity to allow your environment to replicate.
 
 > [!NOTE]
-> Site Recovery doesn't support using an authentication proxy to control network connectivity.
+> Site Recovery modernized architecture supports using an authentication proxy to control network connectivity.
 
 ### Outbound connectivity for URLs
 

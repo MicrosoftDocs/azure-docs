@@ -3,9 +3,10 @@ title: Rotate login credentials in Azure Stream Analytics jobs
 description: This article describes how to update the credentials of inputs and output sinks in Azure Stream Analytics jobs.
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
+ms.custom: sfi-image-nochange
 ---
 # Rotate login credentials for inputs and outputs of a Stream Analytics Job
 

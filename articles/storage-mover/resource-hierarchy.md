@@ -4,7 +4,7 @@ description: Understanding the Azure Storage Mover resource hierarchy
 author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/25/2023
 ---
 

@@ -3,10 +3,10 @@ title: Migrating from physical labs to the cloud
 titleSuffix: Azure Lab Services
 description: Learn about the benefits and considerations for migrating from physical labs to Azure Lab Services. Understand how to configure your labs to optimize costs.
 services: lab-services
-ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
-ms.topic: conceptual
+ms.service: azure-lab-services
+author: RoseHJM
+ms.author: rosemalcolm
+ms.topic: concept-article
 ms.date: 01/31/2023
 ---
 

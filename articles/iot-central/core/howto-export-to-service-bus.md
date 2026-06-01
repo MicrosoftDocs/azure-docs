@@ -4,10 +4,12 @@ description: Learn how to use the IoT Central data export capability to continuo
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/05/2024
+ms.date: 08/06/2025
 ms.topic: how-to
-ms.service: iot-central
-ms.custom: devx-track-azurecli
+ms.service: azure-iot-central
+ms.custom:
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Export IoT data to Service Bus
@@ -34,7 +36,7 @@ Service Bus destinations let you configure the connection with a *connection str
 
 # [Managed identity](#tab/managed-identity)
 
-This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a manged identity.
+This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a managed identity.
 
 If you don't have an existing Service Bus namespace to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Service Bus namespace, and queue. The script then enables the managed identity for your IoT Central application and assigns the role it needs to access your Service Bus queue:
 
@@ -136,4 +138,4 @@ For Service Bus, IoT Central exports new messages data to your Service Bus queue
 
 ## Next steps
 
-Now that you know how to export to Service Bus, a suggested next step is to learn [Export to Event Hubs](howto-export-to-event-hubs.md).
+Now that you know how to export to Service Bus, a suggested next step is to learn how to [export IoT data to Event Hubs](howto-export-to-event-hubs.md).

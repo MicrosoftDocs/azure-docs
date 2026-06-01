@@ -1,15 +1,23 @@
 ---
+ROBOTS: NOINDEX
 title: Onboard a root or apex domain to an existing Azure CDN endpoint - Azure portal
 description: Learn how to onboard a root or apex domain to an existing Azure CDN endpoint using the Azure portal.
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 02/28/2026
+# Customer intent: As a domain owner, I want to onboard my root or apex domain to an existing CDN endpoint, so that I can ensure proper DNS configuration and HTTPS support for my web applications.
 ---
 
 # Onboard a root or apex domain to an existing Azure CDN endpoint
+
+> [!IMPORTANT]
+> - Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support new domain onboarding or profile creation. Migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) to create new domains or profiles and avoid service disruption. [Learn more](https://azure.microsoft.com/updates?id=498522)
+> - Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support Managed certificates. To avoid service disruption, either [switch to Bring Your Own Certificate (BYOC)](/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate) or migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) by this date. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026. [Learn more](https://azure.microsoft.com/updates?id=498522)
+> - Azure CDN Standard from Microsoft (classic) will be retired on September 30, 2027. To avoid service disruption ⁠[migrate to AFD Standard or Premium](/azure/cdn/migrate-tier). ⁠[Learn more.](https://azure.microsoft.com/updates?id=Azure-CDN-Standard-from-Microsoft-classic-will-be-retired-on-30-September-2027)
+> - Azure CDN from Edgio was retired on January 15, 2025. ⁠[Learn more.](/previous-versions/azure/cdn/edgio-retirement-faq?toc=%2Fazure%2Ffrontdoor%2FTOC.json)
 
 Azure CDN uses CNAME records to validate domain ownership for onboarding of custom domains. CDN doesn't expose the frontend IP address associated with your CDN profile. You can't map your apex domain to an IP address if your intent is to onboard it to Azure CDN.
 
@@ -49,8 +57,6 @@ You can use the Azure portal to onboard an apex domain on your CDN and enable HT
 
 5. Select **OK** to submit your changes.
 
-    :::image type="content" source="./media/onboard-apex-domain/cdn-apex-alias-record.png" alt-text="Alias record for zone apex":::
-
 6. The above step creates a zone apex record pointing to your CDN resource. A CNAME record-mapping **cdnverify** is used for onboarding the domain on your CDN profile.
     1. Example, **cdnverify.contoso.com**.
 
@@ -61,8 +67,6 @@ After you've registered your custom domain, you can then add it to your CDN endp
 1. Sign in to the [Azure portal](https://portal.azure.com/) and browse to the CDN profile containing the endpoint that you want to map to a custom domain.
 
 2. On the **CDN profile** page, select the CDN endpoint to associate with the custom domain.
-
-    :::image type="content" source="media/onboard-apex-domain/cdn-endpoint-selection.png" alt-text="CDN endpoint selection" border="true":::
 
 3. Select **+ Custom domain**.
 
@@ -79,9 +83,7 @@ After you've registered your custom domain, you can then add it to your CDN endp
 
    Azure verifies that the CNAME record exists for the custom domain name you entered. If the CNAME is correct, your custom domain is validated.
 
-   It can take some time for the new custom domain settings to propagate to all CDN edge nodes:
-    - For **Azure CDN Standard from Microsoft** profiles, propagation usually completes in 10 minutes.
-    - For **Azure CDN Standard from Edgio** and **Azure CDN Premium from Edgio** profiles, propagation usually completes in 10 minutes.
+   It can take up to ten minutes for the new custom domain settings to propagate to all CDN edge nodes.
 
 ## Enable HTTPS on your custom domain
 

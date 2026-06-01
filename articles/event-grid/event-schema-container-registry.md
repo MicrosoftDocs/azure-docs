@@ -1,7 +1,7 @@
 ---
 title: Azure Container Registry as Event Grid source
 description: Describes the properties that are provided for Container Registry events with Azure Event Grid
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 12/02/2022
 ---
 
@@ -356,7 +356,7 @@ The connectedRegistry object has the following properties:
 ## Tutorials and how-tos
 |Title |Description  |
 |---------|---------|
-| [Quickstart: send container registry events](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send Container Registry events. |
+| [Quickstart: send container registry events](/azure/container-registry/container-registry-event-grid-quickstart?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send Container Registry events. |
 
 
 ## Next steps

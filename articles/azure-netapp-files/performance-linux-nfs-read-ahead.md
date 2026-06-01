@@ -1,19 +1,20 @@
 ---
-title: Linux NFS read-ahead best practices for Azure NetApp Files - Session slots and slot table entries | Microsoft Docs
+title: Linux NFS read-ahead best practices for Azure NetApp Files - Session slots and slot table entries
 description: Describes filesystem cache and Linux NFS read-ahead best practices for Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
-ms.topic: conceptual
-ms.date: 09/29/2022
+ms.topic: concept-article
+ms.date: 05/07/2025
 ms.author: anfdocs
+# Customer intent: As a system administrator managing NFS on Azure NetApp Files, I want to understand the read-ahead best practices and configuration options, so that I can optimize client sequential read performance for my Linux-based applications.
 ---
 # Linux NFS read-ahead best practices for Azure NetApp Files
 
 This article helps you understand filesystem cache best practices for Azure NetApp Files.
 
-NFS read-ahead predictively requests blocks from a file in advance of I/O requests by the application. It is designed to improve client sequential read throughput.  Until recently, all modern Linux distributions set the read-ahead value to be equivalent of 15 times the mounted filesystems `rsize`.
+NFS read-ahead predictively requests blocks from a file in advance of I/O requests by the application. It's designed to improve client sequential read throughput. Until recently, all modern Linux distributions set the read-ahead value to be equivalent of 15 times the mounted filesystems `rsize`.
 
 The following table shows the default read-ahead values for each given `rsize` mount option.
 
@@ -21,9 +22,9 @@ The following table shows the default read-ahead values for each given `rsize` m
 |-|-|
 | 64 KiB | 960 KiB |
 | 256 KiB | 3,840 KiB |
-| 1024 KiB | 15,360 KiB |
+| 1,024 KiB | 15,360 KiB |
 
-RHEL 8.3 and Ubuntu 18.04 introduced changes that might negatively impact client sequential read performance.  Unlike earlier releases, these distributions set read-ahead to a default of 128 KiB regardless of the `rsize` mount option used. Upgrading from releases with the larger read-ahead value to those with the 128-KiB default experienced decreases in sequential read performance. However, read-ahead values may be tuned upward both dynamically and persistently.  For example, testing with SAS GRID  found the 15,360-KiB read value optimal compared to 3,840 KiB, 960 KiB, and 128 KiB.  Not enough tests have been run beyond 15,360 KiB to determine positive or negative impact.
+RHEL 8.3 and Ubuntu 18.04 introduced changes that might negatively impact client sequential read performance. Unlike earlier releases, these distributions set read-ahead to a default of 128 KiB regardless of the `rsize` mount option used. Upgrading from releases with the larger read-ahead value to releases with the 128-KiB default experienced decreases in sequential read performance. However, read-ahead values may be tuned upward both dynamically and persistently. For example, testing with SAS GRID found the 15,360 KiB read value optimal compared to 3,840 KiB, 960 KiB, and 128 KiB. Not enough tests have been run beyond 15,360 KiB to determine positive or negative impact.
 
 The following table shows the default read-ahead values for each currently available distribution.
 
@@ -39,9 +40,9 @@ The following table shows the default read-ahead values for each currently avail
 
 ## How to work with per-NFS filesystem read-ahead
 
-NFS read-ahead is defined at the mount point for an NFS filesystem. The default setting can be viewed and set both dynamically and persistently.  For convenience, the following bash script written by Red Hat has been provided for viewing or dynamically setting read-ahead for amounted NFS filesystem.
+NFS read-ahead is defined at the mount point for an NFS filesystem. The default setting can be viewed and set both dynamically and persistently. For convenience, the following bash script written by Red Hat is provided for viewing or dynamically setting read-ahead for amounted NFS filesystem.
 
-Read-ahead can be defined either dynamically per NFS mount using the following script or persistently using `udev` rules as shown in this section.  To display or set read-ahead for a mounted NFS filesystem, you can save the following script as a bash file, modify the file’s permissions to make it an executable (`chmod 544 readahead.sh`), and run as shown.
+Read-ahead can be defined either dynamically per NFS mount using the following script or persistently using `udev` rules as shown in this section. To display or set read-ahead for a mounted NFS filesystem, you can save the following script as a bash file, modify the file’s permissions to make it an executable (`chmod 544 readahead.sh`), and run as shown.
 
 ## How to show or set read-ahead values
 

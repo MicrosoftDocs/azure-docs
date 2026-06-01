@@ -3,12 +3,14 @@ title: Quickstart - Check access for a user to a single Azure resource - Azure R
 description: In this quickstart, you learn how to check the access for yourself or another user to an Azure resource using the Azure portal and Azure role-based access control (Azure RBAC).
 services: role-based-access-control
 author: rolyon
-manager: amycolannino
+manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: quickstart
-ms.date: 07/18/2023
+ms.date: 12/12/2024
 ms.author: rolyon
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-image-nochange
 #Customer intent: As a new user, I want to quickly see access for myself, user, group, or application, to make sure they have the appropriate permissions.
 ---
 
@@ -28,53 +30,75 @@ Follow these steps to open the Azure resource that you want to check access for.
 
 1. Open the Azure resource you want to check access for, such as **Management groups**, **Subscriptions**, **Resource groups**, or a particular resource.
 
-1. Click the specific resource in that scope.
+1. Select the specific resource in that scope.
 
     The following shows an example resource group.
 
-    ![Screenshot of resource group overview.](./media/shared/rg-overview.png)
+    :::image type="content" source="./media/shared/rg-overview.png" alt-text="Screenshot of resource group overview." lightbox="./media/shared/rg-overview.png":::
 
-## Step 2: Check access for a user
+## Step 2: Check your access
 
-Follow these steps to check the access for a single user, group, service principal, or managed identity to the previously selected Azure resource.
+Follow these steps to check your access to the previously selected Azure resource.
 
-1. Click **Access control (IAM)**.
+If you have a Microsoft Entra ID P2 or Microsoft Entra ID Governance license, [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) functionality is integrated so you should follow the steps on the **PIM** tab.
+
+# [Default](#tab/default)
+
+1. Select **Access control (IAM)**.
 
     The following shows an example of the Access control (IAM) page for a resource group.
 
-    ![Screenshot of resource group access control and Check access tab.](./media/shared/rg-access-control.png)
+    :::image type="content" source="./media/shared/rg-access-control.png" alt-text="Screenshot of resource group access control and Check access tab." lightbox="./media/shared/rg-access-control.png":::
 
-1. On the **Check access** tab, click the **Check access** button.
+1. On the **Check access** tab, select the **View my access** button.
 
-1. In the **Check access** pane, click **User, group, or service principal**.
+    An assignments pane appears that lists your access at this scope and inherited to this scope. Assignments at child scopes aren't listed.
 
-1. In the search box, enter a string to search the directory for display names, email addresses, or object identifiers.
+    :::image type="content" source="./media/check-access/rg-check-access-assignments.png" alt-text="Screenshot of role and deny assignments pane." lightbox="./media/check-access/rg-check-access-assignments.png":::
 
-    ![Screenshot of Check access select list.](./media/shared/rg-check-access-select.png)
+# [PIM](#tab/pim)
 
-1. Click the user to open the **assignments** pane.
+1. Select **Access control (IAM)**.
+
+1. On the **Check access** tab, view your role assignments at this scope and inherited to this scope. Assignments at child scopes aren't listed.
+
+    The following shows an example of the Access control (IAM) page for a resource group.
+
+
+    :::image type="content" source="./media/check-access/rg-access-control-pim.png" alt-text="Screenshot of resource group access control and Check access tab for PIM integration." lightbox="./media/check-access/rg-access-control-pim.png":::
+
+    This page lists any [eligible and time-bound role assignments](pim-integration.md). To activate any eligible role assignments, select **Activate role**. For more information, see [Activate eligible Azure role assignments](./role-assignments-eligible-activate.md).
+
+---
+
+## Step 3: Check access for a user
+
+Follow these steps to check the access for a single user, group, service principal, or managed identity to the previously selected Azure resource.
+
+1. Select **Access control (IAM)**.
+
+1. On the **Check access** tab, select the **Check access** button.
+
+    A **Check access** pane appears.
+
+1. Select **User, group, or service principal**.
+
+1. In the search box, enter a string to search the directory for name or email addresses.
+
+    :::image type="content" source="./media/shared/rg-check-access-select.png" alt-text="Screenshot of Check access select list." lightbox="./media/shared/rg-check-access-select.png":::
+
+1. Select the user to open the **assignments** pane.
 
     On this pane, you can see the access for the selected user at this scope and inherited to this scope. Assignments at child scopes aren't listed. You see the following assignments:
 
     - Role assignments added with Azure RBAC.
     - Deny assignments added using Azure Blueprints or Azure managed apps.
-    - Classic Service Administrator or Co-Administrator assignments for classic deployments. 
 
-    ![Screenshot of role and deny assignments pane for a user.](./media/shared/rg-check-access-assignments-user.png)
+    If there are any [eligible or time-bound role assignments](pim-integration.md), you can view these assignments on the **Eligible assignments** tab.
 
-## Step 3: Check your access
-
-Follow these steps to check your access to the previously selected Azure resource.
-
-1. Click **Access control (IAM)**.
-
-1. On the **Check access** tab, click the **View my access** button.
-
-    An assignments pane appears that lists your access at this scope and inherited to this scope. Assignments at child scopes aren't listed.
-
-    ![Screenshot of role and deny assignments pane.](./media/check-access/rg-check-access-assignments.png)
+    :::image type="content" source="./media/shared/rg-check-access-assignments-user.png" alt-text="Screenshot of role and deny assignments pane for a user." lightbox="./media/shared/rg-check-access-assignments-user.png":::
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [List Azure role assignments using the Azure portal](role-assignments-list-portal.yml)
+> [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal)

@@ -6,22 +6,24 @@ description: Use Microsoft Sentinel to perform security analytics for Azure Acti
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: tutorial
-ms.date: 03/06/2023
+ms.date: 07/31/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
+ms.custom: sfi-image-nochange
 #Customer intent: As an IT professional, I want to gather logs and audit data using Microsoft Sentinel and Azure Monitor to secure applications that use Azure Active Directory B2C.
 ---
 
 # Tutorial: Configure security analytics for Azure Active Directory B2C data with Microsoft Sentinel
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Increase the security of your Azure Active Directory B2C (Azure AD B2C) environment by routing logs and audit information to Microsoft Sentinel. The scalable Microsoft Sentinel is a cloud-native, security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution. Use the solution for alert detection, threat visibility, proactive hunting, and threat response for Azure AD B2C.
 
 Learn more: 
 
-* [What is Microsoft Sentinel?](../sentinel/overview.md)
+* [What is Microsoft Sentinel?](/azure/sentinel/overview)
 * [What is SOAR?](https://www.microsoft.com/security/business/security-101/what-is-soar)
 
 More uses for Microsoft Sentinel, with Azure AD B2C, are:
@@ -69,7 +71,7 @@ After you configure your Azure AD B2C instance to send logs to Azure Monitor, en
 5. Select **Add Microsoft Sentinel**.
 
    >[!NOTE]
-   >It's possible to run Microsoft Sentinel on more than one workspace, however data is isolated in a single workspace.</br> See, [Quickstart: Onboard Microsoft Sentinel](../sentinel/quickstart-onboard.md)
+   >It's possible to run Microsoft Sentinel on more than one workspace, however data is isolated in a single workspace.</br> See, [Quickstart: Onboard Microsoft Sentinel](/azure/sentinel/quickstart-onboard)
 
 ## Create a Microsoft Sentinel rule
 
@@ -77,7 +79,7 @@ After you enable Microsoft Sentinel, get notified when something suspicious occu
 
 You can create custom analytics rules to discover threats and anomalous behaviors in your environment. These rules search for specific events, or event sets, and alert you when event thresholds or conditions are met. Then incidents are generated for investigation.
 
-See, [Create custom analytics rules to detect threats](../sentinel/detect-threats-custom.md)
+See, [Create custom analytics rules to detect threats](/azure/sentinel/detect-threats-custom)
 
    >[!NOTE]
    >Microsoft Sentinel has templates to create threat detection rules that search your data for suspicious activity. For this tutorial, you create a rule.
@@ -136,7 +138,7 @@ You can edit, enable, disable, or delete the rule.
 
 An incident can include multiple alerts, and is an aggregation of relevant evidence for an investigation. At the incident level, you can set properties such as Severity and Status.
 
-Learn more: [Investigate incidents with Microsoft Sentinel](../sentinel/investigate-cases.md).
+Learn more: [Investigate incidents with Microsoft Sentinel](/azure/sentinel/investigate-cases).
     
 1. Go to the **Incidents** page.
 2. Select an incident. 
@@ -177,8 +179,8 @@ Learn more: [Incident-Email-Notification](https://github.com/Azure/Azure-Sentine
 For more information about Microsoft Sentinel and Azure AD B2C, see:
 
 * [Azure AD B2C Reports & Alerts, Workbooks](https://github.com/azure-ad-b2c/siem#workbooks)
-* [Microsoft Sentinel documentation](../sentinel/index.yml)
+* [Microsoft Sentinel documentation](/azure/sentinel/)
 
 ## Next step
 
-[Handle false positives in Microsoft Sentinel](../sentinel/false-positives.md)
+[Handle false positives in Microsoft Sentinel](/azure/sentinel/false-positives)

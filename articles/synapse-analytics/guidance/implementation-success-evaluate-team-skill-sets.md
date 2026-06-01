@@ -1,11 +1,10 @@
 ---
 title: "Synapse implementation success methodology: Evaluate team skill sets"
 description: "Learn how to evaluate your team of skilled resources that will implement your Azure Synapse solution."
-author: SnehaGunda
-ms.author: whhender
-ms.reviewer: whhender
-ms.service: synapse-analytics
-ms.topic: conceptual
+author: juluczni
+ms.author: juluczni
+ms.service: azure-synapse-analytics
+ms.topic: concept-article
 ms.date: 05/31/2022
 ---
 

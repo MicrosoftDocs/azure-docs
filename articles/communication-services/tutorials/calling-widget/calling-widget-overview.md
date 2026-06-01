@@ -15,7 +15,7 @@ ms.subservice: calling
 
 # Get started with Azure Communication Services UI library Calling to Teams Voice Applications
 
-This project aims to guide developers to initiate a call from the Azure Communication Services Calling Web SDK to [Teams Call Queue](/microsoftteams/create-a-phone-system-call-queue?tabs=general-info) and [Auto Attendant](/microsoftteams/create-a-phone-system-auto-attendant?tabs=general-info) using the Azure Communication Services [UI Library](https://azure.github.io/communication-ui-library/?path=/docs/overview--page).
+This project aims to guide developers to initiate a call from the Azure Communication Services Calling Web SDK to [Teams Call Queue](/microsoftteams/create-a-phone-system-call-queue?tabs=general-info) and [Auto Attendant](/microsoftteams/create-a-phone-system-auto-attendant?tabs=general-info) using the Azure Communication Services [UI Library](https://azure.github.io/communication-ui-library/?path=/docs/overview--docs).
 
 As per your requirements, you might need to offer your customers an easy way to reach out to you without any complex setup like emailing a meeting link. Calling to Teams Call Queue and Auto Attendant is a simple yet effective concept that facilitates instant interaction with customer support, financial advisors, or other customer-facing teams. By reducing the time that it takes to have your customers connect with you the faster you can address their requests.
 
@@ -33,7 +33,7 @@ If you want to try out the experience without following either of the tutorials,
 A complete start to finish tutorial built using [React](https://react.dev/) that teaches you to create a Calling widget using [Fluent UI](https://developer.microsoft.com/en-us/fluentui#/) and the UI Library.
 - [Get started with Azure Communication Services UI library calling to Teams Call Queue and Auto Attendant](./calling-widget-tutorial.md)
 
-]![Screenshot of Calling Widget sample app home page.](../media/calling-widget/sample-app-splash-widget-open.png)](../media/calling-widget/sample-app-splash-widget-open.png#lightbox)
+![Screenshot of Calling Widget sample app home page.](../media/calling-widget/sample-app-splash-widget-open.png#lightbox)
 
 #### Build it - Cross-platform: JavaScript
 
@@ -42,7 +42,7 @@ A complete start to finish tutorial built using [React](https://react.dev/) that
 We also include JavaScript bundles that you can use to integrate our `CallComposite` Calling experiences into your application that is not built in react. This tutorial uses our precompiled JavaScript bundles to integrate the `CallComposite` into your web page.
 - [Get started with Azure Communication Services UI library JavaScript bundles calling to Teams Call Queue and Auto Attendant](./calling-widget-js-tutorial.md)
 
-[![Screenshot showing the home page of js bundle sample app.](../media/calling-widget/js-bundle-splash.png)].](../media/calling-widget/js-bundle-splash.png#lightbox)
+![Screenshot showing the home page of js bundle sample app.](../media/calling-widget/js-bundle-splash.png#lightbox)
 
 
 ## Next steps

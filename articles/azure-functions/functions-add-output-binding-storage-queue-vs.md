@@ -4,7 +4,10 @@ description: "Learn how to add an output binding to connect your C# class librar
 ms.date: 01/31/2023
 ms.topic: quickstart
 ms.devlang: csharp
-ms.custom: mvc, mode-ui
+ms.custom:
+  - mvc
+  - mode-ui
+  - sfi-image-nochange
 #Customer intent: "As an Azure Functions developer, I want to connect my C# class library function to Azure Storage so that I can easily write data to a storage queue."
 ---
 
@@ -26,7 +29,7 @@ Before you start this article, you must:
 
 ## Download the function app settings
 
-In the [previous quickstart article](./create-first-function-vs-code-csharp.md), you created a function app in Azure along with the required Storage account. The connection string for this account is stored securely in app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the *local.settings.json* file. 
+In the [previous quickstart article](./how-to-create-function-vs-code.md?pivot=programming-language-csharp), you created a function app in Azure along with the required Storage account. The connection string for this account is stored securely in app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the *local.settings.json* file. 
 
 1. In **Solution Explorer**, right-click the project and select **Publish**. 
 

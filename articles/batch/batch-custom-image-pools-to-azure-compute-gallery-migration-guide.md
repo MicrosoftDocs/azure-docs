@@ -1,9 +1,10 @@
 ---
 title: Migrate Azure Batch custom image pools to Azure Compute Gallery
 description: Learn how to migrate Azure Batch custom image pools to Azure compute gallery and plan for feature end of support.
-ms.service: batch
+ms.service: azure-batch
 ms.topic: how-to
-ms.date: 03/07/2023
+ms.date: 04/25/2025
+# Customer intent: "As a cloud infrastructure engineer, I want to migrate Azure Batch custom image pools to Azure Compute Gallery, so that I can ensure reliable scaling and support for modern Azure features before the end of support deadline."
 ---
 
 # Migrate Azure Batch custom image pools to Azure Compute Gallery
@@ -48,13 +49,13 @@ you can select a source option to migrate from, including types being retired fo
 | VHD in a storage account | Select **Browse** to choose the storage account for the VHD. |
 
 For more information about this process, see
-[creating an image definition and version for Compute Gallery](../virtual-machines/image-version.md#create-an-image).
+[creating an image definition and version for Compute Gallery](/azure/virtual-machines/image-version#create-an-image).
 
 ## FAQs
 
 - How can I create an Azure Compute Gallery?
 
-  See the [guide](../virtual-machines/create-gallery.md#create-a-private-gallery) for Compute Gallery creation.
+  See the [guide](/azure/virtual-machines/create-gallery#create-a-private-gallery) for Compute Gallery creation.
 
 - How do I create a Pool with a Compute Gallery image?
 
@@ -70,4 +71,4 @@ For more information about this process, see
 
 ## Next steps
 
-For more information, see [Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md).
+For more information, see [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery).

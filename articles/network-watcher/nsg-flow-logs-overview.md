@@ -1,21 +1,24 @@
 ---
-title: NSG flow logs overview
+title: NSG Flow Logs Overview
 titleSuffix: Azure Network Watcher
 description: Learn about NSG flow logs feature of Azure Network Watcher, which allows you to log information about IP traffic flowing through a network security group.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 02/15/2024
+ms.date: 12/18/2025
+ms.custom:
+  - build-2025
+  - sfi-image-nochange
 
-#CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can log my network traffic to analyze and optimize the network performance.
+# Customer intent: As an Azure network administrator, I want to understand how NSG flow logs work, so that I can monitor traffic patterns and enhance the security and performance of my network.
 ---
 
 # Flow logging for network security groups
 
-Network security group (NSG) flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a [network security group](../virtual-network/network-security-groups-overview.md). Flow data is sent to Azure Storage from where you can access it and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS) of your choice.
+[!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]
 
-:::image type="content" source="./media/nsg-flow-logs-overview/nsg-flow-logs-portal.png" alt-text="Screenshot showing Network Watcher NSG flow logs page in the Azure portal.":::
+Network security group (NSG) flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a [network security group](../virtual-network/network-security-groups-overview.md). Flow data is sent to Azure Storage from where you can access it and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS) of your choice.
 
 ## Why use flow logs?
 
@@ -121,9 +124,9 @@ Here's an example format of a version 1 NSG flow log:
     "records": [
         {
             "time": "2017-02-16T22:00:32.8950000Z",
-            "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
+            "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
             "category": "NetworkSecurityGroupFlowEvent",
-            "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+            "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
             "operationName": "NetworkSecurityGroupFlowEvents",
             "properties": {
                 "Version": 1,
@@ -134,7 +137,7 @@ Here's an example format of a version 1 NSG flow log:
                             {
                                 "mac": "000D3AF8801A",
                                 "flowTuples": [
-                                    "1487282421,42.119.146.95,10.1.0.4,51529,5358,T,I,D"
+                                    "1487282421,192.0.2.95,10.1.0.4,51529,5358,T,I,D"
                                 ]
                             }
                         ]
@@ -145,10 +148,10 @@ Here's an example format of a version 1 NSG flow log:
                             {
                                 "mac": "000D3AF8801A",
                                 "flowTuples": [
-                                    "1487282370,163.28.66.17,10.1.0.4,61771,3389,T,I,A",
-                                    "1487282393,5.39.218.34,10.1.0.4,58596,3389,T,I,A",
-                                    "1487282393,91.224.160.154,10.1.0.4,61540,3389,T,I,A",
-                                    "1487282423,13.76.89.229,10.1.0.4,53163,3389,T,I,A"
+                                    "1487282370,192.0.2.17,10.1.0.4,61771,3389,T,I,A",
+                                    "1487282393,203.0.113.34,10.1.0.4,58596,3389,T,I,A",
+                                    "1487282393,192.0.2.154,10.1.0.4,61540,3389,T,I,A",
+                                    "1487282423,203.0.113.229,10.1.0.4,53163,3389,T,I,A"
                                 ]
                             }
                         ]
@@ -158,9 +161,9 @@ Here's an example format of a version 1 NSG flow log:
         },
         {
             "time": "2017-02-16T22:01:32.8960000Z",
-            "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
+            "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
             "category": "NetworkSecurityGroupFlowEvent",
-            "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+            "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
             "operationName": "NetworkSecurityGroupFlowEvents",
             "properties": {
                 "Version": 1,
@@ -171,7 +174,7 @@ Here's an example format of a version 1 NSG flow log:
                             {
                                 "mac": "000D3AF8801A",
                                 "flowTuples": [
-                                    "1487282481,195.78.210.194,10.1.0.4,53,1732,U,I,D"
+                                    "1487282481,198.51.100.194,10.1.0.4,53,1732,U,I,D"
                                 ]
                             }
                         ]
@@ -182,9 +185,9 @@ Here's an example format of a version 1 NSG flow log:
                             {
                                 "mac": "000D3AF8801A",
                                 "flowTuples": [
-                                    "1487282435,61.129.251.68,10.1.0.4,57776,3389,T,I,A",
-                                    "1487282454,84.25.174.170,10.1.0.4,59085,3389,T,I,A",
-                                    "1487282477,77.68.9.50,10.1.0.4,65078,3389,T,I,A"
+                                    "1487282435,198.51.100.68,10.1.0.4,57776,3389,T,I,A",
+                                    "1487282454,203.0.113.170,10.1.0.4,59085,3389,T,I,A",
+                                    "1487282477,192.0.2.50,10.1.0.4,65078,3389,T,I,A"
                                 ]
                             }
                         ]
@@ -196,9 +199,9 @@ Here's an example format of a version 1 NSG flow log:
             "records": [
                 {
                     "time": "2017-02-16T22:00:32.8950000Z",
-                    "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
+                    "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
                     "category": "NetworkSecurityGroupFlowEvent",
-                    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+                    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
                     "operationName": "NetworkSecurityGroupFlowEvents",
                     "properties": {
                         "Version": 1,
@@ -209,7 +212,7 @@ Here's an example format of a version 1 NSG flow log:
                                     {
                                         "mac": "000D3AF8801A",
                                         "flowTuples": [
-                                            "1487282421,42.119.146.95,10.1.0.4,51529,5358,T,I,D"
+                                            "1487282421,192.0.2.95,10.1.0.4,51529,5358,T,I,D"
                                         ]
                                     }
                                 ]
@@ -220,10 +223,10 @@ Here's an example format of a version 1 NSG flow log:
                                     {
                                         "mac": "000D3AF8801A",
                                         "flowTuples": [
-                                            "1487282370,163.28.66.17,10.1.0.4,61771,3389,T,I,A",
-                                            "1487282393,5.39.218.34,10.1.0.4,58596,3389,T,I,A",
-                                            "1487282393,91.224.160.154,10.1.0.4,61540,3389,T,I,A",
-                                            "1487282423,13.76.89.229,10.1.0.4,53163,3389,T,I,A"
+                                            "1487282370,192.0.2.17,10.1.0.4,61771,3389,T,I,A",
+                                            "1487282393,203.0.113.34,10.1.0.4,58596,3389,T,I,A",
+                                            "1487282393,192.0.2.154,10.1.0.4,61540,3389,T,I,A",
+                                            "1487282423,203.0.113.229,10.1.0.4,53163,3389,T,I,A"
                                         ]
                                     }
                                 ]
@@ -233,9 +236,9 @@ Here's an example format of a version 1 NSG flow log:
                 },
                 {
                     "time": "2017-02-16T22:01:32.8960000Z",
-                    "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
+                    "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
                     "category": "NetworkSecurityGroupFlowEvent",
-                    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+                    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
                     "operationName": "NetworkSecurityGroupFlowEvents",
                     "properties": {
                         "Version": 1,
@@ -246,7 +249,7 @@ Here's an example format of a version 1 NSG flow log:
                                     {
                                         "mac": "000D3AF8801A",
                                         "flowTuples": [
-                                            "1487282481,195.78.210.194,10.1.0.4,53,1732,U,I,D"
+                                            "1487282481,198.51.100.194,10.1.0.4,53,1732,U,I,D"
                                         ]
                                     }
                                 ]
@@ -257,9 +260,9 @@ Here's an example format of a version 1 NSG flow log:
                                     {
                                         "mac": "000D3AF8801A",
                                         "flowTuples": [
-                                            "1487282435,61.129.251.68,10.1.0.4,57776,3389,T,I,A",
-                                            "1487282454,84.25.174.170,10.1.0.4,59085,3389,T,I,A",
-                                            "1487282477,77.68.9.50,10.1.0.4,65078,3389,T,I,A"
+                                            "1487282435,198.51.100.68,10.1.0.4,57776,3389,T,I,A",
+                                            "1487282454,203.0.113.170,10.1.0.4,59085,3389,T,I,A",
+                                            "1487282477,192.0.2.50,10.1.0.4,65078,3389,T,I,A"
                                         ]
                                     }
                                 ]
@@ -269,9 +272,9 @@ Here's an example format of a version 1 NSG flow log:
                 },
                 {
                     "time": "2017-02-16T22:02:32.9040000Z",
-                    "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
+                    "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
                     "category": "NetworkSecurityGroupFlowEvent",
-                    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+                    "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
                     "operationName": "NetworkSecurityGroupFlowEvents",
                     "properties": {
                         "Version": 1,
@@ -282,8 +285,8 @@ Here's an example format of a version 1 NSG flow log:
                                     {
                                         "mac": "000D3AF8801A",
                                         "flowTuples": [
-                                            "1487282492,175.182.69.29,10.1.0.4,28918,5358,T,I,D",
-                                            "1487282505,71.6.216.55,10.1.0.4,8080,8080,T,I,D"
+                                            "1487282492,203.0.113.29,10.1.0.4,28918,5358,T,I,D",
+                                            "1487282505,192.0.2.55,10.1.0.4,8080,8080,T,I,D"
                                         ]
                                     }
                                 ]
@@ -294,7 +297,7 @@ Here's an example format of a version 1 NSG flow log:
                                     {
                                         "mac": "000D3AF8801A",
                                         "flowTuples": [
-                                            "1487282512,91.224.160.154,10.1.0.4,59046,3389,T,I,A"
+                                            "1487282512,192.0.2.154,10.1.0.4,59046,3389,T,I,A"
                                         ]
                                     }
                                 ]
@@ -319,9 +322,9 @@ Here's an example format of a version 2 NSG flow log:
     "records": [
         {
             "time": "2018-11-13T12:00:35.3899262Z",
-            "systemId": "a0fca5ce-022c-47b1-9735-89943b42f2fa",
+            "systemId": "66aa66aa-bb77-cc88-dd99-00ee00ee00ee",
             "category": "NetworkSecurityGroupFlowEvent",
-            "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+            "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
             "operationName": "NetworkSecurityGroupFlowEvents",
             "properties": {
                 "Version": 2,
@@ -332,9 +335,9 @@ Here's an example format of a version 2 NSG flow log:
                             {
                                 "mac": "000D3AF87856",
                                 "flowTuples": [
-                                    "1542110402,94.102.49.190,10.5.16.4,28746,443,U,I,D,B,,,,",
-                                    "1542110424,176.119.4.10,10.5.16.4,56509,59336,T,I,D,B,,,,",
-                                    "1542110432,167.99.86.8,10.5.16.4,48495,8088,T,I,D,B,,,,"
+                                    "1542110402,192.0.2.190,10.5.16.4,28746,443,U,I,D,B,,,,",
+                                    "1542110424,203.0.113.10,10.5.16.4,56509,59336,T,I,D,B,,,,",
+                                    "1542110432,198.51.100.8,10.5.16.4,48495,8088,T,I,D,B,,,,"
                                 ]
                             }
                         ]
@@ -345,10 +348,10 @@ Here's an example format of a version 2 NSG flow log:
                             {
                                 "mac": "000D3AF87856",
                                 "flowTuples": [
-                                    "1542110377,10.5.16.4,13.67.143.118,59831,443,T,O,A,B,,,,",
-                                    "1542110379,10.5.16.4,13.67.143.117,59932,443,T,O,A,E,1,66,1,66",
-                                    "1542110379,10.5.16.4,13.67.143.115,44931,443,T,O,A,C,30,16978,24,14008",
-                                    "1542110406,10.5.16.4,40.71.12.225,59929,443,T,O,A,E,15,8489,12,7054"
+                                    "1542110377,10.5.16.4,203.0.113.118,59831,443,T,O,A,B,,,,",
+                                    "1542110379,10.5.16.4,203.0.113.117,59932,443,T,O,A,E,1,66,1,66",
+                                    "1542110379,10.5.16.4,203.0.113.115,44931,443,T,O,A,C,30,16978,24,14008",
+                                    "1542110406,10.5.16.4,198.51.100.225,59929,443,T,O,A,E,15,8489,12,7054"
                                 ]
                             }
                         ]
@@ -358,9 +361,9 @@ Here's an example format of a version 2 NSG flow log:
         },
         {
             "time": "2018-11-13T12:01:35.3918317Z",
-            "systemId": "a0fca5ce-022c-47b1-9735-89943b42f2fa",
+            "systemId": "66aa66aa-bb77-cc88-dd99-00ee00ee00ee",
             "category": "NetworkSecurityGroupFlowEvent",
-            "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+            "resourceId": "/SUBSCRIPTIONS/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
             "operationName": "NetworkSecurityGroupFlowEvents",
             "properties": {
                 "Version": 2,
@@ -389,25 +392,15 @@ Here's an example format of a version 2 NSG flow log:
 
 ### Log tuple and bandwidth calculation
 
-![Screenshot that shows an example of a flow log tuple.](./media/nsg-flow-logs-overview/tuple.png)
+:::image type="content" source="./media/nsg-flow-logs-overview/flow-log-format.png" alt-text="Screenshot that shows an example of a flow log tuple." lightbox="./media/nsg-flow-logs-overview/flow-log-format.png":::
 
-Here's an example bandwidth calculation for flow tuples from a TCP conversation between 185.170.185.105:35370 and 10.2.0.4:23:
+Here's an example of bandwidth calculation for flow tuples from a TCP conversation between `203.0.113.105:35370` and `10.0.0.5:443`:
 
-`1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,B,,,,`
-`1493695838,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1021,588096,8005,4610880`
-`1493696138,185.170.185.105,10.2.0.4,35370,23,T,I,A,E,52,29952,47,27072`
+`1708978215,203.0.113.105,10.0.0.5,35370,443,T,I,A,B,,,,`
+`1708978215,203.0.113.105,10.0.0.5,35370,443,T,I,A,C,1021,588096,8005,4610880`
+`1708978215,203.0.113.105,10.0.0.5,35370,443,T,I,A,E,52,29952,47,27072`
 
 For continuation (`C`) and end (`E`) flow states, byte and packet counts are aggregate counts from the time of the previous flow's tuple record. In the example conversation, the total number of packets transferred is 1021+52+8005+47 = 9125. The total number of bytes transferred is 588096+29952+4610880+27072 = 5256000.
-
-## Managing NSG flow logs
-
-To learn how to create, change, disable, or delete NSG flow logs, see one of the following guides:
-
-- [Azure portal](nsg-flow-logs-portal.md)
-- [PowerShell](nsg-flow-logs-powershell.md)
-- [Azure CLI](nsg-flow-logs-cli.md)
-- [REST API](nsg-flow-logs-rest.md)
-- [Azure Resource Manager](nsg-flow-logs-azure-resource-manager.md)
 
 ## Working with flow logs
 
@@ -415,8 +408,8 @@ To learn how to create, change, disable, or delete NSG flow logs, see one of the
 
 To learn how to read and export NSG flow logs, see one of the following guides:
 
-- [Download and view flow logs from the portal](nsg-flow-logs-portal.md#download-a-flow-log)
-- [Read flow logs by using PowerShell functions](network-watcher-read-nsg-flow-logs.md)
+- [Download and view flow logs](nsg-flow-logs-manage.md#download-a-flow-log)
+- [Read flow logs using PowerShell functions](network-watcher-read-nsg-flow-logs.md)
 - [Export NSG flow logs to Splunk](https://www.splunk.com/en_us/blog/platform/splunking-azure-nsg-flow-logs.html)
 
 NSG flow log files are stored in a storage account at the following path:
@@ -458,11 +451,22 @@ Flows affected by non-default inbound rules become non-terminating. Additionally
 
 You can resolve this difference by setting the `FlowTimeoutInMinutes` property on the associated virtual networks to a non-null value. You can achieve default stateful behavior by setting `FlowTimeoutInMinutes` to 4 minutes. For long-running connections where you don't want flows to disconnect from a service or destination, you can set `FlowTimeoutInMinutes` to a value of up to 30 minutes. Use [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to set `FlowTimeoutInMinutes` property:
 
+
 ```azurepowershell-interactive
-$virtualNetwork = Get-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'myResourceGroup'
-$virtualNetwork.FlowTimeoutInMinutes = 4
-$virtualNetwork |  Set-AzVirtualNetwork
+$virtualNetwork = @{
+    Name               = 'myVNet'
+    ResourceGroupName  = 'myResourceGroup'
+}
+
+$virtualNetworkConfig = Get-AzVirtualNetwork @virtualNetwork
+$virtualNetworkConfig.FlowTimeoutInMinutes = 4
+$virtualNetworkConfig | Set-AzVirtualNetwork
 ```
+
+Flow timeout can also be set using the Azure portal:
+
+:::image type="content" source="./media/nsg-flow-logs-overview/virtual-network-flow-timeout-settings.png" alt-text="Screenshot showing the virtual network timeout settings in the Azure portal." lightbox="./media/nsg-flow-logs-overview/virtual-network-flow-timeout-settings.png":::
+
 
 ### Inbound flows logged from internet IPs to VMs without public IPs
 
@@ -486,18 +490,35 @@ NSG flow logs for network security groups associated to Azure Application Gatewa
 
 Currently, these Azure services don't support NSG flow logs:
 
-- [Azure Container Instances](../container-instances/container-instances-overview.md)
-- [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
-- [Azure Functions](../azure-functions/functions-overview.md)
-- [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md)
-- [App Service](../app-service/overview.md)
-- [Azure Database for MariaDB](../mariadb/overview.md)
-- [Azure Database for MySQL](../mysql/single-server/overview.md)
-- [Azure Database for PostgreSQL](../postgresql/single-server/overview.md)
+- [Azure Container Instances](/azure/container-instances/container-instances-overview?toc=/azure/network-watcher/toc.json)
+- [Azure Container Apps](/azure/container-apps/overview?toc=/azure/network-watcher/toc.json)
+- [Azure Logic Apps](../logic-apps/logic-apps-overview.md?toc=/azure/network-watcher/toc.json) 
+- [Azure Functions](../azure-functions/functions-overview.md?toc=/azure/network-watcher/toc.json)
+- [Azure DNS Private Resolver](../dns/dns-private-resolver-overview.md?toc=/azure/network-watcher/toc.json)
+- [App Service](../app-service/overview.md?toc=/azure/network-watcher/toc.json)
+- [Azure Database for MariaDB](/azure/mariadb/overview?toc=/azure/network-watcher/toc.json)
+- [Azure Database for MySQL](/azure/mysql/single-server/overview?toc=/azure/network-watcher/toc.json)
+- [Azure Database for PostgreSQL](/azure/postgresql/single-server/overview?toc=/azure/network-watcher/toc.json)
+- [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview?toc=/azure/network-watcher/toc.json)
+- [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction?toc=/azure/network-watcher/toc.json)
+- [Microsoft Power Platform](/power-platform?toc=/azure/network-watcher/toc.json)
 
 > [!NOTE]
 > App services deployed under an Azure App Service plan don't support NSG flow logs. To learn more, see [How virtual network integration works](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works).
 
+### Incompatible virtual machines
+
+NSG flow logs aren't supported on the following virtual machine sizes:
+
+- [D family v6 series](/azure/virtual-machines/sizes/general-purpose/d-family)
+- [E family v6 series](/azure/virtual-machines/sizes/memory-optimized/e-family)
+- [F family v6 series](/azure/virtual-machines/sizes/compute-optimized/f-family)
+
+We recommend that you use [Virtual network flow logs](vnet-flow-logs-overview.md) for these virtual machine sizes.
+
+> [!NOTE]
+> Virtual machines that run heavy networking traffic might encounter flow logging failures. We recommend that you [migrate NSG flow logs](nsg-flow-logs-migrate.md) to [Virtual network flow logs](vnet-flow-logs-overview.md) for this type of workloads.
+ 
 ## Best practices
 
 - **Enable NSG flow logs on critical subnets**: Flow logs should be enabled on all critical subnets in your subscription as an auditing and security best practice.
@@ -534,10 +555,12 @@ NSG flow logs are charged per gigabyte of ***Network flow logs collected*** and 
 
 If traffic analytics is enabled with NSG flow logs, traffic analytics pricing applies at per gigabyte processing rates. Traffic analytics isn't offered with a free tier of pricing. For more information, see [Network Watcher pricing](https://azure.microsoft.com/pricing/details/network-watcher/).
 
-Storage of logs is charged separately. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Storage of logs is charged separately. For more information, see [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) and the following considerations:
+1. NSG flow log workflow makes [Create container](/rest/api/storageservices/Create-Container) calls periodically and is directly proportional to associated number of MACs and are charged as per storage write operations.
+2. Any configuration change or subscription policy leading to failed upload attempts remains chargeable in accordance with storage billing policy.
 
 ## Related content
 
-- To learn how to manage NSG flow logs, see [Create, change, disable, or delete NSG flow logs using the Azure portal](nsg-flow-logs-portal.md).
+- To learn how to manage NSG flow logs, see [Create, change, disable, or delete NSG flow logs](nsg-flow-logs-manage.md).
 - To find answers to some of the most frequently asked questions about NSG flow logs, see [Flow logs FAQ](frequently-asked-questions.yml#flow-logs).
 - To learn about traffic analytics, see [Traffic analytics overview](traffic-analytics.md).

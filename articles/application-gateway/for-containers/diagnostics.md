@@ -2,12 +2,12 @@
 title: Diagnostic logs for Application Gateway for Containers
 description: Learn how to enable access logs for Application Gateway for Containers
 services: application-gateway
-author: greglin
-ms.service: application-gateway
-ms.subservice: appgw-for-containers
-ms.topic: article
-ms.date: 07/17/2024
-ms.author: greglin
+author: mbender-ms
+ms.service: azure-appgw-for-containers
+ms.topic: concept-article
+ms.date: 07/21/2025
+ms.author: mbender
+# Customer intent: As a cloud engineer, I want to enable and configure diagnostic logging for Application Gateway for Containers, so that I can monitor access patterns and troubleshoot performance issues effectively.
 ---
 
 # Diagnostic logs for Application Gateway for Containers
@@ -22,10 +22,11 @@ You can monitor Azure Application Gateway for Containers resources in the follow
 
 ## Diagnostic logs
 
-You can use different types of logs in Azure to manage and troubleshoot Application Gateway for Containers. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](../../azure-monitor/logs/data-platform-logs.md), Excel, and Power BI. You can learn more about the different types of logs from the following list:
+You can use different types of logs in Azure to manage and troubleshoot Application Gateway for Containers. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](/azure/azure-monitor/logs/data-platform-logs), Excel, and Power BI. You can learn more about the different types of logs from the following list:
 
-* **Activity log**: You can use [Azure activity logs](../../azure-monitor/essentials/activity-log.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
+* **Activity log**: You can use [Azure activity logs](/azure/azure-monitor/essentials/activity-log) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
 * **Access log**: You can use this log to view Application Gateway for Containers access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 60 seconds. The data may be stored in a storage account that is specified at time of enable logging.
+* **Firewall log**:  You can use the Firewall log to view the requests that are logged through either detection or prevention mode of an application gateway for containers deployment that is configured with the web application firewall. Firewall logs are collected every 60 seconds.
 
 ### Configure access log
 
@@ -71,7 +72,7 @@ New-AzDiagnosticSetting -Name 'AppGWForContainersLogs' -ResourceId "/subscriptio
 > [!Note]
 > After initially enabling diagnostic logs, it may take up to one hour before logs are available at your selected destination.
 
-For more information and Azure Monitor deployment tutorials, see [Diagnostic settings in Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md).
+For more information and Azure Monitor deployment tutorials, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
 
 ### Access log format
 
@@ -87,6 +88,8 @@ Each access log entry in Application Gateway for Containers contains the followi
 | clientIp | IP address of the client initiating the request to the frontend of Application Gateway for Containers |
 | frontendName | Name of the Application Gateway for Containers frontend that received the request from the client |
 | frontendPort | Port number the request was listened on by Application Gateway for Containers |
+| frontendTLSFailureReason | Contains information on why TLS negotiation failed. Commonly used for understanding failed authentication requests for client mutual authentication |
+| frontendTLSPeerFingerprint | The fingerprint (thumbprint) of the certificate presented by a client to the frontend of Application Gateway for Containers |
 | hostName | Host header value received from the client by Application Gateway for Containers |
 | httpMethod | HTTP Method of the request received from the client by Application Gateway for Containers as per [RFC 7231](https://datatracker.ietf.org/doc/html/rfc7231#section-4.3). |
 | httpStatusCode | HTTP Status code returned from Application Gateway for Containers to the client |
@@ -120,7 +123,9 @@ Here an example of the access log emitted in JSON format to a storage account.
         "backendTimeTaken": "-",
         "clientIp": "xxx.xxx.xxx.xxx:52526",
         "frontendName": "frontend-primary",
-        "frontendPort": "80",
+        "frontendPort": "443",
+        "frontendTLSFailureReason": "-",
+        "frontendTLSPeerFingerprint": "2c01bbc93009ad1fc977fe9115fae7ad298b665f",
         "hostName": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.fzXX.alb.azure.com",
         "httpMethod": "GET",
         "httpStatusCode": "200",
@@ -132,13 +137,73 @@ Here an example of the access log emitted in JSON format to a storage account.
         "responseBodyBytes": "91",
         "responseHeaderBytes": "190",
         "timeTaken": "2",
-        "tlsCipher": "-",
+        "tlsCipher": "TLS_AES_256_GCM_SHA384",
         "tlsProtocol": "-",
         "trackingId": "0ef125db-7fb7-48a0-b3fe-03fe0ffed873",
         "userAgent": "curl\/7.81.0"
     },
     "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/YYYYYY/PROVIDERS/MICROSOFT.SERVICENETWORKING/TRAFFICCONTROLLERS/ZZZZZZZ",
     "time": "2023-07-22T06:26:58.895Z",
+    "location": "northcentralus"
+}
+```
+
+### Firewall log format
+
+The firewall log is generated only if a security policy of type `WAF` is defined. Each firewall log entry in Application Gateway for Containers contains the following information.
+
+| Value            | Description                                                                                                                                                                                                            |
+|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| TimeGenerated    | Time (UTC) when the log was created.                                                                                                                                                                                   |
+| OperationName    | Name of the operation.                                                                                                                                                                                                 |
+| InstanceId       | Application Gateway instance for which firewall data is being generated. For a multiple-instance application gateway, there is one row per instance.                                                                   |
+| ClientIp         | Originating IP for the request.                                                                                                                                                                                        |
+| ClientPort       | Originating port for the request.                                                                                                                                                                                      |
+| Action           | Action taken on the request. Available values are Blocked and Allowed (for custom rules), Matched (when a rule matches a part of the request), and Detected and Blocked (these are both for mandatory rules).          |
+| Message          | User-friendly message for the triggering event. More details are provided in the details section.                                                                                                                      |
+| DetailedMessage  | Description of the rule for the triggered event.                                                                                                                                                                       |
+| DetailedData     | Specific data found in request that matched the rule for the triggered event.                                                                                                                                          |
+| FileDetails      | Configuration file that contained the rule for the triggered event.                                                                                                                                                    |
+| LineDetails      | Line number in the configuration file that triggered the event.                                                                                                                                                        |
+| Hostname         | Hostname or IP address of the Application Gateway.                                                                                                                                                                     |
+| PolicyId         | Resource ID of the web application firewall policy.                                                                                                                                                                    |
+| PolicyScope      | A named scope consisting of Kubernetes resource references the scope is applied to.                                                                                                                                    |
+| PolicyScopeName  | The name to the type of scope assignment the web application firewall policy is assigned to.                                                                                                                           |
+| RequestUri       | URL of the received request.                                                                                                                                                                                           |
+| RuleSetType      | Rule set type. The available value is Microsoft_DefaultRuleSet or Microsoft_BotManagerRuleSet.                                                                                                                         |
+| RuleSetVersion   | Rule set version used for Microsoft_DefaultRuleSet or Microsoft_BotManagerRuleSet.                                                                                                                                     |
+| RuleId           | Rule ID of the triggering event.                                                                                                                                                                                       |
+| TrackingId       | Generated guid by Application Gateway for Containers |
+
+```json
+{
+    "timeStamp": "2025-06-17T20:06:05+00:00",
+    "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/YYYYYY/PROVIDERS/MICROSOFT.SERVICENETWORKING/TRAFFICCONTROLLERS/ZZZZZZZ",
+    "operationName": "TrafficControllerFirewall",
+    "category": "TrafficControllerFirewallLog",
+    "properties": {
+        "instanceId": "8a02ae47-8435-4f3d-84a5-6f5ded3763f5",
+        "clientIp": "xxx.xxx.xxx.xxx",
+        "requestUri": "\/?1=1=1",
+        "ruleSetType": "Microsoft_DefaultRuleSet",
+        "ruleSetVersion": "2.1",
+        "ruleId": "949110",
+        "ruleGroup": "BLOCKING-EVALUATION",
+        "message": "Inbound Anomaly Score Exceeded (Total Score: 5)",
+        "action": "Blocked",
+        "details": {
+            "message": "Greater and Equal to Tx:inbound_anomaly_score_threshold at TX:anomaly_score.",
+            "data": "",
+            "file": "BLOCKING-EVALUATION.conf",
+            "line": "36"
+        },
+        "hostName": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.fzXX.alb.azure.com",
+        "trackingId": "0ef125db-7fb7-48a0-b3fe-03fe0ffed873",
+        "policyId": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/YYYYYY/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/ZZZZZZZ",
+        "policyScope": "HTTPRoute-test-infra-contoso-waf-route-rule-0-match-0-waf.fzXX.alb.azure.com",
+        "policyScopeName": "Route",
+        "engine": "Azwaf"
+    },
     "location": "northcentralus"
 }
 ```

@@ -1,6 +1,6 @@
 ---
 author: ilayrn
-ms.service: data-explorer
+ms.service: azure-data-explorer
 ms.topic: include
 ms.date: 01/20/2020
 ms.author: ilayr
@@ -14,6 +14,7 @@ The following table describes the maximum limits for Azure Data Explorer cluster
 | Instances per cluster | 1,000 | 
 | Number of databases in a cluster | 10,000 |
 | Number of follower clusters (data share consumers) per leader cluster (data share producer) | 100 |
+| Recommended maximum extents per cluster | 10,000,000 |
 
 > [!NOTE]
 > You can request higher limits for *Number of databases in a cluster* and *Clusters per region per subscription*. To request an increase, contact [Azure Support](https://azure.microsoft.com/support/legal/faq/).

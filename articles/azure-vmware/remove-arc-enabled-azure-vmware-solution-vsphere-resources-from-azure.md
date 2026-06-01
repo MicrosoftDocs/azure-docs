@@ -3,14 +3,12 @@ title: Remove Arc-enabled Azure VMware Solution vSphere resources from Azure
 description: Learn how to remove Arc-enabled Azure VMware Solution vSphere resources from Azure.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 12/18/2023
+ms.date: 03/18/2026
 ms.custom: references_regions, engagement-fy23
+# Customer intent: As a system administrator, I want to remove Arc-enabled Azure VMware Solution vSphere resources from Azure, so that I can discontinue management and eliminate unnecessary costs associated with Azure services.
 ---
 
 # Remove Arc-enabled Azure VMware Solution vSphere resources from Azure
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 In this article, learn how to cleanly remove your VMware vCenter environment from Azure Arc-enabled VMware vSphere. For VMware vSphere environments that you no longer want to manage with Azure Arc-enabled VMware vSphere, use the information in this article to perform the following actions: 
 
@@ -34,7 +32,7 @@ Use the following steps to uninstall extensions from the portal.
 > **Steps 2-5** must be performed for all the VMs that have VM extensions installed.
 
 1. Sign in to your Azure VMware Solution private cloud. 
-1. Select **Virtual machines** in **Private cloud**, found in the left navigation under “vCenter Server Inventory Page".
+1. Select **Virtual machines** in **Private cloud** from the left navigation under the 'vCenter Server Inventory' page.
 1. Search and select the virtual machine where you have **Guest management** enabled.
 1. Select **Extensions**.
 1. Select the extensions and select **Uninstall**.
@@ -72,7 +70,7 @@ To uninstall the Linux agent, the command to use depends on the Linux operating 
   sudo apt purge azcmagent
   ```
 
-- For RHEL, CentOS, Oracle Linux run the following command:
+- For RHEL and Oracle Linux run the following command:
 
     ```bash
     sudo yum remove azcmagent

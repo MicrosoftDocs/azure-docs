@@ -1,15 +1,17 @@
 ---
-title: Sample query logs and results from Azure Update Manager
+title: Sample Query Logs and Results from Azure Update Manager
 description: The article provides details of sample query logs from Azure Update Manager in Azure using Azure Resource Graph
 ms.service: azure-update-manager
 ms.custom: linux-related-content
-author: SnehaSudhirG
-ms.author: sudhirsneha
-ms.date: 06/13/2024
-ms.topic: conceptual
+author: habibaum
+ms.author: v-uhabiba
+ms.date: 08/21/2025
+ms.topic: overview
+ms.update-cycle: 1095-days
+# Customer intent: "As a systems administrator, I want to query update logs from Azure Update Manager, so that I can monitor the status and details of update installations across my managed machines."
 ---
 
-# Sample queries
+# Sample Azure Resource Graph queries to access Azure Update Manager operations data
 
 The following are some sample queries to help you get started querying the update assessment and deployment information collected from your managed machines. For more information on logs created from operations such as update assessments and installations, see [overview of query logs](query-logs.md).
  

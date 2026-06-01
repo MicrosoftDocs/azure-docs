@@ -1,8 +1,9 @@
 ---
 title: Creating and using resource files 
 description: Learn how to create Batch resource files from various input sources. This article covers a few common methods on how to create and place them on a VM.
-ms.date: 08/18/2021
+ms.date: 05/19/2026
 ms.topic: how-to
+# Customer intent: As a cloud engineer, I want to create and manage resource files for Azure Batch tasks, so that I can efficiently provide the necessary data for processing on virtual machines.
 ---
 
 # Creating and using resource files
@@ -18,7 +19,7 @@ Common files could be, for example, files on a start task used to install applic
 
 ## Types of resource files
 
-There are a few different options available to generate resource files, each with their own [methods](/dotnet/api/microsoft.azure.batch.resourcefile#methods). The creation process for resource files varies depending on where the original data is stored and whether multiple files should be created.
+There are a few different options available to generate resource files, each with their own [methods](/dotnet/api/azure.compute.batch.resourcefile). The creation process for resource files varies depending on where the original data is stored and whether multiple files should be created.
 
 - [Storage container URL](#storage-container-url): Generates resource files from any storage container in Azure.
 - [Storage container name](#storage-container-name-autostorage): Generates resource files from the name of a container in the Azure storage account linked to your Batch account (the autostorage account).
@@ -45,7 +46,7 @@ SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
 > [!NOTE]
 > For container access, you must have both `Read` and `List` permissions, whereas with blob access, you only need `Read` permission.
 
-Once the permissions are configured, create the SAS token and format the SAS URL for access to the storage container. Using the formatted SAS URL for the storage container, generate a resource file with [FromStorageContainerUrl](/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl).
+Once the permissions are configured, create the SAS token and format the SAS URL for access to the storage container. Using the formatted SAS URL for the storage container, generate a resource file with [StorageContainerUri](/dotnet/api/azure.compute.batch.resourcefile.storagecontaineruri).
 
 ```csharp
 CloudBlobContainer container = blobClient.GetContainerReference(containerName);
@@ -56,7 +57,7 @@ string containerSasUrl = String.Format("{0}{1}", container.Uri, sasToken);
 ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl);
 ```
 
-If desired, you can use the [blobPrefix](/dotnet/api/microsoft.azure.batch.resourcefile.blobprefix) property to limit downloads to only those blobs whose name begins with a specified prefix:
+If desired, you can use the [blobPrefix](/dotnet/api/azure.compute.batch.resourcefile.blobprefix) property to limit downloads to only those blobs whose name begins with a specified prefix:
 
 ```csharp
 ResourceFile inputFile = ResourceFile.FromStorageContainerUrl(containerSasUrl, blobPrefix = yourPrefix);
@@ -82,13 +83,13 @@ Instead of configuring and creating a SAS URL, you can use the name of your Azur
 
 If you don't have an autostorage account already, see the steps in [Create a Batch account](batch-account-create-portal.md) for details on how to create and link a storage account.
 
-The following example uses [AutoStorageContainer](/dotnet/api/microsoft.azure.batch.resourcefile.fromautostoragecontainer) to generate the file from data in the autostorage account.
+The following example uses [AutoStorageContainerName](/dotnet/api/azure.compute.batch.resourcefile.autostoragecontainername) to generate the file from data in the autostorage account.
 
 ```csharp
 ResourceFile inputFile = ResourceFile.FromAutoStorageContainer(containerName);
 ```
 
-As with a storage container URL, you can use the [blobPrefix](/dotnet/api/microsoft.azure.batch.resourcefile.blobprefix) property to specify which blobs will be downloaded:
+As with a storage container URL, you can use the [blobPrefix](/dotnet/api/azure.compute.batch.resourcefile.blobprefix) property to specify which blobs will be downloaded:
 
 ```csharp
 ResourceFile inputFile = ResourceFile.FromAutoStorageContainer(containerName, blobPrefix = yourPrefix);
@@ -98,7 +99,7 @@ ResourceFile inputFile = ResourceFile.FromAutoStorageContainer(containerName, bl
 
 To create a single resource file, you can specify a valid HTTP URL containing your input data. The URL is provided to the Batch API, and then the data is used to create a resource file. This method can be used whether the data to create your resource file is in Azure Storage, or in any other web location, such as a GitHub endpoint.
 
-The following example uses [FromUrl](/dotnet/api/microsoft.azure.batch.resourcefile.fromurl) to retrieve the file from a string that contains a valid URL, then generates a resource file to be used by your task. No credentials are needed for this scenario. (Credentials are required if using blob storage, unless public read access is enabled on the blob container.)
+The following example uses [HttpUri](/dotnet/api/azure.compute.batch.resourcefile.httpuri) to retrieve the file from a string that contains a valid URL, then generates a resource file to be used by your task. No credentials are needed for this scenario. (Credentials are required if using blob storage, unless public read access is enabled on the blob container.)
 
 ```csharp
 ResourceFile inputFile = ResourceFile.FromUrl(yourURL, filePath);
@@ -120,7 +121,7 @@ ResourceFile inputFile = ResourceFile.FromUrl(yourURLFromAzureStorage,
 ```
 
 > [!Note]
-> Managed identity authentication will only work with files in Azure Storage. The nanaged identity needs the `Storage Blob Data Reader` role assignment for the container the file is in, and it must also be [assigned to the Batch pool](managed-identity-pools.md).
+> Managed identity authentication will only work with files in Azure Storage. The managed identity needs the `Storage Blob Data Reader` role assignment for the container the file is in, and it must also be [assigned to the Batch pool](managed-identity-pools.md).
 
 ## Tips and suggestions
 

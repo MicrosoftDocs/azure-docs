@@ -3,10 +3,10 @@ title: Architecture fundamentals
 titleSuffix: Azure Lab Services
 description: This article covers the fundamental resources used by Azure Lab Services and the basic architecture of a lab environment.
 services: lab-services
-ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
-ms.topic: conceptual
+ms.service: azure-lab-services
+author: RoseHJM
+ms.author: rosemalcolm
+ms.topic: concept-article
 ms.date: 04/24/2023
 ---
 

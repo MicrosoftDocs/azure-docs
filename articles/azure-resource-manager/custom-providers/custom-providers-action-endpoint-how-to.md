@@ -1,7 +1,7 @@
----
+﻿---
 title: Adding custom actions to Azure REST API
 description: Learn how to add custom actions to the Azure REST API. This article will walk through the requirements and best practices for endpoints that wish to implement custom actions.
-ms.topic: conceptual
+ms.topic: article
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
@@ -191,3 +191,4 @@ functionValues | *no* | The request body that will be sent to the **endpoint**.
 - [Quickstart: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
 - [Tutorial: Create custom actions and resources in Azure](./tutorial-get-started-with-custom-providers.md)
 - [How To: Adding Custom Resources to Azure REST API](./custom-providers-resources-endpoint-how-to.md)
+

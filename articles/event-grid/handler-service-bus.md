@@ -1,12 +1,17 @@
 ---
-title: Service Bus queues and topics as event handlers for Azure Event Grid events
-description: Describes how you can use Service Bus queues and topics as event handlers for Azure Event Grid events.
-ms.topic: conceptual
-ms.date: 04/29/2024
+title: Configure Service Bus Queues and Topics as Event Handlers for Azure Event Grid
+description: Learn to configure Service Bus queues and topics as event handlers for Azure Event Grid to process events in enterprise applications.
+#customer intent: As a developer, I want to configure Service Bus queues or topics as event handlers so that I can process Azure Event Grid events in enterprise applications.  
+ms.topic: how-to
+ms.date: 07/29/2025
+ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-description
+  - ai-seo-date:07/29/2025
 ---
 
-# Service Bus queues and topics as event handlers for Azure Event Grid events
-An event handler receives events from an event source via Event Grid, and processes those events. You can use instances of a few Azure services to handle events and **Azure Service Bus** is one of them. This article shows you how to use a Service Bus queue or topic as a handler for events from Event Grid. 
+# Configure Service Bus queues and topics as event handlers for Azure Event Grid events
+Azure Event Grid enables seamless event-driven architectures by routing events from sources to handlers. In this article, you'll learn how to configure Azure Service Bus queues and topics as event handlers for Event Grid events. This step-by-step guide will help you set up Service Bus queues and topics to process events in enterprise applications using the Azure portal, CLI, PowerShell, and REST APIs.
 
 ## Service Bus queues
 
@@ -15,10 +20,10 @@ You can route events in Event Grid directly to Service Bus queues for use in buf
 ### Use Azure portal
 In the Azure portal, while creating an event subscription, select **Service Bus Queue** as the endpoint type and then click **select an endpoint** to choose a Service Bus queue.
 
-:::image type="content" source="./media/handler-service-bus/queue.png" lightbox="./media/handler-service-bus/queue.png" alt-text="Screenshot showing the configuration of a Service Bus queue handler.":::
+:::image type="content" source="./media/handler-service-bus/queue.png" lightbox="./media/handler-service-bus/queue.png" alt-text="Screenshot of configuring a Service Bus queue as an event handler in Azure Event Grid.":::
 
 > [!NOTE]
-> Session enabled queues are not supported as event handlers for Azure Event Grid events
+> If you are using session enabled queue/topic subscription as the destination, you need to set the session property on the event using Delivery Property with the header name 'SessionId'.
  
 ### Use Azure CLI
 Use the [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription) command with `--endpoint-type` set to `servicebusqueue` and `--endpoint` set to `/subscriptions/{AZURE SUBSCRIPTION}/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.ServiceBus/namespaces/<NAMESPACE NAME>/queues/<QUEUE NAME>`. Here's an example:
@@ -208,4 +213,4 @@ For more information, see [Custom delivery properties](delivery-properties.md).
 > When a failover occurs for a Service Bus namespace that's [Geo-Disaster Recovery](../service-bus-messaging/service-bus-geo-dr.md) enabled, the secondary namespace doesn't emit events to Event Grid. You need to manually add the Event Grid subscription for the secondary namespace. 
 
 ## Next steps
-See the [Event handlers](event-handlers.md) article for a list of supported event handlers. 
+See the [Event handlers](event-handlers.md) article for a list of supported event handlers.

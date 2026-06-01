@@ -2,20 +2,21 @@
 title: Create backup policies via REST API in Azure Backup
 description: In this article, you'll learn how to create and manage backup policies (schedule and retention) using REST API.
 ms.topic: how-to
-ms.date: 02/21/2024
+ms.date: 02/16/2026
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.service: backup
+ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to create and manage backup policies via REST API, so that I can automate backup schedules and retention settings for various Azure workloads."
 ---
 # Create Azure Recovery Services backup policies by using REST API
 
-This article describes how to create policies for the backup of Azure VM, SQL database in Azure VM, SAP HANA database in Azure VM, and Azure File share.
+This article describes how to create policies for the backup of Azure VM, SQL database in Azure VM, SAP HANA database in Azure VM, and Azure Files.
 
 Learn more about [creating or modifying a backup policy for an Azure Recovery Services vault by using REST API](/rest/api/backup/protection-policies/create-or-update). 
 
-## Create or update a policy
+## Create or update a policy in Azure Recovery Services vault
 
 To create or update an Azure Backup policy, use the following *PUT* operation.
 
@@ -25,7 +26,7 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 The `{policyName}` and `{vaultName}` are provided in the URI. Additional information is provided in the request body.
 
-## Create the request body
+## Create the request body for Azure VM backup policy
 
 If you want to create a policy for Azure VM backup, the request body needs to have the following components:
 
@@ -38,7 +39,7 @@ For the complete list of definitions in the request body, see the [backup policy
 
 ### Example request body
 
-This section provides the example request body to create policies for the backup of Azure VM, SQL database in Azure VM, SAP HANA database in Azure VM, and Azure File share.
+This section provides the example request body to create policies for the backup of Azure VM, SQL database in Azure VM, SAP HANA database in Azure VM, and Azure Files.
 
 **Choose a datasource**:
 
@@ -629,9 +630,9 @@ The following is an example of a policy that takes a full backup once a week and
 ```
 
 
-# [Azure File share](#tab/azure-file-share)
+# [Azure Files](#tab/azure-file-share)
 
-The following request body defines the policy for Azure File share backup.
+The following request body defines the policy for Azure Files backup.
 
 This policy:
 
@@ -684,7 +685,7 @@ This policy:
 
 ---
 
-## Responses
+## Responses for backup policy creation or update
 
 The backup policy creation/update is a [asynchronous operation](../azure-resource-manager/management/async-operations.md). It means this operation creates another operation that needs to be tracked separately.
 

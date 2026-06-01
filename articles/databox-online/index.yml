@@ -6,12 +6,11 @@ summary: Use Azure Stack Edge devices to deliver Azure capabilities such as comp
 metadata:
   title: Azure Stack Edge documentation
   description: Azure Stack Edge Documentation for high-performance over-the-network data transfer to Azure.
-  ms.service: databox
-  ms.subservice: edge
+  ms.service: azure-stack-edge
   ms.topic: landing-page
   author: alkohli
   ms.author: alkohli
-  ms.date: 02/09/2022
+  ms.date: 06/10/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -103,7 +102,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: GPU module via Marketplace
-            url: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
+            url: azure-stack-edge-gpu-deploy-sample-module.md
           - text: VMs via Azure portal
             url: azure-stack-edge-gpu-deploy-virtual-machine-portal.md 
           - text: VMs via Templates
@@ -134,5 +133,5 @@ landingContent:
             url: azure-stack-edge-gpu-connect-powershell-interface.md#debug-kubernetes-issues-related-to-iot-edge            
           - text: Return Azure Stack Edge Pro GPU
             url: azure-stack-edge-return-device.md
-          - text: Open Support ticket
+          - text: Open a Support ticket
             url: azure-stack-edge-contact-microsoft-support.md

@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: how-to 
-ms.date: 04/12/2024
+ms.date: 03/24/2025
 ms.custom: template-how-to
 ---
 
@@ -15,7 +15,7 @@ In this article, you'll learn how to disable public access for your Azure App Co
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - We assume you already have an App Configuration store. If you want to create one, [create an App Configuration store](quickstart-aspnet-core-app.md).
 
 ## Sign in to Azure
@@ -40,11 +40,12 @@ This command will prompt your web browser to launch and load an Azure sign-in pa
 
 ## Disable public access to a store
 
-Azure App Configuration offers three public access options:
+Azure App Configuration offers four public access options:
 
 - Automatic public access: public network access is enabled, as long as you don't have a private endpoint present. Once you create a private endpoint, App Configuration disables public network access and enables private access. This option can only be selected when creating the store.
-- Disabled: public access is disabled and no traffic can access this resource unless it's through a private endpoint.
 - Enabled: all networks can access this resource.
+- Secured by perimeter: public access is disabled. Only traffic from a private endpoint or traffic allowed by the associated network security perimeter can access this resource.
+- Disabled: public access is disabled and no traffic can access this resource unless it's through a private endpoint.
 
 To disable access to the App Configuration store from public network, follow the process below.
 
@@ -65,11 +66,11 @@ To disable access to the App Configuration store from public network, follow the
 In the CLI, run the following code:
 
 ```azurecli-interactive
-az appconfig update --name <name-of-the-appconfig-store> --enable-public-network false
+az appconfig update --name <name-of-the-appconfig-store> --public-network-access disabled
 ```
 
 > [!NOTE]
-> When you create an App Config store without specifying if you want public access to be enabled or disabled, public access is set to automatic by default. After you've run the `--enable-public-network` command, you won't be able to switch to an automatic public access anymore.
+> When you create an App Config store without specifying if you want public access to be enabled or disabled, public access is set to automatic by default. After you've modified the value using the `--public-network-access` flag, you won't be able to switch back to automatic public access anymore.
 
 ---
 

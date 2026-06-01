@@ -37,7 +37,7 @@ After you deploy a managed application to your Azure subscription, you might wan
 
    ![Create alert](./media/monitor-managed-application-portal/create-new-alert.png)
 
-You can create alerts for your managed application instance or the resources in the managed application. For information about creating alerts, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
+You can create alerts for your managed application instance or the resources in the managed application. For information about creating alerts, see [Overview of alerts in Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview).
 
 ## Next steps
 

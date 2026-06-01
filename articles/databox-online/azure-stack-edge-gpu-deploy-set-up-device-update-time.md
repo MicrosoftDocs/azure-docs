@@ -2,13 +2,13 @@
 title: Tutorial to connect, configure, activate Azure Stack Edge Pro device GPU in Azure portal | Microsoft Docs
 description: Tutorial to deploy Azure Stack Edge Pro GPU instructs you to connect, set up, and activate your physical device.
 services: databox
-author: alkohli
+author: sipastak
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 07/19/2023
-ms.author: alkohli
+ms.author: sipastak
+ms.custom: sfi-image-nochange
 # Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
 
@@ -55,7 +55,7 @@ Follow these steps to configure device related settings:
 
     If you've changed the device name and the DNS domain, the automatically generated self-signed certificates on the device won't work. You'll need to regenerate device certificates or bring your own certificates.
     
-    ![Screehshot of local web U I "Device" page 2.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-3.png)
+    ![Screenshot of local web U I "Device" page 2.](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/device-3.png)
   
 1. After the settings are applied, select **Next: Update server**.
 

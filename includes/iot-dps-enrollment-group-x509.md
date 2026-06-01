@@ -1,9 +1,10 @@
 ---
-author: kgremban
-ms.service: iot-dps
+author: SoniaLopezBravo
+ms.service: azure-iot-hub
 ms.topic: include
-ms.date: 03/09/2023
-ms.author: kgremban
+ms.date: 10/14/2025
+ms.author: sonialopez
+ms.subservice: azure-iot-hub-dps
 ---
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
@@ -16,7 +17,7 @@ ms.author: kgremban
 
    | Field | Description |
    | :--- | :--- |
-   | **Attestation** |Select **X.509 intermediate certificates** as the **Attestation mechanism** if you want to upload intermediate certificates to be used for just this enrollment group, or select **X.509 certificates uploaded to this Device Provisioning Service** if you already have uploaded intermediate certificates.|
+   | **Attestation** |Select **X.509 intermediate certificates** as the **Attestation mechanism** if you want to upload intermediate certificates to be used for just this enrollment group, or select **X.509 certificates uploaded to this Device Provisioning Service** if you already  uploaded intermediate certificates.|
    | **X.509 certificate settings** |Depending on the attestation method that you chose, either upload or select the primary and secondary intermediate certificates for this enrollment group. |
    | **Group name** | Provide a name for the group of devices. The enrollment group name is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).|
    | **Provisioning status** | Check the **Enable this enrollment** box if you want this enrollment group to be available to provision devices. Uncheck this box if you want the group to be disabled. You can change this setting later. |
@@ -37,11 +38,11 @@ ms.author: kgremban
 
 1. Select **Next: Device settings**
 
-1. On the **Device settings** tab of the **Add enrollment group** page, provide the following information to define how newly provisioned devices will be configured:
+1. On the **Device settings** tab of the **Add enrollment group** page, provide the following information to define how newly provisioned devices are configured:
 
    | Field | Description |
    | :---- | :---------- |
-   | **IoT Edge** | Check the **Enable IoT Edge on provisioned devices** if all the devices provisioned through this group will run [Azure IoT Edge](../articles/iot-edge/about-iot-edge.md). Uncheck this box if this group is for non-IoT Edge-enabled devices only. Either all devices in a group will be IoT Edge-enabled or none can be. |
+   | **IoT Edge** | Check the **Enable IoT Edge on provisioned devices** if all the devices provisioned through this group run [Azure IoT Edge](../articles/iot-edge/about-iot-edge.md). Uncheck this box if this group is for non-IoT Edge-enabled devices only. Either all devices in a group are IoT Edge-enabled or none can be. |
    | **Device tags** | Use this text box to provide any tags that you want to apply to the device twins of provisioned devices. |
    | **Desired properties** | Use this text box to provide any desired properties that you want to apply to the device twins of provisioned devices. |
 

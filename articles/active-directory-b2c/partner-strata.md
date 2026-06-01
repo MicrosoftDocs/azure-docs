@@ -5,17 +5,19 @@ description: Learn how to integrate Azure AD B2C authentication with whoIam for 
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: As an IT admin, I want to integrate Azure Active Directory B2C with StrataMaverics Identity Orchestrator. I need to protect on-premises applications and enable customer single sign-on (SSO) to hybrid apps.
 
 ---
 
 # Tutorial to configure Azure Active Directory B2C with Strata
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with Strata [Maverics Identity Orchestrator](https://www.strata.io/), which helps protect on-premises applications. It connects to identity systems, migrates users and credentials, synchronizes policies and configurations, and abstracts authentication and session management. Use Strata to transition from legacy, to Azure AD B2C, without rewriting applications. 
 
@@ -33,7 +35,7 @@ To get started, you'll need:
 
 * An Azure subscription
 
-  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - An instance of [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) to store secrets used by Maverics Identity Orchestrator. Connect to Azure AD B2C or other attribute providers such as a Lightweight Directory Access Protocol (LDAP) directory or database.
 - An instance of [Maverics Identity Orchestrator](https://www.strata.io/) running in an Azure virtual machine (VM), or an on-premises server. To get software and documentation, go to strata.io [Contact Strata Identity](https://www.strata.io/company/contact/).
@@ -244,7 +246,7 @@ appgateways:
 
 Secure the secrets your Orchestrator uses to connect to Azure AD B2C, and other identity systems. Maverics load secrets in plain text out of `maverics.yaml`, however, in this tutorial, use Azure Key Vault as the secrets provider.
 
-Follow the instructions in, [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md). Add your secrets to the vault and make a note of the `SECRET NAME` for each secret. For example, `AzureADB2CClientSecret`.
+Follow the instructions in, [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](/azure/key-vault/secrets/quick-create-portal). Add your secrets to the vault and make a note of the `SECRET NAME` for each secret. For example, `AzureADB2CClientSecret`.
 
 To declare a value as a secret in a `maverics.yaml` config file, wrap the secret with angle brackets:
 

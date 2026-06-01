@@ -2,10 +2,10 @@
 title: Manage Azure IoT Edge deployment manifests
 description: This article describes how to the deployment manifests for the IT Edge devices that connect to your IoT Central application.
 services: iot-central
-ms.service: iot-central
+ms.service: azure-iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/04/2024
+ms.date: 08/06/2025
 ms.topic: how-to
 ---
 
@@ -44,7 +44,7 @@ When you create a new deployment manifest, you can upload the deployment manifes
 1. Select **Create**. The **Edge manifests** page now includes the new deployment manifest.
 
 > [!TIP]
-> If you have a large number of deployment manifest, you can sort and filter the list shown on the **Edge manifests** page.
+> If you have a large number of deployment manifests, you can sort and filter the list shown on the **Edge manifests** page.
 
 ### Edit the JSON source of a deployment manifest
 

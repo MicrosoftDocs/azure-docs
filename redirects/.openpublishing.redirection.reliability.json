@@ -1,0 +1,9 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/event-hubs/event-hubs-business-continuity-outages-disasters.md",
+      "redirect_url": "/azure/reliability/reliability-event-hubs",
+      "redirect_document_id": false
+    }
+  ]
+}

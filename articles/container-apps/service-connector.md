@@ -3,10 +3,13 @@ title: Connect a container app to a cloud service with Service Connector
 description: Learn to connect a container app to an Azure service using the Azure portal or the CLI.
 author: maud-lv
 ms.author: malev
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 06/16/2022
-ms.custom: service-connector, devx-track-azurecli
+ms.date: 02/03/2025
+ms.custom:
+  - service-connector
+  - devx-track-azurecli
+  - sfi-image-nochange
 # Customer intent: As an app developer, I want to connect a containerized app to a storage account in the Azure portal using Service Connector.
 ---
 
@@ -17,12 +20,12 @@ Azure Container Apps allows you to use Service Connector to connect to cloud ser
 In this article, you learn to connect a container app to Azure Blob Storage.
 
 > [!IMPORTANT]
-> This feature in Container Apps is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Support for Service Connector (preview) on Azure Container Apps ends on March 30, 2026. After that date, new service connections using Service Connector (preview) aren't available through any interface. For more information, see [RETIREMENT: Service Connector (Preview) on Azure Container Apps](https://aka.ms/serviceconnectoraca).
+
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An application deployed to Container Apps in a [region supported by Service Connector](../service-connector/concept-region-support.md). If you don't have one yet, [create and deploy a container to Container Apps](quickstart-portal.md)
 - An Azure Blob Storage account
 
@@ -36,7 +39,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ### [Azure CLI](#tab/azure-cli)
 
-```azurecli-interactive
+```azurecli
 az login
 ```
 
@@ -81,7 +84,7 @@ The following steps create a service connection using an access key or a system-
 
 1. Use the Azure CLI command `az containerapp connection list-support-types` to view all supported target services.
 
-    ```azurecli-interactive
+    ```azurecli
     az provider register -n Microsoft.ServiceLinker
     az containerapp connection list-support-types --output table
     ```
@@ -90,13 +93,13 @@ The following steps create a service connection using an access key or a system-
 
     If you're connecting with an access key, run the code below:
 
-    ```azurecli-interactive
+    ```azurecli
     az containerapp connection create storage-blob --secret
     ```
 
     If you're connecting with a system-assigned managed identity, run the code below:
 
-    ```azurecli-interactive
+    ```azurecli
     az containerapp connection create storage-blob --system-identity
     ```
 
@@ -109,7 +112,7 @@ The following steps create a service connection using an access key or a system-
     - **Name of the storage account**: the name of the storage account that contains your blob.
 
     > [!IMPORTANT]
-    > To use Managed Identity, you must have the permission to manage [Microsoft Entra role assignments](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have this permission, you won't be able to create a connection. You can ask your subscription owner to grant you this permission or use an access key instead to create the connection.
+    > To use Managed Identity, you must have the permission to manage [Microsoft Entra role assignments](/entra/identity/role-based-access-control/manage-roles-portal). If you don't have this permission, you won't be able to create a connection. You can ask your subscription owner to grant you this permission or use an access key instead to create the connection.
 
     > [!NOTE]
     > If you don't have a Blob Storage, you can run `az containerapp connection create storage-blob --new --secret` to provision a new one.
@@ -122,7 +125,7 @@ View your existing service connections using the Azure portal or the CLI.
 
 ### [Portal](#tab/azure-portal)
 
-1. In **Service Connector**, select **Refresh** and you'll see a Container Apps connection displayed.
+1. In **Service Connector**, select **Refresh** and you see a Container Apps connection displayed.
 
 1. Select **>** to expand the list. You can see the environment variables required by your application code.
 
@@ -132,12 +135,12 @@ View your existing service connections using the Azure portal or the CLI.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use the Azure CLI command `az containerapp connection list` to list all your container app's provisioned connections. Provide the following information:
+Use the Azure CLI command `az containerapp connection list` to list all your container app connections. Provide the following information:
 
 - **Source compute service resource group name**: the resource group name of the container app.
 - **Container app name**: the name of your container app.
 
-```azurecli-interactive
+```azurecli
 az containerapp connection list -g "<your-container-app-resource-group>" --name "<your-container-app-name>" --output table
 ```
 

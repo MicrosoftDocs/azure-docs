@@ -1,18 +1,20 @@
 ---
 title: "Tutorial: Manage compute with Azure Functions"
 description: How to use Azure Functions to manage the compute of your dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 04/27/2018
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - azure-synapse
   - devx-track-arm-template
 ---
 
 # Use Azure Functions to manage compute resources for your dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This tutorial uses Azure Functions to manage compute resources for a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
 

@@ -6,7 +6,8 @@ services: storage
 ms.service: azure-import-export
 ms.topic: troubleshooting
 ms.date: 03/14/2022
-ms.author: alkohli
+ms.author: shaas
+# Customer intent: "As a data manager, I want to troubleshoot import and export issues in Azure Import/Export, so that I can ensure successful data transfer and resolve any errors in the process."
 ---
 
 # Troubleshoot issues in Azure Import/Export

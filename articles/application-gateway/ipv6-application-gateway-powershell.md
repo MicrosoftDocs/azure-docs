@@ -2,12 +2,13 @@
 title: Configure Application Gateway with a frontend public IPv6 address using Azure PowerShell 
 description: Learn how to configure Application Gateway with a frontend public IPv6 address using Azure PowerShell.
 services: application-gateway
-author: greg-lindsay
-ms.service: application-gateway
+author: mbender-ms
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 02/08/2024
-ms.author: greglin
+ms.author: mbender
 ms.custom: mvc, devx-track-azurepowershell
+# Customer intent: As a network engineer, I want to configure a public IPv6 address for an Application Gateway using Azure PowerShell, so that I can enable dual-stack connectivity for managing and securing web traffic to my backend servers.
 ---
 
 # Configure Application Gateway with a frontend public IPv6 address using Azure PowerShell 
@@ -27,13 +28,13 @@ You learn how to:
 * Create an application gateway with [IPv6 frontend](#create-application-gateway-frontend-public-ip-addresses)
 * Create a virtual machine scale set with the default [backend pool](#create-the-backend-pool-and-settings)
 
-Azure PowerShell is used to create an IPv6 Azure Application Gateway and perform testing to ensure it works correctly. Application gateway can manage and secure web traffic to servers that you maintain. A [virtual machine scale set](../virtual-machine-scale-sets/overview.md) is for backend servers to manage web traffic. The scale set contains two virtual machine instances that are added to the default backend pool of the application gateway. For more information about the components of an application gateway, see [Application gateway components](application-gateway-components.md). 
+Azure PowerShell is used to create an IPv6 Azure Application Gateway and perform testing to ensure it works correctly. Application gateway can manage and secure web traffic to servers that you maintain. A [virtual machine scale set](/azure/virtual-machine-scale-sets/overview) is for backend servers to manage web traffic. The scale set contains two virtual machine instances that are added to the default backend pool of the application gateway. For more information about the components of an application gateway, see [Application gateway components](application-gateway-components.md). 
 
 You can also complete this quickstart using the [Azure portal](ipv6-application-gateway-portal.md).
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 1.0.0 or later. To find the version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 

@@ -4,8 +4,9 @@ description: Learn about accessibility considerations in Azure Maps. See what fe
 author: sinnypan
 ms.author: sipa
 ms.date: 05/15/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Building an accessible application
@@ -93,7 +94,7 @@ The map has keyboard shortcuts built in that make it easier to use the map. Thes
 |----------|-----------------------------------|
 | `Tab` | Navigate across the controls and popups in the map. |
 | `ESC` | Move focus from any element in the map to the top-level map element. |
-| `Ctrl` + `Shift` + `D` | Toggle screen reader detail level.  |
+| `Ctrl` + `Alt` + `D` | Toggle screen reader detail level.  |
 | Left arrow key | Pan the map left 100 pixels |
 | Right arrow key | Pan the map right 100 pixels |
 | Down arrow key | Pan the map down 100 pixels |

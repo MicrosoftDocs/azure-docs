@@ -3,22 +3,71 @@ title: Template functions - deployment
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 06/26/2024
+ms.date: 01/06/2026
 ---
 
 # Deployment functions for ARM templates
 
-Resource Manager provides the following functions for getting values related to the current deployment of your Azure Resource Manager template (ARM template):
+Azure Resource Manager provides the following functions for getting values related to the current deployment of your Azure Resource Manager template (ARM template):
 
-* [deployment](#deployment)
-* [environment](#environment)
-* [parameters](#parameters)
-* [variables](#variables)
+* [`deployer`](#deployer)
+* [`deployment`](#deployment)
+* [`environment`](#environment)
+* [`parameters`](#parameters)
+* [`variables`](#variables)
 
-To get values from resources, resource groups, or subscriptions, see [Resource functions](template-functions-resource.md).
+To get values from resources, resource groups, or subscriptions, see [resource functions](template-functions-resource.md).
 
 > [!TIP]
-> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [deployment](../bicep/bicep-functions-deployment.md) functions.
+> [Bicep](../bicep/overview.md) is recommended since it offers the same capabilities as ARM templates, and the syntax is easier to use. To learn more, see [`deployment`](../bicep/bicep-functions-deployment.md) functions.
+
+## deployer
+
+`deployer()`
+
+Returns the information about the current deployment principal.
+
+In Bicep, use the [`deployer`](../bicep/bicep-functions-deployment.md#deployer) function.
+
+### Return value
+
+This function returns the information about the current deployment principal, including tenant ID, object ID, and user principal name:
+
+```json
+{
+  "objectId": "",
+  "tenantId": "",
+  "userPrincipalName": ""
+}
+```
+
+### Example
+
+The following example returns the deployer object:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "developerOutput": {
+      "type": "object",
+      "value": "[deployer()]"
+    }
+  }
+}
+```
+
+The preceding example returns the following object:
+
+```json
+{
+  "objectId":"aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb",
+  "tenantId":"aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
+  "userPrincipalName":"john.doe@contoso.com"
+}
+```
 
 ## deployment
 
@@ -26,17 +75,17 @@ To get values from resources, resource groups, or subscriptions, see [Resource f
 
 Returns information about the current deployment operation.
 
-In Bicep, use the [deployment](../bicep/bicep-functions-deployment.md#deployment) function.
+In Bicep, use the [`deployment`](../bicep/bicep-functions-deployment.md#deployment) function.
 
 ### Return value
 
-This function returns the object that is passed during deployment. The properties in the returned object differ based on whether you are:
+This function returns the object that's  passed during deployment. The properties in the returned object differ based on if you're:
 
-* deploying a template or a template spec.
-* deploying a template that is a local file or deploying a template that is a remote file accessed through a URI.
-* deploying to a resource group or deploying to one of the other scopes ([Azure subscription](deploy-to-subscription.md), [management group](deploy-to-management-group.md), or [tenant](deploy-to-tenant.md)).
+* Deploying a template or a template spec.
+* Deploying a template that's  a local file or deploying a template that's  a remote file accessed through a URI.
+* Deploying to a resource group or deploying to one of the other scopes ([Azure subscription](deploy-to-subscription.md), [management groups](deploy-to-management-group.md), or [tenants](deploy-to-tenant.md)).
 
-When deploying a local template to a resource group: the function returns the following format:
+When deploying a local template to a resource group, the function returns the following format:
 
 ```json
 {
@@ -58,7 +107,7 @@ When deploying a local template to a resource group: the function returns the fo
 }
 ```
 
-When deploying a remote template to a resource group: the function returns the following format:
+If the template is remote, the `templateLink` property is included in the returned object. The `templateLink` property contains the URI of the template. The format is:
 
 ```json
 {
@@ -83,7 +132,9 @@ When deploying a remote template to a resource group: the function returns the f
 }
 ```
 
-When deploying a template spec to a resource group: the function returns the following format:
+For more information, see [Using variables to link templates](./linked-templates.md#use-variables-to-link-templates).
+
+When deploying a template spec to a resource group, the function returns the following format:
 
 ```json
 {
@@ -137,7 +188,8 @@ When deploying a [languageVersion 2.0](./syntax.md#languageversion-20) template,
   "location": "",
   "properties": {
     "template": {
-      "contentVersion": ""
+      "contentVersion": "",
+      "metadata": {}
     },
     "templateLink": {
       "id": "",
@@ -147,9 +199,11 @@ When deploying a [languageVersion 2.0](./syntax.md#languageversion-20) template,
 }
 ```
 
+The `location` property is included only for deployments at the [subscription](./deploy-to-subscription.md), [management group](./deploy-to-management-group.md), or [tenant](./deploy-to-tenant.md) scope. The `templateLink` property is included only when the user provides a linked template rather than an inline template.
+
 ### Remarks
 
-You can use `deployment()` to link to another template based on the URI of the parent template.
+You can use `deployment()` to link to another template based on the URI of the parent template:
 
 ```json
 "variables": {
@@ -161,9 +215,21 @@ If you redeploy a template from the deployment history in the portal, the templa
 
 ### Example
 
-The following example returns a deployment object.
+The following example returns a deployment object:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/deployment.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "deploymentOutput": {
+      "type": "object",
+      "value": "[deployment()]"
+    }
+  }
+}
+```
 
 The preceding example returns the following object:
 
@@ -190,25 +256,39 @@ The preceding example returns the following object:
 }
 ```
 
-For a subscription deployment, the following example returns a deployment object.
+For a subscription deployment, the following example returns a deployment object:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/deploymentsubscription.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "exampleOutput": {
+      "type": "object",
+      "value": "[deployment()]"
+    }
+  }
+}
+```
 
 ## environment
 
 `environment()`
 
-Returns information about the Azure environment used for deployment. The `environment()` function is not aware of resource configurations. It can only return a single default DNS suffix for each resource type.
+Returns information about the Azure environment used for deployment. The `environment()` function isn't aware of resource configurations. It can only return a single default DNS suffix for each resource type.
 
-In Bicep, use the [environment](../bicep/bicep-functions-deployment.md#environment) function.
+In Bicep, use the [`environment`](../bicep/bicep-functions-deployment.md#environment) function.
 
 ### Remarks
 
-To see a list of registered environments for your account, use [az cloud list](/cli/azure/cloud#az-cloud-list) or [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment).
+To see a list of registered environments for your account, use [`az cloud list`](/cli/azure/cloud#az-cloud-list) or [`Get-AzEnvironment`](/powershell/module/az.accounts/get-azenvironment).
 
 ### Return value
 
-This function returns properties for the current Azure environment. The following example shows the properties for global Azure. Sovereign clouds may return slightly different properties.
+This function returns properties for the current Azure environment. The following example shows the properties for global Azure; sovereign clouds might return slightly different properties:
 
 ```json
 {
@@ -246,9 +326,21 @@ This function returns properties for the current Azure environment. The followin
 
 ### Example
 
-The following example template returns the environment object.
+The following example template returns the environment object:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/environment.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "resources": [],
+  "outputs": {
+    "environmentOutput": {
+      "type": "object",
+      "value": "[environment()]"
+    }
+  }
+}
+```
 
 The preceding example returns the following object when deployed to global Azure:
 
@@ -290,7 +382,7 @@ The preceding example returns the following object when deployed to global Azure
 
 `parameters(parameterName)`
 
-Returns a parameter value. The specified parameter name must be defined in the parameters section of the template.
+Returns a parameter value. The specified parameter name must be defined in the **parameters** section of the template.
 
 In Bicep, directly reference [parameters](../bicep/parameters.md) by using their symbolic names.
 
@@ -316,7 +408,7 @@ Typically, you use parameters to set resource values. The following example sets
 }, "resources": [
   {
     "type": "Microsoft.Web/Sites",
-    "apiVersion": "2016-08-01",
+    "apiVersion": "2025-03-01",
     "name": "[parameters('siteName')]",
     ...
   }
@@ -325,11 +417,65 @@ Typically, you use parameters to set resource values. The following example sets
 
 ### Example
 
-The following example shows a simplified use of the parameters function.
+The following example shows a simplified use of the `parameters` function:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/parameters.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringParameter": {
+      "type": "string",
+      "defaultValue": "option 1"
+    },
+    "intParameter": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "objectParameter": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b"
+      }
+    },
+    "arrayParameter": {
+      "type": "array",
+      "defaultValue": [ 1, 2, 3 ]
+    },
+    "crossParameter": {
+      "type": "string",
+      "defaultValue": "[parameters('stringParameter')]"
+    }
+  },
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "stringOutput": {
+      "type": "string",
+      "value": "[parameters('stringParameter')]"
+    },
+    "intOutput": {
+      "type": "int",
+      "value": "[parameters('intParameter')]"
+    },
+    "objectOutput": {
+      "type": "object",
+      "value": "[parameters('objectParameter')]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[parameters('arrayParameter')]"
+    },
+    "crossOutput": {
+      "type": "string",
+      "value": "[parameters('crossParameter')]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -339,13 +485,13 @@ The output from the preceding example with the default values is:
 | arrayOutput | Array | [1, 2, 3] |
 | crossOutput | String | option 1 |
 
-For more information about using parameters, see [Parameters in ARM templates](./parameters.md).
+For more information about using parameters, see [parameters in ARM templates](./parameters.md).
 
 ## variables
 
 `variables(variableName)`
 
-Returns the value of variable. The specified variable name must be defined in the variables section of the template.
+Returns the value of a variable. The specified variable name must be defined in the **variables** section of the template.
 
 In Bicep, directly reference [variables](../bicep/variables.md) by using their symbolic names.
 
@@ -361,7 +507,7 @@ The value of the specified variable.
 
 ### Remarks
 
-Typically, you use variables to simplify your template by constructing complex values only once. The following example constructs a unique name for a storage account.
+Typically, you use variables to simplify your template by constructing complex values only once. The following example constructs a unique name for a storage account:
 
 ```json
 "variables": {
@@ -386,11 +532,45 @@ Typically, you use variables to simplify your template by constructing complex v
 
 ### Example
 
-The following example returns different variable values.
+The following example returns different variable values:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/deployment/variables.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "var1": "myVariable",
+    "var2": [ 1, 2, 3, 4 ],
+    "var3": "[ variables('var1') ]",
+    "var4": {
+      "property1": "value1",
+      "property2": "value2"
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "exampleOutput1": {
+      "type": "string",
+      "value": "[variables('var1')]"
+    },
+    "exampleOutput2": {
+      "type": "array",
+      "value": "[variables('var2')]"
+    },
+    "exampleOutput3": {
+      "type": "string",
+      "value": "[variables('var3')]"
+    },
+    "exampleOutput4": {
+      "type": "object",
+      "value": "[variables('var4')]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -399,8 +579,8 @@ The output from the preceding example with the default values is:
 | exampleOutput3 | String | myVariable |
 | exampleOutput4 |  Object | {"property1": "value1", "property2": "value2"} |
 
-For more information about using variables, see [Variables in ARM template](./variables.md).
+For more information about using variables, see [variables in ARM template](./variables.md).
 
 ## Next steps
 
-* For a description of the sections in an ARM template, see [Understand the structure and syntax of ARM templates](./syntax.md).
+To learn more about the sections in an ARM template, see [the structure and syntax of ARM templates](./syntax.md).

@@ -3,11 +3,12 @@ title: Deploy a Zero Trust Virtual Network for Web Applications
 description: Deploy a Zero Trust virtual network configuration for web applications in Azure using Azure Firewall, Azure Application Gateway, Web Application Firewall, and other virtual network services.
 author: mbender
 ms.author: chplut
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 12/31/2022
 ms.custom: template-how-to
 # Customer Intent: As a cloud architect, I want to deploy a web app based on Zero Trust principles so that my applications & traffic are always secure.
+# Customer intent: As a cloud architect, I want to deploy a Zero Trust virtual network for web applications so that I can ensure robust security mechanisms are in place to protect app traffic against threats and data breaches.
 ---
 # Deploy a zero trust network for web applications
 
@@ -22,7 +23,7 @@ This how-to follows the [Zero Trust Network for Web Applications reference archi
 To complete the Zero Trust deployment, you'll need:
 - A Custom domain name
 - A Trusted wildcard certificate for your custom domain
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Visual Studio Code (optional, to assist with an automated deployment)
 
 > [!NOTE]
@@ -44,7 +45,7 @@ To complete the Zero Trust deployment, you'll need:
 
 Other Azure services that will be deployed and configured and not explicitly listed in the reference architecture include:
 
-- [Azure Key Vault](../key-vault/general/overview.md)
+- [Azure Key Vault](/azure/key-vault/general/overview)
 - [Managed identity](../active-directory/managed-identities-azure-resources/overview.md)
 - [Public IP addresses](../virtual-network/ip-services/public-ip-addresses.md)
 - [Network security groups](../virtual-network/network-security-groups-overview.md)
@@ -76,10 +77,10 @@ First up, you create a resource group to store all of the created resources.
 
 ### Deploying the Azure Key Vault
 
-In this step, you'll deploy [Azure Key Vault](../key-vault/general/overview.md) to store secrets, keys, and certificates. We'll use a Key Vault to store the public trusted certificate that is used for TLS connections by the application gateway and Azure Firewall in this how-to.
+In this step, you'll deploy [Azure Key Vault](/azure/key-vault/general/overview) to store secrets, keys, and certificates. We'll use a Key Vault to store the public trusted certificate that is used for TLS connections by the application gateway and Azure Firewall in this how-to.
 
 > [!NOTE]
-> By default, [soft-delete](../key-vault/general/soft-delete-overview.md) is enabled on Azure Key Vault. This presents the accidental deletion of stored credentials. To allow you to remove the key vault in a timely manner upon completing this how-to, it's recommend to set the **Days to retain deleted vaults** to 7 days.
+> By default, [soft-delete](/azure/key-vault/general/soft-delete-overview) is enabled on Azure Key Vault. This presents the accidental deletion of stored credentials. To allow you to remove the key vault in a timely manner upon completing this how-to, it's recommend to set the **Days to retain deleted vaults** to 7 days.
 
 1. From the Azure portal menu, or from the **Home** page, select **Create a resource**.
 1. In the **Search** box, enter **Key Vault** and select **Key Vault** from the results.
@@ -395,7 +396,7 @@ You'll deploy Azure Firewall to perform packet inspection between the applicatio
     | Firewall tier | Select **Premium**. |
     | Firewall policy | Select **Add new**.|
     | **Create a new Firewall Policy** | |
-    | Policy name | Enter **myFirewalPolicy**. |
+    | Policy name | Enter **myFirewallPolicy**. |
     | Policy tier | Select **Premium** and select **OK**. |
     | Choose a virtual network | Select **Use existing**. |
     | Virtual network | Select **hub-vnet**. |
@@ -408,7 +409,7 @@ You'll deploy Azure Firewall to perform packet inspection between the applicatio
 In this task, you'll configure the firewall policy used for packet inspection.
 
 1. Navigate to the Azure Firewall that you previously created.
-1. In the **Overview** page, locate and select the link to the **myFirewalPolicy** firewall policy.
+1. In the **Overview** page, locate and select the link to the **myFirewallPolicy** firewall policy.
 1. In the **Firewall Policy** page, select the **IDPS** under **Settings**.
 1. On the **IDPS** page, select **Alert and deny** and then select **Apply**. Wait for the firewall policy to complete updating before proceeding to the next step.
 1. Select **TLS inspection** under **Settings**

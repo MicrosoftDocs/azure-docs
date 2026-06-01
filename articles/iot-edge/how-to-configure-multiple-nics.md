@@ -1,19 +1,20 @@
 ---
 title: Configure multiple NICs for Azure IoT Edge for Linux on Windows
 description: Configuration for attaching multiple network interfaces to Azure IoT Edge for Linux on Windows virtual machine
-author: PatAltimore
-ms.reviewer: fcabrera
-ms.service: iot-edge
-ms.custom: linux-related-content
+author: sethmanheim
+ms.author: sethm
+ms.service: azure-iot-edge
 services: iot-edge
-ms.topic: conceptual
-ms.date: 05/31/2024
-ms.author: patricka
+ms.topic: concept-article
+ms.date: 01/21/2025
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 # Azure IoT Edge for Linux on Windows virtual multiple NIC configurations
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 By default, the Azure IoT Edge for Linux on Windows (EFLOW) virtual machine has a single network interface card (NIC) assigned. However, you can configure the EFLOW VM with multiple network interfaces by using the EFLOW support for attaching multiple network interfaces to the virtual machine. This functionality may be helpful in numerous scenarios where you may have a networking division or separation into different networks or zones. In order to connect the EFLOW virtual machine to the different networks, you may need to attach different network interface cards to the EFLOW virtual machine. 
 
@@ -75,7 +76,7 @@ Once you successfully assign the virtual switch to the EFLOW VM, create a networ
         Add-EflowVmEndpoint -vSwitchName "{switchName}" -vEndpointName "{EndpointName}" -ip4Address "{staticIp4Address}" -ip4GatewayAddress "{gatewayIp4Address}" -ip4PrefixLength "{prefixLength}"
         ```
 
-        For example, if you wanted to create and assign the **OnlineEndpoint** endpoint with the external virtual switch named **OnlineExt**, and Static IP configurations (_ip4Address=192.168.0.103, ip4GatewayAddress=192.168.0.1, ip4PrefixLenght=24_) you should use the following command:
+        For example, if you wanted to create and assign the **OnlineEndpoint** endpoint with the external virtual switch named **OnlineExt**, and Static IP configurations (_ip4Address=192.168.0.103, ip4GatewayAddress=192.168.0.1, ip4PrefixLength=24_) you should use the following command:
         ```powershell
         Add-EflowVmEndpoint -vSwitchName "OnlineExt" -vEndpointName "OnlineEndpoint" -ip4Address "192.168.0.103" -ip4GatewayAddress "192.168.0.1" -ip4PrefixLength "24"
         ```

@@ -38,7 +38,7 @@ There are several methods of dealing with throttled requests:
 
 #### Issue
 
-Customers with access to more than 1,000 subscriptions, including cross-tenant subscriptions with [Azure Lighthouse](../../../lighthouse/overview.md), can't fetch data across all subscriptions in a single call to Azure Resource Graph.
+Customers with access to more than 1,000 subscriptions, including cross-tenant subscriptions with [Azure Lighthouse](/azure/lighthouse/overview), can't fetch data across all subscriptions in a single call to Azure Resource Graph.
 
 #### Cause
 
@@ -99,10 +99,34 @@ If the customer doesn't have read permission to all the provided subscriptions, 
 
 Include at least one subscription in the subscription list that the customer running the query has at least read access to. For more information, see [Permissions in Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph).
 
+### Scenario: Azure Resource Graph fields not being updated immediately
+
+#### Issue
+
+There are specific fields, when using Azure Resource Graph, that are updated at a slower cadence. These fields will converge to true values over time, provided there are no updates in between. 
+
+##### List of fields affected
+
+> [!IMPORTANT]
+> - This concept is not limited to specific properties. The following list are examples that you might find delayed, but eventually become updated.
+> - There are certain cases where VM states are updated asynchronously, which means that the current state does not match the "goal state" (desired state set by customers). However, these VM fields will converge over time.
+
+- properties.extended.instanceView.osName
+- properties.extended.instanceView.osVersion
+- properties.extended.instanceView.computerName
+
+#### Cause
+
+Some fields are coming from agent blobs that don't have notification coverage, therefore updates to these fields are delayed.
+
+#### Resolution
+
+These fields update at a slower cadence today, but will converge to true values over time, provided there are no updates in between.
+
 ## Next steps
 
 If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
 
 - Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
-- Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
+- Connect with [@AzureSupport](https://x.com/azuresupport) - the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 - If you need more help, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.

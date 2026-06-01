@@ -1,12 +1,11 @@
 ---
 title: 'Azure ExpressRoute: Reset circuit peering using Azure PowerShell'
 description: Learn how to enable and disable peerings for an Azure ExpressRoute circuit using Azure PowerShell.
-services: expressroute
 author:  duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 12/28/2023
+ms.date: 03/11/2026
 ms.author: duau
 ---
 
@@ -52,8 +51,8 @@ There are a two scenarios where you can find it helpful to reset your ExpressRou
    Name                             : ExpressRouteARMCircuit
    ResourceGroupName                : ExpressRouteResourceGroup
    Location                         : westus
-   Id                               : /subscriptions/########-####-####-####-############/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
-   Etag                             : W/"cd011bef-dc79-49eb-b4c6-81fb6ea5d178"
+   Id                               : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit
+   Etag                             : W/"aaaa0000-bb11-2222-33cc-444444dddddd"
    ProvisioningState                : Succeeded
    Sku                              : {
                                      "Name": "Standard_MeteredData",
@@ -68,12 +67,12 @@ There are a two scenarios where you can find it helpful to reset your ExpressRou
                                      "PeeringLocation": "Los Angeles",
                                      "BandwidthInMbps": 50
                                    }
-   ServiceKey                       : ########-####-####-####-############
+   ServiceKey                       : aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
    Peerings                         : [
                                      {
                                        "Name": "AzurePrivatePeering",
-                                       "Etag": "W/\"cd011bef-dc79-49eb-b4c6-81fb6ea5d178\"",
-                                       "Id": "/subscriptions/########-####-####-####-############/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit/peerings/AzurePrivatePeering",
+                                       "Etag": "W/\"aaaa0000-bb11-2222-33cc-444444dddddd\"",
+                                       "Id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit/peerings/AzurePrivatePeering",
                                        "PeeringType": "AzurePrivatePeering",
                                        "State": "Enabled",
                                        "AzureASN": 12076,
@@ -98,8 +97,8 @@ There are a two scenarios where you can find it helpful to reset your ExpressRou
                                      },
                                      {
                                        "Name": "MicrosoftPeering",
-                                       "Etag": "W/\"cd011bef-dc79-49eb-b4c6-81fb6ea5d178\"",
-                                       "Id": "/subscriptions/########-####-####-####-############/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit/peerings/MicrosoftPeering",
+                                       "Etag": "W/\"aaaa0000-bb11-2222-33cc-444444dddddd\"",
+                                       "Id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit/peerings/MicrosoftPeering",
                                        "PeeringType": "MicrosoftPeering",
                                        "State": "Enabled",
                                        "AzureASN": 12076,
@@ -147,5 +146,5 @@ There are a two scenarios where you can find it helpful to reset your ExpressRou
    
 ## Next steps
 If you need help with troubleshooting an ExpressRoute problem, see the following articles:
-* [Verifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)
-* [Troubleshooting network performance](expressroute-troubleshooting-network-performance.md)
+* [Verifying ExpressRoute connectivity](/troubleshoot/azure/expressroute/expressroute-troubleshooting-expressroute-overview)
+* [Troubleshooting network performance](/troubleshoot/azure/expressroute/expressroute-troubleshooting-network-performance)

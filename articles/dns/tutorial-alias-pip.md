@@ -2,13 +2,14 @@
 title: 'Tutorial: Create an Azure DNS alias record to refer to an Azure public IP address'
 description: In this tutorial, you learn how to configure an Azure DNS alias record to reference an Azure public IP address.
 services: dns
-author: greg-lindsay
-ms.service: dns
+author: asudbring
+ms.service: azure-dns
 ms.topic: tutorial
-ms.date: 11/30/2023
-ms.author: greglin
+ms.date: 03/03/2026
+ms.author: allensu
 ms.custom: template-tutorial #Required; leave this attribute/value as-is.
 #Customer intent: As an experienced network administrator, I want to configure Azure an DNS alias record to refer to an Azure public IP address.
+# Customer intent: As an experienced network administrator, I want to create an alias record in Azure DNS for a public IP address, so that I can easily manage and reference Azure resources using user-friendly domain names.
 ---
 
 # Tutorial: Create an alias record to refer to an Azure public IP address 
@@ -24,7 +25,7 @@ In this tutorial, you learn how to:
 > * Test the alias record.
 
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 
@@ -75,11 +76,11 @@ Create a virtual network and a subnet to place your web server in.
 
 ## Create a web server virtual machine
 
-Create a Windows Server virtual machine and then install IIS web server on it.
+Create a Linux virtual machine and install NGINX web server on it.
 
 ### Create the virtual machine
 
-Create a Windows Server 2019 virtual machine.
+Create an Ubuntu virtual machine.
 
 1. In the Azure portal, enter *virtual machine* in the search box at the top of the portal, and then select **Virtual machines** from the search results.
 1. In **Virtual machines**, select **+ Create** and then select **Azure virtual machine**.
@@ -91,16 +92,17 @@ Create a Windows Server 2019 virtual machine.
     | Subscription   | Select your Azure subscription. |
     | Resource Group    | Select **PIPResourceGroup**. |
     | **Instance details**  |     |
-    | Virtual machine name   | Enter **Web-01**. |
+    | Virtual machine name   | Enter **web-01**. |
     | Region    | Select **(US) East US**. |
     | Availability options   | Select **No infrastructure redundancy required**. |
     | Security type  | Select **Standard**. |
-    | Image   | Select **Windows Server 2019 Datacenter - Gen2**. |
+    | Image   | Select **Ubuntu Server 24.04 LTS - x64 Gen2**. |
     | Size    | Select your VM size. |
     | **Administrator account** |            |
+    | Authentication type | Select **SSH public key**. |
     | Username | Enter a username. |
-    | Password | Enter a password. |
-    | Confirm password    | Reenter the password. |
+    | SSH public key source | Select **Generate new key pair**. |
+    | Key pair name | Enter a name for the key pair. |
     | **Inbound port rules**  |   |
     | Public inbound ports | Select **None**. |
 
@@ -114,10 +116,10 @@ Create a Windows Server 2019 virtual machine.
     | **Network interface** |  |
     | Virtual network | Select **myPIPVNet**. |
     | Subnet | Select **WebSubnet**. |
-    | Public IP | Take the default public IP. |
+    | Public IP | Take the default Standard SKU public IP. |
     | NIC network security group | Select **Basic**. |
     | Public inbound ports | Select **Allow selected ports**. |
-    | Select inbound ports | Select **HTTP (80)**, **HTTPS (443)** and **RDP (3389)**. |
+    | Select inbound ports | Select **HTTP (80)** and **HTTPS (443)**. |
 
 1. Select **Review + create**.
 1. Review the settings, and then select **Create**.
@@ -125,27 +127,32 @@ Create a Windows Server 2019 virtual machine.
 This deployment may take a few minutes to complete.
 
 > [!NOTE]
-> **Web-01** virtual machine has an attached NIC with a basic dynamic public IP that changes every time the virtual machine is restarted.
+> The **web-01** virtual machine has an attached NIC with a Standard SKU dynamic public IP that changes every time the virtual machine is restarted.
 
-### Install IIS web server
+> [!NOTE]
+> The network security group rules block inbound SSH access from the internet. To run commands on the virtual machine, use the **Run command** feature in the Azure portal or deploy Azure Bastion. For more information about Azure Bastion, see [Quickstart: Deploy Azure Bastion with default settings](../bastion/quickstart-host-portal.md).
 
-Install IIS web server on **Web-01**.
+### Install NGINX web server
 
-1. In the **Overview** page of **Web-01**, select **Connect** and then **RDP**.
-1. In the **RDP** page, select **Download RDP File**.
-1. Open *Web-01.rdp*, and select **Connect**.
-1. Enter the username and password entered during virtual machine creation.
-1. On the **Server Manager** dashboard, select **Manage** then **Add Roles and Features**.
-1. Select **Server Roles** or select **Next** three times. On the **Server Roles** screen, select **Web Server (IIS)**.
-1. Select **Add Features**, and then select **Next**.
+Install NGINX web server on **web-01** using the **Run command** feature in the Azure portal.
 
-    :::image type="content" source="./media/tutorial-alias-pip/iis-web-server-installation.png" alt-text="Screenshot of Add Roles and Features Wizard in Windows Server 2019 showing how to install the I I S Web Server by adding Web Server role.":::
+1. In the search box at the top of the portal, enter *virtual machine*. Select **Virtual machines** in the search results.
 
-1. Select **Confirmation** or select **Next** three times, and then select **Install**. The installation process takes a few minutes to finish.
-1. After the installation finishes, select **Close**.
-1. Open a web browser. Browse to **localhost** to verify that the default IIS web page appears.
+1. Select the **web-01** virtual machine.
 
-    :::image type="content" source="./media/tutorial-alias-pip/iis-web-server.png" alt-text="Screenshot of Internet Explorer showing the I I S Web Server default web page.":::
+1. In the **Operations** section of the left menu, select **Run command**.
+
+1. Select **RunShellScript**.
+
+1. In the **Run Command Script** pane, enter the following command:
+
+    ```bash
+    sudo apt-get update && sudo apt-get install -y nginx
+    ```
+
+1. Select **Run**.
+
+1. Wait for the command to complete. The output displays the installation progress and finishes when NGINX is installed.
 
 ## Create an alias record
 
@@ -156,18 +163,18 @@ Create an alias record that points to the public IP address.
 1. In the **Add record set**, enter *web01* in the **Name**.
 1. Select **A** for the **Type**.
 1. Select **Yes** for the **Alias record set**, and then select the **Azure Resource** for the **Alias type**.
-1. Select the **Web-01-ip** public IP address for the **Azure resource**.
+1. Select the **web-01-ip** public IP address for the **Azure resource**.
 1. Select **OK**.
 
-    :::image type="content" source="./media/tutorial-alias-pip/add-public-ip-alias-inline.png" alt-text="Screenshot of adding an alias record to refer to the Azure public IP of the I I S web server using the Add record set page." lightbox="./media/tutorial-alias-pip/add-public-ip-alias-expanded.png":::
+    :::image type="content" source="./media/tutorial-alias-pip/add-public-ip-alias-inline.png" alt-text="Screenshot of adding an alias record to refer to the Azure public IP of the web server using the Add record set page." lightbox="./media/tutorial-alias-pip/add-public-ip-alias-expanded.png":::
 
 ## Test the alias record
 
 1. In the Azure portal, enter *virtual machine* in the search box at the top of the portal, and then select **Virtual machines** from the search results.
-1. Select the **Web-01** virtual machine. Note the public IP address in the **Overview** page.
-1. From a web browser, browse to `web01.contoso.com`, which is the fully qualified domain name of the **Web-01** virtual machine. You now see the IIS default web page.
+1. Select the **web-01** virtual machine. Note the public IP address in the **Overview** page.
+1. From a web browser, browse to `web01.contoso.com`, which is the fully qualified domain name of the **web-01** virtual machine. You now see the NGINX default web page.
 1. Close the web browser.
-1. Stop the **Web-01** virtual machine, and then restart it.
+1. Stop the **web-01** virtual machine, and then restart it.
 1. After the virtual machine restarts, note the new public IP address for the virtual machine.
 1. From a web browser, browse again to `web01.contoso.com`.
 

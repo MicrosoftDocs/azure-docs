@@ -2,13 +2,12 @@
 title: Manage authentication in Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: Become familiar with Azure Maps authentication. See which approach works best in which scenario. Learn how to use the portal to view authentication settings.
-author: eriklindeman
-ms.author: eriklind
+author: pbrasil
+ms.author: peterbr 
 ms.date: 12/3/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-custom.ms: subject-rbac-steps
+ms.subservice: authentication
 ---
 
 # Manage authentication in Azure Maps
@@ -187,7 +186,7 @@ Explore samples that show how to integrate Microsoft Entra ID with Azure Maps:
 [application categories]: ../active-directory/develop/authentication-flows-app-scenarios.md#application-categories
 [Microsoft Entra ID]: ../active-directory/fundamentals/active-directory-whatis.md
 [Shared Key authentication]: azure-maps-authentication.md#shared-key-authentication
-[free account]: https://azure.microsoft.com/free/
+[free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [managed identities for Azure resources]: ../active-directory/managed-identities-azure-resources/overview.md
 [Managed identity types]: ../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types
 [An Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account

@@ -1,30 +1,34 @@
 ---
 title: RedisListTrigger for Azure Functions
-description: Learn how to use the RedisListTrigger Azure Functions for Azure Cache for Redis.
+description: Learn how to use the RedisListTrigger Azure Functions for Azure Managed Redis.
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 ms.author: franlanglois
 ms.service: azure-functions
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, ignite-2024
 ms.topic: reference
-ms.date: 05/20/2024
+ms.date: 07/12/2024
 ---
 
 # RedisListTrigger for Azure Functions
 
 The `RedisListTrigger` pops new elements from a list and surfaces those entries to the function.
 
-For more information about Azure Cache for Redis triggers and bindings, [Redis Extension for Azure Functions](https://github.com/Azure/azure-functions-redis-extension/tree/main).
+For more information about Azure Managed Redis triggers and bindings, [Redis Extension for Azure Functions](https://github.com/Azure/azure-functions-redis-extension/tree/main).
 
 ## Scope of availability for functions triggers
 
-|Tier     | Basic | Standard, Premium  | Enterprise, Enterprise Flash  |
-|---------|:---------:|:---------:|:---------:|
-| Lists | Yes  | Yes   |  Yes  |
+| Trigger Type    | Azure Managed Redis | Azure Cache for Redis |
+|---------|:-----:|:-----------------:|
+| Lists | Yes   | Yes               |
 
 > [!IMPORTANT]
-> Redis triggers aren't currently supported for functions running in the [Consumption plan](consumption-plan.md).
+> When using Azure Managed Redis or the Enterprise tiers of Azure Cache for Redis, use port 10000 rather than port 6380 or 6379.
+>
+
+> [!IMPORTANT]
+> Redis triggers aren't currently supported for functions running on a [Consumption plan](consumption-plan.md) or a [Flex Consumption plan](flex-consumption-plan.md).
 >
 
 ::: zone pivot="programming-language-javascript"  
@@ -322,7 +326,6 @@ The `RedisListTrigger` pops new elements from a list and surfaces those entries 
 ## Related content
 
 - [Introduction to Azure Functions](functions-overview.md)
-- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-functions-getting-started)
-- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/azure-cache-for-redis/cache-tutorial-write-behind)
+- [Overview of Azure functions for Azure Redis](/azure/azure-functions/functions-bindings-cache)
 - [Redis connection string](functions-bindings-cache.md#redis-connection-string)
-- [Redis lists](https://redis.io/docs/data-types/lists/)
+- [Redis lists](https://redis.io/docs/latest/operate/rs/databases/active-active/develop/data-types/lists/)

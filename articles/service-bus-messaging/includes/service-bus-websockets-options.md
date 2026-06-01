@@ -1,14 +1,12 @@
 ---
 title: include file
 description: include file
-services: service-bus-messaging
 author: clemensv
-ms.service: service-bus-messaging
+ms.service: azure-service-bus
 ms.topic: include
 ms.date: 04/08/2021
 ms.author: clemensv
-ms.custom: "include file"
-
+ms.custom: sfi-ropc-nochange
 ---
 
 The AMQP-over-WebSockets protocol option runs over port TCP 443 just like the HTTP/REST API, but is otherwise functionally identical with plain AMQP. This option has higher initial connection latency because of extra handshake roundtrips and slightly more overhead as tradeoff for sharing the HTTPS port. If this mode is selected, TCP port 443 is sufficient for communication. The following options allow selecting the AMQP WebSockets mode. 

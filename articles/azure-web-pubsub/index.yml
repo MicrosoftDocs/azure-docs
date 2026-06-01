@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: yjin81
   ms.author: yajin1
-  ms.date: 05/22/2022 
+  ms.date: 07/24/2024 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -96,13 +96,15 @@ landingContent:
     linkLists:       
       - linkListType: concept
         links:
-          - text: High availability
+          - text: Reliability in Azure Web PubSub
+            url: /azure/reliability/reliability-web-pubsub?toc=/azure/azure-web-pubsub/toc.json
+          - text: Disaster recovery
             url: concept-disaster-recovery.md
           - text: Performance consideration
             url: concept-performance.md
       - linkListType: how-to-guide
         links:
-          - text: Create reliable Websocket clients
+          - text: Create reliable WebSocket clients
             url: howto-develop-reliable-clients.md
           - text: Troubleshoot with resource logs
             url: howto-troubleshoot-resource-logs.md

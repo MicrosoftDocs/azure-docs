@@ -3,9 +3,10 @@ title: Blob Storage feature support in Azure storage accounts
 description: Determine the level of support for each storage account feature given storage account type, and the settings that are enabled on the account.
 author: normesta
 ms.service: azure-blob-storage
-ms.topic: conceptual
-ms.date: 06/06/2024
+ms.topic: concept-article
+ms.date: 05/18/2026
 ms.author: normesta
+# Customer intent: As a cloud architect, I want to assess the feature support for different storage account types in Azure, so that I can optimize the configuration for my organization's storage needs and ensure compatibility with enabled capabilities.
 ---
 
 # Blob Storage feature support in Azure Storage accounts
@@ -42,27 +43,28 @@ The following table describes whether a feature is supported in a standard gener
 | Storage feature | Default | HNS   | NFS  | SFTP |
 |---------------|-------------------|---|---|--|
 | [Access tiers (hot, cool, cold, and archive)](access-tiers-overview.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; |
-| [Microsoft Entra security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup>  |
+| [Microsoft Entra security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;  |
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json#storage-account-endpoints) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Blob index tags](storage-manage-find-blobs.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Blob snapshots](snapshots-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2B24; | &#x1F7E6; |
+| [Blob index tags](storage-manage-find-blobs.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
+| [Blob snapshots](snapshots-overview.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Blob Storage APIs](reference.md) | &#x2705; | &#x2705;   | &#x2705; | &#x2705;  |
 | [Blob Storage Azure CLI commands](storage-quickstart-blobs-cli.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Blob Storage events](storage-blob-event-overview.md) | &#x2705; | &#x2705;    | &nbsp;&#x2B24; | &#x2705; |
+| [Blob Storage events](storage-blob-event-overview.md) | &#x2705; | &#x2705;    | &#x2705; | &#x2705; |
 | [Blob Storage PowerShell commands](storage-quickstart-blobs-powershell.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob versioning](versioning-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Blobfuse](storage-how-to-mount-container-linux.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Change feed](storage-blob-change-feed.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Custom domains](storage-custom-domain-name.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
-| [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x1F7E6; | &nbsp;&#x2B24; | &#x1F7E6; |
+| [Customer-managed planned failover](../common/storage-disaster-recovery-guidance.md#customer-managed-planned-failover) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &#x2705; |
+| [Customer-managed (unplanned) failover](../common/storage-disaster-recovery-guidance.md#customer-managed-unplanned-failover) | &#x2705; | &#x2705; | &#x1F7E6; | &#x2705; |
 | [Customer-managed keys with key vault in the same tenant](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Customer-managed keys with key vault in a different tenant (cross-tenant)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Customer-provided keys](encryption-customer-provided-keys.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Data redundancy options](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705;<sup>2</sup> | &#x2705; |
 | [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Immutable storage](immutable-storage-overview.md) | &#x2705; | &#x2705; | &nbsp;&#x2B24;  | &nbsp;&#x2B24; |
-| [Last access time tracking for lifecycle management](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &#x2705; |
+| [Last access time tracking for lifecycle management](lifecycle-management-policy-structure.md#access-time-tracking) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lifecycle management policies (delete blob)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lifecycle management policies (tiering)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Logging in Azure Monitor](./monitor-blob-storage.md) | &#x2705;  | &#x2705;  | &#x2705; | &#x2705; |
@@ -76,7 +78,7 @@ The following table describes whether a feature is supported in a standard gener
 | [Storage Analytics logs (classic)](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705;   | &nbsp;&#x2B24; | &#x2705; |
 | [Storage Analytics metrics (classic)](../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json)<sup>3</sup> | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 
-<sup>1</sup>    Requests that clients make by using NFS 3.0 or SFTP can't be authorized by using Microsoft Entra security.
+<sup>1</sup>    Requests that clients make by using NFS 3.0 can't be authorized by using Microsoft Entra security.
 
 <sup>2</sup>    Only locally redundant storage (LRS) and zone-redundant storage (ZRS) are supported.
 
@@ -92,27 +94,28 @@ The following table describes whether a feature is supported in a premium block 
 | Storage feature | Default | HNS   | NFS  | SFTP |
 |---------------|-------------------|---|---|--|
 | [Access tiers (hot, cool, cold, and archive)](access-tiers-overview.md)  | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Microsoft Entra security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705;<sup>1</sup> |
+| [Microsoft Entra security](authorize-access-azure-active-directory.md) | &#x2705; | &#x2705; | &#x2705;<sup>1</sup>  | &#x2705; |
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md?toc=/azure/storage/blobs/toc.json#storage-account-endpoints) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob inventory](blob-inventory.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Blob index tags](storage-manage-find-blobs.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Blob snapshots](snapshots-overview.md) | &#x2705; | &#x1F7E6; | &nbsp;&#x2B24; | &#x1F7E6; |
+| [Blob index tags](storage-manage-find-blobs.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
+| [Blob snapshots](snapshots-overview.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
 | [Blob Storage APIs](reference.md) | &#x2705; | &#x2705;   | &#x2705; | &#x2705;  |
 | [Blob Storage Azure CLI commands](storage-quickstart-blobs-cli.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Blob Storage events](storage-blob-event-overview.md) | &#x2705;    | &#x2705; | &nbsp;&#x2B24; | &#x2705; |
+| [Blob Storage events](storage-blob-event-overview.md) | &#x2705;    | &#x2705; | &#x2705; | &#x2705; |
 | [Blob Storage PowerShell commands](storage-quickstart-blobs-powershell.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Blob versioning](versioning-overview.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Blobfuse](storage-how-to-mount-container-linux.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Change feed](storage-blob-change-feed.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Custom domains](storage-custom-domain-name.md) | &#x2705; | &#x1F7E6; | &#x1F7E6; | &#x1F7E6; |
-| [Customer-managed account failover](../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/blobs/toc.json) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
+| [Customer-managed planned failover](../common/storage-failover-customer-managed-planned.md?toc=/azure/storage/blobs/toc.json) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
+| [Customer-managed (unplanned) failover](../common/storage-failover-customer-managed-unplanned.md?toc=/azure/storage/blobs/toc.json) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Customer-managed keys with key vault in the same tenant](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Customer-managed keys with key vault in a different tenant (cross-tenant)](../common/customer-managed-keys-overview.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Customer-provided keys](encryption-customer-provided-keys.md) | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Data redundancy options](../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x2705; | &#x2705;<sup>2</sup> | &#x2705; |
 | [Encryption scopes](encryption-scope-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Immutable storage](immutable-storage-overview.md) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
-| [Last access time tracking for lifecycle management](lifecycle-management-overview.md#move-data-based-on-last-accessed-time) | &#x2705; | &#x2705; | &nbsp;&#x2B24; | &#x2705; |
+| [Last access time tracking for lifecycle management](lifecycle-management-policy-structure.md#access-time-tracking) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lifecycle management policies (delete blob)](./lifecycle-management-overview.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lifecycle management policies (tiering)](./lifecycle-management-overview.md) | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 | [Logging in Azure Monitor](./monitor-blob-storage.md) | &#x2705;  | &#x2705; | &#x2705; | &#x2705; |
@@ -126,7 +129,7 @@ The following table describes whether a feature is supported in a premium block 
 | [Storage Analytics logs (classic)](../common/storage-analytics-logging.md?toc=/azure/storage/blobs/toc.json) | &#x2705; | &#x1F7E6;   | &nbsp;&#x2B24;| &#x2705; |
 | [Storage Analytics metrics (classic)](../common/storage-analytics-metrics.md?toc=/azure/storage/blobs/toc.json)<sup>3</sup> | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; | &nbsp;&#x2B24; |
 
-<sup>1</sup>    Requests that clients make by using NFS 3.0 or SFTP can't be authorized by using Microsoft Entra security.
+<sup>1</sup>    Requests that clients make by using NFS 3.0 can't be authorized by using Microsoft Entra security.
 
 <sup>2</sup>    Only locally redundant storage (LRS) and zone-redundant storage (ZRS) are supported.
 
@@ -134,7 +137,7 @@ The following table describes whether a feature is supported in a premium block 
 
 ## See also
 
-- [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
+- [Known issues with Azure Data Lake Storage](data-lake-storage-known-issues.md)
 
 - [Known issues with Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-known-issues.md)
 

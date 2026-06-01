@@ -2,11 +2,12 @@
 title: Tutorial to set up Azure VM disaster recovery with Azure Site Recovery
 description: In this tutorial, set up disaster recovery for Azure VMs to another Azure region, using the Site Recovery service.
 ms.topic: tutorial
-ms.service: site-recovery
-ms.date: 05/10/2024
+ms.service: azure-site-recovery
+ms.date: 05/05/2026
 ms.custom: mvc
-ms.author: ankitadutta
+ms.author: v-gajeronika
 #Customer intent: As an Azure admin, I want to set up disaster recovery for my Azure VMs, so that they're available in a secondary region if the primary region becomes unavailable.
+# Customer intent: As an Azure administrator, I want to configure disaster recovery for my Azure VMs using replication, so that they remain available in a secondary region during outages in the primary region.
 ---
 # Tutorial: Set up disaster recovery for Azure VMs
 
@@ -18,12 +19,14 @@ This tutorial shows you how to set up disaster recovery for Azure VMs using [Azu
 > * Create a Recovery Services vault
 > * Enable VM replication
 
+[!INCLUDE [azure-to-azure-region-limitations.md](./includes/azure-to-azure-region-limitations.md)]
+
 When you enable [replication](azure-to-azure-quickstart.md) for a VM to set up disaster recovery, the Site Recovery Mobility service extension installs on the VM, and registers it with Azure Site Recovery. During replication, VM disk writes are sent to a cache storage account in the source region. Data is sent from there to the target region, and recovery points are generated from the data. When you fail over a VM during disaster recovery, a recovery point is used to restore the VM in the target region. [Learn more](azure-to-azure-architecture.md) about the architecture.
 
 > [!NOTE]
 > Tutorials provide instructions with the simplest default settings. If you want to set up Azure VM disaster recovery with customized settings, review [this article](azure-to-azure-how-to-enable-replication.md).
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 
@@ -44,13 +47,12 @@ Your Azure account needs permissions to create a Recovery Services vault, and to
 
 - If you just created a free Azure subscription, you're the account admin, and no further action is needed.
 - If you aren't the admin, work with the admin to get the permissions you need.
-    - **Microsoft Entra ID**: Application owner and application developer roles to enable replication.
     - **Create a vault**: Admin or owner permissions on the subscription.
     - **Manage Site Recovery operations in the vault**: The *Site Recovery Contributor* built-in Azure role.
     - **Create Azure VMs in the target region**: Either the built-in *Virtual Machine Contributor* role, or specific permissions to:
         - Create a VM in the selected virtual network.
         - Write to an Azure storage account.
-        - Write to an Azure-managed disk.
+        - Write to an Azure managed disk.
 
 ### Verify target settings
 
@@ -99,7 +101,7 @@ GuestAndHybridManagement tag | Use if you want to automatically upgrade the Site
 
 #### Azure Instance Metadata Service (IMDS) connectivity
 
-Azure Site Recovery mobility agent uses [Azure Instance Metadata Service (IMDS)](../virtual-machines/instance-metadata-service.md) to get virtual machine security type. Communications between VM and IMDS never leaves the host. Ensure that you bypass the IP  `169.254.169.254` when using any proxies.    
+Azure Site Recovery mobility agent uses [Azure Instance Metadata Service (IMDS)](/azure/virtual-machines/instance-metadata-service) to get virtual machine security type. Communications between VM and IMDS never leaves the host. Ensure that you bypass the IP  `169.254.169.254` when using any proxies.    
 
 
 ### Verify VM certificates
@@ -176,7 +178,7 @@ Site Recovery retrieves the VMs associated with the selected subscription/resour
 1. In **Replication settings**, review the settings. Site Recovery creates default settings/policy for the target region. For the purposes of this tutorial, we use the default settings.
     >[!Note]
     >Azure Site Recovery has a *High Churn* option that you can choose to protect VMs with high data change rate. With this, you can use a *Premium Block Blob* type of storage account. By default, the **Normal Churn** option is selected. For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md). You can select the **High Churn** option from  **Storage** > **View/edit storage configuration** > **Churn for the VM**.
-    >:::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/churns.png" alt-text="Screenshot of churn."::: 
+    >:::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/vm-churn-settings.png" alt-text="Screenshot of churn."::: 
 
 2. Select **Next**.
   

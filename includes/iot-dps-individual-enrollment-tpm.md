@@ -1,9 +1,10 @@
 ---
-author: kgremban
-ms.service: iot-dps
+author: SoniaLopezBravo
+ms.service: azure-iot-hub
 ms.topic: include
-ms.date: 03/09/2023
-ms.author: kgremban
+ms.date: 10/14/2025
+ms.author: sonialopez
+ms.subservice: azure-iot-hub-dps
 ---
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Device Provisioning Service instance.
@@ -19,7 +20,7 @@ ms.author: kgremban
    | Field | Description |
    | :--- | :--- |
    | **Attestation** | Select **Trusted Platform Module (TPM)** as the **Attestation mechanism**. |
-   | **Trusted Platform Module (TPM) settings** | Provide the endorsement key that will be used to verify the device for this enrollment. You can retrieve the endorsement key from your device's TPM.|
+   | **Trusted Platform Module (TPM) settings** | Provide the endorsement key that is used to verify the device for this enrollment. You can retrieve the endorsement key from your device's TPM.|
    | **Registration ID** | Provide the unique registration ID for the device. You can retrieve the registration ID from your device's TPM. |
    | **Provisioning status** | Check the **Enable this enrollment** box if you want this enrollment to be available to provision its device. Uncheck this box if you want the enrollment to be disabled. You can change this setting later. |
    | **Reprovision policy** | Choose a reprovision policy that reflects how you want DPS to handle devices that request reprovisioning. For more information, see [Reprovision policies](../articles/iot-dps/concepts-device-reprovision.md#reprovision-policies). |
@@ -35,12 +36,12 @@ ms.author: kgremban
 
 1. Select **Next: Device settings**
 
-1. On the **Device settings** tab of the **Add enrollment** page, provide the following information to define how newly provisioned devices will be configured:
+1. On the **Device settings** tab of the **Add enrollment** page, provide the following information to define how newly provisioned devices are configured:
 
    | Field | Description |
    | :---- | :---------- |
-   | **Device ID** | Provide a device ID that will be assigned to the provisioned device in IoT Hub. If you don't provide a device ID, the registration ID will be used. |
-   | **IoT Edge** | Check the **Enable IoT Edge on provisioned devices** if the provisioned device will run [Azure IoT Edge](../articles/iot-edge/about-iot-edge.md). Uncheck this box if this enrollment is for a non-IoT Edge-enabled device. |
+   | **Device ID** | Provide a device ID that is assigned to the provisioned device in IoT Hub. If you don't provide a device ID, the registration ID is used. |
+   | **IoT Edge** | Check the **Enable IoT Edge on provisioned devices** if the provisioned device run [Azure IoT Edge](../articles/iot-edge/about-iot-edge.md). Uncheck this box if this enrollment is for a non-IoT Edge-enabled device. |
    | **Device tags** | Use this text box to provide any tags that you want to apply to the device twin of the provisioned device. |
    | **Desired properties** | Use this text box to provide any desired properties that you want to apply to the device twin of the provisioned device. |
 

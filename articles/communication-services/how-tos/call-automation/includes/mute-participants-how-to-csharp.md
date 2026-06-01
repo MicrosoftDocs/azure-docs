@@ -13,7 +13,7 @@ ms.author: kpunjabi
 
 ## Prerequisites
 
-- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
+- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Save the connection string for this resource. 
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
@@ -86,7 +86,7 @@ await callConnection.MuteParticipantsAsync(target, "OperationContext").Configure
     "sequenceNumber": 4,
     "callConnectionId": "401f3500-08a0-4e9e-b844-61a65c845a0b",
     "serverCallId": "aHR0cHM6Ly9hcGkuZmxpZ2h0cHJveHkuc2t5cGUuY29tL2FwaS92Mi9jcC9jb252LXVzZWEyLTAxLmNvbnYuc2t5cGUuY29tL2NvbnYvRkhjV1lURXFZMENUY0VKUlJ3VHc1UT9pPTQmZT02MzgxNDkzMTEwNDk0NTM2ODQ=",
-    "correlationId": "e47198fb-1798-4f3e-b245-4fd06569ad5c"
+    "correlationId": "aaaa0000-bb11-2222-33cc-444444dddddd"
   },
   "time": "2023-03-21T17:22:35.4300007+00:00",
   "specversion": "1.0",
@@ -94,4 +94,3 @@ await callConnection.MuteParticipantsAsync(target, "OperationContext").Configure
   "subject": "calling/callConnections/401f3500-08a0-4e9e-b844-61a65c845a0b"
 }
 ```
-

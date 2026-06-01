@@ -1,27 +1,29 @@
 ---
 author: wchigit
-description: managed identity, code sample
+description: Managed identity, code sample
 ms.service: service-connector
 ms.topic: include
-ms.date: 11/02/2023
+ms.date: 04/07/2026
 ms.author: wchi
 ---
 
 ### [.NET](#tab/dotnet)
 
 1. Install dependency.
+
     ```bash
     dotnet add package Azure.Storage.Queues
     dotnet add package Azure.Identity
     ```
 
-1. Authenticate using `Azure.Identity` and get the Azure Queue Storage endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Run the following code, uncommenting the part of the code snippet for the authentication type you want to use. The code authenticates using `Azure.Identity` and gets the Azure Queue Storage endpoint from the Service Connector environment variables.
+
     
     ```csharp
     using Azure.Storage.Queues;
     using Azure.Identity;    
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // system-assigned managed identity
     // var credential = new DefaultAzureCredential();
     
@@ -43,7 +45,9 @@ ms.author: wchi
     ```
 
 ### [Java](#tab/java)
+
 1. Add the following dependencies in your *pom.xml* file:
+
     ```xml
     <dependency>
         <groupId>com.azure</groupId>
@@ -55,13 +59,15 @@ ms.author: wchi
         <version>1.1.5</version>
     </dependency>
     ```
-1. Authenticate using `azure-identity` and get the Azure Queue Storage endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+
+1. Run the following code, uncommenting the part of the code snippet for the authentication type you want to use. The code authenticates using `azure-identity` and gets the Queue Storage endpoint from the Service Connector environment variables.
+
     ```java
     import com.azure.identity.*;
     import com.azure.storage.queue.*;
     import com.azure.storage.queue.models.*;
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-managed identity
     // DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
 
@@ -85,22 +91,27 @@ ms.author: wchi
         .buildClient();
     ```
 
-### [SpringBoot](#tab/springBoot)
-The authentication type is not supported by Spring Boot client type.
+### [Spring Boot](#tab/springBoot)
+
+To set up your Spring application, see [Spring Cloud Azure Storage Queue Operation Code Sample](/samples/azure-samples/azure-spring-boot-samples/sending-and-receiving-message-by-azure-storage-queue-and-sdk-client-in-spring-boot-application). Service Connector adds the Spring Cloud Azure 4.0 and above configuration properties to Spring Apps. For more information about configuration properties, see [Azure Storage Queue Properties](https://microsoft.github.io/spring-cloud-azure/current/reference/html/appendix.html#azure_storage_queue_proeprties).
 
 ### [Python](#tab/python)
+
 1. Install dependencies.
+
     ```bash
     pip install azure-identity
     pip install azure-storage-queue
     ```
-1. Authenticate using `azure-identity` and get the Azure Queue Storage endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+
+1. Run the following code, uncommenting the part of the code snippet for the authentication type you want to use. The code authenticates using `azure-identity` and gets the Queue Storage endpoint from the Service Connector environment variables.
+
     ```python
     import os
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
     from azure.storage.queue import QueueServiceClient, QueueClient
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # system-assigned managed identity
     # cred = ManagedIdentityCredential()
     
@@ -119,18 +130,21 @@ The authentication type is not supported by Spring Boot client type.
     ```
 
 ### [NodeJS](#tab/nodejs)
+
 1. Install dependencies.
+
     ```bash
     npm install @azure/identity
     npm install @azure/storage-queue
     ```
-1. Authenticate using `@azure/identity` and get the Azure Queue Storage endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
-    
+
+1. Run the following code, uncommenting the part of the code snippet for the authentication type you want to use. The code authenticates using `@azure/identity` and gets the Azure Queue Storage endpoint from the Service Connector environment variables.
+
     ```javascript
     const { QueueServiceClient } = require("@azure/storage-queue");
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-assigned managed identity
     // const credential = new DefaultAzureCredential();
     
@@ -151,3 +165,5 @@ The authentication type is not supported by Spring Boot client type.
         credential
       );
     ```
+
+---

@@ -2,11 +2,11 @@
 title: 'Quickstart: Build your first static web app'
 description: Learn to deploy a static site to Azure Static Web Apps with the Azure portal.
 services: static-web-apps
-author: craigshoemaker
-ms.author: cshoe
-ms.date: 05/17/2024
+author: cjk7989
+ms.author: jikunchen
+ms.date: 09/18/2024
 ms.topic: quickstart
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 zone_pivot_groups: devops-or-github
 ---
 
@@ -17,12 +17,12 @@ Azure Static Web Apps publishes a website to a production environment by buildin
 ## Prerequisites
 
 ::: zone pivot="github"
-- If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
+- If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [GitHub](https://github.com) account
 ::: zone-end
 
 ::: zone pivot="azure-devops"
-- If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free).
+- If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure DevOps](https://azure.microsoft.com/services/devops) organization
 ::: zone-end
 
@@ -237,6 +237,10 @@ If you're not going to continue to use this application, you can delete the Azur
 1. Select the app name.
 1. Select **Delete**.
 1. Select **Yes** to confirm the delete action (this action may take a few moments to complete).
+
+## Related content
+
+* [Video series: Deploy websites to the cloud with Azure Static Web Apps](https://aka.ms/azure/beginnervideos/learn/swa)
 
 ## Next steps
 

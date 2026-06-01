@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Build machine learning applications using Synapse Machine Learning'
 description: Learn how to use Synapse Machine Learning to create machine learning applications in Azure Synapse Analytics.
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.date: 03/08/2021
@@ -13,50 +13,50 @@ ms.author: ruxu
 # Tutorial: Build machine learning applications using Synapse Machine Learning
 
 In this article, you will learn how to use Synapse Machine Learning ([SynapseML](https://github.com/microsoft/SynapseML)) to create machine learning applications. 
-SynapseML expands the distributed machine learning solution of Apache Spark by adding many deep learning and data science tools, such as [Azure AI services](../../ai-services/what-are-ai-services.md), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM) and more.  SynapseML allows you to build powerful and highly scalable predictive and analytical models from various Spark data sources.
+SynapseML expands the distributed machine learning solution of Apache Spark by adding many deep learning and data science tools, such as [Foundry Tools](/azure/ai-services/what-are-ai-services), [OpenCV](https://opencv.org/), [LightGBM](https://github.com/Microsoft/LightGBM) and more.  SynapseML allows you to build powerful and highly scalable predictive and analytical models from various Spark data sources.
 Synapse Spark provide built-in SynapseML libraries including:
 
 - [Vowpal Wabbit](https://github.com/VowpalWabbit/vowpal_wabbit) – Library services for Machine learning to enable Text analytics like sentiment analysis in tweets.
-- [MMLSpark: Unifying Machine Learning Ecosystems at Massive Scales](https://arxiv.org/abs/1810.08744) – To combine the feature of Azure AI services in SparkML pipelines in order to derive solution design for cognitive data modeling services like anomaly detection.
+- [MMLSpark: Unifying Machine Learning Ecosystems at Massive Scales](https://arxiv.org/abs/1810.08744) – To combine the feature of Foundry Tools in SparkML pipelines in order to derive solution design for cognitive data modeling services like anomaly detection.
 - [LightGBM](https://github.com/Microsoft/LightGBM) – LightGBM is a gradient boosting framework that uses tree based learning algorithms. It is designed to be distributed and higher efficiency.
 - Conditional KNN - Scalable KNN Models with Conditional Queries.
 - HTTP on Spark – Enables distributed Microservices orchestration in integrating Spark and HTTP protocol-based accessibility.
 
-This tutorial covers samples using Azure AI services in SynapseML for 
+This tutorial covers samples using Foundry Tools in SynapseML for 
 
 - Text Analytics - get the sentiment (or mood) of a set of sentences.
 - Computer Vision - get the tags (one-word descriptions) associated with a set of images.
 - Bing Image Search - search the web for images related to a natural language query.
 - Anomaly Detector - detect anomalies within a time series data.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites 
 
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../get-started-analyze-spark.md).
-- Pre-configuration steps described in the tutorial [Configure Azure AI services in Azure Synapse](./tutorial-configure-cognitive-services-synapse.md).
+- Pre-configuration steps described in the tutorial [Configure Foundry Tools in Azure Synapse](./tutorial-configure-cognitive-services-synapse.md).
 
 
 ## Get started
-To get started, import SynapseML and configurate service keys. 
+To get started, import SynapseML and configure service keys. 
 
 ```python
 import synapse.ml
 from synapse.ml.cognitive import *
 from notebookutils import mssparkutils
 
-# An Azure AI services multi-service resource key for Text Analytics and Computer Vision (or use separate keys that belong to each service)
+# A Foundry Tools multi-service resource key for Text Analytics and Computer Vision (or use separate keys that belong to each service)
 ai_service_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_SERVICE_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME") 
 # A Bing Search v7 subscription key
 bingsearch_service_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_BING_SEARCH_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME")
-# An Anomaly Dectector subscription key
+# An Anomaly Detector subscription key
 anomalydetector_key = mssparkutils.credentials.getSecret("ADD_YOUR_KEY_VAULT_NAME", "ADD_YOUR_ANOMALY_KEY","ADD_YOUR_KEY_VAULT_LINKED_SERVICE_NAME")
 ```
 
 ## Text analytics sample
 
-The [Text Analytics](../../ai-services/language-service/index.yml) service provides several algorithms for extracting intelligent insights from text. For example, we can find the sentiment of given input text. The service will return a score between 0.0 and 1.0 where low scores indicate negative sentiment and high score indicates positive sentiment. This sample uses three simple sentences and returns the sentiment for each.
+The [Text Analytics](/azure/ai-services/language-service/) service provides several algorithms for extracting intelligent insights from text. For example, we can find the sentiment of given input text. The service will return a score between 0.0 and 1.0 where low scores indicate negative sentiment and high score indicates positive sentiment. This sample uses three simple sentences and returns the sentiment for each.
 
 ```python
 from pyspark.sql.functions import col
@@ -91,7 +91,7 @@ display(sentiment.transform(df_sentences).select("text", col("sentiment")[0].get
 | I am so happy today, its sunny! | positive |
 
 ## Computer vision sample
-[Computer Vision](../../ai-services/computer-vision/index.yml) analyzes images to identify structure such as faces, objects, and natural-language descriptions. In this sample, we tag the following image. Tags are one-word descriptions of things in the image like recognizable objects, people, scenery, and actions.
+[Computer Vision](/azure/ai-services/computer-vision/) analyzes images to identify structure such as faces, objects, and natural-language descriptions. In this sample, we tag the following image. Tags are one-word descriptions of things in the image like recognizable objects, people, scenery, and actions.
 
 ![image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-sample-data-files/master/ComputerVision/Images/objects.jpg)
 
@@ -171,7 +171,7 @@ display(res_bingsearch.dropDuplicates())
 
 ## Anomaly detector sample
 
-[Anomaly Detector](../../ai-services/anomaly-detector/index.yml) is great for detecting irregularities in your time series data. In this sample, we use the service to find anomalies in the entire time series.
+[Anomaly Detector](/azure/ai-services/anomaly-detector/) is great for detecting irregularities in your time series data. In this sample, we use the service to find anomalies in the entire time series.
 
 ```python
 from pyspark.sql.functions import lit
@@ -196,7 +196,7 @@ df_timeseriesdata = spark.createDataFrame([
 ], ["timestamp", "value"]).withColumn("group", lit("series1"))
 
 # Run the Anomaly Detector service to look for irregular data
-anamoly_detector = (SimpleDetectAnomalies()
+anomaly_detector = (SimpleDetectAnomalies()
   .setSubscriptionKey(anomalydetector_key)
   .setLocation("eastasia")
   .setTimestampCol("timestamp")
@@ -206,7 +206,7 @@ anamoly_detector = (SimpleDetectAnomalies()
   .setGranularity("monthly"))
 
 # Show the full results of the analysis with the anomalies marked as "True"
-display(anamoly_detector.transform(df_timeseriesdata).select("timestamp", "value", "anomalies.isAnomaly"))
+display(anomaly_detector.transform(df_timeseriesdata).select("timestamp", "value", "anomalies.isAnomaly"))
 ```
 
 ### Expected results
@@ -232,7 +232,7 @@ display(anamoly_detector.transform(df_timeseriesdata).select("timestamp", "value
 
 ## Speech-to-text sample
 
-The [Speech-to-text](../../ai-services/speech-service/index-text-to-speech.yml) service converts streams or files of spoken audio to text. In this sample, we transcribe one audio file to text. 
+The [Speech-to-text](/azure/ai-services/speech-service/index-text-to-speech) service converts streams or files of spoken audio to text. In this sample, we transcribe one audio file to text. 
 
 ```python
 # Create a dataframe with our audio URLs, tied to the column called "url"

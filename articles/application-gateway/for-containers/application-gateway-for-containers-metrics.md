@@ -2,29 +2,39 @@
 title: Azure Monitor metrics for Application Gateway for Containers
 description: Learn how to use metrics to monitor performance of Application Gateway for Containers
 services: application-gateway
-author: greg-lindsay
-ms.service: application-gateway
-ms.subservice: appgw-for-containers
-ms.topic: article
-ms.date: 02/27/2024
-ms.author: greglin
+author: mbender-ms
+ms.service: azure-appgw-for-containers
+ms.topic: concept-article
+ms.date: 07/21/2025
+ms.author: mbender
 
+# Customer intent: As an IT operations manager, I want to monitor performance metrics for Application Gateway for Containers, so that I can ensure optimal application performance and troubleshoot issues effectively.
 ---
 # Metrics for Application Gateway for Containers
 
-Application Gateway for Containers publishes data points to [Azure Monitor](../../azure-monitor/overview.md) for the performance of your Application Gateway for Containers and backend instances. These data points are called metrics, and are numerical values in an ordered set of time-series data. Metrics describe some aspect of your application gateway at a particular time. If there are requests flowing through the Application Gateway, it measures and sends its metrics in 60-second intervals. If there are no requests flowing through the Application Gateway or no data for a metric, the metric isn't reported. For more information, see [Azure Monitor metrics](../../azure-monitor/essentials/data-platform-metrics.md).
+Application Gateway for Containers publishes data points to [Azure Monitor](/azure/azure-monitor/overview) for the performance of your Application Gateway for Containers and backend instances. These data points are called metrics, and are numerical values in an ordered set of time-series data. Metrics describe some aspect of your application gateway at a particular time. If there are requests flowing through the Application Gateway, it measures and sends its metrics in 60-second intervals. If there are no requests flowing through the Application Gateway or no data for a metric, the metric isn't reported. For more information, see [Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).
 
 ## Metrics supported by Application Gateway for Containers
 
 | Metric Name | Description | Aggregation Type | Dimensions |
 | ----------- | ----------- | ---------------- | ---------- |
-| Backend Connection Timeouts | Count of requests that timed out waiting for a response from the backend target (includes all retry requests initiated from Application Gateway for Containers to the backend target) | Total | Backend Service |
+| Backend Connection Timeouts | Count of requests that timed out waiting for a response from the backend target (includes all retry requests initiated from Application Gateway for Containers to the backend target) | Sum | Backend Service |
 | Backend Healthy Targets | Count of healthy backend targets | Avg | Backend Service |
-| Backend HTTP Response Status | HTTP response status returned by the backend target to Application Gateway for Containers | Total | Backend Service, HTTP Response Code |
-| Connection Timeouts | Count of connections closed due to timeout between clients and Application Gateway for Containers | Total | Frontend |
-| HTTP Response Status | HTTP response status returned by Application Gateway for Containers | Total | Frontend, HTTP Response Code |
-| Total Connection Idle Timeouts | Count of connections closed, between client and Application Gateway for Containers frontend, due to exceeding idle timeout | Total | Frontend |
-| Total Requests | Count of requests Application Gateway for Containers has served | Total | Frontend |
+| Backend HTTP Response Status | HTTP response status returned by the backend target to Application Gateway for Containers | Sum | Backend Service, HTTP Response Code |
+| Connection Timeouts | Count of connections closed due to timeout between clients and Application Gateway for Containers | Sum | Frontend |
+| HTTP Response Status | HTTP response status returned by Application Gateway for Containers | Sum | Frontend, HTTP Response Code |
+| Total Connection Idle Timeouts | Count of connections closed, between client and Application Gateway for Containers frontend, due to exceeding idle timeout | Sum | Frontend |
+| Total Requests | Count of requests Application Gateway for Containers has served | Sum | Frontend |
+
+## WAF Metrics supported by Application Gateway for Containers
+
+Metrics specific to requests processed by web application firewall functionality on Application Gateway for Containers.
+
+| Metric Name | Description | Aggregation Type | Dimensions |
+| ----------- | ----------- | ---------------- | ---------- |
+| WAF Custom Rule Matches | Count of custom rule matches	| Sum | Action, Country/Region, Mode, Policy Name, Policy Scope, Rule Name |
+| WAF Managed Rule Matches | Count of total managed rule matches | Sum | Action, Country/Region, Mode, Policy Name, Policy Scope, Rule Group, Rule ID, Rule Set Name |
+| WAF Total Requests | Count of successful requests that WAF engine has served | Sum | Action, Country/Region, Method, Mode, Policy Name, Policy Scope |
 
 ## View Application Gateway for Containers metrics
 

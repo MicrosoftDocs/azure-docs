@@ -1,8 +1,8 @@
 ---
 title: Azure Blob Storage as Event Grid source
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
-ms.topic: conceptual
-ms.date: 05/31/2024
+ms.topic: reference
+ms.date: 10/21/2025
 ---
 
 # Azure Blob Storage as an Event Grid source
@@ -24,10 +24,10 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 
  |Event name |Description|
  |----------|-----------|
- | [Microsoft.Storage.BlobCreated](#microsoftstorageblobcreated-event) |Triggered when a blob is created or replaced. <br>Specifically, this event is triggered when clients use the `PutBlob`, `PutBlockList`, or `CopyBlob` operations that are available in the Blob REST API **and** when the Block Blob is completely committed. <br>If clients use the `CopyBlob` operation on accounts that have the **hierarchical namespace** feature enabled on them, the `CopyBlob` operation works a little differently. In that case, the **Microsoft.Storage.BlobCreated** event is triggered when the `CopyBlob` operation is **initiated** and not when the Block Blob is completely committed.   |
+ | [Microsoft.Storage.BlobCreated](#microsoftstorageblobcreated-event) |Triggered when a blob is created or replaced. <br>Specifically, this event is triggered when clients use the `PutBlob`, `PutBlockList`, or `CopyBlob` operations that are available in the Blob REST API **and** when the Block Blob is completely committed. <br>If clients use the `CopyBlob` operation on accounts that have the **hierarchical namespace** feature enabled on them, the `CopyBlob` operation works a little differently. If the `CopyBlob` operation completes immediately, then the **Microsoft.Storage.BlobCreated** event is triggered because the block blob is completely committed. However, if the operation does not complete immediately, the **Microsoft.Storage.AsyncOperationInitiated** event is triggered instead, indicating that the `CopyBlob` operation has been initiated but the block blob is not yet completely committed. |
  |[Microsoft.Storage.BlobDeleted](#microsoftstorageblobdeleted-event) |Triggered when a blob is deleted. <br>Specifically, this event is triggered when clients call the `DeleteBlob` operation that is available in the Blob REST API. |
  | [Microsoft.Storage.BlobTierChanged](#microsoftstorageblobtierchanged-event) |Triggered when the blob access tier is changed. Specifically, when clients call the `Set Blob Tier` operation that is available in the Blob REST API, this event is triggered after the tier change completes. |
-| [Microsoft.Storage.AsyncOperationInitiated](#microsoftstorageasyncoperationinitiated-event) |Triggered when an operation involving moving or copying of data from the archive to hot or cool tiers is initiated. Specifically, this event is triggered either when clients call the `Set Blob Tier` API to move a blob from archive tier to hot or cool tier, or when clients call the `Copy Blob` API to copy data from a blob in the archive tier to a blob in the hot or cool tier.|
+ | [Microsoft.Storage.AsyncOperationInitiated](#microsoftstorageasyncoperationinitiated-event) | Triggered when an operation involving moving or copying of data from the archive to hot or cool tiers is initiated. Specifically, this event is triggered either when clients call the `Set Blob Tier` API to move a blob from archive tier to hot or cool tier, or when clients call the `Copy Blob` API to copy data from a blob in the archive tier to a blob in the hot or cool tier.<br>This event can also be triggered if clients use the `CopyBlob` operation on accounts that have the **hierarchical namespace** feature enabled on them and the operation does not complete immediately. In that case, the **Microsoft.Storage.AsyncOperationInitiated** event is triggered indicating that the `CopyBlob` operation has been initiated but the block blob is not yet completely committed. Once the block blob is completely committed, a final [Microsoft.Storage.BlobCreated](#microsoftstorageblobcreated-event) event is triggered to confirm completion.|
 
 ### Example events
 
@@ -47,10 +47,11 @@ These events are triggered when a client creates, replaces, or deletes a blob by
     "api": "PutBlockList",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "eTag": "0x8D4BCC2E4835CD0",
     "contentType": "text/plain",
     "contentLength": 524288,
     "blobType": "BlockBlob",
+    "accessTier": "Default",
     "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
     "sequencer": "00000000000004420000000000028963",
     "storageDiagnostics": {
@@ -75,6 +76,7 @@ These events are triggered when a client creates, replaces, or deletes a blob by
     "requestId": "4c2359fe-001e-00ba-0e04-585868000000",
     "contentType": "text/plain",
     "blobType": "BlockBlob",
+    "accessTier": "Default",
     "url": "https://my-storage-account.blob.core.windows.net/testcontainer/file-to-delete.txt",
     "sequencer": "0000000000000281000000000002F5CA",
     "storageDiagnostics": {
@@ -101,6 +103,8 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 		"contentType": "image/jpeg",
 		"contentLength": 105891,
 		"blobType": "BlockBlob",
+		"accessTier": "Archive",
+		"previousTier": "Cool",
 		"url": "https://my-storage-account.blob.core.windows.net/testcontainer/Auto.jpg",
 		"sequencer": "000000000000000000000000000089A4000000000018d6ea",
 		"storageDiagnostics": {
@@ -152,7 +156,7 @@ These events are triggered when a client creates, replaces, or deletes a blob by
     "api": "PutBlockList",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "eTag": "0x8D4BCC2E4835CD0",
     "contentType": "text/plain",
     "contentLength": 524288,
     "blobType": "BlockBlob",
@@ -208,6 +212,8 @@ These events are triggered when a client creates, replaces, or deletes a blob by
 		"contentType": "image/jpeg",
 		"contentLength": 105891,
 		"blobType": "BlockBlob",
+		"accessTier": "Archive",
+        	"previousTier": "Cool",
 		"url": "https://my-storage-account.blob.core.windows.net/testcontainer/Auto.jpg",
 		"sequencer": "000000000000000000000000000089A4000000000018d6ea",
 		"storageDiagnostics": {
@@ -290,7 +296,7 @@ If the blob storage account has a hierarchical namespace, the data looks similar
     "api": "CreateFile",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "eTag": "0x8D4BCC2E4835CD0",
     "contentType": "text/plain",
     "contentLength": 0,
     "contentOffset": 0,
@@ -461,7 +467,7 @@ If the blob storage account has a hierarchical namespace, the data looks similar
     "api": "CreateFile",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "eTag": "0x8D4BCC2E4835CD0",
     "contentType": "text/plain",
     "contentLength": 0,
     "contentOffset": 0,
@@ -663,7 +669,7 @@ If the blob storage account uses SFTP to create or overwrite a blob, then the da
   "data": {
     "api": "SftpCommit",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "eTag": "0x8D4BCC2E4835CD0",
     "contentType": "application/octet-stream",
     "contentLength": 0,
     "contentOffset": 0,
@@ -880,7 +886,7 @@ If the blob storage account uses SFTP to create or overwrite a blob, then the da
   "data": {
     "api": "SftpCommit",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "\"0x8D4BCC2E4835CD0\"",
+    "eTag": "0x8D4BCC2E4835CD0",
     "contentType": "application/octet-stream",
     "contentLength": 0,
     "contentOffset": 0,
@@ -1132,6 +1138,11 @@ When an event is triggered, the Event Grid service sends data about that event t
             "successCount": 0,
             "errorList": ""
         },
+        "tierToColdSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
         "tierToArchiveSummary": {
             "totalObjectsCount": 0,
             "successCount": 0,
@@ -1188,6 +1199,11 @@ When an event is triggered, the Event Grid service sends data about that event t
             "successCount": 0,
             "errorList": ""
         },
+        "tierToColdSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
         "tierToArchiveSummary": {
             "totalObjectsCount": 0,
             "successCount": 0,
@@ -1240,12 +1256,14 @@ The data object has the following properties:
 | Property | Type | Description |
 | -------- | ---- | ----------- |
 | `api` | string | The operation that triggered the event. |
-| `clientRequestId` | string | a client-provided request ID for the storage API operation. This ID can be used to correlate to Azure Storage diagnostic logs using the "client-request-id" field in the logs, and can be provided in client requests using the "x-ms-client-request-id" header. See [Log Format](/rest/api/storageservices/storage-analytics-log-format). |
+| `clientRequestId` | string | a client-provided request ID for the storage API operation. This ID can be used to correlate to Azure Storage diagnostic logs using the "client-request-id" field in the logs and can be provided in client requests using the "x-ms-client-request-id" header. See [Log Format](/rest/api/storageservices/storage-analytics-log-format). |
 | `requestId` | string | Service-generated request ID for the storage API operation. Can be used to correlate to Azure Storage diagnostic logs using the "request-id-header" field in the logs and is returned from initiating API call in the 'x-ms-request-id' header. See [Log Format](/rest/api/storageservices/storage-analytics-log-format). |
 | `eTag` | string | The value that you can use to run operations conditionally. |
 | `contentType` | string | The content type specified for the blob. |
 | `contentLength` | integer | The size of the blob in bytes. |
 | `blobType` | string | The type of blob. Valid values are either "BlockBlob" or "PageBlob". |
+| `accessTier`     | string    | The target tier of the blob. Appears only for the event BlobTierChanged.                                                                                                                                     |
+| `previousTier`   | string    | The source tier of the blob. Appears only for the event BlobTierChanged. If the blob is inferring the tier from the storage account, this field will not appear.                                          |
 | `contentOffset` | number | The offset in bytes of a write operation taken at the point where the event-triggering application completed writing to the file. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace.|
 | `destinationUrl` |string | The url of the file that will exist after the operation completes. For example, if a file is renamed, the `destinationUrl` property contains the url of the new file name. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace.|
 | `sourceUrl` |string | The url of the file that exists before the operation is done. For example, if a file is renamed, the `sourceUrl` contains the url of the original file name before the rename operation. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace. |

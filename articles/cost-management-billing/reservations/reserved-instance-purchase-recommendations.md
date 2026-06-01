@@ -1,18 +1,18 @@
 ---
 title: Azure reservation recommendations
 description: Learn about Azure reservation recommendations.
-author: bandersmsft
-ms.author: banders
+author: pri-mittal
+ms.author: primittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.topic: conceptual
-ms.date: 08/14/2023
+ms.topic: concept-article
+ms.date: 03/19/2026
 ---
 
 # Reservation recommendations
 
-Azure reserved instance (RI) purchase recommendations are provided through Azure Consumption [Reservation Recommendation API](/rest/api/consumption/reservationrecommendations), [Azure Advisor](../../advisor/advisor-reference-cost-recommendations.md#reserved-instances), and through the reservation purchase experience in the Azure portal.
+Azure reserved instance (RI) purchase recommendations are provided through Azure Consumption [Reservation Recommendation API](/rest/api/consumption/reservationrecommendations), [Azure Advisor](/azure/advisor/advisor-reference-cost-recommendations#reserved-instances), and through the reservation purchase experience in the Azure portal.
 
 The savings that are presented as part of reservation recommendations are the savings that are calculated in addition to your negotiated, or discounted (if applicable) prices.
 
@@ -25,6 +25,9 @@ The following steps define how recommendations are calculated:
 5. The recommendation calculations include any special discounts that you might have for your on-demand usage rates.
 
 The recommendations account for existing reservations and savings plans. So, previously purchased reservations and savings plans are excluded when providing recommendations.
+
+> [!NOTE]
+> Some compute products can benefit from both savings plans and reservations. If you buy either a savings plan or a reservation, allow at least 3 days for recommendation systems to update and reflect your purchase before considering the other option. Avoid purchasing both products at the same time to ensure recommendations are accurate and to maximize your savings.
 
 ## Recommendations in the Azure portal
 

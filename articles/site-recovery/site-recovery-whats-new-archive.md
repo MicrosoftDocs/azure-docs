@@ -1,19 +1,119 @@
 ---
 title: Archive for What's new in Azure Site Recovery
 description: An archive for features and updates in the Azure Site Recovery service.
-ms.topic: conceptual
-ms.author: ankitadutta
-ms.service: site-recovery
-author: ankitaduttaMSFT
-ms.date: 12/27/2023
+ms.topic: overview
+ms.author: v-gajeronika
+ms.service: azure-site-recovery
+ms.date: 02/27/2026
+author: Jeronika-MS
+
+# Customer intent: "As a system administrator, I want to review the latest updates and feature enhancements for the disaster recovery service, so that I can optimize our organization's backup strategy and ensure compatibility with our systems."
 ---
 
 # Archive for What's new in Site Recovery
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article contains information on older features and updates in the Azure Site Recovery service. The primary [What's new in Azure Site Recovery](./site-recovery-whats-new.md) article contains the latest updates. 
+
+## Updates (February 2023)
+
+### Update Rollup 66
+
+[Update rollup 66](https://support.microsoft.com/en-us/topic/update-rollup-66-for-azure-site-recovery-kb5023601-c306c467-c896-4c9d-b236-73b21ca27ca5) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added support for Ubuntu 22.04, RHEL 8.7 and CentOS 8.7 Linux distro.
+**VMware VM/physical disaster recovery to Azure** | Added support for Ubuntu 22.04, RHEL 8.7 and CentOS 8.7 Linux distro.
+
+## Updates (November 2022)
+
+### Update Rollup 65
+
+[Update rollup 65](https://support.microsoft.com/topic/update-rollup-65-for-azure-site-recovery-kb5021964-15db362f-faac-417d-ad71-c22424df43e0) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added support for Debian 11 and SUSE Linux Enterprise Server 15 SP 4 Linux distro.
+**VMware VM/physical disaster recovery to Azure** | Added support for Debian 11 and SUSE Linux Enterprise Server 15 SP 4 Linux distro.<br/><br/> Added Modernized VMware to Azure DR support for government clouds. [Learn more](./replication-appliance-support-matrix.md#allow-urls-for-government-clouds).
+
+
+## Updates (October 2022)
+
+### Update Rollup 64
+
+[Update rollup 64](https://support.microsoft.com/topic/update-rollup-64-for-azure-site-recovery-kb5020102-23db9799-102c-4378-9754-2f19f6c7858a) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added support for Ubuntu 20.04 Linux distro.
+**VMware VM/physical disaster recovery to Azure** | Added support for Ubuntu 20.04 Linux distro.<br/><br/> Modernized experience to enable disaster recovery of VMware virtual machines is now generally available.[Learn more](https://azure.microsoft.com/updates/vmware-dr-ga-with-asr).<br/><br/> Protecting physical machines modernized experience is now supported.<br/><br/> Protecting machines with private endpoint and managed identity enabled is now supported with modernized experience.
+
+## Updates (August 2022)
+
+### Update Rollup 63
+
+[Update rollup 63](https://support.microsoft.com/topic/update-rollup-63-for-azure-site-recovery-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added support for Oracle Linux 8.6 Linux distro.
+**VMware VM/physical disaster recovery to Azure** | Added support for Oracle Linux 8.6 Linux distro.<br/><br/> Introduced the migration capability to move existing replications from classic to modernized experience for disaster recovery of VMware virtual machines, enabled using Azure Site Recovery. [Learn more](move-from-classic-to-modernized-vmware-disaster-recovery.md).
+
+
+## Updates (July 2022)
+
+### Update Rollup 62
+
+[Update rollup 62](https://support.microsoft.com/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) provides the following updates:
+
+> [!Note]
+> - The 9.49 version has not been released for VMware replications to Azure preview experience.
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added support for RHEL 8.6 and CentOS 8.6 Linux distros.
+**VMware VM/physical disaster recovery to Azure** | Added support for RHEL 8.6 and CentOS 8.6 Linux distros.<br/><br/> Added support for configuring proxy bypass rules for VMware and Hyper-V replications, using private endpoints.<br/><br/> Added fixes related to various security issues present in the classic experience.
+**Hyper-V disaster recovery to Azure** | Added support for configuring proxy bypass rules for VMware and Hyper-V replications, using private endpoints.
+
+## Updates (March 2022)
+
+### Update Rollup 61
+
+[Update rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Many fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Added support for more kernels for Debian 10 and Ubuntu 20.04 Linux distros. <br/><br/> Added public preview support for on-Demand Capacity Reservation integration.
+**VMware VM/physical disaster recovery to Azure** | Added support for thin provisioned LVM volumes.<br/><br/>
+
+## Updates (January 2022)
+
+### Update Rollup 60
+
+[Update rollup 60](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | A number of fixes and improvement as detailed in the rollup KB article.
+**Azure VM disaster recovery** | Support added for retention points to be available for up to 15 days.<br/><br/>Added support for replication to be enabled on Azure virtual machines via Azure Policy. <br/><br/> Added support for ZRS managed disks when replicating Azure virtual machines. <br/><br/> Support added for SUSE Linux Enterprise Server 15 SP3, Red Hat Enterprise Linux 8.4 and Red Hat Enterprise Linux 8.5 <br/><br/>
+**VMware VM/physical disaster recovery to Azure** | Support added for retention points to be available for up to 15 days.<br/><br/>Support added for SUSE Linux Enterprise Server 15 SP3, Red Hat Enterprise Linux 8.4 and Red Hat Enterprise Linux 8.5 <br/><br/>
+
 
 ## Updates (November 2021)
 
@@ -47,7 +147,7 @@ This article contains information on older features and updates in the Azure Sit
 
 > [!NOTE]
 > Update rollup only provides updates for the public preview of VMware to Azure protections. No other fixes or improvements have been covered in this release.
-> To setup the preview experience, you will have to perform a fresh set up and use a new Recovery Services vault. Updating from existing architecture to new architecture is unsupported.
+> To set up the preview experience, you will have to perform a fresh setup and use a new Recovery Services vault. Updating from existing architecture to new architecture is unsupported.
 
 This public preview covers a complete overhaul of the current architecture for protecting VMware machines.
 - [Learn](/azure/site-recovery/vmware-azure-architecture-preview) about the new architecture and the changes introduced.
@@ -172,7 +272,7 @@ This public preview covers a complete overhaul of the current architecture for p
 **Issue fixes/improvements** | A number of fixes and improvements as detailed in the rollup.
 
 > [!NOTE]
-> Update rollup 48 has a known issue with enabling replication for Linux machines encrypted using ADE. [Learn more](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137).
+> Update rollup 48 has a known issue with enabling replication for Linux machines encrypted using ADE. [Learn more](./azure-to-azure-protection-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137).
 
 ### Update rollup 47
 
@@ -269,6 +369,8 @@ For disaster recovery of Azure VMs to a secondary region, or on-premises VMware 
 - From version 9.30.5407.1 of the Mobility service extension (for Azure VMs), and Mobility service agent (for VMware/physical machines), some machine operating systems must be running the servicing stack update and SHA-2. Details are shown in the table below.
 - Install the update and SHA-2 in accordance with the linked KB. SHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the agent extension won't install/upgrade as expected.
 - Learn more about [SHA-2 upgrade and requirements](https://aka.ms/SHA-2KB).
+
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
 **Operating system** | **Azure VM** | **VMware VM/physical machine**
 --- | --- | ---
@@ -496,7 +598,7 @@ Features added this month are summarized in the table.
 **Feature** | **Details**
 --- | ---
 **Network mapping** | For Azure VM disaster recovery, you can now use any available target network when you enable replication.
-**Standard SSD** | You can now set up disaster recovery for Azure VMs using [Standard SSD disks](../virtual-machines/disks-types.md#standard-ssds).
+**Standard SSD** | You can now set up disaster recovery for Azure VMs using [Standard SSDs](/azure/virtual-machines/disks-types#standard-ssds).
 **Storage Spaces Direct** | You can set up disaster recovery for apps running on Azure VM apps by using [Storage Spaces Direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) for high availability.  Using Storage Spaces Direct (S2D) together with Site Recovery provides comprehensive protection of Azure VM workloads. S2D lets you host a guest cluster in Azure. This is especially useful when a VM hosts a critical application, such as SAP ASCS layer, SQL Server, or scale-out file server.
 
 
@@ -506,7 +608,7 @@ Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
-**Linux BRTFS file system** | Site Recovery now supports replication of VMware VMs with the BRTFS file system. Replication isn't supported if:<br/><br/>- The BTRFS file system subvolume is changed after enabling replication.<br/><br/>- The file system is spread over multiple disks.<br/><br/>- The BTRFS file system supports RAID.
+**Linux BTRFS file system** | Site Recovery now supports replication of VMware VMs with the BTRFS file system. Replication isn't supported if:<br/><br/>- The BTRFS file system subvolume is changed after enabling replication.<br/><br/>- The file system is spread over multiple disks.<br/><br/>- The BTRFS file system supports RAID.
 **Windows Server 2019** | Support added for machines running Windows Server 2019.
 
 
@@ -543,7 +645,7 @@ Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
-**Linux support** | Support was added for Redhat Enterprise Linux 7.6, RedHat Workstation 6/7, Oracle Linux 6.10 and Oracle Linux 7.6, and new kernel versions for Ubuntu, Debian, and SUSE.
+**Linux support** | Support was added for Red Hat Enterprise Linux 7.6, RedHat Workstation 6/7, Oracle Linux 6.10 and Oracle Linux 7.6, and new kernel versions for Ubuntu, Debian, and SUSE.
 
 
 ### Update rollup 31
@@ -575,7 +677,7 @@ Features added this month are summarized in the table.
 **Feature** | **Details**
 --- | ---
 **Linux support** | Support was added for Oracle Linux 6.8, Oracle Linux 6.9 and Oracle Linux 7.0 with the Red Hat Compatible Kernel, and for the Unbreakable Enterprise Kernel (UEK) Release 5.
-**Linux BRTFS file system** | Supported for Azure VMs.
+**Linux BTRFS file system** | Supported for Azure VMs.
 **Azure VMs in availability zones** | You can enable replication to another region for Azure VMs deployed in availability zones. You can now enable replication for an Azure VM, and set the target for failover to a single VM instance, a VM in an availability set, or a VM in an availability zone. The setting doesn't affect replication. [Read](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region/) the announcement.
 **Firewall-enabled storage (portal/PowerShell)** | Support added for [firewall-enabled storage accounts](../storage/common/storage-network-security.md).<br/><br/> You can replicate Azure VMs with unmanaged disks on firewall-enabled storage accounts to another Azure region for disaster recovery.<br/><br/> You can use firewall-enabled storage accounts as target storage accounts for unmanaged disks.<br/><br/> Supported in portal and using PowerShell.
 
@@ -589,7 +691,7 @@ Updates don't require a VM restart, and don't affect replication. [Learn more](a
 
 ### Pricing calculator for Azure VM disaster recovery
 
-Disaster Recovery of Azure VMs incurs VM licensing costs, and network and storage costs. Azure provides a [pricing calculator](https://aka.ms/a2a-cost-estimator) to help you figure out these costs. Site Recovery now provides an [example pricing estimate](https://aka.ms/a2a-cost-estimator) that prices a sample deployment based on a three-tier app using six VMs with 12 Standard HDD disks and 6 Premium SSD disks.
+Disaster Recovery of Azure VMs incurs VM licensing costs, and network and storage costs. Azure provides a [pricing calculator](https://aka.ms/a2a-cost-estimator) to help you figure out these costs. Site Recovery now provides an [example pricing estimate](https://aka.ms/a2a-cost-estimator) that prices a sample deployment based on a three-tier app using six VMs with 12 Standard HDDs and 6 Premium SSDs.
 
 - The sample presumes a data change of 10 GB a day for standard, and 20 GB for premium.
 - For your particular deployment, you can change the variables to estimate costs.
@@ -656,7 +758,7 @@ Features added this month are summarized in the table.
 
 **Feature** | **Details**
 --- | ---
-**Linux support** | Support added for RedHat Enterprise Linux 6.10, CentOS 6.10.<br/><br/> Linux-based VMs that use the GUID partition table (GPT) partition style in legacy BIOS compatibility mode are now supported. Review the [Azure VM FAQ](../virtual-machines/faq-for-disks.yml) for more information.
+**Linux support** | Support added for RedHat Enterprise Linux 6.10, CentOS 6.10.<br/><br/> Linux-based VMs that use the GUID partition table (GPT) partition style in legacy BIOS compatibility mode are now supported. Review the [Azure VM FAQ](/azure/virtual-machines/faq-for-disks) for more information.
 **Disaster recovery for VMs after migration** | Support for enabling disaster recovery to a secondary region for an on-premises VMware VM migrated to Azure, without needing to uninstall the Mobility service on the VM before enabling replication.
 **Windows Server 2008** | Support for migrating machines running Windows Server 2008 R2/2008 64-bit and 32-bit.<br/><br/> Migration only (replication and failover). Failback isn't supported.
 
@@ -664,7 +766,7 @@ Features added this month are summarized in the table.
 
 ### Update rollup 27 (July 2018)
 
-[Update rollup 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery) provides the following updates.
+[Update rollup 27](https://support.microsoft.com/topic/update-rollup-27-for-azure-site-recovery-4050853f-0d11-e557-c7c3-57990de0bc0b) provides the following updates.
 
 **Update** | **Details**
 --- | ---

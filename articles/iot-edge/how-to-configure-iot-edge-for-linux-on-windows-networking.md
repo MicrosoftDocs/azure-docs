@@ -1,18 +1,18 @@
 ---
 title: Networking for Azure IoT Edge for Linux on Windows
 description: Learn about how to configure custom networking for Azure IoT Edge for Linux on Windows virtual machine.
-author: PatAltimore
-ms.author: fcabrera
-ms.date: 05/31/2024
-ms.topic: conceptual
-ms.service: iot-edge
+author: sethmanheim
+ms.author: sethm
+ms.date: 02/20/2026
+ms.topic: concept-article
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ---
 
 # Networking configuration for Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article helps you decide which networking option is best for your scenario and provide insights into IoT Edge for Linux on Windows (EFLOW) configuration requirements.
 
@@ -95,7 +95,7 @@ C:\> Get-EflowVmAddr
 172.27.120.111
 ``` 
 
-Another way, is using the `Connect-Eflow` cmdlet to remote into the VM, and then you can use the `ifconfig eth0` bash command, and check for the *eth0* interface. The output should be similar to the following:
+Another way, is using the `Connect-EflowVm` cmdlet to remote into the VM, and then you can use the `ifconfig eth0` bash command, and check for the *eth0* interface. The output should be similar to the following:
 
 ```Output
 eth0      Link encap:Ethernet  HWaddr 00:15:5d:4e:15:2c

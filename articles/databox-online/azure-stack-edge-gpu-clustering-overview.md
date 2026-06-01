@@ -2,13 +2,13 @@
 title: Overview of clustering on your Azure Stack Edge Pro GPU device
 description: Describes an overview of clustering on your Azure Stack Edge Pro GPU device.
 services: databox
-author: alkohli
+author: sipastak
 
-ms.service: databox
-ms.subservice: edge
-ms.topic: conceptual
+ms.service: azure-stack-edge
+ms.topic: concept-article
 ms.date: 03/21/2024
-ms.author: alkohli
+ms.author: sipastak
+ms.custom: sfi-image-nochange
 ---
 
 # Clustering on your Azure Stack Edge Pro GPU device

@@ -1,11 +1,14 @@
 ---
-title: An overview of workbooks
+title: An Overview of Workbooks
 description: This article provides information on how workbooks provide a flexible canvas for data analysis and the creation of rich visual reports.
 ms.service: azure-update-manager
-ms.date: 09/18/2023
-ms.topic: conceptual
-author: SnehaSudhir 
-ms.author: sudhirsneha
+ms.date: 08/21/2025
+ms.topic: overview
+author: habibaum
+ms.author: v-uhabiba
+ms.custom: sfi-image-nochange
+ms.update-cycle: 1095-days
+# Customer intent: "As a data analyst, I want to create interactive visual reports using workbooks, so that I can effectively analyze data and share insights within my team."
 ---
 
 # About workbooks
@@ -65,4 +68,4 @@ For information on how to use the workbooks for customized reporting, see [Edit 
 
 ## Next steps
 
- To learn how to deploy updates to your machines to maintain security compliance, see [Deploy updates](deploy-updates.md).
+- Learn on how to [create reports by using workbooks](manage-workbooks.md).

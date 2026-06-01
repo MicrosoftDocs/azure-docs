@@ -1,9 +1,10 @@
 ---
 author: spelluru
-ms.service: service-bus-relay
+ms.service: azure-relay
 ms.topic: include
-ms.date: 01/04/2024
+ms.date: 12/04/2024
 ms.author: spelluru
+ms.custom: sfi-image-nochange
 ---
 1. Sign in to the [Azure portal].
 1. Select **All services** on the left menu. Select **Integration**, search for **Relays**, move the mouse over **Relays**, and then select **Create**. 
@@ -24,7 +25,7 @@ ms.author: spelluru
 
 ### Get management credentials
 
-1. On the **Relay** page, select **Shared access policies** on the left menu.  `
+1. On the **Relay** page, select **Shared access policies** on the left menu.
 1. On the **Shared access policies** page, select **RootManageSharedAccessKey**.
 1. Under **SAS Policy: RootManageSharedAccessKey**, select the **Copy** button next to **Primary Connection String**. This action copies the connection string to your clipboard for later use. Paste this value into Notepad or some other temporary location.
 1. Repeat the preceding step to copy and paste the value of **Primary key** to a temporary location for later use.  
@@ -34,5 +35,4 @@ ms.author: spelluru
 <!--Image references-->
 
 [connection-info]: ./media/relay-create-namespace-portal/connection-info.png
-[connection-string]: ./media/relay-create-namespace-portal/connection-string-vs2019.png
 [Azure portal]: https://portal.azure.com

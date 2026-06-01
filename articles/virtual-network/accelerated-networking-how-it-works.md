@@ -2,12 +2,13 @@
 title: How Accelerated Networking works in Linux and FreeBSD VMs
 description: Learn how Accelerated Networking works in Linux and FreeBSD VMs.
 author: steveesp
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: vm-linux
 ms.custom: linux-related-content
 ms.date: 04/18/2023
 ms.author: steveesp
+# Customer intent: "As a system administrator managing Linux and FreeBSD VMs, I want to configure and monitor Accelerated Networking so that I can optimize network performance and reduce latency for my applications running in Azure."
 ---
 
 # How Accelerated Networking works in Linux and FreeBSD VMs
@@ -212,7 +213,7 @@ The data path has been switched away from the VF interface, and the VF interface
 [   8225.667978] pci cf63:00:02.0: BAR 0: assigned [mem 0xfe0000000-0xfe00fffff 64bit pref]
 ```
 
-When the VF interface is readded after servicing is complete, a new PCI device with the specified GUID is detected. It's assigned the same PCI domain ID (0xcf63) as before. The handling of the readd VF interface is like the handling during the initial startup.
+When the VF interface is re-added after servicing is complete, a new PCI device with the specified GUID is detected. It's assigned the same PCI domain ID (0xcf63) as before. The handling of the readd VF interface is like the handling during the initial startup.
 
 ```output
 [   8225.679672] mlx5_core cf63:00:02.0: firmware version: 14.25.8362
@@ -241,12 +242,16 @@ You can disable or enable Accelerated Networking on a virtual NIC in a nonrunnin
 $ az network nic update --name u1804895 --resource-group testrg --accelerated-network false
 ```
 
-Disabling Accelerated Networking that's enabled in the guest VM produces a `dmesg` output. It's the same as when the VF interface is removed for Azure host servicing. Enabling Accelerated Networking produces the same `dmesg` output as when the VF interface is readded after Azure host servicing.
+Disabling Accelerated Networking that's enabled in the guest VM produces a `dmesg` output. It's the same as when the VF interface is removed for Azure host servicing. Enabling Accelerated Networking produces the same `dmesg` output as when the VF interface is re-added after Azure host servicing.
 
 You can use these Azure CLI commands to simulate Azure host servicing. You can then verify that your applications don't incorrectly depend on direct interaction with the VF interface.
+
+> [!NOTE]
+> Disabling Accelerated Networking on VM sizes where Accelerated Networking is listed as 'required' does not have any effect. These sizes will receive the VF interface regardless of the state of Accelerated Networking associated with the virtual NIC. 
+
 
 ## Next steps
 
 * Learn how to [create a VM with Accelerated Networking in PowerShell](../virtual-network/create-vm-accelerated-networking-powershell.md).
 * Learn how to [create a VM with Accelerated Networking by using the Azure CLI](../virtual-network/create-vm-accelerated-networking-cli.md).
-* Improve latency with an [Azure proximity placement group](../virtual-machines/co-location.md).
+* Improve latency with an [Azure proximity placement group](/azure/virtual-machines/co-location).

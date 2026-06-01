@@ -5,10 +5,11 @@ description: Learn about limitations and known issues of SSH File Transfer Proto
 author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: conceptual
-ms.date: 07/22/2024
+ms.topic: concept-article
+ms.date: 09/03/2024
 ms.author: normesta
 
+# Customer intent: "As a cloud storage administrator, I want to understand the limitations and known issues of SFTP support in Blob Storage, so that I can effectively manage file transfers and ensure compatibility with my existing workflows and clients."
 ---
 
 # Limitations and known issues with SSH File Transfer Protocol (SFTP) support for Azure Blob Storage
@@ -16,17 +17,16 @@ ms.author: normesta
 This article describes limitations and known issues of SFTP support for Azure Blob Storage.
 
 > [!IMPORTANT]
-> Because you must enable hierarchical namespace for your account to use SFTP, all of the known issues that are described in the Known issues with [Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md) article also apply to your account.
+> Because you must enable hierarchical namespace for your account to use SFTP, all of the known issues that are described in the Known issues with [Azure Data Lake Storage](data-lake-storage-known-issues.md) article also apply to your account.
 
 ## Known unsupported clients
 
 The following clients are known to be incompatible with SFTP for Azure Blob Storage. For more information, see [Supported algorithms](secure-file-transfer-protocol-support.md#supported-algorithms).
 
-- Five9
 - Kemp
-- Mule
 - paramiko 1.16.0
-- SSH.NET 2016.1.0
+- SSH.NET 2016.1.0 or older
+- Renci SSH.NET 2014.6.0
 
 This list isn't exhaustive and might change over time.
 
@@ -50,18 +50,28 @@ To transfer files to or from Azure Blob Storage via SFTP clients, see the follow
 | Capacity Information | `df` - usage info for filesystem |
 | Extensions | Unsupported extensions include but aren't limited to: fsync@openssh.com, limits@openssh.com, lsetstat@openssh.com, statvfs@openssh.com |
 | SSH Commands | SFTP is the only supported subsystem. Shell requests after the completion of key exchange will fail. |
-| Multi-protocol writes | Random writes and appends (`PutBlock`,`PutBlockList`, `GetBlockList`, `AppendBlock`, `AppendFile`)  aren't allowed from other protocols (NFS, Blob REST, Data Lake Storage Gen2 REST) on blobs that are created by using SFTP. Full overwrites are allowed.|
+| Multi-protocol writes | Random writes and appends (`PutBlock`,`PutBlockList`, `GetBlockList`, `AppendBlock`, `AppendFile`)  aren't allowed from other protocols (NFS, Blob REST, Data Lake Storage REST) on blobs that are created by using SFTP. Full overwrites are allowed.|
 | Rename Operations | Rename operations where the target file name already exists is a protocol violation. Attempting such an operation returns an error. See [Removing and Renaming Files](https://datatracker.ietf.org/doc/html/draft-ietf-secsh-filexfer-02#section-6.5) for more information.|
 | Cross Container Operations | Traversing between containers or performing operations on multiple containers from the same connection are unsupported.
 | Undelete | There is no way to restore a soft-deleted blob with SFTP. The `Undelete` REST API must be used.|
 
-## Authentication and authorization
+## Authentication and Authorization
   
 - _Local users_ are the only form of identity management that is currently supported for the SFTP endpoint.
 
 - Microsoft Entra ID isn't supported for the SFTP endpoint.
 
-To learn more, see [SFTP permission model](secure-file-transfer-protocol-support.md#sftp-permission-model) and see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md).
+To learn more, see [SFTP permission model](secure-file-transfer-protocol-support.md#sftp-permission-model) and see [Access control model in Azure Data Lake Storage](data-lake-storage-access-control-model.md).
+
+### Access ACLs and Default ACLs
+
+- SFTP doesn't currently support **Default ACLs** or additional **Access ACLs** (ACL entries beyond the POSIX `user::`, `group::`, and `other::` entries, such as named users or named groups).
+
+- If any directory in the access path (including the user's home directory) has Default ACLs or additional Access ACLs set, SFTP operations will fail with `Permission denied`, even when the connecting user has required permissions.
+
+**Workaround:** Remove Default ACLs and additional Access ACLs from all directories in the SFTP access path (including the user's home directory) so that only POSIX `user::`, `group::`, and `other::` entries remain.
+
+For more details about ACLs and how you can edit them, see [Access control lists (ACLs)](data-lake-storage-access-control.md).
 
 ## Networking
 
@@ -75,13 +85,11 @@ To learn more, see [SFTP permission model](secure-file-transfer-protocol-support
 
 - For performance issues and considerations, see [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md).
 
-- Resume and append operations require enabling the `SFTP Resumable Uploads` preview feature on your subscription. For more information on enabling preview features, see [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md).
-  
 - By default, the Content-MD5 property of blobs that are uploaded by using SFTP are set to null. Therefore, if you want the Content-MD5 property of those blobs to contain an MD5 hash, your client must calculate that value, and then set the Content-MD5 property of the blob before the uploading the blob.
   
 - Maximum file upload size via the SFTP endpoint is 500 GB.
 
-- Customer-managed account failover is supported at the preview level in select regions. For more information, see [Azure storage disaster recovery planning and failover](../common/storage-disaster-recovery-guidance.md#azure-data-lake-storage-gen2).
+- Customer-managed planned failover is supported at the preview level in select regions. For more information, see [Azure storage disaster recovery planning and failover](../common/storage-disaster-recovery-guidance.md).
 
 - To change the storage account's redundancy/replication settings, SFTP must be disabled. SFTP may be re-enabled once the conversion has completed.
 

@@ -1,11 +1,12 @@
 ---
-title: NFS FAQs for Azure NetApp Files | Microsoft Docs
+title: NFS FAQs for Azure NetApp Files
 description: Answers frequently asked questions (FAQs) about the NFS protocol of Azure NetApp Files.
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 03/15/2023
+ms.date: 12/08/2025
+# Customer intent: As a cloud administrator, I want to configure NFS volume mounts for Azure Virtual Machines, so that I can ensure persistent access to data upon VM startup or reboot.
 ---
 # NFS FAQs for Azure NetApp Files
 
@@ -35,6 +36,17 @@ Many clients can experience problems if they don’t fully support NFSv4.2 or th
 
 For more information, see [Understand NAS protocols in Azure NetApp Files](network-attached-storage-protocols.md#network-file-system-nfs).
 
+## Why do NFS mounts hang or fail when TCP timestamps are enabled?
+
+TCP timestamps (PAWS, RFC 7323) protect against stale packets. If a network device (for example, NAT, NVA, firewall, or load balancer) modifies or strips TCP timestamp values, valid packets can be dropped preventing the NFS mount from completing.
+
+The common symptoms are:
+
+* NFSv3 or NFSv4.1 mount commands hang or time out.
+* TCP connection establishes (SYN/SYN-ACK completes) connection, but the mount does not complete.
+* Mount succeeds when TCP timestamps are disabled on the client.
+
+
 ## How do I enable root squashing?
 
 You can specify whether the root account can access the volume or not by using the volume’s export policy. See [Configure export policy for an NFS volume](azure-netapp-files-configure-export-policy.md) for details.
@@ -45,11 +57,7 @@ The same file path can be used for:
 * volumes deployed in different regions
 * volumes deployed to different availability zones within the same region
 
-If you are using:
-* regional volumes (without availability zones) or
-* volumes within the same availability zone,
-
-the same file path can be used, however the file path must be unique within each delegated subnet or assigned to different delegated subnets. 
+If you are using regional volumes (without availability zones) _or_ volumes within the same availability zone, the same file path can be used, however the file path must be unique within each delegated subnet or assigned to different delegated subnets. 
 
 For more information, see [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md) or [Create a dual-protocol volume for Azure NetApp Files](create-volumes-dual-protocol.md). 
 
@@ -79,7 +87,15 @@ To learn more about file locking in Azure NetApp Files, see [file locking](under
 
 ## Why is the `.snapshot` directory not visible in an NFSv4.1 volume, but it's visible in an NFSv3 volume?
 
-By design, the .snapshot directory is never visible to NFSv4.1 clients. By default, the `.snapshot `directory is visible to NFSv3 clients. To hide the `.snapshot` directory from NFSv3 clients, edit the properties of the volume to [hide the snapshot path](snapshots-edit-hide-path.md).
+By design, the `.snapshot` directory is never visible to NFSv4.1 clients. By default, the `.snapshot `directory is visible to NFSv3 clients. To hide the `.snapshot` directory from NFSv3 clients, edit the properties of the volume to [hide the snapshot path](snapshots-manage-policy.md#edit-the-hide-snapshot-path-option).
+
+## Will the access time automatically update when reading files?
+
+No, access time will not be updated when reading files. This behavior ensures low-latency and high-performance access to your data.
+
+## Why can I not create files larger than 16 TiB on my Azure NetApp Files volumes? 
+
+Since May 2026, Azure NetApp Files supports files up 64 TiB on new and existing regular volumes (smaller than 100 TiB). Because NFS clients only refresh the maximum file size when mounting the volume, it is necessary to remount the volume on the NFS clients to correctly recognize the new maximum file size.
 
 ## Oracle dNFS
 
@@ -95,7 +111,7 @@ This corruption is neither a bug on ONTAP nor the Azure NetApp Files service its
 Oracle publishes [document 1495104.1](https://support.oracle.com/knowledge/Oracle%20Cloud/1495104_1.html), which is continually updated with recommended dNFS patches. If your database uses dNFS, ensure the DBA team is checking for updates in this document.
 
 >[!IMPORTANT]
-> Customers using Oracle dNFS with NFSv4.1 on Azure NetApp Files volumes must ensure to take actions mentioned under [Are there any patches required for use of Oracle dNFS with NFSv4.1?](#are-there-any-patches-required-for-use-of-oracle-dnfs-with-nfsv41).
+> Customers using Oracle dNFS with NFSv4.1 on Azure NetApp Files volumes must ensure to take actions mentioned under [Are there any patches required for use of Oracle dNFS with NFSv4.1?](#are-there-any-patches-required-for-use-of-oracle-dnfs-with-nfsv41)
 
 ### Are there any patches required for use of Oracle dNFS with NFSv4.1?
 >[!IMPORTANT]
@@ -123,7 +139,7 @@ When using NFSv4.1, dNFS won't work with multiple paths. If you need multiple pa
 
 - [Microsoft Azure ExpressRoute FAQs](../expressroute/expressroute-faqs.md)
 - [Microsoft Azure Virtual Network FAQ](../virtual-network/virtual-networks-faq.md)
-- [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
+- [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Azure Data Box](../databox/index.yml)
 - [FAQs about SMB performance for Azure NetApp Files](azure-netapp-files-smb-performance.md)
 - [Networking FAQs](faq-networking.md)

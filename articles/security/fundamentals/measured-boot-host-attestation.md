@@ -5,9 +5,8 @@ author: yosharm
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: terrylan
-manager: rkarlin
-ms.date: 11/10/2022
+ms.author: mbaldwin
+ms.date: 09/10/2024
 ---
 
 # Measured boot and host attestation

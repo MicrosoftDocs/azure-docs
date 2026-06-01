@@ -3,9 +3,9 @@ title: Tutorial - Azure IoT solar panel monitoring
 description: This tutorial shows you how to deploy and use the solar panel monitoring application template for IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/12/2023
+ms.date: 10/14/2024
 ms.topic: tutorial
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 ---
 
@@ -47,7 +47,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create a solar panel monitoring application
 

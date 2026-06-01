@@ -1,24 +1,26 @@
 ---
 title: Prepare for VMware VM disaster recovery with Azure Site Recovery
 description: Learn how to prepare on-premises VMware servers for disaster recovery to Azure using the Azure Site Recovery service.
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2024
+ms.date: 02/12/2026
 ms.custom: MVC
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: v-gajeronika
+ms.reviewer: v-gajeronika
+author: Jeronika-MS
+# Customer intent: As a VMware administrator, I want to prepare on-premises VMware servers for disaster recovery to the cloud, so that I can ensure my VMs are protected and can be quickly restored in case of a disaster.
 ---
 # Prepare on-premises VMware servers for disaster recovery to Azure
 
-This article describes how to prepare on-premises VMware servers for disaster recovery to Azure using the [Azure Site Recovery](site-recovery-overview.md) services. 
+This article describes how to prepare on-premises VMware servers for disaster recovery to Azure by using the [Azure Site Recovery](site-recovery-overview.md) services. 
 
-This is the second tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. In the first tutorial, we [set up the Azure components](tutorial-prepare-azure.md) needed for VMware disaster recovery.
+This article is the second tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. In the first tutorial, you [set up the Azure components](tutorial-prepare-azure.md) needed for VMware disaster recovery.
 
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Prepare an account on the vCenter server or vSphere ESXi host, to automate VM discovery.
+> * Prepare an account on the vCenter server or vSphere ESXi host to automate VM discovery.
 > * Prepare an account for automatic installation of the Mobility service on VMware VMs.
 > * Review VMware server and VM requirements and support.
 > * Prepare to connect to Azure VMs after failover.
@@ -28,7 +30,7 @@ In this article, you learn how to:
 
 ## Before you start
 
-Make sure you've prepared Azure as described in the [first tutorial in this series](tutorial-prepare-azure.md).
+Make sure you prepared Azure as described in the [first tutorial in this series](tutorial-prepare-azure.md).
 
 ## Prepare an account for automatic discovery
 
@@ -42,8 +44,8 @@ Create the account as follows:
 
 1. To use a dedicated account, create a role at the vCenter level. Give the role a name such as
    **Azure_Site_Recovery**.
-2. Assign the role the permissions summarized in the table below.
-3. Create a user on the vCenter server or vSphere host. Assign the role to the user.
+1. Assign the role the permissions summarized in the following table.
+1. Create a user on the vCenter server or vSphere host. Assign the role to the user.
 
 ### VMware account permissions
 
@@ -54,17 +56,17 @@ Create the account as follows:
 
 ## Prepare an account for Mobility service installation
 
-The Mobility service must be installed on machines you want to replicate. Site Recovery can do a push installation of this service when you enable replication for a machine, or you can install it manually, or using installation tools.
+You must install the Mobility service on machines you want to replicate. Site Recovery can push-install this service when you enable replication for a machine, or you can install it manually or by using installation tools.
 
-- In this tutorial, we're going to install the Mobility service with the push installation.
-- For this push installation, you need to prepare an account that Site Recovery can use to access the VM. You specify this account
+- In this tutorial, you install the Mobility service by using the push installation.
+- For this push installation, prepare an account that Site Recovery can use to access the VM. Specify this account
 when you set up disaster recovery in the Azure console.
 
 Prepare the account as follows:
 
 Prepare a domain or local account with permissions to install on the VM.
 
-- **Windows VMs**: To install on Windows VMs if you're not using a domain account, disable UAC remote restrictions on the local machine.
+- **Windows VMs**: To install on Windows VMs, if you're not using a domain account, disable UAC remote restrictions on the local machine.
  After disabling, Azure Site Recovery can access the local machine remotely without UAC restriction. To do this, in the registry: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, add the
      DWORD entry **LocalAccountTokenFilterPolicy**, with a value of 1.
 - **Linux VMs**: To install on Linux VMs, prepare a root account on the source Linux server.
@@ -75,11 +77,11 @@ Prepare a domain or local account with permissions to install on the VM.
 Make sure VMware servers and VMs comply with requirements.
 
 1. [Verify](vmware-physical-azure-support-matrix.md#on-premises-virtualization-servers) VMware server requirements.
-2. For Linux VMs, [check](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) file system and storage requirements. 
-3. Check on-premises [network](vmware-physical-azure-support-matrix.md#network) and [storage](vmware-physical-azure-support-matrix.md#storage) support. 
-4. Check what's supported for [Azure networking](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](vmware-physical-azure-support-matrix.md#azure-storage), and [compute](vmware-physical-azure-support-matrix.md#azure-compute), after failover.
-5. Your on-premises VMs you replicate to Azure must comply with [Azure VM requirements](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
-6. In Linux virtual machines, device name or mount point name should be unique. Ensure that no two devices/mount points have the same names. Note that name aren't case-sensitive. For example, naming two devices for the same VM as _device1_ and _Device1_ isn't allowed.
+1. For Linux VMs, [check](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) file system and storage requirements. 
+1. Check on-premises [network](vmware-physical-azure-support-matrix.md#network) and [storage](vmware-physical-azure-support-matrix.md#storage) support. 
+1. Check what's supported for [Azure networking](vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](vmware-physical-azure-support-matrix.md#azure-storage), and [compute](vmware-physical-azure-support-matrix.md#azure-compute), after failover.
+1. Your on-premises VMs you replicate to Azure must comply with [Azure VM requirements](vmware-physical-azure-support-matrix.md#azure-vm-requirements).
+1. In Linux virtual machines, device name or mount point name should be unique. Ensure that no two devices or mount points have the same names. Note that names aren't case-sensitive. For example, naming two devices for the same VM as _device1_ and _Device1_ isn't allowed.
 
 
 ## Prepare to connect to Azure VMs after failover
@@ -110,7 +112,7 @@ To connect to Linux VMs using SSH after failover, do the following:
 
 
 ## Failback requirements
-If you plan to fail back to your on-premises site, there are a number of [prerequisites for failback](vmware-azure-reprotect.md#before-you-begin). You can prepare these now, but you don't need to. You can prepare after you fail over to Azure.
+If you plan to fail back to your on-premises site, you need to meet a number of [prerequisites for failback](vmware-azure-reprotect.md#before-you-begin). You can prepare these prerequisites now or after you fail over to Azure.
 
 
 
@@ -119,4 +121,4 @@ If you plan to fail back to your on-premises site, there are a number of [prereq
 Set up disaster recovery. If you're replicating multiple VMs, plan capacity.
 
 - [Set up disaster recovery to Azure for VMware VMs](vmware-azure-set-up-replication-tutorial-modernized.md)
-- [Perform capacity planning](site-recovery-deployment-planner.md).
+- [Perform capacity planning](site-recovery-deployment-planner.md)

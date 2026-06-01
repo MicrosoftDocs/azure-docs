@@ -1,14 +1,15 @@
 ---
-title: Access connection telemetry
+title: Access Connection Telemetry
 titleSuffix: Azure Peering Service
 description: Learn how to access Azure Peering Service connection telemetry including prefix latency and prefix events.
 services: peering-service
 author: halkazwini
-ms.service: peering-service
-ms.topic: how-to
-ms.date: 06/06/2023
 ms.author: halkazwini
-ms.custom: template-how-to, engagement-fy23
+ms.service: azure-peering-service
+ms.topic: how-to
+ms.date: 02/25/2026
+ms.custom: sfi-image-nochange
+
 # Customer intent: Customer wants to access their connection telemetry per prefix to Microsoft services with Azure Peering Service.
 ---
 
@@ -20,7 +21,7 @@ In this article, you learn how to access your Peering Service connection telemet
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A Peering Service connection. To learn how to create a connection, see [Create, change, or delete a Peering Service connection](azure-portal.md).
 
@@ -30,11 +31,9 @@ To view the latency report for a specific Peering Service connection, follow the
 
 1. In the search box at the top of the portal, enter *Peering Service*. Select **Peering Services** in the search results.
 
-    :::image type="content" source="./media/connection-telemetry/peering-service-portal-search.png" alt-text="Screenshot shows how to search for Peering Service in the Azure portal." lightbox="./media/connection-telemetry/peering-service-portal-search.png":::
+    :::image type="content" source="./media/peering-services-portal-search.png" alt-text="Screenshot shows how to search for Peering Service in the Azure portal." lightbox="./media/peering-services-portal-search.png":::
 
 1. Select the Peering Service connection that you want to view its latency report. 
-
-    :::image type="content" source="./media/connection-telemetry/peering-service-connection-page.png" alt-text="Screenshot shows the selected Peering Service in the Azure portal." lightbox="./media/connection-telemetry/peering-service-connection-page.png":::
 
 1. Under **Settings**, select **Prefixes** to see the prefixes associated with the Peering Service connection. 
 

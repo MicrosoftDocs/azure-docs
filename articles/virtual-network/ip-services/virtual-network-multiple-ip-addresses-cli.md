@@ -3,13 +3,19 @@ title: Assign multiple IP addresses to VMs - Azure CLI
 titleSuffix: Azure Virtual Network
 description: Learn how to create a virtual machine with multiple IP addresses using the Azure CLI.
 services: virtual-network
-ms.date: 06/21/2024
+ms.date: 02/25/2026
 ms.author: mbender
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, linux-related-content
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - devx-track-azurecli
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: As a cloud engineer, I want to assign multiple IP addresses to a virtual machine using the CLI, so that I can host multiple services and enhance network functionality on a single VM.
 ---
 # Assign multiple IP addresses to virtual machines using the Azure CLI
 
@@ -26,7 +32,7 @@ Assigning multiple IP addresses to a VM enables the following capabilities:
 Every NIC attached to a VM has one or more IP configurations associated to it. Each configuration is assigned one static or dynamic private IP address. Each configuration may also have one public IP address resource associated to it. To learn more about IP addresses in Azure, see [IP addresses in Azure](../../virtual-network/ip-services/public-ip-addresses.md).
 
 > [!NOTE]
-> All IP configurations on a single NIC must be associated to the same subnet.  If multiple IPs on different subnets are desired, multiple NICs on a VM can be used. To learn more about multiple NICs on a VM in Azure, see [Create VM with Multiple NICs](../../virtual-machines/windows/multiple-nics.md).
+> All IP configurations on a single NIC must be associated to the same subnet.  If multiple IPs on different subnets are desired, multiple NICs on a VM can be used. To learn more about multiple NICs on a VM in Azure, see [Create VM with Multiple NICs](/azure/virtual-machines/windows/multiple-nics).
 
 There's a limit to how many private IP addresses can be assigned to a NIC. There's also a limit to how many public IP addresses that can be used in an Azure subscription. See [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for details.
 
@@ -34,14 +40,14 @@ This article explains how to add multiple IP addresses to a virtual machine usin
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 > [!NOTE]
-> Though the steps in this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a multi-NIC VM. To learn how to create a VM with multiple NICs, see [Create a VM with multiple NICs](../../virtual-machines/windows/multiple-nics.md).
+> Though the steps in this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a multi-NIC VM. To learn how to create a VM with multiple NICs, see [Create a VM with multiple NICs](/azure/virtual-machines/windows/multiple-nics).
 
   :::image type="content" source="./media/virtual-network-multiple-ip-addresses-portal/multiple-ipconfigs.png" alt-text="Diagram of network configuration resources created in How-to article.":::
 
@@ -108,27 +114,9 @@ Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to cre
     --name myNSG
 ```
 
-### Create network security group rules
+> [!NOTE]
+> The default rules of the network security group block all inbound access from the internet, including SSH. To connect to the virtual machine, use Azure Bastion. For more information, see [Quickstart: Deploy Azure Bastion with default settings](../../bastion/quickstart-host-portal.md).
 
-You create a rule to allow connections to the virtual machine on port 22 for SSH.
-
-Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to create the network security group rules.
-
-```azurecli-interactive
-  az network nsg rule create \
-    --resource-group myResourceGroup \
-    --nsg-name myNSG \
-    --name myNSGRuleSSH \
-    --protocol '*' \
-    --direction inbound \
-    --source-address-prefix '*' \
-    --source-port-range '*' \
-    --destination-address-prefix '*' \
-    --destination-port-range 22 \
-    --access allow \
-    --priority 200
-
-```
 ## Create a network interface
 
 You use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to create the network interface for the virtual machine. The public IP addresses and the NSG created previously are associated with the NIC. The network interface is attached to the virtual network you created previously.

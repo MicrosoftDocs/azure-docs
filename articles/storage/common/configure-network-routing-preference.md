@@ -6,11 +6,14 @@ services: storage
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 03/17/2021
+ms.date: 08/25/2025
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: storage-common-concepts
-ms.custom: devx-track-azurepowershell
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to configure the network routing preferences for my storage account, so that I can optimize traffic routing based on my organization's requirements and ensure compatibility with dependent services.
 ---
 
 # Configure network routing preference for Azure Storage
@@ -23,6 +26,9 @@ The network routing preference specifies how network traffic is routed to your a
 
 By default, the routing preference for the public endpoint of the storage account is set to Microsoft global network. You can choose between the Microsoft global network and Internet routing as the default routing preference for the public endpoint of your storage account. To learn more about the difference between these two types of routing, see [Network routing preference for Azure Storage](network-routing-preference.md).
 
+> [!WARNING]
+> If your storage account contains or will contain Azure file shares, don't change your routing preference to Internet routing. The default option, Microsoft routing, works with all Azure Files configurations. The Internet routing option doesn't support AD domain join scenarios or Azure File Sync.
+
 ### [Portal](#tab/azure-portal)
 
 To change your routing preference to Internet routing:
@@ -33,7 +39,7 @@ To change your routing preference to Internet routing:
 
 3. Under **Security + networking**, choose **Networking**.
 
-4. In the **Firewalls and virtual networks** tab, under **Network Routing**, change the **Routing preference** setting to **Internet routing**.
+4. In the **Network routing** tab, under **Routing preference** setting to **Internet routing**.
 
 5. Click **Save**.
 
@@ -111,7 +117,7 @@ This preference affects only the route-specific endpoint. This preference doesn'
 
 2. Under **Security + networking**, choose **Networking**.
 
-3. In the **Firewalls and virtual networks** tab, under **Publish route-specific endpoints**, choose the routing preference of your route-specific endpoint, and then click **Save**.
+3. In the **Network routing** tab, under **Publish route-specific endpoints**, choose the routing preference of your route-specific endpoint, and then click **Save**.
 
     The following image shows the **Microsoft network routing** option selected.
 

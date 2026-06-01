@@ -3,10 +3,12 @@ title: Subnet extension in Azure
 titleSuffix: Azure Virtual Network
 description: Learn about subnet extension in Azure.
 author: asudbring
-ms.service: virtual-network
-ms.topic: conceptual
+ms.service: azure-virtual-network
+ms.topic: concept-article
 ms.date: 04/06/2023
 ms.author: allensu
+ms.custom: sfi-image-nochange
+# Customer intent: As a network architect, I want to extend my on-premises subnets into Azure, so that I can migrate applications without renumbering IP addresses and enable seamless communication between cloud and on-premises resources.
 ---
 
 # Subnet extension

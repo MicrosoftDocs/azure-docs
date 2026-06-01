@@ -1,14 +1,18 @@
 ---
 title: What Azure Backup Server V3 RTM can back up
 description: This article provides a protection matrix listing all workloads, data types, and installations that Azure Backup Serve V3 RTM protects.
-ms.date: 10/11/2023
-ms.topic: conceptual
-ms.service: backup
+ms.date: 03/09/2026
+ms.topic: reference
+ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As an IT admin, I want to access a detailed protection matrix for Azure Backup Server V3 RTM, so that I can ensure all necessary workloads and data types are properly supported for backup and recovery."
 ---
 
 # Azure Backup Server V3 RTM protection matrix
+
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
+
 
 The following matrix lists what can be protected with Azure Backup Server V3 RTM and earlier versions.
 
@@ -62,7 +66,7 @@ The following matrix lists what can be protected with Azure Backup Server V3 RTM
 |Hyper-V host - MABS protection agent on Hyper-V host server, cluster, or VM|Windows Server 2012 - Datacenter and Standard|Physical server<br /><br />On-premises Hyper-V virtual machine|V3, V2|Protect: Hyper-V computers, cluster shared volumes (CSVs)<br /><br />Recover: Virtual machine, Item-level recovery of files and folder, volumes, virtual hard drives|
 |VMware VMs|VMware vCenter/vSphere ESX/ESXi  Licensed Version 5.5/6.0/6.5 |Physical server, <br/>On-premises Hyper-V VM, <br/> Windows VM in VMware|V3, V2|VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage<br /> Item-level recovery of files and folders is available only for Windows VMs, VMware vApps are not supported.|
 |VMware VMs|[VMware vSphere Licensed version 6.7, 7.0](backup-azure-backup-server-vmware.md#vmware-vsphere-67-70-and-80) |Physical server, <br/>On-premises Hyper-V VM, <br/> Windows VM in VMware|V3|VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage<br /> Item-level recovery of files and folders is available only for Windows VMs, VMware vApps are not supported.|
-|Linux|Linux running as [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) or [VMware](backup-azure-backup-server-vmware.md) guest|Physical server, <br/>On-premises Hyper-V VM, <br/> Windows VM in VMware|V3, V2|Hyper-V must be running on Windows Server 2012 R2 or Windows Server 2016. Protect: Entire virtual machine<br /><br />Recover: Entire virtual machine <br/><br/> Only file-consistent snapshots are supported. <br/><br/> For a complete list of supported Linux distributions and versions, see the article, [Linux on distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md).|
+|Linux|Linux running as [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) or [VMware](backup-azure-backup-server-vmware.md) guest|Physical server, <br/>On-premises Hyper-V VM, <br/> Windows VM in VMware|V3, V2|Hyper-V must be running on Windows Server 2012 R2 or Windows Server 2016. Protect: Entire virtual machine<br /><br />Recover: Entire virtual machine <br/><br/> Only file-consistent snapshots are supported. <br/><br/> For a complete list of supported Linux distributions and versions, see the article, [Linux on distributions endorsed by Azure](/azure/virtual-machines/linux/endorsed-distros).|
 
 ### Operating systems and applications at end of support
 
@@ -91,31 +95,15 @@ For on-premises or hosted environments that you can't upgrade or migrate to Azur
 
 ## Azure ExpressRoute support
 
-You can back up your data over Azure ExpressRoute with public peering (available for old circuits) and Microsoft peering. Backup over private peering is not supported.
+You can back up your data over Azure ExpressRoute with Microsoft peering. Backup over private peering is not supported.
 
-With public peering: Ensure access to the following domains/addresses:
-
-* URLs
-  * `www.msftncsi.com`
-  * `*.Microsoft.com`
-  * `*.WindowsAzure.com`
-  * `*.microsoftonline.com`
-  * `*.windows.net`
-  * `www.msftconnecttest.com`
-* IP addresses
-  * 20.190.128.0/18
-  * 40.126.0.0/18
-
-With Microsoft peering, select the following services/regions and relevant community values:
+Select the following services/regions and relevant community values:
 
 * Microsoft Entra ID (12076:5060)
 * Microsoft Azure Region (according to the location of your Recovery Services vault)
 * Azure Storage (according to the location of your Recovery Services vault)
 
 For more details, see the [ExpressRoute routing requirements](../expressroute/expressroute-routing.md).
-
->[!NOTE]
->Public Peering is deprecated for new circuits.
 
 ## Cluster support
 
@@ -137,3 +125,8 @@ Azure Backup Server can protect data in the following clustered applications:
 * SQL Server - Azure Backup Server doesn't support backing up SQL Server databases hosted on cluster-shared volumes (CSVs).
 
 Azure Backup Server can protect cluster workloads that are located in the same domain as the MABS server, and in a child or trusted domain. If you want to protect data sources in untrusted domains or workgroups, use NTLM or certificate authentication for a single server, or certificate authentication only for a cluster.
+
+## Next steps
+
+- [Manage telemetry settings in MABS](manage-telemetry.md).
+

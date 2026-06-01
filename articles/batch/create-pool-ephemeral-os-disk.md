@@ -2,13 +2,14 @@
 title: Use ephemeral OS disk nodes for Azure Batch pools
 description: Learn how and why to create a Batch pool that uses ephemeral OS disk nodes.
 ms.topic: how-to
-ms.date: 03/15/2023
+ms.date: 05/19/2026
 ms.devlang: csharp
+# Customer intent: "As a cloud architect, I want to configure Azure Batch pools with ephemeral OS disks, so that I can reduce costs and improve application performance for stateless workloads."
 ---
 
 # Use ephemeral OS disk nodes for Azure Batch pools
 
-Some Azure virtual machine (VM) series support the use of [ephemeral OS disks](../virtual-machines/ephemeral-os-disks.md), which create the OS disk on the node virtual machine local storage. The default Batch pool configuration uses [Azure managed disks](../virtual-machines/managed-disks-overview.md) for the node OS disk, where the managed disk is like a physical disk, but virtualized and persisted in remote Azure Storage.
+Some Azure virtual machine (VM) series support the use of [ephemeral OS disks](/azure/virtual-machines/ephemeral-os-disks), which create the OS disk on the node virtual machine local storage. The default Batch pool configuration uses [Azure managed disks](/azure/virtual-machines/managed-disks-overview) for the node OS disk, where the managed disk is like a physical disk, but virtualized and persisted in remote Azure Storage.
 
 For Batch workloads, the main benefits of using ephemeral OS disks are reduced costs associated with pools, the potential for faster node start time, and improved application performance due to better OS disk performance. When choosing whether ephemeral OS disks should be used for your workload, consider the following impacts:
 
@@ -20,13 +21,13 @@ For Batch workloads, the main benefits of using ephemeral OS disks are reduced c
 - Ephemeral OS disks aren't currently supported by all Azure VM series. If a VM size doesn't support an ephemeral OS disk, a managed OS disk must be used.
 
 > [!NOTE]
-> Ephemeral OS disk configuration is only applicable to 'virtualMachineConfiguration' pools, and aren't supported by 'cloudServiceConfiguration’ pools. We recommend using 'virtualMachineConfiguration for your Batch pools, as 'cloudServiceConfiguration' pools do not support all features and no new capabilities are planned. You won't be able to create new 'cloudServiceConfiguration' pools or add new nodes to existing pools [after February 29, 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). For more information, see [Migrate Batch pool configuration from Cloud Services to Virtual Machine](batch-pool-cloud-service-to-virtual-machine-configuration.md).
+> Ephemeral OS disk configuration is only applicable to 'virtualMachineConfiguration' pools, and aren't supported by 'cloudServiceConfiguration’ pools. We recommend using 'virtualMachineConfiguration for your Batch pools, as 'cloudServiceConfiguration' pools do not support all features and no new capabilities are planned.
 
 ## VM series support
 
-To determine whether a VM series supports ephemeral OS disks, check the documentation for each VM instance. For example, the [Ddv4 and Ddsv4-series](../virtual-machines/ddv4-ddsv4-series.md) supports ephemeral OS disks.
+To determine whether a VM series supports ephemeral OS disks, check the documentation for each VM instance. For example, the [Ddv4 and Ddsv4-series](/azure/virtual-machines/ddv4-ddsv4-series) supports ephemeral OS disks.
 
-Alternately, you can programmatically query to check the 'EphemeralOSDiskSupported' capability. An example PowerShell cmdlet to query this capability is provided in the [ephemeral OS disk frequently asked questions](../virtual-machines/ephemeral-os-disks-faq.md).
+Alternately, you can programmatically query to check the 'EphemeralOSDiskSupported' capability. An example PowerShell cmdlet to query this capability is provided in the [ephemeral OS disk frequently asked questions](/azure/virtual-machines/ephemeral-os-disks-faq).
 
 ## Create a pool that uses ephemeral OS disks
 
@@ -39,34 +40,104 @@ The following example shows how to create a Batch pool where the nodes use ephem
 
 ### Code examples
 
-This code snippet shows how to create a pool with ephemeral OS disks using Azure Batch Python SDK with the Ephemeral OS disk using the temporary disk (cache).
+This code snippet shows how to create a pool with ephemeral OS disks using the azure-mgmt-batch Python SDK with the ephemeral OS disk using the temporary disk (cache).
 
-```python
-virtual_machine_configuration=batch.models.VirtualMachineConfiguration(
+```python Snippet:ephemeral_os_disk_vm_config
+virtual_machine_configuration = models.VirtualMachineConfiguration(
     image_reference=image_ref_to_use,
     node_agent_sku_id=node_sku_id,
-    os_disk=batch.models.OSDisk(
-        ephemeral_os_disk_settings=batch.models.DiffDiskSettings(
-            placement=batch.models.DiffDiskPlacement.cache_disk
+    os_disk=models.BatchOsDisk(
+        ephemeral_os_disk_settings=models.BatchDiffDiskSettings(
+            placement=models.DiffDiskPlacement.CACHE_DISK
         )
     )
 )
+
+
+def create_pool_with_ephemeral_os_disk():
+    client = BatchManagementClient(
+        credential=DefaultAzureCredential(),
+        subscription_id="subscriptionId",
+    )
+
+    pool = client.pool.create(
+        resource_group_name="resourceGroupName",
+        account_name="accountName",
+        pool_name="ephemeralOSDiskPool",
+        parameters=BatchAccountPoolData(
+            vm_size="standard_ds1_v2",
+            deployment_configuration=DeploymentConfiguration(
+                virtual_machine_configuration=VirtualMachineConfiguration(
+                    image_reference=ImageReference(
+                        publisher="Canonical",
+                        offer="UbuntuServer",
+                        sku="22.04-LTS",
+                    ),
+                    node_agent_sku_id="batch.node.ubuntu 22.04",
+                    os_disk=OSDisk(
+                        ephemeral_os_disk_settings=DiffDiskSettings(
+                            placement=DiffDiskPlacement.CACHE_DISK
+                        )
+                    ),
+                )
+            ),
+        ),
+    )
 ```
 
-This is the same code snippet but for creating a pool with ephemeral OS disks using the Azure Batch .NET SDK and C#. 
+This is the same code snippet but for creating a pool with ephemeral OS disks using the Azure.ResourceManager.Batch SDK and C#.
 
 ```csharp
-VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
-        imageReference: imageReference,
-        nodeAgentSkuId: nodeAgentSku
-        );
-virtualMachineConfiguration.OSDisk = new OSDisk();
-virtualMachineConfiguration.OSDisk.EphemeralOSDiskSettings = new DiffDiskSettings();
-virtualMachineConfiguration.OSDisk.EphemeralOSDiskSettings.Placement = DiffDiskPlacement.CacheDisk;
+using Azure;
+using Azure.Identity;
+using Azure.ResourceManager;
+using Azure.ResourceManager.Batch;
+using Azure.ResourceManager.Batch.Models;
+
+//...
+
+public async Task SetEphemeralOSDisk()
+{
+    ArmClient client = new ArmClient(new DefaultAzureCredential());
+
+    ResourceIdentifier batchAccountResourceId =
+        BatchAccountResource.CreateResourceIdentifier("subscriptionId", "resourceGroupName", "accountName");
+    BatchAccountResource batchAccount = client.GetBatchAccountResource(batchAccountResourceId);
+
+    BatchAccountPoolCollection poolCollection = batchAccount.GetBatchAccountPools();
+
+    BatchAccountPoolData poolData = new BatchAccountPoolData()
+    {
+        VmSize = "standard_ds1_v2",
+        DeploymentConfiguration = new BatchDeploymentConfiguration()
+        {
+            VmConfiguration = new BatchVmConfiguration(
+                imageReference: new BatchImageReference()
+                {
+                    Publisher = "Canonical",
+                    Offer = "UbuntuServer",
+                    Sku = "22.04-LTS"
+                },
+                nodeAgentSkuId: "batch.node.ubuntu 22.04")
+            {
+                OSDisk = new BatchOSDisk()
+                {
+                    EphemeralOSDiskSettings = new DiffDiskSettings()
+                    {
+                        Placement = BatchDiffDiskPlacement.CacheDisk
+                    }
+                }
+            }
+        }
+    };
+
+    ArmOperation<BatchAccountPoolResource> pool = await poolCollection.CreateOrUpdateAsync(
+        WaitUntil.Completed, "ephemeralOSDiskPool", poolData);
+}
 ```
 
 ## Next steps
 
-- See the [Ephemeral OS Disks FAQ](../virtual-machines/ephemeral-os-disks-faq.md).
+- See the [Ephemeral OS Disks FAQ](/azure/virtual-machines/ephemeral-os-disks-faq).
 - Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 - Learn about [costs that may be associated with Azure Batch workloads](budget.md).

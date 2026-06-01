@@ -1,12 +1,12 @@
 ---
 title: Understand reservation discount - Azure Database for MySQL
 description: Learn how a reservation discount is applied to your Azure Database for MySQL servers.
-author: mksuni
-ms.author: sumuth
+author: pri-mittal
+ms.author: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.topic: conceptual
-ms.date: 11/17/2023
+ms.topic: concept-article
+ms.date: 03/19/2026
 ---
 
 # How a reservation discount is applied to Azure Database for MySQL

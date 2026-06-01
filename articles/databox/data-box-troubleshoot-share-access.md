@@ -4,11 +4,12 @@ description: Describes how to identify network issues preventing SMB share conne
 services: databox
 author: v-dalc
 
-ms.service: databox
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: troubleshooting
 ms.date: 04/15/2022
 ms.author: shaas
+ms.custom: sfi-image-nochange
+# Customer intent: "As an IT administrator troubleshooting data transfers, I want to diagnose and resolve network issues blocking SMB share connections on Azure Data Box, so that I can ensure seamless data copy operations and maintain efficient workflows."
 ---
 
 # Troubleshoot share connection failure during data copy to Azure Data Box

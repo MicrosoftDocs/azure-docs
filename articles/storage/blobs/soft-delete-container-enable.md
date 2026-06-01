@@ -8,6 +8,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 07/06/2021
 ms.author: normesta
+# Customer intent: "As a cloud storage administrator, I want to enable container soft delete, so that I can recover mistakenly deleted containers and ensure data protection within a specified retention period."
 ---
 
 # Enable and manage soft delete for containers
@@ -42,6 +43,15 @@ Enable-AzStorageContainerDeleteRetentionPolicy -ResourceGroupName <resource-grou
     -RetentionDays 7
 ```
 
+To check the current settings for container soft delete, call the [Get-AzStorageBlobServiceProperty](/powershell/module/az.storage/get-azstorageblobserviceproperty) command:
+
+```azurepowershell
+$properties = Get-AzStorageBlobServiceProperty -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account>
+$properties.ContainerDeleteRetentionPolicy.Enabled
+$properties.ContainerDeleteRetentionPolicy.Days
+```
+
 To disable container soft delete, call the **Disable-AzStorageContainerDeleteRetentionPolicy** command.
 
 # [Azure CLI](#tab/azure-cli)
@@ -54,6 +64,13 @@ az storage account blob-service-properties update \
     --container-delete-retention-days 7 \
     --account-name <storage-account> \
     --resource-group <resource_group>
+```
+
+To check the current settings for container soft delete, call the [az storage account blob-service-properties show](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-show) command:
+
+```azurecli-interactive
+az storage account blob-service-properties show --account-name <storage-account> \
+    --resource-group <resource-group>
 ```
 
 To disable container soft delete, specify `false` for the `--enable-container-delete-retention` parameter.

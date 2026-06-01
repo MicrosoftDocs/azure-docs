@@ -1,16 +1,17 @@
 ---
-title: Example Azure role assignment conditions for Queue Storage
+title: Examples for Azure role assignment conditions for Queue Storage
 titleSuffix: Azure Storage
-description: Example Azure role assignment conditions for Queue Storage.
+description: Example role assignment conditions and Azure attribute-based access control (Azure ABAC) for Azure Queue Storage.
 author: pauljewellmsft
 
 ms.service: azure-queue-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: pauljewell
 ms.reviewer: nachakra
 ms.custom: devx-track-azurepowershell
 ms.date: 12/13/2023
 #Customer intent: As a dev, devops, or IT admin, I want to learn about the conditions so that I write more complex conditions.
+# Customer intent: As a developer or IT admin, I want to learn how to implement role assignment conditions for Azure Queue Storage, so that I can effectively manage access control based on attributes and improve security for my resources.
 ---
 
 # Example Azure role assignment conditions for Queue Storage
@@ -47,7 +48,7 @@ This condition allows users to peek or clear messages in a queue named **sample-
 
 ![Diagram of condition showing peek and clear access to named queue.](./media/queues-auth-abac-examples/peek-clear-messages-named-queue.png)
 
-The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs below to view the examples for your preferred portal editor.
+The condition can be added to a role assignment using either the Azure portal or Azure PowerShell. The portal has two tools for building ABAC conditions - the visual editor and the code editor. You can switch between the two editors in the Azure portal to see your conditions in different views. Switch between the **Visual editor** tab and the **Code editor** tabs in this article to view the examples for your preferred portal editor.
 
 # [Portal: Visual editor](#tab/portal-visual-editor)
 
@@ -68,7 +69,7 @@ Use the values in the following table to build the expression portion of the con
 | Operator | [StringEquals](../../role-based-access-control/conditions-format.md#stringequals) |
 | Value | {queueName} |
 
-The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
+The following image shows the condition after the settings are entered into the Azure portal. You must group expressions to ensure correct evaluation.
 
 :::image type="content" source="./media/queues-auth-abac-examples/peek-clear-messages-portal.png" alt-text="Screenshot of condition editor in Azure portal showing peek or clear access to messages in a named queue." lightbox="./media/queues-auth-abac-examples/peek-clear-messages-portal.png":::
 
@@ -150,7 +151,7 @@ Use the values in the following table to build the expression portion of the con
 | Operator | [DateTimeGreaterThan](../../role-based-access-control/conditions-format.md#datetime-comparison-operators) |
 | Value | `2023-05-01T13:00:00.000Z` |
 
-The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
+The following image shows the condition after the settings are entered into the Azure portal. You must group expressions to ensure correct evaluation.
 
 :::image type="content" source="./media/queues-auth-abac-examples/environment-utcnow-queue-peek-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing peek access allowed after a specific date and time." lightbox="./media/queues-auth-abac-examples/environment-utcnow-queue-peek-portal.png":::
 
@@ -242,7 +243,7 @@ Use the values in the following table to build the expression portion of the con
 | Operator | [StringEqualsIgnoreCase](../../role-based-access-control/conditions-format.md#stringequals) |
 | Value | `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/sample-vnet/subnets/default` |
 
-The following image shows the condition after the settings have been entered into the Azure portal. Note that you must group expressions to ensure correct evaluation.
+The following image shows the condition after the settings are entered into the Azure portal. You must group expressions to ensure correct evaluation.
 
 :::image type="content" source="./media/queues-auth-abac-examples/environment-subnet-queue-put-update-portal.png" alt-text="Screenshot of the condition editor in the Azure portal showing read access to specific queues allowed from a specific subnet." lightbox="./media/queues-auth-abac-examples/environment-subnet-queue-put-update-portal.png":::
 

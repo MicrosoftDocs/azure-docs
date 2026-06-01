@@ -106,6 +106,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/cost-management-billing/reservations/understand-vm-software-reservation-discount.md",
+            "redirect_url": "/azure/cost-management-billing/reservations/buy-vm-software-reservation",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/billing/billing-azure-subscription-past-due-balance.md",
             "redirect_url": "/azure/cost-management-billing/manage/resolve-past-due-balance",
             "redirect_document_id": true
@@ -302,12 +307,12 @@
         },
         {
             "source_path_from_root": "/articles/billing/billing-export-subscriptions.md",
-            "redirect_url": "/powershell/module/servicemanagement/azure.service/get-azuresubscription",
+            "redirect_url": "/powershell/module/az.accounts/get-azsubscription",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/cost-management-billing/manage/billing-export-subscriptions.md",
-            "redirect_url": "/powershell/module/servicemanagement/azure.service/get-azuresubscription",
+            "redirect_url": "/powershell/module/az.accounts/get-azsubscription",
             "redirect_document_id": false
         },
         {
@@ -608,7 +613,7 @@
         {
             "source_path_from_root": "/articles/cost-management-billing/reservations/understand-reservation-charges-postgresql.md",
             "redirect_url": "/azure/postgresql/single-server/concept-reserved-pricing",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/billing/billing-understand-reservation-charges.md",
@@ -922,12 +927,12 @@
         },
         {
             "source_path_from_root": "/articles/cost-management/aws-integration-manage.md",
-            "redirect_url": "/azure/cost-management-billing/costs/aws-integration-manage",
+            "redirect_url": "/azure/cost-management-billing/costs/overview-cost-management",
             "redirect_document_id": true
         },
         {
             "source_path_from_root": "/articles/cost-management/aws-integration-set-up-configure.md",
-            "redirect_url": "/azure/cost-management-billing/aws-integration-set-up-configure",
+            "redirect_url": "/azure/cost-management-billing/costs/overview-cost-management",
             "redirect_document_id": false
         },
         {
@@ -1043,11 +1048,6 @@
         {
             "source_path_from_root": "/articles/cost-management/tutorial-acm-opt-recommendations.md",
             "redirect_url": "/azure/cost-management-billing/costs/tutorial-acm-opt-recommendations",
-            "redirect_document_id": true
-        },
-        {
-            "source_path_from_root": "/articles/cost-management/tutorial-export-acm-data.md",
-            "redirect_url": "/azure/cost-management-billing/costs/tutorial-export-acm-data",
             "redirect_document_id": true
         },
         {
@@ -1341,8 +1341,78 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/cost-management-billing/reservations/transition-azure-openai-provisioned-deployments.md",
+            "redirect_url": "/azure/cost-management-billing/reservations/azure-openai",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management/tutorial-export-acm-data.md",
+            "redirect_url": "/azure/cost-management-billing/costs/tutorial-improved-exports",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/costs/tutorial-export-acm-data.md",
+            "redirect_url": "/azure/cost-management-billing/costs/tutorial-improved-exports",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/costs/retire-aws-connector.md",
+            "redirect_url": "/azure/cost-management-billing/costs/overview-cost-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/costs/aws-integration-set-up-configure.md",
+            "redirect_url": "/azure/cost-management-billing/costs/overview-cost-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/costs/aws-integration-manage.md",
+            "redirect_url": "/azure/cost-management-billing/costs/overview-cost-management",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/cost-management/use-reports.md",
             "redirect_url": "/azure/cost-management-billing/cloudyn/use-reports",
+            "redirect_document_id": true
+        }, 
+        {
+            "source_path_from_root": "/articles/cost-management-billing/reservations/azure-openai.md",
+            "redirect_url": "/azure/cost-management-billing/reservations/azure-ai-foundry",
+            "redirect_document_id": true
+        },
+          {
+            "source_path_from_root": "/articles/cost-management-billing/manage/manage-azure-credits.md",
+            "redirect_url": "/azure/cost-management-billing/benefits/credits/manage-azure-credits",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/manage-azure-discount.md",
+            "redirect_url": "/azure/cost-management-billing/benefits/discounts/manage-azure-discount",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/manage-consumption-commitment.md",
+            "redirect_url": "/azure/cost-management-billing/benefits/macc/manage-consumption-commitment",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/mca-check-azure-credits-balance.md",
+            "redirect_url": "/azure/cost-management-billing/benefits/credits/mca-check-azure-credits-balance",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/manage/track-consumption-commitment.md",
+            "redirect_url": "/azure/cost-management-billing/benefits/macc/track-consumption-commitment",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/reservations/azure-ai-foundry.md",
+            "redirect_url": "/azure/cost-management-billing/reservations/microsoft-foundry",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/cost-management-billing/savings-plan/savings-plan-compute-overview.md",
+            "redirect_url": "/azure/cost-management-billing/savings-plan/savings-plan-overview",
             "redirect_document_id": true
         }
     ]

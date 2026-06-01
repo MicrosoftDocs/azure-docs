@@ -1,133 +1,201 @@
 ---
-title: Restore deleted apps
-description: Learn how to restore a deleted app in Azure App Service. Avoid the headache of an accidentally deleted app.
+title: Restore Deleted Apps
+description: Restore a deleted app in Azure App Service to another similar app created in the same region.
 author: seligj95
 ms.author: jordanselig
-ms.date: 10/4/2023
-ms.topic: article 
-ms.custom: devx-track-azurepowershell
+ms.date: 03/23/2026
+ms.topic: how-to
+ms.service: azure-app-service
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-ropc-nochange
+#customer intent: As an App Service developer, I want to restore a deleted app in Azure App Service, so I can continue to use the app content and configuration settings.
 ---
 
-# Restore deleted App Service app Using PowerShell
+# Restore a deleted app in App Service
 
-If you happened to accidentally delete your app in Azure App Service, you can restore it using the commands from the [Az PowerShell module](/powershell/azure/).
+If you deleted an app in Azure App Service, you can restore the app and continue to use the existing contents and settings. The process overwrites another _target_ app with the contents and settings of the deleted web app.
 
-> [!NOTE]
-> - Deleted apps are purged from the system 30 days after the initial deletion. After an app is purged, it can't be recovered.
-> - Undelete functionality isn't supported for function apps hosted on the Consumption plan or Elastic Premium plan.
-> - App Service apps running in an App Service Environment don't support snapshots. Therefore, undelete functionality and clone functionality aren't supported for App Service apps running in an App Service Environment.
->
+There are several conditions for restoring a deleted app:
 
-## Re-register App Service resource provider
+- The deleted app must be created in a paid Azure App Service plan. Apps created in the Free and Shared tiers aren't supported.
+- The deleted app must be present in the system. Deleted apps are purged from the system 30 days after the initial deletion. After an app is purged, it can't be restored.
+- If the app is hosted on and then deleted from an App Service Environment, it can be restored only if the corresponding App Service Environment still exists.
+- You can't restore a function app hosted on the Consumption plan or Elastic Premium plan.
 
-Some customers might come across an issue where retrieving the list of deleted apps fails. To resolve the issue, run the following command:
+This article describes how to restore a deleted web app by following procedures for the Azure portal or Azure PowerShell. You can also [restore a deleted Azure Functions app](#restore-a-deleted-azure-functions-app).
 
-```powershell
- Register-AzResourceProvider -ProviderNamespace "Microsoft.Web"
-```
+## Prerequisites
 
-## List deleted apps
+- To complete the restore in the **Azure portal**, you need an existing target app that is the same type as the deleted app, and created in the same region.
 
-To get the collection of deleted apps, you can use `Get-AzDeletedWebApp`.
+## Restore a deleted web app
 
-For details on a specific deleted app you can use:
+You can restore a deleted web app in Azure App Service in the Azure portal or by using the [`Az PowerShell module`](/powershell/azure/).
 
-```powershell
-Get-AzDeletedWebApp -Name <your_deleted_app> -Location <your_deleted_app_location> 
-```
+- If you use PowerShell, you can restore to an existing app or create a new app.
 
-The detailed information includes:
+- In the Azure portal, you can restore only to an existing web app.
 
-- **DeletedSiteId**: Unique identifier for the app, used for scenarios where multiple apps with the same name have been deleted
-- **SubscriptionID**: Subscription containing the deleted resource
-- **Location**: Location of the original app
-- **ResourceGroupName**: Name of the original resource group
-- **Name**: Name of the original app.
-- **Slot**: the name of the slot.
-- **Deletion Time**: When was the app deleted  
+- Both options allow you to restore the deleted content only, or both the content and the configuration settings.
 
-## Restore deleted app
+- The restore process doesn't include any custom domains, bindings, or certificates that might be imported to the deleted app. After you restore the deleted app, you need to reimport these settings.
 
->[!NOTE]
->- `Restore-AzDeletedWebApp` isn't supported for function apps hosted on the Consumption plan or Elastic Premium plan.
->- The Restore-AzDeletedWebApp cmdlet restores a deleted web app. The web app specified by TargetResourceGroupName, TargetName, and TargetSlot will be overwritten with the contents and settings of the deleted web app. If the target parameters are not specified, they will automatically be filled with the deleted web app's resource group, name, and slot. If the target web app does not exist, it will automatically be created in the app service plan specified by TargetAppServicePlanName.
->- By default `Restore-AzDeletedWebApp` will restore both your app configuration as well any content. If you want to only restore content, you use the **`-RestoreContentOnly`** flag with this commandlet.
->- Custom domains, bindings, or certs that you import to your app won't be restored. You'll need to re-add them after your app is restored. 
+# [Azure portal](#tab/portal)
 
+1. In the Azure portal, go to **App Services**.
 
-After identifying the app you want to restore, you can restore it using `Restore-AzDeletedWebApp`, as shown in the following examples.
->*You can find the full commandlet reference here: **[Restore-AzDeletedWebApp](/powershell/module/az.websites/restore-azdeletedwebapp)*** .
+1. In the top menubar, select **Manage Deleted Apps**. The **Manage Deleted App Services** pane opens.
 
->Restore to the original app name:
-```powershell
-Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
-```
+1. Select the **Subscription** that contains the deleted app.
 
->Restore to a different app name:
-```powershell
-Restore-AzDeletedWebApp -ResourceGroupName <original_rg> -Name <original_app> -TargetResourceGroupName <target_rg> -TargetName <target_app> -TargetAppServicePlanName <target_asp>
-```
+1. Use the **Deleted App Service** dropdown list and select the deleted app.
 
->Restore a slot to target app:
-```powershell
-Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp> -Slot <original_slot>
-```
+   > [!NOTE]
+   > The list shows only apps deleted in the last 30 days.
+
+   After you select the deleted app, the pane refreshes to show the app region and type.
+
+1. Use the **Replacement App Service** dropdown list and select the existing app to use as the target for the restore process.
+
+1. By default, only app content is restored. If you want to also restore the app configuration, select the **Restore App Configuration** checkbox.
+
+1. Select **Recover**.
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+Run the following commands to restore the deleted web app.
 
 > [!NOTE]
-> Deployment slots are not restored as part of your app. If you need to restore a staging slot, use the `-Slot <slot-name>`  flag.
-> The commandlet is restoring original slot to the target app's production slot.
-> By default `Restore-AzDeletedWebApp` will restore both your app configuration as well any content to target app. If you want to only restore content, you use the `-RestoreContentOnly` flag with this commandlet.
+> The following sections provide information for restoring a web app. To restore a deleted Azure Functions app, see [Restore a deleted Azure Functions app](#restore-a-deleted-azure-functions-app) later in this article.
 
->Restore only site content to the target app
+### Identify the deleted app to restore
+
+1. Re-register the App Service resource provider, which ensures the system can retrieve the list of deleted apps:
+
+   ```powershell
+   Register-AzResourceProvider -ProviderNamespace "Microsoft.Web"
+   ```
+
+1. Retrieve the list of deleted apps with the `Get-AzDeletedWebApp` command:
+
+   ```powershell
+   Get-AzDeletedWebApp
+   ```
+
+   The output shows detailed information for each deleted app:
+
+   - **Deleted Site ID**: Unique identifier for the app, which is used for scenarios where multiple apps with the same name are deleted.
+   - **Subscription ID**: Subscription that contains the deleted resource.
+   - **Location**: Location of the original app.
+   - **Resource Group Name**: Name of the original resource group.
+   - **Name**: Name of the original app.
+   - **Slot**: Name of the slot, such as _Production_.
+   - **Deletion Time**: Date (mm/dd/yyyy) and time when the app was deleted.
+
+1. Review the list and find the deleted web app you want to restore.
+
+   To see the details for a specific deleted app, run the command again with the app name and location.
+
+   Replace the `<deleted-app-name>` and `<deleted-app-location>` values with the deleted app information.
+
+   ```powershell
+   Get-AzDeletedWebApp -Name <deleted-app-name> -Location <deleted-app-location> 
+   ```
+
+### Restore the deleted web app
+
+After you identify the deleted app to restore, use the [`Restore-AzDeletedWebApp`](/powershell/module/az.websites/restore-azdeletedwebapp) command. 
+
+- The command restores a deleted web app into a target web app. The process overwrites the target app with the contents and settings of the deleted web app.
+
+- The command requires various parameters for information about the deleted app or target app:
+
+   - `Name`: The name of the deleted app or the target app, as indicated by the command.
+   - `ResourceGroupName`: The name of the resource group that contains the deleted app.
+   - `Slot`: The slot of the deleted app to restore in the target app.
+   - `TargetResourceGroupName`: The name of the resource group that contains the target app.
+   - `TargetName`: The name of the target app. If you want the command to create a new app, specify a globally unique name.
+   - `TargetAppServicePlanName`: The App Service plan to link with the target app.
+
+- When the target parameters aren't specified, the command sets the target values by using the deleted web app's resource group, name, and slot.
+
+- If the target web app doesn't exist, the command creates a new app in the specified App Service plan.
+
+- By default, the command restores both your app configuration and any content. To restore the content only, use the `-RestoreContentOnly` flag.
+
+The following sections provide examples for using the `Restore-AzDeletedWebApp` command in different scenarios. Replace the various `<placeholder>` parameter values with the indicated information for your deleted app or the target app.
+
+#### Restore to the original app name
+
 ```powershell
-Restore-AzDeletedWebApp -TargetResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp> -RestoreContentOnly
+Restore-AzDeletedWebApp -TargetResourceGroupName <target-resource-group> -Name <deleted-app-name> -TargetAppServicePlanName <target-app-service-plan>
 ```
 
->Restore used for scenarios where multiple apps with the same name have been deleted with `-DeletedSiteId`
-```powershell
-Restore-AzDeletedWebApp -ResourceGroupName <original_rg> -Name <original_app> -DeletedId /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Web/locations/location/deletedSites/1234 -TargetAppServicePlanName <my_asp>
+#### Restore to a different app name
 
+```powershell
+Restore-AzDeletedWebApp -ResourceGroupName <deleted-app-resource-group> -Name <deleted-app-name> -TargetResourceGroupName <target-resource-group> -TargetName <target-app-name> -TargetAppServicePlanName <target-app-service-plan>
 ```
 
-The inputs for command are:
+#### Restore a slot to the target app
 
-- **Target Resource Group**: Target resource group where the app is to be restored
-- **TargetName**: Target app for the deleted app to be restored to
-- **TargetAppServicePlanName**: App Service plan linked to the app
-- **Name**: Name for the app, should be globally unique.
-- **ResourceGroupName**: Original resource group for the deleted app 
-- **Slot**: Slot for the deleted app 
-- **RestoreContentOnly**: By default `Restore-AzDeletedWebApp` restores both your app configuration as well any content. If you want to only restore content, you can use the `-RestoreContentOnly` flag with this commandlet.
+```powershell
+Restore-AzDeletedWebApp -TargetResourceGroupName <target-resource-group> -Name <target-app-name> -TargetAppServicePlanName <target-app-service-plan> -Slot <deleted-app-slot>
+```
 
 > [!NOTE]
-> If the app was hosted on and then deleted from an App Service Environment, it can be restored only if the corresponding App Service Environment still exists.
+> Deployment slots aren't restored as part of your app. To restore a staging slot, use the `-Slot <slot-name>` flag. The command restores the original slot to the target app's production slot.
 
-## Restore deleted function app 
-
-If the function app was hosted on a **Dedicated app service plan**, it can be restored, as long as it was using the default App Service storage.
-
-1. Fetch the DeletedSiteId of the app version you want to restore, using Get-AzDeletedWebApp cmdlet:
+#### Restore only site content to the target app
 
 ```powershell
-Get-AzDeletedWebApp -ResourceGroupName <RGofDeletedApp> -Name <NameofApp> 
+Restore-AzDeletedWebApp -TargetResourceGroupName <target-resource-group> -Name <deleted-app-name> -TargetAppServicePlanName <target-app-service-plan> -RestoreContentOnly
 ```
-2. Create a new function app in a Dedicated plan. Refer to the instructions for [how to create an app in the portal](../azure-functions/functions-create-function-app-portal.md#create-a-function-app).
-3. Restore to the newly created function app using this cmdlet:
+
+#### Restore when multiple deleted apps have same name (deleted site ID)
+
+If multiple deleted apps have the same name, you can restore a specific app by specifying the site ID for the deleted app.
+
+The `Get-AzDeletedWebApp` command returns the deleted site ID for the app version. The site ID has the form `/subscriptions/<deleted-app-subscription>/providers/Microsoft.Web/locations/<deleted-app-location>/deletedSites/<deleted-app-site-ID>`.
+
+To restore the specific app, specify the deleted site ID:
 
 ```powershell
-Restore-AzDeletedWebApp -ResourceGroupName <RGofnewapp> -Name <newApp> -deletedId "/subscriptions/xxxx/providers/Microsoft.Web/locations/xxxx/deletedSites/xxxx"
+$deletedSite = Get-AzDeletedWebApp -ResourceGroupName <deleted-app-resource-group> -Name <deleted-app-name>
+   
+Restore-AzDeletedWebApp -TargetResourceGroupName <target-app-resource-group> -TargetName <target-app-name> -TargetAppServicePlanName <target-app-service-plan> -InputObject $deletedSite[0]
 ```
 
-Currently there's no support for Undelete (Restore-AzDeletedWebApp) Function app that's hosted in a Consumption plan or Elastic premium plan since the content resides on Azure Files in a Storage account. If you haven't 'hard' deleted that Azure Files storage account, or if the account exists and file shares haven't been deleted, then you may use the steps as workaround:
- 
+---
 
-1. Create a new function app in a Consumption or Premium plan. Refer the instructions for [how to create an app in the portal](../azure-functions/functions-create-function-app-portal.md#create-a-function-app).
-2. Set the following [app settings](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) to refer to the old storage account , which contains the content from the previous app.
+## Restore a deleted Azure Functions app
 
-    | App Setting      | Suggested value  | 
-    | ------------ | ---------------- | 
-    | **AzureWebJobsStorage** | Connection String for the storage account used by the deleted app. | 
-    | **WEBSITE_CONTENTAZUREFILECONNECTIONSTRING** | Connection String for the storage account used by the deleted app. | 
-    | **WEBSITE_CONTENTSHARE** | File share on storage account used by the deleted app. | 
+If a function app hosted on a Dedicated App Service plan is deleted, you can restore the app, as long as it uses the default App Service storage.
 
+### Restore an app in a Dedicated App Service plan
 
+To restore a function app in a new Dedicated App Service plan, follow the process to use the `Restore-AzDeletedWebApp` command, as described in [Restore when multiple deleted apps have same name (deleted site ID)](#restore-when-multiple-deleted-apps-have-same-name-deleted-site-id). For more information, see [Create a function app in the Azure portal](/azure/azure-functions/functions-create-function-app-portal#create-a-function-app).
+
+### Restore an app in a Consumption plan or Elastic premium plan
+
+If the deleted function app is hosted in a Consumption plan or Elastic premium plan, you can't use the `Restore-AzDeletedWebApp` command. The operation isn't supported because the content resides on Azure Files in a storage account.
+
+A workaround is available, if you didn't hard delete the Azure Files storage account, or if the account exists and you didn't delete file shares.
+
+Follow these steps:
+
+1. Create a new function app in a Consumption or Premium plan. For more information, see [Create a function app in the Azure portal](/azure/azure-functions/functions-create-function-app-portal#create-a-function-app).
+
+1. Set the following [app settings](/azure/azure-functions/functions-how-to-use-azure-function-app-settings?tabs=portal#settings) to refer to the old storage account, which contains the content from the previous app.
+
+   | App setting | Suggested value |
+   |---|---|
+   | `AzureWebJobsStorage` | Connection string for the storage account used by the deleted app. |
+   | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | Connection string for the storage account used by the deleted app. |
+   | `WEBSITE_CONTENTSHARE` | File share on storage account used by the deleted app. |
+
+## Related content
+
+- [Get-AzDeletedWebApp](/powershell/module/az.websites/get-azdeletedwebapp) command reference
+- [Restore-AzDeletedWebApp](/powershell/module/az.websites/restore-azdeletedwebapp) command reference

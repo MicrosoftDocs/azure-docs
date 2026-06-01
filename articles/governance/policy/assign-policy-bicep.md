@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create policy assignment using Bicep file"
 description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using a Bicep file.
-ms.date: 02/26/2024
+ms.date: 03/04/2025
 ms.topic: quickstart
 ms.custom: subject-bicepqs, devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -16,7 +16,7 @@ In this quickstart, you use a Bicep file to create a policy assignment that vali
 
 ## Prerequisites
 
-- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Bicep](../../azure-resource-manager/bicep/install.md).
 - [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 - [Visual Studio Code](https://code.visualstudio.com/) and the [Bicep extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).

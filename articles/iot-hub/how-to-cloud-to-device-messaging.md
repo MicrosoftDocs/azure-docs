@@ -1,12 +1,12 @@
 ---
 title: Send cloud-to-device messages
 titleSuffix: Azure IoT Hub
-description: How to send cloud-to-device messages from a back-end app and receive them on a device app using the Azure IoT SDKs for C#, Python, Java, Node.js, and C.
-author: kgremban
-ms.author: kgremban
-ms.service: iot-hub
+description: How to send cloud-to-device messages from a back-end app and receive them on a device app using the Azure IoT SDKs for C#, Python, Java, and Node.js.
+author: sethmanheim
+ms.author: sethm
+ms.service: azure-iot-hub
 ms.topic: how-to
-ms.date: 06/20/2024
+ms.date: 1/6/2025
 zone_pivot_groups: iot-hub-howto-c2d-1
 ms.custom: [amqp, mqtt, "Role: Cloud Development", "Role: IoT Device"]
 ---
@@ -86,7 +86,7 @@ For more information about the cloud-to-device message lifecycle and how IoT Hub
 
 ## Connection reconnection policy
 
-This article doesn't demonstrate a message retry policy for the device to IoT Hub connection or external application to IoT Hub connection. In production code, you should implement connection retry policies as described in [Manage device reconnections to create resilient applications](/azure/iot/concepts-manage-device-reconnections).
+This article doesn't demonstrate a message retry policy for the device to IoT Hub connection or external application to IoT Hub connection. In production code, you should implement connection retry policies as described in [Manage device reconnections to create resilient applications](concepts-manage-device-reconnections.md).
 
 ## Message retention time, retry attempts, and max delivery count
 

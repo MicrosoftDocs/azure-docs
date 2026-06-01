@@ -1,8 +1,8 @@
 ---
 title: Azure Policy definitions denyAction effect
 description: Azure Policy definitions denyAction effect determines how compliance is managed and reported.
-ms.date: 04/17/2024
-ms.topic: conceptual
+ms.date: 03/04/2025
+ms.topic: reference
 ---
 
 # Azure Policy definitions denyAction effect
@@ -38,7 +38,7 @@ The `details` property of the `denyAction` effect has all the subproperties that
   - Supported action names are: `delete`.
 - `cascadeBehaviors` (optional)
   - An _object_ that defines which behavior is followed when a resource is implicitly deleted when a resource group is removed.
-  - Only supported in policy definitions with [mode](./definition-structure.md#resource-manager-modes) set to `indexed`.
+  - Only supported in policy definitions with [mode](./definition-structure-basics.md#resource-manager-modes) set to `indexed`.
   - Allowed values are `allow` or `deny`.
   - Default value is `deny`.
 
@@ -76,7 +76,7 @@ Example: Deny any delete calls targeting database accounts that have a tag envir
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review the [Azure Policy definition structure](definition-structure-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).

@@ -2,17 +2,21 @@
 title: Route web traffic based on the URL - Azure PowerShell
 description: Learn how to route web traffic based on the URL to specific scalable pools of servers using Azure PowerShell.
 services: application-gateway
-author: greg-lindsay
-ms.service: application-gateway
+author: mbender-ms
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 07/31/2019
-ms.author: greglin
-ms.custom: mvc, devx-track-azurepowershell
+ms.author: mbender
+ms.custom:
+  - mvc
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 #Customer intent: As an IT administrator, I want to use PowerShell to set up routing of web traffic to specific pools of servers based on the URL that the customer uses, so I can ensure my customers have the most efficient route to the information they need.
+# Customer intent: As an IT administrator, I want to configure URL-based traffic routing using PowerShell so that I can efficiently direct web requests to appropriate server pools, enhancing user experience and optimizing resource utilization.
 ---
 # Route web traffic based on the URL using Azure PowerShell
 
-You can use Azure PowerShell to configure web traffic routing to specific scalable server pools based on the URL that is used to access your application. In this article, you create an [Azure Application Gateway](./overview.md) with three backend pools using [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md). Each of the backend pools serves a specific purpose such as, common data, images, and video.  Routing traffic to separate pools ensures that your customers get the information that they need when they need it.
+You can use Azure PowerShell to configure web traffic routing to specific scalable server pools based on the URL that is used to access your application. In this article, you create an [Azure Application Gateway](./overview.md) with three backend pools using [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview). Each of the backend pools serves a specific purpose such as, common data, images, and video.  Routing traffic to separate pools ensures that your customers get the information that they need when they need it.
 
 To enable traffic routing, you create [routing rules](./url-route-overview.md) assigned to listeners that listen on specific ports to ensure web traffic arrives at the appropriate servers in the pools.
 
@@ -26,7 +30,7 @@ In this article, you learn how to:
 
 If you prefer, you can complete this procedure using [Azure CLI](tutorial-url-route-cli.md) or the [Azure portal](create-url-route-portal.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 

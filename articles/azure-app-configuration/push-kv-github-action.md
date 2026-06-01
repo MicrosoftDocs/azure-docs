@@ -3,9 +3,10 @@ title:  Import configuration files from your GitHub repository to App Configurat
 description: Use GitHub Actions to automatically update your App Configuration store when you update your configuration file in your GitHub repository
 author: christinewanjau
 ms.author: cwanjau
-ms.date: 06/05/2024
+ms.date: 09/30/2025
 ms.topic: how-to
 ms.service: azure-app-configuration
+ms.custom: sfi-ropc-nochange
 
 ---
 # Import configuration files from your GitHub repository to App Configuration store
@@ -125,7 +126,7 @@ jobs:
             az appconfig kv import --endpoint <your-app-configuration-store-endpoint> --auth-mode login -s file --path appsettings.json --format json --yes
 ```
 
-For more information about Azure App Configuration CLI import commands, see the [Azure AppConfifguration CLI documentation.](/cli/azure/appconfig/kv#az-appconfig-kv-import)
+For more information about Azure App Configuration CLI import commands, see the [Azure AppConfiguration CLI documentation.](/cli/azure/appconfig/kv#az-appconfig-kv-import)
 
 ### Use a dynamic label on import
 

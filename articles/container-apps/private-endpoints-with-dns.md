@@ -1,0 +1,88 @@
+---
+title: Configure Private Endpoints and DNS for Virtual Networks in Azure Container Apps Environments
+description: Learn how to configure private endpoints and DNS for virtual networks in Azure Container Apps.
+services: container-apps
+author: craigshoemaker
+ms.service: azure-container-apps
+ms.topic:  concept-article
+ms.date: 01/12/2026
+ms.author: cshoe
+---
+
+# Private endpoints and DNS for virtual networks in Azure Container Apps environments
+
+Azure private endpoints enable clients located in your private network to securely connect to your Azure Container Apps environment through Azure Private Link. A Private Link connection eliminates exposure to the public internet. Private endpoints use a private IP address in your Azure virtual network address space and are typically configured with a private DNS zone.
+
+Private endpoints are supported for both Consumption and Dedicated plans in workload profile environments.
+
+## Billing
+
+Private endpoints incur additional charges. When you enable a private endpoint in Container Apps, you're billed for both:
+
+- The [Private Link resource](https://azure.microsoft.com/pricing/details/private-link/).
+- The dedicated private endpoint infrastructure for Container Apps. It appears as a separate **Dedicated Plan Management** charge and applies to both Consumption and Dedicated plans.
+
+## How-to articles
+
+- To learn more about how to configure private endpoints in Container Apps, see [Use a private endpoint with an Azure Container Apps environment](how-to-use-private-endpoint.md).
+- Private Link connectivity with Azure Front Door is supported for Container Apps. For more information, see [Create a private link with Azure Front Door](./how-to-integrate-with-azure-front-door.md).
+
+## Considerations
+
+- To use a private endpoint, you must disable [public network access](networking.md#public-network-access). By default, public network access is enabled, which means private endpoints are disabled.
+- To use a private endpoint with a custom domain and an *apex domain* as the *hostname record type*, you must configure a private DNS zone with the same name as your public DNS. In the record set, configure your private endpoint's private IP address instead of the Container Apps environment's IP address. When you configure your custom domain with CNAME, the setup is unchanged. For more information, see [Set up a custom domain with an existing certificate](custom-domains-certificates.md).
+- Your private endpoint's virtual network can be separate from the virtual network that you integrated with your container app.
+- You can add a private endpoint to both new and existing workload profile environments.
+
+To connect to your container apps through a private endpoint, you must configure a private DNS zone.
+
+| Service | Subresource | Private DNS zone name |
+| --- | --- | --- |
+| Azure Container Apps (`Microsoft.App/ManagedEnvironments`) | `managedEnvironment` | `privatelink.{regionName}.azurecontainerapps.io` |
+
+You can also [use private endpoints with a private connection to Azure Front Door](how-to-integrate-with-azure-front-door.md) in place of Azure Application Gateway.
+
+## DNS
+
+Configuring DNS in your Container Apps environment's virtual network is important for the following reasons:
+
+- DNS lets your container apps resolve domain names to IP addresses so that they can discover and communicate with services within and outside the virtual network. These services include Application Gateway, network security groups, and private endpoints.
+
+- Custom DNS settings enhance security by letting you control and monitor the DNS queries that your container apps make. This ability helps you identify and mitigate potential security threats by ensuring that your container apps communicate with only trusted domains.
+
+### Custom DNS
+
+If your virtual network uses a custom DNS server instead of the default Azure-provided DNS server, configure your DNS server to forward unresolved DNS queries to `168.63.129.16`. [Azure recursive resolvers](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) use this IP address to resolve requests.
+
+When you're configuring your network security group or firewall, the DNS requirements differ between workload profile types:
+
+- **Consumption plan**: You must allow traffic to the `AzurePlatformDNS` service tag (which includes `168.63.129.16`). Blocking this service tag prevents your Container Apps environment from functioning correctly, even if you have a custom DNS server configured.
+
+- **Dedicated workload profiles**: You can block the `AzurePlatformDNS` service tag if desired, because dedicated workload profiles don't require access to Azure DNS for basic functionality.
+
+  For organizations that have strict DNS security requirements (such as banking and healthcare), Dedicated workload profiles provide the option to completely control DNS traffic flow through custom DNS servers without requiring Azure DNS access.
+
+> [!IMPORTANT]
+> Users of private DNS zones *must not* block or override the resolution of `*.hcp.<LOCATION>.azmk8s.io`, `mcr.microsoft.com`, and other DNS requirements that are shared with Azure Kubernetes Service and listed in [Azure Global required FQDN / application rules](/azure/aks/outbound-rules-control-egress#azure-global-required-network-rules). Failure to ensure the resolvability of required entries disrupts your Container Apps environment operation and networking.
+
+## Ingress for the virtual network scope
+
+If you plan to use [ingress](ingress-overview.md) in an internal environment for the virtual network scope, configure your domains in one of the following ways:
+
+- **Non-custom domains**: If you don't plan to use a custom domain, create a private DNS zone that resolves the Container Apps environment's default domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server.
+
+  If you use Azure Private DNS, create a private DNS zone named as the Container App environment's default domain (`<UNIQUE_IDENTIFIER>.<REGION_NAME>.azurecontainerapps.io`), with an `A` record. The `A` record contains the name `*<DNS Suffix>` and the static IP address of the Container Apps environment. For more information, see [Create and configure an Azure Private DNS zone](waf-app-gateway.md#create-and-configure-an-azure-private-dns-zone).
+
+- **Custom domains**: If you plan to use custom domains and are using an external Container Apps environment, use a publicly resolvable domain to [add a custom domain and certificate](./custom-domains-certificates.md#add-a-custom-domain-and-certificate) to the container app. If you're using an internal Container Apps environment, there's no validation for the DNS binding because the cluster is available only from within the virtual network.
+
+  Additionally, create a private DNS zone that resolves the apex domain to the static IP address of the Container Apps environment. You can use [Azure Private DNS](../dns/private-dns-overview.md) or your own DNS server. If you use Azure Private DNS, create a private DNS zone named as the apex domain, with an `A` record that points to the static IP address of the Container Apps environment.
+
+To get the static IP address of the Container Apps environment, you can use either of these methods:
+
+- In the Azure portal, go to the page for your container app and note the **Custom DNS suffix** value.
+- In the Azure CLI, use the `az containerapp env list` command.
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Provide a virtual network to an Azure Container Apps environment](vnet-custom.md)

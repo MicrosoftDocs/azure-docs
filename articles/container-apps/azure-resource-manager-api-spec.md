@@ -3,9 +3,9 @@ title: Azure Container Apps ARM and YAML template specifications
 description: Explore the available properties in the Azure Container Apps ARM and YAML templates.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: reference
-ms.date: 10/24/2023
+ms.date: 04/09/2025
 ms.author: cshoe
 ms.custom: build-2023
 ---
@@ -14,14 +14,11 @@ ms.custom: build-2023
 
 Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) template. Some Container Apps CLI commands also support using a YAML template to specify a resource.
 
-This article describes the ARM and YAML configurations for frequently used Container Apps resources. For a complete list of Container Apps resources see [Azure Resource Manager templates for Container Apps](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-arm-template).
+This article includes examples of the ARM and YAML configurations for frequently used Container Apps resources. For a complete list of Container Apps resources see [Azure Resource Manager templates for Container Apps](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-arm-template). The code listed in this article is for example purposes only. For full schema and type information, see the JSON definitions for your required API version.
 
 ## API versions
 
-The latest management API versions for Azure Container Apps are:
-
-- [`2023-05-01`](/rest/api/containerapps/stable/container-apps?view=rest-containerapps-2023-05-01&preserve-view=true) (stable)
-- [`2023-08-01-preview`](/rest/api/containerapps/container-apps?view=rest-containerapps-2023-08-01-preview&preserve-view=true) (preview)
+Check the latest stable and preview API versions in the [Resource Manager API documentation](/rest/api/resource-manager/containerapps/operation-groups) to ensure you're using the most up-to-date versions.
 
 To learn more about the differences between API versions, see [Microsoft.App change log](/azure/templates/microsoft.app/change-log/summary).
 
@@ -48,7 +45,7 @@ To programmatically manage Azure Container Apps with the latest API version, use
 
 ## Container Apps environment
 
-The following tables describe commonly used properties available in the Container Apps environment resource. For a complete list of properties, see [Azure Container Apps REST API reference](/rest/api/containerapps/stable/managed-environments/get?tabs=HTTP).
+The following tables describe commonly used properties available in the Container Apps environment resource. For a complete list of properties, see [Azure Container Apps REST API reference](/rest/api/resource-manager/containerapps/managed-environments/get?view=rest-resource-manager-containerapps-2024-03-01&tabs=HTTP&preserve-view=true).
 
 ### Resource
 
@@ -71,7 +68,6 @@ The following example ARM template snippet deploys a Container Apps environment.
 {
   "location": "East US",
   "properties": {
-    "daprAIConnectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
     "appLogsConfiguration": {
       "logAnalyticsConfiguration": {
         "customerId": "string",
@@ -118,9 +114,14 @@ The following example ARM template snippet deploys a Container Apps environment.
 
 ## Container app
 
-The following tables describe the commonly used properties in the container app resource. For a complete list of properties, see [Azure Container Apps REST API reference](/rest/api/containerapps/stable/container-apps/get?tabs=HTTP).
+The following tables describe the commonly used properties in the container app resource. For a complete list of properties, see [Azure Container Apps REST API reference](/rest/api/resource-manager/containerapps/container-apps/get?view=rest-resource-manager-containerapps-2024-03-01&tabs=HTTP&preserve-view=true).
 
 ### Resource 
+A container app configuration includes a top-level `kind` property, which is an optional string used to create either a Functions or workflow app.
+
+| Property | Description | Data type | Read only |
+|---|---|---|---|
+| `kind` | The kind of app to create. Currently supports `functionapp` and `workflowapp`. Additional values may be supported in the future. If omitted, a standard container app is created by default. | string | No |
 
 A container app resource's `properties` object includes the following properties:
 
@@ -149,7 +150,7 @@ A resource's `properties.configuration` object includes the following properties
 | `secrets` | Defines secret values in your container app. | object |
 | `ingress` | Object that defines public accessibility configuration of a container app. | object |
 | `registries` | Configuration object that references credentials for private container registries. Entries defined with `secretref` reference the secrets configuration object. | object |
-| `dapr` | Configuration object that defines the Dapr settings for the container app. | object  |
+| `dapr` | Configuration object that defines the [Dapr settings for the container app](./enable-dapr.md). | object  |
 
 Changes made to the `configuration` section are [application-scope changes](revisions.md#application-scope-changes), which doesn't trigger a new revision.
 
@@ -177,8 +178,7 @@ The following example ARM template snippet deploys a container app.
 {
   "identity": {
     "userAssignedIdentities": {
-      "/subscriptions/<subscription_id>/resourcegroups/my-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-user": {
-      }
+      "/subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_NAME>": {}
     },
     "type": "UserAssigned"
   },
@@ -254,7 +254,15 @@ The following example ARM template snippet deploys a container app.
         "httpReadBufferSize": 30,
         "httpMaxRequestSize": 10,
         "logLevel": "debug",
-        "enableApiLogging": true
+        "enableApiLogging": true,
+        "appHealth": {
+          "enabled": true,
+          "path": "/health",
+          "probeIntervalSeconds": 3,
+          "probeTimeoutMilliseconds": 1000,
+          "threshold": 3
+        },
+        "maxConcurrency": 10
       },
       "maxInactiveRevisions": 10,
       "service": {
@@ -296,7 +304,17 @@ The following example ARM template snippet deploys a container app.
               "mountPath": "/mysecrets",
               "volumeName": "mysecrets"
             }
-              ]
+          ],
+          "env": [
+            {
+              "name": "non-secret-env-var",
+              "value": "non-secret env var value"
+            },
+            {
+              "name": "secret-env-var",
+              "secretRef": "mysecret"
+            }
+          ]
         }
       ],
       "initContainers": [
@@ -313,6 +331,16 @@ The following example ARM template snippet deploys a container app.
           "args": [
             "-c",
             "while true; do echo hello; sleep 10;done"
+          ],
+          "env": [
+            {
+              "name": "non-secret-env-var",
+              "value": "non-secret env var value"
+            },
+            {
+              "name": "secret-env-var",
+              "secretRef": "mysecret"
+            }
           ]
         }
       ],
@@ -363,6 +391,24 @@ The following example ARM template snippet deploys a container app.
 }
 ```
 
+The following example ARM template example shows how to deploy an Azure Functions app on Container Apps.
+
+```json
+{
+  "kind": "functionapp",
+  "identity": {
+    "userAssignedIdentities": {
+      "/subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_NAME>": {}
+    },
+    "type": "UserAssigned"
+  },
+  "properties": {
+    // same as regular container app properties 
+  }
+}
+```
+
+
 # [YAML](#tab/yaml)
 
 The following example YAML configuration deploys a container app when used with the `--yaml` parameter in the following Azure CLI commands:
@@ -370,6 +416,8 @@ The following example YAML configuration deploys a container app when used with 
 - [`az containerapp create`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-create)
 - [`az containerapp update`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-update)
 - [`az containerapp revision copy`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-revision-copy)
+
+The following example YAML shows how to deploy a container app.
 
 ```yaml
 identity:
@@ -429,6 +477,13 @@ properties:
       httpMaxRequestSize: 10
       logLevel: debug
       enableApiLogging: true
+      appHealth: 
+        - enabled: true
+        - path: "/health"
+        - probeIntervalSeconds: 3
+        - probeTimeoutMilliseconds: 1000
+        - threshold: 3
+      maxConcurrency: 10
     maxInactiveRevisions: 10
     service:
       type: redis
@@ -453,6 +508,11 @@ properties:
         volumeName: azure-files-volume
       - mountPath: "/mysecrets"
         volumeName: mysecrets
+      env:
+      - name: "non-secret-env-var"
+        value: "non-secret env var value"
+      - name: "secret-env-var"
+        secretRef: "mysecret"
     initContainers:
     - image: repo/testcontainerApp0:v4
       name: testinitcontainerApp0
@@ -464,6 +524,11 @@ properties:
       args:
       - "-c"
       - while true; do echo hello; sleep 10;done
+      env:
+      - name: "non-secret-env-var"
+        value: "non-secret env var value"
+      - name: "secret-env-var"
+        secretRef: "mysecret"
     scale:
       minReplicas: 1
       maxReplicas: 5
@@ -489,11 +554,22 @@ properties:
       name: redisService
 ```
 
+The following example YAML show how to deploy an Azure Functions app on Container Apps.
+```yaml
+kind: functionapp
+identity:
+  userAssignedIdentities:
+    "/subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUOP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_NAME>": {}
+  type: UserAssigned
+properties:
+  # same as regular container app properties 
+```
+
 ---
 
 ## Container Apps job
 
-The following tables describe the commonly used properties in the Container Apps job resource. For a complete list of properties, see [Azure Container Apps REST API reference](/rest/api/containerapps/stable/jobs/get?tabs=HTTP).
+The following tables describe the commonly used properties in the Container Apps job resource. For a complete list of properties, see [Azure Container Apps REST API reference](/rest/api/resource-manager/containerapps/jobs/get?view=rest-resource-manager-containerapps-2024-03-01&tabs=HTTP&preserve-view=true).
 
 ### Resource 
 

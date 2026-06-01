@@ -1,7 +1,7 @@
 ---
  title: Include file
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.date: 10/18/2023
  ms.author: cherylmc
 ---
@@ -35,7 +35,7 @@ Yes, Azure VPN Gateway now supports 32-bit (4-byte) ASNs. To configure by using 
 
 ### What private ASNs can I use?
 
-The useable ranges of private ASNs are:
+The usable ranges of private ASNs are:
 
 * 64512-65514 and 65521-65534
 
@@ -86,11 +86,12 @@ Azure VPN Gateway supports up to 4,000 prefixes. The BGP session is dropped if t
 
 Yes. Keep in mind that advertising the default route forces all VNet egress traffic toward your on-premises site. It also prevents the virtual network VMs from accepting public communication from the internet directly, such as Remote Desktop Protocol (RDP) or Secure Shell (SSH) from the internet to the VMs.
 
-### Can I advertise the exact prefixes as my virtual network prefixes?
+### <a name="advertise-exact-prefixes"></a>In site-to-site tunnel setups, can I advertise the exact prefixes as my virtual network prefixes?
 
-No. Azure blocks or filters advertisement of the same prefixes as any one of your VNet address prefixes. You can, however, advertise a prefix that's a superset of what you have inside your virtual network.
+The ability to advertise exact prefixes depends on whether gateway transit is enabled or not enabled.
 
-For example, if your virtual network uses the address space 10.0.0.0/16, you can advertise 10.0.0.0/8. But you can't advertise 10.0.0.0/16 or 10.0.0.0/24.
+*	**When gateway transit is enabled:** You cannot advertise the exact prefixes as your virtual network (including peered virtual networks) prefixes. Azure blocks or filters the advertisement of any prefixes that match your virtual network address prefixes. However, you can advertise a prefix that is a superset of your virtual network's address space. For example, if your virtual network uses the address space 10.0.0.0/16, you can advertise 10.0.0.0/8, but not 10.0.0.0/16 or 10.0.0.0/24.
+*	**When gateway transit is not enabled:** The gateway does not learn peered virtual network prefixes, allowing you to advertise the exact prefixes as your peered virtual network.
 
 ### Can I use BGP with my connections between virtual networks?
 
@@ -124,13 +125,13 @@ Add a host route of the Azure BGP peer IP address on your VPN device. This route
 
 For example, if the Azure VPN peer IP is 10.12.255.30, you add a host route for 10.12.255.30 with a next-hop interface of the matching IPsec tunnel interface on your VPN device.
 
-### Does the virtual network gateway support BFD for S2S connections with BGP?
+### Does the Azure VPN Gateway support BFD for site-to-site (S2S) VPN connections with BGP?
 
-No. Bidirectional Forwarding Detection (BFD) is a protocol that you can use with BGP to detect neighbor downtime more quickly than you can by using standard BGP keepalive intervals. BFD uses subsecond timers designed to work in LAN environments, but not across the public internet or WAN connections.
+No. Azure VPN Gateways do not support Bidirectional Forwarding Detection (BFD) for site-to-site (S2S) VPN connections.
 
-For connections over the public internet, having certain packets delayed or even dropped isn't unusual, so introducing these aggressive timers can add instability. This instability might cause BGP to dampen routes.
+### What are the BGP timer settings for site-to-site (S2S) VPN connections?
 
-As an alternative, you can configure your on-premises device with timers lower than the default 60-second keepalive interval or lower than the 180-second hold timer. This configuration results in a quicker convergence time. However, timers below the default 60-second keepalive interval or below the default 180-second hold timer aren't reliable. We recommend that you keep timers at or above the default values.
+The BGP keepalive timer is 60 seconds, and the hold timer is 180 seconds. Azure VPN Gateways use fixed timer values and do not support configurable keepalive or hold timers. To maintain stable BGP sessions, on-premises devices should be configured with matching timer values, as mismatched settings may result in BGP instability.
 
 ### Do VPN gateways initiate BGP peering sessions or connections?
 

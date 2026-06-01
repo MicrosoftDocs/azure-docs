@@ -1,10 +1,10 @@
 ---
 author: stevenmatthew
-ms.service: databox  
-ms.subservice: pod
+ms.service: azure-databox
 ms.topic: include
 ms.date: 06/10/2024
 ms.author: shaas
+ms.custom: sfi-image-nochange
 ---
 
 When Microsoft receives and scans the device, order status is updated to **Received**. The device then undergoes physical verification for damage or signs of tampering.

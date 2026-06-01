@@ -1,11 +1,12 @@
 ---
 title: Integrate Azure Key Vault with Service Connector
-description: Integrate Azure Key Vault into your application with Service Connector
+description: Use these code samples to integrate Azure Key Vault into your application with Service Connector.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 02/02/2024
+ms.date: 07/24/2025
+#customer intent: As a cloud developer, I want to connect my cloud services to Azure Key Vault by using Service Connector.
 ---
 
 # Integrate Azure Key Vault with Service Connector
@@ -13,20 +14,21 @@ ms.date: 02/02/2024
 > [!NOTE]
 > When you use Service Connector to connect your Key Vault or manage Key Vault connections, Service Connector uses your token to perform the corresponding operations.
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Key Vault to other cloud services using Service Connector. You might still be able to connect to Azure Key Vault in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
+This page shows supported authentication methods and clients. It provides sample code you can use to connect Azure Key Vault to other cloud services using Service Connector. You might be able to connect to Azure Key Vault in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
 
 ## Supported compute services
 
 Service Connector can be used to connect the following compute services to Azure Key Vault:
 
 - Azure App Service
-- Azure Functions
 - Azure Container Apps
+- Azure Functions
+- Azure Kubernetes Service (AKS)
 - Azure Spring Apps
 
 ## Supported authentication types and client types
 
-The table below shows which combinations of client types and authentication methods are supported for connecting your compute service to Azure Key Vault using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
+The following table shows which combinations of client types and authentication methods are supported for connecting your compute service to Azure Key Vault using Service Connector. A "Yes" indicates that the combination is supported, while a "No" indicates that it isn't supported.
 
 | Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
 |--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
@@ -37,15 +39,15 @@ The table below shows which combinations of client types and authentication meth
 | Python             | Yes                              | Yes                            | No                         | Yes               |
 | None               | Yes                              | Yes                            | No                         | Yes               |
 
-This table indicates that all combinations of client types and authentication methods in the table are supported, except for the Secret / connection string method, which is not supported for any of the client types. All client types can use any of the other authentication methods to connect to Azure Key Vault using Service Connector.
+This table indicates that all combinations of client types and authentication methods in the table are supported, except for **Secret / connection string**. That method isn't supported for any of the client types. All client types can use any of the other authentication methods to connect to Azure Key Vault using Service Connector.
 
 ## Default environment variable names or application properties and sample code
 
-Use the connection details below to connect compute services to Azure Key Vault. For each example below, replace the placeholder texts `<vault-name>`, `<client-ID>`, `<client-secret>`, and `<tenant-id>` with your Key Vault name, client-ID, client secret and tenant ID. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+Use the following connection details to connect compute services to Azure Key Vault. For each of these examples, replace the placeholder texts `<vault-name>`, `<client-ID>`, `<client-secret>`, and `<tenant-id>` with your Key Vault name, client-ID, client secret, and tenant ID. For more information, see [Configuration naming convention](concept-service-connector-internals.md#configuration-naming-convention).
 
 ### System-assigned managed identity
 
-#### SpringBoot client type
+#### Spring Boot client type
 
 | Default environment variable name | Description                 | Example value                             |
 |-----------------------------------|-----------------------------|-------------------------------------------|
@@ -63,12 +65,12 @@ Use the connection details below to connect compute services to Azure Key Vault.
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Key Vault using a system-assigned managed identity.
+To connect to Azure Key Vault using a system-assigned managed identity, refer to the following steps and code.
 [!INCLUDE [code sample for key vault](./includes/code-keyvault-me-id.md)]
 
 ### User-assigned managed identity
 
-#### SpringBoot client type
+#### Spring Boot client type
 
 | Default environment variable name | Description                 | Example value                             |
 |-----------------------------------|-----------------------------|-------------------------------------------|
@@ -89,12 +91,12 @@ Refer to the steps and code below to connect to Azure Key Vault using a system-a
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Key Vault using a system-assigned managed identity.
+To connect to Azure Key Vault using a system-assigned managed identity, refer to the following steps and code.
 [!INCLUDE [code sample for key vault](./includes/code-keyvault-me-id.md)]
 
 ### Service principal
 
-#### SpringBoot client type
+#### Spring Boot client type
 
 | Default environment variable name | Description                 | Example value                             |
 |-----------------------------------|-----------------------------|-------------------------------------------|
@@ -120,12 +122,10 @@ Refer to the steps and code below to connect to Azure Key Vault using a system-a
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Key Vault using a system-assigned managed identity.
+To connect to Azure Key Vault using a system-assigned managed identity, refer to the following steps and code.
 [!INCLUDE [code sample for key vault](./includes/code-keyvault-me-id.md)]
 
-## Next steps
-
-Follow the tutorials listed below to learn more about Service Connector.
+## Next step
 
 > [!div class="nextstepaction"]
 > [Learn about Service Connector concepts](./concept-service-connector-internals.md)

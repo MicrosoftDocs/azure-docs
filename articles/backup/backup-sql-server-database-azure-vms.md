@@ -2,10 +2,11 @@
 title: Back up multiple SQL Server VMs from the vault
 description: In this article, learn how to back up SQL Server databases on Azure virtual machines with Azure Backup from the Recovery Services vault
 ms.topic: how-to
-ms.date: 04/17/2024
-ms.service: backup
+ms.date: 02/13/2026
+ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As an IT administrator, I want to back up SQL Server databases on Azure virtual machines to the Recovery Services vault, so that I can ensure data protection with low recovery-point objectives and long-term retention.
 ---
 # Back up multiple SQL Server VMs from the Recovery Services vault
 
@@ -13,16 +14,7 @@ SQL Server databases are critical workloads that require a low recovery-point ob
 
 This article shows how to back up a SQL Server database that's running on an Azure VM to an Azure Backup Recovery Services vault.
 
-In this article, you'll learn how to:
-
-> [!div class="checklist"]
->
-> * Create and configure a vault.
-> * Discover databases and set up backups.
-> * Set up auto-protection for databases.
-
->[!Note]
->See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
+To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
 ## Prerequisites
 
@@ -30,19 +22,23 @@ Before you back up a SQL Server database, check the following criteria:
 
 1. Identify or create a [Recovery Services vault](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) in the same region and subscription as the VM hosting the SQL Server instance.
 1. Verify that the VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
-1. Make sure that the [Azure Virtual Machine Agent](../virtual-machines/extensions/agent-windows.md) is installed on the VM.
-1. Make sure that .NET 4.5.2 version or above is installed on the VM.
+1. Make sure that the [Azure Virtual Machine Agent](/azure/virtual-machines/extensions/agent-windows) is installed on the VM.
+1. Make sure that .NET 4.6.2 version or above is installed on the VM.
+
+   >[!Caution]
+   >Support for backups of SQL VMs running .NET Framework 4.6.1 is deprecated due to the end of [official support](/lifecycle/products/microsoft-net-framework). We recommend upgrading to .NET Framework 4.6.2 or above to avoid backup failures.
+
 1. Make sure that the SQL Server databases follow the [database naming guidelines for Azure Backup](#database-naming-guidelines-for-azure-backup).
 1. Ensure that the combined length of the SQL Server VM name and the resource group name doesn't exceed 84 characters for Azure Resource Manager VMs (or 77 characters for classic VMs). This limitation is because some characters are reserved by the service.
 1. Check that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you back up the database.
-1. When using SQL Server 2008 R2 or SQL Server 2012, you might run into the time zone issue for backup as described [here](https://support.microsoft.com/help/2697983/kb2697983-fix-an-incorrect-value-is-stored-in-the-time-zone-column-of). Make sure that you are on the latest cumulative updates to avoid the time zone-related issue described above. If applying the updates to the SQL Server instance on the Azure VM isn't feasible, disable Daylight Saving Time (DST) for the time zone on the virtual machine.
+1. When using SQL Server 2008 R2 or SQL Server 2012, you might run into the time zone issue for backup. Make sure that you are on the latest cumulative updates to avoid the time zone-related issue described above. If applying the updates to the SQL Server instance on the Azure VM isn't feasible, disable Daylight Saving Time (DST) for the time zone on the virtual machine.
 
 > [!NOTE]
 > You can enable Azure Backup for an Azure VM and also for a SQL Server database running on the VM without conflict.
 
 ### Establish network connectivity
 
-For all operations, a SQL Server VM requires connectivity to the Azure Backup service, Azure Storage, and Microsoft Entra ID. This can be achieved by using private endpoints or by allowing access to the required public IP addresses or FQDNs. Not allowing proper connectivity to the required Azure services may lead to failure in operations like database discovery, configuring backup, performing backups, and restoring data.
+For all operations, a SQL Server VM requires connectivity to the Azure Backup service, Azure Storage, and Microsoft Entra ID. This can be achieved by using private endpoints or by allowing access to the required public IP addresses or FQDNs. Not allowing proper connectivity to the required Azure services might lead to failure in operations like database discovery, configuring backup, performing backups, and restoring data.
 
 The following table lists the various alternatives you can use for establishing connectivity:
 
@@ -51,7 +47,7 @@ The following table lists the various alternatives you can use for establishing 
 | Private endpoints                 | Allow backups over private IPs inside the virtual network  <br><br>   Provide granular control on the network and vault side | Incurs standard private endpoint [costs](https://azure.microsoft.com/pricing/details/private-link/) |
 | NSG service tags                  | Easier to manage as range changes are automatically merged   <br><br>   No additional costs | Can be used with NSGs only  <br><br>    Provides access to the entire service |
 | Azure Firewall FQDN tags          | Easier to manage since the required FQDNs are automatically managed | Can be used with Azure Firewall only                         |
-| Allow access to service FQDNs/IPs | No additional costs.   <br><br>  Works with all network security appliances and firewalls. <br><br> You can also use service endpoints for *Storage* and *Microsoft Entra ID*. However, for Azure Backup, you need to assign the access to the corresponding IPs/FQDNs. | A broad set of IPs or FQDNs may be required to be accessed.    |
+| Allow access to service FQDNs/IPs | No additional costs.   <br><br>  Works with all network security appliances and firewalls. <br><br> You can also use service endpoints for *Storage* and *Microsoft Entra ID*. However, for Azure Backup, you need to assign the access to the corresponding IPs/FQDNs. | A broad set of IPs or FQDNs might be required to be accessed.    |
 | Use an HTTP proxy                 | Single point of internet access to VMs                       | Additional costs to run a VM with the proxy software         |
 
 The following sections provide more details around using these options.
@@ -61,11 +57,11 @@ The following sections provide more details around using these options.
 
 #### Private endpoints
 
-Private endpoints allow you to connect securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses an IP from the VNET address space for your vault. The network traffic between your resources inside the virtual network and the vault travels over your virtual network and a private link on the Microsoft backbone network. This eliminates exposure from the public internet. Read more on private endpoints for Azure Backup [here](./private-endpoints.md).
+Private endpoints allow you to connect securely from servers inside a virtual network to your Recovery Services vault. The private endpoint uses an IP from the virtual network address space for your vault. The network traffic between your resources inside the virtual network and the vault travels over your virtual network and a private link on the Microsoft backbone network. This eliminates exposure from the public internet. Read more on private endpoints for Azure Backup [here](./private-endpoints.md).
 
 #### NSG tags
 
-If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/network-security-groups-overview.md#service-tags) for Microsoft Entra ID (*AzureActiveDirectory*) and Azure Storage(*Storage*).  The following steps describe the process to create a rule for the Azure Backup tag:
+If you use Network Security Groups (NSG), use the *AzureBackup* service tag to allow outbound access to Azure Backup. In addition to the Azure Backup tag, you also need to allow connectivity for authentication and data transfer by creating similar [NSG rules](../virtual-network/network-security-groups-overview.md#service-tags) for Microsoft Entra ID and Azure Storage(*Storage*).  The following steps describe the process to create a rule for the Azure Backup tag:
 
 1. In **All Services**, go to **Network security groups** and select the network security group.
 
@@ -81,9 +77,12 @@ You can similarly create NSG outbound security rules for Azure Storage and Micro
 
 If you're using Azure Firewall, create an application rule by using the *AzureBackup* [Azure Firewall FQDN tag](../firewall/fqdn-tags.md). This allows all outbound access to Azure Backup.
 
+>[!Note]
+>Azure Backup currently doesn't support the *TLS inspection enabled* **Application Rule** on Azure Firewall.
+
 #### Allow access to service IP ranges
 
-If you choose to allow access service IPs, refer to the IP ranges in the JSON file available [here](https://www.microsoft.com/download/confirmation.aspx?id=56519). You'll need to allow access to IPs corresponding to Azure Backup, Azure Storage, and Microsoft Entra ID.
+If you choose to allow access service IPs, refer to the IP ranges in the JSON file available [here](https://www.microsoft.com/download/details.aspx?id=56519). You'll need to allow access to IPs corresponding to Azure Backup, Azure Storage, and Microsoft Entra ID.
 
 #### Allow access to service FQDNs
 
@@ -117,12 +116,12 @@ When you back up a SQL Server database on an Azure VM, the backup extension on t
   - Forward slash (/)
   - Percentage (%)
 
-- SQL Backup configuration doesn't support the single quotation in the database name and causes deployment failure. If there is any database with single quote, we recommend that you rename the database or take the native backup approach.
+- SQL Backup configuration doesn't support the single quotation in the database name and causes deployment failure. If there's any database with single quote, we recommend that you rename the database or take the native backup approach.
 - Aliasing is available for unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](/rest/api/storageservices/understanding-the-table-service-data-model).
 
 - Multiple databases on the same SQL instance with casing difference aren't supported.
 
--	Changing the casing of an SQL database isn't supported after configuring protection.
+-	Changing the casing of a SQL database isn't supported after configuring protection.
 
 >[!NOTE]
 >The **Configure Protection** operation for databases with special characters, such as `{`, `'}`, `[`, `]`, `,`, `=`, `-`, `(`, `)`, `.`, `+`, `&`, `;`, `'`, or `/`, in their name isn't supported. You can change the database name or enable **Auto Protection**, which can successfully protect these databases.
@@ -131,44 +130,51 @@ When you back up a SQL Server database on an Azure VM, the backup extension on t
 
 ## Discover SQL Server databases
 
-How to discover databases running on a VM:
+To discover databases running on a VM, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com), go to **Backup center** and click **+Backup**.
+1. In the [Azure portal](https://portal.azure.com), go to **Resiliency**, and then **+ Configure protection**.
 
-1. Select **SQL in Azure VM** as the datasource type, select the Recovery Services vault you have created, and then click **Continue**.
+1. On the **Configure protection** pane, select **Datasource type** as **SQL in Azure VM**, and then select **Continue**.
 
-   :::image type="content" source="./media/backup-azure-sql-database/configure-sql-backup.png" alt-text="Screenshot showing to select Backup to view the databases running in a VM.":::
+   :::image type="content" source="./media/backup-azure-sql-database/configure-sql-backup.png" alt-text="Screenshot shows how to select SQL database as the datasource for Backup.":::
 
-1. In **Backup Goal** > **Discover DBs in VMs**, select **Start Discovery** to search for unprotected VMs in the subscription. This search can take a while, depending on the number of unprotected VMs in the subscription.
+1. On the **Start: Configure Backup** pane, under **Vault**, click **Select vault**.
+1. On the **Select a Vault** pane, choose the Recovery Services vault you created from the list in which you want to back up the database, and then click **Select**.
+1. On the **Start: Configure Backup** pane, select **Continue**.
 
-   * Unprotected VMs should appear in the list after discovery, listed by name and resource group.
-   * If a VM isn't listed as you expect, see whether it's already backed up in a vault.
-   * Multiple VMs can have the same name, but they'll belong to different resource groups.
+1. On the **Backup Goal** pane, under **Discover DBs in VMs**, select **Start Discovery** to search for unprotected VMs in the subscription. This search can take a while, depending on the number of unprotected VMs in the subscription.
 
-     ![Backup is pending during search for DBs in VMs](./media/backup-azure-sql-database/discovering-sql-databases.png)
+1. On the **Select Virtual Machine** pane, select the VMs running the SQL Server database, and then select **Discover DBs**.
 
-1. In the VM list, select the VM running the SQL Server database > **Discover DBs**.
+   :::image type="content" source="./media/backup-azure-sql-database/discovering-sql-databases.png" alt-text="Screenshot shows the list of VMs running SQL databased that aren't protected." lightbox="./media/backup-azure-sql-database/discovering-sql-databases.png":::
 
-1. Track database discovery in **Notifications**. The time required for this action depends on the number of VM databases. When the selected databases are discovered, a success message appears.
+   >[!Note]
+   >- Unprotected VMs should appear in the list after discovery, listed by name and resource group.
+   >- If a VM isn't listed as you expect, see whether it's already backed up in a vault.
+   >- Multiple VMs can have the same name, but they'll belong to different resource groups.
+ 
+You can track database discovery in **Notifications**. The time required for this action depends on the number of VM databases. When the selected databases are discovered, a success message appears.
 
-    ![Deployment success message](./media/backup-azure-sql-database/notifications-db-discovered.png)
+   :::image type="content" source="./media/backup-azure-sql-database/notifications-db-discovered.png" alt-text="Screenshot shows the deployment success message.":::
 
-1. Azure Backup discovers all SQL Server databases on the VM. During discovery, the following elements occur in the background:
+   Azure Backup discovers all SQL Server databases on the VM. During discovery, the following elements occur in the background:
 
-    * Azure Backup registers the VM with the vault for workload backup. All databases on the registered VM can be backed up to this vault only.
-    * Azure Backup installs the AzureBackupWindowsWorkload extension on the VM. No agent is installed on an SQL database.
-    * Azure Backup creates the service account NT Service\AzureWLBackupPluginSvc on the VM.
-      * All backup and restore operations use the service account.
-      * NT Service\AzureWLBackupPluginSvc requires SQL sysadmin permissions. All SQL Server VMs created in the Marketplace come with the SqlIaaSExtension installed. The AzureBackupWindowsWorkload extension uses the SQLIaaSExtension to automatically get the required permissions.
-    * If you didn't create the VM from the Marketplace or if you are on SQL 2008 and 2008 R2, the VM may not have the SqlIaaSExtension installed, and the discovery operation fails with the error message UserErrorSQLNoSysAdminMembership. To fix this issue, follow the instructions under [Set VM permissions](backup-azure-sql-database.md#set-vm-permissions).
+   * Azure Backup registers the VM with the vault for workload backup. All databases on the registered VM can be backed up to this vault only.
+   * Azure Backup installs the AzureBackupWindowsWorkload extension on the VM. No agent is installed on a SQL database.
+   * Azure Backup creates the service account NT Service\AzureWLBackupPluginSvc on the VM.
+     * All backup and restore operations use the service account.
+     * NT Service\AzureWLBackupPluginSvc requires SQL sysadmin permissions. All SQL Server VMs created in the Marketplace come with the SqlIaaSExtension installed. The AzureBackupWindowsWorkload extension uses the SQLIaaSExtension to automatically get the required permissions.
+   * If you didn't create the VM from the Marketplace or if you are on SQL 2008 and 2008 R2, the VM might not have the SqlIaaSExtension installed, and the discovery operation fails with the error message UserErrorSQLNoSysAdminMembership. To fix this issue, follow the instructions under [Set VM permissions](backup-azure-sql-database.md#set-vm-permissions).
 
         ![Select the VM and database](./media/backup-azure-sql-database/registration-errors.png)
 
 ## Configure backup  
 
-1. In **Backup Goal** > **Step 2: Configure Backup**, select **Configure Backup**.
+To configure SQL database backup, follow these steps:
 
-   ![Select Configure Backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
+1. On the **Backup Goal** pane, under **Step 2: Configure Backup**, select **Configure Backup**.
+
+   :::image type="content" source="./media/backup-azure-sql-database/backup-goal-configure-backup.png" alt-text="Screenshot shows the selection of Configure Backup.":::
 
 1. Select **Add Resources** to see all the registered availability groups and standalone SQL Server instances.
 
@@ -214,58 +220,64 @@ A backup policy defines when backups are taken and how long they're retained.
 
 To create a backup policy:
 
-1. Go to **Backup center** and click **+Policy**.
+1. Go to **Resiliency**, and then select **Manage** > **Protection policies** > **+ Create policy** > **Create backup policy**.
 
-1. Select **SQL Server in Azure VM** as the datasource type, select the vault under which the policy should be created, and then click **Continue**.
+1. On the **Start: Create Policy** pane, select **SQL Server in Azure VM** as the datasource type, select the vault under which the policy should be created, and then select **Continue**.
 
-   :::image type="content" source="./media/backup-azure-sql-database/create-sql-policy.png" alt-text="Screenshot showing to choose a policy type for the new backup policy.":::
+   :::image type="content" source="./media/backup-azure-sql-database/create-sql-policy.png" alt-text="Screenshot shows how to choose a policy type for the new backup policy." lightbox="./media/backup-azure-sql-database/create-sql-policy.png":::
 
-1. In **Policy name**, enter a name for the new policy.
+1. On the **Create policy** pane, under **Policy name**, enter a name for the new policy.
 
-   :::image type="content" source="./media/backup-azure-sql-database/sql-policy-summary.png" alt-text="Screenshot to showing to enter policy name.":::
+   :::image type="content" source="./media/backup-azure-sql-database/sql-policy-summary.png" alt-text="Screenshot shows how to enter policy name." lightbox="./media/backup-azure-sql-database/sql-policy-summary.png":::
 
-1. Select the **Edit** link corresponding, to **Full backup**, to modify the default settings.
+1. To modify the default backup frequency settings, select the **Edit** link corresponding, to **Full backup**.
+
+1. On the **Full Backup Policy** pane, configure the following backup schedule settings:
 
    * Select a **Backup Frequency**. Choose either **Daily** or **Weekly**.
    * For **Daily**, select the hour and time zone when the backup job begins. You can't create differential backups for daily full backups.
 
-   :::image type="content" source="./media/backup-azure-sql-database/sql-backup-schedule-inline.png" alt-text="Screenshot showing new backup policy fields." lightbox="./media/backup-azure-sql-database/sql-backup-schedule-expanded.png":::
+   :::image type="content" source="./media/backup-azure-sql-database/sql-backup-schedule.png" alt-text="Screenshot showing new backup policy fields." lightbox="./media/backup-azure-sql-database/sql-backup-schedule.png":::
 
-1. In **RETENTION RANGE**, all options are selected by default. Clear any retention range limits that you don't want, and then set the intervals to use.
+1. Under **RETENTION RANGE**, all options are selected by default. Clear any retention range limits that you don't want, and then set the intervals to use.
 
     * Minimum retention period for any type of backup (full, differential, and log) is seven days.
-    * Recovery points are tagged for retention based on their retention range. For example, if you select a daily full backup, only one full backup is triggered each day.
+    * Recovery points are tagged for retention based on their retention range. For example, if you select a daily full backup, only one full backup is triggered for every day.
     * The backup for a specific day is tagged and retained based on the weekly retention range and the weekly retention setting.
     * Monthly and yearly retention ranges behave in a similar way.
 
-    :::image type="content" source="./media/backup-azure-sql-database/sql-retention-range-inline.png" alt-text="Screenshot showing the retention range interval settings." lightbox="./media/backup-azure-sql-database/sql-retention-range-expanded.png":::
+    :::image type="content" source="./media/backup-azure-sql-database/sql-retention-range.png" alt-text="Screenshot shows the retention range interval settings." lightbox="./media/backup-azure-sql-database/sql-retention-range.png":::
 
 1. Select **OK** to accept the setting for full backups.
-1. Select the **Edit** link corresponding to **Differential backup**, to modify the default settings.
+1. On the **Create policy** pane, to modify the default settings, select the **Edit** link corresponding to **Differential backup**.
 
-    * In **Differential Backup policy**, select **Enable** to open the frequency and retention controls.
+1. On the **Differential Backup Policy** pane, configure the following settings:
+
+    * Under **Differential Backup policy**, select **Enable** to open the frequency and retention controls.
     * You can trigger only one differential backup per day. A differential backup can't be triggered on the same day as a full backup.
     * Differential backups can be retained for a maximum of 180 days.
     * The differential backup retention period can't be greater than that of the full backup (as the differential backups are dependent on the full backups for recovery).
     * Differential Backup isn't supported for the master database.
 
-    :::image type="content" source="./media/backup-azure-sql-database/sql-differential-backup-inline.png" alt-text="Screenshot showing the differential Backup policy." lightbox="./media/backup-azure-sql-database/sql-differential-backup-expanded.png":::
+    :::image type="content" source="./media/backup-azure-sql-database/sql-differential-backup.png" alt-text="Screenshot shows the differential Backup policy." lightbox="./media/backup-azure-sql-database/sql-differential-backup.png":::
 
-1. Select the **Edit** link corresponding to **Log backup**, to modify the default settings
+1. On the **Create policy** pane, to modify the default settings, select the **Edit** link corresponding to **Log backup**.
 
-    * In **Log Backup**, select **Enable**, and then set the frequency and retention controls.
+1. On the **Log Backup Policy** pane, configure the following settings:
+
+    * On **Log Backup**, select **Enable**, and then set the frequency and retention controls.
     * Log backups can occur as often as every 15 minutes and can be retained for up to 35 days.
     * If the database is in the [simple recovery model](/sql/relational-databases/backup-restore/recovery-models-sql-server), the log backup schedule for that database will be paused and so no log backups will be triggered.
     * If the recovery model of the database changes from **Full** to **Simple**, log backups will be paused within 24 hours of the change in the recovery model. Similarly, if the recovery model changes from **Simple**, implying log backups can now be supported for the database, the log backups schedules will be enabled within 24 hours of the change in recovery model.
 
-    :::image type="content" source="./media/backup-azure-sql-database/sql-log-backup-inline.png" alt-text="Screenshot showing the log Backup policy." lightbox="./media/backup-azure-sql-database/sql-log-backup-expanded.png":::
+    :::image type="content" source="./media/backup-azure-sql-database/sql-log-backup.png" alt-text="Screenshot shows the log Backup policy." lightbox="./media/backup-azure-sql-database/sql-log-backup.png":::
 
 1. On the **Backup policy** menu, choose whether to enable **SQL Backup Compression** or not. This option is disabled by default. If enabled, SQL Server will send a compressed backup stream to the VDI. Azure Backup overrides instance level defaults with COMPRESSION / NO_COMPRESSION clause depending on the value of this control.
 
 1. After you complete the edits to the backup policy, select **OK**.
 
 > [!NOTE]
-> Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume you have a weekly full backup, daily differential and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22nd. Until this log is available until Dec 22nd, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22nd.
+> Each log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. Let's assume you have a weekly full backup, daily differential, and 2 hour logs. All of them are retained for 30 days. But, the weekly full can be really cleaned up/deleted only after the next full backup is available, that is, after 30 + 7 days. For example, a weekly full backup happens on Nov 16th. According to the retention policy, it should be retained until Dec 16th. The last log backup for this full happens before the next scheduled full, on Nov 22. Until this log is available until Dec 22, the Nov 16th full can't be deleted. So, the Nov 16th full is retained until Dec 22.
 
 ## Enable auto-protection  
 
@@ -296,3 +308,10 @@ Learn how to:
 
 * [Restore backed-up SQL Server databases](restore-sql-database-azure-vm.md)
 * [Manage backed-up SQL Server databases](manage-monitor-sql-database-backup.md)
+
+## Related content
+
+- [Back up SQL server databases in Azure VMs using Azure Backup via REST API](backup-azure-sql-vm-rest-api.md).
+- [Restore SQL Server databases in Azure VMs with REST API](restore-azure-sql-vm-rest-api.md).
+- Manage SQL server databases in Azure VMs with [Azure portal](manage-monitor-sql-database-backup.md), [Azure CLI](backup-azure-sql-manage-cli.md), [REST API](manage-azure-sql-vm-rest-api.md).
+

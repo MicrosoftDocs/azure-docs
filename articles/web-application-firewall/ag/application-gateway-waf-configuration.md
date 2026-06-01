@@ -1,16 +1,19 @@
 ---
-title: Web application firewall exclusion lists in Azure Application Gateway - Azure portal
+title: WAF Exclusion Lists in Azure Application Gateway
 description: This article provides information on Web Application Firewall exclusion lists configuration in Application Gateway with the Azure portal.
-services: web-application-firewall
-author: vhorne
-ms.service: web-application-firewall
-ms.date: 05/17/2023
-ms.author: victorh
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-web-application-firewall
 ms.topic: concept-article
+ms.date: 02/25/2026
 ms.custom: devx-track-azurepowershell
+
+# Customer intent: As a web application administrator, I want to configure exclusion lists for my Web Application Firewall, so that I can prevent false positives and ensure legitimate traffic is not blocked by security rules.
 ---
 
 # Web Application Firewall exclusion lists
+
+**Applies to:** :heavy_check_mark: Application Gateway V2
 
 The Azure Application Gateway Web Application Firewall (WAF) provides protection for web applications. This article describes the configuration for WAF exclusion lists. These settings are located in the WAF policy associated to your Application Gateway. To learn more about WAF policies, see [Azure Web Application Firewall on Azure Application Gateway](ag-overview.md) and [Create Web Application Firewall policies for Application Gateway](create-waf-policy-ag.md).
 
@@ -37,9 +40,9 @@ You can specify an exact request header, body, cookie, or query string attribute
 - **Starts with**: This operator matches all fields that start with the specified selector value.
 - **Ends with**:  This operator matches all request fields that end with the specified selector value.
 - **Contains**: This operator matches all request fields that contain the specified selector value.
-- **Equals any**: This operator matches all request fields. * will be the selector value. For example, you would use this operator when you don't know the exact values for a given match variable but want to make sure that the request traffic still gets excluded from rules evaluation.
+- **Equals any**: This operator matches all request fields. * is the selector value. For example, you would use this operator when you don't know the exact values for a given match variable but want to make sure that the request traffic still gets excluded from rules evaluation.
 
-When processing exclusions the WAF engine performs a case sensitive/insensitive match based on the below table. Additionally, regular expressions aren't allowed as selectors and XML request bodies aren't supported.
+When processing exclusions the WAF engine performs a case sensitive/insensitive match based on the following table. Additionally, regular expressions aren't allowed as selectors and XML request bodies aren't supported.
 
 | Request Body Part | CRS 3.1 and Earlier | CRS 3.2 and Later |
 |-|-|-|
@@ -77,7 +80,7 @@ In contrast, if your WAF detects the header's name (`My-Header`) as an attack, y
 
 #### Request attribute examples
 
-The below table shows some examples of how you might structure your exclusion for a given match variable.
+The following table shows some examples of how you might structure your exclusion for a given match variable.
 
 | Attribute to Exclude | matchVariable | selectorMatchOperator | Example selector | Example request | What gets excluded |
 |-|-|-|-|-|-|
@@ -523,12 +526,12 @@ resource wafPolicy 'Microsoft.Network/ApplicationGatewayWebApplicationFirewallPo
 }
 ```
 
-
 ---
 
-So if the URL `http://www.contoso.com/?user%3c%3e=joe` is scanned by the WAF, it won't evaluate the string **joe**, but it still evaluates the parameter name **user%3c%3e**. 
+So if the URL `http://www.contoso.com/?user%3c%3e=joe` is scanned by the WAF, it doesn't evaluate the string **joe**, but it still evaluates the parameter name **user%3c%3e**. 
 
-## Next steps
+## Related content
 
-- After you configure your WAF settings, you can learn how to view your WAF logs. For more information, see [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
-- [Learn more about Azure network security](../../networking/security/index.yml)
+- [WAF DRS and CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md)
+- [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
+- [Upgrade CRS or DRS ruleset version](upgrade-ruleset-version.md)

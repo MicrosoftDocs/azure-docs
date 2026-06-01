@@ -1,21 +1,21 @@
 ---
 title: 'Share outside your org (Azure portal) - Azure Data Share quickstart'
 description: Learn how to share data with customers and partners using Azure Data Share in this quickstart.
-author: sidontha 
-ms.author: sidontha
-ms.service: data-share
+author: chvukosw 
+ms.author: chvukosw
+ms.service: azure-data-share
 ms.topic: quickstart
-ms.date: 12/19/2023
+ms.date: 01/21/2026
 ms.custom: mode-ui
 ---
 
 # Quickstart: Share data using Azure Data Share in the Azure portal
 
-In this quickstart, you'll learn how to set up a new Azure Data Share to share data from storage account using the Azure portal.
+In this quickstart, you learn how to set up a new Azure Data Share to share data from storage account using the Azure portal.
 
 ## Prerequisites
 
-* Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * Your recipient's Azure sign in e-mail address (using their e-mail alias won't work).
 * If the source Azure data store is in a different Azure subscription than the one you'll use to create Data Share resource, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where the Azure data store is located.
 
@@ -70,7 +70,7 @@ Create an Azure Data Share resource in an Azure resource group.
 
    ![Add Datasets to your share](./media/datasets.png "Datasets")
 
-1. Select the dataset type that you would like to add. You'll see a different list of dataset types depending on the share type (snapshot or in-place) you've selected in the previous step. 
+1. Select the dataset type that you would like to add. You see a different list of dataset types depending on the share type (snapshot or in-place) you selected in the previous step. 
 
    ![AddDatasets](./media/add-datasets.png "Add Datasets")
 
@@ -100,6 +100,6 @@ Your Azure Data Share has now been created and the recipient of your Data Share 
 
 When the resource is no longer needed, go to the Data Share Overview page, and select **Delete** to remove it.
 
-## Next steps
+## Next step
 
 In this quickstart, you learned how to create an Azure Data Share. To learn about how a Data Consumer can accept and receive a data share, continue to the [accept and receive data](subscribe-to-data-share.md) tutorial.

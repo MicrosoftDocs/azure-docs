@@ -1,11 +1,12 @@
 ---
 title: Release notes for Microsoft Azure Backup Server v3
 description: This article provides the information about the known issues and workarounds for Microsoft Azure Backup Server (MABS) v3.
-ms.topic: conceptual
-ms.date: 12/04/2023
+ms.topic: release-notes
+ms.date: 04/24/2026
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a system administrator managing Azure Backup Server, I want to access the known issues and workarounds for MABS V3, so that I can resolve problems efficiently and ensure reliable backup operations for my organization."
 ---
 
 # Release notes for Microsoft Azure Backup Server
@@ -38,6 +39,8 @@ Microsoft is recalling the release of Update Rollup 1 for Microsoft Azure Backup
 ## MABS V4 known issues and workarounds 
 
 If you're protecting Windows Server 2012 and 2012 R2, you need to install Visual C++ redistributable 2015 manually on the protected server. You can download [Visual C++ Redistributable for Visual Studio 2015 from Official Microsoft Download Center](https://www.microsoft.com/en-in/download/details.aspx?id=48145).
+
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
 
 ## MABS V3 known issues and workarounds
 
@@ -140,3 +143,8 @@ If you're protecting Windows Server 2012 and 2012 R2, you need to install Visual
 ## Next steps
 
 [What's new in MABS](backup-mabs-whats-new-mabs.md)
+
+## Related content
+
+- [About offline backup](offline-backup-overview.md).
+- [About backing up datasources with System Center DPM](backup-azure-dpm-introduction.md).

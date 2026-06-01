@@ -1,92 +1,98 @@
 ---
-title: FAQ on V1 retirement 
+title: FAQ on V1 retirement
 titleSuffix: Azure Application Gateway
-description: This article lists out commonly added questions on  retirement of Application gateway V1 SKUs and Migration
+description: Get answers to frequently asked questions about the retirement of Application Gateway V1 and migration to V2.
 services: application-gateway
-author: greg-lindsay
-ms.service: application-gateway
-ms.topic: how-to
-ms.date: 04/18/2024
-ms.author: greglin
+author: mbender-ms
+ms.service: azure-application-gateway
+ms.topic: faq
+ms.date: 04/30/2026
+ms.author: mbender
+# Customer intent: "As an existing Application Gateway V1 customer, I want to understand the migration process to V2 and its timeline so that I can keep my services operational and avoid disruptions before the retirement of V1 on April 28, 2026."
 ---
-# FAQs
-On April 28,2023 we announced retirement of Application gateway V1 on 28 April 2026. This article lists  the commonly asked questions on V1 retirement and V1-V2 migration.
+# Frequently asked questions about Application Gateway V1 retirement
 
-## Common questions on V1 retirement
+*Application Gateway V1 is retired as of 28 April 2026.*
 
-### What is the official date Application Gateway V1 is cut off from creation?
+This article answers commonly asked questions about the V1 retirement timeline, what to expect after retirement, and how to migrate from V1 to V2. For migration guidance, see [Migrate Azure Application Gateway and Web Application Firewall from V1 to V2](./migrate-v1-v2.md).
 
-New Customers won't be allowed to create V1 from 1 July 2023 onwards. However, any existing V1 customers can continue to create resources in existing subscriptions until 1 September 2024 and manage V1 resources until the retirement date of 28 April 2026.
+## Common questions about V1 retirement
 
-### What happens to existing Application Gateway V1 after 28 April 2026?
+### What happens to existing Application Gateway V1 resources after April 28, 2026?
 
-Once the deadline arrives V1 gateways aren't supported. Any V1 SKU resources that are still active are stopped, and force deleted.
+After April 28, 2026, Microsoft will no longer support Application Gateway V1 resources. There's no service-level agreement (SLA) for customers who use this version. As Microsoft begins decommissioning the hardware that supports V1, traffic passing through V1 resources can't be guaranteed.
 
-### What is the definition of a new customer on Application Gateway V1 SKU?
+### How does this migration plan affect my existing workloads that run on Application Gateway V1? What happens to my V1 application gateways if I don't migrate?
 
-Customers who didn't have Application Gateway V1 SKU in their subscriptions as of 4 July 2023 are considered as new customers. These customers aren't able to create new V1 gateways in subscriptions that didn't have an existing V1 gateway as of 4 July 2023.
+Until April 28, 2026, Microsoft supports existing Application Gateway V1 deployments. After April 28, 2026, Microsoft will no longer provide patches, support, or SLA coverage for active V1 resources. Workloads running on V1 face service disruption as Microsoft blocks the data path and deletes the resources. To prevent business impact, migrate the remaining V1 gateways as soon as possible.
 
-### What is the definition of an existing customer on Application Gateway V1 SKU?
+## Common questions about migration from V1 to V2
 
-Customers who had active or stopped but allocated Application Gateway V1 SKU in their subscriptions as of  4 July 2023, are considered existing customers. These customers get until end of August, 2024 to create new V1 application gateways in their existing subscriptions and until April 28,2026 to migrate their V1 gateways to V2.
+### How do I migrate my application gateway V1 to V2?
 
-### Does this migration plan affect any of my existing workloads that run on Application Gateway V1 SKU?
+If you have an Application Gateway V1 deployment, you can migrate from V1 to V2 in two stages:
 
-Until April 28, 2026, existing Application Gateway V1 deployments are supported. After April 28, 2026, any V1 SKU resources that are still active are stopped, and force deleted.
+- **Stage 1: Migrate the configuration**. For detailed instructions, see the [migration guide](./migrate-v1-v2.md#configuration-migration).
+- **Stage 2: Migrate the client traffic**. Migration of client traffic varies depending on your environment. See [Public IP retention script](./migrate-v1-v2.md#public-ip-retention-script) and [Traffic migration recommendations](./migrate-v1-v2.md#traffic-migration-recommendations).
 
-### What happens to my V1 application gateways if I don’t plan on migrating soon?
+### Can Microsoft migrate my data for me?
 
-On April 28, 2026, the V1 gateways are fully retired and all active AppGateway V1s are stopped & deleted. To prevent business impact, we highly recommend starting to plan your migration at the earliest and complete it before April 28, 2026.
+No, Microsoft can't migrate your data for you. You must migrate your data by using the self-serve options.
 
-### Does the retirement of Basic SKU Public IPs in September 2025 affect my existing V1 Application Gateways?
+Application Gateway V1 is built on legacy components, and Azure deploys gateways in many ways. That's why your involvement is required for migration. By handling the migration yourself, you can plan the work during a maintenance window and help ensure minimal downtime for your applications.
 
-Existing V1 Application Gateways will continue to function normally until April 2026. However, creation of new V1 Application Gateways will be disabled after August 2024. We strongly recommend that you plan and migrate your existing V1 Application Gateways to V2 as soon as possible to ensure a smooth transition.
+### How long does migration take?
 
-### How do I migrate my application gateway V1 to V2 SKU?
+The time required for migration depends on the complexity of your deployment. Plan for the migration to take up to a couple of months.
 
-If you have an Application Gateway V1, [Migration from v1 to v2](./migrate-v1-v2.md) can be currently done in two stages:
-- Stage 1: Migrate the configuration - Detailed instruction for Migrating the configuration can be found [here](./migrate-v1-v2.md#configuration-migration).
-- Stage 2: Migrate the client traffic -Client traffic migration varies depending on your specific environment. High level guidelines on traffic migration are provided [here](./migrate-v1-v2.md#traffic-migration).
+### Are there any limitations with the Azure PowerShell script to migrate the configuration from V1 to V2?
 
-### Can Microsoft migrate this data for me?
+Yes. See [Caveats and limitations](./migrate-v1-v2.md#caveats-and-limitations).
 
-No, Microsoft can't migrate a user's data on their behalf. Users must do the migration themselves by using the self-serve options provided.
-Application Gateway v1 is built on legacy components and the gateways are deployed in many different ways in their architecture. Therefore, customer involvement is required for migration. This also allows users to plan the migration during a maintenance window. This can help to ensure that the migration is successful with minimal downtime for the user's applications.
+### Does Application Gateway V2 support NTLM or Kerberos authentication?
 
-### What is the time required for migration?
+Yes. Application Gateway V2 supports proxying requests with NTLM or Kerberos authentication. For more information, see [Dedicated backend connection](configuration-http-settings.md#dedicated-backend-connection).
 
-Planning and execution of migration greatly depends on the complexity of the deployment and could take couple of months.
+### How are backend certificate behaviors different between Application Gateway V1 and V2?
 
-### How do I report an issue?
+Application Gateway V1 uses authentication certificates. This mechanism performs an exact match between the certificate configured on Application Gateway and the certificate from the backend server. V1 also supports default or fallback certificates if no Server Name Indication (SNI) is available during the TLS handshake.
 
-Post your issues and questions about migration to our [Microsoft Q&A](https://aka.ms/ApplicationGatewayQA) for AppGateway, with the keyword `V1Migration`. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a [support ticket](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade) as well.
+By default, Application Gateway V2 performs a more comprehensive validation. It verifies the complete certificate chain and the subject name of the backend server certificate. For more information, see [Backend TLS connection](ssl-overview.md#backend-tls-connection-application-gateway-to-the-backend-server).
 
-## FAQ on V1 to V2 migration
+### How should I manage the migration with the differences in behavior of backend certificate validations between V1 and V2?
 
-### Are there any limitations with the Azure PowerShell script to migrate the configuration from v1 to v2?
+When you migrate from V1 to V2, you might need to adjust your configuration because of the differences in certificate validation behavior. Use the [backend HTTPS validation controls](configuration-http-settings.md#backend-https-validation-settings) available in V2 to temporarily disable validation during migration.
 
-Yes, see [Caveats/Limitations](./migrate-v1-v2.md#caveatslimitations).
+Disable validation only as a temporary measure to facilitate migration. For production environments, re-enable full validation to maintain security.
 
-### Is this article and the Azure PowerShell script applicable for Application Gateway WAF product as well?
+### Do this article and the Azure PowerShell script also apply to Azure Web Application Firewall?
 
 Yes.
 
-### Does the Azure PowerShell script also switch over the traffic from my v1 gateway to the newly created v2 gateway?
+### Does the Azure PowerShell script switch over the traffic from my V1 gateway to the newly created V2 gateway?
 
-No, the Azure PowerShell script only migrates the configuration. Actual traffic migration is your responsibility and under your control.
+No, the Azure PowerShell script only migrates the configuration. You're responsible for, and in control of, actual traffic migration.
 
-### Is the new v2 gateway created by the Azure PowerShell script sized appropriately to handle all of the traffic that is served by my v1 gateway?
+You can use the [public IP retention script](./migrate-v1-v2.md#public-ip-retention-script) to retain the public IP from V1 in V2. This operation has a downtime of one to five minutes.
 
-The Azure PowerShell script creates a new v2 gateway with an appropriate size to handle the traffic on your existing v1 gateway. Autoscaling is disabled by default, but you can enable autoscaling when you run the script.
+### Is the new V2 gateway that the Azure PowerShell script creates sized appropriately to handle the traffic on my V1 gateway?
 
-### I configured my v1 gateway  to send logs to Azure storage. Does the script replicate this configuration for v2 as well?
+The Azure PowerShell script creates a new V2 gateway with an appropriate size to handle the traffic on your existing V1 gateway. Autoscaling is disabled by default, but you can enable autoscaling when you run the script.
 
-No, the script doesn't replicate this configuration for v2. You must add the log configuration separately to the migrated v2 gateway.
+### Can I create a V2 gateway in the same subnet as an existing V1 gateway?
 
-### Does this script support certificate uploaded to Azure Key Vault?
+No, V1 and V2 gateways can't coexist in the same subnet. Each gateway type requires its own dedicated subnet within the virtual network. If you plan to migrate from V1 to V2, you must create a new subnet for the V2 gateway and ensure that you allocate sufficient IP address space.
 
-Yes, you can download the certificate from Keyvault and provide it as input to the migration script.
+### I configured my V1 gateway to send logs to Azure Storage. Does the script replicate this configuration for V2?
 
-### I ran into some issues with using this script. How can I get help?
+No, the script doesn't replicate this configuration for V2. You must add the log configuration separately to the migrated V2 gateway.
 
-You can contact Azure Support under the topic "Configuration and Setup/Migrate to V2 SKU." Learn more about [Azure support here](https://azure.microsoft.com/support/options/).
+### Does the script support certificates uploaded to Azure Key Vault?
+
+Yes, you can download the certificate from Azure Key Vault and provide it as input to the migration script. The [enhanced cloning script](./migrate-v1-v2.md#enhanced-cloning-script-recommended) automatically copies all the TLS/SSL certificates from V1 to the newly created V2 gateway.
+
+### I ran into some problems with the migration. How can I get help?
+
+Post problems and questions about migration to [Microsoft Q&A for Application Gateway](https://aka.ms/ApplicationGatewayQA), with the keyword `V1Migration`.
+
+If you have a support contract, you can also open a [support ticket](https://portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade). For more information about Azure support, see [Azure support options](https://azure.microsoft.com/support/options/).

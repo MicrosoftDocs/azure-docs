@@ -4,8 +4,10 @@ description: Learn how to move sync resources across resource groups, subscripti
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 09/21/2023
+ms.date: 06/05/2025
 ms.author: kendownie
+ms.custom: sfi-image-nochange
+# Customer intent: "As a cloud administrator, I want to move Azure File Sync resources across resource groups and subscriptions, so that I can maintain an organized and efficient resource structure while ensuring uninterrupted data synchronization."
 ---
 
 # Move Azure File Sync resources to a different resource group, subscription, or Microsoft Entra tenant
@@ -29,7 +31,7 @@ In Azure File Sync, the only resource capable of moving is the Storage Sync Serv
 * :::image type="icon" source="media/storage-sync-resource-move/storage-sync-resource-move-storage-account.png" border="false"::: Storage account
     * :::image type="icon" source="media/storage-sync-resource-move/storage-sync-resource-move-file-share.png" border="false"::: File share
 
-In Azure Storage, the only resource capable of moving is the storage account. An Azure file share, as a subresource, can't move to a different storage account.
+The only resource capable of moving is the storage account. An Azure file share, as a subresource, can't move to a different storage account.
 
 ## Supported combinations
 
@@ -41,7 +43,7 @@ As a best practice, the Storage Sync Service and the storage accounts that have 
 * Storage Sync Service and storage accounts are located in **different subscriptions** (same Azure tenant)
 
 > [!IMPORTANT]
-> Through different combinations of moves, a Storage Sync Service and storage accounts can end up in different subscriptions, governed by different Microsoft Entra tenants. Sync would even appear to be working, but this is not a supported configuration. Sync can stop in the future with no ability to get back into a working condition.
+> Through different combinations of moves, a Storage Sync Service and storage accounts can end up in different subscriptions, governed by different Microsoft Entra tenants. Sync would even appear to be working, but this isn't a supported configuration. Sync can stop in the future with no ability to get back into a working condition.
 
 When planning your resource move, there are different considerations for [moving within the same Microsoft Entra tenant](#move-within-the-same-azure-active-directory-tenant) and moving across [to a different Microsoft Entra tenant](#move-to-a-new-azure-active-directory-tenant). When moving Microsoft Entra tenants, always move sync and storage resources together.
 
@@ -87,6 +89,23 @@ Once all related Azure File Sync resources have been sequestered into their own 
         1. Follow the wizard steps to assign the new Microsoft Entra tenant.
     :::column-end:::
 :::row-end:::
+
+## Restoring Access for Managed Identity Topology
+
+If Managed Identities is enabled and storage resources are moved to a different tenant, sync will stop. Managed Identities and RBAC roles do not transfer. Once the resource transfer is complete, you can re-enable Managed Identities and then reassign the RBAC roles. 
+
+> [!IMPORTANT]
+>Even when you move resources within the same Microsoft Entra tenant, RBAC role assignments do not move with the resources. You must recreate them manually after the move to restore sync access. Although the system automatically removes the orphaned role assignments, we recommend that you remove them before the move to maintain a clean configuration.
+
+Once you have moved your Storage Sync Service, you can perform the following with PowerShell to assign new managed identities. 
+
+```powershell
+Set-AzStorageSyncService -ResourceGroupName <ResourceGroupName> -Name <ManagedIdentityName> -IdentityType <IdentityType>
+```
+When you see the new SPN, you can navigate to portal to create the role assignments on Storage Accounts and Storage Account File Shares. 
+
+To learn more about how to manage role assignments, see [List Azure role assignments](/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-at-a-scope) and [Assign Azure roles](/azure/role-based-access-control/role-assignments-portal).
+
 
 ## Azure File Sync storage access authorization
 

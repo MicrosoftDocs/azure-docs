@@ -1,13 +1,14 @@
 ---
 title: Resiliency in Azure Center for SAP Solutions
 description: Find out about reliability in Azure Center for SAP Solutions
-author: sushantyadav-msft
-ms.author: sushantyadav
+author: jjaygbay1
+ms.author: jacobjaygbay
 ms.topic: overview
 ms.custom: subject-reliability, references_regions
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.date: 05/15/2023
+# Customer intent: As an SAP system administrator, I want to implement zone redundancy for SAP workloads in Azure, so that I can ensure high availability and minimize disruptions during local outages or regional failures.
 ---
 
 # What is reliability in *Azure Center for SAP Solutions*?
@@ -16,7 +17,7 @@ This article describes reliability support in Azure Center for SAP Solutions, an
 Azure Center for SAP solutions is an end-to-end solution that enables you to create and run SAP systems as a unified workload on Azure and provides a more seamless foundation for innovation. You can take advantage of the management capabilities for both new and existing Azure-based SAP systems.
 
 ## Availability zone support
-Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. In case of a local zone failure, availability zones are designed such that, if one zone is affected, the remaining two zones can support: regional services, capacity and high availability.  Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [Availability zone service and regional support](/azure/reliability/availability-zones-service-support).
+Azure availability zones are at least three physically separate groups of datacenters within each Azure region. Datacenters within each zone are equipped with independent power, cooling, and networking infrastructure. In case of a local zone failure, availability zones are designed such that, if one zone is affected, the remaining two zones can support: regional services, capacity and high availability.  Failures can range from software and hardware failures to events such as earthquakes, floods, and fires. Tolerance to failures is achieved with redundancy and logical isolation of Azure services. For more detailed information on availability zones in Azure, see [What are availability zones?](/azure/reliability/availability-zones-overview)
 
 There are three types of Azure services that support availability zones: zonal, zone-redundant, and always-available services. You can learn more about these types of services and how they promote resiliency in the [Azure services with availability zone support](/azure/reliability/availability-zones-service-support).
 

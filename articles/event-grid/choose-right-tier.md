@@ -2,9 +2,9 @@
 title: Choose the right Event Grid tier for your solution
 description: Describes how to choose the right tier based on resource features and use cases.
 ms.topic: overview
+ms.date: 04/30/2025
 ms.custom:
-  - build-2024
-ms.date: 05/08/2024
+  - build-2025
 ---
 
 # Choose the right Event Grid tier for your solution
@@ -15,10 +15,10 @@ Azure Event Grid has two tiers with different capabilities. This article shares 
 
 Azure Event Grid includes the following functionality through Event Grid namespaces:
 
-* An MQTT pub-sub broker that supports bidirectional communication using MQTT v3.1.1 and v5.0.
+* A Message Queueing Telemetry Transport (MQTT) pub-sub broker that supports bidirectional communication using MQTT v3.1.1 and v5.0.
 * CloudEvents publication using HTTP.
 * Pull delivery using HTTP.
-* Push delivery to Event Hubs using AMQP.
+* Push delivery to Event Hubs using Advanced Messaging Queueing Protocol (AMQP).
 
 Use this tier if any of the following statements is true:
 
@@ -54,20 +54,20 @@ The standard tier of Event Grid is focused on providing the following features:
 
 The basic tier is focused on providing push delivery support to trigger actions based on events. For a detailed breakdown of which quotas and limits are included in each Event Grid resource, see [Quotas and limits](quotas-limits.md).
 
-| Feature                                                                                                                            | Standard                                           | Basic                                  |
-|------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------|----------------------------------------|
-| Throughput                                                                                                                         | High, up to 40 MB/s (ingress) and 80 MB/s (egress) | Low, up to 5 MB/s (ingress and egress) |
-| MQTT v5 and v3.1.1                                                                                                                 | Yes                                                |                                        |
-| Pull delivery                                                                                                                      | Yes                                                |                                        |
-| Publish and subscribe to custom events                                                                                             | Yes                                                | Yes                                    |
+| Feature   | Standard  | Basic |
+|-----------|-----------|-------|
+| Throughput | High, up to 40 MB/s (ingress) and 80 MB/s (egress) | Low, up to 5 MB/s (ingress and egress) |
+| MQTT v5 and v3.1.1 | Yes | |
+| Pull delivery | Yes | |
+| Publish and subscribe to custom events | Yes | Yes |
 | Push delivery to Webhooks  |Yes  | Yes
-| Push delivery to Event Hubs                                                                                                        | Yes                                                | Yes                                    |
-| Push delivery to Azure services (Functions, Service Bus queues and topics, relay hybrid connections, and storage queues) |                                                    | Yes                                    |
+| Push delivery to Event Hubs | Yes | Yes |
+| Push delivery to Azure services (Functions, Service Bus queues and topics, relay hybrid connections, and storage queues) | | Yes  |
 | Maximum message retention  | 7 days on namespace topics  | 1 day
-| Subscribe to Azure system events                                                                                                   |                                                    | Yes                                    |
-| Subscribe to partner events                                                                                                        |                                                    | Yes                                    |
-| Domain scope subscriptions                                                                                                         |                                                    | Yes                                    |
-
+| Subscribe to Azure system events | | Yes |
+| Subscribe to partner events | | Yes |
+| Domain scope subscriptions | | Yes |
+| Pull delivery to Fabric Eventstream | Yes | No |
 
 ## Next steps
 

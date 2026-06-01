@@ -1,11 +1,13 @@
 ---
-title: Create reports by using workbooks in Azure Update Manager
+title: Create Reports by Using Workbooks in Azure Update Manager
 description: This article describes how to create and manage workbooks for VM insights.
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
-ms.date: 09/18/2023
+author: habibaum
+ms.author: v-uhabiba
+ms.date: 08/21/2025
 ms.topic: how-to
+ms.update-cycle: 1095-days
+# Customer intent: As an IT administrator, I want to create and customize workbooks for VM insights, so that I can generate detailed reports on update statuses and configurations across my environment.
 ---
 
 # Create reports in Azure Update Manager
@@ -19,7 +21,7 @@ This article describes how to create and edit a workbook and make customized rep
 1. Sign in to the [Azure portal](https://portal.azure.com) and go to **Azure Update Manager**.
 1. Under **Monitoring**, select **Update reports** to view the **Update Manager | Update reports | Gallery** page.
 1. Select **Quick start** tile > **Empty**. Alternatively, you can select **New** to create a workbook.
-1. Select **Add** to select any [elements](../azure-monitor/visualize/workbooks-create-workbook.md#create-a-new-azure-workbook) to add to the workbook.
+1. Select **Add** to select any [elements](/azure/azure-monitor/visualize/workbooks-create-workbook#create-a-new-azure-workbook) to add to the workbook.
 
    :::image type="content" source="./media/manage-workbooks/create-workbook-elements.png" alt-text="Screenshot that shows how to create a workbook by using elements.":::
 

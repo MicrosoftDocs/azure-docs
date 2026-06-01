@@ -1,14 +1,14 @@
 ---
-title: VPN troubleshoot overview
+title: VPN Troubleshoot Overview
 titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher VPN troubleshoot capability and how to use it to troubleshoot VPN virtual network gateways and their connections.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 02/22/2024
+ms.date: 09/23/2025
 
-#CustomerIntent: As an Azure administrator, I want to learn about VPN troubleshoot so I can use it to troubleshoot my VPN virtual network gateways and their connections whenever resources in a virtual network can't communicate with on-premises machines over a VPN connection.
+# Customer intent: As an Azure administrator, I want to utilize the VPN troubleshoot feature, so that I can effectively diagnose and resolve connectivity issues between my on-premises resources and Azure Virtual Networks.
 ---
 
 # VPN troubleshoot overview
@@ -30,7 +30,7 @@ The following table lists which gateways and connections are supported with Netw
 |Route Based | Supported|
 |Policy Based | Not Supported|
 |**Connection types**||
-|IPSec| Supported|
+|IPsec| Supported|
 |VNet2VNet| Supported|
 |ExpressRoute| Not Supported|
 |VPNClient| Not Supported|
@@ -97,7 +97,7 @@ The resource troubleshooting log files are stored in a storage account after res
 
 > [!NOTE]
 > 1. In some cases, only a subset of the logs files is written to storage.
-> 2. For newer gateway versions, the IkeErrors.txt, Scrubbed-wfpdiag.txt and wfpdiag.txt.sum have been replaced by an IkeLogs.txt file that contains the whole IKE activity (not just errors).
+> 2. For newer gateway versions, IkeLogs.txt file replaces the IkeErrors.txt, Scrubbed-wfpdiag.txt and wfpdiag.txt.sum files and it contains the whole IKE activity (not just errors).
 
 For instructions on downloading files from Azure storage accounts, see [Download a block blob](../storage/blobs/storage-quickstart-blobs-portal.md#download-a-block-blob). Another tool that can be used is Storage Explorer. For information about Azure Storage Explorer, see [Use Azure Storage Explorer to download blobs](../storage/blobs/quickstart-storage-explorer.md#download-blobs)
 
@@ -120,7 +120,7 @@ Connected Since : 2/1/2017 8:22:06 PM
 
 ### CPUStats.txt
 
-The **CPUStats.txt** file contains CPU usage and memory available at the time of testing.  The contents of this file is similar to the following example:
+The **CPUStats.txt** file contains CPU usage and memory available at the time of testing. The contents of this file is similar to the following example:
 
 ```
 Current CPU Usage : 0 % Current Memory Available : 641 MBs
@@ -162,28 +162,28 @@ The following example shows the contents of the Scrubbed-wfpdiag.txt file. In th
 
 ```
 ...
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Deleted ICookie from the high priority thread pool list
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|IKE diagnostic event:
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Event Header:
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Timestamp: 1601-01-01T00:00:00.000Z
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Flags: 0x00000106
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|    Local address field set
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|    Remote address field set
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|    IP version field set
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  IP version: IPv4
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  IP protocol: 0
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Local address: 13.78.238.92
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Remote address: 52.161.24.36
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Local Port: 0
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Remote Port: 0
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Application ID:
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  User SID: <invalid>
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Failure type: IKE/Authip Main Mode Failure
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Type specific info:
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Failure error code:0x000035e9
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|    IKE authentication credentials are unacceptable
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Failure point: Remote
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Deleted ICookie from the high priority thread pool list
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| IKE diagnostic event:
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Event Header:
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Timestamp: 1601-01-01T00:00:00.000Z
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Flags: 0x00000106
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Local address field set
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Remote address field set
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| IP version field set
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| IP version: IPv4
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| IP protocol: 0
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Local address: 203.0.113.92
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Remote address: 203.0.113.36
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Local Port: 0
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Remote Port: 0
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Application ID:
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| User SID: <invalid>
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Failure type: IKE/Authip Main Mode Failure
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Type specific info:
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Failure error code:0x000035e9
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| IKE authentication credentials are unacceptable
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36|
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|203.0.113.36| Failure point: Remote
 ...
 ```
 

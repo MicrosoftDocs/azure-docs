@@ -6,7 +6,11 @@ ms.author: spelluru
 ms.date: 08/25/2022
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a Service Bus namespace and a queue using an ARM template
@@ -21,7 +25,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the template
 
@@ -43,6 +47,9 @@ The resources defined in the template include:
 > - [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md)
 
 You can find more template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular)
+
+> [!NOTE]
+> If your queue name contains forward slashes (`/`), use `~` (tilde) in place of `/` in the template resource name. For example, to create a queue named `orders/us/west`, specify the name as `orders~us~west`. For details, see [Entity names with forward slashes](service-bus-resource-manager-exceptions.md#error-entity-names-with-forward-slashes).
 
 ## Deploy the template
 

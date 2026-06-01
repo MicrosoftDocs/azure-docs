@@ -1,11 +1,11 @@
 ---
 title: Azure IoT Edge limits and restrictions
 description: Understand the limits and restrictions when using Azure IoT Edge
-author: PatAltimore
-ms.author: patricka
-ms.date: 06/05/2024
-ms.topic: conceptual
-ms.service: iot-edge
+author: sethmanheim
+ms.author: sethm
+ms.date: 05/13/2026
+ms.topic: concept-article
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 
@@ -13,43 +13,49 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-This article explains the limits and restrictions when using IoT Edge.
+This article explains the limits and restrictions when you use IoT Edge.
 
 ## Limits
 
-### Number of children in gateway hierarchy
+### Number of connected clients in gateway hierarchy
 
-Each IoT Edge parent device in gateway hierarchies can have up to 100 connected child devices by default.
+Each IoT Edge parent device in a gateway hierarchy can have up to **100 connected clients** by default.
 
-However, it's important to know that each IoT Edge device in a nested topology must open a separate logical connection to the parent EdgeHub (or IoT Hub) on behalf of each connected client (device or module), plus one connection for itself. So the connections at each layer are not aggregated, but added.
+> [!NOTE]
+> Connected clients include both devices and modules.
 
-For example, if there are 2 IoT Edge child devices in one layer L4, each in turn has 100 clients, then the parent IoT Edge device in the layer above L5 would have 202 total incoming connections from L4.
+Each IoT Edge device in a nested topology opens a separate logical connection to the parent EdgeHub (or IoT Hub) for each module and downstream client routing through it, plus one connection for the child edgeHub itself. The child edgeHub's connection appears in the parent's connected-clients module twin as `<childDeviceId>/$edgeHub`. Connections at each layer aren't aggregated, but added.
 
-This limit can be changed by setting the **MaxConnectedClients** environment variable in the parent device's edgeHub module. But IoT Edge can run into issues with reporting its state in the twin reported properties if the number of clients exceeds a few hundred because of the IoT Hub twin size limit. In general, be careful when increasing the limit by changing this environment variable.
+For example, if a layer-L4 IoT Edge child device has 100 connected downstream clients (devices and modules), it opens 100 connections to its parent edgeHub plus 1 connection for the child edgeHub itself, for 101 total. If two such child devices exist in L4, the L5 parent sees **202 total incoming connections** from L4.
+
+You can change this limit by setting the **MaxConnectedClients** environment variable in the parent device's edgeHub module.
+
+> [!IMPORTANT]
+> [Module twin for edgeHub](module-edgeagent-edgehub.md#edgehub-reported-properties) holds information about connected clients in its reported properties, where size is limited. When it reaches the maximum size of the twin's reported properties for increasing the number of connected clients, IoT Edge becomes unable to report its state correctly. This can happen if the number of clients exceeds a few hundred. Before setting `MaxConnectedClients`, consider testing with production scenarios.
 
 For more information, see [Create a gateway hierarchy](how-to-connect-downstream-iot-edge-device.md#create-a-gateway-hierarchy).
 
-### Size of desired properties
+### Size of module twin properties
 
-IoT Hub enforces the following restrictions:
+IoT Hub enforces these restrictions:
 
-* An 8-kb size limit on the value of tags.
-* A 32-kb size limit on both the value of `properties/desired` and `properties/reported`.
+* 8 KB size limit on the value of tags.
+* 32 KB size limit on both the value of `properties/desired` and `properties/reported`.
 
 For more information, see [Module twin size](../iot-hub/iot-hub-devguide-module-twins.md#module-twin-size).
 
 ### Number of nested hierarchy layers
 
-An IoT Edge device has a limit of five layers of IoT Edge devices linked as children below it.
+An IoT Edge device supports up to five layers of IoT Edge devices linked as children below it.
 
 For more information, see [Parent and child relationships](iot-edge-as-gateway.md#cloud-identities).
 
 ### Number of modules in a deployment
 
-IoT Hub has the following restrictions for IoT Edge automatic deployments:
+IoT Hub has these restrictions for IoT Edge automatic deployments:
 
 * 50 modules per deployment
-  * This limit is superseded by the IoT Hub 32-kb module twin size limit. For more information, see [Be mindful of twin size limits when using custom modules](production-checklist.md#be-mindful-of-twin-size-limits-when-using-custom-modules).
+  * This limit is superseded by the IoT Hub 32 KB module twin size limit. For more information, see [Be mindful of twin size limits when using custom modules](production-checklist.md#be-mindful-of-twin-size-limits-when-using-custom-modules).
 * 100 deployments (including layered deployments per paid SKU hub)
 * 10 deployments per free SKU hub
 
@@ -60,7 +66,7 @@ IoT Hub has the following restrictions for IoT Edge automatic deployments:
 IoT Edge certificates have the following restrictions:
 
 * The common name (CN) can't be the same as the *hostname* that is used in the configuration file on the IoT Edge device.
-* The name used by clients to connect to IoT Edge can't be the same as the common name used in the edge CA certificate.
+* The name used by clients to connect to IoT Edge can't be the same as the common name used in the Edge CA certificate.
 
 For more information, see [Certificates for device security](iot-edge-certs.md).
 
@@ -84,17 +90,17 @@ Not supported query syntax:
 
 ### Restart policies
 
-Don't use `on-unhealthy` or `on-failure` as values in modules' `restartPolicy` because they are unimplemented and won't initiate a restart. Only `never` and `always` restart policies are implemented.
+The `on-unhealthy` restart policy value is accepted by the schema but the runtime doesn't currently derive unhealthy status from Docker health checks, so it has no practical effect. The `on-failure` restart policy restarts modules that exit with a non-zero exit code. Only `never`, `on-failure`, and `always` restart policies produce observable behavior.
 
-The recommended way to automatically restart unhealthy IoT Edge modules is noted in [this workaround](https://github.com/Azure/iotedge/issues/6358#issuecomment-1144022920). Configure the `Healthcheck` property in the module's `createOptions` to handle a failed health check.
+To automatically restart modules that become unhealthy, use the workaround noted in [this GitHub issue](https://github.com/Azure/iotedge/issues/6358#issuecomment-1144022920). Configure the `Healthcheck` property in the module's `createOptions` to handle a failed health check.
 
 ### Troubleshooting logs
 
-Accessing module logs from Azure portal could be delayed while modules are being updated. 
+Accessing module logs from Azure portal can be delayed while modules are updated.
 
-If you view the **Troubleshoot** tab from your device in IoT Edge in the Azure portal, you may see the message "Unable to retrieve logs. The request failed with status code 504." The request times out and the **Runtime Status** might show as "Error" for all modules. 
+If you view the **Troubleshoot** tab from your device in IoT Edge in the Azure portal, you might see the message "Unable to retrieve logs. The request failed with status code 504." The request times out, and the **Runtime Status** can show as "Error" for all modules.
 
-This ability to see the logs will resume in time. The reason the access is delayed is because **edgeAgent** may be busy starting modules so it can't simultaneously retrieve logs. Logs are pulled from Moby/Docker, so this process takes time, and the request can time out if **edgeAgent** is busy.
+You can see the logs again after some time. Access is delayed because **edgeAgent** can be busy starting modules, so it can't retrieve logs at the same time. Logs are pulled from Moby or Docker, so this process takes time, and the request can time out if **edgeAgent** is busy.
 
 ### File upload
 
@@ -104,13 +110,13 @@ For more information on uploading files with IoT Hub, see [Upload files with IoT
 
 ### Edge agent environment variables
 
-Changes made in `config.toml` to `edgeAgent` environment variables like the `hostname` aren't applied to `edgeAgent` if the container already existed. To apply these changes, remove the `edgeAgent` container using the command  `sudo docker rm -f edgeAgent`. The IoT Edge daemon recreates the container and starts edgeAgent in about a minute.
+Changes you make in `config.toml` to `edgeAgent` environment variables like the `hostname` aren't applied to `edgeAgent` if the container already exists. To apply these changes, remove the `edgeAgent` container by running `sudo docker rm -f edgeAgent`. The IoT Edge daemon recreates the container and starts edgeAgent in about a minute.
 
 ### NTLM Authentication
 
-NTLM authentication is not supported. Proxies configured with NTLM authentication won't work.
+NTLM authentication isn't supported. Proxies configured with NTLM authentication don't work.
 
-IoT Edge has limited support for proxy authentication. Proxies configured for username and password authentication only are supported.
+IoT Edge has limited support for proxy authentication. Only proxies configured for username and password authentication are supported.
 
 ## Next steps
 

@@ -1,11 +1,12 @@
 ---
 title: "Tutorial: Add an Azure Cosmos DB database connection in Azure Static Web Apps"
 description: Learn to add an  Azure Cosmos DB database connection to a web application in Azure Static Web Apps
-author: craigshoemaker
-ms.author: cshoe
-ms.service: static-web-apps
+author: cjk7989
+ms.author: jikunchen
+ms.service: azure-static-web-apps
 ms.topic: tutorial
 ms.date: 03/07/2023
+ms.custom: sfi-ropc-nochange
 ---
 
 # Tutorial: Add an Azure Cosmos DB database connection in Azure Static Web Apps (preview)
@@ -271,6 +272,8 @@ Replace the markup between the `body` tags in the *index.html* file with the fol
 ## Start the application locally
 
 Now you can run your website and manipulate data in the database directly.
+
+[!INCLUDE [Required version](includes/static-web-apps-cli-required-version.md)]
 
 1. Use npm to install or update the Static Web Apps CLI. Select which command is best for your situation.
 

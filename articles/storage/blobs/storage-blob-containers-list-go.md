@@ -3,14 +3,15 @@ title: List blob containers with Go
 titleSuffix: Azure Storage
 description: Learn how to list blob containers in your Azure Storage account using the Go client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/22/2024
-ms.author: pauljewell
+ms.date: 08/05/2024
+ms.author: shaas
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
+# Customer intent: "As a Go developer, I want to list blob containers in my Azure Storage account, so that I can efficiently manage and retrieve container information based on specific criteria and options."
 ---
 
 # List blob containers with Go
@@ -39,7 +40,7 @@ To list containers in a storage account, call the following method:
 
 This method returns a [Pager](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime#Pager), which allows your app to process one page of results at a time. Containers are ordered lexicographically by name.
 
-You can specify options for listing containers by using the [ListContainersOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#ListContainersOptions) struct. This struct includes fields for managing the number of results, filtering by prefix, and including container information using[ListContainersInclude](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/service#ListContainersInclude).
+You can specify options for listing containers by using the [ListContainersOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#ListContainersOptions) struct. This struct includes fields for managing the number of results, filtering by prefix, and including container information using [ListContainersInclude](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/service#ListContainersInclude).
 
 ### Manage how many results are returned
 
@@ -92,3 +93,6 @@ The Azure SDK for Go contains libraries that build on top of the Azure REST API,
 ## See also
 
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
+
+[!INCLUDE [storage-dev-guide-next-steps-go](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-go.md)]
+

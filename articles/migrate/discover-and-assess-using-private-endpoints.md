@@ -5,13 +5,17 @@ author: vijain
 ms.author: vijain
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 07/02/2024
-ms.custom: engagement-fy23
+ms.reviewer: v-uhabiba
+ms.date: 09/26/2024
+ms.custom:
+  - engagement-fy25
+  - sfi-ropc-nochange
+# Customer intent: As a cloud administrator, I want to set up an Azure Migrate project with private endpoint connectivity, so that I can securely discover and assess servers for migration without exposing sensitive data to public networks.
 ---
  
 # Discover and assess servers for migration using Private Link 
 
-This article describes how to create an Azure Migrate project, set up the Azure Migrate appliance, and use it to discover and assess servers for migration using [Azure Private Link](../private-link/private-endpoint-overview.md).  You can use the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link.
+This article describes how to create an Azure Migrate project, set up the Azure Migrate appliance, and use it to discover and assess servers for migration using [Azure Private Link](../private-link/private-endpoint-overview.md).  You can use the [Azure Migrate: Discovery and assessment](migrate-services-overview.md) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link.
 
 ## Create a project with private endpoint connectivity
 
@@ -63,20 +67,7 @@ To set up the appliance:
 
 ### Verify security
 
-Check that the zipped file is secure, before you deploy it.
-
-1. On the server to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the zipped file:
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-3.  Verify the latest appliance version and hash value:
-
-[!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
-
-> [!NOTE]
-> The same script can be used to set up an appliance with private endpoint connectivity for any of the chosen scenarios, such as VMware, Hyper-V, physical or other to deploy an appliance with the desired configuration.
-
-Make sure the server meets the [hardware requirements](./migrate-appliance.md) for the chosen scenario, such as VMware, Hyper-V, physical or other, and can connect to the [required URLs](./migrate-appliance.md#public-cloud-urls-for-private-link-connectivity).
+Check that the zipped file is [secure](migrate-appliance.md#verify-security), before you deploy it.
 
 ### Run the Azure Migrate installer script
 
@@ -141,7 +132,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 
         After the appliance is successfully registered, to see the registration details, select **View details**.
 
-4. **Install VDDK**: _(Needed only for VMware appliance.)_ The appliance checks that the VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If it isn't installed, download VDDK 6.7, 7, or 8(depending on the compatibility of VDDK and ESXi versions) from VMware. Extract the downloaded zipped contents to the specified location on the appliance, as provided in the installation instructions.
+4. **Install the VDDK**: The appliance checks if the VMware vSphere Virtual Disk Development Kit (VDDK) is installed. Download VDDK version 8.0 from the [Broadcom Developer portal](https://developer.broadcom.com/sdks/vmware-virtual-disk-development-kit-vddk/8.0). After downloading, extract the zip file to the default location: C:\Program Files\VMware\VMware Virtual Disk Development Kit, as mentioned in the installation instructions.
 
 You can *rerun prerequisites* at any time during appliance configuration to check whether the appliance meets all the prerequisites.
 
@@ -155,4 +146,5 @@ You can also [assess your on-premises machines](./tutorial-discover-import.md#pr
 
 ## Next steps
 
-- [Migrate servers to Azure using Private Link](migrate-servers-to-azure-using-private-link.md).
+- [Migrate servers to Azure using Private Link](migrate-hyper-v-servers-to-azure-using-private-link.md)
+- [Migrate servers to Azure using Private Link for agent-based replications](migrate-servers-to-azure-using-private-link-agent-based.md).

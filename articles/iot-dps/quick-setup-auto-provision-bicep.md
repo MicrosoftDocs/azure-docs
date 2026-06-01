@@ -1,13 +1,14 @@
 ---
 title: Quickstart - Create an Azure IoT Hub Device Provisioning Service (DPS) using Bicep
 description: Azure quickstart - Learn how to create an Azure IoT Hub Device Provisioning Service (DPS) using Bicep.
-ms.author: jgao
+ms.author: sethm
 ms.date: 08/17/2022
 ms.topic: quickstart
-ms.service: iot-dps
+ms.service: azure-iot-hub
 services: iot-dps
-author: mumian
+author: sethmanheim
 ms.custom: mvc, subject-bicepqs, devx-track-azurepowershell, devx-track-bicep, devx-track-azurecli
+ms.subservice: azure-iot-hub-dps
 ---
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service (DPS) with Bicep

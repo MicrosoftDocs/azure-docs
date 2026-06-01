@@ -3,16 +3,20 @@ title: 'Quickstart: Create a profile and endpoint - Resource Manager template'
 titleSuffix: Azure Content Delivery Network
 description: In this quickstart, learn how to create an Azure Content Delivery Network profile and endpoint a Resource Manager template
 services: cdn
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 03/20/2024
-ms.author: duau
+ms.date: 02/28/2026
+ROBOTS: NOINDEX
+# Customer intent: "As a cloud engineer, I want to deploy a Content Delivery Network profile and endpoint using an ARM template, so that I can efficiently manage content delivery for my applications."
 ---
 
 # Quickstart: Create an Azure Content Delivery Network profile and endpoint - ARM template
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 Get started with Azure Content Delivery Network by using an Azure Resource Manager template (ARM template). The template deploys a profile and an endpoint.
 

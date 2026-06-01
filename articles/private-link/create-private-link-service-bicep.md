@@ -2,13 +2,13 @@
 title: 'Quickstart: Create a private link service - Bicep'
 titleSuffix: Azure Private Link
 description: In this quickstart, you use Bicep to create a private link service.
-services: private-link
-author: abell
-ms.service: private-link
+author: asudbring
+ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 03/12/2024
-ms.author: abell
+ms.date: 03/30/2026
+ms.author: allensu
 ms.custom: subject-armqs, mode-arm, template-quickstart, devx-track-bicep
+# Customer intent: As a cloud administrator, I want to use Bicep to create a private link service, so that I can securely connect to virtual machines without exposing them to the public internet.
 ---
 
 # Quickstart: Create a private link service using Bicep
@@ -21,7 +21,7 @@ In this quickstart, you use Bicep to create a private link service.
 
 ## Prerequisites
 
-You need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+You need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Review the Bicep file
 

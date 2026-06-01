@@ -2,10 +2,12 @@
 title: Interoperability in Azure - Test setup
 description: This article describes a test setup you can use to analyze interoperability between ExpressRoute, a site-to-site VPN, and virtual network peering in Azure.
 author: asudbring
-ms.service: virtual-network
-ms.topic: article
+ms.service: azure-virtual-network
+ms.topic: how-to
 ms.date: 03/26/2023
 ms.author: allensu
+ms.custom: sfi-image-nochange
+# Customer intent: As a network architect, I want to set up a test environment to analyze the interoperability of Azure networking services, so that I can optimize the connectivity and performance between on-premises and Azure virtual networks.
 ---
 
 # Interoperability in Azure - Test setup

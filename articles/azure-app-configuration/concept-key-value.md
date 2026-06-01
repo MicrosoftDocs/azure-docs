@@ -4,8 +4,8 @@ description: Understand key-value storage in Azure App Configuration, which stor
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
-ms.topic: conceptual
-ms.date: 05/13/2024
+ms.topic: concept-article
+ms.date: 11/21/2025
 ms.custom: devdivchpfy22
 ---
 
@@ -96,7 +96,7 @@ Each key-value in App Configuration has a content type attribute. You can option
 > [!div class="nextstepaction"]
 > [Point-in-time snapshot](./concept-point-time-snapshot.md)
 
-> [!div class="neSxtstepaction"]
+> [!div class="nextstepaction"]
 > [Feature management](./concept-feature-management.md)
 
 > [!div class="nextstepaction"]

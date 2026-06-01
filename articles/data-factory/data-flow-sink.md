@@ -5,10 +5,9 @@ description: Learn how to configure a sink transformation in mapping data flow.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
-ms.topic: conceptual
-ms.date: 10/20/2023
+ms.topic: concept-article
+ms.date: 04/27/2026
 ---
 
 # Sink transformation in mapping data flow
@@ -16,6 +15,9 @@ ms.date: 10/20/2023
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
+> [!TIP]
+>  For the equivalent transformation (**Add data destination**) in Dataflow Gen2, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
 
 After you finish transforming your data, write it into a destination store by using the sink transformation. Every data flow requires at least one sink transformation, but you can write to as many sinks as necessary to complete your transformation flow. To write to additional sinks, create new streams via new branches and conditional splits.
 
@@ -45,6 +47,9 @@ When using data flows in Azure Synapse workspaces, you will have an additional o
 ##  <a name="supported-sinks"></a> Supported sink types
 
 Mapping data flow follows an extract, load, and transform (ELT) approach and works with *staging* datasets that are all in Azure. Currently, the following datasets can be used in a sink transformation.
+
+>[!TIP]
+>Your sink can be a different format than your source. This is one step of how you can transform from one format to another. For example, from a CSV to a Parquet sink. You might need to make some transformations in your data flow between source and sink for this to work correctly. (For example, Parquet has more specific header requirements than CSV.)
 
 | Connector | Format | Dataset/inline |
 | --------- | ------ | -------------- |
@@ -76,7 +81,7 @@ After you've added a sink, configure via the **Sink** tab. Here you can pick or 
 
 The following video explains a number of different sink options for text-delimited file types.
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4tf7T]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=f6b52fbb-e98b-4fa1-b872-a0278ed02227]
 
 :::image type="content" source="media/data-flow/sink-settings.png" alt-text="Screenshot that shows Sink settings.":::
 
@@ -87,7 +92,7 @@ The following video explains a number of different sink options for text-delimit
 
 ## Cache sink
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4HKt1]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=f0587234-eb56-458f-8c55-478881ed2985]
 
 A *cache sink* is when a data flow writes data into the Spark cache instead of a data store. In mapping data flows, you can reference this data within the same flow many times using a *cache lookup*. This is useful when you want to reference data as part of an expression but don't want to explicitly join the columns to it. Common examples where a cache sink can help are looking up a max value on a data store and matching error codes to an error message database. 
 
@@ -104,7 +109,10 @@ For example, if I specify a single key column of `column1` in a cache sink calle
 > [!NOTE]
 > A cache sink must be in a completely independent data stream from any transformation referencing it via a cache lookup. A cache sink also must be the first sink written. 
 
-**Write to activity output** The cached sink can optionally write your output data to the input of the next pipeline activity. This will allow you to quickly and easily pass data out of your data flow activity without needing to persist the data in a data store.
+**Write to activity output**  
+The Cache sink can optionally write its data to the output of the Data Flow activity which can then be used as an input to another activity in the pipeline. This will allow you to quickly and easily pass data out of your data flow activity without needing to persist the data in a data store. 
+
+Note that the output from Data Flow that is injected directly into your pipeline is limited to 2MB. Thus, Data Flow will attempt to add to output as many rows as it can while staying within the 2MB limit, therefore sometimes you may not see all of the rows in the activity output. Setting "First row only" at the Data Flow activity level also helps you to limit the data output from Data Flow if needed.
 
 ## Update method
 
@@ -139,7 +147,7 @@ When writing to databases, certain rows of data may fail due to constraints set 
 
 Below is a video tutorial on how to use database error row handling automatically in your sink transformation.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4IWne]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=0d38b49c-428f-4ac3-82c2-c677823d60c9]
 
 For assert failure rows, you can use the Assert transformation upstream in your data flow and then redirect failed assertions to an output file here in the sink errors tab. You also have an option here to ignore rows with assertion failures and not output those rows at all to the sink destination data store.
 

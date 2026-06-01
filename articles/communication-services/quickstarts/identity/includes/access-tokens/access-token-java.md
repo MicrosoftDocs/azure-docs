@@ -8,35 +8,38 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 11/17/2021
 ms.topic: include
-ms.custom: include file
 ms.author: tchladek
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-install) version 8 or later.
 - [Apache Maven](https://maven.apache.org/download.cgi).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../../create-communication-resource.md).
 
 ## Final code
-Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/access-token-quickstart).
+
+Find the finalized code at [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/access-token-quickstart).
 
 ## Set up your environment
 
 ### Create a new Java application
 
-In a terminal or Command Prompt window, go to the directory where you want to create your Java application. To generate a Java project from the maven-archetype-quickstart template, run the following code:
+In a terminal or command prompt window, go to the directory where you want to create your Java application. To generate a Java project from the maven-archetype-quickstart template, run the following code:
 
 ```console
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
 ```
 
-You'll notice that the `generate` task creates a directory with the same name as `artifactId`. Under this directory, the *src/main/java* directory contains the project source code, the *src/test/java* directory contains the test source, and the *pom.xml* file is the project's Project Object Model, or POM. This file is used for project configuration parameters.
+Notice that the `generate` task creates a directory with the same name as `artifactId`. Under this directory, the `src/main/java` directory contains the project source code, the `src/test/java` directory contains the test source, and the `pom.xml` file is the project's Project Object Model, or POM. This file is used for project configuration parameters.
 
 ### Install the Communication Services packages
 
-Open the *pom.xml* file in your text editor. Add the following dependency element to the group of dependencies:
+Open the `pom.xml` file in your text editor. Add the following dependency element to the group of dependencies:
 
 ```xml
 <dependency>
@@ -46,14 +49,14 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 </dependency>
 ```
 
-This code instructs Maven to install the Communication Services Identity SDK, which you'll use later.
+This code instructs Maven to install the Communication Services Identity SDK, which you need to use later.
 
 ### Set up the app framework
 
-In the project directory, do the following:
+In the project directory, complete the following steps:
 
-1. Go to the */src/main/java/com/communication/quickstart* directory.
-1. Open the *App.java* file in your editor.
+1. Go to the `/src/main/java/com/communication/quickstart` directory.
+1. Open the `App.java` file in your editor.
 1. Replace the `System.out.println("Hello world!");` statement.
 1. Add `import` directives.
 
@@ -83,11 +86,11 @@ public class App
 
 ## Authenticate the client
 
-Instantiate a `CommunicationIdentityClient` with your resource's access key and endpoint. For more information, see the "Store your connection string" section of [Create and manage Communication Services resources](../../../create-communication-resource.md#store-your-connection-string). 
+Instantiate a `CommunicationIdentityClient` with your resource's access key and endpoint. For more information, see [Create and manage Communication Services resources > Store your connection string](../../../create-communication-resource.md#store-your-connection-string). 
 
-In addition, you can initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
+You can also initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
 
-In the *App.java* file, add the following code to the `main` method:
+In the `App.java` file, add the following code to the `main` method:
 
 ```java
 // You can find your endpoint and access key from your resource in the Azure portal
@@ -111,7 +114,7 @@ CommunicationIdentityClient communicationIdentityClient = new CommunicationIdent
     .buildClient();
 ```
 
-If you've already set up a Microsoft Entra application, you can [authenticate by using Microsoft Entra ID](../../../identity/service-principal.md).
+If you already set up a Microsoft Entra application, you can [authenticate by using Microsoft Entra ID](../../../identity/service-principal.md).
 
 ```java
 String endpoint = "https://<RESOURCE_NAME>.communication.azure.com";
@@ -132,7 +135,7 @@ CommunicationUserIdentifier user = communicationIdentityClient.createUser();
 System.out.println("\nCreated an identity with ID: " + user.getId());
 ```
 
-The created identity is required later for issuing access tokens. Store the received identity with mapping to your application's users (for example, by storing it in your application server database). 
+The created identity is required later to issue access tokens. Store the received identity with mapping to your application's users (for example, by storing it in your application server database). 
 
 ## Issue an access token
 
@@ -149,11 +152,11 @@ String token = accessToken.getToken();
 System.out.println("\nIssued an access token with 'voip' scope that expires at: " + expiresAt + ": " + token);
 ```
 
-Access tokens are short-lived credentials that need to be reissued. Not doing so might cause a disruption of your application users' experience. The `expiresAt` property indicates the lifetime of the access token.
+Access tokens are short-lived credentials that need to be reissued. Not doing so might cause a disruption of your application user experience. The `expiresAt` property indicates the lifetime of the access token.
 
 ## Set a custom token expiration time
 
-The default token expiration time is 24 hours, but you can configure it by providing a value between an hour and 24 hours to the optional parameter `tokenExpiresIn`. When requesting a new token, it's recommended that you specify the expected typical length of a communication session for the token expiration time.
+The default token expiration time is 24 hours, but you can configure it by providing a value between an hour and 24 hours to the optional parameter `tokenExpiresIn`. When requesting a new token, specify the expected typical length of a communication session for the token expiration time.
 
 ```java
 // Issue an access token with a validity of an hour and the "voip" scope for a user identity
@@ -164,8 +167,7 @@ AccessToken accessToken = communicationIdentityClient.getToken(user, scopes, tok
 
 ## Create an identity and issue a token in one request
 
-Alternatively, you can use the 'createUserAndToken' method to create a new entry in the directory with a unique `Id` and
-issue an access token at the same time.
+Alternatively, you can use the 'createUserAndToken' method to create a new entry in the directory with a unique `Id` and issue an access token at the same time.
 
 ```java
 //Create an identity and issue token with a validity of 24 hours in one call
@@ -191,7 +193,7 @@ AccessToken response = communicationIdentityClient.getToken(identity, scopes);
 
 ## Revoke an access token
 
-You might occasionally need to explicitly revoke an access token. For example, you would do so when application users change the password they use to authenticate to your service. The `revokeTokens` method invalidates all active access tokens for a particular user. In the following code, you can use the previously created user.
+You might need to explicitly revoke an access token. For example, you would do so when application users change the password they use to authenticate to your service. The `revokeTokens` method invalidates all active access tokens for a particular user. In the following code, you can use the previously created user.
 
 ```java
 communicationIdentityClient.revokeTokens(user);
@@ -200,7 +202,7 @@ System.out.println("\nSuccessfully revoked all access tokens for user identity w
 
 ## Delete an identity
 
-When you delete an identity, you revoke all active access tokens and prevent the further issuance of access tokens for the identity. Doing so also removes all persisted content that's associated with the identity.
+When you delete an identity, you revoke all active access tokens and prevent the further issuance of access tokens for the identity. Doing so also removes all persisted content associated with the identity.
 
 ```java
 communicationIdentityClient.deleteUser(user);
@@ -209,25 +211,27 @@ System.out.println("\nDeleted the user identity with ID: " + user.getId());
 
 ## Run the code
 
-Go to the directory that contains the *pom.xml* file, and then compile the project by using the following `mvn` command:
+1. Go to the directory that contains the `pom.xml` file.
 
-```console
-mvn compile
-```
+2. Compile the project using the following `mvn` command:
 
-Then, build the package:
+   ```console
+   mvn compile
+   ```
 
-```console
-mvn package
-```
+3. build the package:
 
-Run the following `mvn` command to execute the app:
+   ```console
+   mvn package
+   ```
 
-```console
-mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
-```
+4. Run the following `mvn` command to execute the app:
 
-The app's output describes each completed action:
+   ```console
+   mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
+   ```
+
+The output describes each completed action:
 
 <!---cSpell:disable --->
 ```console

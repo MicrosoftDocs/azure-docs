@@ -16,7 +16,7 @@ architecture that must implement controls for UK OFFICIAL and UK NHS.
 
 ## Control mapping
 
-The [Azure Policy control mapping](../../policy/samples/ukofficial-uknhs.md) provides details on
+The [Azure Policy control mapping](/azure/governance/policy/samples/ukofficial-uknhs) provides details on
 policy definitions included within this blueprint and how these policy definitions map to the
 **controls** in the UK OFFICIAL and UK NHS framework. When assigned to an architecture, resources
 are evaluated by Azure Policy for non-compliance with assigned policy definitions. For more
@@ -32,7 +32,7 @@ the following steps must be taken:
 > - Mark your copy of the sample as **Published**
 > - Assign your copy of the blueprint to an existing subscription
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 before you begin.
 
 ### Create blueprint from sample
@@ -139,9 +139,9 @@ The following table provides a list of the blueprint artifact parameters:
 
 |Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
-|Blueprint initiative for UK OFFICIAL or UK NHS|Policy assignment |Resource types to audit diagnostic logs (Policy: Blueprint initiative for UK OFFICIAL or UK NHS) |List of resource types to audit if diagnostic log setting is note enabled. For acceptable values, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../../../azure-monitor/essentials/resource-logs-schema.md). |
-|\[Preview\]: Deploy Log Analytics Agent for Linux VMs |Policy assignment |Optional: List of VM images that have supported Linux OS to add to scope (Policy: \[Preview\]: Deploy Log Analytics Agent for Linux VMs) |(Optional) Default value is _none_. For more information, see [Create a Log Analytics workspace in the Azure portal](../../../azure-monitor/logs/quick-create-workspace.md). |
-|\[Preview\]: Deploy Log Analytics Agent for Windows VMs |Policy assignment |Optional: List of VM images that have supported Windows OS to add to scope (Policy: \[Preview\]: Deploy Log Analytics Agent for Windows VMs) |(Optional) Default value is _none_. For more information, see [Create a Log Analytics workspace in the Azure portal](../../../azure-monitor/logs/quick-create-workspace.md). |
+|Blueprint initiative for UK OFFICIAL or UK NHS|Policy assignment |Resource types to audit diagnostic logs (Policy: Blueprint initiative for UK OFFICIAL or UK NHS) |List of resource types to audit if diagnostic log setting is note enabled. For acceptable values, see [Supported services, schemas, and categories for Azure Diagnostic Logs](/azure/azure-monitor/essentials/resource-logs-schema). |
+|\[Preview\]: Deploy Log Analytics Agent for Linux VMs |Policy assignment |Optional: List of VM images that have supported Linux OS to add to scope (Policy: \[Preview\]: Deploy Log Analytics Agent for Linux VMs) |(Optional) Default value is _none_. For more information, see [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace). |
+|\[Preview\]: Deploy Log Analytics Agent for Windows VMs |Policy assignment |Optional: List of VM images that have supported Windows OS to add to scope (Policy: \[Preview\]: Deploy Log Analytics Agent for Windows VMs) |(Optional) Default value is _none_. For more information, see [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace). |
 
 ## Next steps
 

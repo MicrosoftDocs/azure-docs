@@ -2,9 +2,9 @@
 title: Event Hubs partitions
 description: Describes partitions in Azure Event Hubs. 
 author: spelluru
-ms.service: event-hubs
+ms.service: azure-event-hubs
 ms.topic: include
-ms.date: 02/15/2024
+ms.date: 12/12/2024
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -32,12 +32,14 @@ Event Hubs is designed to help with processing of large volumes of events, and p
 ### Number of partitions
 The number of partitions is specified at the time of creating an event hub. It must be between one and the maximum partition count allowed for each pricing tier. For the partition count limit for each tier, see [this article](../event-hubs-quotas.md#basic-vs-standard-vs-premium-vs-dedicated-tiers). 
 
-We recommend that you choose at least as many partitions as you expect that are required during the peak load of your application for that particular event hub. For tiers other than the premium and dedicated tiers, you can't change the partition count for an event hub after its creation. For an event hub in a premium or dedicated tier, you can [increase the partition count](../dynamically-add-partitions.md) after its creation, but you can't decrease them. The distribution of streams across partitions will change when it's done as the mapping of partition keys to partitions changes, so you should try hard to avoid such changes if the relative order of events matters in your application.
+We recommend that you choose at least as many partitions as you expect that are required during the peak load of your application for that particular event hub.
+
+For tiers other than the premium and dedicated tiers, you can't change the partition count for an event hub after its creation. For an event hub in a premium or dedicated tier, you can [increase the partition count](../dynamically-add-partitions.md) after its creation, but you can't decrease them. The distribution of streams across partitions will change when it's done as the mapping of partition keys to partitions changes, so you should try hard to avoid such changes if the relative order of events matters in your application.
 
 Setting the number of partitions to the maximum permitted value is tempting, but always keep in mind that your event streams need to be structured such that you can indeed take advantage of multiple partitions. If you need absolute order preservation across all events or only a handful of substreams, you might not be able to take advantage of many partitions. Also, many partitions make the processing side more complex. 
 
 It doesn't matter how many partitions are in an event hub when it comes to pricing. It depends on the number of pricing units ([throughput units
-(TUs)](../event-hubs-scalability.md#throughput-units) for the standard tier, [processing units (PUs)](../event-hubs-scalability.md#processing-units) for the premium tier, and [capacity units (CUs)](../event-hubs-dedicated-overview.md) for the dedicated tier) for the namespace or the dedicated cluster. For example, an event hub of the standard tier with 32 partitions or with one partition incur the exact same cost when the namespace is set to one TU capacity. Also, you can scale TUs or PUs on your namespace or CUs of your dedicated cluster independent of the partition count. 
+(TUs)](../event-hubs-scalability.md#throughput-units) for the standard tier, [processing units (PUs)](../event-hubs-scalability.md#processing-units) for the premium tier, and [capacity units (CUs)](../event-hubs-dedicated-overview.md#capacity-units) for the dedicated tier) for the namespace or the dedicated cluster. For example, an event hub of the standard tier with 32 partitions or with one partition incur the exact same cost when the namespace is set to one TU capacity. Also, you can scale TUs or PUs on your namespace or CUs of your dedicated cluster independent of the partition count. 
 
 [!INCLUDE [event-hubs-partition-count](event-hubs-partition-count.md)]
 

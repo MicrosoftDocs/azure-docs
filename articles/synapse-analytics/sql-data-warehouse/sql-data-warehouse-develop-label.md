@@ -3,16 +3,18 @@ title: Using labels to instrument queries
 description: Tips for using labels to instrument queries for dedicated SQL pools in Azure Synapse Analytics.
 author: MSTehrani
 ms.author: emtehran
-ms.reviewer: wiassaf
+
 ms.date: 04/17/2018
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - azure-synapse
 ---
 
 # Using labels to instrument queries for dedicated SQL pools in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Included in this article are tips for developing solutions using labels to instrument queries in dedicated SQL pools.
 

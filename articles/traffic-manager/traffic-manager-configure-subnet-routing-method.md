@@ -2,12 +2,15 @@
 title: Configure subnet traffic routing - Azure Traffic Manager
 description: This article explains how to configure Traffic Manager to route traffic from specific subnets.
 services: traffic-manager
-author: greg-lindsay
-ms.service: traffic-manager
+author: asudbring
+ms.service: azure-traffic-manager
 ms.topic: how-to
-ms.date: 09/17/2018
-ms.author: greglin
-ms.custom: template-how-to
+ms.date: 08/08/2024
+ms.author: allensu
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
+# Customer intent: "As a network administrator, I want to configure Traffic Manager to route user traffic based on specific subnets, so that I can ensure requests are directed to the appropriate internal or production endpoints according to their IP origin."
 ---
 
 # Direct traffic to specific endpoints based on user subnet using Traffic Manager
@@ -16,7 +19,7 @@ This article describes how to configure the subnet traffic-routing method. The *
 
 In the scenario discussed in this article, using subnet routing, depending on the IP address of the user's query, traffic is either routed to an internal website or a production website.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 In order to see the Traffic Manager in action, this tutorial requires that you deploy the following:
@@ -45,7 +48,7 @@ In this section, you create two VMs *myEndpointVMEastUS* and *myEndpointVMWEurop
     |---|---|
     |Name|myIISVMEastUS|
     |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
+    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](/azure/virtual-machines/windows/faq?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Resource group| Select **New** and then type *myResourceGroupTM1*.|
     |Location| Select **East US**.|
     |||
@@ -131,7 +134,7 @@ In this section, you create a VM (*mVMEastUS* and *myVMWestEurope*) in each Azur
     |---|---|
     |Name|myVMEastUS|
     |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
+    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](/azure/virtual-machines/windows/faq?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).|
     |Resource group| Select **Existing** and then select *myResourceGroupTM1*.|
     |||
 

@@ -1,15 +1,19 @@
 ---
 title: 'Quickstart: Route Azure Cache for Redis events to web endpoint with the Azure portal'
 description: Use Azure Event Grid to subscribe to Azure Cache for Redis events, send the events to a Webhook, and handle the events in a web application
-author: flang-msft
-ms.author: franlanglois
+
+
 ms.date: 1/5/2021
 ms.topic: quickstart
-ms.service: cache
+appliesto:
+ - ✅ Azure Cache for Redis
+
 ms.custom: mode-ui
 ---
 
 # Quickstart: Route Azure Cache for Redis events to web endpoint with the Azure portal
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 Azure Event Grid is an eventing service for the cloud. In this quickstart, you'll use the Azure portal to create an Azure Cache for Redis instance, subscribe to events for that instance, trigger an event, and view the results. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this quickstart, you'll send events to a web app that will collect and display the messages.
 

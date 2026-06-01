@@ -1,29 +1,24 @@
 ---
-title: Troubleshoot VPN gateways and connections - Azure CLI
+title: Troubleshoot VPN Gateways and Connections - Azure CLI
 titleSuffix: Azure Network Watcher
 description: Learn how to use Azure Network Watcher VPN troubleshoot capability to troubleshoot VPN virtual network gateways and their connections using the Azure CLI.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 11/30/2023
+ms.date: 02/25/2026
 ms.custom: devx-track-azurecli
 
-#CustomerIntent: As a network administrator, I want to determine why resources in a virtual network can't communicate with resources in a different virtual network over a VPN connection.
+# Customer intent: As a network administrator, I want to troubleshoot VPN gateways and connections using the Azure CLI, so that I can resolve connectivity issues between my virtual network and on-premises networks effectively.
 ---
 
 # Troubleshoot VPN virtual network gateways and connections using the Azure CLI
-
-> [!div class="op_single_selector"]
-> - [Portal](diagnose-communication-problem-between-networks.md)
-> - [PowerShell](vpn-troubleshoot-powershell.md)
-> - [Azure CLI](vpn-troubleshoot-cli.md)
 
 In this article, you learn how to use Network Watcher VPN troubleshoot capability to diagnose and troubleshoot VPN virtual network gateways and their connections to solve connectivity issues between your virtual network and on-premises network. VPN troubleshoot requests are long running requests, which could take several minutes to return a result. The logs from troubleshooting are stored in a container on a storage account that is specified.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A Network Watcher enabled in the region of the virtual network gateway. For more information, see [Enable or disable Azure Network Watcher](network-watcher-create.md?tabs=cli).
 
@@ -117,6 +112,8 @@ Additionally, detailed logs are stored in the storage account container you spec
 
 ## Related content
 
-- [Tutorial: Diagnose a communication problem between virtual networks using the Azure portal](diagnose-communication-problem-between-networks.md).
+- [VPN troubleshoot overview](vpn-troubleshoot-overview.md)
 
-- [VPN troubleshoot overview](vpn-troubleshoot-overview.md).
+- [Troubleshoot VPN virtual network gateways and connections using PowerShell](vpn-troubleshoot-powershell.md)
+
+- [Tutorial: Diagnose a communication problem between virtual networks using the Azure portal](diagnose-communication-problem-between-networks.md)

@@ -1,23 +1,24 @@
 ---
-title: 'Quickstart: Diagnose a VM traffic filter problem - Azure PowerShell'
+title: 'Quickstart: Diagnose a VM Traffic Filter Problem - Azure PowerShell'
 titleSuffix: Azure Network Watcher
 description: In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using Azure Network Watcher IP flow verify in Azure PowerShell.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: quickstart
-ms.date: 08/23/2023
+ms.date: 02/17/2026
 ms.custom: devx-track-azurepowershell, mode-api
-#Customer intent: I want to diagnose a virtual machine (VM) network traffic filter using IP flow verify to know which security rule is denying the traffic and causing the communication problem to the VM.
+
+# Customer intent: "As a cloud administrator, I want to diagnose network traffic filter issues on a virtual machine using IP flow verify, so that I can identify and resolve security rules causing connectivity problems."
 ---
 
 # Quickstart: Diagnose a virtual machine network traffic filter problem using Azure PowerShell
 
 In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. Using the IP flow verify results, you determine the security rule that's blocking the traffic and causing the communication failure and learn how you can resolve it. You also learn how to use the [effective security rules](effective-security-rules-overview.md) for a network interface to determine why a security rule is allowing or denying traffic.
 
-:::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem-cli/ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart." lightbox="./media/diagnose-vm-network-traffic-filtering-problem-cli/ip-flow-verify-quickstart-diagram.png":::
+:::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 
@@ -40,10 +41,10 @@ In this section, you create a virtual network and a subnet in the East US region
     New-AzResourceGroup -Name 'myResourceGroup' -Location 'eastus' 
     ```
 
-1. Create a subnet configuration for the virtual machine subnet and the Bastion host subnet using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig).
+1. Create a subnet configuration for the virtual machine subnet using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig).
 
     ```azurepowershell-interactive
-    # Create subnets configuration.
+    # Create subnet configuration.
     $Subnet = New-AzVirtualNetworkSubnetConfig -Name 'mySubnet' -AddressPrefix '10.0.0.0/24'
     ```
 
@@ -61,11 +62,30 @@ In this section, you create a virtual network and a subnet in the East US region
     New-AzNetworkSecurityGroup -Name 'myVM-nsg' -ResourceGroupName 'myResourceGroup' -Location  'eastus'
     ```
 
-1. Create a virtual machine using [New-AzVM](/powershell/module/az.compute/new-azvm). When prompted, enter a username and password.
+1. Create a virtual machine using [New-AzVM](/powershell/module/az.compute/new-azvm).
 
     ```azurepowershell-interactive
-    # Create a Linux virtual machine using the latest Ubuntu 20.04 LTS image.
-    New-AzVm -ResourceGroupName 'myResourceGroup' -Name 'myVM' -Location 'eastus' -VirtualNetworkName 'myVNet' -SubnetName 'mySubnet' -SecurityGroupName 'myVM-nsg' -Image 'Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2:latest'
+    # Create a credential object
+    $securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
+    $cred = New-Object System.Management.Automation.PSCredential ('azureuser', $securePassword)
+
+    # Define the virtual machine parameters
+    $vmParams = @{
+        ResourceGroupName = 'myResourceGroup'
+        Location = 'eastus'
+        Name = 'myVM'
+        Image = 'Ubuntu2204'
+        Credential = $cred
+        VirtualNetworkName = 'myVNet'
+        SubnetName = 'mySubnet'
+        SecurityGroupName = 'myVM-nsg'
+        PublicIpAddressName = ''
+        SshKeyName = 'mySSHKey'
+        GenerateSshKey = $true
+    }
+
+    # Create the virtual machine
+    New-AzVM @vmParams
     ```
 
 ## Test network communication using IP flow verify
@@ -215,8 +235,7 @@ When no longer needed, use [Remove-AzResourceGroup](/powershell/module/az.resour
 Remove-AzResourceGroup -Name 'myResourceGroup' -Force
 ```
 
-## Next steps
+## Next step
 
-In this quickstart, you created a VM and diagnosed inbound and outbound network traffic filters. You learned that network security group rules allow or deny traffic to and from a VM. Learn more about [security rules](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) and how to [create security rules](../virtual-network/manage-network-security-group.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-security-rule).
-
-Even with the proper network traffic filters in place, communication to a virtual machine can still fail, due to routing configuration. To learn how to diagnose virtual machine routing problems, see [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem-powershell.md). To diagnose outbound routing, latency, and traffic filtering problems with one tool, see [Troubleshoot connections with Azure Network Watcher](network-watcher-connectivity-powershell.md).
+> [!div class="nextstepaction"]
+> [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md)

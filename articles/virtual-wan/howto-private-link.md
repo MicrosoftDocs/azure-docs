@@ -5,19 +5,24 @@ description: Steps to configure Private Link in Virtual WAN
 services: virtual-wan
 author: erjosito
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/30/2023
 ms.author: jomore
-ms.custom: fasttrack-new
+ms.custom:
+  - fasttrack-new
+  - sfi-image-nochange
 ---
 # Use Private Link in Virtual WAN
 
 [Azure Private Link](../private-link/private-link-overview.md) is a technology that allows you to connect Azure Platform-as-a-Service offerings using private IP address connectivity by exposing [Private Endpoints](../private-link/private-endpoint-overview.md). With Azure Virtual WAN, you can deploy a Private Endpoint in one of the virtual networks connected to any virtual hub. This private link provides connectivity to any other virtual network or branch connected to the same Virtual WAN.
 
+> [!NOTE]
+> There is a maximum of 4,000 private endpoints across all virtual networks connected to a single Virtual WAN hub. Exceeding this limit can cause connection degradation. High-scale private endpoints aren't currently supported for Virtual WAN hubs, so this limit isn't currently adjustable. For more information about private endpoint virtual network limits, see [Increase private endpoint limits in VNets connected to Azure resources](../private-link/increase-private-endpoint-vnet-limits.md).
+
 ## Before you begin
 
-The steps in this article assume that you've already deployed a virtual WAN with one or more hubs and at least two virtual networks connected to Virtual WAN.
+The steps in this article assume that you  deployed a virtual WAN with one or more hubs and at least two virtual networks connected to Virtual WAN.
 
 To create a new virtual WAN and a new hub, use the steps in the following articles:
 
@@ -25,6 +30,20 @@ To create a new virtual WAN and a new hub, use the steps in the following articl
 * [Create a hub](virtual-wan-site-to-site-portal.md#hub)
 * [Connect a VNet to a hub](virtual-wan-site-to-site-portal.md#hub)
 
+## Routing Considerations with Private Link in Virtual WAN
+
+Private Endpoint connectivity in Azure is stateful. When a connection to a private endpoint gets established through Virtual WAN, traffic is routed through one or more traffic hops through different Virtual WAN components (for example Virtual Hub router, ExpressRoute Gateway, VPN Gateway, Azure Firewall, or NVA). The exact hops traffic takes is based on your Virtual WAN routing configurations. Behind the scenes, Azure's software-defined networking layer sends all packets related to a single 5-tuple flow to one of the backend instances servicing different Virtual WAN components. Asymmetrically routed traffic (for example, traffic corresponding to a single 5-tuple flow routed to different backend instances) is not supported and is dropped by the Azure platform.
+
+During maintenance events on Virtual WAN infrastructure, backend instances are rebooted one at a time. This can lead to intermittent connectivity issues to Private Endpoint as the instance servicing the flow is temporarily unavailable. The similar problem can occur when Azure Firewall or Virtual hub router scales out. The same traffic flow can be load-balanced to a new backend instance that's different than the instance currently servicing the flow.
+
+To mitigate the impact of maintenance and scale-out events on Private Link or Private Endpoint traffic consider the following best practices:
+
+* Configure the TCP timeout value of any application (whether hosted on premises or in another Azure Virtual Network) that is accessing the Private Link/Private Endpoint to fall between 15-30 seconds. A smaller TCP timeout value allows application traffic to recover more quickly from maintenance and scale-out events. Alternatively, test different application timeout values to determine a suitable timeout based on your requirements.
+* When an active TCP flow accessing Private Link resource is impacted by a Virtual WAN maintenance event, Azure's underlying infrastructure sends a TCP Reset (RST) to the client application that initiatd the flow. Ensure the client application properly handles TCP RST and establishes a new TCP session to ensure faster recovery.
+* Pre-scale Virtual WAN components to handle traffic bursts to prevent autoscale events from occurring. For the Virtual Hub router, you can set the minimum routing infrastructure units on your hub router to prevent scaling during traffic bursts.
+
+Lastly, if you're using on-premises connectivity between Azure and on-premises using VPN or ExpressRoute, ensure your on-premises device is configured to use the same VPN tunnel or same Microsoft Enterprise Edge router as the next-hop for each 5-tuple corresponding to private endpoint traffic.
+ 
 ## <a name="endpoint"></a>Create a private link endpoint
 
 You can create a private link endpoint for many different services. In this example, we're using Azure SQL Database. You can find more information about how to create a private endpoint for an Azure SQL Database in [Quickstart: Create a Private Endpoint using the Azure portal](../private-link/create-private-endpoint-portal.md). The following image shows the network configuration of the Azure SQL Database:
@@ -35,13 +54,13 @@ After creating the Azure SQL Database, you can verify the private endpoint IP ad
 
 :::image type="content" source="./media/howto-private-link/endpoints.png" alt-text="private endpoints" lightbox="./media/howto-private-link/endpoints.png":::
 
-Clicking on the private endpoint we've created, you should see its private IP address and its Fully Qualified Domain Name (FQDN). The private endpoint should have an IP address in the range of the VNet where it has been deployed (10.1.3.0/24):
+Clicking on the private endpoint we created, you should see its private IP address and its Fully Qualified Domain Name (FQDN). The private endpoint should have an IP address in the range of the VNet  (10.1.3.0/24):
 
 :::image type="content" source="./media/howto-private-link/sql-endpoint.png" alt-text="SQL endpoint" lightbox="./media/howto-private-link/sql-endpoint.png":::
 
 ## <a name="connectivity"></a>Verify connectivity from the same VNet
 
-In this example, we verify connectivity to the Azure SQL Database from a Linux virtual machine with the MS SQL tools installed. The first step is verifying that DNS resolution works and the Azure SQL Database Fully Qualified Domain Name is resolved to a private IP address, in the same VNet where the Private Endpoint has been deployed (10.1.3.0/24):
+In this example, we verify connectivity to the Azure SQL Database from a Linux virtual machine with the MS SQL tools installed. The first step is verifying that DNS resolution works and the Azure SQL Database Fully Qualified Domain Name is resolved to a private IP address, in the same VNet where the Private Endpoint is deployed (10.1.3.0/24):
 
 ```bash
 nslookup wantest.database.windows.net
@@ -57,7 +76,7 @@ Name:   wantest.privatelink.database.windows.net
 Address: 10.1.3.228
 ```
 
-As you can see in the previous output, the FQDN `wantest.database.windows.net` is mapped to `wantest.privatelink.database.windows.net`, that the private DNS zone created along the private endpoint will resolve to the private IP address `10.1.3.228`. Looking into the private DNS zone will confirm that there's an A record for the private endpoint mapped to the private IP address:
+As you can see in the previous output, the FQDN `wantest.database.windows.net` is mapped to `wantest.privatelink.database.windows.net`, that the private DNS zone created along the private endpoint resolves to the private IP address `10.1.3.228`. Looking into the private DNS zone confirms that there's an A record for the private endpoint mapped to the private IP address:
 
 :::image type="content" source="./media/howto-private-link/dns-zone.png" alt-text="DNS zone" lightbox="./media/howto-private-link/dns-zone.png":::
 
@@ -121,6 +140,7 @@ sqlcmd -S wantest.database.windows.net -U $username -P $password -Q "$query"
 ```
 
 With this example, we've seen how creating a private endpoint in one of the VNets attached to a Virtual WAN provides connectivity to the rest of VNets and branches in the Virtual WAN.
+
 
 ## Next steps
 

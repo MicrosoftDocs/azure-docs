@@ -1,13 +1,15 @@
 ---
-title: Enable or disable SFTP support in Azure Blob Storage
+title: Enable or Disable SFTP in Azure Blob Storage
 titleSuffix: Azure Storage
-description: Learn how to enable SSH File Transfer Protocol (SFTP) support for Azure Blob Storage so that you can directly connect to your Azure Storage account by using an SFTP client.
+description: Enable or disable SFTP support in Azure Blob Storage to control secure file transfers and costs. Follow these steps to configure SFTP.
 author: normesta
-ms.custom:
 ms.service: azure-blob-storage
-ms.topic: conceptual
-ms.date: 04/30/2024
+ms.topic: how-to
+ms.date: 05/18/2026
 ms.author: normesta
+ms.custom:
+  - sfi-image-nochange
+# Customer intent: "As a cloud storage administrator, I want to enable or disable SFTP support for my Azure Blob Storage account, so that I can manage secure file transfers based on current usage and reduce costs when not needed."
 ---
 
 # Enable or disable SSH File Transfer Protocol (SFTP) support in Azure Blob Storage
@@ -20,7 +22,7 @@ To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer 
 
 - A standard general-purpose v2 or premium block blob storage account. You can also enable SFTP as you create the account. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
 
-- The hierarchical namespace feature of the account must be enabled. To enable the hierarchical namespace feature, see [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
+- The hierarchical namespace feature of the account must be enabled. To enable the hierarchical namespace feature, see [Upgrade Azure Blob Storage with Azure Data Lake Storage capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
 
 ## Enable SFTP support
 
@@ -28,24 +30,24 @@ This section shows you how to enable SFTP support for an existing storage accoun
 
 ### [Portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
+1. In the [Azure portal](https://portal.azure.com/), go to your storage account.
 
 2. Under **Settings**, select **SFTP**.
 
    > [!NOTE]
-   > This option appears only if the hierarchical namespace feature of the account has been enabled. To enable the hierarchical namespace feature, see [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
+   > This option appears only if the hierarchical namespace feature of the account is enabled. To enable the hierarchical namespace feature, see [Upgrade Azure Blob Storage with Azure Data Lake Storage capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
 
-3. Select **Enable SFTP**. 
+1. Select **Enable SFTP**. 
 
    > [!div class="mx-imgBorder"]
-   > ![Enable SFTP button](./media/secure-file-transfer-protocol-support-how-to/sftp-enable-option.png)
+   > :::image type="content" source="./media/secure-file-transfer-protocol-support-how-to/sftp-enable-option.png" alt-text="Screenshot of the Enable SFTP option in the Azure portal SFTP settings pane.":::
 
    >[!NOTE]
-   > If no local users appear in the SFTP configuration page, you'll need to add at least one of them. To add local users, see the next section.
+   > If no local users appear in the SFTP configuration page, you need to add at least one. To add local users, see the next section.
 
 ### [PowerShell](#tab/powershell)
 
-To enable SFTP support, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-EnableSftp` parameter to true. Remember to replace the values in angle brackets with your own values:
+To enable SFTP support, run the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-EnableSftp` parameter to true. Replace the values in angle brackets with your own values:
 
 ```powershell
 $resourceGroupName = "<resource-group>"
@@ -56,7 +58,7 @@ Set-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccount
 
 ### [Azure CLI](#tab/azure-cli)
 
-To enable SFTP support, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and set the `--enable-sftp` parameter to true. Remember to replace the values in angle brackets with your own values:
+To enable SFTP support, run the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and set the `--enable-sftp` parameter to true. Replace the values in angle brackets with your own values:
 
 ```azurecli
 az storage account update -g <resource-group> -n <storage-account> --enable-sftp=true
@@ -70,18 +72,18 @@ This section shows you how to disable SFTP support for an existing storage accou
 
 ### [Portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://portal.azure.com/), navigate to your storage account.
+1. In the [Azure portal](https://portal.azure.com/), go to your storage account.
 
 2. Under **Settings**, select **SFTP**.
 
-3. Select **Disable SFTP**. 
+1. Select **Disable SFTP**. 
 
    > [!div class="mx-imgBorder"]
-   > ![Screenshot of the disable SFTP button.](./media/secure-file-transfer-protocol-support-how-to/sftp-enable-option-disable.png)
+   > :::image type="content" source="./media/secure-file-transfer-protocol-support-how-to/sftp-enable-option-disable.png" alt-text="Screenshot of the Disable SFTP option in the Azure portal SFTP settings pane.":::
 
 ### [PowerShell](#tab/powershell)
 
-To disable SFTP support, call the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-EnableSftp` parameter to false. Remember to replace the values in angle brackets with your own values:
+To disable SFTP support, run the [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) command and set the `-EnableSftp` parameter to false. Replace the values in angle brackets with your own values:
 
 ```powershell
 $resourceGroupName = "<resource-group>"
@@ -92,7 +94,7 @@ Set-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccount
 
 ### [Azure CLI](#tab/azure-cli)
 
-To disable SFTP support, call the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and set the `--enable-sftp` parameter to false. Remember to replace the values in angle brackets with your own values:
+To disable SFTP support, run the [az storage account update](/cli/azure/storage/account#az-storage-account-update) command and set the `--enable-sftp` parameter to false. Replace the values in angle brackets with your own values:
 
 ```azurecli
 az storage account update -g <resource-group> -n <storage-account> --enable-sftp=false

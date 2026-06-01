@@ -1,8 +1,11 @@
 ---
 title: Use SparkCruise on Azure HDInsight to speed up Apache Spark queries
 description: Learn how to use the SparkCruise optimization platform to improve efficiency of Apache Spark queries.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
 ms.date: 05/09/2024
 
 # Customer intent: As an Apache Spark developer, I would like to learn about the tools and features to optimize my Spark workloads on Azure HDInsight.
@@ -144,5 +147,4 @@ sudo /opt/peregrine/analyze/peregrine.sh clean
 * [Use the Workload Insights Notebook to Determine the Benefits of SparkCruise](https://github.com/Azure-Samples/azure-sparkcruise-samples/tree/main/SparkCruise)
 * [Improve performance of Apache Spark workloads using Azure HDInsight IO Cache](apache-spark-improve-performance-iocache.md)
 * [Optimize Apache Spark jobs in HDInsight](./apache-spark-perf.md)
-* [SparkCruise: Handsfree Computation Reuse in Spark](https://people.cs.umass.edu/~aroy/sparkcruise-vldb19.pdf)
 * [Apache Spark guidelines on Azure HDInsight](./spark-best-practices.md)

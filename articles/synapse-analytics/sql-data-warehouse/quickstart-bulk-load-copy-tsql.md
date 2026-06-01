@@ -1,11 +1,10 @@
 ---
 title: "Quickstart: Bulk load data using a single T-SQL statement"
 description: Bulk load data using the COPY statement
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: whhender
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 11/20/2020
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: quickstart
 ms.custom:
@@ -14,6 +13,8 @@ ms.custom:
 ---
 
 # Quickstart: Bulk load data using the COPY statement
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 In this quickstart, you'll bulk load data into your dedicated SQL pool using the simple and flexible [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) for high-throughput data ingestion. The COPY statement is the recommended loading utility as it enables you to seamlessly and flexibly load data by providing functionality to:
 

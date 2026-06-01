@@ -3,7 +3,7 @@ title: Use managed identities to access Service Bus from an Azure Stream Analy
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to an Azure Service Bus output.
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 07/20/2023
 ms.custom: subject-rbac-steps
@@ -27,7 +27,7 @@ First, you create a managed identity for your Azure Stream Analytics job. 
 
    :::image type="content" source="media/event-hubs-managed-identity/system-assigned-managed-identity.png" alt-text="Screenshot showing the System assigned managed identity check box.":::  
 
-3. A service principal for the Stream Analytics job's identity is created in Azure Active Directory. The life cycle of the newly created identity is managed by Azure. When the Stream Analytics job is deleted, the associated identity (that is, the service principal) is automatically deleted by Azure.  
+3. A service principal for the Stream Analytics job's identity is created in Microsoft Entra ID. The life cycle of the newly created identity is managed by Azure. When the Stream Analytics job is deleted, the associated identity (that is, the service principal) is automatically deleted by Azure.  
 
    When you save the configuration, the Object ID (OID) of the service principal is listed as the Principal ID as shown in the following image:  
 
@@ -45,7 +45,7 @@ For the Stream Analytics job to access your Service Bus using managed identity, 
 
 2. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-3. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+3. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     | Setting | Value |
     | --- | --- |

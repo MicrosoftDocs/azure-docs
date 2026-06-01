@@ -1,13 +1,13 @@
 ---
 title: Transfer Azure Enterprise enrollment accounts and subscriptions
 description: Describes how Azure Enterprise enrollment accounts and subscriptions are transferred.
-author: bandersmsft
-ms.reviewer: sapnakeshari
+author: prashantsaini4
+ms.reviewer: prsaini
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.topic: conceptual
-ms.date: 07/15/2024
-ms.author: banders
+ms.topic: concept-article
+ms.date: 04/21/2026
+ms.author: prsaini
 ---
 
 # Transfer Azure Enterprise enrollment accounts and subscriptions
@@ -36,7 +36,7 @@ When you request an account transfer with a support request, provide the followi
 Other points to keep in mind before an account transfer:
 
 - Approval from a full EA Administrator, not a read-only EA administrator, is required for the target and source enrollment.
-    - If you have only UPN (User Principal Name) entities configured as full EA administrators without access to e-mail, you must **either** create a temporary full EA administrator account in the Azure portal **or** provide an Azure portal screenshot evidence of a user account associated with the UPN account.
+    - If you have only UPN (User Principal Name) entities configured as full EA administrators without access to e-mail, you must **either** create a temporary full EA administrator account in the Azure portal **or** provide Azure portal screenshot evidence of a user account associated with the UPN account.
 - You should consider an enrollment transfer if an account transfer doesn't meet your requirements.
 - Your account transfer moves all services and subscriptions related to the specific accounts.
 - Your transferred account appears inactive under the source enrollment and appears active under the target enrollment when the transfer is complete.
@@ -62,18 +62,35 @@ When you request to transfer an old enterprise enrollment to a new enrollment, t
     - All APIs use either the old enrollment or the new one, not both, for reporting purposes. If you need reports from APIs for the old and new enrollments, you must create your own reports.
 - All Azure services, subscriptions, accounts, departments, and the entire enrollment structure, including all EA department administrators, transfer to a new target enrollment.
 - The enrollment status is set to `Transferred` for the old enrollment. The old enrollment that was transferred is available for historic usage reporting purposes only.
-- You can't add roles or subscriptions to the old enrollment that was transferred. `Transferred` status prevents any new usage against the old enrollment.
+- You cannot create new subscriptions under the old enrollment that was transferred. `Transferred` status prevents any new usage against the old enrollment.
 - Any remaining Azure Prepayment balance in the agreement is lost, including future terms.
 - If the old enrollment that you're transferring from has any reservation purchases, the historic (past) reservation purchasing fee remains in the old source enrollment. All future purchasing fees transfer to the new enrollment. Additionally, all reservation benefits are transferred across for use in the new enrollment.
 - The historic marketplace one-time purchase fee and any monthly fixed fees already incurred on the old enrollment aren't transferred to the new enrollment. Consumption-based marketplace charges are transferred.
 
-### Effective transfer date
+### Enrollment transfer backdating
 
-The effective transfer day can be on or after the start date of the target enrollment. The effective transfer date is the date that you want to transfer the old source enrollment to the new one. The date can be backdated to the first date of the current month, but not before it. For example, if today’s date is January 25, 2023 the enrollment transfer can be backdated to January 1, 2023 but not before it.
+Enrollment transfer backdating is the ability to set a transfer effective date in the past, so that subscriptions and their associated usage are treated as if they were part of the destination enrollment starting from that earlier date. This includes reassigning previously recorded usage to the new enrollment for billing purposes.
+
+#### How backdating works (effective transfer date)
+Backdating is implemented through the *** effective transfer date ***, which defines when the transfer takes effect from a billing perspective:
+
+- The effective transfer date determines the point in time when ownership of subscriptions—and their associated usage—moves to the destination enrollment.
+- Usage on or after the effective transfer date is billed under the destination enrollment.
+- Usage before the effective transfer date remains with the source enrollment.
+- When backdating is applied, usage from the selected past date (within the allowed window) is retroactively reassigned to the destination enrollment.
+
+The effective transfer day can be on or after the start date of the target enrollment. The effective transfer date is the date that you want to transfer the old source enrollment to the new one. The date can be backdated to the first date of the current month, but not before it. For example, if today’s date is January 25, the enrollment transfer can be backdated to January 1, but not before it.
 
 Additionally, if individual subscriptions are deleted or transferred in the current month, then the deletion/transfer date becomes the new earliest possible effective transfer date.
 
 The source enrollment usage is charged against Azure Prepayment or as overage. Usage that occurs after the effective transfer date is transferred to the new enrollment and charged.
+
+#### Backdating limitations
+Backdating is subject to the following constraints:
+
+- Backdating is only allowed if reservations are the only commitment offering in both the source and destination enrollments. If either enrollment contains savings plans, backdating is not allowed.
+- The effective transfer date can only be backdated to the first day of the current month, not earlier. 
+- If subscriptions were deleted or transferred during the current month, that date becomes the earliest allowable effective date.
 
 ### Prerequisites
 
@@ -82,7 +99,7 @@ When you request an enrollment transfer, provide the following information:
 - For the source enrollment, the enrollment number.
 - For the target enrollment, the enrollment number to transfer to.
 - Choose an enrollment transfer effective date.
-    - The date must be or after the start date of the new target enrollment.
+    - The date must be on or after the start date of the new target enrollment.
     - If you have an overage invoice that was already issued, the date that you choose doesn’t affect usage.
 
 Other points to keep in mind before an enrollment transfer:
@@ -105,24 +122,28 @@ Other points to keep in mind before an enrollment transfer:
   - The enrollment or account transfer between different currencies affects monthly reservation purchases. The following image illustrates the effects.  
     :::image type="content" source="./media/ea-transfers/cross-currency-reservation-transfer-effects.png" alt-text="Diagram illustrating the effects  of cross currency reservation transfers." border="false" lightbox="./media/ea-transfers/cross-currency-reservation-transfer-effects.png":::
 
-  - When there's is a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of next monthly payment for an individual reservation. This cancellation is intentional and affects only the monthly reservation purchases.
+  - When there's a currency change during or after an enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of next monthly payment for an individual reservation. This cancellation is intentional and affects only the monthly reservation purchases.
   - You might have to repurchase the canceled monthly reservations from the source enrollment using the new enrollment in the local or new currency. If you repurchase a reservation, the purchase term (one or three years) is reset. The repurchase doesn't continue under the previous term.
-- If there's a backdated enrollment transfer, any reservation or savings plan benefit is applicable from the transfer request submission date - not from the effective transfer date.
+- If there's a backdated enrollment transfer involving reservations, reservation benefits allocated in the source enrollment (during the backdated period) are simply transferred to the new enrollment. Benefit allocation for reservation(s) transferred to the source enrollment begins on the transfer request submission date - not from the effective transfer date.
 
 ### Auto enrollment transfer
 
-You might see that an enrollment has the **Transferred** state, even if you didn't submit a support ticket to request an enrollment transfer. The **Transferred** state results from the auto enrollment transfer process. In order for the auto enrollment transfer to occur during the renewal phrase, there are a few items that must be included in the new agreement:
+You might see that an enrollment has the **Transferred** state, even if you didn't submit a support ticket to request an enrollment transfer. The **Transferred** state results from the auto enrollment transfer process. In order for the auto enrollment transfer to occur during the renewal phase, there are a few items that must be included in the new agreement:
 
 - Prior enrollment number (it must exist in Azure portal)
 - Expiration date of the prior enrollment number is one day before the effective start date of the new agreement
 - The new agreement has an invoiced Azure Prepayment order that has a current date or is backdated
 - The new enrollment is created in the Azure portal
+- Auto enrollment transfers are executed on the effective start date of the target enrollment. 
+    - The start date is normally the first day of the month. It takes three to four days to complete the enrollment transfer and for it to appear in the Azure portal.
+    - After an enrollment is auto transferred, the [Azure Marketplace setting](ea-azure-marketplace.md) resets to the default value of **Enabled**, by design.
+- If the subscription or account was deleted within five days of the effective transfer date, the auto transfer stops automatically and fails.
 
 If there's no missing usage data in the Azure portal between the prior enrollment and the new enrollment, then you don't have to create a transfer support ticket.
 
-### Prepayment isn't transferrable
+### Prepayment isn't transferable
 
-Prepayment isn't transferrable between enrollments. Prepayment balances are tied contractually to the enrollment where it was ordered. Prepayment isn't transferred as part of the account or enrollment transfer process.
+Prepayment isn't transferable between enrollments. Prepayment balances are tied contractually to the enrollment where it was ordered. Prepayment isn't transferred as part of the account or enrollment transfer process.
 
 ### No services affected for account and enrollment transfers
 
@@ -152,7 +173,7 @@ If the subscription is transferred to an account in a different Microsoft Entra 
 - Access keys for services like Storage. For more information, see [Azure storage account overview](../../storage/common/storage-account-overview.md).
 - Remote Access credentials for services like Azure Virtual Machines.
 
-If the recipient needs to restrict, access to their Azure resources, they should consider updating any secrets associated with the service. Most resources can be updated by using the following steps:
+If the recipient needs to restrict access to their Azure resources, they should consider updating any secrets associated with the service. Most resources can be updated by using the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **All resources** on the Hub menu.

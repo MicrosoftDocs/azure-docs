@@ -1,13 +1,14 @@
 ---
 title: Data reference for Azure Monitor for SAP solutions
 description: Important reference material needed when you monitor SAP on Azure.
-author: ju-shim
+author: jjaygbay1 
 ms.topic: reference
-ms.author: jushiman
+ms.author: jacobjaygbay
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.custom: subject-monitoring
-ms.date: 10/27/2022
+ms.date: 08/21/2024
+# Customer intent: As an SAP administrator, I want to access log data from Azure Monitor for SAP solutions, so that I can analyze performance and availability for SAP applications running on Azure.
 ---
 
 # Data reference for Azure Monitor for SAP solutions 
@@ -20,7 +21,7 @@ Azure Monitor for SAP solutions doesn't support metrics.
 
 ## Azure Monitor logs tables
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure Monitor for SAP solutions and available for query by Log Analytics. Azure Monitor for SAP solutions uses custom logs. The schemas for some tables are defined by third-party providers, such as SAP. Here are the current custom logs for Azure Monitor for SAP solutions with links to sources for more information.
+This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure Monitor for SAP solutions and available for query by Log Analytics. Azure Monitor for SAP solutions uses custom logs. The schemas for some tables are defined by non-Microsoft providers, such as SAP. Here are the current custom logs for Azure Monitor for SAP solutions with links to sources for more information.
 
 ### SapHana_HostConfig_CL
 
@@ -161,4 +162,4 @@ For more information, see [sys.sysprocesses (Transact-SQL)](/sql/relational-data
 ## Next steps
 
 - For more information on using Azure Monitor for SAP solutions, see [Monitor SAP on Azure](about-azure-monitor-sap-solutions.md).
-- For more information on Azure Monitor, see [Monitoring Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).
+- For more information on Azure Monitor, see [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource).

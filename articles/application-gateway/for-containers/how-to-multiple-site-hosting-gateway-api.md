@@ -2,12 +2,12 @@
 title: Multi-site hosting with Application Gateway for Containers - Gateway API
 description: Learn how to host multiple sites with Application Gateway for Containers using the Gateway API.
 services: application-gateway
-author: greglin
-ms.service: application-gateway
-ms.subservice: appgw-for-containers
+author: mbender-ms
+ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 02/27/2024
-ms.author: greglin
+ms.date: 11/05/2024
+ms.author: mbender
+# Customer intent: As a Kubernetes administrator, I want to configure multi-site hosting using Application Gateway for Containers, so that I can manage traffic routing to multiple backend services based on different hostnames within my cluster.
 ---
 
 # Multi-site hosting with Application Gateway for Containers - Gateway API
@@ -25,13 +25,13 @@ Application Gateway for Containers enables multi-site hosting by allowing you to
 
 ## Prerequisites
 
-1. If you used the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
-2. If you used the ALB managed deployment strategy, ensure provisioning of your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and the Application Gateway for Containers resources via the [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+1. If you used the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)).
+2. If you used the ALB managed deployment strategy, ensure provisioning of your ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)) and the Application Gateway for Containers resources via the [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTP application:<br>
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate path, query, and header based routing.
 
     ```bash
-    kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
+    kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/traffic-split-scenario/deployment.yaml
     ```
 
    This command creates the following on your cluster:

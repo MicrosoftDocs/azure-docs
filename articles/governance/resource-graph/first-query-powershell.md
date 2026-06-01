@@ -14,7 +14,7 @@ The article also shows how to order (sort) and limit the query's results. You ca
 
 ## Prerequisites
 
-- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Latest versions of [PowerShell](/powershell/scripting/install/installing-powershell) and [Azure PowerShell](/powershell/azure/install-azure-powershell).
 - [Visual Studio Code](https://code.visualstudio.com/).
 

@@ -1,9 +1,9 @@
----
+﻿---
 title: Data types in templates
 description: Describes the data types that are available in Azure Resource Manager templates.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 03/20/2024
+ms.date: 04/28/2025
 ---
 
 # Data types in ARM templates
@@ -185,3 +185,4 @@ The following example shows two secure parameters.
 ## Next steps
 
 To learn about the template syntax, see [Understand the structure and syntax of ARM templates](./syntax.md).
+

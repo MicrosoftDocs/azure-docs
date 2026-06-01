@@ -3,8 +3,9 @@ title: Monitor and protect VMs with Azure native services
 description: Learn how to integrate and deploy Microsoft Azure native tools to monitor and manage your Azure VMware Solution workloads.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/21/2024
+ms.date: 3/13/2026
 ms.custom: engagement-fy23
+# Customer intent: As an IT administrator managing hybrid cloud environments, I want to integrate Azure native services with Azure VMware Solution, so that I can effectively monitor, manage, and protect my virtual machines throughout their lifecycle.
 ---
 
 # Monitor and protect VMs with Azure native services
@@ -46,14 +47,14 @@ The diagram shows the integrated monitoring architecture for Azure VMware Soluti
 The guest management must be enabled on the VMware vSphere virtual machine (VM) before you can install an extension. Use the following prerequisite steps to enable guest management.
 ### Prerequisites
 - Navigate to Azure portal.
-- Locate the VMware vSphere VM you want to check for guest management and install extensions on, select the name of the VM.
+- Locate the VMware vSphere VM you want to check for guest management and install extensions on.Select the name of the VM.
 - Select **Configuration** from the left navigation for a VMware VM.
 - Verify **Enable guest management** is checked.
 
 The following conditions are necessary to enable guest management on a VM.
 - The machine must be running a supported operating system.
 - The machine needs to connect through the firewall to communicate over the internet. Make sure the URLs listed aren't blocked.
-- The machine can't be behind a proxy, it isn't currently supported.
+- The machine can't be behind a proxy. It isn't currently supported.
 - If you're using Linux VM, the account must not prompt to sign in on pseudo commands.
 - To avoid pseudo commands, follow these steps:
     1. Sign in to Linux VM.
@@ -77,4 +78,4 @@ When the extension installation steps are completed, they trigger deployment and
 Now that you covered how to integrate services and monitor VMware Solution VMs, you can also learn about:
 
 - [Using the workload protection dashboard](../security-center/azure-defender-dashboard.md)
-- [Advanced multistage attack detection in Microsoft Sentinel](../azure-monitor/logs/quick-create-workspace.md)
+- [Advanced multistage attack detection in Microsoft Sentinel](/azure/azure-monitor/logs/quick-create-workspace)

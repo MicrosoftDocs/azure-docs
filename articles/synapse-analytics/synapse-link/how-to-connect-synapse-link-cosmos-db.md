@@ -1,13 +1,14 @@
 ---
 title: Connect to Azure Synapse Link for Azure Cosmos DB
 description: Learn how to connect an Azure Cosmos DB database to an Azure Synapse workspace with Azure Synapse Link.
-author: Rodrigossz
-ms.service: synapse-analytics
+author: im-microsoft
+ms.author: imotiwala
+ms.reviewer: sidandrews, yexu
+ms.service: azure-synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
-ms.date: 03/02/2021
-ms.author: rosouz
-ms.reviewer: whhender
+ms.date: 12/08/2025
+ms.update-cycle: 1825-days
 ms.custom: cosmos-db, mode-other
 ---
 
@@ -15,11 +16,13 @@ ms.custom: cosmos-db, mode-other
 
 This article describes how to access an Azure Cosmos DB database from Azure Synapse Analytics Studio with Azure Synapse Link.
 
+[!INCLUDE[](../includes/appliesto-cosmos-synapse-link.md)]
+
 ## Prerequisites
 
 Before you connect an Azure Cosmos DB database to your workspace, you'll need an:
 
-* Existing Azure Cosmos DB database, or create a new account by following the steps in [Quickstart: Manage an Azure Cosmos DB account](../../cosmos-db/how-to-manage-database-account.yml).
+* Existing Azure Cosmos DB database, or create a new account by following the steps in [Quickstart: Manage an Azure Cosmos DB account](/azure/cosmos-db/how-to-manage-database-account).
 * Existing Azure Synapse workspace, or create a new workspace by following the steps in [Quickstart: Create a Synapse workspace](../quickstart-create-workspace.md).
 
 ## Enable Synapse Link on an Azure Cosmos DB database account
@@ -38,7 +41,7 @@ From the Data Object Explorer, you can directly connect to an Azure Cosmos DB da
 
 1. Select the **+** icon near **Data**.
 1. Select **Connect to external data**.
-1. Select the API that you want to connect to, for example, **SQL API** or **API for MongoDB**.
+1. Select the API that you want to connect to, for example, **CosmosDB for NoSQL** or **CosmosDB API for MongoDB**.
 1. Select **Continue**.
 1. Use a friendly name to name the linked service. The name will appear in the Data Object Explorer and is used by Azure Synapse runtimes to connect to the database and containers.
 1. Select the **Azure Cosmos DB account name** and the **database name**.
@@ -62,6 +65,6 @@ By right-clicking into a container, you have a list of gestures that will trigge
 ## Next steps
 
 * [Learn what is supported between Azure Synapse and Azure Cosmos DB](./concept-synapse-link-cosmos-db-support.md)
-* [Configure private endpoints for Azure Cosmos DB analytical store](../../cosmos-db/analytical-store-private-endpoints.md)
+* [Configure private endpoints for Azure Cosmos DB analytical store](/azure/cosmos-db/analytical-store-private-endpoints)
 * [Learn how to query the analytical store with Spark 3](./how-to-query-analytical-store-spark-3.md)
 * [Learn how to query the analytical store with Spark 2](./how-to-query-analytical-store-spark.md)

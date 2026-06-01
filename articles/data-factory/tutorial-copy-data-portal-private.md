@@ -2,18 +2,19 @@
 title: Use private endpoints to create an Azure Data Factory pipeline
 description: This tutorial provides step-by-step instructions for using the Azure portal to create a data factory with a pipeline. The pipeline uses the copy activity to copy data from Azure Blob storage to an Azure SQL database.
 author: jianleishen
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ms.author: jianleishen
+ai-usage: ai-assisted
+ms.custom: sfi-image-nochange
 ---
 
 # Copy data securely from Azure Blob storage to a SQL database by using private endpoints
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). *The pipeline in this data factory copies data securely from Azure Blob storage to an Azure SQL database (both allowing access to only selected networks) by using private endpoints in [Azure Data Factory Managed Virtual Network](managed-virtual-network-private-endpoint.md).* The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [Supported data stores and formats](./copy-activity-overview.md) table.
+In this tutorial, you create a data factory by using the Azure Data Factory user interface (UI). *The pipeline in this data factory copies data securely from Azure Blob storage to an Azure SQL database (both allowing access to only selected networks) by using private endpoints in [Azure Data Factory Managed Virtual Network](managed-virtual-network-private-endpoint.md).* The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see the [Supported data stores and formats](./copy-activity-overview.md) table. The private endpoints feature is available across all tiers of Azure Data Factory, so no specific tier is required to utilize them. For more details on pricing and tiers, please refer to the [Azure Data Factory pricing page](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/).
 
 > [!NOTE]
 > If you're new to Data Factory, see [Introduction to Azure Data Factory](./introduction.md).
@@ -23,9 +24,8 @@ In this tutorial, you do the following steps:
 * Create a data factory.
 * Create a pipeline with a copy activity.
 
-
 ## Prerequisites
-* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * **Azure storage account**. You use Blob storage as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) for steps to create one. *Ensure the storage account allows access only from selected networks.* 
 * **Azure SQL Database**. You use the database as a *sink* data store. If you don't have an Azure SQL database, see [Create a SQL database](/azure/azure-sql/database/single-database-create-quickstart) for steps to create one. *Ensure the SQL Database account allows access only from selected networks.* 
 

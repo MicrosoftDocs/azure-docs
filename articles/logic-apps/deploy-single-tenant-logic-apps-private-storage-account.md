@@ -1,24 +1,25 @@
 ---
-title: Deploy Standard logic apps to private storage accounts
+title: Deploy Standard Workflows to Private Storage
 description: Deploy Standard logic app workflows to Azure storage accounts that use private endpoints and deny public access.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
+ms.update-cycle: 365-days
+ms.date: 03/10/2026
 ms.custom: engagement-fy23, devx-track-arm-template
-ms.date: 07/04/2024
-# Customer intent: As a developer, I want to deploy Standard logic apps to Azure storage accounts that use private endpoints.
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to deploy Standard logic apps to Azure storage accounts that use private endpoints and deny public access.
 ---
 
-# Deploy single-tenant Standard logic apps to private storage accounts using private endpoints
+# Deploy Standard logic apps to Azure storage that use private endpoints
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 When you create a single-tenant Standard logic app resource, you're required to have a storage account for storing logic app artifacts. You can restrict access to this storage account so that only the resources inside a virtual network can connect to your logic app workflow. Azure Storage supports adding private endpoints to your storage account.
 
-This article describes the steps to follow for deploying such logic apps to protected private storage accounts.
+This guide shows how to deploy Standard logic apps to Azure storage accounts protected by private endpoints.
 
-For more information, review the following documentation:
+For more information, see:
 
 - [Secure traffic between Standard logic apps and Azure virtual networks using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md)
 - [Use private endpoints for Azure Storage](../storage/common/storage-private-endpoints.md)
@@ -27,7 +28,7 @@ For more information, review the following documentation:
 
 ## Deploy using Azure portal or Visual Studio Code
 
-This deployment method requires that temporary public access to your storage account. If you can't enable public access due to your organization's policies, you can still deploy your logic app to a private storage account. However, you have to [deploy with an Azure Resource Manager template (ARM template)](#deploy-arm-template), which is described in a later section. 
+This deployment method requires temporary public access to your storage account. If you can't enable public access due to your organization's policies, you can still deploy your logic app to a private storage account. However, you have to [deploy with an Azure Resource Manager template (ARM template)](#deploy-arm-template), which is described in a later section. 
 
 > [!NOTE]
 >
@@ -53,7 +54,7 @@ This deployment method requires that temporary public access to your storage acc
 
    1. On the logic app resource menu, under **Settings**, select **Networking**.
 
-   1. In the **Outbound traffic configuration** section, next to **Virtual network integration**, select **Not configured** > **Add virtual network integration** .
+   1. In the **Outbound traffic configuration** section, next to **Virtual network integration**, select **Not configured** > **Add virtual network integration**.
 
    1. On the **Add virtual network integration** pane that opens, select your Azure subscription and your virtual network.
 
@@ -63,9 +64,9 @@ This deployment method requires that temporary public access to your storage acc
 
    1. On the logic app resource menu, under **Settings**, select **Environment variables**.
 
-   1. On the **App settings** tab, add the **WEBSITE_CONTENTOVERVNET** app setting, if none exist, and set the value to **1**.
+   1. On the **App settings** tab, add the **WEBSITE_CONTENTOVERVNET** app setting, if none exists, and set the value to **1**.
 
-   1. If you use your own domain name server (DNS) with your virtual network, add the **WEBSITE_DNS_SERVER** app setting, if none exist, and set the value to the IP address for your DNS. If you have a secondary DNS, add another app setting named **WEBSITE_DNS_ALT_SERVER**, and set the value to the IP for your secondary DNS.
+   1. If you use your own domain name server (DNS) with your virtual network, add the **WEBSITE_DNS_SERVER** app setting, if none exists, and set the value to the IP address for your DNS. If you have a secondary DNS, add another app setting named **WEBSITE_DNS_ALT_SERVER**, and set the value to the IP for your secondary DNS.
 
 1. After you apply these app settings, you can remove public access from your storage account.
 
@@ -100,10 +101,33 @@ The following errors commonly happen with a private storage account that's behin
 
 | Problem | Error |
 |---------|-------|
-| Access to the `host.json` file is denied | `"System.Private.CoreLib: Access to the path 'C:\\home\\site\\wwwroot\\host.json' is denied."` |
+| Access to the `host.json` file is denied | `"System.Private.CoreLib: Access to the path 'C:\home\site\wwwroot\host.json' is denied."` |
+| Unable to connect to file share | `"System.Private.CoreLib: The network path was not found: 'C:\home\data\Functions\secrets\Sentinels'."` |
+| Unable to authenticate to file share | `"System.Private.CoreLib: The user name or password is incorrect: 'C:\home\data\Functions\secrets\Sentinels'."` |
+| Error building configuration in an external startup class | `"System.Private.CoreLib: Could not find a part of the path 'C:\home\site\wwwroot'."` |
 | Can't load workflows in the logic app resource | `"Encountered an error (ServiceUnavailable) from host runtime."` |
 
-As the logic app isn't running when these errors occur, you can't use the Kudu console debugging service on the Azure platform to troubleshoot these errors. However, you can use the following methods instead:
+To help you troubleshoot these problems and find the root cause, follow these steps:
+
+1. In the Azure portal, make sure that the storage account and file share still exist.
+
+1. On the logic app resource menu, under **Settings**, select **Environment variables**.
+
+   1. On the **App settings** tab, find the settings named **WEBSITE_CONTENTAZUREFILECONNECTIONSTRING** and **WEBSITE_CONTENTSHARE**.
+
+   1. Check that these settings specify the correct storage account and file share, respectively. Make sure no spelling errors exist.
+
+1. On the logic app resource menu, select **Diagnose and solve problems**. Find and run the following detectors: **Logic App Down or Reporting Errors** and **Network Troubleshooter**
+
+   These detectors provide insights and suggestions for fixing the problem.
+
+The following list includes more troubleshooting actions that you can take to find the cause:
+
+> [!NOTE]
+>
+> Your logic app resource and workflows aren't running when these errors occur, 
+> so you can't use the Kudu console debugging capability in Azure for troubleshooting.
+
 
 - Create an Azure virtual machine (VM) inside a different subnet within the same virtual network that's integrated with your logic app. Try to connect from the VM to the storage account.
 
@@ -137,7 +161,7 @@ As the logic app isn't running when these errors occur, you can't use the Kudu c
 
      `C:\psping {storage-account-host-name}.table.core.windows.net:443`
 
-     `C:\psping {storage-account-host-name}.file.core.windows.net:443`
+     `C:\psping {storage-account-host-name}.file.core.windows.net:445`
 
   1. If the queries resolve from the VM, continue with the following steps:
 
@@ -149,4 +173,4 @@ As the logic app isn't running when these errors occur, you can't use the Kudu c
 
 ## Next steps
 
-- [Logic Apps Anywhere: Networking possibilities with Logic Apps (single-tenant)](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
+- [Logic Apps Anywhere: Networking possibilities with Logic Apps (single-tenant)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/logic-apps-anywhere-networking-possibilities-with-logic-app-preview/2105047)

@@ -7,7 +7,7 @@ author: avanigupta
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: how-to
-ms.date: 03/27/2023
+ms.date: 09/30/2025
 ms.custom: devdivchpfy22, devx-track-azurecli
 ms.author: avgupta
 #Customer intent: I want to store JSON key-values in App Configuration store without losing the data type of each setting.
@@ -62,7 +62,7 @@ In this tutorial, you'll learn how to:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - This tutorial requires version 2.10.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create JSON key-values in App Configuration

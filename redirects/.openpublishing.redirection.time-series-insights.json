@@ -1,0 +1,414 @@
+{
+  "redirections": [
+        {
+            "source_path_from_root": "/articles/time-series-insights/index.yml",
+            "redirect_url": "/previous-versions/azure/time-series-insights/overview-what-is-tsi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/breaking-changes-long-data-type.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/breaking-changes-long-data-type",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/concepts-access-policies.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/concepts-access-policies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/concepts-ingestion-overview.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/concepts-ingestion-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/concepts-json-flattening-escaping-rules.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/concepts-json-flattening-escaping-rules",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/concepts-model-overview.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/concepts-model-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/concepts-power-bi.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/concepts-power-bi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/concepts-private-links.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/concepts-private-links",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/concepts-query-overview.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/concepts-query-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/concepts-storage.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/concepts-storage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/concepts-streaming-ingestion-event-sources.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/concepts-streaming-ingestion-event-sources",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/concepts-streaming-ingress-throughput-limits.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/concepts-streaming-ingress-throughput-limits",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/concepts-supported-data-types.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/concepts-supported-data-types",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/concepts-ux-panels.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/concepts-ux-panels",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/concepts-variables.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/concepts-variables",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/how-to-api-migration.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/how-to-api-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/how-to-connect-power-bi.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/how-to-connect-power-bi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/how-to-create-environment-using-cli.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/how-to-create-environment-using-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/how-to-create-environment-using-portal.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/how-to-create-environment-using-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/how-to-diagnose-troubleshoot.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/how-to-diagnose-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/how-to-edit-your-model.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/how-to-edit-your-model",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/how-to-ingest-data-event-hub.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/how-to-ingest-data-event-hub",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/how-to-ingest-data-iot-hub.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/how-to-ingest-data-iot-hub",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/how-to-monitor-tsi-reference.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/how-to-monitor-tsi-reference",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/how-to-monitor-tsi.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/how-to-monitor-tsi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/how-to-plan-your-environment.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/how-to-plan-your-environment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/how-to-private-links.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/how-to-private-links",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/how-to-provision-manage.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/how-to-provision-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/how-to-select-tsid.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/how-to-select-tsid",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/how-to-tsi-gen1-migration.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/how-to-tsi-gen1-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/how-to-tsi-gen2-migration.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/how-to-tsi-gen2-migration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/ingestion-rules-update.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/ingestion-rules-update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/migration-to-fabric.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/migration-to-fabric",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/overview-use-cases.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/overview-use-cases",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/overview-what-is-tsi.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/overview-what-is-tsi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/quickstart-explore-tsi.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/quickstart-explore-tsi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-add-reference-data-set.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/time-series-insights-add-reference-data-set",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-authentication-and-authorization.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/time-series-insights-authentication-and-authorization",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-concepts-retention.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/time-series-insights-concepts-retention",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-customer-data-requests.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/time-series-insights-customer-data-requests",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-diagnose-and-solve-problems.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/time-series-insights-diagnose-and-solve-problems",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-environment-mitigate-latency.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/time-series-insights-environment-mitigate-latency",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-environment-planning.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/time-series-insights-environment-planning",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-explorer.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/time-series-insights-explorer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-get-started.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/time-series-insights-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-how-to-configure-retention.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/time-series-insights-how-to-configure-retention",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-how-to-scale-your-environment.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/time-series-insights-how-to-scale-your-environment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-manage-reference-data-csharp.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/time-series-insights-manage-reference-data-csharp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-manage-resources-using-azure-resource-manager-template.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/time-series-insights-manage-resources-using-azure-resource-manager-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-overview.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/time-series-insights-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-parameterized-urls.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/time-series-insights-parameterized-urls",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-query-data-csharp.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/time-series-insights-query-data-csharp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-send-events.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/time-series-insights-send-events",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-update-query-data-csharp.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/time-series-insights-update-query-data-csharp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-quickstart.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/time-series-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/tutorial-create-populate-tsi-environment.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/tutorial-create-populate-tsi-environment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/tutorial-set-up-environment.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/tutorial-set-up-environment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/tutorials-model-sync.md",
+            "redirect_url": "/previous-versions/azure/time-series-insights/tutorials-model-sync",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/migration-to-adx.md",
+            "redirect_url": "/azure/time-series-insights/migration-to-fabric.md",
+            "redirect_document_id": false
+        },
+                {
+            "source_path_from_root": "/articles/time-series-insights/how-to-shape-query-json.md",
+            "redirect_url": "/azure/time-series-insights/concepts-json-flattening-escaping-rules",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-add-event-source.md",
+            "redirect_url": "/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-data-access.md",
+            "redirect_url": "/azure/time-series-insights/concepts-access-policies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub.md",
+            "redirect_url": "/azure/time-series-insights/how-to-ingest-data-event-hub",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md",
+            "redirect_url": "/azure/time-series-insights/how-to-ingest-data-iot-hub",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-long-data-type.md",
+            "redirect_url": "/azure/time-series-insights/breaking-changes-long-data-type",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-update-create-environment.md",
+            "redirect_url": "/azure/time-series-insights/tutorial-set-up-environment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-update-explorer.md",
+            "redirect_url": "/azure/time-series-insights/concepts-ux-panels",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-update-how-to-id.md",
+            "redirect_url": "/azure/time-series-insights/how-to-select-tsid",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-update-how-to-manage.md",
+            "redirect_url": "/azure/time-series-insights/how-to-provision-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-update-how-to-shape-events.md",
+            "redirect_url": "/azure/time-series-insights/how-to-shape-json",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-update-how-to-troubleshoot.md",
+            "redirect_url": "/azure/time-series-insights/how-to-diagnose-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-update-how-to-tsm.md",
+            "redirect_url": "/azure/time-series-insights/how-to-edit-model",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-update-overview.md",
+            "redirect_url": "/azure/time-series-insights/overview-what-is-tsi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-update-plan.md",
+            "redirect_url": "/azure/time-series-insights/how-to-plan-your-environment",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-update-quickstart.md",
+            "redirect_url": "/azure/time-series-insights/quickstart-explore-tsi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-update-storage-ingress.md",
+            "redirect_url": "/azure/time-series-insights/concepts-ingestion-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-update-tsm.md",
+            "redirect_url": "/azure/time-series-insights/concepts-model-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-update-tsq.md",
+            "redirect_url": "/azure/time-series-insights/concepts-query-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/time-series-insights-update-use-cases.md",
+            "redirect_url": "/azure/time-series-insights/overview-use-cases",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/tutorial-create-tsi-sample-spa.md",
+            "redirect_url": "https://tsiclientsample.azurewebsites.net/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/tutorial-explore-js-client-lib.md",
+            "redirect_url": "https://tsiclientsample.azurewebsites.net/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/time-series-insights/tutorials-set-up-tsi-environment.md",
+            "redirect_url": "/azure/time-series-insights/tutorial-set-up-environment",
+            "redirect_document_id": false
+        }
+    ]
+}

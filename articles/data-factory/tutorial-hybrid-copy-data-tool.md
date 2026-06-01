@@ -3,10 +3,10 @@ title: Copy on-premises data using the Azure Copy Data tool
 description: Create an Azure Data Factory and then use the Copy Data tool to copy data from a SQL Server database to Azure Blob storage.
 ms.author: abnarain
 author: nabhishek
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
+ms.custom: sfi-image-nochange
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage by using the Copy Data tool
@@ -27,12 +27,12 @@ In this tutorial, you perform the following steps:
 
 ## Prerequisites
 ### Azure subscription
-Before you begin, if you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
+Before you begin, if you don't already have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ### Azure roles
 To create data factory instances, the user account you use to log in to Azure must be assigned a *Contributor* or *Owner* role or must be an *administrator* of the Azure subscription.
 
-To view the permissions you have in the subscription, go to the Azure portal. Select your user name in the upper-right corner, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on how to add a user to a role, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+To view the permissions you have in the subscription, go to the Azure portal. Select your user name in the upper-right corner, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on how to add a user to a role, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ### SQL Server 2014, 2016, and 2017
 In this tutorial, you use a SQL Server database as a *source* data store. The pipeline in the data factory you create in this tutorial copies data from this SQL Server database (source) to Blob storage (sink). You then create a table named **emp** in your SQL Server database and insert a couple of sample entries into the table.
@@ -82,7 +82,7 @@ You use the name and key of your storage account in this tutorial. To get the na
 
 ## Create a data factory
 
-1. On the menu on the left, select **Create a resource** > **Integration** > **Data Factory**.
+1. On the top menu, select **Create a resource** > **Analytics** > **Data Factory** :
 
    :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="New data factory creation":::
 

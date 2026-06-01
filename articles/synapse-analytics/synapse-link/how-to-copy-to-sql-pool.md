@@ -1,13 +1,14 @@
 ---
 title: Copy Azure Synapse Link for Azure Cosmos DB data into a dedicated SQL pool using Apache Spark
 description: Load the data into a Spark dataframe, curate the data, and load it into a dedicated SQL pool table
-author: Rodrigossz
-ms.service: synapse-analytics
+author: im-microsoft
+ms.author: imotiwala
+ms.reviewer: sidandrews
+ms.service: azure-synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
-ms.date: 08/10/2020
-ms.author: rosouz
-ms.reviewer: whhender, wiassaf, sidandrews
+ms.date: 10/31/2025
+ms.update-cycle: 1825-days
 ms.custom: cosmos-db, mode-other
 ---
 
@@ -15,11 +16,18 @@ ms.custom: cosmos-db, mode-other
 
 Azure Synapse Link for Azure Cosmos DB enables users to run near real-time analytics over operational data in Azure Cosmos DB. However, there are times when some data needs to be aggregated and enriched to serve data warehouse users. Curating and exporting Azure Synapse Link data can be done with just a few cells in a notebook.
 
+> [!IMPORTANT]
+> **Mirroring to Microsoft Fabric is now available.** Mirroring to Fabric provides all the capabilities of Azure Synapse Link with better analytical performance, the ability to unify your data estate with OneLake in Fabric, and open access to your data in Delta Parquet format. Instead of Azure Synapse Link, use Fabric Mirroring. 
+>
+> With Mirroring to Microsoft Fabric, you can continuously replicate your existing data estate directly into OneLake in Fabric, including data from Cosmos DB, SQL Server 2016+, Azure SQL Database, Azure SQL Managed Instance, Oracle, Snowflake, and more. 
+> 
+> For more information, see [Microsoft Fabric mirrored databases](/fabric/database/mirrored-database/overview).
+
 ## Prerequisites
 * [Provision a Synapse workspace](../quickstart-create-workspace.md) with:
     * [Serverless Apache Spark pool](../quickstart-create-apache-spark-pool-studio.md)
     * [dedicated SQL pool](../quickstart-create-sql-pool-studio.md)
-* [Provision an Azure Cosmos DB account with a HTAP container with data](../../cosmos-db/configure-synapse-link.md)
+* [Provision an Azure Cosmos DB account with a HTAP container with data](/azure/cosmos-db/configure-synapse-link)
 * [Connect the Azure Cosmos DB HTAP container to the workspace](./how-to-connect-synapse-link-cosmos-db.md)
 * [Have the right setup to import data into a dedicated SQL pool from Spark](../spark/synapse-spark-sql-pool-import-export.md)
 

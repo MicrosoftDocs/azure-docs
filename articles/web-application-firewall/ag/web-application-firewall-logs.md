@@ -1,14 +1,18 @@
 ---
 title: Monitor logs for Azure Web Application Firewall
 description: Learn how to enable and manage logs and for Azure Web Application Firewall
-services: web-application-firewall
-author: vhorne
-ms.service: web-application-firewall
-ms.topic: article
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-web-application-firewall
+ms.topic: how-to
 ms.date: 08/24/2023
-ms.author: victorh 
+ms.custom: sfi-image-nochange
+# Customer intent: As a security administrator, I want to enable and manage logging for the Web Application Firewall in Azure, so that I can monitor and analyze access, performance, and security events to enhance the protection of my applications.
 ---
+
 # Resource logs for Azure Web Application Firewall
+
+**Applies to:** :heavy_check_mark: Application Gateway
 
 You can monitor Web Application Firewall resources using logs. You can save performance, access, and other data or consume it from a resource for monitoring purposes.
 
@@ -18,7 +22,7 @@ You can monitor Web Application Firewall resources using logs. You can save perf
 
 You can use different types of logs in Azure to manage and troubleshoot application gateways. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics), Excel, and Power BI. You can learn more about the different types of logs from the following list:
 
-* **Activity log**: You can use [Azure activity logs](../../azure-monitor/essentials/activity-log.md) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
+* **Activity log**: You can use [Azure activity logs](/azure/azure-monitor/essentials/activity-log) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
 * **Access Resource log**: You can use this log to view Application Gateway access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. This log contains individual records for each request and associates that request to the unique Application Gateway that processed the request. Unique Application Gateway instances can be identified by the property instanceId.
 * **Performance Resource log**: You can use this log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy back-end instance count. A performance log is collected every 60 seconds. The Performance log is available only for the v1 SKU. For the v2 SKU, use [Metrics](../../application-gateway/application-gateway-metrics.md) for performance data.
 * **Firewall Resource log**: You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with the web application firewall.
@@ -74,7 +78,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
 
 ## Activity log
 
-Azure generates the activity log by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](../../azure-monitor/essentials/activity-log.md) article.
+Azure generates the activity log by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](/azure/azure-monitor/essentials/activity-log) article.
 
 ## Access log
 
@@ -105,11 +109,11 @@ The access log is generated only if you've enabled it on each Application Gatewa
     "category": "ApplicationGatewayAccessLog",
     "properties": {
         "instanceId": "ApplicationGatewayRole_IN_0",
-        "clientIP": "191.96.249.97",
+        "clientIP": "203.0.113.97",
         "clientPort": 46886,
         "httpMethod": "GET",
         "requestUri": "/phpmyadmin/scripts/setup.php",
-        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=874f1f0f-6807-41c9-b7bc-f3cfa74aa0b1&SERVER-STATUS=404",
+        "requestQuery": "X-AzureApplicationGateway-CACHE-HIT=0&SERVER-ROUTED=10.4.0.4&X-AzureApplicationGateway-LOG-ID=aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e&SERVER-STATUS=404",
         "userAgent": "-",
         "httpStatus": 404,
         "httpVersion": "HTTP/1.0",
@@ -152,7 +156,7 @@ For Application Gateway and WAF v2, the logs show a little more information:
     "category": "ApplicationGatewayAccessLog",
     "properties": {
         "instanceId": "appgw_1",
-        "clientIP": "191.96.249.97",
+        "clientIP": "203.0.113.97",
         "clientPort": 46886,
         "httpMethod": "GET",
         "requestUri": "/phpmyadmin/scripts/setup.php",
@@ -214,7 +218,11 @@ The performance log is generated only if you have enabled it on each Application
 
 The firewall log is generated only if you have enabled it for each application gateway, as detailed in the preceding steps. This log also requires that the web application firewall is configured on an application gateway. The data is stored in the destination that you specified when you enabled the logging. The following data is logged:
 
+# [Application Gateway](#tab/AppGW)
 
+## <a name="AppGW"></a> Application Gateway
+
+### <a name="AppGW-Format"></a> Log Format
 |Value  |Description  |
 |---------|---------|
 |instanceId     | Application Gateway instance for which firewall data is being generated. For a multiple-instance application gateway, there is one row per instance.         |
@@ -237,6 +245,7 @@ The firewall log is generated only if you have enabled it for each application g
 |policyScope    | The location of the policy - values can be "Global", "Listener", or "Location".   |
 |policyScopeName   | The name of the object where the policy is applied.    |
 
+### <a name="AppGW-Example"></a> Example
 ```json
 {
   "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -245,7 +254,7 @@ The firewall log is generated only if you have enabled it for each application g
   "category": "ApplicationGatewayFirewallLog",
   "properties": {
       "instanceId": "ApplicationGatewayRole_IN_0",
-      "clientIp": "52.161.109.147",
+      "clientIp": "203.0.113.147",
       "requestUri": "/",
       "ruleSetType": "OWASP",
       "ruleSetVersion": "3.0",
@@ -262,7 +271,7 @@ The firewall log is generated only if you have enabled it for each application g
       },
       "hostname": "127.0.0.1",
       "transactionId": "16861477007022634343",
-      "policyId": "/subscriptions/1496a758-b2ff-43ef-b738-8e9eb5161a86/resourceGroups/drewRG/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/perListener",
+      "policyId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/drewRG/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/perListener",
       "policyScope": "Listener",
       "policyScopeName": "httpListener1"
     }
@@ -271,11 +280,73 @@ The firewall log is generated only if you have enabled it for each application g
 
 ```
 
+# [Application Gateway for Containers](#tab/AGC)
+
+## <a name="AGC"></a> Application Gateway for Containers
+| Value            | Description                                                                                                                                                                                                            |
+|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| TimeGenerated    | Time (UTC) when the log was created.                                                                                                                                                                                   |
+| OperationName    | Name of the operation.                                                                                                                                                                                                 |
+| InstanceId       | Application Gateway instance for which firewall data is being generated. For a multiple-instance application gateway, there is one row per instance.                                                                   |
+| ClientIp         | Originating IP for the request.                                                                                                                                                                                        |
+| ClientPort       | Originating port for the request.                                                                                                                                                                                      |
+| Action           | Action taken on the request. Available values are Blocked and Allowed (for custom rules), Matched (when a rule matches a part of the request), and Detected and Blocked (these are both for mandatory rules).          |
+| Message          | User-friendly message for the triggering event. More details are provided in the details section.                                                                                                                      |
+| DetailedMessage  | Description of the rule for the triggered event.                                                                                                                                                                       |
+| DetailedData     | Specific data found in request that matched the rule for the triggered event.                                                                                                                                          |
+| FileDetails      | Configuration file that contained the rule for the triggered event.                                                                                                                                                    |
+| LineDetails      | Line number in the configuration file that triggered the event.                                                                                                                                                        |
+| Hostname         | Hostname or IP address of the Application Gateway.                                                                                                                                                                     |
+| PolicyId         | Resource ID of the web application firewall policy.                                                                                                                                                                    |
+| PolicyScope      | A named scope consisting of Kubernetes resource references the scope is applied to.                                                                                                                                    |
+| PolicyScopeName  | The name to the type of scope assignment the web application firewall policy is assigned to.                                                                                                                           |
+| RequestUri       | URL of the received request.                                                                                                                                                                                           |
+| RuleSetType      | Rule set type. The available value is Microsoft_DefaultRuleSet or Microsoft_BotManagerRuleSet.                                                                                                                         |
+| RuleSetVersion   | Rule set version used for Microsoft_DefaultRuleSet or Microsoft_BotManagerRuleSet.                                                                                                                                     |
+| RuleId           | Rule ID of the triggering event.                                                                                                                                                                                       |
+| TrackingId       | Generated guid by Application Gateway
+
+### <a name="AGC-Format"></a> Log Format
+```json
+{
+    "timeStamp": "2025-06-17T20:06:05+00:00",
+    "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/YYYYYY/PROVIDERS/MICROSOFT.SERVICENETWORKING/TRAFFICCONTROLLERS/ZZZZZZZ",
+    "operationName": "TrafficControllerFirewall",
+    "category": "TrafficControllerFirewallLog",
+    "properties": {
+        "instanceId": "8a02ae47-8435-4f3d-84a5-6f5ded3763f5",
+        "clientIp": "xxx.xxx.xxx.xxx",
+        "requestUri": "\/?1=1=1",
+        "ruleSetType": "Microsoft_DefaultRuleSet",
+        "ruleSetVersion": "2.1",
+        "ruleId": "949110",
+        "ruleGroup": "BLOCKING-EVALUATION",
+        "message": "Inbound Anomaly Score Exceeded (Total Score: 5)",
+        "action": "Blocked",
+        "details": {
+            "message": "Greater and Equal to Tx:inbound_anomaly_score_threshold at TX:anomaly_score.",
+            "data": "",
+            "file": "BLOCKING-EVALUATION.conf",
+            "line": "36"
+        },
+        "hostName": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.fzXX.alb.azure.com",
+        "trackingId": "0ef125db-7fb7-48a0-b3fe-03fe0ffed873",
+        "policyId": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/resourceGroups/YYYYYY/providers/Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/ZZZZZZZ",
+        "policyScope": "HTTPRoute-test-infra-contoso-waf-route-rule-0-match-0-waf.fzXX.alb.azure.com",
+        "policyScopeName": "Route",
+        "engine": "Azwaf"
+    },
+    "location": "northcentralus"
+}
+```
+
+----
+
 ## View and analyze the activity log
 
 You can view and analyze activity log data by using any of the following methods:
 
-* **Azure tools**: Retrieve information from the activity log through Azure PowerShell, the Azure CLI, the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Activity operations with Resource Manager](../../azure-monitor/essentials/activity-log.md) article.
+* **Azure tools**: Retrieve information from the activity log through Azure PowerShell, the Azure CLI, the Azure REST API, or the Azure portal. Step-by-step instructions for each method are detailed in the [Activity operations with Resource Manager](/azure/azure-monitor/essentials/activity-log) article.
 * **Power BI**: If you don't already have a [Power BI](https://powerbi.microsoft.com/pricing) account, you can try it for free. By using the [Power BI template apps](/power-bi/service-template-apps-overview), you can analyze your data.
 
 ## View and analyze the access, performance, and firewall logs

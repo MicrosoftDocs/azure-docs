@@ -2,7 +2,7 @@
 title: Use parameters to creating dynamic blueprints
 description: Learn about static and dynamic parameters and how to use them to create secure and dynamic blueprints.
 ms.date: 09/07/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 # Creating dynamic blueprints through parameters
 
@@ -68,7 +68,7 @@ on the Key Vault prior to blueprint assignment.
 > deployment](../../../azure-resource-manager/managed-applications/key-vault-access.md#enable-template-deployment).
 
 For more information about Azure Key Vault, see [Key Vault
-Overview](../../../key-vault/general/overview.md).
+Overview](/azure/key-vault/general/overview).
 
 ## Parameter types
 

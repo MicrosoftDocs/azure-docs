@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure Data Share 
 description: Learn how to troubleshoot problems with invitations and errors when you create or receive data shares in Azure Data Share.
-author: sidontha
-ms.author: sidontha
-ms.service: data-share
+author: chvukosw
+ms.author: chvukosw
+ms.service: azure-data-share
 ms.topic: troubleshooting
-ms.date: 12/19/2023
+ms.date: 01/20/2026
 ---
 
 # Troubleshoot common problems in Azure Data Share
@@ -30,7 +30,7 @@ In some cases, when new users select **Accept Invitation** in an email invitatio
 
 * **The invitation is already accepted.** The link in the email takes you to the **Data Share Invitations** page in the Azure portal. This page lists only pending invitations. Accepted invitations don't appear on the page. To view received shares and configure your target Azure Data Explorer cluster setting, go to the Data Share resource you used to accept the invitation.
 
-* **You are guest user of the tenant.** If you're a guest user of the tenant, you'll need to verify your email address for the tenant prior to viewing the invitation. Once verified, it's valid for 12 months.
+* **You are guest user of the tenant.** If you're a guest user of the tenant, you need to verify your email address for the tenant prior to viewing the invitation. Once verified, it's valid for 12 months.
 
 ## Creating and receiving shares
 
@@ -98,7 +98,7 @@ Dataset mapping can fail for Azure Data Explorer clusters due to the following r
 * The source or target Azure Data Explorer cluster is paused.
 * Source Azure Data Explorer cluster is EngineV2 and target is EngineV3, or vice versa. Sharing between Azure Data Explorer clusters of different engine versions isn't supported.
 
-## Next steps
+## Related content
 
 To learn how to start sharing data, continue to the [Share data](share-your-data.md) tutorial.
 

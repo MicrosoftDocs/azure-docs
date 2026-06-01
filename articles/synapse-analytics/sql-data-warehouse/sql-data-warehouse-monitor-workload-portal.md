@@ -1,22 +1,24 @@
 ---
 title: Monitor workload - Azure portal
 description: Monitor Synapse SQL using the Azure portal
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: whhender
+author: joannapea
+ms.author: joanpo
 ms.date: 09/13/2022
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Monitor workload - Azure portal
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This article describes how to use the Azure portal to monitor your workload. This includes setting up Azure Monitor Logs to investigate query execution and workload trends using log analytics for [Synapse SQL](https://azure.microsoft.com/blog/workload-insights-with-sql-data-warehouse-delivered-through-azure-monitor-diagnostic-logs-pass/).
 
 ## Prerequisites
 
-- Azure subscription: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+- Azure subscription: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - SQL pool: We will be collecting logs for a SQL pool. If you don't have a SQL pool provisioned, see the instructions in [Create a SQL pool](./load-data-from-azure-blob-storage-using-copy.md).
 
 ## Create a Log Analytics workspace
@@ -27,7 +29,7 @@ In the Azure portal, navigate to the page for Log Analytics workspaces, or use t
 
 :::image type="content" source="./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png" alt-text="Screenshot shows the Log Analytics workspace where you can enter values.":::
 
-For more information on workspaces, see [Create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
+For more information on workspaces, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 
 ## Turn on Resource logs
 
@@ -60,7 +62,7 @@ For details on the capabilities of log queries using Kusto, see [Kusto Query Lan
 
 ## Sample log queries
 
-Set the [scope of your queries](../../azure-monitor/logs/scope.md) to the Log Analytics workspace resource.
+Set the [scope of your queries](/azure/azure-monitor/logs/scope) to the Log Analytics workspace resource.
 
 ```Kusto
 //List all queries
@@ -88,4 +90,4 @@ AzureDiagnostics
 
 ## Next steps
 
-- Now that you have set up and configured Azure monitor logs, [customize Azure dashboards](../../azure-portal/azure-portal-dashboards.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) to share across your team.
+- Now that you have set up and configured Azure monitor logs, [customize Azure dashboards](/azure/azure-portal/azure-portal-dashboards?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) to share across your team.

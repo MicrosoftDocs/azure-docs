@@ -7,7 +7,7 @@ ms.custom:
   - build-2024
 ms.author: robece
 ms.date: 05/25/2021
-ms.topic: conceptual
+ms.topic: feature-availability
 ---
 
 # Event Grid on Kubernetes with Azure Arc features
@@ -33,7 +33,7 @@ Although Event Grid on Kubernetes and Azure Event Grid share many features and t
 | [System Topics](../system-topics.md) | ✘ | ✔ |
 | [Domain Topics](../event-domains.md) | ✘ | ✔ |
 | [Partner Events](../partner-events-overview.md) | ✘ | ✔ |
-| [Destination endpoint validation](../webhook-event-delivery.md#endpoint-validation-with-event-grid-events) | ✘ | ✔ |
+| [Destination endpoint validation](../end-point-validation-cloud-events-schema.md) | ✘ | ✔ |
 | [Azure Event Grid trigger for Azure Functions](../../azure-functions/functions-bindings-event-grid-trigger.md) | ✘ | ✔ |
 | Azure Relay's Hybrid Connections as a destination | ✘ | ✔ |
 | [Advanced filtering](filter-events.md) | ✔*** | ✔ |

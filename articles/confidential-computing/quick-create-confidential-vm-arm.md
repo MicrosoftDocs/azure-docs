@@ -2,13 +2,18 @@
 title: Create an Azure confidential VM with ARM template
 description: Learn how to quickly create and deploy an Azure confidential virtual machine (confidential VM) using an ARM template.
 author: RunCai
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: RunCai
-ms.custom: mode-arm, devx-track-azurecli, devx-track-arm-template, has-azure-ad-ps-ref
 ms.devlang: azurecli
+ms.custom:
+  - mode-arm
+  - devx-track-azurecli
+  - devx-track-arm-template
+  - has-azure-ad-ps-ref
+  - sfi-ga-nochange
+# Customer intent: As an IT administrator, I want to deploy a confidential virtual machine using an ARM template, so that I can ensure secure memory encryption and isolation for my sensitive workloads.
 ---
 
 # Quickstart: Deploy confidential VM with ARM template
@@ -19,7 +24,7 @@ This tutorial covers deployment of a confidential VM with a custom configuration
 
 ## Prerequisites
 
-- An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
+- An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - If you want to deploy from the Azure CLI, [install PowerShell](/powershell/azure/install-azure-powershell) and [install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Deploy confidential VM template with Azure CLI
@@ -58,13 +63,13 @@ To create and deploy your confidential VM using an ARM template through the Azur
     az group create -n $resourceGroup -l $region
     ```
 
-1. Deploy your VM to Azure using an ARM template with a custom parameter file. For TDX deployments here is an example template: https://aka.ms/TDXtemplate.
+1. Deploy your VM to Azure using an ARM template with a custom parameter file and [template file](https://github.com/Azure/confidential-computing-cvm/tree/main/cvm_deployment/templates).
 
     ```azurecli-interactive
     az deployment group create `
      -g $resourceGroup `
      -n $deployName `
-     -u "https://aka.ms/CVMTemplate" `
+     -u "<json-template-file-path>" `
      -p "<json-parameter-file-path>" `
      -p vmLocation=$region `
         vmName=$vmName
@@ -173,7 +178,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
     New-MgServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"
     ```
 
-1. Set up your Azure key vault. For how to use an Azure Key Vault Managed HSM instead, see the next step.
+1. Set up your Azure Key Vault. For how to use an Azure Key Vault Managed HSM instead, see the next step.
 
     1. Create a resource group for your key vault. Your key vault instance and your confidential VM must be in the same Azure region.
 
@@ -198,9 +203,9 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         az keyvault set-policy --name $KeyVault --object-id $cvmAgent.Id --key-permissions get release
         ```
 
-1. (Optional) If you don't want to use an Azure key vault, you can create an Azure Key Vault Managed HSM instead.
+1. (Optional) If you don't want to use an Azure Key Vault, you can create an Azure Key Vault Managed HSM instead.
 
-    1. Follow the [quickstart to create an Azure Key Vault Managed HSM](../key-vault/managed-hsm/quick-create-cli.md) to provision and activate Azure Key Vault Managed HSM.
+    1. Follow the [quickstart to create an Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/quick-create-cli) to provision and activate Azure Key Vault Managed HSM.
     1. Enable purge protection on the Azure Managed HSM. This step is required to enable key release.
 
         ```azurecli-interactive
@@ -216,14 +221,13 @@ Use this example to create a custom parameter file for a Linux-based confidentia
 
 1. Create a new key using Azure Key Vault. For how to use an Azure Managed HSM instead, see the next step.
 
-    1. Prepare and download the [key release policy](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/skr-policy.json) to your local disk.
-    1. Create a new key.
+   1. Create a new key with [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create)
 
-        ```azurecli-interactive
-        $KeyName = <name of key>
-        $KeySize = 3072
-        az keyvault key create --vault-name $KeyVault --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --exportable true --policy "@.\skr-policy.json"
-        ```
+      ```
+      $KeyName = <name of key>
+      $KeySize = 3072
+      az keyvault key create --vault-name $KeyVault --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --exportable true --default-cvm-policy
+      ```
 
     1. Get information about the key that you created.
 
@@ -232,7 +236,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         $encryptionKeyURL= ((az keyvault key show --vault-name $KeyVault --name $KeyName) | ConvertFrom-Json).key.kid
         ```
 
-    1. Deploy a Disk Encryption Set (DES) using a [DES ARM template](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployDES.json) (`deployDES.json`).
+    1. Deploy a Disk Encryption Set (DES) using a DES ARM template (`deployDES.json`).
 
         ```azurecli-interactive
         $desName = <name of DES>
@@ -260,15 +264,13 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         ```
 
  1. (Optional) Create a new key from an Azure Managed HSM.
-    1. Prepare and download the [key release policy](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/skr-policy.json) to your local disk.
-    1. Create the new key.
-
-        ```azurecli-interactive
-        $KeyName = <name of key>
-        $KeySize = 3072
-        az keyvault key create --hsm-name $hsm --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --exportable true --policy "@.\skr-policy.json"
-        ```
-
+    
+    1. Create a new key with [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create)
+          ```
+          $KeyName = <name of key>
+          $KeySize = 3072
+          az keyvault key create --hsm-name $hsm --name $KeyName --ops wrapKey unwrapkey --kty RSA-HSM --size $KeySize --exportable true --default-cvm-policy
+          ```
     1. Get information about the key that you created.
 
           ```azurecli-interactive
@@ -287,7 +289,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
     1. Assign key access to the DES.
 
           ```azurecli-interactive
-          desIdentity=$(az disk-encryption-set show -n $desName -g $resourceGroup --query [identity.principalId] -o tsv)
+          $desIdentity=$(az disk-encryption-set show -n $desName -g $resourceGroup --query [identity.principalId] -o tsv)
           az keyvault set-policy -n $hsm `
               -g $resourceGroup `
               --object-id $desIdentity `
@@ -302,7 +304,7 @@ Use this example to create a custom parameter file for a Linux-based confidentia
         $desID = (az disk-encryption-set show -n $desName -g $resourceGroup --query [id] -o tsv)
         ```
 
-    1. Deploy your confidential VM using a confidential VM ARM template for [AMD SEV-SNP](https://cvmprivatepreviewsa.blob.core.windows.net/cvmpublicpreviewcontainer/deploymentTemplate/deployCPSCVM_cmk.json) or Intel TDX and a [deployment parameter file](#example-windows-parameter-file) (for example, `azuredeploy.parameters.win2022.json`) with the customer-managed key.
+    1. Deploy your confidential VM using a confidential VM ARM template for Intel TDX and a [deployment parameter file](#example-windows-parameter-file) (for example, `azuredeploy.parameters.win2022.json`) with the customer-managed key.
 
         ```azurecli-interactive
         $deployName = <name of deployment>

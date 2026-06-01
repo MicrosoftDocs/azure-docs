@@ -2,11 +2,15 @@
 title: Azure Load Balancer portal settings
 description: Get started learning about Azure Load Balancer portal settings.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 01/19/2024
 ms.author: mbender
-ms.custom: template-how-to, engagement-fy23
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: As a cloud architect, I want to configure an Azure Load Balancer using the portal, so that I can effectively manage traffic distribution across my virtual machine instances for improved application performance and availability.
 ---
 
 # Azure Load Balancer portal settings
@@ -235,7 +239,7 @@ The following is displayed in the **Add outbound rule** creation page:
 | Port allocation | Your choices are: </br> **Manually choose number of outbound ports** </br> **Use the default number of outbound ports** </br> The recommended selection is the default of **Manually choose number of outbound ports** to prevent SNAT port exhaustion. If **Use the default number of outbound ports** is chosen, the **Outbound ports** selection is disabled. |
 | Outbound ports | Your choices are: </br> **Ports per instance** </br> **Maximum number of backend instances**. </br> The recommended selections are select **Ports per instance** and enter **10,000**. |
 
-:::image type="content" source="./media/manage/add-outbound-rule.png" alt-text="Screenshot of add outbound rule." border="true":::
+:::image type="content" source="./media/manage/add-outbound-rule.png" alt-text="Screenshot of add outbound rule. Allowing to set the outbound ports." border="true":::
 
 ## Portal settings
 
@@ -309,7 +313,7 @@ If you want to add a load balancer rule to your load balancer, go to your load b
 | Idle timeout (minutes) | Keep a **TCP** or **HTTP** connection open without relying on clients to send keep-alive messages |  
 | TCP reset | Load balancer can send **TCP resets** to help create a more predictable application behavior on when the connection is idle. </br> Learn more about [TCP reset](load-balancer-tcp-reset.md)|
 | Floating IP | Floating IP is Azure's terminology for a portion of what is known as **Direct Server Return (DSR)**. </br> DSR consists of two parts: <br> 1. Flow topology </br> 2. An IP address-mapping scheme at a platform level. </br></br> Azure Load Balancer always operates in a DSR flow topology whether floating IP is enabled or not. </br> This operation means that the outbound part of a flow is always correctly rewritten to flow directly back to the origin. </br> Without floating IP, Azure exposes a traditional load-balancing IP address-mapping scheme, the VM instances' IP. </br> Enabling floating IP changes the IP address mapping to the frontend IP of the load Balancer to allow for more flexibility. </br> For more information, see [Multiple frontends for Azure Load Balancer](load-balancer-multivip-overview.md).|
-| Outbound source network address translation (SNAT) | Your options are: </br> **(Recommended) Use outbound rules to provide backend pool members access to the internet.** </br> **Use implicit outbound rule. This is not recommended because it can cause SNAT port exhaustion.** </br> Select the **Recommended** option to prevent SNAT port exhaustion. A **NAT gateway** or **Outbound rules** are required to provide SNAT for the backend pool members. For more information on **NAT gateway**, see [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md). </br> For more information on outbound connections in Azure, see [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md). |
+| Outbound source network address translation (SNAT) | Your options are: </br> **(Recommended) Use outbound rules to provide backend pool members access to the internet.** </br> **Use implicit outbound rule. This is not recommended because it can cause SNAT port exhaustion.** </br> Select the **Recommended** option to prevent SNAT port exhaustion. A **NAT gateway** or **Outbound rules** are required to provide SNAT for the backend pool members. For more information on **NAT gateway**, see [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md) </br> For more information on outbound connections in Azure, see [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md). |
 
 :::image type="content" source="./media/manage/load-balancing-rule.png" alt-text="Screenshot of add load-balancing rule." border="true":::
 
@@ -361,7 +365,7 @@ If you want to add an outbound rule to your load balancer, go to your load balan
 | Available Frontend ports | Displayed value of total available frontend ports based on selected port allocation. |
 | Maximum number of backend instances | Enter the maximum number of back end instances. This entry is only available when choosing **Maximum number of backend instances** for outbound ports above. </br> You can't scale your backend pool above this number of instances. Increasing the number of instances decreases the number of ports per instance unless you also add more frontend IP addresses. |
 
-:::image type="content" source="./media/manage/outbound-rule.png" alt-text="Screehshot of add outbound rule." border="true":::
+:::image type="content" source="./media/manage/outbound-rule.png" alt-text="Screenshot of add outbound rule.  Allowing to set the maximum number of backend instances." border="true":::
 
 ## Next Steps
 

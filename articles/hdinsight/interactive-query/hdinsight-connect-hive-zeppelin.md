@@ -1,9 +1,12 @@
 ---
 title: 'Quickstart: Apache Hive in Azure HDInsight with Apache Zeppelin'
 description: In this quickstart, you learn how to use Apache Zeppelin to run Apache Hive queries.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: quickstart
 ms.custom: hdinsightactive, mode-other
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: nijelsf
 ms.date: 05/22/2024
 #Customer intent: As a Hive user, I want learn Zeppelin so that I can run queries.
 ---
@@ -12,7 +15,7 @@ ms.date: 05/22/2024
 
 In this quickstart, you learn how to use Apache Zeppelin to run [Apache Hive](https://hive.apache.org/) queries in Azure HDInsight. HDInsight Interactive Query clusters include [Apache Zeppelin](https://zeppelin.apache.org/) notebooks that you can use to run interactive Hive queries.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

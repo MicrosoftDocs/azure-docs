@@ -1,243 +1,373 @@
 ---
-title: Custom container sessions in Azure Container Apps (preview)
-description: Learn to run a container in a custom session in Azure Container Apps.
+title: Custom container sessions in Azure Container Apps
+description: Learn about custom container sessions in Azure Container Apps, including container probes for session pools.
 services: container-apps
-author: anthonychu
-ms.service: container-apps
-ms.topic: conceptual
-ms.date: 06/26/2024
-ms.author: antchu
+author: craigshoemaker
+ms.service: azure-container-apps
+ms.custom:
+  - ignite-2024
+ms.topic: concept-article
+ms.date: 03/18/2026
+ms.update-cycle: 180-days
+ms.author: cshoe
+ms.collection: ce-skilling-ai-copilot
+
+#customer intent: As an application developer using Azure Container Apps, I want to use custom container sessions, including container probes for session pools.
 ---
 
-# Azure Container Apps custom container sessions (preview)
+# Azure Container Apps custom container sessions
 
 In addition to the built-in code interpreter that Azure Container Apps dynamic sessions provide, you can also use custom containers to define your own session sandboxes.
 
 > [!NOTE]
-> Azure Container Apps dynamic sessions is currently in preview. See [preview limitations](sessions.md#preview-limitations) for more information.
+> This article applies only to custom container session pools. Unless otherwise noted, features described here aren't available for code interpreter session pools.
 
 ## Uses for custom container sessions
 
-Custom containers allow you to build solutions tailored to your needs. They enable you to execute code or run applications in environments that are fast and ephemeral and offer secure, sandboxed spaces with Hyper-V. Additionally, they can be configured with optional network isolation. Some examples include:
+Custom containers allow you to build solutions tailored to your needs. They enable you to run code or applications in environments that are fast and ephemeral. They offer secure, sandboxed spaces with Hyper-V. Also, they can be configured with optional network isolation. Some examples include:
 
-* **Code interpreters**: When you need to execute untrusted code in secure sandboxes by a language not supported in the built-in interpreter, or you need full control over the code interpreter environment.
+- **Code interpreters**: Use if you run untrusted code in secure sandboxes by a language not supported in the built-in interpreter, or you need full control over the code interpreter environment.
 
-* **Isolated execution**: When you need to run applications in hostile, multitenant scenarios where each tenant or user has their own sandboxed environment. These environments are isolated from each other and from the host application. Some examples include applications that run user-provided code, code that grants end user access to a cloud-based shell, AI agents, and development environments.
+- **Isolated execution**: Use if you run applications in hostile, multitenant scenarios where each tenant or user has their own sandboxed environment. These environments are isolated from each other and from the host application. Some examples include applications that run user-provided code, code that grants end user access to a cloud-based shell, AI agents, and development environments.
 
 ## Using custom container sessions
 
-To use custom container sessions, you first create a session pool with a custom container image. Azure Container Apps automatically starts containers in their own Hyper-V sandboxes using the provided image. Once the container starts up, it's available to the session pool.
+To use custom container sessions, create a session pool with a custom container image. Azure Container Apps automatically starts containers in their own Hyper-V sandboxes using the provided image. After the container starts up, it's available to the session pool.
 
 When your application requests a session, an instance is instantly allocated from the pool. The session remains active until it enters an idle state, which is then automatically stopped and destroyed.
 
-### Creating a custom container session pool
+## Container probes for session pools
 
-To create a custom container session pool, you need to provide a container image and pool configuration settings.
+Use container probes to configure health checks for custom container session pools and maintain healthy session instances.
 
-You invoke or communicate with each session using HTTP requests. The custom container must expose an HTTP server on a port that you specify to respond to these requests.
+> [!NOTE]
+> Container probes require API version `2025-02-02-preview` or later.
 
-# [Azure CLI](#tab/azure-cli)
+Container probes let you define health checks for session containers, similar to health probes in Azure Container Apps. When configured, the session pool monitors each session instance and removes unhealthy instances.
 
-To create a custom container session pool using the Azure CLI, ensure you have the latest versions of the Azure CLI and the Azure Container Apps extension with the following commands:
+The session pool:
 
-```bash
-az upgrade
-az extension add --name containerapp --upgrade --allow-preview true -y
-```
+- Ensures ready session instances are healthy based on the probes.
+- Automatically removes unhealthy session instances.
+- Scales up to maintain the configured `readySessionInstances` count with healthy sessions.
 
-Custom container session pools require a workload profile enabled Azure Container Apps environment. If you don't have an environment, use the `az containerapp env create -n <ENVIRONMENT_NAME> -g <RESOURCE_GROUP> --location <LOCATION> --enable-workload-profiles` command to create one.
+Session pools support **Liveness** and **Startup** probe types. For more information about how probes work, see [Health probes in Azure Container Apps](health-probes.md?tabs=arm-template).
 
-Use the `az containerapp sessionpool create` command to create a custom container session pool.
+### Configuration
 
-The following example creates a session pool named `my-session-pool` with a custom container image `myregistry.azurecr.io/my-container-image:1.0`.
+When you create or update a session pool, specify probes in the `properties.customContainerTemplate.containers` section of your request payload.
 
-Before you send the request, replace the placeholders between the `<>` brackets with the appropriate values for your session pool and session identifier.
+For the full API specification, see [SessionPools API](/rest/api/resource-manager/containerapps/container-apps-session-pools/create-or-update?view=rest-resource-manager-containerapps-2025-07-01&tabs=HTTP&preserve-view=true).
 
-```bash
-az containerapp sessionpool create \
-    --name my-session-pool \
-    --resource-group <RESOURCE_GROUP> \
-    --environment <ENVIRONMENT> \
-    --registry-server myregistry.azurecr.io \
-    --registry-username <USER_NAME> \
-    --registry-password <PASSWORD> \
-    --container-type CustomContainer \
-    --image myregistry.azurecr.io/my-container-image:1.0 \ 
-    --cpu 0.25 --memory 0.5Gi \
-    --target-port 80 \
-    --cooldown-period 300 \
-    --network-status EgressDisabled \
-    --max-sessions 10 \
-    --ready-sessions 5 \
-    --env-vars "key1=value1" "key2=value2"
-```
-
-This command creates a session pool with the following settings:
-
-| Parameter | Value | Description |
-|---------|-------|-------------|
-| `--name` | `my-session-pool` | The name of the session pool. |
-| `--resource-group` | `my-resource-group` | The resource group that contains the session pool. |
-| `--environment` | `my-environment` | The name or resource ID of the container app's environment. |
-| `--container-type` | `CustomContainer` | The container type of the session pool. Must be `CustomContainer` for custom container sessions. |
-| `--image` | `myregistry.azurecr.io/my-container-image:1.0` | The container image to use for the session pool. |
-| `--registry-server` | `myregistry.azurecr.io` | The container registry server hostname. |
-| `--registry-username` | `my-username` | The username to log in to the container registry. |
-| `--registry-password` | `my-password` | The password to log in to the container registry. |
-| `--cpu` | `0.25` | The required CPU in cores. |
-| `--memory` | `0.5Gi` | The required memory. |
-| `--target-port` | `80` | The session port used for ingress traffic. |
-| `--cooldown-period` | `300` | The number of seconds that a session can be idle before the session is terminated. The idle period is reset each time the session's API is called. Value must be between `300` and `3600`. |
-| `--network-status` | Designates whether outbound network traffic is allowed from the session. Valid values are `EgressDisabled` (default) and `EgressEnabled`. |
-| `--max-sessions` | `10` | The maximum number of sessions that can be allocated at the same time. |
-| `--ready-sessions` | `5` | The target number of sessions that are ready in the session pool all the time. Increase this number if sessions are allocated faster than the pool is being replenished. |
-| `--env-vars` | `"key1=value1" "key2=value2"` | The environment variables to set in the container. |
-
-To update the session pool, use the `az containerapp sessionpool update` command.
-
-# [Azure Resource Manager](#tab/arm)
-
-To create a custom container session pool using Azure Resource Manager, create a session pool resource with the `Microsoft.ContainerApps/sessionPools` resource type. The following example shows an ARM template snippet that creates a custom container session pool.
-
-Before you send the request, replace the placeholders between the `<>` brackets with the appropriate values for your session pool and session identifier.
+#### Example
 
 ```json
 {
-  "type": "Microsoft.App/sessionPools",
-  "apiVersion": "2024-02-02-preview",
-  "name": "my-session-pool",
-  "location": "westus2",
   "properties": {
-    "environmentId": "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerApps/environments/<ENVIRONMENT_NAME>",
-    "poolManagementType": "Dynamic",
-    "containerType": "CustomContainer",
-    "scaleConfiguration": {
-      "maxConcurrentSessions": 10,
-      "readySessionInstances": 5
-    },
-    "dynamicPoolConfiguration": {
-      "executionType": "Timed",
-      "cooldownPeriodInSeconds": 600
-    },
     "customContainerTemplate": {
       "containers": [
         {
-          "image": "myregistry.azurecr.io/my-container-image:1.0",
-          "name": "mycontainer",
-          "resources": {
-            "cpu": 0.25,
-            "memory": "0.5Gi"
-          },
-          "command": [
-            "/bin/sh"
-          ],
-          "args": [
-            "-c",
-            "while true; do echo hello; sleep 10;done"
-          ],
-          "env": [
+          "name": "my-session-container",
+          "image": "myregistry.azurecr.io/my-session-image:latest",
+          "probes": [
             {
-              "name": "key1",
-              "value": "value1"
+              "type": "Liveness",
+              "httpGet": {
+                "path": "/health",
+                "port": 8080
+              },
+              "periodSeconds": 10,
+              "failureThreshold": 3
             },
             {
-              "name": "key2",
-              "value": "value2"
+              "type": "Startup",
+              "httpGet": {
+                "path": "/ready",
+                "port": 8080
+              },
+              "periodSeconds": 5,
+              "failureThreshold": 30
             }
           ]
         }
-      ],
-      "ingress": {
-        "targetPort": 80
-      }
+      ]
     },
-    "sessionNetworkConfiguration": {
-      "status": "EgressEnabled"
+    "dynamicPoolConfiguration": {
+      "readySessionInstances": 5
     }
   }
 }
 ```
 
-This template creates a session pool with the following settings:
+### Troubleshooting
 
-| Parameter | Value | Description |
-|---------|-------|-------------|
-| `name` | `my-session-pool` | The name of the session pool. |
-| `location` | `westus2` | The location of the session pool. |
-| `environmentId` | `/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerApps/environments/<ENVIRONMENT_NAME>` | The resource ID of the container app's environment. |
-| `poolManagementType` | `Dynamic` | Must be `Dynamic` for custom container sessions. |
-| `containerType` | `CustomContainer` | The container type of the session pool. Must be `CustomContainer` for custom container sessions. |
-| `scaleConfiguration.maxConcurrentSessions` | `10` | The maximum number of sessions that can be allocated at the same time. |
-| `scaleConfiguration.readySessionInstances` | `5` | The target number of sessions that are ready in the session pool all the time. Increase this number if sessions are allocated faster than the pool is being replenished. |
-| `dynamicPoolConfiguration.executionType` | `Timed` | The type of execution for the session pool. Must be `Timed` for custom container sessions. |
-| `dynamicPoolConfiguration.cooldownPeriodInSeconds` | `600` | The number of seconds that a session can be idle before the session is terminated. The idle period is reset each time the session's API is called. Value must be between `300` and `3600`. |
-| `customContainerTemplate.containers[0].image` | `myregistry.azurecr.io/my-container-image:1.0` | The container image to use for the session pool. |
-| `customContainerTemplate.containers[0].name` | `mycontainer` | The name of the container. |
-| `customContainerTemplate.containers[0].resources.cpu` | `0.25` | The required CPU in cores. |
-| `customContainerTemplate.containers[0].resources.memory` | `0.5Gi` | The required memory. |
-| `customContainerTemplate.containers[0].env` | Array of name-value pairs | The environment variables to set in the container. |
-| `customContainerTemplate.containers[0].command` | `["/bin/sh"]` | The command to run in the container. |
-| `customContainerTemplate.containers[0].args` | `["-c", "while true; do echo hello; sleep 10;done"]` | The arguments to pass to the command. |
-| `customContainerTemplate.containers[0].ingress.targetPort` | `80` | The session port used for ingress traffic. |
-| `sessionNetworkConfiguration.status` | `EgressDisabled` | Designates whether outbound network traffic is allowed from the session. Valid values are `EgressDisabled` (default) and `EgressEnabled`. |
+If your session pool isn't maintaining the expected number of healthy `readySessionInstances`, consider the following fixes:
 
----
+- **Check container logs**. Review session container logs to identify issues with probe endpoints or container startup. See [View logs for custom container session pools](troubleshooting.md#view-logs).
+- **Verify probe configuration**. Ensure probe paths, ports, and thresholds are configured correctly for your application.
+- **Review container health**. Check for issues inside your container that prevent probe endpoints from responding successfully.
 
-> [!IMPORTANT]
-> If the session is used to run untrusted code, don't include information or data that you don't want the untrusted code to access. Assume the code is malicious and has full access to the container, including its environment variables, secrets, and files. 
+## Stop a session
 
-### Working with sessions
+Use the Stop Session API to terminate a session in a custom container session pool.
 
-Your application interacts with a session using the session pool's management API.
+Session pools support automatic session management through `lifecycleConfiguration`, which handles session lifecycle based on your configuration. However, there are scenarios where you might need more control.
 
-A pool management endpoint for custom container sessions follows this format: `https://<SESSION_POOL>.<ENVIRONMENT_ID>.<REGION>.azurecontainerapps.io`.
+After allocating a session, you can call this API to manually terminate it at any time. This approach is useful when:
 
-To retrieve the session pool's management endpoint, use the `az containerapp sessionpool show` command:
-```bash
-az containerapp sessionpool show \
-    --name <SESSION_POOL_NAME> \
-    --resource-group <RESOURCE_GROUP> \
-    --query "properties.poolManagementEndpoint" \
-    --output tsv
-```
+- You need to clean up resources before a session reaches its time-to-live.
+- Your session pool reaches its maximum concurrent sessions limit and you need to free up capacity for new sessions.
+- A session completes its work and you want to release resources immediately.
 
-All requests to the pool management endpoint must include an `Authorization` header with a bearer token. To learn how to authenticate with the pool management API, see [Authentication](sessions.md#authentication).
+### API reference
 
-Each API request must also include the query string parameter `identifier` with the session ID. This unique session ID enables your application to interact with specific sessions. To learn more about session identifiers, see [Session identifiers](sessions.md#session-identifiers).
-
-> [!IMPORTANT]
-> The session identifier is sensitive information which requires a secure process as you create and manage its value. To protect this value, your application must ensure each user or tenant only has access to their own sessions.
-> Failure to secure access to sessions may result in misuse or unauthorized access to data stored in your users' sessions. For more information, see [Session identifiers](sessions.md#session-identifiers)
-
-#### Forwarding requests to the session's container:
-
-Anything in the path following the base pool management endpoint is forwarded to the session's container.
-
-For example, if you make a call to `<POOL_MANAGEMENT_ENDPOINT>/api/uploadfile`, the request is routed to the session's container at `0.0.0.0:<TARGET_PORT>/api/uploadfile`.
-
-#### Continuous session interaction:
-
-You can continue making requests to the same session. If there are no requests to the session for longer than the cooldown period, the session is automatically deleted.
-
-#### Sample request
-
-The following example shows a request to a custom container session by a user ID.
-
-Before you send the request, replace the placeholders between the `<>` brackets with values specific to your request.
+#### Request
 
 ```http
-POST https://<SESSION_POOL_NAME>.<ENVIRONMENT_ID>.<REGION>.azurecontainerapps.io/<API_PATH_EXPOSED_BY_CONTAINER>?identifier=<USER_ID>
+POST <POOL_MANAGEMENT_ENDPOINT>/.management/stopSession?api-version=2025-02-02-preview&identifier=<SESSION_ID>
+```
+
+#### Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `api-version` | string | Yes | The API version to use (for example, `2025-02-02-preview`). |
+| `identifier` | string | Yes | The unique identifier of the session to stop. |
+
+### Examples
+
+#### Request
+
+```http
+POST https://<SESSION_POOL_NAME>.<ENVIRONMENT_ID>.<REGION>.azurecontainerapps.io/.management/stopSession?api-version=2025-02-02-preview&identifier=testSessionIdentifier
+```
+
+#### Response
+
+```text
+HTTP/1.1 200 OK
+Content-Type: text/plain
+
+Session testSessionIdentifier in session pool testSessionPool stopped.
+```
+
+## Retrieve session information
+
+You can query your session pool to check session status, get expiration details, and list all active sessions. This capability is useful for monitoring session health, tracking resource usage, and implementing custom cleanup workflows.
+
+### Get a single session
+
+To retrieve details about a specific session, use the `getSession` endpoint:
+
+```http
+POST <POOL_MANAGEMENT_ENDPOINT>/.management/getSession?identifier=<SESSION_ID>&api-version=2025-02-02-preview
 Authorization: Bearer <TOKEN>
+```
+
+The `getSession` endpoint returns session metadata including the session identifier, current expiration time, and creation timestamp.
+
+#### SessionView response schema
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `identifier` | string | Yes | The session identifier you provided |
+| `etag` | string | Yes | Opaque version identifier for the session. You can use this identifier for change detection. |
+| `expiresAt` | DateTime | Yes | UTC timestamp when the session will be terminated |
+| `createdAt` | DateTime | No | Session creation timestamp |
+| `lastAccessedAt` | DateTime | No | Timestamp of the last request to this session |
+
+#### Example request and response
+
+```bash
+curl -X POST "https://my-pool.env-id.westus2.azurecontainerapps.io/.management/getSession?identifier=user-123&api-version=2025-02-02-preview" \
+  -H "Authorization: Bearer $TOKEN"
+```
+
+Success response (HTTP 200):
+
+```json
 {
-  "command": "echo 'Hello, world!'"
+  "identifier": "user-123",
+  "etag": "a1b2c3d4",
+  "expiresAt": "2026-04-30T14:30:00Z",
+  "createdAt": "2026-04-30T13:30:00Z",
+  "lastAccessedAt": "2026-04-30T14:29:00Z"
 }
 ```
 
-This request is forwarded to the custom container session with the identifier for the user's ID. If the session isn't already running, Azure Container Apps allocates a session from the pool before forwarding the request.
+### List all sessions in a pool
 
-In the example, the session's container receives the request at `http://0.0.0.0:<INGRESS_PORT>/<API_PATH_EXPOSED_BY_CONTAINER>`.
+To retrieve a list of all sessions in your session pool, use the `listSessions` endpoint:
 
-## Next steps
+```text
+POST <POOL_MANAGEMENT_ENDPOINT>/.management/listSessions?skip=0&api-version=2025-02-02-preview
+Authorization: Bearer <TOKEN>
+```
 
-> [!div class="nextstepaction"]
-> [Azure Container Apps dynamic sessions overview](./sessions.md)
+#### Pagination
+
+The list endpoint supports skip-based pagination. By default, each page returns up to 300 sessions. Use the `skip` query parameter to navigate through results.
+
+| Parameter | Description |
+|-----------|-------------|
+| `skip` | Number of sessions to skip from the beginning (default: 0) |
+| `nextLink` | Full URL for the next page of results (included in response when more results exist) |
+
+#### ApiCollectionEnvelope response schema
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `value` | SessionView[] | Array of session objects |
+| `count` | integer | Number of sessions in the current page |
+| `nextLink` | string | URL for the next page (null if no more results) |
+
+#### Example pagination loop
+
+```bash
+POOL_URL="https://my-pool.env-id.westus2.azurecontainerapps.io"
+next_url="$POOL_URL/.management/listSessions?skip=0&api-version=2025-02-02-preview"
+
+while [ -n "$next_url" ]; do
+  response=$(curl -s -X POST "$next_url" \
+    -H "Authorization: Bearer $TOKEN")
+
+  echo "$response" | jq '.value[] | {identifier, expiresAt}'
+
+  next_url=$(echo "$response" | jq -r '.nextLink // empty')
+done
+```
+
+Example response (HTTP 200):
+
+```json
+{
+  "value": [
+    {
+      "identifier": "user-123",
+      "etag": "a1b2c3d4",
+      "expiresAt": "2026-04-30T14:30:00Z",
+      "createdAt": "2026-04-30T13:30:00Z",
+      "lastAccessedAt": "2026-04-30T14:29:00Z"
+    },
+    {
+      "identifier": "user-456",
+      "etag": "e5f6a7b8",
+      "expiresAt": "2026-04-30T14:30:00Z",
+      "createdAt": "2026-04-30T13:30:00Z",
+      "lastAccessedAt": "2026-04-30T14:29:00Z"
+    }
+  ],
+  "count": 2,
+  "nextLink": "https://my-pool.env-id.westus2.azurecontainerapps.io/.management/listSessions?skip=300"
+}
+```
+
+## Logging
+
+Custom container session pools integrate with Azure Monitor and Log Analytics. Application logs are captured only if your container writes output to `stdout` or `stderr`, so make sure your app emits logs to the console.
+
+### Prerequisites
+
+- An Azure Container Apps environment with a custom container session pool
+- A Log Analytics workspace, or create one during setup
+
+### Configure logging
+
+#### Enable Azure Monitor logging
+
+1. In the Azure portal, navigate to your **Container Apps Environment**.
+1. Under **Monitoring**, select **Logging options**.
+1. Set **Logs Destination** to **Azure Monitor**.
+
+#### Configure diagnostic settings
+
+1. In your Container Apps Environment, under **Monitoring**, select **Diagnostic settings**.
+1. Select **+ Add diagnostic setting**.
+1. Provide a name for your diagnostic setting.
+1. Under **Logs**, select the session-related log categories you want to capture.
+1. Under **Destination details**, select **Send to Log Analytics workspace**.
+1. Choose your Log Analytics workspace, or create a new one.
+1. Select **Save**.
+
+### Log Analytics tables
+
+| Log category | Log Analytics table | Description |
+|-------------|---------------------|-------------|
+| Application logs | `AppEnvSessionConsoleLogs` | Standard output (`stdout`) and standard error (`stderr`) emitted by the containerized application. |
+| Platform logs | `AppEnvSessionLifecycleLogs`, `AppEnvSessionPoolEvents` | Platform-generated events related to session pool allocation, lifecycle, and operational state. |
+
+If logs are sent directly to Log Analytics, the tables use the _CL suffix, for example, `AppEnvSessionConsoleLogs_CL`. When logs are routed through Azure Monitor diagnostic settings, the table names don't include the _CL suffix.
+
+### View session logs
+
+After diagnostic settings are configured, logs are sent to your Log Analytics workspace.
+
+#### Query logs in Log Analytics
+
+1. In the Azure portal, navigate to your **Log Analytics workspace**.
+1. In the left menu, select **Logs**.
+1. If the query is in **Simple mode**, select **KQL mode**.
+1. Use [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/) to query session logs.
+
+#### Example queries
+
+**View recent console logs from sessions:**
+
+```kusto
+AppEnvSessionConsoleLogs
+| where TimeGenerated > ago(1h)
+| order by TimeGenerated desc
+| take 100
+```
+
+**View session lifecycle events:**
+
+```kusto
+AppEnvSessionLifecycleLogs
+| where TimeGenerated > ago(1h)
+| order by TimeGenerated desc
+```
+
+**View session pool events:**
+
+```kusto
+AppEnvSessionPoolEvents
+| where TimeGenerated > ago(1h)
+| order by TimeGenerated desc
+```
+
+## Metrics
+
+Azure Container Apps emits Azure Monitor metrics for custom container session pools. Use these metrics to track pool capacity and activity over time.
+
+### Supported metrics
+
+For the complete list, see [Supported metrics - Microsoft.App/sessionpools - Azure Monitor](/azure/azure-monitor/reference/supported-metrics/microsoft-app-sessionpools-metrics).
+
+| Metric | Name in REST API | Unit | Aggregation | Dimensions | Time Grains | DS Export |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Executing Sessions Count**<br>Number of executing session pods in the session pool | `PoolExecutingPodCount` | Count | Total (Sum), Average, Maximum, Minimum | `poolName` | PT1M | Yes |
+| **Creating Sessions Count**<br>Number of creating session pods in the session pool | `PoolPendingPodCount` | Count | Total (Sum), Average, Maximum, Minimum | `poolName` | PT1M | Yes |
+| **Ready Sessions Count**<br>Number of ready session pods in the session pool | `PoolReadyPodCount` | Count | Total (Sum), Average, Maximum, Minimum | `poolName` | PT1M | Yes |
+
+### View session metrics
+
+You can either use Azure Monitor or Container Apps environment metrics to view session-based metrics.
+
+#### Azure Monitor Metrics
+
+1. Open the [Azure Monitor Metrics page](https://portal.azure.com/#view/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/~/metrics).
+1. Use **Scope** to select your custom container session pool.
+1. Choose a metric and aggregation to view.
+
+#### Container Apps environment metrics
+
+1. In the Azure portal, open your Container Apps Environment.
+1. Under **Monitoring**, select **Metrics**.
+1. Use **Scope** to select your custom container session pool.
+1. Choose a metric and aggregation to view.
+
+## Related content
+
+- [Serverless code interpreter sessions in Azure Container Apps](sessions-code-interpreter.md)
+- [Dynamic sessions custom container sample (GitHub)](https://github.com/Azure-Samples/dynamic-sessions-custom-container)

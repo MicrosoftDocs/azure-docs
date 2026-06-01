@@ -2,12 +2,12 @@
 title: SSL offloading with Application Gateway for Containers - Ingress API
 description: Learn how to configure SSL offloading with Application Gateway for Containers using the Ingress API.
 services: application-gateway
-author: greglin
-ms.service: application-gateway
-ms.subservice: appgw-for-containers
+author: mbender-ms
+ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 02/27/2024
-ms.author: greglin
+ms.date: 11/05/2024
+ms.author: mbender
+# Customer intent: As a cloud architect, I want to configure SSL offloading using the Ingress API with Application Gateway for Containers, so that I can enhance the performance of backend services by efficiently managing TLS/SSL termination.
 ---
 
 # SSL offloading with Application Gateway for Containers - Ingress API
@@ -22,15 +22,18 @@ Application Gateway for Containers enables SSL [offloading](/azure/architecture/
 
 ## Prerequisites
 
-1. If you follow the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If you follow the ALB managed deployment strategy, ensure that you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and the Application Gateway for Containers resources via the [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+> [!NOTE]
+> Certificates for Application Gateway for Containers must be stored as Kubernetes secrets. Azure Key Vault integration via the [Secrets Store CSI driver](/azure/aks/csi-secrets-store-driver) is not supported because Application Gateway for Containers requires certificates to be local to the cluster and cannot mount them from external volumes. For automated certificate management, consider using [cert-manager with Let's Encrypt](how-to-cert-manager-lets-encrypt-ingress-api.md).
+
+1. If you follow the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md))
+2. If you follow the ALB managed deployment strategy, ensure that you provision your ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)) and the Application Gateway for Containers resources via the [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy a sample HTTPS application:
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate TLS/SSL offloading.
   
     ```bash
-    kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/ssl-termination/deployment.yaml
+    kubectl apply -f https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/refs/heads/main/articles/application-gateway/for-containers/examples/https-scenario/ssl-termination/deployment.yaml
     ```
-    
+
     This command creates the following on your cluster:
     - a namespace called `test-infra`
     - one service called `echo` in the `test-infra` namespace
@@ -134,9 +137,9 @@ kind: Ingress
 metadata:
   annotations:
     alb.networking.azure.io/alb-frontend: FRONTEND_NAME
-    alb.networking.azure.io/alb-id: /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz
+    alb.networking.azure.io/alb-id: /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz
     kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"alb.networking.azure.io/alb-frontend":"FRONTEND_NAME","alb.networking.azure.io/alb-id":"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz"},"name"
+      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"alb.networking.azure.io/alb-frontend":"FRONTEND_NAME","alb.networking.azure.io/alb-id":"/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/yyyyyyyy/providers/Microsoft.ServiceNetworking/trafficControllers/zzzzzz"},"name"
 :"ingress-01","namespace":"test-infra"},"spec":{"ingressClassName":"azure-alb-external","rules":[{"host":"example.com","http":{"paths":[{"backend":{"service":{"name":"echo","port":{"number":80}}},"path":"/","pathType":"Prefix"}]}}],"tls":[{"hosts":["example.com"],"secretName":"listener-tls-secret"}]}}
   creationTimestamp: "2023-07-22T18:02:13Z"
   generation: 2

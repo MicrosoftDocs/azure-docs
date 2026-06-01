@@ -2,13 +2,15 @@
 title: Deploy GPU module on your Azure Stack Edge Pro GPU device| Microsoft Docs
 description: Describes how to enable compute and make your Azure Stack Edge Pro device compute-ready via the local UI.
 services: databox
-author: alkohli
+author: sipastak
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 10/19/2022
-ms.author: alkohli
+ms.author: sipastak
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Deploy a GPU enabled IoT module on Azure Stack Edge Pro GPU device
@@ -38,7 +40,7 @@ Before you begin, make sure you have:
 
 - You've access to a GPU enabled 1-node Azure Stack Edge Pro device. This device is activated with a resource in Azure. See [Activate the device](azure-stack-edge-gpu-deploy-activate.md).
 - You've configured compute on this device. Follow the steps in [Tutorial: Configure compute on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-configure-compute.md).
-- An Azure Container Registry (ACR). Go to the **Access keys** blade and make a note of the ACR login server, username, and password. For more information, go to [Quickstart: Create a private container registry using the Azure portal](../container-registry/container-registry-get-started-portal.md#create-a-container-registry).
+- An Azure Container Registry (ACR). Go to the **Access keys** blade and make a note of the ACR login server, username, and password. For more information, go to [Quickstart: Create a private container registry using the Azure portal](/azure/container-registry/container-registry-get-started-portal#create-a-container-registry).
 - The following development resources on a Windows client:
     - [Azure CLI 2.0 or later](https://aka.ms/installazurecliwindows)
     - [Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-windows). You may have to create an account to download and install the software.

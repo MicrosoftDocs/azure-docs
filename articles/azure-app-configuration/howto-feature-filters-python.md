@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.date: 06/05/2024
 ---
 
-# Tutorial: Enable conditional features with a custom filter in a Python application
+# Enable conditional features with a custom filter in a Python application
 
-Feature flags can use feature filters to enable features conditionally. To learn more about feature filters, see [Tutorial: Enable conditional features with feature filters](./howto-feature-filters.md).
+Feature flags can use feature filters to enable features conditionally. To learn more about feature filters, see [Enable conditional features with feature filters](./howto-feature-filters.md).
 
-The example used in this tutorial is based on the Python application introduced in the feature management [quickstart](./quickstart-feature-flag-python.md). Before proceeding further, complete the quickstart to create a Python application with a *Beta* feature flag. Once completed, you must [add a custom feature filter](./howto-feature-filters.md) to the *Beta* feature flag in your App Configuration store.
+The example used in this guide is based on the Python application introduced in the feature management [quickstart](./quickstart-feature-flag-python.md). Before proceeding further, complete the quickstart to create a Python application with a *Beta* feature flag. Once completed, you must [add a custom feature filter](./howto-feature-filters.md) to the *Beta* feature flag in your App Configuration store.
 
-In this tutorial, you'll learn how to implement a custom feature filter and use the feature filter to enable features conditionally.
+In this article, you learn how to implement a custom feature filter and use the feature filter to enable features conditionally.
 
 ## Prerequisites
 
@@ -91,7 +91,7 @@ Beta is True
 
 ## Next steps
 
-To learn more about the built-in feature filters, continue to the following tutorials.
+To learn more about the built-in feature filters, continue to the following documents.
 
 > [!div class="nextstepaction"]
 > [Enable features on a schedule](./howto-timewindow-filter.md)

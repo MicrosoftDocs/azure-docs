@@ -3,11 +3,19 @@ title: "Quickstart: Azure Blob storage library - TypeScript"
 description: In this quickstart, you learn how to use the Azure Blob Storage for TypeScript to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 03/18/2024
+ms.date: 09/13/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: typescript
-ms.custom: devx-track-js, mode-api, passwordless-js, devx-track-extended-azdevcli, devx-track-ts
+ms.custom:
+  - devx-track-js
+  - mode-api
+  - passwordless-js
+  - devx-track-extended-azdevcli
+  - devx-track-ts
+  - sfi-image-nochange
+  - sfi-ropc-nochange
+# Customer intent: As a developer learning to manage Azure Blob Storage with TypeScript, I want to install and utilize the Blob Storage client library so that I can create containers, upload and download blobs, and effectively manage my data in the cloud.
 ---
 
 # Quickstart: Azure Blob Storage client library for Node.js with TypeScript
@@ -21,9 +29,9 @@ In this article, you follow steps to install the package and try out example cod
 
 ## Prerequisites
 
-- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure Storage account - [Create a storage account](../common/storage-account-create.md)
-- [Node.js LTS](https://nodejs.org/en/download/)
+- [Node.js LTS](https://nodejs.org/en/download/package-manager/)
 - [TypeScript](https://www.typescriptlang.org/download)
 
 ## Setting up
@@ -189,7 +197,7 @@ You can authorize access to data in your storage account using the following ste
 A connection string includes the storage account access key and uses it to authorize requests. Always be careful to never expose the keys in an unsecure location.
 
 > [!NOTE]
-> To authorize data access with the storage account access key, you'll need permissions for the following Azure RBAC action: [Microsoft.Storage/storageAccounts/listkeys/action](../../role-based-access-control/resource-provider-operations.md#microsoftstorage). The least privileged built-in role with permissions for this action is [Reader and Data Access](../../role-based-access-control/built-in-roles.md#reader-and-data-access), but any role which includes this action will work.
+> To authorize data access with the storage account access key, you'll need permissions for the following Azure RBAC action: [Microsoft.Storage/storageAccounts/listkeys/action](../../role-based-access-control/permissions/storage.md#microsoftstorage). The least privileged built-in role with permissions for this action is [Reader and Data Access](../../role-based-access-control/built-in-roles.md#reader-and-data-access), but any role which includes this action will work.
 
 [!INCLUDE [retrieve credentials](../../../includes/retrieve-credentials.md)]
 
@@ -331,14 +339,7 @@ Step through the code in your debugger and check your [Azure portal](https://por
 1. When you're done with this quickstart, delete the `blob-quickstart` directory.
 1. If you're done using your Azure Storage resource, use the [Azure CLI to remove the Storage resource](storage-quickstart-blobs-cli.md#clean-up-resources). 
 
-## Next steps
-
-In this quickstart, you learned how to upload, download, and list blobs using JavaScript.
-
-To see Blob storage sample apps, continue to:
+## Next step
 
 > [!div class="nextstepaction"]
-> [Azure Blob Storage library for TypeScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples/v12/typescript)
-
-- To learn more, see the [Azure Blob Storage client libraries for JavaScript](/javascript/api/overview/azure/storage-blob-readme).
-- For tutorials, samples, quickstarts, and other documentation, visit [Azure for JavaScript and Node.js developers](/azure/developer/javascript/).
+> [Azure Storage samples and developer guides for JavaScript and TypeScript](../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json)

@@ -4,10 +4,14 @@ titleSuffix: Azure Load Balancer
 description: In this tutorial, learn how to create a public load balancer with an IP based backend pool using the Azure portal.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 02/14/2024
-ms.custom: template-tutorial, engagement-fy23
+ms.custom:
+  - template-tutorial
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: As a cloud architect, I want to create a public load balancer with an IP-based backend pool in a virtual network, so that I can efficiently manage traffic distribution across multiple virtual machines.
 ---
 
 # Tutorial: Create a public load balancer with an IP-based backend using the Azure portal
@@ -27,7 +31,7 @@ In this tutorial, you learn how to:
 > * Test the load balancer
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Create a virtual network
 
@@ -176,7 +180,7 @@ During the creation of the load balancer, you'll configure:
 1. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
+    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json), you can select zone-redundant (default option) or a specific zone. The choice depends on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview).
 
 1. Leave the default of **Microsoft Network** for **Routing preference**.
 
@@ -252,7 +256,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Availability zone | Select **Zone 1** |
     | Image | Select **Windows Server 2022 Datacenter: Azure Edition - x64 Gen2** |
     | Azure Spot instance | Leave the default |
-    | Size | Select **Standar_DS1_v2** or another image size. |
+    | Size | Select **Standard_DS1_v2** or another image size. |
     | **Administrator account** |  |
     | Username | Enter a username |
     | Password | Enter a password |

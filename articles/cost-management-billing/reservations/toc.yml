@@ -7,9 +7,10 @@
     href: save-compute-costs-reservations.md
 - name: Concepts
   items:
-  - name: VM instance size flexibility
-    href: /azure/virtual-machines/reserved-vm-instance-size-flexibility
-    maintainContext: true
+  - name: Instance size flexibility
+    href: instance-size-flexibility.md
+  - name: VM instance size flexibility (Virtual Machines)
+    href: /azure/virtual-machines/reserved-vm-instance-size-flexibility?toc=/azure/cost-management-billing/reservations/toc.json
   - name: Reservation recommendations
     href: reserved-instance-purchase-recommendations.md
   - name: How discount is applied
@@ -24,6 +25,10 @@
       href: understand-azure-cache-for-redis-reservation-charges.md
     - name: Azure Data Factory
       href: /azure/data-factory/data-flow-understand-reservation-charges?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure SQL Database
+      href: understand-reservation-charges.md
+    - name: Azure SQL Managed Instance
+      href: understand-reservation-charges-sql-managed-instance.md
     - name: Azure VMware Solution
       href: /azure/azure-vmware/reserved-instance?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cosmos DB
@@ -51,14 +56,10 @@
       href: understand-suse-reservation-charges.md
     - name: Storage
       href: understand-storage-charges.md
-    - name: SQL Database
-      href: understand-reservation-charges.md
     - name: Synapse Analytics - Data warehouse
       href: reservation-discount-azure-sql-dw.md
     - name: Virtual machines
       href: ../manage/understand-vm-reservation-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Virtual machine software
-      href: understand-vm-software-reservation-discount.md
   - name: Windows and SQL costs not included
     href: reserved-instance-windows-software-costs.md
   - name: Usage data for individual subscriptions
@@ -72,6 +73,10 @@
     items:
     - name: Choose reservation to purchase
       href: determine-reservation-purchase.md
+  - name: Promotional offers
+    items:
+    - name: Linux VMs
+      href: limited-time-linux.md
   - name: Limited-time offers
     items:
     - name: US West Dv3 VMs
@@ -104,24 +109,40 @@
       href: /azure/storage/blobs/storage-blob-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Files
       href: /azure/storage/files/files-reserve-capacity?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure NetApp Files
+      href: /azure/azure-netapp-files/reservations?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Microsoft Foundry
+      href: microsoft-foundry.md
     - name: Azure VMware Solution
       href: /azure/azure-vmware/reserved-instance?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cosmos DB
       href: /azure/cosmos-db/cosmos-db-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure Managed Redis
+      href: /azure/redis/reserved-pricing?toc=/azure/cost-management-billing/reservations/toc.json   
     - name: Azure SQL Edge
       href: prepay-sql-edge.md
+    - name: Copilot Credit Pre-Purchase
+      href: copilot-credit-p3.md
     - name: Databricks
       href: prepay-databricks-reserved-capacity.md
     - name: Data Explorer
       href: /azure/data-explorer/pricing-reserved-capacity
     - name: Dedicated Host
       href: /azure/virtual-machines/prepay-dedicated-hosts-reserved-instances?toc=/azure/cost-management-billing/reservations/toc.json
-    - name: Defender for Cloud - Prepurchase
+    - name: Defender for Cloud - Pre-Purchase
       href: /azure/defender-for-cloud/prepurchase-plan?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Disk Storage
       href: /azure/virtual-machines/disks-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Microsoft Agent Pre-Purchase
+      href: agent-pre-purchase.md
     - name: Microsoft Fabric
       href: fabric-capacity.md
+    - name: Microsoft Sentinel - Pre-Purchase
+      href: /azure/sentinel/billing-pre-purchase-plan?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Nutanix on Azure BareMetal
+      href: nutanix-bare-metal.md
+    - name: Red Hat OpenShift
+      href: prepay-red-hat-openshift.md
     - name: SAP HANA Large Instances
       href: prepay-hana-large-instances-reserved-capacity.md
     - name: Software plans
@@ -140,12 +161,16 @@
     items:
     - name: Permissions to view and manage
       href: view-reservations.md
+    - name: Grant RBAC access to Azure Reservations using PowerShell
+      href: manage-reservations-rbac-powershell.md
     - name: View reservations as a CSP
       href: how-to-view-csp-reservations.md
     - name: Manage reservations
       href: manage-reserved-vm-instance.md
     - name: Change optimize setting
       href: manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances
+    - name: Transition guide for retired Azure Reserved VM Instances
+      href: manage-legacy-vm-reservations-after-july-1-2026.md
   - name: Utilization and cost reports
     items:
     - name: View reservation utilization

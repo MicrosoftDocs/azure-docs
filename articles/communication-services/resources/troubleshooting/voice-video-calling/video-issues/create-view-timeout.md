@@ -35,7 +35,6 @@ No further detailed information is available because currently the SDK doesn't s
 
 Your application can implement its own detection mechanism and notify the participants in a call when the sender's browser goes back to foreground.
 The participants can subscribe the video again.
-A feasible but less elegant approach for handling this createView timeout error is to continuously retry invoking the  [`createView`](/javascript/api/azure-communication-services/@azure/communication-calling/videostreamrenderer?view=azure-communication-services-js&preserve-view=true#@azure-communication-calling-videostreamrenderer-createview) API until it succeeds.
 
 ### The video sender dropped from the call unexpectedly
 Some users might end the call by terminating the browser process instead of by hanging up.

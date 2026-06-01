@@ -2,13 +2,15 @@
 title: Parameterize linked services
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to parameterize linked services in Azure Data Factory and Azure Synapse Analytics pipelines, and pass dynamic values at run time.
-ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse
-ms.topic: conceptual
-ms.date: 01/29/2024
+ms.topic: how-to
+ms.date: 11/18/2024
 author: kromerm
 ms.author: makromer
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Parameterize linked services in Azure Data Factory and Azure Synapse Analytics
@@ -23,7 +25,8 @@ You can use the UI in the Azure portal or a programming interface to parameteriz
 > We recommend not to parameterize passwords or secrets. Store all secrets in Azure Key Vault instead, and parameterize the *Secret Name*.
 
 > [!Note]
-> There is open bug to use "-" in parameter names, we recommend to use names without "-" until the bug is resolved.
+> 1. There is open bug to use "-" in parameter names, we recommend to use names without "-" until the bug is resolved.
+> 2. There is an active bug affecting dataflows with parameters. To avoid issues, it is recommended to use dataflow names without spaces until the bug is resolved.
 
 For a seven-minute introduction and demonstration of this feature, watch the following video:
 
@@ -79,33 +82,23 @@ All the linked service types are supported for parameterization.
 - SAP CDC
 - SAP HANA
 - SAP Table
+- ServiceNow (not supported in ServiceNow legacy)
 - SFTP
 - SharePoint Online List
 - Snowflake
 - SQL Server
+- Vertica
 
 **Advanced authoring:** For other linked service types that are not in above list, you can parameterize the linked service by editing the JSON on UI:
 
 - In linked service creation/edit blade -> expand "Advanced" at the bottom -> check "Specify dynamic contents in JSON format" checkbox -> specify the linked service JSON payload. 
-- Or, after you create a linked service without parameterization, in [Management hub](author-visually.md#management-hub) -> Linked services -> find the specific linked service -> click "Code" (button "{}") to edit the JSON. 
+- Or, after you create a linked service without parameterization, in [Management hub](author-visually.md#management-hub) -> Linked services -> find the specific linked service -> select the "Code" (button "{}") to edit the JSON. 
 
 Refer to the [JSON sample](#json) to add ` parameters` section to define parameters and reference the parameter using ` @{linkedService().paramName} `.
 
 ## UI Experience
 
-# [Azure Data Factory](#tab/data-factory)
-
-:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-1.png" alt-text="Add dynamic content to the Linked Service definition" lightbox="media/parameterize-linked-services/parameterize-linked-services-image-1.png":::
-
-:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-2.png" alt-text="Create a new parameter" lightbox="media/parameterize-linked-services/parameterize-linked-services-image-2.png":::
-
-# [Azure Synapse](#tab/synapse-analytics)
-
-:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-1-synapse.png" alt-text="Add dynamic content to the Linked Service definition" lightbox="media/parameterize-linked-services/parameterize-linked-services-image-1-synapse.png":::
-
-:::image type="content" source="media/parameterize-linked-services/parameterize-linked-services-image-2-synapse.png" alt-text="Create a new parameter" lightbox="media/parameterize-linked-services/parameterize-linked-services-image-2-synapse.png":::
-
----
+[!INCLUDE[parameterize-linked-service-ui](includes/parameterize-linked-service-ui.md)]
 
 ## JSON
 

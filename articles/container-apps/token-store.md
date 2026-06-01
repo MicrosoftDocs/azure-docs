@@ -3,9 +3,9 @@ title: Enable an authentication token store in Azure Container Apps
 description: Learn to secure authentication tokens independent of your application.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 04/04/2024
+ms.date: 06/25/2025
 ms.author: cshoe
 ---
 
@@ -22,9 +22,6 @@ You typically need to write code to collect, store, and refresh tokens in your a
 
 When token store is enabled, the Container Apps authentication system caches ID tokens, access tokens, and refresh tokens the authenticated session, and they're accessible only by the associated user.
 
-> [!NOTE]
-> The token store feature is in preview.
-
 ## Generate a SAS URL
 
 Before you can create a token store for your container app, you first need an Azure Storage account with a private blob container.
@@ -33,14 +30,14 @@ Before you can create a token store for your container app, you first need an Az
 
 1. Select **Containers** and create a private blob container if necessary.
 
-1. Select the three dots (•••) at the end of the row for the storage container where you want to create your token store.
+1. In the row for the storage container where you want to create the token store, select the three dots (•••) menu, and then select **Generate SAS**.
 
-1. Enter the values appropriate for your needs in the *Generate SAS* window.
+1. Enter the values appropriate for your needs in the **Generate SAS** window.
 
-    Make sure you include the *read*, *write* and *delete* permissions in your definition.
+    Make sure you include the *read*, *write*, and *delete* permissions in your definition.
 
     > [!NOTE]
-    > Make sure you keep track of your SAS expiration dates to ensure access to your container doesn't cease.
+    > To ensure access to your container doesn't cease, make sure you keep track of your SAS expiration dates.
 
 1. Select the **Generate SAS token URL** button to generate the SAS URL.
 
@@ -56,11 +53,14 @@ With SAS URL generated, you can save it in your container app as a secret. Make 
 
 1. Select **Add** and enter the following values in the *Add secret* window.
 
-    | Property | Value |
-    |---|---|
-    | Key | Enter a name for your SAS secret. |
-    | Type | Select **Container Apps secret**. |
-    | Value | Enter the SAS URL value you generated from your storage container. |
+    > [!NOTE]
+    > All the properties in the *Add secret* window are mandatory.
+
+  | Property | Value |
+  |---|---|
+  | Key | Enter a name for your SAS secret. |
+  | Type | Select **Container Apps secret**. |
+  | Value | Enter the SAS URL value you generated from your storage container. |
 
 ## Create a token store
 
@@ -76,7 +76,7 @@ az containerapp auth update \
   --token-store true
 ```
 
-Additionally, you can create your token store with the `sasUrlSettingName` property using an [ARM template](/azure/templates/microsoft.app/2023-11-02-preview/containerapps/authconfigs?pivots=deployment-language-arm-template#blobstoragetokenstore-1).
+Additionally, you can create your token store with the `sasUrlSettingName` property using an [ARM template](/azure/templates/microsoft.app/containerapps/authconfigs?pivots=deployment-language-arm-template#blobstoragetokenstore-1).
 
 ## Next steps
 

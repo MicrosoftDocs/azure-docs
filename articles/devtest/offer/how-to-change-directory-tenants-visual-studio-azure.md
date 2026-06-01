@@ -1,18 +1,18 @@
 ---
-title: Change directory tenants with your individual VSS Azure subscriptions
+title: Change directory tenants with your individual Visual Studio Subscription Azure subscriptions
 description: Change directory tenants with your Azure subscriptions.
 ms.author: amast
-author: rigel512
+author: joseb-rdc
 ms.service: visual-studio-family
 ms.subservice: subscriptions
 ms.topic: how-to 
-ms.date: 10/18/2023
+ms.date: 03/20/2026
 ms.custom: devtestoffer
 ---
 
 # Change Directory Tenants with your Azure Subscriptions  
 
-Organizations might have several Azure credit subscriptions. Each subscription an organization sets up is associated with an [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md). 
+Organizations might have several Azure credit subscriptions. Each subscription an organization sets up is associated with a [Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md). 
 
 Microsoft Entra ID is Microsoft’s cloud-based identity and access management service that helps your employees sign in and access internal and external resources.  
 
@@ -24,7 +24,7 @@ When you activate your subscription, your identity is created based on the email
 
 From here, you can either switch identities or switch directories. You might need to change your identity to access certain directories.  
 
-If the identity you’re logged in as is associated with multiple directories, switch by selecting “Switch directory.” You'll see the directories your current identity is associated with.  
+If the identity you’re logged in as is associated with multiple directories, switch by selecting "Switch directory." You can see the directories your current identity is associated with.  
 
 ![A screenshot of the Directory and Subscription window in Azure portal.](media/how-to-change-directory-tenants-visual-studio-azure/switch-directory.png "Switch directories by selecting 'Switch directory'. Choose the directory you want.")  
 
@@ -52,28 +52,11 @@ You can see and manage your access levels within Access Control. You can also ma
 
 ![A screenshot of the Visual Studio Subscription access control page.](media/how-to-change-directory-tenants-visual-studio-azure/access-control.png "Manage access to your subscription.")
 
-## How to Change your Azure Directory Tenant
+## How to Change the Entra directory of your Azure subscription
 
-To access another Active Directory, you need an active account with the necessary permissions and access to change directory tenants. An admin within the directory tenant you wish to access can either add you as:
+To change the Entra Directory of your Azure subscription, you need to complete the following two-party request and accept workflow.
 
-* User
-* Guest  
+1. To initiate a change directory request, you need to be a subscription owner of the subscription in the source directory.
+2. To accept a change directory request, you or another party need to be an Entra admin in the destination directory.
 
-Once you’ve been added and given proper permissions, you can switch directories within your subscription.  
-
-1. Sign in and select the subscription you want to use from the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)  
-2. Select **Change Directory**
-
-    ![A screenshot a Contoso Enterprise Subscription page with Change Directory highlighted.](media/how-to-change-directory-tenants-visual-studio-azure/change-directory.png "Select Change Directory.") 
-3. A box will surface to choose the new directory  
-4. Select **Change**
-
-    > [!NOTE]
-    > If you don’t have access to the target directory it will not show. After the directory is changed for the subscription, you'll receive a success message.  
-
-    ![A screenshot of the Change Directory validation page.](media/how-to-change-directory-tenants-visual-studio-azure/change-button.png "Select the directory from the dropdown and select the Change button.")
-5. Select “Switch Directories” on the subscription page to access the new directory  
-
-  ![A screenshot of the subscriptions page with Switch Directories highlighted.](media/how-to-change-directory-tenants-visual-studio-azure/switch-directories-outlined.png "Select Switch Directories to access the new directory.")
-
-You can also access a target directory and change your tenancy by going to the target directory and adding an Admin. Follow [these instructions](/visualstudio/subscriptions/cloud-admin) on how to add an Admin to your subscription. Once that’s done, the Admin has access to both directories and can change the tenant directory for you.  
+This process requires coordination between the source and destination directories. For the complete workflow—including prerequisites, role requirements, and approval steps—visit [How to change the Entra directory of your Azure subscription](/azure/cost-management-billing/manage/subscription-change-directory).

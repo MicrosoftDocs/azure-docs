@@ -1,16 +1,20 @@
 ---
 title: Use Azure Stream Analytics in dedicated SQL pool
 description: Tips for using Azure Stream Analytics with dedicated SQL pool in Azure Synapse for developing real-time solutions.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 10/07/2022
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
-ms.custom: azure-synapse
+ms.topic: how-to
+ms.custom:
+  - azure-synapse
+  - sfi-image-nochange
 ---
 
 # Use Azure Stream Analytics with dedicated SQL pool in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable complex event processing over streaming data in the cloud. You can learn the basics by reading [Introduction to Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). You can then learn how to create an end-to-end solution with Stream Analytics by following the [Get started using Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) tutorial.
 
@@ -125,7 +129,8 @@ WITH (DISTRIBUTION = ROUND_ROBIN)
 
 On the Azure portal for Stream Analytics job, click on your job name.  Click on the ***Test*** button in the ***Output details*** pane.
 
-![Test button on Outpout details](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png)
+![Screenshot showing Test button on Output details.](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asatest.png)
+
 When the connection to the database succeeds, you will see a notification in the portal.
 
 ### Step 6

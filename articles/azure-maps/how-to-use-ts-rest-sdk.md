@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 07/01/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ms.custom: devx-track-js, devx-track-ts
 ---
 
@@ -19,7 +19,7 @@ Azure Maps provides a collection of npm modules for the [Azure TypeScript REST S
 
 1. Using `@azure-rest/maps-search` as an example, install the package with `npm install @azure-rest/maps-search`.
 
-1. Create and authenticate a [MapsSearch] client. To create a client to access the Azure Maps Search APIs, you need a credential object. The client supports an [Microsoft Entra credential] or an [Azure Key credential] for authentication. You may need to install either [@azure/identity] or [@azure/core-auth] for different authentication methods.
+1. Create and authenticate a [MapsSearch] client. To create a client to access the Azure Maps Search APIs, you need a credential object. The client supports a [Microsoft Entra credential] or an [Azure Key credential] for authentication. You may need to install either [@azure/identity] or [@azure/core-auth] for different authentication methods.
 
     If you use a subscription key for authentication, install the package with `npm install @azure/core-auth`:
 
@@ -44,11 +44,11 @@ Azure Maps provides a collection of npm modules for the [Azure TypeScript REST S
     import { InteractiveBrowserCredential } from "@azure/identity";
 
     // Enter your Azure AD client and tenant ID.
-    const clientId = "<Your Azure Active Directory Client Id>";
-    const tenantId = "<Your Azure Active Directory Tenant Id>";
+    const clientId = "<Your Azure Active Directory Client ID>";
+    const tenantId = "<Your Azure Active Directory Tenant ID>";
 
     // Enter your Azure Maps client ID.
-    const mapsClientId = "<Your Azure Maps Client Id>";
+    const mapsClientId = "<Your Azure Maps Client ID>";
 
     // Use InteractiveBrowserCredential with Azure AD client and tenant ID.
     const credential = new InteractiveBrowserCredential({

@@ -3,9 +3,8 @@ title: Examples for better understanding pricing model under different integrati
 description: Learn about pricing model under different integration runtime types from some examples.
 ms.author: lle
 author: lrtoyou1223
-ms.service: data-factory
 ms.subservice: integration-runtime
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/05/2024
 ---
 

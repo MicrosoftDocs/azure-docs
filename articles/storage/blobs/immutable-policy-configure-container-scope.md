@@ -12,6 +12,7 @@ ms.author: normesta
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+# Customer intent: "As a data administrator, I want to configure immutability policies for blob containers, so that I can ensure critical data remains unmodifiable and protected from deletions for regulatory compliance."
 ---
 
 # Configure immutability policies for containers
@@ -45,7 +46,7 @@ To configure a time-based retention policy on a container with the Azure portal,
 
    The **Append blobs** option enables your workloads to add new blocks of data to the end of an append blob by using the [Append Block](/rest/api/storageservices/append-block) operation.
 
-   The **Block and append blobs** option provides you with the same permissions as the **Append blobs** option but adds the ability to write new blocks to a block blob.  The Blob Storage API doesn't provide a way for applications to do this directly. However, applications can accomplish this by using append and flush methods that are available in the Data Lake Storage Gen2 API. Also, some Microsoft applications use internal APIs to create block blobs and then append to them. If your workloads depend on any of these tools, then you can use this property to avoid errors that can appear when those tools attempt to append blocks to a block blob. 
+   The **Block and append blobs** option provides you with the same permissions as the **Append blobs** option but adds the ability to write new blocks to a block blob.  The Blob Storage API doesn't provide a way for applications to do this directly. However, applications can accomplish this by using append and flush methods that are available in the Data Lake Storage API. Also, some Microsoft applications use internal APIs to create block blobs and then append to them. If your workloads depend on any of these tools, then you can use this property to avoid errors that can appear when those tools attempt to append blocks to a block blob. 
 
    To learn more about these options, see [Allow protected append blobs writes](immutable-container-level-worm-policies.md#allow-protected-append-blobs-writes).
 
@@ -70,7 +71,7 @@ To allow protected append writes, set the `-AllowProtectedAppendWrite` or  `-All
 
 The **AllowProtectedAppendWrite** option enables your workloads to add new blocks of data to the end of an append blob by using the [Append Block](/rest/api/storageservices/append-block) operation.
 
-The **AllowProtectedAppendWriteAll** option provides you with the same permissions as the **AllowProtectedAppendWrite** option but adds the ability to write new blocks to a block blob.  The Blob Storage API doesn't provide a way for applications to do this directly. However, applications can accomplish this by using append and flush methods that are available in the Data Lake Storage Gen2 API. Also, some Microsoft applications use internal APIs to create block blobs and then append to them. If your workloads depend on any of these tools, then you can use this property to avoid errors that can appear when those tools attempt to append blocks to a block blob.
+The **AllowProtectedAppendWriteAll** option provides you with the same permissions as the **AllowProtectedAppendWrite** option but adds the ability to write new blocks to a block blob.  The Blob Storage API doesn't provide a way for applications to do this directly. However, applications can accomplish this by using append and flush methods that are available in the Data Lake Storage API. Also, some Microsoft applications use internal APIs to create block blobs and then append to them. If your workloads depend on any of these tools, then you can use this property to avoid errors that can appear when those tools attempt to append blocks to a block blob.
 
 To learn more about these options, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
 
@@ -90,7 +91,7 @@ To allow protected append writes, set the `--allow-protected-append-writes` or  
 
 The **--allow-protected-append-writes** option enables your workloads to add new blocks of data to the end of an append blob by using the [Append Block](/rest/api/storageservices/append-block) operation.
 
-The **--allow-protected-append-writes-all** option provides you with the same permissions as the **--allow-protected-append-writes** option but adds the ability to write new blocks to a block blob.  The Blob Storage API doesn't provide a way for applications to do this directly. However, applications can accomplish this by using append and flush methods that are available in the Data Lake Storage Gen2 API. Also, some Microsoft applications use internal APIs to create block blobs and then append to them. If your workloads depend on any of these tools, then you can use this property to avoid errors that can appear when those tools attempt to append blocks to a block blob.
+The **--allow-protected-append-writes-all** option provides you with the same permissions as the **--allow-protected-append-writes** option but adds the ability to write new blocks to a block blob.  The Blob Storage API doesn't provide a way for applications to do this directly. However, applications can accomplish this by using append and flush methods that are available in the Data Lake Storage API. Also, some Microsoft applications use internal APIs to create block blobs and then append to them. If your workloads depend on any of these tools, then you can use this property to avoid errors that can appear when those tools attempt to append blocks to a block blob.
 
 To learn more about these options, see [Allow protected append blobs writes](immutable-time-based-retention-policy-overview.md#allow-protected-append-blobs-writes).
 
@@ -148,7 +149,7 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group
 To modify an unlocked time-based retention policy with Azure CLI, call the [az storage container immutability-policy extend](/cli/azure/storage/container/immutability-policy#az-storage-container-immutability-policy-extend) command, providing the new retention interval in days. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
-$etag=$(az storage container immutability-policy show \
+etag=$(az storage container immutability-policy show \
         --account-name <storage-account> \
         --container-name <container> \
         --query etag \
@@ -203,7 +204,7 @@ Lock-AzRmStorageContainerImmutabilityPolicy -ResourceGroupName <resource-group> 
 To lock a policy with Azure CLI, first call the [az storage container immutability-policy show](/cli/azure/storage/container/immutability-policy#az-storage-container-immutability-policy-show) command to retrieve the policy's ETag. Next, call the [az storage container immutability-policy lock](/cli/azure/storage/container/immutability-policy#az-storage-container-immutability-policy-lock) command and pass in the ETag value to lock the policy. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli
-$etag=$(az storage container immutability-policy show \
+etag=$(az storage container immutability-policy show \
         --account-name <storage-account> \
         --container-name <container> \
         --query etag \
@@ -240,7 +241,7 @@ To configure a legal hold on a container with the Azure portal, follow these ste
 
    The **Append blobs** option enables your workloads to add new blocks of data to the end of an append blob by using the [Append Block](/rest/api/storageservices/append-block) operation.
 
-   This setting also adds the ability to write new blocks to a block blob. The Blob Storage API doesn't provide a way for applications to do this directly. However, applications can accomplish this by using append and flush methods that are available in the Data Lake Storage Gen2 API. Also, this property enables Microsoft applications such as Azure Data Factory to append blocks of data by using internal APIs. If your workloads depend on any of these tools, then you can use this property to avoid errors that can appear when those tools attempt to append data to blobs.
+   This setting also adds the ability to write new blocks to a block blob. The Blob Storage API doesn't provide a way for applications to do this directly. However, applications can accomplish this by using append and flush methods that are available in the Data Lake Storage API. Also, this property enables Microsoft applications such as Azure Data Factory to append blocks of data by using internal APIs. If your workloads depend on any of these tools, then you can use this property to avoid errors that can appear when those tools attempt to append data to blobs.
 
    To learn more about these options, see [Allow protected append blobs writes](immutable-legal-hold-overview.md#allow-protected-append-blobs-writes).
 

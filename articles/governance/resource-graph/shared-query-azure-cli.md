@@ -14,7 +14,7 @@ A shared query can be run from Azure CLI with the _experimental_ feature's comma
 
 ## Prerequisites
 
-- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) must be version 2.22.0 or higher for the Resource Graph extension.
 - A Bash shell environment where you can run Azure CLI commands. For example, Git Bash in a [Visual Studio Code](https://code.visualstudio.com/) terminal session.
 
@@ -124,14 +124,14 @@ You can verify the shared query works using Azure Resource Graph Explorer. To ch
 1. Select **Resource Graph Explorer**.
 1. Select **Open query**.
 1. Change **Type** to _Shared queries_.
-1. Select the query _Count VMs by OS_.
+1. Select the query _Summarize resources by location_.
 1. Select **Run query** and the view output in the **Results** tab.
 1. Select **Charts** and then select **Map** to view the location map.
 
 You can also run the query from your resource group. 
 
 1. In Azure, go to the resource group, _demoSharedQuery_.
-1. From the **Overview** tab, select the query _Count VMs by OS_.
+1. From the **Overview** tab, select the query _Summarize resources by location_.
 1. Select the **Results** tab.
 1. Select **Charts** and then select **Map** to view the location map.
 

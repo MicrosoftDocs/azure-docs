@@ -2,17 +2,17 @@
 title: "Deploy a Gatsby site to Azure Static Web Apps"
 description: This tutorial shows you how to deploy a Gatsby application to Azure Static Web Apps.
 services: static-web-apps
-author: aaronpowell
-ms.service: static-web-apps
+author: cjk7989
+ms.service: azure-static-web-apps
 ms.topic: tutorial
 ms.date: 01/10/2024
-ms.author: aapowell
+ms.author: jikunchen
 ms.custom:
 ---
 
 # Deploy a Gatsby site to Azure Static Web Apps
 
-This article demonstrates how to create and deploy a [Gatsby](https://gatsbyjs.org) web application to [Azure Static Web Apps](overview.md). The final result is a new Static Web Apps site (with the associated GitHub Actions) that give you control over how the app is built and published.
+This article demonstrates how to create and deploy a [Gatsby](https://www.gatsbyjs.com/docs/) web application to [Azure Static Web Apps](overview.md). The final result is a new Static Web Apps site (with the associated GitHub Actions) that give you control over how the app is built and published.
 
 In this tutorial, you learn how to:
 
@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub account. If you don't have one, you can [create an account for free](https://github.com/join).
 - A Git setup installed. If you don't have one, you can [install Git](https://www.git-scm.com/downloads). 
 - [Node.js](https://nodejs.org) installed.

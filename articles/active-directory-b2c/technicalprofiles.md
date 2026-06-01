@@ -1,17 +1,18 @@
 ---
-title: Technical profiles
+title: Custom policy technical profiles
 titleSuffix: Azure AD B2C
-description: Specify the TechnicalProfiles element of a custom policy in Azure Active Directory B2C.
+description: Specify the TechnicalProfiles element of a custom policy in Azure AD B2C. Understand different types of technical profiles for user creation, authentication, and more.
 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 03/21/2025
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer integrating Azure Active Directory B2C into my application, I want to understand the different types of technical profiles available, so that I can choose the appropriate profile to communicate with Azure AD B2C and perform actions such as user creation, user profile reading, and authentication.
@@ -19,21 +20,21 @@ ms.subservice: B2C
 ---
 
 # Technical profiles
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
 A *technical profile* provides a framework with a built-in mechanism to communicate with different types of parties. Technical profiles are used to communicate with your Azure Active Directory B2C (Azure AD B2C) tenant to create a user or read a user profile. A technical profile can be self-asserted to enable interaction with the user. For example, a technical profile can collect the user's credential to sign in and then render the sign-up page or password reset page.
 
 ## Types of technical profiles
 
 A technical profile enables these types of scenarios:
 
-- [Application Insights](analytics-with-application-insights.md): Sends event data to [Application Insights](../azure-monitor/app/app-insights-overview.md).
+- [Application Insights](analytics-with-application-insights.md): Sends event data to [Application Insights](/azure/azure-monitor/app/app-insights-overview).
 - [Microsoft Entra ID](active-directory-technical-profile.md): Provides support for the Azure AD B2C user management.
 - [Microsoft Entra multifactor authentication](multi-factor-auth-technical-profile.md): Provides support for verifying a phone number by using Microsoft Entra multifactor authentication.
 - [Claims transformation](claims-transformation-technical-profile.md): Calls output claims transformations to manipulate claims values, validate claims, or set default values for a set of output claims.
-- [ID token hint](id-token-hint.md): Validates the `id_token_hint` JWT token signature, the issuer name, and the token audience, and extracts the claim from the inbound token.
-- [JWT token issuer](jwt-issuer-technical-profile.md): Emits a JWT token that's returned back to the relying party application.
+- [ID token hint](id-token-hint.md): Validates the `id_token_hint` JWT signature, the issuer name, and the token audience, and extracts the claim from the inbound token.
+- [JWT issuer](jwt-issuer-technical-profile.md): Emits a JWT that's returned back to the relying party application.
 - [OAuth1](oauth1-technical-profile.md): Federation with any OAuth 1.0 protocol identity provider.
 - [OAuth2](oauth2-technical-profile.md): Federation with any OAuth 2.0 protocol identity provider.
 - [One-time password](one-time-password-technical-profile.md): Provides support for managing the generation and verification of a one-time password.
@@ -310,7 +311,7 @@ In the following technical profile:
 
 ## Persisted claims
 
-The **PersistedClaims** element contains all of the values that should be persisted by an [Microsoft Entra ID technical profile](active-directory-technical-profile.md) with possible mapping information between a claim type already defined in the [ClaimsSchema](claimsschema.md) section in the policy and the Microsoft Entra attribute name.
+The **PersistedClaims** element contains all of the values that should be persisted by a [Microsoft Entra ID technical profile](active-directory-technical-profile.md) with possible mapping information between a claim type already defined in the [ClaimsSchema](claimsschema.md) section in the policy and the Microsoft Entra attribute name.
 
 The name of the claim is the name of the [Microsoft Entra attribute](user-profile-attributes.md) unless the **PartnerClaimType** attribute is specified, which contains the Microsoft Entra attribute name.
 

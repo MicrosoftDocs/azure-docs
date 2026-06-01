@@ -5,9 +5,9 @@ description: Learn which search categories are supported in Azure Maps. View all
 author: sataneja
 ms.author: sataneja
 ms.date: 05/14/2018
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: search
 ---
 
 

@@ -1,79 +1,72 @@
 ---
-author: aakanmu
+author: sloanster
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 05/14/2024
-ms.author: aakanmu
+ms.date: 06/27/2025
+ms.author: micahvivion
 ---
-[!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-## Place a call with contextual Information
+## Technical parameters
 
-```js
-// Set up customContext
-this.callOptions.customContext = {
-    userToUser: <USER_TO_USER_VALUE>,
-    xHeaders: [
-        { key: <CUSTOM_HEADER_KEY>, value: <CUSTOM_HEADER_VALUE> },
-    ]
-};
-```
-For a "1:1" call to a user, use the following code:
+The calling SDK supports adding up to five (5) custom SIP headers and 1000 custom VOIP headers. Additionally, developers can include a dedicated User-To-User header as part of SIP headers list.
 
-```js
-const userId = { communicationUserId: 'ACS_USER_ID' };
-this.currentCall = this.callAgent.startCall([userId], this.callOptions);
-```
+The maximum length of a SIP header key is 64 chars, including the X-MS-Custom prefix. When you add the SIP header to the calling SDK, it automatically adds the `X-MS-Custom-` prefix, which you can see by inspecting the SIP header with packet inspector.
 
-To place a call to a public switched telephone network (PSTN), use the `startCall` method on `callAgent` and pass the recipient's `PhoneNumberIdentifier`. Your Communication Services resource must be configured to allow PSTN calling.
+The SIP header key might consist of alphanumeric characters and a few selected symbols, which include `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`. The maximum length of SIP header value is 256 chars. The same limitations apply when configuring the SIP headers on your session border controller (SBC). The SIP header value might consist of alphanumeric characters and a few selected symbols, which include `=`, `;`, `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`.
 
-When you call a PSTN number, specify your alternate caller ID. An alternate caller ID is a phone number (based on the E.164 standard) that identifies the caller in a PSTN call. It's the phone number the call recipient sees for an incoming call.
+The maximum length of a VOIP header key is 64 chars. The maximum length of VOIP header value is 1024 characters.
 
-For a 1:1 call to a PSTN number, use the following code:
-```js
-const phoneNumber = { phoneNumber: <ACS_PHONE_NUMBER> };
-this.callOptions.alternateCallerId = { phoneNumber: <ALTERNATE_CALLER_ID>}
-this.currentCall = this.callAgent.startCall([phoneNumber], this.callOptions);
-```
+When adding these custom headers as a developer you can choose to add only SIP headers, only VoIP headers or both can be included.
 
 > [!NOTE]
-> Passing contextual information in group call and add participant scenarios are not supported
+> When sending SIP headers, we recommend URL-encoding header values. Even if the values contain only valid characters, intermediary carriers may fail to parse them correctly unless they are URL-encoded.
 
-## Receive an incoming call
+> [!NOTE]
+> Currently, adding custom User-to-User Information headers is only supported when initiating a 1:1 call. Passing User-to-User Information headers in group calls isn't currently supported. To work around this constraint after starting the 1:1 call, you can add participants while maintaining the User-to-User Information within the calls. 
+
+For details about the custom context interface API, see [custom context API resource](/javascript/api/azure-communication-services/@azure/communication-calling/customcontext?view=azure-communication-services-js&preserve-view=true).
+
+## Place a call with User-to-User Information (UUI) data
+
+```js
+// Setting custom context UUI Headers
+const callOptions = {
+    customContext: {
+        voipHeaders: [
+            {key: 'voip-key-1', value: 'voip-value-1'},
+            {key: 'voip-key-2', value: 'voip-value-2'}
+        ],
+
+        sipHeaders: [
+            {key: 'sip-key-1', value: 'sip-value-1'},
+            {key: 'sip-key-2', value: 'sip-value-2'}
+        ],
+        userToUser: 'userToUserHeader',
+    },
+};
+});
+```
+
+
+## Read and parse User-to-User Information headers in a call
 
 The `callAgent` instance emits an `incomingCall` event when the logged-in identity receives an incoming call. To listen to this event and extract contextual info, subscribe by using one of these options:
 
 ```js
-const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => {
+let info = '';
+ 
+callAgent.on("incomingCall", (args) => {
     const incomingCall = args.incomingCall;
-
-    // receiving customContext
-    const customContext = args.incomingCall.customContext;
-
-    // Get incoming call ID
-    var incomingCallId = incomingCall.id
-
-    // Get information about this Call. This API is provided as a preview for developers
-    // and may change based on feedback that we receive. Do not use this API in a production environment.
-    // To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
-    var callInfo = incomingCall.info;
-
-    // Get information about caller
-    var callerInfo = incomingCall.callerInfo
-
-    // Accept the call
-    var call = await incomingCall.accept();
-
-    // Reject the call
-    incomingCall.reject();
-
-    // Subscribe to callEnded event and get the call end reason
-     incomingCall.on('callEnded', args => {
-        console.log(args.callEndReason);
-    });
-
-    // callEndReason is also a property of IncomingCall
-    var callEndReason = incomingCall.callEndReason;
-};
-callAgentInstance.on('incomingCall', incomingCallHandler);
+    if (incomingCall.customContext) {
+        if (incomingCall.customContext.userToUser) {
+            info += `userToUser: '${incomingCall.customContext.userToUser}'\n`;
+        }
+        if (incomingCall.customContext.sipHeaders) {
+            incomingCall.customContext.sipHeaders.forEach(header => info += `sip: ${header.key}: '${header.value}'\n`);
+        }
+        if (incomingCall.customContext.voipHeaders) {
+            incomingCall.customContext.voipHeaders.forEach(header => info += `voip: ${header.key}: '${header.value}'\n`);
+        }
+    }
+});
 ```

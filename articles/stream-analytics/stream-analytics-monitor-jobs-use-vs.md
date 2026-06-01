@@ -4,9 +4,10 @@ description: This article describes how to use Visual Studio to monitor and mana
 author: su-jie
 ms.author: sujie
 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
+ms.custom: sfi-image-nochange
 ---
 
 # Monitor and manage Stream Analytics jobs with Visual Studio

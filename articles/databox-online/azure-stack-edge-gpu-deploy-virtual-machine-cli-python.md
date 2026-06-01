@@ -2,15 +2,18 @@
 title: Deploy VMs on your Azure Stack Edge Pro device GPU via Azure CLI and Python
 description: Describes how to create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU device using Azure CLI and Python.
 services: databox
-author: alkohli
+author: sipastak
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/30/2021
-ms.author: alkohli
-ms.custom: has-adal-ref, devx-track-azurecli, devx-track-python
+ms.author: sipastak
 ms.devlang: azurecli
+ms.custom:
+  - has-adal-ref
+  - devx-track-azurecli
+  - devx-track-python
+  - sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
 
@@ -337,7 +340,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
             "isDefault": true,
             "name": "Default Provider Subscription",
             "state": "Enabled",
-            "tenantId": "c0257de7-538f-415c-993a-1b87a031879d",
+            "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
             "user": {
                 "name": "EdgeArmUser@localhost",
                 "type": "user"
@@ -351,7 +354,7 @@ Before you begin creating and managing a VM on your Azure Stack Edge Pro device 
    The following environment variables need to be set to work as *service principal*:
 
    ```
-   $ENV:ARM_TENANT_ID = "c0257de7-538f-415c-993a-1b87a031879d"
+   $ENV:ARM_TENANT_ID = "aaaabbbb-0000-cccc-1111-dddd2222eeee"
    $ENV:ARM_CLIENT_ID = "cbd868c5-7207-431f-8d16-1cb144b50971"
    $ENV:ARM_CLIENT_SECRET - "<Your Azure Resource Manager password>"
    $ENV:ARM_SUBSCRIPTION_ID = "<Your subscription ID>"
@@ -437,4 +440,4 @@ A Python script is provided to you to create a VM. Depending on whether you are 
 
 ## Next steps
 
-[Common Az CLI commands for Linux virtual machines](../virtual-machines/linux/cli-manage.md)
+[Common Az CLI commands for Linux virtual machines](/azure/virtual-machines/linux/cli-manage)

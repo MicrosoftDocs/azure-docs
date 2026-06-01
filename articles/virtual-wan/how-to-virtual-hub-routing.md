@@ -4,10 +4,11 @@ titleSuffix: Azure Virtual WAN
 description: Learn how to configure Virtual WAN virtual hub routing using the Azure portal.
 services: virtual-wan
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 01/10/2024
 ms.author: cherylmc
+ms.custom: sfi-image-nochange
 
 ---
 # How to configure virtual hub routing - Azure portal

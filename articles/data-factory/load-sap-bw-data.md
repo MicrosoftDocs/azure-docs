@@ -4,10 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Copy data from SAP Business Warehouse (BW) with Azure Data Factory or Synapse Analytics
 author: jianleishen
 ms.author: ulrichchrist
-ms.service: data-factory
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Copy data from SAP Business Warehouse with Azure Data Factory or Synapse Analytics

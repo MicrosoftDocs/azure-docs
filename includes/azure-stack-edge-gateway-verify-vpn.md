@@ -1,9 +1,10 @@
 ---
 author: alkohli
-ms.service: databox  
+ms.service: azure-databox
 ms.topic: include
 ms.date: 10/27/2020
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 
 To verify VPN, you can create a storage account that can only be accessed by the virtual network that you created. Follow these steps to create and associate this storage account with the virtual network you created:

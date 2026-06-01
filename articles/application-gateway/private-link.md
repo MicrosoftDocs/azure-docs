@@ -2,12 +2,13 @@
 title: Azure Application Gateway Private Link
 description: This article is an overview of Application Gateway Private Link.
 services: application-gateway
-author: greg-lindsay
-ms.service: application-gateway
-ms.topic: conceptual
-ms.date: 06/06/2023
-ms.author: greglin
+author: mbender-ms
+ms.service: azure-application-gateway
+ms.topic: concept-article
+ms.date: 01/21/2026
+ms.author: mbender
 
+# Customer intent: "As a network administrator, I want to implement Private Link for Application Gateway, so that I can securely connect my workloads over a private network while maintaining the benefits of Layer 7 load balancing."
 ---
 
 # Application Gateway Private Link
@@ -32,6 +33,9 @@ You may also choose to block inbound public (Internet) access to Application Gat
 
 All features supported by Application Gateway are supported when accessed through a private endpoint, including support for AGIC.
 
+> [!NOTE]
+> If your client application connects to App Gateway via a private IP, requires an idle timeout greater > than 4 minutes, and the client application does not send TCP keep-alive packets, contact > agprivateip-keepalive@microsoft.com to request initiation of keep‑alive from Application Gateway.
+
 ## Private Link components
 
 Four components are required to implement Private Link with Application Gateway:
@@ -52,13 +56,22 @@ Four components are required to implement Private Link with Application Gateway:
 
    A connection on Application Gateway originated by Private Endpoints. You can autoapprove, manually approve, or reject connections to grant or deny access.
 
+## Pricing
+
+| Component | Service Provider/Private Link (Application Gateway resource owner)  | Consumer/Private Endpoint | 
+| ---------- | ---------- | ---------- |
+| **Private link service** | No charges | Not applicable | 
+| **Private endpoint** | Not applicable | [Billed as per Private Link](https://azure.microsoft.com/pricing/details/private-link/#pricing) | 
+| **Data processing (Bi-directional)** | No charges | [Billed as per Private Link](https://azure.microsoft.com/pricing/details/private-link/#pricing) | 
+| **Data transfers** | [Billed as per Bandwidth](https://azure.microsoft.com/pricing/details/bandwidth/#pricing) | [Billed as per Bandwidth](https://azure.microsoft.com/pricing/details/bandwidth/#pricing) | 
+
+
 ## Limitations
 - API version 2020-03-01 or later should be used to configure Private Link configurations.
 - Static IP allocation method in the Private Link Configuration object isn't supported.
 - The subnet used for PrivateLinkConfiguration can't be same as the Application Gateway subnet.
 - Private link configuration for Application Gateway doesn't expose the "Alias" property and must be referenced via resource URI.
 - Private Endpoint creation doesn't create a \*.privatelink DNS record or zone. All DNS records should be entered in existing zones used for your Application Gateway.
-- Azure Front Door and Application Gateway don't support chaining via Private Link.
 - Private Link Configuration for Application Gateway has an idle timeout of ~5 minutes (300 seconds). To avoid hitting this limit, applications connecting through private endpoints to Application Gateway must use TCP keepalive intervals of less than 300 seconds.
 
 ## Next steps

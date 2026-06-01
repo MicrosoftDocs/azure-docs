@@ -1,36 +1,37 @@
 ---
-title: Web application firewall request size limits in Azure Application Gateway - Azure portal
+title: WAF Request Size Limits in Azure Application Gateway
 description: This article provides information on Web Application Firewall request size limits in Application Gateway with the Azure portal.
-services: web-application-firewall
-author: vhorne
-ms.service: web-application-firewall
-ms.date: 07/16/2024
-ms.author: victorh
+author: halkazwini
+ms.author: halkazwini
+ms.service: azure-web-application-firewall
 ms.topic: concept-article
+ms.date: 02/25/2026
+
+# Customer intent: "As a security administrator, I want to configure the request and file upload size limits in the Web Application Firewall, so that I can optimize security policies and prevent unauthorized large requests or file uploads affecting application performance."
 ---
 
 # Web Application Firewall request and file upload size limits
 
+**Applies to:** :heavy_check_mark: Application Gateway V2
+
 Web Application Firewall allows you to configure request size limits within a lower and upper boundary. Application Gateways Web Application Firewalls running Core Rule Set 3.2 or later have more request and file upload size controls, including the ability to disable max size enforcement for requests and/or file uploads.
-
-
-> [!IMPORTANT]
-> We are in the process of deploying a new feature for Application Gateway v2 Web Application Firewalls running Core Rule Set 3.2 or later that allows for greater control of your request body size, file upload size, and request body inspection. If you're running Application Gateway v2 Web Application Firewall with Core Rule Set 3.2 or later, and you notice requests getting rejected (or not getting rejected) for a size limit please refer to the troubleshooting steps at the bottom of this page.
-
 
 ## Limits
 
-The request body size field and the file upload size limit are both configurable within the Web Application Firewall. The maximum request body size field is specified in kilobytes and controls overall request size limit excluding any file uploads. The file upload limit field is specified in megabytes and it governs the maximum allowed file upload size. For the request size limits and file upload size limit, see [Application Gateway limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
+The request body size field and the file upload size limit are both configurable within the Web Application Firewall. The maximum request body size field is specified in kilobytes and controls overall request size limit excluding any file uploads. The file upload limit field is specified in megabytes and it governs the maximum allowed file upload size. For the request size limits and file upload size limit, see [Application Gateway limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-application-gateway-limits).
 
-For Application Gateway v2 Web Application Firewalls running Core Rule Set 3.2, or newer, the maximum request body size enforcement and max file upload size enforcement can be disabled and the Web Application Firewall no longer rejects a request, or file upload, for being too large. When maximum request body size enforcement and max file upload size enforcement are disabled within the Web Application Firewall, Application Gateway's limits determine the maximum size allowable. For more information, see [Application Gateway limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
+For Application Gateway v2 Web Application Firewalls running Core Rule Set 3.2, or newer, the maximum request body size enforcement and max file upload size enforcement can be disabled and the Web Application Firewall no longer rejects a request, or file upload, for being too large. When maximum request body size enforcement and max file upload size enforcement are disabled within the Web Application Firewall, Application Gateway's limits determine the maximum size allowable. For more information, see [Application Gateway limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-application-gateway-limits).
 
 Only requests with Content-Type of *multipart/form-data* are considered for file uploads. For content to be considered as a file upload, it has to be a part of a multipart form with a *filename* header. For all other content types, the request body size limit applies.
 
 
 >[!NOTE]
->If you're running Core Rule Set 3.2 or later, and you have a high priority custom rule that takes action based on the content of a request's headers, cookies, or URI, this will take precedence over any max request size, or max file upload size, limits. This optimization let's the Web Application Firewall run high priority custom rules that don't require reading the full request first.
+>If you're running Core Rule Set 3.2 or later, and you have a high priority custom rule that takes action based on the content of a request's headers, cookies, or URI, this will take precedence over any max request size, or max file upload size, limits. This optimization lets the Web Application Firewall run high priority custom rules that don't require reading the full request first.
 >
 >**Example:** If you have a custom rule with priority 0 (the highest priority) set to allow a request with the header xyz, even if the request's size is larger than your maximum request size limit, it will get allowed before the max size limit is enforced
+
+>[!NOTE]
+>There's a 4 KB buffer on the file upload limit. The file size restriction won't be enforced until the file upload exceeds your set limit plus this buffer.
 
 ## Request body inspection
 
@@ -61,7 +62,7 @@ If you're an Application Gateway v2 Web Application Firewall customer running Co
 **Enforce maximum request body limit**
 - PowerShell: "RequestBodyEnforcement"
 - CLI: "request_body_enforcement"
-- Control if your Web Application Firewall enforces a max size limit on request bodies; when turned off it does not reject any requests for being too large.
+- Control if your Web Application Firewall enforces a max size limit on request bodies; when turned off it doesn't reject any requests for being too large.
 
 **Maximum request body size (KB)**
 - PowerShell: "MaxRequestBodySizeInKB"
@@ -71,7 +72,7 @@ If you're an Application Gateway v2 Web Application Firewall customer running Co
 **Enforce maximum file upload limit**
 - PowerShell: "FileUploadEnforcement"
 - CLI: "file_upload_enforcement"
-- Controls if your Web Application Firewall enforces a max size limit on file uploads; when turned off it does not reject any file uploads for being too large.
+- Controls if your Web Application Firewall enforces a max size limit on file uploads; when turned off it doesn't reject any file uploads for being too large.
 
 **Maximum file upload size (MB)**
 - PowerShell: "FileUploadLimitInMB"

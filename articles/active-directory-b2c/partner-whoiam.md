@@ -5,16 +5,18 @@ description: In this tutorial, learn how to integrate Azure AD B2C authenticatio
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developer integrating Azure Active Directory B2C with a third-party identity management system. I need a tutorial to configure WhoIAM Branded Identity Management System (BRIMS) with Azure AD B2C. My goal is to enable user verification with voice, SMS, and email in my application.
 ---
 
 # Tutorial to configure Azure Active Directory B2C with WhoIAM
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In this tutorial, learn how to configure WhoIAM Branded Identity Management System (BRIMS) in your environment and integrate it with Azure Active Directory B2C (Azure AD B2C). The BRIMS apps and services are deployed in your environment. They provide user verification with voice, SMS, and email. BRIMS works with your identity and access management solution and is platform-agnostic.
 
@@ -27,7 +29,7 @@ To get started, you'll need:
 
 * An Azure subscription
 
-  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/free/)
+  - If you don't have one, you can get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [An Azure AD B2C tenant](./tutorial-create-tenant.md) linked to your Azure subscription
 - A WhoIAM trial account
   - Go to [WhoIAM, Contact us](https://www.whoiam.ai/contact-us/) to get started
@@ -58,9 +60,9 @@ The following diagram shows the implementation architecture.
 
     * [Key Vault](https://azure.microsoft.com/services/key-vault/): Store passwords
     * [App Service](https://azure.microsoft.com/services/app-service/): Host the BRIMS API and admin portal services
-    * [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/): Authenticate administrative users for the portal
+    * [Microsoft Entra ID](https://www.microsoft.com/en-us/security/business/identity-access/microsoft-entra-id): Authenticate administrative users for the portal
     * [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Store and retrieve settings
-    * [Application Insights overview](../azure-monitor/app/app-insights-overview.md) (optional): Sign in to the API and the portal
+    * [Application Insights overview](/azure/azure-monitor/app/app-insights-overview) (optional): Sign in to the API and the portal
 
 3. Deploy the BRIMS API and the BRIMS administration portal in your Azure environment.
 4. Follow the documentation to configure your app. Use BRIMS for user identity verification. Azure AD B2C custom policy samples are in the BRIMS sign-up documentation.  

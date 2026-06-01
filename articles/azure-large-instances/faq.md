@@ -2,12 +2,13 @@
 title: Azure Large Instances FAQ
 titleSuffix: Azure Large Instances
 description: Provides resolutions for common issues that arise in working with Azure Large Instances for the Epic workload.
-ms.topic: conceptual
+ms.topic: faq
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.custom: references_regions
 ms.service: azure-large-instances
 ms.date: 06/01/2023
+# Customer intent: As a cloud architect, I want to understand the configuration and support requirements for Azure Large Instances, so that I can effectively deploy and manage the Epic workload in my organization.
 ---
 
 # Frequently asked questions about the Epic workload on Azure Large Instances
@@ -60,7 +61,7 @@ We always recommend customers to configure alerts for service health notificatio
 This monitoring and alerting mechanism is different than traditional mechanisms.  It's recommended for customers to set up Service Health alerts to their preferred communication channels for service issues, planned maintenance, or other changes that occur around Azure Large Instances. 
 Not setting this up could cause issues with your Azure Large Instances that might go undetected for a long time and cause downtime if not addressed at the right time.  
 
-[Receive activity log alerts on Azure service notifications using Azure portal](./../service-health/alerts-activity-log-service-notifications-portal.md)
+[Receive activity log alerts on Azure service notifications using Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal)
 ## Based on my business priority, can I request a change in the “Planned” maintenance schedule for Azure Large Instances - if I must?
 
 Microsoft sends a health notification service for both planned and unplanned events.
@@ -76,5 +77,5 @@ In the dropdown menu you can look for the Epic key word and then "Azure Large In
 
 ## What resources are available to learn more?
 
-See [What is Azure Large Instances?](what-is-azure-large-instances.md).
+See [What is Azure Large Instances?](what-is-azure-large-instances.md)
 

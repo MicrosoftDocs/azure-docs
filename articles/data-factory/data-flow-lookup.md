@@ -5,11 +5,10 @@ description: Reference data from another source using lookup transformations in 
 author: kromerm
 ms.reviewer: daperlov
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: synapse
-ms.date: 05/15/2024
+ms.date: 04/27/2026
 ---
 
 # Lookup transformations in mapping data flow
@@ -18,11 +17,14 @@ ms.date: 05/15/2024
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
+> [!TIP]
+>  For the equivalent transformation (**Merge queries**) in Dataflow Gen2, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
+
 Use the lookup transformation to reference data from another source in a data flow stream. The lookup transformation appends columns from matched data to your source data.
 
 A lookup transformation is similar to a left outer join. All rows from the primary stream will exist in the output stream with additional columns from the lookup stream.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4xsVT]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=e4b08344-f63d-4cb8-88ab-df1dc1b6208f]
 
 ## Configuration
 

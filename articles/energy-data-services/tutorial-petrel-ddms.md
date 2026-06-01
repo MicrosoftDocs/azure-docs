@@ -1,28 +1,26 @@
 ---
 title: "Tutorial: Work with Petrel data records by using Petrel DDMS APIs"
 titleSuffix: Microsoft Azure Data Manager for Energy
-description: Learn how to work with Petrel data records in your Azure Data Manager for Energy instance by using Petrel Domain Data Management Services (DDMS) APIs in Postman.
-author: nikarsky
-ms.author: nikarsky
-ms.service: energy-data-services
+description: Learn how to work with Petrel data records in your Azure Data Manager for Energy instance by using Petrel Domain Data Management Services (DDMS) APIs.
+author: Preetisingh
+ms.author: preetisingh
+ms.service: azure-data-manager-energy
 ms.topic: tutorial
-ms.date: 2/07/2023
-ms.custom: template-tutorial
+ms.date: 7/22/2025
+ms.custom:
+  - template-tutorial
+  - sfi-image-blocked
 
 #Customer intent: As a developer, I want to learn how to use the Petrel DDMS APIs so that I can store and retrieve similar kinds of data records.
 ---
 
 # Tutorial: Work with Petrel data records by using Petrel DDMS APIs
 
-Use Petrel Domain Data Management Services (DDMS) APIs in Postman to work with Petrel data in your instance of Azure Data Manager for Energy.
+Use Petrel Domain Data Management Services (DDMS) APIs to work with Petrel data in your instance of Azure Data Manager for Energy.
 
-In this tutorial, you learn how to:
+In this tutorial, you learn to :
 
 > [!div class="checklist"]
->
-> - Set up Postman to use a Petrel DDMS collection.
-> - Set up Postman to use a Petrel DDMS environment.
-> - Send requests via Postman.
 > - Generate an authorization token.
 > - Use Petrel DDMS APIs to work with Petrel data records and projects.
 
@@ -30,72 +28,65 @@ For more information about DDMS, see [DDMS concepts](concepts-ddms.md).
 
 ## Prerequisites
 
-- An Azure subscription
-- An instance of [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription
+* An Azure subscription
+* An instance of [Azure Data Manager for Energy](quickstart-create-microsoft-energy-data-services-instance.md) created in your Azure subscription
+* cURL command-line tool installed on your machine
+* Service principal access token to call the Petrel APIs. See [How to generate auth token](how-to-generate-auth-token.md).
 
-## Get your Azure Data Manager for Energy instance details
+### Get details for the Azure Data Manager for Energy instance
 
-The first step is to get the following information from your [Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md) in the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_OpenEnergyPlatformHidden):
+For this tutorial, you need the following parameters:
 
-| Parameter          | Value             | Example                               |
-| ------------------ | ------------------------ |-------------------------------------- |
-| `CLIENT_ID`          | Application (client) ID  | `3dfxxxxxxxxxxxxxxxxxxxxxx`  |
-| `CLIENT_SECRET`      | Client secrets           |  `_fl******************`                |
-| `TENANT_ID`          | Directory (tenant) ID    | `72fxxxxxxxxxxxx`  |
-| `SCOPE`              | Application (client) ID  | `3dfxxxxxxxxxxxxxxxxxxxxxxx`  |
-| `HOSTNAME`           | URI                      | `<instance>.energy.azure.com`           |
-| `DATA_PARTITION_ID`  | Data partitions        | `<instance>-<data-partition-name>`                    |
+| Parameter | Value to use | Example | Where to find this value |
+|----|----|----|----|
+| `DNS` | URI | `<instance>.energy.azure.com` | Find this value on the overview page of the Azure Data Manager for Energy instance. |
+| `data-partition-id` | Data partition | `<data-partition-id>` | Find this value on the Data Partition section within the Azure Data Manager for Energy instance. |
+| `access_token`       | Access token value       | `0.ATcA01-XWHdJ0ES-qDevC6r...........`| Follow [How to generate auth token](how-to-generate-auth-token.md) to create an access token and save it.|
 
-You'll use this information later in the tutorial.
+Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user who's running this tutorial.
 
-## Set up Postman
+### Set up your environment
 
-1. Download and install the [Postman](https://www.postman.com/downloads/) desktop app.
-
-1. Import the following file in Postman: [Petrel DDMS Postman collection](https://raw.githubusercontent.com/microsoft/meds-samples/main/postman/PetrelDSv2.postman_collection.json).
-
-1. Create a Postman environment by using the values that you obtained earlier. The environment should look something like this example:
-
-    :::image type="content" source="media/tutorial-petrel-ddms/pdsv2-env-postman.png" alt-text="Screenshot that shows an example Postman environment."  lightbox="media/tutorial-petrel-ddms/pdsv2-env-postman.png":::
-
-## Generate a token to use in APIs
-
-The Postman collection for Petrel DDMS contains requests that you can use to interact with your Petrel projects. It also contains a request to query current Petrel projects and records in your Azure Data Manager for Energy instance.
-
-1. In Postman, on the left menu, select **Collections**, and then select **Petrel DDMS**. Under **Setup**, select **Get Token**.
-
-1. In the environment dropdown list in the upper-right corner, select **Petrel DDMS Environment**.
-
-1. To send the request, select **Send**.
-
-This request generates an access token and assigns it as the authorization method for future requests.
-
-You can also generate a token by using the cURL command in Postman or a terminal to generate a bearer token. Use the values from your Azure Data Manager for Energy instance.
-
-```bash
-      curl --location --request POST 'https://login.microsoftonline.com/{{TENANT_ID}}/oauth2/v2.0/token' \
-          --header 'Content-Type: application/x-www-form-urlencoded' \
-          --data-urlencode 'grant_type=client_credentials' \
-          --data-urlencode 'client_id={{CLIENT_ID}}' \
-          --data-urlencode 'client_secret={{CLIENT_SECRET}}' \
-          --data-urlencode 'scope={{SCOPE}}'  
-```
-
-To use this cURL-generated token, you must update `access_token` in your `Collection` variables with the value after `Bearer` in the response.
+Ensure you have `cURL` installed on your system to make API calls.
 
 ## Use Petrel DDMS APIs to work with Petrel projects
 
-Successfully completing the Postman requests that are described in the following Petrel DDMS APIs indicates successful interaction with your saved Petrel projects. Although the API provides a way to upload data, we recommend that you upload your projects via DELFI Petrel Project Explorer. All of the following API calls assume that you have a project uploaded to Petrel Project Explorer.
+Successfully completing the API calls  that are present in [swagger](https://microsoft.github.io/adme-samples/rest-apis/index.html?page=/adme-samples/rest-apis/M23/petrel_ddms_openapi.yaml) indicates successful interaction with your saved Petrel projects. Although the API provides a way to upload data, we recommend uploading your projects via DELFI Petrel Project Explorer. All of the following API calls assume that you have a project uploaded to Petrel Project Explorer.
 
 ### Create a legal tag
 
-Create a legal tag that's automatically added to your Petrel DDMS environment for data compliance.
+Create a legal tag that you can use for data compliance.
 
-API: **Setup** > **Create Legal Tag for PDS**
+Run the following `cURL` command to create a legal tag:
 
-Method: `POST`
+```bash
+curl -X POST "https://<DNS>/api/legal/v1/legaltags" \
+     -H "Authorization: Bearer <access_token>" \
+     -H "Content-Type: application/json" \
+     -H "data-partition-id: <data-partition-id>" \
+     -d '{
+           "name": "LegalTagName",
+           "description": "Legal Tag added for Well",
+           "properties": {
+               "contractId": "123456",
+               "countryOfOrigin": ["US", "CA"],
+               "dataType": "Third Party Data",
+               "exportClassification": "EAR99",
+               "originator": "xyz",
+               "personalData": "No Personal Data",
+               "securityClassification": "Private",
+               "expirationDate": "2025-12-25"
+           }
+       }'
+```
 
-:::image type="content" source="media/tutorial-petrel-ddms/create-legal-tag-pdsv2.png" alt-text="Screenshot that shows the API that creates a legal tag." lightbox="media/tutorial-petrel-ddms/create-legal-tag-pdsv2.png":::
+**Sample Response:**
+```json
+{
+  "name": "LegalTagName",
+  "status": "Created"
+}
+```
 
 For more information, see [Manage legal tags](how-to-manage-legal-tags.md).
 
@@ -104,62 +95,38 @@ For more information, see [Manage legal tags](how-to-manage-legal-tags.md).
 For users to have the proper permissions to make Petrel DDMS API calls, they must be part of the `users.datalake.admins@{data-partition-id}.dataservices.energy` entitlement group. This call adds a user to the proper group.
 
 The user in this case is the client ID or OID in the token that's used for authentication. For example, if you generate a token by using a client ID of `8cdxxxxxxxxxxxx`, you must add `8cdxxxxxxxxxxxx` to the `users.datalake.admins` group.
-
-API: **Setup** > **Add User to DATALAKE Admins**
-
-Method: `POST`
-
-:::image type="content" source="media/tutorial-petrel-ddms/add-user-to-entitlements-pdsv2.png" alt-text="Screenshot that shows the API that adds user to entitlements." lightbox="media/tutorial-petrel-ddms/add-user-to-entitlements-pdsv2.png":::
+Follow the [Manage users](how-to-manage-users.md) guide to add appropriate entitlements for the user .
 
 ### Get a project
 
 Use a project ID to return the corresponding Petrel project record in your Azure Data Manager for Energy instance.
 
-API: *Project* > **Get Project**
+[API](https://microsoft.github.io/adme-samples/rest-apis/index.html?page=/adme-samples/rest-apis/M23/petrel_ddms_openapi.yaml#/Projects/get_api_petreldms_v1_projects__projectId_)
 
-Method: `GET`
-
-:::image type="content" source="media/tutorial-petrel-ddms/get-projects-pdsv2.png" alt-text="Screenshot that shows the API that gets a project." lightbox="media/tutorial-petrel-ddms/get-projects-pdsv2.png":::
 
 ### Delete a project
 
 Use a project ID to delete a project and the associated Petrel project record data in your Azure Data Manager for Energy instance.
 
-API: *Project* > **Delete Project**
-
-Method: `DELETE`
-
-:::image type="content" source="media/tutorial-petrel-ddms/delete-project-pdsv2.png" alt-text="Screenshot that shows the API that deletes a project." lightbox="media/tutorial-petrel-ddms/delete-project-pdsv2.png":::
+[API](https://microsoft.github.io/adme-samples/rest-apis/index.html?page=/adme-samples/rest-apis/M23/petrel_ddms_openapi.yaml#/Projects/post_api_petreldms_v1_projects__projectId_)
 
 ### Get a project version
 
 Use a project ID and a version ID to get the Petrel version record that's associated with the project and version in your Azure Data Manager for Energy instance.
 
-API: *Project* > **Get Project Version**
-
-Method: `GET`
-
-:::image type="content" source="media/tutorial-petrel-ddms/get-project-version-pdsv2.png" alt-text="Screenshot that shows the API that gets a project version." lightbox="media/tutorial-petrel-ddms/get-project-version-pdsv2.png":::
+[API](https://microsoft.github.io/adme-samples/rest-apis/index.html?page=/adme-samples/rest-apis/M23/petrel_ddms_openapi.yaml#/Projects/get_api_petreldms_v1_projects__projectId__versions__versionId_)
 
 ### Get a project download URL
 
 Use a project ID to get a shared access signature (SAS) URL so you can download the data of the corresponding project from your Azure Data Manager for Energy instance.
 
-API: *Project* > **Get Project Download**
-
-Method: `GET`
-
-:::image type="content" source="media/tutorial-petrel-ddms/get-download-url-pdsv2.png" alt-text="Screenshot that shows the API that gets a project download URL." lightbox="media/tutorial-petrel-ddms/get-download-url-pdsv2.png":::
+[API](https://microsoft.github.io/adme-samples/rest-apis/index.html?page=/adme-samples/rest-apis/M23/petrel_ddms_openapi.yaml#/Projects/get_api_petreldms_v1_projects__projectId__download)
 
 ### Get a project upload URL
 
 Use a project ID to get two SAS URLs. One URL uploads data to the corresponding project in your Azure Data Manager for Energy instance. The other URL downloads data from the corresponding project in your Azure Data Manager for Energy instance.
 
-API: *Project* > **Get Signed Upload URL**
-
-Method: `POST`
-
-:::image type="content" source="media/tutorial-petrel-ddms/get-upload-url-pdsv2.png" alt-text="Screenshot that shows the API that gets a project upload URL." lightbox="media/tutorial-petrel-ddms/get-upload-url-pdsv2.png":::
+[API](https://microsoft.github.io/adme-samples/rest-apis/index.html?page=/adme-samples/rest-apis/M23/petrel_ddms_openapi.yaml#/Projects/post_api_petreldms_v1_projects__projectId__upload)
 
 Your SAS upload URL should look something like this example:
 
@@ -175,25 +142,17 @@ Making a `PUT` call to this URL uploads the contents of `body` to the blob stora
 
 Use a project ID and a SAS upload URL to update a Petrel project record in Azure Data Manager for Energy with the new values. You can also upload data to a project if you want.
 
-API: *Project* > **Update Project**
-
-Method: `PUT`
-
-:::image type="content" source="media/tutorial-petrel-ddms/update-project-pdsv2.png" alt-text="Screenshot that shows the API that updates a project." lightbox="media/tutorial-petrel-ddms/update-project-pdsv2.png":::
+[API](https://microsoft.github.io/adme-samples/rest-apis/index.html?page=/adme-samples/rest-apis/M23/petrel_ddms_openapi.yaml#/Projects/put_api_petreldms_v1_projects__projectId__update)
 
 ### Search through projects
 
-You can search through Petrel projects by using many fields. The call returns all matching project IDs. The API supports:
+You can search through Petrel projects by using many fields. The call returns all matching project IDs. The Search API supports:
 
 - Full-text search on string fields.
 - Range queries based on date, numeric, or string fields.
 - Geospatial search.
 
-API: *Project* > **Search Projects**
-
-Method: `POST`
-
-:::image type="content" source="media/tutorial-petrel-ddms/search-projects-pdsv2.png" alt-text="Screenshot that shows the API that deletes a well record." lightbox="media/tutorial-petrel-ddms/search-projects-pdsv2.png":::
+[API](https://microsoft.github.io/adme-samples/rest-apis/index.html?page=/adme-samples/rest-apis/M23/search_openapi.yaml#/search-api/queryRecords)
 
 ## Related content
 

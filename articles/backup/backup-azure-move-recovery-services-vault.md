@@ -1,13 +1,14 @@
 ---
 title: How to move Azure Backup Recovery Services vaults 
 description: Instructions on how to move a Recovery Services vault across Azure subscriptions and resource groups.
-ms.topic: conceptual
-ms.date: 01/04/2024
+ms.topic: how-to
+ms.date: 03/25/2026
 ms.custom: references_regions, engagement-fy24
 ms.reviewer: caishwarya
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator, I want to move Recovery Services vaults between subscriptions and resource groups, so that I can effectively manage my backup resources and maintain compliance with organizational policies."
 ---
 
 # Move a Recovery Services vault across Azure subscriptions and resource groups
@@ -26,6 +27,7 @@ All public regions and sovereign regions are supported, except France South, Fra
 - You must have permission to perform write operations on the target resource group.
 - Moving the vault only changes the resource group. The Recovery Services vault will reside on the same location and it can't be changed.
 - You can move only one Recovery Services vault, per region, at a time.
+- Movement of a Recovery Services vault that contains cross-subscription protected Azure VM backup items isn't supported.
 - If a VM doesn't move with the Recovery Services vault across subscriptions, or to a new resource group, the current VM recovery points will remain intact in the vault until they expire.
 - Whether the VM is moved with the vault or not, you can always restore the VM from the retained backup history in the vault.
 - The Azure Disk Encryption requires that the key vault and VMs reside in the same Azure region and subscription.
@@ -40,7 +42,8 @@ All public regions and sovereign regions are supported, except France South, Fra
 - If you move a vault containing VM backup data, across subscriptions, you must move your VMs to the same subscription, and use the same target VM resource group name (as it was in old subscription) to continue backups.
 
 > [!NOTE]
-> Moving Recovery Services vaults for Azure Backup across Azure regions isn't supported.<br><br>
+>- Moving a CMK encrypted Recovery Services vault across resource groups and subscriptions isn't currently supported.
+>- Moving Recovery Services vaults for Azure Backup across Azure regions isn't supported.<br><br>
 > If you've configured any VMs (Azure IaaS, Hyper-V, VMware) or physical machines for disaster recovery using **Azure Site Recovery**, the move operation will be blocked. If you want to move vaults for Azure Site Recovery, review [this article](../site-recovery/move-vaults-across-regions.md) to learn about moving vaults manually.
 
 ## Use Azure portal to move Recovery Services vault to different resource group
@@ -101,7 +104,8 @@ You can move a Recovery Services vault and its associated resources to a differe
 7. Select **I understand that tools and scripts associated with moved resources will not work until I update them to use new resource IDs** option to confirm, and then select **OK**.
 
 > [!NOTE]
-> Cross subscription backup (RS vault and protected VMs are in different subscriptions) isn't a supported scenario. Also, storage redundancy option from local redundant storage (LRS) to global redundant storage (GRS) and vice versa can't be modified during the vault move operation.
+>-  If the Recovery Services vault contains cross-subscription protected Azure VM backup items, the vault move operation across subscriptions or resource groups is blocked.
+>-  The storage redundancy option from local redundant storage (LRS) to global redundant storage (GRS) and vice versa can't be modified during the vault move operation.
 
 ## Use Azure portal to back up resources in Recovery Services vault after moving across regions
 
@@ -248,8 +252,7 @@ To protect workloads in a new vault, the current protection and data will need t
 
 **Stop and delete current protection on the old vault:**
 
-1. Disable soft delete in the vault properties. Follow [these steps](backup-azure-security-feature-cloud.md?tabs=azure-portal#disable-soft-delete) to disable soft delete.
-
+1. If you want to retain backup data, you can keep soft delete on and continue to register the virtual machine for backup in a new vault, once the backup item is soft deleted. In case you don't want to retain backup data, [disable soft delete in the vault properties](backup-azure-security-feature-cloud.md?tabs=azure-portal#disable-soft-delete) (not recommended).
 2. Stop protection and delete backups from the current vault. In the Vault dashboard menu, select **Backup Items**. Items listed here that need to be moved to the new vault must be removed along with their backup data. See how to [delete protected items in the cloud](backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) and [delete protected items on premises](backup-azure-delete-vault.md#delete-protected-items-on-premises).
 
 3. If you're planning to move AFS (Azure file shares), SQL servers or SAP HANA servers, then you'll need also to unregister them. In the vault dashboard menu, select **Backup Infrastructure**. See how to [unregister the SQL server](manage-monitor-sql-database-backup.md#unregister-a-sql-server-instance), [unregister a storage account associated with Azure file shares](manage-afs-backup.md#unregister-a-storage-account), and [unregister an SAP HANA instance](sap-hana-db-manage.md#unregister-an-sap-hana-instance).
@@ -275,6 +278,9 @@ If you need to keep the current protected data in the old vault and continue the
   - You'll need to pay to keep the recovery points in the old vault (see [Azure Backup pricing](azure-backup-pricing.md) for details).
   - You'll be able to restore the VM, if needed, from the old vault.
   - The first backup on the new vault of the VM in the new resource will be an initial replica.
+
+>[!Note]
+>With the  Enhanced soft delete capabilities, you can move a VM backup to a new Recovery Services vault while retaining the existing data, without the need to move the VM to a new resource group.
 
 ## Next steps
 

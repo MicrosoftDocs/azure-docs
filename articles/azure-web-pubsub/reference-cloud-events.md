@@ -4,7 +4,7 @@ description: The reference describes CloudEvents extensions for Azure Web PubSub
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/08/2021
 ---
 
@@ -103,7 +103,8 @@ ce-eventName: connect
     "subprotocols": [],
     "clientCertificates": [
         {
-            "thumbprint": "ABC"
+            "thumbprint": "<certificate SHA-1 thumbprint>",
+            "content": "-----BEGIN CERTIFICATE-----\r\n...\r\n-----END CERTIFICATE-----"
         }
     ]
 }

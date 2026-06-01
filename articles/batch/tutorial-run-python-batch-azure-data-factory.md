@@ -3,8 +3,13 @@ title: 'Tutorial: Run a Batch job through Azure Data Factory'
 description: Learn how to use Batch Explorer, Azure Storage Explorer, and a Python script to run a Batch workload through an Azure Data Factory pipeline.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 03/01/2024
-ms.custom: mvc, devx-track-python
+ms.date: 04/02/2025
+ai-usage: ai-assisted
+ms.custom:
+  - mvc
+  - devx-track-python
+  - sfi-ropc-nochange
+# Customer intent: "As a data engineer, I want to create and execute an Azure Data Factory pipeline that runs a Batch workload with a Python script, so that I can process and manipulate data stored in Azure Blob Storage efficiently."
 ---
 
 # Tutorial: Run a Batch job through Data Factory with Batch Explorer, Storage Explorer, and Python
@@ -22,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A Batch account with a linked Azure Storage account. You can create the accounts by using any of the following methods: [Azure portal](quick-create-portal.md) | [Azure CLI](quick-create-cli.md) | [Bicep](quick-create-bicep.md) | [ARM template](quick-create-template.md) | [Terraform](quick-create-terraform.md).
 - A Data Factory instance. To create the data factory, follow the instructions in [Create a data factory](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory).
 - [Batch Explorer](https://azure.github.io/BatchExplorer) downloaded and installed.
@@ -82,8 +87,10 @@ Paste the connection string into the following script, replacing the `<storage-a
 
 ``` python
 # Load libraries
-from azure.storage.blob import BlobClient
+# from azure.storage.blob import BlobClient
+from azure.storage.blob import BlobServiceClient
 import pandas as pd
+import io
 
 # Define parameters
 connectionString = "<storage-account-connection-string>"
@@ -93,8 +100,16 @@ outputBlobName	= "iris_setosa.csv"
 # Establish connection with the blob storage account
 blob = BlobClient.from_connection_string(conn_str=connectionString, container_name=containerName, blob_name=outputBlobName)
 
+# Initialize the BlobServiceClient (This initializes a connection to the Azure Blob Storage, downloads the content of the 'iris.csv' file, and then loads it into a Pandas DataFrame for further processing.)
+blob_service_client = BlobServiceClient.from_connection_string(conn_str=connectionString)
+blob_client = blob_service_client.get_blob_client(container_name=containerName, blob_name=outputBlobName)
+
+# Download the blob content
+blob_data = blob_client.download_blob().readall()
+
 # Load iris dataset from the task node
-df = pd.read_csv("iris.csv")
+# df = pd.read_csv("iris.csv")
+df = pd.read_csv(io.BytesIO(blob_data))
 
 # Take a subset of the records
 df = df[df['Species'] == "setosa"]
@@ -105,6 +120,8 @@ df.to_csv(outputBlobName, index = False)
 with open(outputBlobName, "rb") as data:
     blob.upload_blob(data, overwrite=True)
 ```
+
+For more information on working with Azure Blob Storage, refer to the [Azure Blob Storage documentation](/azure/storage/blobs/storage-blobs-introduction). 
 
 Run the script locally to test and validate functionality. 
 

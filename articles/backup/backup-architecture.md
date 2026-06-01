@@ -2,11 +2,12 @@
 title: Architecture Overview 
 description: Provides an overview of the architecture, components, and processes used by the Azure Backup service.
 ms.topic: overview
-ms.date: 07/18/2024
-ms.service: backup
+ms.date: 11/18/2025
+ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: "As a system administrator, I want to understand the architecture and features of the cloud backup solution, so that I can effectively manage data protection and recovery for both on-premises and Azure virtual machines."
 ---
 
 # Azure Backup architecture and components
@@ -40,11 +41,11 @@ Vaults have the following features:
 
 - Vaults make it easy to organize your backup data, while minimizing management overhead.
 - You can monitor backed-up items in a vault, including Azure VMs and on-premises machines.
-- You can manage vault access with [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml).
+- You can manage vault access with [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal).
 - You specify how data in the vault is replicated for redundancy:
   - **Locally redundant storage (LRS)**: To protect your data against server rack and drive failures, you can use LRS. LRS replicates your data three times within a single data center in the primary region. LRS provides at least 99.999999999% (11 nines) durability of objects over a given year. [Learn more](../storage/common/storage-redundancy.md#locally-redundant-storage)
   - **Geo-redundant storage (GRS)**: To protect against region-wide outages, you can use GRS. GRS replicates your data to a secondary region. [Learn more](../storage/common/storage-redundancy.md#geo-redundant-storage).
-  - **Zone-redundant storage (ZRS)**: replicates your data in [availability zones](../availability-zones/az-overview.md#availability-zones), guaranteeing data residency and resiliency in the same region. [Learn more](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **Zone-redundant storage (ZRS)**: replicates your data in [availability zones](/azure/reliability/availability-zones-overview), guaranteeing data residency and resiliency in the same region. [Learn more](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - By default, Recovery Services vaults use GRS.
 
 Recovery Services vaults have the following additional features:
@@ -139,11 +140,12 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 - **Retention duration is increased / decreased:** When the retention duration is changed, the new retention duration is applied to the existing recovery points as well. As a result, some of the recovery points will be cleaned up. If the retention period is increased, the existing recovery points will have an increased retention as well.
 - **Changed from daily to weekly:** When the scheduled backups are changed from daily to weekly,  the existing daily recovery points are cleaned up.
 - **Changed from weekly to daily:** The existing weekly backups will be retained based on the number of days remaining according to the current retention policy.
+- **Schedule days/tags are changed, but retention is unchanged:** Existing recovery points continue to expire according to their current retention settings. New recovery points are no longer created for the removed schedule days/tags. Because Azure VM backup is incremental, storage reduction is gradual and depends on how much data in expired recovery points was overwritten by newer retained recovery points.
 
 ### Additional reference
 
 - Azure VM machine: How to [create](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) and [modify](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) policy.
-- SQL Server database in Azure VM machine: How to [create](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) and [modify](./manage-monitor-sql-database-backup.md#modify-policy) policy.
+- SQL Server database in Azure VM machine: How to [create](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) and [modify](./manage-monitor-sql-database-backup.md#modify-backup-policy-for-sql-database) policy.
 - Azure File share: How to [create](./backup-afs.md) and [modify](./manage-afs-backup.md#modify-policy) policy.
 - SAP HANA: How to [create](./backup-azure-sap-hana-database.md#create-a-backup-policy) and [modify](./sap-hana-db-manage.md#change-policy) policy.
 - MARS: How to [create](./backup-windows-with-mars-agent.md#create-a-backup-policy) and [modify](./backup-azure-manage-mars.md#modify-a-backup-policy) policy.
@@ -185,20 +187,20 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 Azure VMs use disks to store their operating system, apps, and data. Each Azure VM has at least two disks: a disk for the operating system and a temporary disk. Azure VMs can also have data disks for app data. Disks are stored as VHDs.
 
 - VHDs are stored as page blobs in standard or premium storage accounts in Azure:
-  - **Standard storage:** Reliable, low-cost disk support for VMs running workloads that aren't sensitive to latency. Standard storage can use standard solid-state drive (SSD) disks or standard hard disk drive (HDD) disks.
-  - **Premium storage:** High-performance disk support. Uses premium SSD disks.
+  - **Standard storage:** Reliable, low-cost disk support for VMs running workloads that aren't sensitive to latency. Standard storage can use Standard SSDs or Standard HDDs.
+  - **Premium storage:** High-performance disk support. Uses Premium SSDs.
 - There are different performance tiers for disks:
-  - **Standard HDD disk:** Backed by HDDs, and used for cost-effective storage.
-  - **Standard SSD disk:** Combines elements of premium SSD disks and standard HDD disks. Offers more consistent performance and reliability than HDD, but still cost-effective.
-  - **Premium SSD disk:** Backed by SSDs, and provides high-performance and low-latency for VMs that are running I/O-intensive workloads.
+  - **Standard HDD:** Backed by HDDs, and used for cost-effective storage.
+  - **Standard SSD:** Combines elements of Premium SSDs and Standard HDDs. Offers more consistent performance and reliability than HDD, but still cost-effective.
+  - **Premium SSD:** Backed by SSDs, and provides high-performance and low-latency for VMs that are running I/O-intensive workloads.
 - Disks can be managed or unmanaged:
   - **Unmanaged disks:** Traditional type of disks used by VMs. For these disks, you create your own storage account and specify it when you create the disk. You then need to figure out how to maximize storage resources for your VMs.
   - **Managed disks:** Azure creates and manages the storage accounts for you. You specify the disk size and performance tier, and Azure creates managed disks for you. As you add disks and scale VMs, Azure handles the storage accounts.
 
 For more information about disk storage and the available disk types for VMs, see these articles:
 
-- [Azure managed disks for Linux VMs](../virtual-machines/managed-disks-overview.md)
-- [Available disk types for VMs](../virtual-machines/disks-types.md)
+- [Azure managed disks for Linux VMs](/azure/virtual-machines/managed-disks-overview)
+- [Available disk types for VMs](/azure/virtual-machines/disks-types)
 
 ### Back up and restore Azure VMs with premium storage
 
@@ -207,7 +209,7 @@ You can back up Azure VMs by using premium storage with Azure Backup:
 - During the process of backing up VMs with premium storage, the Backup service creates a temporary staging location, named *AzureBackup-*, in the storage account. The size of the staging location equals the size of the recovery point snapshot.
 - Make sure that the premium storage account has adequate free space to accommodate the temporary staging location. For more information, see [Scalability targets for premium page blob storage accounts](../storage/blobs/scalability-targets-premium-page-blobs.md). Don't modify the staging location.
 - After the backup job finishes, the staging location is deleted.
-- The price of storage used for the staging location is consistent with [premium storage pricing](../virtual-machines/disks-types.md#billing).
+- The price of storage used for the staging location is consistent with [premium storage pricing](/azure/virtual-machines/disks-types#billing).
 
 When you restore Azure VMs by using premium storage, you can restore them to premium or standard storage. Typically, you would restore them to premium storage. But if you need only a subset of files from the VM, it might be cost effective to restore them to standard storage.
 
@@ -232,6 +234,15 @@ In Azure, all communications and data in transit is securely transferred with *H
 
 This robust approach ensures that even in a compromised environment, existing backups cannot be tampered with or deleted by unauthorized users.
 
+Learn more about vaulted backup for the following datasources:
+
+- [Azure Files](azure-file-share-backup-overview.md?tabs=vault-standard#architecture-for-azure-files-backup)
+- [Azure Blob](blob-backup-overview.md?tabs=vaulted-backup#how-the-azure-blobs-backup-works)
+- [Azure Data Lake Storage](azure-data-lake-storage-backup-overview.md), [Azure Kubernetes](azure-kubernetes-service-backup-overview.md#which-backup-storage-tier-does-aks-backup-support)
+- [PostgreSQL - Flexible server](tutorial-create-first-backup-azure-database-postgresql-flex.md#configure-backup--for-the-database)
+- [PostgreSQL database](backup-azure-database-postgresql-overview.md#changes-to-vaulted-backups-for-postgresql-single-servers)
+- [SAP ASE (Sybase) database](sap-ase-database-about.md#key-benefits-of-sap-ase-sybase-database-backup)
+
 ## Next steps
 
 - Review the support matrix to [learn about supported features and limitations for backup scenarios](backup-support-matrix.md).
@@ -240,6 +251,9 @@ This robust approach ensures that even in a compromised environment, existing ba
   - [Back up Windows machines directly](tutorial-backup-windows-server-to-azure.md), without a backup server.
   - [Set up MABS](backup-azure-microsoft-azure-backup.md) for backup to Azure, and then back up workloads to MABS.
   - [Set up DPM](backup-azure-dpm-introduction.md) for backup to Azure, and then back up workloads to DPM.
+  - [Back up a SharePoint farm on Azure Stack](backup-mabs-sharepoint-azure-stack.md).
+  - [Back up SQL Server on Azure Stack](backup-mabs-sql-azure-stack.md).
+
 
 [green]: ./media/backup-architecture/green.png
 [yellow]: ./media/backup-architecture/yellow.png

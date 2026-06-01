@@ -1,104 +1,95 @@
 ---
-title: Cluster SAP ASCS/SCS on WSFC using file share in Azure | Microsoft Docs
-description: Learn how to cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share in Azure.
+title: Cluster SAP ASCS/SCS on Windows Server failover clustering using Azure file share
+description: Learn how to cluster an SAP ASCS/SCS instance on a Windows Failover Cluster using an Azure file share.
 services: virtual-machines-windows,virtual-network,storage
-author: rdeltcheva
-manager: juergent
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.topic: article
+ms.topic: concept-article
 ms.tgt_pltfrm: vm-windows
-ms.date: 12/16/2022
+manager: juergent
+author: rdeltcheva
 ms.author: radeltch
+ms.date: 03/03/2026
 ms.custom: H1Hack27Feb2017
+# Customer intent: "As an SAP administrator, I want to configure a clustered SAP ASCS/SCS instance on a Windows failover cluster using an Azure file share, so that I can ensure high availability and reliability of SAP services in the cloud."
 ---
 
 # Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share in Azure
 
-> ![Windows logo.][Logo_Windows] Windows
->
+![Windows logo.][Logo_Windows] Windows
 
-Windows Server failover clustering is the foundation of a high-availability SAP ASCS/SCS installation and DBMS in Windows.
+Windows Server failover clustering is the foundation of a high-availability SAP ASCS/SCS installation and Database Management System (DBMS) in Windows.
 
-A failover cluster is a group of 1+n independent servers (nodes) that work together to increase the availability of applications and services. If a node failure occurs, Windows Server failover clustering calculates the number of failures that can occur and still maintain a healthy cluster to provide applications and services. You can choose from different quorum modes to achieve failover clustering.
+A failover cluster is a group of 1+*n* independent servers (nodes) that work together to increase the availability of applications and services. If a node failure occurs, Windows Server failover clustering calculates the number of failures that can occur and still maintain a healthy cluster to provide applications and services. You can choose from different quorum modes to achieve failover clustering.
 
-## Prerequisites
 Before you begin the tasks that are described in this article, review the following articles and SAP notes:
 
-* [Azure Virtual Machines high-availability architecture and scenarios for SAP NetWeaver][sap-high-availability-architecture-scenarios]
-* SAP Note [1928533][1928533], which contains:  
-  * A list of Azure VM sizes that are supported for the deployment of SAP software
+* [Azure Virtual Machines high-availability architecture and scenarios for SAP NetWeaver][sap-high-availability-architecture-scenarios].
+* SAP Note [1928533][1928533], which contains:
+  * A list of Azure virtual machine (VM) sizes that are supported for the deployment of SAP software
   * Important capacity information for Azure VM sizes
   * Supported SAP software, and operating system (OS) and database combinations
   * Required SAP kernel version for Windows on Microsoft Azure
-* SAP Note [2015553][2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
+* SAP Note [2015553][2015553] has prerequisites for SAP-supported SAP software deployments in Azure.
 * SAP Note [2178632][2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
-* SAP Note [1999351][1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
-* SAP Note [2287140](https://launchpad.support.sap.com/#/notes/2287140) lists prerequisites for  SAP-supported CA feature of SMB 3.x protocol.
+* SAP Note [1999351][1999351] has extra troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
+* SAP Note [2287140](https://launchpad.support.sap.com/#/notes/2287140) has prerequisites for SAP-supported CA feature of SMB 3.x protocol.
 * SAP Note [2802770](https://launchpad.support.sap.com/#/notes/2802770) has troubleshooting information for the slow running SAP transaction AL11 on Windows 2012 and 2016.
 * SAP Note [1911507](https://launchpad.support.sap.com/#/notes/1911507) has information about transparent failover feature for a file share on Windows Server with the SMB 3.0 protocol.
 * SAP Note [662452](https://launchpad.support.sap.com/#/notes/662452) has recommendation(deactivating 8.3 name generation) to address Poor file system performance/errors during data accesses.
-* [Install SAP NetWeaver high availability on a Windows failover cluster and file share for SAP ASCS/SCS instances on Azure](./sap-high-availability-installation-wsfc-file-share.md)
+* [Install SAP NetWeaver high availability on a Windows failover cluster and file share for SAP ASCS/SCS instances on Azure](./sap-high-availability-installation-wsfc-file-share.md).
 
 > [!NOTE]
-> Clustering SAP ASCS/SCS instances by using a file share is supported for SAP systems with SAP Kernel 7.22 (and later). For details see SAP note [2698948](https://launchpad.support.sap.com/#/notes/2698948)  
-
-
+> Clustering SAP ASCS/SCS instances by using a file share is supported for SAP systems with SAP Kernel 7.22 (and later).
+>
+> For details see SAP Note [2698948](https://launchpad.support.sap.com/#/notes/2698948).
 
 ## Windows Server failover clustering in Azure
 
-Compared to bare-metal or private cloud deployments, Azure Virtual Machines requires additional steps to configure Windows Server failover clustering. When you build a cluster, you need to set several IP addresses and virtual host names for the SAP ASCS/SCS instance.
+Compared to bare-metal or private cloud deployments, Azure virtual machines (VMs) requires extra steps to configure Windows Server failover clustering. When you build a cluster, you need to set several IP addresses and virtual host names for the SAP ASCS/SCS instance.
 
 ### Name resolution in Azure and the cluster virtual host name
 
-The Azure cloud platform doesn't offer the option to configure virtual IP addresses, such as floating IP addresses. You need an alternative solution to set up a virtual IP address to reach the cluster resource in the cloud. 
+The Azure cloud platform doesn't offer the option to configure virtual IP addresses, such as floating IP addresses. You need an alternative solution to set up a virtual IP address to reach the cluster resource in the cloud.
 
-The Azure Load Balancer service provides an *internal load balancer* for Azure. With the internal load balancer, clients reach the cluster over the cluster virtual IP address. 
+The Azure Load Balancer service provides an *internal load balancer* for Azure. With the internal load balancer, clients reach the cluster over the cluster virtual IP address.
 
 Deploy the internal load balancer in the resource group that contains the cluster nodes. Then, configure all necessary port forwarding rules by using the probe ports of the internal load balancer. The clients can connect via the virtual host name. The DNS server resolves the cluster IP address. The internal load balancer handles port forwarding to the active node of the cluster.
 
-![Figure 1: Windows Server Failover Clustering configuration in Azure without a shared disk][sap-ha-guide-figure-1001]
+![A diagram of a Windows Server Failover Cluster configuration in Azure without a shared disk.][sap-ha-guide-figure-1001]
 
-_**Figure 1:** Windows Server failover clustering configuration in Azure without a shared disk_
+*This image represents a Windows Server Failover Cluster configuration in Azure without a shared disk*.
 
-## SAP ASCS/SCS HA with file share
+## SAP ASCS/SCS high availability with file share
 
 SAP developed a new approach, and an alternative to cluster shared disks, for clustering an SAP ASCS/SCS instance on a Windows failover cluster. Instead of using cluster shared disks, you can use an SMB file share to deploy SAP global host files.
 
 > [!NOTE]
-> An SMB file share is an alternative to using cluster shared disks for clustering SAP ASCS/SCS instances.  
->
+> An SMB file share is an alternative to using cluster shared disks for clustering SAP ASCS/SCS instances.
 
 This architecture is specific in the following ways:
 
 * SAP central services (with its own file structure and message and enqueue processes) are separate from the SAP global host files.
 * SAP central services run under an SAP ASCS/SCS instance.
 * SAP ASCS/SCS instance is clustered and is accessible by using the \<ASCS/SCS virtual host name\> virtual host name.
-* SAP global files are placed on the SMB file share and are accessed by using the \<SAP global host\> host name:
- \\\\&lt;SAP global host&gt;\sapmnt\\&lt;SID&gt;\SYS\...
+* SAP global files are placed on the SMB file share and are accessed by using the \<SAP global host\> host name: `<SAP global host>\sapmnt\<SID>\SYS\...`
 * The SAP ASCS/SCS instance is installed on a local disk on both cluster nodes.
-* The \<ASCS/SCS virtual host name\> network name is different from &lt;SAP global host&gt;.
+* The \<ASCS/SCS virtual host name\> network name is different from \<SAP global host>.
 
-![Figure 2: SAP ASCS/SCS HA architecture with SMB file share][sap-ha-guide-figure-8004]
-
-_**Figure 2:** New SAP ASCS/SCS HA architecture with an SMB file share_
+![A diagram of an SAP ASCS/SCS high availability architecture with SMB file share.][sap-ha-guide-figure-8004]
 
 Prerequisites for an SMB file share:
 
 * SMB 3.0 (or later) protocol.
 * Ability to set Active Directory access control lists (ACLs) for Active Directory user groups and the `computer$` computer object.
-* The file share must be HA-enabled:
+* The file share must be enabled for high availability:
     * Disks used to store files must not be a single point of failure.
-    * Server or VM downtime does not cause downtime on the file share.
+    * Server or VM downtime doesn't cause downtime on the file share.
 
-The SAP \<SID\> cluster role does not contain cluster shared disks or a generic file share cluster resource.
+The SAP \<SID\> cluster role doesn't contain cluster shared disks or a generic file share cluster resource.
 
-
-![Figure 3: SAP \<SID\> cluster role resources for using a file share][sap-ha-guide-figure-8005]
-
-_**Figure 3:** SAP &lt;SID&gt; cluster role resources for using a file share_
-
+![A diagram of an SAP SID cluster role resource trajectory for using an SMB file share.][sap-ha-guide-figure-8005]
 
 ## Scale-out file shares with Storage Spaces Direct in Azure as an SAPMNT file share
 
@@ -106,21 +97,20 @@ You can use a scale-out file share to host and protect SAP global host files. A 
 
 ![Figure 4: Scale-out file share used to protect SAP global host files][sap-ha-guide-figure-8006]
 
-_**Figure 4:** A scale-out file share used to protect SAP global host files_
-
 > [!IMPORTANT]
 > Scale-out file shares are fully supported in the Microsoft Azure cloud, and in on-premises environments.
->
 
 A scale-out file share offers a highly available and horizontally scalable SAPMNT file share.
 
-Storage Spaces Direct is used as a shared disk for a scale-out file share. You can use Storage Spaces Direct to build highly available and scalable storage using servers with local storage. Shared storage that is used for a scale-out file share, like for SAP global host files, is not a single point of failure.
+Storage Spaces Direct is used as a shared disk for a scale-out file share. You can use Storage Spaces Direct to build highly available and scalable storage using servers with local storage. Shared storage that is used for a scale-out file share, like for SAP global host files, isn't a single point of failure.
 
 When choosing Storage Spaces Direct, consider these use cases:
 
-- The virtual machines used to build the Storage Spaces Direct cluster need to be deployed in an Azure availability set.
+- The VMs used to build the Storage Spaces Direct cluster need to be deployed in an Azure availability set.
+
 - For disaster recovery of a Storage Spaces Direct Cluster, you can use [Azure Site Recovery Services](../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage).
-- It is not supported to stretch the Storage Space Direct Cluster across different Azure Availability Zones.
+
+- It isn't supported to stretch the Storage Space Direct Cluster across different Azure Availability Zones.
 
 ### SAP prerequisites for scale-out file shares in Azure
 
@@ -131,84 +121,64 @@ To use a scale-out file share, your system must meet the following requirements:
 * For performance reason, you must use *mirroring resiliency*:
     * Two-way mirroring for a scale-out file share with two cluster nodes.
     * Three-way mirroring for a scale-out file share with three (or more) cluster nodes.
-* We recommend three (or more) cluster nodes for a scale-out file share, with three-way mirroring.
-    This setup offers more scalability and more storage resiliency than the scale-out file share setup with two cluster nodes and two-way mirroring.
+* We recommend three (or more) cluster nodes for a scale-out file share, with three-way mirroring. This setup offers more scalabilities and more storage resiliency than the scale-out file share setup with two cluster nodes and two-way mirroring.
 * You must use Azure Premium disks.
 * We recommend that you use Azure Managed Disks.
 * We recommend that you format volumes by using Resilient File System (ReFS).
     * For more information, see [SAP Note 1869038 - SAP support for ReFS filesystem][1869038] and the [Choosing the file system][planning-volumes-s2d-choosing-filesystem] chapter of the article Planning volumes in Storage Spaces Direct.
     * Be sure that you install [Microsoft KB4025334 cumulative update][kb4025334].
 * You can use DS-Series or DSv2-Series Azure VM sizes.
-* For good network performance between VMs, which is needed for Storage Spaces Direct disk sync, use a VM type that has at least a “high” network bandwidth.
-    For more information, see the [DSv2-Series][dv2-series] and [DS-Series][ds-series] specifications.
-* We recommend that you reserve some unallocated capacity in the storage pool. Leaving some unallocated capacity in the storage pool gives volumes space to repair "in place" if a drive fails. This improves data safety and performance.  For more information, see [Choosing volume size][choosing-the-size-of-volumes-s2d].
-* You don't need to configure the Azure internal load balancer for the scale-out file share network name, such as for \<SAP global host\>. This is done for the \<ASCS/SCS virtual host name\> of the SAP ASCS/SCS instance or for the DBMS. A scale-out file share scales out the load across all cluster nodes. \<SAP global host\> uses the local IP address for all cluster nodes.
+* For good network performance between VMs, which is needed for Storage Spaces Direct disk sync, use a VM type that has at least a "high" network bandwidth. For more information, see the [DSv2-Series][dv2-series] and [DS-Series][ds-series] specifications.
+* We recommend that you reserve some unallocated capacity in the storage pool. Leaving some unallocated capacity in the storage pool gives volumes space to repair "in place" if a drive fails. This extra space improves data safety and performance. For more information, see [Choosing volume size][choosing-the-size-of-volumes-s2d].
+* You don't need to configure the Azure internal load balancer for the scale-out file share network name, such as for \<SAP global host\>. The configuration is done for the \<ASCS/SCS virtual host name\> of the SAP ASCS/SCS instance or for the DBMS. A scale-out file share scales out the load across all cluster nodes. \<SAP global host\> uses the local IP address for all cluster nodes.
 
 > [!IMPORTANT]
-> You cannot rename the SAPMNT file share, which points to \<SAP global host\>. SAP supports only the share name "sapmnt."
+> You can't rename the SAPMNT file share, which points to \<SAP global host\>. SAP supports only the share name `sapmnt`.
 >
-For more information, see [SAP Note 2492395 - Can the share name sapmnt be changed?][2492395]
+> For more information, see [SAP Note 2492395 - Can the share name sapmnt be changed?][2492395].
 
 ### Configure SAP ASCS/SCS instances and a scale-out file share in two clusters
 
 You must deploy the SAP ASCS/SCS instances in a separate cluster, with their own SAP \<SID\> cluster role. In this case, you configure the scale-out file share on another cluster, with another cluster role.
 
-
 > [!IMPORTANT]
-> The setup must meet the following requirement: the SAP ASCS/SCS instances and the SOFS share must be deployed in separate clusters.    
+> The setup must meet the following requirement: the SAP ASCS/SCS instances and the SOFS share must be deployed in separate clusters.
 >
-> [!IMPORTANT] 
-> In this scenario, the SAP ASCS/SCS instance is configured to access the SAP global host by using UNC path \\\\&lt;SAP global host&gt;\sapmnt\\&lt;SID&gt;\SYS\.
->
+> In this scenario, the SAP ASCS/SCS instance is configured to access the SAP global host by using UNC path `<SAP global host>\sapmnt\<SID>\SYS\`.
 
-![Figure 5: SAP ASCS/SCS instance and a scale-out file share deployed in two clusters][sap-ha-guide-figure-8007]
+> [!NOTE]
+> The following three images show the use of extra local disks. The addition of extra disks is optional for customers who don't install application software on the OS drive (**C:\\**)
 
-_**Figure 5:** An SAP ASCS/SCS instance and a scale-out file share deployed in two clusters_
+![A diagram of an SAP ASCS/SCS instance and a scale-out file share deployed in two clusters.][sap-ha-guide-figure-8007]
 
 ## Optional configurations
 
-The following diagrams show multiple SAP instances on Azure VMs running Microsoft Windows Failover Cluster to reduce the total number of VMs.
-
-This can either be local SAP Application Servers on a SAP ASCS/SCS cluster or a SAP ASCS/SCS Cluster Role on Microsoft SQL Server Always On nodes.
+The following diagrams show multiple SAP instances on Azure VMs running Microsoft Windows Failover Cluster to reduce the total number of VMs. Configurations like this can either be local SAP Application Servers on an SAP ASCS/SCS cluster or an SAP ASCS/SCS Cluster Role on Microsoft SQL Server Always On nodes.
 
 > [!IMPORTANT]
-> Installing a local SAP Application Server on a SQL Server Always On node is not supported.
->
+> Installing a local SAP Application Server on a SQL Server Always On node isn't supported.
 
-Both, SAP ASCS/SCS and the Microsoft SQL Server database, are single points of failure (SPOF). To protect these SPOFs in a Windows environment WSFC is used.
+Both, SAP ASCS/SCS and the Microsoft SQL Server database, are single points of failure (SPOF). These SPOFs are protected in a Windows environment if Microsoft Windows Failover Cluster is used. A reduction of the memory configuration for either SQL Server or the SAP Application Server by 2 GB is recommended.
 
-While the resource consumption of the SAP ASCS/SCS is fairly small, a reduction of the memory configuration for either SQL Server or the SAP Application Server by 2 GB is recommended.
+### SAP Application Servers on Windows Server Failover Cluster nodes using Windows SOFS
 
-### <a name="86cb3ee0-2091-4b74-be77-64c2e6424f50"></a>SAP Application Servers on WSFC nodes using Windows SOFS
+![A diagram of a Windows Server Failover Cluster configuration in Azure with Windows SOFS and locally installed SAP Application Server.][sap-ha-guide-figure-8007A]
 
-![Figure 6: Windows Server failover clustering configuration in Azure with Windows SOFS and locally installed SAP Application Server][sap-ha-guide-figure-8007A]
+### SAP ASCS/SCS on SQL Server Always On nodes using Windows SOFS
 
-> [!NOTE]
-> The picture shows the use of additional local disks. This is optional for customers who will not install application software on the OS drive (C:\)
->
-### <a name="db335e0d-09b4-416b-b240-afa18505f503"></a> SAP ASCS/SCS on SQL Server Always On nodes using Windows SOFS
-
-![Figure 7: SAP ASCS/SCS on SQL Server Always On nodes using Windows SOFS][sap-ha-guide-figure-8007B]
-
-> [!NOTE]
-> The picture shows the use of additional local disks. This is optional for customers who will not install application software on the OS drive (C:\)
->
+![A diagram of an SAP ASCS/SCS on SQL Server Always On nodes using Windows SOFS.][sap-ha-guide-figure-8007B]
 
 > [!IMPORTANT]
-> In the Azure cloud, each cluster that is used for SAP and scale-out file shares must be deployed in its own Azure availability set or across Azure Availability Zones. This ensures distributed placement of the cluster VMs across the underlying Azure infrastructure. Availability Zone deployments are supported with this technology.
->
+> In the Azure cloud, each cluster that is used for SAP and scale-out file shares must be deployed in its own Azure availability set or across Azure Availability Zones. These deployments ensure distributed placement of the cluster VMs across the underlying Azure infrastructure. Availability Zone deployments are supported with this technology.
 
 ## Generic file share with SIOS DataKeeper as cluster shared disks
 
-
-A generic file share is another option for achieving a highly available file share.
-
-In this case, you can use a third-party SIOS solution as a cluster shared disk.
+A generic file share is another option for achieving a highly available file share. In this case, you can use a third-party SIOS solution as a cluster shared disk.
 
 ## Next steps
 
-* [Prepare the Azure infrastructure for SAP HA by using a Windows failover cluster and file share for an SAP ASCS/SCS instance][sap-high-availability-infrastructure-wsfc-file-share]
-* [Install SAP NetWeaver HA on a Windows failover cluster and file share for an SAP ASCS/SCS instance][sap-high-availability-installation-wsfc-shared-disk]
+* [Prepare the Azure infrastructure for SAP high availability by using a Windows failover cluster and file share for an SAP ASCS/SCS instance][sap-high-availability-infrastructure-wsfc-file-share]
+* [Install SAP NetWeaver high availability on a Windows failover cluster and file share for an SAP ASCS/SCS instance][sap-high-availability-installation-wsfc-shared-disk]
 * [Deploy a two-node Storage Spaces Direct scale-out file server for UPD storage in Azure][deploy-sofs-s2d-in-azure]
 * [Storage Spaces Direct in Windows Server 2016][s2d-in-win-2016]
 * [Deep dive: Volumes in Storage Spaces Direct][deep-dive-volumes-in-s2d]
@@ -222,7 +192,7 @@ In this case, you can use a third-party SIOS solution as a cluster shared disk.
 
 [kb4025334]:https://support.microsoft.com/help/4025334/windows-10-update-kb4025334
 
-[dv2-series]:../../virtual-machines/dv2-dsv2-series.md
+[dv2-series]:/azure/virtual-machines/dv2-dsv2-series
 [ds-series]:/azure/virtual-machines/windows/sizes-general
 
 [sap-installation-guides]:http://service.sap.com/instguides
@@ -277,8 +247,6 @@ In this case, you can use a third-party SIOS solution as a cluster shared disk.
 [sap-ha-guide-9]:#a06f0b49-8a7a-42bf-8b0d-c12026c5746b
 [sap-ha-guide-9.1]:#31c6bd4f-51df-4057-9fdf-3fcbc619c170
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
-
-
 
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
@@ -350,7 +318,6 @@ In this case, you can use a third-party SIOS solution as a cluster shared disk.
 
 [sap-ha-guide-figure-6003]:./media/virtual-machines-shared-sap-high-availability-guide/6003-sap-multi-sid-full-landscape.png
 
-
 [sap-ha-guide-figure-8001]:./media/virtual-machines-shared-sap-high-availability-guide/8001.png
 [sap-ha-guide-figure-8002]:./media/virtual-machines-shared-sap-high-availability-guide/8002.png
 [sap-ha-guide-figure-8003]:./media/virtual-machines-shared-sap-high-availability-guide/8003.png
@@ -379,7 +346,6 @@ In this case, you can use a third-party SIOS solution as a cluster shared disk.
 [sap-ha-guide-figure-8024]:./media/virtual-machines-shared-sap-high-availability-guide/8024.png
 [sap-ha-guide-figure-8025]:./media/virtual-machines-shared-sap-high-availability-guide/8025.png
 
-
 [sap-templates-3-tier-multisid-xscs-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-xscs-marketplace-image-md]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-3-tier-marketplace-image-multi-sid-xscs-md%2Fazuredeploy.json
 [sap-templates-3-tier-multisid-db-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
@@ -391,4 +357,4 @@ In this case, you can use a third-party SIOS solution as a cluster shared disk.
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-[1869038]:https://launchpad.support.sap.com/#/notes/1869038 
+[1869038]:https://launchpad.support.sap.com/#/notes/1869038

@@ -1,7 +1,7 @@
 ---
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: include
 ms.date: 06/11/2024
 ms.custom: include file

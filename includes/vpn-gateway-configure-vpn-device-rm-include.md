@@ -3,7 +3,7 @@
  description: Include file
  services: vpn-gateway
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 02/14/2019
  ms.author: cherylmc
@@ -15,8 +15,6 @@ Depending on the VPN device that you have, you might be able to download a VPN d
 The following links provide more configuration information:
 
 - For information about compatible VPN devices, see [About VPN devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md).
-
-- Before you configure your VPN device, check for any [known device compatibility issues](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known).
 
 - For links to device configuration settings, see [Validated VPN devices](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable). We provide the device configuration links on a best-effort basis, but it's always best to check with your device manufacturer for the latest configuration information.
 

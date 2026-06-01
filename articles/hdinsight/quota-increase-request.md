@@ -1,10 +1,15 @@
 ---
 title: CPU Core quota increase request - Azure HDInsight 
 description: Learn the process to request an increase for the CPU cores allocated to your subscription.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 06/15/2024
+ms.custom:
+  - hdinsightactive
+  - sfi-image-nochange
 ---
 # Requesting quota increases for Azure HDInsight
 
@@ -58,7 +63,7 @@ To request a quota increase, do the following steps:
 > [!NOTE]  
 > If you need to increase the HDInsight core quota in a private region, [submit a approved list request](https://aka.ms/canaryintwhitelist).
 
-You can [contact support to request a quota increase](../azure-portal/supportability/regional-quota-requests.md).
+You can [contact support to request a quota increase](/azure/azure-portal/supportability/regional-quota-requests).
 
 There are some fixed quota limits. For example, a single Azure subscription can have at most 10,000 cores. For details on these limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).
 

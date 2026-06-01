@@ -2,15 +2,16 @@
 title: Deploy Azure virtual network container networking
 description: Learn how to deploy the Azure Virtual Network container network interface (CNI) plug-in for Kubernetes clusters.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 03/24/2023
 ms.author: allensu
+# Customer intent: As a cloud engineer, I want to deploy the Azure Virtual Network CNI plug-in for Kubernetes clusters, so that I can enable virtual network capabilities for my containers and manage their networking efficiently.
 ---
 
 # Deploy the Azure Virtual Network container network interface plug-in
 
-The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure virtual machine and brings virtual network capabilities to Kubernetes Pods and Docker containers. To learn more about the plug-in, see [Enable containers to use Azure Virtual Network capabilities](container-networking-overview.md). Additionally, the plug-in can be used with the Azure Kubernetes Service (AKS) by choosing the [Advanced Networking](../aks/configure-azure-cni.md?toc=%2fazure%2fvirtual-network%2ftoc.json) option, which automatically places AKS containers in a virtual network.
+The Azure Virtual Network container network interface (CNI) plug-in installs in an Azure virtual machine and brings virtual network capabilities to Kubernetes Pods and Docker containers. To learn more about the plug-in, see [Enable containers to use Azure Virtual Network capabilities](container-networking-overview.md). Additionally, the plug-in can be used with the Azure Kubernetes Service (AKS) by choosing the [Advanced Networking](/azure/aks/configure-azure-cni?toc=%2fazure%2fvirtual-network%2ftoc.json) option, which automatically places AKS containers in a virtual network.
 
 ## Deploy plug-in for Azure Container Service-Engine Kubernetes cluster
 
@@ -68,7 +69,7 @@ The json example that follows is for a cluster with the following properties:
       }
     },
     "servicePrincipalProfile": {
-      "clientId": "dd438987-aa12-4754-b47d-375811889714",
+      "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
       "secret": "azure123"
     }
   }

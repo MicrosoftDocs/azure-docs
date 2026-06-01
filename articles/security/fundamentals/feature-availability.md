@@ -1,28 +1,17 @@
 ---
 title: Cloud feature availability for commercial and US Government customers
 description: This article describes security feature availability in Azure and Azure Government clouds
-author: TerryLanfear
-manager: rkarlin
-ms.author: terrylan
+author: msmbaldwin
+ms.author: mbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: feature-availability
-ms.date: 06/27/2024
+ms.date: 01/08/2026
 ---
 
 # Cloud feature availability for commercial and US Government customers
 
-This article describes feature availability in the Microsoft Azure and Azure Government clouds. Features are listed as **GA** (Generally Available), **Public Preview**, or **Not Available** for the following security services:
-
-- [Azure Information Protection](#azure-information-protection)
-- [Microsoft Defender for Cloud](#microsoft-defender-for-cloud)
-- [Microsoft Sentinel](#microsoft-sentinel)
-- [Microsoft Defender for IoT](#microsoft-defender-for-iot)
-- [Azure Attestation](#azure-attestation)
-
-> [!NOTE]
-> Additional security services will be added to this article soon.
->
+This article describes feature availability in the Microsoft Azure and Azure Government clouds. Features are listed as **GA** (Generally Available), **Public Preview**, or **Not Available**. The tables in this article are updated regularly to reflect the current state of feature availability.
 
 ## Azure Government
 
@@ -51,7 +40,7 @@ For more information about Office 365 US Government environments, see:
 - [Office 365 GCC](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc)
 - [Office 365 GCC High and DoD](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)
 
-The following sections identify when a service has an integration with Microsoft 365 and the feature availability for Office 365 GCC, Office 365 High, and Office 365 DoD.
+The following sections identify when a service has an integration with Microsoft 365 and the feature availability for Office 365 GCC, Office 365 GCC High, and Office 365 DoD.
 
 ## Azure Information Protection
 
@@ -103,7 +92,7 @@ For more information, see the [Azure Information Protection product documentatio
 |---------|---------|---------|---------|
 |**Administration**     |         |         | |
 |- [PowerShell for RMS service administration](/powershell/module/aipservice/)      |  GA       |    GA     |   GA      |
-|- [PowerShell for AIP UL client bulk operations](/powershell/module/azureinformationprotection/)      |         |         |         |
+|- [PowerShell for AIP UL client bulk operations](/powershell/azure/aip/overview)      |         |         |         |
 |**SDK**     |         |         |         |
 |- [MIP and AIP Software Development Kit (SDK)](/information-protection/develop/)     |     GA       |    GA     |   GA  |
 |**Customizations**     |         |         |         |
@@ -141,69 +130,56 @@ For more information, see the [Azure Information Protection product documentatio
 
 Microsoft Defender for Cloud is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
 
-For more information, see the [Microsoft Defender for Cloud product documentation](../../defender-for-cloud/defender-for-cloud-introduction.md).
+For more information, see the [Microsoft Defender for Cloud product documentation](/azure/defender-for-cloud/defender-for-cloud-introduction).
 
 The following table displays the current Defender for Cloud feature availability in Azure and Azure Government.
 
 | Feature/Service                                                                                                                                                                      | Azure          | Azure Government               |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|
 | **Microsoft Defender for Cloud free features**                                                                                                                                       |                |                                |
-| <li> [Continuous export](../../defender-for-cloud/continuous-export.md)                                                                                                                 | GA             | GA                             |
-| <li> [Workflow automation](../../defender-for-cloud/workflow-automation.yml)                                                                                                               | GA             | GA                             |
-| <li> [Recommendation exemption rules](../../defender-for-cloud/exempt-resource.md)                                                                                                      | Public Preview | Not Available                  |
-| <li> [Alert suppression rules](../../defender-for-cloud/alerts-suppression-rules.md)                                                                                                    | GA             | GA                             |
-| <li> [Email notifications for security alerts](../../defender-for-cloud/configure-email-notifications.md)                                                            | GA             | GA                             |
-| <li> [Auto provisioning for agents and extensions](../../defender-for-cloud/monitoring-components.md)                                                                  | GA             | GA                             |
-| <li> [Asset inventory](../../defender-for-cloud/asset-inventory.md)                                                                                                                     | GA             | GA                             |
-| <li> [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](../../defender-for-cloud/custom-dashboards-azure-workbooks.md)                               | GA             | GA                             |
+| <li> [Continuous export](/azure/defender-for-cloud/continuous-export)                                                                                                                 | GA             | GA                             |
+| <li> [Workflow automation](/azure/defender-for-cloud/workflow-automation)                                                                                                             | GA             | GA                             |
+| <li> [Recommendation exemption rules](/azure/defender-for-cloud/exempt-resource)                                                                                                      | Public Preview | Not Available                  |
+| <li> [Alert suppression rules](/azure/defender-for-cloud/alerts-suppression-rules)                                                                                                    | GA             | GA                             |
+| <li> [Email notifications for security alerts](/azure/defender-for-cloud/configure-email-notifications)                                                                               | GA             | GA                             |
+| <li> [Auto provisioning for agents and extensions](/azure/defender-for-cloud/monitoring-components)                                                                                   | GA             | GA                             |
+| <li> [Asset inventory](/azure/defender-for-cloud/asset-inventory)                                                                                                                     | GA             | GA                             |
+| <li> [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](/azure/defender-for-cloud/custom-dashboards-azure-workbooks)                              | GA             | GA                             |
 | **Microsoft Defender plans and extensions**                                                                                                                                          |                |                                |
-| <li> [Microsoft Defender for servers](../../defender-for-cloud/defender-for-servers-introduction.md)                                                                                    | GA             | GA                             |
-| <li> [Microsoft Defender for App Service](../../defender-for-cloud/defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  |
-| <li> [Microsoft Defender for DNS](../../defender-for-cloud/defender-for-dns-introduction.md)                                                                                            | Not available for new subscriptions | Not available for new subscriptions |
-| <li> [Microsoft Defender for Containers](../../defender-for-cloud/defender-for-containers-introduction.md) <sup>[9](#footnote4)</sup>                                                  | GA                                   | GA                             |
-| <li> [Microsoft Defender for container registries](../../defender-for-cloud/defender-for-container-registries-introduction.md) <sup>[1](#footnote1)</sup> (deprecated)                              | GA             | GA  <sup>[2](#footnote2)</sup> |
-| <li> [Microsoft Defender for container registries scanning of images in CI/CD workflows](../../defender-for-cloud/defender-for-container-registries-cicd.md) <sup>[3](#footnote3)</sup> | Public Preview | Not Available                  |
-| <li> [Microsoft Defender for Kubernetes](../../defender-for-cloud/defender-for-kubernetes-introduction.md) <sup>[4](#footnote4)</sup>  (deprecated)                                                  | GA             | GA                             |
-| <li> [Defender extension for Arc-enabled Kubernetes, Servers, or Data services](../../defender-for-cloud/defender-for-kubernetes-azure-arc.md) <sup>[5](#footnote5)</sup>                           | Public Preview | Not Available                  |
-| <li> [Microsoft Defender for Azure SQL database servers](../../defender-for-cloud/defender-for-sql-introduction.md)                                                                     | GA             | GA                             |
-| <li> [Microsoft Defender for SQL servers on machines](../../defender-for-cloud/defender-for-sql-introduction.md)                                                                        | GA             | GA                             |
-| <li> [Microsoft Defender for open-source relational databases](../../defender-for-cloud/defender-for-databases-introduction.md)                                                         | GA             | Not Available                  |
-| <li> [Microsoft Defender for Key Vault](../../defender-for-cloud/defender-for-key-vault-introduction.md)                                                                                | GA             | Not Available                  |
-| <li> [Microsoft Defender for Resource Manager](../../defender-for-cloud/defender-for-resource-manager-introduction.md)                                                                  | GA             | GA                             |
-| <li> [Microsoft Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA (activity monitoring)              |
-| <li> [Microsoft Defender for Azure Cosmos DB](../../defender-for-cloud/defender-for-databases-enable-cosmos-protections.md)                                              | GA | Not Available                  |
-| <li> [Kubernetes workload protection](../../defender-for-cloud/kubernetes-workload-protections.md)                                                                                      | GA             | GA                             |
-| <li> [Bi-directional alert synchronization with Microsoft Sentinel](../../sentinel/connect-azure-security-center.md)                                                                           | GA | GA                                  |
-| **Microsoft Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                                               |                |                                |
-| <li> [Just-in-time VM access](../../defender-for-cloud/just-in-time-access-overview.md)                                                                                                 | GA             | GA                             |
-| <li> [File integrity monitoring](../../defender-for-cloud/file-integrity-monitoring-overview.md)                                                                                 | GA             | GA                             |
-| <li> [Adaptive application controls](../../defender-for-cloud/adaptive-application-controls.md)                                                                                  | GA             | GA                             |
-| <li> [Adaptive network hardening](../../defender-for-cloud/adaptive-network-hardening.md)                                                                               | GA             | Not Available                  |
-| <li> [Docker host hardening](../../defender-for-cloud/harden-docker-hosts.md)                                                                                                           | GA             | GA                             |
-| <li> [Integrated vulnerability assessment for machines](../../defender-for-cloud/deploy-vulnerability-assessment-vm.md)                                                                 | GA             | Not Available                  |
-| <li> [Regulatory compliance dashboard & reports](../../defender-for-cloud/regulatory-compliance-dashboard.md) <sup>[8](#footnote8)</sup>                                           | GA             | GA                             |
-| <li> [Microsoft Defender for Endpoint deployment and integrated license](../../defender-for-cloud/integration-defender-for-endpoint.md)                                                             | GA             | GA                             |
-| <li> [Connect AWS account](../../defender-for-cloud/quickstart-onboard-aws.md)                                                                                                          | GA             | Not Available                  |
-| <li> [Connect GCP account](../../defender-for-cloud/quickstart-onboard-gcp.md)                                                                                                          | GA             | Not Available                  |
+| <li> [Microsoft Defender for servers](/azure/defender-for-cloud/defender-for-servers-introduction)                                                                                    | GA             | GA                             |
+| <li> [Microsoft Defender for Foundry Tools](/azure/defender-for-cloud/ai-threat-protection)                                                                                             | GA             | Not Available                  |
+| <li> [Microsoft Defender for App Service](/azure/defender-for-cloud/defender-for-app-service-introduction)                                                                            | GA             | Not Available                  |
+| <li> [Microsoft Defender for DNS](/azure/defender-for-cloud/defender-for-dns-introduction)                                                                                            | GA             | GA                             |
+| <li> [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction)                                                                              | GA             | GA                             |
+| <li> [Microsoft Defender for Azure SQL database servers](/azure/defender-for-cloud/defender-for-sql-introduction)                                                                     | GA             | GA                             |
+| <li> [Microsoft Defender for SQL servers on machines](/azure/defender-for-cloud/defender-for-sql-introduction)                                                                        | GA             | GA                             |
+| <li> [Microsoft Defender for open-source relational databases](/azure/defender-for-cloud/defender-for-databases-introduction)                                                         | GA             | GA                             |
+| <li> [Microsoft Defender for Key Vault](/azure/defender-for-cloud/defender-for-key-vault-introduction)                                                                                | GA             | Not Available                  |
+| <li> [Microsoft Defender for Resource Manager](/azure/defender-for-cloud/defender-for-resource-manager-introduction)                                                                  | GA             | GA                             |
+| <li> [Microsoft Defender for Storage](/azure/defender-for-cloud/defender-for-storage-introduction) <sup>[1](#footnote1)</sup>                                                         | GA             | GA                             |
+| <li> [Microsoft Defender for Azure Cosmos DB](/azure/defender-for-cloud/defender-for-databases-enable-cosmos-protections)                                                             | GA             | Not Available                  |
+| <li> [Kubernetes workload protection](/azure/defender-for-cloud/kubernetes-workload-protections)                                                                                      | GA             | GA                             |
+| <li> [Bi-directional alert synchronization with Microsoft Sentinel](/azure/sentinel/connect-azure-security-center)                                                                  | GA             | GA                             |
+| **Microsoft Defender for servers features** <sup>[2](#footnote2)</sup>                                                                                                               |                |                                |
+| <li> [Just-in-time VM access](/azure/defender-for-cloud/just-in-time-access-overview)                                                                                                 | GA             | GA                             |
+| <li> [File integrity monitoring](/azure/defender-for-cloud/file-integrity-monitoring-overview)                                                                                        | GA             | GA <sup>[3](#footnote3)</sup>  |
+| <li> [Adaptive application controls](/azure/defender-for-cloud/adaptive-application-controls)                                                                                         | GA             | GA                             |
+| <li> [Adaptive network hardening](/azure/defender-for-cloud/adaptive-network-hardening)                                                                                               | GA             | Not Available                  |
+| <li> [Docker host hardening](/azure/defender-for-cloud/harden-docker-hosts)                                                                                                           | GA             | GA                             |
+| <li> [Integrated vulnerability assessment for machines](/azure/defender-for-cloud/deploy-vulnerability-assessment-vm)                                                                 | GA             | Not Available                  |
+| <li> [Regulatory compliance dashboard & reports](/azure/defender-for-cloud/regulatory-compliance-dashboard) <sup>[4](#footnote4)</sup>                                                | GA             | GA                             |
+| <li> [Microsoft Defender for Endpoint deployment and integrated license](/azure/defender-for-cloud/integration-defender-for-endpoint)                                                 | GA             | GA                             |
+| <li> [Connect AWS account](/azure/defender-for-cloud/quickstart-onboard-aws)                                                                                                          | GA             | Not Available                  |
+| <li> [Connect GCP account](/azure/defender-for-cloud/quickstart-onboard-gcp)                                                                                                          | GA             | Not Available                  |
 |                                                                                                                                                                                      |                |                                |
 
-<sup><a name="footnote1"></a>1</sup> Partially GA: The ability to disable specific findings from vulnerability scans is in public preview.
+<sup><a name="footnote1"></a>1</sup> Azure DNS Zone isn't supported for malware scanning and sensitive data threat detection.
 
-<sup><a name="footnote2"></a>2</sup> Vulnerability scans of container registries on Azure Gov can only be performed with the scan on push feature.
+<sup><a name="footnote2"></a>2</sup> These features all require [Microsoft Defender for servers](/azure/defender-for-cloud/defender-for-servers-introduction).
 
-<sup><a name="footnote3"></a>3</sup> Requires Microsoft Defender for container registries.
+<sup><a name="footnote3"></a>3</sup> GovCon Cloud Moderate (GCCM) doesn't support File Integrity Monitoring.
 
-<sup><a name="footnote4"></a>4</sup> Partially GA: Support for Azure Arc-enabled clusters is in public preview and not available on Azure Government.
-
-<sup><a name="footnote5"></a>5</sup> Requires Microsoft Defender for Kubernetes.
-
-<sup><a name="footnote6"></a>6</sup> Partially GA: Some of the threat protection alerts from Microsoft Defender for Storage are in public preview. 
-
-<sup><a name="footnote7"></a>7</sup> These features all require [Microsoft Defender for servers](../../defender-for-cloud/defender-for-servers-introduction.md).
-
-<sup><a name="footnote8"></a>8</sup> There may be differences in the standards offered per cloud type.
-
-<sup><a name="footnote4"></a>9</sup> Partially GA: Support for Arc-enabled Kubernetes clusters (and therefore AWS EKS too) is in public preview and not available on Azure Government. Run-time visibility of vulnerabilities in container images is also a preview feature.
+<sup><a name="footnote4"></a>4</sup> There may be differences in the standards offered per cloud type.
 
 <a name="azure-sentinel"></a>
 
@@ -211,9 +187,9 @@ The following table displays the current Defender for Cloud feature availability
 
 Microsoft Sentinel is a scalable, cloud-native, security information event management (SIEM), and security orchestration automated response (SOAR) solution. Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response.
 
-For more information, see the [Microsoft Sentinel product documentation](../../sentinel/overview.md).
+For more information, see the [Microsoft Sentinel product documentation](/azure/sentinel/overview).
 
-For Microsoft Sentinel feature availability in Azure, Azure Government, and Azure China 21 Vianet, see [Microsoft Sentinel feature support for Azure clouds](../../sentinel/feature-availability.md).
+For Microsoft Sentinel feature availability in Azure, Azure Government, and Azure China 21 Vianet, see [Microsoft Sentinel feature support for Azure clouds](/azure/sentinel/feature-availability).
 
 ### Microsoft Purview Data Connectors
 
@@ -225,51 +201,51 @@ Office 365 GCC is paired with Microsoft Entra ID in Azure. Office 365 GCC High a
 
 | Connector | Azure | Azure Government |
 |--|--|--|
-| **[Office IRM](../../sentinel/data-connectors/microsoft-365-insider-risk-management.md)**  |  |  |
-| - Office 365 GCC | Public Preview | - |
-| - Office 365 GCC High | - | Not Available |
-| - Office 365 DoD | - | Not Available |
-| **[Dynamics 365](../../sentinel/data-connectors-reference.md)** |  |  |
-| - Office 365 GCC | Public Preview | - |
-| - Office 365 GCC High | - | Not Available |
-| - Office 365 DoD | - | Not Available |
-| **[Microsoft Defender XDR](../../sentinel/connect-microsoft-365-defender.md)** |  |  |
+| **[Office IRM](/azure/sentinel/data-connectors-reference#microsoft-365-insider-risk-management)**  |  |  |
 | - Office 365 GCC | Public Preview | - |
 | - Office 365 GCC High | - | Public Preview |
-| - Office 365 DoD | - | Public Preview |
-| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors/microsoft-defender-for-cloud-apps.md)** |  |  |
+| - Office 365 DoD | - | Not Available |
+| **[Dynamics 365](/azure/sentinel/data-connectors-reference)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
-| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors/microsoft-defender-for-cloud-apps.md)** <br>Shadow IT logs |  |  |
-| - Office 365 GCC | Public Preview | - |
-| - Office 365 GCC High | - | Public Preview |
-| - Office 365 DoD | - | Public Preview |
-| **[Microsoft Defender for Cloud Apps](../../sentinel/data-connectors/microsoft-defender-for-cloud-apps.md)**                  <br>Alerts |  |  |
-| - Office 365 GCC | Public Preview | - |
-| - Office 365 GCC High | - | Public Preview |
-| - Office 365 DoD | - | Public Preview |
-| **[Microsoft Defender for Endpoint](../../sentinel/data-connectors/microsoft-defender-for-endpoint.md)** |  |  |
+| **[Microsoft Defender XDR](/azure/sentinel/connect-microsoft-365-defender)** |  |  |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | Not Available |
+| **[Microsoft Defender for Cloud Apps](/azure/sentinel/data-connectors-reference#microsoft-defender-for-cloud-apps)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
-| **[Microsoft Defender for Identity](../../sentinel/data-connectors/microsoft-defender-for-identity.md)** |  |  |
+| **[Microsoft Defender for Cloud Apps](/azure/sentinel/data-connectors-reference#microsoft-defender-for-cloud-apps)** <br>Shadow IT logs |  |  |
 | - Office 365 GCC | Public Preview | - |
-| - Office 365 GCC High | - | Not Available |
-| - Office 365 DoD | - | Not Available |
-| **[Microsoft Defender for Office 365](../../sentinel/data-connectors/microsoft-defender-for-office-365.md)** |  |  |
+| - Office 365 GCC High | - | Public Preview |
+| - Office 365 DoD | - | Public Preview |
+| **[Microsoft Defender for Cloud Apps](/azure/sentinel/data-connectors-reference#microsoft-defender-for-cloud-apps)**                  <br>Alerts |  |  |
 | - Office 365 GCC | Public Preview | - |
-| - Office 365 GCC High | - | Not Available |
-| - Office 365 DoD | - | Not Available |
-| - **[Microsoft Power BI](../../sentinel/data-connectors/microsoft-powerbi.md)** | |  |
+| - Office 365 GCC High | - | Public Preview |
+| - Office 365 DoD | - | Public Preview |
+| **[Microsoft Defender for Endpoint](/azure/sentinel/data-connectors-reference#microsoft-defender-for-endpoint)** |  |  |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| **[Microsoft Defender for Identity](/azure/sentinel/data-connectors-reference#microsoft-defender-for-identity)** |  |  |
+| - Office 365 GCC | GA | - |
+| - Office 365 GCC High | - | GA |
+| - Office 365 DoD | - | GA |
+| **[Microsoft Defender for Office 365](/azure/sentinel/data-connectors-reference#microsoft-defender-for-office-365-preview)** |  |  |
 | - Office 365 GCC | Public Preview | - |
-| - Office 365 GCC High | - | Not Available |
+| - Office 365 GCC High | - | Public Preview |
 | - Office 365 DoD | - | Not Available |
-| - **[Microsoft Project](../../sentinel/data-connectors/microsoft-project.md)** |  |  |
+| - **[Microsoft Power BI](/azure/sentinel/data-connectors-reference#microsoft-powerbi)** | |  |
 | - Office 365 GCC | Public Preview | - |
-| - Office 365 GCC High | - | Not Available |
+| - Office 365 GCC High | - | Public Preview |
 | - Office 365 DoD | - | Not Available |
-| **[Office 365](../../sentinel/data-connectors/office-365.md)** |  |  |
+| - **[Microsoft Project](/azure/sentinel/data-connectors-reference#microsoft-project)** |  |  |
+| - Office 365 GCC | Public Preview | - |
+| - Office 365 GCC High | - | Public Preview |
+| - Office 365 DoD | - | Not Available |
+| **[Office 365](/azure/sentinel/data-connectors-reference#microsoft-365-formerly-office-365)** |  |  |
 | - Office 365 GCC | GA | - |
 | - Office 365 GCC High | - | GA |
 | - Office 365 DoD | - | GA |
@@ -283,7 +259,7 @@ Office 365 GCC is paired with Microsoft Entra ID in Azure. Office 365 GCC High a
 
 ## Microsoft Defender for IoT
 
-Microsoft Defender for IoT lets you accelerate IoT/OT innovation with comprehensive security across all your IoT/OT devices. For end-user organizations, Microsoft Defender for IoT offers agentless, network-layer security that is rapidly deployed, works with diverse industrial equipment, and interoperates with Microsoft Sentinel and other SOC tools. Deploy on-premises or in Azure-connected environments. For IoT device builders, the Microsoft Defender for IoT security agents allow you to build security directly into your new IoT devices and Azure IoT projects. The micro agent has flexible deployment options, including the ability to deploy as a binary package or modify source code. And the micro agent is available for standard IoT operating systems like Linux and Azure RTOS. For more information, see the [Microsoft Defender for IoT product documentation](../../defender-for-iot/index.yml).
+Microsoft Defender for IoT lets you accelerate IoT/OT innovation with comprehensive security across all your IoT/OT devices. For end-user organizations, Microsoft Defender for IoT offers agentless, network-layer security that is rapidly deployed, works with diverse industrial equipment, and interoperates with Microsoft Sentinel and other SOC tools. Deploy on-premises or in Azure-connected environments. For IoT device builders, the Microsoft Defender for IoT security agents allow you to build security directly into your new IoT devices and Azure IoT projects. The micro agent has flexible deployment options, including the ability to deploy as a binary package or modify source code. And the micro agent is available for standard IoT operating systems like Linux and Azure RTOS. For more information, see the [Microsoft Defender for IoT product documentation](/azure/defender-for-iot/).
 
 The following table displays the current Microsoft Defender for IoT feature availability in Azure, and Azure Government.
 
@@ -291,59 +267,58 @@ The following table displays the current Microsoft Defender for IoT feature avai
 
 | Feature | Azure | Azure Government |
 |--|--|--|
-| [On-premises device discovery and inventory](../../defender-for-iot/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md) | GA | GA |
-| [Vulnerability management](../../defender-for-iot/how-to-create-risk-assessment-reports.md) | GA | GA |
-| [Threat detection with IoT, and OT behavioral analytics](../../defender-for-iot/how-to-work-with-alerts-on-your-sensor.md) | GA | GA |
-| [Manual and automatic threat intelligence updates](../../defender-for-iot/how-to-work-with-threat-intelligence-packages.md) | GA | GA |
+| [On-premises device discovery and inventory](/azure/defender-for-iot/how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory) | GA | GA |
+| [Vulnerability management](/azure/defender-for-iot/how-to-create-risk-assessment-reports) | GA | GA |
+| [Threat detection with IoT, and OT behavioral analytics](/azure/defender-for-iot/how-to-work-with-alerts-on-your-sensor) | GA | GA |
+| [Manual and automatic threat intelligence updates](/azure/defender-for-iot/how-to-work-with-threat-intelligence-packages) | GA | GA |
 | **Unify IT, and OT security with SIEM, SOAR and XDR** |  |  |
-| [Active Directory](../../defender-for-iot/organizations/integrate-with-active-directory.md) | GA | GA |
-| [ArcSight](../../defender-for-iot/organizations/integrate-overview.md#micro-focus-arcsight) | GA | GA |
-| [ClearPass (Alerts & Inventory)](../../defender-for-iot/organizations/tutorial-clearpass.md) | GA | GA |
-| [CyberArk PSM](../../defender-for-iot/organizations/tutorial-cyberark.md) | GA | GA |
-| [Email](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#email-address-action) | GA | GA |
-| [FortiGate](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
-| [FortiSIEM](../../defender-for-iot/organizations/tutorial-fortinet.md) | GA | GA |
-| [Microsoft Sentinel](../../defender-for-iot/organizations/how-to-configure-with-sentinel.md) | GA | GA |
-| [NetWitness](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#netwitness-action) | GA | GA |
-| [Palo Alto NGFW](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
-| [Palo Alto Panorama](../../defender-for-iot/organizations/tutorial-palo-alto.md) | GA | GA |
-| [ServiceNow (Alerts & Inventory)](../../defender-for-iot/organizations/tutorial-servicenow.md) | GA | GA |
-| [SNMP MIB Monitoring](../../defender-for-iot/organizations/how-to-set-up-snmp-mib-monitoring.md) | GA | GA |
-| [Splunk](../../defender-for-iot/organizations/tutorial-splunk.md) | GA | GA |
-| [SYSLOG Server (CEF format)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [SYSLOG Server (LEEF format)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [SYSLOG Server (Object)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [SYSLOG Server (Text Message)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#syslog-server-actions) | GA | GA |
-| [Web callback (Webhook)](../../defender-for-iot/organizations/how-to-forward-alert-information-to-partners.md#webhook-server-action) | GA | GA |
+| [Active Directory](/azure/defender-for-iot/organizations/integrate-with-active-directory) | GA | GA |
+| [ArcSight](/azure/defender-for-iot/organizations/integrate-overview#micro-focus-arcsight) | GA | GA |
+| [ClearPass (Alerts & Inventory)](/azure/defender-for-iot/organizations/tutorial-clearpass) | GA | GA |
+| [CyberArk PSM](/azure/defender-for-iot/organizations/tutorial-cyberark) | GA | GA |
+| [Email](/azure/defender-for-iot/organizations/how-to-forward-alert-information-to-partners#email-address-action) | GA | GA |
+| [FortiGate](/azure/defender-for-iot/organizations/tutorial-fortinet) | GA | GA |
+| [FortiSIEM](/azure/defender-for-iot/organizations/tutorial-fortinet) | GA | GA |
+| [Microsoft Sentinel](/azure/defender-for-iot/organizations/how-to-configure-with-sentinel) | GA | GA |
+| [NetWitness](/azure/defender-for-iot/organizations/how-to-forward-alert-information-to-partners#netwitness-action) | GA | GA |
+| [Palo Alto NGFW](/azure/defender-for-iot/organizations/tutorial-palo-alto) | GA | GA |
+| [Palo Alto Panorama](/azure/defender-for-iot/organizations/tutorial-palo-alto) | GA | GA |
+| [ServiceNow (Alerts & Inventory)](/azure/defender-for-iot/organizations/tutorial-servicenow) | GA | GA |
+| [SNMP MIB Monitoring](/azure/defender-for-iot/organizations/how-to-set-up-snmp-mib-monitoring) | GA | GA |
+| [Splunk](/azure/defender-for-iot/organizations/tutorial-splunk) | GA | GA |
+| [SYSLOG Server (CEF format)](/azure/defender-for-iot/organizations/how-to-forward-alert-information-to-partners#syslog-server-actions) | GA | GA |
+| [SYSLOG Server (LEEF format)](/azure/defender-for-iot/organizations/how-to-forward-alert-information-to-partners#syslog-server-actions) | GA | GA |
+| [SYSLOG Server (Object)](/azure/defender-for-iot/organizations/how-to-forward-alert-information-to-partners#syslog-server-actions) | GA | GA |
+| [SYSLOG Server (Text Message)](/azure/defender-for-iot/organizations/how-to-forward-alert-information-to-partners#syslog-server-actions) | GA | GA |
 
 ### For device builders
 
 | Feature | Azure | Azure Government |
 |--|--|--|
-| [Micro agent for Azure RTOS](../../defender-for-iot/iot-security-azure-rtos.md) | GA | GA |
-| [Configure Sentinel with Microsoft Defender for IoT](../../defender-for-iot/how-to-configure-with-sentinel.md) | GA | GA |
+| [Micro agent for Azure RTOS](/azure/defender-for-iot/iot-security-azure-rtos) | GA | GA |
+| [Configure Sentinel with Microsoft Defender for IoT](/azure/defender-for-iot/how-to-configure-with-sentinel) | GA | GA |
 | **Standalone micro agent for Linux** |  |  |
-| [Standalone agent binary installation](../../defender-for-iot/quickstart-standalone-agent-binary-installation.md) | Public Preview | Public Preview |
+| [Standalone agent binary installation](/azure/defender-for-iot/quickstart-standalone-agent-binary-installation) | Public Preview | Public Preview |
 
 ## Azure Attestation
 
 Microsoft Azure Attestation is a unified solution for remotely verifying the trustworthiness of a platform and integrity of the binaries running inside it. The service receives evidence from the platform, validates it with security standards, evaluates it against configurable policies, and produces an attestation token for claims-based applications (e.g., relying parties, auditing authorities).
 
-Azure Attestation is currently available in multiple regions across Azure public and Government clouds. In Azure Government, the service is available in preview status across US Gov Virginia and US Gov Arizona. 
+Azure Attestation is currently available in multiple regions across Azure public and Government clouds.
 
-For more information, see Azure Attestation [public documentation](../../attestation/overview.md).
+For more information, see Azure Attestation [public documentation](/azure/attestation/overview).
 
 | Feature | Azure | Azure Government |
 |--|--|--|
-| [Portal experience](../../attestation/quickstart-portal.md) to perform control-plane and data-plane operations | GA | - |
-| [PowerShell experience](../../attestation/quickstart-powershell.md) to perform control-plane and data-plane operations  | GA | GA |
+| [Portal experience](/azure/attestation/quickstart-portal) to perform control-plane and data-plane operations | GA | - |
+| [PowerShell experience](/azure/attestation/quickstart-powershell) to perform control-plane and data-plane operations  | GA | GA |
 | TLS 1.2 enforcement   | GA | GA |
 | BCDR support   | GA | - |
 | [Service tag integration](../../virtual-network/service-tags-overview.md) | GA | GA |
-| [Immutable log storage](../../attestation/view-logs.md) | GA | GA |
+| [Immutable log storage](/azure/attestation/view-logs) | GA | GA |
 | Network isolation using private link | Public Preview | - |
-| [FedRAMP High certification](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) | GA | - |
-| Customer lockbox | GA | - |
+| [FedRAMP High certification](../../azure-government/compliance/azure-services-in-fedramp-auditscope.md) | GA | GA |
+| Microsoft Purview Customer Lockbox | GA | - |
 
 ## Next steps
 

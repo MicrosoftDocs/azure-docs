@@ -3,11 +3,11 @@ title: Manage Azure Reservations
 description: Learn how to manage Azure Reservations. See steps to change the reservation scope, split a reservation, and optimize reservation use.
 ms.service: cost-management-billing
 ms.subservice: reservations
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.topic: how-to
-ms.date: 03/05/2024
-ms.author: banders
+ms.date: 03/19/2026
+ms.author: primittal
 ---
 # Manage Reservations for Azure resources
 
@@ -61,7 +61,7 @@ By default, the following users can view and manage reservations:
 To allow other people to manage reservations, you have two options:
 
 - Delegate access management for an individual reservation order by assigning the Owner role to a user at the resource scope of the reservation order. If you want to give limited access, select a different role.  
-     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+     For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 - Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement:
     - For an Enterprise Agreement, add users with the _Enterprise Administrator_ role to view and manage all reservation orders that apply to the Enterprise Agreement. Users with the _Enterprise Administrator (read only)_ role can only view the reservation. Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
@@ -81,9 +81,17 @@ If you're a billing administrator, use following steps to view and manage all re
 3. The complete list of reservations for your EA enrollment or billing profile is shown.
 4. Billing administrators can take ownership of a reservation by selecting it and then selecting **Grant access** in the window that appears.
 
+> [!NOTE]
+> As a billing profile Owner or Contributor, you cannot grant access to reservations that reside in a different Microsoft Entra tenant (directory). The reservation Owner can either change the reservation order’s directory or add you directly to grant access.
+
 ## Change billing subscription for an Azure Reservation
 
 We don’t allow changing the billing subscription after a reservation is purchased. [Subscription transfer](../manage/ea-transfers.md#change-azure-subscription-or-account-ownership) doesn't transfer an Azure reservation. If you want to change the subscription, use the exchange process to set the right billing subscription for the reservation.
+
+## Check billing subscription for an Azure Reservation
+
+To check the billing subscription for an Azure reservation, please confirm which Azure subscription is being charged for [an Azure reservation purchase cost](/azure/cost-management-billing/reservations/view-purchase-refunds).
+
 
 ## Change billing frequency for an Azure Reservation
 
@@ -107,19 +115,19 @@ We don’t allow changing billing frequency after a reservation is purchased. If
 2. Get the details of a reservation:
 
     ```powershell
-    Get-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a
+    Get-AzReservation -ReservationOrderId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb -ReservationId bbbbbbbb-1111-2222-3333-cccccccccccc
     ```
 
 3. Split the reservation into two and distribute the instances:
 
     ```powershell
     # Split the reservation. The sum of the reservations, the quantity, must equal the total number of instances in the reservation that you're splitting.
-    Split-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
+    Split-AzReservation -ReservationOrderId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb -ReservationId bbbbbbbb-1111-2222-3333-cccccccccccc -Quantity 3,2
     ```
 4. You can update the scope by running the following command:
 
     ```powershell
-    Update-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
+    Update-AzReservation -ReservationOrderId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb -ReservationId bbbbbbbb-1111-2222-3333-cccccccccccc -AppliedScopeType Single -AppliedScope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
     ```
 
 ## Cancel, exchange, or refund reservations
@@ -128,7 +136,7 @@ You can cancel, exchange, or refund reservations with certain limitations. For m
 
 ## Change optimize setting for Reserved VM Instances
 
- When you buy a Reserved VM Instance, you choose instance size flexibility or capacity priority. Instance size flexibility applies the reservation discount to other VMs in the same [VM size group](../../virtual-machines/reserved-vm-instance-size-flexibility.md). Capacity priority designates data center capacity most important for your deployments. This option offers additional confidence in your ability to launch the VM instances when you need them.
+ When you buy a Reserved VM Instance, you choose instance size flexibility or capacity priority. Instance size flexibility applies the reservation discount to other VMs in the same [VM size group](/azure/virtual-machines/reserved-vm-instance-size-flexibility). Capacity priority designates data center capacity most important for your deployments. This option offers additional confidence in your ability to launch the VM instances when you need them.
 
 By default, when the scope of the reservation is shared, the instance size flexibility is on. The data center capacity isn't prioritized for VM deployments.
 

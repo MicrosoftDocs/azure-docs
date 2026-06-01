@@ -10,8 +10,8 @@ metadata:
   manager: CelesteDG
   ms.author: kengaderdus
   ms.date: 03/01/2024
-  ms.service: active-directory
-  ms.subservice: B2C
+  ms.service: azure-active-directory
+  ms.subservice: b2c
   ms.topic: landing-page
 
 landingContent:
@@ -50,5 +50,3 @@ landingContent:
         links:
           - text: iOS (Objective-C)
             url: https://github.com/Azure-Samples/active-directory-b2c-ios-native-appauth
-          - text: Xamarin native  
-            url: https://github.com/Azure-Samples/active-directory-b2c-xamarin-native

@@ -2,17 +2,19 @@
 title: Azure Storage Explorer direct link
 description: Documentation of Azure Storage Explorer direct link
 services: storage
-author: JasonYeMSFT
+author: jinglouMSFT
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: article
 ms.date: 02/24/2021
-ms.author: chuye
+ms.author: jinglou
+ms.reviewer: cralvord,richardgao
+# Customer intent: As a cloud developer, I want to utilize direct links in Azure Storage Explorer, so that I can efficiently access and manage specific storage resources using predefined URLs.
 ---
 
-# Azure Storage Explorer direct link
+# Azure Storage Explorer direct links
 
-On Windows and macOS, Storage Explorer supports URIs with the `storageexplorer://` protocol. These URIs are referred to as direct links. A direct link points to an Azure Storage resource in Storage Explorer. Following a direct link will open Storage Explorer and navigate to the resource it points to. This article describes how direct links work and how you can use them.
+Storage Explorer supports URLs with the `storageexplorer://` protocol. These URLs are referred to as direct links. A direct link points to an Azure Storage resource in Storage Explorer. Following a direct link opens Storage Explorer and navigates to the resource it points to. This article describes how direct links work and how you can use them.
 
 ## How direct links work
 
@@ -25,26 +27,56 @@ Storage Explorer uses the tree view to visualize resources in Azure. A direct li
 
 A Storage Explorer direct link always starts with protocol `storageexplorer://`. The following table explains each of the possible parameters in a direct link.
 
-Parameter | Description
-:---------| :---------
-`v`         | Version of the direct link protocol.
-`accountid` | The Azure Resource Manager resource ID of the storage account for the linked resource. If the linked resource is a storage account, this ID will be the Azure Resource Manager resource ID of that storage account. Otherwise, this ID will be the Azure Resource Manager resource ID of the storage account the linked resource belongs to.
-`resourcetype` | Optional. Only used when the linked resource is a blob container, a file share, a queue, or a table. Must be either one of "Azure.BlobContainer", "Azure.FileShare", "Azure.Queue", "Azure.Table".
-`resourcename` | Optional. Only used when the linked resource is a blob container, a file share, a queue, or a table. The name of the linked resource.
+| Parameter          | Description
+|:-------------------|:-----------
+| `v`                | Version of the direct link protocol.
+| `accountid`        | The Azure Resource Manager resource ID of the storage account for the linked resource. If the linked resource is a storage account, this ID is the Azure Resource Manager resource ID of that storage account. Otherwise, the ID is the Azure Resource Manager resource ID of the storage account the linked resource belongs to.
+| `resourcetype`     | Optional. Only used when the linked resource is a blob container, a file share, a queue, or a table. Must be either one of `Azure.BlobContainer`, `Azure.FileShare`, `Azure.Queue`, or `Azure.Table`.
+| `resourcename`     | Optional. Only used when the linked resource is a blob container, a file share, a queue, or a table. The name of the linked resource.
+| `container`        | For v2 links only. The name of the blob container or file share.
+| `path`             | For v2 links only. The path to the linked folder. Required if `type` is `blobPath` or `fileSystemPath`.
+| `serviceEndpoint`  | For v2 links only. The service endpoint URL of the storage account the linked resource belongs to.
+| `storageAccountId` | For v2 links only. The Azure Resource Manager resource ID of the storage account for the linked resource. If the linked resource is a storage account, this ID is the Azure Resource Manager resource ID of that storage account. Otherwise, the ID is the Azure Resource Manager resource ID of the storage account the linked resource belongs to.
+| `subscriptionid`   | The ID of the Azure subscription the linked resource belongs to.
+| `tenantid`         | For v2 links only. The ID of the Microsoft Entra tenant that owns the linked resource.
+| `type`             | For v2 links only. Must be one of `blobContainer`, `fileSystem`, `fileSystemPath`, or `blobPath`. |
 
-Here is an example direct link to a blob container. 
-`storageexplorer://v=1&accountid=/subscriptions/the_subscription_id/resourceGroups/the_resource_group_name/providers/Microsoft.Storage/storageAccounts/the_storage_account_name&subscriptionid=the_subscription_id&resourcetype=Azure.BlobContainer&resourcename=the_blob_container_name`
+Here's an example v1 direct link to a blob container:
+
+```
+storageexplorer://
+?v=1
+&accountid=/subscriptions/01234567-89ab-cdef-0123-456789abcdef/resourceGroups/resource_group/providers/Microsoft.Storage/storageAccounts/storage_account_name
+&subscriptionid=01234567-89ab-cdef-0123-456789abcdef
+&resourcetype=Azure.BlobContainer
+&resourcename=blob_container_name
+```
+
+Here's an example v2 direct link to a folder within a blob container:
+
+```
+storageexplorer://
+?v=2
+&tenantId=fedcba98-7654-3210-fedc-ba9876543210
+&type=blobPath
+&path=path%2Fto%2Ffolder
+&container=blob_container_name
+&serviceEndpoint=https%3A%2F%2Fstorage-account-name.blob.core.windows.net%2F
+&subscriptionId=01234567-89ab-cdef-0123-456789abcdef
+```
 
 ## Get a direct link from Storage Explorer
 
-You can use Storage Explorer to get a direct link for a resource. Open the context menu of the node for the resource in the tree view. Then use the "Copy Direct Link" action to copy its direct link to the clipboard.
+You can use Storage Explorer to get a direct link for a resource. Open the context menu of the node for the resource in the tree view. Then copy its direct link to the clipboard using the "Copy Direct Link" action.
 
 ## Direct link limitations
 
 Direct links are only supported for resources under subscription nodes. Additionally, only the following resource types are supported:
 
-- Storage Accounts
-- Blob Containers
+- Storage accounts
+- Blob containers
+- Folders within blob containers
 - Queues
-- File Shares
+- File shares
+- Folders within file shares
 - Tables

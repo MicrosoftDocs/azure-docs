@@ -1,17 +1,20 @@
 ---
 title: T-SQL statements in dedicate SQL pool
 description: Links to the documentation for T-SQL statements supported for dedicated SQL pool in Azure Synapse Analytics .
-author: WilliamDAssafMSFT
-ms.author: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 05/01/2019
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: reference
 ms.custom:
   - azure-synapse
+  - sfi-ropc-nochange
 ---
 
 # T-SQL statements supported for dedicated SQL pool in Azure Synapse Analytics 
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Links to the documentation for T-SQL statements supported in dedicated SQL pool.
 

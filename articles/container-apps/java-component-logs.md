@@ -3,10 +3,10 @@ title: Observability of managed Java components in Azure Container Apps
 description: Learn how to retrieve logs of managed Java components in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-extended-java, devx-track-azurecli
 ms.topic: how-to
-ms.date: 05/01/2024
+ms.date: 06/16/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-portal-or-cli
 ---

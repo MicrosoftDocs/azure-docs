@@ -2,17 +2,19 @@
 title: Create an Azure Synapse Analytics dedicated SQL pool (formerly SQL DW) using Bicep
 description: Learn how to create an Azure Synapse Analytics SQL pool using Bicep.
 services: azure-resource-manager
-author: rayoef
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 tags: azure-resource-manager, bicep
 ms.topic: quickstart
-ms.author: rayoflores
+author: joannapea 
+ms.author: joanpo
 ms.date: 05/20/2022
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create an Azure Synapse Analytics dedicated SQL pool (formerly SQL DW) using Bicep
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This Bicep file will create a dedicated SQL pool (formerly SQL DW) with Transparent Data Encryption enabled. Dedicated SQL pool (formerly SQL DW) refers to the enterprise data warehousing features that are generally available in Azure Synapse.
 
@@ -20,7 +22,7 @@ This Bicep file will create a dedicated SQL pool (formerly SQL DW) with Transpar
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Review the Bicep file
 

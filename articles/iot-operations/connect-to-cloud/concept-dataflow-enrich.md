@@ -1,0 +1,207 @@
+---
+title: Enrich data by using data flows
+description: Use contextualization datasets to enrich data in Azure IoT Operations data flows.
+author: dominicbetts
+ms.author: dobett
+ms.subservice: azure-data-flows
+ms.topic: concept-article
+ms.date: 05/18/2026
+
+#CustomerIntent: As an operator, I want to understand how to create a data flow to enrich data sent to endpoints.
+ms.service: azure-iot-operations
+---
+
+# Enrich data by using data flows
+
+> [!TIP]
+> Data flow graphs support enrichment with expanded capabilities including enrichment in filter and branch transforms. For new projects that use MQTT, Kafka, or OpenTelemetry endpoints, see [Enrich with external data in data flow graphs](howto-dataflow-graphs-enrich.md).
+
+You can enrich data by using the *contextualization datasets* function. When incoming records are processed, you can query these datasets based on conditions that relate to the fields of the incoming record. This capability allows for dynamic interactions. Data from these datasets can be used to supplement information in the output fields and participate in complex calculations during the mapping process.
+
+To load sample data into the state store, use the [state store CLI](https://github.com/Azure/iot-operations-sdks/tree/main/tools/statestore-cli).
+
+For example, consider the following dataset with a few records, using the [JSON lines format](https://jsonlines.org/):
+
+```json
+{ "Position": "Analyst", "BaseSalary": 70000, "WorkingHours": "Regular" }
+{ "Position": "Receptionist", "BaseSalary": 43000, "WorkingHours": "Regular" }
+```
+
+The mapper accesses the reference dataset stored in the Azure IoT Operations [state store](../develop-edge-apps/reference-state-store-protocol.md) by using a key value based on a *condition* specified in the mapping configuration. Key names in the state store correspond to a dataset in the data flow configuration.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+datasets: [
+  {
+    key: 'position',
+    inputs: [
+      '$source.Position' //  - $1
+      '$context.Position' // - $2
+    ],
+    expression: '$1 == $2'
+  }
+]
+```
+
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+
+```yaml
+datasets:
+- key: position
+  inputs:
+    - $source.Position #  - $1
+    - $context.Position # - $2
+  expression: $1 == $2
+```
+
+---
+
+When a new record is being processed, the mapper performs the following steps:
+
+* **Data request:** The mapper sends a request to the state store to retrieve the dataset stored under the key `Position`.
+* **Record matching:** The mapper then queries this dataset to find the first record where the `Position` field in the dataset matches the `Position` field of the incoming record.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  inputs: [
+    '$context(position).WorkingHours' //  - $1 
+  ]
+  output: 'WorkingHours'
+}
+{
+  inputs: [
+    'BaseSalary' // - - - - - - - - - - - - $1
+    '$context(position).BaseSalary' //  - - $2
+  ]
+  output: 'BaseSalary'
+  expression: 'if($1 == (), $2, $1)'
+}
+```
+
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+
+```yaml
+- inputs:
+  - $context(position).WorkingHours #  - $1 
+  output: WorkingHours
+
+- inputs:
+  - BaseSalary   # - - - - - - - - - - - $1
+  - $context(position).BaseSalary #  - - $2 
+  output: BaseSalary
+  expression: if($1 == (), $2, $1)
+```
+
+---
+
+In this example, the `WorkingHours` field is added to the output record, while the `BaseSalary` is used conditionally only when the incoming record doesn't contain the `BaseSalary` field (or the value is `null` if it's a nullable field). The request for the contextualization data doesn't happen with every incoming record. The mapper requests the dataset and then it receives notifications from the state store about the changes, while it uses a cached version of the dataset.
+
+It's possible to use multiple datasets:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+datasets: [
+  {
+    key: 'position'
+    inputs: [
+      '$source.Position'  // - $1
+      '$context.Position' // - $2
+    ],
+    expression: '$1 == $2'
+  }
+  {
+    key: 'permissions'
+    inputs: [
+      '$source.Position'  // - $1
+      '$context.Position' // - $2
+    ],
+    expression: '$1 == $2'
+  }
+]
+```
+
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+
+```yaml
+datasets:
+- key: position
+  inputs:
+    - $source.Position  # - $1
+    - $context.Position # - $2
+  expression: $1 == $2
+
+- key: permissions
+  inputs:
+    - $source.Position  # - $1
+    - $context.Position # - $2
+  expression: $1 == $2
+```
+
+---
+
+Then use the references mixed:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+inputs: [
+  '$context(position).WorkingHours'  // - $1
+  '$context(permissions).NightShift' // - $2
+]
+```
+
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+
+```yaml
+- inputs:
+  - $context(position).WorkingHours  #    - - $1
+  - $context(permissions).NightShift  #    - - $2
+```
+
+---
+
+The input references use the key of the dataset like `position` or `permissions`. If the key in state store is inconvenient to use, you can define an alias:
+
+# [Bicep](#tab/bicep)
+
+```bicep
+datasets: [
+  {
+    key: 'datasets.parag10.rule42 as position'
+    inputs: [
+      '$source.Position'  // - $1
+      '$context.Position' // - $2
+    ],
+    expression: '$1 == $2'
+  }
+]
+```
+
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+
+```yaml
+datasets:
+  - key: datasets.parag10.rule42 as position
+    inputs:
+      - $source.Position  # - $1
+      - $context.Position # - $2
+    expression: $1 == $2
+```
+
+---
+
+The configuration renames the dataset with the key `datasets.parag10.rule42` to `position`.

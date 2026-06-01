@@ -2,13 +2,12 @@
 title: Tutorial to configure certificates for Azure Stack Edge Pro 2 device via the local web UI
 description: Tutorial to deploy Azure Stack Edge Pro 2 instructs you to configure certificates on your physical device.
 services: databox
-author: alkohli
+author: sipastak
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 10/27/2022
-ms.author: alkohli
+ms.author: sipastak
 # Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Pro 2 so I can use it to establish a trust relationship between the device and the clients accessing the device. 
 ---
 # Tutorial: Configure certificates for your Azure Stack Edge Pro 2
@@ -184,7 +183,7 @@ Follow these steps to upload your own certificates including the signing chain.
 
 1. In the **Encryption-at-rest** pane, provide a 32 character long Base-64 encoded key. This is a one-time configuration and this key is used to protect the actual encryption key. You can choose to automatically generate this key. 
 
-    ![Screenshot of the local web UI "Encryption at rest" pane wit system generated key.](./media/azure-stack-edge-pro-2-deploy-configure-certificates/encryption-key-1.png)
+    ![Screenshot of the local web UI "Encryption at rest" pane with system generated key.](./media/azure-stack-edge-pro-2-deploy-configure-certificates/encryption-key-1.png)
 
     You can also enter your own Base-64 encoded ASE-256 bit encryption key.
 

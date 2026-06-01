@@ -3,15 +3,23 @@ title: 'Tutorial: Access data with managed identity in Java'
 description: Secure Azure Database for PostgreSQL connectivity with managed identity from a sample Java Tomcat app, and apply it to other Azure services.
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 06/04/2024
+ms.date: 03/26/2026
 author: KarlErickson
 ms.author: karler
-ms.custom: passwordless-java, service-connector, devx-track-azurecli, devx-track-extended-java, AppServiceConnectivity
+ms.reviewer: edburns
+ms.service: azure-app-service
+ms.custom:
+  - passwordless-java
+  - service-connector
+  - devx-track-azurecli
+  - devx-track-java
+  - AppServiceConnectivity
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for PostgreSQL](../postgresql/index.yml) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you learn how to:
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for PostgreSQL](/azure/postgresql/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a PostgreSQL database.
@@ -23,10 +31,10 @@ ms.custom: passwordless-java, service-connector, devx-track-azurecli, devx-track
 
 ## Prerequisites
 
-* [Git](https://git-scm.com/)
-* [Java JDK](/azure/developer/java/fundamentals/java-support-on-azure)
-* [Maven](https://maven.apache.org)
-* [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
+- [Git](https://git-scm.com/)
+- [Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure)
+- [Maven](https://maven.apache.org)
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher.
 
 ## Clone the sample app and prepare the repo
 
@@ -39,9 +47,9 @@ cd Passwordless-Connections-for-Java-Apps/Tomcat/
 
 ## Create an Azure Database for PostgreSQL
 
-Follow these steps to create an Azure Database for Postgres in your subscription. The Tomcat app connects to this database and store its data when running, persisting the application state no matter where you run the application.
+Follow these steps to create an Azure Database for Postgres in your subscription. The Tomcat app connects to this database and stores its data when running, persisting the application state no matter where you run the application.
 
-1. Sign into the Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
+1. Sign into the Azure CLI, and optionally set your subscription if you have more than one connected to your sign-in credentials.
 
    ```azurecli-interactive
    az login
@@ -91,7 +99,7 @@ Follow these steps to create an Azure Database for Postgres in your subscription
 
 Follow these steps to build a WAR file and deploy to Azure App Service on Tomcat using a WAR packaging.
 
-1. The sample app contains a *pom.xml* file that can generate the WAR file. Run the following command to build the app.
+1. The sample app contains a *pom.xml* file that can generate the WAR file. To build the app, run the following command.
 
    ```bash
    mvn clean package -f pom.xml
@@ -174,7 +182,7 @@ az webapp config appsettings set \
 
 ## Test the sample web app
 
-Run the following command to test the application.
+Test the application by running the following command.
 
 ```bash
 export WEBAPP_URL=$(az webapp show \

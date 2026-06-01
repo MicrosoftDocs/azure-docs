@@ -1,13 +1,13 @@
 ---
 title: Shared metadata model 
 description: Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its serverless Apache Spark pools and serverless SQL pool. 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: metadata
 ms.date: 10/05/2021
 author: juluczni
 ms.author: juluczni
-ms.reviewer: wiassaf
+
 ---
 
 # Azure Synapse Analytics shared metadata
@@ -16,6 +16,10 @@ Azure Synapse Analytics allows the different workspace computational engines to 
 
 The sharing supports the so-called modern data warehouse pattern and gives the workspace SQL engines access to databases and tables created with Spark. It also allows the SQL engines to create their own objects that aren't being shared with the other engines.
 
+> [!IMPORTANT]
+> Tables created in Spark with more than 1,024 columns may appear in Object Explorer but can't be queried from the serverless SQL pool due to incomplete metadata synchronization.
+>
+> **Workaround**: Avoid creating Spark tables with more than 1,024 columns if they need to be queried from the serverless SQL pool. Redesign the schema and recreate the table.
 ## Support the modern data warehouse
 
 The shared metadata model supports the modern data warehouse pattern in the following way:

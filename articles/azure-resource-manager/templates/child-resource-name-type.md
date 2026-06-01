@@ -1,9 +1,9 @@
----
+﻿---
 title: Child resources in templates
 description: Describes how to set the name and type for child resources in an Azure Resource Manager template (ARM template).
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 06/20/2024
+ms.date: 07/23/2025
 ---
 
 # Set name and type for child resources
@@ -47,7 +47,7 @@ The following example shows a virtual network and with a subnet. Notice that the
 "resources": [
   {
     "type": "Microsoft.Network/virtualNetworks",
-    "apiVersion": "2022-11-01",
+    "apiVersion": "2025-01-01",
     "name": "VNet1",
     "location": "[parameters('location')]",
     "properties": {
@@ -60,7 +60,7 @@ The following example shows a virtual network and with a subnet. Notice that the
     "resources": [
       {
         "type": "subnets",
-        "apiVersion": "2022-11-01",
+        "apiVersion": "2024-07-01",
         "name": "Subnet1",
         "dependsOn": [
           "VNet1"
@@ -106,7 +106,7 @@ The following example shows a virtual network and subnet that are both defined a
 "resources": [
   {
     "type": "Microsoft.Network/virtualNetworks",
-    "apiVersion": "2022-11-01",
+    "apiVersion": "2025-01-01",
     "name": "VNet1",
     "location": "[parameters('location')]",
     "properties": {
@@ -119,7 +119,7 @@ The following example shows a virtual network and subnet that are both defined a
   },
   {
     "type": "Microsoft.Network/virtualNetworks/subnets",
-    "apiVersion": "2022-11-01",
+    "apiVersion": "2025-01-01",
     "name": "VNet1/Subnet1",
     "dependsOn": [
       "VNet1"
@@ -135,3 +135,4 @@ The following example shows a virtual network and subnet that are both defined a
 
 * To learn about creating ARM templates, see [Understand the structure and syntax of ARM templates](./syntax.md).
 * To learn about the format of the resource name when referencing the resource, see the [reference function](template-functions-resource.md#reference).
+

@@ -1,19 +1,24 @@
 ---
 title: Query your backups using Azure Resource Graph (ARG)
 description: Learn more about querying information on backup for your Azure resources using Azure Resource Group (ARG).
-ms.topic: conceptual
-ms.date: 04/22/2024
+ms.topic: how-to
+ms.date: 07/15/2025
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As an IT administrator, I want to query backup information across my Azure resources using a scalable service, so that I can efficiently monitor backup statuses, jobs, and policies for effective data management and recovery processes.
 ---
 
 # Query your backups using Azure Resource Graph (ARG)
 
-You can query information on backup for your Azure resources at no additional cost using [Azure Resource Graph (ARG)](../governance/resource-graph/overview.md). ARG is an Azure service designed to extend Azure Resource Management. It aims to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions. Following are the key benefits of using ARG to query your backup metadata:
+This article describes how to query backup information for your Azure resources using [Azure Resource Graph (ARG)](../governance/resource-graph/overview.md) at no additional cost. ARG extends Azure Resource Management and allows you to explore resources efficiently and at scale across multiple subscriptions.
 
-- Abilities to query resources at-scale with complex filtering, grouping, and sorting by resource properties.
-- Ability to obtain real-time information on your backups, including in-progress backup jobs.
-- Ability to join backup-related data with useful information on related Azure resources, such as Azure Virtual Machines and Storage Accounts.
+## Key benefits of using Azure Resource Graph for backup metadata
+
+The key benefits of using ARG to query your backup metadata are:
+
+- Query resources across subscriptions with advanced filtering, grouping, and sorting by resource properties.
+- Access real-time backup details, including active backup jobs.
+- Combine backup data with related Azure resource information, such as Virtual Machines and Storage Accounts.
 
 ## Getting started
 
@@ -32,7 +37,7 @@ To get started with querying your backups using ARG, follow these steps:
 
 1. To explore the data in any of these tables, write **Kusto** queries in the query editor and click **Run Query**.
 
-    You can download the output of these queries as CSV from the **Resource Graph Explorer**. You can also use these queries in custom automation using any automation clients supported by ARG, such as [PowerShell](../governance/resource-graph/first-query-powershell.md), [CLI](../governance/resource-graph/first-query-azurecli.md), or [SDK](../governance/resource-graph/first-query-python.md). You can also create [custom workbooks](../azure-monitor/visualize/workbooks-overview.md) in the Azure portal using ARG as a data source.
+    You can download the output of these queries as CSV from the **Resource Graph Explorer**. You can also use these queries in custom automation using any automation clients supported by ARG, such as [PowerShell](../governance/resource-graph/first-query-powershell.md), [CLI](../governance/resource-graph/first-query-azurecli.md), or [SDK](../governance/resource-graph/first-query-python.md). You can also create [custom workbooks](/azure/azure-monitor/visualize/workbooks-overview) in the Azure portal using ARG as a data source.
 
 >[!NOTE] 
 >- Backup/Restore jobs that are up to 14 days old are available in ARG for query. If you want to query historical records, we recommend you to use **Azure Monitor Logs**.

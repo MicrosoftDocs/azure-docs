@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Translator with Azure AI services'
-description: Learn how to use translator in Azure Synapse Analytics.
-ms.service: synapse-analytics
+title: 'Tutorial: Azure Translator in Foundry Tools'
+description: Learn how to use Azure Translator in Foundry Tools in Azure Synapse Analytics.
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.date: 11/02/2021
@@ -9,9 +9,9 @@ author: ruixinxu
 ms.author: ruxu
 ---
 
-# Tutorial: Translator with Azure AI services
+# Tutorial: Azure Translator in Foundry Tools
 
-[Translator](../../ai-services/Translator/index.yml) is an [Azure AI services](../../ai-services/index.yml) that enables you to perform language translation and other language-related operations. In this tutorial, you'll learn how to use [Translator](../../ai-services/Translator/index.yml) to build intelligent, multi-language solutions on Azure Synapse Analytics.
+[Azure Translator in Foundry Tools](/azure/ai-services/translator/) is a [Microsoft Foundry tool](/azure/ai-services/) that enables you to perform language translation and other language-related operations. In this tutorial, you'll learn how to use [Translator](/azure/ai-services/translator/) to build intelligent, multi-language solutions on Azure Synapse Analytics.
 
 This tutorial demonstrates using translator with [MMLSpark](https://github.com/Azure/mmlspark) to:
 
@@ -23,14 +23,14 @@ This tutorial demonstrates using translator with [MMLSpark](https://github.com/A
 > - Dictionary lookup
 > - Dictionary example
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 
 ## Prerequisites
 
 - [Azure Synapse Analytics workspace](../get-started-create-workspace.md) with an Azure Data Lake Storage Gen2 storage account configured as the default storage. You need to be the *Storage Blob Data Contributor* of the Data Lake Storage Gen2 file system that you work with.
 - Spark pool in your Azure Synapse Analytics workspace. For details, see [Create a Spark pool in Azure Synapse](../quickstart-create-sql-pool-studio.md).
-- Pre-configuration steps described in the tutorial [Configure Azure AI services in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
+- Pre-configuration steps described in the tutorial [Configure Foundry Tools in Azure Synapse](tutorial-configure-cognitive-services-synapse.md).
 
 ## Get started
 Open Synapse Studio and create a new notebook. To get started, import [MMLSpark](https://github.com/Azure/mmlspark). 

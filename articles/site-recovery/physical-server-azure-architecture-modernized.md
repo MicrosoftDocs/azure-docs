@@ -1,12 +1,13 @@
 ---
 title: Physical server to Azure disaster recovery architecture – Modernized 
 description: This article provides an overview of components and architecture used when setting up disaster recovery of on-premises Windows and Linux servers to Azure with Azure Site Recovery - Modernized
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.custom: linux-related-content
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/14/2023
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: v-gajeronika
+author: Jeronika-MS
+# Customer intent: "As a systems administrator, I want to implement disaster recovery for physical Windows and Linux servers to Azure, so that I can ensure data availability and minimize downtime during failures."
 ---
 
 # Physical server to Azure disaster recovery architecture – Modernized 

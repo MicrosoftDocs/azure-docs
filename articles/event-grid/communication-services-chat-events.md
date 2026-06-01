@@ -1,10 +1,11 @@
 ---
 title: Azure Communication Services - Chat events
 description: This article describes how to use Azure Communication Services as an Event Grid event source for chat Events.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/15/2021
-author: VikramDhumal
-ms.author: vikramdh
+author: spelluru
+ms.author: spelluru
+ms.reviewr: osaghaso
 ---
 
 # Azure Communication Services - Chat events
@@ -14,7 +15,7 @@ Azure Communication Services emits chat events only when Azure Communication Ser
 
 ## Event types
 
-Azure Communication Services emits chat events on two different levels: **User-level** and **Thread-level**. User-level events pertain to a specific user on the chat thread and are delivered once per user. Thread-level events pertain to the entire chat thread and are delivered once per thread. For example: if there are 10 users in a thread, there will be one thread-level event and 10 user-level events, one for each user, when a message is received in a thread.
+Azure Communication Services emits chat events on two different levels: **User-level** and **Thread-level**. User-level events are specific to each user in the chat thread and are delivered once per user, excluding the event sender. Thread-level events pertain to the entire chat thread and are delivered once per thread. For instance, when a message is received in a thread with 10 users, there will be one thread-level event and 9 user-level events, one for each user, except for the sender.
 
 Azure Communication Services emits the following chat event types:
 
@@ -36,6 +37,8 @@ Azure Communication Services emits the following chat event types:
 | [Microsoft.Communication.ChatThreadPropertiesUpdated](#microsoftcommunicationchatthreadpropertiesupdated-event)| `Thread` | Published when a chat thread's properties are updated |    
 | [Microsoft.Communication.ChatMessageEditedInThread](#microsoftcommunicationchatmessageeditedinthread-event) |  `Thread` |Published when a message is edited in a chat thread |  
 | [Microsoft.Communication.ChatMessageDeletedInThread](#microsoftcommunicationchatmessagedeletedinthread-event) |  `Thread` |Published when a message is deleted in  a chat thread  |  
+| [Microsoft.Communication.ChatTypingIndicatorReceivedInThread](#microsoftcommunicationchattypingindicatorreceivedinthread-event) |  `Thread` |Published when a typing indicator is received in a chat thread  |  
+| [Microsoft.Communication.ChatAzureBotCommandReceivedInThread](#microsoftcommunicationchatazurebotcommandreceivedinthread-event) |  `Thread` |Published when a bot command message is received in a chat thread  |  
 
 ## Event responses
 
@@ -57,7 +60,6 @@ This section contains an example of what that data would look like for each even
         "key": "value",
         "description": "A map of data associated with the message"
       },
-      "senderId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
       "senderCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
         "communicationUser": {
@@ -68,7 +70,6 @@ This section contains an example of what that data would look like for each even
       "composeTime": "2021-02-19T00:25:58.927Z",
       "type": "Text",
       "version": 1613694358927,
-      "recipientId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d05-83fe-084822000f6d",
       "recipientCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d05-83fe-084822000f6d",
         "communicationUser": {
@@ -101,7 +102,6 @@ This section contains an example of what that data would look like for each even
         "key": "value",
         "description": "A map of data associated with the message"
       },
-      "senderId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
       "senderCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
         "communicationUser": {
@@ -112,7 +112,6 @@ This section contains an example of what that data would look like for each even
       "composeTime": "2021-02-19T00:25:57.917Z",
       "type": "Text",
       "version": 1613694500784,
-      "recipientId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d60-83fe-084822000f6f",
       "recipientCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d60-83fe-084822000f6f",
         "communicationUser": {
@@ -138,7 +137,6 @@ This section contains an example of what that data would look like for each even
     "data": {
       "deleteTime": "2021-02-19T00:43:10.14Z",
       "messageId": "1613695388152",
-      "senderId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d07-83fe-084822000f6e",
       "senderCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d07-83fe-084822000f6e",
         "communicationUser": {
@@ -149,7 +147,6 @@ This section contains an example of what that data would look like for each even
       "composeTime": "2021-02-19T00:43:08.152Z",
       "type": "Text",
       "version": 1613695390361,
-      "recipientId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d60-83fe-084822000f6f",
       "recipientCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d60-83fe-084822000f6f",
         "communicationUser": {
@@ -174,7 +171,6 @@ This section contains an example of what that data would look like for each even
     "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
     "subject": "thread/{thread-id}/createdBy/rawId/recipient/rawId",
     "data": {
-      "createdBy": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-576c-286d-e1fe-0848220013b9",
       "createdByCommunicationIdentifier": {
         "rawId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-576c-286d-e1fe-0848220013b9",
         "communicationUser": {
@@ -184,16 +180,6 @@ This section contains an example of what that data would look like for each even
       "properties": {
         "topic": "Chat about new communication services"
       },
-      "members": [
-        {
-          "displayName": "Bob",
-          "memberId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-576c-286d-e1fe-0848220013b9"
-        },
-        {
-          "displayName": "John",
-          "memberId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-576c-289b-07fd-0848220015ea"
-        }
-      ],
       "participants": [
         {
           "displayName": "Bob",
@@ -216,7 +202,6 @@ This section contains an example of what that data would look like for each even
       ],
       "createTime": "2021-02-18T23:47:26.91Z",
       "version": 1613692046910,
-      "recipientId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-576c-286e-84f5-08482200181c",
       "recipientCommunicationIdentifier": {
         "rawId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-576c-286e-84f5-08482200181c",
         "communicationUser": {
@@ -241,7 +226,6 @@ This section contains an example of what that data would look like for each even
     "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
     "subject": "thread/{thread-id}/deletedBy/{rawId}/recipient/{rawId}",
     "data": {
-      "deletedBy": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-5772-6473-83fe-084822000e21",
       "deletedByCommunicationIdentifier": {
         "rawId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-5772-6473-83fe-084822000e21",
         "communicationUser": {
@@ -251,7 +235,6 @@ This section contains an example of what that data would look like for each even
       "deleteTime": "2021-02-18T23:57:51.5987591Z",
       "createTime": "2021-02-18T23:54:15.683Z",
       "version": 1613692578672,
-      "recipientId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-5772-647b-e1fe-084822001416",
       "recipientCommunicationIdentifier": {
         "rawId": "8:acs:3d703c91-9657-4b3f-b19c-ef9d53f99710_00000008-5772-647b-e1fe-084822001416",
         "communicationUser": {
@@ -358,7 +341,6 @@ This section contains an example of what that data would look like for each even
     "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
     "subject": "thread/{thread-id}/editedBy/{rawId}/recipient/{rawId}",
     "data": {
-      "editedBy": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d07-83fe-084822000f6e",
       "editedByCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7d07-83fe-084822000f6e",
         "communicationUser": {
@@ -371,7 +353,6 @@ This section contains an example of what that data would look like for each even
       },
       "createTime": "2021-02-19T00:28:25.864Z",
       "version": 1613694508719,
-      "recipientId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
       "recipientCommunicationIdentifier": {
         "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-578d-7caf-07fd-084822001724",
         "communicationUser": {
@@ -689,3 +670,71 @@ This section contains an example of what that data would look like for each even
 ]
 ```
 
+### Microsoft.Communication.ChatTypingIndicatorReceivedInThread event
+
+```json
+[
+  {
+    "id": "fc89755c-f941-4222-8f83-e3cb957066e8",
+    "topic": "/subscriptions/{subscription-id}/resourcegroups/{group-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+    "subject": "thread/{thread-id}/sender/{rawId}/typingIndicator",
+    "data": {
+      "messageBody": "",
+      "messageId": "1752004764113",
+      "type": "Control/Typing",
+      "version": 1752004764113,
+      "senderDisplayName": "Scott",
+      "senderCommunicationIdentifier": {
+        "kind": "communicationUser",
+        "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-5cbb-38a0-88f7-084822002453",
+        "communicationUser": {
+          "id": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-5cbb-38a0-88f7-084822002453"
+        }
+      },
+      "composeTime": "2025-07-08T19:59:24.113+00:00",
+      "threadId": "{thread-id}",
+      "transactionId": "GrViVwBunE22eGm6iLwm6Q.1.1.1.1.1508848177.1"
+    },
+    "eventType": "Microsoft.Communication.ChatTypingIndicatorReceivedInThread",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "eventTime": "2025-07-08T19:59:24.2269822Z"
+  }
+]
+```
+
+### Microsoft.Communication.ChatAzureBotCommandReceivedInThread event
+
+```json
+[
+  {
+    "id": "5c95e673-52e0-4ed6-81ce-c6223761d353",
+    "topic": "/subscriptions/{subscription-id}/resourcegroups/{group-name}/providers/microsoft.communication/communicationservices/{communication-services-resource-name}",
+    "subject": "thread/{thread-id}/sender/{rawId}/azurebotcommand/microsoft.communication.chat.sendactivitytobots",
+    "data": {
+      "messageBody": "{\"name\":\"application/microsoft.communication.chat.sendactivitytobots\",\"activity\":{\"type\":\"event\",\"name\":\"endOfConversation\",\"value\":{\"field1\":\"value1\",\"field2\":{\"nestedField\":\"nestedValue\"}}}}",
+      "metadata": {
+        "microsoft.azure.communication.chat.bot.contenttype": "azurebotservice.command",
+      },
+      "messageId": "1752005273698",
+      "type": "Control/Command",
+      "version": 1752005273698,
+      "senderDisplayName": "Scott",
+      "senderCommunicationIdentifier": {
+        "kind": "communicationUser",
+        "rawId": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-5cbb-38a0-88f7-084822002453",
+        "communicationUser": {
+          "id": "8:acs:109f0644-b956-4cd9-87b1-71024f6e2f44_00000008-5cbb-38a0-88f7-084822002453"
+        }
+      },
+      "composeTime": "2025-07-08T20:07:53.698+00:00",
+      "threadId": "{thread-id}",
+      "transactionId": "n200CRPVaU+xbZwwL1E/TQ.2.1.1.1.1528801040.1"
+    },
+    "eventType": "Microsoft.Communication.ChatAzureBotCommandReceivedInThread",
+    "dataVersion": "1.0",
+    "metadataVersion": "1",
+    "eventTime": "2025-07-08T20:07:53.8463766Z"
+  }
+]
+```

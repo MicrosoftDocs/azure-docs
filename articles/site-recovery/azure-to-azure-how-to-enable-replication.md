@@ -1,19 +1,20 @@
 ---
 title: Configure replication for Azure VMs in Azure Site Recovery
 description: Learn how to configure replication to another region for Azure VMs, using Site Recovery.
-author: ankitaduttaMSFT
-ms.author: ankitadutta
-manager: rochakm
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.topic: how-to
-ms.date: 03/27/2024
-ms.service: site-recovery
+ms.date: 05/05/2026
+ms.service: azure-site-recovery
+ms.custom: sfi-image-nochange, references_regions
+# Customer intent: "As an IT administrator, I want to configure replication for Azure VMs to another region, so that I can ensure disaster recovery and maintain business continuity in the event of a regional outage."
 ---
-
 
 # Replicate Azure VMs to another Azure region
 
-
 This article describes how to enable replication of Azure VMs, from one Azure region to another.
+
+[!INCLUDE [azure-to-azure-region-limitations.md](./includes/azure-to-azure-region-limitations.md)]
 
 ## Before you start
 
@@ -28,10 +29,13 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
 
 1. In the vault > **Site Recovery** page, under **Azure virtual machines**, select **Enable replication**.
 1. In the **Enable replication** page, under **Source**, do the following:
-   - **Region**: Select the Azure region from where you want to protect your VMs. 
+   - **Region**: Select the source Azure region where VMs are currently running.  If the source resource group is in a different region from the VM, enable replication from the VM > *Disaster Recovery* blade.
    For example, the source location is *East Asia*.
      >[!NOTE]
+     > Only resource groups in the same region as the selected source region will be visible from the Recovery Services Blade to enable replication.
+     >
      >For cross-regional disaster recovery, the source location should be different from the Recovery Services Vault and its Resource Group's location. However, it can be the same as any of them for zonal disaster recovery.
+
    - **Subscription**: Select the subscription to which your source VMs belong. This can be any subscription within the same Microsoft Entra tenant where your recovery services vault exists.
    - **Resource group**: Select the resource group to which your source virtual machines belong. All the VMs in the selected resource group are listed for protection in the next step.
    - **Virtual machine deployment model**: Select Azure deployment model of the source machines.
@@ -46,6 +50,9 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
 1. In **Replication settings**, you can configure the following settings:
     1. Under **Location and Resource group**,
        - **Target location**: Select the location where your source virtual machine data must be replicated. Depending on the location of selected machines, Site Recovery provides you with the list of suitable target regions. We recommend that you keep the target location the same as the Recovery Services vault location.
+         >[!NOTE]
+         >If the selected target region doesn't support an NVMe-capable VM SKU (preview), Azure Site Recovery blocks the enable replication action and displays a validation error before replication starts.
+         >
        - **Target subscription**: Select the target subscription used for disaster recovery. By default, the target subscription will be same as the source subscription.
        - **Target resource group**: Select the resource group to which all your replicated virtual machines belong.
            - By default, Site Recovery creates a new resource group in the target region with an *asr* suffix in the name.
@@ -71,10 +78,10 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
          :::image type="Storage" source="./media/azure-to-azure-how-to-enable-replication/storage.png" alt-text="Screenshot of Storage."::: 
   
        - **Replica-managed disk**: Site Recovery creates new replica-managed disks in the target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
-       - **Cache storage**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location. 
+       - **Cache storage**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location. High Churn is the only option available to protect VMs using Premium SSD v2/Ultra Disks.
          >[!Note]
          >Azure Site Recovery has a *High Churn* option that you can choose to protect VMs with high data change rate. With this, you can use a *Premium Block Blob* type of storage account. By default, the **Normal Churn** option is selected. For more information, see [Azure VM Disaster Recovery - High Churn Support](./concepts-azure-to-azure-high-churn-support.md).
-         >:::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/churns.png" alt-text="Screenshot of churn.":::    
+         >:::image type="Churn" source="media/concepts-azure-to-azure-high-churn-support/vm-churn-settings.png" alt-text="Screenshot of churn.":::    
     
     1. **Availability options**: Select appropriate availability option for your VM in the target region. If an availability set that was created by Site Recovery already exists, it's reused. Select **View/edit availability options** to view or edit the availability options.
         >[!NOTE]
@@ -83,7 +90,7 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
 
          :::image type="Availability option" source="./media/azure-to-azure-how-to-enable-replication/availability-option.png" alt-text="Screenshot of availability option."::: 
    
-    1. **Capacity reservation**: Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group or use an existing one. For more information, see [how capacity reservation works](../virtual-machines/capacity-reservation-overview.md).
+    1. **Capacity reservation**: Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group or use an existing one. For more information, see [how capacity reservation works](/azure/virtual-machines/capacity-reservation-overview).
     Select **View or Edit Capacity Reservation group assignment** to modify the capacity reservation settings. On triggering Failover, the new VM is created in the assigned Capacity Reservation Group.
     
          :::image type="Capacity reservation" source="./media/azure-to-azure-how-to-enable-replication/capacity-reservation.png" alt-text="Screenshot of capacity reservation.":::
@@ -105,6 +112,9 @@ Use the following procedure to replicate Azure VMs to another Azure region. As a
    :::image type="review" source="./media/azure-to-azure-how-to-enable-replication/review.png" alt-text="Screenshot that displays the review tab.":::
 
 1.  After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**. The time taken for initial replication depends on various factors such as the disk size, used storage on the disks, etc. Data transfer happens at ~23% of the disk throughput. Initial replication creates a snapshot of the disk and transfers that snapshot.
+
+>[!TIP]
+>In scenarios where you successfully migrate the disk controller from SCSI to NVMe (preview) after replication, Azure Site Recovery automatically detects the controller update and continues replication without interruption. New recovery points reflect the updated NVMe disk controller type. 
 
 ### Enable replication for added disks
 

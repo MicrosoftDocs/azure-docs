@@ -2,28 +2,24 @@
 title: Configure Azure NetApp Files application volume group for Oracle using REST API 
 description: Describes the Azure NetApp Files application volume group creation for Oracle by using the REST API, including examples.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 10/20/2023
+ms.topic: concept-article
+ms.date: 01/14/2026
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+# Customer intent: "As a cloud architect, I want to configure an application volume group for Oracle using a REST API, so that I can efficiently manage storage resources and automate deployment processes within my cloud environment."
 ---
 # Configure application volume group for Oracle using REST API
 
 This article describes the creation of application volume group (AVG) for Oracle using the REST API. The details include selected parameters and properties required for deployment. The article also specifies constraints and typical values for AVG for Oracle creation where applicable.
 
-## Application volume group `create` 
+## Application volume group: create
 
-In a `create` request, use the following URI format:
+In a create request, use the following URI format:
 
-```/subscriptions/<subscriptionId>/providers/Microsoft.NetApp/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.NetApp/netAppAccounts/<accountName>/volumeGroups/<volumeGroupName>?api-version=<apiVersion>```
+```/subscriptions/<subscriptionId>/providers/Microsoft.NetApp/resourceGroups/<resourceGroupName>/providers/Microsoft.NetApp/netAppAccounts/<accountName>/volumeGroups/<volumeGroupName>?api-version=<apiVersion>```
 
 | URI parameter | Description | Restrictions for Oracle AVG |
 | ---- | ----- | ----- |
@@ -51,7 +47,7 @@ The following table describes the request body parameters and group level proper
 
 The following tables describe the request body parameters and volume properties for creating a volume in an Oracle application volume group.
 
-| Volume-level request parameter | Description | Restrictions for Oracle |
+| Volume-level request parameter | Description | Restrictions|
 |---------|---------|---------|
 | `name` | Volume name, which includes Oracle SID to identify database using the volumes in the group | None. <br><br> Examples or recommended volume names: <br><br> - `<sid>-ora-data1` (data) <br> - `<sid>-ora-data2` (data) <br> - `<sid>-ora-log` (log) <br> - `<sid>-ora-log-mirror` (mirlog) <br> - `<sid>-ora-binary` (binary) <br> - `<sid>-ora-bakup` (backup) <br> | 
 | `tags` | Volume tags | None |
@@ -61,13 +57,16 @@ The following tables describe the request body parameters and volume properties 
 |---------|---------|---------|
 | `creationToken` | Export path name, typically same as the volume name. | `<sid>-ora-data1` |
 | `throughputMibps` | QoS throughput | You should set throughput based on volume type between 1 MiBps and 4500 MiBps. |
-| `usageThreshhold` | Size of the volume in bytes. This value must be in the 100 GiB to 100-TiB range. For instance, 100 GiB = 107374182400 bytes. | You should set volume size in bytes. | 
+| `usageThreshold` | Size of the volume in bytes. This value must be in the 50 GiB to 100-TiB range. For instance, 100 GiB = 107374182400 bytes. | You should set volume size in bytes. | 
 | `exportPolicyRule` | Volume export policy rule | At least one export policy rule must be specified for Oracle. Only the following rules values can be modified for Oracle. The rest *must* have their default values: <br><br> - `unixReadOnly`: should be false. <br><br> - `unixReadWrite`: should be true. <br><br> - `allowedClients`: specify allowed clients. Use `0.0.0.0/0` for no restrictions. <br><br> - `hasRootAccess`: must be true to use root user for installation. <br><br> - `chownMode`: Specify `chown` mode. <br><br> - `Select nfsv41: or nfsv3:`: as true. It's recommended to use the same protocol version for all volumes. <br> <br> All other rule values _must_ be left defaulted. |
 | `volumeSpecName` | Specifies the type of volume for the application volume group being created | Oracle volumes must have a value that is one of the following: <br><br> - `ora-data1` <br> - `ora-data2` <br> - `ora-data3` <br> - `ora-data4` <br> - `ora-data5` <br> - `ora-data6` <br> - `ora-data7` <br> - `ora-data8` <br> - `ora-log` <br> - `ora-log-mirror` <br> - `ora-binary` <br> - `ora-backup` <br> | 
 | `proximityPlacementGroup` | Resource ID of the Proximity Placement Group (PPG) for proper placement of the volume. This parameter is optional. If the region has zones available, then use of zones is always priority. | The `data`, `log` and `mirror-log`, `ora-binary` and `backup` volumes must each have a PPG specified, preferably a common PPG. |
 | `subnetId` | Delegated subnet ID for Azure NetApp Files. | The subnet ID must be the same for all volumes. |
 | `capacityPoolResourceId` | ID of the capacity pool | The capacity pool must be of type manual QoS. Generally, all Oracle volumes are placed in a common capacity pool. However, it isn't a requirement. |
 | `protocolTypes` | Protocol to use | This parameter should be either NFSv3 or NFSv4.1 and should match the protocol specified in the Export Policy Rule described earlier in this table. | 
+| `endpointType` | Endpoint type for a replication configuration. | The allowed value is `dst` |
+| `remoteVolumeResourceId` |  The resource ID of the remote volume | The volume ID |
+| `replicationSchedule` |  The frequency of replication (daily, hourly, or every 10 minutes) | The allowed values are `daily`, `hourly`, or `_10minutely` |
 
 ## Examples: Application volume group for Oracle API request content
 
@@ -75,39 +74,37 @@ The examples in this section illustrate the values passed in the volume group cr
 
 In the following examples, selected placeholders are specified. You should replace them with values specific to your configuration. These values include:
 
-* `<SubscriptionId>`:  
-    Subscription ID. Example: `11111111-2222-3333-4444-555555555555`
-* `<ResourceGroup>`:  
-    Resource group. Example: `TestResourceGroup`
-* `<NtapAccount>`:  
-    NetApp account. Example: `TestAccount`
-* `<VolumeGroupName>`:  
-    Volume group name. Example: `SH9-Test-00001`
-* `<SubnetId>`:  
-    Subnet resource ID. Example: `/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/SH9_Subnet`
-* `<CapacityPoolResourceId>`:  
-    Capacity pool resource ID. Example: `/subscriptions/11111111-2222-3333-4444-555555555555/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/SH9_Pool `
+* `<SubscriptionId>`- Example: `aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e`
+* `<ResourceGroup>` - Example: `TestResourceGroup`
+* `<NtapAccount>` - Example: `TestAccount`
+* `<VolumeGroupName>` - Example: `SH9-Test-00001`
+* `<SubnetId>` - Example: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myRP/providers/Microsoft.Network/virtualNetworks/testvnet3/subnets/SH9_Subnet`
+* `<CapacityPoolResourceId>` - Example: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myRG/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/SH9_Pool `
 
 ## Create application volume groups for Oracle using curl
 
 Oracle volume groups for the following examples can be created using a sample shell script that calls the API using curl:
 
 1. Extract the subscription ID. This command automates the extraction of the subscription ID and generates the authorization token:
+
     ```bash
     subId=$(az account list | jq ".[] | select (.name == \"Pay-As-You-Go\") | .id" -r)echo "Subscription ID: $subId" 
     ```
 1. Create the access token:
+
     ```bash
     response=$(az account get-access-token)token=$(echo $response | jq ".accessToken" -r)echo "Token: $token" 
     ```
 1. Call the REST API using curl: 
+
     ```bash
     echo "---"curl -X PUT -H "Authorization: Bearer $token" -H "Content-Type:application/json" -H "Accept:application/json" -d @<ExampleJson> https://management.azure.com/subscriptions/$subId/resourceGroups/<ResourceGroup>/providers/Microsoft.NetApp/netAppAccounts/<NtapAccount>/volumeGroups/<VolumeGroupName>?api-version=2023-05-01 | jq . 
     ```
 
-## Example: Application volume group for Oracle creation request
+### Example: Application volume group for Oracle creation request
 
 This example creates a volume group name "group1" with the following volumes:
+
 * test-ora-data1
 * test-ora-data2
 * test-ora-data3
@@ -124,7 +121,7 @@ This example creates a volume group name "group1" with the following volumes:
 Save the JSON template as `sh9.json`:
 
 > [!NOTE]
-> The placeholders `<SubnetId>` and `<CapacityPoolResourceId>` need to be replaced, and the volume data need to be adapted when using this `json` as template for your own deployment.
+> The placeholders `<SubnetId>` and `<CapacityPoolResourceId>` need to be replaced, and the volume data need to be adapted when using this JSON as template for your own deployment.
 
 ```json
 { 
@@ -598,10 +595,11 @@ Save the JSON template as `sh9.json`:
   }
 }
 ```
+
 ## Adapt and start the script 
 
 > [!NOTE]
-> This json input file should now be used with the above script.
+> This JSON input file should be used with the above script.
 
 ```bash
 #! /bin/bash
@@ -617,16 +615,16 @@ response=$(az account get-access-token)
 token=$(echo $response | jq ".accessToken" -r)
 echo "Token: $token"
 #
-# 3. Call the REST API using curl
+# 3. Call the REST API using curl:
 # 
 echo "---"
 curl -X PUT -H "Authorization: Bearer $token" -H "Content-Type:application/json" -H "Accept:application/json" -d @sh9.json https://management.azure.com/subscriptions/$subId/resourceGroups/rg-westus/providers/Microsoft.NetApp/netAppAccounts/ANF-WestUS-test/volumeGroups/test-ORA?api-version=2022-03-01 | jq .
 ```
 
-## Sample result 
-
 > [!NOTE] 
-> Using `| jq .` at the end of the curl call, the returned json is well formatted.
+> Using `| jq .` at the end of the curl call returns the JSON in a more structured format.
+
+## Sample result 
 
 ```
 {
@@ -1117,6 +1115,1131 @@ curl -X PUT -H "Authorization: Bearer $token" -H "Content-Type:application/json"
   }
 }
 ```
+
+## <a name="replication"></a> Configure cross-region or cross-zone replication
+
+You can use [cross-zone or cross-region replication](replication.md) for disaster recovery for your application volume group. This example configures cross-zone replication.
+
+>[!NOTE]
+>In this example, placeholders for `<CapacityPoolResourceId>`, `<SrcVolumeId>`, and `<SubnetId>` need to be replaced. 
+
+```json
+{
+    "location": "eastus",
+    "properties": {
+        "groupMetaData": {
+            "groupDescription": "Data Protection: Test group for ORA",
+            "applicationType": "ORACLE",
+            "applicationIdentifier": "ORA"
+        },
+        "volumes": [
+            {
+                "name": "ORA-ora-data1",
+                "zones": [
+                    2
+                ],
+                "properties": {
+                    "creationToken": "ORA-ora-data1",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-data1",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_data1>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-data2",
+                "zones": [
+                    2
+                ],
+                "properties": {
+                    "creationToken": "ORA-ora-data2",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-data2",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_data2>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-data3", 
+                "zones": [
+                    2
+                ],
+                "properties": {
+                    "creationToken": "ORA-ora-data3",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-data3",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_data3>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-data4",
+                "zones": [
+                    2
+                ],
+                "properties": {
+                    "creationToken": "ORA-ora-data4",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-data4",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_data4>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-data5",
+                "zones": [
+                    2
+                ],
+                "properties": {
+                    "creationToken": "ORA-ora-data5",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-data5",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_data5>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-data6",
+                "zones": [
+                    2
+                ],
+                "properties": {
+                    "creationToken": "ORA-ora-data6",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-data6",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_data6>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-data7",
+                "zones": [
+                    2
+                ],
+                "properties": {
+                    "creationToken": "ORA-ora-data7",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-data7",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_data7>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-data8",
+                "zones": [
+                    2
+                ],
+                "properties": {
+                    "creationToken": "ORA-ora-data8",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-data8",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_data8>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-log",
+                "zones": [
+                    2
+                ],
+                "properties": {
+                    "creationToken": "ORA-ora-log",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-log",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_log>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-log-mirror",
+                "zones": [
+                    2
+                ],
+                "properties": {
+                    "creationToken": "ORA-ora-log-mirror",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-log-mirror",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_log_mirror>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-binary",
+                "zones": [
+                    2
+                ],
+                "properties": {
+                    "creationToken": "ORA-ora-binary",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-binary",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_binary>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-backup",
+                "zones": [
+                    2
+                ],
+                "properties": {
+                    "creationToken": "ORA-ora-backup",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-backup",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_backup>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
+```
+
+### Cross-region replication using a proximity placement group
+
+This example configures [cross-region replication](replication.md) for an application volume group for Oracle deployed using a proximity placement group. 
+
+>[!NOTE]
+>In this example, placeholders for `<CapacityPoolResourceId>`, `<SrcVolumeId>`, and `<SubnetId>` need to be replaced. 
+
+```json
+{
+    "location": "eastus",
+    "properties": {
+        "groupMetaData": {
+            "groupDescription": "Data Protection: Test group for ORA",
+            "applicationType": "ORACLE",
+            "applicationIdentifier": "ORA"
+        },
+        "volumes": [
+            {
+                "name": "ORA-ora-data1",
+                "properties": {
+                    "creationToken": "ORA-ora-data1",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-data1",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "proximityPlacementGroup": <ProximityPlacementGroupResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_data1>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-data2",
+                "properties": {
+                    "creationToken": "ORA-ora-data2",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-data2",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "proximityPlacementGroup": <ProximityPlacementGroupResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_data2>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-data3",
+                "properties": {
+                    "creationToken": "ORA-ora-data3",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-data3",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "proximityPlacementGroup": <ProximityPlacementGroupResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_data3>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-data4",
+                "properties": {
+                    "creationToken": "ORA-ora-data4",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-data4",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "proximityPlacementGroup": <ProximityPlacementGroupResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_data4>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-data5",
+                "properties": {
+                    "creationToken": "ORA-ora-data5",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-data5",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "proximityPlacementGroup": <ProximityPlacementGroupResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_data5>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-data6",
+                "properties": {
+                    "creationToken": "ORA-ora-data6",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-data6",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "proximityPlacementGroup": <ProximityPlacementGroupResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_data6>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-data7",
+                "properties": {
+                    "creationToken": "ORA-ora-data7",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-data7",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "proximityPlacementGroup": <ProximityPlacementGroupResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_data7>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-data8",
+                "properties": {
+                    "creationToken": "ORA-ora-data8",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-data8",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "proximityPlacementGroup": <ProximityPlacementGroupResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_data8>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-log",
+                "properties": {
+                    "creationToken": "ORA-ora-log",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-log",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "proximityPlacementGroup": <ProximityPlacementGroupResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_log>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-log-mirror",
+                "properties": {
+                    "creationToken": "ORA-ora-log-mirror",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-log-mirror",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "proximityPlacementGroup": <ProximityPlacementGroupResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_log_mirror>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-binary",
+                "properties": {
+                    "creationToken": "ORA-ora-binary",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-binary",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "proximityPlacementGroup": <ProximityPlacementGroupResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_binary>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            },
+            {
+                "name": "ORA-ora-backup",
+                "properties": {
+                    "creationToken": "ORA-ora-backup",
+                    "serviceLevel": "standard",
+                    "throughputMibps": 10,
+                    "exportPolicy": {
+                        "rules": [
+                            {
+                                "ruleIndex": 1,
+                                "unixReadOnly": true,
+                                "unixReadWrite": true,
+                                "kerberos5ReadOnly": false,
+                                "kerberos5ReadWrite": false,
+                                "kerberos5iReadOnly": false,
+                                "kerberos5iReadWrite": false,
+                                "kerberos5pReadOnly": false,
+                                "kerberos5pReadWrite": false,
+                                "cifs": false,
+                                "nfsv3": false,
+                                "nfsv41": true,
+                                "allowedClients": "0.0.0.0/0",
+                                "hasRootAccess": true
+                            }
+                        ]
+                    },
+                    "protocolTypes": [
+                        "NFSv4.1"
+                    ],
+                    "subnetId": <SubnetId>,
+                    "usageThreshold": 107374182400,
+                    "volumeSpecName": "ora-backup",
+                    "capacityPoolResourceId": <CapacityPoolResourceId>,
+                    "proximityPlacementGroup": <ProximityPlacementGroupResourceId>,
+                    "volumeType": "DataProtection",
+                    "dataProtection": {
+                        "replication": {
+                            "endpointType": "dst",
+                            "remoteVolumeResourceId": <SrcVolumeId_backup>,
+                            "replicationSchedule": "Hourly"
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}
+```
+
 
 ## Next steps
 

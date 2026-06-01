@@ -1,9 +1,12 @@
 ---
 title: High availability components in Azure HDInsight
 description: Overview of the various high availability components used by HDInsight clusters.
-ms.service: hdinsight
-ms.topic: conceptual
-ms.date: 09/28/2023
+ms.service: azure-hdinsight
+ms.topic: concept-article
+author: reachnijel
+ms.author: nijelsf
+ms.reviewer: sairamyeturi
+ms.date: 09/06/2024
 ---
 # High availability services supported by Azure HDInsight
 

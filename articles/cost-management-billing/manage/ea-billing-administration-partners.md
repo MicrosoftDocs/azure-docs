@@ -1,13 +1,14 @@
 ---
 title: EA billing administration for partners in the Azure portal
 description: This article explains the common tasks that a partner administrator accomplishes in the Azure portal to manage indirect enterprise agreements.
-author: bandersmsft
-ms.author: banders
-ms.date: 03/21/2024
-ms.topic: conceptual
+author: SandeepReddyAcc
+ms.author: v-salin
+ms.date: 04/20/2026
+ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: sapnakeshari
+ms.reviewer: v-salin
+ms.custom: sfi-image-nochange
 ---
 
 # EA billing administration for partners in the Azure portal

@@ -4,10 +4,12 @@ description: This article describes how to setup a metric alert based on runbook
 services: automation
 ms.date: 08/10/2020
 ms.topic: how-to
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 # Monitor runbooks with metric alerts
 
-In this article, you learn how to create a [metric alert](../azure-monitor/alerts/alerts-metric-overview.md) based on runbook completion status.
+In this article, you learn how to create a [metric alert](/azure/azure-monitor/alerts/alerts-metric-overview) based on runbook completion status.
 
 ## Sign in to Azure
 
@@ -46,7 +48,7 @@ Alerts allow you to define a condition to monitor for and an action to take when
 
 ### Define the action to take
 
-1. Under **Action group**, select **Specify action group**. An action group is a group of actions that you can use across more than one alert. These can include but aren't limited to, email notifications, runbooks, webhooks, and many more. To learn more about action groups and steps to create one that sends an email notification, see [Create and manage action groups](../azure-monitor/alerts/action-groups.md).
+1. Under **Action group**, select **Specify action group**. An action group is a group of actions that you can use across more than one alert. These can include but aren't limited to, email notifications, runbooks, webhooks, and many more. To learn more about action groups and steps to create one that sends an email notification, see [Create and manage action groups](/azure/azure-monitor/alerts/action-groups).
 
 ### Define alert details
 

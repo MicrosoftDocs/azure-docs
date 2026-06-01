@@ -3,15 +3,18 @@ title: Prevent authorization with Shared Key
 titleSuffix: Azure Storage
 description: To require clients to use Microsoft Entra ID to authorize requests, you can disallow requests to the storage account that are authorized with Shared Key.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: normesta
+ms.author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 04/16/2024
 ms.reviewer: nachakra
-ms.custom: engagement-fy23
 ms.devlang: azurecli
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to disable Shared Key authorization for Azure Storage accounts, so that I can enhance security by enforcing the use of Microsoft Entra ID for client request authorization.
 ---
 
 # Prevent Shared Key authorization for an Azure Storage account
@@ -62,11 +65,11 @@ Some Azure tools offer the option to use Microsoft Entra authorization to access
 |-|-|
 | Azure portal | Supported. For information about authorizing with your Microsoft Entra account from the Azure portal, see [Choose how to authorize access to blob data in the Azure portal](../blobs/authorize-data-operations-portal.md). |
 | AzCopy | Supported for Blob Storage. For information about authorizing AzCopy operations, see [Choose how you'll provide authorization credentials](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) in the AzCopy documentation. |
-| Azure Storage Explorer | Supported for Blob Storage, Queue Storage, Table Storage, and Azure Data Lake Storage Gen2. Microsoft Entra ID access to File storage is not supported. Make sure to select the correct Microsoft Entra tenant. For more information, see [Get started with Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
+| Azure Storage Explorer | Supported for Blob Storage, Queue Storage, Table Storage, and Azure Data Lake Storage. Microsoft Entra ID access to File storage is not supported. Make sure to select the correct Microsoft Entra tenant. For more information, see [Get started with Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#sign-in-to-azure) |
 | Azure PowerShell | Supported. For information about how to authorize PowerShell commands for blob or queue operations with Microsoft Entra ID, see [Run PowerShell commands with Microsoft Entra credentials to access blob data](../blobs/authorize-data-operations-powershell.md) or [Run PowerShell commands with Microsoft Entra credentials to access queue data](../queues/authorize-data-operations-powershell.md). |
 | Azure CLI | Supported. For information about how to authorize Azure CLI commands with Microsoft Entra ID for access to blob and queue data, see [Run Azure CLI commands with Microsoft Entra credentials to access blob or queue data](../blobs/authorize-data-operations-cli.md). |
 | Azure IoT Hub | Supported. For more information, see [IoT Hub support for virtual networks](../../iot-hub/virtual-network-support.md). |
-| Azure Cloud Shell | Azure Cloud Shell is an integrated shell in the Azure portal. Azure Cloud Shell hosts files for persistence in an Azure file share in a storage account. These files will become inaccessible if Shared Key authorization is disallowed for that storage account. For more information, see [Persist files in Azure Cloud Shell](../../cloud-shell/persisting-shell-storage.md). <br /><br /> To run commands in Azure Cloud Shell to manage storage accounts for which Shared Key access is disallowed, first make sure that you have been granted the necessary permissions to these accounts via Azure RBAC. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md). |
+| Azure Cloud Shell | Azure Cloud Shell is an integrated shell in the Azure portal. Azure Cloud Shell hosts files for persistence in an Azure file share in a storage account. These files will become inaccessible if Shared Key authorization is disallowed for that storage account. For more information, see [Persist files in Azure Cloud Shell](../../cloud-shell/persisting-shell-storage.md). <br /><br /> To run commands in Azure Cloud Shell to manage storage accounts for which Shared Key access is disallowed, first make sure that you have been granted the necessary permissions to these accounts via Azure RBAC. For more information, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md) |
 
 <a name='disallow-shared-key-authorization-to-use-azure-ad-conditional-access'></a>
 
@@ -108,7 +111,7 @@ resources
 
 Azure Policy **Storage accounts should prevent shared key access** prevents users with appropriate permissions from configuring new or existing storage accounts to permit Shared Key authorization. Configure this policy in audit mode to identify storage accounts where Shared Key authorization is allowed. After you have changed applications to use Microsoft Entra rather than Shared Key for authorization, you can [update the policy to prevent allowing Shared Key access](#update-the-azure-policy-to-prevent-allowing-shared-key-access).
 
-For more information about the built-in policy, see **Storage accounts should prevent shared key access** in [List of built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
+For more information about the built-in policy, see **Storage accounts should prevent shared key access** in [List of built-in policy definitions](/azure/governance/policy/samples/built-in-policies#storage).
 
 #### Assign the built-in policy for a resource scope
 
@@ -149,7 +152,7 @@ A SAS may be authorized with either Shared Key or Microsoft Entra ID. For more i
 
 ### Determine the number and frequency of requests authorized with Shared Key
 
-To track how requests to a storage account are being authorized, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).
+To track how requests to a storage account are being authorized, use Azure Metrics Explorer in the Azure portal. For more information about Metrics Explorer, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics).
 
 Follow these steps to create a metric that tracks requests made with Shared Key or SAS:
 
@@ -181,7 +184,7 @@ After you have configured the metric, requests to your storage account will begi
 
 :::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Screenshot showing aggregated requests authorized with Shared Key." lightbox="media/shared-key-authorization-prevent/metric-shared-key-requests.png":::
 
-You can also configure an alert rule to notify you when a certain number of requests that are authorized with Shared Key are made against your storage account. For more information, see [Create, view, and manage metric alerts using Azure Monitor](../../azure-monitor/alerts/alerts-metric.md).
+You can also configure an alert rule to notify you when a certain number of requests that are authorized with Shared Key are made against your storage account. For more information, see [Create, view, and manage metric alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-metric).
 
 ### Analyze logs to identify clients that are authorizing requests with Shared Key or SAS
 
@@ -189,26 +192,13 @@ Azure Storage logs capture details about requests made against the storage accou
 
 To log requests to your Azure Storage account in order to evaluate how they are authorized, you can use Azure Storage logging in Azure Monitor. For more information, see [Monitor Azure Storage](../blobs/monitor-blob-storage.md).
 
-Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](../../azure-monitor/logs/log-analytics-tutorial.md).
+Azure Storage logging in Azure Monitor supports using log queries to analyze log data. To query logs, you can use an Azure Log Analytics workspace. To learn more about log queries, see [Tutorial: Get started with Log Analytics queries](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 #### Create a diagnostic setting in the Azure portal
 
-To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. To create a diagnostic setting in the Azure portal, follow these steps:
+To log Azure Storage data with Azure Monitor and analyze it with Azure Log Analytics, you must first create a diagnostic setting that indicates what types of requests and for which storage services you want to log data. After you configure logging for your storage account, the logs are available in the Log Analytics workspace. To create a workspace, see [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 
-1. Create a new Log Analytics workspace in the subscription that contains your Azure Storage account, or use an existing Log Analytics workspace. After you configure logging for your storage account, the logs will be available in the Log Analytics workspace. For more information, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md).
-1. Navigate to your storage account in the Azure portal.
-1. In the Monitoring section, select **Diagnostic settings**.
-1. Select the Azure Storage service for which you want to log requests. For example, choose **Blob** to log requests to Blob storage.
-1. Select **Add diagnostic setting**.
-1. Provide a name for the diagnostic setting.
-1. Under **Category details**, in the **log** section, choose **StorageRead**, **StorageWrite**, and **StorageDelete** to log all data requests to the selected service.
-1. Under **Destination details**, select **Send to Log Analytics**. Select your subscription and the Log Analytics workspace you created earlier, as shown in the following image.
-
-    :::image type="content" source="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot showing how to create a diagnostic setting for logging requests." lightbox="media/shared-key-authorization-prevent/create-diagnostic-setting-logs.png":::
-
-You can create a diagnostic setting for each type of Azure Storage resource in your storage account.
-
-After you create the diagnostic setting, requests to the storage account are subsequently logged according to that setting. For more information, see [Create diagnostic setting to collect resource logs and metrics in Azure](../../azure-monitor/essentials/diagnostic-settings.md).
+To learn how to create a diagnostic setting in the Azure portal, see [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/create-diagnostic-settings).
 
 For a reference of fields available in Azure Storage logs in Azure Monitor, see [Resource logs](../blobs/monitor-blob-storage-reference.md#resource-logs).
 
@@ -223,7 +213,7 @@ StorageBlobLogs
 | top 10 by count_ desc
 ```
 
-You can also configure an alert rule based on this query to notify you about requests authorized with Shared Key or SAS. For more information, see [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
+You can also configure an alert rule based on this query to notify you about requests authorized with Shared Key or SAS. For more information, see [Create, view, and manage log alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-log).
 
 ## Remediate authorization via Shared Key
 

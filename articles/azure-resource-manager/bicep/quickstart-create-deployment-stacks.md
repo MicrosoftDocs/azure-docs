@@ -1,7 +1,7 @@
 ---
 title: Create and deploy a deployment stack with Bicep
 description: Learn how to use Bicep to create and deploy a deployment stack in your Azure subscription.
-ms.date: 05/22/2024
+ms.date: 12/22/2025
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
 # Customer intent: As a developer I want to use Bicep to create a deployment stack.
@@ -13,7 +13,7 @@ This quickstart describes how to create a [deployment stack](deployment-stacks.m
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure PowerShell [version 12.0.0 or later](/powershell/azure/install-az-ps) or Azure CLI [version 2.61.0 or later](/cli/azure/install-azure-cli).
 - [Visual Studio Code](https://code.visualstudio.com/) with the [Bicep extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 
@@ -26,7 +26,7 @@ param resourceGroupLocation string = resourceGroup().location
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
 param vnetName string = 'vnet${uniqueString(resourceGroup().id)}'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: resourceGroupLocation
   kind: 'StorageV2'
@@ -35,7 +35,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   }
 }
 
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: vnetName
   location: resourceGroupLocation
   properties: {
@@ -66,7 +66,7 @@ Save the Bicep file as _main.bicep_.
 
 ## Create a deployment stack
 
-In this quickstart, you create the deployment stack at the resource group scope.  You can also create the deployment stack at the subscription scope or the management group scope.  For more information, see [Create deployment stacks](./deployment-stacks.md#create-deployment-stacks).
+In this quickstart, you create the deployment stack at the resource group scope. You can also create the deployment stack at the subscription scope or the management group scope. For more information, see [Create deployment stacks](./deployment-stacks.md#create-deployment-stacks).
 
 # [CLI](#tab/azure-cli)
 
@@ -125,6 +125,8 @@ The output shows two managed resources - one storage account and one virtual net
     "resourceGroups": "detach",
     "resources": "detach"
   },
+  "bypassStackOutOfSyncError": null,
+  "correlationId": "63743f58-a251-4d18-8449-4a37b9885aad",
   "debugSetting": null,
   "deletedResources": [],
   "denySettings": {
@@ -133,14 +135,14 @@ The output shows two managed resources - one storage account and one virtual net
     "excludedPrincipals": null,
     "mode": "none"
   },
-  "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-24051714epybc",
+  "deploymentId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-2501151922xo8",
   "deploymentScope": null,
   "description": null,
   "detachedResources": [],
-  "duration": "PT32.5330364S",
+  "duration": "PT31.9923013S",
   "error": null,
   "failedResources": [],
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack",
   "location": null,
   "name": "demoStack",
   "outputs": null,
@@ -151,22 +153,22 @@ The output shows two managed resources - one storage account and one virtual net
   "resources": [
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk",
+      "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetqci7hnvgit6zm",
       "resourceGroup": "demoRg",
       "status": "managed"
     },
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk",
+      "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storeqci7hnvgit6zm",
       "resourceGroup": "demoRg",
       "status": "managed"
     }
   ],
   "systemData": {
-    "createdAt": "2024-05-17T14:50:18.382948+00:00",
+    "createdAt": "2025-01-15T19:07:05.542588+00:00",
     "createdBy": "johndoe@contoso.com",
     "createdByType": "User",
-    "lastModifiedAt": "2024-05-17T14:50:18.382948+00:00",
+    "lastModifiedAt": "2025-01-15T19:07:05.542588+00:00",
     "lastModifiedBy": "johndoe@contoso.com",
     "lastModifiedByType": "User"
   },
@@ -188,18 +190,18 @@ Get-AzResourceGroupDeploymentStack `
 The output shows two managed resources - one storage account and one virtual network:
 
 ```output
-Id                            : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack
+Id                            : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack
 Name                          : demoStack
 ProvisioningState             : succeeded
 resourcesCleanupAction        : detach
 resourceGroupsCleanupAction   : detach
 managementGroupsCleanupAction : detach
-CorrelationId                 : 62f1631c-a823-46c1-b240-9182ccf39cfa
+CorrelationId                 : aaaa0000-bb11-2222-33cc-444444dddddd
 DenySettingsMode              : none
 CreationTime(UTC)             : 5/17/2024 3:37:42 PM
-DeploymentId                  : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-24051715b17ls
-Resources                     : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk
-                                /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk
+DeploymentId                  : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-24051715b17ls
+Resources                     : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk
+                                /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk
 ```
 
 ---
@@ -224,6 +226,8 @@ The output is similar to:
     "resourceGroups": "detach",
     "resources": "detach"
   },
+  "bypassStackOutOfSyncError": null,
+  "correlationId": "63743f58-a251-4d18-8449-4a37b9885aad",
   "debugSetting": null,
   "deletedResources": [],
   "denySettings": {
@@ -232,14 +236,14 @@ The output is similar to:
     "excludedPrincipals": null,
     "mode": "none"
   },
-  "deploymentId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-24051714epybc",
+  "deploymentId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Resources/deployments/demoStack-2501151922xo8",
   "deploymentScope": null,
   "description": null,
   "detachedResources": [],
-  "duration": "PT32.5330364S",
+  "duration": "PT31.9923013S",
   "error": null,
   "failedResources": [],
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack",
+  "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Resources/deploymentStacks/demoStack",
   "location": null,
   "name": "demoStack",
   "outputs": null,
@@ -250,22 +254,22 @@ The output is similar to:
   "resources": [
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk",
+      "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetqci7hnvgit6zm",
       "resourceGroup": "demoRg",
       "status": "managed"
     },
     {
       "denyStatus": "none",
-      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk",
+      "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storeqci7hnvgit6zm",
       "resourceGroup": "demoRg",
       "status": "managed"
     }
   ],
   "systemData": {
-    "createdAt": "2024-05-17T14:50:18.382948+00:00",
+    "createdAt": "2025-01-15T19:07:05.542588+00:00",
     "createdBy": "johndoe@contoso.com",
     "createdByType": "User",
-    "lastModifiedAt": "2024-05-17T14:50:18.382948+00:00",
+    "lastModifiedAt": "2025-01-15T19:07:05.542588+00:00",
     "lastModifiedBy": "johndoe@contoso.com",
     "lastModifiedByType": "User"
   },
@@ -287,8 +291,8 @@ The output is similar to:
 ```output
 Status  DenyStatus Id
 ------  ---------- --
-managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk
-managed none       /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk
+managed none       /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Network/virtualNetworks/vnetthmimleef5fwk
+managed none       /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/demoRg/providers/Microsoft.Storage/storageAccounts/storethmimleef5fwk
 ```
 
 ---
@@ -331,7 +335,7 @@ Set-AzResourceGroupDeploymentStack `
 
 From the Azure portal, check the properties of the storage account to confirm the change.
 
-Using the same method, you can add a resource to the deployment stack or remove a managed resource from the deployment stack.  For more information, see [Add resources to a deployment stack](./deployment-stacks.md#add-resources-to-deployment-stack) and [Delete managed resources from a deployment stack](./deployment-stacks.md#delete-managed-resources-from-deployment-stack).
+Using the same method, you can add a resource to the deployment stack or remove a managed resource from the deployment stack. For more information, see [Add resources to a deployment stack](./deployment-stacks.md#add-resources-to-deployment-stack) and [Delete managed resources from a deployment stack](./deployment-stacks.md#delete-managed-resources-from-deployment-stack).
 
 ## Delete the deployment stack
 
@@ -379,7 +383,7 @@ For more information, see [Delete deployment stacks](./deployment-stacks.md#dele
 
 ---
 
-The remove command exclusively removes managed resources and managed resource groups. You are still responsible for deleting the resource groups that are not managed by the deployment stack.
+The delete command exclusively removes managed resources and managed resource groups. You're still responsible for deleting the resource groups that aren't managed by the deployment stack.
 
 ## Clean up resources
 
@@ -404,4 +408,4 @@ Remove-AzResourceGroup `
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deployment stacks](./deployment-stacks.md)
+> [Create Bicep files by using Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).

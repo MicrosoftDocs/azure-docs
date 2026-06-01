@@ -1,11 +1,13 @@
 ---
-title: What's new in Azure Automation
+title: What's New in Azure Automation
 description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice:
 ms.topic: overview
-ms.date: 07/19/2024
+ms.date: 03/10/2026
 ms.custom: references_regions
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # What's new in Azure Automation?
@@ -21,6 +23,50 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 
+## March 2026
+
+### Security Update: Azure Automation Windows Hybrid Worker Extension (1.3.74)
+
+Windows Hybrid Worker Extension Version 1.3.74 includes a security improvement that strengthens access controls for communication with Hybrid Instance Metadata Service (HIMDS).
+
+Under specific startup timing conditions, the Windows Hybrid Worker Extension tries to connect to HIMDS before the service is fully initialized. In this narrow window, a local nonprivileged process can impersonate the metadata service endpoint and gain unauthorized read access to protected metadata or configuration information.
+
+This release addresses the issue by adding an extra validation to ensure that it connects only to trusted, system owned metadata endpoints. These changes enhance protection of system metadata and configuration information by ensuring access is limited to trusted system components.
+
+## August 2025
+
+### Deployment resumption: Azure Automation revised Service and Subscription limits
+
+After a brief hiatus, Azure Automation is resuming deployments of the revised Service and Subscription limits from August 11, 2025. This update will ensure fair distribution of cloud resources across all customers and further improve reliability and performance of the service. Since the resource requirements vary across organizations and evolve over time, we are empowering customers to configure their quotas based on actual usage. You can find the complete list of Azure Automation limits [here](automation-subscription-limits-faq.md). You can check the current usage and limits for Automation accounts and concurrently running jobs and request for changes by creating a support request under the category Service and Subscription limits (Quotas) -> Azure Automation. [Learn more](automation-limits-quotas.md).
+
+## June 2025
+
+### General Availability: Azure Automation supports PowerShell 7.4 and Python 3.10 runbooks
+
+Azure Automation announces General Availability of PowerShell 7.4 and Python 3.10 runbooks in all Public regions except Brazil southeast and Gov clouds. PowerShell 7.1 and 7.2 versions and Python 2.7 and 3.8 versions are announced retired by parent products PowerShell and Python respectively, and hence not recommended. [Learn more](automation-runbook-types.md).
+
+### General Availability: Azure Automation Runtime environment
+
+Azure Automation announces General Availability of [Runtime Environment](runtime-environment-overview.md) in all Public regions except Brazil southeast and Gov clouds. You can seamlessly [update](quickstart-update-runbook-in-runtime-environment.md) your outdated PowerShell 7.1, PowerShell 7.2, Python 2.7 and Python 3.8 runbooks to latest runtime versions, thereby enhancing security. This feature provides complete control to configure the script execution environment, without worrying about conflicting module versions in a single Automation account. All existing runbooks are automatically available in the new Runtime environment experience with zero manual effort. [Learn more](manage-runtime-environment.md).
+
+### General Availability: Azure Automation supports Azure CLI commands in PowerShell 7.4 runbooks
+Azure Automation announces General Availability of [Azure CLI commands](quickstart-cli-support-powershell-runbook-runtime-environment.md) in PowerShell 7.4 runbooks in all Public regions except Brazil southeast and Gov clouds. Now, reap combined benefits of the rich command set of Azure CLI in Azure Automation PowerShell runbooks to streamline management of Azure resources.
+
+## December 2024
+
+###  Final retirement notice: AzureRM modules starting February 01, 2025
+
+Azure Automation will **discontinue** execution of all runbooks that use AzureRM modules. AzureRM PowerShell module has retired on **February 29, 2024**. Refer [migration resources](https://aka.ms/azpsmigrate) for guidance on transitioning from AzureRM to Az PowerShell module.
+
+### Final retirement notice: TLS 1.0/1.1 protocols for Azure Automation
+
+Starting **March 01, 2025** all agent-based and extension-based User Hybrid Runbook Workers, Webhooks and DSC nodes using Transport Layer Security (TLS) 1.0 and 1.1 protocols would no longer be able to connect to Azure Automation. All jobs running or scheduled on Hybrid Workers using TLS 1.0 and 1.1 protocols will fail. [Learn more](automation-managing-data.md#tls-for-azure-automation).
+
+### Final retirement notice: Agent-based User Hybrid Runbook Worker
+
+Starting **April 01, 2025** all jobs running on Agent-based User Hybrid Runbook Worker (Windows and Linux) will be stopped. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+
+
 ## July 2024
 
 ### General Availability: Azure Automation supports PowerShell 7.2 runbooks in Government clouds
@@ -32,7 +78,7 @@ Azure Automation now supports PowerShell 7.2 runbooks in Government clouds.
  
 ### Changes in Process Automation subscription and service limits and quotas
  
-Find the changes in Azure Automation limits and quotas [here](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). These changes are aimed towards improving the reliability and performance of the service by ensuring fair access to cloud resources for all users. We recommend to use other regions or other subscriptions within the same Azure geography to create more Automation accounts.
+Find the changes in Azure Automation limits and quotas [here](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-automation-limits). These changes are aimed towards improving the reliability and performance of the service by ensuring fair access to cloud resources for all users. We recommend to use other regions or other subscriptions within the same Azure geography to create more Automation accounts.
 
 ## February 2024
 
@@ -68,7 +114,7 @@ On **31 August 2024**, Azure Automation will  retire [Automation Update manageme
 
 ### General Availability: Azure Automation supports PowerShell 7.2 runbooks
 
-Azure Automation announces General Availability of PowerShell 7.2 runbooks. This enables you to author runbooks in the long-term supported version of PowerShell using [Azure Automation extension for VS code](how-to/runbook-authoring-extension-for-vscode.md) and execute them on a secure and reliable platform. [Learn more](automation-runbook-types.md).
+Azure Automation announces General Availability of PowerShell 7.2 runbooks. This enables you to author runbooks in the long-term supported version of PowerShell using [Azure Automation extension for VS Code](how-to/runbook-authoring-extension-for-vscode.md) and execute them on a secure and reliable platform. [Learn more](automation-runbook-types.md).
 
 ## October 2023
 
@@ -120,7 +166,7 @@ On **31 August 2024**, Azure Automation will [retire](https://azure.microsoft.co
 
 ### General Availability: Azure Automation User Hybrid Runbook Worker Extension 
 
-User Hybrid Worker enables execution of the scripts directly on the machines for managing guest workloads or as a gateway to environments that are not accessible from Azure. Azure Automation announces **General Availability of User Hybrid Worker extension**, that is based on Virtual Machine extensions framework and provides a **seamless and integrated** installation experience. It is supported for Windows & Linux Azure VMs and [Azure Arc-enabled Servers](../azure-arc/servers/overview.md). It is also available for [Azure Arc-enabled VMware vSphere VMs](../azure-arc/vmware-vsphere/overview.md) in preview.
+User Hybrid Worker enables execution of the scripts directly on the machines for managing guest workloads or as a gateway to environments that are not accessible from Azure. Azure Automation announces **General Availability of User Hybrid Worker extension**, that is based on Virtual Machine extensions framework and provides a **seamless and integrated** installation experience. It is supported for Windows & Linux Azure VMs and [Azure Arc-enabled Servers](/azure/azure-arc/servers/overview). It is also available for [Azure Arc-enabled VMware vSphere VMs](/azure/azure-arc/vmware-vsphere/overview) in preview.
 
 
 ## October 2022
@@ -138,7 +184,7 @@ Set up disaster recovery for your Automation accounts to handle a region-wide or
 
 ### Availability zones support for Azure Automation
 
-Azure Automation now supports [Azure availability zones](../reliability/availability-zones-overview.md#zonal-and-zone-redundant-services) to provide improved resiliency and reliability by providing high availability to the service, runbooks, and other Automation assets. [Learn more](automation-availability-zones.md).
+Azure Automation now supports [Azure availability zones](/azure/reliability/availability-zones-overview#zonal-and-zone-redundant-services) to provide improved resiliency and reliability by providing high availability to the service, runbooks, and other Automation assets. [Learn more](automation-availability-zones.md).
 
 
 ## July 2022

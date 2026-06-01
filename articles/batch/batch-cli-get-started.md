@@ -2,9 +2,10 @@
 title: Get started with Azure CLI for Batch
 description: Learn how to manage Azure Batch service resources using the Azure Command Line Interface (Azure CLI).
 ms.topic: how-to
-ms.date: 06/13/2024
+ms.date: 01/05/2026
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
 
+# Customer intent: As a cloud developer, I want to learn how to manage Azure Batch resources using the command-line interface, so that I can automate resource management tasks and improve efficiency in my cloud workflows.
 ---
 # Manage Batch resources with Azure CLI
 
@@ -96,7 +97,7 @@ When you specify a JSON file for a new resource, don't use other parameters in y
 
 The [Batch REST API reference](/rest/api/batchservice/) documentation lists any JSON syntax required to create a resource. 
 
-To see the JSON syntax required to create a resource, refer to the [Batch REST API reference](/rest/api/batchservice/) documentation. Go to the **Examples** section in the resource operation's reference page. Then, find the subsection titled **Add \<resource type>**. For example, [Add a basic task](/rest/api/batchservice/task/add#add-a-basic-task). Use the example JSON code as templates for your configuration files. 
+To see the JSON syntax required to create a resource, refer to the [Batch REST API reference](/rest/api/batchservice/) documentation. Go to the **Examples** section in the resource operation's reference page. Then, find the subsection titled **Add \<resource type>**. For example, [Add a basic task](/rest/api/batchservice/tasks/create-task). Use the example JSON code as templates for your configuration files. 
 
 For a sample script that specifies a JSON file, see [Run a job and tasks with Batch](./scripts/batch-cli-sample-run-job.md).
 

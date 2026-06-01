@@ -1,12 +1,11 @@
 ---
 title: Source control
 description: Learn how to configure source control in Azure Data Factory.
-ms.service: data-factory
 ms.subservice: ci-cd
-author: nabhishek
-ms.author: abnarain
-ms.topic: conceptual
-ms.date: 03/19/2024
+author: kromerm
+ms.author: makromer
+ms.topic: concept-article
+ms.date: 01/29/2025
 ---
 
 # Source control in Azure Data Factory
@@ -27,7 +26,7 @@ You can also reference [Continuous integration and delivery (CI/CD) in Azure Dat
 
 To learn more about how Azure Data Factory integrates with Git, view the 15-minute tutorial video below:
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4GNKv]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=cea58440-722d-4e48-ae44-2f86c4eba0c4]
 
 ## Advantages of Git integration
 
@@ -73,9 +72,9 @@ Go to the management hub in the Azure Data Factory Studio. Select **Git configur
 When creating a new data factory in the Azure portal, you can configure Git repository information in the **Git configuration** tab.
 
 > [!NOTE]
-> When configuring git in the Azure Portal, settings like project name and repo name have to be manually entered instead of being part of a dropdown.
+> When configuring git in the Azure portal, settings like project name and repo name have to be manually entered instead of being part of a dropdown.
 
-:::image type="content" source="media/author-visually/configure-repo-4.png" alt-text="Configure the code repository settings from Azure Portal":::
+:::image type="content" source="media/author-visually/configure-repo-4.png" alt-text="Configure the code repository settings from Azure portal":::
 
 ## Author with Azure Repos Git integration
 
@@ -85,8 +84,6 @@ Visual authoring with Azure Repos Git integration supports source control and co
 > You can store script and data files in an Azure Repos Git repository. However, you have to upload the files manually to Azure Storage. A data factory pipeline doesn't automatically upload script or data files stored in an Azure Repos Git repository to Azure Storage. Additional files such as ARM templates, scripts, or configuration files, can be stored in the repository outside of the mapped folder. If you do this, keep in mind that an additional task is required to build/deploy and interact with the files stored outside of the mapped Azure DevOps folder.
 
 ### Azure Repos settings
-
-:::image type="content" source="media/author-visually/repo-settings.png" alt-text="Screenshot showing the Configure a repository settings.":::
 
 The configuration pane walks you step-by-step through configuring each of the following code repository settings:
 
@@ -142,7 +139,7 @@ For more info about connecting Azure Repos to your organization's Active Directo
 
 ## Author with GitHub integration
 
-Visual authoring with GitHub integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a GitHub account repository for source control, collaboration, versioning. A single GitHub account can have multiple repositories, but a GitHub repository can be associated with only one data factory. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources.
+Visual authoring with GitHub integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a GitHub account repository for source control, collaboration, versioning. A single GitHub account can host multiple repositories, and each repository can be associated with multiple data factories. By configuring each data factory to use a different branch within the same repository, you can maintain separate environments (such as development, staging, and production) while managing their configurations independently. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources.
 
 The GitHub integration with Data Factory supports both public GitHub (that is, [https://github.com](https://github.com)), GitHub Enterprise Cloud and GitHub Enterprise Server. You can use both public and private GitHub repositories with Data Factory as long you have read and write permission to the repository in GitHub. To connect with a public repository, select the **Use Link Repository option**, as they aren't visible in the dropdown menu of **Repository name**. ADF’s GitHub enterprise server integration only works with [officially supported versions of GitHub enterprise server.](https://docs.github.com/en/enterprise-server@3.1/admin/all-releases)  
 
@@ -154,6 +151,10 @@ For repositories owned by GitHub organization account, the admin has to authoriz
 ### GitHub settings
 
 :::image type="content" source="media/author-visually/github-configure-repository-pane.png" alt-text=" Screenshot showing GitHub Configure a repository pane.":::
+
+> [!NOTE]
+> If you encounter the error ***Failed to list GitHub repositories. Please make sure the account name is correct and you have permission to perform the action.***,
+> ensure you're using the correct owner name, and not the GitHub repository URL. 
 
 :::image type="content" source="media/author-visually/use-github-enterprise-server-pane.png" alt-text="Screenshot showing GitHub Configure a repository using enterprise server pane.":::
 
@@ -322,7 +323,7 @@ Below are some examples of situations that can cause a stale publish branch:
 - A user has multiple branches. In one feature branch, they deleted a linked service that isn't AKV associated (non-AKV linked services are published immediately regardless if they are in Git or not) and never merged the feature branch into the collaboration branch.
 - A user modified the data factory using the SDK or PowerShell
 - A user moved all resources to a new branch and tried to publish for the first time. Linked services should be created manually when importing resources.
-- A user uploads a non-AKV linked service or an Integration Runtime JSON manually. They reference that resource from another resource such as a dataset, linked service, or pipeline. A non-AKV linked service created through the user interface is published immediately because the credentials need to be encrypted. If you upload a dataset referencing that linked service and try to publish, the user interface allow it because it exists in the git environment. It will be rejected at publish time since it does not exist in the data factory service.
+- A user uploads a non-AKV linked service or an Integration Runtime JSON manually. They reference that resource from another resource such as a dataset, linked service, or pipeline. A non-AKV linked service created through the user interface is published immediately because the credentials need to be encrypted. If you upload a dataset referencing that linked service and try to publish, the user interface allows it because it exists in the git environment. It will be rejected at publish time since it does not exist in the data factory service.
 
 If the publish branch is out of sync with the main branch and contains out-of-date resources despite a recent publish, you can use either of the below solutions:
 

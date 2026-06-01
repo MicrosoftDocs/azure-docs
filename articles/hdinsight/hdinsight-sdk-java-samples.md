@@ -2,8 +2,11 @@
 title: 'Azure HDInsight: Java samples'
 description: Find Java examples on GitHub for common tasks using the HDInsight SDK for Java.
 ms.custom: devx-track-java, devx-track-extended-java
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: sample
+author: yeturis
+ms.author: sairamyeturi
+ms.reviewer: hgowrisankar
 ms.date: 06/13/2024
 ---
 

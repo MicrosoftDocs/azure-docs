@@ -1,8 +1,8 @@
 ---
 author: clemensv
-ms.service: service-bus-relay
+ms.service: azure-relay
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 01/24/2026
 ms.author: clemensv
 ---
 > [!div class="op_single_selector"]

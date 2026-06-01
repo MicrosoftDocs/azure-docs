@@ -3,9 +3,9 @@ title: 'Deploy Bastion:PowerShell'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion using PowerShell.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 04/05/2024
+ms.date: 03/03/2025
 ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
 # Customer intent: As someone with a networking background, I want to deploy Bastion and connect to a VM.
@@ -19,13 +19,13 @@ Once you deploy Bastion to your virtual network, you can connect to your VMs via
 
 :::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
 
-In this article, you create a virtual network (if you don't already have one), deploy Azure Bastion using PowerShell, and connect to a VM. The examples show Bastion deployed using the Standard SKU tier, but you can use a different Bastion SKU, depending on the features you'd like to use. For more information, see [Bastion SKUs](configuration-settings.md#skus).
+In this article, you create a virtual network (if you don't already have one), deploy Azure Bastion using PowerShell, and connect to a VM. The examples show Bastion deployed using the Standard SKU, but you can use a different Bastion SKU, depending on the features you'd like to use. For more information, see [Bastion SKUs](bastion-sku-comparison.md).
 
 You can also deploy Bastion by using the following other methods:
 
-* [Azure portal](./tutorial-create-host-portal.md)
-* [Azure CLI](create-host-cli.md)
-* [Quickstart - deploy with default settings](quickstart-host-portal.md)
+* [Azure portal - Deploy Bastion](./quickstart-host-portal.md)
+* [Azure portal - Deploy Bastion with default settings and Standard SKU](quickstart-host-portal.md)
+* [Deploy using Azure CLI](create-host-cli.md)
 
 [!INCLUDE [DNS private zone](../../includes/bastion-private-dns-zones-non-support.md)]
 
@@ -63,7 +63,7 @@ You can use the following example values when creating this configuration, or yo
 | Subnet Name | FrontEnd |
 | Subnet Name | AzureBastionSubnet|
 | AzureBastionSubnet addresses | A subnet within your virtual network address space with a subnet mask /26 or larger.<br> For example, 10.1.1.0/26.  |
-| Tier/SKU | Standard |
+| SKU | Standard |
 | Public IP address |  Create new |
 | Public IP address name | VNet1-ip  |
 | Public IP address SKU |  Standard  |
@@ -116,7 +116,7 @@ This section helps you create a virtual network, subnets, and deploy Azure Basti
    -AllocationMethod Static -Sku Standard
    ```
 
-1. Create a new Azure Bastion resource in the AzureBastionSubnet using the [New-AzBastion](/powershell/module/az.network/new-azbastion) command. The following example uses the **Basic SKU**. However, you can also deploy Bastion using a different SKU by changing the -Sku value. The SKU you select determines the Bastion features and connect to VMs using more connection types. For more information, see [Bastion SKUs](configuration-settings.md#skus).
+1. Create a new Azure Bastion resource in the AzureBastionSubnet using the [New-AzBastion](/powershell/module/az.network/new-azbastion) command. The following example uses the **Basic SKU**. However, you can also deploy Bastion using a different SKU by changing the -Sku value. The SKU you select determines the Bastion features and connect to VMs using more connection types. For more information, see [Bastion SKUs](bastion-sku-comparison.md).
 
    ```azurepowershell-interactive
    New-AzBastion -ResourceGroupName "TestRG1" -Name "VNet1-bastion" `
@@ -129,7 +129,7 @@ This section helps you create a virtual network, subnets, and deploy Azure Basti
 
 ## <a name="create-vm"></a>Create a VM
 
-You can create a VM using the [Quickstart: Create a VM using PowerShell](../virtual-machines/windows/quick-create-powershell.md) or [Quickstart: Create a VM using the portal](../virtual-machines/windows/quick-create-portal.md) articles. Be sure you deploy the VM to the same virtual network to which you deployed Bastion. The VM you create in this section isn't a part of the Bastion configuration and doesn't become a bastion host. You connect to this VM later in this tutorial via Bastion.
+You can create a VM using the [Quickstart: Create a VM using PowerShell](/azure/virtual-machines/windows/quick-create-powershell) or [Quickstart: Create a VM using the portal](/azure/virtual-machines/windows/quick-create-portal) articles. Be sure you deploy the VM to the same virtual network to which you deployed Bastion. The VM you create in this section isn't a part of the Bastion configuration and doesn't become a bastion host. You connect to this VM later in this tutorial via Bastion.
 
 The following required roles for your resources.
 
@@ -145,7 +145,7 @@ The following required roles for your resources.
 
 ## <a name="connect"></a>Connect to a VM
 
-You can use the [Connection steps](#steps) in the following section to connect to your VM. You can also use any of the following articles to connect to a VM. Some connection types require the Bastion [Standard SKU](configuration-settings.md#skus).
+You can use the [Connection steps](#steps) in the following section to connect to your VM. You can also use any of the following articles to connect to a VM. Some connection types require the Bastion [Standard SKU](bastion-sku-comparison.md).
 
 [!INCLUDE [Links to Connect to VM articles](../../includes/bastion-vm-connect-article-list.md)]
 
