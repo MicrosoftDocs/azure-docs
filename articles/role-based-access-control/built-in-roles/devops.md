@@ -360,7 +360,7 @@ Provides access to manage environment resources.
 
 Provides access to create and manage dev boxes.
 
-[Learn more](/azure/dev-box/how-to-dev-box-user)
+[Learn more](/azure/dev-box/how-to-manage-dev-center)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
