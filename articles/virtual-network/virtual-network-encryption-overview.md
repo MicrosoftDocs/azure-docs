@@ -60,7 +60,7 @@ Azure Virtual Network encryption has the following limitations:
 - Virtual Network Encryption **should not** be enabled in virtual networks that have [Azure ExpressRoute Gateways](/azure/expressroute/expressroute-introduction).
     - ```Enabling VNET Encryption for Virtual Networks with ExpressRoute Gateways will break communication to On-premises.```
 
-- Virtual networks configured with the Azure Private Link service does not support Virtual Network encryption, so Virtual Network encryption shouldn't be enabled on these virtual networks. 
+- Virtual networks configured with the Azure Private Link service doesn't support Virtual Network encryption, so Virtual Network encryption shouldn't be enabled on these virtual networks. 
 
 - The backend pool of an internal load balancer must not include any network interface secondary IPv4 configurations to prevent connection failures to the load balancer.
 
