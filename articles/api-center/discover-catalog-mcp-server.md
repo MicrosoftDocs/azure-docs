@@ -8,7 +8,7 @@ ms.date: 06/01/2026
 ms.topic: how-to
 ms.service: azure-api-center
 ms.collection: ce-skilling-ai-copilot
----:::image type="content" source="media/discover-catalog-mcp-server/enable-mcp-endpoint.png" alt-text="Screenshot of the API Center MCP endpoint in the portal.":::
+---
 
 # Discover APIs with the Azure API Center MCP server
 
