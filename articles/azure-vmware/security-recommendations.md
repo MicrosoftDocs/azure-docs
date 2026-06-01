@@ -3,7 +3,7 @@ title: Security recommendations for Azure VMware Solution
 description: Learn about tips and best practices to help protect Azure VMware Solution deployments from vulnerabilities and malicious actors. 
 ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 02/26/2025
+ms.date: 06/01/2026
 ms.custom: engagement-fy23
 # Customer intent: "As a cloud architect managing Azure VMware Solution deployments, I want to implement security best practices and network configurations, so that I can protect against vulnerabilities and ensure the integrity of my environment."
 ---
