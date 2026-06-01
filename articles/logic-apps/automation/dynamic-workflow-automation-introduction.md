@@ -19,15 +19,25 @@ ms.custom:
 >
 > This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Whether you're new to workflow automation or build automations with non-Microsoft tools, you likely hit the same wall. You can easily automate simple tasks, but you run into problems with real business processes where the steps vary, or they have undefined, unstructured, or unpredictable rules, paths, choices, and data. Requirements can change. Conditions and exceptions might suddenly arise. As a result, you wind up with brittle, hardcoded paths that break when the landscape shifts.
+Whether you're new or experienced with business process automation, you likely run into similar walls. While you can easily automate simple tasks, you face real business processes that pose the following challenges:
 
-Logic Apps Automation offers a different approach. You don't have to define every possible path up front because you can build workflows that reason about each request, choose the best next step at runtime, and ask for human approval when necessary or required. You describe the goal you want to accomplish, and the platform figures out how to get there.
+- The steps differ each time when the processes runs.
+- The steps are undefined, unstructured, or unpredictable with rules, paths, choices, and data.
+- Requirements often change. Priorities shift. Conditions and exceptions might arise.
 
-If you already use Azure Logic Apps (Standard or Consumption), consider Logic Apps Automation as a sibling model for scenarios where you have unpredictable paths. Both share the same runtime, connectors, and management tools. If you're coming from another automation platform, you can get started without Azure Logic
-Apps experience.
+As a result, you wind up with brittle, hardcoded paths that break when the landscape flexes. Before you can even build and test a single workflow, you have the following tasks to complete:
 
+- Connect different services, systems, apps, and data in your automation workloads.
+- Write extra code to connect these components.
+- Set up any necessary servers or other infrastructure.
 
-Automation teams often handle business processes where you can't predict every step in advance. Conditions change, priorities shift, exceptions surface, and data is messy. Logic Apps Automation helps you build dynamic agentic workflows that adapt at runtime, so you spend less time reacting and more time meeting business goals.
+When the business process steps are unpredictable or when requirements change quickly, this setup work slows you down, forcing you to divert focus away from building out your business logic.
+
+Logic Apps Automation offers a different approach. You describe what you want to automate, and the platform provides a visual designer, an AI assistant, and 1,400+ ready-to-use connectors so you can build, test, and monitor workflows entirely inside your browser. There's nothing else to install on your computer.
+
+Logic Apps Automation helps you build dynamic agentic workflows that adapt at runtime, so you spend less time reacting and more time meeting business goals. You don't have to define every possible path up front because you can build workflows that reason about each request, choose the best next step at runtime, and ask for human approval when necessary or required. You describe the goal you want to accomplish, and the platform figures out how to get there.
+
+If you have experience with Azure Logic Apps (Standard or Consumption), consider Logic Apps Automation as a sibling model for scenarios that have unpredictable paths. Both services use the same runtime, connectors, and management tools. If you're coming from another automation platform, you can get started without experience in Azure Logic Apps.
 
 For stable, repetitive processes with defined behavior and predictable steps, use traditional automation like [Azure Logic Apps (Standard or Consumption)](../logic-apps-overview.md). However, some business processes don't follow fixed paths. You might not know the business rules in advance. Rather than hardcode behavior up front, Logic Apps Automation lets you create workflows that understand requests, reason with context, choose the next best action, and continue with human oversight when needed. This model works well for ambiguous, fast-changing work with high cognitive load, so you stay focused on the business outcome.
 
