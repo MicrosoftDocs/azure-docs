@@ -6,10 +6,10 @@ author: flang-msft
 ms.author: franlanglois
 ms.reviewer: franlanglois
 ms.topic: how-to
-
+ai-usage: ai-assisted
 appliesto:
   - ✅ Azure Managed Redis
-ai-usage: ai-assisted
+
 ---
 
 # Configure custom data access permissions (preview)
