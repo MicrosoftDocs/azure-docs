@@ -1,7 +1,7 @@
 ---
 title: Create Projects for Dynamic Automation
 titleSuffix: Logic Apps Automation
-description: Create projects in Logic Apps Automation to build and organize applications for dynamically-run, AI-driven workflows.
+description: Create projects in Logic Apps Automation to build and organize applications for dynamic, AI-driven workflows.
 services: azure-logic-apps
 ms.reviewers: estfan, krmitta, divswa, azla
 ms.topic: quickstart
@@ -108,7 +108,7 @@ By default, when you create a project, you automatically become the project owne
 - As the project owner, you have the following permissions:
 
   - **Contributor** role permissions at the project level
-  - Administrator-level permissions to delete the project and sub-resources, such as application or sandboxes, including those you don't own. Not even those with the **Contributor** role can perform these tasks.
+  - Administrator-level permissions to delete the project and resources, such as application or sandboxes, including items you don't own. Not even members with the **Contributor** role can perform these tasks.
 
 ## Add project members
 
@@ -134,7 +134,7 @@ Before others can create applications and workflows in your project, add them as
    |------|-----|-------|
    | **Reader** (view only) | - View only the project settings, members list, sandbox configurations, and shared resources. <br>- View workflow run history. | - Create, edit, or delete anything. <br>- View applications. <br>- Trigger or cancel workflow runs. <br>- Manage permissions. |
    | **Author** | - Create applications, sandbox configurations, and shared resources. <br>- View the project settings, members list, and sandbox configurations. | - Edit the project settings and manage project members. <br>- View applications or their content without explicit app-level permissions. |
-   | **Contributor** | - View and edit project settings, manage the project, and manage project members. <br>- Create applications, but view only metadata for non-owned applications. <br>- Create and edit sandbox configurations. <br>- View workflows, connections, and parameters. <br>- Create, edit, and delete workflows. <br>- Create and edit connections. <br>- View workflow run history. <br>- Trigger and cancel workflow runs. <br>- Manage application permissions. | - Delete the project (owner only). <br>- View application content without explicit application level permissions. |
+   | **Contributor** | - View and edit project settings, manage the project, and manage project members. <br>- Create applications, but view only metadata for others' applications. <br>- Create and edit sandbox configurations. <br>- View workflows, connections, and parameters. <br>- Create, edit, and delete workflows. <br>- Create and edit connections. <br>- View workflow run history. <br>- Trigger and cancel workflow runs. <br>- Manage application permissions. | - Delete the project (owner only). <br>- View application content without explicit application level permissions. |
 
    > [!NOTE]
    >

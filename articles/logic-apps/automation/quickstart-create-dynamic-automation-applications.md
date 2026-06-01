@@ -1,7 +1,7 @@
 ---
 title: Create Applications for Dynamic Automation
 titleSuffix: Logic Apps Automation
-description: Create applications in Logic Apps Automation to build and organize dynamically-run, AI-driven workflows.
+description: Create applications in Logic Apps Automation to build and organize dynamic, AI-driven workflows.
 services: azure-logic-apps
 ms.reviewers: estfan, krmitta, divswa, azla
 ms.topic: quickstart
@@ -92,7 +92,7 @@ By default, only the application creator-owner or contributor can access an appl
 
 1. In the [Logic Apps Automation portal](https://auto.azure.com), on the **Projects** page, select the project that contains the application you want.
 
-1. On the **Appications** page, select the application.
+1. On the **Applications** page, select the application.
 
 1. On the application sidebar, select **Settings**.
 
@@ -127,7 +127,7 @@ The following table describes some common problems that you might encounter and 
 |---------|-------|------------|
 | "I can't create an application." | You have the project **Reader** role. | Ask a project **Contributor** to upgrade you to project **Author** or **Contributor**. |
 | "I can't view any applications in the project." | By default, applications are private and invisible to others except the application creator-owner. | Ask the application owner to add you to the application, or make you a project **Contributor**, if you only need to view the application metadata for governance. |
-| "I can't manage permissions on applications." | You need the application **Contribtor** role. | Ask the application owner or a **Contributor** to make you an application **Contributor**. |
+| "I can't manage permissions on applications." | You need the application **Contributor** role. | Ask the application owner or a **Contributor** to make you an application **Contributor**. |
 | "An application lost its owner." | When an application owner leaves your Microsoft Entra tenant, you get the following results: <br><br>- Existing members keep their access. <br><br>- Only the **Project Owner** can delete the application. <br><br>- The application still appears in the project's governance view. |
 | "I can't delete applications." | Only the application owner can delete their application. | Contact the application owner. If the owner is unavailable, and the application is orphaned, the project owner can delete orphaned applications. |
 

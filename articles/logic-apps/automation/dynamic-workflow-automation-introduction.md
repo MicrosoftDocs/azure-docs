@@ -21,7 +21,7 @@ ms.custom:
 
 Whether you're new or experienced with business process automation, you likely run into similar walls. While you can easily automate simple tasks, you face real business processes that pose the following challenges:
 
-- The steps differ each time when the processes runs.
+- The steps differ each time when the processes run.
 - The steps are undefined, unstructured, or unpredictable with rules, paths, choices, and data.
 - Requirements often change. Priorities shift. Conditions and exceptions might arise.
 
