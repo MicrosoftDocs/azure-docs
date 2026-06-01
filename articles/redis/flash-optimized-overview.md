@@ -124,9 +124,9 @@ Flash storage is for performance tiering, **not for data protection**. Configure
 
 ### Network and security
 
-- **Private endpoints** ΓÇô Always use Private Link to keep traffic within your Azure virtual network.
-- **Microsoft Entra ID** ΓÇô Use passwordless authentication where possible for improved security posture.
-- **Customer-managed keys (CMK)** ΓÇô Configure encryption at rest with Azure Key Vault for compliance requirements.
+- **Private endpoints** - Always use Private Link to keep traffic within your Azure virtual network.
+- **Microsoft Entra ID** - Use passwordless authentication where possible for improved security posture.
+- **Customer-managed keys (CMK)** - Configure encryption at rest with Azure Key Vault for compliance requirements.
 
 ### Client configuration
 
