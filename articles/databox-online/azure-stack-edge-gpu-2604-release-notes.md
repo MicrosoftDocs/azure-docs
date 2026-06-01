@@ -5,7 +5,7 @@ services: databox
 author: sipastak
 ms.service: azure-stack-edge
 ms.topic: article
-ms.date: 05/28/2026
+ms.date: 06/01/2026
 ms.author: sipastak
 ---
 
@@ -39,7 +39,11 @@ You can update to the latest version using the following update paths:
 
 ## What's new
 
-There are no new features or enhancements in this release, but the following is a change:
+The 2604 release has the following new features and enhancements:
+
+-  Added support for Kubernetes secrets encryption at rest. Any secret newly created or updated will be encrypted. For existing non-updated secrets, users can reapply secrets. For more information, see [Encrypting Confidential Data at Rest](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/#ensure-all-secrets-are-encrypted).
+
+- Updated containerd version 2.2.1. This version is no longer able to support pulling images built using older schema1. Users are required to update their container images. For more information, see [Deprecated features](https://containerd.io/releases/#deprecated-features) and [Docker Schema 1 image support is disabled by default](https://github.com/containerd/containerd/blob/main/docs/containerd-2.0.md#docker-schema-1-image-support-is-disabled-by-default).
 
 - Multi-node updates have been deprecated. Multi-node devices will remain on version 2510 or earlier.
 
