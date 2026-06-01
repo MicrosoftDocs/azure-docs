@@ -144,14 +144,6 @@ Flash storage is for performance tiering, **not for data protection**. Configure
 
 Keys with large values can cause issues on Flash caches. As a best practice, keep value sizes under 512KB. All key names are always stored in RAM, and values that are too large get pinned to RAM and cannot be offloaded to Flash, which can lead to out of memory (OOM) errors even when Flash storage has available capacity. Conversely, very small values (where value size is close to or smaller than key name size) also perform poorly because there is not enough data to offload to Flash. RoF works best when value size is larger than key name size, but not excessively large. Mitigation: break large values into smaller keys, use compression or chunking strategies.
 
-### Hot keys causing RAM fragmentation
-
-Having frequently accessed (hot) keys in RAM is expected and desirable for Flash Optimized - this is how the tier delivers low-latency reads. However, hot keys that are frequently updated or resized can cause memory fragmentation in RAM over time. This fragmentation consumes additional RAM beyond the actual data size, potentially leading to OOM errors while Flash storage remains unaffected.
-
-This is distinct from the recommendation to avoid random access patterns. Concentrated access on a subset of keys is ideal for Flash, but if those hot keys are also write-heavy with variable value sizes, RAM fragmentation can accumulate.
-
-Mitigation: monitor the memory fragmentation ratio and, where possible, use fixed-size values for frequently updated keys to reduce fragmentation.
-
 ## Migration from Azure Cache for Redis
 
 If you're currently using the Enterprise Flash tier of Azure Cache for Redis, see [Migrate Enterprise tier to Azure Managed Redis](migrate/migrate-redis-enterprise-overview) for guidance on moving to Azure Managed Redis Flash Optimized.
