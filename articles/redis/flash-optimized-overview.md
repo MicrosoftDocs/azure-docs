@@ -79,7 +79,7 @@ The following table summarizes feature availability on the Flash Optimized tier:
 | RedisTimeSeries | Γ¥î |
 
 > [!IMPORTANT]
-> RedisJSON is the only module supported on the Flash Optimized tier. Active geo-replication, non-clustered mode, RediSearch/vector search, RedisBloom, and RedisTimeSeries are not supported due to performance considerations inherent to Flash storage.
+> RedisJSON is the only module supported on the Flash Optimized tier. Active geo-replication, non-clustered mode, RediSearch/vector search, RedisBloom, and RedisTimeSeries are not supported.
 
 For a full comparison of features across all Azure Managed Redis tiers, see [What is Azure Managed Redis?](overview).
 
