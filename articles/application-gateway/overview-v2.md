@@ -16,7 +16,7 @@ ms.custom: references_regions, devx-track-azurepowershell
 Application Gateway v2 is the latest version of Application Gateway. It provides advantages over Application Gateway v1 such as performance enhancements, autoscaling, zone redundancy, and static VIPs.
 
 > [!IMPORTANT]
-> Deprecation of Application Gateway V1 was [announced on April 28, 2023](v1-retirement.md). If you use Application Gateway V1 SKU, start planning your migration to V2 now and complete your migration to Application Gateway v2 by April 28, 2026. The v1 service isn't supported after this date.
+> Deprecation of Application Gateway V1 was [announced on April 28, 2023](v1-retirement.md). Application Gateway V1 retired on April 28, 2026, and is no longer supported. If you still use the Application Gateway V1 SKU, migrate to Application Gateway v2 now.
 
 ## Key capabilities
 
