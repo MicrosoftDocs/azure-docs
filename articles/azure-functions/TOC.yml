@@ -675,7 +675,7 @@
       href: /azure/templates/microsoft.web/2022-03-01/sites/functions
     - name: Azure CLI
       href: /cli/azure/functionapp
-    - name: Local runtime and tools (func.exe)
+    - name: Local runtime/tools (func.exe)
       displayName: Azure Functions Core Tools, Azure Functions CLI
       href: functions-core-tools-reference.md
     - name: Azure PowerShell

@@ -1,6 +1,6 @@
 There are two versions of `func.exe` used for local Azure Functions development:
 
-| | [v4.x](../articles/azure-functions/functions-run-local.md) | [v5.x](../articles/azure-functions/functions-cli-develop-local.md) |
+| | [v4](../articles/azure-functions/functions-run-local.md) | [v5](../articles/azure-functions/functions-cli-develop-local.md) |
 | --- | --- | --- |
 | **API name** | [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md) | [Azure Functions CLI](../articles/azure-functions/functions-cli-develop-local.md) |
 | **Support level** | General availability (GA) | Preview |

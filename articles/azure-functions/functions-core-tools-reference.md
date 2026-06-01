@@ -76,13 +76,15 @@ func init [<PROJECT_FOLDER>]
 
 When you supply `<PROJECT_FOLDER>`, the command creates the project in a new folder with this name. Otherwise, it uses the current folder.
 
-The `func init` command supports these options. Unless otherwise noted, these options aren't supported in version 1.x:
+The `func init` command supports these options, which depend on the version:
+
+### [v4](#tab/v2)
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
 | **`--bundles-channel`**, **`-c`** | Extension bundle release channel. Supported values are: `GA` (default), `Preview`, and `Experimental`. Applicable only for non-.NET projects. |
 | **`--configuration-profile`** | Initializes a project with a host configuration profile. The `--configuration-profile` option is currently in preview. For more information, see [Configuration profiles](#configuration-profiles). |
-| **`--csx`** | Creates .NET functions as C# script, which is the version 1.x behavior. Valid only with `--worker-runtime dotnet`. |
+| **`--csx`** | Creates [.NET functions as C# script](./functions-reference-csharp.md). Valid only with `--worker-runtime dotnet`. |
 | **`--docker`** | Creates a Dockerfile for a container by using a base image based on the chosen `--worker-runtime`. Use this option when you plan to deploy a containerized function app. |
 | **`--docker-only`** |  Adds a Dockerfile to an existing project. Prompts for the worker-runtime if not specified or set in *local.settings.json*. Use this option when you plan to deploy a containerized function app and the project already exists. |
 | **`--force`** | Initializes the project even when there are existing files in the project. This setting overwrites existing files with the same name. Other files in the project folder aren't affected. |
@@ -98,6 +100,18 @@ The `func init` command supports these options. Unless otherwise noted, these op
 
 > [!NOTE]
 > When you use either the `--docker` or `--docker-only` option, Core Tools automatically creates the Dockerfile for C#, JavaScript, Python, and PowerShell functions. For Java functions, you must manually create the Dockerfile. For more information, see [Creating containerized function apps](functions-how-to-custom-container.md#creating-containerized-function-apps).
+
+### [v1](#tab/v1)
+
+| Option     | Description                            |
+| ------------ | -------------------------------------- |
+| **`--csx`** | Creates .NET functions as C# script. |
+| **`--force`** | Initializes the project even when there are existing files in the project. This setting overwrites existing files with the same name. Other files in the project folder aren't affected. |
+| **`--language`**, **`-l`** | Initializes a language-specific project. |
+| **`--source-control`** | Controls whether a Git repository is created. By default, a repository isn't created. When `true`, a repository is created. |
+| **`--worker-runtime`** | Sets the language runtime for the project. Supported values are: `csharp`, `javascript`, and `node` (JavaScript). When not set, you're prompted to choose your runtime during initialization. |
+
+---
 
 ### Configuration profiles
 
@@ -196,18 +210,27 @@ Creates a new function in the current project based on a template.
 func new
 ```
 
-When you run `func new` without the `--template` option, you're prompted to choose a template. In version 1.x, you also need to choose the language. 
+The `func new` command supports these options, which depend on the version:
 
-The `func new` command supports these options:
+### [v4](#tab/v2)
 
 | Option     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--authlevel`**, **`-a`** | Sets the authorization level for an HTTP trigger. Supported values are: `function`, `anonymous`, `admin`. Authorization isn't enforced when running locally. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth). |
-| **`--csx`** | (Version 2.x and later versions.) Generates the same C# script (.csx) templates used in version 1.x and in the portal. |
+| **`--csx`** | Generates the same C# script (.csx) templates used in version 1 and in the portal. |
 | **`--file`**, **`-f`** | The target file for the new function. For Python v2 projects, specifies the file to add the function to (defaults to *function_app.py*). For Node.js v4 projects, specifies the output file name in the `src/functions` folder. Not applicable for compiled .NET projects. |
-| **`--language`**, **`-l`**| The template programming language, such as C# or JavaScript. This option is required in version 1.x. In version 2.x and later versions, don't use this option because the language is defined by the worker runtime. |
 | **`--name`**, **`-n`** | The function name. |
 | **`--template`**, **`-t`** | Use the `func templates list` command to see the complete list of available templates for each supported language.   |
+
+### [v1](#tab/v1)
+
+| Option     | Description                            |
+| ------------------------------------------ | -------------------------------------- |
+| **`--language`**, **`-l`**| The template programming language, such as C# or JavaScript. This option is required. |
+| **`--name`**, **`-n`** | The function name. |
+| **`--template`**, **`-t`** | Use the `func templates list` command to see the complete list of available templates for each supported language.   |
+
+---
 
 For more information, see [Create a function](functions-run-local.md#create-func).
 
@@ -274,10 +297,10 @@ The `func pack` command supports these options:
 | **`--skip-install`** | Skips running `npm install` when packing Node.js-based function app. Used to avoid overwriting custom npm modules. |
 | **`--build-native-deps`** | Installs Python dependencies locally by using an image that matches the environment used in Azure. When enabled, Core Tools starts a Docker container, builds the app inside that container, and creates a .zip file with all dependencies restored in `.python_packages`. Use this option when running on Windows to avoid potential library issues when you deploy to Linux in Azure. |
 
-## `func run` (v1.x only)
+## `func run` (v1 only)
 
 > [!NOTE]
-> This command applies only to version 1.x of Core Tools and is deprecated. For version 2.x and later, use `func start` and [call the function endpoint directly](functions-run-local.md#run-a-local-function).
+> This command applies only to version 1 of Core Tools and is deprecated. For version 4, use `func start` and [call the function endpoint directly](functions-run-local.md#run-a-local-function).
 
 Invokes a function directly, similar to running a function by using the **Test** tab in the Azure portal.
 
@@ -307,7 +330,7 @@ Starts the local runtime host and loads the function project in the current fold
 
 The specific command depends on the [runtime version](functions-versions.md).   
 
-### [v2.x+](#tab/v2)
+### [v4](#tab/v2)
 
 ```command
 func start
@@ -336,7 +359,7 @@ The `func start` command supports these options:
 
 With the project running, [verify individual function endpoints](functions-run-local.md#run-a-local-function).
 
-### [v1.x](#tab/v1)
+### [v1](#tab/v1)
 
 ```command
 func host start
@@ -353,7 +376,7 @@ The `func host start` command supports these options:
 | **`--timeout`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
 
-In version 1.x, also use the [`func run`](#func-run) command to run a specific function and pass test data to it. 
+In version 1, also use the [`func run`](#func-run) command to run a specific function and pass test data to it. 
 
 ---
 
@@ -744,7 +767,7 @@ For more information, see [Deploy project files](functions-run-local.md#project-
 
 The following publishing options apply, based on version:
 
-### [v2.x+](#tab/v2)
+### [v4](#tab/v2)
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
@@ -764,7 +787,7 @@ The following publishing options apply, based on version:
 | **`--publish-settings-only`**, **`-o`** | Publishes only settings and skips the content. Default is prompt. |
 | **`--show-keys`** | Adds function keys to the URLs displayed in the logs. |
 
-### [v1.x](#tab/v1)
+### [v1](#tab/v1)
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
