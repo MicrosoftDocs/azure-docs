@@ -55,7 +55,7 @@ Azure Virtual Network encryption has the following limitations:
 
 - **AllowUnencrypted** is the only supported enforcement at general availability. **DropUnencrypted** enforcement will be supported in the future.
 
-- Virtual networks with encryption enabled does not support [Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview), [Application Gateway](/azure/application-gateway/overview), and [Azure Firewall](/azure/firewall/overview).
+- Virtual networks with encryption enabled doesn't support [Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview), [Application Gateway](/azure/application-gateway/overview), and [Azure Firewall](/azure/firewall/overview).
 
 - Virtual Network Encryption **should not** be enabled in virtual networks that have [Azure ExpressRoute Gateways](/azure/expressroute/expressroute-introduction).
     - ```Enabling VNET Encryption for Virtual Networks with ExpressRoute Gateways will break communication to On-premises.```
