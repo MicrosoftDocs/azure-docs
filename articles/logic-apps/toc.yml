@@ -11,16 +11,16 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Dynamic automation workflows
+  - name: Logic Apps Automation - Dynamic workflows
     expanded: true
     items:
-    - name: Create dynamic automation projects
+    - name: 1 - Create projects
       href: automation/quickstart-create-dynamic-automation-projects.md
-    - name: Create dynamic automation applications
+    - name: 2 - Create applications
       href: automation/quickstart-create-dynamic-automation-applications.md
-    - name: Create dynamic automation workflows
+    - name: 3 - Create workflows
       href: automation/quickstart-create-dynamic-automation-workflows.md
-  - name: Standard logic app workflows
+  - name: Azure Logic Apps - Standard workflows
     expanded: true
     items:
     - name: Portal
@@ -29,15 +29,13 @@ items:
       href: create-workflows-from-templates.md?tabs=standard
     - name: Visual Studio Code
       href: create-standard-workflows-visual-studio-code.md
-  - name: Consumption logic app workflows
+  - name: Azure Logic Apps - Consumption workflows
     expanded: false
     items:
     - name: Portal
       href: quickstart-create-example-consumption-workflow.md
     - name: Portal - Templates gallery
       href: create-workflows-from-templates.md?tabs=consumption
-    - name: Visual Studio
-      href: quickstart-create-logic-apps-with-visual-studio.md
     - name: Visual Studio Code
       href: quickstart-create-logic-apps-visual-studio-code.md
     - name: Bicep
@@ -68,8 +66,8 @@ items:
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic
 - name: Concepts
   items:
-  - name: Compare automation tools
-    href: automation/compare-automation-tools.md
+  - name: Compare automation services
+    href: automation/compare-automation-services.md
   - name: Scheduled recurring workflows
     href: concepts-schedule-automated-recurring-tasks-workflows.md
   - name: AI playbook and solution development
@@ -113,11 +111,11 @@ items:
   items:
   - name: Logic Apps Automation - Dynamic workflows
     items:
-    - name: Create dynamic automation projects
+    - name: 1 - Create projects
       href: automation/quickstart-create-dynamic-automation-projects.md
-    - name: Create applications for dynamic
+    - name: 2 - Create applications
       href: automation/quickstart-create-dynamic-automation-applications.md
-    - name: Create dynamic workflows
+    - name: 3 - Create workflows
       href: automation/quickstart-create-dynamic-automation-workflows.md
   - name: Single-tenant Azure Logic Apps
     items:
