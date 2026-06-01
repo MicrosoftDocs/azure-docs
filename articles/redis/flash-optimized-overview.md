@@ -140,9 +140,9 @@ Flash storage is for performance tiering, **not for data protection**. Configure
 
 ## Common issues and troubleshooting
 
-### Large keys causing OOM despite available Flash capacity
+### Large values causing OOM despite available Flash capacity
 
-Large keys can cause issues on Flash caches. As a best practice, keep value sizes under 512KB. Large keys are pinned to RAM and cannot spill to NVMe Flash storage. If many large keys accumulate, RAM can fill up causing out of memory (OOM) errors even when Flash storage has available capacity. Mitigation: break large values into smaller keys, use compression or chunking strategies, and monitor RAM usage independently from total cache capacity.
+Keys with large values can cause issues on Flash caches. As a best practice, keep value sizes under 512KB. All key names are always stored in RAM, and values that are too large get pinned to RAM and cannot be offloaded to Flash, which can lead to out of memory (OOM) errors even when Flash storage has available capacity. Conversely, very small values (where value size is close to or smaller than key name size) also perform poorly because there is not enough data to offload to Flash. RoF works best when value size is larger than key name size, but not excessively large. Mitigation: break large values into smaller keys, use compression or chunking strategies.
 
 ### Hot keys causing RAM fragmentation
 
