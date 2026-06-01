@@ -1,7 +1,7 @@
 ---
-title: Create Dynamic Agentic Workflows
+title: Create Workflows for Dynamic Automation
 titleSuffix: Logic Apps Automation
-description: Build dynamically-run, AI-driven workflows that independently action or with human oversight by using Logic Apps Automation.
+description: Build dynamic, AI-driven workflows that run independently or with human oversight in Logic Apps Automation.
 services: azure-logic-apps
 ms.reviewers: estfan, krmitta, divswa, azla
 ms.topic: quickstart
@@ -10,16 +10,14 @@ ms.update-cycle: 180-days
 ms.date: 06/02/2026
 ms.custom:
   - build-2026
-#Customer intent: As an automation developer, I want to build my first dynamically-run, AI-powered workflow by using Logic Apps Automation.
+#Customer intent: As an automation developer, I need to build my first dynamic, AI-powered workflow in Logic Apps Automation.
 ---
 
-# Quickstart: Build dynamic agentic workflows with Logic Apps Automation (preview)
+# Quickstart: Build dynamic agentic workflows in Logic Apps Automation (preview)
 
 > [!NOTE]
 >
 > This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-
 
 When you automate business processes, you often have the following tasks before you can even build and test a single workflow:
 
@@ -39,20 +37,26 @@ If you're new to dynamic workflow automation, see [What is Logic Apps Automation
 You create an automation project, add an application, and build your first workflow. By the end, you have a working workflow you can test and monitor from the Logic Apps Automation portal.
  and then build your first workflow. By the end, you have a working automation you can test and monitor from the Logic Apps Automation portal.
 
+This quickstart shows how to create an application inside an existing automation project.
+
+For more information, see:
+
+- [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md)
+- [Key concepts and terminology](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology)
+
 ## Prerequisites
 
-- A Microsoft work or school account that can access the [Logic Apps Automation portal](https://auto.azure.com), the project and application where you want to work, and the correct permissions at the application level to create workflows.
+- A Microsoft work or school account that can access the [Logic Apps Automation portal](https://auto.azure.com).
 
-- Your work or school account needs to exist in the same Microsoft Entra tenant as the project creator or owner so they can add you to the project and assign the necessary permissions level. If you don't have access, work with the project creator or owner to get access and permissions.
+- Your work or school account needs to exist in the same Microsoft Entra tenant as the application creator-owner so they can add you to the application and assign the necessary permissions. If you don't have access, work with the project and application creator-owner to get access and permissions.
 
   For more information about Microsoft Entra tenants, see [Tenant configurations](/entra/identity-platform/v2-overview#tenant-configurations).
 
+- The application where you have the application **Contributor** role so you can create workflows.
 
-- An Azure account associated with a Microsoft work or school account that can access the [Logic Apps Automation portal](https://auto.azure.com).
-
-  Builders don't need Azure subscriptions to create automation. However, administrators do to create projects. No subscription needed.
-
-  Typically, use 
+  > [!NOTE]
+  >
+  > The project **Reader** role doesn't have enough permissions to create applications.
 
 - To follow the example, you need the URL for any RSS URL that doesn't need HTTP authorization, for example:
 
@@ -62,27 +66,16 @@ You create an automation project, add an application, and build your first workf
 
 - An email account for Office 365 Outlook or Outlook.com
 
-## How Logic Apps Automation organizes work
+## Create your workflow
 
-Logic Apps Automation organizes your work into the following levels:
+Every workflow starts with a [*trigger*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology), an operation that specifies the condition or criteria to meet before the workflow runs. Every workflow subsequently has one or multiple [*actions*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology) to perform tasks after the trigger fires.
 
-| Level | Contents |
-|-------|----------|
-| *Project* | The top-level container that groups and stores your *applications*. |
-| *Application* | A package that holds workflows, connections, parameters, analytics, and settings. |
-| *Workflow* | The actual automation workload or process, which includes the starting event (*trigger*) plus a series of steps (*actions*). |
-
-For the full list of components and terminology, see [Key concepts and terminology](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology).
 
 1. When the application appears on the **Applications** page, select your application.
 
    :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/new-application.png" alt-text="Screenshot that shows the Applications page and newly created application." lightbox="media/quickstart-create-dynamic-workflow-automation/new-application.png":::
 
    The application opens the **Workflows** page, which shows the workflow builder and any existing workflows.
-
-## 3: Build your first workflow
-
-Every workflow starts with a [*trigger*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology), an operation that specifies the condition or criteria to meet before the workflow runs. Every workflow subsequently has one or multiple [*actions*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology) to perform tasks after the trigger fires.
 
 1. On the **Applications** page, select your application.
 

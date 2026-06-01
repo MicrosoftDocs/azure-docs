@@ -32,19 +32,17 @@ For more information, see:
 
 ## Prerequisites
 
-- A Microsoft work or school account that can access the [Logic Apps Automation portal](https://auto.azure.com), the project where you want to work, and the correct permissions at the project level to create applications and workflows.
+- A Microsoft work or school account that can access the [Logic Apps Automation portal](https://auto.azure.com).
 
-- Your work or school account needs to exist in the same Microsoft Entra tenant as the project creator or owner so they can add you to the project and assign the necessary permissions level. If you don't have access, work with the project creator or owner to get access and permissions.
+- Your work or school account needs to exist in the same Microsoft Entra tenant as the project creator-owner so they can add you to the project and assign the necessary permissions. If you don't have access, work with the project creator or owner to get access and permissions.
 
   For more information about Microsoft Entra tenants, see [Tenant configurations](/entra/identity-platform/v2-overview#tenant-configurations).
 
-- An automation project where you have either the **Contributor** or **Author** role at the project level.
-
-  These roles let you create applications in the project.
+- The project where you have either the project **Contributor** or **Author** role so you can create applications and workflows.
 
   > [!NOTE]
   >
-  > At the project level, the **Reader** role on isn't enough because readers can't create applications.
+  > The project **Reader** role doesn't have enough permissions to create applications.
 
 <a id="create-application"></a>
 
@@ -88,7 +86,7 @@ By default, when you create an application, you automatically become the applica
 
   Applications often contain automations that connect to personal accounts. The default privacy model keeps sensitive data obscured and invisible to others unless the application creator-owner chooses otherwise.
 
-### Add application members
+## Add application members
 
 By default, only the application creator-owner or contributor can access an application and its contents. Before other project members can work on your application, add them as application members by following these steps:
 
@@ -123,9 +121,7 @@ By default, only the application creator-owner or contributor can access an appl
 
 ## Troubleshoot problems
 
-#### Common problems
-
-The following table describes common problems that you might encounter and ways to resolve them:
+The following table describes some common problems that you might encounter and ways to resolve them:
 
 | Problem | Cause | Resolution |
 |---------|-------|------------|
