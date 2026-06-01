@@ -30,7 +30,7 @@ The following diagram shows how organizations collaborate by using Azure Confide
 
 :::image type="content" source="./media/confidential-clean-rooms/azure-confidential-clean-rooms-analytics-benefits.png" alt-text="Benefits overview for Azure Confidential Clean Rooms for Analytics.":::
 
-- **Fully managed:** Azure takes care of the infrastructure provisioning and scaling with no user intervention which allows customers to focus on the queries and insights rather than on infrastructure management.
+- **Fully managed:** Azure takes care of the infrastructure provisioning and scaling with no user intervention, which allows customers to focus on the queries and insights rather than on infrastructure management.
 - **Confidential Spark SQL:** Spark SQL allows you to query large datasets and run complex queries in a distributed computing environment. In the confidential computing enabled version, the Spark driver and executors are fully attested policy-governed enclaves running as **[virtual nodes on Confidential Azure Container Instances (C-ACI) in an Azure Kubernetes Service (AKS) cluster](https://github.com/microsoft/virtualnodesOnAzureContainerInstances)** which helps prevent exfiltration of collaborators’ data during query execution.
 - **Governance:** Helps manage membership to clean rooms, enables and verifies approval for queries from relevant collaborators before executing them, and verifies consent to access sensitive collaborator data. It also helps generate tamper-resistant audit trails containing salient clean-room events. This governance is made possible with the help of an implementation of the [Confidential Consortium Framework (CCF)](https://microsoft.github.io/CCF/main/overview/what_is_ccf.html).
 - **Privacy controls:** Each contributed dataset declares an `allowedFields` list so only those columns are exposed to queries. In addition, each published query can declare *pre-conditions* (a minimum row count per input view, below which the query is rejected) and *post-filters* (a minimum count below which aggregated groups are dropped). Such guards help prevent re-identification of individuals through the output.
@@ -58,7 +58,7 @@ Multiparty confidential big-data analytics unlocks value in scenarios where data
 
 #### Healthcare
 
-- Enable healthcare firms to combine their data with third-party institutions to accelerate clinical development, such as identifying eligible participants for a clinical trial, without exposing underlying patient data.
+- Enable healthcare firms to combine their data with third-party institutions to accelerate clinical development without exposing underlying patient data. An example can be identifying eligible participants for a clinical trial.
 - Combine patient datasets across hospitals to study disease patterns or outcomes without exposing sensitive patient information from either side.
 
 #### Retail
