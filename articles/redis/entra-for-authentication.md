@@ -1,7 +1,10 @@
 ---
 title: Use Microsoft Entra for cache authentication with Azure Managed Redis
 description: Learn how to use Microsoft Entra with Azure Managed Redis.
-ms.date: 02/12/2026
+ms.date: 06/01/2026
+author: flang-msft
+ms.author: franlanglois
+ms.reviewer: franlanglois
 ms.topic: how-to
 ms.custom:
   - references_regions
@@ -9,6 +12,7 @@ ms.custom:
   - build-2025
 appliesto:
   - ✅ Azure Managed Redis
+ai-usage: ai-assisted
 ---
 
 # Use Microsoft Entra ID for cache authentication with Azure Managed Redis
@@ -30,9 +34,9 @@ In this article, you learn how to use your service principal or managed identity
 
 ## Configure your Redis client to use Microsoft Entra
 
-If you have used access keys in the past for authentication, you need to update your client workflow to support authentication by using Microsoft Entra ID. In this section, you learn how to connect to Azure Managed Redis using a Microsoft Entra ID.
+If you used access keys in the past for authentication, update your client workflow to support authentication by using Microsoft Entra ID. In this section, you learn how to connect to Azure Managed Redis using a Microsoft Entra ID.
 
-### Add users or System principal to your cache
+### Add users or system principal to your cache
 
 1. Connect to your cache in the Azure portal.
 
@@ -51,7 +55,7 @@ If you have used access keys in the past for authentication, you need to update 
 
 1. Configure your client application to acquire a Microsoft Entra token for scope, `https://redis.azure.com/.default`, or `acca5fbb-b7e4-4009-81f1-37e38fd66d78/.default`, by using the [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview).
 
-1. Update your Redis connection logic to use the following `User` and `Password`:
+1. Update your Redis connection logic to use the following `User` and `Password` values:
 
    - `User` = Object ID of your managed identity or service principal
    - `Password` = Microsoft Entra token that you acquired by using MSAL
@@ -95,11 +99,11 @@ az redisenterprise test-connection --name <cache-name> --resource-group <resourc
 
 ### Validate Microsoft Entra tokens
 
-If your application fails to access the Azure Managed Redis instance through Microsoft Entra ID, you can also use the following PowerShell script:
+If your application can't access the Azure Managed Redis instance through Microsoft Entra ID, use the following PowerShell script:
 
 [EntraTokenValidation](https://github.com/AzureManagedRedis/DiagnosticTools/tree/main/EntraTokenValidation)
 
-This PowerShell script validates Microsoft Entra ID tokens for Azure Managed Redis Cache resources. The script checks tokens and verifies access policies to help you diagnose authentication issues.
+This PowerShell script validates Microsoft Entra ID tokens for Azure Managed Redis Cache resources. The script checks tokens and verifies access policies to help you diagnose authentication problems.
 
 ## Client library support
 
@@ -120,15 +124,15 @@ The following table includes links to code samples. They demonstrate how to conn
 
 ## Disable access key authentication on your cache
 
-If you have a cache using access keys, we recommend switching to Microsoft Entra ID as the secure way to connect your cache and disabling access keys.
+If your cache uses access keys, switch to Microsoft Entra ID for a more secure connection and disable access keys.
 
 When you disable access keys, the system terminates all existing client connections, regardless of whether they use access keys or Microsoft Entra ID authentication.
 
 Before you disable access keys on geo-replicated caches, you must:
 
-   1. Unlink the caches.
-   1. Disable access keys.
-   1. Relink the caches.
+1. Unlink the caches.
+1. Disable access keys.
+1. Relink the caches.
 
 To disable access keys, follow this procedure:
 
@@ -143,7 +147,7 @@ To disable access keys, follow this procedure:
 1. Confirm that you want to update your configuration by selecting **Yes**.
 
     > [!IMPORTANT]
-    > When the **Access Keys Authentication** setting is changed for a cache, all existing client connections, using access keys or Microsoft Entra, are terminated. Follow the best practices to implement proper retry mechanisms for reconnecting Microsoft Entra-based connections. For more information, see [Connection resilience](best-practices-connection.md).
+    > When you change the **Access Keys Authentication** setting for a cache, the system terminates all existing client connections that use access keys or Microsoft Entra ID. Follow the best practices to implement proper retry mechanisms for reconnecting Microsoft Entra-based connections. For more information, see [Connection resilience](best-practices-connection.md).
 
 ## Related content
 

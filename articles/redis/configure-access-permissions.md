@@ -1,22 +1,28 @@
 ---
-title: Configure custom data access permissions in Azure Managed Redis (preview)
+title: Configure custom data access permissions in Azure Managed Redis
 description: Learn how to assign per-user Redis ACL permissions using custom access strings on access policy assignments in Azure Managed Redis.
-ms.date: 05/11/2026
+ms.date: 06/01/2026
+author: flang-msft
+ms.author: franlanglois
+ms.reviewer: franlanglois
 ms.topic: how-to
+
 appliesto:
   - ✅ Azure Managed Redis
+ai-usage: ai-assisted
 ---
 
 # Configure custom data access permissions (preview)
 
-By default, each user or service principal added to your Azure Managed Redis cache receives full access to all commands and keys. Starting with API version `2026-05-01-preview`, you can assign custom Redis ACL permissions to individual users by specifying an _access string_ on the access policy assignment.
+By default, each user or service principal you add to your Azure Managed Redis cache gets full access to all commands and keys. Starting with API version `2026-05-01-preview`, you can assign custom Redis ACL permissions to individual users by specifying an _access string_ on the access policy assignment.
 
-Custom access strings let you control which commands a user can execute and which keys they can access, enabling fine-grained, per-user data access control for your cache.
+Custom access strings (preview) let you control which commands a user can execute and which keys they can access. This control enables fine-grained, per-user data access control for your cache.
 
 ## Prerequisites
 
 - An Azure Managed Redis cache. To create one, see [Quickstart: Create an Azure Managed Redis instance](quickstart-create-managed-redis.md).
 - Access to the REST API with API version `2026-05-01-preview`.
+- Configure custom data access permissions is rolling out and expected to be available to all customers by June 30.
 
 ## Limitations
 
@@ -28,7 +34,7 @@ Custom access strings let you control which commands a user can execute and whic
 ## Scope of availability
 
 | Tier | Availability |
-|---|---|
+| --- | --- |
 | Balanced (B series) | Yes |
 | Memory Optimized (M series) | Yes |
 | Compute Optimized (X series) | Yes |
@@ -40,7 +46,7 @@ Azure Managed Redis uses [Redis ACL syntax](https://redis.io/docs/latest/operate
 
 - **Command categories**: Use `+@<category>` to allow or `-@<category>` to disallow a group of commands (for example, `+@read`, `+@write`, `+@all`).
 - **Individual commands**: Use `+<command>` or `-<command>` to allow or disallow specific commands (for example, `+set`, `-flushall`).
-- **Key patterns**: Use `~<pattern>` to restrict which keys a user can access. Use `~*` for all keys. Multiple patterns can be combined.
+- **Key patterns**: Use `~<pattern>` to restrict which keys a user can access. Use `~*` for all keys. You can combine multiple patterns.
 
 For the full list of command categories and syntax details, see the [Redis ACL documentation](https://redis.io/docs/latest/operate/oss_and_stack/management/security/acl/).
 
@@ -65,7 +71,7 @@ For the full list of command categories and syntax details, see the [Redis ACL d
 
 1. On the Resource menu, select **Authentication**.
 
-1. On the **Microsoft Entra Authentication** tab, select **User or service principal**, then select **+ Select member**.
+1. On the **Microsoft Entra Authentication** tab, select **User or service principal**, and then select **+ Select member**.
 
 1. In the **Select member** panel, search for and select the user or service principal.
 
@@ -122,7 +128,7 @@ Save the following template as `AccessPolicyAssignment.json`, replacing the para
 }
 ```
 
-Deploy the template using the [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) Azure CLI command:
+Deploy the template by using the [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) Azure CLI command:
 
 ```azurecli
 az deployment group create \
@@ -151,7 +157,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 }
 ```
 
-If `accessString` is omitted, the user receives full access (`+@all ~*`).
+If you omit `accessString`, the user receives full access (`+@all ~*`).
 
 ## Update a user's permissions
 
@@ -169,7 +175,7 @@ Deleting one user's assignment doesn't affect other users on the same cache.
 
 ## Error handling
 
-If you provide an invalid Redis ACL string, the provisioning fails with an `InvalidAccessString` error that includes the Redis error message. For example:
+If you provide an invalid Redis ACL string, provisioning fails with an `InvalidAccessString` error that includes the Redis error message. For example:
 
 ```json
 {

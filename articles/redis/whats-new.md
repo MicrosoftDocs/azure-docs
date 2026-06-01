@@ -8,6 +8,7 @@ ms.custom:
   - build-2025
 appliesto:
   - ✅ Azure Managed Redis
+ai-usage: ai-assisted
 ---
 
 # What's New in Azure Managed Redis
@@ -18,7 +19,7 @@ Find out what's new in Azure Managed Redis.
 
 ### Custom data access permissions (preview)
 
-You can now assign per-user Redis ACL permissions using custom access strings on access policy assignments. Control which commands and keys each user can access, enabling fine-grained data access control for your cache. For more information, see [Configure custom data access permissions (preview)](configure-access-permissions.md).
+You can now assign per-user Redis ACL permissions by using custom access strings on access policy assignments. Control which commands and keys each user can access, enabling fine-grained data access control for your cache. For more information, see [Configure custom data access permissions (preview)](configure-access-permissions.md).
 
 ## April 2026
 
@@ -37,13 +38,13 @@ Azure Managed Redis Memory Optimized M350, Balanced B350, and Compute Optimized 
 
 ## November 2025
 
-### General Availability for more tiers
+### General availability for more tiers
 
-The in-memory SKUs at 175 GB and 235 GB, Compute Optimized, Balanced, and Memory Optimized, are now GA. For a complete list of the status of SKUs, see [Tiers and SKUs at a glance](overview.md#tiers-and-skus-at-a-glance).
+The in-memory SKUs at 175 GB and 235 GB, Compute Optimized, Balanced, and Memory Optimized, are now generally available. For a complete list of the status of SKUs, see [Tiers and SKUs at a glance](overview.md#tiers-and-skus-at-a-glance).
 
 ### Scheduled maintenance windows (preview)
 
-Using the **Maintenance (Preview)** item on the Resource menu, you can now define specific time windows when maintenance activities can occur on your Redis instances. For more information, see [Azure Managed Redis scheduled maintenance (preview)](scheduled-maintenance.md).
+By using the **Maintenance (Preview)** item on the Resource menu, you can now define specific time windows when maintenance activities can occur on your Redis instances. For more information, see [Azure Managed Redis scheduled maintenance (preview)](scheduled-maintenance.md).
 
 ### Reservations for caches
 
@@ -75,7 +76,7 @@ All in-memory tiers that use over 120 GB of storage are in Public Preview, inclu
 - Balanced B150 and higher
 - Compute Optimized X150 and higher
 
-All Flash Optimized tiers are in Public Preview.
+All Flash Optimized tiers are in public preview.
 
 ## November 2024
 

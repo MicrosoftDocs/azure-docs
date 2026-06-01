@@ -101,7 +101,7 @@ items:
         items:
           - name: Microsoft Entra ID for authentication
             href: entra-for-authentication.md
-          - name: Custom data access permissions (preview)
+          - name: Custom data access permissions
             href: configure-access-permissions.md
       - name: Reliability
         items:
