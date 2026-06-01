@@ -11,13 +11,15 @@ items:
 - name: Quickstarts
   expanded: true
   items:
-  - name: Dynamic workflows for automation
+  - name: Dynamic automation workflows
     expanded: true
     items:
-    - name: Create automation projects
+    - name: Create dynamic automation projects
       href: automation/quickstart-create-dynamic-automation-projects.md
-    - name: Create dynamic workflows
-      href: automation/quickstart-create-dynamic-workflows.md
+    - name: Create dynamic automation applications
+      href: automation/quickstart-create-dynamic-automation-applications.md
+    - name: Create dynamic automation workflows
+      href: automation/quickstart-create-dynamic-automation-workflows.md
   - name: Standard logic app workflows
     expanded: true
     items:
@@ -109,12 +111,14 @@ items:
       href: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=/azure/logic-apps/toc.json
 - name: How-to guides
   items:
-  - name: Dynamic workflows with Logic Apps Automation
+  - name: Logic Apps Automation - Dynamic workflows
     items:
     - name: Create dynamic automation projects
       href: automation/quickstart-create-dynamic-automation-projects.md
+    - name: Create applications for dynamic
+      href: automation/quickstart-create-dynamic-automation-applications.md
     - name: Create dynamic workflows
-      href: automation/quickstart-create-dynamic-workflows.md
+      href: automation/quickstart-create-dynamic-automation-workflows.md
   - name: Single-tenant Azure Logic Apps
     items:
     - name: Overview

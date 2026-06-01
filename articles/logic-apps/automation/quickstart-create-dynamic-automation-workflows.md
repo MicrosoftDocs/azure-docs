@@ -19,6 +19,8 @@ ms.custom:
 >
 > This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+
+
 When you automate business processes, you often have the following tasks before you can even build and test a single workflow:
 
 - Connect different services, systems, apps, and data.
@@ -38,6 +40,13 @@ You create an automation project, add an application, and build your first workf
  and then build your first workflow. By the end, you have a working automation you can test and monitor from the Logic Apps Automation portal.
 
 ## Prerequisites
+
+- A Microsoft work or school account that can access the [Logic Apps Automation portal](https://auto.azure.com), the project and application where you want to work, and the correct permissions at the application level to create workflows.
+
+- Your work or school account needs to exist in the same Microsoft Entra tenant as the project creator or owner so they can add you to the project and assign the necessary permissions level. If you don't have access, work with the project creator or owner to get access and permissions.
+
+  For more information about Microsoft Entra tenants, see [Tenant configurations](/entra/identity-platform/v2-overview#tenant-configurations).
+
 
 - An Azure account associated with a Microsoft work or school account that can access the [Logic Apps Automation portal](https://auto.azure.com).
 
@@ -74,6 +83,14 @@ For the full list of components and terminology, see [Key concepts and terminolo
 ## 3: Build your first workflow
 
 Every workflow starts with a [*trigger*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology), an operation that specifies the condition or criteria to meet before the workflow runs. Every workflow subsequently has one or multiple [*actions*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology) to perform tasks after the trigger fires.
+
+1. On the **Applications** page, select your application.
+
+   For example:
+
+   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/new-application.png" alt-text="Screenshot that shows the Applications page and newly created application." lightbox="media/quickstart-create-dynamic-workflow-automation/new-application.png":::
+
+   Inside your application, the **Workflows** page automatically opens and shows the workflow landing page. Any workflows that other project members previously built also appear here.
 
 On the **Workflows** page, in the section named **Get started with your first workflow**, choose the path shows the following paths, choose a path from the following table:
 
@@ -375,5 +392,4 @@ If you no longer need the resources you created in this quickstart, delete the r
 ## Related content
 
 - [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md)
-- [Build dynamic workflows with Logic Apps Automation](quickstart-create-dynamic-workflows.md)
-- [Compare Logic Apps Automation, Standard, Consumption, and other tools](compare-automation-tools.md)
+- [Compare automation tools](compare-automation-tools.md)

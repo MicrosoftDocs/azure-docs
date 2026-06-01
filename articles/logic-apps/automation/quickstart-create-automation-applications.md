@@ -32,11 +32,19 @@ For more information, see:
 
 ## Prerequisites
 
-- A Microsoft work or school account that can access the [Logic Apps Automation portal](https://auto.azure.com), the project where you want to work, and the correct permissions level to create applications and workflows.
+- A Microsoft work or school account that can access the [Logic Apps Automation portal](https://auto.azure.com), the project where you want to work, and the correct permissions at the project level to create applications and workflows.
 
 - Your work or school account needs to exist in the same Microsoft Entra tenant as the project creator or owner so they can add you to the project and assign the necessary permissions level. If you don't have access, work with the project creator or owner to get access and permissions.
 
   For more information about Microsoft Entra tenants, see [Tenant configurations](/entra/identity-platform/v2-overview#tenant-configurations).
+
+- An automation project where you have either the **Contributor** or **Author** role at the project level.
+
+  These roles let you create applications in the project.
+
+  > [!NOTE]
+  >
+  > At the project level, the **Reader** role on isn't enough because readers can't create applications.
 
 <a id="create-application"></a>
 
@@ -60,31 +68,74 @@ To create a deployable package for your applications and their components, follo
 
    > [!NOTE]
    >
-   > Creating an application might take a minute or two. Monitor the **Status** column for when the application is ready.
+   > Creating an application might take a minute or two. Monitor the **Status** column, and wait until the application is ready before you create any connections, workflows, or other components.
 
-   After the portal creates the application resource, your application appears on the **Applications** page.
+   When the portal finishes, your application appears on the **Applications** page.
 
-1. On the **Applications** page, select your application.
+1. Continue to the steps for creating a dynamic automation workflow.
 
-   For example:
+#### Application ownership and privacy
 
-   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/new-application.png" alt-text="Screenshot that shows the Applications page and newly created application." lightbox="media/quickstart-create-dynamic-workflow-automation/new-application.png":::
+By default, when you create an application, you automatically become the application owner.
 
-   Inside your application, the **Workflows** page automatically opens and shows the workflow landing page. Any workflows that other project members previously built also appear here.
+- As the application owner, you have **Contributor** role permissions at the application level.
 
-## Clean up resources
+- By default, applications are always private. Only the creators (owners) can view and access their applications' contents.
 
-If you no longer need the resources you created in this quickstart, delete the resource group to avoid extra charges:
+  - Project owners and contributors can view application metadata for governance. However, they can't view workflow content, connections, or workflow run history.
+  
+  - Other project members can't view the application unless the application creator-owner adds them to the application and gives them the appropriate permissions.
 
-1. In the Azure portal search bar, enter the resource group name.
+  Applications often contain automations that connect to personal accounts. The default privacy model keeps sensitive data obscured and invisible to others unless the application creator-owner chooses otherwise.
 
-1. Select the resource group from the results.
+### Add application members
 
-1. On the resource group page, select **Delete resource group**.
+By default, only the application creator-owner or contributor can access an application and its contents. Before other project members can work on your application, add them as application members by following these steps:
 
-1. Enter the resource group name to confirm, and then select **Delete**.
+1. In the [Logic Apps Automation portal](https://auto.azure.com), on the **Projects** page, select the project that contains the application you want.
 
-## Related content
+1. On the **Appications** page, select the application.
 
-- [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md)
-- [Build dynamic workflows with Logic Apps Automation](quickstart-create-dynamic-workflows.md)
+1. On the application sidebar, select **Settings**.
+
+1. On the **Settings** page, select the **User permissions** tab, and complete the following steps:
+
+   1. In the **Users** section, select **Add user**.
+
+   1. On the **Add role assignment** pane, in the **Select user** box, enter the email address for the person you want to add.
+
+      The **Select user** list shows only people in the same Microsoft Entra tenant as you.
+
+   1. From the results, select the correctly matching person.
+
+1. After the **Role** section appears, select the role the person needs, based on the principle of least privilege, and then select **Add**.
+
+   The following table describes the available roles at the application level, what they can do, and what they can't do:
+
+   | Role | Can | Can't |
+   |------|-----|-------|
+   | **Reader** (view only) | - View workflows, connections, and parameters. <br>- View workflow run history. | - Create, edit, or delete anything. <br>- Trigger or cancel workflow runs. |
+   | **Contributor** | - View and edit workflows, connections, and parameters. <br>- View workflow run history. <br>- Trigger, cancel, and resubmit workflow runs. <br>- Manage application permissions. | Delete the application. (owner only) |
+
+   > [!NOTE]
+   >
+   > By design, the **Author** role is unavailable at the application level.
+
+## Troubleshoot problems
+
+#### Common problems
+
+The following table describes common problems that you might encounter and ways to resolve them:
+
+| Problem | Cause | Resolution |
+|---------|-------|------------|
+| "I can't create an application." | You have the project **Reader** role. | Ask a project **Contributor** to upgrade you to project **Author** or **Contributor**. |
+| "I can't view any applications in the project." | By default, applications are private and invisible to others except the application creator-owner. | Ask the application owner to add you to the application, or make you a project **Contributor**, if you only need to view the application metadata for governance. |
+| "I can't manage permissions on applications." | You need the application **Contribtor** role. | Ask the application owner or a **Contributor** to make you an application **Contributor**. |
+| "An application lost its owner." | When an application owner leaves your Microsoft Entra tenant, you get the following results: <br><br>- Existing members keep their access. <br><br>- Only the **Project Owner** can delete the application. <br><br>- The application still appears in the project's governance view. |
+| "I can't delete applications." | Only the application owner can delete their application. | Contact the application owner. If the owner is unavailable, and the application is orphaned, the project owner can delete orphaned applications. |
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Create dynamic automation workflows](quickstart-create-dynamic-automation-workflows.md)

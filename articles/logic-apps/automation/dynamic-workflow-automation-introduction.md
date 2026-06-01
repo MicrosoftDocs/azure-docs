@@ -119,5 +119,4 @@ As you work with Logic Apps Automation, you learn more about the following core 
 
 > [!div class="nextstepaction"]
 >
-> - [Create your first dynamic automation project](quickstart-create-dynamic-automation-projects.md)
-> - [Create your first dynamic workflow](quickstart-create-dynamic-workflows.md)
+> - [Create dynamic automation projects](quickstart-create-dynamic-automation-projects.md)

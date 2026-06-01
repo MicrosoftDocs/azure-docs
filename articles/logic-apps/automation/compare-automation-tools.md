@@ -106,5 +106,6 @@ If you currently use other automation tools or platforms, the following table su
 ## Related content
 
 - [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md)
-- [Create your first dynamic automation project](quickstart-create-dynamic-automation-projects.md)
-- [Create your first dynamic workflow](quickstart-create-dynamic-workflows.md)
+- [Create dynamic automation projects](quickstart-create-dynamic-automation-projects.md)
+- [Create dynamic automation applications](quickstart-create-dynamic-automation-applications.md)
+- [Create dynamic automation workflows](quickstart-create-dynamic-automation-workflows.md)

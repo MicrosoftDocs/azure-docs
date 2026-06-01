@@ -95,21 +95,20 @@ To create a container for your applications and control who has access, follow t
 
    The portal opens and shows your project's home page.
 
-Before you can start building workflows, you need to create an application as a deployable package that contains these workflows. For more information, see [Create your application](quickstart-create-dynamic-workflows.md#create-application).
+Before you can start building workflows, you need to create an application as a deployable package that contains these workflows. For more information, see [Create dynamic automation applications](quickstart-create-dynamic-automation-applications.md).
 
 Before others can work in your project, you need to [add them as members](#add-project-members).
 
-#### Project ownership
+#### Project ownership and privacy
 
-By default, when you create a project, you're also the project owner and appear in the **Project Owner** project property.
+By default, when you create a project, you automatically become the project owner and appear in the **Project Owner** project property. Each resource has only a single owner.
 
 - The project owner is a property, not a permission level. You can't clear or remove this property value.
 
-- Each resource can have only a single owner.
+- As the project owner, you have the following permissions:
 
-- By default, as the project owner, you have **Contributor** role permissions at the project level.
-
-- As the project owner, you get administrator-level permissions to delete the project and sub-resources, such as application or sandboxes, including those you don't own. Not even those with the **Contributor** role can perform these tasks.
+  - **Contributor** role permissions at the project level
+  - Administrator-level permissions to delete the project and sub-resources, such as application or sandboxes, including those you don't own. Not even those with the **Contributor** role can perform these tasks.
 
 ## Add project members
 
@@ -129,11 +128,13 @@ Before others can create applications and workflows in your project, add them as
 
 1. After the **Role** section appears, select the role the person needs, based on the principle of least privilege, and then select **Add**.
 
+   The following table describes the available roles at the project level, what they can do, and what they can't do:
+
    | Role | Can | Can't |
    |------|-----|-------|
    | **Reader** (view only) | - View only the project settings, members list, sandbox configurations, and shared resources. <br>- View workflow run history. | - Create, edit, or delete anything. <br>- View applications. <br>- Trigger or cancel workflow runs. <br>- Manage permissions. |
    | **Author** | - Create applications, sandbox configurations, and shared resources. <br>- View the project settings, members list, and sandbox configurations. | - Edit the project settings and manage project members. <br>- View applications or their content without explicit app-level permissions. |
-   | **Contributor** | - View and edit project settings, manage the project, and manage project members. <br>- Create applications, but view only metadata for non-owned applications. <br>- Create and edit sandbox configurations. <br>- View workflows, connections, and parameters. <br>- Create, edit, and delete workflows. <br>- Create and edit connections. <br>- View workflow run history. <br>- Trigger and cancel workflow runs. <br>- Manage application permissions. | - Delete the project (owner only). <br>- View application content without explicit app-level permissions. |
+   | **Contributor** | - View and edit project settings, manage the project, and manage project members. <br>- Create applications, but view only metadata for non-owned applications. <br>- Create and edit sandbox configurations. <br>- View workflows, connections, and parameters. <br>- Create, edit, and delete workflows. <br>- Create and edit connections. <br>- View workflow run history. <br>- Trigger and cancel workflow runs. <br>- Manage application permissions. | - Delete the project (owner only). <br>- View application content without explicit application level permissions. |
 
    > [!NOTE]
    >
@@ -143,9 +144,7 @@ Before others can create applications and workflows in your project, add them as
    >
    > Application owners or contributors can explicitly add members by granting application-level roles. To grant access to a specific application, open that application, go to **Settings**, **User permissions**, and add the member you want.
 
-## Related content
+## Next steps
 
-- [About Logic Apps Automation](dynamic-workflow-automation-introduction.md)
-- [Create automation applications](quickstart-create-automation-applications.md)
-- [Create dynamic workflows for automation](quickstart-create-dynamic-workflows.md)
-- [Compare automation tools](compare-automation-tools.md)
+> [!div class="nextstepaction"]
+> [Create dynamic automation applications](quickstart-create-automation-applications.md)
