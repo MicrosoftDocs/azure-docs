@@ -94,8 +94,9 @@ Purchase GitHub Pre-Purchase Plans in the [Azure portal reservations](https://po
 
 > [!NOTE]
 > GitHub usage is billed through the Azure subscription that is linked to your GitHub organization. To ensure your Pre-Purchase plan covers your GitHub usage, verify that the subscription linked to your GitHub organization falls within the scope you select. If the linked subscription is outside the scope, the Pre-Purchase plan won't apply to that usage.
-6. Select how many GitHub commit units you want to purchase.
-7. Choose to automatically renew the Pre-Purchase reservation. *The setting is configured to renew automatically by default*. For more information, see [Renew a reservation](reservation-renew.md).
+
+7. Select how many GitHub commit units you want to purchase.
+8. Choose to automatically renew the Pre-Purchase reservation. *The setting is configured to renew automatically by default*. For more information, see [Renew a reservation](reservation-renew.md).
 
 ## Change scope and ownership
 
