@@ -41,13 +41,13 @@ Regulatory compliance might require you to locally anonymize or aggregate some d
 
 ## Edge jobs in Azure Stream Analytics
 
-Stream Analytics Edge jobs run in containers deployed to [Azure IoT Edge devices](/iot-edge/about-iot-edge). Edge jobs have two parts:
+Stream Analytics Edge jobs run in containers deployed to [Azure IoT Edge devices](/azure/iot-edge/about-iot-edge). Edge jobs have two parts:
 
 * A cloud part that handles the job definition: you define inputs, output, query, and other settings, such as out-of-order events, in the cloud.
 
 * A module running on your IoT devices. The module contains the Stream Analytics engine and receives the job definition from the cloud.
 
-Stream Analytics uses IoT Hub to deploy edge jobs to devices. For more information, see [IoT Edge deployment](/iot-edge/module-deployment-monitoring).
+Stream Analytics uses IoT Hub to deploy edge jobs to devices. For more information, see [IoT Edge deployment](/azure/iot-edge/module-deployment-monitoring).
 
 :::image type="content" source="media/stream-analytics-edge/stream-analytics-edge-job.png" alt-text="Diagram that shows the components of an Azure Stream Analytics edge job.":::
 
@@ -73,7 +73,7 @@ Stream Analytics on IoT Edge runs as Linux images on x86-64 and ARM architecture
 
 ## Inputs and outputs for Stream Analytics Edge jobs
 
-Stream Analytics Edge jobs get inputs and outputs from other modules running on IoT Edge devices. To connect from and to specific modules, set the routing configuration at deployment time. For more information, see [the IoT Edge module composition documentation](/iot-edge/module-composition).
+Stream Analytics Edge jobs get inputs and outputs from other modules running on IoT Edge devices. To connect from and to specific modules, set the routing configuration at deployment time. For more information, see [the IoT Edge module composition documentation](/azure/iot-edge/module-composition).
 
 Both inputs and outputs support CSV and JSON formats.
 
