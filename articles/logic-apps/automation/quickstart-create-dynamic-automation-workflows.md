@@ -13,7 +13,7 @@ ms.custom:
 #Customer intent: As an automation developer, I need to build my first dynamic, AI-powered workflow in Logic Apps Automation.
 ---
 
-# Quickstart: Build dynamic agentic workflows in Logic Apps Automation (preview)
+# Quickstart: Build dynamic workflows in Logic Apps Automation (preview)
 
 > [!NOTE]
 >

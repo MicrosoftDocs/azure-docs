@@ -134,4 +134,4 @@ The following table describes some common problems that you might encounter and 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create dynamic automation workflows](quickstart-create-dynamic-automation-workflows.md)
+> [Create dynamic workflows](quickstart-create-dynamic-workflows.md)
