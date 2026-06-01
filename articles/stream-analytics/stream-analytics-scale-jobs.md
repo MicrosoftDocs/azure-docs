@@ -1,14 +1,14 @@
 ---
-title: Scaling up and out in Azure Stream Analytics jobs
-description: This article describes how to scale a Stream Analytics job by partitioning input data, tune the query, and set job streaming units.
+title: Scale up and out in Azure Stream Analytics jobs
+description: Learn how to scale a Stream Analytics job by partitioning input data, tuning the query, and setting job streaming units.
 ms.service: azure-stream-analytics
 author: ahartoon
 ms.author: anboisve
 ms.topic: concept-article
-ms.date: 02/27/2024
+ms.date: 06/01/2026
 ---
 # Scale an Azure Stream Analytics job to increase throughput
-This article shows you how to tune a Stream Analytics query to increase throughput for Streaming Analytics jobs. You can use the following guide to scale your job to handle higher load and take advantage of more system resources (such as more bandwidth, more CPU resources, more memory).
+This article shows you how to tune a Stream Analytics query to increase throughput for Stream Analytics jobs. You can use the following guide to scale your job to handle higher load and take advantage of more system resources (such as more bandwidth, more CPU resources, more memory).
 
 As a prerequisite, read the following articles:
 
@@ -16,12 +16,12 @@ As a prerequisite, read the following articles:
 - [Create parallelizable jobs](stream-analytics-parallelization.md)
 
 ## Case 1 – Your query is inherently fully parallelizable across input partitions
-If your query is inherently fully parallelizable across input partitions, you can follow the following steps:
+If your query is inherently fully parallelizable across input partitions, follow these steps:
 
-- Author your query to be embarrassingly parallel by using **PARTITION BY** keyword. For more information, see [Use query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md).
-- Depending on output types used in your query, some output can be either not parallelizable, or need further configuration to be embarrassingly parallel. For example, Power BI output isn't parallelizable. Outputs are always merged before sending to the output sink. Blobs, Tables, Azure Data Lake Storage, Service Bus, and Azure Function are automatically parallelized. SQL and Azure Synapse Analytics outputs have an option for parallelization. An event hub needs to have the PartitionKey configuration set to match the **PARTITION BY** field (usually `PartitionId`). For Event Hubs, also pay extra attention to match the number of partitions for all inputs and all outputs to avoid cross-over between partitions. 
+- Author your query to be embarrassingly parallel by using the **PARTITION BY** keyword. For more information, see [Use query parallelization in Azure Stream Analytics](stream-analytics-parallelization.md).
+- Depending on output types used in your query, some outputs might not be parallelizable, or might need further configuration to be embarrassingly parallel. For example, Power BI output isn't parallelizable. Outputs are always merged before sending to the output sink. Blobs, Tables, Azure Data Lake Storage, Service Bus, and Azure Function are automatically parallelized. SQL and Azure Synapse Analytics outputs have an option for parallelization. An event hub needs to have the PartitionKey configuration set to match the **PARTITION BY** field (usually `PartitionId`). For Event Hubs, also pay extra attention to match the number of partitions for all inputs and all outputs to avoid cross-over between partitions. 
 - Run your query with **1 streaming unit (SU) V2** (which is the full capacity of a single computing node) to measure maximum achievable throughput, and if you're using **GROUP BY**, measure how many groups (cardinality) the job can handle. General symptoms of the job hitting system resource limits are the following.
-    - Stream unit (SU) % utilization metric is over 80%. It indicates memory usage is high. The factors contributing to the increase of this metric are described [Understand and adjust Stream Analytics streaming units](stream-analytics-streaming-unit-consumption.md). 
+    - Stream unit (SU) % utilization metric is over 80%. It indicates memory usage is high. The factors contributing to the increase of this metric are described in [Understand and adjust Stream Analytics streaming units](stream-analytics-streaming-unit-consumption.md). 
     -	Output timestamp is falling behind with respect to wall clock time. Depending on your query logic, the output timestamp can have a logic offset from the wall clock time. However, they should progress at roughly the same rate. If the output timestamp is falling further and further behind, it’s an indicator that the system is overworking. It can be a result of downstream output sink throttling, or high CPU utilization. We don’t provide CPU utilization metric at this time, so it can be difficult to differentiate the two.
         - If the issue is due to sink throttling, you need to increase the number of output partitions (and also input partitions to keep the job fully parallelizable), or increase the amount of resources of the sink (for example number of Request Units for Cosmos DB).
     - In the job diagram, there's a per partition backlog event metric for each input. If the backlog event metric keeps increasing, it’s also an indicator that the system resource is constrained (either because of output sink throttling, or high CPU).
@@ -37,7 +37,7 @@ For example, you have measured your 1 SU V2 job can achieve 4 MB/s processing ra
 If your query isn't embarrassingly parallel, you can follow these steps.
 
 - Start with a query with no **PARTITION BY** first to avoid partitioning complexity, and run your query with 1 SU V2 to measure maximum load as in [Case 1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions).
-- If you can achieve your anticipated load in term of throughput, you're done. Alternatively, you can choose to measure the same job running with fractional nodes at 2/3 SU V2 and 1/3 SU V2, to find out the minimum number of streaming units that works for your scenario.
+- If you can achieve your anticipated load in terms of throughput, you're done. Alternatively, you can choose to measure the same job running with fractional nodes at 2/3 SU V2 and 1/3 SU V2, to find out the minimum number of streaming units that works for your scenario.
 - If you can’t achieve the desired throughput, try to break your query into multiple steps if it doesn’t have multiple steps already, and allocate up to one SU V2 for each step in the query. For example if you have three steps, allocate three SU V2s in the "Scale" option.
 - To run such a job, Stream Analytics puts each step on its own node with dedicated one SU V2 resource. 
 - If you still haven’t achieved your load target, you can attempt to use **PARTITION BY** starting from steps closer to the input. For **GROUP BY** operator that isn't naturally partitionable, you can use the local/global aggregate pattern to perform a partitioned **GROUP BY** followed by a nonpartitioned **GROUP BY**. For example, if you want to count how many cars going through each toll booth every 3 minutes, and the volume of the data is beyond what can be handled by one SU V2.
@@ -58,8 +58,8 @@ In the query, you're counting cars per toll booth per partition, and then adding
 
 Once partitioned, for each partition of the step, allocate one SU V2 so each partition can be placed on its own processing node.
 
-> [!Note]
-> If your query cannot be partitioned, adding additional SU in a multi-steps query may not always improve throughput. One way to gain performance is to reduce volume on the initial steps using local/global aggregate pattern, as described in the step 5.
+> [!NOTE]
+> If your query can't be partitioned, adding additional SU in a multi-step query might not always improve throughput. One way to gain performance is to reduce volume on the initial steps using the local/global aggregate pattern, as described in step 5.
 
 ## Case 3 - You're running lots of independent queries in a job.
 For certain ISV use cases, where it’s more cost-efficient to process data from multiple tenants in a single job, using separate inputs and outputs for each tenant, you end up running quite a few (for example 20) independent queries in a single job. The assumption is each such subquery’s load is relatively small. 
@@ -79,28 +79,10 @@ In this case, you can follow these steps.
 
 
 ## Get help
-For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics).
+For further assistance, try the [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics).
 
 ## Next steps
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics Management REST API Reference](/rest/api/streamanalytics/)
-
-<!--Image references-->
-
-[img.stream.analytics.monitor.job]: ./media/stream-analytics-scale-jobs/StreamAnalytics.job.monitor-NewPortal.png
-[img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
-[img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
-[img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
-[img.stream.analytics.preview.portal.settings.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings-NewPortal.png   
-
-<!--Link references-->
-
-[microsoft.support]: https://support.microsoft.com
-[azure.event.hubs.developer.guide]: /previous-versions/azure/dn789972(v=azure.100)
-
-[stream.analytics.introduction]: stream-analytics-introduction.md
-[stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
-[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/
