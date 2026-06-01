@@ -132,6 +132,9 @@ items:
           - name: Transparency note
             href: concept-platform-card.md
             displayName: Microsoft Discovery, transparency note, responsible AI, intended uses, target users, capabilities
+          - name: Code of conduct
+            href: concept-code-of-conduct.md
+            displayName: Microsoft Discovery, responsible AI, code of conduct
   - name: How-tos
     items:
       - name: Migration
