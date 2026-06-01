@@ -32,8 +32,11 @@ Verify the install:
 func --version
 ```
 
-After you install the base CLI, install the workloads for your stack. The fastest way is [`func setup`](functions-core-tools-reference.md#func-setup), which installs the host, the language worker, the extension bundles (when needed), the stack workload, and the templates workload in one step. For example:
+After you install the base CLI, install the workloads for your stack. The fastest way is [`func setup`](functions-core-tools-reference.md#func-setup), which installs the host, the language worker, the extension bundles (when needed), the stack workload, and the templates workload in one step. 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-python"  
+For example:
 
+::: zone-end  
 ::: zone pivot="programming-language-csharp"
 
 ```command
@@ -42,33 +45,11 @@ func setup --features dotnet
 
 ::: zone-end
 
-::: zone pivot="programming-language-java"
-
-> [!NOTE]
-> Java isn't currently supported in the Azure Functions CLI (v5). Continue using [Core Tools (v4)](functions-run-local.md) for Java development.
-
-::: zone-end
-
-::: zone pivot="programming-language-javascript"
+::: zone pivot="programming-language-javascript,programming-language-typescript"
 
 ```command
 func setup --features node
 ```
-
-::: zone-end
-
-::: zone pivot="programming-language-typescript"
-
-```command
-func setup --features node
-```
-
-::: zone-end
-
-::: zone pivot="programming-language-powershell"
-
-> [!NOTE]
-> PowerShell isn't currently supported in the Azure Functions CLI (v5). Continue using [Core Tools (v4)](functions-run-local.md) for PowerShell development.
 
 ::: zone-end
 
@@ -102,24 +83,17 @@ The first time you run `func init`, `func new`, or `func run`, the CLI checks wh
 
 ### Workload updates
 
-Not all Functions language stacks are currently available as workloads. The Azure Functions CLI doesn't currently support Java and PowerShell stacks. Run `func workload search` periodically to check for newly available workloads. Continue using [Core Tools (v4)](functions-run-local.md) for these unsupported stacks or when you need specific GA features of Core Tools.
+Run `func workload search` periodically to check for newly available workloads. Continue using [Core Tools (v4)](functions-run-local.md) for unsupported stacks or when you need specific GA features of Core Tools.
 
 ## Create a local project
 
-To create a new Functions project, use [`func init`](functions-core-tools-reference.md#func-init):
+To create a new Functions project, use the [`func init`](functions-core-tools-reference.md#func-init) command.
 
 ::: zone pivot="programming-language-csharp"
 
 ```command
 func init MyProjFolder --stack dotnet
 ```
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-> [!NOTE]
-> Java isn't currently supported in the Azure Functions CLI (v5). Continue using [Core Tools (v4)](functions-run-local.md) for Java development.
 
 ::: zone-end
 
@@ -139,13 +113,6 @@ func init MyProjFolder --stack node --language typescript
 
 ::: zone-end
 
-::: zone pivot="programming-language-powershell"
-
-> [!NOTE]
-> PowerShell isn't currently supported in the Azure Functions CLI (v5). Continue using [Core Tools (v4)](functions-run-local.md) for PowerShell development.
-
-::: zone-end
-
 ::: zone pivot="programming-language-python"
 
 ```command
@@ -158,7 +125,7 @@ The `--stack` option specifies which language stack to use. The installed worklo
 
 ## Create a function
 
-To add a function from a template, use [`func new`](functions-core-tools-reference.md#func-new):
+To add a function from a template, use the [`func new`](functions-core-tools-reference.md#func-new) command.
 
 ```command
 func new --template "HTTP trigger" --name MyHttpTrigger
@@ -189,25 +156,11 @@ func quickstart --stack dotnet --resource http
 
 ::: zone-end
 
-::: zone pivot="programming-language-java"
-
-> [!NOTE]
-> Java isn't currently supported in the Azure Functions CLI (v5). Continue using [Core Tools (v4)](functions-run-local.md) for Java development.
-
-::: zone-end
-
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
 
 ```command
 func quickstart --stack node --resource http
 ```
-
-::: zone-end
-
-::: zone pivot="programming-language-powershell"
-
-> [!NOTE]
-> PowerShell isn't currently supported in the Azure Functions CLI (v5). Continue using [Core Tools (v4)](functions-run-local.md) for PowerShell development.
 
 ::: zone-end
 
