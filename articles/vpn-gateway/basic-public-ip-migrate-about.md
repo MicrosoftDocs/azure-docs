@@ -92,6 +92,27 @@ Yes, the IP address changes with this approach. This means that you'll have to e
 
 No. When following the recommended migration order, migrating the VPN gateway first doesn't migrate, disrupt, or impact ExpressRoute traffic. ExpressRoute connectivity remains unaffected during the VPN gateway migration. Customers shouldn't expect ExpressRoute connectivity issues when migrating the VPN gateway first.
 
+#### Can I enable DDoS protection during gateway migration?
+No. While the gateway is in migration (between Execute and Commit), do not make any changes to the public IP, gateway, or connections. Enabling DDoS protection or other advanced features during this phase may block migration or prevent rollback. Enable such features only after the migration is fully completed (after Commit).
+
+#### Can I modify my IP, VPN Gateway, subnet, or connections during migration?
+No. While the VPN Gateway is under migration (between Execute and Commit), you must not make any changes to the following:
+
+Public IP address
+VPN Gateway configuration
+Gateway subnet
+Connections
+
+Making changes during this phase can put the gateway into an unsupported or stuck state, as the migration workflow does not handle concurrent updates. 
+
+#### What happens if I make changes during migration and the gateway gets stuck?
+If the gateway enters a stuck or unrecoverable migration state due to changes made during migration:
+
+The system may be unable to complete or roll back the migration. 
+In such cases, the only recovery option may be to delete and recreate the gateway.
+
+
+
 ### Active-Active VpnGw1-5 gateway SKUs 
 
 
@@ -112,7 +133,7 @@ This ensures:
 
 
 #### How do I create the required non‑zonal Public IP?
-In regions where zone‑redundant IPs are the default, you should create the third Public IP **using Azure CLI or PowerShell**, ensuring that **no availability zones are specified**.
+In regions where zone‑redundant IPs are the default, you should create the third Public IP **using Azure CLI or PowerShell** rest API Version 2020-08-01 or later that sets non-zonal / no-zone Public IP   , ensuring that **no availability zones are specified**.
 
 This allows the Public IP to be created in a **non‑zonal configuration**, which is required for this scenario.
 

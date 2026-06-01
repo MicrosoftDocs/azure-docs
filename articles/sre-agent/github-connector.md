@@ -1,7 +1,7 @@
 ---
 title: GitHub connector in Azure SRE Agent
-description: Choose the right GitHub integration path and configure OAuth, PAT, or BYO GitHub App authentication for source code, issue, and workflow operations.
-ms.topic: conceptual
+description: Connect GitHub repositories for source code analysis, issue management, and workflow automation with OAuth or PAT authentication.
+ms.topic: article
 ms.service: azure-sre-agent
 ms.date: 05/27/2026
 author: dchelupati
