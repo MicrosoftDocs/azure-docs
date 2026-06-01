@@ -70,7 +70,7 @@ To create a deployable package for your applications and their components, follo
 
    When the portal finishes, your application appears on the **Applications** page.
 
-1. Continue to the steps for creating a dynamic automation workflow.
+1. Continue to the steps for [creating a dynamic automation workflow](quickstart-create-dynamic-automation-workflow.md).
 
 #### Application ownership and privacy
 
