@@ -23,7 +23,7 @@ After you create an automation project, you need a way to package related workfl
 
 In Logic Apps Automation, an *application* provides this deployable and scalable package. You create one application per logical workload or related workflows, for example, `order-processing` or `daily-reports`, so each group of related automations stays self-contained inside your project.
 
-This quickstart shows how to create an application inside an existing automation project.
+This quickstart shows how to create an application in an existing automation project.
 
 For more information, see:
 
@@ -38,7 +38,9 @@ For more information, see:
 
   For more information about Microsoft Entra tenants, see [Tenant configurations](/entra/identity-platform/v2-overview#tenant-configurations).
 
-- The project where you have either the **Contributor** or **Author** role so you can create applications and workflows.
+- The project where you want to create your application.
+
+  You need the **Contributor** or **Author** role to create applications and workflows.
 
   > [!NOTE]
   >
@@ -50,7 +52,13 @@ For more information, see:
 
 To create a deployable package for your applications and their components, follow these steps:
 
-1. In the [Logic Apps Automation portal](https://auto.azure.com), open the project where you want to work.
+1. Go to the [Logic Apps Automation portal](https://auto.azure.com), and sign in with your Microsoft work or school account.
+
+   For example:
+
+   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/logic-apps-automation-portal.png" alt-text="Screenshot that shows the Logic Apps Automation portal." lightbox="media/quickstart-create-dynamic-workflow-automation/logic-apps-automation-portal.png":::
+
+1. From the **Projects** tab, open the project where you want to create your application.
 
    For example:
 
@@ -134,4 +142,4 @@ The following table describes some common problems that you might encounter and 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create dynamic workflows](quickstart-create-dynamic-workflows.md)
+> [Create dynamic automation workflows](quickstart-create-dynamic-automation-workflows.md)

@@ -147,4 +147,4 @@ Before others can create applications and workflows in your project, add them as
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create automation applications](quickstart-create-automation-applications.md)
+> [Create dynamic automation applications](quickstart-create-dynamic-automation-applications.md)

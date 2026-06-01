@@ -19,19 +19,15 @@ ms.custom:
 >
 > This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When you automate a business process, for example, route notifications, run operations in various services or systems, or monitor data feeds, you want to define the business logic only once, and then reliably run the process autonomously with human oversight when needed.
+When you automate a business process, you want to define the business logic only once, and then run the automation reliably and autonomously with human oversight when neccesary. For example, some automation tasks might include routing notifications, running operations in various services or systems, or monitoring data feeds.
 
-In Logic Apps Automation, the [*workflow*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology) is the unit of automation that performs the workload. A workflow exists inside an application, starts with a single trigger that specifies the event or condition that fires the workflow, and runs actions that complete various tasks.
+In Logic Apps Automation, a [*workflow*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology) is the unit that runs an automation workload. Each complete workflow has the following basic attributes:
 
- A workflow is a trigger plus a sequence of actions. You compose them on the visual canvas or via the AI assistant; the runtime executes them and keeps run history for inspection.
+- Lives within an automation application.
+- Starts with a single [*trigger*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology). This item specifies the event to run the workflow.
+- Subsequently has one or multiple [*actions*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology) that perform the necessary tasks or affect the execution path.
 
-A workflow lives inside one application, has one trigger and a tree of actions, and is edited on the visual canvas or via the assistant.
-
-
-
-
-In this quickstart, you build your first workflow inside an existing application. You can describe what you want in plain language and let the AI assistant generate the workflow, or you can build from scratch on the visual canvas. By the end, you have a working workflow you can test and monitor from the [Logic Apps Automation portal](https://auto.azure.com).
-When you're done, you have a working automation you can test and monitor inside the Logic Apps Automation portal.
+This quickstart shows how to build a workflow within an existing application. For simplicity, learn the general steps for using the AI assistant and the designer. The article then provides more specific examples for more detailed workflows.
 
 For more information, see:
 
@@ -46,19 +42,54 @@ For more information, see:
 
   For more information about Microsoft Entra tenants, see [Tenant configurations](/entra/identity-platform/v2-overview#tenant-configurations).
 
-- The application where you have the **Contributor** role so you can create workflows.
+- The project and the application where you want to create your workflow.
 
-- To follow the example, you need the URL for any RSS URL that doesn't need HTTP authorization, for example:
+  You need the **Contributor** role to create workflows.
+
+  For more information, see:
+
+  - [Create dynamic automation projects](quickstart-create-dynamic-automation-projects.md)
+  - [Create dynamic automation applications](quickstart-create-dynamic-automation-applications.md)
+
+#### Optional requirements for the examples
+
+- For the web request handling example, you need a tool that can send HTTP requests, for example:
+
+  [!INCLUDE [api-test-http-request-tools-list](../../../includes/api-test-http-request-tools-list.md)]
+  [!INCLUDE [api-test-http-request-tools-caution](../../../includes/api-test-http-request-tools-caution.md)]
+
+- For the RSS feed monitoring example, you need the URL for any RSS feed that doesn't need HTTP authorization, for example:
 
   `https://feeds.content.dowjones.io/public/rss/RSSMarketsMain`
 
   Choose an RSS feed that publishes frequently, so you can easily test your workflow. 
 
-- An email account for Office 365 Outlook or Outlook.com
+- To get notifications, you need an email account, such as Office 365 Outlook or Outlook.com.
 
 ## Create your workflow
 
-Every workflow starts with a [*trigger*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology), an operation that specifies the condition or criteria to meet before the workflow runs. Every workflow subsequently has one or multiple [*actions*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology) to perform tasks after the trigger fires.
+This section describes the general steps to create a workflow by using the AI assistant and the designer. To generate or build a workflow, you can use the AI assistant, the designer, or both, for example:
+
+| Path | Description |
+|------|-------------|
+| [Generate your workflow with the AI assistant](#assistant) | Describe what you want in plain words. The AI assistant generates the workflow. |
+| [Build your workflow starting with the empty designer](#empty-designer) | Manually add a trigger and actions to the blank canvas. |
+| [Prepopulate your workflow from a template](#template) | Choose a template for a specific automation with prepopulated trigger and actions. |
+
+Whatever path you decide, you get a working workflow that you can test and monitor from the [Logic Apps Automation portal](https://auto.azure.com).
+
+### Find the automation project and application
+
+1. Go to the [Logic Apps Automation portal](https://auto.azure.com), and sign in with your Microsoft work or school account.
+
+   For example:
+
+   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/logic-apps-automation-portal.png" alt-text="Screenshot that shows the Logic Apps Automation portal." lightbox="media/quickstart-create-dynamic-workflow-automation/logic-apps-automation-portal.png":::
+
+1. In the [Logic Apps Automation portal](https://auto.azure.com), open the project and application where you want to work.
+
+
+1. From the **Projects** tab, open the project where you want to create your application.
 
 
 1. When the application appears on the **Applications** page, select your application.
