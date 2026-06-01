@@ -14,9 +14,6 @@ appliesto:
 
 The Flash Optimized tier in Azure Managed Redis enables cost-effective scaling for very large datasets by automatically moving less-frequently accessed data from memory (RAM) to fast NVMe flash storage. Hot data remains in DRAM for low-latency access, while colder data resides on NVMe and is transferred to RAM when accessed, at a lower cost per GB than purely in-memory tiers.
 
-> [!IMPORTANT]
-> All Flash Optimized tiers are currently in **Public Preview**.
-
 ## How Flash Optimized works
 
 Azure Managed Redis Flash Optimized uses a tiered storage approach:
@@ -48,11 +45,11 @@ Common use cases include:
 
 | SKU | Size (GB) | Status |
 |-----|-----------|--------|
-| A250 | 235       | Public Preview |
-| A500 | 480       | Public Preview |
-| A700 | 720       | Public Preview |
-| A1000 | 960       | Public Preview |
-| A1500 | 1,440     | Public Preview |
+| A250 | 235       | GA |
+| A500 | 480       | GA |
+| A700 | 720       | GA |
+| A1000 | 960       | GA |
+| A1500 | 1,440     | GA |
 | A2000 | 1,920     | Public Preview |
 | A4500 | 4,500     | Public Preview |
 
