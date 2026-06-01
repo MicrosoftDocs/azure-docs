@@ -16,7 +16,7 @@ ai-usage: ai-assisted
 You can create a unified model API in Azure API Management to expose multiple LLM backends through a single client-facing endpoint. Client applications use one familiar API format - the OpenAI Chat Completions API - while API Management automatically translates requests to the backend models using OpenAI Chat Completions API or Anthropic Messages API.
 
 > [!NOTE]
-> The unified model API is in public preview. In the classic tiers, early access to this feature is available through the [AI Gateway Early release channel](configure-service-update-settings.md#update-group).
+> The unified model API is in public preview and is currently rolling out to customers. In the classic tiers, early access to this feature is available through the [AI Gateway Early release channel](configure-service-update-settings.md#update-group).
 
 By centralizing model access behind a single API layer, you can:
 
