@@ -94,10 +94,6 @@ Multiparty confidential big-data analytics unlocks value in scenarios where data
 
   All collaborators whose datasets are referenced by a query must approve it.
 
-- **How do I contact the team with more questions about the analytics solution?**
-
-  [Email the Azure Confidential Clean Rooms product team](mailto:CleanRoomPMTeam@microsoft.com).
-
 ## Joining the preview
 
 Azure Confidential Clean Rooms for Analytics is currently in limited preview. If you're interested in joining the preview, fill in and submit [this form](https://aka.ms/accrforanalytics-signupform).
@@ -105,8 +101,6 @@ Azure Confidential Clean Rooms for Analytics is currently in limited preview. If
 After you submit the form, we'll review your request. If we accept your request, we'll contact you with detailed steps for joining. Keep in mind that because the preview is limited, we might not be able to accept all requests.
 
 If you have workload requirements outside Spark SQL analytics — such as custom analytics pipelines, machine learning training and fine-tuning, or inferencing — fill in and submit the same [form](https://aka.ms/accrforanalytics-signupform), and we'll get back to you.
-
-For questions about joining, [email the Azure Confidential Clean Rooms product team](mailto:CleanRoomPMTeam@microsoft.com).
 
 ## Related content
 
