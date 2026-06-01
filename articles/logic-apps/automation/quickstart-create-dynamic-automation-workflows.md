@@ -13,31 +13,25 @@ ms.custom:
 #Customer intent: As an automation developer, I need to build my first dynamic, AI-powered workflow in Logic Apps Automation.
 ---
 
-# Quickstart: Build dynamic workflows in Logic Apps Automation (preview)
+# Quickstart: Create dynamic workflows in Logic Apps Automation (preview)
 
 > [!NOTE]
 >
 > This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When you automate business processes, you often have the following tasks before you can even build and test a single workflow:
+When you automate a business process, for example, route notifications, run operations in various services or systems, or monitor data feeds, you want to define the business logic only once, and then reliably run the process autonomously with human oversight when needed.
 
-- Connect different services, systems, apps, and data.
-- Write extra code to connect these components.
-- Set up any necessary servers or other infrastructure.
+In Logic Apps Automation, the [*workflow*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology) is the unit of automation that performs the workload. A workflow exists inside an application, starts with a single trigger that specifies the event or condition that fires the workflow, and runs actions that complete various tasks.
 
-When the business process steps are unpredictable or when requirements change quickly, this setup work slows you down, forcing you to divert focus away from building out your business logic.
+ A workflow is a trigger plus a sequence of actions. You compose them on the visual canvas or via the AI assistant; the runtime executes them and keeps run history for inspection.
 
-Logic Apps Automation removes this effort. You describe what you want to automate, and the platform provides a visual designer, an AI assistant, and 1,400+ ready-to-use connectors so you can build, test, and monitor workflows entirely inside your browser. There's nothing to install on your computer.
-
-This quickstart shows how to create a dynamically-run [*workflow*](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology) by using Logic Apps Automation. You create an automation project, add an application, and build your first workflow. By the end, you have a working workflow you can test and monitor from the Logic Apps Automation portal.
-
-If you're new to dynamic workflow automation, see [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md).
+A workflow lives inside one application, has one trigger and a tree of actions, and is edited on the visual canvas or via the assistant.
 
 
-You create an automation project, add an application, and build your first workflow. By the end, you have a working workflow you can test and monitor from the Logic Apps Automation portal.
- and then build your first workflow. By the end, you have a working automation you can test and monitor from the Logic Apps Automation portal.
 
-This quickstart shows how to create an application inside an existing automation project.
+
+In this quickstart, you build your first workflow inside an existing application. You can describe what you want in plain language and let the AI assistant generate the workflow, or you can build from scratch on the visual canvas. By the end, you have a working workflow you can test and monitor from the [Logic Apps Automation portal](https://auto.azure.com).
+When you're done, you have a working automation you can test and monitor inside the Logic Apps Automation portal.
 
 For more information, see:
 
@@ -52,11 +46,7 @@ For more information, see:
 
   For more information about Microsoft Entra tenants, see [Tenant configurations](/entra/identity-platform/v2-overview#tenant-configurations).
 
-- The application where you have the application **Contributor** role so you can create workflows.
-
-  > [!NOTE]
-  >
-  > The project **Reader** role doesn't have enough permissions to create applications.
+- The application where you have the **Contributor** role so you can create workflows.
 
 - To follow the example, you need the URL for any RSS URL that doesn't need HTTP authorization, for example:
 

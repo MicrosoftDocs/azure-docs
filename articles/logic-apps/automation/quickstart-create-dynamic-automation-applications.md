@@ -38,7 +38,7 @@ For more information, see:
 
   For more information about Microsoft Entra tenants, see [Tenant configurations](/entra/identity-platform/v2-overview#tenant-configurations).
 
-- The project where you have either the project **Contributor** or **Author** role so you can create applications and workflows.
+- The project where you have either the **Contributor** or **Author** role so you can create applications and workflows.
 
   > [!NOTE]
   >

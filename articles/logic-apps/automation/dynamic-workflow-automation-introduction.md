@@ -117,7 +117,7 @@ As you work with Logic Apps Automation, you learn more about the following core 
 |-----------|-------------|
 | *Project* | A top-level unit that organizes and groups your *applications*. |
 | *Application* | A deployment package that stores your *workflow* definitions and settings. |
-| *Workflow* | A sequence of tasks that always start with an event *trigger*. A workflow uses items like built-in operations, *connections*, *agents*, and *MCP servers*. |
+| *Workflow* | A sequence of tasks that always starts with an event *trigger*. A workflow uses items like built-in operations, *connections*, *agents*, and *MCP servers*. |
 | *Connection* | A reusable authenticated link to a service, for example, an API key or OAuth. |
 | *Trigger* | An event that runs a workflow, such as an incoming HTTP request, message arrival, or schedule occurrence. |
 | *Action* | A step that runs in a workflow, such as an outgoing HTTP call, conditional branch, loop, or transformation. |
