@@ -84,7 +84,7 @@ To learn how to configure a Service Bus namespace to automatically scale (increa
 
 Getting started with premium messaging is straightforward and the process is similar to that of standard messaging. Begin by [creating a namespace](service-bus-quickstart-portal.md#create-a-namespace-in-the-azure-portal) in the [Azure portal](https://portal.azure.com). Make sure you select **Premium** under **Pricing tier**. Select **View full pricing details** to see more information about each tier.
 
-:::image type="content" source="./media/service-bus-premium-messaging/select-premium-tier.png" alt-text="Screenshot that shows the selection of premium tier when creating a namespace.":::
+:::image type="content" source="./media/service-bus-premium-messaging/select-premium-tier.png" alt-text="Screenshot that shows the selection of premium tier when creating a namespace." lightbox="./media/service-bus-premium-messaging/select-premium-tier.png":::
 
 You can also create [Premium namespaces using Azure Resource Manager templates](https://azure.microsoft.com/resources/templates/servicebus-pn-ar/).
 
@@ -108,13 +108,13 @@ Here are some considerations when sending large messages on Azure Service Bus:
 
 To enable support for large messages, set the max message size when creating a new queue or topic as shown in the following image:
 
-:::image type="content" source="./media/service-bus-premium-messaging/large-message-preview.png" alt-text="Screenshot that shows how to enable large message support when creating a new queue.":::
+:::image type="content" source="./media/service-bus-premium-messaging/large-message-preview.png" alt-text="Screenshot that shows how to enable large message support when creating a new queue." lightbox="./media/service-bus-premium-messaging/large-message-preview.png":::
 
 ### Enable large messages support for an existing queue or topic
 
 You can also enable support for large messages for existing queues or topics by updating the **Max message size** on the **Overview** for that specific queue or topic as shown in the following image.
 
-:::image type="content" source="./media/service-bus-premium-messaging/large-message-preview-update.png" alt-text="Screenshot of the Overview page for an existing queue that shows the Max message size setting.":::
+:::image type="content" source="./media/service-bus-premium-messaging/large-message-preview-update.png" alt-text="Screenshot of the Overview page for an existing queue that shows the Max message size setting." lightbox="./media/service-bus-premium-messaging/large-message-preview-update.png":::
 
 ## Network security in Service Bus Premium
 
