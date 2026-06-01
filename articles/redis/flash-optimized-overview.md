@@ -12,18 +12,18 @@ appliesto:
 
 # Best practices for the Flash Optimized tier
 
-The Flash Optimized tier in Azure Managed Redis enables cost-effective scaling for very large datasets by automatically moving less-frequently accessed data from memory (RAM) to fast NVMe flash storage. Hot data remains in DRAM for low-latency access, while colder data is served from NVMe at a lower cost per GB than purely in-memory tiers.
+The Flash Optimized tier in Azure Managed Redis enables cost-effective scaling for very large datasets by automatically moving less-frequently accessed data from memory (RAM) to fast NVMe flash storage. Hot data remains in DRAM for low-latency access, while colder data resides on NVMe and is transferred to RAM when accessed, at a lower cost per GB than purely in-memory tiers.
 
 > [!IMPORTANT]
 > All Flash Optimized tiers are currently in **Public Preview**.
 
 ## How Flash Optimized works
 
-Azure Managed Redis Flash Optimized uses a tiered storage approach built on Redis Enterprise:
+Azure Managed Redis Flash Optimized uses a tiered storage approach:
 
-- **Hot data** ΓÇô Frequently accessed keys and values stay in DRAM for sub-millisecond latency.
-- **Cold data** ΓÇô Less frequently accessed data is automatically moved to local NVMe storage on the host VM.
-- **Transparent to clients** ΓÇô The tiering is fully managed. Clients interact with the cache using standard Redis commands without awareness of where data physically resides.
+- **Hot data** - Frequently accessed keys and values stay in DRAM for sub-millisecond latency.
+- **Cold data** - Less frequently accessed data is automatically moved to local NVMe storage on the host VM and transferred back to RAM when accessed.
+- **Managed for clients** - The tiering is fully managed. Clients interact with the cache using standard Redis commands without awareness of where data physically resides.
 
 This architecture allows you to maintain caches in the terabyte range at a significantly lower cost compared to all-in-memory deployments.
 
@@ -82,7 +82,7 @@ The following table summarizes feature availability on the Flash Optimized tier:
 | RedisTimeSeries | Γ¥î |
 
 > [!IMPORTANT]
-> RedisJSON is the only module supported on the Flash Optimized tier. Active geo-replication, non-clustered mode, RediSearch/vector search, RedisBloom, and RedisTimeSeries are not supported due to performance considerations inherent to Flash storage. These features are currently not planned for Flash.
+> RedisJSON is the only module supported on the Flash Optimized tier. Active geo-replication, non-clustered mode, RediSearch/vector search, RedisBloom, and RedisTimeSeries are not supported due to performance considerations inherent to Flash storage.
 
 For a full comparison of features across all Azure Managed Redis tiers, see [What is Azure Managed Redis?](overview).
 
