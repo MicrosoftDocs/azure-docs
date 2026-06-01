@@ -22,7 +22,7 @@ To enable automated assessments of AI assets in your inventory:
     
     The following screenshot shows default criteria for skills:
 
-        :::image type="content" source="media/assess-ai-assets/skill-assessment.png" alt-text="Screenshot of Configuration of AI skill assessment in the portal." :::
+    :::image type="content" source="media/assess-ai-assets/skill-assessment.png" alt-text="Screenshot of Configuration of AI skill assessment in the portal." :::
     - Add one or more custom criteria.
         1. Select **+ Add criteria**. 
         1. Enter a **Name** and optional **Assessment instruction** for the criterion.
