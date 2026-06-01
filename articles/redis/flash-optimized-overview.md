@@ -1,4 +1,4 @@
----
+﻿---
 title: Best practices for the Flash Optimized tier
 description: Learn about the Flash Optimized tier in Azure Managed Redis, including SKU sizes, features, best practices, and common issues.
 ms.date: 04/30/2026
@@ -7,23 +7,23 @@ ms.custom:
   - references_regions
   - build-2025
 appliesto:
-  - ✅ Azure Managed Redis
+  - Γ£à Azure Managed Redis
 ---
 
 # Best practices for the Flash Optimized tier
 
-The Flash Optimized tier in Azure Managed Redis enables cost-effective scaling for very large datasets by automatically moving less-frequently accessed data from memory (RAM) to fast NVMe flash storage. Hot data remains in DRAM for low-latency access, while colder data is served from NVMe at a lower cost per GB than purely in-memory tiers.
+The Flash Optimized tier in Azure Managed Redis enables cost-effective scaling for very large datasets by automatically moving less-frequently accessed data from memory (RAM) to fast NVMe flash storage. Hot data remains in DRAM for low-latency access, while colder data resides on NVMe and is transferred to RAM when accessed, at a lower cost per GB than purely in-memory tiers.
 
 > [!IMPORTANT]
 > All Flash Optimized tiers are currently in **Public Preview**.
 
 ## How Flash Optimized works
 
-Azure Managed Redis Flash Optimized uses a tiered storage approach built on Redis Enterprise:
+Azure Managed Redis Flash Optimized uses a tiered storage approach:
 
-- **Hot data** – Frequently accessed keys and values stay in DRAM for sub-millisecond latency.
-- **Cold data** – Less frequently accessed data is automatically moved to local NVMe storage on the host VM.
-- **Transparent to clients** – The tiering is fully managed. Clients interact with the cache using standard Redis commands without awareness of where data physically resides.
+- **Hot data** - Frequently accessed keys and values stay in DRAM for sub-millisecond latency.
+- **Cold data** - Less frequently accessed data is automatically moved to local NVMe storage on the host VM and transferred back to RAM when accessed.
+- **Managed for clients** - The tiering is fully managed. Clients interact with the cache using standard Redis commands without awareness of where data physically resides.
 
 This architecture allows you to maintain caches in the terabyte range at a significantly lower cost compared to all-in-memory deployments.
 
@@ -37,7 +37,7 @@ Flash Optimized is ideal for scenarios where:
 - Your dataset is very large (hundreds of GB to multiple TB).
 - A significant portion of data is accessed infrequently ("cold").
 - You need Redis semantics and performance for hot data, but want to avoid the cost of keeping everything in DRAM.
-- Your workload can tolerate slightly higher latency on cold-data reads compared to in-memory tiers.
+- Your workload can tolerate higher latency on cold-data reads compared to in-memory tiers.
 
 Common use cases include:
 
@@ -64,25 +64,25 @@ The following table summarizes feature availability on the Flash Optimized tier:
 
 | Feature | Supported |
 |---------|:---------:|
-| SLA | ✅ |
-| Data encryption in transit (Private endpoint) | ✅ |
-| Replication and failover | ✅ |
-| Network isolation (Private Link) | ✅ |
-| Microsoft Entra ID authentication | ✅ |
-| Scaling | ✅ |
-| High availability (zone redundant) | ✅ |
-| Data persistence (RDB/AOF) | ✅ |
-| Connection audit logs (event-based) | ✅ |
-| RedisJSON | ✅ |
-| Import/Export | ✅ |
-| Active geo-replication | ❌ |
-| Non-clustered instances | ❌ |
-| RediSearch / vector search | ❌ |
-| RedisBloom | ❌ |
-| RedisTimeSeries | ❌ |
+| SLA | Γ£à |
+| Data encryption in transit (Private endpoint) | Γ£à |
+| Replication and failover | Γ£à |
+| Network isolation (Private Link) | Γ£à |
+| Microsoft Entra ID authentication | Γ£à |
+| Scaling | Γ£à |
+| High availability (zone redundant) | Γ£à |
+| Data persistence (RDB/AOF) | Γ£à |
+| Connection audit logs (event-based) | Γ£à |
+| RedisJSON | Γ£à |
+| Import/Export | Γ£à |
+| Active geo-replication | Γ¥î |
+| Non-clustered instances | Γ¥î |
+| RediSearch / vector search | Γ¥î |
+| RedisBloom | Γ¥î |
+| RedisTimeSeries | Γ¥î |
 
 > [!IMPORTANT]
-> RedisJSON is the only module supported on the Flash Optimized tier. Active geo-replication, non-clustered mode, RediSearch/vector search, RedisBloom, and RedisTimeSeries are not supported due to performance considerations inherent to Flash storage. These features are currently not planned for Flash.
+> RedisJSON is the only module supported on the Flash Optimized tier. Active geo-replication, non-clustered mode, RediSearch/vector search, RedisBloom, and RedisTimeSeries are not supported due to performance considerations inherent to Flash storage.
 
 For a full comparison of features across all Azure Managed Redis tiers, see [What is Azure Managed Redis?](overview).
 
@@ -127,9 +127,9 @@ Flash storage is for performance tiering, **not for data protection**. Configure
 
 ### Network and security
 
-- **Private endpoints** – Always use Private Link to keep traffic within your Azure virtual network.
-- **Microsoft Entra ID** – Use passwordless authentication where possible for improved security posture.
-- **Customer-managed keys (CMK)** – Configure encryption at rest with Azure Key Vault for compliance requirements.
+- **Private endpoints** - Always use Private Link to keep traffic within your Azure virtual network.
+- **Microsoft Entra ID** - Use passwordless authentication where possible for improved security posture.
+- **Customer-managed keys (CMK)** - Configure encryption at rest with Azure Key Vault for compliance requirements.
 
 ### Client configuration
 
@@ -140,15 +140,15 @@ Flash storage is for performance tiering, **not for data protection**. Configure
 
 ## Common issues and troubleshooting
 
-### Large keys causing OOM despite available Flash capacity
+### Large values causing OOM despite available Flash capacity
 
-Large keys can cause issues on Flash caches. As a best practice, keep value sizes under 512KB. Large keys are pinned to RAM and cannot spill to NVMe Flash storage. If many large keys accumulate, RAM can fill up causing out of memory (OOM) errors even when Flash storage has available capacity. Mitigation: break large values into smaller keys, use compression or chunking strategies, and monitor RAM usage independently from total cache capacity.
+Keys with large values can cause issues on Flash caches. As a best practice, keep value sizes under 512KB. All keys (the key names themselves) are always stored in RAM, and values that are too large to efficiently tier are pinned to RAM and cannot spill to NVMe Flash storage. If many large values accumulate, RAM can fill up causing out of memory (OOM) errors even when Flash storage has available capacity. Mitigation: break large values into smaller keys, use compression or chunking strategies, and monitor RAM usage independently from total cache capacity.
 
-### Hot keys causing RAM fragmentation
+### Write-heavy workloads causing RAM fragmentation
 
-Having frequently accessed (hot) keys in RAM is expected and desirable for Flash Optimized - this is how the tier delivers low-latency reads. However, hot keys that are frequently updated or resized can cause memory fragmentation in RAM over time. This fragmentation consumes additional RAM beyond the actual data size, potentially leading to OOM errors while Flash storage remains unaffected.
+Write-heavy workloads with variable value sizes can cause memory fragmentation in RAM over time, regardless of whether the keys are hot or cold. When values are frequently updated with different sizes, the memory allocator leaves gaps that consume additional RAM beyond the actual data size, potentially leading to OOM errors while Flash storage remains unaffected.
 
-This is distinct from the recommendation to avoid random access patterns. Concentrated access on a subset of keys is ideal for Flash, but if those hot keys are also write-heavy with variable value sizes, RAM fragmentation can accumulate.
+This is distinct from the recommendation to avoid random access patterns. Concentrated access on a subset of keys is ideal for Flash, but frequent writes with variable-size values on any keys can cause RAM fragmentation to accumulate.
 
 Mitigation: monitor the memory fragmentation ratio and, where possible, use fixed-size values for frequently updated keys to reduce fragmentation.
 
