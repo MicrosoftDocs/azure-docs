@@ -315,7 +315,7 @@ The **Until** action stops execution based on the optional **Count** and **Timeo
 | **Count** | The maximum number of iterations that run before the loop exits. <br><br>For the default and maximum limits on the number of **Until** actions that a workflow can have, see [Concurrency, looping, and debatching limits](logic-apps-limits-and-config.md#looping-debatching-limits). |
 | **Timeout** | The maximum amount of time that the **Until** action, including all iterations, runs before the loop exits. This value is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601) and is evaluated for each iteration. <br><br>If any action in the loop takes longer than the timeout limit, the current iteration doesn't stop. However, the next iteration doesn't start because the timeout limit condition is met. <br><br>For the default and maximum limits on the **Timeout** value, see [Concurrency, looping, and debatching limits](logic-apps-limits-and-config.md#looping-debatching-limits). |
 
-### Run history for Until loop iterations
+### Review run history for Until loop iterations
 
 When you view the run history for a workflow that includes an **Until** loop, the detailed status and results for actions inside the loop are available only after the entire loop finishes running. While the **Until** loop is still executing its iterations, you can see that the loop action has a status of **Running**, but you can't expand or traverse the individual iteration results until the loop exits.
 
