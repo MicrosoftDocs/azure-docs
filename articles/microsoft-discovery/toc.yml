@@ -261,6 +261,9 @@ items:
         displayName: Microsoft Discovery, billing, pricing, User Messages, cost management
   - name: Tutorials
     items:
+      - name: Tutorials & how-to videos
+        href: tutorial-howto-videos.md
+        displayName: tutorial, Discovery app, workspace creation, bookshelf creation, agent creation, tasks, engine
       - name: "Tutorial: Discovery Mode"
         href: tutorial-discovery-mode.md
         displayName: tutorial, Discovery Mode, first investigation, getting started

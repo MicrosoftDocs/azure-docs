@@ -121,3 +121,10 @@ landingContent:
         links:
           - text: REST API
             url: /rest/api/discovery/
+
+  - title: Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Tutorials & how-to videos
+            url: tutorial-howto-videos.md
