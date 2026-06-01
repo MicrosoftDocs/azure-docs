@@ -101,8 +101,10 @@ The following table lists the available Stream Analytics on IoT Edge module imag
 | `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-amd64` | `mcr.microsoft.com/dotnet/core/runtime:2.1.13-alpine` | amd64 | Linux |
 | `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm32v7` | `mcr.microsoft.com/dotnet/core/runtime:2.1.13-bionic-arm32v7` | arm | Linux |
 | `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm64` | `mcr.microsoft.com/dotnet/core/runtime:3.0-bionic-arm64v8` | arm64 | Linux |
-      
-      
+
+> [!IMPORTANT]
+> The base images listed in this table use .NET Core 2.1 and 3.0, which have reached end of life. Check the [Microsoft Container Registry](https://mcr.microsoft.com/) for updated Stream Analytics on IoT Edge images built on supported .NET versions.
+
 ## Related content
 
 * [What is Azure IoT Edge?](/azure/iot-edge/about-iot-edge)

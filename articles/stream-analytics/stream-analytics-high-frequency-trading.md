@@ -64,6 +64,9 @@ socket.On(Socket.EVENT_CONNECT, () =>
 });
 ```
 
+> [!CAUTION]
+> This code sample is for illustration only. The IEX WebSocket API endpoint and the NuGet packages used here are no longer available. Don't use this code in production. See the IMPORTANT notes earlier in this section for current alternatives.
+
 Here are some generated sample events:
 
 ```json
@@ -393,13 +396,14 @@ simulation AS
 )
 ```
 
-The JavaScript UDA initializes all accumulators in the `init` function, computes the state transition with every event added to the window, and returns the simulation results at the end of the window. The general trading process is to:
+The JavaScript UDA initializes all accumulators in the `init` function, computes the state transition with every event added to the window, and returns the simulation results at the end of the window. The simulation holds or shorts 10 shares of a stock per trade. The transaction cost is a flat `$8`. The following table shows the four trading actions the UDA performs:
 
-- Buy stock when a buy signal is received and there's no stock holding.
-- Sell stock when a sell signal is received and there's stock holding.
-- Short if there's no stock holding. 
-
-If there's a short position and you receive a buy signal, buy to cover. The simulation holds or shorts 10 shares of a stock. The transaction cost is a flat `$8`.
+| Condition | Signal | Action | Position after |
+|---|---|---|---|
+| No current holding | Buy (10) | Buy to open | Long |
+| No current holding | Sell (-10) | Sell to open (short) | Short |
+| Long position | Sell (-10) | Sell to close, then sell to open (short) | Short |
+| Short position | Buy (10) | Buy to close, then buy to open | Long |
 
 ```javascript
 function main() {
