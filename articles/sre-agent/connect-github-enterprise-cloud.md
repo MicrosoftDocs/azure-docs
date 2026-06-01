@@ -39,7 +39,7 @@ Use BYO App when:
 
 ## Create a GitHub app
 
-If you already have a GitHub App with the right permissions, skip to [Store the private key in Key Vault](#store-the-private-key-in-key-vault).
+If you already have a GitHub App with the right permissions, skip to [Store the private key in Azure Key Vault](#store-the-private-key-in-azure-key-vault).
 
 1. Go to your GitHub host:
    - `github.com`: Go to your org > **Settings** > **Developer settings** > **GitHub Apps** > **New GitHub App**
@@ -159,4 +159,3 @@ Disconnecting one host doesn't affect others.
 - [GitHub connector](github-connector.md)
 - [Set up GitHub connector (OAuth or PAT)](setup-github-connector.md)
 - [Set up an MCP connector](mcp-connector.md)
-- [Repository auth management](repo-auth-management.md)
