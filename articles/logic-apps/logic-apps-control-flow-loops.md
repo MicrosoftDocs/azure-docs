@@ -317,7 +317,7 @@ The **Until** action stops execution based on the optional **Count** and **Timeo
 
 ### Review run history for Until loop iterations
 
-When you view the run history for a workflow that includes an **Until** loop, the detailed status and results for actions inside the loop are available only after the entire loop finishes running. While the **Until** loop is still executing its iterations, you can see that the loop action has a status of **Running**, but you can't expand or traverse the individual iteration results until the loop exits.
+When you view the run history for a workflow that includes an **Until** loop, the detailed status and results for actions inside the loop are available only after the entire loop completes its run. While the **Until** loop is still executing its iterations, the loop action shows the **Running** status, but you can't expand or traverse the individual iteration results until the loop exits.
 
 The loop exits when one of the following conditions is met:
 
@@ -328,7 +328,8 @@ The loop exits when one of the following conditions is met:
 After the loop completes, you can select the **Until** action in run history to view each iteration and the status of the child actions within that iteration.
 
 > [!NOTE]
-> If your **Until** loop runs for an extended period, you must wait for the loop to fully complete before you can inspect the results of individual iterations in run history. To monitor long-running loops in progress, consider adding logging or notification actions inside the loop that emit status independently, such as sending a message to a queue or updating a variable that a parallel branch can read.
+>
+> If your **Until** loop runs for an extended period, you must wait for the loop to fully complete before you can inspect the run history for the results from individual iterations. To monitor long running, in-progress loops, consider adding logging or notification actions inside the loop that independently emit status, for example, by sending a message to a queue or updating a variable that a parallel branch can read.
 
 <a name="until-json"></a>
 
