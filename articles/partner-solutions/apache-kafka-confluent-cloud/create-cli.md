@@ -1,6 +1,8 @@
 ---
 title: "Create a Confluent Cloud Resource - Azure CLI"
 description: Learn how to begin using Apache Kafka & Apache Flink on Confluent Cloud by creating an instance via the Azure CLI.
+ms.author: praveenrajap
+author: praveenrajap
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ms.date: 09/17/2025

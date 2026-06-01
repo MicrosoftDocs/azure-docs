@@ -1,6 +1,8 @@
 ---
 title: Create Elastic application
 description: This article describes how to use the Azure portal to create an instance of Elastic, including Elastic Search, Elastic Observability, and Elastic Security.
+author: pdjokar96
+ms.author: piyushdash
 ms.topic: quickstart
 zone_pivot_groups: elastic-resource-type
 ms.date: 12/01/2025

@@ -1022,6 +1022,22 @@ Azure service: [Azure Cosmos DB](/azure/cosmos-db/)
 > | `Microsoft.DocumentDB/garnetClusters/acl/zunion/read` | Get the union of sorted sets in a Garnet cluster. |
 > | `Microsoft.DocumentDB/garnetClusters/acl/zunionstore/write` | Store the union of sorted sets in a Garnet cluster. |
 
+## Microsoft.InferenceService
+
+Azure service: Microsoft Inference Service
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | `Microsoft.InferenceService/register/action` | Registers the subscription for the Microsoft.InferenceService resource provider. |
+> | `Microsoft.InferenceService/unregister/action` | Unregisters the subscription from the Microsoft.InferenceService resource provider. |
+> | `Microsoft.InferenceService/inferenceAccounts/read` | Reads an inference service. |
+> | `Microsoft.InferenceService/inferenceAccounts/write` | Creates or updates an inference service. |
+> | `Microsoft.InferenceService/inferenceAccounts/delete` | Deletes an inference service. |
+> | `Microsoft.InferenceService/operations/read` | Lists all operations supported by the Microsoft.InferenceService resource provider. |
+> | **DataAction** | **Description** |
+> | `Microsoft.InferenceService/inferenceAccounts/invoke/semanticReranker/action` | Invokes the semantic reranker on an inference account. |
+
 ## Microsoft.Sql
 
 Managed, intelligent SQL in the cloud.

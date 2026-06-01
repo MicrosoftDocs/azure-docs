@@ -2,6 +2,8 @@
 metadata:
   title: Cloud NGFW by Palo Alto Networks frequently asked questions
   description: Answers to common questions about using Cloud NGFW by Palo Alto Networks including deployment, management, and configuration.
+  author: BNandiniMSFT
+  ms.author: bnandini
   ms.topic: faq 
   ai-usage: ai-generated
   ms.date: 12/18/2025

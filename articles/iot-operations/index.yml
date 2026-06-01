@@ -41,7 +41,7 @@ landingContent:
           - text: Route and transform data
             url: connect-to-cloud/overview-dataflow.md
           - text: Configure observability and monitoring
-            url: configure-observability-monitoring/howto-configure-observability.md
+            url: deploy-iot-ops/howto-configure-observability.md
 
   # Card
   - title: Connect to cloud services

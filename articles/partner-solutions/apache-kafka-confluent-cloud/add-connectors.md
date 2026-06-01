@@ -1,6 +1,8 @@
 ---
 title: Connect a Confluent Organization to Azure Compute Services
 description: Learn how to connect an instance of Apache Kafka & Apache Flink on Confluent Cloud to Azure compute services by using Service Connector in Azure.
+ms.author: praveenrajap
+author: praveenrajap
 ms.topic: how-to
 ms.date: 09/19/2025
 ms.custom: sfi-image-nochange
