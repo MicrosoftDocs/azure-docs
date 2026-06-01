@@ -4,11 +4,11 @@ description: "Enable the Azure API Center MCP server so developers can discover 
 #customer intent: As the administrator of an API center, I want to enable the API Center MCP server so developers can connect to the MCP Server and discover APIs and AI assets from my organization's catalog within their agent workflows.
 author: dlepow
 ms.author: danlep
-ms.date: 05/13/2026
+ms.date: 06/01/2026
 ms.topic: how-to
 ms.service: azure-api-center
 ms.collection: ce-skilling-ai-copilot
----
+---:::image type="content" source="media/discover-catalog-mcp-server/enable-mcp-endpoint.png" alt-text="Screenshot of the API Center MCP endpoint in the portal.":::
 
 # Discover APIs with the Azure API Center MCP server
 
@@ -38,9 +38,11 @@ The Azure API Center MCP server exposes the following tools that agents use to d
 To enable the MCP server by using the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com/), go to your API center.
-1. In the sidebar menu, under **Consumption**, select **Data API**.
+1. In the sidebar menu, under **Consumption**, select **Data API settings**.
 1. Under **MCP endpoint**, select **Enable API Center MCP endpoint**.
- 
+
+:::image type="content" source="media/discover-catalog-mcp-server/enable-mcp-endpoint.png" alt-text="Screenshot of the API Center MCP endpoint in the portal." lightbox="media/discover-catalog-mcp-server/enable-mcp-endpoint.png":::
+
 The MCP server endpoint follows this form:
 
 ```
