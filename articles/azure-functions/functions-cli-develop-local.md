@@ -17,7 +17,11 @@ The Azure Functions CLI is the next major version (v5) of the local development 
 
 [!INCLUDE [functions-cli-version-comparison](../../includes/functions-cli-version-comparison.md)]
 
-For the command reference, see [Azure Functions CLI reference](functions-core-tools-reference.md).
+For the command reference, see [Azure Functions CLI reference](functions-core-tools-reference.md). 
+
+::: zone pivot="programming-language-java,programming-language-powershell"
+Examples are currently unavailable due to lack of language stack support.
+::: zone-end
 
 ## Install the Azure Functions CLI
 
