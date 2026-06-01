@@ -41,7 +41,7 @@ Regulatory compliance might require you to locally anonymize or aggregate some d
 
 ## Edge jobs in Azure Stream Analytics
 
-Stream Analytics Edge jobs run in containers deployed to [Azure IoT Edge devices](/azure/iot-edge/about-iot-edge). Edge jobs have two parts:
+Stream Analytics edge jobs are containerized Stream Analytics workloads deployed to [Azure IoT Edge devices](/azure/iot-edge/about-iot-edge). Edge jobs have two parts:
 
 * A cloud part that handles the job definition: you define inputs, output, query, and other settings, such as out-of-order events, in the cloud.
 
@@ -53,7 +53,7 @@ Stream Analytics uses IoT Hub to deploy edge jobs to devices. For more informati
 
 ## Edge job limitations
 
-IoT Edge jobs aim for parity with cloud jobs. Stream Analytics supports most SQL query language features for both edge and cloud. However, edge jobs don't support the following features:
+Stream Analytics edge jobs aim for parity between edge and cloud deployments. A cloud job is a standard Azure Stream Analytics job that runs in Azure, while an edge job runs locally on an IoT Edge device. Stream Analytics supports most SQL query language features for both edge and cloud. However, edge jobs don't support the following features:
 * User-defined functions (UDF) in JavaScript. UDFs are available in [C# for IoT Edge jobs](./stream-analytics-edge-csharp-udf.md) (preview).
 * User-defined aggregates (UDA).
 * Azure Machine Learning functions.
@@ -63,7 +63,7 @@ IoT Edge jobs aim for parity with cloud jobs. Stream Analytics supports most SQL
     * `GetMetadataPropertyValue`
 * Late arrival policy
 
-### Runtime and hardware requirements
+## Runtime and hardware requirements
 
 To run Stream Analytics on IoT Edge, you need devices that run [Azure IoT Edge](/azure/iot-edge/about-iot-edge).
 
@@ -71,9 +71,9 @@ Stream Analytics and Azure IoT Edge use **Docker** containers to provide a porta
 
 Stream Analytics on IoT Edge runs as Linux images on x86-64 and ARM architectures.
 
-## Inputs and outputs for Stream Analytics Edge jobs
+## Inputs and outputs for Stream Analytics edge jobs
 
-Stream Analytics Edge jobs get inputs and outputs from other modules running on IoT Edge devices. To connect from and to specific modules, set the routing configuration at deployment time. For more information, see [the IoT Edge module composition documentation](/azure/iot-edge/module-composition).
+Stream Analytics edge jobs get inputs and outputs from other modules running on IoT Edge devices. To connect from and to specific modules, set the routing configuration at deployment time. For more information, see [the IoT Edge module composition documentation](/azure/iot-edge/module-composition).
 
 Both inputs and outputs support CSV and JSON formats.
 
@@ -92,32 +92,17 @@ Supported stream output types are:
 
 Reference input supports reference file type, which provides static or slow-changing data for lookups. To reach other output destinations, chain a cloud-hosted Stream Analytics job downstream. For example, a Stream Analytics job hosted on IoT Edge sends output to Edge Hub, which can then send output to IoT Hub. Use a second cloud-hosted Azure Stream Analytics job with input from IoT Hub and output to Power BI or another output type.
 
-## Azure Stream Analytics module image information 
+## Azure Stream Analytics module image information
 
-This version information was last updated on 2020-09-21:
+The following table lists the available Stream Analytics on IoT Edge module images. This version information was last updated on 2020-09-21. Check the [Microsoft Container Registry](https://mcr.microsoft.com/) for the latest available versions.
 
-- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-amd64`
-   - base image: `mcr.microsoft.com/dotnet/core/runtime:2.1.13-alpine`
-   - platform:
-      - architecture: amd64
-      - os: linux
- 
-- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm32v7`
-   - base image: `mcr.microsoft.com/dotnet/core/runtime:2.1.13-bionic-arm32v7`
-   - platform:
-      - architecture: arm
-      - os: linux
- 
-- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm64`
-   - base image: `mcr.microsoft.com/dotnet/core/runtime:3.0-bionic-arm64v8`
-   - platform:
-      - architecture: arm64
-      - os: linux
+| Image | Base image | Architecture | OS |
+|---|---|---|---|
+| `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-amd64` | `mcr.microsoft.com/dotnet/core/runtime:2.1.13-alpine` | amd64 | Linux |
+| `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm32v7` | `mcr.microsoft.com/dotnet/core/runtime:2.1.13-bionic-arm32v7` | arm | Linux |
+| `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm64` | `mcr.microsoft.com/dotnet/core/runtime:3.0-bionic-arm64v8` | arm64 | Linux |
       
       
-## Get help
-For more help, try the [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics).
-
 ## Related content
 
 * [What is Azure IoT Edge?](/azure/iot-edge/about-iot-edge)

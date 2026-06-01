@@ -88,9 +88,27 @@ The trained model then makes price change predictions on quotes in the current t
 
 ![Diagram that shows the volume order imbalance definition formula used in high-frequency trading.](./media/stream-analytics-high-frequency-trading/volume-order-imbalance-formula.png)
 
-The following sections show how to express the training and prediction operations in an Azure Stream Analytics job.
+The following sections show how to express the training and prediction operations in an Azure Stream Analytics job. The complete query is a single `WITH` statement composed of common table expressions (CTEs) that form a pipeline:
 
-First, clean up the inputs. **DATEADD** converts epoch time (Unix milliseconds) to datetime. **TRY_CAST** coerces data types without failing the query. Cast input fields to the expected data types to avoid unexpected behavior in manipulation or comparison of the fields.
+| CTE stage | Purpose |
+|---|---|
+| `typeconvertedquotes` | Convert raw input fields to proper SQL types |
+| `timefilteredquotes` | Filter quotes to trading hours and remove invalid data |
+| `shiftedquotes` | Use **LAG** to retrieve the previous tick's bid/ask values |
+| `currentPriceAndVOI` | Calculate volume order imbalance (VOI) from current and previous tick |
+| `shiftedPriceAndShiftedVOI` | Build sequences of 10 consecutive mid-prices and 2 consecutive VOI values |
+| `modelInput` | Reshape data into feature vectors (VOI as x, price delta as y) |
+| `modelagg` / `modelparambs` / `model` | Train a two-variable linear regression model using **SUM** and **AVG** aggregates |
+| `shiftedVOI` / `VOIAndModel` / `VOIANDModelJoined` | Join current VOI values with the previous day's trained model |
+| `prediction` | Calculate expected future price change (efpc) from the model |
+| `tradeSignal` | Generate buy/sell signals when efpc exceeds the ±0.02 threshold |
+
+> [!NOTE]
+> This query requires Azure Stream Analytics compatibility level 1.1 or later, which preserves field name casing for predictable behavior with UDAs.
+
+#### Clean up and convert quote input fields
+
+The first CTE in the Azure Stream Analytics query converts the raw quote data from Event Hubs into properly typed SQL columns. **DATEADD** converts epoch time (Unix milliseconds) to datetime. **TRY_CAST** coerces data types without failing the query. Cast input fields to the expected data types to avoid unexpected behavior in manipulation or comparison of the fields.
 
 ```SQL
 WITH
@@ -117,7 +135,9 @@ timefilteredquotes AS (
 ),
 ```
 
-Next, use the **LAG** function to get values from the last tick. One hour of **LIMIT DURATION** value is arbitrarily chosen. Given the quote frequency, you can find the previous tick by looking back one hour.
+#### Retrieve previous tick values with LAG
+
+The next CTE in the Azure Stream Analytics query uses the **LAG** function to get the bid/ask price and size from the previous tick for each stock symbol. One hour of **LIMIT DURATION** value is arbitrarily chosen. Given the quote frequency, you can find the previous tick by looking back one hour.
 
 ```SQL
 shiftedquotes AS (
@@ -137,7 +157,9 @@ shiftedquotes AS (
 ),
 ```
 
-Then compute the VOI value. Filter out the null values if the previous tick doesn't exist, just in case.
+#### Calculate volume order imbalance (VOI)
+
+The next CTE computes the VOI value from the current and previous tick's bid/ask data. The query filters out null values for cases where no previous tick exists.
 
 ```SQL
 currentPriceAndVOI AS (
@@ -164,7 +186,9 @@ currentPriceAndVOI AS (
 ),
 ```
 
-Now, use **LAG** again to create a sequence with 2 consecutive VOI values, followed by 10 consecutive mid-price values.
+#### Build feature sequences for model training
+
+The next CTE uses **LAG** again to create a sequence with 2 consecutive VOI values, followed by 10 consecutive mid-price values. These sequences form the training data for the linear regression model.
 
 ```SQL
 shiftedPriceAndShiftedVOI AS (
@@ -188,7 +212,9 @@ shiftedPriceAndShiftedVOI AS (
 ),
 ```
 
-Then reshape the data into inputs for a two-variable linear model. Again, filter out the events where the data is incomplete.
+#### Reshape data into feature vectors
+
+The next CTE reshapes the price and VOI sequences into feature vectors for a two-variable linear model, where VOI values are the independent variables (x1, x2) and the average future price change is the dependent variable (y). Events with incomplete data are filtered out.
 
 ```SQL
 modelInput AS (
@@ -216,7 +242,9 @@ modelInput AS (
 ),
 ```
 
-Because Azure Stream Analytics doesn't have a built-in linear regression function, use **SUM** and **AVG** aggregates to compute the coefficients for the linear model.
+#### Train the linear regression model with SUM and AVG
+
+Because Azure Stream Analytics doesn't have a built-in linear regression function, the query uses **SUM** and **AVG** aggregates to compute the coefficients (a, b1, b2) for the two-variable linear regression model. The model retrains daily using a 24-hour tumbling window.
 
 ![Diagram that shows the linear regression math formula for computing model coefficients.](./media/stream-analytics-high-frequency-trading/linear-regression-formula.png)
 
@@ -259,7 +287,9 @@ model AS (
 ),
 ```
 
-To use the previous day's model for scoring the current event, join the quotes with the model. But instead of using **JOIN**, **UNION** the model events and quote events. Then use **LAG** to pair the events with the previous day's model, so you get exactly one match. Because of the weekend, look back three days. If a straightforward **JOIN** were used, you would get three models for every quote event.
+#### Score current quotes with the previous day's model
+
+To use the previous day's trained linear regression model for scoring the current event, the query joins the quotes with the model coefficients. Instead of using **JOIN**, the query uses **UNION** to combine model events and quote events into a single stream. Then it uses **LAG** to pair the events with the previous day's model, so you get exactly one match. Because of the weekend, the query looks back three days (72 hours). If a straightforward **JOIN** were used, you would get three models for every quote event.
 
 ```SQL
 shiftedVOI AS (
@@ -310,7 +340,9 @@ VOIANDModelJoined AS (
 ),
 ```
 
-Now, make predictions and generate buy/sell signals based on the model, with a 0.02 threshold value. A trade value of 10 is buy. A trade value of -10 is sell.
+#### Generate trade signals from predictions
+
+The final CTEs calculate the expected future price change (efpc) by applying the linear regression formula (`a + b1 * x1 + b2 * x2`) and then generate buy/sell signals based on a ±0.02 threshold. A trade value of 10 is buy. A trade value of -10 is sell.
 
 ```SQL
 prediction AS (
@@ -479,12 +511,7 @@ FROM simulation /* output trade simulation to PBI */
 
 This article shows how to implement a realistic high-frequency trading model with a moderately complex query in Azure Stream Analytics. The model uses two input variables instead of five because Azure Stream Analytics doesn't include a built-in linear regression function. However, you can also implement more sophisticated algorithms with higher dimensions as JavaScript UDAs.
 
-You can test and debug most of the query, other than the JavaScript UDA, by using [Azure Stream Analytics tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa).
-
-> [!NOTE]
-> The Azure Stream Analytics tools for Visual Studio have been replaced by the Visual Studio Code extension. Use the [ASA Tools for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) for query development, testing, and debugging.
-
-With Azure Stream Analytics compatibility level 1.1 or later, Stream Analytics preserves field name casing, which provides more predictable behavior when you work with UDAs.
+You can test and debug most of the query, other than the JavaScript UDA, by using [Azure Stream Analytics tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) for query development, testing, and debugging.
 
 ## Related content
 
