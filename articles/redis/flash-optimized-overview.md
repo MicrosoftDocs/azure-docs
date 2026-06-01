@@ -12,7 +12,7 @@ appliesto:
 
 # Best practices for the Flash Optimized tier
 
-The Flash Optimized tier in Azure Managed Redis enables cost-effective scaling for very large datasets by automatically moving less-frequently accessed data from memory (RAM) to fast NVMe flash storage. Hot data remains in DRAM for low-latency access, while colder data resides on NVMe and is transferred to RAM when accessed, at a lower cost per GB than purely in-memory tiers.
+The Flash Optimized tier in Azure Managed Redis enables cost-effective scaling for very large datasets by automatically moving less-frequently accessed data from memory (RAM) to fast NVMe flash storage. Hot data remains in RAM for low-latency access, while colder data resides on NVMe and is transferred to RAM when accessed, at a lower cost per GB than purely in-memory tiers.
 
 ## How Flash Optimized works
 
@@ -139,7 +139,15 @@ Flash storage is for performance tiering, **not for data protection**. Configure
 
 ### Large values causing OOM despite available Flash capacity
 
-Keys with large values can cause issues on Flash caches. As a best practice, keep value sizes under 512KB. All key names are always stored in RAM, and values that are too large get pinned to RAM and cannot be offloaded to Flash, which can lead to out of memory (OOM) errors even when Flash storage has available capacity. Conversely, very small values (where value size is close to or smaller than key name size) also perform poorly because there is not enough data to offload to Flash. RoF works best when value size is larger than key name size, but not excessively large. Mitigation: break large values into smaller keys, use compression or chunking strategies.
+Keys with large values can cause issues on Flash caches. As a best practice, keep value sizes under 512KB.
+
+All key names are always stored in RAM. Values that are too large get pinned to RAM and cannot be offloaded to Flash, which can lead to out of memory (OOM) errors even when Flash storage has available capacity.
+
+Mitigation: break large values into smaller keys, use compression or chunking strategies.
+
+### Small values and Flash efficiency
+
+Very small values (where value size is close to or smaller than key name size) also perform poorly on Flash because there is not enough data to offload. RoF works best when value size is larger than key name size, but not excessively large.
 
 ## Migration from Azure Cache for Redis
 
