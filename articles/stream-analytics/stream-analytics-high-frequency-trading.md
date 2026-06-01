@@ -80,7 +80,7 @@ Here are some generated sample events:
 > The time stamp of the event is **lastUpdated**, in epoch time.
 
 ### Predictive model for high-frequency trading
-For this demonstration, the sample uses a linear model described in [Order Imbalance Based Strategy in High Frequency Trading](https://docplayer.net/23038840-Order-imbalance-based-strategy-in-high-frequency-trading.html).
+For this demonstration, the sample uses a linear model described in [Order Imbalance Based Strategy in High Frequency Algorithmic Trading](https://www.academia.edu/73231992/Order_Imbalance_Based_Strategy_in_High_Frequency_Algorithmic_Trading).
 
 Volume order imbalance (VOI) is a function of current bid/ask price and volume, and bid/ask price and volume from the last tick. The paper identifies the correlation between VOI and future price movement. It builds a linear model between the past five VOI values and the price change in the next 10 ticks. The model trains on the previous day's data with linear regression. 
 
