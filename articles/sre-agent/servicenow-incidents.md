@@ -1,7 +1,7 @@
 ---
 title: ServiceNow incident indexing in Azure SRE Agent
 description: Learn how Azure SRE Agent indexes ServiceNow incidents with real-time scanning, connectivity validation, and automated investigation.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 04/15/2026
 author: craigshoemaker
 ms.author: cshoe

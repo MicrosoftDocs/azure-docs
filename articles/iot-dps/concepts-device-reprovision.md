@@ -2,8 +2,8 @@
 title: Device lifecycle and reprovisioning concepts
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Describes device reprovisioning concepts and policies for the Azure IoT Hub Device Provisioning Service (DPS)
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.date: 08/07/2025
 ms.topic: concept-article
 ms.service: azure-iot-hub

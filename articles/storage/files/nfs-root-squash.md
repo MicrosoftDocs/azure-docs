@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: concept-article
-ms.date: 09/13/2024
+ms.date: 04/08/2026
 ms.author: kendownie
 # Customer intent: As a system administrator managing NFS Azure file shares, I want to configure root squash settings so that I can enhance security by preventing unauthorized root-level access from client machines.
 ---
@@ -14,7 +14,7 @@ ms.author: kendownie
 
 :heavy_check_mark: **Applies to:** Classic NFS file shares created with the Microsoft.Storage resource provider
 
-:heavy_check_mark: **Applies to:** NFS file shares created with the Microsoft.FileShares resource provider (preview)
+:heavy_check_mark: **Applies to:** NFS file shares created with the Microsoft.FileShares resource provider 
 
 :heavy_multiplication_x: **Doesn't apply to:** SMB file shares
 
@@ -167,7 +167,9 @@ For Azure classic file shares that use the Microsoft.Storage resource provider, 
 
 ## Configure root squash on an existing NFS file share (Microsoft.FileShares)
 
-For Azure file shares that use the Microsoft.FileShares resource provider (preview), you can configure root squash settings via the Azure portal.
+For Azure file shares that use the Microsoft.FileShares resource provider, you can configure root squash settings using the Azure portal, Azure PowerShell, or Azure CLI.
+
+# [Portal](#tab/azure-portal)
 
 1. Sign in to the Azure portal and navigate to the file share.
 
@@ -178,6 +180,38 @@ For Azure file shares that use the Microsoft.FileShares resource provider (previ
    ![image for microsoft.fileshares root squash](./media/nfs-root-squash/file-share-root-squash-configuration.png)
    
 1. Select **Save** to update the root squash value.
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+To change the root squash setting on a file share (Microsoft.FileShares) using PowerShell, run the following commands. Replace the variables with your intended values. Allowed values for `-NfProtocolPropertyRootSquash` are `AllSquash`, `NoRootSquash`, and `RootSquash`.
+
+```powershell
+# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/0.1.0
+Install-Module -Name Az.FileShare -Repository psgallery -RequiredVersion 0.1.0
+
+$resourceGroup = "<your-resource-group-name>"
+$shareName = "<your-file-share-name>"
+
+Update-AzFileShare -ResourceName $shareName -ResourceGroupName $resourceGroup -NfProtocolPropertyRootSquash RootSquash
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To change the root squash setting on a file share (Microsoft.FileShares) using Azure CLI, run the following commands. Allowed values for `--root-squash` are `AllSquash`, `NoRootSquash`, and `RootSquash`.
+
+```bash
+# Install the fileshares extension
+az extension add --name fileshares
+
+# Specify your values
+shareName="<your-file-share-name>"
+resourceGroup="<your-resource-group-name>"
+
+# Update the root squash setting
+az fileshare update --name $shareName --resource-group $resourceGroup --root-squash RootSquash
+```
+
+---
 
 ## See also
 

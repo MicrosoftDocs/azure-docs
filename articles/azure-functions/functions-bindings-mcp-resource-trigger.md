@@ -16,6 +16,8 @@ Use the MCP resource trigger to define resource endpoints in a [Model Context Pr
 
 For information on setup and configuration details, see the [overview](functions-bindings-mcp.md).
 
+For a complete end-to-end example of using the MCP resource trigger, see [Build an MCP Apps using Azure Functions](scenario-mcp-apps.md).
+
 ## Example
 ::: zone pivot="programming-language-csharp"
 >[!NOTE]  
@@ -309,7 +311,13 @@ public String getWeatherWidget(
 
     executionContext.getLogger().info("GetWeatherWidget: serving weather widget UI");
 
-    return java.nio.file.Files.readString(file.toPath(), StandardCharsets.UTF_8);
+    // Load the bundled HTML file from the CWD-relative path
+    java.io.File file = new java.io.File("app/dist/index.html");
+    if (file.exists()) {
+        return java.nio.file.Files.readString(file.toPath(), StandardCharsets.UTF_8);
+    }
+
+    return "<html><body><p>Weather widget UI not found.</p></body></html>";
 }
 ```
 
