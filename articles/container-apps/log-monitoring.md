@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 06/01/2026
 ms.author: cshoe
 ---
 
@@ -136,7 +136,7 @@ ContainerAppHTTPLogs
 
 #### Find slow requests
 
-When to use: Your app feels slow, you're investigating a latency complaint, or you want to verify a performance fix.
+Use this query when you app feels slow, you're investigating a latency complaint, or you want to verify a performance fix.
 
 ```kusto
 ContainerAppHTTPLogs
@@ -274,7 +274,7 @@ Start Log Analytics from **Logs** in the sidebar menu on your container app page
 
 Query the logs by using the tables listed in the **Custom logs** category on the **Tables** tab. The tables in this category are `ContainerAppSystemLogs_CL` and `ContainerAppConsoleLogs_CL`.
 
-:::image type="content" source="media/observability/log-analytics-query-page.png" alt-text="Screenshot of the Log Analytics custom log tables.":::
+:::image type="content" source="media/observability/log-analytics-query-page.png" alt-text="Screenshot of the Log Analytics query page showing custom log tables.":::
 
 The following Kusto query displays console log entries for the container app named *album-api*. 
 
@@ -300,7 +300,7 @@ For more information about Log Analytics and log queries, see the [Log Analytics
 
 You can query Container Apps logs by using [Azure CLI](/cli/azure/monitor/log-analytics).
 
-These example Azure CLI queries output a table containing log records for the container app name **album-api**. The parameters after the `project` operator specify the table columns. The `$WORKSPACE_CUSTOMER_ID` variable contains the GUID of the Log Analytics workspace.
+These example Azure CLI queries output a table containing log records for the container app name **album-api**. The parameters after the `project` operator specify the table columns. The `$WORKSPACE_CUSTOMER_ID` variable has the GUID of the Log Analytics workspace.
 
 
 This example queries the `ContainerAppConsoleLogs_CL` table:
