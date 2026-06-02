@@ -3,6 +3,7 @@ author: craigshoemaker
 ms.author: cshoe
 ms.date: 06/02/2026
 ms.service: azure-sre-agent
+ms.topic: include
 ---
 
 > [!IMPORTANT]
