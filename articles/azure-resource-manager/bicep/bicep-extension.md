@@ -30,7 +30,7 @@ For examples, see [Bicep Kubernetes extension](./bicep-kubernetes-extension.md) 
 
 ## Troubleshooting
 
-Your deployment might fail with a 401 AuthenticationFailed error when you attempts to use the Graph extension (or any Bicep extension requiring the [OAuth On-Behalf-Of flow](/entra/identity-platform/v2-oauth2-on-behalf-of-flow.md) ) within a nested module under specific conditions.
+Your deployment might fail with a 401 AuthenticationFailed error when you attempt to use the Graph extension (or any Bicep extension requiring the [OAuth On-Behalf-Of flow](/entra/identity-platform/v2-oauth2-on-behalf-of-flow.md) ) within a nested module under specific conditions.
 
 This limitation occurs specifically when the nested module meets one of the following criteria:
 
