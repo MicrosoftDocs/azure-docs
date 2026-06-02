@@ -19,6 +19,11 @@
             "source_path_from_root": "/articles/api-center/register-apis.md",
             "redirect_url": "tutorials/register-apis",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/api-center/agent-to-agent-overview.md",
+            "redirect_url": "/azure/api-center/register-manage-agents",
+            "redirect_document_id": false
         }
     ]
 }
