@@ -23,6 +23,8 @@ items:
     href: scenario-ai-openapi-tool.md
   - name: Model Context Protocol servers
     href: scenario-ai-model-context-protocol-server.md
+  - name: Built-in MCP (Preview)
+    href: configure-mcp-built-in.md
   - name: MCP hosting options
     href: /azure/container-apps/mcp-choosing-azure-service?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
   - name: Local small language models
@@ -90,6 +92,8 @@ items:
           href: tutorial-ai-integrate-azure-ai-agent-dotnet.md
         - name: Agentic web app (.NET)
           href: tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet.md
+        - name: Monitor agents with OpenTelemetry
+          href: tutorial-ai-agent-monitoring-dotnet.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-dotnet.md
 
