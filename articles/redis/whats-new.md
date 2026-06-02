@@ -18,8 +18,7 @@ Find out what's new in Azure Managed Redis.
 
 ### General Availability for some Flash Optimized SKUs
 
-Azure Managed Redis Flash Optimized A250, A500, A700, and A1000 are now generally available (GA). For a complete list of the status of SKUs, see [Tiers and SKUs at a glance](overview.md#tiers-and-skus-at-a-glance).
-
+Azure Managed Redis Flash Optimized A250, A500, A700, A1000, and A1500 are now generally available (GA). For a complete list of the status of SKUs, see [Tiers and SKUs at a glance](overview.md#tiers-and-skus-at-a-glance).
 
 ## April 2026
 
@@ -30,7 +29,6 @@ _Dashboards with Grafana_ in Azure Managed Redis bring Azure Monitor's built-in 
 ### Keyspace notifications (preview)
 
 In preview in Azure Managed Redis, Redis keyspace notifications allow clients to subscribe to Pub/Sub channels to receive events that affect the data set in the cache. For more information, see [Enable Redis keyspace notifications (preview)](enable-redis-keyspace-notifications.md).
-
 
 ### General Availability for M/B/X 350 SKUs (350 GB)
 

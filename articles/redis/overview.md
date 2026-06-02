@@ -48,6 +48,7 @@ Four tiers of Azure Managed Redis are available, each with different performance
 ### Tiers and SKUs at a glance
 
 Here are three tiers that store data in memory:
+
 - **Memory Optimized** Ideal for memory-intensive use cases that require a high memory-to-vCPU ratio (8:1) but don't need the highest throughput performance. It provides a lower price point for scenarios where less processing power or throughput is necessary, making it an excellent choice for development and testing environments.
 - **Balanced (Memory + Compute)** Offers a balanced memory-to-vCPU (4:1) ratio, making it ideal for standard workloads. This tier provides a healthy balance of memory and compute resources.
 - **Compute Optimized** Designed for performance-intensive workloads requiring maximum throughput, with a low memory-to-vCPU (2:1) ratio. It's ideal for applications that demand the highest performance.
@@ -55,7 +56,8 @@ Here are three tiers that store data in memory:
     :::image type="content" source="media/overview/sku-tiers.png" alt-text="An image of a table that shows a comparison of skus and tiers." lightbox="media/overview/sku-tiers-large.png":::
 
 Here's the tier that stores data both in memory and on disk:
-- **Flash Optimized ** Enables Redis clusters to automatically move less frequently accessed data from memory (RAM) to NVMe storage. This reduction in memory use can reduce performance, but it allows for cost-effective scaling of caches with large datasets.
+
+- **Flash Optimized** Enables Redis clusters to automatically move less frequently accessed data from memory (RAM) to NVMe storage. This reduction in memory use can reduce performance, but it allows for cost-effective scaling of caches with large datasets.
 
     :::image type="content" source="media/overview/flash-tier.png" alt-text="An image of a table that shows Flash Optimized tiers in a table showing storage usage." lightbox="media/overview/flash-tier-large.png":::
 
@@ -153,7 +155,7 @@ This table shows the max connections by tier and memory size in the Flash optimi
 | 480       | 150,000            |
 | 720       | 200,000            |
 | 960       | 200,000            |
-| 1440 *    | 200,000            |
+| 1440      | 200,000            |
 | 1920 *    | 200,000            |
 | 4500 *    | 200,000            |
 
