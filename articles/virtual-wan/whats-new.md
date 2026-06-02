@@ -4,7 +4,7 @@ description: Learn what's new with Azure Virtual WAN such as the latest release 
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: concept-article
-ms.date: 03/27/2025
+ms.date: 05/27/2026
 ms.author: cherylmc
 ms.custom:
   - build-2025
@@ -27,6 +27,8 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
+| Feature| Routing|Public Preview of Virtual Network Manager integration for Virtual WAN| Azure Virtual Network Manager can use a Virtual WAN hub as the hub for hub-spoke network topologies. You can dynamically group virtual networks into network groups and deploy connectivity configurations to connect those network groups to a Virtual WAN hub. See [integration overview](virtual-network-manager-integration.md)  and [configuration procedures](../virtual-network-manager/configure-virtual-wan-hub-for-network-manager.md) for more information. | March 2026 |  See [Virtual Network Manager and Virtual WAN](virtual-network-manager-integration.md) for limitations and considerations. |
+| Feature| Routing| Public Preview of  Virtual WAN connection policy | [Connection policies](how-to-connection-policy.md) let you group multiple Virtual WAN virtual network connections and apply common routing configuration to them as one operation. | March 2026 | See [connection policy documentation](how-to-connection-policy.md) for known issues and limitations. |
 | Feature| Routing| Forced tunnel |Forced tunnel is generally available for secure hubs deployed with Azure Firewall (November 2025), Next-Generation Firewall NVAs (May 2026) and SaaS solutions (May 2026). Forced tunnel mode allows customers who use routing intent to first inspect internet-bound traffic via a security solution deployed in the hub and then forward inspected traffic via a dynamically learnt 0.0.0.0/0 route learnt from on-premises or Network Virtual Appliance, or a static route configured on a Virtual WAN spoke Virtual Network connection. For more information on supported internet access patterns in Virtual WAN, see [about internet routing in Virtual WAN](about-internet-routing.md)| November 2025|  See [internet routing in Virtual WAN](about-internet-routing.md) for more information regarding limitation and availability. |
 | Feature | Routing | Route-maps | General Availability of Route-maps. Route-maps is a feature that gives you the ability to control route advertisements and routing for Virtual WAN virtual hubs. | April 2025|[Known limitations](route-maps-about.md#considerations-and-limitations)| 
 | Metric| Routing | [New Virtual hub metrics](monitor-virtual-wan-reference.md#hub-router-metrics)| There are now two new  Virtual WAN hub metrics that display the virtual hub's capacity and spoke Virtual Machine (VM) utilization: **Routing Infrastructure Units** and **Spoke VM Utilization**.| August 2024 | The **Spoke VM Utilization** metric represents an approximate number of deployed spoke VMs as a percentage of the total number of spoke VMs that the hub's routing infrastructure units can support. 
@@ -34,12 +36,14 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 |Feature| Routing |[Virtual hub routing preference](about-virtual-hub-routing-preference.md)|Hub routing preference gives you more control over your infrastructure by allowing you to select how your traffic is routed when a virtual hub router learns multiple routes across S2S VPN, ER, and SD-WAN NVA connections.  |October 2022| |
 |Feature| Routing|[Bypass next hop IP for workloads within a spoke Virtual Network connected to the virtual WAN hub generally available](how-to-virtual-hub-routing.md)|Bypassing next hop IP for workloads within a spoke Virtual Network connected to the virtual WAN hub lets you deploy and access other resources in the Virtual Network with your NVA without any additional configuration.|October 2022| |
 |SKU/Feature/Validation | Routing | [BGP end point (General availability)](scenario-bgp-peering-hub.md) | The virtual hub router now exposes the ability to peer with it, exchanging routing information directly through Border Gateway Protocol (BGP) routing protocol. | June 2022 | |
-|Feature|Routing|[0.0.0.0/0 via NVA in the spoke](scenario-route-through-nvas-custom.md)|Ability to send internet traffic to an NVA in spoke for egress.|March 2021| 0.0.0.0/0 doesn't propagate across hubs.<br><br>Can't specify multiple public prefixes with different next hop IP addresses.|
+|Feature|Routing|[0.0.0.0/0 via NVA in the spoke](indirect-spoke-architecture.md)|Ability to send internet traffic to an NVA in spoke for egress.|March 2021| 0.0.0.0/0 doesn't propagate across hubs.<br><br>Can't specify multiple public prefixes with different next hop IP addresses.|
 
 ### NVAs and integrated third-party solutions
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
+| Feature| Network Virtual Appliances (NVAs)/Integrated  Third-party solutions in Virtual WAN hubs| Aruba | VMware SD-WAN rebranding to [Arista Velocloud SD-WAN](https://www.arista.com/en/admin-guide-vc-6-4/sd-wan-6-4-velocloud-sd-wan-in-azure-virtual-wan-hub-deployment). New deployments on older VMware SD-WAN will be blocked in July 2026. Existing deployments will continue to work. | May 2026 | See [Arista documentation](https://www.arista.com/en/admin-guide-vc-6-4/sd-wan-6-4-velocloud-sd-wan-in-azure-virtual-wan-hub-deployment) for more information. |
+| Feature| Network Virtual Appliances (NVAs)/Integrated  Third-party solutions in Virtual WAN hubs| Aruba | General Availability of [HPE Aruba Networking EdgeConnect SD-WAN](https://arubanetworking.hpe.com/techdocs/sdwan-PDFs/deployments/dg_ECV-Azure_latest.pdf) in the Virtual WAN hub. | April 2026| See [HPE documentation](https://arubanetworking.hpe.com/techdocs/sdwan-PDFs/deployments/dg_ECV-Azure_latest.pdf). S |
 | Feature| Network Virtual Appliances NVAs/Integrated Third-party solutions in Virtual WAN hubs|IP allocation | Capability to add additional IP addresses to both internal and external interfaces of NVAs in the Virtual WAN hub. Addresses scalability concerns related to SNAT port exhaustion. |April 2025|See [IP allocation](how-to-network-virtual-appliance-add-ip-configurations.md) documentation.|
 | Feature| Network Virtual Appliances NVAs/Integrated Third-party solutions in Virtual WAN hubs|NVA Re-image | Capability to re-image existing NVA deployment(s) to base unconfigured image pulled from Azure Marketplace. |April 2025|See [reimage](how-to-network-virtual-appliance-reimage.md) documentation.| 
 |Feature |Network Virtual Appliances (NVAs)/Integrated Third-party solutions in Virtual WAN hubs| Versa VOS|General Availability of  of [Versa VOS](https://versa-networks.com/partners/microsoft-azure/).|February 2025| See [Versa](https://versa-networks.com/partners/microsoft-azure/) documentation.|
@@ -73,6 +77,7 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 
 | Type |Area |Name |Description | Date added | Limitations |
 | --- |---|---|---|---|---|
+|Retirement|Remote User connectivity/Point-to-site VPN|[Retirement of Azure VPN Client for Linux (Preview)](azure-vpn-client-linux-retirement.md?)|The Azure VPN Client for Linux (Preview) is being retired on August 31, 2026. For more information on how to migrate to a new client for Linux, see the [Azure VPN Client for Linux (Preview) — Retirement Overview](azure-vpn-client-linux-retirement.md) article.|June 2026||
 |Feature|Remote User connectivity/Point-to-site VPN |[User Groups and IP address pools for P2S User VPNs](user-groups-about.md) |Ability to configure P2S User VPNs to assign users IP addresses from specific address pools based on their identity or authentication credentials.|May 2023| |
 |Feature|Remote User connectivity/Point-to-site VPN|[Global profile include/exclude](global-hub-profile.md#include-or-exclude-a-hub-from-a-global-profile)|Ability to mark a point-to-site gateway as "excluded", meaning users who connect to global profile won't be load-balanced to that gateway.|February 2022| |
 |Feature|Remote User connectivity/Point-to-site VPN|[Forced tunneling for P2S VPN](how-to-forced-tunnel.md)|Ability to force all traffic to Azure Virtual WAN for egress.|October 2021|Only available for Azure VPN Client version 2:1900:39.0 or newer.|
@@ -83,14 +88,6 @@ You can also find the latest Azure Virtual WAN updates and subscribe to the RSS 
 |Feature|Remote User connectivity/Point-to-site VPN|[Custom IPsec policies](point-to-site-ipsec.md)|Ability to specify connection/encryption parameters for IKEv2 point-to-site connections.|March 2021|Only supported for IKEv2- based connections.<br><br>View the [list of available parameters](point-to-site-ipsec.md). |
 |SKU|Remote User connectivity/Point-to-site VPN|[Support up to 100K users connected to a single hub](about-client-address-pools.md)|Increased maximum number of concurrent users connected to a single gateway to 100,000.|March 2021| |
 |Feature|Remote User connectivity/Point-to-site VPN|Multiple-authentication methods|Ability for a single gateway to use multiple authentication mechanisms.|June 2023|Supported for gateways running all protocol combinations. Azure AD authentication still requires the use of OpenVPN|
-
-## Preview
-
-The following features are currently in gated public preview. After working with the listed articles, you have questions or require support, reach out to the contact alias (if available) that corresponds to the feature.
-
-|Type of preview|Feature |Description|Contact alias|Limitations|
-|---|---|---|---|---|
-|Managed preview|Aruba EdgeConnect SD-WAN| Deployment of Aruba EdgeConnect SD-WAN NVA into the Virtual WAN hub| | |
 
 ## <a name="knownissues"></a>Known issues
 
@@ -109,7 +106,7 @@ The following features are currently in gated public preview. After working with
 |10 |Unable to update route tables and routing configuration (propagated route table and label)  for on-premises (VPN, ExpressRoute, NVA) connections. | When a Virtual WAN hub and its gateway(s) are in different Azure resource groups, updating routing configuration results in a "resource not found" error. | March 2025| This issue is caused by a code defect in Azure portal. Use Terraform, PowerShell, CLI or REST API to manage your Virtual WAN deployment.|
 |11| Hub won't advertise routes to VPN sites | When a customer uses Route-Maps for the first time it triggers an upgrade. After the upgrade is complete, If VPN sites aren't advertising routes to the hub, the hub won't advertise routes to the VPN sites. | December 2024 | If the VPN sites start adverting any routes to the hub, the hub will start adverting routes again.|
 |12| Virtual Hub router does not select local routes over remote. | When the same route is advertised from on-premises to Azure to multiple Virtual WAN hubs, the local Virtual WAN hub may experience a race condition where a route learnt from a remote hub may be selected over a route learnt from a local on-premises site. This happens in scenarios where the local route's AS-PATH length is 2 or more AS-PATH lengths **longer** than that of the remote hub. For example, the race condition is triggered when the local VPN route has AS-PATH length 4 and the remote VPN route has AS-PATH length 2.| | Ensure the difference in AS-PATH length between local and remote routes is at most 1. In the example provided in the description of this known issue, you can increase the AS-PATH length of the remote VPN route, or decrease the length of the local VPN route by modifying on-premises AS-PATH pre-pending or applying [route maps](route-maps-about.md).   |
-|13|Incomplete activity log and resource change history| Certian operations on certain Virtual WAN hub and connected Virtual Networks are not properly tracked by Azure Resource Manager, resulting in incomplete activity log and resource change history (change analysis). ||None|
+|13|Incomplete activity log and resource change history| Certain operations on certain Virtual WAN hub and connected Virtual Networks are not properly tracked by Azure Resource Manager, resulting in incomplete activity log and resource change history (change analysis). ||None|
 
 ## Next steps
 

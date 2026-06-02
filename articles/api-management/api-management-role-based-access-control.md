@@ -51,7 +51,7 @@ A workspace collaborator must be assigned both a workspace-scoped role and a ser
 | API Management Service Workspace API Developer    | service    |   Has read access to tags and products and write access to allow: <br/><br/> ▪️ Assigning  APIs to products<br/> ▪️ Assigning tags to products and APIs<br/><br/> This role should be assigned on the service scope. |
 |  API Management Service Workspace API Product Manager  | service    | Has the same access as API Management Service Workspace API Developer as well as read access to users and write access to allow assigning users to groups. This role should be assigned on the service scope.      |
 
-Depending on how workspace collaborators use or manage the workspace, we recommend also assigning one of the following Azure-provided RBAC roles at the scope of the [workspace gateway](workspaces-overview.md#workspace-gateway): **Reader**, **Contributor**, or **Owner**.
+If the workspace is associated with a workspace gateway resource, we recommend also assigning one of the following Azure-provided RBAC roles at the scope of the [workspace gateway](workspaces-overview.md#workspace-gateway): **Reader**, **Contributor**, or **Owner**.
 
 ## Built-in developer portal roles
 
@@ -90,7 +90,7 @@ New-AzRoleDefinition -Role $role
 New-AzRoleAssignment -ObjectId <object ID of the user account> -RoleDefinitionName 'Calculator API Contributor' -Scope '/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.ApiManagement/service/<APIM service instance name>/apis/<API name>'
 ```
 
-The [Azure Resource Manager resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement) article contains the list of permissions that can be granted on the API Management level.
+The [Azure Resource Manager resource provider operations](../role-based-access-control/permissions/integration.md#microsoftapimanagement) article contains the list of permissions that can be granted on the API Management level.
 
 ## Related content
 
@@ -98,4 +98,4 @@ To learn more about role-based access control in Azure, see the following articl
   * [Get started with access management in the Azure portal](../role-based-access-control/overview.md)
   * [Assign Azure roles to manage access to your Azure subscription resources](/azure/role-based-access-control/role-assignments-portal)
   * [Custom roles in Azure RBAC](../role-based-access-control/custom-roles.md)
-  * [Azure Resource Manager resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement)
+  * [Azure Resource Manager resource provider operations](../role-based-access-control/permissions/integration.md#microsoftapimanagement)

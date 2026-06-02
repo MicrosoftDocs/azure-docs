@@ -70,7 +70,7 @@ Try out configuring the Durable Task SDKs for your container app by using the fo
 
 ### Durable Functions 
 
-As a feature of Azure Functions, [Durable Functions](../azure-functions/durable-functions/durable-functions-overview.md) inherits many of its characteristics as a code-oriented workflow framework offering in Azure. For example, with Durable Functions, you benefit from:
+As a feature of Azure Functions, [Durable Functions](../durable-task/durable-functions/durable-functions-overview.md) inherits many of its characteristics as a code-oriented workflow framework offering in Azure. For example, with Durable Functions, you benefit from:
 - Integrations with other Azure services through Azure Functions [triggers and bindings](../azure-functions/functions-triggers-bindings.md)
 - Local development experience
 - Serverless pricing model 

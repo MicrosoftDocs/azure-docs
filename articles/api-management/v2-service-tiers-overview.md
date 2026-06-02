@@ -25,7 +25,7 @@ The following v2 tiers are generally available:
 
 * **Standard v2** - Standard v2 is a production-ready tier with support for network-isolated backends.
 
-* **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation, scaling for high volume workloads, availability zones, and workspaces. [Read the blog post](https://techcommunity.microsoft.com/blog/integrationsonazureblog/announcing-the-general-availability-ga-of-the-premium-v2-tier-of-azure-api-manag/4471499) announcing general availability.
+* **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation, scaling for high volume workloads, and availability zones. [Read the blog post](https://techcommunity.microsoft.com/blog/integrationsonazureblog/announcing-the-general-availability-ga-of-the-premium-v2-tier-of-azure-api-manag/4471499) announcing general availability.
 
 ## Key capabilities
 
@@ -33,7 +33,7 @@ The following v2 tiers are generally available:
 
 * **Simplified networking** - The Standard v2 and Premium v2 tiers provide [networking options](#networking-options) to isolate API Management's inbound and outbound traffic.
 
-* **More options for production workloads** - The v2 tiers all come with an SLA. 
+* **More options for production workloads** - The v2 tiers all come with an SLA and support [workspaces](workspaces-overview.md) for delegation of API management across teams. 
 
 * **Developer portal options** - Enable the [developer portal](api-management-howto-developer-portal.md) when you're ready to let API consumers discover your APIs. 
 
