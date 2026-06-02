@@ -70,6 +70,10 @@
       items:
       - name: Register and discover skills
         href: register-discover-skills.md
+    - name: Plugins
+      items:
+      - name: Register and discover plugins
+        href: register-discover-plugins.md
     - name: Integrate API sources
       items:
       - name: Synchronize assets from API Management
