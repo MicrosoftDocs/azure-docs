@@ -80,6 +80,7 @@ symbolic to represent new minor versions of Linux distributions. To view support
 | SUSE      | SUSE Linux Enterprise Server | 12 SP5, 15.x    |
 
 \* Red Hat CoreOS isn't supported.
+\* \* Arm64 architecture isn't supported on Azure VMs.
 
 Machine configuration policy definitions support custom virtual machine images as long as they're
 one of the operating systems in the previous table. Machine Configuration doesn't support VMSS 
