@@ -18,7 +18,7 @@ Review the [v1 to v2 transition guide](concept-v1-to-v2-transition-guide.md) bef
 
 ## Prerequisites
 
-- An active [Azure subscription](https://aka.ms/discovery/publicpreviewportal) enabled for Microsoft Discovery Public Preview.
+- An active [Azure subscription](https://portal.azure.com) enabled for Microsoft Discovery Public Preview.
 - **Microsoft Discovery Platform Administrator (Preview)** role or **Owner** role on your resource group.
 - Completed v1 resource configuration collection. For detailed steps, see [Collect Microsoft Discovery v1 resource configurations](how-to-collect-v1-configurations.md).
 - Azure CLI installed with the latest version. See [Install the Azure CLI](/cli/azure/install-azure-cli).
@@ -40,7 +40,7 @@ Create the v2 infrastructure resources that host your recreated tools, agents, a
 
 v1 tools can't be retained in v2. You must recreate each tool as a new v2 Azure Resource Manager (ARM) resource. The JSON-based tool definition format from v1 is still accepted for v2 tool resources, so you can reuse your exported definitions.
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, enter **Microsoft Discovery Tools** and select the service.
 1. Select **+ Create** to create a new tool resource.
 1. On the **Basics** tab, specify:
@@ -63,7 +63,7 @@ Bookshelf is an independent Azure Resource Manager (ARM) resource, not scoped to
 
 ### Create the bookshelf resource
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, enter **Microsoft Discovery Bookshelves** and select the service.
 1. Select **+ Create** to create a new bookshelf resource.
 1. Create a new bookshelf with the same name and configuration as your v1 bookshelf.

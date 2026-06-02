@@ -18,7 +18,7 @@ Review the [v1 to v2 transition guide](concept-v1-to-v2-transition-guide.md) bef
 
 ## Prerequisites
 
-- An active [Azure subscription](https://aka.ms/discovery/publicpreviewportal) enabled for Microsoft Discovery Public Preview.
+- An active [Azure subscription](https://portal.azure.com) enabled for Microsoft Discovery Public Preview.
 - **Microsoft Discovery Platform Administrator (Preview)** role or **Owner** role on your resource group.
 - Access to your existing v1 Microsoft Discovery workspace, project, and resources.
 - Azure CLI installed with the latest version. See [Install the Azure CLI](/cli/azure/install-azure-cli).
@@ -27,7 +27,7 @@ Review the [v1 to v2 transition guide](concept-v1-to-v2-transition-guide.md) bef
 
 Data Containers and Data Assets are deprecated in v2. They're replaced by Storage Containers and Storage Assets respectively. Because other resources such as bookshelves and projects depend on storage data, collect this information first.
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Identify all v1 Data Container resources in your resource group.
 1. For each Data Container, record:
 
@@ -48,7 +48,7 @@ Data Containers and Data Assets are deprecated in v2. They're replaced by Storag
 
 Tools extend agent capabilities with domain-specific scientific operations. Before you create v2 resources, export your v1 tool definitions to preserve their configurations.
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, enter **Microsoft Discovery Tools** and select the service.
 1. Locate your v1 tool resources.
 1. For each tool, record the following configuration details:
