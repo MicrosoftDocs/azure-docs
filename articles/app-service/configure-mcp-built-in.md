@@ -11,7 +11,7 @@ ms.custom:
   - build-2026
 ---
 
-# Configure App Service built-in MCP (Preview)
+# Configure App Service built-in MCP (preview)
 
 App Service built-in MCP turns an existing REST API hosted on Azure App Service into a [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) server without writing or deploying any MCP code. The platform reads an OpenAPI specification you provide and generates an MCP tool for each operation. It then serves the MCP endpoint over [streamable HTTP](https://modelcontextprotocol.io/specification/2025-06-18/basic/transports#streamable-http) on a path you choose.
 
