@@ -114,6 +114,14 @@ To use AI-assisted search when signed in to the API Center portal, select the se
 
 On the **Metadata** tab, optionally select [custom metadata](metadata.md) properties that you want to expose in API details and semantic search.
 
+### Contributions
+
+On the **Contribution** tab, optionally enter a Git repo URL to enable visitors to share their own assets by using the repo. For example, visitors can browse the repo, or submit PRs to add or update plugins, agents, or skills. 
+
+After you enter a Git repo URL, the portal displays a **Contribute** button on the home page. Visitors can select this button to open the repo in a new browser tab.
+
+:::image type="content" source="media/set-up-api-center-portal/contribute-assets.png" alt-text="Screenshot of the Contribute button in the API Center portal."::: 
+
 ## Enable access to test console for APIs
 
 You can configure user settings to granularly authorize access to APIs and specific versions in your API center. For example, configure certain API versions to use API keys for authentication, and create an access policy that permits specific users to authenticate by using those keys. 
