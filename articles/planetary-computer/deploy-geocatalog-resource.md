@@ -167,14 +167,14 @@ ResourceGroupResource resourceGroup = client.GetResourceGroupResource(
     ResourceGroupResource.CreateResourceIdentifier(subscriptionId, resourceGroupName));
 
 // Get the GeoCatalogs collection
-var geoCatalogs = resourceGroup.GetGeoCatalogs();
+var geoCatalogs = resourceGroup.GetPlanetaryComputerGeoCatalogs();
 
 // Define the GeoCatalog resource
-var catalogData = new GeoCatalogData(new AzureLocation(location))
+var catalogData = new PlanetaryComputerGeoCatalogData(new AzureLocation(location))
 {
-    Properties = new GeoCatalogProperties
+    Properties = new PlanetaryComputerGeoCatalogProperties
     {
-        Tier = GeoCatalogTier.Basic
+        Tier = PlanetaryComputerGeoCatalogTier.Basic
     }
 };
 
@@ -282,7 +282,7 @@ const credential = new DefaultAzureCredential();
 const client = new SpatioClient(credential, subscriptionId);
 
 async function deployGeoCatalog() {
-  const poller = await client.geoCatalogs.beginCreate(
+  const catalog = await client.geoCatalogs.create(
     resourceGroupName,
     catalogName,
     {
@@ -293,7 +293,6 @@ async function deployGeoCatalog() {
     }
   );
 
-  const catalog = await poller.pollUntilDone();
   console.log(`GeoCatalog '${catalog.name}' deployed successfully.`);
 }
 
@@ -317,7 +316,7 @@ For more information, see the [JavaScript SDK reference](/javascript/api/@azure/
 
 ### Prerequisites
 
-- Python 3.8 or later
+- Python 3.10 or later
 - Install the SDK packages:
 
    ```bash
@@ -408,7 +407,7 @@ func main() {
 		armplanetarycomputer.GeoCatalog{
 			Location: to.Ptr("northcentralus"),
 			Properties: &armplanetarycomputer.GeoCatalogProperties{
-				Tier: to.Ptr(armplanetarycomputer.CatalogTierBASIC),
+				Tier: to.Ptr(armplanetarycomputer.CatalogTierBasic),
 			},
 		}, nil)
 	if err != nil {

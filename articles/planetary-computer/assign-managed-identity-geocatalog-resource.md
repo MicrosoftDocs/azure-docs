@@ -162,6 +162,7 @@ az rest --method PUT \
 using Azure.Identity;
 using Azure.ResourceManager;
 using Azure.ResourceManager.PlanetaryComputer;
+using Azure.ResourceManager.PlanetaryComputer.Models;
 using Azure.ResourceManager.Models;
 using Azure.Core;
 
@@ -171,22 +172,17 @@ string subscriptionId = "<your-subscription-id>";
 string resourceGroupName = "<your-resource-group>";
 string catalogName = "<your-geocatalog-name>";
 string identityName = "<your-identity-name>";
-string location = "<your-location>";
 
-var geoCatalogResourceId = GeoCatalogResource.CreateResourceIdentifier(
+var geoCatalogResourceId = PlanetaryComputerGeoCatalogResource.CreateResourceIdentifier(
     subscriptionId, resourceGroupName, catalogName);
-var geoCatalog = client.GetGeoCatalogResource(geoCatalogResourceId);
+var geoCatalog = client.GetPlanetaryComputerGeoCatalogResource(geoCatalogResourceId);
 
 string userAssignedIdentityId =
     $"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}" +
     $"/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}";
 
-var catalogData = new GeoCatalogData(new AzureLocation(location))
+var patch = new PlanetaryComputerGeoCatalogPatch
 {
-    Properties = new GeoCatalogProperties
-    {
-        Tier = GeoCatalogTier.Basic
-    },
     Identity = new ManagedServiceIdentity(ManagedServiceIdentityType.UserAssigned)
     {
         UserAssignedIdentities =
@@ -196,7 +192,7 @@ var catalogData = new GeoCatalogData(new AzureLocation(location))
     }
 };
 
-var operation = await geoCatalog.UpdateAsync(Azure.WaitUntil.Completed, catalogData);
+var operation = await geoCatalog.UpdateAsync(Azure.WaitUntil.Completed, patch);
 Console.WriteLine("Managed identity assigned successfully.");
 ```
 
@@ -250,7 +246,6 @@ const subscriptionId = "<your-subscription-id>";
 const resourceGroupName = "<your-resource-group>";
 const catalogName = "<your-geocatalog-name>";
 const identityName = "<your-identity-name>";
-const location = "<your-location>";
 
 const credential = new DefaultAzureCredential();
 const client = new SpatioClient(credential, subscriptionId);
@@ -259,12 +254,10 @@ const userAssignedIdentityId =
   `/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}` +
   `/providers/Microsoft.ManagedIdentity/userAssignedIdentities/${identityName}`;
 
-const poller = await client.geoCatalogs.beginCreate(
+const result = await client.geoCatalogs.update(
   resourceGroupName,
   catalogName,
   {
-    location: location,
-    properties: { tier: "Basic" },
     identity: {
       type: "UserAssigned",
       userAssignedIdentities: {
@@ -274,7 +267,6 @@ const poller = await client.geoCatalogs.beginCreate(
   }
 );
 
-await poller.pollUntilDone();
 console.log("Managed identity assigned successfully.");
 ```
 
@@ -287,8 +279,7 @@ For more information, see the [JavaScript SDK reference](/javascript/api/@azure/
 from azure.identity import DefaultAzureCredential
 from azure.mgmt.planetarycomputer import PlanetaryComputerMgmtClient
 from azure.mgmt.planetarycomputer.models import (
-    GeoCatalog,
-    GeoCatalogProperties,
+    GeoCatalogUpdate,
     ManagedServiceIdentity,
     UserAssignedIdentity,
 )
@@ -297,7 +288,6 @@ subscription_id = "<your-subscription-id>"
 resource_group = "<your-resource-group>"
 catalog_name = "<your-geocatalog-name>"
 identity_name = "<your-identity-name>"
-location = "<your-location>"
 
 credential = DefaultAzureCredential()
 client = PlanetaryComputerMgmtClient(credential=credential, subscription_id=subscription_id)
@@ -307,12 +297,10 @@ user_assigned_identity_id = (
     f"/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity_name}"
 )
 
-client.geo_catalogs.begin_create(
+client.geo_catalogs.begin_update(
     resource_group_name=resource_group,
     catalog_name=catalog_name,
-    resource=GeoCatalog(
-        location=location,
-        properties=GeoCatalogProperties(tier="Basic"),
+    properties=GeoCatalogUpdate(
         identity=ManagedServiceIdentity(
             type="UserAssigned",
             user_assigned_identities={user_assigned_identity_id: UserAssignedIdentity()},
@@ -346,7 +334,6 @@ func main() {
 	resourceGroup := "<your-resource-group>"
 	catalogName := "<your-geocatalog-name>"
 	identityName := "<your-identity-name>"
-	location := "<your-location>"
 
 	userAssignedIdentityID := fmt.Sprintf(
 		"/subscriptions/%s/resourceGroups/%s/providers/Microsoft.ManagedIdentity/userAssignedIdentities/%s",
@@ -364,15 +351,11 @@ func main() {
 
 	client := clientFactory.NewGeoCatalogsClient()
 
-	poller, err := client.BeginCreate(context.Background(),
+	poller, err := client.BeginUpdate(context.Background(),
 		resourceGroup, catalogName,
-		armplanetarycomputer.GeoCatalog{
-			Location: to.Ptr(location),
-			Properties: &armplanetarycomputer.GeoCatalogProperties{
-				Tier: to.Ptr(armplanetarycomputer.CatalogTierBASIC),
-			},
+		armplanetarycomputer.GeoCatalogUpdate{
 			Identity: &armplanetarycomputer.ManagedServiceIdentity{
-				Type: to.Ptr(armplanetarycomputer.ManagedServiceIdentityTypeUSERASSIGNED),
+				Type: to.Ptr(armplanetarycomputer.ManagedServiceIdentityTypeUserAssigned),
 				UserAssignedIdentities: map[string]*armplanetarycomputer.UserAssignedIdentity{
 					userAssignedIdentityID: {},
 				},

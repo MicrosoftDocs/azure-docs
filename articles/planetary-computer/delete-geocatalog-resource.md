@@ -91,9 +91,9 @@ string subscriptionId = "<your-subscription-id>";
 string resourceGroupName = "<your-resource-group>";
 string catalogName = "<your-geocatalog-name>";
 
-var geoCatalogResourceId = GeoCatalogResource.CreateResourceIdentifier(
+var geoCatalogResourceId = PlanetaryComputerGeoCatalogResource.CreateResourceIdentifier(
     subscriptionId, resourceGroupName, catalogName);
-var geoCatalog = client.GetGeoCatalogResource(geoCatalogResourceId);
+var geoCatalog = client.GetPlanetaryComputerGeoCatalogResource(geoCatalogResourceId);
 
 var operation = await geoCatalog.DeleteAsync(Azure.WaitUntil.Completed);
 Console.WriteLine("GeoCatalog deleted successfully.");
@@ -149,11 +149,10 @@ import { DefaultAzureCredential } from "@azure/identity";
 const credential = new DefaultAzureCredential();
 const client = new SpatioClient(credential, "<your-subscription-id>");
 
-const poller = await client.geoCatalogs.beginDelete(
+const result = await client.geoCatalogs.delete(
   "<your-resource-group>",
   "<your-geocatalog-name>"
 );
-await poller.pollUntilDone();
 console.log("GeoCatalog deleted successfully.");
 ```
 

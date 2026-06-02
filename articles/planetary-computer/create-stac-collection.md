@@ -240,7 +240,8 @@ client = PlanetaryComputerProClient(
 )
 
 # 'collection' is the STAC collection dict defined in the previous section
-result = client.stac.create_collection(collection)
+poller = client.stac.begin_create_collection(body=collection)
+result = poller.result()  # Wait for completion
 print(result)
 ```
 
@@ -277,7 +278,7 @@ geocatalog_collection = client.stac.get_collection(collection["id"])
         "cql": [],
     }
 
-    client.stac.create_mosaic(collection["id"], mosaic)
+    client.stac.add_mosaic(collection["id"], mosaic)
     ```
 
 3. Define tile settings:
@@ -288,20 +289,21 @@ geocatalog_collection = client.stac.get_collection(collection["id"])
         "maxItemsPerTile": 35,
     }
 
-    client.stac.update_tile_settings(collection["id"], tile_settings)
+    client.stac.replace_tile_settings(collection["id"], tile_settings)
     ```
 
 ## Update a collection
 
 ```python
-collection["description"] += " (Updated)"
-client.stac.update_collection(collection["id"], collection)
+collection.description += " (Updated)"
+client.stac.replace_collection(collection_id=collection.id, body=collection)
 ```
 
 ## Clean up resources
 
 ```python
-client.stac.delete_collection(collection["id"])
+poller = client.stac.begin_delete_collection(collection.id)
+poller.result()  # Wait for deletion to complete
 ```
 
 > [!WARNING]

@@ -358,7 +358,7 @@ This section outlines how to configure authentication and data access in the Arc
 
 ## Prepare and record GeoCatalog information
 
-### GeoCatalog URI, collection name, and token API endpoint
+### GeoCatalog URI, collection ID, and token API endpoint
 
 1. Create a Microsoft Planetary Computer Pro GeoCatalog in your Azure subscription (for example, **arcgisprogeocatalog**), and locate it in the appropriate resource group.
 
@@ -374,9 +374,9 @@ This section outlines how to configure authentication and data access in the Arc
 
    :::image type="content" source="media/media-processing-center-pro-collections.png" alt-text="Screenshot that shows the web interface for Microsoft Planetary Computer Pro." lightbox="media/media-processing-center-pro-collections.png":::
 
-1. Record the value in **Collection Name**. For example, `sentinel-2-l2a-tutorial-1000`.
+1. Record the value in **Collection Name**. This value is the collection ID. For example, `sentinel-2-l2a-tutorial-1000`.
 
-1. Construct the token API endpoint by using this pattern: ```<GeoCatalog URI>/sas/token/<Collection Name>?api-version=2026-04-15```. For example: ```https://arcgisprogeocatalog.<unique-identity>.<cloud-region>.geocatalog.spatio.azure.com/sas/token/sentinel-2-l2a-tutorial-1000?api-version=2026-04-15```.
+1. Construct the token API endpoint by using this pattern: ```<GeoCatalog URI>/sas/token/{collectionId}?api-version=2026-04-15```. For example: ```https://arcgisprogeocatalog.<unique-identity>.<cloud-region>.geocatalog.spatio.azure.com/sas/token/sentinel-2-l2a-tutorial-1000?api-version=2026-04-15```.
 
 ### Find and record the storage location
 

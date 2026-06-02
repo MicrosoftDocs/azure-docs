@@ -134,7 +134,7 @@ Or search:
 search_response = requests.get(
     f"{geocatalog_url}/stac/search",
     headers={"Authorization": f"Bearer {token.token}"},
-    params={"api-version": "2026-04-15", "collection": collection_id},
+    params={"api-version": "2026-04-15", "collections": collection_id},
 )
 #print(search_response.json())
 ```
@@ -175,8 +175,9 @@ client = PlanetaryComputerProClient(
 )
 
 # 'item_collection' is the STAC ItemCollection dict prepared in the previous section
-result = client.stac.create_items(collection_id, item_collection)
-print(result)
+poller = client.stac.begin_create_item(collection_id, item_collection)
+poller.result()
+print("Items ingested successfully.")
 ```
 
 Planetary Computer Pro asynchronously ingests the items into your GeoCatalog. Poll the returned operation to monitor the status of the ingestion workflow.
@@ -184,21 +185,22 @@ Planetary Computer Pro asynchronously ingests the items into your GeoCatalog. Po
 ## Get items from a collection
 
 ```python
-items = client.stac.get_items(collection_id)
-print(f"Found {len(items['features'])} items")
+item_collection = client.stac.get_item_collection(collection_id)
+print(f"Found {len(item_collection.features)} items")
 ```
 
 ## Search for items
 
 ```python
-search_results = client.stac.search(collections=[collection_id])
+search_results = client.stac.search(body={"collections": [collection_id]})
 ```
 
 ## Delete an item from a collection
 
 ```python
-item_id = item_collection["features"][0]["id"]
-client.stac.delete_item(collection_id, item_id)
+item_id = item_collection.features[0].id
+poller = client.stac.begin_delete_item(collection_id=collection_id, item_id=item_id)
+poller.result()  # Wait for deletion to complete
 ```
 
 For more information, see the [Python SDK reference](/python/api/azure-planetarycomputer).

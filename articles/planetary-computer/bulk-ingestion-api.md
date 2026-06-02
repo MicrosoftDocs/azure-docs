@@ -386,7 +386,7 @@ sas_token = azure.storage.blob.generate_container_sas(
 
 # Create the ingestion source
 ingestion_source = client.ingestion.create_source({
-    "Kind": "SasToken",
+    "kind": "SasToken",
     "connectionInfo": {
         "containerUrl": CONTAINER_URI,
         "sasToken": sas_token,
