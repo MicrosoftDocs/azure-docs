@@ -21,19 +21,31 @@ This article describes the least privileged built-in Azure roles or RBAC actions
 
 You must assign a role to any security principal in your organization that needs access to the storage task. To learn how to assign an Azure role, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
-While the **Contributor** role provides all of the permissions necessary to manage a storage task, the least privileged built-in role is the **Storage Actions Contributor** role.
+While the Contributor role provides all of the permissions necessary to manage a storage task, the least privileged built-in role is the Storage Actions Contributor role. The Storage Actions Contributor role is purpose-built for authoring and managing storage tasks: it grants exactly the control-plane permissions Storage Actions needs to create, read, update, delete, list, and preview storage tasks, without granting any data-plane access to your storage accounts.
 
- If you prefer to use a custom role, make sure that your role contains all of the necessary RBAC actions. Use the following table as a guide.
+The **Storage Actions Contributor** role grants the following permissions:
+
+| Permission | RBAC actions |
+| --- | --- |
+| List and read storage tasks | `Microsoft.StorageActions/storageTasks/read` |
+| Create and update storage tasks | `Microsoft.StorageActions/storageTasks/write` |
+| Delete storage tasks | `Microsoft.StorageActions/storageTasks/delete` |
+| List storage task assignments for a task | `Microsoft.StorageActions/storageTasks/storageTaskAssignments/read` |
+| List storage task run reports | `Microsoft.StorageActions/storageTasks/reports/read` |
+| Preview storage task conditions | `Microsoft.StorageActions/locations/previewActions/action` |
+| Read role assignments, alerts, deployments, and resource groups | `Microsoft.Authorization/*/read`, `Microsoft.Insights/alertRules/*`, `Microsoft.Resources/deployments/*`, `Microsoft.Resources/subscriptions/resourceGroups/read` |
+
+If you prefer to use a custom role, make sure that your role contains all of the necessary RBAC actions. Use the following table as a guide.
 
 | Permission level | RBAC actions for custom roles |
-|--|--|--|
-| List and read storage tasks | Microsoft.StorageActions/storageTasks/read |
-| Create and update storage tasks | Microsoft.StorageActions/storageTasks/write |
-| Delete storage tasks | Microsoft.StorageActions/storageTasks/delete |
-| List storage task assignments | Microsoft.StorageActions/storageTasks/storageTaskAssignments/read |
-| List storage task run reports | Microsoft.StorageActions/storageTasks/reports/read |
-| Preview storage task conditions | Microsoft.StorageActions/locations/previewActions/action |
-| Move a storage task to another resource group | Microsoft.Resources/subscriptions/resourceGroups/moveResources/action<br>Microsoft.Resources/subscriptions/resourceGroups/write |
+| --- | --- |
+| List and read storage tasks | `Microsoft.StorageActions/storageTasks/read` |
+| Create and update storage tasks | `Microsoft.StorageActions/storageTasks/write` |
+| Delete storage tasks | `Microsoft.StorageActions/storageTasks/delete` |
+| List storage task assignments | `Microsoft.StorageActions/storageTasks/storageTaskAssignments/read` |
+| List storage task run reports | `Microsoft.StorageActions/storageTasks/reports/read` |
+| Preview storage task conditions | `Microsoft.StorageActions/locations/previewActions/action` |
+| Move a storage task to another resource group | `Microsoft.Resources/subscriptions/resourceGroups/moveResources/action`, `Microsoft.Resources/subscriptions/resourceGroups/write` |
 
 ## See also
 
