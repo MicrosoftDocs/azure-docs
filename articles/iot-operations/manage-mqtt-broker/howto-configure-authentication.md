@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
-ms.date: 05/20/2026
+ms.date: 05/26/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -1324,7 +1324,7 @@ MQTT v5 clients authenticated with SATs and custom authentication can reauthenti
 
 Clients can reauthenticate by sending an MQTT v5 AUTH packet with reason `ReAuth`.
 
-SAT clients send an AUTH client with the fields `method: K8S-SAT` and `data: <token>`. Custom authentication clients set the method and data field as required by the custom authentication server.
+SAT clients send an AUTH packet with the fields `method: K8S-SAT` and `data: <token>`. Custom authentication clients set the method and data field as required by the custom authentication server.
 
 Successful reauthentication updates the client's credential expiry with the expiry time of its new credential. The broker responds with a `Success` AUTH packet. Failed authentication because of transient issues, such as the custom authentication server being unavailable, causes the broker to respond with a `ContinueAuthentication` AUTH packet. The client can try again later. Other authentication failures cause the broker to send a DISCONNECT packet and close the client's network connection.
 
