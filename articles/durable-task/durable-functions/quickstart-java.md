@@ -10,6 +10,7 @@ ms.date: 05/20/2026
 ms.reviewer: azfuncdf
 ms.devlang: java
 ms.custom: devx-track-extended-java
+zone_pivot_groups: create-java-durable-options
 ---
 
 # Quickstart: Create a Java Durable Functions app

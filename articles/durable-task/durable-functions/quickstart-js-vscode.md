@@ -11,6 +11,7 @@ ms.reviewer: azfuncdf, antchu
 ms.devlang: javascript
 ms.custom:
   - devx-track-js
+zone_pivot_groups: functions-nodejs-model
 ---
 
 # Quickstart: Create a JavaScript Durable Functions app
@@ -24,7 +25,6 @@ In this article:
 - [Install the npm package](#install-the-durable-functions-npm-package)
 - [Create your functions](#create-your-functions) — Orchestrator, activity, and HTTP starter
 - [Test the function locally](#test-the-function-locally)
-- [Test your function in Azure](#test-your-function-in-azure)
 
 [!INCLUDE [functions-nodejs-model-pivot-description](../../../includes/functions-nodejs-model-pivot-description.md)]
 
@@ -33,7 +33,7 @@ In this article:
 ## Prerequisites
 
 - [Node.js 18+](https://nodejs.org/) installed.
-- [Azure Functions Core Tools](../functions-run-local.md) v4 or later.
+- [Azure Functions Core Tools](../../azure-functions/functions-run-local.md) v4 or later.
 - [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator and Azurite.
 - Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
 
@@ -347,6 +347,8 @@ The emulator connection string is set in `local.settings.json`:
   }
 }
 ```
+
+::: zone-end
 
 ## Clean up resources
 

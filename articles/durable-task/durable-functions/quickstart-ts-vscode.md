@@ -10,6 +10,7 @@ ms.date: 05/20/2026
 ms.reviewer: azfuncdf
 ms.devlang: typescript
 ms.custom: devx-track-ts
+zone_pivot_groups: functions-nodejs-model
 ---
 
 # Quickstart: Create a TypeScript Durable Functions app
@@ -28,7 +29,7 @@ In this quickstart, you use the [Azure Functions extension](https://marketplace.
 ## Prerequisites
 
 - [Node.js 20+](https://nodejs.org/) installed.
-- [Azure Functions Core Tools](../functions-run-local.md) v4 or later.
+- [Azure Functions Core Tools](../../azure-functions/functions-run-local.md) v4 or later.
 - [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator and Azurite.
 - Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
 
@@ -320,6 +321,8 @@ The emulator connection string is set in `local.settings.json`:
   }
 }
 ```
+
+::: zone-end
 
 ## Clean up resources
 

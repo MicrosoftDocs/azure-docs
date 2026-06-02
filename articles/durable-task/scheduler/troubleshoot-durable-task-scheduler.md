@@ -35,7 +35,7 @@ When your app isn't running as expected, verify the following:
 
 ### Local development
 
-1. Check the connection string, which should have this format: `Endpoint=http://localhost:<port number>;Authentication=None`. Ensure the port number is the one mapped to `8080` on the [container running the durable task scheduler emulator](./quickstart-durable-task-scheduler.md#set-up-the-durable-task-scheduler-emulator). 
+1. Check the connection string, which should have this format: `Endpoint=http://localhost:<port number>;Authentication=None`. Ensure the port number is the one mapped to `8080` on the [container running the durable task scheduler emulator](./develop-with-durable-task-scheduler.md#durable-task-scheduler-emulator). 
 
 1. Along with the durable task scheduler emulator, make sure [the Azure Storage emulator, Azurite, is started](./quickstart-durable-task-scheduler.md#run-the-quickstart-sample). Azurite is needed for components of the app related to Functions. 
 
