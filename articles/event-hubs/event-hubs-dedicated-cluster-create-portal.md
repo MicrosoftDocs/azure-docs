@@ -21,7 +21,7 @@ Dedicated clusters are provisioned and billed by **capacity units (CUs)**, a pre
 ## Prerequisites
 To complete this quickstart, make sure that you have:
 
-- An Azure account. If you don't have one, [purchase an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) before you begin. This feature isn't supported with a free Azure account. 
+- An Azure account. If you don't have one, [purchase an account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin. This feature isn't supported with a free Azure account. 
 - [Visual Studio](https://visualstudio.microsoft.com/vs/) 2017 Update 3 (version 15.3, 26730.01) or later.
 - [.NET Standard SDK](https://dotnet.microsoft.com/download), version 2.0 or later.
 - [Created a resource group](../event-hubs/event-hubs-create.md#create-a-resource-group).

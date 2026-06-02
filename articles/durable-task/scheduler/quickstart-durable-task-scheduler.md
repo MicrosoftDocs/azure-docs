@@ -26,60 +26,27 @@ Use the [Durable Task Scheduler](./durable-task-scheduler.md) as a backend for y
 
 ::: zone pivot="csharp"
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or later.
+   - [Create a Durable Functions app - C#](../durable-functions/durable-functions-isolated-create-first-csharp.md)
 
 ::: zone-end
 
 <!-- markdownlint-disable-next-line MD044 -->
 ::: zone pivot="javascript"
 
-- [Node.js 18+](https://nodejs.org/) installed.
+   - [Create a Durable Functions app - JavaScript](../durable-functions/quickstart-js-vscode.md)
 
 ::: zone-end
 
 ::: zone pivot="python"
 
-- [Python 3.9+](https://www.python.org/downloads/) installed.
-
-::: zone-end
-
-::: zone pivot="java"
-
-- [Java 11+](https://adoptium.net/) (JDK) installed.
-- [Apache Maven](https://maven.apache.org/download.cgi) 3.0 or later.
+   - [Create a Durable Functions app - Python](../durable-functions/quickstart-python-vscode.md)
 
 ::: zone-end
 
 <!-- markdownlint-disable-next-line MD044 -->
 ::: zone pivot="powershell"
 
-- [PowerShell 7.4+](/powershell/scripting/install/installing-powershell) installed.
-
-::: zone-end
-
-::: zone pivot="csharp,javascript,python,java,powershell"
-
-- [Azure Functions Core Tools](../../azure-functions/functions-run-local.md) v4 or later.
-- [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator.
-- Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
-
-## Set up the Durable Task Scheduler emulator
-
-The [Durable Task Scheduler emulator](./develop-with-durable-task-scheduler.md#durable-task-scheduler-emulator) provides a local development environment so you can test orchestrations without an Azure subscription.
-
-::: zone-end
-
-::: zone pivot="java,powershell"
-
-The Java and PowerShell Functions hosts also require [Azurite](../../storage/common/storage-use-azurite.md) for local storage. Start both containers:
-
-```bash
-docker run -d --name dtsemulator -p 8080:8080 -p 8082:8082 \
-  mcr.microsoft.com/dts/dts-emulator:latest
-
-docker run -d --name azurite -p 10000:10000 -p 10001:10001 -p 10002:10002 \
-  mcr.microsoft.com/azure-storage/azurite
-```
+   - [Create a Durable Functions app - PowerShell](../durable-functions/quickstart-powershell-vscode.md)
 
 ::: zone-end
 
@@ -87,10 +54,7 @@ docker run -d --name azurite -p 10000:10000 -p 10001:10001 -p 10002:10002 \
 
 Pull and start the emulator container:
 
-```bash
-docker run -d --name dtsemulator -p 8080:8080 -p 8082:8082 \
-  mcr.microsoft.com/dts/dts-emulator:latest
-```
+   - [Create a Durable Functions app - Java](../durable-functions/quickstart-java.md)
 
 ::: zone-end
 
@@ -105,98 +69,21 @@ docker run -d --name dtsemulator -p 8080:8080 -p 8082:8082 \
 
 ::: zone pivot="csharp"
 
-1. Navigate to the sample directory:
+Install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) package by using the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command:
 
    ```bash
-   cd samples/durable-functions/dotnet/HelloCities
+   dotnet add package Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged --prerelease
    ```
 
-1. Build and run:
-
-   ```bash
-   dotnet build
-   func start
-   ```
+> [!NOTE] 
+> The Durable Task Scheduler extension requires **Microsoft.Azure.Functions.Worker.Extensions.DurableTask** version `1.2.2` or higher. 
 
 ::: zone-end
 
 <!-- markdownlint-disable-next-line MD044 -->
-::: zone pivot="javascript"
+::: zone pivot="javascript,python,java,powershell"  
 
-1. Navigate to the sample directory:
-
-   ```bash
-   cd samples/durable-functions/javascript/HelloCities
-   ```
-
-1. Install dependencies and run:
-
-   ```bash
-   npm install
-   func start
-   ```
-
-::: zone-end
-
-::: zone pivot="python"
-
-1. Navigate to the sample directory:
-
-   ```bash
-   cd samples/durable-functions/python/hello-cities
-   ```
-
-1. Create a virtual environment, install dependencies, and run:
-
-   # [Linux / macOS](#tab/linux)
-
-   ```bash
-   python -m venv .venv
-   source .venv/bin/activate
-   pip install -r requirements.txt
-   func start
-   ```
-
-   # [Windows](#tab/windows)
-
-   ```powershell
-   python -m venv .venv
-   .venv\Scripts\activate
-   pip install -r requirements.txt
-   func start
-   ```
-
-   ---
-
-::: zone-end
-
-::: zone pivot="java"
-
-1. Navigate to the sample directory:
-
-   ```bash
-   cd samples/durable-functions/java/HelloCities
-   ```
-
-1. Build and run:
-
-   ```bash
-   mvn clean package
-   mvn azure-functions:run
-   ```
-
-::: zone-end
-
-<!-- markdownlint-disable-next-line MD044 -->
-::: zone pivot="powershell"
-
-1. Navigate to the sample directory:
-
-   ```bash
-   cd samples/durable-functions/powershell/HelloCities
-   ```
-
-1. Create a `local.settings.json` file:
+In host.json, update the `extensionBundle` property to use version 4.32.0 or later, which includes Durable Task Scheduler support:
 
    ```json
    {

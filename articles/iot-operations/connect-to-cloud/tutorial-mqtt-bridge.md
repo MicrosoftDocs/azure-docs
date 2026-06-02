@@ -635,4 +635,4 @@ In this tutorial, you learned how to configure Azure IoT Operations for bi-direc
 * About [BrokerListener resource](../manage-mqtt-broker/howto-configure-brokerlistener.md)
 * [Configure authorization for a BrokerListener](../manage-mqtt-broker/howto-configure-authorization.md)
 * [Configure authentication for a BrokerListener](../manage-mqtt-broker/howto-configure-authentication.md)
-* [Configure TLS with automatic certificate management](../manage-mqtt-broker/howto-configure-tls-auto.md)
+* [Configure TLS with automatic certificate management](../manage-mqtt-broker/howto-configure-brokerlistener.md)

@@ -1,8 +1,8 @@
 ---
-title: Request a credit for Withholding Tax on your account (India customers) - Azure
-description: Learn how to request a credit on your account for Withholding Tax you paid. This article only applies to customers in India.
+title: Request a credit for Withholding Tax on your account (Global customers) - Azure
+description: 'Learn how to request a credit on your account for Withholding Tax you paid. '
 author: lindseyshep
-ms.reviewer: jkinma
+ms.reviewer: jkinma39
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
@@ -103,9 +103,7 @@ After your claim is approved, it’s reflected in the next billing cycle. The WH
 **For customers paying by credit card:** After your claim is approved, your overpayment is refunded to your credit card.
 
 > [!IMPORTANT]
->
 > - If changes are required, the approval process might take longer because of the corrections that must be made and then resubmitted.
-> - If you have questions about the WHT request process, please open a ticket with Microsoft support.
 
 ## Related content
 

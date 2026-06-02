@@ -6,7 +6,7 @@ author: gelli
 services: azure-communication-services
 ms.author: gelli
 ms.date: 04/01/2026
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
 ---
