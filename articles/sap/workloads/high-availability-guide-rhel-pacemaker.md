@@ -566,6 +566,8 @@ The fencing device uses either a managed identity for Azure resource or a servic
    To create a managed identity (MSI), [create a system-assigned](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities?pivots=qs-configure-portal-windows-vm#system-assigned-managed-identity) managed identity for each VM in the cluster. If a system-assigned managed identity already exists, then it would be used. Don't use user-assigned managed identities with Pacemaker at this time. A fence device, based on managed identity, is supported on RHEL 7.9 and RHEL 8.x/RHEL 9.x/RHEL 10.x.
 
    #### [Service principal](#tab/spn)
+   > [!CAUTION]
+   > Service principal-based authentication relies on a static secret, which adds credential management overhead and increases security risk. We recommend the use of managed identity for fence agent.
 
    Follow these steps to create a service principal, if you aren't using managed identity.
 

@@ -1,7 +1,7 @@
 ---
 title: Connect knowledge in Azure SRE Agent
 description: Give your agent access to runbooks, documentation, source code, and web resources to improve incident investigation accuracy.
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-sre-agent
 ms.date: 04/24/2026
 author: craigshoemaker
