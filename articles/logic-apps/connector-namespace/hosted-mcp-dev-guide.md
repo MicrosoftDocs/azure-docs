@@ -18,7 +18,7 @@ ms.custom: ai-assisted
 > This preview feature is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This guide covers configuration details and requirements for hosted MCP servers in Connector Namespace. For an overview of hosted MCP servers, see [Hosted MCP servers overview](connector-namespace-hosted-mcp.md).
+This guide covers features, configuration details, and requirements for hosted MCP servers in Connector Namespace. For an overview of hosted MCP servers, see [Hosted MCP servers overview](connector-namespace-hosted-mcp.md).
 
 ## Supported regions
 
