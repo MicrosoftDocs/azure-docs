@@ -80,7 +80,7 @@ To view server logs:
 
 ## Access policy
 
-Access policy configuration allows you to control who has access to your hosted MCP server. When you create a server, a policy is automatically created for you. You can add access policies to grant others access to the server.
+Access policy configuration allows you to control who has access to your hosted MCP server. When you create a server, a policy is automatically created for you. You can add policies to grant others access to the server.
 
 Access policy can be added for individual users or a group. To create a group, see [Manage groups in Microsoft Entra ID](/entra/fundamentals/how-to-manage-groups).
 
