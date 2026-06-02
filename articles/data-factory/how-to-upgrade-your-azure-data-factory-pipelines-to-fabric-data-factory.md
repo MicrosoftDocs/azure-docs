@@ -85,11 +85,11 @@ Continue to [Step 4: Migrate pipelines](#step-4-migrate-pipelines).
 2. In the workspace toolbar, select **Migrate**.
 3. In the **Migrate to Fabric** panel, under **Migrate to notebooks, Spark pools, and more**, select **Data Factory**.
 
-   :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migrate-from-fabric-workspace.png" alt-text="Screenshot showing the Migrate to Fabric panel in a Fabric workspace with the Data Factory option highlighted.":::
+:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migrate-from-fabric-workspace.png" alt-text="Screenshot showing the Migrate to Fabric panel in a Fabric workspace with the Data Factory option highlighted.":::
 
 4. Select the Azure Data Factory instance you want to mount to this workspace.
    
-   :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/mount-from-fabric-migrate-end-point.png" alt-text="Screenshot showing the mounting experience from Migrate endpoint in Fabric.":::
+:::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/mount-from-fabric-migrate-end-point.png" alt-text="Screenshot showing the mounting experience from Migrate endpoint in Fabric.":::
 
 5. After mounting completes, continue with [Step 4: Migrate pipelines](#step-4-migrate-pipelines).
 
@@ -134,7 +134,7 @@ The migration experience attempts to automatically create connections for authen
 
 For other connections, either select an existing Fabric connection or create new connections by using the modern Get Data experience or from workspace settings. Then select **Confirm**.
 
-This action starts the migration of the selected pipelines to the root folder in the Fabric workspace. A confirmation message appears when the migration completes successfully.
+Selected pipelines migrate into a folder prefixed with the source factory name_Migration for easy identification and to avoid name collisions. A confirmation message appears when the migration completes successfully.
 
 :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migration-successfully-completed.png" alt-text="Screenshot showing successful completion of migration from Azure Data Factory to Fabric." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migration-successfully-completed.png":::
 

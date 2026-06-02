@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: troubleshooting-known-issue
 ms.custom: sfi-ropc-nochange
-ms.date: 04/17/2026
+ms.date: 05/21/2026
 ---
 
 # Known issues for Azure IoT Operations
@@ -79,7 +79,7 @@ az k8s-extension list \
 
 This section lists current known issues for the Azure Device Registry.
 
-### ADR asset resources don't sync
+### ADR namespace asset healthstate resources don't sync from edge to cloud
 
 ---
 
@@ -91,8 +91,9 @@ Log signature: N/A
 
 ---
 
-Azure Device Registry asset resources don't synchronize back if they were created with an older API version.
+Azure Device Registry namespace asset healthstate resources don't synchronize back to the cloud if they were created with an API version older than 2026-04-01. This failure occurs because a required Kubernetes resource annotation is missing.
 
+Workaround: Use the [arc proxy](/azure/azure-arc/kubernetes/quickstart-connect-cluster#connect-an-existing-kubernetes-cluster) to connect to your Kubernetes cluster and then run the [remediation script](https://github.com/Azure/azure-iot-operations/tree/main/scripts/known-issues/asset-health-status-reporting) for the shell you're using (PowerShell or bash). The scripts list all outdated namespace assets and request confirmation before they add the missing annotations.
 
 
 ## MQTT broker issues
@@ -129,6 +130,10 @@ Issue ID: 6514
 ---
 
 N/A
+
+---
+
+Fixed in release 2605 and later
 
 ---
 
@@ -274,6 +279,23 @@ eventGroups:
         ttl: 5
       target: Mqtt
 ```
+
+## Connector for MQTT issues
+
+### MQTT connector template version mismatch during update
+
+---
+
+Issue ID: 1533
+
+---
+
+Log signature: N/A
+
+---
+
+When updating to version 2605, existing MQTT connector templates may display mismatched metadata versions in the portal. To resolve, delete and recreate the connector template. Alternatively, use the Azure CLI to update the connector.
+
 
 ## Data flows issues
 

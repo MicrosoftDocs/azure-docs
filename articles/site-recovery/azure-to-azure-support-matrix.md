@@ -2,7 +2,7 @@
 title: Support Matrix for Azure VM Disaster Recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 04/14/2026
+ms.date: 05/25/2026
 ms.service: azure-site-recovery
 author: Jeronika-MS
 ms.author: v-gajeronika
@@ -36,6 +36,8 @@ Azure Dedicated Host. | Not supported.
 Azure Virtual Desktop infrastructure VMs. | Supported if all the Azure-to-Azure replication prerequisites are fulfilled. (Zone-to-zone replication for individual servers is also supported.)
 
 ## Region support
+
+[!INCLUDE [azure-to-azure-region-limitations.md](./includes/azure-to-azure-region-limitations.md)]
 
 With Site Recovery, you can perform global DR. You can replicate and recover VMs between any two Azure regions in the world. If you have concerns around data sovereignty, you can limit replication within your specific geographic cluster.
 
@@ -403,6 +405,7 @@ Redundancy | Locally redundant storage (LRS), ZRS, and geo-redundant storage (GR
 Cool and hot storage | Not supported. | VM disks aren't supported on cool or hot storage.
 Storage Spaces | Supported. |
 NVMe storage interface (preview) | Supported | Supported for Azure-to-Azure for Windows for Gen2 VMs such as Da/Ea/Fa v6-series, Ebsv5/Ebdsv5, and others that use NVMe interface. Ephemeral OS disks and local NVMe disks aren't supported. |
+Performance Plus disk  | Supported | For VMs using Premium SSD, Standard SSD, Standard HDD disks. Ensure that you use only premium storage accounts during replication. | 
 Mixed controller VMs (SCSI + NVMe) | Not Supported | VMs SKUs such as Lsv3 aren't supported |
 Encryption at host | Not supported. | The VM is protected, but the failed-over VM doesn't have encryption at host enabled. For more information, see [Enable end-to-end encryption by using encryption at host](/Azure/virtual-machines/disks-enable-host-based-encryption-portal).
 Encryption at rest (SSE) | Supported. | SSE is the default setting on storage accounts.
@@ -428,7 +431,7 @@ Azure Storage firewalls for virtual networks | Supported. | If you want to restr
 General-purpose V2 storage accounts (hot and cool tiers) | Supported. | Transaction costs increase substantially compared to general-purpose V1 storage accounts.
 Generation 2 (UEFI boot) | Supported.
 Managed shared disk| Supported. |
-Managed Premium SSD v2| Supported. | Since block blob storage accounts aren't supported in China North and China East regions, Site Recovery for Premium SSD v2 disks can't be supported. 
+Managed Premium SSD v2| Supported. | Since block blob storage accounts aren't supported in China North and China East regions, Site Recovery for Premium SSD v2 disks can't be supported. __This SKU supports only new replications. Disks must be PV2 from the enable time. Upgrading from PV1 to PV2 for an existing replication job isn't supported and requires re-enabling replication.__
 Ultra Disks | Supported. | Zonal Disaster Recovery isn't supported. Since block blob storage accounts aren't supported in China North and China East regions, Site Recovery for Ultra Disks can't be supported.
 Secure transfer option | Supported.
 Write accelerator enabled disks | Not supported.

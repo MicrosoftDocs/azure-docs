@@ -3,12 +3,12 @@ metadata:
   title: Azure Edge Hardware Center FAQ | Microsoft Docs in data 
   description: Contains frequently asked questions and answers for Azure Edge Hardware Center, a service that lets you order hardware devices as per your business need.
   services: databox
-  author: alkohli
+  author: ronmiab
   
   ms.service: azure-edge-hardware-center
   ms.topic: faq
   ms.date: 06/06/2022
-  ms.author: alkohli
+  ms.author: robess
   ms.custom: references_regions
 title: "Azure Edge Hardware Center: Frequently Asked Questions"
 summary: |

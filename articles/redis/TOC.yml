@@ -51,6 +51,8 @@ items:
             href: /azure/architecture/best-practices/caching?toc=/azure/redis-cache/toc.json
           - name: Azure Managed Redis architecture
             href: architecture.md
+          - name: Best practices for the Flash Optimized tier
+            href: best-practices-flash-optimized.md
           - name: Create and manage with Azure PowerShell
             href: how-to-manage-redis-cache-powershell.md
           - name: Create and manage a cache with Azure CLI
@@ -181,8 +183,12 @@ items:
             href: migrate/migrate-redis-enterprise-overview.md
           - name: Understand differences
             href: migrate/migrate-redis-enterprise-understand.md
+          - name: Explore migration options
+            href: migrate/migrate-redis-enterprise-options.md
           - name: Self-service migration
             href: migrate/migrate-redis-enterprise-self-service.md
+          - name: Migration using tooling
+            href: migrate/migrate-redis-enterprise-with-tooling.md
       - name: Migrate to Azure Managed Redis from other caches
         href: migrate/migration-guide.md
   - name: Azure Cache for Redis

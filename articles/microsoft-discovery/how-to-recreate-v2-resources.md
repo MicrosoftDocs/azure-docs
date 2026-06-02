@@ -27,26 +27,26 @@ Review the [v1 to v2 transition guide](concept-v1-to-v2-transition-guide.md) bef
 
 Create the v2 infrastructure resources that host your recreated tools, agents, and workflows.
 
-1. Create a v2 Supercomputer and Nodepools. For detailed steps, see [Manage Supercomputer and Nodepools](how-to-manage-supercomputers.md).
+1. Create a v2 Supercomputer and Node pools. For detailed steps, see [Manage Supercomputer and Node pools](how-to-manage-supercomputers.md).
 1. Create a v2 workspace. For detailed steps, see [Manage workspaces](how-to-manage-workspaces.md).
-1. Create chat model deployments at the workspace level. For detailed steps, see [Create chat model deployment](quickstart-infrastructure-portal.md#5-create-chat-model-deployment).
+1. Create chat model deployments at the workspace level. For detailed steps, see [Create chat model deployment](quickstart-infrastructure-portal.md#6-create-chat-model-deployment).
 1. Create v2 Storage Container and Storage Asset resources using the storage account and blob information you collected from your v1 Data Containers and Data Assets.
-1. Create a v2 project under the new workspace and bind it with the Storage Container resources. For detailed steps, see [Create a project](quickstart-infrastructure-portal.md#8-create-a-project).
+1. Create a v2 project under the new workspace and bind it with the Storage Container resources. For detailed steps, see [Create a project](quickstart-infrastructure-portal.md#9-create-a-project).
 
 > [!NOTE]
 > v2 uses workspace-level model deployments shared across all project agents. Deploy your preferred model, such as GPT-5.2, before you create agents.
 
 ## Recreate tools in v2
 
-v1 tools can't be retained in v2. You must recreate each tool as a new v2 ARM resource. The JSON-based tool definition format from v1 is still accepted for v2 tool resources, so you can reuse your exported definitions.
+v1 tools can't be retained in v2. You must recreate each tool as a new v2 Azure Resource Manager (ARM) resource. The JSON-based tool definition format from v1 is still accepted for v2 tool resources, so you can reuse your exported definitions.
 
 1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
 1. In the search bar, enter **Microsoft Discovery Tools** and select the service.
 1. Select **+ Create** to create a new tool resource.
 1. On the **Basics** tab, specify:
 
-   - **Name** — Enter the tool name. You can use the same name as your v1 tool.
-   - **Region** — Select the Azure region for the tool resource.
+   - **Name**: Enter the tool name. You can use the same name as your v1 tool.
+   - **Region**: Select the Azure region for the tool resource.
 
 1. On the **Definition** tab, attach the `definitionContent` JSON file you extracted from the v1 export. The v2 tool resource accepts the same JSON definition format as v1.
 1. Specify the tool **version** number.
@@ -59,7 +59,7 @@ v1 tools can't be retained in v2. You must recreate each tool as a new v2 ARM re
 
 ## Recreate bookshelves and knowledge bases in v2
 
-Bookshelf is an independent ARM resource, not scoped to a workspace. You must create new bookshelves through the Azure portal and then create knowledge bases through Discovery Studio. In v2, bookshelf indexing is bound to Storage Containers and Storage Assets, which replace the v1 Data Containers and Data Assets.
+Bookshelf is an independent Azure Resource Manager (ARM) resource, not scoped to a workspace. You must create new bookshelves through the Azure portal and then create knowledge bases through Discovery Studio. In v2, bookshelf indexing is bound to Storage Containers and Storage Assets, which replace the v1 Data Containers and Data Assets.
 
 ### Create the bookshelf resource
 
@@ -122,17 +122,17 @@ v1 workflows use a state machine model with events and transitions. v2 replaces 
 1. Test the workflow by starting a chat with `@WorkflowAgentName` in an investigation.
 1. Repeat for each workflow in your v1 configuration.
 
-For more informationabout v2 workflow components and action types, see [Agent types in Microsoft Discovery](concept-discovery-agent-types.md).
+For more information about v2 workflow components and action types, see [Agent types in Microsoft Discovery](concept-discovery-agent-types.md).
 
 ## Validate the transition
 
 After you recreate all resources, verify that your v2 environment matches your v1 functionality.
 
-1. Create an investigation in your v2 project. For detailed steps, see [Quickstart: Get started with agents and investigations](quickstart-agents-studio.md#3-create-an-investigation).
+1. Create a shared session in your v2 project. For detailed steps, see [Quickstart: Get started with agents and shared sessions](quickstart-agents-studio.md#3-create-a-shared-session).
 1. Test each prompt agent by sending messages with `@AgentName` in the chat.
 1. Verify that each tool executes correctly when invoked by agents.
 1. Run each workflow agent end-to-end to confirm the action flow produces expected results.
-1. Compare outputs between v1 and v2 agents to verify consistency.
+1. Compare outputs between v1 and v2 agents and verify consistency.
 1. Check that knowledge bases return relevant results for your domain queries.
 
 After validation is complete, you can begin using your v2 resources for production workloads. Your v1 resources remain functional until the v1 APIs are retired.

@@ -3,23 +3,35 @@ author: hhunter-ms
 ms.author: hannahhunter
 title: Troubleshoot errors in Durable Task Scheduler
 titleSuffix: Durable Task
-description: Learn how to troubleshoot error messages and issues you encounter while using Durable Task Scheduler.
+description: Troubleshoot common error messages and issues in Durable Task Scheduler, including connection string problems, deployment failures, and gRPC runtime issues on ARM devices.
 ms.topic: troubleshooting-general
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
-ms.date: 05/06/2025
+ms.date: 04/30/2026
 ---
 
 # Troubleshoot errors in Durable Task Scheduler
 
+This article helps you troubleshoot common scenarios in Durable Task Scheduler apps. Find your scenario in the following list and follow the linked steps to diagnose and resolve the issue.
+
+## Common scenarios
+
+- [Check connection string and access to Durable Task Scheduler](#check-connection-string-and-access-to-durable-task-scheduler)
+- [Error deploying Durable Functions app to Azure](#error-deploying-durable-functions-app-to-azure)
+- [Unknown error retrieving details of this task hub](#unknown-error-retrieving-details-of-this-task-hub)
+- [Can't delete resource](#cant-delete-resource)
+- [Can't determine project to build](#cant-determine-project-to-build)
+- [Can't find native binaries for ARM (Apple silicon)](#cant-find-native-binaries-for-arm-apple-silicon)
+
 > [!NOTE]
-> Microsoft support engineers are available to help diagnose issues with your application. If you're not able to diagnose your problem after going through this article, you can file a support ticket by going the **Help** > **Support + troubleshooting** section of durable task scheduler resource on Azure portal.
+> Microsoft support engineers are available to help diagnose issues with your application. If you're not able to diagnose your problem after going through this article, you can file a support ticket by going to the **Help** > **Support + troubleshooting** section of the Durable Task Scheduler resource in the Azure portal.
 
-## Check connection string and access to durable task scheduler
+## Check connection string and access to Durable Task Scheduler
 
-When your app isn't running as expected, first check if you have:
-- The correct connection string format.
-- Authentication set up correctly. 
+When your app isn't running as expected, verify the following:
+
+- The connection string format is correct.
+- Authentication is set up correctly. 
 
 ### Local development
 
@@ -36,14 +48,14 @@ When your app isn't running as expected, first check if you have:
     - *User-assigned managed identity*: `Endpoint={scheduler endpoint};Authentication=ManagedIdentity;ClientID={client id}`, where `client id` is the identity's client ID. 
     - *System-assigned managed identity*: `Endpoint={scheduler endpoint};Authentication=ManagedIdentity`
 
-1. Ensure the required role-based access control (RBAC) permission is [granted to the identity](./develop-with-durable-task-scheduler.md#configure-identity-based-authentication-for-app-to-access-durable-task-scheduler) needing to access the specified task hub or scheduler. 
-    -  When accessing the dashboard, ensure permission is [assigned to your own identity (email)](./durable-task-scheduler-dashboard.md#access-the-durable-task-scheduler-dashboard).
+1. Ensure the required role-based access control (RBAC) permission is [granted to the identity](./develop-with-durable-task-scheduler.md#configure-identity-based-authentication-for-your-app-to-access-durable-task-scheduler) needing to access the specified task hub or scheduler. 
+    -  When accessing the dashboard, ensure permission is [assigned to your own identity (email)](./durable-task-scheduler-dashboard.md#assign-dashboard-access-roles-azure).
 
 1. If user-assigned managed identity is used, ensure the [identity is assigned to your app](./durable-task-scheduler-identity.md#assign-managed-identity-to-your-app).
 
-## Error deploying durable functions app to Azure 
+## Error deploying Durable Functions app to Azure 
 
-If your deployment fails with an error such as `Encountered an error (ServiceUnavailable) from host runtime` from Visual Studio Code, first check your app to ensure the required [environment variables](./durable-task-scheduler-identity.md#add-environment-variables-to-app) are set correctly. Then redeploy your app. If you see an error loading functions, click the "Refresh" button. 
+If your deployment fails with an error such as `Encountered an error (ServiceUnavailable) from host runtime` from Visual Studio Code, first check your app to ensure the required [environment variables](./durable-task-scheduler-identity.md#add-environment-variables-to-your-app) are set correctly. Then redeploy your app. If you see an error loading functions, select the **Refresh** button. 
 
 ## Unknown error retrieving details of this task hub
 
@@ -55,7 +67,7 @@ If you get an `Unknown error retrieving details of this task hub` error on the d
 
 ## Can't delete resource
 
-Make sure you delete all task hubs in the durable task scheduler environment. If you haven't, you receive the following error message:
+Before you can delete a scheduler resource, you must first delete all of its task hubs. If you haven't, you receive the following error message:
 
 ```json
 {
@@ -66,58 +78,48 @@ Make sure you delete all task hubs in the durable task scheduler environment. If
 }
 ```
 
+To resolve this, list the task hubs in the scheduler and delete them:
+
+```azurecli
+# List all task hubs in the scheduler
+az durabletask taskhub list --resource-group RESOURCE_GROUP_NAME --scheduler-name SCHEDULER_NAME
+
+# Delete each task hub
+az durabletask taskhub delete --resource-group RESOURCE_GROUP_NAME --scheduler-name SCHEDULER_NAME --name TASKHUB_NAME
+```
+
+After all task hubs are deleted, retry deleting the scheduler resource.
+
 ## Can't determine project to build
 
 If, after starting Azurite, you encounter the error: `“Can't determine Project to build. Expected 1 .csproj or .fsproj but found 2”`:
 - Delete the **bin** and **obj** directories in your app.
 - Try running `func start` again.
 
-## Can't find native binaries for ARM
+## Can't find native binaries for ARM (Apple silicon)
 
-If you see gRPC errors related to not finding native binaries for ARM (such as on a Mx Mac), you may need to add the following workaround to the end of your `extensions.csproj` file.
+If you see gRPC errors related to not finding native binaries for ARM (such as on an Apple silicon Mac — M1, M2, etc.), add the following workaround to your `extensions.csproj` file:
+
+1. Add a package reference to `Contrib.Grpc.Core.M1`.
+1. Add a custom after-build target that copies the ARM64 gRPC native libraries to the correct output directory.
+
+Add the following `ItemGroup` and `Target` elements to your `extensions.csproj`:
 
 ```xml
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <WarningsAsErrors></WarningsAsErrors>
-    <DefaultItemExcludes>**</DefaultItemExcludes>
-  </PropertyGroup>
+<!-- Workaround for gRPC issues on ARM (Apple silicon) devices -->
+<ItemGroup>
+  <PackageReference Include="Contrib.Grpc.Core.M1" Version="2.41.0" />
+</ItemGroup>
+<Target Name="CopyGrpcNativeAssetsToOutDir" AfterTargets="Build">
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask" Version="2.13.7" />
-    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.DurableTask.AzureManaged" Version="0.3.0-alpha" />
-    <PackageReference Include="Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator" Version="1.1.3" />
+    <NativeAssetToCopy Condition="$([MSBuild]::IsOSPlatform('OSX'))" Include="$(OutDir)runtimes/osx-arm64/native/*"/>
   </ItemGroup>
-  <!-- Add the below groups/targets to workaround gRPC issues on ARM devices. -->  
-  <ItemGroup>
-    <PackageReference Include="Contrib.Grpc.Core.M1" Version="2.41.0" />
-  </ItemGroup>
-  <Target Name="CopyGrpcNativeAssetsToOutDir" AfterTargets="Build">
-    <ItemGroup>
-       <NativeAssetToCopy Condition="$([MSBuild]::IsOSPlatform('OSX'))" Include="$(OutDir)runtimes/osx-arm64/native/*"/>
-    </ItemGroup>
-    <Copy SourceFiles="@(NativeAssetToCopy)" DestinationFolder="$(OutDir).azurefunctions/runtimes/osx-arm64/native"/>
-  </Target>
-</Project>
+  <Copy SourceFiles="@(NativeAssetToCopy)" DestinationFolder="$(OutDir).azurefunctions/runtimes/osx-arm64/native"/>
+</Target>
 ```
 
-## Experiencing gRPC runtime issues
+## Related content
 
-For Mx Mac (ARM64) users, you may run into gRPC runtime issues with durable functions. As a workaround:
-1. Reference the `2.41.0` version of the `Contrib.Grpc.Core.M1` NuGet package.
-1. Add a custom after-build target that ensures the correct ARM64 version of the gRPC libraries can be found.
- 
-   ```xml
-   <Project>
-     <ItemGroup>
-       <PackageReference Include="Contrib.Grpc.Core.M1" Version="2.41.0" />
-     </ItemGroup>
-   
-     <Target Name="CopyGrpcNativeAssetsToOutDir" AfterTargets="Build">
-       <ItemGroup>
-          <NativeAssetToCopy Condition="$([MSBuild]::IsOSPlatform('OSX'))" Include="$(OutDir)runtimes/osx-arm64/native/*"/>
-       </ItemGroup>
-       <Copy SourceFiles="@(NativeAssetToCopy)" DestinationFolder="$(OutDir).azurefunctions/runtimes/osx-arm64/native"/>
-     </Target>
-   </Project>     
-   ``` 
+- [Configure managed identity for Durable Task Scheduler](./durable-task-scheduler-identity.md)
+- [Debug and manage orchestrations using the Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md)
+- [Quickstart: Configure a Durable Functions app to use the Durable Task Scheduler](./quickstart-durable-task-scheduler.md) 

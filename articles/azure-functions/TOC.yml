@@ -12,7 +12,7 @@
   - name: Get started
     href: functions-get-started.md
   - name: Durable Functions
-    href: durable-functions/durable-functions-overview.md
+    href: ../durable-task/durable-functions/durable-functions-overview.md
   - name: Serverless comparison
     href: functions-compare-logic-apps-ms-flow-webjobs.md
   - name: Hosting plan options
@@ -42,6 +42,9 @@
       - name: Host MCP server using SDKs
         displayName: AI, agent, agentic, tools, MCP SDKs
         href: scenario-host-mcp-server-sdks.md
+    - name: Serverless agents
+      displayName: AI, agent, agentic, serverless agents runtime, timer, email, connector, MCP, Foundry
+      href: scenario-serverless-agents-runtime.md
     - name: Respond to database changes
       items:
       - name: Azure Cosmos DB (NoSQL)
@@ -63,7 +66,7 @@
     - name: Azure Developer CLI
       displayName: azd
       href: create-first-function-azure-developer-cli.md
-    - name: Command line (Core Tools)
+    - name: Command line tools
       displayName: quickstart, get started, go, rust
       href: how-to-create-function-azure-cli.md
     - name: Visual Studio Code
@@ -166,7 +169,7 @@
       href: tutorial-ffmpeg-processing-azure-files.md
     - name: Durable text analysis on a mounted share
       displayName: Azure Files, storage mount, Durable Functions, Flex Consumption
-      href: durable-functions/tutorial-durable-text-analysis-azure-files.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
+      href: ../durable-task/durable-functions/tutorial-durable-text-analysis-azure-files.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: Java with Azure Cosmos DB and Event Hubs
     href: functions-event-hub-cosmos-db.md
 - name: Samples
@@ -268,6 +271,11 @@
       href: functions-bindings-expressions-patterns.md
     - name: Handle binding errors
       href: functions-bindings-errors.md
+  - name: Managed connectors
+    items:
+    - name: Use connectors in Azure Functions
+      displayName: managed connectors, connector trigger, connector SDK, connector namespace, Office 365, Teams, SharePoint, SaaS integration
+      href: functions-connectors-overview.md
   - name: Frameworks
     items:
     - name: Express.js
@@ -369,9 +377,12 @@
       - name: Visual Studio development
         displayName: VS
         href: functions-develop-vs.md
-      - name: Core Tools development
+      - name: Azure Functions Core Tools (v4)
         displayName: local, runtime
         href: functions-run-local.md
+      - name: Azure Functions CLI (v5)
+        displayName: local, runtime, Flex Consumption
+        href: functions-cli-develop-local.md
     - name: Create a function app
       items:
       - name: Infrastructure as code
@@ -632,6 +643,14 @@
       href: functions-mcp-foundry-tools.md
     - name: Register an MCP server in API Center
       href: register-mcp-server-api-center.md
+  - name: Serverless agents runtime
+    items:
+    - name: Overview
+      displayName: AI, agent, agentic, serverless agents runtime, Foundry, MCP, connectors
+      href: functions-serverless-agents-runtime.md
+    - name: Quickstart
+      displayName: AI, agent, agentic, serverless agents runtime, timer, email, connector, MCP, Foundry
+      href: scenario-serverless-agents-runtime.md
   - name: Azure MCP server for Azure Functions
     href: /azure/developer/azure-mcp-server/services/azure-mcp-server-for-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: GitHub Copilot for Azure
@@ -672,7 +691,8 @@
       href: /azure/templates/microsoft.web/2022-03-01/sites/functions
     - name: Azure CLI
       href: /cli/azure/functionapp
-    - name: Azure Functions Core Tools
+    - name: Local runtime/tools (func.exe)
+      displayName: Azure Functions Core Tools, Azure Functions CLI
       href: functions-core-tools-reference.md
     - name: Azure PowerShell
       href: /powershell/module/az.functions/
@@ -927,6 +947,9 @@
       - name: Resource trigger
         displayName: MCP resource
         href: functions-bindings-mcp-resource-trigger.md
+      - name: Prompt trigger
+        displayName: MCP prompt
+        href: functions-bindings-mcp-prompt-trigger.md
     - name: Mobile Apps
       href: functions-bindings-mobile-apps.md
     - name: Notification Hubs

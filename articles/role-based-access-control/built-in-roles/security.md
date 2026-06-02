@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -760,7 +760,6 @@ Read metadata of key vaults and its certificates, keys, and secrets. Cannot read
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.KeyVault](../permissions/security.md#microsoftkeyvault)/checkNameAvailability/read | Checks that a key vault name is valid and is not in use |
@@ -789,7 +788,6 @@ Read metadata of key vaults and its certificates, keys, and secrets. Cannot read
       "actions": [
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
-        "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*",
         "Microsoft.KeyVault/checkNameAvailability/read",
@@ -1489,7 +1487,7 @@ This is a legacy role. Please use Security Admin instead.
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | Microsoft.ClassicCompute/*/read | Read configuration information classic virtual machines |
 > | Microsoft.ClassicCompute/virtualMachines/*/write | Write configuration for classic virtual machines |
-> | [Microsoft.ClassicNetwork](../permissions/networking.md#microsoftclassicnetwork)/*/read | Read configuration information about classic network |
+> | Microsoft.ClassicNetwork/*/read |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |

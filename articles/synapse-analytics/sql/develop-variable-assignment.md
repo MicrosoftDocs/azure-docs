@@ -11,6 +11,8 @@ ms.author: stefanazaric
 
 # Assign variables with Synapse SQL
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you'll find tips for assigning T-SQL variables with Synapse SQL.
 
 ## Set variables with DECLARE

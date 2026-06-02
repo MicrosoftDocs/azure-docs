@@ -71,7 +71,8 @@ If the Provisioning access setting is turned on, a unique link is created for yo
 Before assigning roles, make sure you [add a tenant as an associated billing tenant and enable billing management access setting](#add-an-associated-billing-tenant).
 
 > [!IMPORTANT]
-> Any user with a role in the billing account can see all users from all tenants who have access to that billing account. For example, Contoso.com is the primary billing tenant. A billing account owner adds Fabrikam.com as an associated billing tenant. Then, the billing account owner adds User1 as a billing account owner. As a result, User1 can see all users who have access to the billing account on both Contoso.com and Fabrikam.com.
+> User visibility across associated tenants - When Billing Management is enabled for an associated tenant, user visibility on the MCA-E billing account becomes cross-tenant. Specifically: Any user with a billing role on the billing account can view all other users who hold a billing role at the billing account scope. Visible attributes include user name, email address, assigned role, and home tenant. This applies regardless of which associated tenant the viewer or the viewed user belongs to.
+> Example: Contoso.com is the primary billing tenant. The billing account owner associates Fabrikam.com and grants User1 (a Fabrikam.com user) the Billing Account Owner role. User1 can now see every user with a billing role on the billing account across both Contoso.com and Fabrikam.com, including their names, email addresses, roles, and tenants.
 
 ### To assign roles and send an email invitation
 
@@ -81,7 +82,8 @@ Before assigning roles, make sure you [add a tenant as an associated billing ten
 1. Select **Access control (IAM)** on the left side of the page.
 1. On the Access control (IAM) page, select **Add** at the top of the page.  
     :::image type="content" source="./media/manage-billing-across-tenants/access-management-add-role-assignment-button.png" alt-text="Screenshot showing access control page while assigning roles." lightbox="./media/manage-billing-across-tenants/access-management-add-role-assignment-button.png" :::
-1. In the Add role assignment pane, select a role, select the associated billing tenant from the tenant dropdown, then enter the email address of the users, groups, or apps to whom you want to assign roles.
+1. In the Add role assignment pane, select a role, select the associated billing tenant from the tenant dropdown, then enter the email address of the users to whom you want to assign roles.  Apps and groups are not supported when assigned roles across tenants.
+
 1. Select **Add**.  
     :::image type="content" source="./media/manage-billing-across-tenants/associated-tenants-add-role-assignment.png" alt-text="Screenshot showing saving a role assignment." lightbox="./media/manage-billing-across-tenants/associated-tenants-add-role-assignment.png" :::
 1. The users receive an email with a link to review the role assignment request. After they accept the role, they have access to your billing account.

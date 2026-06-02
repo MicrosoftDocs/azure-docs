@@ -80,5 +80,5 @@ landingContent:
             url: /azure/architecture/gcp-professional/
           - text: Azure Migrate documentation
             url: /azure/migrate/
-          - text: Assess Google Cloud Platform (GCP) VM instances for migration to Azure
-            url: /azure/migrate/tutorial-assess-gcp?view=migrate-classic
+          - text: Discover physical servers and servers running in GCP
+            url: /azure/migrate/tutorial-discover-physical?view=migrate-classic

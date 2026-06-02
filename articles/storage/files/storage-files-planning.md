@@ -4,7 +4,7 @@ description: Understand how to plan for an Azure Files deployment. You can eithe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 09/18/2025
+ms.date: 05/26/2026
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: As a system architect, I want to evaluate deployment options for Azure Files, so that I can determine the best approach for directly mounting or caching file shares while considering performance, compatibility, and organizational needs.
@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 You can deploy [Azure Files](storage-files-introduction.md) in two ways: by directly mounting the serverless Azure file shares or by caching file shares on-premises using Azure File Sync. Deployment considerations differ based on which option you choose.
 
-- **Direct mount of an Azure file share**: Because Azure Files provides either Server Message Block (SMB) or Network File System (NFS) access, you can mount Azure file shares on-premises or in the cloud using the standard SMB or NFS clients available in your OS. Because Azure file shares are serverless, deploying for production scenarios doesn't require managing a file server or NAS device. This means you don't have to apply software patches or swap out physical disks. You can either choose to use Azure classic file shares or Microsoft.FileShares (preview) as your management model.
+- **Direct mount of an Azure file share**: Because Azure Files provides either Server Message Block (SMB) or Network File System (NFS) access, you can mount Azure file shares on-premises or in the cloud using the standard SMB or NFS clients available in your OS. Because Azure file shares are serverless, deploying for production scenarios doesn't require managing a file server or NAS device. This means you don't have to apply software patches or swap out physical disks. You can either choose to use Azure classic file shares or Microsoft.FileShares as your management model.
 
 - **Cache Azure file shares on-premises with Azure File Sync** (SMB only): [Azure File Sync](../file-sync/file-sync-introduction.md) enables you to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms an on-premises (or cloud) Windows Server into a quick cache of your SMB Azure file share.
 
@@ -26,7 +26,7 @@ In Azure, a *resource* is a manageable item that you create and configure within
 
 - **Storage accounts**, offered by the `Microsoft.Storage` resource provider. Storage accounts are top-level resources that represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. All storage resources that are deployed into a storage account share the limits that apply to that storage account. Classic file shares support both the SMB and NFS file sharing protocols.
 
-- **File shares** (preview), offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource that simplify the deployment of Azure Files by eliminating the need for a storage account. Unlike classic file shares, which must be deployed into a storage account, file shares are deployed directly into the resource group like storage accounts themselves, or other Azure resources like virtual machines, disks, or virtual networks. Currently, `Microsoft.FileShares` only supports the NFS file sharing protocol. If you require SMB, choose classic file shares.
+- **File shares**, offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource that simplify the deployment of Azure Files by eliminating the need for a storage account. Unlike classic file shares, which you must deploy into a storage account, you deploy file shares directly into the resource group like storage accounts themselves, or other Azure resources like virtual machines, disks, or virtual networks. Currently, `Microsoft.FileShares` only supports the NFS file sharing protocol. If you require SMB, choose classic file shares.
 
 ![Image comparing file shares and classic Azure file shares](./media/storage-files-planning/file-share-comparison.png)
 
@@ -51,7 +51,7 @@ To learn more, see [Create a classic file share](./create-classic-file-share.md)
 
 ### File shares (Microsoft.FileShares)
 
-File shares (preview) are a new top-level Azure resource provided by the `Microsoft.FileShares` resource provider. These file shares offer the following advantages over classic file shares:
+File shares are a new top-level Azure resource provided by the `Microsoft.FileShares` resource provider. These file shares offer the following advantages over classic file shares:
 
 - **Simplified management**: File shares are created directly as top-level resources in the Azure portal or through management APIs. This removes the requirement to manage a storage account and streamlines the deployment experience.
 
@@ -65,26 +65,57 @@ File shares (preview) are a new top-level Azure resource provided by the `Micros
 
 #### Regional availability
 
-Currently, creating a file share with Microsoft.FileShares (preview) is available in the following regions. Private endpoint support for file share with Microsoft.FileShares (preview) is available in all Azure public cloud regions.
+Currently, you can create a file share with Microsoft.FileShares in the following regions. Private endpoint support for file share with Microsoft.FileShares is available in all Azure public cloud regions.
 
-- Australia East
 - Australia Central
+- Australia East
 - Australia Southeast
+- Brazil South
+- Brazil Southeast
+- Canada Central
+- Canada East
+- Central India
 - East Asia
 - East US
+- France Central
+- France South
 - Germany North
+- Germany West Central
+- Israel Central
+- Italy North
+- Japan East
+- Japan West
+- JIO India Central
+- JIO India West
+- Korea Central
 - Korea South
-- Southeast Asia
+- North Central US
 - North Europe
+- Norway East
+- Norway West
+- Poland Central
+- South Africa North
 - South Africa West
+- South Central US
 - South India
+- Southeast Asia
+- Sweden Central
 - UAE Central
+- UAE North
+- UK South
+- UK West
+- West Europe
+- West US
 
 #### Comparing resource providers: Microsoft.Storage versus Microsoft.FileShares
 
+We encourage you to evaluate the new file share experience with Microsoft.FileShares for all your new Azure Files NFS protocol deployments.
+
+If a specific feature requirement isn't yet available in the new file share experience, or the workload requires SMB protocol support, the classic file share experience remains the recommended approach. Deprecation of the classic experience won't begin until the remaining feature gaps are closed. Currently, there's no automation migration support from classic file shares to file shares. 
+
 | Feature | Classic file shares ![fileshareclassicicon1](./media/storage-files-planning/icon-service-file-share.svg) | File shares (Microsoft.FileShares) ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
 |-|-|-|
-| Support guarantee | Generally available | Public preview |
+| Support guarantee | Generally available | Generally available |
 | Top level resource for the service | Storage account ![fileshareclassicicon2](./media/storage-files-planning/icon-service-Storage-Accounts.svg) | File shares ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
 | SMB protocol  | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | NFS protocol | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
@@ -104,6 +135,12 @@ Currently, creating a file share with Microsoft.FileShares (preview) is availabl
 | Single vnet configuration for multiple file shares | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | AKS CSI driver | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 | Data plane REST APIs | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Soft delete support | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Snapshots support | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)|
+| Encryption in transit | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
+| Customer managed keys | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Zonal pinning | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+
 
 ## Available protocols
 
@@ -150,7 +187,7 @@ Azure Files supports the following methods of authentication for SMB shares:
 
 - **On-premises Active Directory Domain Services (AD DS)**: Azure storage accounts can be domain joined to a customer-owned Active Directory Domain Services, just like a Windows Server file server or NAS device. You can deploy a domain controller on-premises, in an Azure VM, or even as a VM in another cloud provider; Azure Files is agnostic to where your domain controller is hosted. Once a storage account is domain-joined, the end user can mount a file share with the user account they signed into their PC with. AD-based authentication uses the Kerberos authentication protocol.
 - **Microsoft Entra Domain Services**: Microsoft Entra Domain Services provides a Microsoft-managed domain controller that can be used for Azure resources. Domain joining your storage account to Microsoft Entra Domain Services provides similar benefits to domain joining it to a customer-owned AD DS. This deployment option is most useful for application lift-and-shift scenarios that require AD-based permissions. Because Microsoft Entra Domain Services provides AD-based authentication, this option also uses the Kerberos authentication protocol.
-- **Microsoft Entra Kerberos**: Microsoft Entra Kerberos allows you to use Microsoft Entra ID to authenticate [hybrid](../../active-directory/hybrid/whatis-hybrid-identity.md) or cloud-only identities (preview). This configuration uses Microsoft Entra ID to issue Kerberos tickets to access the file share with the SMB protocol. This means your end users can access Azure file shares over the internet from Microsoft Entra hybrid joined and Microsoft Entra joined VMs.
+- **Microsoft Entra Kerberos**: Microsoft Entra Kerberos allows you to use Microsoft Entra ID to authenticate [hybrid](../../active-directory/hybrid/whatis-hybrid-identity.md) or cloud-only identities. This configuration uses Microsoft Entra ID to issue Kerberos tickets to access the file share with the SMB protocol. This means your end users can access Azure file shares over the internet from Microsoft Entra hybrid joined and Microsoft Entra joined VMs.
 - **Active Directory authentication over SMB for Linux clients**: Azure Files supports identity-based authentication over SMB for Linux clients using the Kerberos authentication protocol through either AD DS or Microsoft Entra Domain Services.
 - **Azure storage account key**: Although it's not recommended for security reasons, you can also mount Azure file shares using an Azure storage account key instead of using an identity. To mount a file share using the storage account key, the storage account name is used as the username and the storage account key is used as a password. Using the storage account key to mount the Azure file share is effectively an administrator operation, because the mounted file share has full permissions to all of the files and folders on the share, even if they have ACLs. When using the storage account key to mount over SMB, the NTLMv2 authentication protocol is used. If you must use the storage account key, we recommend using private endpoints or service endpoints as described in the [Networking](#networking) section.
 
@@ -175,7 +212,7 @@ For more information, see [Azure Files networking considerations](storage-files-
 
 In addition to directly connecting to the file share using the public endpoint or using a VPN/ExpressRoute connection with a private endpoint, SMB provides an additional client access strategy: SMB over QUIC. SMB over QUIC offers zero-config "SMB VPN" for SMB access over the QUIC transport protocol. Although Azure Files does not directly support SMB over QUIC, you can create a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM using Azure File Sync. To learn more about this option, see [SMB over QUIC with Azure File Sync](storage-files-networking-overview.md#smb-over-quic).
 
-## Encryption
+## Encryption for Azure Files
 
 Azure Files supports two different types of encryption:
 
@@ -184,9 +221,9 @@ Azure Files supports two different types of encryption:
 
 ### Encryption in transit
 
-By default, all Azure storage accounts have encryption in transit enabled. This means that when you mount a file share over SMB or access it via the FileREST protocol (such as through the Azure portal, PowerShell/CLI, or Azure SDKs), Azure Files only allows the connection if it is made with SMB 3.x with encryption or HTTPS. Clients that don't support SMB 3.x or clients that support SMB 3.x but not SMB encryption won't be able to mount the Azure file share if encryption in transit is enabled. For more information about which operating systems support SMB 3.x with encryption, see our documentation for [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), and [Linux](storage-how-to-use-files-linux.md). All current versions of the PowerShell, CLI, and SDKs support HTTPS.
+By default, all Azure storage accounts have encryption in transit enabled. This means that when you mount a file share over SMB or access it via the FileREST protocol (such as through the Azure portal, PowerShell/CLI, or Azure SDKs), Azure Files only allows the connection if it is made with SMB 3.x with encryption or HTTPS. Clients that don't support SMB 3.x or clients that support SMB 3.x but not SMB encryption won't be able to mount the Azure file share if encryption in transit is enabled. For more information about which operating systems support SMB 3.x with encryption, see the documentation for [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), and [Linux](storage-how-to-use-files-linux.md). All current versions of the PowerShell, CLI, and SDKs support HTTPS.
 
-You can disable encryption in transit for an Azure storage account. When encryption is disabled, Azure Files also allows SMB 2.1 and SMB 3.x without encryption, and unencrypted FileREST API calls over HTTP. The primary reason to disable encryption in transit is to support a legacy application that must be run on an older operating system, such as Windows Server 2008 R2 or an older Linux distribution. Azure Files only allows SMB 2.1 connections within the same Azure region as the Azure file share; an SMB 2.1 client outside of the Azure region of the Azure file share, such as on-premises or in a different Azure region, won't be able to access the file share.
+You can disable encryption in transit for an Azure storage account. When encryption is disabled, Azure Files also allows SMB 2.1 and SMB 3.x without encryption, and unencrypted FileREST API calls over HTTP. The primary reason to disable encryption in transit is to support a legacy application that must run on an older operating system, such as Windows Server 2008 R2 or an older Linux distribution. Azure Files only allows SMB 2.1 connections within the same Azure region as the Azure file share; an SMB 2.1 client outside of the Azure region of the Azure file share, such as on-premises or in a different Azure region, won't be able to access the file share.
 
 We strongly recommend ensuring encryption of data in-transit is enabled.
 
@@ -196,7 +233,7 @@ For more information about encryption in transit, see [requiring secure transfer
 
 [!INCLUDE [storage-files-encryption-at-rest](../../../includes/storage-files-encryption-at-rest.md)]
 
-File shares using Microsoft.FileShares resource provider support MSFT key but does not support customer managed keys. 
+You can't use customer-managed keys for encryption at rest with Azure file shares created using the Microsoft.FileShares resource provider. You have to use Microsoft-managed keys.
 
 ## Data protection
 

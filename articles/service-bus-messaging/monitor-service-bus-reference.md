@@ -52,7 +52,7 @@ The following metrics are *message metrics*.
 
 | Metric | Description |
 |:-------|:------------|
-| Incoming Messages | The number of events or messages sent to Service Bus over a specified period. For basic and standard tiers, incoming autoforwarded messages are included in this metric. And, for the premium tier, they aren't included. |
+| Incoming Messages | The number of events or messages sent to Service Bus over a specified period. Includes successfully auto-forwarded messages delivered to the destination entity. |
 | Outgoing Messages | The number of events or messages received from Service Bus over a specified period. The outgoing autoforwarded messages aren't included in this metric. |
 | Messages | Count of messages in a queue/topic. This metric includes messages in all the different states like active, dead-lettered, scheduled, etc. |
 | Active Messages | Count of active messages in a queue/topic. Active messages are the messages in the queue or subscription that are in the active state and ready for delivery. The messages are available to be received. |
@@ -70,7 +70,7 @@ The following metrics are *message metrics*.
 > - **Consumer lag**: If consumers receive messages more slowly than producers send them, the incoming count exceeds the outgoing count until consumers catch up.
 > - **Message expiration (TTL)**: Messages that expire before being consumed are never counted as outgoing.
 > - **Dead-lettering**: Messages moved to the dead-letter queue aren't counted as outgoing.
-> - **Autoforwarding**: In Basic and Standard tiers, autoforwarded messages are included in the incoming count but not in the outgoing count (Premium tier excludes autoforwarded messages from the incoming count).
+> - **Autoforwarding**: Successfully auto-forwarded messages count as incoming on the destination entity. They aren't counted as outgoing on the source entity. When an auto-forward attempt is retried (for example, because the destination has sessions enabled or hits a transient error), each retry that reaches the destination is counted again, so one source message can produce more than one entry in the destination's incoming count.
 
 > [!IMPORTANT]
 > Values for messages, active, dead-lettered, scheduled, completed, and abandoned messages are point-in-time values. Incoming messages that were consumed immediately after that point-in-time might not be reflected in these metrics.
@@ -126,7 +126,6 @@ The following metrics are *geo-replication* metrics:
 - **EntityName** Service Bus supports messaging entities under the namespace. With the Incoming Requests metric, the Entity Name dimension has a value of `-NamespaceOnlyMetric-` in addition to all your queues and topics. This value represents the request, which was made at the namespace level. Examples include a  request to list all queues/topics under the namespace or requests to entities that failed authentication or authorization.
 - **MessagingErrorSubCode**
 - **OperationResult**
-- **Replica**
 
 > [!NOTE]
 > Azure Monitor doesn't include dimensions in the exported metrics data sent to a destination like Azure Storage, Azure Event Hubs, or Azure Monitor Logs.

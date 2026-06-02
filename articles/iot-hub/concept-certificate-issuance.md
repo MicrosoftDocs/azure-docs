@@ -2,8 +2,8 @@
 title: Certificate Issuance in Azure IoT Hub Certificate Management (Preview)
 titleSuffix: Azure IoT Hub
 description: Learn how Azure Device Registry issues X.509 certificates to IoT devices during provisioning, including the certificate hierarchy, issuance flow, and how IoT Hub trusts issued certificates.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: concept-article

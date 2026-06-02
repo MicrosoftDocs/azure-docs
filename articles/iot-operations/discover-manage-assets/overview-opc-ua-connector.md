@@ -22,7 +22,7 @@ The write capability is useful in scenarios where latency, autonomy, or local de
 The connector for OPC UA is an optional part of Azure IoT Operations. The connector for OPC UA connects to OPC UA servers to retrieve data that it publishes to topics in the MQTT broker and write data based in values from an MQTT broker topic subscription. The connector for OPC UA enables your industrial OPC UA environment to ingress data into your local workloads running on a Kubernetes cluster, and into your cloud workloads.
 
 > [!TIP]
-> If you didn't include the connector for OPC UA when you deployed Azure IoT Operations, you can add it to your existing instance from the Azure portal. For instructions, see [Manage components using the Azure portal](../deploy-iot-ops/howto-manage-update-uninstall.md#manage-instance-components).
+> If you didn't include the connector for OPC UA when you deployed Azure IoT Operations, you can add it to your existing instance from the Azure portal. For instructions, see [Manage components using the Azure portal](../manage-iot-ops/howto-manage-update-uninstall.md#manage-instance-components).
 
 The connector for OPC UA is a client application that runs as a middleware service in Azure IoT Operations. The connector for OPC UA connects to OPC UA servers, lets you browse the server address space, monitor data changes and events in connected assets, and write data to nodes in the server address space. Operations teams and developers use the connector for OPC UA to streamline the task of connecting OPC UA assets to their industrial solution at the edge.
 
@@ -43,9 +43,9 @@ The connector for OPC UA supports the following features as part of Azure IoT Op
 | Feature | Supported | Notes |
 |---------|:---------:|-------|
 | Username/password authentication | Yes | |
-| X.509 client certificates | Yes | |
+| X.509 user certificates | Yes | |
 | Anonymous access | Yes | For testing purposes |
-| Certificate trust list | Yes | For secure, encrypted OPC UA connections |
+| Southbound certificate trust list | Yes | For secure, encrypted OPC UA connections |
 | OpenTelemetry integration | Yes | |
 | Automatic reconnection | Yes | Reconnects to OPC UA servers after failures |
 | Multiple server connections | Yes | Configured using `device` resources |

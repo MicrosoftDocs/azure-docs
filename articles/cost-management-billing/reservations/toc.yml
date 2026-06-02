@@ -133,6 +133,8 @@
       href: /azure/defender-for-cloud/prepurchase-plan?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Disk Storage
       href: /azure/virtual-machines/disks-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: GitHub Pre-Purchase
+      href: github-pre-purchase.md
     - name: Microsoft Agent Pre-Purchase
       href: agent-pre-purchase.md
     - name: Microsoft Fabric
@@ -169,6 +171,8 @@
       href: manage-reserved-vm-instance.md
     - name: Change optimize setting
       href: manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances
+    - name: Transition guide for retired Azure Reserved VM Instances
+      href: manage-legacy-vm-reservations-after-july-1-2026.md
   - name: Utilization and cost reports
     items:
     - name: View reservation utilization

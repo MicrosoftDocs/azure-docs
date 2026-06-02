@@ -2,26 +2,29 @@
 title: Azure Service Bus Authentication and Authorization
 description: Learn how to securely authenticate and authorize access to Azure Service Bus, including best practices for managing access keys and using Microsoft Entra ID.
 ms.topic: concept-article
-ms.date: 03/21/2025
+ms.date: 05/02/2026
+#customer intent: As a developer or administrator, I want to understand Service Bus authentication options so that I can choose the appropriate security model for my application.
 ---
 
-# Service Bus authentication and authorization
+# Service Bus authentication and authorization overview
 
-There are two ways to authenticate and authorize access to Azure Service Bus resources:
+Authentication verifies the identity of a security principal—a user, group, application, or managed identity—requesting access to Azure Service Bus resources. Authorization determines what actions that principal can perform.
 
-- Microsoft Entra ID
-- Shared access signature (SAS)
+Azure Service Bus supports two authentication and authorization mechanisms:
 
-This article gives you details on using these two types of security mechanisms.
+- **Microsoft Entra ID**—Recommended approach using role-based access control (RBAC)
+- **Shared access signature (SAS)**—Token-based authentication with cryptographic keys
+
+This article explains how each mechanism works to help you choose the appropriate security model for your application.
 
 ## Microsoft Entra ID
 
-Microsoft Entra integration with Service Bus provides role-based access control (RBAC) to Service Bus resources. You can use Azure RBAC to grant permissions to a security principal, which can be a user, a group, an application service principal, or a managed identity. Microsoft Entra authenticates the security principal and returns an OAuth 2.0 token. This token can be used to authorize a request to access a Service Bus resource (queue, topic, or subscription).
+Microsoft Entra integration with Service Bus provides role-based access control (RBAC) to Service Bus resources. You can use Azure RBAC to grant permissions to a security principal, which can be a user, a group, an application service principal, or a managed identity. Microsoft Entra authenticates the security principal and returns an OAuth 2.0 token. Use this token to authorize a request to access a Service Bus resource (queue, topic, or subscription).
 
 > [!NOTE]
 > The [Service Bus REST API](/rest/api/servicebus/) supports OAuth authentication with Microsoft Entra ID.
 
-Authorizing users or applications by using an OAuth 2.0 token from Microsoft Entra ID provides superior security and ease of use over shared access signatures. With Microsoft Entra ID, there's no need to store tokens in your code and risk potential security vulnerabilities. We recommend that you use Microsoft Entra ID with your Azure Service Bus applications when possible.
+Authorizing users or applications by using an OAuth 2.0 token from Microsoft Entra ID provides superior security and ease of use over shared access signatures. With Microsoft Entra ID, you don't need to store tokens in your code and risk potential security vulnerabilities. Use Microsoft Entra ID with your Azure Service Bus applications when possible.
 
 You can disable local or SAS key authentication for a Service Bus namespace and allow only Microsoft Entra authentication. For step-by-step instructions, see [Disable local authentication](disable-local-authentication.md).
 

@@ -131,7 +131,7 @@ Discovery Engine requires two GPT model deployments. The first is created automa
 | **GPT-5.2** | `gpt-5-2` | 250,000 | 250,000 | Task validation. evaluates agent results against validation requirements |
 
 - **Cognition model**: Deployed automatically during workspace creation with an initial quota of 250,000 TPM. This deployment is dedicated to the Discovery Engine and isn't shared with other services. After workspace creation, increase the TPM to the recommended 1,000,000 TPM for optimal performance. For instructions, see [How to update quota assigned to a model deployment](/azure/ai-foundry/openai/how-to/quota).
-- **Validation model**: You must manually create a chat model deployment named `gpt-5-2` using model `gpt-5.2`. Without this deployment, the Discovery Engine can't validate task results and won't start. See [Create Chat Model Deployment](quickstart-infrastructure-portal.md#5-create-chat-model-deployment) for setup instructions.
+- **Validation model**: You must manually create a chat model deployment named `gpt-5-2` using model `gpt-5.2`. Without this deployment, the Discovery Engine can't validate task results and won't start. See [Create Chat Model Deployment](quickstart-infrastructure-portal.md#6-create-chat-model-deployment) for setup instructions.
 
 > [!IMPORTANT]
 > Both deployments consume GPT-5.2 quota in your subscription. Ensure you have at least 500,000 TPM of GPT-5.2 quota available (250,000 minimum per deployment).

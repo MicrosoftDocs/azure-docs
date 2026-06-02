@@ -5,14 +5,14 @@ author: hectoralinares
 ms.author: hectorl
 ms.service: azure
 ms.topic: concept-article
-ms.date: 03/30/2026
+ms.date: 05/29/2026
 
 #CustomerIntent: As a researcher or scientist, I want to understand how cognition works so that I can effectively collaborate with it on long-running research.
 ---
 
 # Cognition overview
 
-Cognition is the goal-seeking reasoning process that powers investigations in Microsoft Discovery. Rather than executing a fixed sequence of steps, it continuously assesses the current state of your investigation, decides what to do next, and adapts as results come in. When you enable Discovery Mode, cognition starts running in the background. It reads your tasks, selects agents, executes work, validates results, and creates new tasks when it identifies gaps.
+Cognition is the goal-seeking reasoning process that powers shared sessions in Microsoft Discovery. Rather than executing a fixed sequence of steps, it continuously assesses the current state of your shared session, decides what to do next, and adapts as results come in. When you start the Discovery Engine, cognition starts running in the background. It reads your tasks, selects agents, executes work, validates results, and creates new tasks when it identifies gaps.
 
 Cognition continues the cycle until your objectives are met or it encounters something that requires your input.
 
@@ -94,7 +94,7 @@ When an agent completes a task, cognition doesn't accept the result automaticall
 An independent process validates the result, not the agent that produced it. The agent that did the work never grades its own output. This separation ensures that validation requirements are evaluated objectively.
 
 > [!IMPORTANT]
-> Validation requires a chat model deployment named `gpt-5-2` (model: `gpt-5.2`) in your workspace. Without this deployment, the Discovery Engine cannot start. See [Create Chat Model Deployment](quickstart-infrastructure-portal.md#5-create-chat-model-deployment) for setup instructions.
+> Validation requires a chat model deployment in your workspace. New projects create a default chat model deployment named `gpt-5-4` (gpt-5.4). Without this deployment, the Discovery Engine can't start. See [Create chat model deployment](quickstart-infrastructure-portal.md#6-create-chat-model-deployment) for setup instructions. The Microsoft Discovery app uses a different model wiring and doesn't require a workspace-hosted deployment; see [Microsoft Discovery and the Microsoft Discovery app](concept-discovery-and-discovery-app.md).
 
 During validation, the process:
 
@@ -117,7 +117,7 @@ The validation step adds a comment to the task explaining its decision. The comm
 
 ### Retry loop protection
 
-If an agent produces the same incomplete result multiple times, validation detects the pattern. After three or more attempts with the same unresolved gaps, validation escalates to Needs User Attention rather than requesting another retry. This escalation prevents investigations from getting stuck in infinite retry loops where the agent fundamentally can't satisfy the requirements.
+If an agent produces the same incomplete result multiple times, validation detects the pattern. After three or more attempts with the same unresolved gaps, validation escalates to Needs User Attention rather than requesting another retry. This escalation prevents shared sessions from getting stuck in infinite retry loops where the agent fundamentally can't satisfy the requirements.
 
 Common reasons for escalation include:
 
@@ -128,15 +128,15 @@ Common reasons for escalation include:
 When a task is flagged for your attention, review the validation comments to understand what was tried and what's missing. You can then provide the missing information, adjust the validation requirements, or add a comment directing cognition to use a specific agent on the next attempt.
 
 > [!TIP]
-> The quality of validation depends directly on the quality of your validation requirements. Vague requirements lead to lenient validation. Overly specific requirements lead to excessive retries. For guidance on writing effective validation requirements, see [Trust relationship and basic investigation patterns](concept-trust-basic-investigation-patterns.md).
+> The quality of validation depends directly on the quality of your validation requirements. Vague requirements lead to lenient validation. Overly specific requirements lead to excessive retries. For guidance on writing effective validation requirements, see [Trust relationship and basic shared session patterns](concept-trust-basic-investigation-patterns.md).
 
 ### Task completion and the Complete function
 
-Cognition distinguishes between completing individual tasks and completing an entire investigation. These operations are separate:
+Cognition distinguishes between completing individual tasks and completing an entire shared session. These operations are separate:
 
 **Completing a task**: After successful validation, a task's status changes to Complete. Its result becomes available to any tasks that depend on it.
 
-**Completing the investigation**: When all tasks reach a terminal state and cognition determines there's no remaining work, it calls a Complete function that ends the research session. Before ending the session, cognition verifies:
+**Completing the shared session**: When all tasks reach a terminal state and cognition determines there's no remaining work, it calls a Complete function that ends the shared session. Before ending the session, cognition verifies:
 
 - All tasks are in a terminal state (Complete, Removed, Failed, or Needs User Attention)
 - No tasks remain in an active state (New, Incomplete, Executing, Validating, or On Hold)
@@ -146,7 +146,7 @@ If the root task is in Needs User Attention or Failed state, cognition might sti
 
 ## What you see when cognition is running
 
-When cognition is active, you see the investigation progressing without your direct involvement:
+When cognition is active, you see the shared session progressing without your direct involvement:
 
 - **New sub-tasks appearing** as cognition breaks down objectives
 - **Tasks moving through statuses** as they go from New to Executing to Complete
@@ -165,38 +165,38 @@ When cognition is running, the most effective ways to steer it are:
 - **Add comments to tasks**: Explain what's good about a result or what needs to change. Cognition reads comments and factors them into its next decision.
 - **Update validation requirements**: If results are close but not right, adjust the criteria rather than creating a new task.
 - **Create new tasks**: When completed work reveals new questions or directions, add tasks. Cognition picks them up on its next cycle.
-- **Remove irrelevant tasks**: Mark tasks as Removed if cognition created subtasks that aren't useful. Removing irrelevant tasks keeps the investigation focused.
+- **Remove irrelevant tasks**: Mark tasks as Removed if cognition created subtasks that aren't useful. Removing irrelevant tasks keeps the shared session focused.
 - **Complete tasks yourself**: If you have specific expertise, do the work manually and mark the task complete. Cognition sees your result and builds on it.
 
-## Enabling and stopping Discovery Mode
+## Starting and stopping the Discovery Engine
 
-You control the Discovery Engine through Discovery Mode in the interface:
+You control cognition by starting and stopping the Discovery Engine in the interface:
 
-- **Enable**: Cognition starts its reasoning loop and begins working on available tasks.
-- **Disable**: Cognition stops its reasoning loop. Any currently executing agent tasks continue to completion, but cognition doesn't start new work or make new decisions.
+- **Start**: Cognition starts its reasoning loop and begins working on available tasks.
+- **Stop**: Cognition stops its reasoning loop. Any currently executing agent tasks continue to completion, but cognition doesn't start new work or make new decisions.
 
-You can enable and stop Discovery Mode as many times as needed during an investigation. When you re-enable it, cognition picks up where the task state left off. It reviews all current tasks and resumes work.
-
-> [!NOTE]
-> When cognition is disabled and re-enabled, the internal reasoning history (working memory) resets. Cognition rebuilds its understanding from the current task state, which means it starts with a fresh warmup period. Task results, execution history, and validation comments persist because cognition stores them on the tasks themselves.
+You can start and stop the Discovery Engine as many times as needed during a shared session. When you start it again, cognition picks up where the task state left off. It reviews all current tasks and resumes work.
 
 > [!NOTE]
-> The system may also stop Discovery Mode during service upgrades to apply updates. When a service upgrade stops Discovery Mode, your investigation data is preserved. Re-enable Discovery Mode to resume.
+> When the Discovery Engine is stopped and started again, the internal reasoning history (working memory) resets. Cognition rebuilds its understanding from the current task state, which means it starts with a fresh warmup period. Task results, execution history, and validation comments persist because cognition stores them on the tasks themselves.
+
+> [!NOTE]
+> The system might also stop the Discovery Engine during service upgrades to apply updates. When a service upgrade stops the Discovery Engine, your shared session data is preserved. Start the Discovery Engine again to resume.
 
 ## When cognition needs your help
 
-Cognition works autonomously, but it recognizes situations where the situation needs human judgment. Look for these signals:
+Cognition works autonomously, but it recognizes situations that need human judgment. Look for these signals:
 
 - **Needs User Attention tasks**: Cognition tried multiple approaches and couldn't produce a result that meets your validation requirements. Review the execution history and comments to understand what was attempted.
 - **Repeated execution with no progress**: If you notice a task cycling through multiple runs without completing, the validation requirements might be too restrictive or the task description might need more context.
-- **Slow or stalled progress**: If the investigation isn't moving forward, check whether tasks have unmet dependencies. Verify that agents have the right tools, and check whether cognition is waiting on a task that is stuck in Executing.
+- **Slow or stalled progress**: If the shared session isn't moving forward, check whether tasks have unmet dependencies. Verify that agents have the right tools, and check whether cognition is waiting on a task that is stuck in Executing.
 
 For guidance on diagnosing these situations, see [Debug task execution](how-to-debug-task-execution.md).
 
 ## Related content
 
 - [Discovery Engine](concept-discovery-engine.md)
-- [Tasks and investigations](concept-tasks-investigations.md)
+- [Tasks and shared sessions](concept-tasks-investigations.md)
 - [Files and storage assets](concept-files-storage-assets.md)
-- [Build investigations with cognition](how-to-build-investigations-cognition.md)
+- [Build shared sessions with cognition](how-to-build-investigations-cognition.md)
 - [Debug task execution](how-to-debug-task-execution.md)

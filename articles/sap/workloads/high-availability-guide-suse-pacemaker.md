@@ -592,6 +592,8 @@ This section applies only if you're using Azure fence agent as a fencing device.
 To create a managed identity (MSI), [create a system-assigned](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities?pivots=qs-configure-portal-windows-vm#system-assigned-managed-identity) managed identity for each VM in the cluster. If a system-assigned managed identity is already enabled, then it would be used. User assigned managed identities shouldn't be used with Pacemaker at this time. Azure fence agent, based on managed identity is supported for SLES 12 SP5 and SLES 15 SP1 and higher.  
 
 #### [Service principal](#tab/spn)
+> [!CAUTION]
+> Service principal-based authentication relies on a static secret, which adds credential management overhead and increases security risk. We recommend the use of managed identity for fence agent.
 
 To create a service principal, do the following:
 
@@ -991,12 +993,12 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
    sudo crm configure primitive stonith-sbd stonith:external/sbd \
       params pcmk_delay_max="15" \
-      op monitor interval="600" timeout="15"
+      op monitor interval="600" timeout="120"
 
    # For SAP HANA scale-out only, configure stonith-sbd using following command
    sudo crm configure primitive stonith-sbd stonith:external/sbd \
       params pcmk_action_limit=-1 \
-      op monitor interval="600" timeout="15"
+      op monitor interval="600" timeout="120"
 
    sudo crm configure property stonith-timeout=210
    sudo crm configure property stonith-enabled=true

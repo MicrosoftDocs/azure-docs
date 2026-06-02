@@ -23,6 +23,8 @@ items:
     href: scenario-ai-openapi-tool.md
   - name: Model Context Protocol servers
     href: scenario-ai-model-context-protocol-server.md
+  - name: Built-in MCP (Preview)
+    href: configure-mcp-built-in.md
   - name: MCP hosting options
     href: /azure/container-apps/mcp-choosing-azure-service?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
   - name: Local small language models
@@ -90,6 +92,8 @@ items:
           href: tutorial-ai-integrate-azure-ai-agent-dotnet.md
         - name: Agentic web app (.NET)
           href: tutorial-ai-agent-web-app-semantic-kernel-foundry-dotnet.md
+        - name: Monitor agents with OpenTelemetry
+          href: tutorial-ai-agent-monitoring-dotnet.md
         - name: Chatbot with local SLM
           href: tutorial-ai-slm-dotnet.md
 
@@ -304,7 +308,7 @@ items:
       href: monitor-app-service-reference.md
     - name: Azure Monitor tutorial
       href: tutorial-troubleshoot-monitor.md
-    - name: Stream diagnostic logs
+    - name: Enable diagnostic logs
       href: troubleshoot-diagnostic-logs.md
     - name: Open SSH session to a web app in a container
       href: configure-linux-open-ssh-session.md
@@ -656,16 +660,6 @@ items:
       href: configure-grpc.md
     - name: Recommended services (preview)
       href: recommended-services.md      
-    - name: App Service on Azure Arc (preview)
-      items:
-        - name: Azure Arc hosting overview
-          href: overview-arc-integration.md
-        - name: Enable App Service on Azure Arc
-          href: manage-create-arc-environment.md
-        - name: Create app on Azure Arc
-          href: quickstart-arc.md
-        - name: Migrate from App Service on Arc-enabled Kubernetes to Container Apps on Arc-enabled Kubernetes
-          href: migrate-app-service-arc.md
     - name: Best practices
       href: app-service-best-practices.md
     - name: Samples

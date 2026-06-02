@@ -17,7 +17,7 @@ This article explains how to authenticate and secure MCP servers running on Azur
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.62.0 or later.
 - An existing container app or session pool. If you don't have one, see the [MCP server tutorials](mcp-overview.md).
 

@@ -1,6 +1,6 @@
 ---
 description: Overview of how to use Azure Cloud Shell in the new user interface.
-ms.date: 04/01/2026
+ms.date: 05/11/2026
 ms.topic: how-to
 tags: azure-resource-manager
 title: How to use Azure Cloud Shell in the new user interface
@@ -83,11 +83,19 @@ another session connected to the existing container.
 
 ## Cloud Shell editor button
 
-The Cloud Shell editor is a browser-based text editor that is optimized for managing and editing.
-When you select the **<kbd>&#x1F589; Editor</kbd>** button, Cloud Shell opens the editor in the top
-half of the Cloud Shell window.
+The Cloud Shell editor is a browser-based text editor that's optimized for managing and editing
+files in your Cloud Shell environment. When you select the **<kbd>&#x1F589; Editor</kbd>** button,
+Cloud Shell opens the editor in the top half of the Cloud Shell window.
 
-For more information, see [Using the Azure Cloud Shell editor][11].
+For more information, see [Using the Azure Cloud Shell editor][12].
+
+[![Screenshot of the Editor button.][12i]][12x]
+
+If you select the **Open in VS Code for the Web** button, Cloud Shell opens a new browser tab with a
+Visual Studio Code environment connected to Azure. This environment gives you access to the full VS
+Code interface, including the file explorer, editor, and integrated terminal, while still using the
+same Cloud Shell container and authentication. For more information about using VS Code for the Web
+with Azure, see [VS Code for the Web - Azure][14].
 
 ## Web preview menu
 
@@ -205,5 +213,8 @@ The Cloud Shell terminal has the following keyboard shortcuts available when the
 [10x]: media/use-the-shell-window-new/web-preview.png#lightbox
 [11i]: media/use-the-shell-window-new/help-menu.png
 [11x]: media/use-the-shell-window-new/help-menu.png#lightbox
+[12i]: media/use-the-shell-window-new/editor.png
+[12x]: media/use-the-shell-window-new/editor.png#lightbox
 [12]: using-cloud-shell-editor.md
 [13]: using-the-shell-window.md
+[14]: https://code.visualstudio.com/docs/azure/vscodeforweb

@@ -4,7 +4,7 @@ description: How to set up the API Center portal, a managed website that enables
 
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 04/02/2026
+ms.date: 05/06/2026
 ms.update-cycle: 180-days
  
 ms.custom: 
@@ -14,7 +14,7 @@ ms.collection:
 
 # Set up and customize your API Center portal
 
-This article shows you how to set up and customize the *API Center portal* (preview), an Azure-managed website for discovering APIs, MCP servers, and related assets in your [API center](overview.md). 
+This article shows you how to set up and customize the *API Center portal*, an Azure-managed website for discovering APIs, MCP servers, and related assets in your [API center](overview.md). 
 
 The API Center portal supports and streamlines the work of developers who use and create APIs within your organization. Users with access can:
 
@@ -25,9 +25,6 @@ The API Center portal supports and streamlines the work of developers who use an
 * **Try out APIs** with API key or OAuth 2.0 authentication.
 
 :::image type="content" source="media/self-host-api-center-portal/api-center-portal-signed-in.png" alt-text="Screenshot of the API Center portal after user sign-in.":::
-
-> [!NOTE]
-> The API Center portal is currently in preview.
 
 > [!TIP]
 > Both Azure API Management and Azure API Center provide API portal experiences for developers. [Compare the portals](#api-management-and-api-center-portals).
@@ -116,6 +113,14 @@ To use AI-assisted search when signed in to the API Center portal, select the se
 ### Custom metadata
 
 On the **Metadata** tab, optionally select [custom metadata](metadata.md) properties that you want to expose in API details and semantic search.
+
+### Contributions
+
+On the **Contribution** tab, optionally enter a Git repo URL to enable visitors to share their own assets by using the repo. For example, visitors can browse the repo, or submit PRs to add or update plugins, agents, or skills. 
+
+After you enter a Git repo URL, the portal displays a **Contribute** button on the home page. Visitors can select this button to open the repo in a new browser tab.
+
+:::image type="content" source="media/set-up-api-center-portal/contribute-assets.png" alt-text="Screenshot of the Contribute button in the API Center portal."::: 
 
 ## Enable access to test console for APIs
 
