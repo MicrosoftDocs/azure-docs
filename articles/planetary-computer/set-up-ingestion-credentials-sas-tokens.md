@@ -24,6 +24,7 @@ In this guide, you learn how to:
 - A Microsoft Planetary Computer Pro GeoCatalog deployed to your Azure Subscription. See [Deploy a GeoCatalog resource](./deploy-geocatalog-resource.md).
 
 - An Azure Blob container setup with the correct permissions to assign managed identities and to request a SAS Token. See [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
+- A Python 3.10 (or later) environment
 
 ## Managed identity vs. SAS tokens
 

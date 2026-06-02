@@ -20,7 +20,7 @@ To complete this quickstart, you need:
 - An Azure account with an active subscription. Use the link [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Your environment configured to access Azure, for example with [`az login`](/cli/azure/authenticate-azure-cli).
 - Access to a Planetary Computer Pro GeoCatalog. If you don't already have access you can [create a new GeoCatalog](./deploy-geocatalog-resource.md).
-- A Python environment with ``requests`` and ``azure-identity`` installed.
+- A Python 3.10 (or later) environment with ``requests`` and ``azure-identity`` installed.
 
 ```console
 python3 -m pip install requests azure-identity

@@ -19,7 +19,8 @@ This guide walks you through the process of creating render configurations, from
 Before you can configure rendering, ensure the following prerequisite steps are complete:
 
 1.  **STAC Collection Exists:** You created a [STAC collection in Planetary Computer Pro](./create-stac-collection.md).
-2.  **Data Ingested:** You [added STAC items](./add-stac-item-to-collection.md) containing the geospatial data assets you want to visualize into the collection.
+1.  **Data Ingested:** You [added STAC items](./add-stac-item-to-collection.md) containing the geospatial data assets you want to visualize into the collection.
+1.  A Python 3.10 (or later) environment
 
 ## Process to build a Render Configuration
 | Step | Title                                                                                             | Description                                                                                                |
@@ -278,6 +279,12 @@ else:
 ```
 
 # [Python SDK](#tab/pythonsdk)
+
+Install the Planetary Computer Pro Python SDK:
+
+```console
+pip install azure-planetarycomputer azure-identity azure-storage-blob
+```
 
 ```python
 from azure.planetarycomputer import PlanetaryComputerProClient

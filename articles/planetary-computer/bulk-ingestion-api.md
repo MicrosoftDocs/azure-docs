@@ -28,7 +28,7 @@ A geospatial dataset in your storage account blob container:
 
 In your local / development environment:
 
-- A Python environment running Python 3.8, or later.
+- A Python environment running Python 3.10 (or later).
 - [Azure CLI](/cli/azure/install-azure-cli)
 - You're [signed in to Azure](/cli/azure/authenticate-azure-cli-interactively)
 

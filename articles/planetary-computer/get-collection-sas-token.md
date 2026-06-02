@@ -66,6 +66,8 @@ The `sas_token` variable contains the token string you can pass into application
 
 ## Prerequisites
 
+- [Python 3.10 or later](https://www.python.org/downloads/)
+
 Install the Planetary Computer Pro Python SDK:
 
 ```console
