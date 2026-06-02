@@ -49,7 +49,7 @@ Additional Data Models provide focused coverage for specific business domains or
 |Procure to Pay| Purchase orders | SAP S/4HANA 2021 or newer | Semantic Model | |
 |Procure to Pay| Goods movements | SAP S/4HANA 2021 or newer | Semantic Model | Consider SAP Note: <br>3584957 - IM: Add support for Data Product InventoryMgmtConfigurationData |
 |Procure to Pay| Supplier invoices | SAP S/4HANA 2021 or newer | Semantic Model | |
-|Record to Report| Manufacturing Orders | SAP S/4HANA 1909 or newer | | 3636672 - Enablement of Data Product - Manufacturing Codes |
+|Plan to Produce| Manufacturing Orders | SAP S/4HANA 1909 or newer | | 3636672 - Enablement of Data Product - Manufacturing Codes |
 |Record to Report| Operations | SAP S/4HANA 1909 or newer | | 3636672 - Enablement of Data Product - Manufacturing Codes |
 |Record to Report| Components | SAP S/4HANA 1909 or newer | | 3636672 - Enablement of Data Product - Manufacturing Codes |
 |Record to Report| Confirmations | SAP S/4HANA 1909 or newer | | Consider SAP Notes: <br> 3643404 - Enable View I_MFGORDERCONFIRMATION for Change Data Capture <br> 3636672 - Enablement of Data Product - Manufacturing Codes|
@@ -174,11 +174,6 @@ The purchase orders data model provides a structured framework for managing proc
 The goods movements data model captures how materials flow through the procurement cycle and connects these movements with financial and operational structures. With this model, organizations can trace goods from receipt through storage, transfer, and consumption. They can ensure that every movement is tied to accounting and controlling dimensions such as cost centers, profit centers, and company codes. This linkage makes it possible to assess whether deliveries arrive as expected. Organizations can understand the impact of goods movements on costs and inventory levels. They can also monitor compliance with internal processes.
 
 Over time, the model also helps to highlight patterns in supplier reliability, product handling efficiency, and the overall stability of procurement operations. These insights give finance and operations teams a consistent view of physical and financial outcomes.
-
-**Supported source systems:**
-
-- SAP S/4HANA
-- SAP ECC (available through partner integration)
 
 ### Supplier invoices
 
