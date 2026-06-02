@@ -14,33 +14,33 @@ ms.author: glenga
 
 + The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code. This extension requires [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md). When this tool isn't available locally, the extension tries to install it by using a package-based installer. You can also install or update the Core Tools package by running `Azure Functions: Install or Update Azure Functions Core Tools` from the command palette. If you don't have npm or Homebrew installed on your local computer, you must instead [manually install or update Core Tools](../articles/azure-functions/functions-run-local.md#install-the-azure-functions-core-tools).
 
-::: zone pivot="programming-language-csharp"
+::: zone pivot="programming-language-csharp"  
 + [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
 
-+ [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.
-::: zone-end
-::: zone pivot="programming-language-java"
++ [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) for Visual Studio Code.  
+::: zone-end  
+::: zone pivot="programming-language-java"  
 + [Java 17 Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure)
-    + If you use another [supported version of Java](../articles/azure-functions/supported-languages.md?pivots=programming-language-java#languages-by-runtime-version), you must update the project configuration.
+    + If you use another [supported version of Java](../articles/azure-functions/supported-languages.md?pivots=programming-language-java#languages-by-runtime-version), you must update the project configuration. 
     + Set the `JAVA_HOME` environment variable to the install location of the correct version of the Java Development Kit (JDK).
 + [Apache Maven 3.8.x](https://maven.apache.org)
 
-+ The [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
-::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-typescript"
++ The [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)       
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-typescript"  
 + [Node.js 18.x](https://nodejs.org/en/about/previous-releases) or above. Use the `node --version` command to check your version.
-::: zone-end
-::: zone pivot="programming-language-powershell"
+::: zone-end 
+::: zone pivot="programming-language-powershell"  
 + [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ [.NET 6.0 runtime](https://dotnet.microsoft.com/download/dotnet)
++ [.NET 6.0 runtime](https://dotnet.microsoft.com/download/dotnet)     
 
-+ The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).
++ The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell).  
 ::: zone-end
-::: zone pivot="programming-language-python"
+::: zone pivot="programming-language-python" 
 + Python versions that are [supported by Azure Functions](../articles/azure-functions/supported-languages.md#languages-by-runtime-version). For more information, see [How to install Python](https://wiki.python.org/moin/BeginnersGuide/Download).
 
 + The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
-::: zone-end
-
+::: zone-end  
+ 
 + The [Azure Developer CLI extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-dev) for Visual Studio Code.
