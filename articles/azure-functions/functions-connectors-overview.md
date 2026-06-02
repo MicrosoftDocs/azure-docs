@@ -8,7 +8,7 @@ ai-usage: ai-assisted
 ms.custom:
   - build-2026
   - references_regions
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 #Customer intent: As a developer, I want to understand how Azure Functions uses managed connectors so that I can choose connector-based triggers and SDK actions instead of writing my own webhook plumbing and SaaS API clients.
 ---
 
