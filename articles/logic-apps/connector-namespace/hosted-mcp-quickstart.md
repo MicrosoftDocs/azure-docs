@@ -347,5 +347,6 @@ Replace `<your-namespace-name>` with the name of your Connector Namespace resour
 
 ## Related articles
 
+- [Hosted MCP servers developer guide](hosted-mcp-dev-guide.md)
 - [What is Azure Connector Namespace?](connector-namespace-overview.md)
 - [Create and manage connector namespaces](create-connector-namespace.md)
