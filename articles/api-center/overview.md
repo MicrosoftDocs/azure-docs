@@ -5,7 +5,7 @@ description: Introduction to key scenarios and capabilities of Azure API Center.
  
 ms.service: azure-api-center
 ms.topic: overview
-ms.date: 04/24/2026
+ms.date: 06/02/2026
  
 ms.custom: references_regions
 ---
