@@ -316,7 +316,7 @@ items:
     items:
     - name: Use serverless SQL pool to analyze data
       href: ./sql/tutorial-data-analyst.md
-    - name: Create Logical Data Warehouse with serverless SQL pool
+    - name: Create Logical Data Warehouse on Cosmos DB and Azure Storage
       href: ./sql/tutorial-logical-data-warehouse.md
     - name: Power BI Desktop
       href: ./sql/tutorial-connect-power-bi-desktop.md
