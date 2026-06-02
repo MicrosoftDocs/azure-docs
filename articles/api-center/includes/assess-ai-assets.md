@@ -2,7 +2,7 @@
 title: Assess AI Assets in Your API Center
 description: Learn how to enable AI skill assessments in Azure API Center to evaluate the quality of skills in your plugins. 
 ms.service: azure-api-center
-ms.topic: how-to
+ms.topic: include
 ms.date: 06/01/2026
 ms.author: danlep
 author: dlepow

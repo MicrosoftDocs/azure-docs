@@ -5,7 +5,7 @@ author: leijgao
 ms.author: leijiagao
 ms.service: azure
 ms.topic: how-to
-ms.date: 04/16/2026
+ms.date: 05/29/2026
 
 #CustomerIntent: As a researcher or scientist, I want to write effective prompts for my Discovery agents so that I can get accurate, reliable, and well-structured outputs for scientific workflows.
 ---
@@ -15,6 +15,9 @@ ms.date: 04/16/2026
 Prompt engineering is the practice of writing clear instructions that guide a large language model (LLM) to produce the output you need. In Microsoft Discovery, you write prompts in two places: agent instructions that define the agent's behavior, and user prompts that you type during investigations.
 
 This article covers techniques for both instruction authoring and user prompt construction. All examples focus on scientific research scenarios relevant to Discovery workflows.
+
+> [!NOTE]
+> The prompt engineering guidance in this article applies to both **Microsoft Discovery** and **Discovery app**. Whether you're authoring prompt agents in Discovery Studio or creating custom agents in Discovery app using GitHub Copilot skills, the same principles for writing effective instructions, structuring outputs, and crafting user prompts apply. The techniques are model-agnostic and work across all supported model providers.
 
 ## Prerequisites
 
@@ -100,7 +103,7 @@ GPT-5.x models are highly steerable. You get better results when you specify the
 </output_contract>
 ```
 
-This technique prevents verbose or unpredictable output shapes. It's especially useful for agents whose outputs feed into workflow agents or downstream tools.
+This technique prevents verbose or unpredictable output shapes. It's especially useful for agents whose outputs feed into other agents or downstream tools.
 
 ### Provide few-shot examples
 

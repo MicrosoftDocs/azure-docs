@@ -27,20 +27,23 @@ Developers can add the plugin marketplace to their GitHub Copilot CLI or Claude 
 
 - [GitHub Copilot CLI](https://github.com/github/copilot-cli) or [Claude Code](https://www.anthropic.com/claude) installed in your development environment.
 
-## Confirm plugin marketplace endpoint is enabled for your API center
+## Enable plugin marketplace endpoint
 
+To enable the plugin marketplace endpoint by using the Azure portal:
 
-
-After setting up the API Center portal, confirm that the plugin marketplace endpoint is enabled for your API center by cloning it locally. 
-
-> [!NOTE]
-> After setting up the API center portal, it can take several minutes for the plugin marketplace endpoint to be available. 
+1. In the [Azure portal](https://portal.azure.com/), go to your API center.    
+1. In the sidebar menu, under **Consumption**, select **Data API settings**.
+1. Under **MCP endpoint**, select **Enable API Center MCP endpoint**.
 
 The marketplace endpoint is of the following form:
 
 ```
 https://<service name>.data.<region>.azure-apicenter.ms/workspaces/default/plugins/marketplace.git
 ```
+
+## Clone the plugin marketplace endpoint locally
+
+You can confirm that the plugin marketplace endpoint is enabled for your API center by cloning it locally. 
 
 To clone it, use a command similar to the following in your terminal, replacing the service name and region with the values from your API center:
 
@@ -110,5 +113,5 @@ For more information about installing plugins from the marketplace in Claude Cod
 
 * [Set up and customize your API Center portal](set-up-api-center-portal.md)
 * [Discover and consume APIs - VS Code extension](discover-apis-vscode-extension.md)
-
+* [Discover APIs with the Azure API Center MCP server](discover-catalog-mcp-server.md)
 
