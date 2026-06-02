@@ -21,7 +21,7 @@ At the heart of Microsoft Discovery is the Discovery Engine, our cognitive orche
 
 Built-in governance controls help ensure that agent‑driven research remains aligned with strategic priorities, security and compliance standards, and safety requirements. These systems provide centralized management, audit trails, and checkpoints that help maintain reliability as agentic throughput grows. The platform is extensible by design, which enables integration with existing business tools and assets, partner solutions, and open-source models. Integration with Microsoft 365, Microsoft Foundry, and Microsoft Fabric enables organizations to interoperate across business agents, enterprise data, and institutional knowledge. 
 
-Microsoft Discovery is available in [two complementary experiences](discovery-and-discovery-app.md): the enterprise cloud service (called Microsoft Discovery) and a standalone desktop application (called the Microsoft Discovery app). Both serve the same core purpose of accelerating scientific discovery, share core concepts, and are built on the same APIs.
+Microsoft Discovery is available in [two complementary experiences](concept-discovery-and-discovery-app.md): the enterprise cloud service (called Microsoft Discovery) and a standalone desktop application (called the Microsoft Discovery app). Both serve the same core purpose of accelerating scientific discovery, share core concepts, and are built on the same APIs.
 
 ## Who is it for? 
 Microsoft Discovery is designed to support the full discovery journey—from scientific insight to enterprise-scale execution. The platform brings together researchers, builders, operators, and leaders around a shared, intelligent discovery environment. 
