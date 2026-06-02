@@ -11,8 +11,12 @@ ms.date: 04/17/2026
 ---
 
 # Microsoft Discovery billing overview
-
-Microsoft Discovery uses a billing model with two components:
+ 
+Microsoft Discovery provides [two experiences](discovery-and-discovery-app.md): the Discovery app (local install) and Discovery services (Azure-hosted), each with a distinct pricing model. The Discovery app does not have an additional platform charge and relies only on user’s GitHub Copilot subscription for usage (a paid Copilot tier is recommended for practical workloads).
+ 
+The remainder of this document describes the billing model for Discovery services, including Azure resource consumption and message-based runtime charges.
+ 
+Microsoft Discovery services (Azure hosted) uses a billing model with two components:
 
 - **Usage-based** billing for the underlying compute and storage Azure resources associated with your workspace and projects.
 - **Message-based** billing for agent-driven runtime operations, tracked as *User Messages*.

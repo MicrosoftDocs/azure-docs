@@ -1,6 +1,8 @@
 ---
 title: Azure Native New Relic Service overview
 description: Learn about using New Relic in Azure Marketplace.
+author: shijojoy
+ms.author: shijoy
 ms.topic: overview
 ms.date: 01/10/2025
 ---

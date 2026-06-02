@@ -5,7 +5,7 @@ author: mukesh-dua
 ms.author: mukeshdua
 ms.topic: overview
 ms.service: azure
-ms.date: 01/20/2026
+ms.date: 05/28/2026
 ms.custom:
   - template-overview
 ---
@@ -15,11 +15,13 @@ Microsoft Discovery is an extensible platform that brings together agentic orche
 
 It helps drive the three principles for effective agentic discovery - enabling agent empowerment, discovery loop automation, and quality at scale. Because it's built on Azure’s enterprise cloud infrastructure, Microsoft Discovery is designed to operate within the security, compliance, transparency, and governance frameworks used to manage sensitive real‑world R&D environments. 
 
-Agents are equipped with a broad range of digital, physical, and analytical tools used across R&D. This includes in‑silico experimentation environments such as High Performance Computing (HPC) clusters, specialized Large Quantitative Models (LQMs) and agents, and potential future integration with quantum capabilities as they become applicable to commercial R&D. It also allows integration with physical labs, facilitating the lab procedure generation and even direct operation with robotics, lab instrumentation, and IoT‑enabled devices that agents can operate under human oversight.  
+Discovery agents are equipped with a broad range of digital, physical, and analytical tools used across R&D. This includes in‑silico experimentation environments such as High Performance Computing (HPC) clusters, specialized Large Quantitative Models (LQMs) and agents, and potential future integration with quantum capabilities as they become applicable to commercial R&D. It also allows integration with physical labs, facilitating the lab procedure generation and even direct operation with robotics, lab instrumentation, and IoT‑enabled devices that agents can operate under human oversight.  
 
 At the heart of Microsoft Discovery is the Discovery Engine, our cognitive orchestrator, which mimics the scientific method where specialized agents reason over large amounts of knowledge, generates hypotheses, and validate them in a complex tree across a vast search space. The Discovery Engine connects proprietary research data with external scientific literature - not solely to retrieve isolated facts but to reason across conflicting theories, experimental results, and domain-specific assumptions in a way that reflects how science actually works. This contextual depth is what separates Microsoft Discovery from general-purpose AI tools and enables the platform to function as a genuine thinking partner across the full arc of a research program. The outcomes of the Discovery Engine are designed to be explainable and to be stored in a long-term memory knowledge graph, so knowledge generated in the discovery loop can be reused for future iterations or across the organization. 
 
 Built-in governance controls help ensure that agent‑driven research remains aligned with strategic priorities, security and compliance standards, and safety requirements. These systems provide centralized management, audit trails, and checkpoints that help maintain reliability as agentic throughput grows. The platform is extensible by design, which enables integration with existing business tools and assets, partner solutions, and open-source models. Integration with Microsoft 365, Microsoft Foundry, and Microsoft Fabric enables organizations to interoperate across business agents, enterprise data, and institutional knowledge. 
+
+Microsoft Discovery is available in [two complementary experiences](discovery-and-discovery-app.md): the enterprise cloud service (called Microsoft Discovery) and a standalone desktop application (called the Microsoft Discovery app). Both serve the same core purpose of accelerating scientific discovery, share core concepts, and are built on the same APIs.
 
 ## Who is it for? 
 Microsoft Discovery is designed to support the full discovery journey—from scientific insight to enterprise-scale execution. The platform brings together researchers, builders, operators, and leaders around a shared, intelligent discovery environment. 

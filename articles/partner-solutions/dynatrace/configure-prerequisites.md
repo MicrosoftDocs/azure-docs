@@ -1,6 +1,8 @@
 ---
 title: Configure Pre-Deployment for Azure Native Dynatrace Service
-description: Learn how to complete the prerequisites for Dynatrace in the Azure portal. 
+description: Learn how to complete the prerequisites for Dynatrace in the Azure portal.
+author: praveenrajap
+ms.author: praveenrajap
 ms.topic: concept-article
 ms.date: 09/15/2025
 

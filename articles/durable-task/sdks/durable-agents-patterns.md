@@ -2,7 +2,7 @@
 title: "Agentic Application Patterns - Azure"
 description: Implement deterministic agentic workflows and agent loops using the Durable Task programming model. Build reliable AI agents with automatic checkpointing and retry policies.
 author: cgillum
-ms.topic: conceptual
+ms.topic: article
 ms.date: 05/05/2026
 ms.author: cgillum
 zone_pivot_groups: azure-durable-approach
@@ -18,7 +18,7 @@ There are two general approaches to building agentic applications with AI:
 Both approaches benefit from [durable execution](./durable-task-for-ai-agents.md) and can be implemented using the [Durable Task programming model](../common/programming-model-overview.md). This article shows how to build each pattern with ready-to-use code samples in C#, Python, JavaScript/TypeScript, and Java.
 
 > [!TIP]
-> **Prerequisites:** Before using these patterns, set up the Durable Task SDKs or Durable Functions. See the [SDK overview](./durable-task-overview.md) or [Durable Functions overview](../../azure-functions/durable-functions/durable-functions-overview.md) to get started.
+> **Prerequisites:** Before using these patterns, set up the Durable Task SDKs or Durable Functions. See the [SDK overview](./durable-task-overview.md) or [Durable Functions overview](../durable-functions/durable-functions-overview.md) to get started.
 
 **On this page:**
 
@@ -54,7 +54,7 @@ In a deterministic workflow, your code controls the execution path. The LLM is c
 
 ::: zone pivot="durable-functions"
 
-The following examples use [Durable Functions](../../azure-functions/durable-functions/durable-functions-overview.md), which runs on Azure Functions with serverless hosting.
+The following examples use [Durable Functions](../durable-functions/durable-functions-overview.md), which runs on Azure Functions with serverless hosting.
 
 ::: zone-end
 

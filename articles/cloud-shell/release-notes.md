@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Shell release notes
 description: This article lists the new features and changes released in Azure Cloud Shell.
-ms.date: 05/11/2026
+ms.date: 05/22/2026
 ms.topic: release-notes
 ---
 
@@ -42,14 +42,19 @@ For more information, see [How to use Azure Cloud Shell in the new user interfac
 
 Tool updates
 
-- Az CLI upgraded to v2.85.0
-- Azure Functions Core Tools CLI upgraded to v4.9.0
-- Azure PowerShell upgraded to v15.5.0
+- Az CLI upgraded to v2.86.0
+- Azure Developer CLI upgraded to v1.24.1
+- Azure Functions Core Tools CLI upgraded to v4.10.0
+- Azure PowerShell upgraded to v15.6.0
 - Bicep CLI upgraded to v0.42.1
 - CLI for M365 upgraded to v11.6.0
 - Helm upgraded to v4.1
-- Inspektor Gadget (`ig`) upgraded to v0.51
+- Inspektor Gadget (`ig`) upgraded to v0.52.0
+- `kubectl` upgraded to v1.36.0
+- `Node.js` upgraded to v24.14.1
+- `npm` upgraded to v11.11.0
 - `istioctl` upgraded to v1.29.1
+- `containerd` upgraded to v2.1.6
 
 ## April 2026
 

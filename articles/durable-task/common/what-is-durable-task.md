@@ -19,7 +19,7 @@ Durable Task workflows can run for hours, days, or even months, reliably resumin
 
 Durable Task encompasses:
 - The **[Durable Task SDKs](../sdks/durable-task-overview.md)** for self-hosted applications.
-- The **[Durable Functions](../../azure-functions/durable-functions/durable-functions-overview.md)** for serverless hosting on Azure Functions
+- The **[Durable Functions](../durable-functions/durable-functions-overview.md)** for serverless hosting on Azure Functions
 - The **[Durable Task Scheduler](../scheduler/durable-task-scheduler.md)**, a fully managed backend service purpose-built for durable workloads.
 
 > [!NOTE]
@@ -100,5 +100,5 @@ The following video highlights the benefits of Azure Durable Functions:
   - [Microsoft Agent Framework extension](../sdks/durable-agents-microsoft-agent-framework.md)
 - Get started with:
   - [The Durable Task SDKs](../sdks/durable-task-overview.md)
-  - [Durable Functions](../../azure-functions/durable-functions/durable-functions-overview.md)
+  - [Durable Functions](../durable-functions/durable-functions-overview.md)
 - [The Durable Task Scheduler](../scheduler/durable-task-scheduler.md)
