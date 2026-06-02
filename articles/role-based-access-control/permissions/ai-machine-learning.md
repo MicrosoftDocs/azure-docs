@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -101,8 +101,9 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Action | Description |
 > | --- | --- |
 > | `Microsoft.CognitiveServices/register/action` | Subscription Registration Action |
-> | `Microsoft.CognitiveServices/register/action` | Registers Subscription for Cognitive Services |
 > | `Microsoft.CognitiveServices/checkDomainAvailability/action` | Reads available SKUs for a subscription. |
+> | `Microsoft.CognitiveServices/raiPolicy/action` | Create or update Subscription RaiPolicy |
+> | `Microsoft.CognitiveServices/register/action` | Registers Subscription for Cognitive Services |
 > | `Microsoft.CognitiveServices/accounts/read` | Reads API accounts. |
 > | `Microsoft.CognitiveServices/accounts/write` | Writes API Accounts. |
 > | `Microsoft.CognitiveServices/accounts/delete` | Deletes API accounts |
@@ -130,6 +131,9 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | `Microsoft.CognitiveServices/accounts/encryptionScopes/read` | Reads an Encryption Scope. |
 > | `Microsoft.CognitiveServices/accounts/encryptionScopes/write` | Writes an Encryption Scope. |
 > | `Microsoft.CognitiveServices/accounts/encryptionScopes/delete` | Deletes an Encryption Scope. |
+> | `Microsoft.CognitiveServices/accounts/managedComputeDeployments/read` | Reads Managed Compute Deployments. |
+> | `Microsoft.CognitiveServices/accounts/managedComputeDeployments/write` | Creates or updates Managed Compute Deployments. |
+> | `Microsoft.CognitiveServices/accounts/managedComputeDeployments/delete` | Deletes Managed Compute Deployments. |
 > | `Microsoft.CognitiveServices/accounts/managedNetworks/read` | Get the managed network associated with the Cognitive Services Account. |
 > | `Microsoft.CognitiveServices/accounts/managedNetworks/write` | Creates or updates the managed network associated with the Cognitive Services Account. |
 > | `Microsoft.CognitiveServices/accounts/managedNetworks/batchOutboundRules/action` | Manages the outbound rules of the managed network associated with the Cognitive Services Account. |
@@ -215,6 +219,7 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | `Microsoft.CognitiveServices/locations/deleteVirtualNetworkOrSubnets/action` | Notification from Microsoft.Network of deleting VirtualNetworks or Subnets. |
 > | `Microsoft.CognitiveServices/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action` | Notification from Microsoft.Network of NetworkSecurityPerimeter updates. |
 > | `Microsoft.CognitiveServices/locations/commitmentTiers/read` | Reads available commitment tiers. |
+> | `Microsoft.CognitiveServices/locations/managedComputeUsages/read` | Read managed compute quota usages for a subscription and location |
 > | `Microsoft.CognitiveServices/locations/modelCapacities/read` | Reads available capacities of a model. |
 > | `Microsoft.CognitiveServices/locations/models/read` | Reads available models. |
 > | `Microsoft.CognitiveServices/locations/networkSecurityPerimeterProxies/read` | Reads a network security perimeter. |
@@ -231,39 +236,141 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | `Microsoft.CognitiveServices/locations/resourceGroups/deletedAccounts/read` | Get deleted account. |
 > | `Microsoft.CognitiveServices/locations/resourceGroups/deletedAccounts/delete` | Purge deleted account. |
 > | `Microsoft.CognitiveServices/locations/usages/read` | Read all usages data |
+> | `Microsoft.CognitiveServices/managedComputeCapacities/read` | Returns the regional capacity with the highest available accelerators for the given Singularity endpoint and offer. |
 > | `Microsoft.CognitiveServices/modelCapacities/read` | Reads available capacities of a model. |
 > | `Microsoft.CognitiveServices/models/read` | Reads available models. |
 > | `Microsoft.CognitiveServices/Operations/read` | List all available operations |
 > | `Microsoft.CognitiveServices/raiExternalSafetyProviders/read` | Read external safety providers |
 > | `Microsoft.CognitiveServices/raiExternalSafetyProviders/write` | Write External Safety Providers |
 > | `Microsoft.CognitiveServices/raiPolicy/read` | Read Subscription RaiPolicy |
-> | `Microsoft.CognitiveServices/raiPolicy/write` | Write Subscription RaiPolicy |
 > | `Microsoft.CognitiveServices/skus/read` | Reads available SKUs for Cognitive Services. |
 > | **DataAction** | **Description** |
+> | `Microsoft.CognitiveServices/accounts/AIServices/optimization/action` | Create agent optimization runs |
 > | `Microsoft.CognitiveServices/accounts/AIServices/providers/action` | Perform an action on a provider model |
+> | `Microsoft.CognitiveServices/accounts/AIServices/managed-deployments/action` | Perform an action on a MAAP managed deployment |
 > | `Microsoft.CognitiveServices/accounts/AIServices/agents/write` | Create update agents, threads, and messages |
 > | `Microsoft.CognitiveServices/accounts/AIServices/agents/read` | Read agents, threads, and messages |
 > | `Microsoft.CognitiveServices/accounts/AIServices/agents/delete` | Delete agents, threads, and messages |
+> | `Microsoft.CognitiveServices/accounts/AIServices/agents/state/disable/action` | Set agent state to disabled |
+> | `Microsoft.CognitiveServices/accounts/AIServices/agents/state/enable/action` | Set agent state to enabled |
 > | `Microsoft.CognitiveServices/accounts/AIServices/applications/invoke/action` | Invoke an application |
 > | `Microsoft.CognitiveServices/accounts/AIServices/assets/read` | List versions of an asset or get a particular version of the asset |
 > | `Microsoft.CognitiveServices/accounts/AIServices/assets/write` | List versions of an asset or get a particular version of the asset |
 > | `Microsoft.CognitiveServices/accounts/AIServices/assets/delete` | List versions of an asset or get a particular version of the asset |
 > | `Microsoft.CognitiveServices/accounts/AIServices/connections/read` | List all connections in the project. Get a connection by name. |
 > | `Microsoft.CognitiveServices/accounts/AIServices/connections/listSecrets/action` | Read connection credentials |
+> | `Microsoft.CognitiveServices/accounts/AIServices/data_generation_jobs/write` | Create or cancel a data generation job |
+> | `Microsoft.CognitiveServices/accounts/AIServices/data_generation_jobs/read` | List and get data generation jobs |
+> | `Microsoft.CognitiveServices/accounts/AIServices/data_generation_jobs/delete` | Delete a data generation job |
 > | `Microsoft.CognitiveServices/accounts/AIServices/deployments/read` | List all deployed models in the project. Get a deployed model. |
+> | `Microsoft.CognitiveServices/accounts/AIServices/endpoints/invoke/action` | [DEPRECATED] Invoke an endpoint |
+> | `Microsoft.CognitiveServices/accounts/AIServices/endpoints/interact/action` | Interact with an endpoint |
 > | `Microsoft.CognitiveServices/accounts/AIServices/evaluations/write` | Create an evaluation run |
 > | `Microsoft.CognitiveServices/accounts/AIServices/evaluations/read` | Read evaluation runs |
 > | `Microsoft.CognitiveServices/accounts/AIServices/evaluations/delete` | Delete evaluation runs |
 > | `Microsoft.CognitiveServices/accounts/AIServices/fine_tuning/write` | Create, cancel, pause and resume a fine-tuning job |
 > | `Microsoft.CognitiveServices/accounts/AIServices/fine_tuning/read` | List and get fine-tune jobs. List checkpoints and events of fine-tune jobs |
 > | `Microsoft.CognitiveServices/accounts/AIServices/fine_tuning/delete` | Delete a fine-tune job |
+> | `Microsoft.CognitiveServices/accounts/AIServices/index/entities/read` | Query index entities |
+> | `Microsoft.CognitiveServices/accounts/AIServices/jobs/write` | Create or update a job, or append content to a job artifact |
+> | `Microsoft.CognitiveServices/accounts/AIServices/jobs/cancel/action` | Cancel a running job |
+> | `Microsoft.CognitiveServices/accounts/AIServices/jobs/read` | List and get jobs and artifacts |
+> | `Microsoft.CognitiveServices/accounts/AIServices/jobs/delete` | Delete a job |
+> | `Microsoft.CognitiveServices/accounts/AIServices/jobs/history/runs/read` | List or get run history for a job |
+> | `Microsoft.CognitiveServices/accounts/AIServices/jobs/metrics/read` | Read metrics for a job run |
+> | `Microsoft.CognitiveServices/accounts/AIServices/managedAgentIdentityBlueprints/write` | Create or update a managed agent identity blueprint |
+> | `Microsoft.CognitiveServices/accounts/AIServices/managedAgentIdentityBlueprints/read` | Get or list managed agent identity blueprint |
+> | `Microsoft.CognitiveServices/accounts/AIServices/managedAgentIdentityBlueprints/delete` | Delete a managed agent identity blueprint |
 > | `Microsoft.CognitiveServices/accounts/AIServices/notifications/read` | List all notifications or get a particular notification of a specific project |
 > | `Microsoft.CognitiveServices/accounts/AIServices/notifications/write` | Create a new version of a notification or update or operate on an existing notification of a specific project |
 > | `Microsoft.CognitiveServices/accounts/AIServices/notifications/delete` | Delete all notifications or delete a particular notification of a specific project |
+> | `Microsoft.CognitiveServices/accounts/AIServices/optimization/write` | Update agent optimization configurations |
+> | `Microsoft.CognitiveServices/accounts/AIServices/optimization/read` | Read agent optimization runs and results |
+> | `Microsoft.CognitiveServices/accounts/AIServices/optimization/delete` | Delete agent optimization runs |
+> | `Microsoft.CognitiveServices/accounts/AIServices/optimization/cancel/action` | Cancel running agent optimization runs |
 > | `Microsoft.CognitiveServices/accounts/AIServices/responses/read` | List all responses in the project. Get a response. |
 > | `Microsoft.CognitiveServices/accounts/AIServices/responses/write` | Create a new response |
 > | `Microsoft.CognitiveServices/accounts/AIServices/responses/delete` | Delete a specific response |
+> | `Microsoft.CognitiveServices/accounts/AIServices/routines/read` | Get or list routines |
+> | `Microsoft.CognitiveServices/accounts/AIServices/routines/write` | Create or update a routine |
+> | `Microsoft.CognitiveServices/accounts/AIServices/routines/delete` | Delete a routine |
+> | `Microsoft.CognitiveServices/accounts/AIServices/routines/dispatch/action` | Dispatch a routine |
+> | `Microsoft.CognitiveServices/accounts/AIServices/tasks/read` | Get or list tasks |
+> | `Microsoft.CognitiveServices/accounts/AIServices/tasks/write` | Create or update a task |
+> | `Microsoft.CognitiveServices/accounts/AIServices/tasks/delete` | Delete a task |
 > | `Microsoft.CognitiveServices/accounts/AIServices/usage/read` | Get billing usage |
+> | `Microsoft.CognitiveServices/accounts/analyzers/analyzers:analyze/action` | Extract content and fields from input. Extract content and fields from input.* |
+> | `Microsoft.CognitiveServices/accounts/analyzers/analyzers:copy/action` | Create a copy of the source analyzer to the current location. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/analyzers:grantCopyAuthorization/action` | Get authorization for copying this analyzer to another location. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/analyzers:analyzebinary/action` | Extract content and fields from input. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/classifiers:classify/action` | Classify content with optional splitting. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/classifiers:classifybinary/action` | Classify content with optional splitting. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/faces:compare/action` | Compare the similarity between two faces. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/faces:detect/action` | Detect faces in an image. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects:migrate/action` | Labeling - MigrateProject |
+> | `Microsoft.CognitiveServices/accounts/analyzers/analyzerresults/read` | Get the result of an analysis operation. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/analyzerresults/delete` | Delete the result of an analysis operation. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/analyzerresults/files/read` | Get a file associated with the result of an analysis operation. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/analyzers/read` | List analyzers. Get analyzer properties. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/analyzers/write` | Create a new analyzer asynchronously. Update analyzer properties. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/analyzers/delete` | Delete analyzer. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/analyzers/read` | List analyzers. Get analyzer properties.* |
+> | `Microsoft.CognitiveServices/accounts/analyzers/analyzers/operations/read` | Get the status of an analyzer creation operation. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/analyzers/operations/read` | Get the status of an analyzer creation operation. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/analyzers/results/read` | Get the result of an analysis operation. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/analyzers/results/images/read` | Get an image associated with the result of an analysis operation. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/batchAnalysisJobs/read` | List all batch analysis jobs. Get batch analysis job. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/batchAnalysisJobs/write` | Create a batch analysis job. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/batchAnalysisJobs/delete` | Delete batch analysis job.  Analysis output is not deleted. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/classifierresults/read` | Get the result of a classifier operation. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/classifiers/write` | Create a new classifier asynchronously. Update classifier properties. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/classifiers/delete` | Delete classifier. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/classifiers/read` | List classifiers. Get classifier properties.* |
+> | `Microsoft.CognitiveServices/accounts/analyzers/classifiers/operations/read` | Get the status of a classifier creation operation. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/defaults/read` | Return default settings for this Content Understanding resource. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/defaults/write` | Update default settings for this Content Understanding resource. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/write` | Labeling - Create project Labeling - Update project |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/read` | Labeling - Get project Labeling - List projects |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/delete` | Labeling - Delete project |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/schema:suggest/action` | Labeling - Suggest field schema |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/schema:edit/action` | Labeling - Edit field schema |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/labels:analyze/action` | Labeling - Analyze document |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/datasets/files/read` | Labeling - GetDatasetFile Labeling - ListDatasetFiles |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/labels/write` | Labeling - Create label |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/labels/read` | Labeling - Get label Labeling - List labels |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/labels/delete` | Labeling - Delete label |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/labels/document/write` | Labeling - Set document |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/labels/document/read` | Labeling - Get document |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/labels/ocr/read` | Labeling - Get OCR result |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/labels/operations/read` | Labeling - List analyze document results Labeling - Get analyze document result |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/migration/operations/read` | Labeling - ListMigrationOperations Labeling - GetMigrationOperation |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/reference/files:analyze/action` | Labeling - StartGenerateResult |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/reference/files/read` | Labeling - GetReferenceFile Labeling - ListReferenceFiles |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/reference/files/write` | Labeling - CreateReferenceFile |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/reference/files/delete` | Labeling - DeleteReferenceFile |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/reference/files/write` | Labeling - CreateDatasetFile |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/reference/files/delete` | Labeling - DeleteDatasetFile |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/reference/files/operations/read` | Labeling - GetGenerateResultOperation Labeling - ListGenerateResultOperations |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/schema/read` | Labeling - Get current schema |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/schema/operations/read` | Labeling - Get suggested schema Labeling - List suggested schemas |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/stats/read` | Labeling - Get project stats |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/test/files:hitl/action` | Labeling - HITL |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/test/files/write` | Labeling - Create or update test file |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/test/files/read` | Labeling - Get test files Labeling - List test files |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/test/files/delete` | Labeling - Delete Test file |
+> | `Microsoft.CognitiveServices/accounts/analyzers/labelingProjects/test/files/operations/read` | Labeling - Get hitl operation status |
+> | `Microsoft.CognitiveServices/accounts/analyzers/persondirectories/read` | List person directories. Get person directory properties.* |
+> | `Microsoft.CognitiveServices/accounts/analyzers/persondirectories/write` | Create a new person directory. - Update person directory properties. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/persondirectories/delete` | Delete person directory and all associated persons and faces. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/persondirectories/faces:find/action` | Find similar faces. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/persondirectories/persons:verify/action` | Verify if a face matches the person. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/persondirectories/persons:identify/action` | Identify the person from a face. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/persondirectories/faces/read` | List faces. Get face properties.* |
+> | `Microsoft.CognitiveServices/accounts/analyzers/persondirectories/faces/write` | Add a new face. Update face properties, such as modifying the association with a person. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/persondirectories/faces/delete` | Delete face.  Any linked person will be disassociated, but not deleted. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/persondirectories/persons/read` | List persons. Get person properties.* |
+> | `Microsoft.CognitiveServices/accounts/analyzers/persondirectories/persons/write` | Add a new person and optionally associate with existing faces. Update person properties. |
+> | `Microsoft.CognitiveServices/accounts/analyzers/persondirectories/persons/delete` | Delete person.  Any linked faces will be disassociated, but not deleted. |
 > | `Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models:detect-last/action` | Submit multivariate anomaly detection task with the modelId of trained model and inference data, and the inference data should be put into request body in a JSON format. The request will complete synchronously and return the detection immediately in the response body. |
 > | `Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models:detect-batch/action` | Submit multivariate anomaly detection task with the modelId of trained model and inference data, the input schema should be the same with the training request. The request will complete asynchronously and return a resultId to query the detection result.The request should be a source link to indicate an externally accessible Azure storage Uri, either pointed to an Azure blob storage folder, or pointed to a CSV file in Azure blob storage. |
 > | `Microsoft.CognitiveServices/accounts/AnomalyDetector/multivariate/models/action` | Create and train a multivariate anomaly detection model.<br>The request must include a source parameter to indicate an externally accessible Azure blob storage URI.There are two types of data input: An URI pointed to an Azure blob storage folder which contains multiple CSV files, and each CSV file contains two columns, timestamp and variable.<br>Another type of input is an URI pointed to a CSV file in Azure blob storage, which contains all the variables and a timestamp column. |
@@ -562,76 +669,6 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | `Microsoft.CognitiveServices/accounts/CustomVision/projects/action` | Create a project. |
 > | `Microsoft.CognitiveServices/accounts/CustomVision/user/action` | *NotDefined* |
 > | `Microsoft.CognitiveServices/accounts/CustomVision/quota/action` | *NotDefined* |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/action` | Create a project. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/user/action` | *NotDefined* |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/quota/action` | *NotDefined* |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/classify/iterations/image/action` | Classify an image and saves the result. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/classify/iterations/url/action` | Classify an image url and saves the result. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/classify/iterations/image/nostore/action` | Classify an image without saving the result. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/classify/iterations/url/nostore/action` | Classify an image url without saving the result. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/detect/iterations/image/action` | Detect objects in an image and saves the result. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/detect/iterations/url/action` | Detect objects in an image url and saves the result. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/detect/iterations/image/nostore/action` | Detect objects in an image without saving the result. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/detect/iterations/url/nostore/action` | Detect objects in an image url without saving the result. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/domains/read` | Get information about a specific domain. Get a list of the available domains.* |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/labelproposals/setting/action` | Set pool size of Label Proposal. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/labelproposals/setting/read` | Get pool size of Label Proposal for this project. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/project/migrate/action` | *NotDefined* |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/images/action` | This API accepts body content as multipart/form-data and application/octet-stream. When using multipart |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/tags/action` | Create a tag for the project. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/delete` | Delete a specific project. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/read` | Get a specific project. Get your projects.* |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/train/action` | Queues project for training. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/write` | Update a specific project. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/import/action` | Imports a project. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/export/read` | Exports a project. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/images/regions/action` | This API accepts a batch of image regions, and optionally tags, to update existing images with region information. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/images/files/action` | This API accepts a batch of files, and optionally tags, to create images. There is a limit of 64 images and 20 tags. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/images/predictions/action` | This API creates a batch of images from predicted images specified. There is a limit of 64 images and 20 tags. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/images/urls/action` | This API accepts a batch of urls, and optionally tags, to create images. There is a limit of 64 images and 20 tags. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/images/tags/action` | Associate a set of images with a set of tags. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/images/delete` | Delete images from the set of training images. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/images/regionproposals/action` | This API will get region proposals for an image along with confidences for the region. It returns an empty array if no proposals are found. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/images/suggested/action` | This API will fetch untagged images filtered by suggested tags Ids. It returns an empty array if no images are found. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/images/id/read` | This API will return a set of Images for the specified tags and optionally iteration. If no iteration is specified the |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/images/regions/delete` | Delete a set of image regions. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/images/suggested/count/action` | This API takes in tagIds to get count of untagged images per suggested tags for a given threshold. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/images/tagged/read` | This API supports batching and range selection. By default it will only return first 50 images matching images. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/images/tagged/count/read` | The filtering is on an and/or relationship. For example, if the provided tag ids are for the "Dog" and |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/images/tags/delete` | Remove a set of tags from a set of images. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/images/untagged/read` | This API supports batching and range selection. By default it will only return first 50 images matching images. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/images/untagged/count/read` | This API returns the images which have no tags for a given project and optionally an iteration. If no iteration is specified the |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/iterations/delete` | Delete a specific iteration of a project. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/iterations/export/action` | Export a trained iteration. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/iterations/read` | Get a specific iteration. Get iterations for the project.* |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/iterations/publish/action` | Publish a specific iteration. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/iterations/write` | Update a specific iteration. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/iterations/export/read` | Get the list of exports for a specific iteration. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/iterations/performance/read` | Get detailed performance information about an iteration. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/iterations/performance/images/read` | This API supports batching and range selection. By default it will only return first 50 images matching images. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/iterations/performance/images/count/read` | The filtering is on an and/or relationship. For example, if the provided tag ids are for the "Dog" and |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/iterations/publish/delete` | Unpublish a specific iteration. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/predictions/delete` | Delete a set of predicted images and their associated prediction results. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/predictions/query/action` | Get images that were sent to your prediction endpoint. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/quicktest/image/action` | Quick test an image. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/quicktest/url/action` | Quick test an image url. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/tags/delete` | Delete a tag from the project. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/tags/read` | Get information about a specific tag. Get the tags for a given project and iteration.* |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/tags/write` | Update a tag. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/tagsandregions/suggestions/action` | This API will get suggested tags and regions for an array/batch of untagged images along with confidences for the tags. It returns an empty array if no tags are found. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/projects/train/advanced/action` | Queues project for training with PipelineConfiguration and training type. |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/quota/delete` | *NotDefined* |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/quota/refresh/write` | *NotDefined* |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/usage/prediction/user/read` | Get usage for prediction resource for Oxford user |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/usage/training/resource/tier/read` | Get usage for training resource for Azure user |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/usage/training/user/read` | Get usage for training resource for Oxford user |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/user/delete` | *NotDefined* |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/user/state/write` | Update user state |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/user/tier/write` | *NotDefined* |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/users/read` | *NotDefined* |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/whitelist/delete` | Deletes an allowlisted user with specific capability |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/whitelist/read` | Gets a list of allowlisted users with specific capability |
-> | `Microsoft.CognitiveServices/accounts/CustomVision.Prediction/whitelist/write` | Updates or creates a user in the allowlist with specific capability |
 > | `Microsoft.CognitiveServices/accounts/CustomVision/classify/iterations/image/action` | Classify an image and saves the result. |
 > | `Microsoft.CognitiveServices/accounts/CustomVision/classify/iterations/url/action` | Classify an image url and saves the result. |
 > | `Microsoft.CognitiveServices/accounts/CustomVision/classify/iterations/image/nostore/action` | Classify an image without saving the result. |
@@ -1426,78 +1463,6 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | `Microsoft.CognitiveServices/accounts/MetricsAdvisor/timeseriesgroups/seriessets/read` | Get a time series set |
 > | `Microsoft.CognitiveServices/accounts/ModelDistribution/models/read` | Get model manifest for given conditions |
 > | `Microsoft.CognitiveServices/accounts/ModelDistribution/models/latest/read` | Get latest available and compatible model for a specific service. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers:analyze/action` | Extract content and fields from input. Extract content and fields from input.* |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers:copy/action` | Create a copy of the source analyzer to the current location. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers:grantCopyAuthorization/action` | Get authorization for copying this analyzer to another location. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers:analyzebinary/action` | Extract content and fields from input. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifiers:classify/action` | Classify content with optional splitting. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifiers:classifybinary/action` | Classify content with optional splitting. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/faces:compare/action` | Compare the similarity between two faces. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/faces:detect/action` | Detect faces in an image. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects:migrate/action` | Labeling - MigrateProject |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzerresults/read` | Get the result of an analysis operation. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzerresults/delete` | Delete the result of an analysis operation. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzerresults/files/read` | Get a file associated with the result of an analysis operation. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers/read` | List analyzers. Get analyzer properties. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers/write` | Create a new analyzer asynchronously. Update analyzer properties. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers/delete` | Delete analyzer. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers/read` | List analyzers. Get analyzer properties.* |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers/operations/read` | Get the status of an analyzer creation operation. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers/operations/read` | Get the status of an analyzer creation operation. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers/results/read` | Get the result of an analysis operation. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/analyzers/results/images/read` | Get an image associated with the result of an analysis operation. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/batchAnalysisJobs/read` | List all batch analysis jobs. Get batch analysis job. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/batchAnalysisJobs/write` | Create a batch analysis job. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/batchAnalysisJobs/delete` | Delete batch analysis job.  Analysis output is not deleted. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifierresults/read` | Get the result of a classifier operation. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifiers/write` | Create a new classifier asynchronously. Update classifier properties. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifiers/delete` | Delete classifier. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifiers/read` | List classifiers. Get classifier properties.* |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/classifiers/operations/read` | Get the status of a classifier creation operation. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/defaults/read` | Return default settings for this Content Understanding resource. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/defaults/write` | Update default settings for this Content Understanding resource. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/write` | Labeling - Create project Labeling - Update project |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/read` | Labeling - Get project Labeling - List projects |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/delete` | Labeling - Delete project |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/schema:suggest/action` | Labeling - Suggest field schema |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/schema:edit/action` | Labeling - Edit field schema |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/labels:analyze/action` | Labeling - Analyze document |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/datasets/files/read` | Labeling - GetDatasetFile Labeling - ListDatasetFiles |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/labels/write` | Labeling - Create label |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/labels/read` | Labeling - Get label Labeling - List labels |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/labels/delete` | Labeling - Delete label |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/labels/document/write` | Labeling - Set document |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/labels/document/read` | Labeling - Get document |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/labels/ocr/read` | Labeling - Get OCR result |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/labels/operations/read` | Labeling - List analyze document results Labeling - Get analyze document result |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/migration/operations/read` | Labeling - ListMigrationOperations Labeling - GetMigrationOperation |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/reference/files:analyze/action` | Labeling - StartGenerateResult |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/reference/files/read` | Labeling - GetReferenceFile Labeling - ListReferenceFiles |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/reference/files/write` | Labeling - CreateReferenceFile |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/reference/files/delete` | Labeling - DeleteReferenceFile |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/reference/files/write` | Labeling - CreateDatasetFile |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/reference/files/delete` | Labeling - DeleteDatasetFile |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/reference/files/operations/read` | Labeling - GetGenerateResultOperation Labeling - ListGenerateResultOperations |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/schema/read` | Labeling - Get current schema |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/schema/operations/read` | Labeling - Get suggested schema Labeling - List suggested schemas |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/stats/read` | Labeling - Get project stats |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/test/files:hitl/action` | Labeling - HITL |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/test/files/write` | Labeling - Create or update test file |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/test/files/read` | Labeling - Get test files Labeling - List test files |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/test/files/delete` | Labeling - Delete Test file |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/labelingProjects/test/files/operations/read` | Labeling - Get hitl operation status |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/read` | List person directories. Get person directory properties.* |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/write` | Create a new person directory. - Update person directory properties. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/delete` | Delete person directory and all associated persons and faces. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/faces:find/action` | Find similar faces. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/persons:verify/action` | Verify if a face matches the person. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/persons:identify/action` | Identify the person from a face. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/faces/read` | List faces. Get face properties.* |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/faces/write` | Add a new face. Update face properties, such as modifying the association with a person. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/faces/delete` | Delete face.  Any linked person will be disassociated, but not deleted. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/persons/read` | List persons. Get person properties.* |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/persons/write` | Add a new person and optionally associate with existing faces. Update person properties. |
-> | `Microsoft.CognitiveServices/accounts/MultiModalIntelligence/persondirectories/persons/delete` | Delete person.  Any linked faces will be disassociated, but not deleted. |
 > | `Microsoft.CognitiveServices/accounts/NewsSearch/categorysearch/action` | Returns news for a provided category. |
 > | `Microsoft.CognitiveServices/accounts/NewsSearch/search/action` | Get news articles relevant for a given query. |
 > | `Microsoft.CognitiveServices/accounts/NewsSearch/trendingtopics/action` | Get trending topics identified by Bing. These are the same topics shown in the banner at the bottom of the Bing home page. |
@@ -1591,6 +1556,8 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | `Microsoft.CognitiveServices/accounts/OpenAI/responses/write` | Create a response. |
 > | `Microsoft.CognitiveServices/accounts/OpenAI/responses/read` | Get responses. |
 > | `Microsoft.CognitiveServices/accounts/OpenAI/responses/delete` | Delete responses. |
+> | `Microsoft.CognitiveServices/accounts/OpenAI/skills/delete` | Delete skill. |
+> | `Microsoft.CognitiveServices/accounts/OpenAI/skills/versions/delete` | Delete skill version. |
 > | `Microsoft.CognitiveServices/accounts/OpenAI/stored-completions/read` | Query completions data using filters or Get single completion data using completion Id or Get metadata for the given account |
 > | `Microsoft.CognitiveServices/accounts/OpenAI/stored-completions/write` | Update stored completion data |
 > | `Microsoft.CognitiveServices/accounts/OpenAI/stored-completions/delete` | Delete stored completion data |
@@ -2024,11 +1991,6 @@ Azure service: [Machine Learning](/azure/machine-learning/)
 > | `Microsoft.MachineLearningServices/workspaces/featurestoreentities/action` | Allows action on the Machine Learning Services FeatureEntity(s) |
 > | `Microsoft.MachineLearningServices/workspaces/agents/read` | Read operations for Agents service in Machine Learning Services Workspace(s) |
 > | `Microsoft.MachineLearningServices/workspaces/agents/delete` | Deletes for agent resources in Machine Learning Services Workspace(s) |
-> | `Microsoft.MachineLearningServices/workspaces/agents/optimization/action` | Create and manage optimization runs in Machine Learning Services Workspace(s) |
-> | `Microsoft.MachineLearningServices/workspaces/agents/optimization/read` | Read optimization runs and results in Machine Learning Services Workspace(s) |
-> | `Microsoft.MachineLearningServices/workspaces/agents/optimization/write` | Write optimization configurations in Machine Learning Services Workspace(s) |
-> | `Microsoft.MachineLearningServices/workspaces/agents/optimization/delete` | Delete optimization runs in Machine Learning Services Workspace(s) |
-> | `Microsoft.MachineLearningServices/workspaces/agents/optimization/cancel/action` | Cancel running optimization runs in Machine Learning Services Workspace(s) |
 > | `Microsoft.MachineLearningServices/workspaces/assets/stage/write` | Updates the stage on a Machine Learning Services workspace asset |
 > | `Microsoft.MachineLearningServices/workspaces/batchEndpoints/read` | Gets batch inference endpoints in Machine Learning Services Workspace(s) |
 > | `Microsoft.MachineLearningServices/workspaces/batchEndpoints/write` | Creates or updates batch inference endpoint in Machine Learning Services Workspace(s) |

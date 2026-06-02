@@ -7,6 +7,7 @@ ms.author: sojain
 ms.service: azure-edge-hardware-center
 ms.topic: tutorial
 ms.date: 05/04/2022
+
 # Customer intent: As an IT admin, I need to understand how to create an order via the Azure Edge Hardware Center.
 ---
 # Tutorial: Create an Azure Edge Hardware Center 

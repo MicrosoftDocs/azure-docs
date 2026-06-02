@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -33,6 +33,7 @@ Azure service: [Azure Advisor](/azure/advisor/)
 > | `Microsoft.Advisor/assessmentTypes/read` | Read assessmentTypes |
 > | `Microsoft.Advisor/configurations/read` | Get configurations |
 > | `Microsoft.Advisor/configurations/write` | Creates/updates configuration |
+> | `Microsoft.Advisor/conversations/bootstrap/action` | Bootstrap Conversation |
 > | `Microsoft.Advisor/generateRecommendations/read` | Gets generate recommendations status |
 > | `Microsoft.Advisor/metadata/read` | Get Metadata |
 > | `Microsoft.Advisor/operations/read` | Gets the operations for the Microsoft Advisor |
@@ -297,6 +298,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | --- | --- |
 > | `Microsoft.Billing/validateAddress/action` | Validates an address. Use the operation to validate an address before using it as soldTo or a billTo address. |
 > | `Microsoft.Billing/register/action` |  |
+> | `Microsoft.Billing/billingAccounts/action` | Deletes a billing account. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement that have been disabled and have no active billing profiles. |
 > | `Microsoft.Billing/billingAccounts/read` | Lists the billing accounts that a user has access to. |
 > | `Microsoft.Billing/billingAccounts/write` | Updates the properties of a billing account.<br>Currently, displayName and address can be updated for billing accounts with agreement type Microsoft Customer Agreement.<br>Currently address and notification email address can be updated for billing accounts with agreement type Microsoft Online Services Agreement.<br>Currently, purchase order number can be edited for billing accounts with agreement type Enterprise Agreement. |
 > | `Microsoft.Billing/billingAccounts/listInvoiceSectionsWithCreateSubscriptionPermission/action` | Lists the invoice sections for which the user has permission to create Azure subscriptions. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
@@ -309,11 +311,15 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | `Microsoft.Billing/billingAccounts/validateInvoicePayEligibility/action` | Validates invoice pay eligibility on a billing account. The operation is supported for billing accounts with agreement of type Microsoft Customer Agreement and Microsoft Partner Agreement. |
 > | `Microsoft.Billing/billingAccounts/offboard/action` | Offboard a billing account |
 > | `Microsoft.Billing/billingAccounts/refresh/action` | Refresh resources for a billing account |
+> | `Microsoft.Billing/billingAccounts/disable/action` | Disables a billing account. |
+> | `Microsoft.Billing/billingAccounts/enable/action` | Enables a billing account. |
+> | `Microsoft.Billing/billingAccounts/validateDeleteEligibility/action` | Validates if a billing account can be deleted. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement. |
 > | `Microsoft.Billing/billingAccounts/addDailyInvoicingOverrideTerms/write` |  |
 > | `Microsoft.Billing/billingAccounts/addDepartment/write` |  |
 > | `Microsoft.Billing/billingAccounts/addEnrollmentAccount/write` |  |
 > | `Microsoft.Billing/billingAccounts/addPaymentTerms/write` |  |
 > | `Microsoft.Billing/billingAccounts/addresses/versions/action` | Gets a specific version of an address by ID for the billing account. |
+> | `Microsoft.Billing/billingAccounts/addresses/validateDeleteEligibility/write` | Validates if the address is eligible for deletion. |
 > | `Microsoft.Billing/billingAccounts/agreements/read` | Lists the agreements for a billing account. |
 > | `Microsoft.Billing/billingAccounts/alertPreferences/write` | Creates or updates an AlertPreference for the specified Billing Account. |
 > | `Microsoft.Billing/billingAccounts/alertPreferences/read` | Gets the AlertPreference with the given Id. |
@@ -387,6 +393,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | `Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/billingSubscriptions/read` | Lists the subscriptions that are billed to an invoice section. The operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
 > | `Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/checkAccess/write` | Provides a list of check access response objects for an invoice section. |
 > | `Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/createBillingRoleAssignment/write` | Adds a role assignment on an invoice section. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement. |
+> | `Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/ensureDefaultCloudSubscription/write` | Ensures a default cloud subscription exists for an invoice section. If one does not exist, it will be created. This operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
 > | `Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/policies/read` | Lists the policies for an invoice section. This operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
 > | `Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/policies/write` | Updates the policies for an invoice section. This operation is supported only for billing accounts with agreement type Microsoft Customer Agreement. |
 > | `Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/products/transfer/action` |  |
@@ -439,6 +446,10 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | `Microsoft.Billing/billingAccounts/cancelPaymentTerms/write` |  |
 > | `Microsoft.Billing/billingAccounts/checkAccess/write` | Provides a list of check access response objects for a billing account. |
 > | `Microsoft.Billing/billingAccounts/confirmTransition/write` | Gets the transition details for a billing account that has transitioned from agreement type Microsoft Online Services Program to agreement type Microsoft Customer Agreement. |
+> | `Microsoft.Billing/billingAccounts/contacts/read` | Lists the contacts for a billing account. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement. |
+> | `Microsoft.Billing/billingAccounts/contacts/write` | Creates or updates a contact for a billing account. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement. |
+> | `Microsoft.Billing/billingAccounts/contacts/addContactTypes/write` | Adds one or more contact types to a contact for a billing account. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement. |
+> | `Microsoft.Billing/billingAccounts/contacts/removeContactTypes/write` | Removes one or more contact types from a contact for a billing account. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement. |
 > | `Microsoft.Billing/billingAccounts/createBillingRoleAssignment/write` | Adds a role assignment on a billing account. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement. |
 > | `Microsoft.Billing/billingAccounts/customers/read` | Lists the customers that are billed to a billing account. The operation is supported only for billing accounts with agreement type Microsoft Partner Agreement. |
 > | `Microsoft.Billing/billingAccounts/customers/initiateTransfer/action` |  |
@@ -995,20 +1006,23 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | `Microsoft.RecoveryServices/Vaults/PrivateEndpointConnectionsApproval/action` | Approve the Private Endpoint Connection. |
 > | `Microsoft.RecoveryServices/Vaults/backupconfig/read` | Returns Configuration for Recovery Services Vault. |
 > | `Microsoft.RecoveryServices/Vaults/backupconfig/write` | Updates Configuration for Recovery Services Vault. |
-> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMapping/backupTriggerValidateOperation/action` | Validate Operation on Protected Item |
-> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMapping/backupValidateOperation/action` | Validate Operation on Protected Item |
-> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMapping/read` | Retrieves the cross-tenant vault mapping. |
-> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMapping/remove/action` | Remove the backup cross-tenant vault mapping. |
-> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMapping/write` | Create a backup cross-tenant vault mapping. |
-> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMapping/backupFabrics/protectionContainers/protectedItems/read` | Returns object details of the Protected Item |
-> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMapping/backupFabrics/protectionContainers/protectedItems/operationResults/read` | Retrieves the results of operations performed on protected items from cross-tenant mapped vault. |
-> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMapping/backupFabrics/protectionContainers/protectedItems/operationsStatus/read` | Retrieves the status of operations performed on protected items from cross-tenant mapped vault. |
-> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMapping/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read` | Returns a list of all recovery points from the cross-tenant mapped vault. |
-> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMapping/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action` | Restore recovery point from cross-tenant mapped vault for the protected items. |
-> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMapping/backupJobs/read` | Returns a list of all jobs from the cross-tenant mapped vault. |
-> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMapping/backupProtectedItems/read` | Returns a list of all protected items from the cross-tenant mapped vault. |
-> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMapping/backupValidateOperationResults/read` | Validate Operation on Protected Item |
-> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMapping/backupValidateOperationsStatuses/read` | Validate Operation on Protected Item |
+> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupTriggerValidateOperation/action` | Validate Operation on Protected Item |
+> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupValidateOperation/action` | Validate Operation on Protected Item |
+> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/read` | Retrieves the cross-tenant vault mapping. |
+> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/remove/action` | Remove the backup cross-tenant vault mapping. |
+> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/write` | Create a backup cross-tenant vault mapping. |
+> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupFabrics/protectionContainers/protectedItems/read` | Returns object details of the Protected Item |
+> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupFabrics/protectionContainers/protectedItems/operationResults/read` | Retrieves the results of operations performed on protected items from cross-tenant mapped vault. |
+> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupFabrics/protectionContainers/protectedItems/operationsStatus/read` | Retrieves the status of operations performed on protected items from cross-tenant mapped vault. |
+> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read` | Returns a list of all recovery points from the cross-tenant mapped vault. |
+> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action` | Restore recovery point from cross-tenant mapped vault for the protected items. |
+> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupJobs/read` | Returns a list of all jobs from the cross-tenant mapped vault. |
+> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupProtectedItems/read` | Returns a list of all protected items from the cross-tenant mapped vault. |
+> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupValidateOperationResults/read` | Validate Operation on Protected Item |
+> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupValidateOperationsStatuses/read` | Validate Operation on Protected Item |
+> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/vaultCredentials/generate/action` | Retrieves the cross-tenant vault mapping. |
+> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/vaultCredentials/operationResults/read` | Retrieves the cross-tenant vault mapping. |
+> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/vaultCredentials/operationStatus/read` | Retrieves the cross-tenant vault mapping. |
 > | `Microsoft.RecoveryServices/Vaults/backupDeletedProtectionContainers/read` | Returns all containers belonging to the subscription |
 > | `Microsoft.RecoveryServices/Vaults/backupEncryptionConfigs/read` | Gets Backup Resource Encryption Configuration. |
 > | `Microsoft.RecoveryServices/Vaults/backupEncryptionConfigs/write` | Updates Backup Resource Encryption Configuration |
