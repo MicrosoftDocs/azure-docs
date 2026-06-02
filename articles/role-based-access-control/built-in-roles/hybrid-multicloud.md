@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -793,7 +793,7 @@ Grants full access to the cluster and its resources, including the ability to re
 > | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/write | Creates or Updates Custom Location resource |
 > | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/delete | Deletes Custom Location resource |
 > | [Microsoft.EdgeMarketplace](../permissions/internet-of-things.md#microsoftedgemarketplace)/offers/read | List Offer resources by parent |
-> | [Microsoft.EdgeMarketplace](../permissions/internet-of-things.md#microsoftedgemarketplace)/publishers/read | Get a Publisher |
+> | [Microsoft.EdgeMarketplace](../permissions/internet-of-things.md#microsoftedgemarketplace)/publishers/read | List Publisher resources by parent |
 > | [Microsoft.Kubernetes](../permissions/hybrid-multicloud.md#microsoftkubernetes)/register/action | Registers Subscription with Microsoft.Kubernetes resource provider |
 > | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/register/action | Registers subscription to Microsoft.KubernetesConfiguration resource provider. |
 > | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/write | Creates or updates extension resource. |

@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -24,6 +24,7 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | --- | --- |
 > | `Microsoft.ApiCenter/register/action` | Register Microsoft.ApiCenter resource provider for the subscription. |
 > | `Microsoft.ApiCenter/unregister/action` | Unregister Microsoft.ApiCenter resource provider for the subscription. |
+> | `Microsoft.ApiCenter/checkNameAvailability/action` | Checks whether the specified API Center service name is available in the region. |
 > | `Microsoft.ApiCenter/deletedServices/read` | Returns paginated collection of deleted services. |
 > | `Microsoft.ApiCenter/deletedServices/read` | Returns the deleted service. |
 > | `Microsoft.ApiCenter/deletedServices/delete` | Purge the soft deleted service. |
@@ -46,6 +47,8 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | `Microsoft.ApiCenter/services/apis/versions/securityRequirements/read` | List the security requirements for the workspace. |
 > | `Microsoft.ApiCenter/services/apis/versions/securityRequirements/delete` | Delete the security requirement for the workspace. |
 > | `Microsoft.ApiCenter/services/apis/versions/securityRequirements/getCredentials/action` | Get the credentials for the security requirement. |
+> | `Microsoft.ApiCenter/services/dataApiSettings/write` | Creates or updates the DataAPI settings configuration for the catalog. |
+> | `Microsoft.ApiCenter/services/dataApiSettings/read` | Returns the DataAPI settings for the catalog. Synthesizes permissive defaults when no document exists. |
 > | `Microsoft.ApiCenter/services/eventGridFilters/read` | Returns paginated collection of the Event Grid filters. |
 > | `Microsoft.ApiCenter/services/eventGridFilters/read` | Returns the details of the specified Event Grid filter. |
 > | `Microsoft.ApiCenter/services/eventGridFilters/write` | Creates or updates specified Event Grid filter. |
@@ -56,13 +59,35 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | `Microsoft.ApiCenter/services/metadataSchemas/read` | Checks if specified metadataSchema exists |
 > | `Microsoft.ApiCenter/services/metadataSchemas/delete` | Deletes specified metadataSchema. |
 > | `Microsoft.ApiCenter/services/operationResults/read` | Checks status of a long running operation |
-> | `Microsoft.ApiCenter/services/workspace/importApiSource/action` | Imports resources from one or more API sources. |
+> | `Microsoft.ApiCenter/services/workspaces/importApiSource/action` | Imports resources from one or more API sources. |
 > | `Microsoft.ApiCenter/services/workspaces/linkApiSource/action` | Links an API source. |
 > | `Microsoft.ApiCenter/services/workspaces/write` | Creates or updates specified workspace. |
 > | `Microsoft.ApiCenter/services/workspaces/read` | Returns paginated collection of workspaces. |
 > | `Microsoft.ApiCenter/services/workspaces/read` | Returns the details of the specified workspace. |
 > | `Microsoft.ApiCenter/services/workspaces/read` | Checks if specified workspace exists |
 > | `Microsoft.ApiCenter/services/workspaces/delete` | Deletes specified workspace. |
+> | `Microsoft.ApiCenter/services/workspaces/agentEvaluationConfigurations/write` | Creates or updates specified agent evaluation configuration. |
+> | `Microsoft.ApiCenter/services/workspaces/agentEvaluationConfigurations/read` | Returns paginated collection of agent evaluation configurations. |
+> | `Microsoft.ApiCenter/services/workspaces/agentEvaluationConfigurations/read` | Returns the details of the specified agent evaluation configuration. |
+> | `Microsoft.ApiCenter/services/workspaces/agentEvaluationConfigurations/read` | Checks if specified agent evaluation configuration exists |
+> | `Microsoft.ApiCenter/services/workspaces/agentEvaluationConfigurations/delete` | Deletes specified agent evaluation configuration. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/write` | Creates or updates specified agent. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/read` | Returns paginated collection of agents. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/read` | Returns the details of the specified agent. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/read` | Checks if specified agent exists |
+> | `Microsoft.ApiCenter/services/workspaces/agents/delete` | Deletes specified agent. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/write` | Creates or updates specified agent version. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/read` | Returns paginated collection of agent versions. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/read` | Returns the details of the specified agent version. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/read` | Checks if specified agent version exists |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/delete` | Deletes specified agent version. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/write` | Creates or updates the metadata for the specified agent artifact. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/read` | Returns paginated collection of agent artifacts. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/read` | Returns the details of the specified agent artifact. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/read` | Checks if specified agent artifact exists |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/delete` | Deletes specified agent artifact. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/write` | Uploads a single file for the specified agent artifact. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/read` | Returns the base64-encoded file for the specified agent artifact (≤3 MiB). |
 > | `Microsoft.ApiCenter/services/workspaces/analyzerConfig/analysisExecutions/read` | Get analysis executions of  a particular analyzer configuration |
 > | `Microsoft.ApiCenter/services/workspaces/analyzerConfigs/write` | Creates or updates specified analyzer configuration. |
 > | `Microsoft.ApiCenter/services/workspaces/analyzerConfigs/read` | Returns the details of the specified analyzer configuration. |
@@ -110,11 +135,13 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | `Microsoft.ApiCenter/services/workspaces/environments/write` | Create or update environment |
 > | `Microsoft.ApiCenter/services/workspaces/environments/delete` | Deletes specified environment. |
 > | `Microsoft.ApiCenter/services/workspaces/environments/read` | Returns specified environment. |
-> | `Microsoft.ApiCenter/services/workspaces/languageModels/write` | Creates or updates specified language model. |
-> | `Microsoft.ApiCenter/services/workspaces/languageModels/read` | Returns paginated collection of language models. |
-> | `Microsoft.ApiCenter/services/workspaces/languageModels/read` | Returns the details of the specified language model. |
-> | `Microsoft.ApiCenter/services/workspaces/languageModels/read` | Checks if specified language model exists |
-> | `Microsoft.ApiCenter/services/workspaces/languageModels/delete` | Deletes specified language model. |
+> | `Microsoft.ApiCenter/services/workspaces/mcpRegistries/read` | Gets the MCP registry configuration for a workspace. |
+> | `Microsoft.ApiCenter/services/workspaces/mcpRegistries/write` | Creates or updates the MCP registry configuration for a workspace. |
+> | `Microsoft.ApiCenter/services/workspaces/models/write` | Creates or updates specified model. |
+> | `Microsoft.ApiCenter/services/workspaces/models/read` | Returns paginated collection of models. |
+> | `Microsoft.ApiCenter/services/workspaces/models/read` | Returns the details of the specified model. |
+> | `Microsoft.ApiCenter/services/workspaces/models/read` | Checks if specified model exists |
+> | `Microsoft.ApiCenter/services/workspaces/models/delete` | Deletes specified model. |
 > | `Microsoft.ApiCenter/services/workspaces/plugins/read` | Returns paginated collection of plugins |
 > | `Microsoft.ApiCenter/services/workspaces/plugins/write` | Create or update plugin |
 > | `Microsoft.ApiCenter/services/workspaces/plugins/delete` | Deletes specified plugin. |
@@ -125,6 +152,11 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | `Microsoft.ApiCenter/services/workspaces/resourceLinks/read` | Lists resource links with optional filters. |
 > | `Microsoft.ApiCenter/services/workspaces/resourceLinks/delete` | Deletes specified Resource Link. |
 > | `Microsoft.ApiCenter/services/workspaces/resourceLinks/read` | Checks if specified Resource Link exists. |
+> | `Microsoft.ApiCenter/services/workspaces/skillEvaluationConfigurations/write` | Creates or updates specified skill evaluation configuration. |
+> | `Microsoft.ApiCenter/services/workspaces/skillEvaluationConfigurations/read` | Returns paginated collection of skill evaluation configurations. |
+> | `Microsoft.ApiCenter/services/workspaces/skillEvaluationConfigurations/read` | Returns the details of the specified skill evaluation configuration. |
+> | `Microsoft.ApiCenter/services/workspaces/skillEvaluationConfigurations/read` | Checks if specified skill evaluation configuration exists |
+> | `Microsoft.ApiCenter/services/workspaces/skillEvaluationConfigurations/delete` | Deletes specified skill evaluation configuration. |
 > | `Microsoft.ApiCenter/services/workspaces/skills/write` | Creates or updates specified skill. |
 > | `Microsoft.ApiCenter/services/workspaces/skills/read` | Returns paginated collection of skills. |
 > | `Microsoft.ApiCenter/services/workspaces/skills/read` | Returns the details of the specified skill. |
@@ -792,6 +824,9 @@ Azure service: [Durable Functions](/azure/durable-task/durable-functions/durable
 > | `Microsoft.DurableTask/schedulers/taskhubs/write` | Create or Update Durable Task Scheduler Task Hub |
 > | `Microsoft.DurableTask/schedulers/taskhubs/delete` | Delete Durable Task Scheduler Task Hub |
 > | `Microsoft.DurableTask/schedulers/taskhubs/read` | Read Durable Task Scheduler Task Hub |
+> | `Microsoft.DurableTask/schedulers/transparentDataEncryptions/write` | Create or Replace a Durable Task Scheduler Transparent Data Encryptiony |
+> | `Microsoft.DurableTask/schedulers/transparentDataEncryptions/delete` | Delete a Durable Task Scheduler Transparent Data Encryptiony |
+> | `Microsoft.DurableTask/schedulers/transparentDataEncryptions/read` | Read a Durable Task Scheduler Transparent Data Encryptiony |
 > | **DataAction** | **Description** |
 > | `Microsoft.DurableTask/schedulers/taskhubs/orchestrations/read` | Gets or list orchestrations metadata, including payloads |
 > | `Microsoft.DurableTask/schedulers/taskhubs/orchestrations/manage/action` | Manages orchestrations |
@@ -1272,6 +1307,16 @@ Azure service: [Logic Apps](/azure/logic-apps/)
 > | Action | Description |
 > | --- | --- |
 > | `Microsoft.Logic/register/action` | Registers the Microsoft.Logic resource provider for a given subscription. |
+> | `Microsoft.Logic/automationProjects/read` | Reads the automation project. |
+> | `Microsoft.Logic/automationProjects/write` | Writes the automation project. |
+> | `Microsoft.Logic/automationProjects/delete` | Deletes the automation project. |
+> | `Microsoft.Logic/automationProjects/applications/read` | Reads the automation project application. |
+> | `Microsoft.Logic/automationProjects/applications/write` | Writes the automation project application. |
+> | `Microsoft.Logic/automationProjects/applications/delete` | Deletes the automation project application. |
+> | `Microsoft.Logic/automationProjects/applications/operationStatuses/read` | Reads the automation project application operation status. |
+> | `Microsoft.Logic/automationProjects/operationStatuses/read` | Reads the automation project operation status. |
+> | `Microsoft.Logic/automationProjects/principals/read` | Reads the automation project principal. |
+> | `Microsoft.Logic/automationProjects/principals/write` | Writes the automation project principal. |
 > | `Microsoft.Logic/businessprocesses/read` | Reads the business process. |
 > | `Microsoft.Logic/businessprocesses/write` | Writes the business process. |
 > | `Microsoft.Logic/businessprocesses/delete` | Deletes the business process. |

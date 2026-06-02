@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -409,6 +409,9 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | `Microsoft.DBforPostgreSQL/flexibleServers/logFiles/read` | Return a list of server log Files for a PostgreSQL Flexible server with File download links |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/ltrBackupOperations/read` | Returns the PostgreSQL server long term backup operation tracking by backup name. |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/ltrBackupOperations/read` | Returns the list of  PostgreSQL server long term backup operation tracking. |
+> | `Microsoft.DBforPostgreSQL/flexibleServers/maintenanceEvents/applyNow/action` | Applies the maintenance event immediately for the Azure Database for PostgreSQL Flexible Server |
+> | `Microsoft.DBforPostgreSQL/flexibleServers/maintenanceEvents/reschedule/action` | Reschedules the maintenance event to a specific UTC date/time for the Azure Database for PostgreSQL Flexible Server |
+> | `Microsoft.DBforPostgreSQL/flexibleServers/maintenanceEvents/GetMaintenanceEvent/read` | Returns a single maintenance event for the Azure Database for PostgreSQL Flexible Server |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/majorVersionUpgradePrecheck/read` | Gets a Major Version Upgrade Precheck Operation |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/majorVersionUpgradePrecheck/read` | Lists the Major Version Upgrade Precheck Operations Performed |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/migrations/write` | Creates a migration with the specified parameters. |
@@ -449,14 +452,11 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | `Microsoft.DBforPostgreSQL/locations/getAutoMigrationFreeSlots/action` | Returns the list of free / available slots for auto migration of PostgreSQL server |
 > | `Microsoft.DBforPostgreSQL/locations/getLatestAutoMigrationSchedule/action` | Returns the instance of the latest auto migration schedule for PostgreSQL server |
 > | `Microsoft.DBforPostgreSQL/locations/updateAutoMigrationSchedule/action` | Update auto migration schedule for the PostgreSQL server |
-> | `Microsoft.DBforPostgreSQL/locations/administratorAzureAsyncOperation/read` | Gets in-progress operations on PostgreSQL server administrators |
-> | `Microsoft.DBforPostgreSQL/locations/administratorOperationResults/read` | Return PostgreSQL Server administrator operation results |
 > | `Microsoft.DBforPostgreSQL/locations/azureAsyncOperation/read` | Return PostgreSQL Server Operation Results |
 > | `Microsoft.DBforPostgreSQL/locations/capabilities/read` | Gets the capabilities for this subscription in a given location |
 > | `Microsoft.DBforPostgreSQL/locations/capabilities/{serverName}/read` | Gets the capabilities for this subscription in a given location |
 > | `Microsoft.DBforPostgreSQL/locations/operationResults/read` | Return ResourceGroup based PostgreSQL Server Operation Results |
 > | `Microsoft.DBforPostgreSQL/locations/operationResults/read` | Return PostgreSQL Server Operation Results |
-> | `Microsoft.DBforPostgreSQL/locations/performanceTiers/read` | Returns the list of Performance Tiers available. |
 > | `Microsoft.DBforPostgreSQL/locations/privateEndpointConnectionAzureAsyncOperation/read` | Gets the result for a private endpoint connection operation |
 > | `Microsoft.DBforPostgreSQL/locations/privateEndpointConnectionOperationResults/read` | Gets the result for a private endpoint connection operation |
 > | `Microsoft.DBforPostgreSQL/locations/privateEndpointConnectionProxyAzureAsyncOperation/read` | Gets the result for a private endpoint connection proxy operation |
@@ -464,10 +464,7 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | `Microsoft.DBforPostgreSQL/locations/resourceType/usages/read` | Gets the quota usages of a subscription |
 > | `Microsoft.DBforPostgreSQL/locations/securityAlertPoliciesAzureAsyncOperation/read` | Return the list of Server threat detection operation result. |
 > | `Microsoft.DBforPostgreSQL/locations/securityAlertPoliciesOperationResults/read` | Return the list of Server threat detection operation result. |
-> | `Microsoft.DBforPostgreSQL/locations/serverKeyAzureAsyncOperation/read` | Gets in-progress operations on data encryption server keys |
-> | `Microsoft.DBforPostgreSQL/locations/serverKeyOperationResults/read` | Gets in-progress operations on data encryption server keys |
 > | `Microsoft.DBforPostgreSQL/operations/read` | Return the list of PostgreSQL Operations. |
-> | `Microsoft.DBforPostgreSQL/performanceTiers/read` | Returns the list of Performance Tiers available. |
 > | `Microsoft.DBforPostgreSQL/serverGroupsv2/privateEndpointConnectionsApproval/action` | Determines if user is allowed to approve a private endpoint connection for PostgreSQL SGv2 |
 > | `Microsoft.DBforPostgreSQL/serverGroupsv2/privateEndpointConnectionProxies/read` | Returns the list of private endpoint connections or gets the properties for the specified private endpoint connection via proxy |
 > | `Microsoft.DBforPostgreSQL/serverGroupsv2/privateEndpointConnectionProxies/write` | Creates a private endpoint connection with the specified parameters or updates the properties or tags for the specified private endpoint connection via proxy |
@@ -477,68 +474,6 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | `Microsoft.DBforPostgreSQL/serverGroupsv2/privateEndpointConnections/write` | Approves or rejects an existing private endpoint connection |
 > | `Microsoft.DBforPostgreSQL/serverGroupsv2/privateEndpointConnections/delete` | Deletes an existing private endpoint connection |
 > | `Microsoft.DBforPostgreSQL/serverGroupsv2/privateLinkResources/read` | Get the private link resources for the corresponding PostgreSQL SGv2 |
-> | `Microsoft.DBforPostgreSQL/servers/queryTexts/action` | Return the text of a query |
-> | `Microsoft.DBforPostgreSQL/servers/resetQueryPerformanceInsightData/action` | Reset Query Performance Insight data |
-> | `Microsoft.DBforPostgreSQL/servers/privateEndpointConnectionsApproval/action` | Determines if user is allowed to approve a private endpoint connection |
-> | `Microsoft.DBforPostgreSQL/servers/read` | Return the list of servers or gets the properties for the specified server. |
-> | `Microsoft.DBforPostgreSQL/servers/write` | Creates a server with the specified parameters or update the properties or tags for the specified server. |
-> | `Microsoft.DBforPostgreSQL/servers/delete` | Deletes an existing server. |
-> | `Microsoft.DBforPostgreSQL/servers/restart/action` | Restarts a specific server. |
-> | `Microsoft.DBforPostgreSQL/servers/updateConfigurations/action` | Update configurations for the specified server |
-> | `Microsoft.DBforPostgreSQL/servers/administrators/read` | Gets a list of PostgreSQL server administrators. |
-> | `Microsoft.DBforPostgreSQL/servers/administrators/write` | Creates or updates PostgreSQL server administrator with the specified parameters. |
-> | `Microsoft.DBforPostgreSQL/servers/administrators/delete` | Deletes an existing administrator of PostgreSQL server. |
-> | `Microsoft.DBforPostgreSQL/servers/advisors/read` | Return the list of advisors |
-> | `Microsoft.DBforPostgreSQL/servers/advisors/recommendedActionSessions/action` | Make recommendations |
-> | `Microsoft.DBforPostgreSQL/servers/advisors/recommendedActions/read` | Return the list of recommended actions |
-> | `Microsoft.DBforPostgreSQL/servers/configurations/read` | Return the list of configurations for a server or gets the properties for the specified configuration. |
-> | `Microsoft.DBforPostgreSQL/servers/configurations/write` | Update the value for the specified configuration |
-> | `Microsoft.DBforPostgreSQL/servers/databases/read` | Return the list of PostgreSQL Databases or gets the properties for the specified Database. |
-> | `Microsoft.DBforPostgreSQL/servers/databases/write` | Creates a PostgreSQL Database with the specified parameters or update the properties for the specified Database. |
-> | `Microsoft.DBforPostgreSQL/servers/databases/delete` | Deletes an existing PostgreSQL Database. |
-> | `Microsoft.DBforPostgreSQL/servers/firewallRules/read` | Return the list of firewall rules for a server or gets the properties for the specified firewall rule. |
-> | `Microsoft.DBforPostgreSQL/servers/firewallRules/write` | Creates a firewall rule with the specified parameters or update an existing rule. |
-> | `Microsoft.DBforPostgreSQL/servers/firewallRules/delete` | Deletes an existing firewall rule. |
-> | `Microsoft.DBforPostgreSQL/servers/keys/read` | Return the list of server keys or gets the properties for the specified server key. |
-> | `Microsoft.DBforPostgreSQL/servers/keys/write` | Creates a key with the specified parameters or update the properties or tags for the specified server key. |
-> | `Microsoft.DBforPostgreSQL/servers/keys/delete` | Deletes an existing server key. |
-> | `Microsoft.DBforPostgreSQL/servers/logFiles/read` | Return the list of PostgreSQL LogFiles. |
-> | `Microsoft.DBforPostgreSQL/servers/performanceTiers/read` | Returns the list of Performance Tiers available. |
-> | `Microsoft.DBforPostgreSQL/servers/privateEndpointConnectionProxies/validate/action` | Validates a private endpoint connection create call from NRP side |
-> | `Microsoft.DBforPostgreSQL/servers/privateEndpointConnectionProxies/read` | Returns the list of private endpoint connection proxies or gets the properties for the specified private endpoint connection proxy. |
-> | `Microsoft.DBforPostgreSQL/servers/privateEndpointConnectionProxies/write` | Creates a private endpoint connection proxy with the specified parameters or updates the properties or tags for the specified private endpoint connection proxy. |
-> | `Microsoft.DBforPostgreSQL/servers/privateEndpointConnectionProxies/delete` | Deletes an existing private endpoint connection proxy |
-> | `Microsoft.DBforPostgreSQL/servers/privateEndpointConnections/read` | Returns the list of private endpoint connections or gets the properties for the specified private endpoint connection. |
-> | `Microsoft.DBforPostgreSQL/servers/privateEndpointConnections/delete` | Deletes an existing private endpoint connection |
-> | `Microsoft.DBforPostgreSQL/servers/privateEndpointConnections/write` | Approves or rejects an existing private endpoint connection |
-> | `Microsoft.DBforPostgreSQL/servers/privateLinkResources/read` | Get the private link resources for the corresponding PostgreSQL Server |
-> | `Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/read` | Gets the disagnostic setting for the resource |
-> | `Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/diagnosticSettings/write` | Creates or updates the diagnostic setting for the resource |
-> | `Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/logDefinitions/read` | Gets the available logs for PostgreSQL servers |
-> | `Microsoft.DBforPostgreSQL/servers/providers/Microsoft.Insights/metricDefinitions/read` | Return types of metrics that are available for databases |
-> | `Microsoft.DBforPostgreSQL/servers/queryTexts/read` | Return the texts for a list of queries |
-> | `Microsoft.DBforPostgreSQL/servers/recoverableServers/read` | Return the recoverable PostgreSQL Server info |
-> | `Microsoft.DBforPostgreSQL/servers/replicas/read` | Get read replicas of a PostgreSQL server |
-> | `Microsoft.DBforPostgreSQL/servers/securityAlertPolicies/read` | Retrieve details of the server threat detection policy configured on a given server |
-> | `Microsoft.DBforPostgreSQL/servers/securityAlertPolicies/write` | Change the server threat detection policy for a given server |
-> | `Microsoft.DBforPostgreSQL/servers/topQueryStatistics/read` | Return the list of Query Statistics for the top queries. |
-> | `Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/read` | Return the list of virtual network rules or gets the properties for the specified virtual network rule. |
-> | `Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/write` | Creates a virtual network rule with the specified parameters or update the properties or tags for the specified virtual network rule. |
-> | `Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/delete` | Deletes an existing Virtual Network Rule |
-> | `Microsoft.DBforPostgreSQL/servers/waitStatistics/read` | Return wait statistics for an instance |
-> | `Microsoft.DBforPostgreSQL/serversv2/read` | Return the list of servers or gets the properties for the specified server. |
-> | `Microsoft.DBforPostgreSQL/serversv2/write` | Creates a server with the specified parameters or update the properties or tags for the specified server. |
-> | `Microsoft.DBforPostgreSQL/serversv2/delete` | Deletes an existing server. |
-> | `Microsoft.DBforPostgreSQL/serversv2/updateConfigurations/action` | Update configurations for the specified server |
-> | `Microsoft.DBforPostgreSQL/serversv2/configurations/read` | Return the list of configurations for a server or gets the properties for the specified configuration. |
-> | `Microsoft.DBforPostgreSQL/serversv2/configurations/write` | Update the value for the specified configuration |
-> | `Microsoft.DBforPostgreSQL/serversv2/firewallRules/read` | Return the list of firewall rules for a server or gets the properties for the specified firewall rule. |
-> | `Microsoft.DBforPostgreSQL/serversv2/firewallRules/write` | Creates a firewall rule with the specified parameters or update an existing rule. |
-> | `Microsoft.DBforPostgreSQL/serversv2/firewallRules/delete` | Deletes an existing firewall rule. |
-> | `Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/read` | Gets the disagnostic setting for the resource |
-> | `Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/diagnosticSettings/write` | Creates or updates the diagnostic setting for the resource |
-> | `Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/logDefinitions/read` | Gets the available logs for PostgreSQL servers |
-> | `Microsoft.DBforPostgreSQL/serversv2/providers/Microsoft.Insights/metricDefinitions/read` | Return types of metrics that are available for databases |
 
 ## Microsoft.DocumentDB
 
@@ -891,6 +826,7 @@ Azure service: [Azure Cosmos DB](/azure/cosmos-db/)
 > | `Microsoft.DocumentDB/throughputPools/write` | Create/Update/Delete throughputPool |
 > | `Microsoft.DocumentDB/throughputPools/throughputPoolAccounts/read` | Read/List throughputPool account in throughputPool |
 > | **DataAction** | **Description** |
+> | `Microsoft.DocumentDB/cassandraClusters/commands/read` | Read the output of commands previously run on a managed Cassandra cluster |
 > | `Microsoft.DocumentDB/garnetClusters/acl/flushdb/action` | Flush database in a Garnet cluster keyspace. |
 > | `Microsoft.DocumentDB/garnetClusters/acl/reset/action` | Reset latency statistics for a Garnet cluster. |
 > | `Microsoft.DocumentDB/garnetClusters/acl/scripteval/action` | Evaluate a script in a Garnet cluster. |
@@ -989,6 +925,18 @@ Azure service: [Azure Cosmos DB](/azure/cosmos-db/)
 > | `Microsoft.DocumentDB/garnetClusters/acl/sunion/read` | Get the union of sets in a Garnet cluster. |
 > | `Microsoft.DocumentDB/garnetClusters/acl/sunionstore/write` | Store the union of sets in a Garnet cluster. |
 > | `Microsoft.DocumentDB/garnetClusters/acl/unlink/delete` | Unlink keys in a Garnet cluster keyspace. |
+> | `Microsoft.DocumentDB/garnetClusters/acl/vadd/write` | Add a vector to a vector set in a Garnet cluster. |
+> | `Microsoft.DocumentDB/garnetClusters/acl/vcard/read` | Get the cardinality of a vector set in a Garnet cluster. |
+> | `Microsoft.DocumentDB/garnetClusters/acl/vdim/read` | Get the dimension of a vector set in a Garnet cluster. |
+> | `Microsoft.DocumentDB/garnetClusters/acl/vemb/read` | Get the embedding of a vector in a Garnet cluster. |
+> | `Microsoft.DocumentDB/garnetClusters/acl/vgetattr/read` | Get attributes of a vector in a Garnet cluster. |
+> | `Microsoft.DocumentDB/garnetClusters/acl/vinfo/read` | Get information about a vector set in a Garnet cluster. |
+> | `Microsoft.DocumentDB/garnetClusters/acl/vismember/read` | Check if an element is a member of a vector set in a Garnet cluster. |
+> | `Microsoft.DocumentDB/garnetClusters/acl/vlinks/read` | Get the links of a vector in a Garnet cluster. |
+> | `Microsoft.DocumentDB/garnetClusters/acl/vrandmember/read` | Get a random member from a vector set in a Garnet cluster. |
+> | `Microsoft.DocumentDB/garnetClusters/acl/vrem/delete` | Remove a vector from a vector set in a Garnet cluster. |
+> | `Microsoft.DocumentDB/garnetClusters/acl/vsetattr/write` | Set attributes of a vector in a Garnet cluster. |
+> | `Microsoft.DocumentDB/garnetClusters/acl/vsim/read` | Search for similar vectors in a vector set in a Garnet cluster. |
 > | `Microsoft.DocumentDB/garnetClusters/acl/zadd/write` | Add members to a sorted set in a Garnet cluster. |
 > | `Microsoft.DocumentDB/garnetClusters/acl/zcard/read` | Get the number of members in a sorted set in a Garnet cluster. |
 > | `Microsoft.DocumentDB/garnetClusters/acl/zcount/read` | Count members in a sorted set with scores in a range in a Garnet cluster. |
@@ -1209,7 +1157,7 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | `Microsoft.Sql/managedInstances/start/action` | Starts a given Azure SQL Managed Instance. |
 > | `Microsoft.Sql/managedInstances/stop/action` | Stops a given Azure SQL Managed Instance. |
 > | `Microsoft.Sql/managedInstances/failover/action` | Customer initiated managed instance failover. |
-> | `Microsoft.Sql/managedInstances/refreshExternalGovernanceStatus/action` | Refreshes external governance enablemement status |
+> | `Microsoft.Sql/managedInstances/refreshExternalGovernanceStatus/action` | Refreshes external governance enablement status |
 > | `Microsoft.Sql/managedInstances/crossSubscriptionPITR/action` | Determine if user is allowed to do cross subscription PITR operations |
 > | `Microsoft.Sql/managedInstances/reevaluateInaccessibleDatabaseState/action` | Reevaluates the inaccessibility state of all managed databases. |
 > | `Microsoft.Sql/managedInstances/validateAzureKeyVaultEncryptionKey/action` | Validates customer managed key. |
@@ -1341,7 +1289,7 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | `Microsoft.Sql/servers/import/action` | Import new Azure SQL Database |
 > | `Microsoft.Sql/servers/joinPerimeter/action` | Add server to Network Security Perimeter |
 > | `Microsoft.Sql/servers/privateEndpointConnectionsApproval/action` | Determines if user is allowed to approve a private endpoint connection |
-> | `Microsoft.Sql/servers/refreshExternalGovernanceStatus/action` | Refreshes external governance enablemement status |
+> | `Microsoft.Sql/servers/refreshExternalGovernanceStatus/action` | Refreshes external governance enablement status |
 > | `Microsoft.Sql/servers/administratorOperationResults/read` | Gets in-progress operations on server administrators |
 > | `Microsoft.Sql/servers/administrators/read` | Gets a specific Azure Active Directory administrator object |
 > | `Microsoft.Sql/servers/administrators/write` | Adds or updates a specific Azure Active Directory administrator object |
@@ -1580,7 +1528,7 @@ Azure service: [Azure SQL Database](/azure/azure-sql/database/index), [Azure SQL
 > | `Microsoft.Sql/servers/jobAgents/jobs/executions/read` | Get a job execution |
 > | `Microsoft.Sql/servers/jobAgents/jobs/executions/write` | Creates or updates a job execution |
 > | `Microsoft.Sql/servers/jobAgents/jobs/executions/steps/read` | Get a job step execution |
-> | `Microsoft.Sql/servers/jobAgents/jobs/executions/steps/targets/read` | Get a target executoin |
+> | `Microsoft.Sql/servers/jobAgents/jobs/executions/steps/targets/read` | Get a target execution |
 > | `Microsoft.Sql/servers/jobAgents/jobs/executions/targets/read` | Gets the job target executions for a job execution |
 > | `Microsoft.Sql/servers/jobAgents/jobs/steps/read` | Get a job step |
 > | `Microsoft.Sql/servers/jobAgents/jobs/steps/write` | Create or update a job step |

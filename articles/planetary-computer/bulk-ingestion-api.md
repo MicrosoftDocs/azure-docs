@@ -144,7 +144,7 @@ Creating an ingestion source defines for GeoCatalog which source to ingest geosp
     # Print the response
     if response.status_code == 201:
         print("Ingestion source created successfully")
-        ingestion_source_id = response.json().get("id") #saved for later to enable resoource clean up
+        ingestion_source_id = response.json().get("id") #saved for later to enable resource clean up
     else:
         print(f"Failed to create ingestion: {response.text}")
     ```
