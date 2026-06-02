@@ -192,7 +192,7 @@ You can request billing ownership of products for the following subscription typ
 - [Action pack](https://azure.microsoft.com/offers/ms-azr-0025p/)¹
 - [Azure Pass Sponsorship](https://azure.microsoft.com/offers/azure-pass/)¹
 - [Enterprise Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148p/)
-- [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/)
+- [Pay-As-You-Go](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn)
 - [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/)
 - [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/)²
 - [Microsoft Azure Sponsored Offer](https://azure.microsoft.com/offers/ms-azr-0036p/)¹

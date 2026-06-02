@@ -19,6 +19,20 @@ Azure Files and Azure File Sync are updated regularly to offer new features and 
 
 ### 2026 quarter 2 (April, May, June)
 
+#### Azure file share using Microsoft.FileShares is now generally available
+
+Azure Files introduces a new file share service management experience, now generally available, in which shares are deployed as independent, top-level Azure resources through the Microsoft.FileShares resource provider, removing the dependency on storage accounts. Each file share has dedicated performance, security, networking, and billing, enabling better isolation, predictable performance, and granular cost tracking. The experience also significantly improves scale and efficiency, supporting up to 10,000 shares per subscription per region, faster provisioning, and cloud-native automation through ARM templates, Bicep, and CI/CD workflows. It is currently available for NFS 4.1 shares.
+
+To learn more, read the [blog post](https://aka.ms/MFS/GA).
+
+#### Entra-only identity support for SMB Azure file shares is now generally available
+
+With native Microsoft Entra ID authentication, organizations can grant secure, identity-based access to SMB file shares using cloud-native-only identities.
+
+This means no Active Directory, hybrid sync, or managed domain controllers required, significantly simplifying architecture while reducing ongoing management and maintenance costs.
+
+To learn more, read the [blog post](https://azure.microsoft.com/blog/azure-files-entra-only-identities-advancing-cloud-native-identity-and-security/).
+
 #### Managed identity support for SMB Azure file shares is now generally available
 
 Azure Files customers can now use managed identities to allow Windows and Linux virtual machines (VMs) to access SMB Azure file shares using identity-based authentication with Microsoft Entra ID. This capability enables applications and virtual machines to securely access Azure Files without secrets, passwords, or key distribution. The GA release includes AKS workload identity support, co-existence of application identities and end-user identity access on the same storage account, and simplified enablement via the Azure portal.

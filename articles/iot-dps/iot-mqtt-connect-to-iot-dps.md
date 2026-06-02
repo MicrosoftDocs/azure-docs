@@ -2,8 +2,8 @@
 title: Use MQTT to communicate with Azure IoT DPS
 titleSuffix: Azure IoT Device Provisioning Service
 description: Guidance on using the MQTT protocol to connect a device to the Azure IoT Device Provisioning Service device-facing endpoint.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.subservice: azure-iot-hub-dps
 ms.topic: how-to

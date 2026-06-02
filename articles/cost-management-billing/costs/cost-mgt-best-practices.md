@@ -95,7 +95,7 @@ To learn more about the various options, visit [How to buy Azure](https://azure.
 - $200 credit in your billing currency to explore services for 30 days
 - 25+ services are always free
 
-#### [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p)
+#### [Pay as you go](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn)
 
 - No minimums or commitments
 - Competitive Pricing

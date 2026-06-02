@@ -47,12 +47,7 @@ The same dashboards serve different audiences:
 
 ## How it works
 
-```
-┌───────────────┐    OTLP/HTTP    ┌──────────────────┐    Azure Monitor    ┌──────────────────┐              ┌──────────┐
-│  AI coding    │ ──────────────> │  OTel Collector  │ ────── Exporter ──> │    Application   │ <─── KQL ─── │ Grafana  │
-│    agent      │                 │                  │                     │     Insights     │              │ dashboard│
-└───────────────┘                 └──────────────────┘                     └──────────────────┘              └──────────┘
-```
+:::image type="content" source="media/grafana-opentelemetry-app-insights/grafana-coding-agent-diagram.png" alt-text="Diagram explaining the agent flow.":::
 
 - Each **AI coding agent** (GitHub Copilot, Claude Code, or OpenClaw) emits OpenTelemetry traces, metrics, and logs to a configured OTLP endpoint.
 - An **OpenTelemetry Collector** terminates OTLP at that endpoint and forwards the data to Application Insights using the Azure Monitor Exporter.
