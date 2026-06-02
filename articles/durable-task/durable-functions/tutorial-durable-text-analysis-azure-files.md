@@ -3,6 +3,8 @@ title: "Tutorial: Durable Text Analysis with Azure Files in Azure Functions"
 description: Learn how to deploy a Python Azure Functions app that uses Durable Functions to orchestrate parallel text file analysis by using a mounted Azure Files share on a Flex Consumption plan.
 ms.service: azure-functions
 ms.topic: tutorial
+ms.author: hannahhunter
+author: hhunter-ms
 ms.date: 05/04/2026
 ms.custom:
   - devx-track-azurecli
