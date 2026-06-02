@@ -27,13 +27,13 @@ No. Only the Linux preview client application is being retired. Your VPN gateway
 
 ### Does Microsoft Entra ID (AAD) authentication work with the alternative Linux clients?
 
-No. The OpenVPN and strongSwan open-source clients don't support Microsoft Entra ID (AAD) with the Azure VPN P2S gateway. Microsoft Entra ID authentication on Linux was only available through the Azure VPN Client for Linux.
+No. The OpenVPN and strongSwan open-source clients don't support Microsoft Entra ID (AAD) with the Azure VPN P2S gateway. Microsoft Entra ID authentication on Linux was only available through the Azure VPN Client for Linux.  
 
 If you require Microsoft Entra ID authentication for Linux users, you'll need to evaluate alternative approaches such as certificate-based authentication or connecting via a Windows/macOS client that supports Microsoft Entra ID.
 
 ### Do I need to change my VPN gateway configuration?
 
-It depends on your current tunnel type setting and authentication method. If your gateway is configured for OpenVPN only with certificates, you can switch to the open-source OpenVPN client with no gateway changes.
+It depends on your current tunnel type setting and authentication method. If your gateway is configured for OpenVPN only with certificates, you can switch to the open-source OpenVPN client with no gateway changes.  
 
 If you want to use strongSwan, you need to ensure IKEv2 is enabled on the gateway. You can enable multiple tunnel types (for example, IKEv2 and OpenVPN) on the same gateway simultaneously.
 
