@@ -384,33 +384,33 @@ Functions often serve as the compute component in a serverless workflow topology
 
 ::: zone pivot="programming-language-csharp" 
 + [Tutorial: Create a function to integrate with Azure Logic Apps](./functions-twitter-email.md)
-+ [Quickstart: Create your first durable function in Azure using C#](./durable-functions/durable-functions-isolated-create-first-csharp.md)
++ [Quickstart: Create your first durable function in Azure using C#](../durable-task/durable-functions/durable-functions-isolated-create-first-csharp.md)
 + [Create serverless APIs in Visual Studio using Azure Functions and API Management integration](openapi-apim-integrate-visual-studio.md)
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript" 
-+ [Quickstart: Create a JavaScript Durable Functions app](./durable-functions/quickstart-js-vscode.md)
++ [Quickstart: Create a JavaScript Durable Functions app](../durable-task/durable-functions/quickstart-js-vscode.md)
 + [Create serverless APIs in Visual Studio using Azure Functions and API Management integration](openapi-apim-integrate-visual-studio.md)
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript" 
-+ [Quickstart: Create a TypeScript Durable Functions app](./durable-functions/quickstart-ts-vscode.md)
++ [Quickstart: Create a TypeScript Durable Functions app](../durable-task/durable-functions/quickstart-ts-vscode.md)
 + [Create serverless APIs in Visual Studio using Azure Functions and API Management integration](openapi-apim-integrate-visual-studio.md)
 ::: zone-end
 
 ::: zone pivot="programming-language-python" 
-+ [Quickstart: Create your first durable function in Azure using Python](./durable-functions/quickstart-python-vscode.md)
-+ [Tutorial: Durable text analysis with a mounted Azure Files share](durable-functions/tutorial-durable-text-analysis-azure-files.md)
++ [Quickstart: Create your first durable function in Azure using Python](../durable-task/durable-functions/quickstart-python-vscode.md)
++ [Tutorial: Durable text analysis with a mounted Azure Files share](../durable-task/durable-functions/tutorial-durable-text-analysis-azure-files.md)
 + [Sample: Durable text analysis with Azure Files storage mount](https://github.com/Azure-Samples/Azure-Functions-Flex-Consumption-with-Azure-Files-OS-Mount-Samples)
 + [Training: Deploy serverless APIs with Azure Functions, Logic Apps, and Azure SQL Database](/training/modules/deploy-backend-apis/)
 ::: zone-end
 
 ::: zone pivot="programming-language-java" 
-+ [Quickstart: Create a Java Durable Functions app](./durable-functions/quickstart-java.md)
++ [Quickstart: Create a Java Durable Functions app](../durable-task/durable-functions/quickstart-java.md)
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell" 
-+ [Quickstart: Create a PowerShell Durable Functions app](./durable-functions/quickstart-powershell-vscode.md)
++ [Quickstart: Create a PowerShell Durable Functions app](../durable-task/durable-functions/quickstart-powershell-vscode.md)
 ::: zone-end
 
 ## Respond to database changes
