@@ -41,11 +41,16 @@ Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overv
 
 - An existing Application Insights resource. If you don't have one, [create an Application Insights](/azure/azure-monitor/app/create-workspace-resource#create-an-application-insights-resource).
 
+> [!NOTE]
+> During public preview, hosted MCP servers are available in the following regions: **West Central US**, **East Asia**, **Central US**, and **North Europe**.
+
 ::: zone pivot="sql"
 
 - An Azure SQL Database server with a database. If you don't have one, [create an Azure SQL database](azure/azure-sql/database/scripts/create-and-configure-database-cli).
 
 - [Data API builder (DAB) CLI](/azure/data-api-builder/quickstart/basic-sql.md#install-the-data-api-builder-cli) installed.
+
+::: zone-end
 
 ## Seed the SQL database
 

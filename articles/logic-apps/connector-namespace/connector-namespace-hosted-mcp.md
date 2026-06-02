@@ -4,7 +4,7 @@ description: Overview of hosted MCP servers in Azure Connector Namespace.
 author: lilyjma
 ms.author: jiayma
 ms.reviewer: glenga
-ms.date: 05/21/2026
+ms.date: 06/02/2026
 ms.topic: conceptual
 ms.service: azure-logic-apps
 ms.custom: ai-assisted
@@ -18,7 +18,10 @@ ms.custom: ai-assisted
 > This preview feature is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article explains what hosted MCP servers are, how they compare to managed servers, and what servers are available during preview.
+This article explains what hosted MCP servers are, feature available, and what servers are available during preview.
+
+> [!NOTE]
+> During early preview, hosted MCP servers are available in the following regions: **West Central US**, **East Asia**, **Central US**, and **North Europe**.
 
 ## What are hosted MCP servers?
 
@@ -49,26 +52,6 @@ During public preview, a curated set of hosted MCP servers is available. The cat
 |--------|-------------|
 | **Playwright** | Browser automation tools for web navigation, screenshots, and interaction |
 | **Azure SQL** | Exposes SQL operations as MCP tools through [Data API builder](/azure/data-api-builder/mcp/overview), enabling AI agents to interact with SQL databases through a controlled, secure contract with entity abstraction, RBAC, and caching |
-> [!NOTE]
-> If there's a server you'd like to see supported, file an issue at aka.ms/hosted-mcp-github.
->
-> Support for publishing custom-built MCP servers to the catalog is planned for the future.
-
-### Server deployment requirements
-
-Generally speaking, hosted MCP servers don't require additional artifacts during deployment, except for the following servers.
-
-#### Azure SQL
-
-Requires a Data API builder (DAB) configuration file that defines the database connection, entities to expose, and permissions. To generate this file, follow the instructions in [Configure Data API builder](/azure/data-api-builder/quickstart/basic-sql?tabs=mssql%2Crest#configure-data-api-builder). 
-
-The Azure SQL server supports both *connection string* and *managed identity* for outbound authentication. The connection specified in the configuration file must match the approach selected in the namespace portal during deployment. 
-
-If you choose managed identity as the authentication method, you must use a **user-assigned** managed identity and assign it to the connector namespace. The connection string looks like the following:
-
-```console
-Server=tcp:your-sever-name.database.windows.net,1433;Initial Catalog=your-db-name;Authentication=Active Directory Managed Identity;User Id=<user assigned managed identity client ID>;
-```
 
 ## Server authentication
 
@@ -87,12 +70,9 @@ Outbound authentication secures the connection *between the hosted server and th
 - **Managed identity** — The server authenticates to the downstream service using a managed identity assigned by the namespace. No credential management is required.
 - **On-behalf-of (OBO)** — The server uses the calling user's identity to authenticate to the downstream service, enabling delegated access scenarios.
 
-If you choose managed identity as the outbound authentication method, you can use either **system-assigned managed identity (SAMI)** or **user-assigned managed identity (UAMI)**. You can enable SAMI during namespace creation so the namespace if automatically assigned a managed identity. Alternatively, you can bring your own UAMI and **add** it to the namespace.
+## Integration with Application Insights 
 
-When deciding what to use, consider that SAMI is tied to the lifecyle of the namespace so it's gone with the namespace is deleted. On the other hand, UAMI is its own resource and can be reused even when the namespace is deprovisioned. 
-
->[!IMPORTANT]
->When using **user-assigned managed identity**, you MUST add that identity to the namespace. Otherwise the server won't be able to access downstream service using the managed identity.  
+Deployed servers can be configured with an Azure Application Insights resource to collect logs and telemetry. Once configured, the namespace automatically forwards server telemetry to Application Insights, giving you visibility into request traces and errors. For setup instructions, see [Configure Application Insights](hosted-mcp-dev-guide.md#configure-application-insights).
 
 ## Considerations
 
@@ -108,8 +88,25 @@ Keep the following in mind when working with hosted MCP servers during preview:
 
 - **Configuration responsibility.** Unlike managed MCP servers, you're responsible for correctly configuring hosted servers. Misconfigured environment variables or parameters can cause server failures.
 
+## Get started 
+
+- [Quickstart: Create a hosted MCP server](hosted-mcp-quickstart.md): Deploy a hosted server and connect it to MCP clients in minutes.
+
+- [Developer guide for hosted MCP servers](hosted-mcp-dev-guide.md): Learn about configuration options, authentication setup, and observability.
+
+## What's next 
+
+The team is actively working to improve the experience of hosted MCP. Your feedback will help shape what comes next. [File an issue or feature request](https://aka.ms/hosted-mcp-github).
+
+Some top items in the backlog:
+
+- **Expanding the server catalog** — Adding more servers based on demand and community requests.
+- **Region availability** — Expanding regional coverage beyond the current preview regions.
+- **VNet support** — Deploying hosted MCP servers inside virtual networks with private endpoints.
+- **Custom server images** — Support for bringing your own MCP server images to the catalog.
+- **Tool-level access control** — Fine-grained permissions and throttling at the individual tool level.
+
 ## Related articles
 
 - [What is Azure Connector Namespace?](connector-namespace-overview.md)
-- [Create a hosted MCP server](hosted-mcp-quickstart.md)
 - [Create and manage connector namespaces](create-connector-namespace.md)
