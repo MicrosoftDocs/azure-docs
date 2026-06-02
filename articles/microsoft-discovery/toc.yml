@@ -6,6 +6,9 @@ items:
       - name: What is Microsoft Discovery?
         href: overview-what-is-microsoft-discovery.md
         displayName: Microsoft Discovery, services, overview, introduction
+      - name: Microsoft Discovery & the Microsoft Discovery app
+        href: concept-discovery-and-discovery-app.md
+        displayName: Microsoft Discovery, services, app, overview
       - name: Service architecture overview
         href: overview-service-architecture.md
         displayName: Microsoft Discovery, service architecture, resource model, workspace, supercomputer, project
@@ -129,6 +132,9 @@ items:
           - name: Transparency note
             href: concept-platform-card.md
             displayName: Microsoft Discovery, transparency note, responsible AI, intended uses, target users, capabilities
+          - name: Code of conduct
+            href: concept-code-of-conduct.md
+            displayName: Microsoft Discovery, responsible AI, code of conduct
   - name: How-tos
     items:
       - name: Migration
@@ -258,6 +264,9 @@ items:
         displayName: Microsoft Discovery, billing, pricing, User Messages, cost management
   - name: Tutorials
     items:
+      - name: Tutorials & how-to videos
+        href: tutorial-howto-videos.md
+        displayName: tutorial, Discovery app, workspace creation, bookshelf creation, agent creation, tasks, engine
       - name: "Tutorial: Discovery Mode"
         href: tutorial-discovery-mode.md
         displayName: tutorial, Discovery Mode, first investigation, getting started
