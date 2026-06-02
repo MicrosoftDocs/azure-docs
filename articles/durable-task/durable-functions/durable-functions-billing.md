@@ -5,10 +5,10 @@ description: Understand how Durable Functions billing works, including orchestra
 author: cgillum
 reviewer: hhunter-ms
 ms.topic: concept-article
-ms.date: 04/23/2026
+ms.date: 05/20/2026
 ms.author: azfuncdf
-ms.service: azure-functions
-ms.subservice: durable
+ms.service: durable-task
+ms.subservice: durable-functions
 #Customer intent: As a developer, I want to understand how using Durable Functions influences my Azure consumption bill.
 ---
 

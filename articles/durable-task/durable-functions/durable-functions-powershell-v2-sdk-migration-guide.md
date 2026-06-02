@@ -4,8 +4,9 @@ description: "Learn how to install and migrate to the standalone Durable Functio
 author: davidmrdavid
 ms.author: hannahhunter
 ms.topic: feature-guide
-ms.service: azure-functions
-ms.date: 04/10/2023
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.reviewer: azfuncdf
 ---
 

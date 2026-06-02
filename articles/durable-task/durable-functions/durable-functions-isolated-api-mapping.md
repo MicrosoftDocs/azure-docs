@@ -4,10 +4,10 @@ description: Complete API reference mapping between the in-process 2.x SDK and t
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: azfuncdf
-ms.date: 04/27/2026
+ms.date: 05/20/2026
 ms.topic: reference
-ms.service: azure-functions
-ms.subservice: durable
+ms.service: durable-task
+ms.subservice: durable-functions
 # CustomerIntent: As a .NET developer migrating Durable Functions from in-process to isolated worker, I want a comprehensive API mapping reference so that I can quickly find the isolated worker equivalent of any in-process API.
 ---
 

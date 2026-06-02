@@ -3,9 +3,9 @@ author: hhunter-ms
 title: Durable Functions settings in host.json - Azure Functions
 description: "Explore Durable Functions configuration properties in host.json for Azure Functions. Discover how to customize task hub, storage, and performance settings for your durable orchestrations."
 ms.topic: reference
-ms.service: azure-functions
-ms.subservice: durable
-ms.date: 03/25/2026
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.author: hannahhunter
 ---
 

@@ -3,9 +3,10 @@ title: "Upgrade the Durable Functions Extension Version"
 description: "Learn why upgrading to the latest Durable Functions extension version improves performance and fixes bugs. Follow step-by-step instructions to upgrade your extension today."
 author: lilyjma
 ms.topic: how-to
-ms.service: azure-functions
+ms.service: durable-task
+ms.subservice: durable-functions
 ms.custom: devx-track-dotnet
-ms.date: 02/15/2023
+ms.date: 05/20/2026
 ms.author: azfuncdf
 ---
 

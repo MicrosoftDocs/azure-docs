@@ -2,8 +2,9 @@
 title: "Migrate Durable Functions to Node.js Programming Model v4"
 description: Learn how to migrate your Durable Functions app from v3 to v4 of the Node.js programming model. Follow step-by-step instructions to upgrade triggers, bindings, and client APIs.
 author: hossam-nasr
-ms.service: azure-functions
-ms.date: 04/06/2023
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.devlang: javascript
 # ms.devlang: javascript, typescript
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-ts

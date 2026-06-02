@@ -70,6 +70,10 @@
       items:
       - name: Register and discover skills
         href: register-discover-skills.md
+    - name: Plugins
+      items:
+      - name: Register and discover plugins
+        href: register-discover-plugins.md
     - name: Integrate API sources
       items:
       - name: Synchronize assets from API Management
@@ -104,6 +108,8 @@
     href: discover-apis-vscode-extension.md
   - name: Enable plugin marketplace
     href: enable-api-center-plugin-marketplace.md
+  - name: Enable API Center MCP server
+    href: discover-catalog-mcp-server.md
 - name: API center management and operations
   items:
   - name: Reliability

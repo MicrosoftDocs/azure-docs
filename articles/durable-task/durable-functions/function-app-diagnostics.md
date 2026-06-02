@@ -3,8 +3,9 @@ title: "Azure Functions App Diagnostics for Durable Functions"
 description: "Learn how to use Azure Functions app diagnostics to diagnose and resolve Durable Functions issues in the Azure portal. Discover detectors for CPU, memory, and error analysis."
 author: bachuv
 ms.topic: how-to
-ms.service: azure-functions
-ms.date: 02/15/2023
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.author: azfuncdf
 ---
 
