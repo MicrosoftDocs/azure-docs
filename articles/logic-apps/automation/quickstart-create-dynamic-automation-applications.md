@@ -54,31 +54,19 @@ To create a deployable package for your applications and their components, follo
 
 1. Go to the [Logic Apps Automation portal](https://auto.azure.com), and sign in with your Microsoft work or school account.
 
-   For example:
+1. From the **Projects** tab, select the project where you want to create your application.
 
-   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/logic-apps-automation-portal.png" alt-text="Screenshot that shows the Logic Apps Automation portal." lightbox="media/quickstart-create-dynamic-workflow-automation/logic-apps-automation-portal.png":::
+1. After the **Apps** page opens, select **Create app**.
 
-1. From the **Projects** tab, open the project where you want to create your application.
-
-   For example:
-
-   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/project-list.png" alt-text="Screenshot that shows the Logic Apps Automation portal and project list." lightbox="media/quickstart-create-dynamic-workflow-automation/project-list.png":::
-
-1. After the **Applications** page opens, select **+ Create Application**.
-
-   For example:
-
-   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/create-application.png" alt-text="Screenshot that shows the Logic Apps Automation portal and Applications page." lightbox="media/quickstart-create-dynamic-workflow-automation/create-application.png":::
-
-1. In the **Create Application** box, for **Application name**, enter a descriptive name for your application, and then select **Create**.
+1. In the **Create application** box, for **Application name**, enter a descriptive name for your application, and then select **Create**.
 
    > [!NOTE]
    >
    > Creating an application might take a minute or two. Monitor the **Status** column, and wait until the application is ready before you create any connections, workflows, or other components.
 
-   When the portal finishes, your application appears on the **Applications** page.
+   The **Apps** page shows your application after the portal finishes.
 
-1. Continue to the steps for [creating a dynamic automation workflow](quickstart-create-dynamic-automation-workflow.md).
+1. Continue to the [steps for creating a dynamic automation workflow](quickstart-create-dynamic-automation-workflows.md).
 
 #### Application ownership and privacy
 

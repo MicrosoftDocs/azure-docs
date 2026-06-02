@@ -67,7 +67,7 @@ For more comparison information, use the following table to review your options:
 | Governance and operations | Enterprise controls, monitoring, and tracing | Enterprise controls, monitoring, and diagnostics | Varies by platform maturity |
 | Learning curve | Faster for intent-driven, agentic patterns | Faster for explicit process modeling | Depends on platform and team experience |
 
-For more information, see [Compare automation tools](compare-automation-tools.md).
+For more information, see [Compare automation services](compare-automation-services.md).
 
 ## How Logic Apps Automation works
 
@@ -89,23 +89,25 @@ This solution works well when the best path varies during each run, for example:
 - Conversational agents backed by deterministic workflow orchestrations.
 - Scenarios that need typed tools, orchestration, and summarization.
 
-If you used Azure Logic Apps before, consider Logic Apps Automation as a complementary model for ambiguous, changing scenarios and workloads. Both the models for Azure Logic Apps (Standard) and Logic Apps Automation use the same runtime, connectors, and management plane. You might think about them as siblings.
+## Relative to other automation services
 
-If you're coming from another automation platform, think about Logic Apps Automation as a way to build dynamic workflows with connectors, governance, and monitoring.
+The following table provides some ways you might think about Logic Apps Automation relative to other automation services, based on your prior experience:
 
-If you're new to dynamic automation, start here. Logic Apps Automation shares a foundation with Azure Logic Apps, but you don't need Azure Logic Apps experience to begin.
+| Experience | Recommendation |
+|------------|----------------|
+| Some knowledge about Azure Logic Apps | Consider Logic Apps Automation a complementary service for automating processes with ambiguous, unpredictable or unstructured workloads. Both Logic Apps Automation and Azure Logic Apps (Standard) use the same runtime, connectors, and management plane. So, you might think about them as siblings. |
+| None | Begin with Logic Apps Automation. While this service shares a foundation with Azure Logic Apps (Standard), you don't need any experience with Azure Logic Apps to get started. |
+| Other automation services | Consider Logic Apps Automation as a way to build dynamic workflows with connectors, governance, and monitoring. |
 
 ## Get started with Logic Apps Automation
 
-Start with the following approaches, based on your preference:
+You can start by choosing from the following approaches, based on your preference:
 
-- Workflow designer
-
-  A graphical and structured experience where you visually build, test, and run agentic workflows. Add triggers, actions, agents, tools, MCP servers, and other items to drive your workflow.
-
-- Chat prompts
-
-  A chat experience where you use prompts to quickly generate or refine agentic workflows. Review and adjust the results in the designer.
+| Starting point | Description |
+|----------------|-------------|
+| AI assistant | A chat experience where you use prompts to quickly generate or refine workflows. Review and adjust the results in the designer. |
+| Workflow designer | A visual graphical experience where you build, test, and run agentic workflows. Manually add a trigger, actions, agents, tools, MCP servers, and other items to drive your workflow. |
+| Workflow templates | Prebuilt workflow patterns for common, specific automation scenarios that include a prepopluated trigger and actions. You need to complete any setup requirements, such as authentication and parameter values, for your particular workload. |
 
 Together, these experiences help you move faster from idea to working automation, while you stay in control over security, reliability, governance, and other enterprise requirements. Monitor and trace every step that happens in your workflow, including agent activities, for diagnostics and auditing.
 
@@ -124,6 +126,11 @@ As you work with Logic Apps Automation, you learn more about the following core 
 | *Agent* | An AI agent with tool capabilities. |
 | *Tool* | A tool that an agent calls to complete a task. |
 | *Sub-workflow* | A nested workflow that another workflow calls and runs. |
+
+For more information, see:
+
+- [Introduction - Logic Apps Automation portal](https://auto.azure.com/docs/getting-started/introduction/)
+- [Features overview - Logic Apps Automation portal](https://auto.azure.com/docs/features/overview/)
 
 ## Next steps
 

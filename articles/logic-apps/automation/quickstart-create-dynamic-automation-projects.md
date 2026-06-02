@@ -79,17 +79,17 @@ To create a container for your applications and control who has access, follow t
 
 1. Select **Review + create** > **Create**.
 
-   Azure starts setting up, creating, and deploying your automation project.
+   The Azure portal sets up, creates, and deploys your automation project.
 
    > [!NOTE]
    >
    > This process might take several minutes to finish.
 
-   After setup completes, the automation project opens. If not, select **Go to resource**.
+   After this process completes, the Azure portal opens the automation project. If the project doesn't open, select **Go to resource**.
 
 1. On the project toolbar, select **Open in Automation Portal**, which returns you to the Logic Apps Automation portal.
 
-1. If you're signed out, sign back in to the [Logic Apps Automation portal](https://auto.azure.com).
+1. If you signed out, sign back in to the [Logic Apps Automation portal](https://auto.azure.com).
 
 1. From the **Projects** list, find and select your project.
 
