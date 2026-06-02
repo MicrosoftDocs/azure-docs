@@ -428,6 +428,8 @@ items:
             href: connector-namespace/connector-namespace-hosted-mcp.md
           - name: Create a hosted MCP server
             href: connector-namespace/hosted-mcp-quickstart.md
+          - name: Hosted MCP servers developer guide
+            href: connector-namespace/hosted-mcp-dev-guide.md
       - name: Access on-premises data sources
         items:
           - name: Install on-premises data gateway
