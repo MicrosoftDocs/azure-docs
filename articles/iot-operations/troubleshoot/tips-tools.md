@@ -9,7 +9,7 @@ ms.date: 01/27/2025
 
 # Tips and tools for troubleshooting your Azure IoT Operations instance
 
-This article describes how to use some common tools when you're learning, exploring, or troubleshooting your Azure IoT Operations instances. These tools are in addition to the capabilities provided by the Azure portal, Azure CLI, operations experience web UI, and [observability resources](../configure-observability-monitoring/howto-configure-observability.md).
+This article describes how to use some common tools when you're learning, exploring, or troubleshooting your Azure IoT Operations instances. These tools are in addition to the capabilities provided by the Azure portal, Azure CLI, operations experience web UI, and [observability resources](../deploy-iot-ops/howto-configure-observability.md).
 
 ## Kubernetes tools
 
