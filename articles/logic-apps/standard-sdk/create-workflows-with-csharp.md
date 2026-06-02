@@ -169,7 +169,7 @@ The Logic Apps Standard SDK is currently in public preview. The following limita
 
 :::image type="content" source="media\create-workflows-with-csharp\create-code-first-workflow.png" alt-text="Logic Apps Standard SDK Create Workflow Wizard page showing all configuration steps.":::
 
-# Next Steps
+## Next Steps
 
 - [Deploy Logic Apps to Azure](..\create-standard-workflows-visual-studio-code#deploy-to-azure)
 
