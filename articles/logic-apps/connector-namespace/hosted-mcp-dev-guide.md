@@ -1,5 +1,6 @@
 ---
 title: Developer guide for hosted MCP servers in Azure Connector Namespace
+titleSuffix: Azure Connector Namespace
 description: Learn how to configure server deployments, authentication, observability, and access policies for hosted MCP servers in Connector Namespace.
 author: lilyjma
 ms.author: jiayma
