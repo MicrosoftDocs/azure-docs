@@ -20,9 +20,6 @@ ms.custom: ai-assisted
 
 This article explains what hosted MCP servers are, feature available, and what servers are available during preview.
 
-> [!NOTE]
-> During early preview, hosted MCP servers are available in the following regions: **West Central US**, **East Asia**, **Central US**, and **North Europe**.
-
 ## What are hosted MCP servers?
 
 When you create a *hosted MCP server* in Connector Namespace, the platform runs a pre-built image of the server in dedicated compute that it provisions. Other than compute, the namespace provides networking, lifecycle management, and dependency management so you don't need to provision or maintain any infrastructure. A curated set of hosted servers is supported during public preview.

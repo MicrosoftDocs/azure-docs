@@ -50,8 +50,6 @@ Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overv
 
 - [Data API builder (DAB) CLI](/azure/data-api-builder/how-to-install-cli) installed.
 
-::: zone-end
-
 ## Seed the SQL database
 
 1. In the Azure Portal, navigate to your SQL Database (*not* the server).
@@ -341,7 +339,7 @@ Replace `<your-namespace-name>` with the name of your Connector Namespace resour
 
 1. On the left menu, find **Investigate -> Search**. 
 
-1. Set the **Local Time** filter on the top to the last 30 minutes. 
+1. Set the **Local Time** filter on the top to the last 30 minutes. View the logs as *traces* or *invidual items*.
 
 ## Related articles
 
