@@ -41,7 +41,7 @@ In the diagram above, virtual networks are split into two types:
 |--|--|--|--|
 | Trusted Virtual Networks | Direct via Virtual WAN hub router | Via Azure Firewall | Via Azure Firewall |
 | Untrusted Virtual Networks | Via Azure Firewall | Via Azure Firewall | Via Azure Firewall |
-| Branches | Via Azure Firewall | Via Azure Firewall | Via Azure Firewall |
+| Branches | Via Azure Firewall | Via Azure Firewall | Direct |
 
 ### Configuration
 

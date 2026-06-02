@@ -30,10 +30,14 @@ items:
         href: agent-identity.md
       - name: Security overview
         href: security-overview.md
+      - name: Network integration
+        href: network-integration.md
       - name: Run modes
         href: run-modes.md
       - name: Connectors
         href: connectors.md
+      - name: MCP server
+        href: mcp-server-overview.md
       - name: Incident platforms
         href: incident-platforms.md
       - name: Memory & knowledge

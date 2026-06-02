@@ -5,6 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart-sdk
 ms.date: 05/08/2025
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Start developing with the Azure IoT Operations SDKs
@@ -21,7 +22,7 @@ Before you begin, prepare the following prerequisites:
 
 * A [GitHub](https://github.com) account.
 
-* Azure access permissions. For more information, see [Deployment details > Required permissions](../deploy-iot-ops/overview-deploy.md#required-permissions).
+* Azure access permissions. For more information, see [Deployment overview > Required permissions](../deploy-iot-ops/overview-deploy.md#required-permissions).
 
 ## Setting up
 
