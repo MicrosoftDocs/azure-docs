@@ -72,12 +72,12 @@ You can configure the server to send logs and metrics to a specified Application
 
 1. Go to the namespace instance in the [web portal](https://connectors.azure.com/).
 1. Click **Enable monitoring** in the **Monitoring** section.
-1. Enter the the Application Insights resource's [connection string](/azure/azure-monitor/app/create-workspace-resource#get-the-connection-string), then click **Enable**.
+1. Enter the Application Insights resource's [connection string](/azure/azure-monitor/app/create-workspace-resource#get-the-connection-string), then click **Enable**.
 
 To view server logs:
 1. Go to the Azure portal and find the Application Insights resource you configured.
 1. On the left menu, select **Investigate > Search**.
-1. Set the **Local Time** filter to the desired time range. View the logs as *traces* or *invidual items*.
+1. Set the **Local Time** filter to the desired time range. View the logs as *traces* or *individual items*.
 
 ## Access policy
 

@@ -56,7 +56,7 @@ Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overv
 
 ## Seed the SQL database
 
-1. In the Azure Portal, navigate to your SQL Database (*not* the server).
+1. In the Azure portal, navigate to your SQL Database (*not* the server).
 
 1. On the left menu, click **Query editor** and sign in as the database admin.
 
@@ -343,7 +343,7 @@ Replace `<your-namespace-name>` with the name of your Connector Namespace resour
 
 1. On the left menu, find **Investigate -> Search**. 
 
-1. Set the **Local Time** filter on the top to the last 30 minutes. View the logs as *traces* or *invidual items*.
+1. Set the **Local Time** filter on the top to the last 30 minutes. View the logs as *traces* or *individual items*.
 
 ## Related articles
 
