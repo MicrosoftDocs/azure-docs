@@ -3,10 +3,10 @@ title: Troubleshoot Azure Edge Hardware Center issues via the Azure portal
 description: Describes how to troubleshoot Azure Edge Hardware Center ordering issues.
 services: Azure Edge Hardware Center
 author: soumya-jain19
+ms.author: sojain
 ms.service: azure-edge-hardware-center
 ms.topic: troubleshooting
 ms.date: 01/03/2022
-ms.author: sojain
 ---
 # Troubleshoot your Azure Edge Hardware Center ordering issues
 
@@ -16,7 +16,7 @@ This article describes how to troubleshoot Azure Edge Hardware Center ordering i
 
 **Error Description:** In Azure portal, you get this error:
 
-*Selected subscription or region is not supported. Choose a different subscription or region.*
+*Selected subscription or region isn't supported. Choose a different subscription or region.*
 
 **Suggested solution:**  Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions aren't supported. For more information, see [Azure Edge Hardware Center resource prerequisites](azure-edge-hardware-center-create-order.md#prerequisites).
 
@@ -26,7 +26,7 @@ There's the possibility that Microsoft may allow a subscription type upgrade on 
 
 **Error:** In Azure portal, you select a subscription to create Edge Hardware Center order and get the following error:
 
-*Resource provider(s): Microsoft.EdgeOrder are not registered for subscription &lt;subscription name&gt; and you don't have permissions to register a resource provider for subscription &lt;subscription name&gt;*.
+*Resource provider(s): Microsoft.EdgeOrder aren't registered for subscription &lt;subscription name&gt; and you don't have permissions to register a resource provider for subscription &lt;subscription name&gt;*.
 
 **Suggested solution:** Elevate your subscription access or find someone with owner or contributor access to register the resource provider.
 
@@ -40,15 +40,15 @@ There's the possibility that Microsoft may allow a subscription type upgrade on 
 
 ## Selected subscription type not supported
 
-You will see this error when placing orders for Azure Stack Edge devices.
+You'll see this error when placing orders for Azure Stack Edge devices.
 
 **Error:** You have an EA, CSP, or sponsored subscription and you get the following error:
 
-* The selected subscription type is not supported. Make sure that you use a supported subscription. [Learn more](../databox-online/azure-stack-edge-deploy-prep.md#prerequisites). 
+* The selected subscription type isn't supported. Make sure that you use a supported subscription. [Learn more](../databox-online/azure-stack-edge-deploy-prep.md#prerequisites). 
 
     If using a supported subscription type, make sure:
  
-- That the `Microsoft.EdgeOrder`provider is registered, when placing orders via the Azure Edge Hardware Center.
+- That `Microsoft.EdgeOrder`provider is registered, when placing orders via the Azure Edge Hardware Center.
  
 For information on how to register, see [Register resource provider](../databox-online/azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers)*.
 

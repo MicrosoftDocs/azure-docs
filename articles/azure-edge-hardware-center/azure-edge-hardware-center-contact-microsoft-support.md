@@ -3,10 +3,10 @@ title: Log support ticket for Azure Edge Hardware Center orders
 description: Learn how to log support request for issues related to orders created via Azure Edge Hardware Center.
 services: Azure Edge Hardware Center
 author: soumya-jain19
+ms.author: sojain
 ms.service: azure-edge-hardware-center
 ms.topic: how-to
 ms.date: 01/03/2022
-ms.author: sojain
 ---
 
 # Open a support ticket for Azure Edge Hardware Center
