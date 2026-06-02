@@ -52,7 +52,7 @@ items:
           - name: Azure Managed Redis architecture
             href: architecture.md
           - name: Best practices for the Flash Optimized tier
-            href: flash-optimized-overview.md
+            href: best-practices-flash-optimized.md
           - name: Create and manage with Azure PowerShell
             href: how-to-manage-redis-cache-powershell.md
           - name: Create and manage a cache with Azure CLI
