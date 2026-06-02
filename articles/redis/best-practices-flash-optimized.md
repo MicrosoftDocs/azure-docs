@@ -3,6 +3,7 @@ title: Best practices for the Flash Optimized tier
 description: Learn about the Flash Optimized tier in Azure Managed Redis, including SKU sizes, features, best practices, and common issues.
 ms.date: 04/30/2026
 ms.topic: conceptual
+ai-usage: ai-assisted
 ms.custom:
   - references_regions
   - build-2025
