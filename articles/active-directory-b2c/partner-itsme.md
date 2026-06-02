@@ -7,7 +7,7 @@ manager: martinco
 ms.author: gasinh
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 10/11/2024
+ms.date: 06/02/2026
 ms.subservice: b2c
 
 
