@@ -22,7 +22,6 @@ Custom access strings (preview) let you control which commands a user can execut
 
 - An Azure Managed Redis cache. To create one, see [Quickstart: Create an Azure Managed Redis instance](quickstart-create-managed-redis.md).
 - Access to the REST API with API version `2026-05-01-preview`.
-- Configure custom data access permissions is rolling out and expected to be available to all customers by June 30.
 
 ## Limitations
 
@@ -53,7 +52,7 @@ For the full list of command categories and syntax details, see the [Redis ACL d
 ### Examples
 
 | Access string | Description |
-|---|---|
+| --- | --- |
 | `+@all ~*` | Full access to all commands and all keys (default) |
 | `+@all ~user:*` | All commands, but only on keys matching `user:*` |
 | `+@read ~cache:*` | Read-only access to keys matching `cache:*` |
@@ -77,13 +76,13 @@ For the full list of command categories and syntax details, see the [Redis ACL d
 
 1. Under **Access policy**, select **Custom data access policy (preview)** and enter your access string (for example, `+@all -@write ~*`).
 
-   :::image type="content" source="media/configure-access-permissions/custom-access-string.png" alt-text="Screenshot showing the Select member panel with Custom data access policy selected and a custom access string entered.":::
+   :::image type="content" source="media/configure-access-permissions/custom-access-string.png" alt-text="Screenshot showing the Select member panel with Custom data access policy selected and a custom access string entered." lightbox="media/configure-access-permissions/custom-access-string.png":::
 
 1. Select **Assign**.
 
 If the access string contains invalid Redis ACL syntax, the assignment fails. The **Redis Users** list shows a banner indicating the failure, and the user entry shows a **Failed** provisioning state with a **See error details** link.
 
-   :::image type="content" source="media/configure-access-permissions/acl-error-failed.png" alt-text="Screenshot showing the Redis Users list with a failed access policy assignment due to invalid ACL syntax and the See error details link.":::
+   :::image type="content" source="media/configure-access-permissions/acl-error-failed.png" alt-text="Screenshot showing the Redis Users list with a failed access policy assignment due to invalid ACL syntax and the See error details link." lightbox="media/configure-access-permissions/acl-error-failed.png":::
 
 ### ARM template
 
@@ -135,7 +134,7 @@ az deployment group create \
     --resource-group myResourceGroup \
     --template-file AccessPolicyAssignment.json \
     --parameters cacheName=myCache assignmentName=myAssignment \
-        objectId=aaaaaaaa-bbbb-cccc-dddd-eeeeeeee0001 \
+        objectId=aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb \
         accessString="+@read ~cache:*"
 ```
 
@@ -151,7 +150,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
     "accessPolicyName": "default",
     "accessString": "+@read ~cache:*",
     "user": {
-      "objectId": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeee0001"
+      "objectId": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb"
     }
   }
 }
