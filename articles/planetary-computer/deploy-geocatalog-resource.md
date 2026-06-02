@@ -244,7 +244,7 @@ public class DeployGeoCatalog {
 }
 ```
 
-For more information, see the [Java SDK reference](/java/api/overview/azure/planetarycomputer-readme).
+For more information, see the [Java SDK reference](/java/api/overview/azure/resourcemanager-planetarycomputer-readme).
 
 ## Next Steps
 - [Create a STAC Collection](./create-collection-web-interface.md)

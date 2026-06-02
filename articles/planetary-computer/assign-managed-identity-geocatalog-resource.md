@@ -233,7 +233,7 @@ manager.geoCatalogs()
 System.out.println("Managed identity assigned successfully.");
 ```
 
-For more information, see the [Java SDK reference](/java/api/overview/azure/planetarycomputer-readme).
+For more information, see the [Java SDK reference](/java/api/overview/azure/resourcemanager-planetarycomputer-readme).
 
 # [JavaScript](#tab/javascript)
 ## Use the JavaScript SDK to assign a user-assigned managed identity

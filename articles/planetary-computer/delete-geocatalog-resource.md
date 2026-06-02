@@ -128,7 +128,7 @@ manager.geoCatalogs().deleteByResourceGroup(
 System.out.println("GeoCatalog deleted successfully.");
 ```
 
-For more information, see the [Java SDK reference](/java/api/overview/azure/planetarycomputer-readme).
+For more information, see the [Java SDK reference](/java/api/overview/azure/resourcemanager-planetarycomputer-readme).
 
 ## Next Steps
 - [Get Started With Microsoft Planetary Computer Pro](./get-started-planetary-computer.md)
