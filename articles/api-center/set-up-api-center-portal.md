@@ -4,7 +4,7 @@ description: How to set up the API Center portal, a managed website that enables
 
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 05/06/2026
+ms.date: 06/02/2026
 ms.update-cycle: 180-days
  
 ms.custom: 
@@ -47,7 +47,7 @@ To enable anonymous access, follow these steps.
 > If you configure anonymous access, anyone can view the APIs in your API center without signing in. Don't expose sensitive information in API definitions or settings.
 
 1. In the [Azure portal](https://portal.azure.com), go to your API center.
-1. In the sidebar menu, select **API Center portal** > **Settings**.
+1. In the sidebar menu, select **Consumption** > **Portal settings**.
 1. On the **Access** tab, select **Allow anonymous access**.
 
     :::image type="content" source="media/set-up-api-center-portal/configure-access-anonymous.png" alt-text="Screenshot showing configuration of anonymous access in the portal.":::
@@ -56,7 +56,7 @@ To enable anonymous access, follow these steps.
 <a id="access-the-portal"></a> 
 ## View the portal
 
-After configuring access, open the API Center portal by selecting **View API Center portal** on the **Settings** page, or visit:<br/>
+After configuring access, open the API Center portal by selecting **View API Center portal** on the **Portal settings** page, or visit:<br/>
 `https://<service-name>.portal.<location>.azure-apicenter.ms`
 
 (Replace `<service-name>` and `<location>` with your API center name and deployment location.)
@@ -87,7 +87,7 @@ On the **Site profile** tab of the API Center portal settings, optionally provid
 
 ### API visibility
 
-On the **Visibility** tab, control which APIs are discoverable (visible) to API Center portal users. Visibility settings apply to all users of the API Center portal.
+On the **Consumption** > **Data API settings** page, control which APIs are discoverable (visible) to API Center portal users. Visibility settings apply to all users of the API Center portal and related consumption features that use the API Center data plane API.
 
 > [!NOTE]
 > The API Center portal uses the [Azure API Center data plane API](/rest/api/dataplane/apicenter/operation-groups) to retrieve and display APIs in your API center. By default, it makes all APIs visible to users with access. 
