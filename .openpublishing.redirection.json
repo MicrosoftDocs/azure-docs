@@ -1009,7 +1009,7 @@
     },
     {
       "source_path": "articles/azure-functions/durable/tutorial-durable-text-analysis-azure-files.md",
-      "redirect_url": "/azure/azure-functions/durable-functions/tutorial-durable-text-analysis-azure-files",
+      "redirect_url": "/azure/durable-task/durable-functions/tutorial-durable-text-analysis-azure-files",
       "redirect_document_id": false
     },
     {
