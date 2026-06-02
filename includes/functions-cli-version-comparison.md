@@ -1,3 +1,12 @@
+---
+ms.service: azure-functions
+ms.topic: include
+ms.date: 06/01/2026
+author: ggailey777
+ms.author: glenga
+ms.custom:
+  - build-2026
+---
 There are two versions of `func.exe` used for local Azure Functions development:
 
 | | [v4](../articles/azure-functions/functions-run-local.md) | [v5](../articles/azure-functions/functions-cli-develop-local.md) |

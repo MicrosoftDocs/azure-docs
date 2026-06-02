@@ -16,8 +16,7 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 Make sure to select your preferred development language at the top of the article.
 
 ::: zone pivot="programming-language-go"
-> [!IMPORTANT]
-> Go support for Azure Functions is currently in public preview.
+[!INCLUDE [functions-go-preview-note](../../includes/functions-go-preview-note.md)]
 ::: zone-end
 
 ## Prerequisites

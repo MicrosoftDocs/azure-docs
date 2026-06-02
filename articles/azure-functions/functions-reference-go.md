@@ -12,15 +12,13 @@ ms.custom:
 
 # Azure Functions Go developer reference
 
-> [!IMPORTANT]
-> Go support for Azure Functions is currently in public preview.
-> During preview, Go function apps are supported only on the Flex Consumption plan.
+[!INCLUDE [functions-go-preview-note](../../includes/functions-go-preview-note.md)]
 
-Azure Functions is a serverless compute service that lets you run event-driven code without provisioning or managing infrastructure. The Go worker enables you to write Azure Functions natively in Go, with deep integration into the Azure Functions trigger ecosystem.
+Azure Functions is a serverless compute service that you can use to run event-driven code without provisioning or managing infrastructure. The Go worker enables you to write Azure Functions natively in Go, with deep integration into the Azure Functions trigger ecosystem.
 
 This guide helps you:
 - Understand the Go programming model
-- Create and structure your function app
+- Create and structure your project code
 - Work with triggers
 - Deploy and run your app locally and in Azure
 
@@ -40,11 +38,11 @@ Choose the environment that fits your workflow and get started with Azure Functi
 
 ## Programming model
 
-The Go worker uses a code-first programming model. You define serverless functions and their triggers using idiomatic Go handlers.
+The Go worker uses a code-first programming model. You define serverless functions and their triggers by using idiomatic Go handlers.
 
 ### Entry point
 
-Every Go function app starts with a `main()` function that creates a `FunctionApp`, registers functions, and starts the worker:
+Every Go code project starts with a `main()` function that creates a `FunctionApp`, registers functions, and starts the worker:
 
 ```go
 package main
@@ -79,7 +77,7 @@ func hello(w http.ResponseWriter, r *http.Request) {
 
 ### Function registration
 
-Functions are registered using the fluent builder API with the functional options pattern. Each trigger type has a registration method on the `App` object:
+Register functions by using the fluent builder API with the functional options pattern. Each trigger type has a registration method on the `App` object:
 
 ```go
 // HTTP trigger
@@ -124,7 +122,7 @@ app.Blob("myBlobFunc", handler,
 
 ## Project structure
 
-A Go function app is a standard Go module. The following files are generated when you run `func init --worker-runtime go`:
+A Go code project for Azure Functions is a standard Go module. When you run `func init --worker-runtime go`, the following files are generated:
 
 ```
 my-function-app/
@@ -284,27 +282,31 @@ func timerHandler(ctx context.Context, timer bindings.TimerInfo) error {
 
 ## Dependency management
 
-Go function apps use standard Go modules for dependency management:
+Go code projects use standard Go modules for dependency management.
 
-```console
-# Initialize a new module
-go mod init myapp
+1. Initialize a new module:
 
-# Add the Azure Functions Go worker SDK
-go get github.com/azure/azure-functions-golang-worker
+    ```console
+    go mod init myapp
+    ```
 
-# For blob trigger support, the dependency is included automatically
-# via the blank import of triggers/blob
+1. Add the Azure Functions Go worker SDK:
 
-# Tidy dependencies
-go mod tidy
-```
+    ```console
+    go get github.com/azure/azure-functions-golang-worker
+    ```
 
-## Local development
+    For blob trigger support, the dependency is included automatically via the blank import of `triggers/blob`.
 
-### Running locally
+1. Tidy dependencies:
 
-Use Azure Functions Core Tools to run your function app locally:
+    ```console
+    go mod tidy
+    ```
+
+## Run local
+
+Use Azure Functions Core Tools to run your project locally:
 
 ```console
 func start
@@ -316,8 +318,6 @@ Core Tools automatically:
 3. Runs `go build -o bin/app .` to compile your project for your local operating system.
 4. Starts the Azure Functions host, which communicates with the compiled binary over gRPC.
 5. Displays your function endpoints (for example, `http://localhost:7071/api/hello`).
-
-### Environment variables
 
 Use `local.settings.json` to configure environment variables for local development:
 
@@ -381,7 +381,7 @@ The package produced by `func pack` is ready to run in Azure, so don't request a
 
 ## Docker support
 
-You can run Go function apps in containers. Initialize a project with Docker support:
+You can run Go code projects in containers. Initialize a project with Docker support:
 
 ```console
 func init --worker-runtime go --docker
