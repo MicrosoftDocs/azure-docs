@@ -489,7 +489,7 @@ You can register your MCP server in Azure API Center to maintain an inventory of
 
 ## Manually configure built-in authentication
 
-The following instructions show how to manually enable the built-in authorization and authentication feature on the server app and configure Microsoft Entra ID as the identity provider. Use these steps if you prefer not to use the [one-click portal experience](#enable-built-in-mcp-authentication-in-the-azure-portal-preview).
+The following instructions show how to manually enable the built-in authorization and authentication feature on the server app and configure Microsoft Entra ID as the identity provider. Use these steps if you prefer not to use the [one-click portal experience](#enable-built-in-mcp-authentication-in-azure-portal).
 
 When enabling built-in auth, disable the default key-based authentication first by allowing anonymous access. If you haven't done that and your app is already deployed, follow the instructions below.
 
