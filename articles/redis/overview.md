@@ -59,7 +59,7 @@ Here's the tier that stores data both in memory and on disk:
 
 - **Flash Optimized** Enables Redis clusters to automatically move less frequently accessed data from memory (RAM) to NVMe storage. This reduction in memory use can reduce performance, but it allows for cost-effective scaling of caches with large datasets.
 
-    :::image type="content" source="media/overview/flash-tier.png" alt-text="An image of a table that shows Flash Optimized tiers in a table showing storage usage." lightbox="media/overview/flash-tier-large.png":::
+    :::image type="content" source="media/overview/flash-tier.png" alt-text="A table that shows Flash Optimized tiers in a table showing storage usage." lightbox="media/overview/flash-tier-large.png":::
 
 You can also use the [data persistence](how-to-persistence.md) feature to store data on-disk for the in-memory tiers. Data persistence stores a backup copy of data on-disk for quick recovery if you experience  an unexpected outage. Data persistence is different from the Flash Optimized tier, which is designed to store data on-disk for typical operations.
 
