@@ -47,29 +47,31 @@ After the upgrade finishes successfully, the overview screen reflects the update
 
 ## Frequently asked questions
 
-#### 1. How do I view the changes made in new upgrades in BPS?
+### How do I view the changes made in new upgrades in BPS?
 
-<!-- Explain where users can find changelogs, release notes, or diff views for upgrades. -->
+When you apply updates, pipelines, notebooks, and environments are updated. To get a summary of the upgrades, check the [Release notes](release-notes.md) page. It contains a summary of changes made in each release.
 
-#### 2. Are there breaking changes in the upgrades? If yes, how do I resolve them?
+### Are there breaking changes in the upgrades? If yes, how do I resolve them?
 
-<!-- Describe scenarios where breaking changes may occur and provide resolution steps. -->
+If there are any breaking changes, you can see step-by-step instructions on how to resolve them. If you need further assistance, create a support request in Fabric.
 
-#### 3. Do I need to reconfigure datasets after applying upgrades?
+### Do I need to reconfigure datasets after applying upgrades?
 
-<!-- Clarify whether dataset configurations are preserved, overwritten, or require manual action post-upgrade. -->
+Currently, Business Process Solutions upgrades only update pipelines, notebooks, and environments. Your source system, datasets, Power BI reports, and semantic models aren't affected by any update.
 
-#### 4. How do I test upgrades in non-production?
+### How do I test upgrades in non-production?
 
-<!-- Outline the recommended approach for testing upgrades in a non-production environment before applying to production. -->
+If you have production and non-production workspaces, apply the upgrades to your non-production workspace first and observe that your workflows are running without issues. Once you validate the upgrades, apply them to your production workspace.
 
-#### 5. Will upgrades affect the custom tables I have added in datasets?
+To review all changes, associate your workspace with git so you can compare the changes and then apply them to your main branch.
 
-<!-- Address whether custom tables, columns, or relationships are preserved during upgrades. -->
+### Will upgrades affect the custom tables I have added to datasets?
 
-#### 6. Which items are upgraded as a part of upgrades in BPS?
+Currently, Business Process Solutions upgrades only update pipelines, notebooks, and environments. Your custom tables aren't affected.
 
-<!-- List the artifacts that are included in upgrades (notebooks, pipelines, environments, semantic models, etc.). -->
+### Which items are upgraded as part of upgrades in BPS?
+
+Business Process Solutions upgrades only update pipelines, notebooks, and environments. Upgrade capability will be extended to more resources in future releases.
 
 ## Related content
 
