@@ -9,7 +9,7 @@ ms.custom:
   - build-2025
 ms.collection:
   - ce-skilling-ai-copilot
-ms.date: 04/06/2026
+ms.date: 06/02/2026
 ms.update-cycle: 180-days
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -288,24 +288,32 @@ public static void Run([TimerTrigger("0 */15 * * * *")]TimerInfo myTimer, ILogge
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-For examples, see these code snippets:
+Consider this example:
 
 + [Quickstart: Run scheduled tasks using Azure Functions](scenario-scheduled-tasks.md?pivots=programming-language-python)
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
+Consider this example:
+
 + [Quickstart: Run scheduled tasks using Azure Functions](scenario-scheduled-tasks.md?pivots=programming-language-java)
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
+Consider this example:
+
 + [Quickstart: Run scheduled tasks using Azure Functions](scenario-scheduled-tasks.md?pivots=programming-language-javascript)
 ::: zone-end
 
 ::: zone pivot="programming-language-powershell"
+Consider this example:
+
 + [Quickstart: Run scheduled tasks using Azure Functions](scenario-scheduled-tasks.md?pivots=programming-language-powershell)
 ::: zone-end
 
 ::: zone pivot="programming-language-typescript"
+Consider this example:
+
 + [Quickstart: Run scheduled tasks using Azure Functions](scenario-scheduled-tasks.md?pivots=programming-language-typescript)
 ::: zone-end
 
@@ -317,7 +325,9 @@ You can also use an HTTP-triggered function endpoint as a webhook integration, s
 
 :::image type="content" source="media/functions-scenarios/scalable-web-api.png" alt-text="Diagram of processing an HTTP request using Azure Functions." lightbox="media/functions-scenarios/scalable-web-api-expanded.png":::
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"
 For examples, see these code snippets:
+::: zone-end
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
@@ -381,6 +391,10 @@ public static async Task<IActionResult> Run(
 Functions often serve as the compute component in a serverless workflow topology, such as a Logic Apps workflow. You can also create long-running orchestrations by using the Durable Functions extension. For more information, see [Durable Functions overview](../durable-task/common/what-is-durable-task.md).
 
 :::image type="content" source="media/functions-scenarios/build-a-serverless-workflow.png" alt-text="A combination diagram of a series of specific serverless workflows using Azure Functions." lightbox="media/functions-scenarios/build-a-serverless-workflow-expanded.png":::
+
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"
+Consider these examples:
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 + [Tutorial: Create a function to integrate with Azure Logic Apps](./functions-twitter-email.md)
@@ -459,7 +473,9 @@ For example, you can use triggers on Azure Storage queues as a way to chain toge
 
 :::image type="content" source="media/functions-scenarios/create-reliable-message-systems.png" alt-text="Diagram of Azure Functions in a reliable message system." lightbox="media/functions-scenarios/create-reliable-message-systems-expanded.png":::
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"
 These articles show how to write output to a storage queue:
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 + [Connect Azure Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp&tabs=isolated-process)
@@ -468,6 +484,11 @@ These articles show how to write output to a storage queue:
 
 ::: zone pivot="programming-language-javascript"
 + [Connect Azure Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript)
++ [Create a function triggered by Azure Queue storage (Azure portal)](functions-create-storage-queue-triggered-function.md)
+::: zone-end
+
+::: zone pivot="programming-language-typescript"
++ [Connect Azure Functions to Azure Storage using Visual Studio Code](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-typescript)
 + [Create a function triggered by Azure Queue storage (Azure portal)](functions-create-storage-queue-triggered-function.md)
 ::: zone-end
 

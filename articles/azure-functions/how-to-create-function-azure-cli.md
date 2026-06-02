@@ -1,7 +1,7 @@
 ---
 title: Create a function in Azure from the command line
 description: Learn how to use command line tools, such as Azure Functions Core Tools, to create a function code project, create Azure resources, and publish function code to run in Azure Functions.
-ms.date: 05/14/2026
+ms.date: 06/02/2026
 ms.topic: quickstart
 ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other, devx-track-dotnet, devx-track-go
 zone_pivot_groups: programming-languages-set-functions-full
@@ -32,10 +32,7 @@ Make sure to select your preferred development language at the top of the articl
 + [Azure CLI](/cli/azure/install-azure-cli) version `2.87.0` or later. Run `az version` to verify your installed version.
 ::: zone-end
 ::: zone pivot="programming-language-other"  
-### [Rust](#tab/rust)
-+ Rust toolchain using [rustup](https://www.rust-lang.org/tools/install). Use the `rustc --version` command to check your version.
-
----
++ Rust toolchain using [rustup](https://www.rust-lang.org/tools/install). Use the `rustc --version` command to check your version.  
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript,programming-language-other"
 + [Azure CLI](/cli/azure/install-azure-cli)
@@ -245,7 +242,7 @@ Verify your new function by running the project locally and calling the function
     ```
     ::: zone-end  
 
-    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-other"
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-other"  
     Toward the end of the output, the following lines appear:
 
     <pre>
@@ -260,7 +257,8 @@ Verify your new function by running the project locally and calling the function
     ...
 
     </pre>
-    ::: zone-end
+
+    ::: zone-end  
     ::: zone pivot="programming-language-go"
     Toward the end of the output, the HTTP endpoint for your function is displayed:
 
@@ -269,17 +267,19 @@ Verify your new function by running the project locally and calling the function
 
             hello: [GET,POST] http://localhost:7071/api/hello
     </pre>
+
     ::: zone-end
 
+2. Call the function endpoint to verify it works:
 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-other"
-1. Copy the URL of your `HttpExample` function from this output to a browser and browse to the function URL. You should receive a success response with a "hello world" message.
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-other"
+    Copy the URL of your `HttpExample` function from this output to a browser and browse to the function URL. You should receive a success response with a "hello world" message.
 
     >[!NOTE]
     > Because access key authorization isn't enforced when running locally, the function URL returned doesn't include the access key value and you don't need it to call your function. 
-::: zone-end
-::: zone pivot="programming-language-go"
-1. With the function running locally, open a browser and navigate to the following URL:
+    ::: zone-end
+    ::: zone pivot="programming-language-go"
+    With the function running locally, open a browser and navigate to the following URL:
 
     ```
     http://localhost:7071/api/hello
@@ -290,9 +290,9 @@ Verify your new function by running the project locally and calling the function
     ```output
     Hello from Go Worker!
     ```
-::: zone-end
+    ::: zone-end
 
-1. When you're done, use **Ctrl**+**C** and choose `y` to stop the functions host.
+3. When you're done, use **Ctrl**+**C** and choose `y` to stop the functions host.
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-other"
 [!INCLUDE [functions-create-azure-resources-cli](../../includes/functions-create-azure-resources-flex-cli.md)]

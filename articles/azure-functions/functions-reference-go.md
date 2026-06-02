@@ -22,7 +22,7 @@ This guide helps you:
 - Work with triggers
 - Deploy and run your app locally and in Azure
 
-> Looking for a conceptual overview? See the [Azure Functions developer reference](functions-reference.md).
+To learn more Azure Functions development in general, see the [Azure Functions developer reference](functions-reference.md).
 
 ## Getting started
 
