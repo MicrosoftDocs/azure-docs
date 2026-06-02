@@ -33,19 +33,19 @@ Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overv
 
 - An Azure account and subscription. If you don't have one, [create a free Azure account](https://azure.microsoft.com/free/).
 
-- [Visual Studio Code](https://code.visualstudio.com/).
+- [Visual Studio Code](https://code.visualstudio.com/) installed.
 
 - [Azure CLI](/cli/azure/install-azure-cli) installed. 
 
-- An existing Connector Namespace resource. If you don't have one, [create a connector namespace](create-connector-namespace.md).
+- An existing Connector Namespace resource. If you don't have one, [create a Connector Namespace](create-connector-namespace.md).
 
-- An existing Application Insights resource. If you don't have one, [create an Application Insights resource](/azure/azure-monitor/app/create-workspace-resource#create-an-application-insights-resource).
+- An existing Application Insights resource. If you don't have one, [create an Application Insights](/azure/azure-monitor/app/create-workspace-resource#create-an-application-insights-resource).
 
 ::: zone pivot="sql"
 
 - An Azure SQL Database server with a database. If you don't have one, [create an Azure SQL database](azure/azure-sql/database/scripts/create-and-configure-database-cli).
 
-- The [Data API builder (DAB) CLI](/azure/data-api-builder/quickstart/basic-sql.md#install-the-data-api-builder-cli) installed.
+- [Data API builder (DAB) CLI](/azure/data-api-builder/quickstart/basic-sql.md#install-the-data-api-builder-cli) installed.
 
 ## Seed the SQL database
 
@@ -164,33 +164,31 @@ This file is required by the server.
 
 1. Search for your **Connector Namespace** resource.
 
-1. Select **Connect to Namespace** to open the connector namespace portal in a new browser tab.
+1. Select **Connect to Namespace** to open the namespace portal in a new browser tab.
 
-1. When redirected, sign in by using your Microsoft account associated with the connector namespace.
+1. When redirected, sign in by using your Microsoft account associated with the namespace.
 
 1. Inside the namespace instance, look for the **MCP connector** section and click the **+ Create** button. 
 
 ::: zone pivot="playwright"
 
-1. Search for **Playwright** and pick the server to be deployed.
+6. Search for **Playwright** and pick the server to be deployed.
 
 ::: zone-end
 
 ::: zone pivot="sql"
 
-1. Search for **Azure SQL** and pick the server to be deployed.
+6. Search for **Azure SQL** and pick the server to be deployed.
 
-1. In the creation window, select **Manage Identity** for Outbound Authentication method.  
+7. In the creation window, select **Manage Identity** for Outbound Authentication method.  
 
-1. Upload the DAB configuration file generated earlier.
+8. Upload the DAB configuration file generated earlier.
 
-1. Click **Create**.
+9. Click **Create**.
 
 ::: zone-end
 
-1. Wait for the required connection and server to be provisioned and deployed.
-
-Don't close the create pop-up after server is deployed. You'll set up an Application Insights resource to collect telemetry from your server. 
+Wait for the required connection and server to be provisioned and deployed. Don't close the create pop-up after deployment. You'll set up an Application Insights resource to collect telemetry from your server. 
 
 ### Enable monitoring on the server
 
@@ -200,15 +198,19 @@ Don't close the create pop-up after server is deployed. You'll set up an Applica
 
 1. Paste the connection string into the box and click **Enable**.
 
-1. Click **Done** when app insights is configured.  
+1. Click **Done** when App Insights is configured.  
 
-You should be automatically directed to the deployed server's **Overview** page where you can find the endpoint. If not, click on the **MCP Connectors** tab on the left menu and find the server you deployed. 
+You should be automatically directed to the deployed server's **Overview** page where you can find the endpoint. If not, click the **MCP Connectors** tab on the left menu and find the server you deployed. 
 
 ::: zone pivot="sql"
 
-### Grant the namespace identity access to the database
+### Grant the namespace identity access to database
 
-The hosted SQL server uses the namespace's system-assigned managed identity to connect to your database. Go to your SQL database on the Azure portal, open the **Query editor** and run the following to grant the managed identity access:
+The hosted SQL server uses the namespace's system-assigned managed identity (SAMI) to access your database, which you can enable during namespace creation. 
+
+If you didn't enable SAMI during creation, you can enable it by going to your namespace instance in the web portal. On the left menu, find the **Identity** tab. Toggle **System Assigned** to **On** and save the update.
+
+Go to your SQL database on the Azure portal, open the **Query editor** and run the following to grant the managed identity access:
 
 ```sql
 CREATE USER [<your-connector-namespace-name>] FROM EXTERNAL PROVIDER;
@@ -244,13 +246,13 @@ Replace `<your-namespace-name>` with the name of your Connector Namespace resour
 
 ::: zone pivot="playwright"
 
-1. Open Copilot agent mode, ask "What is the closest pizzeria to 11 Times Square?" 
+4. Open Copilot agent mode, ask "What is the closest pizzeria to 11 Times Square?" 
 
 ::: zone-end
 
 ::: zone pivot="sql"
 
-1. Open Copilot agent mode, ask "What tables are available and what data is in them?"
+4. Open Copilot agent mode, ask "What tables are available?"
 
 ::: zone-end
 
@@ -270,7 +272,7 @@ Replace `<your-namespace-name>` with the name of your Connector Namespace resour
    MCP_TOKEN=$(az account get-access-token --resource https://apihub.azure.com --query accessToken -o tsv)
    ```
 
-1. Connect to server:
+1. Make a call to the server to get tools supported:
 
    ```bash
    npx @modelcontextprotocol/inspector --cli \
@@ -280,11 +282,9 @@ Replace `<your-namespace-name>` with the name of your Connector Namespace resour
    --header "Authorization: Bearer $MCP_TOKEN"
    ```
 
-   You should see the list of tools this server supports. 
-
 ::: zone pivot="playwright"
 
-1. Call a specific tool. For example, the following calls the `browser_navigate` tool: 
+4. Call a specific tool. For example, the following calls the `browser_navigate` tool: 
 
    ```bash
    npx @modelcontextprotocol/inspector --cli \
@@ -300,7 +300,7 @@ Replace `<your-namespace-name>` with the name of your Connector Namespace resour
 
 ::: zone pivot="sql"
 
-1. Call a specific tool. For example, the following calls the `describe_entities` tool to list available tables or entities:
+4. Call a specific tool. For example, the following calls the `describe_entities` tool to list available tables or entities:
 
    ```bash
    npx @modelcontextprotocol/inspector --cli \
@@ -312,7 +312,7 @@ Replace `<your-namespace-name>` with the name of your Connector Namespace resour
    --tool-arg 'nameOnly=true'
    ```
 
-1. Call the `read_records` tool to retrieve records from an entity (`Books`):
+5. Call the `read_records` tool to retrieve records from an entity (`Books`):
 
    ```bash
    npx @modelcontextprotocol/inspector --cli \
