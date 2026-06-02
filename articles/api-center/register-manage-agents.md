@@ -4,7 +4,7 @@ description: Learn how to register AI agents in Azure API Center to create a cen
 
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 06/01/2026
+ms.date: 06/02/2026
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ---
@@ -45,7 +45,7 @@ This article shows you how to register AI agents, including [A2A agents](https:/
     | Enter an **Agent definition** URL or **Select a file** to upload an agent definition. The agent definition should be in Markdown format and include details about the agent's capabilities, skills, and other relevant information. |
     | **Protocol** | If applicable, select the **A2A** protocol if the agent adheres to it. Optionally enter an **Agent card** URL or **Select a file** to upload an agent card in JSON format. |
 
-    
+    :::image type="content" source="media/register-manage-agents/agent-registration-details.png" alt-text="Screenshot of the Register an agent pane in the Azure portal.":::
 
 1. Select **Create** to add the agent.
 
