@@ -41,9 +41,10 @@ This article shows you how to register AI agents, including [A2A agents](https:/
     | **Version title** | Enter a version title of your choice, such as *v1*.|
     | **Version identification** | API Center automatically generates an identifier based on the version title. You can edit this identifier if needed. |
     | **Version lifecycle** | Select the current stage of the agent version's lifecycle from the dropdown menu. Learn more about [versions in API Center](key-concepts.md#api-version). |
-    | **Agent details** | |
-    | Enter an **Agent definition** URL or **Select a file** to upload an agent definition. The agent definition should be in Markdown format and include details about the agent's capabilities, skills, and other relevant information. |
-    | **Protocol** | If applicable, select the **A2A** protocol if the agent adheres to it. Optionally enter an **Agent card** URL or **Select a file** to upload an agent card in JSON format. |
+    | **Agent details** |  |
+    | **Agent definition** | Enter a URL or **Select a file** to upload an agent definition. The agent definition should be in Markdown format and include details about the agent's capabilities, skills, and other relevant information. |
+    | **Protocol** | If applicable, select the **A2A** protocol if the agent adheres to it. |
+    | **Agent card** | Optionally enter a URL or **Select a file** to upload an A2A agent card in JSON format. |
 
     :::image type="content" source="media/register-manage-agents/agent-registration-details.png" alt-text="Screenshot of the Register an agent pane in the Azure portal.":::
 
