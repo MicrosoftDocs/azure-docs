@@ -86,7 +86,7 @@ For more information on how to optimize the scaling process, see the [best pract
 - When you reduce the memory or vCPU for your Redis instance, you can only scale to SKUs that have a vCPU and shard configuration that's compatible with the configuration on your current instance.
 - In some cases when scaling, the underlying IP address of the Redis instance can change. The DNS record for the instance changes and is transparent to most applications. However, if you use an IP address to configure the connection to your Redis instance, or to configure NSGs or firewalls that allow traffic to the Redis instance, your application might have trouble connecting sometime after the DNS record updates.
 - Scaling an instance in a geo-replication group has some more limitations. See [Are there scaling limitations with geo-replication?](#are-there-scaling-limitations-with-geo-replication) for more information.
-- When you scale down, you can only scale to certain tiers. For more information, see [Why can only I scale down to a subset of smaller SKUs?](#why-can-only-i-scale-down-to-a-subset-of-smaller-skus)
+- When you scale down, you can only scale to certain tiers. For more information, see [Why can I only scale down to a subset of smaller SKUs?](#why-can-i-only-scale-down-to-a-subset-of-smaller-skus).
 
 ## How to scale
 
@@ -136,10 +136,10 @@ The following list contains answers to commonly asked questions about Azure Mana
 - [How long does scaling take?](#how-long-does-scaling-take)
 - [How can I tell when scaling is complete?](#how-can-i-tell-when-scaling-is-complete)
 - [Does Azure Managed Redis use clustering?](#does-azure-managed-redis-use-clustering)
-  [How many shards does each Azure Managed Redis SKU use?](#how-many-shards-does-each-azure-managed-redis-sku-use)
+- [How many shards does each Azure Managed Redis SKU use?](#how-many-shards-does-each-azure-managed-redis-sku-use)
 - [How are keys distributed in a cluster?](#how-are-keys-distributed-in-a-cluster)
 - [What is the largest cache size I can create?](#what-is-the-largest-cache-size-i-can-create)
-- [Why can only I scale down to a subset of smaller SKUs?](#why-can-only-i-scale-down-to-a-subset-of-smaller-skus)
+- [Why can I only scale down to a subset of smaller SKUs?](#why-can-i-only-scale-down-to-a-subset-of-smaller-skus)
 - [Can the Clustering Policy be changed after selecting OSS or Enterprise Cluster?](#can-the-clustering-policy-be-changed-after-selecting-oss-or-enterprise-cluster)
 
 ### Can I scale within or across tiers?
@@ -232,6 +232,7 @@ You can see which SKUs your Redis instance can scale down to by checking the ava
 ```azurecli
 az redisenterprise list-skus-for-scaling --cluster-name <your-redis-instance> --resource-group <your-resource-group>
 ```
+
 ### Can the Clustering Policy be changed after selecting OSS or Enterprise Cluster?
 
 Once you set a clustering policy to either OSSCluster or EnterpriseCluster when you create a cache, you can't change it. To switch to a different clustering policy, you must delete the Redis cache and recreate it with the desired configuration. Only caches with the Noncluster policy can be updated to a clustered configuration after deployment.
