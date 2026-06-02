@@ -13,13 +13,7 @@ ai-usage: ai-assisted
 
 # Configure registry endpoints
 
-Data flow graphs and the HTTP/REST connector use registry endpoints to pull WebAssembly (WASM) modules and graph definitions from container registries. Azure IoT Operations pulls any custom connector templates you develop from container registries. You can configure the endpoint settings, authentication, and other settings to connect to Azure Container Registry (ACR) or other OCI-compatible registries such as:
-
-- Docker Hub
-- GitHub Container Registry (ghcr.io)
-- Harbor
-- AWS Elastic Container Registry
-- Google Container Registry
+Data flow graphs and the HTTP/REST connector use registry endpoints to pull WebAssembly (WASM) modules and graph definitions from container registries. Azure IoT Operations pulls any custom connector templates you develop from container registries. You can configure the endpoint settings, authentication, and other settings to connect to Azure Container Registry (ACR), Microsoft Container Registry (MCR), or GitHub Container Registry (ghcr.io).
 
 ## Prerequisites
 
