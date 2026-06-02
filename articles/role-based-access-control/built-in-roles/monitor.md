@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -465,7 +465,7 @@ Log Analytics Contributor can read all monitoring data and edit monitoring setti
 > | --- | --- |
 > | */read | Read control plane information for all Azure resources. |
 > | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
-> | [Microsoft.ClassicStorage](../permissions/storage.md#microsoftclassicstorage)/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
+> | Microsoft.ClassicStorage/storageAccounts/listKeys/action |  |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/extensions/* |  |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/write | Installs or Updates an Azure Arc extensions |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
@@ -479,7 +479,7 @@ Log Analytics Contributor can read all monitoring data and edit monitoring setti
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | *none* |  |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/jobs/export/action | Lets you export data from Log Analytics workspace per query and time range |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -509,7 +509,9 @@ Log Analytics Contributor can read all monitoring data and edit monitoring setti
         "Microsoft.Support/*"
       ],
       "notActions": [],
-      "dataActions": [],
+      "dataActions": [
+        "Microsoft.OperationalInsights/workspaces/jobs/export/action"
+      ],
       "notDataActions": []
     }
   ],
@@ -580,7 +582,7 @@ Log Analytics Reader can view and search all monitoring data as well as and view
 > | **NotActions** |  |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/sharedKeys/read | Retrieves the shared keys for the workspace. These keys are used to connect Microsoft Operational Insights agents to the workspace. |
 > | **DataActions** |  |
-> | *none* |  |
+> | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/jobs/export/action | Lets you export data from Log Analytics workspace per query and time range |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -603,7 +605,9 @@ Log Analytics Reader can view and search all monitoring data as well as and view
       "notActions": [
         "Microsoft.OperationalInsights/workspaces/sharedKeys/read"
       ],
-      "dataActions": [],
+      "dataActions": [
+        "Microsoft.OperationalInsights/workspaces/jobs/export/action"
+      ],
       "notDataActions": []
     }
   ],

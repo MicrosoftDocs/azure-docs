@@ -80,7 +80,7 @@ Application Gateway for Containers is able to proxy requests following each of t
 
 ### gRPC definition
 
-Configuration is implemented through Kubernetes Gateway API by definition of a [GRPCRoute](https://gateway-api.sigs.k8s.io/api-types/grpcroute/) resource (no support is offered for gRPC in Ingress API for Application Gateway for Containers). Each GRPCRoute resource must reference a Gateway resource. More than one GRPCRoute resource may reference the same gateway provided the rules to handle the request are unique.
+Configuration is implemented through Kubernetes Gateway API by definition of a [GRPCRoute](https://gateway-api.sigs.k8s.io/reference/api-types/grpcroute/) resource (no support is offered for gRPC in Ingress API for Application Gateway for Containers). Each GRPCRoute resource must reference a Gateway resource. More than one GRPCRoute resource may reference the same gateway provided the rules to handle the request are unique.
 
 For example, the following GRPCRoute would be attached to a gateway called `Gateway-01`.
 

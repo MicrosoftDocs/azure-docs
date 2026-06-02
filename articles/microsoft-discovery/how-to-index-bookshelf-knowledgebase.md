@@ -34,7 +34,7 @@ Indexing builds the knowledge graph from your documents. It requires memory opti
 
   | Index size | Data size (text data) | Recommended SKU | vCPU | Memory |
   |------------|----------------------|-----------------|------|-----|
-  | Small | ~200 MB | Standard_E24s_v6 | 24 | 192 GB |
+  | Small | ~200 MB | Standard_E20s_v6 | 20 | 160 GB |
   | Medium | ~500 MB | Standard_E64s_v6 | 64 | 512 GB |
   | Large | ~1 GB | Standard_E96s_v6 | 96 | 768 GB |
 

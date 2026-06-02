@@ -61,7 +61,6 @@ Data transformation activity | Compute environment
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
 [ML Studio (classic) activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) | Azure VM
 [Stored Procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics, or SQL Server
-[U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [Custom Activity](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
 [Databricks Jar Activity](transform-data-databricks-jar.md) | Azure Databricks

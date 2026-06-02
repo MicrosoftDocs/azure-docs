@@ -151,6 +151,7 @@ While enabling access logs for network security perimeter, the Log Analytics wor
 The following are known limitations:
 * Network security perimeters aren't supported for Log Analytics workspaces enabled for Microsoft Sentinel. If a network security perimeter is enabled on the workspace, analytic rules are automatically disabled. For more information, see [Prerequisites for deploying Microsoft Sentinel](/azure/sentinel/prerequisites).
 * Azure Backup is not supported for Storage Accounts enabled with network security perimeter. We recommend not associating a storage account with network security perimeter if you have backups enabled or if you plan to use Azure Backup.
+* Querying workspaces with private link from Advanced hunting is not supported.
 
 [!INCLUDE [network-security-perimeter-limits](../../includes/network-security-perimeter-limits.md)]
 

@@ -32,7 +32,7 @@ Entities define operations that read and update small pieces of state, called *d
 
 ::: zone pivot="durable-functions"
 
-Entity functions and related features are available in [Durable Functions 2.0](../../azure-functions/durable-functions/durable-functions-versions.md#migrate-from-1x-to-2x) and later.
+Entity functions and related features are available in [Durable Functions 2.0](../durable-functions/durable-functions-versions.md#migrate-from-1x-to-2x) and later.
 
 | Programming language | Support for durable entities |
 | -------------------- | ---------------------------- |
@@ -137,7 +137,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-For more information, see [Function-based syntax](../../azure-functions/durable-functions/durable-functions-dotnet-entities.md#function-based-syntax).
+For more information, see [Function-based syntax](../durable-functions/durable-functions-dotnet-entities.md#function-based-syntax).
 
 </details>
 
@@ -169,7 +169,7 @@ public class Counter
 
 This entity stores state in a `Counter` object that holds the current counter value. Durable Functions serializes and deserializes this object by using the [Json.NET](https://www.newtonsoft.com/json) library.
 
-For more information, see [Defining entity classes](../../azure-functions/durable-functions/durable-functions-dotnet-entities.md#define-entity-classes).
+For more information, see [Defining entity classes](../durable-functions/durable-functions-dotnet-entities.md#define-entity-classes).
 
 </details>
 
@@ -605,12 +605,12 @@ The following examples show how to access entities.
 
 ::: zone pivot="durable-functions"
 
-To access entities from an ordinary Azure Function, which is also known as a client function, use the [entity client binding](../../azure-functions/durable-functions/durable-functions-bindings.md#entity-client). The following example shows a queue-triggered function signaling an entity using this binding.
+To access entities from an ordinary Azure Function, which is also known as a client function, use the [entity client binding](../durable-functions/durable-functions-bindings.md#entity-client). The following example shows a queue-triggered function signaling an entity using this binding.
 
 # [C#](#tab/csharp)
 
 > [!NOTE]
-> For simplicity, the following examples show the loosely typed syntax for accessing entities. In general, [access entities through interfaces](../../azure-functions/durable-functions/durable-functions-dotnet-entities.md#access-entities-through-interfaces) because they provide more type checking.
+> For simplicity, the following examples show the loosely typed syntax for accessing entities. In general, [access entities through interfaces](../durable-functions/durable-functions-dotnet-entities.md#access-entities-through-interfaces) because they provide more type checking.
 
 **In-process:**
 
@@ -928,7 +928,7 @@ Entity state queries are sent to the durable tracking store and return the entit
 
 ::: zone pivot="durable-functions"
 
-Orchestrator functions can access entities by using APIs on the [orchestration trigger binding](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-trigger). The following example code shows an orchestrator function calling and signaling a `Counter` entity.
+Orchestrator functions can access entities by using APIs on the [orchestration trigger binding](../durable-functions/durable-functions-bindings.md#orchestration-trigger). The following example code shows an orchestrator function calling and signaling a `Counter` entity.
 
 # [C#](#tab/csharp)
 
@@ -1026,7 +1026,7 @@ public String counterOrchestration(
 
 ---
 
-Only orchestrations can call entities and get a response, which can be a return value or an exception. Client functions that use the [client binding](../../azure-functions/durable-functions/durable-functions-bindings.md#entity-client) can only signal entities.
+Only orchestrations can call entities and get a response, which can be a return value or an exception. Client functions that use the [client binding](../durable-functions/durable-functions-bindings.md#entity-client) can only signal entities.
 
 ::: zone-end
 
@@ -1331,7 +1331,7 @@ Key differences include:
 ::: zone pivot="durable-functions"
 
 > [!div class="nextstepaction"]
-> [Read the developer guide to durable entities in .NET](../../azure-functions/durable-functions/durable-functions-dotnet-entities.md)
+> [Read the developer guide to durable entities in .NET](../durable-functions/durable-functions-dotnet-entities.md)
 
 > [!div class="nextstepaction"]
 > [Learn about task hubs](durable-task-hubs.md)

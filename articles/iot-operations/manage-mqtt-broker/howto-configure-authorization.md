@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 04/30/2026
+ms.date: 05/21/2026
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ms.service: azure-iot-operations
@@ -50,7 +50,7 @@ The following example shows how to create a BrokerAuthorization resource by usin
 1. In the Azure portal, go to your IoT Operations instance.
 1. Under **Components**, select **MQTT Broker**.
 1. Select the **Authorization** tab.
-1. Choose an existing authentication policy or create a new one by selecting **Create authorization policy**.
+1. Choose an existing authorization policy or create a new one by selecting **Create authorization policy**.
 
     :::image type="content" source="media/howto-configure-authorization/authorization-rules.png" alt-text="Screenshot that shows using the Azure portal to create broker authorization rules." lightbox="media/howto-configure-authorization/authorization-rules.png":::
 

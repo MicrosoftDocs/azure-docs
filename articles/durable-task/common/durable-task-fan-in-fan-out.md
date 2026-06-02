@@ -62,8 +62,8 @@ Without this pattern, you either process items sequentially (limiting throughput
 
 This article describes the functions in the sample app:
 
-* `E2_BackupSiteContent`: An [orchestrator function](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-trigger) that calls `E2_GetFileList` to get a list of files to back up, and then calls `E2_CopyFileToBlob` for each file.
-* `E2_GetFileList`: An [activity function](../../azure-functions/durable-functions/durable-functions-bindings.md#activity-trigger) that returns a list of files in a directory.
+* `E2_BackupSiteContent`: An [orchestrator function](../durable-functions/durable-functions-bindings.md#orchestration-trigger) that calls `E2_GetFileList` to get a list of files to back up, and then calls `E2_CopyFileToBlob` for each file.
+* `E2_GetFileList`: An [activity function](../durable-functions/durable-functions-bindings.md#activity-trigger) that returns a list of files in a directory.
 * `E2_CopyFileToBlob`: An activity function that backs up a single file to Azure Blob Storage.
 
 ::: zone-end

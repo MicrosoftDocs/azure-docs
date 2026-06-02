@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -391,15 +391,15 @@ Lets you manage classic virtual machines, but not access to them, and not the vi
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | Microsoft.ClassicCompute/domainNames/* | Create and manage classic compute domain names |
 > | Microsoft.ClassicCompute/virtualMachines/* | Create and manage virtual machines |
-> | [Microsoft.ClassicNetwork](../permissions/networking.md#microsoftclassicnetwork)/networkSecurityGroups/join/action |  |
-> | [Microsoft.ClassicNetwork](../permissions/networking.md#microsoftclassicnetwork)/reservedIps/link/action | Link a reserved Ip |
-> | [Microsoft.ClassicNetwork](../permissions/networking.md#microsoftclassicnetwork)/reservedIps/read | Gets the reserved Ips |
-> | [Microsoft.ClassicNetwork](../permissions/networking.md#microsoftclassicnetwork)/virtualNetworks/join/action | Joins the virtual network. |
-> | [Microsoft.ClassicNetwork](../permissions/networking.md#microsoftclassicnetwork)/virtualNetworks/read | Get the virtual network. |
-> | [Microsoft.ClassicStorage](../permissions/storage.md#microsoftclassicstorage)/storageAccounts/disks/read | Returns the storage account disk. |
-> | [Microsoft.ClassicStorage](../permissions/storage.md#microsoftclassicstorage)/storageAccounts/images/read | Returns the storage account image. (Deprecated. Use 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
-> | [Microsoft.ClassicStorage](../permissions/storage.md#microsoftclassicstorage)/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
-> | [Microsoft.ClassicStorage](../permissions/storage.md#microsoftclassicstorage)/storageAccounts/read | Return the storage account with the given account. |
+> | Microsoft.ClassicNetwork/networkSecurityGroups/join/action |  |
+> | Microsoft.ClassicNetwork/reservedIps/link/action |  |
+> | Microsoft.ClassicNetwork/reservedIps/read |  |
+> | Microsoft.ClassicNetwork/virtualNetworks/join/action |  |
+> | Microsoft.ClassicNetwork/virtualNetworks/read |  |
+> | Microsoft.ClassicStorage/storageAccounts/disks/read |  |
+> | Microsoft.ClassicStorage/storageAccounts/images/read |  |
+> | Microsoft.ClassicStorage/storageAccounts/listKeys/action |  |
+> | Microsoft.ClassicStorage/storageAccounts/read |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
@@ -1938,7 +1938,7 @@ View Virtual Machines in the portal and login as administrator
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/*/read |  |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/*/read |  |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listCredentials/action | Gets the endpoint access credentials to the resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listCredentials/action | List the endpoint access credentials to the resource. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2192,7 +2192,7 @@ View Virtual Machines in the portal and login as a local user configured on the 
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/*/read |  |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listCredentials/action | Gets the endpoint access credentials to the resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listCredentials/action | List the endpoint access credentials to the resource. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2240,7 +2240,7 @@ View Virtual Machines in the portal and login as a regular user.
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/*/read |  |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/*/read |  |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listCredentials/action | Gets the endpoint access credentials to the resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listCredentials/action | List the endpoint access credentials to the resource. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2549,11 +2549,11 @@ Let's you manage the OS of your resource via Windows Admin Center as an administ
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkWatchers/securityGroupView/action | View the configured and effective network security group rules applied on a VM. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/securityRules/read | Gets a security rule definition |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/securityRules/write | Creates a security rule or updates an existing security rule |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/write | Update the endpoint to the target resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/read | Gets the endpoint to the resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/write | Update the service details in the service configurations of the target resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/read | Gets the details about the service to the resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listManagedProxyDetails/action | Fetches the managed proxy details  |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/write | Create or update the endpoint to the target resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/read | Get or list of endpoints to the target resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/write | Create or update the serviceConfigurations to the endpoints resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/read | Get or list of serviceConfigurations to the endpoints resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listManagedProxyDetails/action | List the managed proxy details to the resource. |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/patchAssessmentResults/latest/read | Retrieves the summary of the latest patch assessment operation |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/patchAssessmentResults/latest/softwarePatches/read | Retrieves list of patches assessed during the last patch assessment operation |

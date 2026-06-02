@@ -814,7 +814,7 @@ Based on the selected fencing mechanism, follow only one section for relevant in
    # Replace the device IDs with your device ID. 
    pcs stonith create sbd fence_sbd \
    devices=/dev/disk/by-id/scsi-3600140585d254ed78e24ec48b0decac2,/dev/disk/by-id/scsi-3600140587122bfc8a0b4006b538d0a6d,/dev/disk/by-id/scsi-36001405d2ddc548060c49e7bb792bb65 \
-   op monitor interval=600 timeout=15
+   op monitor interval=600 timeout=120
    ```
 
 3. **[1]** Restart the cluster

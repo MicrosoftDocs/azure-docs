@@ -181,10 +181,7 @@ To create an asset from the detected asset, follow these steps:
 
 1. In the operations experience, select the detected asset from the list and then select **Import and create asset**.
 
-1. On the **Asset details** page, the inbound endpoint is already selected from the device. Use the name of the discovered asset as the name of the asset, add a description, and any custom properties you want to associate with the asset. Then select **Next** to continue.
-
-    > [!IMPORTANT]
-    > The name of the asset you create must match the name of the discovered asset.
+1. On the **Asset details** page, the inbound endpoint is already selected from the device. Add a name, a description, and any custom properties you want to associate with the asset. Then select **Next** to continue.
 
 1. On the **Datasets** page, you see a dataset that the connector created automatically from the detected asset using the topic filter and asset name:
 
@@ -237,7 +234,7 @@ For background on how management groups and actions work across connectors, see:
 
 ## Known issues
 
-The following known issues apply to the connector for MQTT:
+The following known issue applies to the connector for MQTT:
 
 ### Misconfigured asset discovery settings produce no diagnostic output
 
@@ -248,7 +245,3 @@ To diagnose a misconfiguration, verify that:
 - The connector pod logs don't show connection errors to the broker endpoint.
 
 If you need to correct the configuration, delete and recreate the device.
-
-### Asset name must exactly match the discovered asset name
-
-When you create an asset from a discovered asset, the name you give the asset must exactly match the name of the discovered asset.

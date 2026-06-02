@@ -1,11 +1,11 @@
 ---
 title: Build RAG pipelines with LangChain and Azure Files
 description: Use LangChain as an orchestration framework to build retrieval-augmented generation (RAG) pipelines using data stored in Azure Files.
-author: ftrichardson1
+author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 04/09/2026
-ms.author: t-flynnr
+ms.author: kendownie
 ---
 
 # LangChain with Azure Files

@@ -36,7 +36,7 @@ Learn about the [supported scenarios and limitations for Azure Data Lake Storage
 
 The Azure Data Lake Storage backup requires a Backup vault that provides a centralized view of configured backups. Vaulted backup is set at the storage account level, with the option to exclude containers. 
 >[!Note]
->The maximum number of containers in a storage account that can be protected is 100.  If an account has over 100 containers, reduce the count to **<= 100**. Learn [about the supported container count for backup](azure-data-lake-storage-backup-support-matrix.md#protection-limits).
+>The maximum number of containers in a storage account that can be protected is 1000. If an account has over 1000 containers, reduce the count to **<= 1000**. Learn [about the supported container count for backup](azure-data-lake-storage-backup-support-matrix.md#protection-limits).
 
 Backup policies manage schedules and retention, supporting daily or weekly backups and recovery point creation. Retention can be set for daily, weekly, monthly, or yearly backups and can be retained up to **10 years**, with yearly rules taking priority. If no other rules are set, the default retention rule applies.
 

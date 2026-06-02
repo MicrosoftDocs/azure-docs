@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -362,6 +362,8 @@ Azure service: [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-sto
 
 ## Microsoft.Fabric
 
+Unified analytics platform for data engineering, data science, and business intelligence.
+
 Azure service: [Microsoft Fabric](/fabric/)
 
 > [!div class="mx-tableFixed"]
@@ -371,13 +373,13 @@ Azure service: [Microsoft Fabric](/fabric/)
 > | `Microsoft.Fabric/capacities/read` | Retrieves the information of the specified Fabric Capacity. |
 > | `Microsoft.Fabric/capacities/write` | Creates or updates the specified Fabric Capacity. |
 > | `Microsoft.Fabric/capacities/delete` | Deletes the Fabric Capacity. |
-> | `Microsoft.Fabric/capacities/suspend/action` | Suspend the specified Fabric capacity. |
-> | `Microsoft.Fabric/capacities/resume/action` | Resume the specified Fabric capacity. |
-> | `Microsoft.Fabric/capacities/skus/read` | Retrieve available SKU information for the Fabric capacity. |
+> | `Microsoft.Fabric/capacities/suspend/action` | Suspend the specified Fabric capacity |
+> | `Microsoft.Fabric/capacities/resume/action` | Resume the specified Fabric capacity |
+> | `Microsoft.Fabric/capacities/skus/read` | Retrieve available SKU information for the Fabric capacity |
 > | `Microsoft.Fabric/locations/checkNameAvailability/action` | Checks that given Fabric resource name is valid and not in use. |
 > | `Microsoft.Fabric/locations/operationresults/read` | Retrieves the information of the specified operation result. |
 > | `Microsoft.Fabric/locations/operationstatuses/read` | Retrieves the information of the specified operation status. |
-> | `Microsoft.Fabric/operations/read` | Retrieves the information of operations. |
+> | `Microsoft.Fabric/operations/read` | Retrieves the information of operations |
 > | `Microsoft.Fabric/privateLinkServicesForFabric/read` | Gets all Fabric Private Link Services. |
 > | `Microsoft.Fabric/privateLinkServicesForFabric/write` | Creates or updates Fabric Private Link Service. |
 > | `Microsoft.Fabric/privateLinkServicesForFabric/delete` | Deletes Fabric Private Link Service resource. |
@@ -387,7 +389,7 @@ Azure service: [Microsoft Fabric](/fabric/)
 > | `Microsoft.Fabric/privateLinkServicesForFabric/privateEndpointConnections/write` | Creates or updates private endpoint connection to a Fabric Private Link Service. |
 > | `Microsoft.Fabric/privateLinkServicesForFabric/privateEndpointConnections/delete` | Deletes private endpoint connection to a Fabric Private Link Service. |
 > | `Microsoft.Fabric/privateLinkServicesForFabric/privateLinkResources/read` | Gets private link resources in a Fabric Private Link Service. |
-> | `Microsoft.Fabric/skus/read` | Retrieves the information of SKUs. |
+> | `Microsoft.Fabric/skus/read` | Retrieves the information of Skus |
 
 ## Microsoft.HDInsight
 
@@ -611,6 +613,8 @@ Azure service: [Power BI Embedded](/azure/power-bi-embedded/)
 
 ## Microsoft.Purview
 
+Unified data governance and compliance solution.
+
 Azure service: [Microsoft Purview](/purview/)
 
 > [!div class="mx-tableFixed"]
@@ -666,6 +670,8 @@ Azure service: [Microsoft Purview](/purview/)
 > | `Microsoft.Purview/purviewAccountBindings/delete` | Delete Account Binding. |
 
 ## Microsoft.Synapse
+
+Limitless analytics service with enterprise data warehousing and big data analytics.
 
 Azure service: [Azure Synapse Analytics](/azure/synapse-analytics/)
 

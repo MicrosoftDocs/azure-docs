@@ -134,7 +134,7 @@ The migration experience attempts to automatically create connections for authen
 
 For other connections, either select an existing Fabric connection or create new connections by using the modern Get Data experience or from workspace settings. Then select **Confirm**.
 
-This action starts the migration of the selected pipelines to the root folder in the Fabric workspace. A confirmation message appears when the migration completes successfully.
+Selected pipelines migrate into a folder prefixed with the source factory name_Migration for easy identification and to avoid name collisions. A confirmation message appears when the migration completes successfully.
 
 :::image type="content" source="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migration-successfully-completed.png" alt-text="Screenshot showing successful completion of migration from Azure Data Factory to Fabric." lightbox="media/how-to-assess-and-upgrade-your-azure-data-factory-pipelines-to-fabric/migration-successfully-completed.png":::
 

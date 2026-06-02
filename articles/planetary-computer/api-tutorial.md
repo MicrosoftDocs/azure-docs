@@ -138,7 +138,7 @@ stac_collection = response.json()
 
 collection_id = pc_collection + "-tutorial-" + str(random.randint(0, 1000))
 
-# Genereate a unique name for the test collection
+# Generate a unique name for the test collection
 stac_collection["id"] = collection_id
 stac_collection["title"] = collection_id
 
@@ -481,7 +481,7 @@ while pending:
     
     num_running
     stop=time.time()
-    # Print the sumary of num finished, num running and num failed
+    # Print the summary of num finished, num running and num failed
     
     print("Ingesting Imagery:")
     print(f"\tFinished: {num_finished}\n\tRunning: {num_running}\n\tFailed: {num_failed}")

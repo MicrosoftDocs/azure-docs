@@ -8,7 +8,7 @@ ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ms.topic: reference
-ms.date: 03/23/2026
+ms.date: 05/21/2026
 ms.update-cycle: 180-days
 ms.author: danlep
 ---
@@ -17,7 +17,9 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
-The `llm-content-safety` policy enforces content safety checks on large language model (LLM) requests (prompts) or responses (completions) by sending them to the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service. When you enable the policy and Azure AI Content Safety detects malicious content, API Management blocks the request or response and returns a `403` error code. 
+The `llm-content-safety` policy enforces content safety checks on large language model (LLM) requests (prompts) or responses (completions) by sending them to the [Azure AI Content Safety](/azure/ai-services/content-safety/overview) service. The policy can also enforce content safety checks on requests or responses for MCP tools or A2A Agent APIs managed in API Management.
+
+When you enable the policy and Azure AI Content Safety detects malicious content, API Management blocks the request or response and returns a `403` error code. 
 
 > [!NOTE]
 > The terms _category_ and _categories_ used in API Management are synonymous with _harm category_ and _harm categories_ in the Azure AI Content Safety service. For more information, see [Harm categories in Azure AI Content Safety](/azure/ai-services/content-safety/concepts/harm-categories).

@@ -74,6 +74,8 @@
       href: genai-gateway-capabilities.md
   - name: Manage LLM APIs
     items:
+    - name: Create a unified model API
+      href: unified-model-api.md
     - name: Import Microsoft Foundry API
       href: azure-ai-foundry-api.md
     - name: Import Azure OpenAI API

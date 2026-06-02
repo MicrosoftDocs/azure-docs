@@ -3,8 +3,8 @@ title: .NET Feature Flag Management
 titleSuffix: Azure App Configuration
 description: Find information about using the .NET feature management library and Azure App Configuration to implement feature flags in .NET and ASP.NET Core applications.
 services: azure-app-configuration
-author: rossgrambo
-ms.author: rossgrambo
+author: jimmyca15
+ms.author: jimmyca
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-dotnet

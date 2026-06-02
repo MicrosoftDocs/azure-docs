@@ -115,6 +115,50 @@ For the supercomputer, your UAMI is used in three slots:
 
 For guidance on choosing between a single shared UAMI and separate identities per function, see [Managed identity best practice recommendations](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 
+## Advanced configuration: Granular role assignments per identity
+
+The [required role assignments](#required-role-assignments) section describes the simplest approach where a single shared UAMI receives all three core roles at the resource group scope. For production environments that require tighter security control, assign separate UAMIs with least-privilege role assignments scoped to the specific resources each identity accesses.
+
+> [!IMPORTANT]
+> The workload identity is accessible by agents through tool execution. Because LLM-driven agents invoke tools that use this identity at runtime, minimizing the workload identity's permissions is critical. Only assign the permissions strictly necessary for tool operations. Broad permissions on the workload identity create risk if an agent uses the identity beyond its intended scope.
+
+### Per-identity role assignments
+
+The following table shows the recommended granular role assignment for each identity when using separate UAMIs:
+
+| Identity | Role | Scope | Purpose |
+|----------|------|-------|---------|
+| **Workspace Identity** | Microsoft Discovery Platform Contributor (Preview) | Resource Group | Manage workspace resources including projects, chat model deployments, and storage containers |
+| **Workspace Identity** | Storage Blob Data Contributor | Storage Account | Read/write workspace data, chat model artifacts, and project assets in the backing storage account |
+| **Cluster Identity** | Platform-managed Network Contributor | Node Resource Group / VNet | Manage cluster-level networking, load balancers, and node resource group resources |
+| **Cluster Identity** | Managed Identity Operator | Node Resource Group | Operate on managed identities for cluster workloads |
+| **Kubelet Identity** | AcrPull | Resource Group (covers ACR) | Pull container images for tool runs from any ACR provisioned in the resource group |
+| **Kubelet Identity** | Storage Blob Data Contributor | Storage Account | Read workload artifacts and inputs from the backing storage account during pod startup |
+| **Workload Identity** | Storage Blob Data Contributor | Storage Account | Access data during tool execution by agent workloads (federated identity) |
+
+### Why separate identities improve security
+
+When you use a single shared UAMI, the workload identity—which agents use through tool execution—inherits all roles including Discovery Platform Contributor and AcrPull. This grants LLM-driven agents broader access than they need.
+
+By separating identities:
+
+- **Workload identity** receives only Storage Blob Data Contributor at the storage account level, limiting what agents can access through tools
+- **Cluster identity** receives networking and operator roles that are never exposed to agent workloads
+- **Kubelet identity** handles image pulls and pod startup data access, isolated from agent tool execution
+
+This separation ensures that even if an agent attempts to use its identity for operations beyond data access, the request fails due to insufficient permissions.
+
+### When to use granular assignments
+
+Use separate identities with scoped roles when:
+
+- Your organization requires least-privilege access control
+- You run tools that process sensitive data and want to limit blast radius
+- Compliance requirements mandate separation of control-plane and data-plane identities
+- You want to audit agent data access independently from infrastructure operations
+
+For guidance on choosing between shared and separate identities, see [Managed identity best practice recommendations](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
+
 ## Limitations
 
 - The UAMI must be in the **same region** as the Discovery resource that uses it.

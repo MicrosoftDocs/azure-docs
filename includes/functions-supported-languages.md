@@ -101,9 +101,8 @@ The following table shows the language versions supported for Node.js function a
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
-| [Node.js 24](https://endoflife.date/nodejs) | Preview | April 30, 2028 |
+| [Node.js 24](https://endoflife.date/nodejs) | GA | April 30, 2028 |
 | [Node.js 22](https://endoflife.date/nodejs) | GA | April 30, 2027 |
-| [Node.js 20](https://endoflife.date/nodejs) | GA | April 30, 2026 |
 
 TypeScript is supported through transpiling to JavaScript. For more information, see [Azure Functions Node.js developer guide](../articles/azure-functions/functions-reference-node.md#supported-versions).
 

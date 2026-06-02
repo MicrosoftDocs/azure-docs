@@ -45,7 +45,7 @@ The following table lists the protection limits:
 
 | **Setting** | **Limit**                                                      |
 | ------------------------------------------------------------ | ----- |
-| Maximum number of containers in a storage account that can be protected | 100 |
+| Maximum number of containers in a storage account that can be protected | 1000 |
 | Vault redundancy              | LRS/ZRS/GRS |
 
 ### Supported scenarios for Azure Data Lake Storage protection

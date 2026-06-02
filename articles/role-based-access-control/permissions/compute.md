@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -32,6 +32,18 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | `Microsoft.App/agentspaces/write` | Create or Update a SRE AgentSpace |
 > | `Microsoft.App/agentspaces/delete` | Delete a SRE AgentSpace |
 > | `Microsoft.App/agentspaces/join/action` | Allow to create a SRE Agent in a SRE AgentSpace |
+> | `Microsoft.App/artifactApps/write` | Create or update an artifact app resource |
+> | `Microsoft.App/artifactApps/read` | Get an artifact app resource |
+> | `Microsoft.App/artifactApps/delete` | Delete an artifact app resource |
+> | `Microsoft.App/artifactApps/replicas/read` | List replicas of an artifact app |
+> | `Microsoft.App/artifacts/write` | Create or update an artifact resource |
+> | `Microsoft.App/artifacts/read` | Get an artifact resource |
+> | `Microsoft.App/artifacts/delete` | Delete an artifact resource |
+> | `Microsoft.App/artifacts/versions/read` | List versions of an artifact resource |
+> | `Microsoft.App/artifacts/versions/cancel/action` | Cancel an in-flight artifact version build |
+> | `Microsoft.App/artifacts/versions/enable/action` | Enable an artifact version for use by ArtifactApps |
+> | `Microsoft.App/artifacts/versions/disable/action` | Disable an artifact version from use by ArtifactApps |
+> | `Microsoft.App/artifacts/versions/operationStatus/read` | Get the status of an artifact version's build operation |
 > | `microsoft.app/builders/write` | Create or update a Builder |
 > | `microsoft.app/builders/read` | Get a Builder |
 > | `microsoft.app/builders/delete` | Delete a Builder |
@@ -114,6 +126,7 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | `microsoft.app/jobs/executions/read` | Get a Container Apps Job's execution history |
 > | `microsoft.app/jobs/stop/execution/action` | Stop a Container Apps Job's specific execution |
 > | `microsoft.app/jobs/stop/execution/backport/action` | Stop a Container Apps Job's specific execution |
+> | `microsoft.app/locations/availablemanagedenvironmentsmodes/read` | Get Available Environment Modes in a Region |
 > | `microsoft.app/locations/availablemanagedenvironmentsworkloadprofiletypes/read` | Get Available Workload Profile Types in a Region |
 > | `microsoft.app/locations/billingmeters/read` | Get Billing Meters in a Region |
 > | `microsoft.app/locations/connectedenvironmentoperationresults/read` | Get a Connected Environment Long Running Operation Result |
@@ -146,6 +159,7 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | `microsoft.app/logicApps/workflows/read` | List all workflows in a Logic App |
 > | `Microsoft.App/managedEnvironments/privateEndpointConnectionsApproval/action` | Approve Private Endpoint Connections |
 > | `microsoft.app/managedenvironments/checknameavailability/action` | Check reource name availability for a Managed Environment |
+> | `microsoft.app/managedenvironments/runsupportcheck/action` | Initiates a diagnostic support check on the environment |
 > | `microsoft.app/managedenvironments/join/action` | Allows to create a Container App in a Managed Environment |
 > | `microsoft.app/managedenvironments/read` | Get a Managed Environment |
 > | `microsoft.app/managedenvironments/write` | Create or update a Managed Environment |
@@ -191,6 +205,8 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | `microsoft.app/managedenvironments/storages/read` | Get storage for a Managed Environment. |
 > | `microsoft.app/managedenvironments/storages/write` | Create or Update a storage of Managed Environment. |
 > | `microsoft.app/managedenvironments/storages/delete` | Delete a storage of Managed Environment. |
+> | `microsoft.app/managedenvironments/supportcheckoperations/read` | Gets the status and result of a support check operation |
+> | `microsoft.app/managedenvironments/supportchecks/read` | Lists available support check types for the environment |
 > | `microsoft.app/managedenvironments/usages/read` | Get Quota Usages in a Managed Environment |
 > | `microsoft.app/managedenvironments/workloadprofilestates/read` | Get Current Workload Profile States |
 > | `microsoft.app/operations/read` | Get a list of supported container app operations |
@@ -225,20 +241,29 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | `Microsoft.App/agents/threads/write` | Create new conversation threads with an SRE Agent and reply to existing threads |
 > | `Microsoft.App/agents/threads/delete` | Delete existing conversation threads with an SRE Agent |
 > | `Microsoft.App/agents/threads/approve/action` | Approve action executions in conversation threads |
+> | `Microsoft.App/artifactApps/stop/action` | Stop a running artifact app |
+> | `Microsoft.App/artifactApps/start/action` | Resume a stopped artifact app |
 > | `microsoft.app/containerApps/logstream/action` | View log stream of a container app |
 > | `microsoft.app/containerApps/exec/action` | Connect to console of a container app |
 > | `microsoft.app/containerApps/debug/action` | Connect to debug console of a container app |
 > | `microsoft.app/jobs/logstream/action` | View log stream of a container app job |
 > | `microsoft.app/jobs/exec/action` | Connect to console of a container app job |
+> | `Microsoft.App/sandboxGroups/agentIdentities/read` | List agent identities in a sandbox group |
+> | `Microsoft.App/sandboxGroups/agentIdentities/write` | Create a new agent identity in a sandbox group |
+> | `Microsoft.App/sandboxGroups/agentIdentities/delete` | Delete an agent identity in a sandbox group |
 > | `Microsoft.App/sandboxGroups/connections/read` | List connections in a sandbox group |
 > | `Microsoft.App/sandboxGroups/connections/write` | Create a new connection in a sandbox group |
 > | `Microsoft.App/sandboxGroups/connections/delete` | Delete a connection in a sandbox group |
+> | `Microsoft.App/sandboxGroups/contentpackages/read` | List content packages in a sandbox group |
+> | `Microsoft.App/sandboxGroups/contentpackages/write` | Create a content package by uploading binary content in a sandbox group |
+> | `Microsoft.App/sandboxGroups/contentpackages/delete` | Delete a content package in a sandbox group |
 > | `Microsoft.App/sandboxGroups/diskimages/read` | List disk images in a sandbox group |
 > | `Microsoft.App/sandboxGroups/diskimages/write` | Create a new disk image in a sandbox group |
 > | `Microsoft.App/sandboxGroups/diskimages/delete` | Delete a disk image in a sandbox group |
 > | `Microsoft.App/sandboxGroups/egressPolicies/read` | List named egress policies in a sandbox group |
 > | `Microsoft.App/sandboxGroups/egressPolicies/write` | Create or update a named egress policy in a sandbox group |
 > | `Microsoft.App/sandboxGroups/egressPolicies/delete` | Delete a named egress policy in a sandbox group |
+> | `Microsoft.App/sandboxGroups/metrics/read` | Get aggregated vCPU and memory usage metrics for a sandbox group |
 > | `Microsoft.App/sandboxGroups/sandboxes/read` | List sandboxes in a sandbox group |
 > | `Microsoft.App/sandboxGroups/sandboxes/write` | Create a new sandbox in a sandbox group |
 > | `Microsoft.App/sandboxGroups/sandboxes/delete` | Delete a sandbox from a sandbox group |
@@ -268,6 +293,7 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | `Microsoft.App/sandboxGroups/sandboxes/stats/read` | Get resource usage statistics for a running sandbox |
 > | `Microsoft.App/sandboxGroups/sandboxes/volumes/write` | Add a volume mount to a running sandbox |
 > | `Microsoft.App/sandboxGroups/secrets/read` | List secrets in a sandbox group |
+> | `Microsoft.App/sandboxGroups/secrets/peek/action` | Peek at a secret's values in a sandbox group |
 > | `Microsoft.App/sandboxGroups/secrets/write` | Create or update a secret in a sandbox group |
 > | `Microsoft.App/sandboxGroups/secrets/delete` | Delete a secret in a sandbox group |
 > | `Microsoft.App/sandboxGroups/snapshots/read` | List snapshots in a sandbox group |
@@ -574,6 +600,14 @@ Azure service: [Azure Compute Fleet](/azure/azure-compute-fleet/overview)
 > | `Microsoft.AzureFleet/fleets/read` | Get properties of Azure Fleet resource |
 > | `Microsoft.AzureFleet/fleets/write` | Creates a new Azure Fleet resource or updates an existing one |
 > | `Microsoft.AzureFleet/fleets/delete` | Deletes all compute resources of Azure Fleet resource |
+> | `Microsoft.AzureFleet/virtualMachineScaleSets/read` | Gets the properties of a Virtual Machine Scale Set |
+> | `Microsoft.AzureFleet/virtualMachineScaleSets/write` | Creates a new Virtual Machine Scale Set or updates an existing one |
+> | `Microsoft.AzureFleet/virtualMachineScaleSets/delete` | Deletes a Virtual Machine Scale Set |
+> | `Microsoft.AzureFleet/virtualMachineScaleSets/restart/action` | Restarts one or more Virtual Machines in a Virtual Machine Scale Set |
+> | `Microsoft.AzureFleet/virtualMachineScaleSets/reimage/action` | Reimages one or more Virtual Machines in a Virtual Machine Scale Set |
+> | `Microsoft.AzureFleet/virtualMachineScaleSets/virtualMachines/read` | Gets the properties of a Virtual Machine in a Virtual Machine Scale Set |
+> | `Microsoft.AzureFleet/virtualMachineScaleSets/virtualMachines/restart/action` | Restarts a Virtual Machine in a Virtual Machine Scale Set |
+> | `Microsoft.AzureFleet/virtualMachineScaleSets/virtualMachines/reimage/action` | Reimages a Virtual Machine in a Virtual Machine Scale Set |
 
 ## Microsoft.Batch
 
@@ -1027,9 +1061,8 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/overview)
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesSubmitDeallocate/action` | VirtualMachinesSubmitDeallocate: Schedule deallocate operation for a batch of virtual machines at datetime in future. |
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesSubmitHibernate/action` | VirtualMachinesSubmitHibernate: Schedule hibernate operation for a batch of virtual machines at datetime in future. |
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesSubmitStart/action` | VirtualMachinesSubmitStart: Schedule start operation for a batch of virtual machines at datetime in future. |
-> | `Microsoft.ComputeSchedule/locations/virtualMachinesExecuteCreate/action` | VirtualMachinesExecuteCreate: Execute create operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesGetOperationErrors/action` | VirtualMachinesGetOperationErrors: Get error details on operation errors (like transient errors encountered, additional logs) if they exist. |
-> | `Microsoft.ComputeSchedule/locations/virtualMachinesExecuteCreateFlex/action` | virtualMachinesExecuteCreateFlex: executeCreateFlex for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
+> | `Microsoft.ComputeSchedule/locations/virtualMachinesExecuteCreateFlex/action` | VirtualMachinesExecuteCreateFlex: Execute create operation for a batch of virtual machines with flex properties, this operation is triggered as soon as Computeschedule receives it. |
 > | `Microsoft.ComputeSchedule/locations/OperationStatuses/read` | read OperationStatuses |
 > | `Microsoft.ComputeSchedule/locations/OperationStatuses/write` | write OperationStatuses |
 > | `Microsoft.ComputeSchedule/Operations/read` | read Operations |

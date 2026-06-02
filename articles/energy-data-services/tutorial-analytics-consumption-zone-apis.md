@@ -92,8 +92,8 @@ curl --request POST \
       "basePath": "{base-path}"
     },
     "configuration": {
-      "catalogKinds": {catalog-kinds},
-      "wellboreDDMSKinds": {wellbore-ddms-kinds}
+      "catalogKinds": ["{catalog-kinds}"],
+      "wellboreDDMSKinds": ["{wellbore-ddms-kinds}"]
     }
   }'
 ```

@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -276,6 +276,16 @@ Azure service: [Azure SignalR Service](/azure/azure-signalr/)
 > | `Microsoft.SignalRService/SignalR/user/write` | Modify a user |
 > | `Microsoft.SignalRService/WebPubSub/auth/accessKey/action` | Generate an AccessKey for signing AccessTokens, the key will expire in 90 minutes by default |
 > | `Microsoft.SignalRService/WebPubSub/auth/accessToken/action` | Generate an AccessToken for client to connect to AWPS, the token will expire in 5 minutes by default |
+> | `Microsoft.SignalRService/WebPubSub/chat/conversation/read` |  |
+> | `Microsoft.SignalRService/WebPubSub/chat/conversation/write` |  |
+> | `Microsoft.SignalRService/WebPubSub/chat/message/read` |  |
+> | `Microsoft.SignalRService/WebPubSub/chat/message/write` |  |
+> | `Microsoft.SignalRService/WebPubSub/chat/role/read` |  |
+> | `Microsoft.SignalRService/WebPubSub/chat/role/write` |  |
+> | `Microsoft.SignalRService/WebPubSub/chat/room/read` |  |
+> | `Microsoft.SignalRService/WebPubSub/chat/room/write` |  |
+> | `Microsoft.SignalRService/WebPubSub/chat/user/read` |  |
+> | `Microsoft.SignalRService/WebPubSub/chat/user/write` |  |
 > | `Microsoft.SignalRService/WebPubSub/clientConnection/generateToken/action` | Generate a JWT Token for client to connect to the service |
 > | `Microsoft.SignalRService/WebPubSub/clientConnection/send/action` | Send messages directly to a client connection |
 > | `Microsoft.SignalRService/WebPubSub/clientConnection/read` | Check client connection existence |
@@ -302,6 +312,7 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | `microsoft.web/validate/action` | Validate . |
 > | `microsoft.web/register/action` | Register Microsoft.Web resource provider for the subscription. |
 > | `microsoft.web/verifyhostingenvironmentvnet/action` | Verify Hosting Environment Vnet. |
+> | `Microsoft.Web/connectorGateways/action` | Performs an action on an Connector Gateway |
 > | `microsoft.web/apimanagementaccounts/apiacls/read` | Get Api Management Accounts Apiacls. |
 > | `microsoft.web/apimanagementaccounts/apis/read` | Get Api Management Accounts APIs. |
 > | `microsoft.web/apimanagementaccounts/apis/delete` | Delete Api Management Accounts APIs. |
@@ -353,6 +364,29 @@ Azure service: [App Service](/azure/app-service/), [Azure Functions](/azure/azur
 > | `Microsoft.Web/connections/accessPolicies/Write` | Add or Update Connection Access Policies. |
 > | `Microsoft.Web/connections/accessPolicies/Delete` | Deletes Connection Access Policies. |
 > | `Microsoft.Web/connections/providers/Microsoft.Insights/metricDefinitions/Read` | Gets the available metrics for API Connections |
+> | `Microsoft.Web/connectorGateways/read` | Gets the properties of an Connector Gateway |
+> | `Microsoft.Web/connectorGateways/write` | Creates a new Connector Gateway or updates an existing one |
+> | `Microsoft.Web/connectorGateways/delete` | Deletes an existing Connector Gateway |
+> | `Microsoft.Web/connectorGateways/connections/action` | Perform an action on an Connector Gateway Connection |
+> | `Microsoft.Web/connectorGateways/customConnectors/action` | Performs an action on a Connector Gateway Custom Connector |
+> | `Microsoft.Web/connectorGateways/mcpserverconfigs/action` | Perform an action on an Connector Gateway MCP Server Config |
+> | `Microsoft.Web/connectorGateways/triggerconfigs/action` | Perform an action on an Connector Gateway Trigger Config |
+> | `Microsoft.Web/connectorGateways/connections/read` | Gets the properties of an Connector Gateway Connection |
+> | `Microsoft.Web/connectorGateways/connections/write` | Creates a new Connector Gateway Connection or updates an existing one |
+> | `Microsoft.Web/connectorGateways/connections/delete` | Delete an existing Connector Gateway Connection |
+> | `Microsoft.Web/connectorGateways/connections/accessPolicies/action` | Performs an action on a Connector Gateway Connection Access Policy |
+> | `Microsoft.Web/connectorGateways/connections/accessPolicies/read` | Gets the properties of a Connector Gateway Connection Access Policy |
+> | `Microsoft.Web/connectorGateways/connections/accessPolicies/write` | Creates a new Connector Gateway Connection Access Policy or updates an existing one |
+> | `Microsoft.Web/connectorGateways/connections/accessPolicies/delete` | Deletes an existing Connector Gateway Connection Access Policy |
+> | `Microsoft.Web/connectorGateways/customConnectors/read` | Gets the properties of a Connector Gateway Custom Connector |
+> | `Microsoft.Web/connectorGateways/customConnectors/write` | Creates a new Connector Gateway Custom Connector or updates an existing one |
+> | `Microsoft.Web/connectorGateways/customConnectors/delete` | Deletes an existing Connector Gateway Custom Connector |
+> | `Microsoft.Web/connectorGateways/mcpserverconfigs/read` | Get the properties of an Connector Gateway MCP Server Config |
+> | `Microsoft.Web/connectorGateways/mcpserverconfigs/write` | Create a new Connector Gateway MCP Server Config or update an existing one |
+> | `Microsoft.Web/connectorGateways/mcpserverconfigs/delete` | Delete an existing Connector Gateway MCP Server Config |
+> | `Microsoft.Web/connectorGateways/triggerconfigs/read` | Get the properties of an Connector Gateway Trigger Config |
+> | `Microsoft.Web/connectorGateways/triggerconfigs/write` | Create a new Connector Gateway Trigger Config or update an existing one |
+> | `Microsoft.Web/connectorGateways/triggerconfigs/delete` | Delete an existing Connector Gateway Trigger Config |
 > | `Microsoft.Web/containerApps/read` | Get the properties for a Container App |
 > | `Microsoft.Web/containerApps/write` | Create a Container App or update an existing one |
 > | `Microsoft.Web/containerApps/delete` | Delete a Container App |

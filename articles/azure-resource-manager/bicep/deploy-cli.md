@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-arm-template
   - devx-track-bicep
   - build-2025
-ms.date: 10/30/2025
+ms.date: 05/27/2026
 ---
 
 # Deploy Bicep files with the Azure CLI
@@ -140,7 +140,7 @@ To pass in an object, use JSON (when setting tags, for example). Your Bicep file
 }
 ```
 
-As shown in the following Bash script, you can also can pass in a JSON string to set the parameter. Use double quotes around the JSON that you want to pass into the object:
+As shown in the following Bash script, you can also pass in a JSON string to set the parameter. Use double quotes around the JSON that you want to pass into the object:
 
 ```azurecli
 tags='{"Owner":"Contoso","Cost Center":"2345-324"}'
@@ -200,7 +200,7 @@ az deployment group create \
   --parameters '@storage.parameters.json'
 ```
 
-You can use inline parameters and a location parameters file in the same deployment operation. For more information, see [Parameter precedence](./parameter-files.md#parameter-precedence).
+You can use inline parameters and a location parameters file in the same deployment operation. For more information, see [Parameter precedence](./parameter-files.md#deploy-bicep-file-with-parameters-file).
 
 ## Preview changes
 

@@ -1023,7 +1023,7 @@ System.out.println("Result: " + result.readOutputAs(WorkflowResult.class).status
 This sample demonstrates advanced Durable Functions capabilities, including the `WaitForExternalEvent` and `CreateTimer` APIs. It shows how to combine `Task.WhenAny` (C#), `context.df.Task.any` (JavaScript and TypeScript), or `context.task_any` (Python) to implement a reliable timeout pattern for workflows that wait for people to respond.
 
 > [!div class="nextstepaction"]
-> [Learn about Durable Functions bindings](../../azure-functions/durable-functions/durable-functions-bindings.md)
+> [Learn about Durable Functions bindings](../durable-functions/durable-functions-bindings.md)
 
 - [Durable timers](durable-task-timers.md)
 - [External events and instance management](durable-task-instance-management.md)

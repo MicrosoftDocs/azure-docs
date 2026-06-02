@@ -71,6 +71,26 @@ App Service supports any agent framework that runs on your chosen language stack
 - [Tutorial: Build an agentic web app in Azure App Service with LangGraph or Foundry Agent Service (Python)](tutorial-ai-agent-web-app-langgraph-foundry-python.md)
 -----
 
+## Monitor agents in App Service
+
+When you build your agent in code that runs on App Service (orchestration in your application), the agent metrics aren't visible in [Azure AI Foundry](/azure/ai-foundry/) because Foundry only sees fully managed Foundry agents. To close that gap, App Service surfaces an **AI (preview)** blade with an **Agents** tab that aggregates per-agent telemetry directly from your application:
+
+:::image type="content" source="media/tutorial-agent-monitoring-dotnet/app-service-agents-tab.png" alt-text="Screenshot of the App Service AI (preview) Agents tab showing per-agent calls, tokens, and error rate." lightbox="media/tutorial-agent-monitoring-dotnet/app-service-agents-tab.png":::
+
+The tab lights up when your app meets three requirements:
+
+- **Application Insights is connected to your App Service app.** The Agents tab reads telemetry from the connected Application Insights resource.
+- **Your app emits OpenTelemetry traces and metrics.** The Azure Monitor OpenTelemetry distro is the recommended way to wire this up for .NET, Python, Node.js, and Java apps. For more information, see [Enable Azure Monitor OpenTelemetry](/azure/azure-monitor/app/opentelemetry-enable).
+- **Your agents emit the [OpenTelemetry generative AI semantic conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/).** The Agents tab groups and aggregates on the `gen_ai.agent.name`, `gen_ai.agent.id`, and `gen_ai.usage.*` attributes. Most agent frameworks (including Microsoft Agent Framework, Semantic Kernel, and LangGraph) can be configured to emit these attributes.
+
+From the **Agents** tab, select **View in Application Insights** to open the [Agents (preview) view](/azure/azure-monitor/app/agents-view) in Application Insights, where you can drill into agent runs, tool calls, token consumption by model, and traces with Gen AI errors.
+
+### Get started monitoring your agents
+
+- [Tutorial: Monitor a multi-agent app on App Service with OpenTelemetry and Application Insights (.NET)](tutorial-ai-agent-monitoring-dotnet.md)
+- [Application Insights overview](/azure/azure-monitor/app/app-insights-overview)
+- [Agents (preview) view in Application Insights](/azure/azure-monitor/app/agents-view)
+
 ## Related content
 
 - [Integrate AI into your Azure App Service applications](overview-ai-integration.md)

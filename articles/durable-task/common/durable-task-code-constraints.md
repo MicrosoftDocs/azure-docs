@@ -359,7 +359,7 @@ Alternatively, you can use a random number generator with a fixed seed value dir
 
 ::: zone pivot="durable-functions"
 
-Don't use bindings in an orchestrator function, including the [orchestration client](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client) and [entity client](../../azure-functions/durable-functions/durable-functions-bindings.md#entity-client) bindings. Use input and output bindings only in a client or activity function. Orchestrator functions can replay multiple times, causing nondeterministic and duplicate I/O with external systems.
+Don't use bindings in an orchestrator function, including the [orchestration client](../durable-functions/durable-functions-bindings.md#orchestration-client) and [entity client](../durable-functions/durable-functions-bindings.md#entity-client) bindings. Use input and output bindings only in a client or activity function. Orchestrator functions can replay multiple times, causing nondeterministic and duplicate I/O with external systems.
 
 ::: zone-end
 
@@ -404,7 +404,7 @@ Environment variables in orchestrators can change over time, resulting in nondet
 
 ::: zone pivot="durable-functions"
 
-Use activity functions to make outbound network calls. If you need to make an HTTP call from your orchestrator function, you can also use the [durable HTTP APIs](../../azure-functions/durable-functions/durable-functions-http-features.md#consume-http-apis).
+Use activity functions to make outbound network calls. If you need to make an HTTP call from your orchestrator function, you can also use the [durable HTTP APIs](../durable-functions/durable-functions-http-features.md#consume-http-apis).
 
 ::: zone-end
 
@@ -547,7 +547,7 @@ The Durable Task Framework runs orchestrator code on a single thread and can't i
 
 ::: zone pivot="durable-functions"
 
-A durable orchestration can run for days, months, years, or even as an [eternal orchestration](durable-task-eternal-orchestrations.md). Code changes that affect running orchestrations can break replay behavior, so plan carefully before you update your app. For more information, see [Versioning](../../azure-functions/durable-functions/durable-functions-versioning.md).
+A durable orchestration can run for days, months, years, or even as an [eternal orchestration](durable-task-eternal-orchestrations.md). Code changes that affect running orchestrations can break replay behavior, so plan carefully before you update your app. For more information, see [Versioning](../durable-functions/durable-functions-versioning.md).
 
 ::: zone-end
 
@@ -598,7 +598,7 @@ To learn more about how the Durable Task Framework executes orchestrators, see t
 > [Learn how to invoke suborchestrations](durable-task-sub-orchestrations.md)
 
 > [!div class="nextstepaction"]
-> [Learn how to handle versioning](../../azure-functions/durable-functions/durable-functions-versioning.md)
+> [Learn how to handle versioning](../durable-functions/durable-functions-versioning.md)
 
 ::: zone-end
 

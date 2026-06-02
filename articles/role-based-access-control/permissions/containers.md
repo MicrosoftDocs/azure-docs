@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -210,6 +210,14 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | --- | --- |
 > | `Microsoft.ContainerService/register/action` | Registers Subscription with Microsoft.ContainerService resource provider |
 > | `Microsoft.ContainerService/unregister/action` | Unregisters Subscription with Microsoft.ContainerService resource provider |
+> | `Microsoft.ContainerService/aiManagers/read` | Get AI Manager |
+> | `Microsoft.ContainerService/aiManagers/write` | Create or Update AI Manager |
+> | `Microsoft.ContainerService/aiManagers/delete` | Delete AI Manager |
+> | `Microsoft.ContainerService/aiManagers/listCredential/action` | List AI Manager Credential |
+> | `Microsoft.ContainerService/aiManagers/namespaces/read` | Get AI Manager Namespace |
+> | `Microsoft.ContainerService/aiManagers/namespaces/write` | Create or Update AI Manager Namespace |
+> | `Microsoft.ContainerService/aiManagers/namespaces/delete` | Delete AI Manager Namespace |
+> | `Microsoft.ContainerService/aiManagers/namespaces/listCredential/action` | List AI Manager Namespace Credential |
 > | `Microsoft.ContainerService/containerServices/read` | Get a container service |
 > | `Microsoft.ContainerService/containerServices/write` | Creates a new container service or updates an existing one |
 > | `Microsoft.ContainerService/containerServices/delete` | Deletes a container service |
@@ -228,6 +236,10 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | `Microsoft.ContainerService/fleets/autoUpgradeProfiles/write` | Create or Update a fleet auto upgrade profile |
 > | `Microsoft.ContainerService/fleets/autoUpgradeProfiles/delete` | Delete a fleet auto upgrade profile |
 > | `Microsoft.ContainerService/fleets/autoUpgradeProfiles/generateUpdateRun/action` | Generate a fleet update run based off the auto upgrade profile |
+> | `Microsoft.ContainerService/fleets/clusterMeshProfiles/read` | Get a fleet cluster mesh profile |
+> | `Microsoft.ContainerService/fleets/clusterMeshProfiles/write` | Create or Update a fleet cluster mesh profile |
+> | `Microsoft.ContainerService/fleets/clusterMeshProfiles/delete` | Delete a fleet cluster mesh profile |
+> | `Microsoft.ContainerService/fleets/clusterMeshProfiles/apply/action` | Applies a fleet cluster mesh profile |
 > | `Microsoft.ContainerService/fleets/gates/read` | Get a fleet gate |
 > | `Microsoft.ContainerService/fleets/gates/write` | Create or Update a fleet gate |
 > | `Microsoft.ContainerService/fleets/gates/delete` | Delete a fleet gate |
@@ -340,6 +352,320 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | `Microsoft.ContainerService/snapshots/write` | Creates a new snapshot |
 > | `Microsoft.ContainerService/snapshots/delete` | Deletes a snapshot |
 > | **DataAction** | **Description** |
+> | `Microsoft.ContainerService/aiManagers/admissionregistration.k8s.io/initializerconfigurations/read` | Reads initializerconfigurations |
+> | `Microsoft.ContainerService/aiManagers/admissionregistration.k8s.io/initializerconfigurations/write` | Writes initializerconfigurations |
+> | `Microsoft.ContainerService/aiManagers/admissionregistration.k8s.io/initializerconfigurations/delete` | Deletes initializerconfigurations |
+> | `Microsoft.ContainerService/aiManagers/admissionregistration.k8s.io/mutatingwebhookconfigurations/read` | Reads mutatingwebhookconfigurations |
+> | `Microsoft.ContainerService/aiManagers/admissionregistration.k8s.io/mutatingwebhookconfigurations/write` | Writes mutatingwebhookconfigurations |
+> | `Microsoft.ContainerService/aiManagers/admissionregistration.k8s.io/mutatingwebhookconfigurations/delete` | Deletes mutatingwebhookconfigurations |
+> | `Microsoft.ContainerService/aiManagers/admissionregistration.k8s.io/validatingwebhookconfigurations/read` | Reads validatingwebhookconfigurations |
+> | `Microsoft.ContainerService/aiManagers/admissionregistration.k8s.io/validatingwebhookconfigurations/write` | Writes validatingwebhookconfigurations |
+> | `Microsoft.ContainerService/aiManagers/admissionregistration.k8s.io/validatingwebhookconfigurations/delete` | Deletes validatingwebhookconfigurations |
+> | `Microsoft.ContainerService/aiManagers/api/read` | Reads api |
+> | `Microsoft.ContainerService/aiManagers/api/v1/read` | Reads api/v1 |
+> | `Microsoft.ContainerService/aiManagers/apiextensions.k8s.io/customresourcedefinitions/read` | Reads customresourcedefinitions |
+> | `Microsoft.ContainerService/aiManagers/apiextensions.k8s.io/customresourcedefinitions/write` | Writes customresourcedefinitions |
+> | `Microsoft.ContainerService/aiManagers/apiextensions.k8s.io/customresourcedefinitions/delete` | Deletes customresourcedefinitions |
+> | `Microsoft.ContainerService/aiManagers/apiregistration.k8s.io/apiservices/read` | Reads apiservices |
+> | `Microsoft.ContainerService/aiManagers/apiregistration.k8s.io/apiservices/write` | Writes apiservices |
+> | `Microsoft.ContainerService/aiManagers/apiregistration.k8s.io/apiservices/delete` | Deletes apiservices |
+> | `Microsoft.ContainerService/aiManagers/apis/read` | Reads apis |
+> | `Microsoft.ContainerService/aiManagers/apis/admissionregistration.k8s.io/read` | Reads admissionregistration.k8s.io |
+> | `Microsoft.ContainerService/aiManagers/apis/admissionregistration.k8s.io/v1/read` | Reads admissionregistration.k8s.io/v1 |
+> | `Microsoft.ContainerService/aiManagers/apis/admissionregistration.k8s.io/v1beta1/read` | Reads admissionregistration.k8s.io/v1beta1 |
+> | `Microsoft.ContainerService/aiManagers/apis/apiextensions.k8s.io/read` | Reads apiextensions.k8s.io |
+> | `Microsoft.ContainerService/aiManagers/apis/apiextensions.k8s.io/v1/read` | Reads apiextensions.k8s.io/v1 |
+> | `Microsoft.ContainerService/aiManagers/apis/apiextensions.k8s.io/v1beta1/read` | Reads apiextensions.k8s.io/v1beta1 |
+> | `Microsoft.ContainerService/aiManagers/apis/apiregistration.k8s.io/read` | Reads apiregistration.k8s.io |
+> | `Microsoft.ContainerService/aiManagers/apis/apiregistration.k8s.io/v1/read` | Reads apiregistration.k8s.io/v1 |
+> | `Microsoft.ContainerService/aiManagers/apis/apiregistration.k8s.io/v1beta1/read` | Reads apiregistration.k8s.io/v1beta1 |
+> | `Microsoft.ContainerService/aiManagers/apis/apps/read` | Reads apps |
+> | `Microsoft.ContainerService/aiManagers/apis/apps/v1/read` | Reads apps/v1 |
+> | `Microsoft.ContainerService/aiManagers/apis/apps/v1beta1/read` | Reads apps/v1beta1 |
+> | `Microsoft.ContainerService/aiManagers/apis/apps/v1beta2/read` | Reads apps/v1beta2 |
+> | `Microsoft.ContainerService/aiManagers/apis/authentication.k8s.io/read` | Reads authentication.k8s.io |
+> | `Microsoft.ContainerService/aiManagers/apis/authentication.k8s.io/v1/read` | Reads authentication.k8s.io/v1 |
+> | `Microsoft.ContainerService/aiManagers/apis/authentication.k8s.io/v1beta1/read` | Reads authentication.k8s.io/v1beta1 |
+> | `Microsoft.ContainerService/aiManagers/apis/authorization.k8s.io/read` | Reads authorization.k8s.io |
+> | `Microsoft.ContainerService/aiManagers/apis/authorization.k8s.io/v1/read` | Reads authorization.k8s.io/v1 |
+> | `Microsoft.ContainerService/aiManagers/apis/authorization.k8s.io/v1beta1/read` | Reads authorization.k8s.io/v1beta1 |
+> | `Microsoft.ContainerService/aiManagers/apis/autoscaling/read` | Reads autoscaling |
+> | `Microsoft.ContainerService/aiManagers/apis/autoscaling/v1/read` | Reads autoscaling/v1 |
+> | `Microsoft.ContainerService/aiManagers/apis/autoscaling/v2beta1/read` | Reads autoscaling/v2beta1 |
+> | `Microsoft.ContainerService/aiManagers/apis/autoscaling/v2beta2/read` | Reads autoscaling/v2beta2 |
+> | `Microsoft.ContainerService/aiManagers/apis/batch/read` | Reads batch |
+> | `Microsoft.ContainerService/aiManagers/apis/batch/v1/read` | Reads batch/v1 |
+> | `Microsoft.ContainerService/aiManagers/apis/batch/v1beta1/read` | Reads batch/v1beta1 |
+> | `Microsoft.ContainerService/aiManagers/apis/certificates.k8s.io/read` | Reads certificates.k8s.io |
+> | `Microsoft.ContainerService/aiManagers/apis/certificates.k8s.io/v1beta1/read` | Reads certificates.k8s.io/v1beta1 |
+> | `Microsoft.ContainerService/aiManagers/apis/coordination.k8s.io/read` | Reads coordination.k8s.io |
+> | `Microsoft.ContainerService/aiManagers/apis/coordination.k8s.io/v1/read` | Reads coordination/v1 |
+> | `Microsoft.ContainerService/aiManagers/apis/coordination.k8s.io/v1beta1/read` | Reads coordination.k8s.io/v1beta1 |
+> | `Microsoft.ContainerService/aiManagers/apis/events.k8s.io/read` | Reads events.k8s.io |
+> | `Microsoft.ContainerService/aiManagers/apis/events.k8s.io/v1beta1/read` | Reads events.k8s.io/v1beta1 |
+> | `Microsoft.ContainerService/aiManagers/apis/extensions/read` | Reads extensions |
+> | `Microsoft.ContainerService/aiManagers/apis/extensions/v1beta1/read` | Reads extensions/v1beta1 |
+> | `Microsoft.ContainerService/aiManagers/apis/metrics.k8s.io/read` | Reads metrics.k8s.io |
+> | `Microsoft.ContainerService/aiManagers/apis/metrics.k8s.io/v1beta1/read` | Reads metrics.k8s.io/v1beta1 |
+> | `Microsoft.ContainerService/aiManagers/apis/networking.k8s.io/read` | Reads networking.k8s.io |
+> | `Microsoft.ContainerService/aiManagers/apis/networking.k8s.io/v1/read` | Reads networking/v1 |
+> | `Microsoft.ContainerService/aiManagers/apis/networking.k8s.io/v1beta1/read` | Reads networking.k8s.io/v1beta1 |
+> | `Microsoft.ContainerService/aiManagers/apis/node.k8s.io/read` | Reads node.k8s.io |
+> | `Microsoft.ContainerService/aiManagers/apis/node.k8s.io/v1beta1/read` | Reads node.k8s.io/v1beta1 |
+> | `Microsoft.ContainerService/aiManagers/apis/policy/read` | Reads policy |
+> | `Microsoft.ContainerService/aiManagers/apis/policy/v1beta1/read` | Reads policy/v1beta1 |
+> | `Microsoft.ContainerService/aiManagers/apis/rbac.authorization.k8s.io/read` | Reads rbac.authorization.k8s.io |
+> | `Microsoft.ContainerService/aiManagers/apis/rbac.authorization.k8s.io/v1/read` | Reads rbac.authorization/v1 |
+> | `Microsoft.ContainerService/aiManagers/apis/rbac.authorization.k8s.io/v1beta1/read` | Reads rbac.authorization.k8s.io/v1beta1 |
+> | `Microsoft.ContainerService/aiManagers/apis/scheduling.k8s.io/read` | Reads scheduling.k8s.io |
+> | `Microsoft.ContainerService/aiManagers/apis/scheduling.k8s.io/v1/read` | Reads scheduling/v1 |
+> | `Microsoft.ContainerService/aiManagers/apis/scheduling.k8s.io/v1beta1/read` | Reads scheduling.k8s.io/v1beta1 |
+> | `Microsoft.ContainerService/aiManagers/apis/storage.k8s.io/read` | Reads storage.k8s.io |
+> | `Microsoft.ContainerService/aiManagers/apis/storage.k8s.io/v1/read` | Reads storage/v1 |
+> | `Microsoft.ContainerService/aiManagers/apis/storage.k8s.io/v1beta1/read` | Reads storage.k8s.io/v1beta1 |
+> | `Microsoft.ContainerService/aiManagers/apps/controllerrevisions/read` | Reads controllerrevisions |
+> | `Microsoft.ContainerService/aiManagers/apps/controllerrevisions/write` | Writes controllerrevisions |
+> | `Microsoft.ContainerService/aiManagers/apps/controllerrevisions/delete` | Deletes controllerrevisions |
+> | `Microsoft.ContainerService/aiManagers/apps/daemonsets/read` | Reads daemonsets |
+> | `Microsoft.ContainerService/aiManagers/apps/daemonsets/write` | Writes daemonsets |
+> | `Microsoft.ContainerService/aiManagers/apps/daemonsets/delete` | Deletes daemonsets |
+> | `Microsoft.ContainerService/aiManagers/apps/deployments/read` | Reads deployments |
+> | `Microsoft.ContainerService/aiManagers/apps/deployments/write` | Writes deployments |
+> | `Microsoft.ContainerService/aiManagers/apps/deployments/delete` | Deletes deployments |
+> | `Microsoft.ContainerService/aiManagers/apps/replicasets/read` | Reads replicasets |
+> | `Microsoft.ContainerService/aiManagers/apps/replicasets/write` | Writes replicasets |
+> | `Microsoft.ContainerService/aiManagers/apps/replicasets/delete` | Deletes replicasets |
+> | `Microsoft.ContainerService/aiManagers/apps/statefulsets/read` | Reads statefulsets |
+> | `Microsoft.ContainerService/aiManagers/apps/statefulsets/write` | Writes statefulsets |
+> | `Microsoft.ContainerService/aiManagers/apps/statefulsets/delete` | Deletes statefulsets |
+> | `Microsoft.ContainerService/aiManagers/authentication.k8s.io/tokenreviews/write` | Writes tokenreviews |
+> | `Microsoft.ContainerService/aiManagers/authentication.k8s.io/userextras/impersonate/action` | Impersonate userextras |
+> | `Microsoft.ContainerService/aiManagers/authorization.k8s.io/localsubjectaccessreviews/write` | Writes localsubjectaccessreviews |
+> | `Microsoft.ContainerService/aiManagers/authorization.k8s.io/selfsubjectaccessreviews/write` | Writes selfsubjectaccessreviews |
+> | `Microsoft.ContainerService/aiManagers/authorization.k8s.io/selfsubjectrulesreviews/write` | Writes selfsubjectrulesreviews |
+> | `Microsoft.ContainerService/aiManagers/authorization.k8s.io/subjectaccessreviews/write` | Writes subjectaccessreviews |
+> | `Microsoft.ContainerService/aiManagers/autoscaling/horizontalpodautoscalers/read` | Reads horizontalpodautoscalers |
+> | `Microsoft.ContainerService/aiManagers/autoscaling/horizontalpodautoscalers/write` | Writes horizontalpodautoscalers |
+> | `Microsoft.ContainerService/aiManagers/autoscaling/horizontalpodautoscalers/delete` | Deletes horizontalpodautoscalers |
+> | `Microsoft.ContainerService/aiManagers/batch/cronjobs/read` | Reads cronjobs |
+> | `Microsoft.ContainerService/aiManagers/batch/cronjobs/write` | Writes cronjobs |
+> | `Microsoft.ContainerService/aiManagers/batch/cronjobs/delete` | Deletes cronjobs |
+> | `Microsoft.ContainerService/aiManagers/batch/jobs/read` | Reads jobs |
+> | `Microsoft.ContainerService/aiManagers/batch/jobs/write` | Writes jobs |
+> | `Microsoft.ContainerService/aiManagers/batch/jobs/delete` | Deletes jobs |
+> | `Microsoft.ContainerService/aiManagers/bindings/write` | Writes bindings |
+> | `Microsoft.ContainerService/aiManagers/certificates.k8s.io/certificatesigningrequests/read` | Reads certificatesigningrequests |
+> | `Microsoft.ContainerService/aiManagers/certificates.k8s.io/certificatesigningrequests/write` | Writes certificatesigningrequests |
+> | `Microsoft.ContainerService/aiManagers/certificates.k8s.io/certificatesigningrequests/delete` | Deletes certificatesigningrequests |
+> | `Microsoft.ContainerService/aiManagers/componentstatuses/read` | Reads componentstatuses |
+> | `Microsoft.ContainerService/aiManagers/componentstatuses/write` | Writes componentstatuses |
+> | `Microsoft.ContainerService/aiManagers/componentstatuses/delete` | Deletes componentstatuses |
+> | `Microsoft.ContainerService/aiManagers/configmaps/read` | Reads configmaps |
+> | `Microsoft.ContainerService/aiManagers/configmaps/write` | Writes configmaps |
+> | `Microsoft.ContainerService/aiManagers/configmaps/delete` | Deletes configmaps |
+> | `Microsoft.ContainerService/aiManagers/coordination.k8s.io/leases/read` | Reads leases |
+> | `Microsoft.ContainerService/aiManagers/coordination.k8s.io/leases/write` | Writes leases |
+> | `Microsoft.ContainerService/aiManagers/coordination.k8s.io/leases/delete` | Deletes leases |
+> | `Microsoft.ContainerService/aiManagers/customresources/read` | Reads custom resources |
+> | `Microsoft.ContainerService/aiManagers/customresources/write` | Writes custom resources |
+> | `Microsoft.ContainerService/aiManagers/customresources/delete` | Deletes custom resources |
+> | `Microsoft.ContainerService/aiManagers/discovery.k8s.io/endpointslices/read` | Reads endpointslices |
+> | `Microsoft.ContainerService/aiManagers/discovery.k8s.io/endpointslices/write` | Writes endpointslices |
+> | `Microsoft.ContainerService/aiManagers/discovery.k8s.io/endpointslices/delete` | Deletes endpointslices |
+> | `Microsoft.ContainerService/aiManagers/endpoints/read` | Reads endpoints |
+> | `Microsoft.ContainerService/aiManagers/endpoints/write` | Writes endpoints |
+> | `Microsoft.ContainerService/aiManagers/endpoints/delete` | Deletes endpoints |
+> | `Microsoft.ContainerService/aiManagers/events/read` | Reads events |
+> | `Microsoft.ContainerService/aiManagers/events/write` | Writes events |
+> | `Microsoft.ContainerService/aiManagers/events/delete` | Deletes events |
+> | `Microsoft.ContainerService/aiManagers/events.k8s.io/events/read` | Reads events |
+> | `Microsoft.ContainerService/aiManagers/events.k8s.io/events/write` | Writes events |
+> | `Microsoft.ContainerService/aiManagers/events.k8s.io/events/delete` | Deletes events |
+> | `Microsoft.ContainerService/aiManagers/extensions/daemonsets/read` | Reads daemonsets |
+> | `Microsoft.ContainerService/aiManagers/extensions/daemonsets/write` | Writes daemonsets |
+> | `Microsoft.ContainerService/aiManagers/extensions/daemonsets/delete` | Deletes daemonsets |
+> | `Microsoft.ContainerService/aiManagers/extensions/deployments/read` | Reads deployments |
+> | `Microsoft.ContainerService/aiManagers/extensions/deployments/write` | Writes deployments |
+> | `Microsoft.ContainerService/aiManagers/extensions/deployments/delete` | Deletes deployments |
+> | `Microsoft.ContainerService/aiManagers/extensions/ingresses/read` | Reads ingresses |
+> | `Microsoft.ContainerService/aiManagers/extensions/ingresses/write` | Writes ingresses |
+> | `Microsoft.ContainerService/aiManagers/extensions/ingresses/delete` | Deletes ingresses |
+> | `Microsoft.ContainerService/aiManagers/extensions/networkpolicies/read` | Reads networkpolicies |
+> | `Microsoft.ContainerService/aiManagers/extensions/networkpolicies/write` | Writes networkpolicies |
+> | `Microsoft.ContainerService/aiManagers/extensions/networkpolicies/delete` | Deletes networkpolicies |
+> | `Microsoft.ContainerService/aiManagers/extensions/podsecuritypolicies/read` | Reads podsecuritypolicies |
+> | `Microsoft.ContainerService/aiManagers/extensions/podsecuritypolicies/write` | Writes podsecuritypolicies |
+> | `Microsoft.ContainerService/aiManagers/extensions/podsecuritypolicies/delete` | Deletes podsecuritypolicies |
+> | `Microsoft.ContainerService/aiManagers/extensions/replicasets/read` | Reads replicasets |
+> | `Microsoft.ContainerService/aiManagers/extensions/replicasets/write` | Writes replicasets |
+> | `Microsoft.ContainerService/aiManagers/extensions/replicasets/delete` | Deletes replicasets |
+> | `Microsoft.ContainerService/aiManagers/flowcontrol.apiserver.k8s.io/flowschemas/read` | Reads flowschemas |
+> | `Microsoft.ContainerService/aiManagers/flowcontrol.apiserver.k8s.io/flowschemas/write` | Writes flowschemas |
+> | `Microsoft.ContainerService/aiManagers/flowcontrol.apiserver.k8s.io/flowschemas/delete` | Deletes flowschemas |
+> | `Microsoft.ContainerService/aiManagers/flowcontrol.apiserver.k8s.io/prioritylevelconfigurations/read` | Reads prioritylevelconfigurations |
+> | `Microsoft.ContainerService/aiManagers/flowcontrol.apiserver.k8s.io/prioritylevelconfigurations/write` | Writes prioritylevelconfigurations |
+> | `Microsoft.ContainerService/aiManagers/flowcontrol.apiserver.k8s.io/prioritylevelconfigurations/delete` | Deletes prioritylevelconfigurations |
+> | `Microsoft.ContainerService/aiManagers/groups/impersonate/action` | Impersonate groups |
+> | `Microsoft.ContainerService/aiManagers/healthz/read` | Reads healthz |
+> | `Microsoft.ContainerService/aiManagers/healthz/autoregister-completion/read` | Reads autoregister-completion |
+> | `Microsoft.ContainerService/aiManagers/healthz/etcd/read` | Reads etcd |
+> | `Microsoft.ContainerService/aiManagers/healthz/log/read` | Reads log |
+> | `Microsoft.ContainerService/aiManagers/healthz/ping/read` | Reads ping |
+> | `Microsoft.ContainerService/aiManagers/healthz/poststarthook/apiservice-openapi-controller/read` | Reads apiservice-openapi-controller |
+> | `Microsoft.ContainerService/aiManagers/healthz/poststarthook/apiservice-registration-controller/read` | Reads apiservice-registration-controller |
+> | `Microsoft.ContainerService/aiManagers/healthz/poststarthook/apiservice-status-available-controller/read` | Reads apiservice-status-available-controller |
+> | `Microsoft.ContainerService/aiManagers/healthz/poststarthook/bootstrap-controller/read` | Reads bootstrap-controller |
+> | `Microsoft.ContainerService/aiManagers/healthz/poststarthook/ca-registration/read` | Reads ca-registration |
+> | `Microsoft.ContainerService/aiManagers/healthz/poststarthook/crd-informer-synced/read` | Reads crd-informer-synced |
+> | `Microsoft.ContainerService/aiManagers/healthz/poststarthook/generic-apiserver-start-informers/read` | Reads generic-apiserver-start-informers |
+> | `Microsoft.ContainerService/aiManagers/healthz/poststarthook/kube-apiserver-autoregistration/read` | Reads kube-apiserver-autoregistration |
+> | `Microsoft.ContainerService/aiManagers/healthz/poststarthook/rbac/bootstrap-roles/read` | Reads bootstrap-roles |
+> | `Microsoft.ContainerService/aiManagers/healthz/poststarthook/scheduling/bootstrap-system-priority-classes/read` | Reads bootstrap-system-priority-classes |
+> | `Microsoft.ContainerService/aiManagers/healthz/poststarthook/start-apiextensions-controllers/read` | Reads start-apiextensions-controllers |
+> | `Microsoft.ContainerService/aiManagers/healthz/poststarthook/start-apiextensions-informers/read` | Reads start-apiextensions-informers |
+> | `Microsoft.ContainerService/aiManagers/healthz/poststarthook/start-kube-aggregator-informers/read` | Reads start-kube-aggregator-informers |
+> | `Microsoft.ContainerService/aiManagers/healthz/poststarthook/start-kube-apiserver-admission-initializer/read` | Reads start-kube-apiserver-admission-initializer |
+> | `Microsoft.ContainerService/aiManagers/limitranges/read` | Reads limitranges |
+> | `Microsoft.ContainerService/aiManagers/limitranges/write` | Writes limitranges |
+> | `Microsoft.ContainerService/aiManagers/limitranges/delete` | Deletes limitranges |
+> | `Microsoft.ContainerService/aiManagers/livez/read` | Reads livez |
+> | `Microsoft.ContainerService/aiManagers/livez/autoregister-completion/read` | Reads autoregister-completion |
+> | `Microsoft.ContainerService/aiManagers/livez/etcd/read` | Reads etcd |
+> | `Microsoft.ContainerService/aiManagers/livez/log/read` | Reads log |
+> | `Microsoft.ContainerService/aiManagers/livez/ping/read` | Reads ping |
+> | `Microsoft.ContainerService/aiManagers/livez/poststarthook/apiservice-openapi-controller/read` | Reads apiservice-openapi-controller |
+> | `Microsoft.ContainerService/aiManagers/livez/poststarthook/apiservice-registration-controller/read` | Reads apiservice-registration-controller |
+> | `Microsoft.ContainerService/aiManagers/livez/poststarthook/apiservice-status-available-controller/read` | Reads apiservice-status-available-controller |
+> | `Microsoft.ContainerService/aiManagers/livez/poststarthook/bootstrap-controller/read` | Reads bootstrap-controller |
+> | `Microsoft.ContainerService/aiManagers/livez/poststarthook/ca-registration/read` | Reads ca-registration |
+> | `Microsoft.ContainerService/aiManagers/livez/poststarthook/crd-informer-synced/read` | Reads crd-informer-synced |
+> | `Microsoft.ContainerService/aiManagers/livez/poststarthook/generic-apiserver-start-informers/read` | Reads generic-apiserver-start-informers |
+> | `Microsoft.ContainerService/aiManagers/livez/poststarthook/kube-apiserver-autoregistration/read` | Reads kube-apiserver-autoregistration |
+> | `Microsoft.ContainerService/aiManagers/livez/poststarthook/rbac/bootstrap-roles/read` | Reads bootstrap-roles |
+> | `Microsoft.ContainerService/aiManagers/livez/poststarthook/scheduling/bootstrap-system-priority-classes/read` | Reads bootstrap-system-priority-classes |
+> | `Microsoft.ContainerService/aiManagers/livez/poststarthook/start-apiextensions-controllers/read` | Reads start-apiextensions-controllers |
+> | `Microsoft.ContainerService/aiManagers/livez/poststarthook/start-apiextensions-informers/read` | Reads start-apiextensions-informers |
+> | `Microsoft.ContainerService/aiManagers/livez/poststarthook/start-kube-aggregator-informers/read` | Reads start-kube-aggregator-informers |
+> | `Microsoft.ContainerService/aiManagers/livez/poststarthook/start-kube-apiserver-admission-initializer/read` | Reads start-kube-apiserver-admission-initializer |
+> | `Microsoft.ContainerService/aiManagers/logs/read` | Reads logs |
+> | `Microsoft.ContainerService/aiManagers/metrics/read` | Reads metrics |
+> | `Microsoft.ContainerService/aiManagers/metrics.k8s.io/nodes/read` | Reads nodes |
+> | `Microsoft.ContainerService/aiManagers/metrics.k8s.io/pods/read` | Reads pods |
+> | `Microsoft.ContainerService/aiManagers/namespaces/read` | Reads namespaces |
+> | `Microsoft.ContainerService/aiManagers/namespaces/write` | Writes namespaces |
+> | `Microsoft.ContainerService/aiManagers/namespaces/delete` | Deletes namespaces |
+> | `Microsoft.ContainerService/aiManagers/networking.k8s.io/ingressclasses/read` | Reads ingressclasses |
+> | `Microsoft.ContainerService/aiManagers/networking.k8s.io/ingressclasses/write` | Writes ingressclasses |
+> | `Microsoft.ContainerService/aiManagers/networking.k8s.io/ingressclasses/delete` | Deletes ingressclasses |
+> | `Microsoft.ContainerService/aiManagers/networking.k8s.io/ingresses/read` | Reads ingresses |
+> | `Microsoft.ContainerService/aiManagers/networking.k8s.io/ingresses/write` | Writes ingresses |
+> | `Microsoft.ContainerService/aiManagers/networking.k8s.io/ingresses/delete` | Deletes ingresses |
+> | `Microsoft.ContainerService/aiManagers/networking.k8s.io/networkpolicies/read` | Reads networkpolicies |
+> | `Microsoft.ContainerService/aiManagers/networking.k8s.io/networkpolicies/write` | Writes networkpolicies |
+> | `Microsoft.ContainerService/aiManagers/networking.k8s.io/networkpolicies/delete` | Deletes networkpolicies |
+> | `Microsoft.ContainerService/aiManagers/node.k8s.io/runtimeclasses/read` | Reads runtimeclasses |
+> | `Microsoft.ContainerService/aiManagers/node.k8s.io/runtimeclasses/write` | Writes runtimeclasses |
+> | `Microsoft.ContainerService/aiManagers/node.k8s.io/runtimeclasses/delete` | Deletes runtimeclasses |
+> | `Microsoft.ContainerService/aiManagers/nodes/read` | Reads nodes |
+> | `Microsoft.ContainerService/aiManagers/nodes/write` | Writes nodes |
+> | `Microsoft.ContainerService/aiManagers/nodes/delete` | Deletes nodes |
+> | `Microsoft.ContainerService/aiManagers/openapi/v2/read` | Reads v2 |
+> | `Microsoft.ContainerService/aiManagers/persistentvolumeclaims/read` | Reads persistentvolumeclaims |
+> | `Microsoft.ContainerService/aiManagers/persistentvolumeclaims/write` | Writes persistentvolumeclaims |
+> | `Microsoft.ContainerService/aiManagers/persistentvolumeclaims/delete` | Deletes persistentvolumeclaims |
+> | `Microsoft.ContainerService/aiManagers/persistentvolumes/read` | Reads persistentvolumes |
+> | `Microsoft.ContainerService/aiManagers/persistentvolumes/write` | Writes persistentvolumes |
+> | `Microsoft.ContainerService/aiManagers/persistentvolumes/delete` | Deletes persistentvolumes |
+> | `Microsoft.ContainerService/aiManagers/pods/read` | Reads pods |
+> | `Microsoft.ContainerService/aiManagers/pods/write` | Writes pods |
+> | `Microsoft.ContainerService/aiManagers/pods/delete` | Deletes pods |
+> | `Microsoft.ContainerService/aiManagers/pods/exec/action` | Exec into pods resource |
+> | `Microsoft.ContainerService/aiManagers/podtemplates/read` | Reads podtemplates |
+> | `Microsoft.ContainerService/aiManagers/podtemplates/write` | Writes podtemplates |
+> | `Microsoft.ContainerService/aiManagers/podtemplates/delete` | Deletes podtemplates |
+> | `Microsoft.ContainerService/aiManagers/policy/poddisruptionbudgets/read` | Reads poddisruptionbudgets |
+> | `Microsoft.ContainerService/aiManagers/policy/poddisruptionbudgets/write` | Writes poddisruptionbudgets |
+> | `Microsoft.ContainerService/aiManagers/policy/poddisruptionbudgets/delete` | Deletes poddisruptionbudgets |
+> | `Microsoft.ContainerService/aiManagers/policy/podsecuritypolicies/read` | Reads podsecuritypolicies |
+> | `Microsoft.ContainerService/aiManagers/policy/podsecuritypolicies/write` | Writes podsecuritypolicies |
+> | `Microsoft.ContainerService/aiManagers/policy/podsecuritypolicies/delete` | Deletes podsecuritypolicies |
+> | `Microsoft.ContainerService/aiManagers/policy/podsecuritypolicies/use/action` | Use action on podsecuritypolicies |
+> | `Microsoft.ContainerService/aiManagers/rbac.authorization.k8s.io/clusterrolebindings/read` | Reads clusterrolebindings |
+> | `Microsoft.ContainerService/aiManagers/rbac.authorization.k8s.io/clusterrolebindings/write` | Writes clusterrolebindings |
+> | `Microsoft.ContainerService/aiManagers/rbac.authorization.k8s.io/clusterrolebindings/delete` | Deletes clusterrolebindings |
+> | `Microsoft.ContainerService/aiManagers/rbac.authorization.k8s.io/clusterroles/read` | Reads clusterroles |
+> | `Microsoft.ContainerService/aiManagers/rbac.authorization.k8s.io/clusterroles/write` | Writes clusterroles |
+> | `Microsoft.ContainerService/aiManagers/rbac.authorization.k8s.io/clusterroles/delete` | Deletes clusterroles |
+> | `Microsoft.ContainerService/aiManagers/rbac.authorization.k8s.io/clusterroles/bind/action` | Binds clusterroles |
+> | `Microsoft.ContainerService/aiManagers/rbac.authorization.k8s.io/clusterroles/escalate/action` | Escalates |
+> | `Microsoft.ContainerService/aiManagers/rbac.authorization.k8s.io/rolebindings/read` | Reads rolebindings |
+> | `Microsoft.ContainerService/aiManagers/rbac.authorization.k8s.io/rolebindings/write` | Writes rolebindings |
+> | `Microsoft.ContainerService/aiManagers/rbac.authorization.k8s.io/rolebindings/delete` | Deletes rolebindings |
+> | `Microsoft.ContainerService/aiManagers/rbac.authorization.k8s.io/roles/read` | Reads roles |
+> | `Microsoft.ContainerService/aiManagers/rbac.authorization.k8s.io/roles/write` | Writes roles |
+> | `Microsoft.ContainerService/aiManagers/rbac.authorization.k8s.io/roles/delete` | Deletes roles |
+> | `Microsoft.ContainerService/aiManagers/rbac.authorization.k8s.io/roles/bind/action` | Binds roles |
+> | `Microsoft.ContainerService/aiManagers/rbac.authorization.k8s.io/roles/escalate/action` | Escalates roles |
+> | `Microsoft.ContainerService/aiManagers/readyz/read` | Reads readyz |
+> | `Microsoft.ContainerService/aiManagers/readyz/autoregister-completion/read` | Reads autoregister-completion |
+> | `Microsoft.ContainerService/aiManagers/readyz/etcd/read` | Reads etcd |
+> | `Microsoft.ContainerService/aiManagers/readyz/log/read` | Reads log |
+> | `Microsoft.ContainerService/aiManagers/readyz/ping/read` | Reads ping |
+> | `Microsoft.ContainerService/aiManagers/readyz/poststarthook/apiservice-openapi-controller/read` | Reads apiservice-openapi-controller |
+> | `Microsoft.ContainerService/aiManagers/readyz/poststarthook/apiservice-registration-controller/read` | Reads apiservice-registration-controller |
+> | `Microsoft.ContainerService/aiManagers/readyz/poststarthook/apiservice-status-available-controller/read` | Reads apiservice-status-available-controller |
+> | `Microsoft.ContainerService/aiManagers/readyz/poststarthook/bootstrap-controller/read` | Reads bootstrap-controller |
+> | `Microsoft.ContainerService/aiManagers/readyz/poststarthook/ca-registration/read` | Reads ca-registration |
+> | `Microsoft.ContainerService/aiManagers/readyz/poststarthook/crd-informer-synced/read` | Reads crd-informer-synced |
+> | `Microsoft.ContainerService/aiManagers/readyz/poststarthook/generic-apiserver-start-informers/read` | Reads generic-apiserver-start-informers |
+> | `Microsoft.ContainerService/aiManagers/readyz/poststarthook/kube-apiserver-autoregistration/read` | Reads kube-apiserver-autoregistration |
+> | `Microsoft.ContainerService/aiManagers/readyz/poststarthook/rbac/bootstrap-roles/read` | Reads bootstrap-roles |
+> | `Microsoft.ContainerService/aiManagers/readyz/poststarthook/scheduling/bootstrap-system-priority-classes/read` | Reads bootstrap-system-priority-classes |
+> | `Microsoft.ContainerService/aiManagers/readyz/poststarthook/start-apiextensions-controllers/read` | Reads start-apiextensions-controllers |
+> | `Microsoft.ContainerService/aiManagers/readyz/poststarthook/start-apiextensions-informers/read` | Reads start-apiextensions-informers |
+> | `Microsoft.ContainerService/aiManagers/readyz/poststarthook/start-kube-aggregator-informers/read` | Reads start-kube-aggregator-informers |
+> | `Microsoft.ContainerService/aiManagers/readyz/poststarthook/start-kube-apiserver-admission-initializer/read` | Reads start-kube-apiserver-admission-initializer |
+> | `Microsoft.ContainerService/aiManagers/readyz/shutdown/read` | Reads shutdown |
+> | `Microsoft.ContainerService/aiManagers/replicationcontrollers/read` | Reads replicationcontrollers |
+> | `Microsoft.ContainerService/aiManagers/replicationcontrollers/write` | Writes replicationcontrollers |
+> | `Microsoft.ContainerService/aiManagers/replicationcontrollers/delete` | Deletes replicationcontrollers |
+> | `Microsoft.ContainerService/aiManagers/resetMetrics/read` | Reads resetMetrics |
+> | `Microsoft.ContainerService/aiManagers/resourcequotas/read` | Reads resourcequotas |
+> | `Microsoft.ContainerService/aiManagers/resourcequotas/write` | Writes resourcequotas |
+> | `Microsoft.ContainerService/aiManagers/resourcequotas/delete` | Deletes resourcequotas |
+> | `Microsoft.ContainerService/aiManagers/scheduling.k8s.io/priorityclasses/read` | Reads priorityclasses |
+> | `Microsoft.ContainerService/aiManagers/scheduling.k8s.io/priorityclasses/write` | Writes priorityclasses |
+> | `Microsoft.ContainerService/aiManagers/scheduling.k8s.io/priorityclasses/delete` | Deletes priorityclasses |
+> | `Microsoft.ContainerService/aiManagers/secrets/read` | Reads secrets |
+> | `Microsoft.ContainerService/aiManagers/secrets/write` | Writes secrets |
+> | `Microsoft.ContainerService/aiManagers/secrets/delete` | Deletes secrets |
+> | `Microsoft.ContainerService/aiManagers/serviceaccounts/read` | Reads serviceaccounts |
+> | `Microsoft.ContainerService/aiManagers/serviceaccounts/write` | Writes serviceaccounts |
+> | `Microsoft.ContainerService/aiManagers/serviceaccounts/delete` | Deletes serviceaccounts |
+> | `Microsoft.ContainerService/aiManagers/serviceaccounts/impersonate/action` | Impersonate serviceaccounts |
+> | `Microsoft.ContainerService/aiManagers/services/read` | Reads services |
+> | `Microsoft.ContainerService/aiManagers/services/write` | Writes services |
+> | `Microsoft.ContainerService/aiManagers/services/delete` | Deletes services |
+> | `Microsoft.ContainerService/aiManagers/storage.k8s.io/csidrivers/read` | Reads csidrivers |
+> | `Microsoft.ContainerService/aiManagers/storage.k8s.io/csidrivers/write` | Writes csidrivers |
+> | `Microsoft.ContainerService/aiManagers/storage.k8s.io/csidrivers/delete` | Deletes csidrivers |
+> | `Microsoft.ContainerService/aiManagers/storage.k8s.io/csinodes/read` | Reads csinodes |
+> | `Microsoft.ContainerService/aiManagers/storage.k8s.io/csinodes/write` | Writes csinodes |
+> | `Microsoft.ContainerService/aiManagers/storage.k8s.io/csinodes/delete` | Deletes csinodes |
+> | `Microsoft.ContainerService/aiManagers/storage.k8s.io/csistoragecapacities/read` | Reads csistoragecapacities |
+> | `Microsoft.ContainerService/aiManagers/storage.k8s.io/csistoragecapacities/write` | Writes csistoragecapacities |
+> | `Microsoft.ContainerService/aiManagers/storage.k8s.io/csistoragecapacities/delete` | Deletes csistoragecapacities |
+> | `Microsoft.ContainerService/aiManagers/storage.k8s.io/storageclasses/read` | Reads storageclasses |
+> | `Microsoft.ContainerService/aiManagers/storage.k8s.io/storageclasses/write` | Writes storageclasses |
+> | `Microsoft.ContainerService/aiManagers/storage.k8s.io/storageclasses/delete` | Deletes storageclasses |
+> | `Microsoft.ContainerService/aiManagers/storage.k8s.io/volumeattachments/read` | Reads volumeattachments |
+> | `Microsoft.ContainerService/aiManagers/storage.k8s.io/volumeattachments/write` | Writes volumeattachments |
+> | `Microsoft.ContainerService/aiManagers/storage.k8s.io/volumeattachments/delete` | Deletes volumeattachments |
+> | `Microsoft.ContainerService/aiManagers/swagger-api/read` | Reads swagger-api |
+> | `Microsoft.ContainerService/aiManagers/swagger-ui/read` | Reads swagger-ui |
+> | `Microsoft.ContainerService/aiManagers/ui/read` | Reads ui |
+> | `Microsoft.ContainerService/aiManagers/users/impersonate/action` | Impersonate users |
+> | `Microsoft.ContainerService/aiManagers/version/read` | Reads version |
 > | `Microsoft.ContainerService/fleets/admissionregistration.k8s.io/initializerconfigurations/read` | Reads initializerconfigurations |
 > | `Microsoft.ContainerService/fleets/admissionregistration.k8s.io/initializerconfigurations/write` | Writes initializerconfigurations |
 > | `Microsoft.ContainerService/fleets/admissionregistration.k8s.io/initializerconfigurations/delete` | Deletes initializerconfigurations |

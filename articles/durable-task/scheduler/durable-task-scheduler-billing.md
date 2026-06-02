@@ -157,7 +157,7 @@ Durable Functions runs on [Azure Functions](../../azure-functions/functions-over
 | **Premium plan** | Prewarmed instances to avoid cold starts, with virtual network connectivity. Billed per vCPU and memory second. |
 | **Dedicated (App Service) plan** | Run functions on dedicated virtual machines within an App Service plan. Best when you have underused VMs that already run other App Service instances. |
 
-For detailed Durable Functions billing behaviors (replay billing, awaiting, HTTP polling), see [Durable Functions billing](../../azure-functions/durable-functions/durable-functions-billing.md). For Azure Functions pricing, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
+For detailed Durable Functions billing behaviors (replay billing, awaiting, HTTP polling), see [Durable Functions billing](../durable-functions/durable-functions-billing.md). For Azure Functions pricing, see [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/).
 
 ### Durable Task SDKs
 
@@ -181,4 +181,4 @@ For detailed pricing information, see the billing documentation for each compute
 - [Durable Task Scheduler pricing](https://azure.microsoft.com/pricing/details/durable-task-scheduler/)
 - [Throughput performance benchmarks](./durable-task-scheduler-work-item-throughput.md)
 - [Choose your orchestration framework](../common/choose-orchestration-framework.md)
-- [Durable Functions billing](../../azure-functions/durable-functions/durable-functions-billing.md)
+- [Durable Functions billing](../durable-functions/durable-functions-billing.md)

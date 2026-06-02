@@ -126,14 +126,14 @@ Application Gateway for Containers is currently offered in the following regions
 
 ### Implementation of Gateway API
 
-ALB Controller implements version [v1](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io%2fv1) of the [Gateway API](https://gateway-api.sigs.k8s.io/).
+ALB Controller implements version [v1](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#gatewaynetworkingk8siov1) of the [Gateway API](https://gateway-api.sigs.k8s.io/).
 
 | Gateway API Resource      | Support | Comments     |
 | ------------------------- | ------- | ------------ |
-| [GatewayClass](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.GatewayClass)          | Yes   |  |
-| [Gateway](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.Gateway)                    | Yes   | Support for HTTP and HTTPS protocol on the listener. The only ports allowed on the listener are 80 and 443. |
-| [HTTPRoute](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.HTTPRoute)                | Yes   | |
-| [ReferenceGrant](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1alpha2.ReferenceGrant)     | Yes   | Currently supports version v1alpha1 of this API |
+| [GatewayClass](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#gatewayclass)          | Yes   |  |
+| [Gateway](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#gateway)                    | Yes   | Support for HTTP and HTTPS protocol on the listener. The only ports allowed on the listener are 80 and 443. |
+| [HTTPRoute](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#httproute)                | Yes   | |
+| [ReferenceGrant](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#referencegrant)     | Yes   | Currently supports version v1alpha1 of this API |
 
 ### Implementation of Ingress API
 

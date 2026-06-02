@@ -86,7 +86,7 @@ In this tutorial, you learn how to create required Azure resources and configure
 
 Gather the following values and add to the Apache Spark configuration.
 
-- <EMITTER_NAME>: The name for the emmiter.
+- <EMITTER_NAME>: The name for the emitter.
 - <CERTIFICATE_NAME>: The certificate name that you generated in the key vault.
 - <LINKED_SERVICE_NAME>: The Azure Key vault linked service name.
 - <STORAGE_URI>: The Blob Storage target path (e.g., https://accountname.blob.core.windows.net/containername).

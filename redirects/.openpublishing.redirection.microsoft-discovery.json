@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/microsoft-discovery/quickstart-agents-bundles.md",
+            "redirect_url": "/azure/microsoft-discovery/quickstart-agents-studio",
+            "redirect_document_id": false
+        }
+    ]
+}

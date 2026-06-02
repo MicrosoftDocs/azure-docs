@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -130,6 +130,12 @@ Azure service: [Azure Local](/azure-stack/hci/)
 > | `Microsoft.AzureStackHCI/EdgeMachines/NetworkAdapters/Jobs/Read` | Reads EdgeMachine Network Adapter Job Resource |
 > | `Microsoft.AzureStackHCI/EdgeMachines/NetworkAdapters/Jobs/Write` | Writes EdgeMachine Network Adapter Job Resource |
 > | `Microsoft.AzureStackHCI/EdgeMachines/NetworkAdapters/Jobs/Delete` | Deletes EdgeMachine Network Adapter Job Resource |
+> | `Microsoft.AzureStackHCI/EdgeMachines/SecuritySettings/Read` | Gets EdgeMachine SecuritySettings |
+> | `Microsoft.AzureStackHCI/EdgeMachines/SecuritySettings/Write` | Creates or updates SecuritySettings resource for EdgeMachine |
+> | `Microsoft.AzureStackHCI/EdgeMachines/SecuritySettings/Delete` | Deletes SecuritySettings resource for EdgeMachine |
+> | `Microsoft.AzureStackHCI/EdgeMachines/Updates/Read` | Reads EdgeMachine Updates Resource |
+> | `Microsoft.AzureStackHCI/EdgeMachines/Updates/Write` | Writes EdgeMachine Updates Resource |
+> | `Microsoft.AzureStackHCI/EdgeMachines/Updates/Delete` | Deletes EdgeMachine Updates Resource |
 > | `Microsoft.AzureStackHCI/EdgeMachines/Volumes/Read` | Gets EdgeMachine Volume resources |
 > | `Microsoft.AzureStackHCI/GalleryImages/Delete` | Deletes gallery images resource |
 > | `Microsoft.AzureStackHCI/GalleryImages/Write` | Creates/Updates gallery images resource |
@@ -326,44 +332,39 @@ Azure service: Microsoft.HybridConnectivity
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
-> | `Microsoft.HybridConnectivity/generateAwsTemplate/action` | Retrieve AWS Cloud Formation template |
-> | `Microsoft.HybridConnectivity/generateGcpTemplate/action` | Retrieve GCP Access Control template |
 > | `Microsoft.HybridConnectivity/register/action` | Register the subscription for Microsoft.HybridConnectivity |
 > | `Microsoft.HybridConnectivity/unregister/action` | Unregister the subscription for Microsoft.HybridConnectivity |
-> | `Microsoft.HybridConnectivity/endpoints/read` | List of endpoints to the target resource. |
-> | `Microsoft.HybridConnectivity/endpoints/read` | Gets the endpoint to the resource. |
+> | `Microsoft.HybridConnectivity/generateAwsTemplate/action` | Retrieve AWS Cloud Formation template |
+> | `Microsoft.HybridConnectivity/generateGcpTemplate/action` | Retrieve GCP Access Configuration Script |
+> | `Microsoft.HybridConnectivity/endpoints/read` | Get or list of endpoints to the target resource. |
 > | `Microsoft.HybridConnectivity/endpoints/write` | Create or update the endpoint to the target resource. |
 > | `Microsoft.HybridConnectivity/endpoints/delete` | Deletes the endpoint access to the target resource. |
-> | `Microsoft.HybridConnectivity/endpoints/write` | Update the endpoint to the target resource. |
-> | `Microsoft.HybridConnectivity/endpoints/listCredentials/action` | Gets the endpoint access credentials to the resource. |
-> | `Microsoft.HybridConnectivity/endpoints/listIngressGatewayCredentials/action` | Gets the ingress gateway endpoint credentials  |
-> | `Microsoft.HybridConnectivity/endpoints/listManagedProxyDetails/action` | Fetches the managed proxy details  |
-> | `Microsoft.HybridConnectivity/endpoints/serviceConfigurations/read` | API to enumerate registered services in service configurations under a Endpoint Resource |
-> | `Microsoft.HybridConnectivity/endpoints/serviceConfigurations/read` | Gets the details about the service to the resource. |
-> | `Microsoft.HybridConnectivity/endpoints/serviceConfigurations/write` | Create or update a service in serviceConfiguration for the endpoint resource. |
-> | `Microsoft.HybridConnectivity/endpoints/serviceConfigurations/delete` | Deletes the service details to the target resource. |
-> | `Microsoft.HybridConnectivity/endpoints/serviceConfigurations/write` | Update the service details in the service configurations of the target resource. |
+> | `Microsoft.HybridConnectivity/endpoints/listCredentials/action` | List the endpoint access credentials to the resource. |
+> | `Microsoft.HybridConnectivity/endpoints/listIngressGatewayCredentials/action` | List the ingress gateway access credentials to the resource. |
+> | `Microsoft.HybridConnectivity/endpoints/listManagedProxyDetails/action` | List the managed proxy details to the resource. |
+> | `Microsoft.HybridConnectivity/endpoints/serviceConfigurations/read` | Get or list of serviceConfigurations to the endpoints resource. |
+> | `Microsoft.HybridConnectivity/endpoints/serviceConfigurations/write` | Create or update the serviceConfigurations to the endpoints resource. |
+> | `Microsoft.HybridConnectivity/endpoints/serviceConfigurations/delete` | Deletes the serviceConfigurations access to the endpoints resource. |
 > | `Microsoft.HybridConnectivity/Locations/OperationStatuses/read` | read OperationStatuses |
-> | `Microsoft.HybridConnectivity/Locations/OperationStatuses/write` | write OperationStatuses |
-> | `Microsoft.HybridConnectivity/Operations/read` | read Operations |
-> | `Microsoft.HybridConnectivity/publicCloudConnectors/read` | List PublicCloudConnector resources by subscription ID |
-> | `Microsoft.HybridConnectivity/publicCloudConnectors/read` | List PublicCloudConnector resources by resource group |
-> | `Microsoft.HybridConnectivity/publicCloudConnectors/read` | Get a PublicCloudConnector |
-> | `Microsoft.HybridConnectivity/publicCloudConnectors/write` | Create a PublicCloudConnector |
-> | `Microsoft.HybridConnectivity/publicCloudConnectors/delete` | Delete a PublicCloudConnector |
-> | `Microsoft.HybridConnectivity/publicCloudConnectors/write` | Update a PublicCloudConnector |
-> | `Microsoft.HybridConnectivity/publicCloudConnectors/testPermissions/action` | A long-running resource action. |
-> | `Microsoft.HybridConnectivity/solutionConfigurations/read` | List SolutionConfiguration resources by parent |
-> | `Microsoft.HybridConnectivity/solutionConfigurations/read` | Get a SolutionConfiguration |
-> | `Microsoft.HybridConnectivity/solutionConfigurations/write` | Create a SolutionConfiguration |
-> | `Microsoft.HybridConnectivity/solutionConfigurations/delete` | Delete a SolutionConfiguration |
-> | `Microsoft.HybridConnectivity/solutionConfigurations/write` | Update a SolutionConfiguration |
+> | `Microsoft.HybridConnectivity/Locations/OperationStatuses/write` | Write OperationStatuses |
+> | `Microsoft.HybridConnectivity/operations/read` | Get the list of Operations |
+> | `Microsoft.HybridConnectivity/publicCloudConnectors/read` | Gets the public cloud connectors in the subscription. |
+> | `Microsoft.HybridConnectivity/publicCloudConnectors/read` | Gets the publicCloudConnector in the resource group. |
+> | `Microsoft.HybridConnectivity/publicCloudConnectors/read` | Gets the public cloud connectors. |
+> | `Microsoft.HybridConnectivity/publicCloudConnectors/write` | Creates public cloud connectors resource. |
+> | `Microsoft.HybridConnectivity/publicCloudConnectors/delete` | Deletes the public cloud connectors resource. |
+> | `Microsoft.HybridConnectivity/publicCloudConnectors/write` | Update the public cloud connectors resource. |
+> | `Microsoft.HybridConnectivity/publicCloudConnectors/testPermissions/action` | Tests the permissions of solution configurations under public cloud connector. |
+> | `Microsoft.HybridConnectivity/solutionConfigurations/read` | Retrieve the List of solution configuration resources. |
+> | `Microsoft.HybridConnectivity/solutionConfigurations/read` | Retrieve the solution configuration identified by solution name. |
+> | `Microsoft.HybridConnectivity/solutionConfigurations/write` | Creates solution configuration with provided solution name |
+> | `Microsoft.HybridConnectivity/solutionConfigurations/delete` | Deletes the solution configuration with provided solution name. |
+> | `Microsoft.HybridConnectivity/solutionConfigurations/write` | Updates the solution configuration for solution name. |
 > | `Microsoft.HybridConnectivity/solutionConfigurations/syncNow/action` | Trigger immediate sync with source cloud |
-> | `Microsoft.HybridConnectivity/solutionConfigurations/inventory/read` | List InventoryResource resources by SolutionConfiguration |
-> | `Microsoft.HybridConnectivity/solutionConfigurations/inventory/read` | Get a InventoryResource |
-> | `Microsoft.HybridConnectivity/solutionTypes/read` | List SolutionTypeResource resources by subscription ID |
-> | `Microsoft.HybridConnectivity/solutionTypes/read` | List SolutionTypeResource resources by resource group |
-> | `Microsoft.HybridConnectivity/solutionTypes/read` | Get a SolutionTypeResource |
+> | `Microsoft.HybridConnectivity/solutionConfigurations/inventory/read` | Retrieve the inventory identified by inventory id. |
+> | `Microsoft.HybridConnectivity/solutionConfigurations/inventory/read` | Retrieve a list of inventory by solution name. |
+> | `Microsoft.HybridConnectivity/solutionTypes/read` | Retrieve the list of available solution types. |
+> | `Microsoft.HybridConnectivity/solutionTypes/read` | Retrieve the solution type by provided solution type. |
 
 ## Microsoft.HybridContainerService
 

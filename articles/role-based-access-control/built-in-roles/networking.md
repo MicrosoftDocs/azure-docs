@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -499,7 +499,7 @@ Lets you manage classic networks, but not access to them.
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.ClassicNetwork](../permissions/networking.md#microsoftclassicnetwork)/* | Create and manage classic networks |
+> | Microsoft.ClassicNetwork/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |

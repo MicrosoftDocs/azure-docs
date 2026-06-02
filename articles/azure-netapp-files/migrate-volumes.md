@@ -42,7 +42,7 @@ You need to register the feature before using it for the migration assistant for
 
     ```azurecli
     az account set --subscription <subscriptionId>
-    az feature register --namespace Microsoft.NetApp --name ANFSVolumeMigration
+    az feature register --namespace Microsoft.NetApp --name ANFMigrationAssistant
     ```
 
 2. Check the status of the feature registration: 
@@ -51,7 +51,7 @@ You need to register the feature before using it for the migration assistant for
     > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
 
     ```azurecli
-    az feature show --namespace Microsoft.NetApp --name ANFSVolumeMigration
+    az feature show --namespace Microsoft.NetApp --name ANFMigrationAssistant
     ```
 
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
@@ -62,7 +62,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
     ```azurepowershell
     Set-AzContext -SubscriptionId <subscriptionId>
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSVolumeMigration
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigrationAssistant
     ```
 
 2. Check the status of the feature registration: 
@@ -71,7 +71,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
     > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
 
     ```azurepowershell
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSVolumeMigration
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigrationAssistant
     ```
 
 You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.

@@ -65,7 +65,7 @@ Weighted Round Robin is ideal for environments where backend servers have differ
 
 **Configuration:**
 
-A weight can be applied between services within the HTTPRoute resource in Gateway API. Details on how a weight is defined can be found [here](https://gateway-api.sigs.k8s.io/reference/spec/#httpbackendref)
+A weight can be applied between services within the HTTPRoute resource in Gateway API. Details on how a weight is defined can be found [here](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#httpbackendref)
 
 In this example, approximately 75 of a 100 requests would be preferred to backend-v1, while the remaining 25 would go to backend-v2.
 

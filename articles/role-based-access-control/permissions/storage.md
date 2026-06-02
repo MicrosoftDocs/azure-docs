@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -14,71 +14,6 @@ ms.custom: generated
 
 This article lists the permissions for the Azure resource providers in the Storage category. You can use these permissions in your own [Azure custom roles](/azure/role-based-access-control/custom-roles) to provide granular access control to resources in Azure. Permission strings have the following format: `{Company}.{ProviderName}/{resourceType}/{action}`
 
-
-## Microsoft.ClassicStorage
-
-Azure service: Classic deployment model storage
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | `Microsoft.ClassicStorage/register/action` | Register to Classic Storage |
-> | `Microsoft.ClassicStorage/checkStorageAccountAvailability/action` | Checks for the availability of a storage account. |
-> | `Microsoft.ClassicStorage/capabilities/read` | Shows the capabilities |
-> | `Microsoft.ClassicStorage/checkStorageAccountAvailability/read` | Get the availability of a storage account. |
-> | `Microsoft.ClassicStorage/disks/read` | Returns the storage account disk. |
-> | `Microsoft.ClassicStorage/images/read` | Returns the image. |
-> | `Microsoft.ClassicStorage/images/operationstatuses/read` | Gets Image Operation Status. |
-> | `Microsoft.ClassicStorage/operations/read` | Gets classic storage operations |
-> | `Microsoft.ClassicStorage/osImages/read` | Returns the operating system image. |
-> | `Microsoft.ClassicStorage/osPlatformImages/read` | Gets the operating system platform image. |
-> | `Microsoft.ClassicStorage/publicImages/read` | Gets the public virtual machine image. |
-> | `Microsoft.ClassicStorage/quotas/read` | Get the quota for the subscription. |
-> | `Microsoft.ClassicStorage/storageAccounts/read` | Return the storage account with the given account. |
-> | `Microsoft.ClassicStorage/storageAccounts/write` | Adds a new storage account. |
-> | `Microsoft.ClassicStorage/storageAccounts/delete` | Delete the storage account. |
-> | `Microsoft.ClassicStorage/storageAccounts/listKeys/action` | Lists the access keys for the storage accounts. |
-> | `Microsoft.ClassicStorage/storageAccounts/regenerateKey/action` | Regenerates the existing access keys for the storage account. |
-> | `Microsoft.ClassicStorage/storageAccounts/validateMigration/action` | Validates migration of a storage account. |
-> | `Microsoft.ClassicStorage/storageAccounts/prepareMigration/action` | Prepares migration of a storage account. |
-> | `Microsoft.ClassicStorage/storageAccounts/commitMigration/action` | Commits migration of a storage account. |
-> | `Microsoft.ClassicStorage/storageAccounts/abortMigration/action` | Aborts migration of a storage account. |
-> | `Microsoft.ClassicStorage/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/read` | Get the diagnostics settings. |
-> | `Microsoft.ClassicStorage/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/write` | Add or modify diagnostics settings. |
-> | `Microsoft.ClassicStorage/storageAccounts/blobServices/providers/Microsoft.Insights/metricDefinitions/read` | Gets the metrics definitions. |
-> | `Microsoft.ClassicStorage/storageAccounts/disks/read` | Returns the storage account disk. |
-> | `Microsoft.ClassicStorage/storageAccounts/disks/write` | Adds a storage account disk. |
-> | `Microsoft.ClassicStorage/storageAccounts/disks/delete` | Deletes a given storage account  disk. |
-> | `Microsoft.ClassicStorage/storageAccounts/disks/operationStatuses/read` | Reads the operation status for the resource. |
-> | `Microsoft.ClassicStorage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/read` | Get the diagnostics settings. |
-> | `Microsoft.ClassicStorage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/write` | Add or modify diagnostics settings. |
-> | `Microsoft.ClassicStorage/storageAccounts/fileServices/providers/Microsoft.Insights/metricDefinitions/read` | Gets the metrics definitions. |
-> | `Microsoft.ClassicStorage/storageAccounts/images/read` | Returns the storage account image. (Deprecated. Use 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
-> | `Microsoft.ClassicStorage/storageAccounts/images/delete` | Deletes a given storage account image. (Deprecated. Use 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
-> | `Microsoft.ClassicStorage/storageAccounts/images/operationstatuses/read` | Returns the storage account image operation status. |
-> | `Microsoft.ClassicStorage/storageAccounts/operationStatuses/read` | Reads the operation status for the resource. |
-> | `Microsoft.ClassicStorage/storageAccounts/osImages/read` | Returns the storage account operating system image. |
-> | `Microsoft.ClassicStorage/storageAccounts/osImages/write` | Adds a given storage account operating system image. |
-> | `Microsoft.ClassicStorage/storageAccounts/osImages/delete` | Deletes a given storage account operating system image. |
-> | `Microsoft.ClassicStorage/storageAccounts/providers/Microsoft.Insights/diagnosticSettings/read` | Get the diagnostics settings. |
-> | `Microsoft.ClassicStorage/storageAccounts/providers/Microsoft.Insights/diagnosticSettings/write` | Add or modify diagnostics settings. |
-> | `Microsoft.ClassicStorage/storageAccounts/providers/Microsoft.Insights/metricDefinitions/read` | Gets the metrics definitions. |
-> | `Microsoft.ClassicStorage/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/read` | Get the diagnostics settings. |
-> | `Microsoft.ClassicStorage/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/write` | Add or modify diagnostics settings. |
-> | `Microsoft.ClassicStorage/storageAccounts/queueServices/providers/Microsoft.Insights/metricDefinitions/read` | Gets the metrics definitions. |
-> | `Microsoft.ClassicStorage/storageAccounts/services/read` | Get the available services. |
-> | `Microsoft.ClassicStorage/storageAccounts/services/diagnosticSettings/read` | Get the diagnostics settings. |
-> | `Microsoft.ClassicStorage/storageAccounts/services/diagnosticSettings/write` | Add or modify diagnostics settings. |
-> | `Microsoft.ClassicStorage/storageAccounts/services/metricDefinitions/read` | Gets the metrics definitions. |
-> | `Microsoft.ClassicStorage/storageAccounts/services/metrics/read` | Gets the metrics. |
-> | `Microsoft.ClassicStorage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/read` | Get the diagnostics settings. |
-> | `Microsoft.ClassicStorage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/write` | Add or modify diagnostics settings. |
-> | `Microsoft.ClassicStorage/storageAccounts/tableServices/providers/Microsoft.Insights/metricDefinitions/read` | Gets the metrics definitions. |
-> | `Microsoft.ClassicStorage/storageAccounts/vmImages/read` | Returns the virtual machine image. |
-> | `Microsoft.ClassicStorage/storageAccounts/vmImages/write` | Adds a given virtual machine image. |
-> | `Microsoft.ClassicStorage/storageAccounts/vmImages/delete` | Deletes a given virtual machine image. |
-> | `Microsoft.ClassicStorage/storageAccounts/vmImages/operationstatuses/read` | Gets a given virtual machine image operation status. |
-> | `Microsoft.ClassicStorage/vmImages/read` | Lists virtual machine images. |
 
 ## Microsoft.DataShare
 
@@ -247,6 +182,7 @@ Azure service: [Azure NetApp Files](/azure/azure-netapp-files/)
 > | `Microsoft.NetApp/netAppAccounts/getKeyVaultStatus/action` | Get an account's key vault information, including subnet and private endpoint encryption pairs that have access to the key vault. |
 > | `Microsoft.NetApp/netAppAccounts/migrateEncryption/action` | Migrate volumes under an encryption sibling set from Microsoft-managed key to Customer-managed key or vice versa. |
 > | `Microsoft.NetApp/netAppAccounts/transitionToCmk/action` | Transitions all volumes under an encryption sibling set from Microsoft-managed key to Customer-managed key or vice versa. |
+> | `Microsoft.NetApp/netAppAccounts/refreshLdapBindPassword/action` | Refreshes LDAP bind password by retrieving the latest password from the configured Azure Key Vault. |
 > | `Microsoft.NetApp/netAppAccounts/accountBackups/read` | Reads an account backup resource. |
 > | `Microsoft.NetApp/netAppAccounts/accountBackups/write` | Writes an account backup resource. |
 > | `Microsoft.NetApp/netAppAccounts/accountBackups/delete` | Deletes an account backup resource. |
@@ -270,6 +206,8 @@ Azure service: [Azure NetApp Files](/azure/azure-netapp-files/)
 > | `Microsoft.NetApp/netAppAccounts/capacityPools/caches/listPeeringPassphrases/action` | Lists the cluster peering command, cluster peering passphrase and the vserver peering command |
 > | `Microsoft.NetApp/netAppAccounts/capacityPools/caches/poolChange/action` | Moves a cache volume to another pool. |
 > | `Microsoft.NetApp/netAppAccounts/capacityPools/caches/resetSmbPassword/action` | Reset SMB password for account from specific cache volume. |
+> | `Microsoft.NetApp/netAppAccounts/capacityPools/caches/breakFileLocks/action` | Breaks file locks on a cache volume |
+> | `Microsoft.NetApp/netAppAccounts/capacityPools/caches/modifyClusterPeer/action` | Modify cluster peer for netAppAccount from specific cache volume. |
 > | `Microsoft.NetApp/netAppAccounts/capacityPools/providers/Microsoft.Insights/diagnosticSettings/read` | Gets the diagnostic setting for the resource. |
 > | `Microsoft.NetApp/netAppAccounts/capacityPools/providers/Microsoft.Insights/diagnosticSettings/write` | Creates or updates the diagnostic setting for the resource. |
 > | `Microsoft.NetApp/netAppAccounts/capacityPools/providers/Microsoft.Insights/logDefinitions/read` | Gets the log definitions for the resource. |
@@ -304,6 +242,8 @@ Azure service: [Azure NetApp Files](/azure/azure-netapp-files/)
 > | `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/finalizeExternalReplication/action` | Finalize OnPrem migration by doing a final sync on the replication, break and release the replication and break cluster peering if no other migration is active. |
 > | `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/listQuotaReport/action` | List user/group quota report for the volume. |
 > | `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/updateAVSDataStoreInfo/action` | Update AVS datastore information for a volume. Operation can only be called from Azure Vmware Solution |
+> | `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/resetSmbPassword/action` | Reset SMB password for a specific volume. |
+> | `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/listRemoteCaches/action` | List remote caches associated with the volume. |
 > | `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/read` | Reads a backup resource. |
 > | `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/write` | Writes a backup resource. |
 > | `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/backups/delete` | Deletes a backup resource. |
@@ -492,6 +432,7 @@ Azure service: [Storage](/azure/storage/)
 > | `Microsoft.Storage/storageAccounts/privateEndpointConnectionProxies/updatePrivateEndpointProperties/action` | Update storage account private endpoint properties |
 > | `Microsoft.Storage/storageAccounts/privateEndpointConnectionProxies/delete` | Delete Private Endpoint Connection Proxies |
 > | `Microsoft.Storage/storageAccounts/privateEndpointConnectionProxies/write` | Put Private Endpoint Connection Proxies |
+> | `Microsoft.Storage/storageAccounts/privateEndpointConnectionProxies/validate/action` | Validate Private Endpoint Connection Proxies |
 > | `Microsoft.Storage/storageAccounts/privateEndpointConnections/read` | List Private Endpoint Connections |
 > | `Microsoft.Storage/storageAccounts/privateEndpointConnections/delete` | Delete Private Endpoint Connection |
 > | `Microsoft.Storage/storageAccounts/privateEndpointConnections/read` | Get Private Endpoint Connection |

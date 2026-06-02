@@ -210,6 +210,10 @@ items:
             href: use-docsguide.md
       - name: Knowledge & data sources
         items:
+          - name: Set up GitHub connector (OAuth/PAT)
+            href: setup-github-connector.md
+          - name: Connect GitHub Enterprise Cloud
+            href: connect-github-enterprise-cloud.md
           - name: Set up Kusto connector
             href: kusto-connector.md
           - name: Set up Azure DevOps connector

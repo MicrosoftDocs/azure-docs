@@ -80,7 +80,7 @@ Use the portal or Azure CLI to create an association between your App Configurat
     > | `<nsp-profile-resource-id>` | The resource ID of the network security perimeter profile to associate with. | `/subscriptions/.../profiles/defaultProfile` |
 
     > [!TIP]
-    > The `--access-mode` parameter can be set to `Learning` or `Enforced`. Start with `Learning` mode to validate your access rules before switching to `Enforced` mode. For more information, see [Transitioning to a network security perimeter](./concept-network-security-perimeter.md#transitioning-to-a-network-security-perimeter).
+    > The `--access-mode` parameter can be set to `Learning` (called **Transition** mode in the Azure portal and elsewhere in this documentation) or `Enforced`. Start in Transition (`Learning`) mode to validate your access rules before switching to `Enforced` mode. For more information, see [Transitioning to a network security perimeter](./concept-network-security-perimeter.md#transitioning-to-a-network-security-perimeter).
 
 ---
 

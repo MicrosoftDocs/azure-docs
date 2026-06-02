@@ -16,7 +16,7 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-functions"
 
-Function chaining is a pattern where you run a sequence of functions in order. It's common to pass the output of one function to the input of the next. This article describes the chaining sequence you build when you complete the Durable Functions quickstart ([C#](../../azure-functions/durable-functions/durable-functions-isolated-create-first-csharp.md), [JavaScript](../../azure-functions/durable-functions/quickstart-js-vscode.md), [TypeScript](../../azure-functions/durable-functions/quickstart-ts-vscode.md), [Python](../../azure-functions/durable-functions/quickstart-python-vscode.md), [PowerShell](../../azure-functions/durable-functions/quickstart-powershell-vscode.md), or [Java](../../azure-functions/durable-functions/quickstart-java.md)). Learn more in [Durable Functions overview](what-is-durable-task.md).
+Function chaining is a pattern where you run a sequence of functions in order. It's common to pass the output of one function to the input of the next. This article describes the chaining sequence you build when you complete the Durable Functions quickstart ([C#](../durable-functions/durable-functions-isolated-create-first-csharp.md), [JavaScript](../durable-functions/quickstart-js-vscode.md), [TypeScript](../durable-functions/quickstart-ts-vscode.md), [Python](../durable-functions/quickstart-python-vscode.md), [PowerShell](../durable-functions/quickstart-powershell-vscode.md), or [Java](../durable-functions/quickstart-java.md)). Learn more in [Durable Functions overview](what-is-durable-task.md).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -34,9 +34,9 @@ Function chaining is a pattern where you run a sequence of activities in order. 
 
 This article describes these functions in the sample app:
 
-* `E1_HelloSequence`: An [orchestrator function](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-trigger) that calls `E1_SayHello` multiple times in sequence. It stores each output and records the results.
-* `E1_SayHello`: An [activity function](../../azure-functions/durable-functions/durable-functions-bindings.md#activity-trigger) that adds "Hello" to the start of a string.
-* `HttpStart`: An HTTP-triggered [durable client](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client) function that starts an instance of the orchestrator.
+* `E1_HelloSequence`: An [orchestrator function](../durable-functions/durable-functions-bindings.md#orchestration-trigger) that calls `E1_SayHello` multiple times in sequence. It stores each output and records the results.
+* `E1_SayHello`: An [activity function](../durable-functions/durable-functions-bindings.md#activity-trigger) that adds "Hello" to the start of a string.
+* `HttpStart`: An HTTP-triggered [durable client](../durable-functions/durable-functions-bindings.md#orchestration-client) function that starts an instance of the orchestrator.
 
 ::: zone-end
 

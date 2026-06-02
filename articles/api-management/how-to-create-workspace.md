@@ -5,14 +5,14 @@ author: dlepow
 ms.topic: how-to
 ms.service: azure-api-management
 ms.author: danlep
-ms.date: 07/15/2025
+ms.date: 05/20/2026
 ms.custom:
   - build-2025
 ---
 
 # Create and manage a workspace in Azure API Management
 
-[!INCLUDE [api-management-availability-premium-premium-v2](../../includes/api-management-availability-premium-premium-v2.md)]
+[!INCLUDE [api-management-availability-basicv2-standardv2-premium-premium-v2](../../includes/api-management-availability-basicv2-standardv2-premium-premiumv2.md)]
 
 Set up a [workspace](workspaces-overview.md) to enable an API team to manage and productize their own APIs, while providing the API platform team with the tools to observe, govern, and maintain the API Management platform. After you create a workspace and assign permissions, workspace collaborators can create and manage their own APIs, products, subscriptions, and related resources.
 
@@ -20,23 +20,57 @@ Set up a [workspace](workspaces-overview.md) to enable an API team to manage and
 
 Follow the steps in this article to:
 
-* Create an API Management workspace and associate a workspace gateway using the Azure portal
-* Optionally, isolate the workspace gateway in an Azure virtual network
-* Assign permissions to the workspace
+* Create an API Management workspace associated with the instance's default managed gateway, or associated with a new or existing workspace gateway.
+* Optionally, isolate a workspace gateway in an Azure virtual network.
+* Assign permissions to the workspace.
 
 > [!NOTE]
-> * Currently, creating a workspace gateway is a long-running operation that can take up to 3 hours or more to complete. 
+> * Currently, creating a workspace gateway is a long-running operation that can take up to three hours or more to complete. 
 > * Associating multiple workspaces with a workspace gateway is available only for workspace gateways created after April 15, 2025. [Learn more about shared workspace gateways](workspaces-overview.md#workspace-gateway).
 
 ## Prerequisites
 
-* An API Management instance. If you need to, [create one](get-started-create-service-instance.md) in a supported tier.
+* An API Management instance. If you need one, [create it](get-started-create-service-instance.md) in a supported tier.
 * **Owner** or **Contributor** role on the resource group where the API Management instance is deployed, or equivalent permissions to create resources in the resource group.
-* (Optional) A subnet in a new or existing Azure virtual network to isolate the workspace gateway's inbound and outbound traffic. For configuration options and requirements, see [Network resource requirements for workspace gateways](virtual-network-workspaces-resources.md).
+* (Optional) A subnet in a new or existing Azure virtual network to isolate a workspace gateway's inbound and outbound traffic. For configuration options and requirements, see [Network resource requirements for workspace gateways](virtual-network-workspaces-resources.md).
+* (Optional, for associating the default managed gateway with a workspace) A REST client to call the API Management REST API. 
     
-## Create a workspace - portal
+## Create a workspace and associate the default managed gateway - REST API
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your API Management instance.
+You can create a workspace that routes API traffic through the service's default managed gateway instead of to a  workspace gateway. This option avoids the extra cost and complexity of a separate gateway resource. API traffic routes through the service's default hostname (for example, `<service-name>.azure-api.net`).
+
+> [!NOTE]
+> Currently, creating a workspace and associating the default managed gateway is only supported in the v2 tiers and via the API Management REST API.
+
+Use the [Workspace - Create or Update](/rest/api/apimanagement/workspace/create-or-update) REST API to create a workspace. 
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/workspaces/{workspaceId}?api-version=2024-05-01
+Authorization: Bearer {token}
+Content-Type: application/json
+
+{
+  "properties": {
+    "displayName": "my workspace",
+    "description": "Workspace using default managed gateway",
+    "serveOn": "workspaceAndDefault"
+  }
+}
+```
+
+Replace:
+- `{subscriptionId}` with your Azure subscription ID
+- `{resourceGroupName}` with the resource group name of your API Management instance
+- `{serviceName}` with the name of your API Management instance
+- `{workspaceId}` with a unique workspace identifier (alphanumeric, hyphens allowed)
+
+A successful response returns HTTP `201 Created` with the workspace resource. By default, the workspace routes API traffic through the service's default hostname.
+
+After the workspace is created, proceed to [Assign users to workspace - portal](#assign-users-to-workspace---portal) to configure access permissions.
+
+## Create a workspace and associate a workspace gateway - portal
+
+1. Sign in to the [Azure portal](https://portal.azure.com), and go to your API Management instance.
 
 1. In the left menu, under **APIs**, select **Workspaces** > **+ Add**.
 
@@ -67,13 +101,13 @@ After the deployment completes, the new workspace appears in the list on the **W
 
 > [!NOTE]
 > * To view the gateway runtime hostname and other gateway details, select the workspace in the portal. Under **Deployment + infrastructure**, select **Gateways**, and select the name of the workspace's gateway.
-> * While the workspace gateway is being created, runtime calls to the workspace's APIs won't succeed.
+> * While the workspace gateway is being created, runtime calls to the workspace's APIs don't succeed.
 
 ## Assign users to workspace - portal
 
-After creating a workspace, assign permissions to users to manage the workspace's resources. Each workspace user must be assigned both a service-scoped workspace RBAC role and a workspace-scoped RBAC role, or granted equivalent permissions using custom roles. 
+After creating a workspace, assign permissions to users to manage the workspace's resources. Each workspace user must be assigned both a service-scoped workspace RBAC role and a workspace-scoped RBAC role, or granted equivalent permissions by using custom roles. 
 
-To manage the workspace gateway, we recommend also assigning workspace users an Azure-provided RBAC role scoped to the workspace gateway. 
+If the workspace uses a workspace gateway resource, also assign workspace users an Azure-provided RBAC role scoped to the workspace gateway. 
 
 > [!NOTE]
 > For easier management, set up Microsoft Entra groups to assign workspace permissions to multiple users.
@@ -85,7 +119,7 @@ To manage the workspace gateway, we recommend also assigning workspace users an 
 
 ### Assign a service-scoped role
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your API Management instance.
+1. Sign in to the [Azure portal](https://portal.azure.com), and go to your API Management instance.
 
 1. In the left menu, select **Access control (IAM)** > **+ Add**.
 
@@ -97,9 +131,9 @@ To manage the workspace gateway, we recommend also assigning workspace users an 
 ### Assign a workspace-scoped role
 
 1. In the menu for your API Management instance, under **APIs**, select **Workspaces** > the name of the workspace that you created.
-1. In the **Workspace** window, select **Access control (IAM)**> **+ Add**.
+1. In the **Workspace** window, select **Access control (IAM)** > **+ Add**.
     
-1. Assign one of the following workspace-scoped roles to the workspace members so that they can manage workspace APIs and other resources. 
+1. Assign one of the following workspace-scoped roles to the workspace members so they can manage workspace APIs and other resources: 
 
     * **API Management Workspace Reader**
     * **API Management Workspace Contributor**
@@ -108,7 +142,7 @@ To manage the workspace gateway, we recommend also assigning workspace users an 
 
 ### Assign a gateway-scoped role
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your API Management instance.
+1. Sign in to the [Azure portal](https://portal.azure.com), and go to your API Management instance.
 
 1. In the left menu, under **APIs**, select **Workspaces**  > the name of your workspace.
 
@@ -116,7 +150,7 @@ To manage the workspace gateway, we recommend also assigning workspace users an 
 
 1. In the left menu, select **Access control (IAM)** > **+ Add**.
 
-1. Assign one of the following roles to each member of the workspace. At minimum, we recommend assigning the **Reader** role to view the gateway's settings. **Owners** and **Contributors** can manage the gateway's settings including scaling the gateway.
+1. Assign one of the following roles to each member of the workspace. At minimum, assign the **Reader** role to view the gateway's settings. **Owners** and **Contributors** can manage the gateway's settings, including scaling the gateway.
     
     * **Owner**
     * **Contributor**
@@ -124,46 +158,46 @@ To manage the workspace gateway, we recommend also assigning workspace users an 
 
 ## Enable diagnostic settings for monitoring workspace APIs
 
-Configure settings to collect Azure Monitor logs for the workspace and send them to a Log Analytics workspace so that the workspace team can monitor their own APIs while the API platform team can access centralized logs for the API Management instance. See the following diagram:
+Configure settings to collect Azure Monitor logs for the workspace and send them to a Log Analytics workspace. The workspace team can monitor their own APIs while the API platform team can access centralized logs for the API Management instance. See the following diagram:
 
 :::image type="content" source="media/how-to-create-workspace/federated-logs.png" alt-text="Diagram of federated logging in API Management.":::
 
-To collect Azure Monitor logs for the workspace, diagnostic settings are needed at both the service and workspace levels:
+To collect Azure Monitor logs for the workspace, you need diagnostic settings at both the service and workspace levels:
 
-1. First, enable a diagnostics setting at the *service level* for collection of API Management gateway logs, if a setting isn't already enabled. We recommend sending logs to a Log Analytics workspace. For more information, see [Configure diagnostic settings for API Management](api-management-howto-use-azure-monitor.md#resource-logs).
+1. First, enable a diagnostic setting at the *service level* for collection of API Management gateway logs, if a setting isn't already enabled. Send logs to a Log Analytics workspace. For more information, see [Configure diagnostic settings for API Management](api-management-howto-use-azure-monitor.md#resource-logs).
 
-1. Then, enable a diagnostics setting at the *workspace level* to send API Management gateway logs to the same Log Analytics workspace. This setting collects logs for all workspace gateways associated with the workspace. 
+1. Then, enable a diagnostic setting at the *workspace level* to send API Management gateway logs to the same Log Analytics workspace. This setting collects logs for all workspace gateways associated with the workspace. 
 
     > [!IMPORTANT]
-    > A diagnostic setting at the service level configures logging across the API Management instance, including workspaces that have a workspace-level diagnostic setting enabled. If you don't enable a workspace-level diagnostic setting, the workspace's gateway logs won't be collected or aggregated into Log Analytics.
+    > A diagnostic setting at the service level configures logging across the API Management instance, including workspaces that have a workspace-level diagnostic setting enabled. If you don't enable a workspace-level diagnostic setting, the workspace's gateway logs aren't collected or aggregated into Log Analytics.
 
     > [!NOTE]
     > By default, members of the workspace team assigned the built-in workspace RBAC roles don't have permissions to edit diagnostic settings in a workspace. The API platform team has those permissions. 
 
 To configure a workspace diagnostic setting for collection of workspace-level gateway logs:
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and navigate to your API Management instance.
+1. Sign in to the [Azure portal](https://portal.azure.com), and go to your API Management instance.
 
 1. In the left menu, under **APIs**, select **Workspaces**  > the name of your workspace.
 
 1. In the left menu of the workspaces, under **Monitoring**, select **Diagnostic settings** > **+ Add diagnostic setting**.
 
-1. On the **Diagnostic setting** page, enter or select details for the setting:
+1. On **Diagnostic setting**, enter or select details for the setting:
 
     1. **Diagnostic setting name**: Enter a descriptive name.
     1. **Category groups**: Optionally make a selection for your scenario.
-    1. Under **Categories**: Select **Logs related to ApiManagement Gateway** to collect gateway logs for APIs in this workspace.
+    1. Under **Categories**, select **Logs related to ApiManagement Gateway** to collect gateway logs for APIs in this workspace.
     1. Under **Destination details**, select to send logs to the same Azure Log Analytics workspace specified in the service-level diagnostic setting and in other workspace-level diagnostic settings. 
     1. Select **Save**.
 
 > [!NOTE]
-> * Currently, only gateway logs can be collected for workspaces.
-> * Access workspace-level logs by navigating to **Monitoring** > **Logs** in the left menu of the workspace.
+> * Currently, you can only collect gateway logs for workspaces.
+> * You can access workspace-level logs by going to **Monitoring** > **Logs** in the left menu of the workspace.
     
 
 ## Get started with your workspace
 
-Depending on their role in the workspace, users might have permissions to create APIs, products, subscriptions, and other resources, or they might have read-only access to some or all of them.
+Depending on their role in the workspace, users might have permissions to create APIs, products, subscriptions, and other resources, or they might have read-only access to some or all of these resources.
 
 To get started managing, protecting, and publishing APIs in a workspace, see the following guidance.
 

@@ -61,12 +61,12 @@ Azure Storage is one of the "bring your own" storage providers for Durable Funct
 The key benefits of the Azure Storage provider include:
 
 - No setup required - you can use the storage account that was created for you by the function app setup experience.
-- Lowest-cost serverless billing model - Azure Storage has a consumption-based pricing model based entirely on usage ([more information](../../azure-functions/durable-functions/durable-functions-billing.md#azure-storage-transactions)).
+- Lowest-cost serverless billing model - Azure Storage has a consumption-based pricing model based entirely on usage ([more information](../durable-functions/durable-functions-billing.md#azure-storage-transactions)).
 - Best tooling support - Azure Storage offers cross-platform local emulation and integrates with Visual Studio, Visual Studio Code, and the Azure Functions Core Tools.
 - Most mature - Azure Storage was the original and most battle-tested storage backend for Durable Functions.
 - Support for using identity instead of secrets for connecting to the storage provider.
 
-The Azure Storage provider doesn't require any explicit configuration, NuGet package references, or extension bundle references. For detailed configuration options, including connections, identity-based authentication, and host.json settings, see [Azure Storage provider for Durable Functions](../../azure-functions/durable-functions/durable-functions-azure-storage-provider.md).
+The Azure Storage provider doesn't require any explicit configuration, NuGet package references, or extension bundle references. For detailed configuration options, including connections, identity-based authentication, and host.json settings, see [Azure Storage provider for Durable Functions](../durable-functions/durable-functions-azure-storage-provider.md).
 
 ## <a name="mssql"></a>Microsoft SQL Server (MSSQL)
 
@@ -122,7 +122,7 @@ You can use the following table to understand the significant tradeoffs between 
 | Price-performance configurable? | Coming soon! | ❌ No | ✅ Yes (SQL vCPUs) | ✅ Yes (Event Hubs TUs and CUs) | 
 | Disconnected environment support | ❌ Azure connectivity required | ❌ Azure connectivity required | ✅ Fully supported | ❌ Azure connectivity required |
 | Identity-based connections | ✅ Fully supported | ✅ Fully supported | ⚠️ Requires runtime-driven scaling | ❌ Not supported |
-| [Flex Consumption plan](../../azure-functions/flex-consumption-plan.md) | ✅ Fully supported | ✅ Fully supported ([see notes](../../azure-functions/durable-functions/durable-functions-azure-storage-provider.md#flex-consumption-plan)) | ✅ Fully supported | ❌ Not supported |
+| [Flex Consumption plan](../../azure-functions/flex-consumption-plan.md) | ✅ Fully supported | ✅ Fully supported ([see notes](../durable-functions/durable-functions-azure-storage-provider.md#flex-consumption-plan)) | ✅ Fully supported | ❌ Not supported |
 
 ::: zone-end
 
@@ -131,7 +131,7 @@ You can use the following table to understand the significant tradeoffs between 
 ::: zone pivot="durable-functions"
 
 > [!div class="nextstepaction"]
-> [Durable Functions performance and scale](../../azure-functions/durable-functions/durable-functions-perf-and-scale.md)
+> [Durable Functions performance and scale](../durable-functions/durable-functions-perf-and-scale.md)
 
 ::: zone-end
 
