@@ -1,7 +1,10 @@
 ﻿---
 title: Best practices for the Flash Optimized tier
 description: Learn about the Flash Optimized tier in Azure Managed Redis, including SKU sizes, features, best practices, and common issues.
-ms.date: 04/30/2026
+ms.date: 06/01/2026
+author: flang-msft
+ms.author: franlanglois
+ms.reviewer: franlanglois
 ms.topic: conceptual
 ai-usage: ai-assisted
 ms.custom:
@@ -13,17 +16,17 @@ appliesto:
 
 # Best practices for the Flash Optimized tier
 
-The Flash Optimized tier in Azure Managed Redis enables cost-effective scaling for very large datasets by automatically moving less-frequently accessed data from memory (RAM) to fast NVMe flash storage. Hot data stays in RAM for low-latency access, while colder data resides on NVMe and is transferred to RAM when accessed. This tier offers a lower cost per GB than purely in-memory tiers.
+The Flash Optimized tier in Azure Managed Redis enables cost-effective scaling for large datasets by automatically moving less-frequently accessed data from memory (RAM) to fast NVMe flash storage. Hot data stays in RAM for low-latency access, while colder data resides on NVMe and is transferred to RAM when accessed. This tier offers a lower cost per GB than purely in-memory tiers.
 
 ## How Flash Optimized works
 
 Azure Managed Redis Flash Optimized uses a tiered storage approach:
 
-- **Hot data** - Frequently accessed keys and values stay in DRAM for sub-millisecond latency.
-- **Cold data** - Less frequently accessed data is automatically moved to local NVMe storage on the host VM and transferred back to RAM when accessed.
+- **Hot data** - Frequently accessed keys and values stay in DRAM for submillisecond latency.
+- **Cold data** - Less frequently accessed data is automatically moved to local NVMe storage on the host virtual machine (VM) and transferred back to RAM when accessed.
 - **Managed for clients** - The tiering is fully managed. Clients interact with the cache by using standard Redis commands without awareness of where data physically resides.
 
-This architecture allows you to maintain caches in the terabyte range at a significantly lower cost compared to all-in-memory deployments.
+This architecture allows you to maintain caches in the terabyte range at a lower cost compared to all-in-memory deployments.
 
 > [!NOTE]
 > Storing data on NVMe through Flash Optimized doesn't increase data resiliency. For durability, configure [data persistence](how-to-persistence) (RDB or AOF) in addition to Flash storage.
@@ -32,7 +35,7 @@ This architecture allows you to maintain caches in the terabyte range at a signi
 
 Use Flash Optimized for scenarios where:
 
-- Your dataset is very large (hundreds of GB to multiple TB).
+- Your dataset is large (hundreds of GB to multiple TB).
 - A significant portion of data is accessed infrequently ("cold").
 - You need Redis semantics and performance for hot data, but want to avoid the cost of keeping everything in DRAM.
 - Your workload can tolerate slightly higher latency on cold-data reads compared to in-memory tiers.
@@ -74,13 +77,13 @@ The following table summarizes feature availability on the Flash Optimized tier:
 | RedisJSON | Γ£à |
 | Import/Export | Γ£à |
 | Active geo-replication | Γ¥î |
-| Non-clustered instances | Γ¥î |
+| Nonclustered instances | Γ¥î |
 | RediSearch / vector search | Γ¥î |
 | RedisBloom | Γ¥î |
 | RedisTimeSeries | Γ¥î |
 
 > [!IMPORTANT]
-> RedisJSON is the only module supported on the Flash Optimized tier. Active geo-replication, non-clustered mode, RediSearch/vector search, RedisBloom, and RedisTimeSeries aren't supported.
+> RedisJSON is the only module supported on the Flash Optimized tier. Active geo-replication, nonclustered mode, RediSearch/vector search, RedisBloom, and RedisTimeSeries aren't supported.
 
 For a full comparison of features across all Azure Managed Redis tiers, see [What is Azure Managed Redis?](overview)
 
@@ -148,7 +151,7 @@ To mitigate this problem, break large values into smaller keys, and use compress
 
 ### Small values and Flash efficiency
 
-Very small values (where value size is close to or smaller than key name size) also perform poorly on Flash because there's not enough data to offload. RoF works best when value size is larger than key name size, but not excessively large.
+Small values (where value size is close to or smaller than key name size) also perform poorly on Flash because there's not enough data to offload. RoF works best when value size is larger than key name size, but not excessively large.
 
 ## Migration from Azure Cache for Redis
 
