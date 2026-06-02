@@ -970,7 +970,7 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | `Microsoft.CognitiveServices/accounts/Language/generate/action` | Language generation. |
 > | `Microsoft.CognitiveServices/accounts/Language/analyze-conversation/jobscancel/action` | Cancel a long-running analysis job on conversation. |
 > | `Microsoft.CognitiveServices/accounts/Language/analyze-conversation/jobs/action` | Submit a long conversation for analysis. Specify one or more unique tasks to be executed as a long-running operation. |
-> | `Microsoft.CognitiveServices/accounts/Language/analyze-conversation/jobs/read` | Get the status of an analysis job.  A job may consist of one or more tasks.  Once all tasks are succeeded, the job will transition to the suceeded state and results will be available for each task. |
+> | `Microsoft.CognitiveServices/accounts/Language/analyze-conversation/jobs/read` | Get the status of an analysis job.  A job may consist of one or more tasks.  Once all tasks are succeeded, the job will transition to the succeeded state and results will be available for each task. |
 > | `Microsoft.CognitiveServices/accounts/Language/analyze-conversations/jobscancel/action` | Cancel a long-running analysis job on conversation. |
 > | `Microsoft.CognitiveServices/accounts/Language/analyze-conversations/jobs/action` | Submit a long conversation for analysis. Specify one or more unique tasks to be executed as a long-running operation. |
 > | `Microsoft.CognitiveServices/accounts/Language/analyze-conversations/internal/projects/run-gpt/action` | Trigger GPT job. |
@@ -981,7 +981,7 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | `Microsoft.CognitiveServices/accounts/Language/analyze-conversations/internal/projects/models/modelguidance/read` | Get trained model guidance. |
 > | `Microsoft.CognitiveServices/accounts/Language/analyze-conversations/internal/projects/run-gpt/jobs/read` | Get GPT prediction jobs. Get GPT predictions status and result details.* |
 > | `Microsoft.CognitiveServices/accounts/Language/analyze-conversations/internal/projects/submit-gpt-prediction-decisions/jobs/read` | Get submit GPT prediction decisions job status and result details. |
-> | `Microsoft.CognitiveServices/accounts/Language/analyze-conversations/jobs/read` | Get the status of an analysis job.  A job may consist of one or more tasks.  Once all tasks are succeeded, the job will transition to the suceeded state and results will be available for each task. |
+> | `Microsoft.CognitiveServices/accounts/Language/analyze-conversations/jobs/read` | Get the status of an analysis job.  A job may consist of one or more tasks.  Once all tasks are succeeded, the job will transition to the succeeded state and results will be available for each task. |
 > | `Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/write` | Creates a new or update a project. |
 > | `Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/delete` | Deletes a project. |
 > | `Microsoft.CognitiveServices/accounts/Language/analyze-conversations/projects/read` | Gets a project info. Returns the list of projects.* |
