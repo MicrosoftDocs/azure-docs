@@ -188,7 +188,7 @@ client.geo_catalogs.begin_delete(
 print("GeoCatalog deleted successfully.")
 ```
 
-For more information, see the [Python SDK reference](/python/api/azure-mgmt-planetarycomputer).
+For more information, see the [Python SDK reference](/python/api/overview/azure/mgmt-planetarycomputer-readme).
 
 ## Next Steps
 - [Get Started With Microsoft Planetary Computer Pro](./get-started-planetary-computer.md)

@@ -348,7 +348,7 @@ catalog = client.geo_catalogs.begin_create(
 print(f"GeoCatalog '{catalog.name}' deployed successfully.")
 ```
 
-For more information, see the [Python SDK reference](/python/api/azure-mgmt-planetarycomputer).
+For more information, see the [Python SDK reference](/python/api/overview/azure/mgmt-planetarycomputer-readme).
 
 ## Next Steps
 - [Create a STAC Collection](./create-collection-web-interface.md)

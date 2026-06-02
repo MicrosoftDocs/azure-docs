@@ -311,7 +311,7 @@ client.geo_catalogs.begin_update(
 print("Managed identity assigned successfully.")
 ```
 
-For more information, see the [Python SDK reference](/python/api/azure-mgmt-planetarycomputer).
+For more information, see the [Python SDK reference](/python/api/overview/azure/mgmt-planetarycomputer-readme).
 
 # [Go](#tab/go)
 ## Use the Go SDK to assign a user-assigned managed identity

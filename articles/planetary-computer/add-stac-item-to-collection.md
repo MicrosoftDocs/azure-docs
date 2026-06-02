@@ -203,7 +203,7 @@ poller = client.stac.begin_delete_item(collection_id=collection_id, item_id=item
 poller.result()  # Wait for deletion to complete
 ```
 
-For more information, see the [Python SDK reference](/python/api/azure-planetarycomputer).
+For more information, see the [Python SDK reference](/python/api/overview/azure/planetarycomputer-readme).
 
 ---
 

@@ -94,6 +94,6 @@ print(f"SAS Token: {sas_token}")
 
 The `sas_token` variable contains the token string you can pass into applications that need to retrieve collection-level assets.
 
-For more information, see the [Python SDK reference](/python/api/azure-planetarycomputer).
+For more information, see the [Python SDK reference](/python/api/overview/azure/planetarycomputer-readme).
 
 ---

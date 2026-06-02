@@ -259,7 +259,7 @@ ingestion_source = client.ingestion.create_source({
 print("Ingestion source created successfully")
 ```
 
-For more information, see the [Python SDK reference](/python/api/azure-planetarycomputer).
+For more information, see the [Python SDK reference](/python/api/overview/azure/planetarycomputer-readme).
 
 ---
 

@@ -300,7 +300,7 @@ client.stac.create_render_option(collection_id, render_config)
 print("Render configuration updated successfully.")
 ```
 
-For more information, see the [Python SDK reference](/python/api/azure-planetarycomputer).
+For more information, see the [Python SDK reference](/python/api/overview/azure/planetarycomputer-readme).
 
 ---
 

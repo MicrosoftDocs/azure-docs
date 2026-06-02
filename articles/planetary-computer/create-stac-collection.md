@@ -309,7 +309,7 @@ poller.result()  # Wait for deletion to complete
 > [!WARNING]
 > If you delete a collection, you must wait at least 45 seconds before attempting to create a new collection with an identical name / ID.
 
-For more information, see the [Python SDK reference](/python/api/azure-planetarycomputer).
+For more information, see the [Python SDK reference](/python/api/overview/azure/planetarycomputer-readme).
 
 ---
 
