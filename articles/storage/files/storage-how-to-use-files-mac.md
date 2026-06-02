@@ -24,7 +24,7 @@ ms.author: kendownie
 
 * **Storage account name**: To mount an Azure file share, you need the name of the storage account.
 
-* **Storage account key**: If you're using [identity-based authentication](identity-kerberos-authentication-macos.md) (recommended), you don't need the storage account key. If identity-based authentication isn't configured on the storage account, you need the primary (or secondary) storage account key.
+* **Storage account key (not recommended)**: If you're using [identity-based authentication](identity-kerberos-authentication-macos.md) (recommended), you don't need the storage account key. If identity-based authentication isn't configured on the storage account, you need the primary (or secondary) storage account key.
 
 ## Mount an Azure file share via Finder
 
