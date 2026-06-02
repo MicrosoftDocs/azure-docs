@@ -5,7 +5,7 @@ description: Host your MCP server on Azure Functions with ease. Learn to configu
 #customer intent: As a developer, I want to enable Microsoft Entra ID authentication for my MCP server so that I can ensure secure access for authorized users.
 ms.author: jiayma
 ms.topic: tutorial
-ms.date: 11/14/2025
+ms.date: 06/02/2026
 ms.update-cycle: 180-days
 ms.collection: 
   - ce-skilling-ai-copilot 
@@ -274,55 +274,7 @@ func start
 >[!TIP]
 >In the Copilot chat window, select the tool icon in the bottom to see the list of servers and tools available for the chat. Ensure the local MCP server is checked when testing.
 ::: zone-end  
-## Remote MCP server authorization 
-
-There are two ways to reduce or prevent unauthorized use of your remote MCP server endpoints: 
-
-| Method | Description |
-| ----- | ----- |
-| Built-in server authentication (preview) | Functions includes built-in [App Service authentication and authorization](../app-service/overview-authentication-authorization.md) that implements the OAuth requirements of the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) protocol. Clients attempting to access the server are redirected to a configured identity provider, such as Microsoft Entra ID, for authentication before being allowed to connect. This method provides the highest level of security for your tool endpoints. |
-| Key-based authentication | By default, Functions implements an access key requirement so that clients attempting to use MCP server tools must present a shared secret key value in the request header. While not providing the same level of security as OAuth-based authentication, access keys make it harder to access public tools. Use an `Anonymous` access level to disable access keys in your server when using OAuth-based authentication. |
-
->[!NOTE]
->This tutorial contains detailed configuration instructions for the built-in server authorization and authentication feature, which might also be referred to as _App Service Authentication_ in other articles. You can find an overview of the feature and some usage guidance in the [Configure built-in server authorization (preview)](../app-service/configure-authentication-mcp.md) article.
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
-## Disable key-based authentication  
-
-The built-in server authorization feature is a component separate from Azure Functions. When using server authentication, disable key-based authentication by allowing anonymous access first. 
-
-### [MCP extension server](#tab/mcp-extension)
-
-To disable host-based authentication in your MCP server, set `system.webhookAuthorizationLevel` to `Anonymous` in the `host.json` file:
-
-```json
-{
-  "version": "2.0",
-  "extensions": {
-    "mcp": {
-      ...
-      "system": {
-        "webhookAuthorizationLevel": "Anonymous"
-      }
-    }    
-  }
-}
-```
-
-### [Self-hosted server](#tab/self-hosted)
-
-To disable host-based authentication for self-hosted MCP servers, add the following code in the `customHandler` section of the `host.json` file:
-
-```json
-"customHandler": {
-    ...
-    "http": {
-        "DefaultAuthorizationLevel": "anonymous"
-    }
-}
-```
-
----
-
 ## Create the function app in Azure
 
 Create a function app in the Flex Consumption plan in Azure that hosts your MCP server.
@@ -364,11 +316,182 @@ Now you can deploy the server project:
 
 When deployment finishes, you should see a notification in Visual Studio Code about connecting to the server. Select the **Connect** button to have the editor set up server connection information in `mcp.json`.
 ::: zone-end  
-## Enable built-in server authorization and authentication
+## Remote MCP server authorization 
 
-The following instruction shows how to enable the built-in authorization and authentication feature on the server app and configures Microsoft Entra ID as the identity provider. When done, you test by connecting to the server in Visual Studio Code and see that you're prompted to authenticate before connecting. 
+There are two ways to reduce or prevent unauthorized use of your remote MCP server endpoints: 
 
-When enabling built-in auth, you should [disable the default key-based auth](#disable-key-based-authentication) first. If you haven't done that and your app is already deployed, follow the instructions below. 
+| Method | Description |
+| ----- | ----- |
+| Built-in server authentication (preview) | Functions includes built-in [App Service authentication and authorization](../app-service/overview-authentication-authorization.md) that implements the OAuth requirements of the [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization) protocol. Clients attempting to access the server are redirected to a configured identity provider, such as Microsoft Entra ID, for authentication before being allowed to connect. This method provides the highest level of security for your tool endpoints. |
+| Key-based authentication | By default, Functions implements an access key requirement so that clients attempting to use MCP server tools must present a shared secret key value in the request header. While not providing the same level of security as OAuth-based authentication, access keys make it harder to access public tools. Use an `Anonymous` access level to disable access keys in your server when using OAuth-based authentication. |
+
+>[!NOTE]
+>This tutorial contains detailed configuration instructions for the built-in server authorization and authentication feature, which might also be referred to as _App Service Authentication_ in other articles. You can find an overview of the feature and some usage guidance in the [Configure built-in server authorization (preview)](../app-service/configure-authentication-mcp.md) article.
+
+## Enable built-in MCP authentication in Azure portal 
+
+The Azure portal provides a one-click experience to configure built-in authentication and authorization for your MCP server. This preview feature automatically creates and configures Microsoft Entra ID as the identity provider, registers the required client applications, and adds the required app settings for you.
+
+Turning on built-in MCP auth using this feature will **automatically** turn off the default key-based access to the server. 
+
+1. Open your server app in the Azure portal.
+
+1. On the left menu, find the **AI (preview)** tab.
+
+1. Find the **Authentication** section in the _MCP server_ tab. Click **Turn on MCP authentication**. 
+
+1. In the opened side pane, enter a unique Entra app registration name. This app is required to set up authentication. 
+
+1. Click **Save** and wait for the configuration to complete. 
+
+> [!NOTE]
+> If you prefer to set up authentication manually, see [Manually configure built-in authentication](#manually-configure-built-in-authentication).
+
+## Connect to server
+
+Open `mcp.json` inside the `.vscode` directory.
+
+When you select **Connect** in the pop-up after deployment, Visual Studio Code populates the file with server connection information. 
+
+If you miss that step, you can also open **Output** (`Ctrl/Cmd+Shift+U`) to find the in-line connection button at the end of deployment logs. 
+
+You can also manually add connection information:
+
+1. Get the server domain by running the following command:
+
+    ```shell
+    az functionapp show --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --query "defaultHostName" --output tsv
+    ```
+1. In Visual Studio Code, open command palette, search for and run the **MCP: Add Server...** command, and then follow these prompts:
+
+    ### [MCP extension server](#tab/mcp-extension)
+
+    | Prompt | Suggestion |
+    | --- | --- |
+    | Type of server to be added | **HTTP** |
+    | URL of your MCP server | `https://<FUNCTION_APP_NAME>.azurewebsites.azurewebsites.net/runtime/webhooks/mcp` |
+    | **Server name** | **remote-mcp-server** |
+    | Where to install the server | **Workspace** |
+
+    ### [Self-hosted server](#tab/self-hosted)
+    
+    | Prompt | Suggestion |
+    | --- | --- |
+    | Type of server to be added | **HTTP** |
+    | URL of your MCP server | `https://<FUNCTION_APP_NAME>.azurewebsites.azurewebsites.net/mcp` |
+    | **Server name** | **remote-mcp-server** |
+    | Where to install the server | **Workspace** |
+
+    ---
+
+1. Visual Studio Code opens the `mcp.json` setting file for you. 
+
+Follow the instructions in the next section to connect to server depending on how you configured the authentication.
+
+### With built-in authentication and authorization 
+
+1. Start the remote server by selecting the **Start** button above the server name. 
+
+1. When prompted about authentication with Microsoft, select **Allow**, then sign in with your email (the one used to log into Azure portal). 
+
+1. When you successfully connect to the server, you see the number of tools available above the server name. 
+
+1. Open Visual Studio Code Copilot chat in agent mode, then ask a question. For example, `Greet with #your-remote-mcp-server-name`.
+
+1. Stop server when finish testing.
+
+To understand in detail what happens when Visual Studio Code tries to connect to the remote MCP server, see [Server authorization protocol](#server-authorization-protocol). 
+
+### With access key
+
+If you don't enable built-in authentication and authorization and instead want to connect to your MCP server by using an access key, the `mcp.json` should contain Functions access key in the request headers of a server registration. 
+
+### [MCP extension server](#tab/mcp-extension)
+The `mcp.json` file should look like the following example: 
+
+```json
+{
+	"servers": {
+		"remote-mcp-server": {
+			"type": "http",
+			"url": "https://${input:functionapp-domain}/runtime/webhooks/mcp",
+			"headers": {
+				"x-functions-key": "${input:functions-key}"
+			}
+		}
+	},
+	"inputs": [
+		{
+			"type": "promptString",
+			"id": "functions-key",
+			"description": "Functions App Key",
+			"password": true
+		},
+		{
+			"type": "promptString",
+			"id": "functionapp-domain",
+			"description": "The domain of the function app.",
+			"password": false
+		}
+	]
+}
+```
+
+To find the access key, go to the Function app on Azure portal. On the left menu, find **Functions -> App keys**. Under the System keys section, find the one named _mcp_extension_. 
+
+### [Self-hosted server](#tab/self-hosted)
+The `mcp.json` file should look like the following example: 
+
+```json
+{
+	"servers": {
+		"remote-mcp-server": {
+			"type": "http",
+			"url": "https://${input:functionapp-domain}/mcp",
+			"headers": {
+				"x-functions-key": "${input:functions-key}"
+			}
+		}
+	},
+	"inputs": [
+		{
+			"type": "promptString",
+			"id": "functions-key",
+			"description": "Functions App Key",
+			"password": true
+		},
+		{
+			"type": "promptString",
+			"id": "functionapp-domain",
+			"description": "The domain of the function app.",
+			"password": false
+		}
+	]
+}
+```
+
+To find the access key, go to the Function app on Azure portal. On the left menu, find **Functions -> App keys**. Under the **Host keys (all functions)** section, find the key named _default_. 
+
+---
+
+>[!TIP]
+> To see connection logs, go to the server name, then select **More** > **Show Output**. For more details on the interaction between the client (Visual Studio Code) and the remote MCP server, select the gear icon and pick **Trace**. 
+>
+> :::image type="content" source="./media/functions-mcp/trace-log-setting.png" alt-text="Screenshot of the MCP server settings showing the _Trace_ log level being selected. ":::
+
+## Configure Microsoft Foundry agent to use your tools
+
+You can configure an agent in Microsoft Foundry to use the tools exposed by your MCP server hosted on Azure Functions. For step-by-step instructions, see [Use Azure Functions MCP servers as tools in Microsoft Foundry](functions-mcp-foundry-tools.md).
+
+## Register the server in Azure API Center
+
+You can register your MCP server in Azure API Center to maintain an inventory of remote MCP servers that are easily discoverable across your organization. For step-by-step instructions, see [Register MCP servers hosted in Azure Functions in Azure API Center](register-mcp-server-api-center.md).
+
+## Manually configure built-in authentication
+
+The following instructions show how to manually enable the built-in authorization and authentication feature on the server app and configure Microsoft Entra ID as the identity provider. Use these steps if you prefer not to use the [one-click portal experience](#enable-built-in-mcp-authentication-in-the-azure-portal-preview).
+
+When enabling built-in auth, disable the default key-based authentication first by allowing anonymous access. If you haven't done that and your app is already deployed, follow the instructions below.
 
 ### [MCP extension server](#tab/mcp-extension)
 [!INCLUDE [functions-mcp-extension-disable-key-access](../../includes/functions-mcp-extension-disable-key-access.md)]
@@ -435,168 +558,6 @@ When enabling built-in auth, you should [disable the default key-based auth](#di
 
 1. Also in the **Expose an API** view, find the **Application ID URI** (looks like `api://abcd123-efg456-hijk-7890123`) on the top and save for later step.
 
-## Connect to server
-
-Open `mcp.json` inside the `.vscode` directory.
-
-When you select **Connect** in the pop-up after deployment, Visual Studio Code populates the file with server connection information. 
-
-If you miss that step, you can also open **Output** (`Ctrl/Cmd+Shift+U`) to find the in-line connection button at the end of deployment logs. 
-
-You can also manually add connection information:
-
-1. Get the server domain by running the following command:
-
-    ```shell
-    az functionapp show --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --query "defaultHostName" --output tsv
-    ```
-1. In Visual Studio Code, open command palette, search for and run the **MCP: Add Server...** command, and then follow these prompts:
-
-    ### [MCP extension server](#tab/mcp-extension)
-
-    | Prompt | Suggestion |
-    | --- | --- |
-    | Type of server to be added | **HTTP** |
-    | URL of your MCP server | `https://<FUNCTION_APP_NAME>.azurewebsites.azurewebsites.net/runtime/webhooks/mcp` |
-    | **Server name** | **remote-mcp-server** |
-    | Where to install the server | **Workspace** |
-
-    ### [Self-hosted server](#tab/self-hosted)
-    
-    | Prompt | Suggestion |
-    | --- | --- |
-    | Type of server to be added | **HTTP** |
-    | URL of your MCP server | `https://<FUNCTION_APP_NAME>.azurewebsites.azurewebsites.net/mcp` |
-    | **Server name** | **remote-mcp-server** |
-    | Where to install the server | **Workspace** |
-
-    ---
-
-1. Visual Studio Code opens the `mcp.json` setting file for you. 
-
-Follow the instructions in the next section to connect to server depending on how you configured the authentication.
-
-### With built-in authentication and authorization 
-
-1. Start the remote server by selecting the **Start** button above the server name. 
-
-1. When prompted about authentication with Microsoft, select **Allow**, then sign in with your email (the one used to log into Azure portal). 
-
-1. When you successfully connect to the server, you see the number of tools available above the server name. 
-
-1. Open Visual Studio Code Copilot chat in agent mode, then ask a question. For example, `Greet with #your-remote-mcp-server-name`.
-
-1. Stop server when finish testing.
-
-To understand in detail what happens when Visual Studio Code tries to connect to the remote MCP server, see [Server authorization protocol](#server-authorization-protocol). 
-
-### With access key
-
-If you don't enable built-in authentication and authorization and instead want to connect to your MCP server by using an access key, the `mcp.json` should contain Functions access key in the request headers of a server registration. 
-
-Visual Studio automatically populates the access key when you start the server. 
-
-### [MCP extension server](#tab/mcp-extension)
-The `mcp.json` file should look like the following example: 
-
-```json
-{
-	"servers": {
-		"remote-mcp-server": {
-			"type": "http",
-			"url": "https://${input:functionapp-domain}/runtime/webhooks/mcp",
-			"headers": {
-				"x-functions-key": "${input:functions-key}"
-			}
-		}
-	},
-	"inputs": [
-		{
-			"type": "promptString",
-			"id": "functions-key",
-			"description": "Functions App Key",
-			"password": true
-		},
-		{
-			"type": "promptString",
-			"id": "functionapp-domain",
-			"description": "The domain of the function app.",
-			"password": false
-		}
-	]
-}
-```
-
-If you want to find the access key yourself, go to the Function app on Azure portal. On the left menu, find **Functions -> App keys**. Under the System keys section, find the one named _mcp_extension_. 
-
-### [Self-hosted server](#tab/self-hosted)
-The `mcp.json` file should look like the following example: 
-
-```json
-{
-	"servers": {
-		"remote-mcp-server": {
-			"type": "http",
-			"url": "https://${input:functionapp-domain}/mcp",
-			"headers": {
-				"x-functions-key": "${input:functions-key}"
-			}
-		}
-	},
-	"inputs": [
-		{
-			"type": "promptString",
-			"id": "functions-key",
-			"description": "Functions App Key",
-			"password": true
-		},
-		{
-			"type": "promptString",
-			"id": "functionapp-domain",
-			"description": "The domain of the function app.",
-			"password": false
-		}
-	]
-}
-```
-
-To find the access key, go to the Function app on Azure portal. On the left menu, find **Functions -> App keys**. Under the **Host keys (all functions)** section, find the key named _default_. 
-
----
-
->[!TIP]
-> To see connection logs, go to the server name, then select **More** > **Show Output**. For more details on the interaction between the client (Visual Studio Code) and the remote MCP server, select the gear icon and pick **Trace**. 
->
-> :::image type="content" source="./media/functions-mcp/trace-log-setting.png" alt-text="Screenshot of the MCP server settings showing the _Trace_ log level being selected. ":::
-
-## Configure Microsoft Foundry agent to use your tools
-
-You can configure an [agent on Foundry](/azure/ai-foundry/agents/quickstart) to use tools exposed by MCP servers hosted on Azure Functions.
-
-1. In the Foundry portal, find the agent you want to configure with MCP servers hosted on Functions. 
-
-1. Under **Tools**, select the **Add** button, then select **+ Add a new tool**.
-
-1. Select the **Custom** tab, then select **Model Context Protocol (MCP)** and the **Create** button.
-
-1. Fill in the following information:
-
-    - Name: Name of the server
-    - Remote MCP Server endpoint: 
-        - MCP extension server: `https://<server domain>/runtime/webhooks/mcp`
-        - Self-hosted server: `https://<server domain>/mcp`
-    - Authentication: Choose "Microsoft Entra"
-    - Type: Choose "Project Managed Identity" 
-    - Audience: This is the Entra App ID URI from [Configure protected resource metadata](#configure-protected-resource-metadata-preview)
-
-    For example:
-
-    :::image type="content" source="./media/functions-mcp/foundry-agent-config.png" alt-text="Diagram showing Foundry agent configuration for connecting to MCP server.":::
-
-1. Select **Connect**.
-
-1. Test by asking a question that can be answered with the help of a server tool in the chat window. 
-
 ## Server authorization protocol
 
 In the debug output from Visual Studio Code, you see a series of requests and responses as the MCP client and server interact. When you use the built-in MCP server authorization, you see the following sequence of events:
@@ -613,11 +574,9 @@ In the debug output from Visual Studio Code, you see a series of requests and re
 
 ## Troubleshooting
 
-If you run into trouble, ask GitHub Copilot for help. Here are some specific ideas for troubleshooting:
-
 ### [MCP extension server](#tab/mcp-extension)
 
-No other ideas at this time. Remember to ask Copilot chat about any errors that occur.
+Ask Copilot chat about any errors that occur.
 
 ### [Self-hosted server](#tab/self-hosted)
 
