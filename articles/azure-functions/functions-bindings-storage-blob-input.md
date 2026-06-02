@@ -31,6 +31,10 @@ For information on setup and configuration details, see the [overview](./functio
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
@@ -39,7 +43,7 @@ For information on setup and configuration details, see the [overview](./functio
 
 # [Isolated process](#tab/isolated-process)
 
-The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated worker process and uses a blob trigger with both blob input and blob output blob bindings. The function is triggered by the creation of a blob in the *test-samples-trigger* container. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
+The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated worker process and uses a blob trigger with both blob input and blob output blob bindings. The creation of a blob in the *test-samples-trigger* container triggers the function. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="9-26":::
 
@@ -116,7 +120,7 @@ This section contains the following examples:
   }
 ```
 
-In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@BlobInput` annotation on parameters whose value would come from a blob. This annotation can be used with native Java types, POJOs, or nullable values using `Optional<T>`.
+In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@BlobInput` annotation on parameters whose value would come from a blob. This annotation can be used with native Java types, plain old Java objects (POJOs), or nullable values using `Optional<T>`.
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
@@ -125,7 +129,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 [!INCLUDE [functions-blob-storage-sdk-types-node](../../includes/functions-blob-storage-sdk-types-node.md)]
 
-The following example shows a queue triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
+The following example shows a queue triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that makes a copy of a blob. A queue message that contains the name of the blob to copy triggers the function. The new blob is named *{originalblobname}-Copy*.
 
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageBlobInputAndOutput1.ts" :::
 
@@ -140,13 +144,13 @@ TypeScript samples are not documented for model v3.
 
 # [Model v4](#tab/nodejs-v4)
 
-The following example shows a queue triggered [JavaScript function](functions-reference-node.md) that makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
+The following example shows a queue triggered [JavaScript function](functions-reference-node.md) that makes a copy of a blob. A queue message that contains the name of the blob to copy triggers the function. The new blob is named *{originalblobname}-Copy*.
 
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageBlobInputAndOutput1.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 
-The following example shows blob input and output bindings in a *function.json* file and [JavaScript code](functions-reference-node.md) that uses the bindings. The function makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
+The following example shows blob input and output bindings in a *function.json* file and [JavaScript code](functions-reference-node.md) that uses the bindings. The function makes a copy of a blob. A queue message that contains the name of the blob to copy triggers the function. The new blob is named *{originalblobname}-Copy*.
 
 In the *function.json* file, the `queueTrigger` metadata property is used to specify the blob name in the `path` properties:
 
@@ -258,7 +262,7 @@ def main(req: func.HttpRequest, inputblob: str, outputblob: func.Out[str]):
 
 # [v1](#tab/python-v1)
 
-The function makes a copy of a blob. The function is triggered by a queue message that contains the name of the blob to copy. The new blob is named *{originalblobname}-Copy*.
+The function makes a copy of a blob. A queue message that contains the name of the blob to copy triggers the function. The new blob is named *{originalblobname}-Copy*.
 
 In the *function.json* file, the `queueTrigger` metadata property is used to specify the blob name in the `path` properties:
 

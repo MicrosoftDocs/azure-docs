@@ -158,6 +158,24 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
+  - id: programming-language-go
+    title: Go
+- id: programming-languages-set-functions-no-go
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
 - id: programming-languages-set-functions-temp
   title: Programming languages
   prompt: Choose a programming language
@@ -174,6 +192,8 @@ groups:
   pivots:
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-go
+    title: Go
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript
@@ -185,7 +205,25 @@ groups:
   - id: programming-language-typescript
     title: TypeScript
   - id: programming-language-other
-    title: Other (Go/Rust)
+    title: Other (Rust)
+- id: programming-languages-set-functions-full-no-go
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
+  - id: programming-language-other
+    title: Other (Rust)
 - id: programming-languages-set-functions-nodejs
   title: Programming languages
   prompt: Choose a programming language
