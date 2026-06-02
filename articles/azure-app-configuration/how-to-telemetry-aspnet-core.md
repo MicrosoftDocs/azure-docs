@@ -3,8 +3,8 @@ title:  Enable telemetry for feature flags in an ASP.NET Core application
 titleSuffix: Azure App Configuration
 description: Learn how to use telemetry in ASP.NET Core for feature flags in Azure App Configuration.
 ms.service: azure-app-configuration
-author: rossgrambo
-ms.author: rossgrambo
+author: jimmyca15
+ms.author: jimmyca
 ms.topic: how-to
 ms.date: 11/04/2025
 ---

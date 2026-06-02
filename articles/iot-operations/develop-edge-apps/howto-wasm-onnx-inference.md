@@ -1,68 +1,65 @@
 ---
-title: Run ONNX inference in WebAssembly data flow graphs
+title: Run ONNX Inference in WASM Data Flow Graphs
 description: Learn how to package and run ONNX models inside WebAssembly modules for real-time inference in Azure IoT Operations data flow graphs.
 author: dominicbetts
 ms.author: dobett
-ms.service: azure-iot-operations
+ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 02/26/2026
+ms.date: 06/02/2026
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
+
+#customer intent: As a developer, I want to embed and run ONNX models inside WebAssembly modules so that I can perform low-latency inference directly in Azure IoT Operations data flow graphs or connectors.
 
 ---
 
 # Run ONNX inference in WebAssembly (WASM) data flow graphs
 
-This article shows how to embed and run small Open Neural Network Exchange (ONNX) models inside your WebAssembly modules to perform in-band inference as part of Azure IoT Operations data flow graphs. Use this approach for low-latency enrichment and classification directly on streaming data without calling external prediction services.
-
-> [!IMPORTANT]
-> Data flow graphs currently only support MQTT (Message Queuing Telemetry Transport), Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage aren't supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
-
-## Why use in-band ONNX inference
-
-With Azure IoT Operations data flow graphs, you can embed small ONNX model inference directly in the pipeline instead of calling an external prediction service. This approach offers several practical advantages:
-
-- **Low latency**: Perform real-time enrichment or classification in the same operator path where data arrives. Each message incurs only local CPU inference, avoiding network round trips.
-- **Compact footprint**: Target compact models like MobileNet-class models. This capability isn't for large transformer models, GPU/TPU acceleration, or frequent A/B model rollouts.
-- **Optimized for specific use cases**:
-  - Inline with multi-source stream processing where features are already collocated in the graph
-  - Aligned with event-time semantics so inference uses the same timestamps as other operators
-  - Kept small enough to embed with the module without exceeding practical WASM size and memory constraints
-- **Simple updates**: Ship a new module with WASM and embedded model, then update the graph definition reference. No need to have a separate model registry or external endpoint change.
-- **Hardware constraints**: ONNX backend runs on CPU through WebAssembly System Interface (WASI) `wasi-nn`. No GPU/TPU targets; only supported ONNX operators run.
-- **Horizontal scaling**: Inference scales as the data flow graph scales. When the runtime adds more workers for throughput, each worker loads the embedded model and participates in load balancing.
-
-## When to use in-band ONNX inference
-
-Use in-band inference when you have these requirements:
-
-- Low latency needs to enrich or classify messages inline at ingestion time
-- Small and efficient models, like MobileNet-class vision or similar compact models
-- Inference that needs to align with event-time processing and the same timestamps as other operators
-- Simple updates by shipping a new module version with an updated model
-
-Avoid in-band inference when you have these requirements:
-
-- Large transformer models, GPU/TPU acceleration, or sophisticated A/B rollouts
-- Models that require multiple tensor inputs, key-value caching, or unsupported ONNX operators
-
-> [!NOTE]
-> You want to keep modules and embedded models small. Large models and memory-heavy workloads aren't supported. Use compact architectures and small input sizes like 224×224 for image classification.
+This article shows how to embed and run small [Open Neural Network Exchange (ONNX)](https://onnx.ai/) models inside your WebAssembly modules to perform in-band inference as part of Azure IoT Operations data flow graphs. Use this approach for low-latency enrichment and classification directly on streaming data without calling external prediction services.
 
 ## Prerequisites
 
-Before you begin, ensure you have:
+Before you start, make sure you have the following items:
 
 - An Azure IoT Operations deployment with data flow graphs capability.
-- Access to a container registry like Azure Container Registry.
-- Development environment set up for WebAssembly module development.
+- A container registry like Azure Container Registry and a container registry endpoint configured. To learn more, see [Configure registry endpoints](howto-configure-registry-endpoint.md).
+- A development environment set up for WebAssembly module development. For options and detailed environment setup instructions, see [Develop WebAssembly modules](./howto-build-wasm-modules.md).
 
-For detailed setup instructions, see [Develop WebAssembly modules](./howto-build-wasm-modules.md).
+> [!IMPORTANT]
+> Data flow graphs currently only support MQTT (Message Queuing Telemetry Transport), Kafka, and OpenTelemetry endpoints. Other endpoint types like Azure Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and local storage aren't supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
 
-## Architecture pattern
+## Benefits of in-band ONNX inference
 
-The common pattern for ONNX inference in data flow graphs includes:
+With Azure IoT Operations data flow graphs, you can embed small ONNX model inference directly in the pipeline instead of calling an external prediction service. This approach offers the following benefits:
+
+- **Low latency**: Perform real-time enrichment or classification in the same operator path where data arrives. Each message requires only local CPU inference, avoiding network round trips.
+- **Inline with stream processing**: Run inference alongside multi-source stream processing where features are already collocated in the graph, and align with event-time semantics so inference uses the same timestamps as other operators.
+- **Simple updates**: Ship a new module with WASM and embedded model, then update the graph definition reference. You don't need a separate model registry or external endpoint change.
+- **Horizontal scaling**: Inference scales as the data flow graph scales. When the runtime adds more workers for throughput, each worker loads the embedded model and participates in load balancing.
+
+Inference runs on a CPU through the WebAssembly System Interface (WASI) [wasi-nn](https://github.com/WebAssembly/wasi-nn) interface. For supported model formats and hardware constraints, see [Limitations of ONNX inference in WASM data flow graphs](#limitations-of-onnx-inference-in-wasm-data-flow-graphs).
+
+## When should you use in-band ONNX inference?
+
+Use in-band ONNX inference in data flow graphs when you need the following capabilities:
+
+- Low latency to enrich or classify messages inline at ingestion time.
+- Small, efficient models such as MobileNet-class vision models.
+- Inference that aligns with event-time processing and uses the same timestamps as other operators.
+- Simple model updates by shipping a new module version.
+
+Don't use in-band ONNX inference when you need the following capabilities:
+
+- Large transformer models, GPU or TPU acceleration, or sophisticated A/B rollouts.
+- Models that require multiple tensor inputs, key-value caching, or unsupported ONNX operators.
+
+> [!NOTE]
+> Keep modules and embedded models small. Large models and memory-heavy workloads aren't supported. Use compact architectures and small input sizes like 224×224 for image classification.
+
+## Architecture pattern for ONNX inference in data flow graphs
+
+The common pattern for ONNX inference in data flow graphs includes the following stages:
 
 1. **Preprocess data**: Transform raw input data to match your model's expected format. For image models, this process typically involves:
    - Decoding image bytes.
@@ -80,16 +77,16 @@ The common pattern for ONNX inference in data flow graphs includes:
 
 In the [IoT samples for Rust WASM operators](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/) you can find two samples that follow this pattern:
 
--  [Data transformation "format" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/format): decodes and resizes images to RGB24 224×224. 
+- [Data transformation "format" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/format): decodes and resizes images to RGB24 224×224.
 - [Image/Video processing "snapshot" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/snapshot): embeds a MobileNet v2 ONNX model, runs CPU inference, and computes softmax.
 
 ## Configure graph definition
 
-To enable ONNX inference in your data flow graph, you need to configure both the graph structure and module parameters. The graph definition specifies the pipeline flow, while module configurations allow runtime customization of preprocessing and inference behavior.
+To enable ONNX inference in your data flow graph, configure both the graph structure and module parameters. The graph definition specifies the pipeline flow, while module configurations allow runtime customization of preprocessing and inference behavior.
 
-### Enable WASI-NN support
+### Enable the wasi-nn feature
 
-To enable WebAssembly Neural Network interface support, add the `wasi-nn` feature to your graph definition:
+To enable the WebAssembly Neural Network (`wasi-nn`) interface for ONNX inference, add the `wasi-nn` feature to your graph definition:
 
 ```yaml
 moduleRequirements:
@@ -99,9 +96,9 @@ moduleRequirements:
     - name: "wasi-nn"
 ```
 
-### Define operations and data flow
+### Define operations for the inference pipeline
 
-Configure the operations that form your inference pipeline. This example shows a typical image classification workflow:
+Configure the operations that form your ONNX inference pipeline. This example shows a typical image classification workflow:
 
 ```yaml
 operations:
@@ -133,46 +130,9 @@ This configuration creates a pipeline where:
 
 ### Configure module parameters
 
-Define runtime parameters to customize module behavior without rebuilding. These parameters are passed to your WASM modules at initialization:
+Define runtime parameters to customize WASM module behavior without rebuilding. These parameters pass to your WASM modules at initialization.
 
-```yaml
-moduleConfigurations:
-  - name: module-format/map
-    parameters:
-      width:
-        name: width
-        description: "Target width for image resize (default: 224)"
-        required: false
-      height:
-        name: height
-        description: "Target height for image resize (default: 224)"
-        required: false
-      pixelFormat:
-        name: pixel_format
-        description: "Output pixel format (rgb24, bgr24, grayscale)"
-        required: false
-
-  - name: module-snapshot/map
-    parameters:
-      executionTarget:
-        name: execution_target
-        description: "Inference execution target (cpu, auto)"
-        required: false
-      labelMap:
-        name: label_map
-        description: "Label mapping strategy (embedded, imagenet, custom)"
-        required: false
-      scoreThreshold:
-        name: score_threshold
-        description: "Minimum confidence score to include in results (0.0-1.0)"
-        required: false
-      topK:
-        name: top_k
-        description: "Maximum number of predictions to return (default: 5)"
-        required: false
-```
-
-Your operator `init` can read these values through the module configuration interface. For details, see [Module configuration parameters](./howto-configure-wasm-graph-definitions.md#module-configuration-parameters).
+For details, see [Module configuration parameters](./howto-configure-wasm-graph-definitions.md#module-configuration-parameters).
 
 ## Package the model
 
@@ -181,32 +141,32 @@ Embedding ONNX models directly into your WASM component ensures atomic deploymen
 > [!TIP]
 > Embedding keeps the model and operator logic versioned together. To update a model, publish a new module version and update your graph definition to reference it. This approach eliminates model drift and ensures reproducible deployments.
 
-### Model preparation guidelines
+### ONNX model preparation requirements
 
-Before embedding your model, ensure it meets the requirements for WASM deployment:
+Before embedding your model, make sure it meets the requirements for WASM deployment:
 
 - Keep models under 50 MB for practical WASM loading times and memory constraints.
-- Verify your model accepts a single tensor input in a common format (float32 or uint8).
-- Verify that the WASM ONNX runtime backend supports every operator your model uses.
+- Check that your model accepts a single tensor input in a common format (float32 or uint8).
+- Check that the WASM ONNX runtime backend supports every operator your model uses.
 - Use ONNX optimization tools to reduce model size and improve inference speed.
 
-### Embedding workflow
+### Steps to embed an ONNX model in a WASM module
 
-Follow these steps to embed your model and associated resources:
+Follow these steps to embed your ONNX model and associated resources in a WASM module:
 
 1. **Organize model assets**: Place the `.onnx` model file and optional `labels.txt` in your source tree. Use a dedicated directory structure such as `src/fixture/models/` and `src/fixture/labels/` for clear organization.
-1. **Embed at compile time**: Use language-specific mechanisms to include model bytes in your binary. In Rust, use `include_bytes!` for binary data and `include_str!` for text files.
-1. **Initialize WASI-NN graph**: In your operator's `init` function, create a `wasi-nn` graph from the embedded bytes, specifying the ONNX encoding and CPU execution target.
+1. **Embed at compile time**: Use language-specific tools to include model bytes in your binary. In Rust, use `include_bytes!` for binary data and `include_str!` for text files.
+1. **Initialize the wasi-nn graph**: In your operator's `init` function, create a `wasi-nn` graph from the embedded bytes, specifying the ONNX encoding and CPU execution target.
 1. **Implement inference loop**: For each incoming message, preprocess inputs to match model requirements, set input tensors, execute inference, retrieve outputs, and apply postprocessing.
 1. **Handle errors gracefully**: Implement proper error handling for model loading failures, unsupported operators, and runtime inference errors.
 
 For a complete implementation pattern, see the ["snapshot" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/snapshot).
 
-### Recommended project structure
+### Recommended WASM project structure
 
 Organize your WASM module project with clear separation of concerns:
 
-```
+```output
 src/
 ├── lib.rs                 # Main module implementation
 ├── model/
@@ -221,16 +181,16 @@ src/
         └── custom.txt          # Custom label mappings
 ```
 
-### Example file references
+### Example file layout from the snapshot sample
 
 Use the following file layout from the "snapshot" sample as a reference:
 
 - [Labels directory](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/snapshot/src/fixture/labels) - Contains various label mapping files
 - [Models directory](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/snapshot/src/fixture/models) - Contains ONNX model files and metadata
 
-### Minimal embedding example
+### Minimal Rust example for embedding an ONNX model
 
-The following example shows minimal Rust embedding. The paths are relative to the source file that contains the macro:
+The following Rust example shows the minimum code needed to embed an ONNX model in a WASM module. The paths are relative to the source file that contains the macro:
 
 ```rust
 // src/lib.rs (example)
@@ -248,62 +208,64 @@ fn init_model() -> Result<(), anyhow::Error> {
 }
 ```
 
-### Performance optimization
+### Reuse the ONNX graph and execution context across messages
 
-To avoid recreating the ONNX graph and execution context for every message, initialize it once and reuse it. The [public sample](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/operators/snapshot/src/lib.rs) uses a static `LazyLock`:
+To avoid recreating the ONNX graph and execution context for every message, initialize them once and reuse them. The [public snapshot sample](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/operators/snapshot/src/lib.rs) uses a static `LazyLock` to initialize the graph and execution context once per worker:
 
 ```rust
 use crate::wasi::nn::{
-     graph::{load, ExecutionTarget, Graph, GraphEncoding, GraphExecutionContext},
-     tensor::{Tensor, TensorData, TensorDimensions, TensorType},
- };
+    graph::{load, ExecutionTarget, Graph, GraphEncoding, GraphExecutionContext},
+    tensor::{Tensor, TensorData, TensorDimensions, TensorType},
+};
 
- static mut CONTEXT: LazyLock<GraphExecutionContext> = LazyLock::new(|| {
-     let graph = load(&[MODEL.to_vec()], GraphEncoding::Onnx, ExecutionTarget::Cpu).unwrap();
-     Graph::init_execution_context(&graph).unwrap()
- });
-    
+static mut CONTEXT: LazyLock<GraphExecutionContext> = LazyLock::new(|| {
+    let graph = load(&[MODEL.to_vec()], GraphEncoding::Onnx, ExecutionTarget::Cpu).unwrap();
+    Graph::init_execution_context(&graph).unwrap()
+});
+
 fn run_inference(/* input tensors, etc. */) {
-   unsafe {
-     // (*CONTEXT).compute()?;
-  }
+    unsafe {
+        // (*CONTEXT).compute()?;
+    }
 }
 ```
 
-## Deploy your modules
+## Debug and test your ONNX module locally
 
-Reuse the streamlined sample builders or build locally:
+Before deploying to Azure IoT Operations, test your ONNX inference module locally to validate functionality and performance. To learn more, see:
 
-- To use the streamlined Docker builder, see [Rust Docker builder sample](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/README.md#rust-builds-docker-builder)
-- For a general WebAssembly deployment and registry steps, see [Use WebAssembly with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md)
+- [Debug WASM modules in VS Code](howto-debug-wasm-modules.md)
+- [Test WASM modules](howto-test-wasm-modules.md)
 
-Follow this deployment process:
+## Configure and deploy your ONNX module
 
-1. Build your WASM module in release mode and produce a `.wasm` file.
-1. Push the module and optionally a graph definition to your registry by using OCI Registry as Storage (ORAS).
-1. Create or reuse a registry endpoint in Azure IoT Operations.
-1. Create a data flow graph resource that references your graph definition artifact.
+When you're ready to use your ONNX inference module in an Azure IoT Operations data flow or connector, follow these steps:
+
+- [Configure WebAssembly (WASM) graph definitions for data flow graphs and connectors](howto-configure-wasm-graph-definitions.md)
+- [Deploy WebAssembly (WASM) modules and graph definitions](howto-deploy-wasm-graph-definitions.md)
 
 ## Example: MobileNet image classification
 
-The IoT public samples provide two samples wired into a graph for image classification:  the ["format" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/format) provides image decode and resize functionality, and the ["snapshot" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/snapshot) provides ONNX inference and softmax processing.
+The IoT public samples provide two samples wired into a graph for image classification:
 
+- The ["format" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/format) provides image decode and resize functionality.
+- The ["snapshot" sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/snapshot) provides ONNX inference and softmax processing.
 
-To deploy this example, pull the artifacts from the public registry, push them to your registry, and deploy a data flow graph as shown in [Example 2: Deploy a complex graph](../connect-to-cloud/howto-dataflow-graph-wasm.md#example-2-deploy-a-complex-graph). The complex graph uses these modules to process image snapshots and emit classification results.
+To learn more about and run the sample that uses these modules, see [Example 2: Deploy a complex graph](../connect-to-cloud/howto-dataflow-graph-wasm.md#example-2-deploy-a-complex-graph).
 
-## Limitations
+## Limitations of ONNX inference in WASM data flow graphs
 
 Inference in WASM data flow graphs has the following limitations:
 
-- ONNX only. Data flow graphs don't support other formats like TFLite.
-- CPU only. No GPU/TPU acceleration.
-- Small models recommended. Large models and memory-intensive inference aren't supported.
-- Single-tensor input models are supported. Multi-input models, key-value caching, and advanced sequence or generative scenarios aren't supported.
-- Ensure the ONNX backend in the WASM runtime supports your model's operators. If an operator isn't supported, inference fails at load or execution time.
+- **Model format**: ONNX only. Data flow graphs don't support other formats like TFLite.
+- **Hardware**: CPU only. GPU and TPU acceleration aren't supported.
+- **Model size**: Large models and memory-intensive inference aren't supported. Use small models such as MobileNet-class architectures.
+- **Model inputs**: Only single-tensor input models are supported. Multi-input models, key-value caching, and advanced sequence or generative scenarios aren't supported.
+- **Operator support**: The ONNX backend in the WASM runtime must support every operator your model uses. If an operator isn't supported, inference fails at load or execution time.
 
-## Next steps
+## Related content
 
 - [Develop WebAssembly modules](./howto-build-wasm-modules.md)
-- [Build WebAssembly modules with VS Code](./howto-build-wasm-modules.md)
-- [Configure WebAssembly graph definitions](./howto-configure-wasm-graph-definitions.md)
-- [Use WebAssembly with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md)
+- [Configure WebAssembly (WASM) graph definitions for data flow graphs and connectors](howto-configure-wasm-graph-definitions.md)
+- [Deploy WebAssembly (WASM) modules and graph definitions](howto-deploy-wasm-graph-definitions.md)
+

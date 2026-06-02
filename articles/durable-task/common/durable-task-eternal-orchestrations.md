@@ -54,7 +54,7 @@ In this article:
 
 ::: zone pivot="durable-functions"
 
-Instead of using infinite loops, orchestrator functions reset their state by calling the `continue-as-new` method of the [orchestration trigger binding](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-trigger). This method takes a JSON-serializable parameter that becomes the new input for the next orchestrator function generation.
+Instead of using infinite loops, orchestrator functions reset their state by calling the `continue-as-new` method of the [orchestration trigger binding](../durable-functions/durable-functions-bindings.md#orchestration-trigger). This method takes a JSON-serializable parameter that becomes the new input for the next orchestrator function generation.
 
 When you call `continue-as-new`, the orchestration instance restarts itself with the new input value. The same instance ID is kept, but the orchestrator function's history resets.
 
@@ -392,7 +392,7 @@ The Durable Task SDK isn't available for PowerShell. For eternal orchestrations 
 
 If an orchestrator function needs to eventually complete, don't call `continue-as-new` and let the function exit.
 
-If an orchestrator function is in an infinite loop and needs to be stopped, use the *terminate* API of the [orchestration client binding](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client) to stop it.
+If an orchestrator function is in an infinite loop and needs to be stopped, use the *terminate* API of the [orchestration client binding](../durable-functions/durable-functions-bindings.md#orchestration-client) to stop it.
 
 # [C#](#tab/csharp)
 
@@ -477,7 +477,7 @@ The Durable Task SDK isn't available for PowerShell. For eternal orchestrations 
 
 - [Durable timers](durable-task-timers.md)
 - [Instance management](durable-task-instance-management.md)
-- [Durable Functions bindings](../../azure-functions/durable-functions/durable-functions-bindings.md)
+- [Durable Functions bindings](../durable-functions/durable-functions-bindings.md)
 
 ::: zone-end
 

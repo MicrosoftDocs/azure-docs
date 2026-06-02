@@ -3,9 +3,10 @@ title: Develop Azure Functions Locally by using Core Tools
 description: Learn how to code and test Azure Functions from the command prompt or terminal on your local computer before you deploy them to run them on Azure Functions.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: how-to
-ms.date: 03/19/2026
+ms.date: 05/29/2026
 zone_pivot_groups: programming-languages-set-functions
 ms.custom:
+  - build-2026
   - devx-track-csharp
   - 80e4ff38-5174-43
   - devx-track-extended-java
@@ -18,7 +19,9 @@ ms.custom:
 
 # Develop Azure Functions locally by using Core Tools
 
-Azure Functions Core Tools lets you develop and test your functions on your local computer. When you're ready, you can also use Core Tools to deploy your code project to Azure and work with application settings.
+[!INCLUDE [functions-cli-version-comparison](../../includes/functions-cli-version-comparison.md)]
+
+Azure Functions Core Tools (v4 of func.exe) lets you develop and test your functions on your local computer. When you're ready, you can also use Core Tools to deploy your code project to Azure and work with application settings.
 
 ::: zone pivot="programming-language-csharp"
 You're viewing the C# version of this article. Make sure to select your preferred Functions programming language at the top of the article.

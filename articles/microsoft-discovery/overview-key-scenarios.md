@@ -12,9 +12,6 @@ ms.custom:
 
 # Key Scenarios & Use Cases for Scientific R&D
 
-> [!NOTE]
-> Microsoft Discovery is currently in Public Preview. Features, capabilities, and availability are subject to change and results may vary.
-
 Microsoft Discovery is an **AI-powered platform for scientific research and engineering**, designed to accelerate discovery across pharmaceuticals, materials science, chemicals, semiconductors, energy, and advanced manufacturing. The platform supports the full research lifecycle—from understanding existing knowledge to designing, testing, and refining new ideas. 
 
 Below are the **core scenarios customers can expect to use with Microsoft Discovery today and over time**. 
@@ -26,7 +23,7 @@ Researchers use Microsoft Discovery as an intelligent research assistant to rapi
 
 ### What this enables 
 
-* Semantic search across publications, datasets, and enterprise knowledge 
+* Semantic and graph-based search across publications, datasets, and enterprise knowledge 
 * AI‑generated summaries of complex scientific topics 
 * Discovery of connections across disciplines and data sources 
 
