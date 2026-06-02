@@ -56,8 +56,8 @@ You can add as many single-level subdomains of the wildcard as you want. For exa
 
 You might need to explicitly add subdomains in these situations:
 
-- You need to define a different route for a subdomain than the rest of the domains (from the wildcard domain). For example, your customers might use subdomains like `customer1.contoso.com`, `customer2.contoso.com`, and so forth, and these subdomains should all be routed to your main application servers. However, you might also want to route `images.contoso.com` to an Azure Storage blob container.
-- You need to use a different WAF policy for a specific subdomain.
+* You need to define a different route for a subdomain than the rest of the domains (from the wildcard domain). For example, your customers might use subdomains like `customer1.contoso.com`, `customer2.contoso.com`, and so forth, and these subdomains should all be routed to your main application servers. However, you might also want to route `images.contoso.com` to an Azure Storage blob container.
+* You need to use a different WAF policy for a specific subdomain.
 
 Subdomains like `www.image.contoso.com` aren't a single-level subdomain of `*.contoso.com`.
 
