@@ -101,6 +101,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-functions/durable-functions/index.yml",
+            "redirect_url": "/azure/durable-task/common",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/durable-task/common/durable-task-task-hubs.md",
             "redirect_url": "/azure/durable-task/common/durable-task-hubs",
             "redirect_document_id": false
