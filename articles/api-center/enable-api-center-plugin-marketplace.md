@@ -33,7 +33,7 @@ To enable the plugin marketplace endpoint by using the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com/), go to your API center.    
 1. In the sidebar menu, under **Consumption**, select **Data API settings**.
-1. Under **MCP endpoint**, select **Enable API Center MCP endpoint**.
+1. Under **Plugin marketplace endpoint**, select **Enable plugin marketplace endpoint**.
 
 The marketplace endpoint is of the following form:
 
