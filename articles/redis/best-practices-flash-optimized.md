@@ -7,7 +7,7 @@ ms.custom:
   - references_regions
   - build-2025
 appliesto:
-  - Γ£à Azure Managed Redis
+  - Azure Managed Redis
 ---
 
 # Best practices for the Flash Optimized tier
@@ -44,14 +44,14 @@ Common use cases include:
 ## SKU sizes
 
 | SKU | Size (GB) | Status |
-|-----|-----------|--------|
-| A250 | 235       | GA |
-| A500 | 480       | GA |
-| A700 | 720       | GA |
-| A1000 | 960       | GA |
-| A1500 | 1,440     | GA |
-| A2000 | 1,920     | Public Preview |
-| A4500 | 4,500     | Public Preview |
+| -- | -- | -- |
+| A250 | 235 | GA |
+| A500 | 480 | GA |
+| A700 | 720 | GA |
+| A1000 | 960 | GA |
+| A1500 | 1,440 | GA |
+| A2000 | 1,920 | Public Preview |
+| A4500 | 4,500 | Public Preview |
 
 For connection limits per SKU, see [Maximum number of client connections](overview.md#maximum-number-of-client-connections). For pricing details, see [Azure Managed Redis Pricing](https://azure.microsoft.com/pricing/details/managed-redis/).
 
@@ -60,23 +60,23 @@ For connection limits per SKU, see [Maximum number of client connections](overvi
 The following table summarizes feature availability on the Flash Optimized tier:
 
 | Feature | Supported |
-|---------|:---------:|
-| SLA | Γ£à |
-| Data encryption in transit (Private endpoint) | Γ£à |
-| Replication and failover | Γ£à |
-| Network isolation (Private Link) | Γ£à |
-| Microsoft Entra ID authentication | Γ£à |
-| Scaling | Γ£à |
-| High availability (zone redundant) | Γ£à |
-| Data persistence (RDB/AOF) | Γ£à |
-| Connection audit logs (event-based) | Γ£à |
-| RedisJSON | Γ£à |
-| Import/Export | Γ£à |
-| Active geo-replication | Γ¥î |
-| Non-clustered instances | Γ¥î |
-| RediSearch / vector search | Γ¥î |
-| RedisBloom | Γ¥î |
-| RedisTimeSeries | Γ¥î |
+| --------- | :---------: |
+| SLA | Yes |
+| Data encryption in transit (Private endpoint) | Yes |
+| Replication and failover | Yes |
+| Network isolation (Private Link) | Yes |
+| Microsoft Entra ID authentication | Yes |
+| Scaling | Yes |
+| High availability (zone redundant) | Yes |
+| Data persistence (RDB/AOF) | Yes |
+| Connection audit logs (event-based) | Yes |
+| RedisJSON | Yes |
+| Import/Export | Yes |
+| Active geo-replication | No |
+| Non-clustered instances | No |
+| RediSearch / vector search | No |
+| RedisBloom | No |
+| RedisTimeSeries | No |
 
 > [!IMPORTANT]
 > RedisJSON is the only module supported on the Flash Optimized tier. Active geo-replication, non-clustered mode, RediSearch/vector search, RedisBloom, and RedisTimeSeries are not supported.
@@ -157,6 +157,5 @@ If you're currently using the Enterprise Flash tier of Azure Cache for Redis, se
 
 - [What is Azure Managed Redis?](overview.md)
 - [Azure Managed Redis Architecture](architecture.md)
-- [Choose the right tier](cache-choose-tier.md)
 - [Scale an Azure Managed Redis instance](how-to-scale.md)
 - [Data persistence in Azure Managed Redis](how-to-persistence.md)
