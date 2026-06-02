@@ -22,7 +22,7 @@ For more insights on Azure Backup’s support for backups in Azure Data Lake Sto
 
 ## Supported regions
 
-Vaulted backups of Azure Data Lake Storage are available in the following regions: 
+Vaulted backups of Azure Data Lake Storage regional availability is shared below: 
 
 | Availability type | Region |
 | --- | --- |

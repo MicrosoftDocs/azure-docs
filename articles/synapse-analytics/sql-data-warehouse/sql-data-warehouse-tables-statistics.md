@@ -13,6 +13,8 @@ ms.custom: azure-synapse
 
 # Create and update table statistics in dedicated SQL pool
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article provides recommendations and examples for creating and updating query-optimization statistics on tables in dedicated SQL pool.
 
 ## Why use statistics

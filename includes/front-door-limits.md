@@ -3,7 +3,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: include
-ms.date: 05/08/2025
+ms.date: 03/24/2026
 ms.custom: include file
 ---
 
@@ -21,7 +21,7 @@ ms.custom: include file
 | URLs in a single cache purge call | 100 |
 | Maximum bandwidth <sup>1</sup> | 75 Gbps |
 | Maximum requests per second per profile <sup>1</sup> | 100,000 |
-| HTTP header size limit (per header) | 32 KB |
+| HTTP header size limit (per header) | 64 KB |
 | Custom web application firewall rules per policy | 100 |
 | Web application firewall policy per subscription | 100 |
 | Web application firewall match conditions per custom rule | 10 |
@@ -37,7 +37,7 @@ ms.custom: include file
 
 <sup>1</sup> If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limited is need, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-<sup>2</sup> To request a limit increase, create an [Azure Support request][azure-support]. Free subscriptions including [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quota increases. If you have a free subscription, you can [upgrade](../articles/cost-management-billing/manage/upgrade-azure-subscription.md) to a Pay-As-You-Go subscription.<br />
+<sup>2</sup> To request a limit increase, create an [Azure Support request][azure-support]. Free subscriptions including [Azure Free Account](https://azure.microsoft.com/pricing/offers/ms-azr-0044p?cid=msft_learn) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quota increases. If you have a free subscription, you can [upgrade](../articles/cost-management-billing/manage/upgrade-azure-subscription.md) to a Pay-As-You-Go subscription.<br />
 
 <!-- LINKS - External -->
 [azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
@@ -69,7 +69,7 @@ ms.custom: include file
 | Maximum associations per security policy | 110 | 225 |
 | Maximum secrets per profile | 100 | 500 |
 | Maximum key groups per profile | 100 | 200 |
-| HTTP header size limit (per header) | 32 KB | 32 KB|
+| HTTP header size limit (per header) | 64 KB | 64 KB|
 | Web Application Firewall (WAF) policy per subscription | 100 | 100 |
 | WAF custom rules per policy | 100 | 100 |
 | WAF match conditions per custom rule | 10 | 10 |

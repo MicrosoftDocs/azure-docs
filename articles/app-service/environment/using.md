@@ -1,220 +1,360 @@
 ---
-title: Use an App Service Environment
-description: Learn how to use your App Service Environment to host isolated applications.
+title: Host a Web App in an App Service Environment
+description: Create a web app that uses an App Service Environment, and host the isolated app in a virtual network/subnet configuration. Follow procedures in the Azure portal to create the web app, enable encryption, diagnostic logging, and more.
 author: seligj95
-ms.topic: overview
-ms.date: 06/26/2024
+ms.topic: how-to
+ms.date: 03/06/2026
 ms.author: jordanselig
 ms.service: azure-app-service
-
-# Customer intent: As a developer, I want to get an overview of using App Service Environment to host isolated applications. 
-
+# customer intent: As a developer, I want to use an App Service Environment for my App Service web app, so I can host isolated apps in my virtual network.
 ---
 
-# Use an App Service Environment
+# Host a web app in an App Service Environment
 
-App Service Environment is a single-tenant deployment of Azure App Service. You use it with an Azure virtual network, and you're the only user of this system. Apps deployed are subject to the networking features that are applied to the subnet. There aren't any additional features that need to be enabled on your apps to be subject to those networking features. 
+An App Service Environment is a single-tenant deployment of Azure App Service that integrates with an Azure Virtual Network instance and subnet. In this scenario, you can host your web app in an isolated environment where you're the only user of the system. The apps you deploy are subject to the networking features applied to the virtual network subnet for the App Service Environment. No other features are required for your web apps to access the networking features. 
 
-## Create an app
+When you create the web app in your App Service Environment, you follow the standard creation process with a slightly different approach:
 
-To create an app in your App Service Environment, you use the same process as when you normally create an app, but with a few small differences. When you create a new App Service plan:
+- For the web app region, rather than choosing a geographic location for app deployment, select an App Service Environment.
+- For a new App Service plan in the App Service Environment, select an isolated v2 pricing tier.
 
-- Instead of choosing a geographic location in which to deploy your app, you choose an App Service Environment as your location.
-- All App Service plans created in an App Service Environment can only be in an isolated v2 pricing tier.
+This article describes how to create the App Service web app in an App Service Environment by following procedures in the Azure portal.
 
-If you don't yet have one, [create an App Service Environment][MakeASE].
+## Prerequisites
 
-To create an app in an App Service Environment:
+- An App Service Environment. To create a new environment, follow the steps in [Quickstart: Create an App Service Environment](creation.md).
 
-1. Select **Create a resource** > **Web + Mobile** > **Web App**.
-1. Select a subscription.
-1. Enter a name for a new resource group, or select **Use existing** and select one from the dropdown list.
-1. Enter a name for the app. If you already selected an App Service plan in an App Service Environment, the domain name for the app reflects the domain name of the App Service Environment.
-1. For **Publish**, **Runtime stack**, and **Operating System**, make your selections as appropriate.
-1. For **Region**, select a pre-existing App Service Environment v3. If you want to create a new App Service Environment, select a region.
-  ![Screenshot that shows how to create an app in an App Service Environment.][1]
-1. Select an existing App Service plan, or create a new one. If you're creating a new plan, select the size that you want for your App Service plan. The only SKU you can select for your app is an Isolated v2 pricing SKU. Making a new App Service plan will normally take less than 20 minutes.
-  ![Screenshot that shows pricing tiers and their features and hardware.][2]
-1. If you chose to create a new App Service Environment as part of creating your new App Service plan, fill out the name and virtual IP type.
-1. Select **Next: Monitoring**. If you want to enable Application Insights with your app, you can do it here during the creation flow.
-1.  Select **Next: Tags**, and add any tags you want to the app.
-1. Select **Review + create**. Make sure that the information is correct, and then select **Create**.
+- When you create your app, keep in mind that Windows and Linux apps can be in the same App Service Environment, but they can't be in the same App Service plan.
 
-Windows and Linux apps can be in the same App Service Environment, but can't be in the same App Service plan.
+## Create the web app
 
-## How scale works
+In the Azure portal, create a web app in an App Service Environment:
+
+1. Sign into the [Azure portal](https://portal.azure.com).
+
+1. Select **Create a resource**, locate **Web App** in the list of resources, and select **Create**.
+
+   The **Create Web App** pane opens to the **Basic** tab:
+
+   :::image type="content" source="./media/using/create-application.png" border="false" alt-text="Screenshot that shows how to create a web app in an App Service Environment in the Azure portal.":::
+
+1. In the **Basic** tab, select your **Subscription**.
+
+1. Select an existing **Resource group** or select **Create new** for a new instance.
+
+1. Enter a **Name** for the new web app.
+
+   If you previously selected an App Service plan in an App Service Environment, the domain name for the app reflects the domain name of the App Service Environment. For example, for the app `zava-hosted-web-app` and App Service Environment `zava-app-service-envrionment-1`, the domain name for the app is `zava-hosted-web-app-zava-app-service-envrionment-1.appserviceenvironment.net`.
+
+1. Configure the **Publish**, **Runtime stack**, and **Operating System** settings according to your app requirements.
+
+1. For the **Region** setting, use the dropdown list to make your selection.
+
+   - To use an existing App Service Environment, select the environment under the **App Service Environments v3** section in the dropdown list.
+   
+   - To create a new App Service Environment, select a region under the **Regions** section in the dropdown list. After you select a region, the **Create Web App** pane adds a section with configuration options for the new App Service Environment. You complete the steps for the new environment later in this procedure.
+   
+   You can filter the **Region** list to show matching items in the list for both environments and regions. The example filters the list to match _Canada_.
+
+   :::image type="content" source="./media/using/select-region-environment.png" alt-text="Screenshot that shows how to select an App Service Environment as the app region with a filter for items matching 'Canada'.":::
+
+1. For the **Pricing plans** options, specify the App Service plan name and the plan pricing tier.
+
+   - For the App Service **Linux plan**, use the dropdown list and select an existing plan, or select **Create new** for a new plan.
+
+   - For the **Pricing plan** tier, if you selected an existing plan, the value populates with the pricing tier for your current plan.
+   
+      If you're creating a new App Service plan, use the dropdown list and select the tier size. The list shows **Popular plans**. The only SKU you can select for your app is an _Isolated v2_ pricing SKU.
+      
+      :::image type="content" source="./media/using/select-plan-tier.png" alt-text="Screenshot that shows how to select the pricing tier for the App Service plan in the Azure portal.":::
+
+      You can select **Explore pricing plans** to compare the plan features. The following image shows an example of pricing plans and features. In the **Select App Service Pricing plan** pane, select a plan in the list and then choose **Select**.
+
+      :::image type="content" source="./media/using/plan-tiers-features.png" alt-text="Screenshot that shows App Service plan pricing tiers with their features and hardware in the Azure portal.":::
+
+      Creating the new App Service plan takes about 20 minutes.
+
+1. If you're creating a new App Service Environment as part of creating your new App Service plan, configure the following **App Service Environment** settings:
+
+   - Enter an **App Service Environment Name**.
+
+   - Select the **Virtual IP Type** (Internal or External). For more information about this setting, see [Plan the access level for the app](#plan-the-access-level-for-the-app).
+
+   :::image type="content" source="./media/using/configure-new-environment.png" alt-text="Screenshot that shows how to configure a new App Service Environment in the Azure portal.":::
+
+1. Switch to the **Networking** tab in the **Create Web App** pane, and configure the settings.
+
+   - If you're creating a new App Service Environment:
+   
+      - Identify the **Virtual Network** and **Subnet** to use for the deployment. You can choose existing resources or create new instances.
+      
+      <a name="configure-dns-setting"></a>
+
+      - Configure the **DNS** setting. If you want the system to configure the DNS for you in the virtual network of your App Service Environment, select **Azure DNS Private zone**.
+      
+         If you prefer to configure DNS manually, select **Manual**. After the deployment completes, you can modify the configuration to [use your own DNS server](#use-your-own-dns-server) or specify [Azure DNS private zones](#configure-dns-in-azure-dns-private-zone).
+
+      - Configure the **Inbound IP address** setting. Choose **Automatic** (system-assigned IP address from the subnet) or **Manual** (enter your preferred IP address).
+
+   - If you're using an existing App Service Environment for the deployment, configure the **Virtual network integration** option as needed.
+
+1. (Optional) Configure options on the remaining tabs in the **Create web app** pane according to your app requirements. Most settings are disabled by default.
+
+   - **Deployment**: Configure continuous deployment, authentication, and GitHub settings.
+   - **Monitor + Secure**: Use Azure Monitor Application Insights or Microsoft Defender for Cloud.
+   - **Tags**: Define tags for the app.
+
+   If you're creating a new App Service Environment, also confirm the settings on the **Hosting** tab.
+
+1. Select **Review + create**. Confirm the web app configuration is correct, and select **Create**.
+
+## Review scaling options
 
 Every App Service app runs in an App Service plan. App Service Environments hold App Service plans, and App Service plans hold apps. When you scale an app, you also scale the App Service plan and all the apps in that same plan.
 
-When you scale an App Service plan, the needed infrastructure is added automatically. Be aware that there's a time delay to scale operations while the infrastructure is being added. For example, when you scale an App Service plan, and you have another scale operation of the same operating system and size running, there might be a delay of a few minutes until the requested scale starts.
+When you scale an App Service plan, the required infrastructure is added automatically. Be aware there's a time delay for the scale operations while the infrastructure is being added. For example, when you scale an App Service plan, and you have another scale operation of the same operating system and size running, there might be a delay of a few minutes until the requested scale starts.
 
-A scale operation on one size and operating system won't affect scaling of the other combinations of size and operating system. For example, if you are scaling a Windows I2v2 App Service plan, a scale operation to a Windows I3v2 App Service plan starts immediately. Scaling normally takes less than 15 minutes but can take up to 45 minutes.
+A scale operation on one size and operating system doesn't affect scaling of the other combinations of size and operating system. For example, if you're scaling a Windows I2v2 App Service plan, a scale operation to a Windows I3v2 App Service plan starts immediately. Scaling normally takes less than 15 minutes but can take up to 45 minutes.
 
-In a multitenant App Service, scaling is immediate, because a pool of shared resources is readily available to support it. App Service Environment is a single-tenant service, so there's no shared buffer, and resources are allocated based on need.
+In a multitenant App Service scenario, scaling is immediate because a pool of shared resources is readily available to support it. App Service Environment is a single-tenant service, so there's no shared buffer, and resources are allocated based on need.
 
-## App access
+## Plan the access level for the app
 
-In an App Service Environment with an internal virtual IP (VIP), the domain suffix used for app creation is *.&lt;asename&gt;.appserviceenvironment.net*. If your App Service Environment is named _my-ase_, and you host an app called _contoso_, you reach it at these URLs:
+In an App Service Environment with an internal virtual IP (VIP), the domain suffix used for app creation is `<app-service-environment-name>.appserviceenvironment.net`. For an App Service Environment named `zava-environment` that hosts an app named `hosted-web-app`, you reach the environment by using the following URLs:
 
-- `contoso.my-ase.appserviceenvironment.net`
-- `contoso.scm.my-ase.appserviceenvironment.net`
+- `hosted-web-app.zava-environment.appserviceenvironment.net`
+- `hosted-web-app.scm.zava-environment.appserviceenvironment.net`
 
-Apps hosted on an App Service Environment that uses an internal VIP are only accessible if you're in the same virtual network, or are connected to that virtual network. Similarly, publishing is only possible if you're in the same virtual network or are connected to that virtual network. 
+Apps hosted on an App Service Environment that uses an internal VIP are only accessible if you're in the same virtual network, or you're connected to that virtual network. Similarly, publishing is only possible if you're in the same virtual network or you're connected to that virtual network. 
 
-In an App Service Environment with an external VIP, the domain suffix used for app creation is *.&lt;asename&gt;.p.azurewebsites.net*. If your App Service Environment is named _my-ase_, and you host an app called _contoso_, you reach it at these URLs:
+In an App Service Environment with an external VIP, the domain suffix used for app creation is `<app-service-environment-name>.p.azurewebsites.net`. If an App Service Environment named `zava-environment` that hosts an app named `hosted-web-app`, you reach the environment by using the following URLs:
 
-- `contoso.my-ase.p.azurewebsites.net`
-- `contoso.scm.my-ase.p.azurewebsites.net`
+- `hosted-web-app.zava-environment.p.azurewebsites.net`
+- `hosted-web-app.scm.zava-environment.p.azurewebsites.net`
 
-You use the `scm` URL to access the Kudu console, or for publishing your app by using web deploy. For more information, see [Kudu console for Azure App Service][Kudu]. The Kudu console gives you a web UI for debugging, uploading files, and editing files.
+You use the `scm` URL to access the Kudu console, or publish your app by using web deploy. For more information, see [Kudu service for Azure App Service](../resources-kudu.md). The Kudu console gives you a web UI for debugging, uploading files, and editing files.
 
-### DNS configuration 
+### Configure DNS
 
-If your App Service Environment is made with an external VIP, your apps are automatically put into public DNS. If your App Service Environment is made with an internal VIP, you might need to configure DNS for it.
+If your App Service Environment is made with an external VIP, your apps are automatically put into public DNS. If your App Service Environment is made with an internal VIP, you might need to configure DNS manually.
 
-If you selected having Azure DNS private zones configured automatically, then DNS is configured in the virtual network of your App Service Environment. If you selected to configure DNS manually, you need to use your own DNS server or configure Azure DNS private zones.
+- When you created your app, if you selected [automatic configuration of Azure DNS private zones](#configure-dns-setting), the DNS is configured for you in the virtual network of your App Service Environment.
 
-To find the inbound address, in the App Service Environment portal, select **IP addresses**. 
+- If you chose to [configure DNS manually](#configure-dns-setting), you need to use your own DNS server or configure Azure DNS private zones, as described in the following sections.
 
-![Screenshot that shows how to find the inbound address.][6]
+You can find the IP addresses for the App Service Environment in the Azure portal:
+
+1. In the Azure portal, go to the **Overview** page for the App Service Environment for your app.
+
+1. In the left menu, selecting **Settings** > **IP addresses**.
+
+The **IP Addresses** page shows **Inbound** and **Outbound** IP addresses:
+
+:::image type="content" source="./media/using/environment-ip-addresses.png" alt-text="Screenshot that shows how to find the inbound IP address for the App Service Environment in the Azure portal.":::
+
+### Use your own DNS server
 
 If you want to use your own DNS server, add the following records:
 
-1. Create a zone for `<App Service Environment-name>.appserviceenvironment.net`.
-1. Create an A record in that zone that points * to the inbound IP address used by your App Service Environment.
-1. Create an A record in that zone that points @ to the inbound IP address used by your App Service Environment.
-1. Create a zone in `<App Service Environment-name>.appserviceenvironment.net` named `scm`.
-1. Create an A record in the `scm` zone that points * to the inbound address used by your App Service Environment.
+1. In your DNS server, create a **DNS zone** with the name of your App Service Environment, `<app-service-environment-name>.appserviceenvironment.net`. Later steps in this procedure refer to this zone as _zone-main_.
+
+1. Create an `A` record in _zone-main_ that points the asterisk `*` (wildcard notation) to the inbound IP address used by your App Service Environment.
+
+1. Create an `A` record in _zone-main_ that points the at symbol `@` notation to the inbound IP address used by your App Service Environment.
+
+1. Create a zone within _zone-main_ named `scm`. 
+
+1. Create an `A` record in the `scm` zone that points the asterisk `*` (wildcard notation) to the inbound address used by your App Service Environment.
+
+### Configure DNS in Azure DNS private zone
 
 To configure DNS in Azure DNS private zones:
 
-1. Create an Azure DNS private zone named `<App Service Environment-name>.appserviceenvironment.net`.
-1. Create an A record in that zone that points * to the inbound IP address.
-1. Create an A record in that zone that points @ to the inbound IP address.
-1. Create an A record in that zone that points *.scm to the inbound IP address.
+1. Create an Azure **Private DNS zone** resource. with the name of your App Service Environment, `<app-service-environment-name>.appserviceenvironment.net`. Later steps in this procedure refer to this zone as _zone-main_.
 
-The DNS settings for the default domain suffix of your App Service Environment don't restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an App Service Environment. If you then want to create a zone named `contoso.net`, you can do so and point it to the inbound IP address. The custom domain name works for app requests, and if the custom domain suffix certificate includes a wildcard SAN for scm, custom domain name also work for `scm` site and you can create a `*.scm` record and point it to the inbound IP address.
+1. Create an `A` record in _zone-main_ that points the asterisk `*` (wildcard notation) to the inbound IP address.
 
-## Publishing
+1. Create an `A` record in _zone-main_ that points the at symbol `@` notation to the inbound IP address.
 
-You can publish by any of the following methods:
+1. Create an `A` record in _zone-main_ that points the `*.scm` zone notation to the inbound IP address.
+
+The DNS settings for the default domain suffix of your App Service Environment don't restrict access to your apps to only the values you specify. You can set a custom domain name without any validation on your apps in an App Service Environment. If you later create a zone named `zava-new-zone.net`, you can point it to the inbound IP address.
+
+The custom domain name works for app requests. If the custom domain suffix certificate includes a wildcard SAN for scm, the custom domain name also works for the `scm` site. You can create a `*.scm` record and point it to the inbound IP address.
+
+## Publish the web app
+
+You can publish your web app by any of the following methods:
 
 - Web deployment
 - Continuous integration (CI)
 - Drag-and-drop in the Kudu console
 - An integrated development environment (IDE), such as Visual Studio, Eclipse, or IntelliJ IDEA
 
-With an internal VIP App Service Environment, the publishing endpoints are only available through the inbound address. If you don't have network access to the inbound address, you can't publish any apps on that App Service Environment. Your IDEs must also have network access to the inbound address on the App Service Environment to publish directly to it.
+With an internal VIP App Service Environment, the publishing endpoints are available only through the inbound address. If you don't have network access to the inbound IP address, you can't publish any apps on that App Service Environment. Your IDE must also have network access to the inbound address on the App Service Environment to publish directly to it.
 
-Without additional changes, internet-based CI systems like GitHub and Azure DevOps don't work with an internal VIP App Service Environment. The publishing endpoint isn't internet accessible. You can enable publishing to an internal VIP App Service Environment from Azure DevOps, by installing a self-hosted release agent in the virtual network. 
+Without other changes, internet-based CI systems like GitHub and Azure DevOps don't work with an internal VIP App Service Environment. The publishing endpoint isn't internet accessible. You can enable publishing to an internal VIP App Service Environment from Azure DevOps by installing a self-hosted release agent in the virtual network. 
 
-## Storage
+## Configure storage for your web app
 
-You have 1 TB of storage for all the apps in your App Service Environment. An App Service plan in the isolated pricing SKU has a limit of 250 GB. In an App Service Environment, 250 GB of storage is added per App Service plan, up to the 1 TB limit. You can have more App Service plans than just four, but there is no additional storage beyond the 1 TB limit.
+You have 1 TB of storage for all the apps in your App Service Environment. An App Service plan in the isolated pricing SKU has a limit of 250 GB. In an App Service Environment, 250 GB of storage is added per App Service plan, up to the 1-TB limit. You can have more App Service plans than just four, but there's no other storage beyond the 1-TB limit.
 
-## Monitoring
+## Monitor the App Service Environment
 
-The platform infrastructure in App Service Environment v3 is being monitored and managed by Microsoft, and is scaled as needed. As a customer, you should only monitor the App Service plans and the individual apps running and take appropriate actions. You will see some metrics visible for your App Service Environment, but these are used for older version only and will not omit any values for this version. If you are using v1 or v2 of App Service Environment, refer to [this section](.\using-an-ase.md#monitoring) for guidance on monitoring and scaling.
+Microsoft monitors and manages the platform infrastructure in App Service Environment v3, and scales as needed. As a customer, you should monitor only the App Service plans and your individual running apps, and take the appropriate actions. You can [configure diagnostic settings for monitoring](#enable-diagnostic-logging) to support your scenario.
 
-## Logging
+In the Azure portal, you can see some metrics for an App Service Environment. However, these metrics are for App Service Environment v1 and two resources. Metrics for App Service Environment v3 resources aren't visible. For earlier versions of App Service Environment, review the feature differences in the [App Service Environment overview](overview.md#feature-differences).
 
-You can integrate with Azure Monitor to send logs to Azure Storage, Azure Event Hubs, or Azure Monitor Logs. The following table shows the situations and messages you can log:
+## Review logging scenarios and messages
 
-|Situation |Message |
-|----------|--------|
-|App Service Environment subnet is almost out of space. | The specified App Service Environment is in a subnet that is almost out of space. There are {0} remaining addresses. Once these addresses are exhausted, the App Service Environment will not be able to scale.  |
-|App Service Environment is approaching total instance limit. | The specified App Service Environment is approaching the total instance limit of the App Service Environment. It currently contains {0} App Service Plan instances of a maximum 200 instances. |
-|App Service Environment is suspended. | The specified App Service Environment is suspended. The App Service Environment suspension may be due to an account shortfall or an invalid virtual network configuration. Resolve the root cause and resume the App Service Environment to continue serving traffic. |
-|App Service Environment upgrade has started. | A platform upgrade to the specified App Service Environment has begun. Expect delays in scaling operations. |
-|App Service Environment upgrade has completed. | A platform upgrade to the specified App Service Environment has finished. |
-|App Service plan creation has started. | An App Service plan ({0}) creation has started. Desired state: {1} I{2}v2 workers.
-|Scale operations have completed. | An App Service plan ({0}) creation has finished. Current state: {1} I{2}v2 workers. |
-|Scale operations have failed. | An App Service plan ({0}) creation has failed. This may be due to the App Service Environment operating at peak number of instances, or run out of subnet addresses. |
-|Scale operations have started. | An App Service plan ({0}) has begun scaling. Current state: {1} I(2)v2. Desired state: {3} I{4}v2 workers.|
-|Scale operations have completed. | An App Service plan ({0}) has finished scaling. Current state: {1} I{2}v2 workers. |
-|Scale operations were interrupted. | An App Service plan ({0}) was interrupted while scaling. Previous desired state: {1} I{2}v2 workers. New desired state: {3} I{4}v2 workers. |
-|Scale operations have failed. | An App Service plan ({0}) has failed to scale. Current state: {1} I{2}v2 workers. |
+You can integrate with Azure Monitor to send logs to Azure Storage, Azure Event Hubs, or Azure Monitor Logs.
 
-To enable logging, follow these steps:
+The following tables show the scenarios and messages you can log.
 
-1. In the portal, go to **Diagnostic settings**.
-1. Select **Add diagnostic setting**.
-1. Provide a name for the log integration.
-1. Select and configure the log destinations that you want.
-1. Select **AppServiceEnvironmentPlatformLogs**.
-![Screenshot that shows how to enable logging.][4]
+| App Service Environment status | Message |
+|---|---|
+| Subnet almost full | `The specified App Service Environment is in a subnet that is almost out of space. There are {0} remaining addresses. Once these addresses are exhausted, the App Service Environment will not be able to scale.` |
+| Environment near instance limit | `The specified App Service Environment is approaching the total instance limit of the App Service Environment. It currently contains {0} App Service Plan instances of a maximum 200 instances.` |
+| Environment suspended | `The specified App Service Environment is suspended. The App Service Environment suspension may be due to an account shortfall or an invalid virtual network configuration. Resolve the root cause and resume the App Service Environment to continue serving traffic.` |
+| Upgrade started | `A platform upgrade to the specified App Service Environment has begun. Expect delays in scaling operations.` |
+| Upgrade complete | `A platform upgrade to the specified App Service Environment has finished.` |
 
-If you integrate with Azure Monitor Logs, you can see the logs by selecting **Logs** from the App Service Environment portal, and creating a query against **AppServiceEnvironmentPlatformLogs**. Logs are only emitted when your App Service Environment has an event that triggers the logs. If your App Service Environment doesn't have such an event, there won't be any logs. To quickly see an example of logs, perform a scale operation with an App Service plan. You can then run a query against **AppServiceEnvironmentPlatformLogs** to see those logs. 
+| App Service plan creation | Message |
+|---|---|
+| Started | `An App Service plan ({0}) creation has started. Desired state: {1} I{2}v2 workers.` |
+| Complete | `An App Service plan ({0}) creation has finished. Current state: {1} I{2}v2 workers.` |
+| Failed | `An App Service plan ({0}) creation has failed. This may be due to the App Service Environment operating at peak number of instances, or run out of subnet addresses.` |
 
-### Create an alert
+| Scaling operations | Message |
+|---|---|
+| Started | `An App Service plan ({0}) has begun scaling. Current state: {1} I(2)v2. Desired state: {3} I{4}v2 workers.` |
+| Complete | `An App Service plan ({0}) has finished scaling. Current state: {1} I{2}v2 workers.` |
+| Interrupted | `An App Service plan ({0}) was interrupted while scaling. Previous desired state: {1} I{2}v2 workers. New desired state: {3} I{4}v2 workers.` |
+| Failed | `An App Service plan ({0}) has failed to scale. Current state: {1} I{2}v2 workers.` |
 
-To create an alert against your logs, follow the instructions in [Create, view, and manage log alerts by using Azure Monitor](/azure/azure-monitor/alerts/alerts-log). In brief:
+### Enable diagnostic logging
 
-1. Open the **Alerts** page in your App Service Environment portal.
-1. Select **New alert rule**.
-1. For **Resource**, select your Azure Monitor Logs workspace.
-1. Set your condition with a custom log search to use a query. For example, you might set the following: **AppServiceEnvironmentPlatformLogs | where ResultDescription contains *has begun scaling***. Set the threshold as appropriate. 
-1. Add or create an action group (optional). The action group is where you define the response to the alert, such as sending an email or an SMS message.
-1. Name your alert and save it.
+To enable diagnostic logging for your web app, follow these steps:
 
-## Internal encryption
+1. In the Azure portal, go to the **Overview** page for your web app.
 
-You can't see the internal components or the communication within the App Service Environment system. To enable higher throughput, encryption isn't enabled by default between internal components. The system is secure because the traffic is inaccessible to being monitored or accessed. If you have a compliance requirement for complete encryption of the data path, you can enable this. Select **Configuration**, as shown in the following screenshot.
+1. In the left menu, select **Monitoring** > **Diagnostic settings**.
 
-![Screenshot that shows how to enable internal encryption.][5]
+1. In the **Diagnostic settings** page, select **Add diagnostic setting**.
 
-This option encrypts internal network traffic, and also encrypts the pagefile and the worker disks. Be aware that this option can affect your system performance. Your App Service Environment will be in an unstable state until the change is fully propagated. Complete propagation of the change can take a few hours to complete, depending on how many instances you have.
+   :::image type="content" source="./media/using/environment-diagnostic-settings.png" alt-text="Screenshot that shows how to select 'Add diagnostic setting' for an App Service Environment in the Azure portal.":::
 
-Avoid enabling this option while you're using App Service Environment. If you must do so, it's a good idea to divert traffic to a backup until the operation finishes.
+1. In the **Diagnostic setting** pane, provide a **Diagnostic setting name** for the log integration, such as `networking-logs`.
 
-## Upgrade preference
+1. Select and configure your preferred **Logs**. For this example, select **App Service Platform Logs**.
 
-If you have multiple App Service Environments, you might want some of them to be upgraded before others. You can enable this behavior through your App Service Environment portal. Under **Configuration**, you have the option to set **Upgrade preference**. The possible values are:
+1. Select your preferred **Destinations**.
 
-- **None**: Azure upgrades in no particular batch. This value is the default.
-- **Early**: Upgrade in the first half of the App Service upgrades.
-- **Late**: Upgrade in the second half of the App Service upgrades.
-- **Manual**: Get [15 days window](./how-to-upgrade-preference.md) to deploy the upgrade manually.
+1. If you want the diagnostics to include metrics data, select **Metrics**.
 
-Select the value you want, and then select **Save**.
+1. Select **Save**.
 
-![Screenshot that shows the App Service Environment upgrade preference setting.][7]
+The **Diagnostic settings** page refreshes to show the new log added to the list.
 
-This feature makes the most sense when you have multiple App Service Environments, and you might benefit from sequencing the upgrades. For example, you might set your development and test App Service Environments to be early, and your production App Service Environments to be late.
+If you integrate with Azure Monitor Logs, you can see the logs by selecting **Logs** from the App Service Environment portal, and creating a query against **AppServicePlatformLogs**. Logs are only emitted when your App Service Environment has an event that triggers the logs. If your App Service Environment doesn't have such an event, no logs are gathered. To quickly see an example of logs, perform a scale operation with an App Service plan. You can then run a query against **AppServicePlatformLogs** to see the generated logs.
 
-## Delete an App Service Environment
+### Create alert rule
 
-To delete:
+To create an alert against your web app logs, follow the detailed instructions in [Create or edit a log search alert rule - Azure Monitor](/azure/azure-monitor/alerts/alerts-create-log-alert-rule).
 
-1. At the top of the **App Service Environment** pane, select **Delete**.
-1. Enter the name of your App Service Environment to confirm that you want to delete it. When you delete an App Service Environment, you also delete all the content within it.
-  ![Screenshot that shows how to delete.][3]
-1. Select **OK**.
+Here are basic steps to create an alert rule for your hosted web app:
 
-<!--Image references-->
+1. In the Azure portal, go to the **Monitoring** > **Alerts** page for your App Service Environment, and select **Create alert rule**.
 
-[1]: ./media/using/using-appcreate.png
-[2]: ./media/using/using-appcreate-skus.png
-[3]: ./media/using/using-delete.png
-[4]: ./media/using/using-logsetup.png
-[4]: ./media/using/using-logs.png
-[5]: ./media/using/using-configuration.png
-[6]: ./media/using/using-ip-addresses.png
-[7]: ./media/using/using-upgrade-preference.png
+1. In the **Scope** tab, confirm the **Scope level** is set to your subscription, and set **Resource** to your Azure Monitor Logs workspace.
 
-<!--Links-->
+1. In the **Condition** tab, specify the query for the rule and configure the conditions.
 
-[Intro]: ./overview.md
-[MakeASE]: ./creation.md
-[ASENetwork]: ./networking.md
-[UsingASE]: ./using.md
-[UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/network-security-groups-overview.md
-[Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/management/overview.md
-[ConfigureSSL]: ../configure-ssl-certificate.md
-[Kudu]: ../resources-kudu.md
-[AppDeploy]: ../deploy-local-git.md
-[ASEWAF]: ./integrate-with-application-gateway.md
-[AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: /azure/azure-monitor/alerts/alerts-log
+   1. Set the **Signal name** to use a **Custom log search**. The **Logs** pane opens.
+
+   1. In the **Logs** pane, build a query for the alert. For example, `AppServicePlatformLogs | where ResultDescription contains 'has begun scaling'`. You can also start with a predefined query and modify as needed. Save your query.
+
+   1. Configure other conditions for the rule, such as the **Threshold value** in the **Alert logic** group. 
+
+1. In the **Details** tab, provide details about the rule:
+
+   - For the **Project details**, confirm the **Subscription** and **Resource group** are specified as expected.
+   
+   - For the **Alert rule details**, select the rule **Severity** and the **Region**, and enter a **Name** for the new alert.
+   
+   - For the log query **Identity**, select the identity to use when running the log query.
+
+   - (Optional) Configure **Advanced options** as needed.
+
+1. (Optional) Configure options on the remaining tabs in the **Create an alert rule** pane:
+
+   - **Actions**: Add or create an action group. The action group is where you define the response to the alert, such as sending an email or an SMS message.
+
+   - **Tags**: Define tags for the web app alert rule.
+
+1. Select **Review + create**. Confirm the alert configuration is correct, and select **Create**.
+
+## Configure internal encryption
+
+You can't see the internal components or the communication within the App Service Environment system. To enable higher throughput, encryption isn't enabled by default between internal components. The system is secure because the traffic is inaccessible to monitoring and access.
+
+If you have a compliance requirement for complete encryption of the data path, you can enable the functionality:
+
+1. In the Azure portal, go to the **Overview** page for your App Service Environment.
+
+1. In the left menu, selecting **Settings** > **Configuration**.
+
+1. In the **App Service Environment Configuration** pane, select the **Internal encryption** checkbox, and then select **Apply**.
+
+:::image type="content" source="./media/using/enable-internal-encryption.png" alt-text="Screenshot that shows how to enable internal encryption for the App Service Environment in the Azure portal.":::
+
+This option encrypts internal network traffic, and also encrypts the pagefile and worker disks.
+
+> [!IMPORTANT]
+> Enabling encryption can affect your system performance. The App Service Environment is in an unstable state until the change fully propagates. Complete propagation of the change can take several hours to complete, depending on how the number of instances to update.
+> 
+> Avoid enabling encryption while you're using the App Service Environment. To enable encryption while the environment is in use, divert traffic to a backup until the operation completes.
+
+## Configure upgrade preference
+
+If you have multiple App Service Environments, you might want one or more to upgrade before the others.
+
+For each environment, configure the **Upgrade preference** setting:
+
+1. In the Azure portal, go to the **Overview** page for the App Service Environment.
+
+1. In the left menu, selecting **Settings** > **Configuration**.
+
+1. In the **App Service Environment Configuration** pane, select your preference for the upgrades.
+
+   - **Automatic**: Automatically upgrade the App Service Environment according to your selection:
+
+      - `None`: (Default) Upgrade automatically during the upgrade process for the region.
+      - `Early`: Upgrade automatically with a high prioritization compared with other resources in the region.
+      - `Late`: Upgrade automatically with a low prioritization compared with other resources in the region. 
+
+   - **Manual** Receive a notification when an upgrade is available, and start the process within 15 days. After 15 days, the upgrade occurs with other automatic upgrades in the region. For more information, see [Upgrade preference for App Service Environment planned maintenance](how-to-upgrade-preference.md).
+
+1. To save your changes, select **Apply**.
+
+:::image type="content" source="./media/using/set-upgrade-preference.png" alt-text="Screenshot that shows how to set the upgrade preference for an App Service Environment in the Azure portal.":::
+
+This feature makes the most sense when you have multiple App Service Environments, and you might benefit from sequencing the upgrades. For example, you might set your development and test App Service Environments to upgrade early, and your production App Service Environments to upgrade later.
+
+## Delete App Service Environment
+
+Follow these steps to delete the App Service Environment:
+
+1. In the Azure portal, on the **Overview** page for the **App Service Environment**, select **Delete**.
+
+1. Confirm the delete action by entering the name of your App Service Environment, and select **OK**.
+
+When you delete an App Service Environment, you also delete all content and resources within the environment.
+
+:::image type="content" source="./media/using/delete-environment.png" alt-text="Screenshot that shows how to delete an App Service Environment in the Azure portal.":::
+
+## Related content
+
+- [Azure App Service on Linux pricing](https://azure.microsoft.com/pricing/details/app-service/)
+- [Upgrade preference for App Service Environment planned maintenance](how-to-upgrade-preference.md)
+- [Create alert rule using the Azure CLI, PowerShell, or ARM template](/azure/azure-monitor/alerts/alerts-create-rule-cli-powershell-arm)

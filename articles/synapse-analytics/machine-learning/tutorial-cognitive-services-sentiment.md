@@ -79,7 +79,7 @@ You'll need a Spark table for this tutorial.
 ## Configure sentiment analysis
 
 Next, configure the sentiment analysis. Select the following details:
-- **Azure Cognitive Services linked service**: As part of the prerequisite steps, you created a linked service to your [Foundry Tool](tutorial-configure-cognitive-services-synapse.md). Select it here.
+- **Azure Cognitive Services linked service**: As part of the prerequisite steps, you created a linked service to your [Microsoft Foundry tool](tutorial-configure-cognitive-services-synapse.md). Select it here.
 - **Language**: Select **English** as the language of the text that you want to perform sentiment analysis on.
 - **Text column**: Select **comment (string)** as the text column in your dataset that you want to analyze to determine the sentiment.
 
@@ -89,7 +89,7 @@ When you're done, select **Open notebook**. This generates a notebook for you wi
 
 ## Run the notebook
 
-The notebook that you just opened uses the [SynapseML library](https://github.com/microsoft/SynapseML) to connect to Foundry Tools. The Foundry Tools linked service that you provided allow you to securely reference your Foundry Tool from this experience without revealing any secrets.
+The notebook that you just opened uses the [SynapseML library](https://github.com/microsoft/SynapseML) to connect to Foundry Tools. The Foundry Tools linked service that you provided allow you to securely reference your Foundry tool from this experience without revealing any secrets.
 
  You can now run all cells to enrich your data with sentiments. Select **Run all**. 
 

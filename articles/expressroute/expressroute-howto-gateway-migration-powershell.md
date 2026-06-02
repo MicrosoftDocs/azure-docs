@@ -12,6 +12,9 @@ ms.author: duau
 
 # Migrate to an availability zone-enabled ExpressRoute virtual network gateway using PowerShell
 
+> [!IMPORTANT]
+> ExpressRoute gateway migrations are temporarily paused. Don't initiate migrations at this time. You will be notified when migrations can resume.
+
 This article shows you how to migrate an ExpressRoute virtual network gateway from Standard, HighPerformance, or UltraPerformance SKUs to availability zone-enabled SKUs (ErGw1Az, ErGw2Az, ErGw3Az) using PowerShell. Higher-level SKUs provide more CPUs and network bandwidth, resulting in higher network throughput and more dependable connections to your virtual network. 
 
 ## Prerequisites

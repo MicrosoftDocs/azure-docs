@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -155,6 +155,9 @@ Can manage Azure Managed Grafana resources, without providing access to the work
 > | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/managedPrivateEndpoints/delete | Delete Managed Private Endpoints |
 > | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/integrationFabrics/write | Write Integration Fabrics |
 > | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/integrationFabrics/delete | Delete Integration Fabrics |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/grafanaDefinitions/read | Read Grafana Definitions |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/grafanaDefinitions/write | Write Grafana Definitions |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/grafanaDefinitions/delete | Delete Grafana Definitions |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Write | Create or update a classic metric alert |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Delete | Delete a classic metric alert |
@@ -205,6 +208,9 @@ Can manage Azure Managed Grafana resources, without providing access to the work
         "Microsoft.Dashboard/grafana/managedPrivateEndpoints/delete",
         "Microsoft.Dashboard/grafana/integrationFabrics/write",
         "Microsoft.Dashboard/grafana/integrationFabrics/delete",
+        "Microsoft.Dashboard/grafana/grafanaDefinitions/read",
+        "Microsoft.Dashboard/grafana/grafanaDefinitions/write",
+        "Microsoft.Dashboard/grafana/grafanaDefinitions/delete",
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/AlertRules/Write",
         "Microsoft.Insights/AlertRules/Delete",
@@ -458,7 +464,7 @@ Log Analytics Contributor can read all monitoring data and edit monitoring setti
 > | Actions | Description |
 > | --- | --- |
 > | */read | Read control plane information for all Azure resources. |
-> | [Microsoft.ClassicCompute](../permissions/compute.md#microsoftclassiccompute)/virtualMachines/extensions/* |  |
+> | Microsoft.ClassicCompute/virtualMachines/extensions/* |  |
 > | [Microsoft.ClassicStorage](../permissions/storage.md#microsoftclassicstorage)/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/extensions/* |  |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/write | Installs or Updates an Azure Arc extensions |

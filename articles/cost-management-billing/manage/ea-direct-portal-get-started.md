@@ -5,8 +5,8 @@ author: prashantsaini4
 ms.reviewer: prsaini
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.topic: conceptual
-ms.date: 09/23/2025
+ms.topic: get-started
+ms.date: 04/21/2026
 ms.author: prsaini
 ---
 
@@ -43,11 +43,11 @@ Each role has a varying degree of user limits and permissions. For more informat
 
 For more information about activating your enrollment, creating a department or subscription, adding administrators and account owners, and other administrative tasks, see [Azure EA billing administration](direct-ea-administration.md).
 
-If you’d like to know more about transferring an Enterprise subscription to a pay-as-you-go subscription, see [Azure Enterprise transfers](ea-transfers.md).
+If you'd like to know more about transferring an Enterprise subscription to a pay-as-you-go subscription, see [Azure Enterprise transfers](ea-transfers.md).
 
 ## View your enterprise department and account lists
 
-If you’d like to view all the departments and accounts in your billing account, use the following steps.
+If you'd like to view all the departments and accounts in your billing account, use the following steps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Cost Management + Billing**.
@@ -71,7 +71,7 @@ For more information about paying overages with Azure Prepayment, see [Pay your 
 
 ## View Microsoft Azure Consumption Commitment (MACC)
 
-You view and track your Microsoft Azure Consumption Commitment (MACC) in the Azure portal. If your organization has a MACC for an EA billing account, you can check important aspects of your commitment, including start and end dates, remaining commitment, and eligible spend in the Azure portal. For more information, see [MACC overview](../benefits/macc/track-consumption-commitment.md?tabs=portal.md#track-your-macc-commitment).
+You view and track your Microsoft Azure Consumption Commitment (MACC) in the Azure portal. If your organization has a MACC for an EA billing account, you can check important aspects of your commitment, including start and end dates, remaining commitment, and eligible spend in the Azure portal. For more information, see [MACC overview](../benefits/macc/track-consumption-commitment.md).
 
 ## Now that you're familiar with the basics, here are some more links to help you get onboarded
 

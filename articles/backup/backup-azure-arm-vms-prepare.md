@@ -2,7 +2,7 @@
 title: Back Up Azure VMs in a Recovery Services Vault
 description: This article describes how to back up Azure VMs in a Recovery Services vault by using Azure Backup.
 ms.topic: how-to
-ms.date: 01/22/2026
+ms.date: 03/25/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -98,9 +98,12 @@ To apply a backup policy to your Azure VMs, follow these steps:
 
      ![Screenshot that shows the Select virtual machines pane.](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
-    >[!NOTE]
-    >- All the VMs in the same region and subscription as that of the vault are available to configure backup. When you configure backup, you can browse to the VM name and its resource group, even though you don't have the required permission on those VMs. If your VM is in a soft-deleted state, it doesn't appear in this list. If you need to reprotect the VM, wait for the soft-deleted period to expire. You can also restore the VM from the soft-deleted list. For more information, see [Soft delete for VMs by using the Azure portal](soft-delete-virtual-machines.md#soft-delete-azure-vm-backups).
-    >- To change the Recovery Services vault of a VM, stop the backup and then assign a new vault to the VM.
+> [!NOTE]
+> * All the VMs in the same region as the vault are available to configure backup. 
+> * Azure VM backup also supports protecting a VM in a different subscription than the vault, as long as the VM and vault are in the same tenant. For supported cross-subscription backup scenarios and limitations, see [Support matrix for Azure VM backups](backup-support-matrix-iaas.md#supported-backup-actions). 
+> * When you configure backup, you can browse to the VM name and its resource group, even though you don't have the required permission on those VMs. 
+> * If your VM is in a soft-deleted state, it doesn't appear in this list. If you need to reprotect the VM, wait for the soft-deleted period to expire. You can also restore the VM from the soft-deleted list. For more information, see [Soft delete for VMs by using the Azure portal](soft-delete-virtual-machines.md#soft-delete-azure-vm-backups).
+> * To change the Recovery Services vault of a VM, stop the backup and then assign a new vault to the VM.
 
 1. In **Backup**, select **Enable backup**. This action deploys the policy to the vault and the VMs and installs the backup extension on the VM agent that runs on the Azure VM.
 
@@ -147,16 +150,25 @@ The initial backup runs based on the schedule, but you can also run it immediate
 
 ## Verify the backup job status
 
-The backup job details for each VM backup consist of two phases: **Snapshot** is followed by **Transfer data to vault**.
+The backup job details for each VM backup include the following phases:
 
-- **Snapshot**: Ensures that the availability of a recovery point is stored along with the disks for Instant Restore and is available for a maximum of five days depending on the snapshot retention configured by the user.
-- **Transfer data to vault**: Creates a recovery point in the vault for long-term retention. **Transfer data to vault** starts only after **Snapshot** is finished.
+- **Snapshot**: Azure Backup takes a snapshot of the VM disks. This phase ensures a recovery point is available for Instant Restore for up to 30 days, depending on the configured policy type and snapshot retention.
+- **Transfer data to vault**: Data is copied from the VM to the Recovery Services vault to create a recovery point for long-term retention. This phase starts after **Snapshot** finishes.
+- **Validate backup**: Azure Backup performs an integrity check to verify transferred data and confirm that the recovery point is usable.
 
   ![Screenshot that shows backup job status.](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
 
-Two subtasks run at the back end. One is for the front-end backup job that you can check on the **Backup** pane under **Job Details**.
+In job details, the subtasks provide visibility into the backup job phases.
 
   ![Screenshot that shows backup job status subtasks.](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
+
+The progress bar tracks only **Transfer data to vault** and shows the proportion of data transferred. **Snapshot** and **Validate backup** durations aren't represented on the progress bar. Use the progress bar as a transfer indicator, not as an estimate of total backup completion time.
+
+> [!IMPORTANT]
+> - Completion of **Transfer data to vault** doesn't confirm a restorable recovery point. The backup is considered restorable only after **Validate backup** succeeds.
+> - **Snapshot** and **Validate backup** durations are excluded from the progress bar because they're not predictably time-bound.
+> - The progress bar doesn't represent total time remaining or estimated timeline.
+> - This progress experience improves visibility only. It doesn't change the underlying backup workflow.
 
 **Transfer data to vault** can take multiple days to finish depending on the size of the disks, the churn per disk, and other factors.
 

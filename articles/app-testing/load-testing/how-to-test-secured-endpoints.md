@@ -1,8 +1,8 @@
 ---
 title: Load test authenticated endpoints
 description: Learn how to load test authenticated endpoints with Azure Load Testing. Use shared secrets, credentials, or client certificates for load testing applications that require authentication.
-author: ninallam
-ms.author: ninallam
+author: nandinimurali
+ms.author: nandinim
 services: load-testing
 ms.service: azure-load-testing
 ms.topic: how-to 
@@ -247,7 +247,28 @@ For Locust-based tests, you can retrieve the certificate and use it in your test
 
 ```Python
 cert_dir = os.getenv("ALT_CERTIFICATES_DIR")
-cert_file = open(os.path.join(cert_dir), "cert_name_in_keyvault.pfx")
+
+key_path = "client.key.pem"
+crt_path = "client.crt.pem"
+
+
+@events.test_start.add_listener
+def on_test_start(environment, **kwargs):
+    pfx_path = open(os.path.join(cert_dir, "cert_name_in_keyvault.pfx"))
+
+    # Generate the private key
+    subprocess.check_output(
+        f'openssl pkcs12 -in "{pfx_path}" -out "{key_path}" -nocerts -nodes -passin pass:',
+        shell=True,
+        stderr=subprocess.STDOUT,
+    )
+
+    # Generate the public certificate
+    subprocess.check_output(
+        f'openssl pkcs12 -in "{pfx_path}" -out "{crt_path}" -clcerts -nokeys -passin pass:',
+        shell=True,
+        stderr=subprocess.STDOUT,
+    )
 ```
 
 ## Authenticate with a managed identity

@@ -1,13 +1,13 @@
 ---
 title: Azure Private Endpoint private DNS zone values
 description: Learn about the private DNS zone values for Azure services that support private endpoints.
-author: AbdullahBell
-ms.author: abell
+author: asudbring
+ms.author: allensu
 ms.service: azure-private-link
 ms.custom:
   - ignite-2024
 ms.topic: concept-article
-ms.date: 08/04/2025
+ms.date: 05/05/2026
 # Customer intent: As a network administrator, I want to configure private DNS zone values for Azure services with private endpoints, so that I can ensure proper DNS resolution for secure connections within my network.
 ---
 
@@ -38,6 +38,8 @@ You can use the following options to configure your DNS settings for private end
 Azure creates a canonical name DNS record (CNAME) on the public DNS. The CNAME record redirects the resolution to the private domain name. You can override the resolution with the private IP address of your private endpoints.
 
 Connection URLs for your existing applications don't change. Client DNS requests to a public DNS server resolve to your private endpoints. The process doesn't affect your existing applications.
+
+DNS resolution and access control are independent. The CNAME chain in the public `privatelink.<service>.<region>.<suffix>` zone is deliberately resolvable from anywhere on the internet so that hybrid and gradual-migration scenarios continue to work without breaking existing clients. A successful public DNS lookup confirms only that a resource with that exact name exists in the global Azure namespace. It doesn't confirm that a private endpoint is attached, reveal the private endpoint's IP, or grant any data-plane access. When a resource has **Public network access** set to **Disabled** (or the service firewall denies the caller), the service rejects the connection at the front door regardless of DNS resolution. Resource existence is enumerable; resource access is not.
 
 > [!IMPORTANT]
 > Azure File Shares must be remounted if connected to the public endpoint.
@@ -167,6 +169,7 @@ For Azure services, use the recommended zone names as described in the following
 > | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 > |---|---|---|---|
 > | Azure Media Services (Microsoft.Media/mediaservices) | keydelivery </br> liveevent </br> streamingendpoint | privatelink.media.azure.net | media.azure.net |
+> | Azure AI Video Indexer (Microsoft.VideoIndexer/accounts) | account | privatelink.api.videoindexer.ai | api.videoindexer.ai |
 
 ### Management and Governance
 
@@ -223,6 +226,7 @@ For Azure services, use the recommended zone names as described in the following
 > | Azure Web Apps / Azure Function Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.net </br> scm.privatelink.azurewebsites.net<sup>3</sup> | azurewebsites.net </br> scm.azurewebsites.net |
 > | SignalR (Microsoft.SignalRService/SignalR) | signalr | privatelink.service.signalr.net | service.signalr.net |
 > | Azure Static Web Apps (Microsoft.Web/staticSites) | staticSites | privatelink.azurestaticapps.net </br> privatelink.{partitionId}.azurestaticapps.net | azurestaticapps.net </br> {partitionId}.azurestaticapps.net |
+> | Azure Maps (Microsoft.Maps/accounts) | account | privatelink.account.maps.azure.com | account.maps.azure.com |
 > | Azure Web PubSub service (Microsoft.SignalRService/WebPubSub) | webpubsub | privatelink.webpubsub.azure.com | webpubsub.azure.com |
 
 <sup>1</sup>If you are using Azure Private DNS Zones, do not deploy this as an additional zone. DNS entries will be automatically added to the existing DNS Zone `privatelink.azurecr.io`.

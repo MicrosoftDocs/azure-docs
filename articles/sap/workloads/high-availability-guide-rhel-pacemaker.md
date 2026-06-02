@@ -7,7 +7,7 @@ manager: juergent
 ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.date: 01/29/2026
+ms.date: 03/03/2026
 ms.author: radeltch
 ms.custom:
   - linux-related-content
@@ -512,7 +512,7 @@ foreach ($vmName in $vmNames) {
       sudo vi /etc/sysconfig/sbd
       ```
 
-   2. Change the property of the SBD device, enable the pacemaker integration, change the start mode of SBD, and adjust SBD_DELAY_START value. 
+   2. Change the property of the SBD device, enable the pacemaker integration, change the start mode of SBD, and adjust SBD_DELAY_START value.
 
       ```bash
       [...]
@@ -563,9 +563,11 @@ The fencing device uses either a managed identity for Azure resource or a servic
 
    #### [Managed identity](#tab/msi)
 
-   To create a managed identity (MSI), [create a system-assigned](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities?pivots=qs-configure-portal-windows-vm#system-assigned-managed-identity) managed identity for each VM in the cluster. If a system-assigned managed identity already exists, then it would be used. Don't use user-assigned managed identities with Pacemaker at this time. A fence device, based on managed identity, is supported on RHEL 7.9 and RHEL 8.x/RHEL 9.x.
+   To create a managed identity (MSI), [create a system-assigned](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities?pivots=qs-configure-portal-windows-vm#system-assigned-managed-identity) managed identity for each VM in the cluster. If a system-assigned managed identity already exists, then it would be used. Don't use user-assigned managed identities with Pacemaker at this time. A fence device, based on managed identity, is supported on RHEL 7.9 and RHEL 8.x/RHEL 9.x/RHEL 10.x.
 
    #### [Service principal](#tab/spn)
+   > [!CAUTION]
+   > Service principal-based authentication relies on a static secret, which adds credential management overhead and increases security risk. We recommend the use of managed identity for fence agent.
 
    Follow these steps to create a service principal, if you aren't using managed identity.
 
@@ -732,7 +734,7 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
    sudo pcs cluster start --all
    ```
 
-   If you're building a cluster on **RHEL 8.x/RHEL 9.x**, use the following commands:  
+   If you're building a cluster on **RHEL 8.x/RHEL 9.x/RHEL 10.x**, use the following commands:  
 
    ```bash
    sudo pcs host auth prod-cl1-0 prod-cl1-1 -u hacluster
@@ -812,7 +814,7 @@ Based on the selected fencing mechanism, follow only one section for relevant in
    # Replace the device IDs with your device ID. 
    pcs stonith create sbd fence_sbd \
    devices=/dev/disk/by-id/scsi-3600140585d254ed78e24ec48b0decac2,/dev/disk/by-id/scsi-3600140587122bfc8a0b4006b538d0a6d,/dev/disk/by-id/scsi-36001405d2ddc548060c49e7bb792bb65 \
-   op monitor interval=600 timeout=15
+   op monitor interval=600 timeout=120
    ```
 
 3. **[1]** Restart the cluster
@@ -855,22 +857,25 @@ Based on the selected fencing mechanism, follow only one section for relevant in
    sudo pcs stonith create rsc_st_azure fence_azure_arm msi=true resourceGroup="resource group" \ 
    subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
    power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
+   meta failure-timeout=120s \
    op monitor interval=3600
    ```
 
-   For RHEL **8.x/9.x**, use the following command to configure the fence device:  
+   For RHEL **8.x/9.x/10.x**, use the following command to configure the fence device:  
 
    ```bash
    # Run following command if you are setting up fence agent on (two-node cluster and pacemaker version greater than 2.0.4-6.el8) OR (HANA scale out)
    sudo pcs stonith create rsc_st_azure fence_azure_arm msi=true resourceGroup="resource group" \
    subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
    power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
+   meta failure-timeout=120s \
    op monitor interval=3600
    
    # Run following command if you are setting up fence agent on (two-node cluster and pacemaker version less than 2.0.4-6.el8)
    sudo pcs stonith create rsc_st_azure fence_azure_arm msi=true resourceGroup="resource group" \
    subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
    power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
+   meta failure-timeout=120s \
    op monitor interval=3600
    ```
 
@@ -883,10 +888,11 @@ Based on the selected fencing mechanism, follow only one section for relevant in
    resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" \
    pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
    power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
+   meta failure-timeout=120s \
    op monitor interval=3600
    ```
 
-   For RHEL **8.x/9.x**, use the following command to configure the fence device:  
+   For RHEL **8.x/9.x/10.x**, use the following command to configure the fence device:  
 
    ```bash
    # Run following command if you are setting up fence agent on (two-node cluster and pacemaker version greater than 2.0.4-6.el8) OR (HANA scale out)
@@ -894,6 +900,7 @@ Based on the selected fencing mechanism, follow only one section for relevant in
    resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" \
    pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
    power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
+   meta failure-timeout=120s \
    op monitor interval=3600
    
    # Run following command if you are setting up fence agent on (two-node cluster and pacemaker version less than 2.0.4-6.el8)
@@ -901,6 +908,7 @@ Based on the selected fencing mechanism, follow only one section for relevant in
    resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" \
    pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
    power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
+   meta failure-timeout=120s \
    op monitor interval=3600
    ```
 
@@ -949,9 +957,14 @@ The `#heath-azure` attribute is set back to `0` on pacemaker startup once all ev
    ```bash
    sudo pcs property set node-health-strategy=custom
 
+   # For RHEL 8.x/9.x
    sudo pcs constraint location 'regexp%!health-.*' \
    rule score-attribute='#health-azure' \
    defined '#uname'
+   # For RHEL 10.x
+   sudo pcs constraint location 'regexp%!health-.*' \
+   rule score-attribute='#health-azure' \
+   "defined #uname"
    ```
 
    > [!IMPORTANT]
@@ -974,7 +987,10 @@ The `#heath-azure` attribute is set back to `0` on pacemaker startup once all ev
    op monitor interval=10s timeout=240s \
    op start timeout=10s start-delay=90s
 
+   # For RHEL 8.x/9.x
    sudo pcs resource clone health-azure-events allow-unhealthy-nodes=true
+   # For RHEL 10.x
+   sudo pcs resource clone health-azure-events meta allow-unhealthy-nodes=true
    ```
 
 6. Take the Pacemaker cluster out of maintenance mode.

@@ -5,14 +5,14 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 02/23/2026
+ms.date: 03/03/2026
 ms.author: kendownie
 # Customer intent: "As a Linux administrator, I want to enable Kerberos authentication for accessing Azure file shares, so that I can securely manage file access using Active Directory and streamline authentication processes for users."
 ---
 
 # Enable Active Directory authentication over SMB for Linux clients accessing Azure Files
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 For more information on supported options and considerations, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md).
 
@@ -21,14 +21,14 @@ For more information on supported options and considerations, see [Overview of A
 - On-premises Windows Active Directory Domain Services (AD DS)
 - Microsoft Entra Domain Services
 
-To use AD DS, you must sync your AD DS to Microsoft Entra ID by using Microsoft Entra Connect.
+To use AD DS, you must sync your AD DS to Microsoft Entra ID by using [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis).
 
 > [!NOTE]
 > This article uses Ubuntu for the example steps. Similar configurations work for RHEL and SLES clients, allowing you to mount Azure file shares using Active Directory.
 
 ## Linux SMB client limitations
 
-You can't use identity-based authentication to mount Azure File shares on Linux clients at boot time by using `fstab` entries. This ie because the client can't get the Kerberos ticket early enough to mount at boot time. You can use an `fstab` entry and specify the `noauto` option to enable a user to mount the file share after sign in by using a simple mount command without all the parameters. You can also use [`autofs`](storage-how-to-use-files-linux.md?tabs=smb311#dynamically-mount-with-autofs) to mount the share upon access.
+You can't use identity-based authentication to mount Azure File shares on Linux clients at boot time by using `fstab` entries. This is because the client can't get the Kerberos ticket early enough to mount at boot time. You can use an `fstab` entry and specify the `noauto` option to enable a user to mount the file share after sign in by using a simple mount command without all the parameters. You can also use [`autofs`](storage-how-to-use-files-linux.md?tabs=smb311#dynamically-mount-with-autofs) to mount the share upon access.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ Before you enable Active Directory authentication over SMB for Azure file shares
 - A Linux VM running Ubuntu 18.04+, or an equivalent RHEL or SLES VM. If running on Azure, the VM must have at least one network interface on the virtual network containing Microsoft Entra Domain Services. If using an on-premises VM, your AD DS must be synced to Microsoft Entra ID.
 - Root user or user credentials to a local user account that has full sudo rights (for this guide, localadmin).
 - The Linux VM isn't joined already to another AD domain. If it's already a part of a domain, it must first leave that domain before it can join this domain.
-- A Microsoft Entra tenant [fully configured](../../active-directory-domain-services/tutorial-create-instance.md), with domain user already set up.
+- A Microsoft Entra tenant [fully configured](/entra/identity/domain-services/tutorial-create-instance), with domain user already set up.
 
 Installing the samba package isn't strictly necessary, but it gives you some useful tools and brings in other packages automatically, such as `samba-common` and `smbclient`. Run the following commands to install it. If you're asked for any input values during installation, leave them blank.
 
@@ -48,11 +48,11 @@ sudo apt install samba winbind libpam-winbind libnss-winbind krb5-config krb5-us
 
 The `wbinfo` tool is part of the samba suite and is useful for authentication and debugging purposes, such as checking if the domain controller is reachable, checking what domain a machine is joined to, and finding information about users.
 
-Make sure that the Linux host keeps the time synchronized with the domain server. Refer to the documentation for your Linux distribution. For some distros, you can do this [using systemd-timesyncd](https://www.freedesktop.org/software/systemd/man/timesyncd.conf.html). Edit `/etc/systemd/timesyncd.conf` by using your favorite text editor to include the following:
+Make sure that the Linux host keeps the time synchronized with the domain server. Refer to the documentation for your Linux distribution. For some distros, you can do this [using systemd-timesyncd](https://www.freedesktop.org/software/systemd/man/timesyncd.conf.html). Edit `/etc/systemd/timesyncd.conf` to include the following. Replace `ntp.server` with the same NTP server hostname or IP address that your domain server uses.
 
 ```plaintext
 [Time]
-NTP=onpremaadint.com
+NTP=ntp.server
 FallbackNTP=ntp.ubuntu.com
 ```
 
@@ -64,137 +64,143 @@ sudo systemctl restart systemd-timesyncd.service
 
 ## Enable AD Kerberos authentication
 
-Follow these steps to enable AD Kerberos authentication. [This Samba documentation](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member) might be helpful as a reference.
+Follow these steps to enable AD Kerberos authentication using either on-premises AD DS or Microsoft Entra Domain Services. [This Samba documentation](https://wiki.samba.org/index.php/Setting_up_Samba_as_a_Domain_Member) might be helpful as a reference.
 
 ### Make sure the domain server is reachable and discoverable
 
+The following section assumes you have an existing, on-premises AD DS. If you're using Microsoft Entra Domain Services instead, skip this section and proceed to [Connect to Entra Domain Services and make sure the services are discoverable](#connect-to-microsoft-entra-domain-services-and-make-sure-the-services-are-discoverable).
+
 1. Make sure that the DNS servers you enter contain the domain server IP addresses.
 
-```bash
-systemd-resolve --status
-```
+   ```bash
+   systemd-resolve --status
+   ```
+   
+   ```output
+   Global 
+             DNSSEC NTA: 10.in-addr.arpa
+                         16.172.in-addr.arpa
+                         168.192.in-addr.arpa
+                         17.172.in-addr.arpa
+                         18.172.in-addr.arpa
+                         19.172.in-addr.arpa
+                         20.172.in-addr.arpa
+                         21.172.in-addr.arpa
+                         22.172.in-addr.arpa
+                         23.172.in-addr.arpa
+                         24.172.in-addr.arpa
+                         25.172.in-addr.arpa
+                         26.172.in-addr.arpa
+                         27.172.in-addr.arpa
+                         28.172.in-addr.arpa
+                         29.172.in-addr.arpa
+                         30.172.in-addr.arpa
+                         31.172.in-addr.arpa
+                         corp
+                         d.f.ip6.arpa
+                         home
+                         internal
+                         intranet
+                         lan
+                         local
+                         private
+                         test 
+   
+   Link 2 (eth0) 
+         Current Scopes: DNS
+          LLMNR setting: yes
+   MulticastDNS setting: no
+         DNSSEC setting: no
+       DNSSEC supported: no
+            DNS Servers: 10.0.2.5
+                         10.0.2.4
+                         10.0.0.41
+             DNS Domain: domain1.contoso.com
+   ```
 
-```output
-Global 
-          DNSSEC NTA: 10.in-addr.arpa
-                      16.172.in-addr.arpa
-                      168.192.in-addr.arpa
-                      17.172.in-addr.arpa
-                      18.172.in-addr.arpa
-                      19.172.in-addr.arpa
-                      20.172.in-addr.arpa
-                      21.172.in-addr.arpa
-                      22.172.in-addr.arpa
-                      23.172.in-addr.arpa
-                      24.172.in-addr.arpa
-                      25.172.in-addr.arpa
-                      26.172.in-addr.arpa
-                      27.172.in-addr.arpa
-                      28.172.in-addr.arpa
-                      29.172.in-addr.arpa
-                      30.172.in-addr.arpa
-                      31.172.in-addr.arpa
-                      corp
-                      d.f.ip6.arpa
-                      home
-                      internal
-                      intranet
-                      lan
-                      local
-                      private
-                      test 
+1. If the command works, skip the following steps and proceed to the [next section](#set-up-hostname-and-fully-qualified-domain-name-fqdn).
 
-Link 2 (eth0) 
-      Current Scopes: DNS 
-       LLMNR setting: yes 
-MulticastDNS setting: no 
-      DNSSEC setting: no 
-    DNSSEC supported: no 
-         DNS Servers: 10.0.2.5 
-                      10.0.2.4 
-                      10.0.0.41
-          DNS Domain: domain1.contoso.com 
-```
+1. If the command doesn't work, make sure that you can ping the domain server IP addresses.
 
-2. If the command works, skip the following steps and proceed to the next section.
+   ```bash
+   ping 10.0.2.5
+   ```
+   
+   ```output
+   PING 10.0.2.5 (10.0.2.5) 56(84) bytes of data.
+   64 bytes from 10.0.2.5: icmp_seq=1 ttl=128 time=0.898 ms
+   64 bytes from 10.0.2.5: icmp_seq=2 ttl=128 time=0.946 ms
+   
+   ^C 
+   
+   --- 10.0.2.5 ping statistics --- 
+   2 packets transmitted, 2 received, 0% packet loss, time 1002ms
+   rtt min/avg/max/mdev = 0.898/0.922/0.946/0.024 ms
+   ```
 
-3. If the command doesn't work, make sure that you can ping the domain server IP addresses.
+1. If the ping doesn't work, go back to [prerequisites](#prerequisites), and make sure that your VM is on a virtual network that has access to the Entra tenant.
 
-```bash
-ping 10.0.2.5
-```
+1. If the IP addresses respond to ping but the DNS servers aren't automatically discovered, you can add the DNS servers manually. Edit `/etc/netplan/50-cloud-init.yaml` by using your favorite text editor.
 
-```output
-PING 10.0.2.5 (10.0.2.5) 56(84) bytes of data.
-64 bytes from 10.0.2.5: icmp_seq=1 ttl=128 time=0.898 ms
-64 bytes from 10.0.2.5: icmp_seq=2 ttl=128 time=0.946 ms
+   ```plaintext
+   # This file is generated from information provided by the datasource.  Changes
+   # to it will not persist across an instance reboot.  To disable cloud-init's
+   # network configuration capabilities, write a file
+   # /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
+   # network: {config: disabled}
+   network:
+       ethernets:
+           eth0:
+               dhcp4: true
+               dhcp4-overrides:
+                   route-metric: 100
+               dhcp6: false
+               match:
+                   macaddress: 00:22:48:03:6b:c5
+               set-name: eth0
+               nameservers:
+                   addresses: [10.0.2.5, 10.0.2.4]
+       version: 2
+   ```
 
-^C 
+   Then apply the changes:
 
---- 10.0.2.5 ping statistics --- 
-2 packets transmitted, 2 received, 0% packet loss, time 1002ms
-rtt min/avg/max/mdev = 0.898/0.922/0.946/0.024 ms
-```
+   ```bash
+   sudo netplan --debug apply 
+   ```
 
-4. If the ping doesn't work, go back to [prerequisites](#prerequisites), and make sure that your VM is on a virtual network that has access to the Entra tenant.
+1. Winbind assumes that the DHCP server keeps the domain DNS records up-to-date. However, this assumption isn't true for Azure DHCP. To set up the client to make DDNS updates, use [this guide](../../virtual-network/virtual-networks-name-resolution-ddns.md#linux-clients) to create a network script. Here's a sample script that resides at `/etc/dhcp/dhclient-exit-hooks.d/ddns-update`.
 
-5. If the IP addresses respond to ping but the DNS servers aren't automatically discovered, you can add the DNS servers manually. Edit `/etc/netplan/50-cloud-init.yaml` by using your favorite text editor.
+   ```plaintext
+   #!/bin/sh 
+   
+   # only execute on the primary nic
+   if [ "$interface" != "eth0" ]
+   then
+       return
+   fi 
+   
+   # When you have a new IP, perform nsupdate
+   if [ "$reason" = BOUND ] || [ "$reason" = RENEW ] ||
+      [ "$reason" = REBIND ] || [ "$reason" = REBOOT ]
+   then
+      host=`hostname -f`
+      nsupdatecmds=/var/tmp/nsupdatecmds
+        echo "update delete $host a" > $nsupdatecmds
+        echo "update add $host 3600 a $new_ip_address" >> $nsupdatecmds
+        echo "send" >> $nsupdatecmds
+   
+        nsupdate $nsupdatecmds
+   fi 
+   ```
 
-```plaintext
-# This file is generated from information provided by the datasource.  Changes
-# to it will not persist across an instance reboot.  To disable cloud-init's
-# network configuration capabilities, write a file
-# /etc/cloud/cloud.cfg.d/99-disable-network-config.cfg with the following:
-# network: {config: disabled}
-network:
-    ethernets:
-        eth0:
-            dhcp4: true
-            dhcp4-overrides:
-                route-metric: 100
-            dhcp6: false
-            match:
-                macaddress: 00:22:48:03:6b:c5
-            set-name: eth0
-            nameservers:
-                addresses: [10.0.2.5, 10.0.2.4]
-    version: 2
-```
-
-Then apply the changes:
-
-```bash
-sudo netplan --debug apply 
-```
-
-6. Winbind assumes that the DHCP server keeps the domain DNS records up-to-date. However, this assumption isn't true for Azure DHCP. To set up the client to make DDNS updates, use [this guide](../../virtual-network/virtual-networks-name-resolution-ddns.md#linux-clients) to create a network script. Here's a sample script that resides at `/etc/dhcp/dhclient-exit-hooks.d/ddns-update`.
-
-```plaintext
-#!/bin/sh 
-
-# only execute on the primary nic
-if [ "$interface" != "eth0" ]
-then
-    return
-fi 
-
-# When you have a new IP, perform nsupdate
-if [ "$reason" = BOUND ] || [ "$reason" = RENEW ] ||
-   [ "$reason" = REBIND ] || [ "$reason" = REBOOT ]
-then
-   host=`hostname -f`
-   nsupdatecmds=/var/tmp/nsupdatecmds
-     echo "update delete $host a" > $nsupdatecmds
-     echo "update add $host 3600 a $new_ip_address" >> $nsupdatecmds
-     echo "send" >> $nsupdatecmds
-
-     nsupdate $nsupdatecmds
-fi 
-```
+Proceed to [set up a hostname and fully qualified domain name](#set-up-hostname-and-fully-qualified-domain-name-fqdn).
 
 <a name='connect-to-azure-ad-ds-and-make-sure-the-services-are-discoverable'></a>
 
 ### Connect to Microsoft Entra Domain Services and make sure the services are discoverable
+
+If you're using AD DS and not Microsoft Entra Domain Services, you can skip this section and proceed to [set up a hostname and fully qualified domain name](#set-up-hostname-and-fully-qualified-domain-name-fqdn).
 
 Make sure that you can ping the domain server by the domain name.
 
@@ -241,7 +247,7 @@ Using your text editor, update the `/etc/hosts` file with the final FQDN (after 
 ```plaintext
 127.0.0.1       contosovm.contosodomain.contoso.com contosovm
 #cmd=sudo vim /etc/hosts   
-#then enter this value instead of localhost "ubuntvm.contosodomain.contoso.com UbuntuVM" 
+#then enter this value instead of localhost "ubuntuvm.contosodomain.contoso.com UbuntuVM" 
 ```
 
 Now, your hostname should resolve. You can ignore the IP address it resolves to for now. The short hostname should resolve to the FQDN.
@@ -345,7 +351,7 @@ sudo smbcontrol all reload-config
 
 ### Join the domain
 
-Use the `net ads join` command to join the host to the Microsoft Entra Domain Services domain. If the command returns an error, see [Troubleshooting samba domain members](https://wiki.samba.org/index.php/Troubleshooting_Samba_Domain_Members) to resolve the problem.
+Use the `net ads join` command to join the host to the domain. If the command returns an error, see [Troubleshooting samba domain members](https://wiki.samba.org/index.php/Troubleshooting_Samba_Domain_Members) to resolve the problem.
 
 ```bash
 sudo net ads join -U contososmbadmin    # user  - garead
@@ -372,9 +378,9 @@ Name:   contosovm.contosodomain.contoso.com
 Address: 10.0.0.8
 ```
 
-If you plan for users to actively sign in to client machines and access the Azure file shares, you need to [set up nsswitch.conf](#set-up-nsswitchconf) and [configure PAM for winbind](#configure-pam-for-winbind). If planned access is limited to applications represented by a user account or computer account that need Kerberos authentication to access the file share, you can skip these steps.
-
 ### Set up nsswitch.conf
+
+If you plan for users to actively sign in to client machines and access the Azure file shares, you need to set up nsswitch.conf. If planned access is limited to applications represented by a user account or computer account that need Kerberos authentication to access the file share, you can skip this step.
 
 After you join the host to the domain, add the winbind libraries to the user and group lookup paths. Use your text editor to edit `/etc/nsswitch.conf` and add the following entries:
 
@@ -449,6 +455,8 @@ wbinfo --ping-dc
 
 ### Configure PAM for winbind
 
+If you plan for users to actively sign in to client machines and access the Azure file shares, you need to configure PAM for winbind. If planned access is limited to applications represented by a user account or computer account that need Kerberos authentication to access the file share, you can skip this step.
+
 Place winbind in the authentication stack so that domain users authenticate through winbind by configuring PAM (Pluggable Authentication Module) for winbind. The second command ensures that the system creates the home directory for a domain user upon first login.
 
 ```bash
@@ -509,7 +517,7 @@ wbinfo -K 'contososmbadmin%SUPERSECRETPASSWORD'
 
 ## Mount the file share
 
-After you enable AD (or Entra ID) Kerberos authentication and domain-join your Linux VM, you can mount the file share.
+After you enable Kerberos authentication and domain-join your Linux VM, you can mount the file share.
 
 Use the following mount option with all access control models to enable Kerberos security: `sec=krb5`. Omit the username and password when you use `sec=krb5`. For example:
 

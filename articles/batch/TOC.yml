@@ -118,8 +118,6 @@
       href: https://github.com/Azure/Batch/labels/notice
     - name: VHD and Managed Images
       href: batch-custom-image-pools-to-azure-compute-gallery-migration-guide.md
-    - name: Low-priority virtual machines
-      href: low-priority-vms-retirement-migration-guide.md
     - name: Classic compute node communication model
       href: batch-pools-to-simplified-compute-node-communication-model-migration-guide.md
 - name: How-to guides
@@ -222,6 +220,9 @@
     - name: Use Azure Spot VMs
       displayName: preempted, surplus, capacity
       href: batch-spot-vms.md
+    - name: Use temporary NVMe disks
+      displayName: nvme, temp, temporary
+      href: batch-nvme-temporary.md
     - name: Checking for pool and node errors
       displayName: troubleshoot, failure
       href: batch-pool-node-error-checking.md

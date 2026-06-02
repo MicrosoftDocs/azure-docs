@@ -11,7 +11,7 @@ ms.author: kendownie
 
 # Update the password for your storage account identity in AD DS
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 When you domain join your storage account in your Active Directory Domain Services (AD DS), you create an AD principal, either a computer account or service account, with a password. The password for the AD principal is one of the Kerberos keys for the storage account. Depending on the password policy of the organizational unit for the AD principal, you must periodically rotate the password to avoid authentication problems. If you don't change the password before it expires, you lose Kerberos authentication to your Azure file shares. Some AD environments also delete AD principals with expired passwords by using an automated cleanup script.
 
@@ -21,7 +21,7 @@ Two options exist for triggering password rotation. You can use the `AzFilesHybr
 
 ## Option 1: Use AzFilesHybrid module
 
-To regenerate and rotate the password for the AD principal that represents the storage account, use the `Update-AzStorageAccountADObjectPassword` cmdlet from the [AzFilesHybrid module](https://github.com/Azure-Samples/azure-files-samples/releases). To run `Update-AzStorageAccountADObjectPassword`, you must:
+To regenerate and rotate the password for the AD principal that represents the storage account, use the `Update-AzStorageAccountADObjectPassword` cmdlet from the [AzFilesHybrid module](https://www.powershellgallery.com/packages/AzFilesHybrid/). To run `Update-AzStorageAccountADObjectPassword`, you must:
 
 - Run the cmdlet from a domain-joined client.
 - Have the owner permission on the storage account.
@@ -29,7 +29,7 @@ To regenerate and rotate the password for the AD principal that represents the s
 
 ```PowerShell
 # Update the password of the AD DS account registered for the storage account
-# You may use either kerb1 or kerb2
+# You can use either kerb1 or kerb2
 Update-AzStorageAccountADObjectPassword `
         -RotateToKerbKey kerb2 `
         -ResourceGroupName "<your-resource-group-name-here>" `

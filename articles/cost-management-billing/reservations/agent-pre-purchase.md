@@ -5,8 +5,8 @@ author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.topic: conceptual
-ms.date: 02/10/2026
+ms.topic: how-to
+ms.date: 03/19/2026
 ms.author: primittal
 ---
 
@@ -62,7 +62,7 @@ Purchase Microsoft Agent Prepurchase Plans in the [Azure portal reservations](ht
 2. Navigate to the **Reservations** service.
 3. On the **Purchase reservations page**, select [**Microsoft Agent Prepurchase Plan**](https://aka.ms/MAF-P3-Purchase).
    :::image type="content" source="./media/agentprepurchase/azure-portal-screenshot.jpg" alt-text="Screenshot showing Microsoft Agent prepurchase plan." lightbox="./media/agentprepurchase/azure-portal-screenshot.jpg":::
-4. On the **Select the product you want to purchase** page, select a subscription. Use the **Subscription** list to select the subscription used to pay for the purchase. The payment method of the subscription is charged the upfront cost for the reservation. Charges are **not** deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
+4. On the **Select the product you want to purchase** page, select a subscription. Use the **Subscription** list to select the subscription used to pay for the purchase. The payment method of the subscription is charged the upfront cost for the reservation. Charges are **not** deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage. The Microsoft Agent prepurchase plan is billed as a separate charge and appears as its own line item on your invoice.
 5. Select a scope.
    - **Single resource group scope** - Applies the reservation discount to the matching resources in the selected resource group only.
    - **Single subscription scope** - Applies the reservation discount to the matching resources in the selected subscription.
@@ -85,8 +85,12 @@ You can't split or merge a **Microsoft Agent Prepurchase Plan**. For more inform
 When you have multiple AI-related purchasing options, understanding how benefits are applied helps you maximize your cost savings. You might have several types of purchases for your AI workloads:
 
 - [Microsoft Foundry Provisioned Throughput reservation](microsoft-foundry.md) - Covers Microsoft Foundry PTU (Provisioned Throughput Units) usage
+- [Microsoft Fabric Capacity reservation](fabric-capacity.md) - Covers Microsoft Fabric capacity usage
 - [Copilot Credit prepurchase plan](copilot-credit-p3.md) - Covers Copilot Credit-specific usage  
 - Microsoft Agent prepurchase plan - Covers broader AI workloads including both Copilot Credit and Microsoft Foundry
+
+> [!IMPORTANT]
+> **Reservations always apply before prepurchase plans.** When you have both a reservation (such as Microsoft Foundry PTU or Fabric Capacity) and a prepurchase plan covering the same usage, the reservation discount is always consumed first. Only usage that exceeds the reservation quantity draws from prepurchase plan commit units.
 
 ### Understanding benefit overlap
 
@@ -103,12 +107,16 @@ When overlap occurs, Microsoft applies benefits in this specific order to maximi
    - Always applied first to PTU usage
    - PTU-specific and most cost-effective for provisioned throughput
 
-2. **Copilot Credit Prepurchase Plan** 
+2. **Microsoft Fabric Capacity Reservations**
+   - Applied first to Fabric capacity usage
+   - Fabric-specific and most cost-effective for Fabric workloads
+
+3. **Copilot Credit Prepurchase Plan** 
    - Applied next to Copilot-specific workloads
    - More granular benefit preserved for specialized use for Copilot Credit usage
 
-3. **Microsoft Agent Prepurchase Plan**
-   - Applied last to remaining AI usage across both platforms
+4. **Microsoft Agent Prepurchase Plan**
+   - Applied last to remaining AI usage across all platforms
    - Broader coverage for heterogeneous AI workloads for Copilot Credit and Microsoft Foundry usage
 
 > [!IMPORTANT]
@@ -163,6 +171,20 @@ These scenarios show how benefits work together in different purchasing combinat
 1. Microsoft Foundry reservation covers PTU usage (up to 10 PTUs)
 2. Copilot Credit prepurchase plan covers Copilot usage (up to 3,000 CUs)  
 3. Agent prepurchase plan covers overflow from both platforms
+
+#### Scenario 5: Fabric Capacity reservation + Microsoft Agent prepurchase plan
+
+**What you have:**
+- [Microsoft Fabric Capacity reservation](fabric-capacity.md): 64 CUs
+- Microsoft Agent prepurchase plan: 20,000 ACUs
+
+**How benefits apply:**
+1. Fabric Capacity reservation covers first 64 CUs of Fabric capacity usage at the discounted reservation rate
+2. Any Fabric usage exceeding 64 CUs draws from Agent prepurchase plan ACUs
+3. Copilot Credit and Microsoft Foundry usage draws from remaining Agent prepurchase plan ACUs
+
+> [!NOTE]
+> Fabric Capacity and Microsoft Foundry PTU reservations apply on an hourly basis. If your workloads don't consume all reserved CUs or PTUs in a given hour, the unused reservation quantity doesn't carry over. However, Agent prepurchase plan commit units can be consumed at any time during the one-year term.
 
 > [!NOTE]
 > **Tiered pricing optimization:** Microsoft Agent prepurchase plan automatically applies benefits at smallest tier pricing rates. For example, if you're using Custom Entity Lookup skills, benefits are calculated using the 0-1M text records pricing tier.

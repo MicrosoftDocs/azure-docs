@@ -1,7 +1,7 @@
 ---
 title: Azure Functions legacy C# script developer reference
 description: Understand how to develop Azure Functions using C# script.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 08/29/2025
 ---

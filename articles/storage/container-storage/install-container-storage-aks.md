@@ -106,7 +106,7 @@ Run the following command to create a new AKS cluster and install Azure Containe
 az aks create -n <cluster-name> -g <resource-group> --node-vm-size Standard_L8s_v3 --enable-azure-container-storage ephemeralDisk --generate-ssh-keys
 ```
 
-This command installs the installer, deploys the `ephemeralDisk` driver, and creates a default storage class. You can install and use both local NVMe and Elastic SAN by providing comma-separated values such as `ephemeralDisk,elasticSan`.
+This command installs the installer, deploys the local NVMe CSI driver, and creates a default storage class called `local-csi`. You can install and use both local NVMe and Elastic SAN by providing a list such as `ephemeralDisk elasticSan`.
 
 ## Install Azure Container Storage on an existing AKS cluster
 
@@ -128,7 +128,7 @@ Run the following command to enable Azure Container Storage on an existing AKS c
 az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-storage elasticSan
 ```
 
-This command installs the installer, deploys the Elastic SAN CSI driver, and creates a default storage class. You can install and use both local NVMe and Elastic SAN by providing comma-separated values such as `ephemeralDisk,elasticSan`.
+This command installs the installer, deploys the Elastic SAN CSI driver, and creates a default storage class called `azuresan-csi`. You can install and use both local NVMe and Elastic SAN by providing a list such as `ephemeralDisk elasticSan`.
 
 ::: zone-end
 
@@ -172,6 +172,14 @@ For local use, set the Azure CLI context:
 
 ```azurecli
 az account set --subscription <subscription-id>
+```
+
+If you deploy with Terraform for the first time in the subscription, run this one-time registration command:
+```azurecli
+az provider register --namespace Microsoft.KubernetesConfiguration
+
+# Wait for registration to complete (can take a few minutes)
+az provider show --namespace Microsoft.KubernetesConfiguration --query "registrationState" -o tsv
 ```
 
 ## Install Azure Container Storage on a new AKS cluster
@@ -286,6 +294,16 @@ When it completes, the cluster has the Azure Container Storage installer compone
 
 ## Verify installation
 
+### Connect to the AKS cluster
+
+Before running the verification commands, make sure your local kubeconfig is set to the target cluster:
+
+```azurecli
+az aks get-credentials --resource-group <resource-group-name> --name <cluster-name>
+```
+
+If you manage multiple clusters, add `--overwrite-existing` to replace an existing context or use `--context` to set a unique context name.
+
 ### Verify installer (installer-only mode)
 
 After an installer-only enable, verify that the installer is present:
@@ -313,8 +331,8 @@ Example output:
 
 ```output
 NAME                    PROVISIONER               RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
-azuresan                san.csi.azure.com         Delete          Immediate              false                  4d7h
-local                   localdisk.csi.acstor.io   Delete          WaitForFirstConsumer   true                   4d5h
+azuresan-csi            san.csi.azure.com         Delete          Immediate              false                  4d7h
+local-csi               localdisk.csi.acstor.io   Delete          WaitForFirstConsumer   true                   4d5h
 ```
 
 ### Verify driver installation

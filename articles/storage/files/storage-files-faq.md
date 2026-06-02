@@ -196,12 +196,12 @@ Alternate data streams are preserved on-premises when Azure File Sync is used.
 
     Azure Files on-premises AD DS authentication only integrates with the forest of the domain service that the storage account is registered to. To support authentication from another forest, your environment must have a forest trust configured correctly. For detailed instructions, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
 
-   > [!Note]  
-   > In a multi-forest setup, don't use File Explorer to configure Windows ACLs/NTFS permissions at the root, directory, or file level. [Use icacls](storage-files-identity-configure-file-level-permissions.md#configure-windows-acls-with-icacls) instead.
+   > [!NOTE]  
+   > In a multi-forest setup, don't use File Explorer to configure Windows ACLs/NTFS permissions at the root, directory, or file level. [Use icacls](storage-files-identity-configure-file-level-permissions.md#configure-windows-acls-by-using-icacls) instead.
 
    
 * <a id="ad-aad-smb-files"></a>
-**Is there any difference in creating a computer account or service logon account to represent my storage account in AD?**
+**Is there any difference in creating a computer account or service logon account to represent my storage account in Active Directory?**
 
     Creating either a [computer account](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](/windows/win32/ad/about-service-logon-accounts) has no difference on how authentication works with Azure Files. You can make your own choice on how to represent a storage account as an identity in your AD environment. The default DomainAccountType set in `Join-AzStorageAccountForAuth` cmdlet is computer account. However, the password expiration age configured in your AD environment can be different for computer or service logon accounts, and you need to take that into consideration to [Update the password of your storage account identity in AD](./storage-files-identity-ad-ds-update-password.md).
 
@@ -276,6 +276,10 @@ Alternate data streams are preserved on-premises when Azure File Sync is used.
     Protocol transactions occur any time a user, application, script, or service interacts with Azure file shares (writing, reading, listing, deleting files, etc.). It's important to remember that some actions that you might perceive as a single operation might actually involve multiple transactions. For pay-as-you-go file shares, different types of transactions have different prices based on their impact on the file share. Transactions don't affect billing for provisioned file shares. For more information, see [Understanding billing](understanding-billing.md).
 
 ## Interoperability with other services
+
+* <a id="azure-files-versus-azure-netapp-files"></a>
+**What's the difference between Azure Files and Azure NetApp Files?**  
+    Azure Files and Azure NetApp Files are different file storage services in Azure, and they're designed for different workloads and performance requirements. Azure Files provides serverless SMB and NFS file shares, and offers Azure File Sync as an option for caching SMB file shares on Windows Server. Azure NetApp Files is a high-performance, bare-metal file storage service powered by NetApp technology that supports NFS, SMB, and dual-protocol file shares. For more information, see [Compare Azure Files and Azure NetApp Files](storage-files-netapp-comparison.md).
 
 * <a id="cluster-witness"></a>
 **Can I use my Azure file share as a *File Share Witness* for my Windows Server Failover Cluster?**  

@@ -3,7 +3,7 @@ title: Develop Azure IoT Edge modules using Visual Studio Code tutorial
 description: 'Develop IoT Edge modules with Visual Studio Code: Follow step-by-step instructions to create, build, and deploy modules using Azure IoT Edge tools.'
 author: sethmanheim
 ms.author: sethm
-ms.date: 02/20/2026
+ms.date: 02/26/2026
 ms.topic: tutorial
 ms.service: azure-iot-edge
 services: iot-edge
@@ -1083,7 +1083,7 @@ Provide your container registry credentials to Docker so that it can push your c
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   You might receive a security warning recommending the use of `--password-stdin`. While that's a recommended best practice for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
+   You might receive a security warning recommending the use of `--password-stdin`. While that's a recommended best practice for production scenarios, it's outside the scope of this tutorial. For production container registry authentication, use a service principal or repository-scoped tokens instead of admin credentials. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry) and the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
 
 1. Sign in to the Azure Container Registry. You must [install Azure CLI](/cli/azure/install-azure-cli) to use the `az` command. This command asks for your user name and password found in your container registry in **Settings > Access keys**:
 

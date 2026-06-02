@@ -38,7 +38,7 @@ To use the Service Bus Explorer tool, complete the following tasks:
     - [Quickstart - Create topics](service-bus-quickstart-topics-subscriptions-portal.md)
 
     > [!NOTE]
-    > To execute send or receive operations (including peek and purge) on the namespace or entities, you're a member of one of these roles: 
+    > To execute send or receive operations (including peek and purge) on the namespace or entities, you must be a member of one of these roles: 
     > - [Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner); Allows both send and receive operations.
     > - [Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender); Allows send operations.
     > - [Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver); Allows receive operations.
@@ -46,6 +46,9 @@ To use the Service Bus Explorer tool, complete the following tasks:
 ## Use the Service Bus Explorer
 
 To use the Service Bus Explorer, go to the Service Bus namespace where you want to perform data operations.
+
+> [!TIP]
+> If you see `~` (tilde) characters in entity names, the entity was created with a hierarchical name that uses `/` (forward slash) as a path separator. Azure Resource Manager displays these as `~` because it doesn't support `/` in resource names. The underlying entity name uses `/`. For details, see [Entity names with forward slashes](service-bus-resource-manager-exceptions.md#error-entity-names-with-forward-slashes).
 
 1. If you want to run operations against a queue, select **Queues** from the navigation menu. If you want to run operations against a topic (and its related subscriptions), select **Topics**. 
 
@@ -259,7 +262,7 @@ When working with Service Bus Explorer, you can use either **Access Key** or **M
 
     :::image type="content" source="./media/service-bus-explorer/queue-select-authentication-type.png" alt-text="Screenshot indicating the Settings button and a page showing the different authentication types." lightbox="./media/service-bus-explorer/queue-select-authentication-type.png":::
 
-## Next Steps
+## Next steps
 
    * Learn more about Service Bus [Queues](service-bus-queues-topics-subscriptions.md#queues) and [Topics](service-bus-queues-topics-subscriptions.md#topics-and-subscriptions).
    * Learn more about creating [Service Bus Queues via the Azure portal](service-bus-quickstart-portal.md).

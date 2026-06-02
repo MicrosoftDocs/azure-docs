@@ -1,11 +1,10 @@
 ---
 title: Evaluate the resiliency of multi-site redundant ExpressRoute circuits
 description: This article shows you how to evaluate the resiliency of your ExpressRoute circuit deployment by manually testing the failover of your ExpressRoute circuits.
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 06/24/2024
+ms.date: 03/12/2026
 ms.author: duau
 ms.custom:
   - ai-usage
@@ -16,7 +15,7 @@ ms.custom:
 
 The [guided portal experience](expressroute-howto-circuit-portal-resource-manager.md?pivots=expressroute-preview) assists in the configuration of ExpressRoute circuits for maximum resiliency. The subsequent diagram illustrates the logical architecture of an ExpressRoute circuit designed for maximum resiliency.
 
-:::image type="content" source=".\media\evaluate-circuit-resiliency\maximum-resiliency.png" alt-text="Diagram of ExpressRoute circuits configured with maximum resiliency.":::
+:::image type="content" source="./media/evaluate-circuit-resiliency/maximum-resiliency.png" alt-text="Diagram of ExpressRoute circuits configured with maximum resiliency.":::
 
 Circuits configured for maximum resiliency provide both site (peering location) redundancy and intra-site redundancy. After deploying multi-site redundant ExpressRoute circuits, it's essential to ensure that on-premises routes are advertised over the redundant circuits to fully utilize the benefits of multi-site redundancy. This article offers a guide on how to manually validate your router advertisements and test the resiliency provided by your multi-site redundant ExpressRoute circuit deployment.
 
@@ -26,11 +25,11 @@ Circuits configured for maximum resiliency provide both site (peering location) 
 
 * Verify that identical routes are being advertised over both redundant circuits, navigate to the **Peerings** page of the ExpressRoute circuit within the Azure portal. Select the **Azure private** peering row and then select the **View route table** option at the top of the page.
 
-    :::image type="content" source=".\media\evaluate-circuit-resiliency\view-route-table.png" alt-text="Screenshot of the view route table button from the ExpressRoute peering page.":::
+    :::image type="content" source="./media/evaluate-circuit-resiliency/view-route-table.png" alt-text="Screenshot of the view route table button from the ExpressRoute peering page.":::
 
     The routes advertised over the ExpressRoute circuit should be identical across both redundant circuits. If the routes aren't identical, we recommend you review the configuration of the on-premises routers and the ExpressRoute circuits.
 
-    :::image type="content" source=".\media\evaluate-circuit-resiliency\route-table.png" alt-text="Screenshot of the route table for an ExpressRoute private peering.":::
+    :::image type="content" source="./media/evaluate-circuit-resiliency/route-table.png" alt-text="Screenshot of the route table for an ExpressRoute private peering.":::
 
 ## Initiate ExpressRoute circuit manual failover
 
@@ -43,11 +42,11 @@ To manually failover an ExpressRoute circuit that is configured with maximum res
 
 1. In the search box, enter **ExpressRoute circuits** and select **ExpressRoute circuits** from the search results.
 
-1. In the **ExpressRoute circuits** page, identity and select the ExpressRoute circuit for which you intend to disable peering, to facilitate a failover to the second ExpressRoute circuit.
+1. In the **ExpressRoute circuits** page, identify and select the ExpressRoute circuit for which you intend to disable peering, to facilitate a failover to the second ExpressRoute circuit.
 
 1. Navigate to the **Overview** page and select the private peering that is to be disabled.
 
-1.  Deselect the checkbox next to **Enable IPv4 Peering** or **Enable IPv6 Peering** to disconnect the Border Gateway Protocol (BGP) peering and then select **Save**. When you disable the peering, Azure disconnects the private peering connection on the first circuit, and the secondary circuit assumes the role of the active connection."
+1.  Deselect the checkbox next to **Enable IPv4 Peering** or **Enable IPv6 Peering** to disconnect the Border Gateway Protocol (BGP) peering and then select **Save**. When you disable the peering, Azure disconnects the private peering connection on the first circuit, and the secondary circuit assumes the role of the active connection.
 
     :::image type="content" source="./media/evaluate-circuit-resiliency/disable-private-peering-primary.png" alt-text="Screenshot of the private peering settings page for an ExpressRoute circuit.":::
 

@@ -283,6 +283,17 @@ The resource might have been deleted. Follow these steps to identify why the ent
 - Check the operational log to see if there was a direct API call for deletion. To learn how to collect an operational log, see [Monitor Azure Service Bus](monitor-service-bus.md#data-storage). For the schema and an example of an operation log, see [Operation logs](monitor-service-bus-reference.md#operational-logs)
 - Check the operation log to see if there was an `autodeleteonidle` related deletion. 
 
+## Entity names show tilde (~) instead of forward slash (/)
+
+### Symptoms
+Entity names in the Azure portal, CLI, or ARM API responses show `~` characters, for example `orders~us~west` instead of `orders/us/west`.
+
+### Cause
+Service Bus supports hierarchical entity names with `/` as the path separator, but Azure Resource Manager doesn't allow `/` in resource names. Service Bus translates `~` to `/` at the ARM boundary.
+
+### Resolution
+This is expected behavior. The underlying entity name uses `/`. The `~` appears only in ARM-based tools (portal, CLI, PowerShell, ARM templates). Service Bus SDKs and AMQP clients see the actual `/` name. For details, see [Entity names with forward slashes](service-bus-resource-manager-exceptions.md#error-entity-names-with-forward-slashes).
+
 
 ## Next steps
 See the following articles: 

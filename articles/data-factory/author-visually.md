@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use visual authoring in Azure Data Factory and Synapse Analytics
 ms.subservice: authoring
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 author: nabhishek
 ms.author: abnarain
 ms.date: 09/26/2024

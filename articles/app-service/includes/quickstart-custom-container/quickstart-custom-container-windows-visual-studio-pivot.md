@@ -1,9 +1,8 @@
 ---
 author: cephalin
 ms.service: azure-app-service
-ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/14/2025
+ms.date: 04/20/2026
 ms.author: cephalin
 ---
 
@@ -15,7 +14,7 @@ Custom Windows containers don't have these restrictions. Developers can use cust
 
 ## Prerequisites
 
-- [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/).
+- [Install Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/install/).
 - [Switch Docker to run Windows containers](/virtualization/windowscontainers/quick-start/quick-start-windows-10).
 - [Install Visual Studio 2022](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** and **Azure development** workloads. In **Visual Studio 2022 Community**, ensure that you select the **.NET Framework project and item templates** component with **ASP.NET and web development workload**.
 
@@ -98,7 +97,7 @@ If you already installed Visual Studio 2022:
 
 1. Select **Next: Database** > **Next: Container**.
 
-1. For **Image Source**, select **Docker Hub**. For **Image and tag**, enter the repository name that you previously copied in [Publish to Azure Container Registry](#publish-to-azure-container-registry).
+1. For **Image Source**, select **Other container registries**. For **Image and tag**, enter the repository name that you previously copied in [Publish to Azure Container Registry](#publish-to-azure-container-registry).
 
    :::image type="content" source="../../media/quickstart-custom-container/configure-web-app-container.png" alt-text="Screenshot that shows how to configure your web app for containers.":::
 
@@ -179,11 +178,11 @@ The streamed logs look like this:
 
 - [Configure custom container](../../configure-custom-container.md)
 - [Use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
-- [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
-- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [Azure Monitor overview](/azure/azure-monitor/fundamentals/overview)
+- [Monitor Azure App Service](../../monitor-app-service.md)
 - [Secure with a custom domain and certificate](../../tutorial-secure-domain-certificate.md)
 - [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
-- [Use private endpoints for App Service apps](../../networking/private-endpoint.md)
+- [Use private endpoints for App Service apps](../../overview-private-endpoint.md)
 - [Use Azure Container Registry with Azure Private Link](/azure/container-registry/container-registry-private-link)
 - [Migrate to a Windows container in Azure](../../tutorial-custom-container.md)
 - [Deploy a container with Azure Pipelines](../../deploy-container-azure-pipelines.md)

@@ -7,9 +7,10 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/26/2026
+ms.update-cycle: 1095-days
+ms.date: 03/10/2026
 ms.custom: sfi-image-nochange
-#Customer intent: As an integration developer who works with Azure Logic Apps, I need to connect my workflows with 3270 screen-driven apps on IBM mainframes.
+#Customer intent: As an integration developer who works with Azure Logic Apps, I need to connect my workflows to 3270 screen-driven apps on IBM mainframes.
 ---
 
 # Integrate 3270 screen-driven apps on IBM mainframes with workflows in Azure Logic Apps

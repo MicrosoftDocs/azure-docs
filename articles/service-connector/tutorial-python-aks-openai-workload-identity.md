@@ -244,6 +244,6 @@ az group delete \
 
 ## Related content
 
-* [Connect to Azure AI services](./how-to-integrate-ai-services.md)
+* [Connect to Foundry Tools](./how-to-integrate-ai-services.md)
 * [Connect to Azure OpenAI with Service Connector](./how-to-integrate-openai.md)
 * [Azure AI multi-service resource integration](./how-to-integrate-cognitive-services.md)

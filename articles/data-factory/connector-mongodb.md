@@ -5,7 +5,7 @@ description: Learn how to copy data from MongoDB to supported sink data stores, 
 author: jianleishen
 ms.author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/26/2026
 ms.custom:
   - synapse

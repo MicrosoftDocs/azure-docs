@@ -3,7 +3,7 @@ title: Connect a downstream device to an Azure IoT Edge gateway
 description: How to configure downstream devices to connect to Azure IoT Edge gateway devices. 
 author: sethmanheim
 ms.author: sethm
-ms.date: 06/06/2025
+ms.date: 02/27/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -82,7 +82,7 @@ To verify the gateway device's certificates, the downstream device needs its own
 
 If you haven't already, move this certificate file to any directory on your downstream device. Move the file by installing the CA certificate in the operating system's certificate store, or by referencing the certificate within applications that use the Azure IoT SDKs.
 
-Use a service like [Azure Key Vault](/azure/key-vault/) or a tool like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate file.
+Use a service like [Azure Key Vault](/azure/key-vault/) or a tool like [Secure copy protocol](https://www.ssh.com/academy/ssh/scp) to move the certificate file.
 
 ## Install certificates in the OS
 
@@ -130,7 +130,7 @@ Most applications use the Windows-provided TLS stack called [Schannel](/windows/
 
 ## Use certificates with Azure IoT SDKs
 
-[Azure IoT SDKs](../iot/iot-sdks.md) connect to an IoT Edge device using simple sample applications. The samples' goal is to connect the device client and send device telemetry messages to the gateway, then close the connection and exit.
+[Azure IoT SDKs](../iot-hub/iot-sdks.md) connect to an IoT Edge device using simple sample applications. The samples' goal is to connect the device client and send device telemetry messages to the gateway, then close the connection and exit.
 
 Before using the application-level samples, obtain the following items:
 

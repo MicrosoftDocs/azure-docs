@@ -6,6 +6,7 @@ ms.service: azure-container-storage
 ms.topic: how-to
 ms.date: 01/29/2026
 ms.author: saurabsharma
+ms.reviewer: kendownie
 # Customer intent: As a cloud engineer, I want to enable multi-zone storage redundancy in Azure Container Storage (version 2.x.x), so that I can enhance the availability of my stateful applications running in a multi-zone Kubernetes environment.
 ---
 

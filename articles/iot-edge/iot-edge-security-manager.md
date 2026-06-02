@@ -5,7 +5,7 @@ services: iot-edge
 keywords: security, secure element, enclave, TEE, IoT Edge
 author: sethmanheim
 ms.author: sethm
-ms.date: 02/24/2026
+ms.date: 03/02/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 ---
@@ -127,8 +127,5 @@ Create and provision an IoT Edge device with a virtual TPM on [Linux](how-to-pro
 
 ## Next steps
 
-Learn more about securing your IoT Edge devices in these blog posts:
-
-* [Securing the intelligent edge](https://azure.microsoft.com/blog/securing-the-intelligent-edge/)
-* [The blueprint to securely solve the elusive zero-touch provisioning of IoT devices at scale](https://azure.microsoft.com/blog/the-blueprint-to-securely-solve-the-elusive-zerotouch-provisioning-of-iot-devices-at-scale/)
-* [Solving IoT device security at scale through standards](https://azure.microsoft.com/blog/solving-iot-device-security-at-scale-through-standards/)
+* [Understand the IoT Edge security framework](security.md)
+* [Learn about IoT Edge certificates](iot-edge-certs.md)

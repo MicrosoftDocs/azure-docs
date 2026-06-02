@@ -3,7 +3,7 @@ title: Parameterize linked services
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to parameterize linked services in Azure Data Factory and Azure Synapse Analytics pipelines, and pass dynamic values at run time.
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2024
 author: kromerm
 ms.author: makromer

@@ -1,11 +1,11 @@
 ---
 title: Frequently asked questions about firmware analysis
-description: Find answers to some of the common questions about firmware analysis. This article includes the file systems that are supported by firmware analysis, and links to the Azure CLI and Azure PowerShell commands.
+description: Find answers to some of the common questions about firmware analysis.
 author: karengu0
 ms.author: karenguo
-ms.topic: conceptual
+ms.topic: faq
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 09/12/2025
+ms.date: 05/26/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis
 ---
@@ -14,6 +14,7 @@ ms.subservice: azure-firmware-analysis
 This article addresses frequent questions about firmware analysis.
 
 [Firmware analysis](./overview-firmware-analysis.md) is a tool that analyzes firmware images and provides an understanding of security vulnerabilities in the firmware images.
+
 
 ## What types of firmware images does firmware analysis support?
 Firmware analysis supports unencrypted images that contain file systems with embedded Linux operating systems. Firmware analysis supports the following file system formats:
@@ -48,37 +49,44 @@ Firmware analysis supports unencrypted images that contain file systems with emb
 * ZStandard compressed data
 * Zip archive
 
+
 ## What SBOM components does firmware analysis detect?
 
+> [!NOTE]
+> If firmware analysis detects a component but is unable to determine the version of that component, it may report the version as `0.0.0`. No CVEs will be reported for that particular component.
+
+
 **Component** | **Component** | **Component** | **Component**
----|---|---|---
-acpid       |   gtk         |   msmtp       |   redis       
-apache      |   harfbuzz    |   mstpd       |   rp_pppoe    
-avahi_daemon|   heimdal     |   ncurses     |   samba
-axios		|	hostapd		|	neon		|	sqlite
-backbonejs	|	inetutils_telnetd|	netatalk	|	ssmtp
-bash		|	iptables	|	netkit_telnetd	|	strongswan
-bftpd		|	jquery		|	netsnmp	    |		stunnel
-bluetoothd	|	libcurl		|	nettools	|	sudo
-busybox		|	libevent	|	nginx		|	tcpdump
-bzip2		|	libexpat	|	nss		    |	uclibc
-cairo		|	libgcrypt	|	openldap	|	underscorejs
-codesys		|	libidn		|	openssh		|	usbutils
-coreutils	|	libmicrohttpd	|	openssl	|		util_linux
-dhcpd		|	libpcap		|	openvpn		|	vim
-dnsmasq		|	libpng		|	openvswitch	|	vsftpd
-dropbear	|	libsoup		|	p7zip		|	vuejs
-e2fsprogs	|	libvorbis	|	pango		|	wget
-element		|	lighttpd	|	pcre		|	wolfssl
-extJS		|	lodash		|	pcre2		|	wpa_supplicant
-ffmpeg		|	logrotate	|	perl		|	xinetd
-fribidi		|	lua			|    php		|	      xl2tpd
-gdbserver	|	matrixssl	|	polarssl	|	zebra
-gdkpixbuf	|	mbedtls		|	pppd		|	zeptojs
-glibc		|	mcproxy		|	proftpd		|	zlib
-gmp			|   miniupnpd	|   python      |
-gnutls		|	mit_kerberos|	radvd
-gpg			|   mosquitto	|   readline
+ ---|---|---|---
+ acpid           | gtk               | miniupnpd         | radvd
+ apache          | harfbuzz          | mit_kerberos      | readline
+ avahi_daemon    | heimdal           | mosquitto         | redis
+ axios           | hostapd           | msmtp             | rp_pppoe
+ backbonejs      | inetutils_telnetd | mstpd             | samba
+ bash            | iperf3            | ncurses           | sqlite
+ bftpd           | iproute2          | neon              | ssmtp
+ bluetoothd      | iptables          | netatalk          | strongswan
+ busybox         | jquery            | netkit_telnetd    | stunnel
+ bzip2           | json-c            | netsnmp           | sudo
+ cairo           | libcurl           | nettools          | tcpdump
+ chrony          | libevent          | nginx             | uclibc
+ codesys         | libexpat          | nss               | underscorejs
+ coreutils       | libgcrypt         | openldap          | usbutils
+ dhcpd           | libidn            | openssh           | util_linux
+ dnsmasq         | libmicrohttpd     | openssl           | vim
+ dropbear        | libpcap           | openvpn           | vsftpd
+ e2fsprogs       | libpng            | openvswitch       | vuejs
+ element         | libsoup           | p7zip             | wget
+ extJS           | libvorbis         | pango             | wolfssl
+ ffmpeg          | libxml2           | pcre              | wpa_supplicant
+ fribidi         | lighttpd          | pcre2             | xinetd
+ gdbserver       | lodash            | perl              | xl2tpd
+ gdkpixbuf       | logrotate         | php               | zebra
+ glibc           | lua               | polarssl          | zeptojs
+ gmp             | matrixssl         | pppd              | zlib
+ gnutls          | mbedtls           | proftpd           |
+ gpg             | mcproxy           | python            |
+
 
 
 
@@ -86,3 +94,30 @@ gpg			|   mosquitto	|   readline
 You can find the documentation for our Azure CLI commands [here](/cli/azure/firmwareanalysis/firmware) and the documentation for our Azure PowerShell commands [here](/powershell/module/az.firmwareanalysis/?#firmwareanalysis).
  
 You can also find the Quickstart for our Azure CLI [here](./quickstart-upload-firmware-using-azure-command-line-interface.md) and the Quickstart for our Azure PowerShell [here](./quickstart-upload-firmware-using-powershell.md). To run a Python script using the SDK to upload and analyze firmware images, visit [Quickstart: Upload firmware using Python](./quickstart-upload-firmware-using-python.md).
+
+
+## Is UEFI (Unified Extensible Firmware Interface) firmware analysis supported?
+Yes. UEFI firmware analysis is supported with a mix of **Generally Available (GA)** and **Preview** capabilities.
+
+### What is generally available for UEFI firmware analysis?
+
+Firmware analysis provides **GA support** for detecting and analyzing cryptographic material embedded in UEFI firmware, including:
+- Cryptographic certificates
+- Cryptographic keys
+
+These capabilities are considered stable and fully supported for UEFI firmware.
+
+### What UEFI analysis capabilities are in preview?
+
+The following UEFI analysis capabilities are currently provided in **Preview** and might have limited coverage:
+- SBOM and weakness signals (limited OpenSSL detection and CVE association)
+- Binary hardening attributes (detection of NX / DEP are supported)
+- Extractor path enhancements
+
+Preview results should be interpreted as **security signals**, not guarantees of vulnerability or protection.
+
+For detailed explanations of UEFI firmware analysis capabilities, limitations, and how to interpret results, see [Understanding UEFI firmware analysis capabilities and limitations](unified-extensible-firmware-interface-firmware-analysis.md).
+
+
+
+

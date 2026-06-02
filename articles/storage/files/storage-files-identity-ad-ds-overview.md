@@ -11,7 +11,7 @@ ms.author: kendownie
 
 # Overview: On-premises Active Directory Domain Services authentication over SMB for Azure file shares
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
@@ -23,7 +23,7 @@ If you're new to Azure Files, read the [planning guide](storage-files-planning.m
 
 - To use identity-based authentication with Azure Files, you must assign share-level RBAC permissions. You can do this in two ways:
   - **[Default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities):** This option applies RBAC at the share level for all authenticated users. With this configuration, you don't need to sync your on-premises AD DS identities to Microsoft Entra ID.
-  - **[Granular share-level permissions](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-specific-entra-users-or-groups):** If you want to assign RBAC at the share level to specific users or groups, you must synchronize the corresponding identities from your on-premises AD DS to Entra ID by using [Microsoft Entra Connect](/entra/identity/hybrid/connect/whatis-azure-ad-connect) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync). Groups created only in Entra ID won't work unless they contain synced user accounts. Password hash synchronization isn't required.
+  - **[Granular share-level permissions](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-specific-microsoft-entra-users-or-groups):** If you want to assign RBAC at the share level to specific users or groups, you must synchronize the corresponding identities from your on-premises AD DS to Entra ID by using [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync). Groups created only in Entra ID won't work unless they contain synced user accounts. Password hash synchronization isn't required.
 - Client OS requirements: Windows 8 / Windows Server 2012 or later, or Linux VMs such as Ubuntu 18.04+ and equivalent RHEL/SLES distributions.
 - Kerberos authentication is available with Active Directory by using [AES 256 encryption](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption) (recommended). AES 128 Kerberos encryption isn't yet supported.
 - Single sign-on (SSO) is supported.
@@ -34,7 +34,7 @@ When you enable AD DS for Azure file shares over SMB, your AD DS-joined machines
 
 ## Videos
 
-To help you set up identity-based authentication for common use cases, we published two videos with step-by-step guidance for the following scenarios. Note that Azure Active Directory is now Microsoft Entra ID. For more info, see [New name for Azure AD](https://aka.ms/azureadnewname).
+To help you set up identity-based authentication for common use cases, we published two videos with step-by-step guidance for the following scenarios.
 
 | Replace on-premises file servers with Azure Files (including setup on private link for files and AD authentication) | Use Azure Files as the profile container for Azure Virtual Desktop (including setup on AD authentication and FSLogix configuration)  |
 |-|-|
@@ -42,19 +42,19 @@ To help you set up identity-based authentication for common use cases, we publis
 
 ## Prerequisites
 
-Before you enable AD DS authentication for Azure file shares, make sure you complete the following prerequisites:
+Before you enable AD DS authentication for Azure file shares, complete the following prerequisites:
 
-- Select or create your [AD DS environment](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) and [sync it to Microsoft Entra ID](../../active-directory/hybrid/how-to-connect-install-roadmap.md) by using either the on-premises [Microsoft Entra Connect Sync](../../active-directory/hybrid/whatis-azure-ad-connect.md) application or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md), a lightweight agent that you can install from the Microsoft Entra Admin Center.
+- Select or create your [AD DS environment](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) and [sync it to Microsoft Entra ID](../../active-directory/hybrid/how-to-connect-install-roadmap.md) by using either the on-premises [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) application or [Microsoft Entra Cloud sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync), a lightweight agent that you can install from the Microsoft Entra Admin Center.
 
-    You can enable the feature on a new or existing on-premises AD DS environment. Identities used for access must be synced to Microsoft Entra ID or use a default share-level permission. The Microsoft Entra tenant and the file share that you're accessing must be associated with the same subscription.
+    You can enable the feature on a new or existing on-premises AD DS environment. Identities used for access must be synced to Microsoft Entra ID or use a default share-level permission. The Microsoft Entra tenant that contains the synced identities must be the same tenant that manages the subscription containing the storage account and file share.
 
-- Domain-join an on-premises machine or an Azure VM to on-premises AD DS. See [Join a Computer to a Domain](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
+- Domain-join an on-premises machine or an Azure VM to on-premises AD DS. See [Join a computer to a domain](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
 
     If a machine isn't domain joined, you can still use AD DS for authentication if the machine has unimpeded network connectivity to the on-premises AD domain controller and the user provides explicit credentials. For more information, see [Mount the file share from a non-domain-joined VM or a VM joined to a different AD domain](storage-files-identity-mount-file-share.md#mount-the-file-share-from-a-non-domain-joined-vm-or-a-vm-joined-to-a-different-ad-domain).
 
 - Select or create an Azure storage account. For optimal performance, deploy the storage account in the same region as the client from which you plan to access the share.
 
-    Make sure that the storage account containing your file shares isn't already configured for identity-based authentication. If an identity source is already enabled on the storage account, you must disable it before enabling on-premises AD DS.
+    Make sure that the storage account containing your file shares isn't already configured for identity-based authentication. If another identity source is already enabled on the storage account, you must disable it before enabling on-premises AD DS as the identity source.
 
     If you experience issues in connecting to Azure Files, see [troubleshoot Azure Files mounting errors on Windows](https://azure.microsoft.com/blog/new-troubleshooting-diagnostics-for-azure-files-mounting-errors-on-windows/).
 
@@ -64,9 +64,9 @@ Before you enable AD DS authentication for Azure file shares, make sure you comp
 
 You can use Azure Files authentication with AD DS in [all Azure Public, China, and Gov regions](https://azure.microsoft.com/global-infrastructure/locations/).
 
-## Overview
+## How it works
 
-When you enable AD DS authentication for your Azure file shares, you can use your on-premises AD DS credentials to authenticate to your Azure file shares. You can also manage your permissions to allow granular access control. To set up authentication, sync identities from on-premises AD DS to Microsoft Entra ID by using either the on-premises [Microsoft Entra Connect Sync](../../active-directory/hybrid/whatis-azure-ad-connect.md) application or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md), a lightweight agent that you can install from the Microsoft Entra Admin Center. Assign share-level permissions to hybrid identities synced to Microsoft Entra ID, and manage file and directory-level access using Windows ACLs.
+When you enable AD DS authentication for your Azure file shares, you can use your on-premises AD DS credentials to authenticate to your Azure file shares. You can also manage your permissions to allow granular access control. To set up authentication, sync identities from on-premises AD DS to Microsoft Entra ID by using either the on-premises [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) application or [Microsoft Entra Cloud sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync), a lightweight agent that you can install from the Microsoft Entra Admin Center. Assign share-level permissions to hybrid identities synced to Microsoft Entra ID, and manage file and directory-level access using Windows ACLs.
 
 Follow these steps to set up Azure Files for AD DS authentication:
 

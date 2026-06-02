@@ -6,12 +6,9 @@ items:
       - name: What is Microsoft Dev Box?
         href: overview-what-is-microsoft-dev-box.md
         displayName: DevBox, VDI
-      - name: Roadmap for Microsoft Dev Box
+      - name: Dev Box maintenance mode
         href: dev-box-roadmap.md
-        displayName: roadmap, future, features, enhancements, coming soon, in development
-      - name: Windows 365 adds Microsoft Dev Box capabilities
-        href: dev-box-windows-365-announcement.md
-        displayName: Windows 365, announcement, news
+        displayName: roadmap, maintenance mode, Windows 365, transition
   - name: Quickstarts
     items:
       - name: Get Started with the quick start template
@@ -66,12 +63,6 @@ items:
         href: how-to-conditional-access-dev-tunnels-service.md
       - name: Move dev box pools between regions
         href: how-to-move-dev-box-pool-region.md
-  - name: Prepare images
-    items:
-      - name: Configure an Azure compute gallery
-        href: how-to-configure-azure-compute-gallery.md
-      - name: Provision a Custom Image with Azure Image Builder
-        href: how-to-customize-devbox-azure-image-builder.md
   - name: Customize dev boxes
     items:
       - name: What are Dev Box customizations
@@ -82,6 +73,15 @@ items:
         displayName: customizations, image definition, team customization
       - name: Configure dev center imaging
         href: how-to-configure-dev-center-imaging.md
+        displayName: customizations, image definition, dev center imaging
+      - name: Prepare images
+        items:
+          - name: Configure an Azure compute gallery
+            href: how-to-configure-azure-compute-gallery.md
+          - name: Prepare a custom image
+            href: how-to-prepare-custom-image-dev-box.md
+          - name: Provision a Custom Image with Azure Image Builder
+            href: how-to-customize-devbox-azure-image-builder.md
       - name: Configure user customizations
         href: how-to-configure-user-customizations.md
         displayName: customizations, image definition, personal customization, individual
@@ -173,6 +173,8 @@ items:
       - name: Automatically repair connectivity issues
         href: how-to-troubleshoot-repair-dev-box.md
         displayName: Troubleshoot & repair, troubleshooter, fix, wizard
+      - name: Troubleshoot custom image validation
+        href: how-to-troubleshoot-custom-image-validation.md
       - name: Troubleshoot dev box connectivity issues
         href: how-to-troubleshoot-remote-desktop-connectivity.md
         displayName: Troubleshoot & repair, troubleshooter, fix

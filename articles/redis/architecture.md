@@ -1,13 +1,12 @@
 ---
 title: Azure Managed Redis Architecture
 description: Learn how Azure Managed Redis is architected
-ms.date: 12/08/2025
+ms.date: 05/28/2026
 ms.topic: article
 ai-usage: ai-assisted
 ms.custom:
   - ignite-2024
   - build-2025
-
 appliesto:
   - ✅ Azure Managed Redis
 ---
@@ -44,7 +43,7 @@ Each Azure Managed Redis instance is internally configured to use clustering, ac
 
 ### Cluster policies
 
-Azure Managed Redis offers three clustering policies: _OSS_, _Enterprise_, and Non-Clustered. The _OSS_ cluster policy is good for most applications because it supports higher maximum throughput, but each version has its own advantages and disadvantages.
+Azure Managed Redis offers three clustering policies: _OSS_, _Enterprise_, and Non-Clustered. The _OSS_ cluster policy works well for most applications because it supports higher maximum throughput, but each version has its own advantages and disadvantages.
 
 - If you're moving from a Basic, Standard, or Premium nonclustered topology, consider using OSS clustering to improve performance. Use nonclustered configurations only if your application can't support either OSS or Enterprise topologies. The **OSS clustering policy** implements the same API as Redis open-source software. The [Redis Cluster API](https://redis.io/docs/latest/operate/oss_and_stack/reference/cluster-spec/) allows the Redis client to connect directly to shards on each Redis node, minimizing latency and optimizing network throughput. Throughput scales near-linearly as the number of shards and vCPUs increases. The OSS clustering policy generally offers the lowest latency and best throughput performance. However, the OSS cluster policy requires your client library to support the Redis Cluster API. Today, almost all Redis clients support the Redis Cluster API, but compatibility might be an issue for older client versions or specialized libraries.
 
@@ -115,21 +114,21 @@ This table shows a general example of the relationship of _Size_ to _vCPUs/prima
 
 This table shows a general example of the relationship of _Size_ to _vCPUs/primary shards_.
 
-| Tiers     | Flash Optimized (preview) |
-|:---------:|:-------------------------:|
-| Size (GB) | vCPUs/primary shards      |
-| 480 ¹ ²    | 16/12                |
-| 720 ¹ ²    | 24/24                |
+| Tiers     | Flash Optimized      |
+|:---------:|:--------------------:|
+| Size (GB) | vCPUs/primary shards |
+| 480 ¹     | 16/12                |
+| 720 ¹     | 24/24                |
 
-¹ These tiers are in public preview.
-
-² The ratio of vCPUs to primary shards at a given tier size doesn't represent a guarantee for the SKU or tier.
+¹ The ratio of vCPUs to primary shards at a given tier size doesn't represent a guarantee for the SKU or tier.
 
 [!INCLUDE [tier-preview](includes/tier-preview.md)]
 
 ## Running without high availability mode enabled
 
 You can run without high availability (HA) mode enabled. This configuration means that your Redis instance doesn't have replication enabled and doesn't have access to the availability SLA. Don't run in non-HA mode outside of development and test scenarios. You can't disable high availability in an instance that you already created. You can enable high availability in an instance that doesn't have it. Because an instance running without high availability uses fewer VMs and nodes, vCPUs aren't used as efficiently, so performance might be lower.
+
+When you enable HA mode, your instance is deployed with primary and replica shards distributed across at least two nodes. This configuration is recommended for all production scenarios and for access to the availability SLA. In regions that support availability zones, Azure Managed Redis distributes the nodes across zones by default. For more information, see [Reliability in Azure Managed Redis](/azure/reliability/reliability-managed-redis).
 
 ## Reserved memory
 
@@ -154,7 +153,7 @@ Because Redis optimizes for the best performance, the instance first fills up th
 
 Workloads that run well on the Flash Optimized tier often have the following characteristics:
 
-- Read heavy, with a high ratio of read commands to write commands.
+- Read-heavy workloads with a high ratio of read commands to write commands.
 - Access focused on a subset of keys that you use much more frequently than the rest of the dataset.
 - Relatively large values in comparison to key names. (Because key names are always stored in RAM, large values can become a bottleneck for memory growth.)
 
@@ -162,7 +161,7 @@ Workloads that run well on the Flash Optimized tier often have the following cha
 
 Some workloads have access characteristics that are less optimized for the design of the Flash Optimized tier:
 
-- Write heavy workloads.
+- Write-heavy workloads.
 - Random or uniform data access patterns across most of the dataset.
 - Long key names with relatively small value sizes.
 

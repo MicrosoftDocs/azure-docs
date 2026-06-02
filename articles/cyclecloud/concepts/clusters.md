@@ -5,7 +5,7 @@ author: dougclayton
 ms.author: doclayto
 ms.date: 09/23/2025
 ms.update-cycle: 3650-days
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-cyclecloud
 ms.custom: compute-evergreen
 ---

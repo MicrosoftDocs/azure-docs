@@ -1133,8 +1133,8 @@ Now you're ready to create the cluster resources:
        op start interval=0 timeout=3600 \
        op stop interval=0 timeout=3600 \
        op promote interval=0 timeout=3600 \
-       op monitor interval=60 role="Master" timeout=700 \
-       op monitor interval=61 role="Slave" timeout=700 \
+       op monitor interval=60 role="Primary" timeout=700 \
+       op monitor interval=61 role="Secondary" timeout=700 \
          
       pcs resource promotable SAPHana_HN1_HDB03 \
        meta master-max=1 clone-node-max=1 interleave=true
@@ -1148,8 +1148,8 @@ Now you're ready to create the cluster resources:
        op start interval=0 timeout=3600 \
        op stop interval=0 timeout=3600 \
        op promote interval=0 timeout=3600 \
-       op monitor interval=60 role="Master" timeout=700 \
-       op monitor interval=61 role="Slave" timeout=700
+       op monitor interval=60 role="Primary" timeout=700 \
+       op monitor interval=61 role="Secondary" timeout=700
        
       pcs resource master msl_SAPHana_HN1_HDB03 SAPHana_HN1_HDB03 \
        meta master-max=1 clone-node-max=1 interleave=true
@@ -1306,7 +1306,7 @@ pcs constraint location g_ip_HN1_03 rule score=500 role=master hana_hn1_roles eq
 pcs constraint location g_secip_HN1_03 rule score=50 hana_hn1_roles eq 'master1:master:worker:master'
 pcs constraint order promote SAPHana_HN1_HDB03-clone then start g_ip_HN1_03
 pcs constraint order start g_ip_HN1_03 then start g_secip_HN1_03
-pcs constraint colocation add g_secip_HN1_03 with Slave SAPHana_HN1_HDB03-clone 5
+pcs constraint colocation add g_secip_HN1_03 with Secondary SAPHana_HN1_HDB03-clone 5
 pcs property set maintenance-mode=false
 ```
 
@@ -1317,7 +1317,7 @@ pcs constraint location g_ip_HN1_03 rule score=500 role=master hana_hn1_roles eq
 pcs constraint location g_secip_HN1_03 rule score=50 hana_hn1_roles eq 'master1:master:worker:master'
 pcs constraint order promote  msl_SAPHana_HN1_HDB03 then start g_ip_HN1_03
 pcs constraint order start g_ip_HN1_03 then start g_secip_HN1_03
-pcs constraint colocation add g_secip_HN1_03 with Slave msl_SAPHana_HN1_HDB03 5
+pcs constraint colocation add g_secip_HN1_03 with Secondary msl_SAPHana_HN1_HDB03 5
 pcs property set maintenance-mode=false
 ```
 
@@ -1342,9 +1342,9 @@ Make sure that the cluster status is `ok`, and that all of the resources are sta
 #    Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
 #Clone Set: SAPHanaTopology_HN1_HDB03-clone [SAPHanaTopology_HN1_HDB03]
 #    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-#Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
-#    Masters: [ hana-s1-db1 ]
-#    Slaves: [ hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+#Primary/Secondary Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
+#    Primaries: [ hana-s1-db1 ]
+#    Secondaries: [ hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
 #Resource Group: g_ip_HN1_03
 #    nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hana-s1-db1
 #    vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s1-db1
@@ -1397,9 +1397,9 @@ When you're testing a HANA cluster configured with a read-enabled secondary, be 
        #    Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
        #Clone Set: SAPHanaTopology_HN1_HDB03-clone [SAPHanaTopology_HN1_HDB03]
        #    Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-       #Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
-       #    Masters: [ hana-s1-db1 ]
-       #    Slaves: [ hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+       #Primary/Secondary Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
+       #    Primaries: [ hana-s1-db1 ]
+       #    Secondaries: [ hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
        #Resource Group: g_ip_HN1_03
        #    nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hana-s1-db1
        #    vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s1-db1
@@ -1458,9 +1458,9 @@ When you're testing a HANA cluster configured with a read-enabled secondary, be 
       #     Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
       # Clone Set: SAPHanaTopology_HN1_HDB03-clone [SAPHanaTopology_HN1_HDB03]
       #     Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-      # Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
-      #     Masters: [ hana-s1-db1 ]
-      #     Slaves: [ hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
+      # Primary/Secondary Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
+      #     Primaries: [ hana-s1-db1 ]
+      #     Secondaries: [ hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
       # Resource Group: g_ip_HN1_03
       #     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hana-s1-db1
       #     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s1-db1
@@ -1523,9 +1523,9 @@ When you're testing a HANA cluster configured with a read-enabled secondary, be 
       #     Started: [ hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
       # Clone Set: SAPHanaTopology_HN1_HDB03-clone [SAPHanaTopology_HN1_HDB03]
       #     Started: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db1 hana-s2-db2 hana-s2-db3 ]
-      # Master/Slave Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
-      #     Masters: [ hana-s2-db1 ]
-      #     Slaves: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db2 hana-s2-db3 ]
+      # Primary/Secondary Set: msl_SAPHana_HN1_HDB03 [SAPHana_HN1_HDB03]
+      #     Primaries: [ hana-s2-db1 ]
+      #     Secondaries: [ hana-s1-db1 hana-s1-db2 hana-s1-db3 hana-s2-db2 hana-s2-db3 ]
       # Resource Group: g_ip_HN1_03
       #     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hana-s2-db1
       #     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hana-s2-db1

@@ -256,7 +256,7 @@ Blob index tags are a subresource to the blob data. A user with permissions or a
 
 ### Role-based access control
 
-Callers using an [Microsoft Entra identity](../common/authorize-data-access.md) may be granted the following permissions to operate on blob index tags.
+Callers using a [Microsoft Entra identity](../common/authorize-data-access.md) may be granted the following permissions to operate on blob index tags.
 
 | Blob index tag operations                                          | Azure RBAC action                                                             |
 |--------------------------------------------------------------------|-------------------------------------------------------------------------------|
@@ -327,11 +327,14 @@ You're charged for the monthly average number of index tags within a storage acc
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
+> [!NOTE]
+> Blob Tags without indexing is available in Preview for hierarchical namespace (HNS) enabled storage accounts. To try this feature, users must register for “Blob Tags for Hierarchical Namespace” under the Preview features section of their subscription. Currently, Blob Tags on HNS enabled accounts are not integrated with blob storage features like Lifecycle Management.
+
 ## Conditions and known issues
 
 This section describes known issues and conditions.
 
-- Only general-purpose v2 accounts and premium block blob accounts are supported. Premium page blob, legacy blob, and accounts with a hierarchical namespace enabled aren't supported. General-purpose v1 accounts won't be supported.
+- Only general-purpose v2 accounts and premium block blob accounts are supported. Premium page blob, legacy blob aren't supported. General-purpose v1 accounts won't be supported.
 
 - Uploading page blobs with index tags doesn't persist the tags. Set the tags after uploading a page blob.
 

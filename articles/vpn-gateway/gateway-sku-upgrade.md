@@ -5,7 +5,7 @@ description: Learn how to upgrade a VPN Gateway SKU in Azure.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 06/23/2025
+ms.date: 03/03/2026
 ms.author: cherylmc
 
 #customer intent: As an Azure network engineer, I want to understand the workflow for upgrading a VPN Gateway SKU so that I can plan properly and minimize downtime.
@@ -26,9 +26,8 @@ There are many things to consider when you upgrade to a new gateway SKU. The fol
 | Basic SKU | Any other SKU | No | Yes |
 | Legacy SKU | AZ SKU | Yes (Migrate Only) | No
 | Generation 1 SKU | Generation 1 AZ SKU | Yes | No |
-| Generation 1 SKU | Generation 2 AZ SKU | No | Yes |
+| Generation 1 SKU | Generation 2 AZ SKU | Yes (Migrate Only) | No |
 | Generation 2 SKU | Generation 2 AZ SKU | Yes | No |
-| Generation 2 SKU | Generation 1 AZ SKU | No | Yes |
 
 In the preceding table, *AZ* stands for *availability zone*, and means that the SKU offers support for availability zones. For gateway SKU throughput and connection limits, see [About gateway SKUs](about-gateway-skus.md#benchmark).
 
@@ -69,6 +68,13 @@ The high-level workflow is:
 1. Re-create the connections to the virtual network gateway.
 
 **Legacy SKUs** cannot be directly upgraded. All legacy SKUs use Basic IP address and you must migrate your Basic SKU IP address to Standard SKU IP address first. As part of Basic IP migration, your legacy SKU will also be migrated to AZ SKU family. See, the detailed instructions listed for [migrating your Basic IP address](basic-public-ip-migrate-howto.md?tabs=portal). For more information about working with legacy gateway SKUs, see [VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md).
+
+**Gen2 SKUs** cannot be upgraded directly.
+
+* If your gateway uses a Basic IP address, migrating to a Standard public IP will automatically upgrade your gateway to Gen2.
+* If your gateway already uses a Standard IP address, it will be seamlessly upgraded to Gen2 during regular service updates before September 2026.
+
+No separate customer action is required to migrate your gateway to Gen2 beyond required Basic IP address migration.
 
 ## Related content
 

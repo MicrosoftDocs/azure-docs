@@ -228,7 +228,7 @@ Because of extra content, app-consistent snapshots are the most involved, and ta
 
 #### Do app-consistent recovery points impact performance?
 
- Because app-consistent recovery points capture all data in memory and process, if they capture frequently, it can affect performance when the workload is already busy. We don't recommend that you capture too often for nondatabase workloads. Even for database workloads, one hour should be enough.
+Because app-consistent recovery points capture all data in memory and process, if they capture frequently, it can affect performance when the workload is already busy. We don't recommend that you capture too often for nondatabase workloads. Depending on your workload and its RPO requirements, you can evaluate whether to capture app-consistent points and their frequency.
 
 #### What's the minimum frequency for generating app-consistent recovery points?
 

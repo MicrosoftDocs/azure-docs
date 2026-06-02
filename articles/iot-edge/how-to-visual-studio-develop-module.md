@@ -4,7 +4,7 @@ description: Use Visual Studio to develop a custom IoT Edge module and deploy to
 services: iot-edge
 author: sethmanheim
 ms.author: sethm
-ms.date: 02/20/2026
+ms.date: 04/06/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 zone_pivot_groups: iotedge-dev
@@ -36,7 +36,7 @@ This article assumes that you use a machine running Windows as your development 
 * Download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs17iotedgetools) from the Visual Studio Marketplace. Use the Azure IoT Edge Tools extension to create and build your IoT Edge solution. The preferred development tool is the command-line (CLI) *Azure IoT Edge Dev Tool*. The extension includes the Azure IoT Edge project templates used to create the Visual Studio project. You need the extension installed regardless of the development tool you use.
 
     > [!IMPORTANT]
-    > The *Azure IoT Edge Tools for VS 2022* extension is in [maintenance mode](https://aka.ms/edgetool-dep). The preferred development tool is the command-line (CLI) *Azure IoT Edge Dev Tool*.
+    > The *Azure IoT Edge Tools for VS 2022* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639). The preferred development tool is the command-line (CLI) *Azure IoT Edge Dev Tool*.
 
    > [!TIP]
    > If you're using Visual Studio 2019, download and install [Azure IoT Edge Tools for VS 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) from the Visual Studio marketplace.
@@ -236,7 +236,7 @@ Typically, you want to test and debug each module before running it within an en
    If you get the error *unmatched close brace/bracket in URL*, try the following command instead:
    
    ```bash
-   curl --header "Content-Type: application/json" --request POST --data "{\"inputName\": \"input1\", \"data\", \"hello world\"}"  http://localhost:53000/api/v1/messages
+   curl --header "Content-Type: application/json" --request POST --data "{\"inputName\": \"input1\", \"data\": \"hello world\"}"  http://localhost:53000/api/v1/messages
    ```
   
    :::image type="content" source="./media/how-to-visual-studio-develop-csharp-module/debug-single-module.png" alt-text="Screenshot of the output console, Visual Studio project, and Bash window." lightbox="./media/how-to-visual-studio-develop-csharp-module/debug-single-module.png":::

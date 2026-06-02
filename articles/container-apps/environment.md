@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  concept-article
-ms.date: 11/06/2025
+ms.date: 02/26/2026
 ms.author: cshoe
 ms.custom: build-2023
 ---
@@ -42,7 +42,7 @@ Use a single environment when you want to:
 Use more than one environment when you want two or more applications to:
 
 - Never share the same compute resources
-- Not communicate through the Dapr service invocation API
+- Not communicate via the built-in Dapr service invocation API (cross-environment Dapr communication may be possible using third-party solutions)
 - Be isolated due to team or environment usage (for example, test vs. production)
 
 ## Types

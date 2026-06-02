@@ -8,6 +8,7 @@ ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 08/03/2025
 ms.reviewer: v-uhabiba
+ms.update-cycle: 180-days
 ms.custom:
   - engagement-fy25
   - sfi-image-nochange
@@ -225,7 +226,7 @@ For a newly created Migrate appliance, the default expiry period for the associa
 1. On the appliance VM, open an elevated privileged PowerShell Command Prompt.
 1. Navigate to the Config Manager installation folder: 
 
-    ```cd C:\’Program Files’\’Microsoft Azure Appliance Configuration Manager’\Scripts\PowerShell\AzureMigrateCertificateRotation```
+    ```cd "C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell\AzureMigrateCertificateRotation"```
 
 1. Execute the following script to rotate the Microsoft Entra ID app certificate and extend its validity for an additional 6 months:
 
@@ -235,7 +236,6 @@ For a newly created Migrate appliance, the default expiry period for the associa
 
     ```PS C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell\AzureMigrateCertificateRotation>.\AzureMigrateRotateCertificate.ps1 12``` 
 
-    ```C:\’Program Files’\’Microsoft Azure Appliance Configuration Manager’\Scripts\PowerShell\AzureMigrateCertificateRotation```
 
 ## Next steps
 

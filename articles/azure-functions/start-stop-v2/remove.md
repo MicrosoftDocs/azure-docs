@@ -4,7 +4,7 @@ titleSuffix: Azure Functions
 description: This article describes how to remove the Start/Stop VMs v2 feature.
 ms.service: azure-functions
 ms.date: 06/08/2022
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # How to remove Start/Stop VMs v2

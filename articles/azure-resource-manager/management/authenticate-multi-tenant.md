@@ -1,9 +1,9 @@
-﻿---
+---
 title: Authenticate across tenants
 description: Describes how Azure Resource Manager handles authentication requests across tenants.
 ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 01/22/2025
+ms.date: 02/27/2026
 ---
 
 # Authenticate requests across tenants

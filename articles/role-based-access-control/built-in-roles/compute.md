@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -389,8 +389,8 @@ Lets you manage classic virtual machines, but not access to them, and not the vi
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.ClassicCompute](../permissions/compute.md#microsoftclassiccompute)/domainNames/* | Create and manage classic compute domain names |
-> | [Microsoft.ClassicCompute](../permissions/compute.md#microsoftclassiccompute)/virtualMachines/* | Create and manage virtual machines |
+> | Microsoft.ClassicCompute/domainNames/* | Create and manage classic compute domain names |
+> | Microsoft.ClassicCompute/virtualMachines/* | Create and manage virtual machines |
 > | [Microsoft.ClassicNetwork](../permissions/networking.md#microsoftclassicnetwork)/networkSecurityGroups/join/action |  |
 > | [Microsoft.ClassicNetwork](../permissions/networking.md#microsoftclassicnetwork)/reservedIps/link/action | Link a reserved Ip |
 > | [Microsoft.ClassicNetwork](../permissions/networking.md#microsoftclassicnetwork)/reservedIps/read | Gets the reserved Ips |
@@ -641,6 +641,63 @@ This role allows user to share gallery to another subscription/tenant or share i
     }
   ],
   "roleName": "Compute Gallery Sharing Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Compute Limit Operator
+
+Read and manage compute limits using compute limit operations.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ComputeLimit](../permissions/compute.md#microsoftcomputelimit)/locations/guestSubscriptions/read | Reads guest subscriptions for a given host subscription within a location. |
+> | [Microsoft.ComputeLimit](../permissions/compute.md#microsoftcomputelimit)/locations/guestSubscriptions/write | Adds a subscription as a guest to consume a host subscription's shared compute limits. |
+> | [Microsoft.ComputeLimit](../permissions/compute.md#microsoftcomputelimit)/locations/guestSubscriptions/delete | Removes a subscription as a guest preventing it from consuming the host subscription's shared compute limits. |
+> | [Microsoft.ComputeLimit](../permissions/compute.md#microsoftcomputelimit)/locations/sharedLimits/read | Lists all compute shared limits a host subscription shares with its guest subscriptions. |
+> | [Microsoft.ComputeLimit](../permissions/compute.md#microsoftcomputelimit)/locations/sharedLimits/write | Enables sharing of a compute limit by a host subscription with its guest subscriptions. |
+> | [Microsoft.ComputeLimit](../permissions/compute.md#microsoftcomputelimit)/locations/sharedLimits/delete | Disables sharing of a compute limit by a host subscription with its guest subscriptions. |
+> | [Microsoft.ComputeLimit](../permissions/compute.md#microsoftcomputelimit)/register/action | Registers the subscription for the Compute Limit resource provider and enables the management of compute limit resources. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read and manage compute limits using compute limit operations.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/980cf6f7-edec-4fd1-8e9e-28f70b1d5258",
+  "name": "980cf6f7-edec-4fd1-8e9e-28f70b1d5258",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ComputeLimit/locations/guestSubscriptions/read",
+        "Microsoft.ComputeLimit/locations/guestSubscriptions/write",
+        "Microsoft.ComputeLimit/locations/guestSubscriptions/delete",
+        "Microsoft.ComputeLimit/locations/sharedLimits/read",
+        "Microsoft.ComputeLimit/locations/sharedLimits/write",
+        "Microsoft.ComputeLimit/locations/sharedLimits/delete",
+        "Microsoft.ComputeLimit/register/action",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Compute Limit Operator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1881,7 +1938,7 @@ View Virtual Machines in the portal and login as administrator
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/*/read |  |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/*/read |  |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listCredentials/action | List the endpoint access credentials to the resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listCredentials/action | Gets the endpoint access credentials to the resource. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2135,7 +2192,7 @@ View Virtual Machines in the portal and login as a local user configured on the 
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/*/read |  |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listCredentials/action | List the endpoint access credentials to the resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listCredentials/action | Gets the endpoint access credentials to the resource. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2183,7 +2240,7 @@ View Virtual Machines in the portal and login as a regular user.
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/*/read |  |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/*/read |  |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listCredentials/action | List the endpoint access credentials to the resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listCredentials/action | Gets the endpoint access credentials to the resource. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2492,11 +2549,11 @@ Let's you manage the OS of your resource via Windows Admin Center as an administ
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkWatchers/securityGroupView/action | View the configured and effective network security group rules applied on a VM. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/securityRules/read | Gets a security rule definition |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/securityRules/write | Creates a security rule or updates an existing security rule |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/write | Create or update the endpoint to the target resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/read | Get or list of endpoints to the target resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/write | Create or update the serviceConfigurations to the endpoints resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/read | Get or list of serviceConfigurations to the endpoints resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listManagedProxyDetails/action | List the managed proxy details to the resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/write | Update the endpoint to the target resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/read | Gets the endpoint to the resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/write | Update the service details in the service configurations of the target resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/read | Gets the details about the service to the resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listManagedProxyDetails/action | Fetches the managed proxy details  |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/patchAssessmentResults/latest/read | Retrieves the summary of the latest patch assessment operation |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/patchAssessmentResults/latest/softwarePatches/read | Retrieves list of patches assessed during the last patch assessment operation |

@@ -4,7 +4,7 @@ description: Learn how to apply the guiding principles of Zero Trust to Azure in
 author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: mbaldwin
 ms.date: 02/12/2026
 ---

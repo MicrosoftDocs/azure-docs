@@ -215,7 +215,7 @@ Congratulations, Azure Container Storage now runs on your cluster. You now have 
 
 Now you can create a storage pool and volumes. Follow the steps in the appropriate article depending on the backing storage type you want to use.
 
-- [Use Azure Managed Disks](use-container-storage-with-managed-disks.md)
+- [Use Azure managed disks](use-container-storage-with-managed-disks.md)
 - [Use Azure Elastic SAN](use-container-storage-with-elastic-san.md)
 - [Use local NVMe](use-container-storage-with-local-disk-version-1.md)
 - [Use temp SSD](use-container-storage-with-temp-ssd.md)

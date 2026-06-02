@@ -7,9 +7,11 @@ ms.author: fipopovi
 ms.date: 10/11/2022
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 # Statistics in Synapse SQL
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Provided in this article are recommendations and examples for creating and updating query-optimization statistics using the Synapse SQL resources: dedicated SQL pool and serverless SQL pool.
 

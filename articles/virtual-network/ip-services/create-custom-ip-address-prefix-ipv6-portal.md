@@ -68,6 +68,9 @@ The following steps display the modified steps for provisioning a sample global 
 > [!NOTE]
 > Clean up or delete steps aren't shown on this page given the nature of the resource. For information on removing a provisioned custom IP prefix, see [Manage custom IP prefix](manage-custom-ip-address-prefix.md).
 
+> [!IMPORTANT]
+> Ensure that no leading zeros are present in any of the IPv6 addresses during global or regional provisioning process. For example, use **2a05:f500:2:1::/64** instead of **2a05:f500:0002:0001::/64**
+
 # [Azure portal](#tab/azureportal)
 
 ### Provision a global custom IPv6 address prefix

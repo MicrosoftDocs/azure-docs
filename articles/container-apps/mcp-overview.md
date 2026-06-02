@@ -2,7 +2,7 @@
 title: Host MCP servers on Azure Container Apps
 description: Learn how to host MCP servers on Azure Container Apps as standalone container apps or with dynamic sessions.
 #customer intent: As a developer, I want to deploy an MCP server as a standalone container app so that I can expose custom tools and connect to backend services.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-container-apps
 ms.collection: ce-skilling-ai-copilot
 ms.date: 02/19/2026

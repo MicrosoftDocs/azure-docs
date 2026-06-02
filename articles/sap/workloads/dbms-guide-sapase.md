@@ -331,8 +331,6 @@ The starting page for [SAP ASE 16.0.03.07 Documentation](https://help.sap.com/vi
 - SAP ASE Learning Journey - Administration and monitoring
 - SAP ASE Learning Journey - Installation and upgrade
 
-Are helpful. Another useful document is [SAP Applications on SAP Adaptive Server Enterprise Best Practices for Migration and Runtime](https://assets.cdn.sap.com/sapcom/docs/2016/06/26450353-767c-0010-82c7-eda71af511fa.pdf).
-
 Other helpful SAP support notes are:
 
 - [SAP support note #2134316](https://launchpad.support.sap.com/#/notes/2134316)

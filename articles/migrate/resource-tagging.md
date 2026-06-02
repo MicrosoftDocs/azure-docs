@@ -1,6 +1,6 @@
 ---
 title: Tags in Azure Migrate
-description: Learn how to tag resources with relevant attributes in Azure Migrate.
+description: Azure Migrate tags help you organize and manage migration resources efficiently. Discover how to group workloads for better visibility and control.
 author: ankitsurkar06
 ms.author: ankitsurkar
 ms.topic: how-to
@@ -11,52 +11,43 @@ monikerRange:
 # Customer intent: As an IT administrator managing migration resources, I want to tag workloads with relevant attributes, so that I can enhance resource organization and visibility during the migration process.
 ---
 
-# Tags in Azure Migrate
+# Understand tags in Azure Migrate
 
-In any cloud transformation journey, a comprehensive current-state analysis of the IT landscape is essential. That analysis includes infrastructure, workloads, applications, and dependencies.
+In any cloud migration journey, organizing and understanding your on-premises environment is critical. Azure Migrate provides tagging capabilities that help you group, organize, and analyze discovered workloads based on business and technical attributes.
 
-The new tagging feature in Azure Migrate enhances this analysis. You can use tags to group and visualize related resources based on specific properties, such as environment, department, or criticality. These meaningful groupings can help you manage resources throughout your migration process and beyond.
+Tags in Azure Migrate let you apply key value metadata to servers and workloads so you can manage large inventories more effectively, scope assessments, and plan migrations aligned to business priorities.
 
-## Key benefits
+This article provides a high-level overview of tagging in Azure Migrate and links to detailed guidance for common tagging scenarios and tasks.
 
-- **Enhanced resource grouping and organization**: Tagging resources with relevant attributes helps you categorize, track, and manage your assets. For example, you can collectively manage and analyze resources tagged by department (like HR or finance), which improves oversight and streamlines operations.
+## What are tags in Azure Migrate?
 
-- **Improved visibility and control**: You gain an organized view of how resources interrelate. This view supports better management of resources that share a common purpose, application, or organizational unit.
+Tags are custom key value pairs that you assign to discovered workloads in Azure Migrate. You can use tags to group workloads based on attributes such as:
 
-- **Resource management and governance**: Tags enable easy filtering and sorting of resources, so IT administrators can quickly find and manage assets. Tags also support governance practices to help enforce consistent management practices and resource tracking.
+- Application or service
+- Department or cost center
+- Environment (production, test, development)
+- Business criticality
+- After tags are applied, you can use them across Azure Migrate experiences to filter inventory, scope assessments, and generate reports.
 
-- **Simplified migration planning**: You can use tags as selection filters when you create your reports for business cases and assessments.
+## Why use tags during migration?
 
-## Use cases
+Using tags helps you:
 
-- **Department-based grouping**: Tagging resources by department (for example, finance and marketing) helps you allocate resources appropriately and track department-specific assets.
+- Organize large inventories by grouping related workloads
+- Improve visibility into applications, environments, and ownership
+- Simplify migration planning by scoping assessments and reports
+- Align technical data with business context, such as departments or priorities
+- Tags are especially useful when managing complex environments with multiple applications, business units, or migration waves.
 
-- **Environment and criticality identification**: Tags such as production, development, or high criticality simplify the management of environments and critical workloads.
+## Types of Tags
 
-- **Application and purpose grouping**: Tags can identify resources tied to a specific application or service, so you can more easily assess the impact of changes or migrations.
+Azure Migrate supports two types of tags:
 
-## Add tags to workloads
+**Reserved tags**: Environment and Migration Intent. These tags add operational and migration context to workloads and applications. They affect cost modeling, SKU recommendations, assessment scoping, and wave planning.
 
-1. Select the workloads that you intend to tag from the inventory.
+**Custom tags**: User-defined key-value pairs that help organize workloads and applications by attributes such as department, cost center, owner, or compliance. Custom tags support filtering, scoping, chargebacks, and reporting, but they don’t affect cost modeling or sizing.
 
-2. Select **Tags** > **Add and edit tags**.
+## Next steps
 
-3. Assign a tag by adding the key and value details.
-
-## View tags
-
-- Select the workload for which you want to view the assigned tags.
-
-## Filter by using tags
-
-1. Select **Add filter** beside the search bar.
-
-2. Select the tag key that you want to filter with.
-
-3. Select the values for the tag that you want to filter with.
-
-## Import tags
-
-1. Select **Tags** > **Import tags**.
-
-2. Choose the file with the tags that you want to import.
+- [Create and manage Tags](how-to-create-manage-tags.md).
+- [Modify and delete Tags for Workloads in Azure Migrate](how-to-modify-delete-tags.md).

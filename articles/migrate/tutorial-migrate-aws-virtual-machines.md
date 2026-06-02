@@ -7,6 +7,9 @@ ms.topic: tutorial
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 02/07/2025
+ms.collection:
+  - migration
+  - aws-to-azure
 ms.custom:
   - MVC
   - engagement-fy24
@@ -62,6 +65,8 @@ To set up an assessment:
 
 Although we recommend that you try out an assessment, performing an assessment isn't a mandatory step to be able to migrate VMs.
 
+To plan to migrate an AWS workload to Azure, see [Migrate compute from Amazon Web Services to Azure](/azure/migration/migrate-compute-from-aws), which includes [example migration scenarios](/azure/migration/migrate-compute-from-aws#migration-scenarios) that might align to your use case.
+
 ## Prerequisites
 
 - Ensure that the AWS VMs you want to migrate are running a supported operating system (OS) version. AWS VMs are treated like physical machines for the migration. Review the [supported operating systems and kernel versions](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) for the physical server migration workflow. You can use standard commands like `hostnamectl` or `uname -a` to check the OS and kernel versions for your Linux VMs. We recommend that you perform a test migration (test failover) to validate if the VM works as expected before you proceed with the migration.
@@ -79,7 +84,7 @@ Prepare Azure for migration with the Migration and modernization tool.
 Task | Details
 --- | ---
 Create an Azure Migrate project | Your Azure account needs Contributor or Owner permissions to [create a new project](./create-manage-projects.md).
-Verify permissions for your Azure account | Your Azure account needs permissions to create a VM and write to an Azure Managed Disk.
+Verify permissions for your Azure account | Your Azure account needs permissions to create a VM and write to an Azure managed disk.
 
 ### Assign permissions to create a project
 
@@ -95,7 +100,7 @@ Assign the VM Contributor role to the Azure account. This role provides permissi
 
 - Create a VM in the selected resource group.
 - Create a VM in the selected virtual network.
-- Write to an Azure Managed Disk.
+- Write to an Azure managed disk.
 
 ### Create an Azure network
 
@@ -114,7 +119,7 @@ The Migration and modernization tool uses a replication appliance to replicate m
 
 To prepare for appliance deployment:
 
-- Set up a separate EC2 VM to host the replication appliance. This instance must be running Windows Server 2022. [Review](./tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended) the hardware, software, and networking requirements for the appliance.
+- Set up a separate EC2 VM to host the replication appliance. This instance must be running Windows Server 2022. [Review](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance) the hardware, software, and networking requirements for the appliance.
 - The appliance shouldn't be installed on a source VM that you want to replicate or on the Azure Migrate: Discovery and assessment appliance you might have installed before. It should be deployed on a different VM.
 - The source AWS VMs to be migrated should have a network line of sight to the replication appliance. Configure necessary security group rules to enable this capability. We recommend that you deploy the replication appliance in the same virtual private cloud (VPC) as the source VMs to be migrated. If the replication appliance needs to be in a different VPC, the VPCs must be connected through VPC peering.
 - The source AWS VMs communicate with the replication appliance on ports HTTPS 443 (control channel orchestration) and TCP 9443 (data transport) inbound for replication management and replication data transfer. The replication appliance in turn orchestrates and sends replication data to Azure over port HTTPS 443 outbound. To configure these rules, edit the security group inbound/outbound rules with the appropriate ports and source IP information.

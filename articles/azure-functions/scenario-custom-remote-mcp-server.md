@@ -1,7 +1,7 @@
 ---
 title: Build a custom remote MCP server using Azure Functions
 description: "Learn how to create and deploy a custom Model Context Protocol (MCP) server using Azure Functions. This quickstart uses the Azure Developer CLI to deploy an MCP server project that enables AI clients to access custom tools hosted on Azures Flex Consumption plan."
-ms.date: 12/01/2025
+ms.date: 04/06/2026
 ms.update-cycle: 180-days
 ms.topic: quickstart
 ai-usage: ai-assisted
@@ -21,17 +21,17 @@ After running the project locally and verifying your code by using GitHub Copilo
 
 Because the new app runs on the Flex Consumption plan, which follows a _pay-for-what-you-use_ billing model, completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
-::: zone pivot="programming-language-javascript,programming-language-powershell"  
+::: zone pivot="programming-language-powershell"  
 > [!IMPORTANT]  
-> While [creating custom MCP servers](./functions-bindings-mcp.md) is supported for all Functions languages, this quickstart scenario currently only has examples for C#, Java, Python, and TypeScript. To complete this quickstart, select one of these supported languages at the top of the article. 
+> While [creating custom MCP servers](./functions-bindings-mcp.md) is supported for all Functions languages, this quickstart scenario currently only has examples for C#, Java, JavaScript, Python, and TypeScript. To complete this quickstart, select one of these supported languages at the top of the article. 
 ::: zone-end  
-::: zone pivot="programming-language-typescript"
+::: zone pivot="programming-language-javascript,programming-language-typescript"
 This article supports version 4 of the Node.js programming model for Azure Functions.
 ::: zone-end
 ::: zone pivot="programming-language-python"
 This article supports version 2 of the Python programming model for Azure Functions.
 ::: zone-end
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
 ## Prerequisites
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
@@ -43,10 +43,8 @@ This article supports version 2 of the Python programming model for Azure Functi
     + Set the `JAVA_HOME` environment variable to the install location of the correct version of the Java Development Kit (JDK).
 + [Apache Maven 3.8.x](https://maven.apache.org)  
 ::: zone-end  
-<!-- replace when supported 
-::: zone pivot="programming-language-javascript,programming-language-typescript" -->
-::: zone pivot="programming-language-typescript"
-+ [Node.js 20](https://nodejs.org/)  
+::: zone pivot="programming-language-javascript,programming-language-typescript"
++ [Node.js 22](https://nodejs.org/)  
 ::: zone-end  
 <!--- remove when supported
 ::: zone pivot="programming-language-powershell"  
@@ -58,7 +56,7 @@ This article supports version 2 of the Python programming model for Azure Functi
 ::: zone pivot="programming-language-python" 
 + [Python 3.11](https://www.python.org/)
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
 + [Visual Studio Code](https://code.visualstudio.com/) with these extensions:
 
     + [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). This extension requires [Azure Functions Core Tools](functions-run-local.md) and attempts to install it when not available. 
@@ -85,7 +83,7 @@ Use the `azd init` command to create a local Azure Functions code project from a
     azd init --template remote-mcp-functions-dotnet -e mcpserver-dotnet
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in the name of the resource group you create in Azure.       
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.       
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 2. In your local terminal or command prompt, run this `azd init` command:
@@ -94,7 +92,16 @@ Use the `azd init` command to create a local Azure Functions code project from a
     azd init --template remote-mcp-functions-java -e mcpserver-java 
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-java) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure. 
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-java) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also part of the names of the resources you create in Azure. 
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+2. In your local terminal or command prompt, run this `azd init` command:
+ 
+    ```console
+    azd init --template remote-mcp-functions-javascript -e mcpserver-js
+    ```
+
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-javascript) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also part of the names of the resources you create in Azure.   
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 2. In your local terminal or command prompt, run this `azd init` command:
@@ -103,7 +110,7 @@ Use the `azd init` command to create a local Azure Functions code project from a
     azd init --template remote-mcp-functions-typescript -e mcpserver-ts
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-typescript) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure.   
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-typescript) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also part of the names of the resources you create in Azure.   
 ::: zone-end
 ::: zone pivot="programming-language-python"  
 2. In your local terminal or command prompt, run this `azd init` command:
@@ -112,9 +119,9 @@ Use the `azd init` command to create a local Azure Functions code project from a
     azd init --template remote-mcp-functions-python -e mcpserver-python
     ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-python) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also used in names of the resources you create in Azure. 
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/remote-mcp-functions-python) and initializes the project in the current folder. The `-e` flag sets a name for the current environment. In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also part of the names of the resources you create in Azure. 
 ::: zone-end
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
 ## Start the storage emulator
 
 [!INCLUDE [start-storage-emulator](../../includes/functions-mcp-start-storage-emulator.md)]
@@ -128,7 +135,14 @@ In a terminal window, go to the `FunctionsMcpTool` project folder:
 cd src/FunctionsMcpTool
 ```
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
+::: zone pivot="programming-language-java"  
+In a terminal window, go to the `FunctionsMcpTool` project folder:
+
+```console
+cd samples/FunctionsMcpTool
+```
+::: zone-end  
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
 
 [!INCLUDE [run-locally](../../includes/functions-mcp-run-locally.md)] 
 
@@ -170,6 +184,15 @@ The project template includes a `.vscode/mcp.json` file that already defines a `
 
 You can review the code that defines the MCP server tools:
 ::: zone-end  
+::: zone pivot="programming-language-javascript"
+The function code for the MCP server tools is defined in the `src/functions` folder. The MCP function registration exposes these functions as MCP Server tools:
+
+:::code language="javascript" source="~/functions-scenarios-custom-mcp-javascript/src/functions/helloMcpTool.js" range="3-20" :::
+
+:::code language="javascript" source="~/functions-scenarios-custom-mcp-javascript/src/functions/snippetsMcpTool.js" range="56-86" :::
+
+You can view the complete project template in the [Azure Functions JavaScript MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-javascript) GitHub repository.
+::: zone-end  
 ::: zone pivot="programming-language-csharp"
 The function code for the MCP server tools is defined in the `src` folder. The `McpToolTrigger` attribute exposes the functions as MCP Server tools:
 
@@ -177,36 +200,36 @@ The function code for the MCP server tools is defined in the `src` folder. The `
 
 :::code language="csharp" source="~/functions-scenarios-custom-mcp-dotnet/src/FunctionsMcpTool/SnippetsTool.cs" range="11-34" :::
 
-You can view the complete project template in the [Azure Functions .NET MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-dotnet) GitHub repository.
+You can view the complete project template in the [Azure Functions .NET MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-dotnet/tree/main/src/FunctionsMcpTool) GitHub repository.
 ::: zone-end  
 ::: zone pivot="programming-language-java"
-The function code for the MCP server tools is defined in the `src/main/java/com/function/` folder. The `@McpToolTrigger` annotation exposes the functions as MCP Server tools:
+The function code for the MCP server tools is defined in the `samples/FunctionsMcpTool/src/main/java/com/function/` folder. The `@McpToolTrigger` annotation exposes the functions as MCP Server tools:
 
-:::code language="java" source="~/functions-scenarios-custom-mcp-java/src/main/java/com/function/HelloWorld.java" range="35-51" :::
+:::code language="java" source="~/functions-scenarios-custom-mcp-java/samples/FunctionsMcpTool/src/main/java/com/function/HelloWorld.java" range="26-40" :::
 
-:::code language="java" source="~/functions-scenarios-custom-mcp-java/src/main/java/com/function/Snippets.java" range="80-118" :::
+:::code language="java" source="~/functions-scenarios-custom-mcp-java/samples/FunctionsMcpTool/src/main/java/com/function/Snippets.java" range="50-83" :::
 
-You can view the complete project template in the [Azure Functions Java MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-java) GitHub repository.
+You can view the complete project template in the [Azure Functions Java MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-java/tree/main/samples/FunctionsMcpTool) GitHub repository.
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 The function code for the MCP server tools is defined in the `src/function_app.py` file. The MCP function annotations expose these functions as MCP Server tools:
 
-:::code language="python" source="~/functions-scenarios-custom-mcp-python/src/function_app.py" range="30-33" :::
+:::code language="python" source="~/functions-scenarios-custom-mcp-python/src/FunctionsMcpTool/function_app.py" range="18-25" ::: 
 
-:::code language="python" source="~/functions-scenarios-custom-mcp-python/src/function_app.py" range="36-60" :::
+:::code language="python" source="~/functions-scenarios-custom-mcp-python/src/FunctionsMcpTool/function_app.py" range="28-42" ::: 
 
-You can view the complete project template in the [Azure Functions Python MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-python) GitHub repository.
+You can view the complete project template in the [Azure Functions Python MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-python/tree/main/src/FunctionsMcpTool) GitHub repository.
 ::: zone-end   
 ::: zone pivot="programming-language-typescript"
-The function code for the MCP server tools is defined in the `src` folder. The MCP function registration exposes these functions as MCP Server tools:
+The function code for the MCP server tools is defined in the `mcp-tools/src` folder. The MCP function registration exposes these functions as MCP Server tools:
 
-:::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/src/functions/helloMcpTool.ts" range="6-29" :::
+:::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/mcp-tools/src/functions/helloMcpTool.ts" range="3-23" :::
 
-:::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/src/functions/snippetsMcpTool.ts" range="56-86" :::
+:::code language="typescript" source="~/functions-scenarios-custom-mcp-typescript/mcp-tools/src/functions/snippetsMcpTool.ts" range="81-102" :::
 
-You can view the complete project template in the [Azure Functions TypeScript MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-typescript) GitHub repository.  
+You can view the complete project template in the [Azure Functions TypeScript MCP Server](https://github.com/Azure-Samples/remote-mcp-functions-typescript/tree/main/mcp-tools) GitHub repository.  
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-python,programming-language-typescript" 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-python,programming-language-typescript" 
 After verifying the MCP server tools locally, you can publish the project to Azure.
 
 ## Deploy to Azure

@@ -1,21 +1,21 @@
 ---
-title: Choose an Azure saving plan commitment amount
+title: Choose a savings plan commitment amount
 titleSuffix: Microsoft Cost Management
-description: This article helps you determine how to choose an Azure saving plan commitment amount.
+description: This article helps you determine how to choose a savings plan commitment amount.
 author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 01/08/2026
+ms.date: 03/14/2026
 ms.author: onwokolo
 ---
 
-# Choose an Azure saving plan commitment amount
+# Choose a savings plan commitment amount
 
-Savings plan purchase recommendations are calculated by analyzing your hourly pay-as-you-go usage and cost data. Recommendations are generated for the selected savings plan term (1- or 3-years), [benefit scope](scope-savings-plan.md) (shared, subscription), and look back period (7-, 30-, or 60-days). Azure calculates your potential savings by simulating the total costs you would have under a savings plan. It examines each combination of term, benefit scope, and look back period. It then compares these simulated costs with the actual pay-as-you-go costs you incurred. The commitment amount that returns the greatest savings for each term, benefit scope, and look back period combination is highlighted. To learn more about how recommendations are generated, see [How savings plan recommendations are generated](purchase-recommendations.md#how-savings-plan-recommendations-are-generated).
+Savings plan purchase recommendations are calculated by analyzing your hourly pay-as-you-go usage and cost data. Recommendations are generated for the selected savings plan term (1- or 3-year), [benefit scope](scope-savings-plan.md) (shared, subscription), and look back period (7-, 30-, or 60-day). Azure calculates your potential savings by simulating the total costs you would have under a savings plan. It examines each combination of term, benefit scope, and look back period. It then compares these simulated costs with the actual pay-as-you-go costs you incurred. The commitment amount that returns the greatest savings for each term, benefit scope, and look back period combination is highlighted. To learn more about how recommendations are generated, see [How savings plan recommendations are generated](purchase-recommendations.md#how-savings-plan-recommendations-are-generated).
 
-Some compute products can benefit from both savings plans and reservations. If you buy either a savings plan or a reservation, allow at least 7 days for recommendation systems to update and reflect your purchase before considering the other option. Avoid purchasing both products at the same time to ensure recommendations are accurate and to maximize your savings.
+Some products can benefit from both savings plans and reservations. If you buy either a savings plan or a reservation, allow at least 7 days for recommendation systems to update and reflect your purchase before considering the other option. Avoid purchasing both products at the same time to ensure recommendations are accurate and to maximize your savings.
 
 Azure doesn't currently provide savings plan recommendations for management groups. For more information, see [Recommendations for management groups](choose-commitment-amount.md#recommendations-for-management-groups).
 
@@ -40,10 +40,10 @@ Currently, the Azure portal doesn't provide savings plan recommendations for man
 
 ## Need help? Contact us
 
-If you have Azure savings plan for compute questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides Azure savings plan for compute expert support requests in English.
+If you have savings plan questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides savings plan expert support requests in English.
 
 ## Next steps
 
-- [Manage Azure savings plans](manage-savings-plan.md)
-- [View Azure savings plan cost and usage details](utilization-cost-reports.md)
+- [Manage savings plans](manage-savings-plan.md)
+- [View savings plan cost and usage details](utilization-cost-reports.md)
 - [Software costs not included in savings plans](software-costs-not-included.md)

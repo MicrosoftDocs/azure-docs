@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/22/2026
+ms.date: 03/02/2026
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
@@ -38,7 +38,7 @@ The number of users able to authenticate through an Azure AD B2C tenant is gated
 
 ## Endpoint request usage
 
-Azure AD B2C is compliant with [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749), [OpenID Connect (OIDC)](https://openid.net/certification/), and [SAML](http://saml.xml.org/saml-specifications) protocols. It provides user authentication and single sign-on (SSO) functionality, with the endpoints listed in the following table. 
+Azure AD B2C is compliant with [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749), [OpenID Connect (OIDC)](https://openid.net/certification/), and [SAML](https://docs.oasis-open.org/security/saml/v2.0/) protocols. It provides user authentication and single sign-on (SSO) functionality, with the endpoints listed in the following table. 
 
 The frequency of requests made to Azure AD B2C endpoints determines the overall token issuance capability. Azure AD B2C exposes endpoints, which consume a different number of requests. Review the [Authentication Protocols](./protocols-overview.md) article for more information on which endpoints are consumed by your application.
 
@@ -186,7 +186,7 @@ The following table lists the administrative configuration limits in the Azure A
 
 ## Region specific service limits 
 
-As a protection for our customers, Microsoft places some restrictions on telephony verification for certain region codes. The following table lists the region codes and their corresponding limits. Only SMS verification is subject to these limits.
+As a protection for our customers, Microsoft places some restrictions on telephony verification for certain region codes. The following table lists the region codes and their corresponding limits. These limits apply to both SMS and Voice verification.
 
 | Region Code | Region Name                                    | Limit per tenant per 60 minutes | Limit per tenant per 24 hours            |                         
 |:----------- |:---------------------------------------------- |:------------------------------- | :----------------------------------------|

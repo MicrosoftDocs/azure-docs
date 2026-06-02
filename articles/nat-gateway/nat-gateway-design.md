@@ -6,7 +6,7 @@ ms.author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: concept-article #Required; leave this attribute/value as-is.
 ms.customs: references_regions
-ms.date: 11/04/2025
+ms.date: 05/15/2026
 # Customer intent: "As a network architect, I want to design virtual networks using a NAT gateway so that I can ensure efficient outbound connectivity and manage SNAT port inventory for scalable production workloads."
 ---
 
@@ -166,17 +166,17 @@ Certain services don’t function on a virtual machine in a private subnet witho
 
 * StandardV2 NAT Gateway doesn’t support custom IP prefixes (BYOIP) 
 
-* StandardV2 NAT Gateway can’t be deployed as a managed NAT Gateway for AKS workloads. It's only supported when configured as a user-assigned NAT Gateway. For more information, see [Create NAT Gateway for your AKS cluster](Create a managed or user-assigned NAT gateway for your Azure Kubernetes Service (AKS) cluster - Azure Kubernetes Service | Microsoft Learn 
+* Managed NAT Gateway V2 for AKS workloads is now in preview. For more information, see [Create NAT Gateway for your AKS cluster](Create a managed or user-assigned NAT gateway for your Azure Kubernetes Service (AKS) cluster - Azure Kubernetes Service | Microsoft Learn 
 
 * StandardV2 NAT Gateway is available in select Azure regions. It’s not available in the following regions:  
     * Canada East   
-    * Central India   
     * Chile Central   
     * Indonesia Central   
     * Israel Northwest   
     * Malaysia West   
     * Qatar Central   
-    * UAE Central  
+    * West India
+    * Sweden South 
 
 ## Related content
 

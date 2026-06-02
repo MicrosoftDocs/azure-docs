@@ -49,17 +49,20 @@ For more information about App Configuration metrics, see [supported metrics for
 Azure App Configuration logs include activity logs and resource logs.
 
 ### Activity logs
-[Activity logs](/azure/azure-monitor/reference/tables/azureactivity) provide insight into subscription-level events and show management plane activities (create, update, delete operations on your App Configuration resource). However, they don't capture data plane operations like key-value reads and writes. You can view them in the **Activity log** blade. Alternatively, follow the steps in [Log collection](#log-collection) to route them to Log Analytics workspace for more complex querying scenarios.
+[Activity logs](/azure/azure-monitor/reference/tables/azureactivity) provide insight into subscription-level events and show all control plane CRUD operations for your App Configuration resource. However, they don't capture data plane operations like key-value reads and writes. You can view activity logs in the **Activity log** blade. Alternatively, follow the steps in [Log collection](#log-collection) to route them to a Log Analytics workspace for more complex querying scenarios.
 
 ### Resource logs
 App Configuration provides two types of resource logs.
-- **Audit logs**: Capture write operations (create, update, delete) on your data plane resources, such as key-values. Audit logs don't include data plane read operations but include management plane operations. Entries are unaggregated. Query them in the **AACAudit** table. For more information, refer to [AACAudit](/azure/azure-monitor/reference/tables/AACAudit).
-- **HTTP request logs**: Capture both read and write operations on your data plane resources, such as key-values. Operations are aggregated for better performance and to reduce log volume. Aggregation is based on HTTP method and status code. Each log entry may represent multiple similar operations within a certain time window. Query them in the **AACHttpRequest** table. For more information, refer to [AACHttpRequest](/azure/azure-monitor/reference/tables/AACHttpRequest).
+- **Audit logs**: Capture data plane write operations (create, update, and delete), such as key-values modifications, and all control plane CRUD operations. Audit logs don't include data plane read operations. Unlike HTTP request logs, entries of audit logs are not aggregated. Query them in the **AACAudit** table. For more information, refer to [AACAudit](/azure/azure-monitor/reference/tables/AACAudit).
+- **HTTP request logs**: Capture both read and write operations on your data plane resources, such as key-values. Entries of HTTP request logs are aggregated for better performance and to reduce log volume. Aggregation is based on HTTP method and status code. Each log entry may represent multiple requests within a certain time window. Refer to the HitCount field for the number of requests whose logs are aggregated. Query them in the **AACHttpRequest** table. For more information, refer to [AACHttpRequest](/azure/azure-monitor/reference/tables/AACHttpRequest).
 
 #### Log collection
 Metrics and the activity log are collected and stored automatically, and can be routed to other locations by using a diagnostic setting.
 
 Resource Logs (including audit logs and HTTP request logs) aren't collected and stored until you create a diagnostic setting and route them to one or more locations, such as a Log Analytics workspace. If you don't already have one, create a [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) and follow these steps to create and enable a diagnostic setting.
+
+> [!NOTE]
+> If network access from your App Configuration store is governed by a network security perimeter, log destinations must be in the same perimeter as the store. For more information, see [Considerations for monitoring](./concept-network-security-perimeter.md#considerations-for-monitoring).
 
  #### [Portal](#tab/portal)
 
@@ -236,6 +239,17 @@ The following table lists common and recommended alert rules for App C
 
 ### Metrics schema
 For details on the metrics schema, see [App Configuration Metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-appconfiguration-configurationstores-metrics)
+
+#### Metrics Dimensions
+| Metric Name | Dimension description |
+|-------|-----|
+| HTTP Incoming Request Count | The supported dimensions are the **HttpStatusCode**, **AuthenticationScheme**, and **Endpoint** of each request. **AuthenticationScheme** can be filtered by "AAD" or "HMAC" authentication. |
+| HTTP Incoming Request Duration | The supported dimensions are the **HttpStatusCode**, **AuthenticationScheme**, and **Endpoint** of each request. **AuthenticationScheme** can be filtered by "AAD" or "HMAC" authentication. |
+| Throttled HTTP Request Count | The **Endpoint** of each request is included as a dimension. |
+| Daily Storage Usage | This metric does not have any dimensions. |
+| Request Quota Usage | The supported dimensions are the **OperationType** ("Read" or "Write") and **Endpoint** of each request. |
+| Replication Latency | The **Endpoint** of the replica that data was replicated to is included as a dimension. |
+| Snapshot Storage Size | This metric does not have any dimensions. |
 
 ### Logs schema
 

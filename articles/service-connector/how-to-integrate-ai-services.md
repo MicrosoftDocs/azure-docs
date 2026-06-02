@@ -1,7 +1,7 @@
 ---
-title: Connect to Azure AI services with other Azure services
+title: Connect to Foundry Tools with other Azure services
 titleSuffix: Service Connector
-description: Learn how to integrate Azure AI Services into your application with Service Connector by using supported authentication methods and clients.
+description: Learn how to integrate Foundry Tools into your application with Service Connector by using supported authentication methods and clients.
 author: wchigit
 ms.author: wchi
 ms.service: service-connector
@@ -11,14 +11,13 @@ ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Connect to Azure AI services using Service Connector
+# Connect to Foundry Tools using Service Connector
 
-In this article, we cover the supported authentication methods and clients that you can use to connect your apps to Azure AI services using Service Connector. For each supported method, we provide sample code and describe the default environment variable names and values obtained when creating the service connection.
-
+In this article, we cover the supported authentication methods and clients that you can use to connect your apps to Foundry Tools using Service Connector. For each supported method, we provide sample code and describe the default environment variable names and values obtained when creating the service connection.
 
 ## Supported compute services
 
-Service Connector can be used to connect the following compute services to Azure AI Services:
+Service Connector can be used to connect the following compute services to Foundry Tools:
 
 - Azure App Service
 - Azure Container Apps
@@ -28,8 +27,7 @@ Service Connector can be used to connect the following compute services to Azure
 
 ## Supported authentication types and client types
 
-The following table indicates which combinations of authentication methods and clients are supported for connecting your compute service to individual Azure AI Services using Service Connector. A *Yes* indicates that the combination is supported, while a *No* indicates that it isn't supported.
-
+The following table indicates which combinations of authentication methods and clients are supported for connecting your compute service to individual Foundry Tools using Service Connector. A *Yes* indicates that the combination is supported, while a *No* indicates that it isn't supported.
 
 | Client type | System-assigned managed identity | User-assigned managed identity | Secret/connection string | Service principal |
 |-------------|:--------------------------------:|:------------------------------:|:------------------------:|:-----------------:|
@@ -39,11 +37,11 @@ The following table indicates which combinations of authentication methods and c
 | Python      |                Yes               |               Yes              |            Yes           |        Yes        |
 | None        |                Yes               |               Yes              |            Yes           |        Yes        |
 
-This table indicates that all combinations of client types and authentication methods in the table are supported. All client types can use any of the authentication methods to connect to Azure AI Services using Service Connector.
+This table indicates that all combinations of client types and authentication methods in the table are supported. All client types can use any of the authentication methods to connect to Foundry Tools using Service Connector.
 
 ## Default environment variable names or application properties and sample code
 
-Use the following connection details to connect compute services to Azure AI Services. For more information about naming conventions, see the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+Use the following connection details to connect compute services to Foundry Tools. For more information about naming conventions, see the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ### System-assigned managed identity (recommended)
 
@@ -55,7 +53,7 @@ Use the following connection details to connect compute services to Azure AI Ser
 
 #### Sample code
 
-To connect to Azure AI Services using a system-assigned managed identity, refer to the following steps and code.
+To connect to Foundry Tools using a system-assigned managed identity, refer to the following steps and code.
 
 [!INCLUDE [code sample for app config](./includes/code-ai-services-microsoft-entra-id.md)]
 
@@ -70,7 +68,7 @@ To connect to Azure AI Services using a system-assigned managed identity, refer 
 
 #### Sample code
 
-To connect to Azure AI Services using a user-assigned managed identity, refer to the following steps and code.
+To connect to Foundry Tools using a user-assigned managed identity, refer to the following steps and code.
 
 [!INCLUDE [code sample for azure AI Services](./includes/code-ai-services-microsoft-entra-id.md)]
 
@@ -82,14 +80,13 @@ To connect to Azure AI Services using a user-assigned managed identity, refer to
 > | AZURE_AISERVICES_OPENAI_BASE   | Azure OpenAI endpoint | `https://<your-Azure-AI-Services-endpoint>.openai.azure.com/` |
 > | AZURE_AISERVICES_COGNITIVESERVICES_ENDPOINT | Azure Cognitive Services token provider service |  `https://<your-Azure-AI-Services-endpoint>.cognitiveservices.azure.com/` |
 > | AZURE_AISERVICES_SPEECH_ENDPOINT | Speech to Text (Standard) API endpoint | `https://<location>.stt.speech.microsoft.com` |
-> | AZURE_AISERVICES_KEY | Azure AI Services API key | `<api-key>` |
+> | AZURE_AISERVICES_KEY | Foundry Tools API key | `<api-key>` |
 
 #### Sample code
 
-To connect to Azure AI Services using a connection string, refer to the following steps and code. 
+To connect to Foundry Tools using a connection string, refer to the following steps and code. 
 
 [!INCLUDE [code sample for azure AI Services](./includes/code-ai-services-secret.md)]
-
 
 ### Service principal
 
@@ -104,7 +101,7 @@ To connect to Azure AI Services using a connection string, refer to the followin
 
 #### Sample code
 
-To connect to Azure AI Services using a service principaL, refer to the following steps and code.
+To connect to Foundry Tools using a service principaL, refer to the following steps and code.
 
 [!INCLUDE [code sample for azure AI Services](./includes/code-ai-services-microsoft-entra-id.md)]
 

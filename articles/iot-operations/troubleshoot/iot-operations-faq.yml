@@ -29,7 +29,7 @@ sections:
       answer: Currently, MQTT with QoS-2 isn't supported. QoS 2 provides strict message guarantees (Exactly Once) and requires complex state management and synchronization which can impact performance and scalability. QoS-0 (At most once) and QoS-1 (At least once) provide sufficient message delivery guarantees for Azure IoT Operations applications, where a balance between availability, throughput, latency, and reliable message delivery is desired.
     - question: |
           Is message persistence supported in Azure IoT Operations?
-      answer: Azure IoT Operations supports message persistence through disk-backed message buffers and configurable persistence settings. To learn more, see [Configure disk-backed message buffer](../manage-mqtt-broker/howto-disk-backed-message-buffer.md) and [Data persistence](../manage-mqtt-broker/howto-broker-persistence.md).
+      answer: Azure IoT Operations supports message persistence through configurable persistence settings. To learn more, see [Data persistence](../manage-mqtt-broker/howto-broker-persistence.md).
     - question: |
          Does Azure Device Registry offer high availability across availability zones and regions?
       answer: For information on high availability across availability zones and regions for ADR, see [Reliability in Azure Device Registry](/azure/reliability/reliability-device-registry).
@@ -53,7 +53,7 @@ sections:
       answer: Microsoft supports the three most recent minor versions of Azure IoT Operations. To learn more, see [Supported versions](../overview-support.md#supported-versions).
     - question: |
          Does Azure IoT Operations support Azure Private Link and private endpoints? 
-      answer: Yes, Azure IoT Operations supports deployment on Azure Arc–enabled Kubernetes clusters connected through Azure Private Link. For questions or more details, please reach out to our team at [azureiotoperationslicensinghelp@microsoft.com](mailto:azureiotoperationslicensinghelp@microsoft.com). 
+      answer: Yes, Azure IoT Operations supports Azure Private Link for data-plane services such as Azure Storage, Event Hubs, Azure Data Explorer, and Event Grid. You can create private endpoints for these destinations to keep data traffic off the public internet. Private Link Scope (PLS) for the Arc management plane is not currently supported. For more details, see [Deploy Azure IoT Operations with private connectivity](../manage-layered-network/howto-private-connectivity.md). For questions, reach out to [aioteam@microsoft.com](mailto:aioteam@microsoft.com). 
 additionalContent: |
     ## Related content
 

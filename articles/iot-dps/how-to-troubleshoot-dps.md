@@ -2,8 +2,8 @@
 title: Diagnose and troubleshoot provisioning errors with DPS 
 titleSuffix: Azure IoT Hub Device Provisioning Service
 description: Learn to diagnose and troubleshoot common errors for Azure IoT Hub Device Provisioning Service (DPS)
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: troubleshooting
 ms.date: 01/05/2026
@@ -34,11 +34,12 @@ Use this table to understand and resolve common errors.
 
 * If an IoT Edge device fails to start with error message `failed to provision with IoT Hub, and no valid device backup was found dps client error`, see [DPS client error](/previous-versions/azure/iot-edge/troubleshoot-common-errors#dps-client-error) in the IoT Edge (1.1) documentation.
 
-* For 401 Unauthorized, 403 Forbidden, or 404 Not Found errors perform a full re-registration by calling the [DPS registration API](/rest/api/iot-dps/device/runtime-registration).
+* For 401 Unauthorized, 403 Forbidden, or 404 Not Found errors perform a full re-registration by calling the [DPS registration API](/rest/api/iot-dps/data-plane/runtime-registration)
+.
 
 * For a 429 error, follow the retry pattern of IoT Hub that has exponential backoff with a random jitter. You can follow the retry-after header provided by the SDK.
 
-* For 500-series server errors, retry your [connection](./concepts-deploy-at-scale.md#iot-hub-connectivity-considerations) using cached credentials or a [Device Registration Status Lookup](/rest/api/iot-dps/device/runtime-registration/device-registration-status-lookup) API call.
+* For 500-series server errors, retry your [connection](./concepts-deploy-at-scale.md#iot-hub-connectivity-considerations) using cached credentials or a [Device Registration Status Lookup](/rest/api/iot-dps/data-plane/runtime-registration/device-registration-status-lookup) API call.
 
 For related best practices, such as retrying operations, see [Best practices for large-scale IoT device deployments](./concepts-deploy-at-scale.md).
 

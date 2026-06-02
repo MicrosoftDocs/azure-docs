@@ -3,7 +3,7 @@ title: Azure IoT Edge runtime and architecture explained
 description: Discover how Azure IoT Edge runtime manages modules, security, and communication with IoT Hub to optimize IoT solutions.
 author: sethmanheim
 ms.author: sethm
-ms.date: 02/25/2026
+ms.date: 03/02/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -72,7 +72,12 @@ The IoT Edge hub isn't a full local version of IoT Hub. It delegates some tasks 
 
 ### Cloud communication
 
-To reduce the bandwidth that your IoT Edge solution uses, the IoT Edge hub optimizes how many actual connections are made to the cloud. The IoT Edge hub takes logical connections from modules or downstream devices and combines them for a single physical connection to the cloud. The details of this process are transparent to the rest of the solution. Clients think they have their own connection to the cloud even though they're all sent over the same connection. The IoT Edge hub can either use the AMQP or the MQTT protocol to communicate upstream with the cloud, independently from protocols used by downstream devices. However, the IoT Edge hub currently only supports combining logical connections into a single physical connection by using AMQP as the upstream protocol and its multiplexing capabilities. AMQP is the default upstream protocol.
+To reduce the bandwidth that your IoT Edge solution uses, the IoT Edge hub optimizes how many actual connections are made to the cloud. The IoT Edge hub takes logical connections from modules or downstream devices and combines them for a single physical connection to the cloud. The details of this process are transparent to the rest of the solution. Clients think they have their own connection to the cloud even though they're all sent over the same connection. The IoT Edge hub can either use the AMQP or the MQTT protocol to communicate upstream with the cloud, independently from protocols used by downstream devices.
+
+> [!IMPORTANT]
+> IoT Edge hub only supports connection multiplexing (combining multiple logical connections into a single physical connection) when using AMQP as the upstream protocol. If you configure MQTT as the upstream protocol, each module and downstream device uses its own connection to IoT Hub. AMQP is the default upstream protocol.
+>
+> For more information about configuring the upstream protocol, see [Choose upstream protocol](production-checklist.md#choose-upstream-protocol).
 
 :::image type="content" source="./media/iot-edge-runtime/gateway-communication.png" alt-text="Screenshot showing relationships to IoT Edge hub as a gateway between physical devices and IoT Hub." lightbox="./media/iot-edge-runtime/gateway-communication.png":::
 
@@ -163,5 +168,4 @@ If you want to opt out of sending runtime quality telemetry from your devices, u
 
 * [Understand Azure IoT Edge modules](iot-edge-modules.md)
 * [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md)
-* [Learn how to publish and subscribe with IoT Edge](how-to-publish-subscribe.md)
 * [Learn about IoT Edge runtime metrics](how-to-access-built-in-metrics.md)

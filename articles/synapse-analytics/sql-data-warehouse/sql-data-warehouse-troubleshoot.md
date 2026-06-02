@@ -6,11 +6,13 @@ ms.author: joanpo
 ms.date: 09/02/2022
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.custom: azure-synapse
 ---
 
 # Troubleshoot dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This article lists common troubleshooting issues in dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
 

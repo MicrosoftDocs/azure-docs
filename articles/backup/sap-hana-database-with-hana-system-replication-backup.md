@@ -2,7 +2,7 @@
 title: Back up SAP HANA System Replication databases on Azure VMs using Azure Backup
 description: In this article, discover how to back up SAP HANA databases with HANA System Replication enabled.
 ms.topic: how-to
-ms.date: 02/16/2026
+ms.date: 03/02/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -139,15 +139,15 @@ To set up the database for backup, see the [prerequisites](tutorial-backup-sap-h
 
 To discover the HSR database, follow these steps:
 
-1. In the Azure portal, go to **Backup center**, and then select **+ Backup**.
+1. In the Azure portal, go to **Resiliency**, and then select **+ Configure protection**.
 
-   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/initiate-database-discovery.png" alt-text="Screenshot that shows how to start database discovery.":::
+1. On the **Configure protection** pane, for **Datasource type**, select **SAP HANA in Azure VM**, and then select **Continue**.
 
-1. Select **SAP HANA in Azure VM** as the data source type, select the Recovery Services vault to use for the backup, and then select **Continue**.
+1. On the **Start: Configure Backup** pane, for **Vault**, click **Select vault** to choose the Recovery Services vault for backup configuration, and then select **Continue**.
 
-   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/configure-backup.png" alt-text="Screenshot that shows how to configure a database backup.":::
+   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/configure-backup.png" alt-text="Screenshot that shows how to configure a database backup." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/configure-backup.png":::
 
-1. Select **Start Discovery** to initiate the discovery of unprotected Linux VMs in the vault region.
+1. On the **Backup Goal** pane, select **Start Discovery** to initiate the discovery of unprotected Linux VMs in the vault region.
    - After discovery, unprotected VMs appear in the portal, listed by name and resource group.
    - If a VM isn't listed as expected, check to see whether it's already backed up in a vault.
    - Multiple VMs can have the same name, but they must belong to different resource groups.

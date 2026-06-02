@@ -101,6 +101,6 @@ To connect to an Azure AI multi-service resource using a service principal, refe
 
 ## Related content
 
-- [Connect to Azure AI services](./how-to-integrate-ai-services.md)
+- [Connect to Foundry Tools](./how-to-integrate-ai-services.md)
 - [Connect to Azure OpenAI](./how-to-integrate-openai.md)
 - [Connect to Azure OpenAI in AKS](./tutorial-python-aks-openai-workload-identity.md)

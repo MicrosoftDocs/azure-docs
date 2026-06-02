@@ -183,7 +183,7 @@ To enable the display of your output files in the portal, you must satisfy the f
 For output files to automatically display in the Azure portal, you must:
 
 1. [Link an Azure Storage account to your Batch account](#link-an-azure-storage-account).
-1. Follow the predefined naming conventions for Azure Storage containers and files. Review the [README](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files/README.md) for all definitions. If you use the [File Conventions library](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files) to persist your output, your files are persisted according to the File Conventions standard.
+1. Follow the predefined naming conventions for Azure Storage containers and files. If you use the [File Conventions library](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files) to persist your output, your files are persisted according to the File Conventions standard.
 
 To view task output files and logs in the Azure portal:
 

@@ -3,7 +3,7 @@ title: Tutorial - Create a hierarchy of IoT Edge devices - Azure IoT Edge for Li
 description: This tutorial shows you how to create a hierarchical structure of IoT Edge for Linux on Windows devices.
 author: sethmanheim
 ms.author: sethm
-ms.date: 07/22/2025
+ms.date: 03/09/2026
 ms.topic: tutorial
 ms.service: azure-iot-edge
 ms.custom: devx-track-azurecli, linux-related-content
@@ -162,20 +162,20 @@ In addition to the provisioning of your devices, the configuration steps establi
 
 To configure the IoT Edge runtime, you need to apply the configuration bundles to your devices. The configurations differ between the *top layer device* and a *lower layer device*, so be mindful of the device configuration file you're applying to each device.
 
-Each device needs its corresponding configuration bundle. You can use a USB drive or [secure file copy](https://www.ssh.com/ssh/scp/) to move the configuration bundles to each device. You need to copy the configuration bundle to the Windows host OS of each EFLOW device and then copy it to the EFLOW VM. 
+Each device needs its corresponding configuration bundle. You can use a USB drive or [secure file copy](https://www.ssh.com/academy/ssh/scp) to move the configuration bundles to each device. You need to copy the configuration bundle to the Windows host OS of each EFLOW device and then copy it to the EFLOW VM. 
 
 > [!WARNING]
 > Be sure to send the correct configuration bundle to each device. 
 
 #### Top-layer device configuration
 
-1. Connect to your *top level* Windows host device and copy the **parent-1.tzg** file to the device.
+1. Connect to your *top level* Windows host device and copy the **parent-1.tgz** file to the device.
 
 1. Start an elevated *PowerShell* session using **Run as Administrator**.
 
-1.  Copy **parent-1.tzg** into the EFLOW VM.
+1.  Copy **parent-1.tgz** into the EFLOW VM.
     ```powershell
-    Copy-EflowVmFile -fromFile parent-1.tzg -toFile ~/ -pushFile
+    Copy-EflowVmFile -fromFile parent-1.tgz -toFile ~/ -pushFile
     ```
 
 1. Connect to your EFLOW virtual machine
@@ -234,14 +234,14 @@ If you want a closer look at what modifications are being made to your device's 
 
 #### Lower-layer device configuration
 
-1. Connect to your *lower level* Windows host device and copy the **child-1.tzg** file to the device.
+1. Connect to your *lower level* Windows host device and copy the **child-1.tgz** file to the device.
 
 1. Start an elevated *PowerShell* session using **Run as Administrator**.
 
-1.  Copy **child-1.tzg** into the EFLOW VM.
+1.  Copy **child-1.tgz** into the EFLOW VM.
 
     ```powershell
-    Copy-EflowVmFile -fromFile child-1.tzg -toFile ~/ -pushFile
+    Copy-EflowVmFile -fromFile child-1.tgz -toFile ~/ -pushFile
     ```
 
 1. Connect to your EFLOW virtual machine

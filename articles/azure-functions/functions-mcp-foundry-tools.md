@@ -1,7 +1,7 @@
 ---
 title: "Connect an MCP server on Azure Functions to Foundry Agent Service"
 author: im-samz
-description: Learn how to connect your MCP server hosted on Azure Functions to Azure AI Foundry Agent Service, enabling your agents to use custom tools.
+description: Learn how to connect your MCP server hosted on Azure Functions to Foundry Agent Service, enabling your agents to use custom tools.
 ms.author: samuelzhang
 ms.reviewer: glenga
 ms.topic: how-to
@@ -147,7 +147,9 @@ To get the required credentials from the Azure portal:
     | **Token URL** | `https://login.microsoftonline.com/<TENANT_ID>/oauth2/v2.0/token` |
     | **Refresh URL** | `https://login.microsoftonline.com/<TENANT_ID>/oauth2/v2.0/token` |
 
-    Replace `<TENANT_ID>` with your actual tenant ID value.
+    Replace `<TENANT_ID>` with your actual tenant ID value. Save these values for later. 
+
+1. Select **Manage** > **Certificates & secrets**. Create a new client secret if there's not already one and copy its value for use later. 
 
 1. Select **Manage** > **Expose an API** and copy the existing scope.  
 
@@ -282,13 +284,11 @@ When you use OAuth identity passthrough, the agent prompts the user to sign in a
     | **Remote MCP Server endpoint** | The URL endpoint for your MCP server. | `https://contoso-mcp-tools.azurewebsites.net/runtime/webhooks/mcp` |
     | **Authentication** | The authentication method to use. | `OAuth Identity Passthrough` |
     | **Client ID** | The client ID of your function app Entra registration | `00001111-aaaa-2222-bbbb-3333cccc4444` |
+    | **Client secret** | The client secret of your function app Entra registration | `abcEFGhijkLMNopqRST` |
     | **Token URL** | The endpoint your server app calls to exchange an authorization code or credential for an access token. | `https://login.microsoftonline.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/oauth2/v2.0/token` |
     | **Auth URL** | The endpoint where users are redirected to authenticate and grant authorization to your server app. | `https://login.microsoftonline.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/oauth2/v2.0/authorize` |
     | **Refresh URL** | The endpoint used to obtain a new access token when the current one expires. | `https://login.microsoftonline.com/aaaabbbb-0000-cccc-1111-dddd2222eeee/oauth2/v2.0/token` |
-    | **Scopes** | The specific permissions or resource access levels your server app requests from the authorization server | `api://00001111-aaaa-2222-bbbb-3333cccc4444` |
-
-    >[!NOTE]  
-    >A **Client secret** value isn't needed, so leave this field blank.
+    | **Scopes** | The specific permissions or resource access levels your server app requests from the authorization server | `api://00001111-aaaa-2222-bbbb-3333cccc4444/user_impersonation` |
 
 1. Select **Connect** to create a connection to your MCP server endpoint. 
 

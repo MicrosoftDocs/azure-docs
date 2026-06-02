@@ -1,7 +1,7 @@
 ---
 title: 'Routing MQTT Messages in Azure Event Grid'
 description: 'An overview of Routing MQTT Messages and how to configure it.'
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - ignite-2023
   - build-2024

@@ -48,9 +48,6 @@ If you want to pick the peak usage for the period and don't want to miss any out
 
 This value is multiplied by the comfort factor(taken as an input in assessment setting) to get the effective performance utilization data for these metrics that the appliance collects and right size the target requirements. 
 
->[!Note] 
->Azure SQL assessments are only performance-based and Webapp assessments are only As-is on premises. You can create Azure VM assessments and AVS assessments with both performance-based and As-is on premises sizing. 
-
 ### Monthly costs 
 
 After right-sizing target candidates are selected, and if more than one suitable candidate is available the recommended target is selected based on selected migration strategy. By default **Minimizing the cost** is the selected strategy. In the case of Azure VM and AVS assessment that is the only strategy. Once the targets are finalized a monthly cost is calculated by aggregating the cost of all resources, licenses and ancillary services like security. Based on the selected input from assessment settings the prices and offer details are fetched to arrive at the final cost. Learn more [about how pricing](cost-estimation.md) works in Azure Migrate assessments. 

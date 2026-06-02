@@ -116,7 +116,7 @@ items:
     - name: $import
       expanded: false
       items:
-      - name: Configure settings for bulk-import  
+      - name: Configure settings for import  
         href: configure-import-data.md
       - name: Import FHIR data 
         href: import-data.md 

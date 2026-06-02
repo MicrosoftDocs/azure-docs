@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: concept-article
-ms.date: 03/14/2025
+ms.date: 05/26/2026
 ms.author: cherylmc
 # Customer intent: "As a network administrator, I want to access the latest versions of the Azure VPN Client, so that I can ensure compatibility and optimize secure connections for our remote users."
 ---
@@ -16,11 +16,17 @@ This article helps you view each of the versions of the Azure VPN Client. As new
 
 ## Azure VPN Client - Windows
 
+### Supported Windows Versions
+
+[!INCLUDE [Supported Windows versions](../../includes/vpn-gateway-vwan-azure-vpn-client-windows-supported.md)]
+
+### Release notes and version information
+
 [!INCLUDE [windows client versions](../../includes/vpn-gateway-azure-vpn-client-windows-table.md)]
 
 ## Azure VPN Client - Linux
 
-[!INCLUDE [Linux client versions](../../includes/vpn-gateway-azure-vpn-client-linux-table.md)]
+[!INCLUDE [Linux retirement](../../includes/vpn-gateway-azure-vpn-client-linux-retirement.md)]
 
 ## Azure VPN Client - macOS
 

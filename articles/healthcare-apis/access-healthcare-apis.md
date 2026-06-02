@@ -5,7 +5,7 @@ services: healthcare-apis
 author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.custom: devx-track-python
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/25/2026
 ms.author: kesheth
 ---

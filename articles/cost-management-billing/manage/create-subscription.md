@@ -3,11 +3,11 @@ title: Create a Microsoft Customer Agreement subscription
 titleSuffix: Azure Cost Management + Billing
 description: Learn how to add a new Microsoft Customer Agreement subscription in the Azure portal. See information about billing account forms and view other available resources.
 author: Nicholak-MS
-ms.author: nicholak
-ms.reviewer: nicholak
+ms.author: mijeffer
+ms.reviewer: mijeffer
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/10/2026
 ms.custom:
 - sfi-image-nochange
@@ -22,9 +22,12 @@ This article helps you create a [Microsoft Customer Agreement](https://azure.mic
 
 If you want to create a Microsoft Customer Agreement subscription in a different Microsoft Entra tenant, see [Create an MCA subscription request](create-subscription-request.md). 
 
-If you want to create subscriptions for Enterprise Agreements, see [Create an EA subscription](create-enterprise-subscription.md). If you're a Microsoft Partner and you want to create a subscription for a customer, see [Create a subscription for a partner's customer](create-customer-subscription.md). Or, if you have a Microsoft Online Service Program (MOSP) billing account, also called pay-as-you-go, you can create subscriptions starting in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and then you complete the process at https://signup.azure.com/.
+If you want to create subscriptions for Enterprise Agreements, see [Create an EA subscription](create-enterprise-subscription.md). If you're a Microsoft Partner and you want to create a subscription for a customer, see [Create a subscription for a partner's customer](create-customer-subscription.md).
 
 [!INCLUDE [cost-management-billing-subscription-b2b-b2c-note](../../../includes/cost-management-billing-subscription-b2b-b2c-note.md)]
+
+>[!NOTE]
+> Microsoft Online Services Program (MOSP) billing account is no longer able to add Azure subscriptions at https://signup.azure.com/.
 
 To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](view-all-accounts.md).
 

@@ -7,7 +7,7 @@ manager: camilo.ramirez
 services: azure-communication-services
 ms.author: shamkh
 ms.date: 01/15/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python

@@ -4,7 +4,7 @@ description: An archive for features and updates in the Azure Site Recovery serv
 ms.topic: overview
 ms.author: v-gajeronika
 ms.service: azure-site-recovery
-ms.date: 09/22/2025
+ms.date: 02/27/2026
 author: Jeronika-MS
 
 # Customer intent: "As a system administrator, I want to review the latest updates and feature enhancements for the disaster recovery service, so that I can optimize our organization's backup strategy and ensure compatibility with our systems."
@@ -369,6 +369,8 @@ For disaster recovery of Azure VMs to a secondary region, or on-premises VMware 
 - From version 9.30.5407.1 of the Mobility service extension (for Azure VMs), and Mobility service agent (for VMware/physical machines), some machine operating systems must be running the servicing stack update and SHA-2. Details are shown in the table below.
 - Install the update and SHA-2 in accordance with the linked KB. SHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the agent extension won't install/upgrade as expected.
 - Learn more about [SHA-2 upgrade and requirements](https://aka.ms/SHA-2KB).
+
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
 **Operating system** | **Azure VM** | **VMware VM/physical machine**
 --- | --- | ---

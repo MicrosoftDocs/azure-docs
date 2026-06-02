@@ -11,7 +11,7 @@ ms.author: ruxu
 
 # Tutorial: Azure Translator in Foundry Tools
 
-[Azure Translator in Foundry Tools](/azure/ai-services/translator/) is a [Foundry Tool](/azure/ai-services/) that enables you to perform language translation and other language-related operations. In this tutorial, you'll learn how to use [Translator](/azure/ai-services/translator/) to build intelligent, multi-language solutions on Azure Synapse Analytics.
+[Azure Translator in Foundry Tools](/azure/ai-services/translator/) is a [Microsoft Foundry tool](/azure/ai-services/) that enables you to perform language translation and other language-related operations. In this tutorial, you'll learn how to use [Translator](/azure/ai-services/translator/) to build intelligent, multi-language solutions on Azure Synapse Analytics.
 
 This tutorial demonstrates using translator with [MMLSpark](https://github.com/Azure/mmlspark) to:
 

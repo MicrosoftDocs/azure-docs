@@ -4,21 +4,21 @@ description: Learn how to enable Microsoft Entra Kerberos authentication over SM
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 02/25/2026
+ms.date: 03/04/2026
 ms.author: kendownie
 ms.custom: sfi-ga-nochange
-# Customer intent: As an IT administrator, I want to configure a cloud trust between on-premises Active Directory and Microsoft Entra ID, so that users can access Azure file shares using their existing credentials in a hybrid environment.
+# Customer intent: As an IT administrator, I want to configure a cloud trust between on-premises Active Directory and Microsoft Entra ID, so that users can access SMB Azure file shares using their existing credentials in a hybrid environment.
 ---
 
 # Configure a cloud trust between on-premises AD DS and Microsoft Entra ID for accessing Azure Files
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 Many organizations want to use identity-based authentication for SMB Azure file shares in environments that span both on-premises Active Directory Domain Services (AD DS) and Microsoft Entra ID ([formerly Azure Active Directory](/entra/fundamentals/new-name)), but don't meet the necessary [operating system or domain prerequisites](storage-files-identity-auth-hybrid-identities-enable.md#operating-system-and-domain-prerequisites).
 
 In such scenarios, you can enable Microsoft Entra Kerberos authentication for hybrid user identities and then establish a cloud trust between your on-premises AD DS and Entra ID to access SMB file shares by using your on-premises credentials. This article explains how a cloud trust works, and provides instructions for setup and validation. It also includes steps to rotate a Kerberos key for your service account in Entra ID and Trusted Domain Object, and steps to remove a Trusted Domain Object and all Kerberos settings, if desired.
 
-This article focuses on authenticating [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which are on-premises AD DS identities that are synced to Microsoft Entra ID using either [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md).
+This article focuses on authenticating [hybrid user identities](/entra/identity/hybrid/whatis-hybrid-identity), which are on-premises AD DS identities that are synced to Microsoft Entra ID by using either [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync).
 
 ## Scenarios
 
@@ -44,11 +44,12 @@ Before implementing the incoming trust-based authentication flow, make sure that
 | **Prerequisite** | **Description** |
 | --- | --- |
 | Client must run Windows 10, Windows Server 2012, or a higher version of Windows. | |
-| Clients must be joined to Active Directory (AD). The domain must have a functional level of Windows Server 2012 or higher. | You can determine if the client is joined to Active Directory by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd): `dsregcmd.exe /status` |
+| Clients must be joined to Active Directory (AD). The domain must have a functional level of Windows Server 2012 or higher. | You can determine if the client is joined to Active Directory by running the [dsregcmd command](/entra/identity/devices/troubleshoot-device-dsregcmd): `dsregcmd.exe /status` |
 | A Microsoft Entra tenant. | A Microsoft Entra Tenant is an identity security boundary that's under the control of your organization's IT department. It's an instance of Microsoft Entra ID in which information about a single organization resides. |
 | An Azure subscription under the same Entra tenant you plan to use for authentication. | |
 | An Azure storage account in the Azure subscription. | An Azure storage account is a resource that acts as a container for grouping all the data services from Azure Storage, including files. |
-| [Microsoft Entra Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md) must be installed. | These solutions are used in [hybrid environments](../../active-directory/hybrid/whatis-hybrid-identity.md) where identities exist both in Microsoft Entra ID and on-premises AD DS. |
+| [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync) must be installed. | These solutions are used in [hybrid environments](/entra/identity/hybrid/whatis-hybrid-identity) where identities exist both in Microsoft Entra ID and on-premises AD DS. |
+| If you have [application management policies](/entra/identity/enterprise-apps/configure-app-management-policies), they must allow symmetric key addition on service principals for 366 days or more. | If your policies do not allow this, you will need to [adjust the policy](/entra/identity/enterprise-apps/configure-app-management-policies#enable-a-restriction-for-all-applications) or [grant an exception](/entra/identity/enterprise-apps/configure-app-management-policies#grant-an-exception-to-a-user-or-service) for the "Storage Resource Provider" service (app ID `a6aa9161-5291-40bb-8c5c-923b567bee3b`). If using the [Entra Admin Center](https://aka.ms/app-mgmt-policy-ux), these policies are defined in the "Block password addition" and "Restrict max password lifetime" settings. If using the [Graph API](/graph/api/resources/tenantappmanagementpolicy), these policies are defined in `symmetricKeyAddition` and `symmetricKeyLifetime` restrictions on `servicePrincipalRestrictions.passwordCredentials`. |
 
 ## Enable Microsoft Entra Kerberos authentication
 
@@ -158,8 +159,8 @@ Remember to replace `<your-storage-account-name>` with the proper value.
 
 For guidance on disabling MFA, see the following articles:
 
-- [Add exclusions for service principals of Azure resources](../../active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa.md#user-exclusions)
-- [Create a conditional access policy](../../active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa.md#create-a-conditional-access-policy)
+- [Add exclusions for service principals of Azure resources](/entra/identity/conditional-access/policy-all-users-mfa-strength#user-exclusions)
+- [Create a conditional access policy](/entra/identity/conditional-access/policy-all-users-mfa-strength#create-a-conditional-access-policy)
 
 ### Assign share-level permissions
 
@@ -235,7 +236,7 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
    Run the following command to check your domain's current Kerberos settings:
 
    ```powershell
-   Get-AzureAdKerberosServer -Domain $domain `
+   Get-AzureADKerberosServer -Domain $domain `
     -DomainCredential $domainCred `
     -UserPrincipalName $cloudUserName
    ```
@@ -245,7 +246,7 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
    - Enter the password for your Entra ID Global Administrator account.
    - If your organization uses other modern authentication methods such as Entra multifactor authentication or Smart Card, follow the instructions as requested for sign in.
 
-   If this is the first time you're configuring Microsoft Entra Kerberos settings, the [Get-AzureAdKerberosServer cmdlet](/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises#view-and-verify-the-azure-ad-kerberos-server) displays empty information, as in the following sample output:
+   If this is the first time you're configuring Microsoft Entra Kerberos settings, the [Get-AzureADKerberosServer cmdlet](/entra/identity/authentication/howto-authentication-passwordless-security-key-on-premises#view-and-verify-the-azure-ad-kerberos-server) displays empty information, as in the following sample output:
 
    ```output
    ID                  :
@@ -264,7 +265,7 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
    CloudTrustDisplay   :
    ```
 
-   If your domain already supports FIDO authentication, the `Get-AzureAdKerberosServer` cmdlet displays Entra service account information, as in the following sample output. The `CloudTrustDisplay` field returns an empty value.
+   If your domain already supports FIDO authentication, the `Get-AzureADKerberosServer` cmdlet displays Entra service account information, as in the following sample output. The `CloudTrustDisplay` field returns an empty value.
 
    ```output
    ID                  : XXXXX
@@ -285,7 +286,7 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
 
 1. Add the Trusted Domain Object.
 
-   Run the [Set-AzureAdKerberosServer PowerShell cmdlet](/azure/active-directory/authentication/howto-authentication-passwordless-security-key-on-premises#create-a-kerberos-server-object) to add the Trusted Domain Object. Be sure to include `-SetupCloudTrust` parameter. If there's no Entra service account, this command creates a new Entra service account. This command only creates the requested Trusted Domain object if there's an Entra service account.
+   Run the [Set-AzureADKerberosServer](/entra/identity/authentication/howto-authentication-passwordless-security-key-on-premises#create-a-kerberos-server-object) PowerShell cmdlet to add the Trusted Domain Object. Be sure to include `-SetupCloudTrust` parameter. If there's no Entra service account, this command creates a new Entra service account. This command only creates the requested Trusted Domain object if there's an Entra service account.
 
    ```powershell
    Set-AzureADKerberosServer -Domain $domain -UserPrincipalName $cloudUserName -DomainCredential $domainCred -SetupCloudTrust
@@ -297,7 +298,7 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
    > 1. Run the command on root domain (include `-SetupCloudTrust` parameter).
    > 1. Run the same command on the child domain without the `-SetupCloudTrust` parameter.
 
-   After creating the Trusted Domain Object, you can check the updated Kerberos Settings by using the `Get-AzureAdKerberosServer` PowerShell cmdlet, as shown in the previous step. If the `Set-AzureAdKerberosServer` cmdlet runs successfully with the `-SetupCloudTrust` parameter, the `CloudTrustDisplay` field returns `Microsoft.AzureAD.Kdc.Service.TrustDisplay`, as shown in the following sample output:
+   After creating the Trusted Domain Object, you can check the updated Kerberos Settings by using the `Get-AzureADKerberosServer` PowerShell cmdlet, as shown in the previous step. If the `Set-AzureADKerberosServer` cmdlet runs successfully with the `-SetupCloudTrust` parameter, the `CloudTrustDisplay` field returns `Microsoft.AzureAD.Kdc.Service.TrustDisplay`, as shown in the following sample output:
 
    ```output
    ID                  : XXXXX
@@ -317,11 +318,11 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
    ```
 
    > [!NOTE]  
-   > Azure sovereign clouds require setting the `TopLevelNames` property, which is set to `windows.net` by default. Azure sovereign cloud deployments of Azure SQL Managed Instance use a different top-level domain name, such as `usgovcloudapi.net` for Azure US Government. Set your Trusted Domain Object to that top-level domain name by using the following PowerShell command: `Set-AzureADKerberosServer -Domain $domain -DomainCredential $domainCred -CloudCredential $cloudCred -SetupCloudTrust -TopLevelNames "usgovcloudapi.net,windows.net"`. You can verify the setting by using the following PowerShell command: `Get-AzureAdKerberosServer -Domain $domain -DomainCredential $domainCred -UserPrincipalName $cloudUserName | Select-Object -ExpandProperty CloudTrustDisplay`.
+   > Azure sovereign clouds require setting the `TopLevelNames` property, which is set to `windows.net` by default. Azure sovereign cloud deployments of Azure SQL Managed Instance use a different top-level domain name, such as `usgovcloudapi.net` for Azure US Government. Set your Trusted Domain Object to that top-level domain name by using the following PowerShell command: `Set-AzureADKerberosServer -Domain $domain -DomainCredential $domainCred -CloudCredential $cloudCred -SetupCloudTrust -TopLevelNames "usgovcloudapi.net,windows.net"`. You can verify the setting by using the following PowerShell command: `Get-AzureADKerberosServer -Domain $domain -DomainCredential $domainCred -UserPrincipalName $cloudUserName | Select-Object -ExpandProperty CloudTrustDisplay`.
 
 ## Configure the clients to retrieve Kerberos tickets
 
-Identify your [Microsoft Entra tenant ID](/azure/active-directory/fundamentals/how-to-find-tenant) and use Group Policy to configure the client machines you want to mount or use Azure file shares from. You must do this on every client where you use Azure Files.
+Identify your [Microsoft Entra tenant ID](/entra/fundamentals/how-to-find-tenant) and use Group Policy to configure the client machines you want to mount or use Azure file shares from. You must do this on every client where you use Azure Files.
 
 Set this Group Policy on the clients to "Enabled": `Administrative Templates\System\Kerberos\Specify KDC proxy servers for Kerberos clients`
 
@@ -349,7 +350,7 @@ Deploy the Group Policy setting to client machines by using the incoming trust-b
 For management purposes, rotate the Kerberos key periodically for the created Entra service account and Trusted Domain Object.
 
 ```powershell
-Set-AzureAdKerberosServer -Domain $domain `
+Set-AzureADKerberosServer -Domain $domain `
    -DomainCredential $domainCred `
    -UserPrincipalName $cloudUserName -SetupCloudTrust `
    -RotateServerKey
@@ -358,7 +359,7 @@ Set-AzureAdKerberosServer -Domain $domain `
 After you rotate the key, it takes several hours to propagate the changed key between the Kerberos KDC servers. Due to this key distribution timing, you can rotate the key once within 24 hours. If you need to rotate the key again within 24 hours for any reason, such as just after creating the Trusted Domain Object, add the `-Force` parameter:
 
 ```powershell
-Set-AzureAdKerberosServer -Domain $domain `
+Set-AzureADKerberosServer -Domain $domain `
    -DomainCredential $domainCred `
    -UserPrincipalName $cloudUserName -SetupCloudTrust `
    -RotateServerKey -Force
@@ -381,11 +382,11 @@ This command removes only the Trusted Domain Object. If your domain supports FID
 You can remove both the Entra service account and the Trusted Domain Object by using the following command:
 
 ```powershell
-Remove-AzureAdKerberosServer -Domain $domain `
+Remove-AzureADKerberosServer -Domain $domain `
    -DomainCredential $domainCred `
    -UserPrincipalName $cloudUserName
 ```
 
 ## Next step
 
-- [Mount an SMB Azure file share](storage-files-identity-mount-file-share.md)
+- [Mount an SMB Azure file share on Windows](storage-how-to-use-files-windows.md)

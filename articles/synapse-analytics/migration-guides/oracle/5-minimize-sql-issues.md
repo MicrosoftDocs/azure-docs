@@ -3,7 +3,7 @@ title: "Minimize SQL issues for Oracle migrations"
 description: Learn how to minimize the risk of SQL issues when migrating from Oracle to Azure Synapse Analytics. 
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: best-practice
 author: ajagadish-24
 ms.author: ajagadish
 

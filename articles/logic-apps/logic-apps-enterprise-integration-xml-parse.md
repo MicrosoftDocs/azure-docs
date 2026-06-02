@@ -1,6 +1,6 @@
 ---
 title: Parse XML using Schemas in Standard workflows
-description: Learn how to parse XML documents using schemas in Standard workflows with Azure Logic Apps.
+description: Learn how to parse XML documents by using schemas in Standard workflows with Azure Logic Apps. Discover how to work with individual XML elements in your workflows.
 services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
@@ -8,44 +8,46 @@ author: haroldcampos
 ms.author: hcampos
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 11/18/2025
+ai-usage: ai-assisted
+ms.date: 02/25/2026
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to parse XML documents by using an XSD schema so I can work with individual XML elements in my workflow.
 ---
 
-# Parse XML using schemas with Standard workflows in Azure Logic Apps
+# Parse XML by using schemas in Standard workflows with Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
-In enterprise integration business-to-business (B2B) or BizTalk migration scenarios, you might have to parse XML documents. Your Standard logic app workflow can parse XML by using the action named **Parse XML with schema**, which requires an XSD schema.
+In enterprise integration scenarios, such as business-to-business (B2B) or BizTalk migrations, you might need to parse XML documents. Standard logic app workflows in Azure Logic Apps can parse XML using the action named **Parse XML with schema**, which requires an XSD schema.
 
-For example, suppose you regularly receive customer orders or invoices that use XML as the exchange format and need to access individual XML elements in the workflow designer for Azure Logic Apps.
+For example, suppose you regularly receive customer orders or invoices in XML format. Suppose you must access individual XML elements directly in the workflow designer for Azure Logic Apps.
 
 ## Limitations
 
-This action is currently not yet supported for the [Consumption logic app resource and workflow](logic-apps-overview.md#resource-environment-differences).
+The [Consumption logic app resource and workflow](logic-apps-overview.md#resource-environment-differences) doesn't support this action.
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-* A Standard logic app workflow that already starts with a trigger so that you can add the **Parse XML with schema** action to your workflow.
+- A Standard logic app workflow that starts with a trigger so that you can add the **Parse XML with schema** action to your workflow.
 
-* An [integration account resource](enterprise-integration/create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
+- An [integration account resource](enterprise-integration/create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and other items, for use in your enterprise integration and B2B workflows. This resource must meet the following requirements:
 
-  * Is associated with the same Azure subscription as your logic app resource.
+  - Is associated with the same Azure subscription as your logic app resource.
 
-  * Exists in the same location or Azure region as your logic app resource where you plan to use the **Parse XML with schema** action.
+  - Exists in the same location or Azure region as your logic app resource where you plan to use the **Parse XML with schema** action.
 
-  * If you're working on a [Standard logic app resource and workflow](logic-apps-overview.md#resource-environment-differences), you can link your integration account to your logic app resource, upload XSD schemas directly to your logic app resource, or both, based on the following scenarios: 
+  - If you're working on a [Standard logic app resource and workflow](logic-apps-overview.md#resource-environment-differences), you can link your integration account to your logic app resource, upload XSD schemas directly to your logic app resource, or both, based on the following scenarios: 
 
-    * If you already have an integration account with the artifacts that you need or want to use, you can link your integration account to multiple Standard logic app resources where you want to use the artifacts. That way, you don't have to upload XSD schemas to each individual logic app. For more information, review [Link your logic app resource to your integration account](enterprise-integration/create-integration-account.md?tabs=standard#link-account).
+    - If you already have an integration account with the artifacts that you need or want to use, you can link your integration account to multiple Standard logic app resources where you want to use the artifacts. You don't have to upload XSD schemas to each individual logic app. For more information, see [Link your logic app resource to your integration account](enterprise-integration/create-integration-account.md?tabs=standard#link-account).
 
-    * If you don't have an integration account or only plan to use your artifacts across multiple workflows within the *same logic app resource*, you can [directly add schemas to your logic app resource](logic-apps-enterprise-integration-schemas.md) using either the Azure portal or Visual Studio Code.
-   
-    So, if you don't have or need an integration account, you can use the upload option. Otherwise, you can use the linking option. Either way, you can use these artifacts across all child workflows within the same logic app resource.
+    - If you don't have an integration account or only plan to use your artifacts across multiple workflows within the *same logic app resource*, you can [directly add schemas to your logic app resource](logic-apps-enterprise-integration-schemas.md) by using either the Azure portal or Visual Studio Code.
 
-  You still need an integration account to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations.
+    - If you don't have or need an integration account, you can use the upload option. Otherwise, use the linking option. Either way, you can use these artifacts across all child workflows within the same logic app resource.
 
-* The XSD schema to use with the **Parse XML with schema** action. Make sure that this schema includes a root element, which looks like the following example:
+    You still need an integration account to store other artifacts, such as partners, agreements, and certificates, if you use the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations.
+
+- The XSD schema to use with the **Parse XML with schema** action. Make sure that this schema includes a root element, which looks like the following example:
 
    ```xml
    <xs:element name="Root">
@@ -63,7 +65,7 @@ This action is currently not yet supported for the [Consumption logic app resour
 
 1. Under the step in your workflow where you want to add the **Parse XML with schema** action, [follow these general steps to add the action named **Parse XML with schema**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-1. In the **Content** box, specify the XML content that you want to parse using any XML data that you receive in the HTTP request.
+1. In the **Content** box, specify the XML content that you want to parse by using any XML data that you receive in the HTTP request.
 
    1. To select outputs from previous operations in the workflow, in the **Parse XML with schema** action, select inside the **Content** box, and select the dynamic content list option (lightning icon).
 
@@ -99,6 +101,61 @@ The following table describes the advanced parameters available in this action:
 | **Use Fully Qualified Names?** | **No** or **Yes** | Whether to use simpler local names or fully qualified XML names. |
 | **Root Node Qualified Name** | <*root-node-qualified-name*> | The root node's qualified name in case the schema contains multiple unreferenced element definitions. |
 
+## Troubleshoot problems
+
+This section describes problems that you might encounter and possible solutions or workarounds to address these problems.
+
+### XML element order isn't preserved
+
+If your XML has repeating elements that appear in mixed order, the **Parse XML with schema** action might not preserve the original order and groups these elements by their name in alphabetical order.
+
+This behavior is expected because the **Parse XML with schema** action converts the XML to JSON. This format doesn't have a way to represent a single ordered list with different types of items. Instead, the action groups the elements by name in alphabetical order.
+
+For example, suppose you have items with the following names in this specific order: `A`, `B`, `B`, `A`:
+
+**Before**
+
+```xml
+<Items>
+   <A>1</A>
+   <B>2</B>
+   <A>3</A>
+   <B>4</B>
+</Items>
+```
+
+After the action parses the XML, the resulting JSON groups and reorders these items by name as follows: `A`, `A`, `B`, and `B`:
+
+**After**
+
+```json
+{
+   "A": ["1", "3"],
+   "B": ["2", "4"]
+}
+```
+
+The **Parse XML with schema** action doesn't have any setting that preserves the order of mixed repeating elements. This limitation results from converting XML to JSON.
+
+The following list describes options for you to fix or work around this problem:
+
+- If you control the schema, design the schema so you have only one repeating list without multiple repeating element types.
+
+  For example, rather than separately repeat `A` and `B`, use a single repeating wrapper element, such as `Item`. Each item then indicates whether `A` or `B` is represented. The system can then keep all the items in a single ordered list and preserve the original order. This option is best for long-term, predictable behavior.
+
+- If the original order is required or critical, don't parse the XML.
+
+  - Avoid breaking up the XML into JSON.
+  - Handle the XML document as a whole.
+  - Pass the XML document unchanged or transform the content by using XML-based tools such as XSLT.
+
+- Keep this limitation in mind.
+
+  If you can't change the schema or workflow, remember the following:
+
+  - Mixed repeating elements are grouped by element name, losing the original order.
+  - Design the downstream logic with this behavior in mind.
+
 ## Related content
-	
+
 - [Compose XML with schema](logic-apps-enterprise-integration-xml-compose.md)

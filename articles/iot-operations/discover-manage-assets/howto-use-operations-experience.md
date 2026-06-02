@@ -26,12 +26,12 @@ To learn how to use the operations experience to manage assets and devices, see:
 - [Configure the media connector](howto-use-media-connector.md)
 - [Configure the connector for HTTP/REST](howto-use-http-connector.md)
 - [Configure the connector for SSE](howto-use-sse-connector.md)
-- [Configure the connector for MQTT (preview)](howto-use-mqtt-connector.md)
+- [Configure the connector for MQTT](howto-use-mqtt-connector.md)
 To learn how to use the operations experience to manage data flows, see [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md).
 
 ## Prerequisites
 
-To use the operations experience, make sure you have a running instance of Azure IoT Operations.
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
@@ -110,5 +110,5 @@ To view activity logs as the resource level, select the resource that you want t
 - [Media connector overview](howto-use-media-connector.md)
 - [Connector for HTTP/REST overview](howto-use-http-connector.md)
 - [Connector for SSE](howto-use-sse-connector.md)
-- [Connector for MQTT (preview)](howto-use-mqtt-connector.md)
+- [Connector for MQTT](howto-use-mqtt-connector.md)
 - [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md)

@@ -1,7 +1,7 @@
 ---
 title: Configure App Service Environments and Isolated v2 App Service Plans for Zone Redundancy
 description: Learn how to configure zone redundancy for App Service Environments and Isolated v2 App Service plans to boost reliability and minimize service disruption.
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-app-service
 ms.date: 10/24/2025
 author: anaharris
@@ -122,9 +122,14 @@ To see whether an existing App Service Environment supports zone redundancy:
 
 ## Configure Isolated v2 App Service plans with zone redundancy
 
-All App Service plans created in an App Service Environment must use the Isolated v2 pricing tier.
+After you enable your App Service Environment to be zone redundant, you can also make each Isolated v2 App Service plan as zone redundant.
 
-If you enable your App Service Environment to be zone redundant, you can also set the Isolated v2 App Service plans as zone redundant. Each plan has its own independent zone redundancy setting, so you can manually enable or disable zone redundancy on specific plans in an App Service Environment, as long as the environment is configured to be zone redundant.
+> [!NOTE]
+> Each plan has its own independent zone redundancy setting, so you can manually enable or disable zone redundancy on specific plans in an App Service Environment.
+>
+> If a specific plan doesn't need to be zone-redundant, you can disable zone redundancy and then optionally scale it to a single instance.
+
+All App Service plans created in an App Service Environment must use the Isolated v2 pricing tier.
 
 - **To create a new Isolated v2 App Service plan with zone redundancy**, use the Azure portal, the Azure CLI, or Bicep.
     

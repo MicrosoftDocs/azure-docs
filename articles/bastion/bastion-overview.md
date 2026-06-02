@@ -1,8 +1,8 @@
 ---
 title: What is Azure Bastion?
 description: Azure Bastion is a fully managed service that provides secure and seamless RDP/SSH connectivity to virtual machines without exposing RDP/SSH ports externally.
-author: abell
-ms.author: abell
+author: cherylmc
+ms.author: cherylmc
 ms.service: azure-bastion
 services: bastion
 ms.topic: overview
@@ -37,7 +37,7 @@ Azure Bastion offers four SKU tiers:
 * **Premium**: Includes all Standard features plus session recording for compliance and private-only deployment.
 * **Standard**: Includes all Basic features plus scalability and advanced features (native client, shareable links, IP-based connections, custom ports, file transfer).
 * **Basic**: Dedicated deployment with fixed capacity for production environments with moderate connection requirements.
-* **Developer**: Free tier using shared infrastructure recommended for development and testing. Supports one VM at a time. Available in select regions.
+* **Developer**: Free SKU using shared infrastructure recommended for development and testing. Supports one VM at a time. Available in select regions.
 
 For a complete feature comparison and capacity details, see [Choose the right Azure Bastion SKU](bastion-sku-comparison.md).
 
@@ -86,7 +86,7 @@ Azure Bastion is continuously updated with new features and improvements. To lea
 
 ## Troubleshooting and FAQ
 
-For information about troubleshooting and frequently asked questions, see the [troubleshooting guide](troubleshoot.md) and [Azure Bastion FAQ](bastion-faq.md).
+For information about troubleshooting and frequently asked questions, see the [troubleshooting guide](/troubleshoot/azure/bastion/welcome-azure-bastion) and [Azure Bastion FAQ](bastion-faq.md).
 
 ## Next steps
 

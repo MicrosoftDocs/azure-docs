@@ -47,11 +47,11 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
 
 3.  Then select **Review + Create**.
 
-4.  After the deployment completes, select on the App Service resource to open it.
+4.  After the deployment completes, select the App Service resource to open it.
 
     :::image type="content" source="./media/handle-advanced-messaging-events/event-viewer-web-app.png" lightbox="./media/handle-advanced-messaging-events/event-viewer-web-app.png" alt-text="Screenshot that shows Events Viewer web app.":::
 
-5.  On the resource overview page, select on the copy button next to the **Default Domain** property.
+5.  On the resource overview page, select the copy button next to the **Default Domain** property.
 
     :::image type="content" source="./media/handle-advanced-messaging-events/default-domain.png" lightbox="./media/handle-advanced-messaging-events/default-domain.png" alt-text="Screenshot that shows URL of Events Viewer web app.":::
 
@@ -89,8 +89,19 @@ The Event Grid Viewer is a sample site that allows you to view incoming events f
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../../create-communication-resource.md#clean-up-resources).
 
+## WhatsApp usernames and BSUIDs
+
+With the introduction of WhatsApp usernames, Advanced Messaging events now include new fields for business-scoped user IDs (BSUIDs).
+
+- **`AdvancedMessageReceived`** events include a `fromBSUID` field with the sender's BSUID.
+- **`AdvancedMessageDeliveryStatusUpdated`** events include a `toBSUID` field with the recipient's BSUID.
+
+> [!WARNING]
+> **Breaking change:** The existing `from` and `to` fields may now be empty or null when a WhatsApp user has adopted a username and hidden their phone number. Update your event handlers accordingly. Additionally, the event `subject` field may now contain a BSUID instead of a phone number, which can break existing webhook subject filters and automation code that parses the subject. For more information, see [WhatsApp usernames and BSUIDs](../../../concepts/advanced-messaging/whatsapp/whatsapp-username-support-overview.md).
+
 ## Next steps
 
 - [Understand Advanced Communication Messages Events](../../../../event-grid/communication-services-advanced-messaging-events.md)
+- [WhatsApp usernames and BSUIDs](../../../concepts/advanced-messaging/whatsapp/whatsapp-username-support-overview.md)
 - [Get started With Advanced Communication Messages SDK](./get-started.md)
 

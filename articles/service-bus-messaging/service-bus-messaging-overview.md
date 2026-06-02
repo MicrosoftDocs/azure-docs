@@ -3,7 +3,7 @@ title: Introduction to Azure Service Bus Messaging
 description: Discover Azure Service Bus, a fully managed serverless message broker that enables reliable communication between applications and services.
 #customer intent: As a developer, I want to understand the core concepts of Azure Service Bus so that I can decide if it fits my application needs.
 ms.topic: overview
-ms.date: 03/13/2025
+ms.date: 03/13/2026
 ---
 
 # What is Azure Service Bus?
@@ -85,9 +85,9 @@ Service Bus also has advanced features that enable you to solve more complex mes
 
 To realize a first-in, first-out (**FIFO**) guarantee in processing messages in Service Bus queues or subscriptions, use sessions. You can also use sessions to implement request-response patterns. The **request-response pattern** enables the sender application to send a request and provides a way for the receiver to correctly send a response back to the sender application. For more information, see [Message sessions](message-sessions.md).
 
-### Auto-forwarding
+### Autoforwarding
 
-The **Auto-forwarding** feature enables you to chain a queue or subscription to another queue or topic that is part of the same namespace. When you enable auto-forwarding, Service Bus automatically removes messages that are placed in the first queue or subscription (source) and puts them in the second queue or topic (destination). For more information, see [Chaining Service Bus entities with auto-forwarding](service-bus-auto-forwarding.md).
+The **autoforwarding** feature enables you to chain a queue or subscription to another queue or topic that is part of the same namespace. When you enable autoforwarding, Service Bus automatically removes messages that are placed in the first queue or subscription (source) and puts them in the second queue or topic (destination). For more information, see [Chaining Service Bus entities with autoforwarding](service-bus-auto-forwarding.md).
 
 ### Dead-lettering
 
@@ -169,6 +169,6 @@ Service Bus fully integrates with many Microsoft and Azure services, such as:
 To get started using Service Bus messaging, see the following articles:
 
 - [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-- Quickstarts: [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [JMS](service-bus-java-how-to-use-jms-api-amqp.md), or [NServiceBus](build-message-driven-apps-nservicebus.md)
+- Quickstarts: [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), [JMS 2.0](how-to-use-java-message-service-20.md), or [NServiceBus](build-message-driven-apps-nservicebus.md)
 - [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/). 
 - [Premium Messaging](service-bus-premium-messaging.md).

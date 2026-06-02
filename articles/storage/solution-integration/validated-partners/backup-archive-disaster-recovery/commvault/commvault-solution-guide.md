@@ -131,7 +131,7 @@ This section provides a brief guide for how to add Azure Storage to an on-premis
 
 1. Open the Azure portal, and search for **storage accounts**. 
     
-    ![Screen capture showing how to search for resources by typing 'storage' in the Azure Portal search box.](../media/locate-storage-account.png)
+    ![Screen capture showing how to search for resources by typing 'storage' in the Azure portal search box.](../media/locate-storage-account.png)
 
     You can also select the default **Storage accounts** icon.
 

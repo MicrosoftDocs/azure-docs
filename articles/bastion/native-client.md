@@ -2,11 +2,11 @@
 title: Configure Bastion for native client connections
 titleSuffix: Azure Bastion
 description: Learn how to configure Bastion for native client connections.
-author: abell
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 04/07/2025
-ms.author: abell
+ms.author: cherylmc
 # Customer intent: "As a cloud administrator, I want to configure Bastion for native client connections, so that I can securely access VMs using local SSH or RDP clients while managing my network efficiently."
 ---
 
@@ -25,7 +25,7 @@ You can configure this feature by modifying an existing Bastion deployment, or y
 
 If you haven't already deployed Bastion to your virtual network, you can deploy with the native client feature specified by deploying Bastion using manual settings. For steps, see [Quickstart: Deploy Azure Bastion from the Azure portal](quickstart-host-portal.md#createhost). When you deploy Bastion, specify the following settings:
 
-1. On the **Basics** tab, for **Instance Details -> Tier** select **Standard**. Native client support requires the Standard SKU.
+1. On the **Basics** tab, for **Instance Details -> SKU** select **Standard**. Native client support requires the Standard SKU.
 
 1. Before you create the bastion host, go to the **Advanced** tab and check the box for **Native Client Support**, along with the checkboxes for any other features that you want to deploy.
 
@@ -37,7 +37,7 @@ If you haven't already deployed Bastion to your virtual network, you can deploy 
 
 If you've already deployed Bastion to your virtual network, modify the following configuration settings:
 
-1. Navigate to the **Configuration** page for your Bastion resource. Verify that the SKU Tier is **Standard**. If it isn't, select **Standard**.
+1. Navigate to the **Configuration** page for your Bastion resource. Verify that the SKU is **Standard**. If it isn't, select **Standard**.
 1. Select the box for **Native Client Support**, then apply your changes.
 
 ## <a name="secure"></a>Secure your native client connection

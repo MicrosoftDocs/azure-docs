@@ -2,11 +2,11 @@
 title: 'Tutorial: Configure Azure DDoS Protection metric alerts through portal'
 description: Learn how to configure DDoS protection metric alerts for Azure DDoS Protection.
 services: ddos-protection
-author: AbdullahBell
+author: duongau
 ms.service: azure-ddos-protection
 ms.topic: tutorial
-ms.date: 03/17/2025
-ms.author: abell
+ms.date: 03/17/2026
+ms.author: duau
 # Customer intent: "As a network administrator, I want to configure DDoS protection metric alerts through the management portal, so that I can receive timely notifications during an attack to effectively respond and mitigate potential threats."
 ---
 
@@ -45,15 +45,15 @@ You can configure Azure Monitor to alert you using any available Azure DDoS Prot
 
 1. Select **Done**, then select **Next: Condition**.
 
-1. On the **Condition** tab, select **+ Add Condition**, then in the *Select a signal* search box, search, and select **Under DDoS attack or not**.
+1. On the **Condition** tab, select the dropdown for **Signal name**, then select **Under DDoS attack or not**.
 
-1. In the **Create an alert rule** page, select the following information. 
+1. In the **Alert logic** section, select the following information. 
 
     | Setting | Value |
     |--|--|
     | Threshold | Leave as the default *Static*. |
     | Aggregation type | Leave as default *Maximum*. |
-    | Operator | Select **Greater than or equal to**. |
+    | Value is | Select **Greater than or equal to**. |
     | Unit | Leave as default *Count*. |
     | Threshold value | Enter **1**. For the *Under DDoS attack or not metric*, **0** means you're not under attack while **1** means you are under attack. |
     | Check every | Choose how often the alert rule checks if the condition is met. Leave as default *1 minute*. |
@@ -104,6 +104,7 @@ Within a few minutes of attack detection, you should receive an email from Azure
 You can also learn more about [configuring webhooks](/azure/azure-monitor/alerts/alerts-webhooks?toc=%2fazure%2fvirtual-network%2ftoc.json) and [logic apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for creating alerts.
 
 ## Clean up resources
+
 You can keep your resources for the next tutorial. If no longer needed, delete the alerts.
 
 1. In the search box at the top of the portal, enter **Alerts**. Select **Alerts** in the search results.

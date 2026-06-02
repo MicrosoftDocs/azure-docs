@@ -3,7 +3,7 @@ title: Create a hierarchy of Azure IoT Edge devices
 description: This tutorial shows you how to create a hierarchical structure of IoT Edge devices with secure communication. The configuration is also known as nested edge.
 author: sethmanheim
 ms.author: sethm
-ms.date: 07/11/2025
+ms.date: 02/27/2026
 ms.topic: tutorial
 ms.service: azure-iot-edge
 services: iot-edge
@@ -165,7 +165,7 @@ In addition to the provisioning of your devices, the configuration steps establi
 
 To configure the IoT Edge runtime, apply the configuration bundles to your devices. The configurations are different for the *top layer device* and a *lower layer device*, so make sure you use the right configuration file for each device.
 
-1. Copy each configuration bundle archive file to its corresponding device. You can use a USB drive, a service like [Azure Key Vault](/azure/key-vault/general/overview), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/). Choose one of these methods that best matches your scenario. 
+1. Copy each configuration bundle archive file to its corresponding device. You can use a USB drive, a service like [Azure Key Vault](/azure/key-vault/general/overview), or with a function like [Secure file copy](https://www.ssh.com/academy/ssh/scp). Choose one of these methods that best matches your scenario. 
 
    For example, to send the *parent-1* configuration bundle to the home directory on the *parent-1* VM, you could use a command like the following example:
 

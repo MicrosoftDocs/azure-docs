@@ -18,6 +18,11 @@ This article describes how to limit the scope of discovery for servers in VMware
 
 When you set up the appliance, it connects to vCenter Server and starts discovery. Before you connect the appliance to vCenter Server, you can limit discovery to vCenter Server datacenters, clusters, a folder of clusters, hosts, a folder of hosts, or individual servers. To set the scope, you assign permissions on the account that the appliance uses to access the vCenter Server.
 
+Watch the following video to learn how to discover on-premises servers running in a VMware environment as part of your migration to Azure. 
+
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=edbc7f22-2ba1-44cd-a534-465dfd426a14]
+
 ## Before you start
 
 If you haven't set up a vCenter Server user account that Azure Migrate uses for discovery, do that now for [assessment](tutorial-discover-vmware.md#prepare-vmware) or [agentless migration](migrate-support-matrix-vmware-migration.md#agentless-migration).

@@ -3,7 +3,7 @@ title: Create transparent gateway device using Azure IoT Edge
 description: Use an Azure IoT Edge device as a transparent gateway that can process information from downstream devices
 author: sethmanheim
 ms.author: sethm
-ms.date: 06/05/2025
+ms.date: 02/27/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -87,7 +87,7 @@ If you don't have your own certificate authority and want to use demo certificat
 # [IoT Edge](#tab/iotedge)
 
 1. Check the certificate meets [format requirements](how-to-manage-device-certificates.md#format-requirements).
-1. If you created the certificates on a different machine, copy them to your IoT Edge device. Use a USB drive, a service like [Azure Key Vault](/azure/key-vault/general/overview), or a command like [Secure file copy](https://www.ssh.com/ssh/scp/).
+1. If you created the certificates on a different machine, copy them to your IoT Edge device. Use a USB drive, a service like [Azure Key Vault](/azure/key-vault/general/overview), or a command like [Secure file copy](https://www.ssh.com/academy/ssh/scp).
 1. Create the certificates and keys directories and set permissions. Store your certificates and keys in the preferred `/var/aziot` directory: `/var/aziot/certs` for certificates and `/var/aziot/secrets` for keys.
 
    ```bash

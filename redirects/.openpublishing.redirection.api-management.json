@@ -1,6 +1,31 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/api-management/azure-openai-token-limit-policy.md",
+      "redirect_url": "/azure/api-management/llm-token-limit-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/api-management/azure-openai-semantic-cache-lookup-policy.md",
+      "redirect_url": "/azure/api-management/llm-semantic-cache-lookup-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/api-management/azure-openai-semantic-cache-store-policy.md",
+      "redirect_url": "/azure/api-management/llm-semantic-cache-store-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/api-management/azure-openai-emit-token-metric-policy.md",
+      "redirect_url": "/azure/api-management/llm-emit-token-metric-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/api-management/api-management-howto-entra-external-id.md",
+      "redirect_url": "/azure/api-management/api-management-howto-aad#enable-access-by-external-users",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/api-management/api-management-authenticate-authorize-azure-openai.md",
       "redirect_url": "/azure/api-management/api-management-authenticate-authorize-ai-apis",
       "redirect_document_id": false

@@ -9,6 +9,8 @@
       href: iot-hub-what-is-new.md
     - name: Frequently asked questions
       href: iot-hub-faq.md
+    - name: Compare IoT Hub and Event Hubs
+      href: iot-hub-compare-event-hubs.md
 - name: Quickstarts
   expanded: true
   items:
@@ -20,151 +22,94 @@
     - name: Send telemetry using CLI
       href: quickstart-send-telemetry-cli.md
       displayName: Azure CLI
-- name: Concepts
-  expanded: true
-  items: 
-    - name: Azure Device Registry integration (preview)
-      href: iot-hub-device-registry-overview.md
-    - name: Certificate management (preview)
-      href: iot-hub-certificate-management-overview.md
-    - name: Key concepts for certificate management
-      href: iot-hub-certificate-management-concepts.md
+- name: Plan and scale your IoT Hub
+  items:
+    - name: Choose the right IoT Hub tier
+      href: iot-hub-scaling.md
+      displayName: basic, standard, partitions, message throughput
+    - name: Quotas and throttling
+      href: iot-hub-devguide-quotas-throttling.md
+      displayName: operations, traffic, connections, latency
+    - name: Pricing examples
+      href: iot-hub-devguide-pricing.md
     - name: Understand IoT Hub endpoints
       href: iot-hub-devguide-endpoints.md
       displayName: multitenant
     - name: Understanding IoT hub IP address
       href: iot-hub-understand-ip-address.md
       displayName: service tags, firewall rules, IP filter
-    - name: Choose an IoT Hub SDK
-      href: iot-hub-devguide-sdks.md
-      displayName: device SDK, service SDK, management SDK, compatibility
+    - name: Best practices for Azure Device Registry namespaces
+      href: ../iot/iot-device-registry-namespace-guidance.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Protocol support
       items:
         - name: MQTT support
-          href: ../iot/iot-mqtt-connect-to-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+          href: iot-mqtt-connect-to-iot-hub.md
         - name: AMQP support
           href: iot-hub-amqp-support.md
         - name: Supporting additional protocols
           href: ../iot-edge/iot-edge-as-gateway.md
           displayName: gateway, downstream devices, multiplexing, parent, child, protocol translation, identity translation
-    - name: Compare IoT Hub and Event Hubs
-      href: iot-hub-compare-event-hubs.md
-- name: How-to guides
+- name: Authenticate and authorize access
   items:
-    - name: Plan and scale your IoT Hub
+    - name: Built-in RBAC roles for IoT
+      href: ../role-based-access-control/built-in-roles/internet-of-things.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+      displayName: role-based access control, RBAC, roles, permissions
+    - name: Microsoft Entra ID
+      href: authenticate-authorize-azure-ad.md
+      displayName: authenticate, authentication, auth, authn, authz
+    - name: Configure managed identities
+      href: iot-hub-managed-identity.md
+      displayName: Azure AD, ARM template, user-assigned identity
+    - name: Shared access signatures
+      href: authenticate-authorize-sas.md
+      displayName: authenticate, authentication, auth, authn, authz
+    - name: Regenerate access keys
+      href: regenerate-keys.md
+      displayName: access keys, primary key, secondary key, rotate keys
+- name: Manage certificate lifecycle
+  expanded: true
+  items:
+    - name: Microsoft certificate management (preview)
+      href: iot-hub-certificate-management-overview.md
+    - name: Key concepts for certificate management
+      href: iot-hub-certificate-management-concepts.md
+    - name: Set up certificate management
       items:
-        - name: Choose the right IoT Hub tier
-          href: iot-hub-scaling.md
-          displayName: basic, standard, partitions, message throughput
-        - name: Quotas and throttling
-          href: iot-hub-devguide-quotas-throttling.md
-          displayName: operations, traffic, connections, latency
-        - name: Pricing examples
-          href: iot-hub-devguide-pricing.md
-    - name: Connect a device
-      items: 
-        - name: Create and connect a device
-          href: create-connect-device.md
-        - name: Test device connectivity
-          href: tutorial-connectivity.md
-        - name: Connect Raspberry Pi to run samples
-          href: raspberry-pi-get-started.md
-    - name: Develop
+        - name: Configure a credential
+          href: how-to-configure-credential.md
+        - name: Create a policy with a Microsoft root CA
+          href: how-to-create-policy.md
+        - name: Create a policy with an external root CA
+          href: how-to-create-policy-external-certificate.md
+    - name: Manage certificates and policies
       items:
-        - name: Understand job scheduling
-          href: iot-hub-devguide-jobs.md
-        - name: Create back-end app to schedule jobs
-          href: how-to-schedule-broadcast-jobs.md
-          displayName: schedule jobs
-        - name: Schedule bulk operations with jobs
-          href: schedule-jobs-cli.md
-          displayName: jobs, CLI
-        - name: Queries
-          items: 
-            - name: Query language overview
-              href: iot-hub-devguide-query-language.md
-            - name: Query Avro data from a hub route
-              href: iot-hub-query-avro-data.md
-              displayName: Azure Data Lake, U-SQL
-            - name: Device and module twin queries
-              href: query-twins.md
-            - name: Job queries
-              href: query-jobs.md
-    - name: Manage devices
-      items: 
-        - name: Overview of device management
-          href: iot-hub-device-management-overview.md
-          displayName: device lifecycle, patterns, device updates
-        - name: Manage device identities
-          href: iot-hub-devguide-identity-registry.md
-          displayName: identity registry, import, export, device provisioning, device heartbeat, lifecycle notifications
-        - name: Get started with device management
-          href: how-to-device-management.md
-          displayName: device management, status updates, device maintenance windows
-        - name: Monitor device connection status
-          href: monitor-device-connection-state.md
-          displayName: heartbeat, Event Grid
-        - name: Automatic device management at scale
-          href: iot-hub-automatic-device-management.md
-          displayName: automatic device management, cli, Azure portal
-        - name: Device configuration best practices
-          href: iot-hub-configuration-best-practices.md
-    - name: Monitor
-      items: 
-        - name: Monitor IoT Hub
-          href: monitor-iot-hub.md
-        - name: Enable message tracing
-          href: iot-hub-distributed-tracing.md
-          displayName: monitor, distributed tracing
-        - name: IoT Hub service and resource health
-          href: iot-hub-azure-service-health-integration.md
-          displayName: monitor, alerts
-        - name: Order device connection state events from Event Grid
-          href: iot-hub-how-to-order-connection-state-events.md
-          displayName: monitor, Cosmos DB, database collection, Logic Apps
-        - name: Use metrics and logs to monitor IoT Hub
-          href: tutorial-use-metrics-and-diags.md
-        - name: Integration with other services
-          items:
-            - name: Visualize data in Power BI
-              href: iot-hub-live-data-visualization-in-power-bi.md
-              displayName: Stream Analytics
-            - name: Visualize data in App Service web apps
-              href: iot-hub-live-data-visualization-in-web-apps.md
-              displayName: Node.js
-            - name: Monitor and notify with Logic Apps
-              href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
-              displayName: Service Bus, queue, namespace
-            - name: React to IoT Hub events with Event Grid
-              href: iot-hub-event-grid.md
-              displayName: MQTT, AMQP
-    - name: Deploy updates with Azure Device Update
+        - name: Issuance of device certificates
+          href: concept-certificate-issuance.md
+        - name: Renewal of device certificates
+          href: concept-certificate-renewal.md
+        - name: Certificate revocation and policy management
+          href: concepts-certificate-policy-management.md
+        - name: Revoke certificates and delete policies 
+          href: how-to-revoke-certificate-delete-policy.md
+        - name: Disable or enable a device
+          href: how-to-disable-enable-device.md
+    - name: Customer-managed X.509 certificates
       items:
-        - name: Create a device update account
-          href: ../iot-hub-device-update/create-device-update-account.md
-        - name: Import an update
-          href: ../iot-hub-device-update/import-update.md
-          displayName: device update
-        - name: Create an update group
-          href: ../iot-hub-device-update/create-update-group.md
-          displayName: device update
-        - name: Deploy an update
-          href: ../iot-hub-device-update/deploy-update.md
-          displayName: device update
-        - name: Manage device updates for Raspberry Pi images
-          href: ../iot-hub-device-update/device-update-raspberry-pi.md
-    - name: Upgrade or migrate an IoT hub
-      items:
-        - name: Upgrade an IoT hub
-          href: iot-hub-upgrade.md
-          displayName: scale up, size, tier
-        - name: Automatically migrate an IoT hub using CLI
-          href: migrate-hub-state-cli.md
-        - name: Manually migrate an IoT hub using ARM
-          href: migrate-hub-arm.md
-        - name: Bulk import and export IoT devices
-          href: iot-hub-bulk-identity-mgmt.md
-- name: Device-to-cloud communications
+      - name: Third-party X.509 certificates
+        href: authenticate-authorize-x509.md
+        displayName: authenticate, authentication, auth, authn, authz
+      - name: Create and upload certificates for testing
+        href: tutorial-x509-test-certs.md
+        displayName: X.509 certificates, root certificate authority (CA), verify certificate, certificate signing request (CSR)
+- name: Connect a device
+  items: 
+    - name: Create and connect a device
+      href: create-connect-device.md
+    - name: Tutorial - Connect a device with MQTT
+      href: tutorial-use-mqtt.md
+    - name: Connect Raspberry Pi to run samples
+      href: raspberry-pi-get-started.md
+- name: Route device-to-cloud data
   items:
     - name: Understand device-to-cloud guidance
       href: iot-hub-devguide-d2c-guidance.md
@@ -177,31 +122,14 @@
         - name: Add queries to message routes
           href: iot-hub-devguide-routing-query-syntax.md
         - name: Create message routes and endpoints
-          items:
-            - name: Azure portal
-              href: how-to-routing-portal.md
-              displayName: create endpoint, create route, message routing
-            - name: Azure CLI
-              href: how-to-routing-azure-cli.md
-              displayName: create endpoint, create route, message routing
-            - name: PowerShell
-              href: how-to-routing-powershell.md
-              displayName: create endpoint, create route, message routing
-            - name: Azure Resource Manager
-              href: how-to-routing-arm.md
-              displayName: create endpoint, create route, message routing
+          href: how-to-routing-portal.md
+          displayName: create endpoint, create route, message routing
         - name: Compare message and event routing
           href: iot-hub-event-grid-routing-comparison.md
           displayName: Event Grid, message routing
-        - name: Tutorials
-          items: 
-            - name: Auto-route messages using Bicep
-              href: quickstart-bicep-route-messages.md
-            - name: Auto-route messages using an ARM template
-              href: horizontal-arm-route-messages.md
-            - name: Route device messages to storage
-              href: tutorial-routing.md
-              displayName: message routing, Azure IoT Explorer
+        - name: Tutorial - Route device messages to storage
+          href: tutorial-routing.md
+          displayName: message routing, Azure IoT Explorer
     - name: Upload files with IoT Hub
       items:
         - name: Understand file upload
@@ -212,46 +140,7 @@
         - name: Configure file upload
           href: iot-hub-configure-file-upload.md
           displayName: file upload, cli, Azure portal, powershell
-- name: Cloud-to-device communications
-  items:
-    - name: Understand cloud-to-device guidance
-      href: iot-hub-devguide-c2d-guidance.md
-      displayName: C2D, direct methods
-    - name: Invoke direct methods on a device
-      href: iot-hub-devguide-direct-methods.md          
-      displayName: MQTT, AMQP
-    - name: Send cloud-to-device messages
-      href: how-to-cloud-to-device-messaging.md
-      displayName: cloud-to-device messages
-    - name: Overview of IoT Hub device streams (preview)
-      href: iot-hub-device-streams-overview.md
-      displayName: TLS, private network   
-    - name: Control a device connected to an IoT hub
-      href: quickstart-control-device.md
-      displayName: direct method, Azure IoT Explorer
-- name: Device twins and module twins
-  items:
-    - name: Device twins
-      items: 
-        - name: Understand device twins
-          href: iot-hub-devguide-device-twins.md
-          displayName: desired properties, reported properties, device identity, tags
-        - name: Get started with device twins
-          href: how-to-device-twins.md
-          displayName: device twins
-        - name: Synchronize device state with device twins
-          href: tutorial-device-twins.md
-        - name: Manage device twins
-          href: manage-device-twins.md
-    - name: Module twins
-      items:   
-        - name: Understand module twins
-          href: iot-hub-devguide-module-twins.md
-          displayName: desired properties, reported properties
-        - name: Get started with module twins
-          href: how-to-module-twins.md
-          displayName: module twins, module identity
-- name: Messaging
+- name: Send and receive messages
   items:
     - name: Create and read IoT Hub messages
       href: iot-hub-devguide-messages-construct.md
@@ -272,30 +161,95 @@
       displayName: enrichments, routing, message properties
     - name: Use message enrichments
       href: tutorial-message-enrichments.md
-- name: Authentication and authorization
+- name: Send commands to devices
   items:
-    - name: Built-in RBAC roles for IoT
-      href: ../role-based-access-control/built-in-roles/internet-of-things.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
-      displayName: role-based access control, RBAC, roles, permissions
-    - name: Microsoft Entra ID
-      href: authenticate-authorize-azure-ad.md
-      displayName: authenticate, authentication, auth, authn, authz
-    - name: Configure managed identities
-      href: iot-hub-managed-identity.md
-      displayName: Azure AD, ARM template, user-assigned identity
-    - name: Shared access signatures
-      href: authenticate-authorize-sas.md
-      displayName: authenticate, authentication, auth, authn, authz
-    - name: Regenerate access keys
-      href: regenerate-keys.md
-      displayName: access keys, primary key, secondary key, rotate keys
-    - name: Third-party X.509 certificates
-      href: authenticate-authorize-x509.md
-      displayName: authenticate, authentication, auth, authn, authz
-    - name: Create and upload certificates for testing
-      href: tutorial-x509-test-certs.md
-      displayName: X.509 certificates, root certificate authority (CA), verify certificate, certificate signing request (CSR)
-- name: Security and best practices
+    - name: Understand cloud-to-device guidance
+      href: iot-hub-devguide-c2d-guidance.md
+      displayName: C2D, direct methods
+    - name: Invoke direct methods on a device
+      href: iot-hub-devguide-direct-methods.md          
+      displayName: MQTT, AMQP
+    - name: Send cloud-to-device messages
+      href: how-to-cloud-to-device-messaging.md
+      displayName: cloud-to-device messages
+    - name: Control a device connected to an IoT hub
+      href: quickstart-control-device.md
+      displayName: direct method, Azure IoT Explorer
+- name: Set device and module properties
+  items:
+    - name: Device twins
+      items: 
+        - name: Understand device twins
+          href: iot-hub-devguide-device-twins.md
+          displayName: desired properties, reported properties, device identity, tags
+        - name: Get started with device twins
+          href: how-to-device-twins.md
+          displayName: device twins
+        - name: Manage device twins
+          href: manage-device-twins.md
+    - name: Module twins
+      items:   
+        - name: Understand module twins
+          href: iot-hub-devguide-module-twins.md
+          displayName: desired properties, reported properties
+        - name: Get started with module twins
+          href: how-to-module-twins.md
+          displayName: module twins, module identity
+- name: Manage devices
+  items: 
+  - name: Azure Device Registry integration (preview)
+    href: iot-hub-device-registry-overview.md
+  - name: Enable or disable device in ADR (preview)
+    href: how-to-disable-enable-device.md
+  - name: IoT Hub device management
+    items:
+    - name: Overview of device management
+      href: iot-hub-device-management-overview.md
+      displayName: device lifecycle, patterns, device updates
+    - name: Manage device identities
+      href: iot-hub-devguide-identity-registry.md
+      displayName: identity registry, import, export, device provisioning, device heartbeat, lifecycle notifications
+    - name: Get started with device management
+      href: how-to-device-management.md
+      displayName: device management, status updates, device maintenance windows
+    - name: Manage device reconnections
+      href: concepts-manage-device-reconnections.md
+    - name: Monitor device connection status
+      href: monitor-device-connection-state.md
+      displayName: heartbeat, Event Grid
+    - name: Automatic device management at scale
+      href: iot-hub-automatic-device-management.md
+      displayName: automatic device management, cli, Azure portal
+    - name: Device configuration best practices
+      href: iot-hub-configuration-best-practices.md
+  - name: Develop
+    items:
+    - name: Choose an IoT Hub SDK
+      href: iot-hub-devguide-sdks.md
+      displayName: device SDK, service SDK, management SDK, compatibility
+    - name: Understand job scheduling
+      href: iot-hub-devguide-jobs.md
+    - name: Create back-end app to schedule jobs
+      href: how-to-schedule-broadcast-jobs.md
+      displayName: schedule jobs
+    - name: Schedule bulk operations with jobs
+      href: schedule-jobs-cli.md
+      displayName: jobs, CLI
+  - name: Query language overview
+    href: iot-hub-devguide-query-language.md
+- name: Monitor
+  items: 
+    - name: Monitor IoT Hub
+      href: monitor-iot-hub.md
+    - name: IoT Hub service and resource health
+      href: iot-hub-azure-service-health-integration.md
+      displayName: monitor, alerts
+    - name: Use metrics and logs to monitor IoT Hub
+      href: tutorial-use-metrics-and-diags.md
+    - name: React to IoT Hub events with Event Grid
+      href: iot-hub-event-grid.md
+      displayName: MQTT, AMQP
+- name: Secure and harden your IoT solution
   items:
     - name: Secure your Azure IoT Hub
       href: secure-azure-iot-hub.md
@@ -322,7 +276,33 @@
     - name: Regulatory compliance controls by Azure Policy
       href: ./security-controls-policy.md
       displayName: regulatory, compliance, standards, Azure Security Benchmark, Azure Foundations Benchmark, CMMC, FedRAMP, HIPAA
-- name: Reliability and scaling
+- name: Deploy device updates at scale
+  items:
+    - name: Create a device update account
+      href: ../iot-hub-device-update/create-device-update-account.md
+    - name: Import an update
+      href: ../iot-hub-device-update/import-update.md
+      displayName: device update
+    - name: Create an update group
+      href: ../iot-hub-device-update/create-update-group.md
+      displayName: device update
+    - name: Deploy an update
+      href: ../iot-hub-device-update/deploy-update.md
+      displayName: device update
+    - name: Manage device updates for Raspberry Pi images
+      href: ../iot-hub-device-update/device-update-raspberry-pi.md
+- name: Upgrade or migrate an IoT hub
+  items:
+    - name: Upgrade an IoT hub
+      href: iot-hub-upgrade.md
+      displayName: scale up, size, tier
+    - name: Automatically migrate an IoT hub using CLI
+      href: migrate-hub-state-cli.md
+    - name: Manually migrate an IoT hub using ARM
+      href: migrate-hub-arm.md
+    - name: Bulk import and export IoT devices
+      href: iot-hub-bulk-identity-mgmt.md
+- name: Design for reliability and scale
   items:
     - name: Best practices for large-scale IoT device deployments
       href: ../iot-dps/concepts-deploy-at-scale.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
@@ -336,7 +316,7 @@
     - name: Perform manual failover
       href: tutorial-manual-failover.md
       displayName: disaster recovery, failback, failover, geo-redundancy
-- name: Troubleshooting
+- name: Troubleshoot
   items:
     - name: Troubleshoot device connectivity
       href: iot-hub-troubleshoot-connectivity.md
@@ -415,7 +395,8 @@
     - name: X.509 certificates
       href: reference-x509-certificates.md
       displayName: certificate authority (CA), subordinate CA, certificate versions, unique identifier, key identifier, binary certificate, PEM certificate, PKCS, X.509 certificates, OpenSSL, CSR, thumbprint
-    - name: Feature and API retirement
+    - name: Self-sign script for external CSR
+      href: reference-self-sign-script.md
     - name: Monitoring data reference
       href: monitor-iot-hub-reference.md
 - name: Resources
@@ -443,7 +424,7 @@
         - name: IoT Service SDKs
           href: ./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
         - name: IoT Device SDKs
-          href: ../iot/iot-sdks.md
+          href: iot-sdks.md
     - name: Azure IoT samples
       items:
         - name: C# (.NET)

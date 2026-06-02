@@ -26,51 +26,91 @@ This article supports version 2 of the Python programming model for Azure Functi
 
 ## Initialize the project
 
-Use the `azd init` command from the command palette to create a local Azure Functions code project from a template.
- 
-1. In Visual Studio Code, open a folder or workspace where you want to create your project.
-
-1. Press <kbd>F1</kbd> to open the command palette, search for and run the command `Azure Developer CLI (azd): Initialize App (init)`, then choose **Select a template**.
-
-    There might be a slight delay while `azd` initializes the current folder or workspace.  
+Use the Azure Developer CLI (`azd`) to create a local Azure Functions code project from a template.
 
 ::: zone pivot="programming-language-csharp"
-3. When prompted, choose **Select a template**, then search for and select `Azure Functions C# Event Grid Blob Trigger using Azure Developer CLI`. 
+1. From a terminal, run this `azd init` command to create a local project from the template:
 
-4. When prompted in the terminal, enter a unique environment name, such as `blobevents-dotnet`.
+    ```console
+    azd init --template functions-quickstart-dotnet-azd-eventgrid-blob -e blobevents-dotnet
+    ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-eventgrid-blob) and initializes the project in the current folder or workspace.
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-eventgrid-blob) and initializes the project in a new folder.
+
+1. Change to the project directory:
+
+    ```console
+    cd functions-quickstart-dotnet-azd-eventgrid-blob
+    ```
 ::: zone-end
 ::: zone pivot="programming-language-python"
-3. When prompted, choose **Select a template**, then search for and select `Azure Functions Python Event Grid Blob Trigger using Azure Developer CLI`. 
+1. From a terminal, run this `azd init` command to create a local project from the template:
 
-4. When prompted in the terminal, enter a unique environment name, such as `blobevents-python`.
+    ```console
+    azd init --template functions-quickstart-python-azd-eventgrid-blob -e blobevents-python
+    ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-python-azd-eventgrid-blob) and initializes the project in the current folder or workspace.
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-python-azd-eventgrid-blob) and initializes the project in a new folder.
+
+1. Change to the project directory:
+
+    ```console
+    cd functions-quickstart-python-azd-eventgrid-blob
+    ```
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
-3. When prompted, choose **Select a template**, then search for and select `Azure Functions TypeScript Event Grid Blob Trigger using Azure Developer CLI`. 
+1. From a terminal, run this `azd init` command to create a local project from the template:
 
-4. When prompted, enter a unique environment name, such as `blobevents-typescript`.
+    ```console
+    azd init --template functions-quickstart-typescript-azd-eventgrid-blob -e blobevents-typescript
+    ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-eventgrid-blob) and initializes the project in the current folder or workspace.
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-eventgrid-blob) and initializes the project in a new folder.
+
+1. Change to the project directory:
+
+    ```console
+    cd functions-quickstart-typescript-azd-eventgrid-blob
+    ```
 ::: zone-end
 ::: zone pivot="programming-language-java"
-3. When prompted, choose **Select a template**, then search for and select `Azure Functions Java Event Grid Blob Trigger using Azure Developer CLI`. 
+1. From a terminal, run this `azd init` command to create a local project from the template:
 
-4. When prompted, enter a unique environment name, such as `blobevents-java`.
+    ```console
+    azd init --template functions-quickstart-java-azd-eventgrid-blob -e blobevents-java
+    ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-java-azd-eventgrid-blob) and initializes the project in the current folder or workspace.
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-java-azd-eventgrid-blob) and initializes the project in a new folder.
+
+1. Change to the project directory:
+
+    ```console
+    cd functions-quickstart-java-azd-eventgrid-blob
+    ```
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
-3. When prompted, choose **Select a template**, then search for and select `Azure Functions PowerShell Event Grid Blob Trigger using Azure Developer CLI`. 
+1. From a terminal, run this `azd init` command to create a local project from the template:
 
-4. When prompted, enter a unique environment name, such as `blobevents-powershell`.
+    ```console
+    azd init --template functions-quickstart-powershell-azd-eventgrid-blob -e blobevents-powershell
+    ```
 
-    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-eventgrid-blob) and initializes the project in the current folder or workspace.
+    This command pulls the project files from the [template repository](https://github.com/Azure-Samples/functions-quickstart-powershell-azd-eventgrid-blob) and initializes the project in a new folder.
+
+1. Change to the project directory:
+
+    ```console
+    cd functions-quickstart-powershell-azd-eventgrid-blob
+    ```
 ::: zone-end
 
 In `azd`, the environment maintains a unique deployment context for your app, and you can define more than one. It's also part of the name of the resource group you create in Azure.
+
+3. Open the project in Visual Studio Code:
+
+    ```console
+    code .
+    ```
 
 ## Add the local.settings.json file
 
@@ -331,27 +371,7 @@ Use the `azd up` command to create the function app in a Flex Consumption plan a
 
 The Event Grid blob trigger processes files within seconds of upload. This speed demonstrates the near real-time capabilities of this approach compared to traditional polling-based blob triggers.
 
-## Redeploy your code
-
-Run the `azd up` command as many times as you need to both provision your Azure resources and deploy code updates to your function app.
-
->[!NOTE]
->Deployed code files are always overwritten by the latest deployment package.
-
-Your initial responses to `azd` prompts and any environment variables generated by `azd` are stored locally in your named environment. Use the `azd env get-values` command to review all of the variables in your environment that were used when creating Azure resources. 
-
-## Clean up resources
-
-When you're done working with your function app and related resources, use this command to delete the function app and its related resources from Azure. This action helps you avoid incurring any further costs:
-
-```console
-azd down --no-prompt
-```
-
->[!NOTE]  
->The `--no-prompt` option instructs `azd` to delete your resource group without a confirmation from you. 
->
->This command doesn't affect your local code project. 
+[!INCLUDE [functions-scenario-redeploy-cleanup](../../includes/functions-scenario-redeploy-cleanup.md)]
 
 ## Related content
 

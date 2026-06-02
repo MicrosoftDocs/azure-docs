@@ -6,6 +6,7 @@ ms.service: azure-container-storage
 ms.topic: how-to
 ms.date: 01/28/2026
 ms.author: saurabsharma
+ms.reviewer: kendownie
 # Customer intent: "As a cloud engineer, I want to resize persistent volumes in Azure Container Storage without downtime so that I can ensure my applications have the necessary storage resources as demand increases."
 ---
 

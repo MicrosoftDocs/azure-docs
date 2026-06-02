@@ -118,7 +118,7 @@ mvn exec:java -Dexec.mainClass="FlinkTestConsumer"
 
 If the event hub has events (for example, if your producer is also running), then the consumer now begins receiving events from the topic `test`.
 
-Check out [Flink's Kafka Connector Guide](https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kafka.html) for more detailed information about connecting Flink to Kafka.
+Check out [Flink's Kafka Connector Guide](https://nightlies.apache.org/flink/flink-docs-stable/docs/connectors/datastream/kafka) for more detailed information about connecting Flink to Kafka.
 
 ## Next steps
 To learn more about Event Hubs for Kafka, see the following articles:  

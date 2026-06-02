@@ -2,11 +2,11 @@
 title: 'Quickstart: Create a private endpoint - Bicep'
 description: In this quickstart, you'll learn how to create a private endpoint using Bicep.
 services: private-link
-author: abell
+author: asudbring
 ms.service: azure-private-link
 ms.topic: quickstart
 ms.date: 03/25/2025
-ms.author: abell
+ms.author: allensu
 ms.custom: subject-armqs, mode-arm, template-concept, devx-track-bicep
 #Customer intent: As someone who has a basic network background but is new to Azure, I want to create a private endpoint using Bicep.
 # Customer intent: As a network engineer new to Azure, I want to create a private endpoint using Bicep so that I can securely connect to Azure SQL Database without exposing it to the public internet.

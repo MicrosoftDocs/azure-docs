@@ -99,7 +99,7 @@ You can create a [Speech](https://portal.azure.com/#create/Microsoft.CognitiveSe
 ## Create an Azure AI linked service in Azure Synapse
 
 1. Open your workspace in Synapse Studio.
-2. Go to **Manage** > **Linked Services**. Create an **Azure Cognitive Services** linked service by pointing to the Foundry Tool that you just created. 
+2. Go to **Manage** > **Linked Services**. Create an **Azure Cognitive Services** linked service by pointing to the Microsoft Foundry tool that you just created. 
 3. Verify the connection by selecting the **Test connection** button. If the connection is green, select **Create** and then select **Publish all** to save your change.
 
 ![Screenshot that shows Foundry Tools as a new linked service.](media/tutorial-configure-cognitive-services/tutorial-configure-cognitive-services-linked-service.png)

@@ -2,10 +2,10 @@
 title: Partnering with Azure DDoS Protection
 description: "Understand partnering opportunities enabled by Azure DDoS Protection."
 ms.service: azure-ddos-protection
-author: AbdullahBell
+author: duongau
 ms.topic: how-to
-ms.date: 03/17/2025
-ms.author: abell
+ms.date: 03/17/2026
+ms.author: duau
 # Customer intent: "As a product manager, I want to understand the integration opportunities provided by DDoS protection services, so that I can enhance my product offerings and ensure robust security against DDoS attacks for our customers."
 ---
 
@@ -62,7 +62,7 @@ The following steps are required for partners to configure integration with Azur
    > [!NOTE]
    > Only 1 DDoS Protection Plan needs to be created for a given tenant. 
 2. Deploy a service with public endpoint in your (partner) subscriptions, such as load balancer, firewalls, and web application firewall. 
-3. Enable Azure DDoS Protection on the virtual network of the service that has public endpoints using DDoS Protection Plan created in the first step. For step-by-step instructions, see [Enable DDoS Protection plan](manage-ddos-protection.md#enable-for-an-existing-virtual-network)
+3. Enable Azure DDoS Protection on the virtual network of the service that has public endpoints using DDoS Protection Plan created in the first step. For step-by-step instructions, see [Enable DDoS Protection plan](manage-ddos-protection.md#enable-ddos-protection-for-a-virtual-network)
    > [!IMPORTANT] 
    > After Azure DDoS Protection is enabled on a virtual network, all public IPs within that virtual network are automatically protected. The origin of these public IPs can be either within Azure (client subscription) or outside of Azure. 
 4. Optionally, integrate Azure DDoS Protection telemetry and attack analytics in your application-specific customer-facing dashboard. For more information about using telemetry, see [View and configure DDoS protection telemetry](telemetry.md). 
@@ -76,7 +76,7 @@ The following steps are required for partners to configure integration with Azur
 
 ### Get help
 
-- If you have questions about application, service, or product integrations with Azure DDoS Protection, reach out to the [Azure security community](https://techcommunity.microsoft.com/t5/security-identity/bd-p/Azure-Security).
+- If you have questions about application, service, or product integrations with Azure DDoS Protection, reach out to the [Azure security community](https://techcommunity.microsoft.com/blog/microsoft-security-blog/welcome-to-the-microsoft-security-community/4471927).
 - Follow discussions on [Stack Overflow](https://stackoverflow.com/tags/azure-ddos/).
 
 ### Get to market

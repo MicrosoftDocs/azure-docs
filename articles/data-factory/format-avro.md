@@ -5,7 +5,7 @@ description: This topic describes how to deal with Avro format in Azure Data Fac
 author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 01/05/2024
 ms.author: jianleishen
 ---

@@ -5,6 +5,7 @@ author: saurabh0501
 ms.service: azure-container-storage
 ms.date: 01/28/2026
 ms.author: saurabsharma
+ms.reviewer: kendownie
 ms.topic: overview
 # Customer intent: As a cloud administrator, I want to configure customer-managed keys for Azure Elastic SAN encryption when used with Azure Container Storage, so that my data management practices meet compliance requirements.
 ---
@@ -90,7 +91,7 @@ Create a YAML manifest file such as `storageclass.yaml`. Use the names and varia
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azuresan-encrypted
+  name: azuresan-csi-encrypted
 provisioner: san.csi.azure.com
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
@@ -123,7 +124,7 @@ spec:
   resources:
     requests:
       storage: 1Gi
-  storageClassName: azuresan-encrypted
+  storageClassName: azuresan-csi-encrypted
 ```
 
 Apply the manifest to create the PVC.
