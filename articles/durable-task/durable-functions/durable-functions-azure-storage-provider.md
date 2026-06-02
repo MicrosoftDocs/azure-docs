@@ -5,10 +5,10 @@ description: "Learn how the Azure Storage provider for Durable Functions stores 
 author: cgillum
 reviewer: hhunter-ms
 ms.topic: concept-article
-ms.date: 04/22/2026
+ms.date: 05/20/2026
 ms.author: azfuncdf
-ms.service: azure-functions
-ms.subservice: durable
+ms.service: durable-task
+ms.subservice: durable-functions
 ms.custom: devx-track-extended-storage
 ---
 

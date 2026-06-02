@@ -3,8 +3,9 @@ title: "Performance and Scale in Durable Functions - Azure"
 description: Explore performance and scaling in Durable Functions for Azure Functions. Learn how to tune concurrency, configure partitions, and scale workers effectively.
 author: cgillum
 ms.topic: concept-article
-ms.service: azure-functions
-ms.date: 04/22/2026
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.author: azfuncdf
 ---
 

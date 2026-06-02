@@ -4,8 +4,9 @@ description: "Create and publish a Python Durable Functions app in Azure Functio
 author: lilyjma
 ms.author: hannahhunter
 ms.topic: quickstart
-ms.service: azure-functions
-ms.date: 04/22/2026
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.reviewer: azfuncdf, lilyjma
 ms.devlang: python
 ms.custom:

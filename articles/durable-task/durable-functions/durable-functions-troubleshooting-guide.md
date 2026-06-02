@@ -3,8 +3,9 @@ title: Durable Functions Troubleshooting Guide
 description: Troubleshoot common Durable Functions issues like stuck orchestrations, slow execution, and pending states. Use these diagnostic queries and steps to resolve problems in your Azure Functions app.
 author: nytian
 ms.topic: troubleshooting
-ms.service: azure-functions
-ms.date: 03/10/2023
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.author: azfuncdf
 ---
 

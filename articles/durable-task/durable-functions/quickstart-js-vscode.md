@@ -4,8 +4,9 @@ description: "Create, test, and publish a JavaScript Durable Functions app in Az
 author: anthonychu
 ms.author: hannahhunter
 ms.topic: quickstart
-ms.service: azure-functions
-ms.date: 04/23/2026
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.reviewer: azfuncdf, antchu
 ms.devlang: javascript
 zone_pivot_groups: functions-nodejs-model

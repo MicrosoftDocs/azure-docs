@@ -4,10 +4,10 @@ titleSuffix: Durable Task
 description: "Learn how to diagnose and troubleshoot problems with Durable Functions using Application Insights, distributed tracing, and custom logging. Explore queries, debugging tips, and monitoring tools."
 author: cgillum
 ms.topic: how-to
-ms.date: 04/22/2026
+ms.date: 05/20/2026
 ms.author: azfuncdf
-ms.service: azure-functions
-ms.subservice: durable
+ms.service: durable-task
+ms.subservice: durable-functions
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
 ---
