@@ -413,7 +413,8 @@ collection = {
     "msft:short_description": "An example collection",
 }
 
-result = client.stac.create_collection(collection)
+poller = client.stac.begin_create_collection(body=collection)
+result = poller.result()
 print(f"Collection created: {result}")
 ```
 
@@ -423,13 +424,13 @@ print(f"Collection created: {result}")
 COLLECTION_ID = "example-collection"
 catalog_href = "<catalog_href>"  # Blob storage location of the STAC Catalog JSON file
 
-ingestion = client.ingestion.create_ingestion(COLLECTION_ID, {
+ingestion = client.ingestion.create(COLLECTION_ID, {
     "importType": "StaticCatalog",
     "sourceCatalogUrl": catalog_href,
     "skipExistingItems": False,
     "keepOriginalAssets": False,
 })
-ingestion_id = ingestion["ingestionId"]
+ingestion_id = ingestion.id
 print(f"Created ingestion with ID: {ingestion_id}")
 
 # Start the ingestion workflow

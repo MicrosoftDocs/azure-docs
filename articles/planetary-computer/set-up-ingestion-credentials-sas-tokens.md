@@ -250,7 +250,7 @@ client = PlanetaryComputerProClient(
 )
 
 ingestion_source = client.ingestion.create_source({
-    "sourceType": "SasToken",
+    "kind": "SasToken",
     "connectionInfo": {
         "containerUrl": CONTAINER_URL,
         "sasToken": sas_token,
