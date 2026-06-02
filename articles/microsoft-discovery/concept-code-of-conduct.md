@@ -5,7 +5,7 @@ author: reburkea
 title: Microsoft Discovery Code of Conduct
 description: Microsoft Discovery acceptable use and code of conduct 
 ms.topic: concept-article
-ms.date: 06/01/26
+ms.date: 06/01/2026
 ---
 
 # Microsoft Discovery Acceptable Use & Code of Conduct
