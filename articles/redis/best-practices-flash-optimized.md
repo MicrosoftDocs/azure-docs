@@ -25,7 +25,7 @@ Azure Managed Redis Flash Optimized uses a tiered storage approach:
 This architecture allows you to maintain caches in the terabyte range at a significantly lower cost compared to all-in-memory deployments.
 
 > [!NOTE]
-> Storing data on NVMe via Flash Optimized does **not** increase data resiliency. For durability, configure [data persistence](how-to-persistence) (RDB or AOF) in addition to Flash storage.
+> Storing data on NVMe via Flash Optimized does **not** increase data resiliency. For durability, configure [data persistence](how-to-persistence.md) (RDB or AOF) in addition to Flash storage.
 
 ## When to use Flash Optimized
 
@@ -53,7 +53,7 @@ Common use cases include:
 | A2000 | 1,920     | Public Preview |
 | A4500 | 4,500     | Public Preview |
 
-For connection limits per SKU, see [Maximum number of client connections](overview#maximum-number-of-client-connections). For pricing details, see [Azure Managed Redis Pricing](https://azure.microsoft.com/pricing/details/managed-redis/).
+For connection limits per SKU, see [Maximum number of client connections](overview.md#maximum-number-of-client-connections). For pricing details, see [Azure Managed Redis Pricing](https://azure.microsoft.com/pricing/details/managed-redis/).
 
 ## Feature support
 
@@ -81,7 +81,7 @@ The following table summarizes feature availability on the Flash Optimized tier:
 > [!IMPORTANT]
 > RedisJSON is the only module supported on the Flash Optimized tier. Active geo-replication, non-clustered mode, RediSearch/vector search, RedisBloom, and RedisTimeSeries are not supported.
 
-For a full comparison of features across all Azure Managed Redis tiers, see [What is Azure Managed Redis?](overview).
+For a full comparison of features across all Azure Managed Redis tiers, see [What is Azure Managed Redis?](overview.md).
 
 ## Best practices
 
@@ -130,7 +130,7 @@ Flash storage is for performance tiering, **not for data protection**. Configure
 
 ### Client configuration
 
-- For client timeout and connection resilience guidance, see [Connection resilience best practices](best-practices-connection).
+- For client timeout and connection resilience guidance, see [Connection resilience best practices](best-practices-connection.md).
 - Use pipelining to maximize throughput.
 - Prefer many small keys over few large keys.
 - Monitor connections, latency percentiles (especially p99), and CPU.
@@ -151,13 +151,12 @@ Very small values (where value size is close to or smaller than key name size) a
 
 ## Migration from Azure Cache for Redis
 
-If you're currently using the Enterprise Flash tier of Azure Cache for Redis, see [Migrate Enterprise tier to Azure Managed Redis](migrate/migrate-redis-enterprise-overview) for guidance on moving to Azure Managed Redis Flash Optimized.
+If you're currently using the Enterprise Flash tier of Azure Cache for Redis, see [Migrate Enterprise tier to Azure Managed Redis](migrate/migrate-redis-enterprise-overview.md) for guidance on moving to Azure Managed Redis Flash Optimized.
 
 ## Related content
 
-- [What is Azure Managed Redis?](overview)
-- [Azure Managed Redis Architecture](architecture)
-- [Choose the right tier](cache-choose-tier)
-- [Scale an Azure Managed Redis instance](how-to-scale)
-- [Data persistence in Azure Managed Redis](how-to-persistence)
-- [Best practices for Enterprise tiers](../azure-cache-for-redis/cache-best-practices-enterprise-tiers)
+- [What is Azure Managed Redis?](overview.md)
+- [Azure Managed Redis Architecture](architecture.md)
+- [Choose the right tier](cache-choose-tier.md)
+- [Scale an Azure Managed Redis instance](how-to-scale.md)
+- [Data persistence in Azure Managed Redis](how-to-persistence.md)
