@@ -2,7 +2,7 @@
 title: Resiliency support matrix
 description: Provides a summary of support settings and limitations for the Resiliency in Azure service.
 ms.topic: reference
-ms.date: 11/19/2025
+ms.date: 06/02/2026
 ms.custom:
   - references_regions
   - ignite-2023
@@ -17,8 +17,6 @@ ms.author: v-mallicka
 This article describes supportable scenarios and limitations.
 
 You can use [Resiliency](resiliency-overview.md), a cloud-native unified experience for resiliency management platform in Azure to manage your protection estate across solutions and environments. This feature helps enterprises to govern, monitor, operate, and analyze backups and replication at scale. This article summarizes the solutions and scenarios that Resiliency in Azure supports for each workload type.
-
-[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
 
 ## Supported regions
 

@@ -16,7 +16,7 @@ This platform card describes Microsoft Discovery's intended uses, capabilities, 
 
 ## What is an application or platform card?
 
-Microsoft's Application and Platform cards are intended to help you understand how our AI technology works, the choices application owners can make that influence application performance and behavior, and the importance of considering the whole application, including the technology, the people, and the environment. Application cards are created for AI applications and platform cards are created for AI platform services. These resources can support the development or deployment of your own applications and can be shared with users or stakeholders impacted by them.
+Microsoft's Application and Platform cards help you understand how our AI technology works, the choices that influence application performance, and why it's important to consider the whole system—technology, people, and environment together.Application cards are created for AI applications and platform cards are created for AI platform services. These resources can support the development or deployment of your own applications and can be shared with users or stakeholders impacted by them.
 
 As part of its commitment to responsible AI, Microsoft adheres to six core principles: fairness, reliability and safety, privacy and security, inclusiveness, transparency, and accountability. These principles are embedded in the Responsible AI Standard, which guides teams in designing, building, and testing AI applications. Application and Platform Cards play a key role in operationalizing these principles by offering transparency around capabilities, intended uses, and limitations. For further insight, readers are encouraged to explore Microsoft's Responsible AI Transparency Report and Code of Conduct, which outline how enterprise customers and individuals can engage with AI responsibly.
 
@@ -26,9 +26,9 @@ Microsoft Discovery is in Public Preview and is currently available to select cu
 
 ### Introduction
 
-Microsoft Discovery is an enterprise "agentic AI" platform designed to support scientific research and development. It helps organizations bring together domain knowledge, data, models, and computation to reason through complex problems, generate and refine hypotheses, design experiments, and analyze results. By supporting the scientific method end‑to‑end in a single environment, Microsoft Discovery addresses the fragmentation and cognitive overhead that often slow modern R&D efforts.
+Microsoft Discovery is an enterprise "agentic AI" platform designed to support scientific research and development. It brings together domain knowledge, data, models, and computation in a single environment. Organizations can use it to reason through complex problems, generate and refine hypotheses, design experiments, and analyze results. By supporting the scientific method end‑to‑end, Microsoft Discovery addresses the fragmentation and cognitive overhead that often slow modern R&D efforts.
 
-The platform uses an agentic AI architecture leveraging a graph‑based knowledge engine to drive R&D outcomes with enhanced speed, scale, and accuracy. Through a natural-language interface, users can describe objectives or questions, and the system can translate them into structured plans that draw on available tools, models, and workflows. Microsoft Discovery operationalizes the Discovery Engine which incorporates outcomes and feedback into subsequent reasoning, enabling adaptive, explainable, and repeatable research execution while keeping the user in control.
+The platform uses an agentic AI architecture leveraging a graph‑based knowledge engine to drive R&D outcomes with enhanced speed, scale, and accuracy. Through a natural-language interface, users can describe objectives or questions, and the system can translate them into structured plans that draw on available tools, models, and workflows. Microsoft Discovery operationalizes the Discovery Engine, which incorporates outcomes and feedback into subsequent reasoning. This approach enables adaptive, explainable, and repeatable research execution while keeping the user in control.
 
 ### Intended users
 
@@ -55,7 +55,7 @@ The key features and capabilities outlined here describe what Microsoft Discover
 
 ### Natural-language interface
 
-Users interact with Microsoft Discovery through a conversational assistant that understands requests in natural language and translates them into a structured plan using available tools and workflows. This helps scientists and engineers move from a research question to an actionable workflow without manually stitching together multiple systems. When needed, this Copilot can invoke integrated compute and tools (for example, simulations, database queries, or model runs) and supports iterative refinement through dialogue. This lowers the barrier to using advanced R&D tools by letting users adjust and explore workflows step‑by‑step in the same interface.
+Users interact with Microsoft Discovery through a conversational assistant that understands requests in natural language and translates them into a structured plan using available tools and workflows. This capability helps scientists and engineers move from a research question to an actionable workflow without manually stitching together multiple systems. When needed, this assistant can invoke integrated compute and tools (for example, simulations, database queries, or model runs) and supports iterative refinement through dialogue. This interaction model lowers the barrier to using advanced R&D tools by letting users adjust and explore workflows step‑by‑step in the same interface.
 
 ### Multi-agent architecture
 
@@ -79,7 +79,7 @@ Discovery is built on Azure's cutting-edge infrastructure, meaning it natively i
 
 ### Knowledge reasoning
 
-Microsoft Discovery delivers advanced knowledge reasoning by combining curated domain grounding with graph‑enhanced, AI‑driven retrieval and synthesis. At the foundation, Discovery offers a bookshelf service that allows researchers to organize and ground their work in curated collections of scientific literature, papers, and reference materials tailored to their domain. This ensures that reasoning and analysis are anchored in trusted, relevant sources from the start.
+Microsoft Discovery delivers advanced knowledge reasoning by combining curated domain grounding with graph‑enhanced, AI‑driven retrieval and synthesis. At the foundation, Discovery offers a bookshelf service that allows researchers to organize and ground their work in curated collections of scientific literature, papers, and reference materials tailored to their domain. This foundation ensures that reasoning and analysis are anchored in trusted, relevant sources from the start.
 
 Building on this, Discovery natively integrates Azure AI Search through the Foundry service, enabling fast retrieval across internal repositories, external literature, and connected databases. Users can seamlessly search across diverse knowledge sources without manual stitching or context switching.
 
@@ -136,7 +136,7 @@ Discovery operates within a secure, Azure-hosted cloud environment using Virtual
 
 Understanding Microsoft Discovery's limitations is crucial to determine it is used within safe and effective boundaries. While we encourage customers to use Discovery in their innovative solutions or applications, it's important to note that Discovery was not designed for every possible scenario. We encourage users to refer to Discovery's Code of Conduct, Microsoft Enterprise AI Services Code of Conduct (for organizations), or the Code Conduct section in the Microsoft Services Agreement (for individuals), as well as the following considerations when choosing a use case.
 
-**Automation Bias and Loop Drift**: Discovery supports semi-autonomous, agentic workflows, which introduces a risk of automation bias. This refers to the tendency to over-trust AI-generated outputs without sufficient validation. In iterative workflows, small inaccuracies can also compound over time, a phenomenon known as loop drift. Human-in-the-loop oversight is essential to ensure research stays on track and aligned with scientific intent. Use cases that cannot accommodate meaningful human review at key decision points are not well-suited for this platform in its current form.
+**Automation Bias and Loop Drift**: Discovery supports semi-autonomous, agentic workflows, which introduces a risk of automation bias. This bias refers to the tendency to over-trust AI-generated outputs without sufficient validation. In iterative workflows, small inaccuracies can also compound over time, a phenomenon known as loop drift. Human-in-the-loop oversight is essential to ensure research stays on track and aligned with scientific intent. Use cases that cannot accommodate meaningful human review at key decision points aren't well-suited for this platform in its current form.
 
 **Representation Bias**: Discovery's outputs might reflect imbalances present in the scientific literature or datasets used to train its underlying models. Discovery might overrepresent dominant research perspectives or underrepresent emerging and under-researched areas. Users should apply domain expertise and critically assess outputs, particularly when working in novel or interdisciplinary fields where representation in training data may be limited.
 
@@ -160,7 +160,7 @@ The following uses of Discovery are strictly prohibited:
 
 **Weapons Development**: Discovery may not be used to support the design, development, testing, or deployment of chemical, biological, radiological, or nuclear weapons, or any other weapons intended to cause mass harm.
 
-**Harmful Applications**: Discovery must not be used in ways that could cause physical, psychological, environmental, or financial harm to individuals, organizations, or society. This includes unsafe experimentation, misuse of outputs, or deployment in high-risk contexts without appropriate safeguards.
+**Harmful Applications**: Discovery must not be used in ways that could cause physical, psychological, environmental, or financial harm to individuals, organizations, or society. This prohibition includes unsafe experimentation, misuse of outputs, or deployment in high-risk contexts without appropriate safeguards.
 
 **Violation of Laws or Regulations**: Discovery may not be used in any manner that violates applicable laws, regulations, or industry-specific compliance requirements. Customers are responsible for ensuring their use of the platform aligns with all relevant legal and regulatory obligations.
 
@@ -211,6 +211,14 @@ For safety, the custom evaluation suite measured the system's ability to detect 
 ### Benchmarking
 
 Results were interpreted through comparative benchmarking to detect regressions and validate stability over time. Each release was assessed against two reference points: Foundry-provided baseline model behavior on a shared subset of prompts, and historical results from the prior release, enabled by the retained regression prompt set. Together, these comparisons provided a longitudinal view of whether Discovery's safety and reliability posture was improving, stable, or regressing across releases.
+
+### Limitations of evaluation methodology
+
+While this evaluation provides structured insight into Microsoft Discovery's safety and groundedness, it has several limitations. The evaluation relies on a curated and finite prompt dataset, which—despite efforts to reflect realistic and adversarial usage—cannot fully capture the breadth of real-world user interactions or emerging misuse patterns. Manual review and custom scoring introduce subjectivity and may lead to variability in interpretation across evaluators. Additionally, evaluations are conducted in controlled settings with predefined prompts and may not fully reflect dynamic, multi-turn, or tool-integrated scenarios observed in production environments.
+
+Groundedness assessments are limited to available context and retrieval quality at evaluation time, and may not generalize to all content sources or evolving datasets. Another limitation is that GPT-5.2 and GPT-5.4 were used as the evaluation model, meaning the assessment results may be influenced by the evaluator model's own capabilities, reasoning behavior, sensitivity to risk, and potential biases. As a result, findings should be interpreted as model-assisted evaluation outcomes rather than absolute judgments of safety or correctness across all evaluator models.
+
+Finally, benchmarking against prior runs and baseline models can help detect regressions and relative improvements, but it does not guarantee absolute safety, groundedness, or correctness under all conditions.
 
 ## Safety components and mitigations
 
@@ -283,9 +291,9 @@ Monitor for performance drift:  Because output quality and groundedness depend o
 - If you update the knowledge base (add/remove documents), treat that as a "version change" and re-check critical workflows.
 - For high-impact work, use human review and a second method of validation (domain expert review, independent calculation/simulation, or controlled test runs).
 
-Exercise human oversight when appropriate:  Human oversight is an important safeguard when interacting with AI applications. While we continuously improve our AI applications, AI might still make mistakes. The outputs generated may be inaccurate, incomplete, biased, misaligned, or irrelevant to your intended goals. This could happen due to various reasons, such as ambiguity in the inputs or limitations of the underlying models. As such, users should review the responses generated by Discovery and verify that they match their expectations and requirements.
+Exercise human oversight when appropriate:  Human oversight is an important safeguard when interacting with AI applications. While we continuously improve our AI applications, AI might still make mistakes. The outputs generated may be inaccurate, incomplete, biased, misaligned, or irrelevant to your intended goals. This situation could happen due to various reasons, such as ambiguity in the inputs or limitations of the underlying models. As such, users should review the responses generated by Discovery and verify that they match their expectations and requirements.
 
-Be aware of the risk of overreliance:  Overreliance can occur when users accept incorrect or incomplete AI outputs, mainly because mistakes in AI outputs may be hard to detect. These types of outputs are usually a result of when the underlying evidence is incomplete or not clearly grounded. With Discovery, this risk can increase in long, iterative workflows (where small errors can compound) and in scenarios where knowledge base coverage is limited. Treat outputs as decision support, not decision replacement, especially for consequential decisions.
+Be aware of the risk of overreliance:  Overreliance can occur when users accept incorrect or incomplete AI outputs, mainly because mistakes in AI outputs may be hard to detect. These inaccurate outputs are usually a result of when the underlying evidence is incomplete or not clearly grounded. With Discovery, this risk can increase in long, iterative workflows (where small errors can compound) and in scenarios where knowledge base coverage is limited. Treat outputs as decision support, not decision replacement, especially for consequential decisions.
 
 Exercise caution when designing agentic AI in sensitive domains:  If you design or deploy autonomous/agentic workflows that can trigger irreversible or high-impact actions (for example, in regulated or safety-critical domains), add safeguards such as approval gates, least-privilege access, audit logs, and constrained action scopes. Ensure impacted stakeholders can understand how outcomes were reached and can challenge or appeal decisions where applicable. Additional precautions should also be taken when creating autonomous agentic AI as described further in either the Microsoft Enterprise AI Services Code of Conduct (for organizations) or the Code Conduct section in the Microsoft Services Agreement (for individuals).
 
