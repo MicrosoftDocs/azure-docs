@@ -28,7 +28,7 @@ After hosting your MCP server remotely on Azure Functions, register it on Azure 
 
 1. Open the server app in the [Azure portal](https://portal.azure.com) and select the **AI (preview)** tab.
 
-1. In the **MCP server** tab, select **Connect Azure API Center** in the **Azure API Center** section.
+1. Select **Connect Azure API Center** in the **Azure API Center** section.
 
 1. In the side pane that opens, either choose an existing API Center or create a new one. Fill out the required fields.
 
@@ -36,7 +36,7 @@ After hosting your MCP server remotely on Azure Functions, register it on Azure 
 
 ## Publish the API Center portal
 
-If your API Center portal isn't already published, publish it so your team can discover the registered server.
+If your API Center portal isn't already published, publish it so your team can discover the registered server:
 
 1. Select the API Center name to go to the resource.
 
@@ -50,6 +50,6 @@ If your API Center portal isn't already published, publish it so your team can d
 
 1. In the portal that opens, sign in with your email. Depending on your tenant's policy, you might need admin approval to grant consent.
 
-After signing in, you should see the server listed in the API Center portal. Select the server name to see details, including the server endpoint.
+After signing in, you should see the server listed in the API Center portal. Click into the server to see details, including the server endpoint.
 
 

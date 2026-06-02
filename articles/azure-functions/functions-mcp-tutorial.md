@@ -259,7 +259,7 @@ func start
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 ## Test the server
 
-1. Find the `.vscode` directory and open `mcp.json`. The editor should add the server's connection info.  
+1. Open `.vscode/mcp.json`. The editor should add the server's connection info.  
 
 1. Start the server by selecting the **Start** button above server name.
 
@@ -282,9 +282,9 @@ Create a function app in the Flex Consumption plan in Azure that hosts your MCP 
 [!INCLUDE [functions-create-flex-consumption-app-portal-full](../../includes/functions-create-flex-consumption-app-portal-full.md)] 
 
 ## Deploy the MCP server project 
-
+::: zone-end  
+::: zone pivot="programming-language-csharp,programming-language-typescript" 
 ### [MCP extension server](#tab/mcp-extension)
-[!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
 ### [Self-hosted server](#tab/self-hosted)
 Before deploying the server, add the required app settings: 
@@ -299,23 +299,43 @@ Before deploying the server, add the required app settings:
     ```shell
     az functionapp config appsettings set --name <function-app-name> --resource-group <resource-group-name> --settings "AzureWebJobsFeatureFlags=EnableMcpCustomHandlerPreview"
     ```
-::: zone-end  
-::: zone pivot="programming-language-python" 
-
-3. Python apps also require you to add this app setting:
-
-    `PYTHONPATH=/home/site/wwwroot/.python_packages/lib/site-packages`.  
-
-::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
-Now you can deploy the server project:
-
-[!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 
 ---
 
+Deploy the server project:
+
+[!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
+::: zone-end  
+::: zone pivot="programming-language-python" 
+### [MCP extension server](#tab/mcp-extension)
+
+### [Self-hosted server](#tab/self-hosted)
+Before deploying the server, add the required app settings: 
+
+1. Sign in to your account and select your subscription: 
+
+    ```shell
+    az login
+    ```
+1. Add the setting `AzureWebJobsFeatureFlags` (plural) to the app with the value `EnableMcpCustomHandlerPreview`: 
+
+    ```shell
+    az functionapp config appsettings set --name <function-app-name> --resource-group <resource-group-name> --settings "AzureWebJobsFeatureFlags=EnableMcpCustomHandlerPreview"
+    ```
+1. Python apps also require you to add this app setting:
+
+    `PYTHONPATH=/home/site/wwwroot/.python_packages/lib/site-packages`.  
+
+---
+
+Deploy the server project:
+
+[!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
+::: zone-end  
+::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 When deployment finishes, you should see a notification in Visual Studio Code about connecting to the server. Select the **Connect** button to have the editor set up server connection information in `mcp.json`.
 ::: zone-end  
+
 ## Remote MCP server authorization 
 
 There are two ways to reduce or prevent unauthorized use of your remote MCP server endpoints: 
@@ -330,15 +350,15 @@ There are two ways to reduce or prevent unauthorized use of your remote MCP serv
 
 ## Enable built-in MCP authentication in Azure portal 
 
-The Azure portal provides a one-click experience to configure built-in authentication and authorization for your MCP server. This preview feature automatically creates and configures Microsoft Entra ID as the identity provider, registers the required client applications, and adds the required app settings for you.
+The Azure portal provides a one-click experience to configure built-in authentication and authorization for your MCP server. This **preview** feature automatically creates and configures Microsoft Entra ID as the identity provider, registers the required client applications, and adds the required app settings for you. Turning on built-in MCP auth using this feature will **automatically** turn off the default key-based access to the server.
 
-Turning on built-in MCP auth using this feature will **automatically** turn off the default key-based access to the server. 
+To enable built-in MCP auth in the portal:  
 
 1. Open your server app in the Azure portal.
 
 1. On the left menu, find the **AI (preview)** tab.
 
-1. Find the **Authentication** section in the _MCP server_ tab. Click **Turn on MCP authentication**. 
+1. Find the **Authentication** section, then click **Turn on MCP authentication**. 
 
 1. In the opened side pane, enter a unique Entra app registration name. This app is required to set up authentication. 
 
@@ -349,7 +369,7 @@ Turning on built-in MCP auth using this feature will **automatically** turn off 
 
 ## Connect to server
 
-Open `mcp.json` inside the `.vscode` directory.
+Open `.vscode/mcp.json`.
 
 When you select **Connect** in the pop-up after deployment, Visual Studio Code populates the file with server connection information. 
 
@@ -388,7 +408,7 @@ You can also manually add connection information:
 
 Follow the instructions in the next section to connect to server depending on how you configured the authentication.
 
-### With built-in authentication and authorization 
+### With built-in MCP auth
 
 1. Start the remote server by selecting the **Start** button above the server name. 
 
@@ -404,10 +424,10 @@ To understand in detail what happens when Visual Studio Code tries to connect to
 
 ### With access key
 
-If you don't enable built-in authentication and authorization and instead want to connect to your MCP server by using an access key, the `mcp.json` should contain Functions access key in the request headers of a server registration. 
+If you don't enable built-in MCP auth, your server should be using access key by default. Include the access key in the request header of your server registration. 
 
 ### [MCP extension server](#tab/mcp-extension)
-The `mcp.json` file should look like the following example: 
+The `./vscode/mcp.json` file should look like the following example: 
 
 ```json
 {
@@ -440,7 +460,7 @@ The `mcp.json` file should look like the following example:
 To find the access key, go to the Function app on Azure portal. On the left menu, find **Functions -> App keys**. Under the System keys section, find the one named _mcp_extension_. 
 
 ### [Self-hosted server](#tab/self-hosted)
-The `mcp.json` file should look like the following example: 
+The `./vscode/mcp.json` file should look like the following example: 
 
 ```json
 {
@@ -481,11 +501,11 @@ To find the access key, go to the Function app on Azure portal. On the left menu
 
 ## Configure Microsoft Foundry agent to use your tools
 
-You can configure an agent in Microsoft Foundry to use the tools exposed by your MCP server hosted on Azure Functions. For step-by-step instructions, see [Use Azure Functions MCP servers as tools in Microsoft Foundry](functions-mcp-foundry-tools.md).
+You can configure a Foundry agent to use the tools in your server, not just Copilot in VSCode. For step-by-step instructions, see [Use Azure Functions MCP servers as tools in Microsoft Foundry](functions-mcp-foundry-tools.md).
 
 ## Register the server in Azure API Center
 
-You can register your MCP server in Azure API Center to maintain an inventory of remote MCP servers that are easily discoverable across your organization. For step-by-step instructions, see [Register MCP servers hosted in Azure Functions in Azure API Center](register-mcp-server-api-center.md).
+Consider registering your MCP server in Azure API Center to maintain an inventory of remote MCP servers that are easily discoverable across your organization. For step-by-step instructions, see [Register MCP servers hosted in Azure Functions in Azure API Center](register-mcp-server-api-center.md).
 
 ## Manually configure built-in authentication
 
@@ -497,7 +517,7 @@ When enabling built-in auth, disable the default key-based authentication first 
 [!INCLUDE [functions-mcp-extension-disable-key-access](../../includes/functions-mcp-extension-disable-key-access.md)]
 
 ### [Self-hosted server](#tab/self-hosted)
-[!INCLUDE [functions-self-hosted-disable-key-access](../../includes/functions-self-hosted-disable-key-access.md)]
+[!INCLUDE [functions-mcp-custom-handler-disable-key-access](../../includes/functions-mcp-custom-handler-disable-key-access.md)]
 
 ---
 
