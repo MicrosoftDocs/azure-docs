@@ -3,7 +3,7 @@ groups:
 # Owner: lilyjma
 - id: connector-namespace-hosted-servers
   title: Hosted server
-  prompt: Choose a hosted server
+  prompt: Choose server you want to host
   pivots:
   - id: playwright
     title: Playwright
