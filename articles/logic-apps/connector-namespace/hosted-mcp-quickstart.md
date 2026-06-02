@@ -19,7 +19,7 @@ zone_pivot_groups: connector-namespace-hosted-servers
 > This preview feature is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this quickstart, you create a hosted MCP server in Azure Connector Namespace and connect it to MCP clients. 
+In this quickstart, you create a hosted MCP server in Azure Connector Namespace and connect it to MCP clients. Use the server selector at the top of this page to choose the server you want to deploy.
 
 ## Connector Namespace and hosted MCP server
 
