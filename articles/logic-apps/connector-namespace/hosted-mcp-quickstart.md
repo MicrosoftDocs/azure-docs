@@ -83,12 +83,12 @@ This file is required by the server.
    dab init --database-type "mssql" --host-mode "Development" --graphql.enabled false --rest.enabled false --connection-string "<your-sql-connection-string>"
    ```
 
-   Since the server will access the underlying database using a system assigned managed identity (SAMI), the connection string should be the following:
+   Since the server will access the underlying database using a system assigned managed identity (SAMI), the connection string should look like the following:
 
    ```bash
    Server=<your-sql-server>.database.windows.net;Database=<your-database>;Authentication=Active Directory Default;Encrypt=True;TrustServerCertificate=False;
    ``` 
-1. Add the **Books** entity (table): 
+1. Add the **Books** entity (table) and related permission: 
 
    ```bash
    dab add Books --source "dbo.Books" --permissions "anonymous:*"
