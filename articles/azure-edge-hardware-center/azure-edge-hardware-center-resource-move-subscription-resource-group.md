@@ -2,11 +2,11 @@
 title: Move Azure Edge Hardware Center resource across subscriptions, resource groups
 description: Use the Azure portal to move an Azure Edge Hardware Center resource to another subscription or a resource group.
 services: Azure Edge Hardware Center
-author: mike-mackenzie
+author: soumya-jain19
 ms.service: azure-edge-hardware-center
 ms.topic: how-to
 ms.date: 01/03/2022
-ms.author: mmackenzie
+ms.author: sojain
 ms.custom: sfi-image-nochange
 ---
 
