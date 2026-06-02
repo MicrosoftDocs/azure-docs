@@ -3,7 +3,10 @@ title: Assess AI Assets in Your API Center
 description: Learn how to enable AI skill assessments in Azure API Center to evaluate the quality of skills in your plugins. 
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 05/08/2026
+ms.date: 06/01/2026
+ms.author: danlep
+author: dlepow
+ms.collection: ce-skilling-ai-copilot
 ---
 
 ## Assess AI assets (preview)
@@ -22,7 +25,7 @@ To enable automated assessments of AI assets in your inventory:
     
     The following screenshot shows default criteria for skills:
 
-    :::image type="content" source="media/assess-ai-assets/skill-assessment.png" alt-text="Screenshot of Configuration of AI skill assessment in the portal." :::
+    :::image type="content" source="media/assess-ai-assets/skill-assessment.png" alt-text="Screenshot of configuration of AI skill assessment in the portal." lightbox="media/assess-ai-assets/skill-assessment.png":::
     - Add one or more custom criteria.
         1. Select **+ Add criteria**. 
         1. Enter a **Name** and optional **Assessment instruction** for the criterion.

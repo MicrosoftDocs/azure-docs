@@ -32,7 +32,7 @@ To register a plugin in your API center:
 1. In the sidebar menu, under **Inventory**, select **Assets**.
 1. Select **+ Register an asset** > **Plugin**.
 
-    :::image type="content" source="media/register-discover-plugins/register-plugin.png" alt-text="Screenshot of registering a plugin in the portal.":::
+    :::image type="content" source="media/register-discover-plugins/register-plugin.png" alt-text="Screenshot of registering a plugin in the portal." lightbox="media/register-discover-plugins/register-plugin.png":::
 1. In the **Register a plugin** form, enter the information described in the following table:
 
     | Field | Description |
