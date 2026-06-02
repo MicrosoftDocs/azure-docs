@@ -214,7 +214,7 @@ To add the trigger event that starts your workflow, follow these steps:
 
 1. Use search or browse the triggers or trigger groups. Select the trigger that you want for your scenario.
 
-   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/empty-designer.png" alt-text="Screenshot that shows the empty Logic Apps Automation workflow designer and the Add a trigger pane." lightbox="media/quickstart-create-dynamic-workflow-automation/empty-designer.png":::
+   :::image type="content" source="media/quickstart-create-dynamic-automation-workflows/empty-designer.png" alt-text="Screenshot that shows the empty Logic Apps Automation workflow designer and the Add a trigger pane." lightbox="media/quickstart-create-dynamic-automation-workflows/empty-designer.png":::
 
    After you select the trigger, the trigger information box opens so you can provide the trigger inputs and configure settings.
 

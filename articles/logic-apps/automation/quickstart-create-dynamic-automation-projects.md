@@ -56,8 +56,6 @@ To create a container for your applications and control who has access, follow t
 
 1. Go to the [Logic Apps Automation portal](https://auto.azure.com), and sign in with your Azure account.
 
-   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/logic-apps-automation-portal.png" alt-text="Screenshot that shows the Logic Apps Automation portal." lightbox="media/quickstart-create-dynamic-workflow-automation/logic-apps-automation-portal.png":::
-
 1. On the home page, under **Get started**, select **Create a project**.
 
    The Azure portal opens and shows the **Automation Projects** page so you can create your automation project.
@@ -75,7 +73,7 @@ To create a container for your applications and control who has access, follow t
 
    For example:
 
-   :::image type="content" source="media/quickstart-create-dynamic-workflow-automation/create-automation-project.png" alt-text="Screenshot that shows the Azure portal and page to create an automation project." lightbox="media/quickstart-create-dynamic-workflow-automation/create-automation-project.png":::
+   :::image type="content" source="media/quickstart-create-dynamic-automation-projects/create-automation-project.png" alt-text="Screenshot that shows the Azure portal and page to create an automation project." lightbox="media/quickstart-create-dynamic-automation-projects/create-automation-project.png":::
 
 1. Select **Review + create** > **Create**.
 
