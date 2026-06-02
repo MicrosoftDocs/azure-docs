@@ -106,9 +106,9 @@ public static class ToDoTrigger
         foreach (SqlChange<ToDoItem> change in changes)
         {
             ToDoItem toDoItem = change.Item;
-            logger.LogInformation($"Change operation: {ChangeOperation}", change.Operation);
-            logger.LogInformation($"Id: {Id}, Title: {Title}, Url: {Url}, Completed: {Completed}",
-                todoItem.Id, todoItem.Title, todoItem.Url, todoItem.Completed);
+            logger.LogInformation("Change operation: {ChangeOperation}", change.Operation);
+            logger.LogInformation("Id: {Id}, Title: {Title}, Url: {Url}, Completed: {Completed}",
+                toDoItem.Id, toDoItem.Title, toDoItem.Url, toDoItem.Completed);
         }
     }
 }
@@ -163,9 +163,10 @@ public static class ToDoTrigger
         foreach (SqlChange<ToDoItem> change in changes)
         {
             ToDoItem toDoItem = change.Item;
-            logger.LogInformation($"Change operation: {ChangeOperation}", change.Operation);
-            logger.LogInformation($"Id: {Id}, Title: {Title}, Url: {Url}, Completed: {Completed}",
-                todoItem.Id, todoItem.Title, todoItem.Url, todoItem.Completed);
+            logger.LogInformation("Change operation: {ChangeOperation}", change.Operation);
+            logger.LogInformation("Id: {Id}, Title: {Title}, Url: {Url}, Completed: {Completed}",
+                toDoItem.Id, toDoItem.Title, toDoItem.Url, toDoItem.Completed);
+
         }
     }
 }
@@ -192,20 +193,20 @@ import java.util.UUID;
 
 public class ToDoItem {
     public UUID Id;
-    public int Order;
-    public String Title;
-    public String Url;
-    public boolean Completed;
+    public int order;
+    public String title;
+    public String url;
+    public boolean completed;
 
     public ToDoItem() {
     }
 
-    public ToDoItem(UUID Id, int Order, String Title, String Url, boolean Completed) {
+    public ToDoItem(UUID Id, int order, String title, String url, boolean completed) {
         this.Id = Id;
-        this.Order = Order;
-        this.Title = Title;
-        this.Url = Url;
-        this.Completed = Completed;
+        this.order = order;
+        this.title = title;
+        this.url = url;
+        this.completed = completed;
     }
 }
 ```
