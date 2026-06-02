@@ -8,6 +8,7 @@ ms.date: 05/21/2026
 ms.topic: quickstart
 ms.service: azure-logic-apps
 ms.custom: ai-assisted
+zone_pivot_groups: connector-namespace-hosted-servers
 # Customer intent: As a developer, I want to create a hosted MCP server in my connector namespace so that AI agents and MCP-aware clients can discover and call tools without managing infrastructure.
 ---
 
@@ -24,7 +25,7 @@ In this quickstart, you create a hosted MCP server in Azure Connector Namespace 
 
 Azure Connector Namespace is a fully managed service that hosts connectors, connections, triggers, and MCP servers. Within a namespace, an *MCP server* is a first-class resource that exposes tools to AI agents over the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/).
 
-When you create a [hosted MCP servers](./connector-namespace-hosted-mcp.md) in Connector Namespace, the platform runs a pre-built image of the server in dedicated compute that it provisions. You control server configuration, environment variables, and parameters, while the namespace handles hosting, scaling, and credential management. AI agents like Copilot, custom agents, or any MCP-aware client discover and call the server's tools using the namespace's connection model.  
+When you create a [hosted MCP server](./connector-namespace-hosted-mcp.md) in Connector Namespace, the platform runs a pre-built image of the server in dedicated compute that it provisions. You control server configuration, environment variables, and parameters, while the namespace handles hosting, scaling, and credential management. AI agents like Copilot, custom agents, or any MCP-aware client discover and call the server's tools using the namespace's connection model.  
 
 Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overview.md#key-concepts), which are platform-managed implementations built on connectors. The namespace handles tool definitions and configuration for managed servers.
 
@@ -38,31 +39,162 @@ Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overv
 
 - An existing Connector Namespace resource. If you don't have one, [create a connector namespace](create-connector-namespace.md).
 
-- An existing Application Insights resource. If you don't have one, [create an application insights](/azure/azure-monitor/app/create-workspace-resource#create-an-application-insights-resource).
+- An existing Application Insights resource. If you don't have one, [create an Application Insights resource](/azure/azure-monitor/app/create-workspace-resource#create-an-application-insights-resource).
+
+::: zone pivot="sql"
+
+- An Azure SQL Database server with a database. If you don't have one, [create an Azure SQL database](azure/azure-sql/database/scripts/create-and-configure-database-cli).
+
+- The [Data API builder (DAB) CLI](/azure/data-api-builder/quickstart/basic-sql.md#install-the-data-api-builder-cli) installed.
+
+## Seed the SQL database
+
+1. In the Azure Portal, navigate to your SQL Database (*not* the server).
+
+1. On the left menu, click **Query editor** and sign in as the database admin.
+
+1. Click **New query** and run the following to seed the database:
+
+   ```sql
+   CREATE TABLE dbo.Books
+   (
+      Id int IDENTITY(1,1) PRIMARY KEY,
+      Title nvarchar(200) NOT NULL
+   );
+
+   INSERT INTO dbo.Books (Title) VALUES (N'The little prince');
+   INSERT INTO dbo.Books (Title) VALUES (N'Pride and prejudice');
+   ```
+
+## Generate the Data API Builder (DAB) configuration file 
+
+This file is required by the server. 
+
+1. Generate a DAB configuration file for your database, enabling only MCP: 
+
+   ```bash
+   dab init --database-type "mssql" --host-mode "Development" --graphql.enabled false --rest.enabled false --connection-string "<your-sql-connection-string>"
+   ```
+
+   Since the server will access the underlying database using a system assigned managed identity (SAMI), the connection string should be the following:
+
+   ```bash
+   Server=<your-sql-server>.database.windows.net;Database=<your-database>;Authentication=Active Directory Default;Encrypt=True;TrustServerCertificate=False;
+   ``` 
+1. Add the **Books** entity (table): 
+
+   ```bash
+   dab add Books --source "dbo.Books" --permissions "anonymous:*"
+   ```
+
+   For details on configuring entities and permissions, see [Data API builder authorization](azure/data-api-builder/concept/security/authorization-overview).
+
+   Example configuration file:
+   ```json
+   {
+      "$schema": "https://github.com/Azure/data-api-builder/releases/download/v1.7.93/dab.draft.schema.json",
+      "data-source": {
+         "database-type": "mssql",
+         "connection-string": "Server=<your-sql-server>.database.windows.net;Database=<your-database>;Authentication=Active Directory Default;Encrypt=True;TrustServerCertificate=False;",
+         "options": {
+            "set-session-context": false
+         }
+      },
+      "runtime": {
+         "rest": {
+            "enabled": false,
+            "path": "/api",
+            "request-body-strict": true
+         },
+         "graphql": {
+            "enabled": false,
+            "path": "/graphql",
+            "allow-introspection": true
+         },
+         "mcp": {
+            "enabled": true,
+            "path": "/mcp"
+         },
+         "host": {
+            "cors": {
+               "origins": [],
+               "allow-credentials": false
+            },
+            "authentication": {
+               "provider": "AppService"
+            },
+            "mode": "development"
+         }
+      },
+      "entities": {
+         "Books": {
+            "source": {
+               "object": "dbo.Books",
+               "type": "table"
+            },
+            "graphql": {
+               "enabled": true,
+               "type": {
+                  "singular": "Books",
+                  "plural": "Books"
+               }
+            },
+            "rest": {
+               "enabled": true
+            },
+            "permissions": [
+               {
+                  "role": "anonymous",
+                  "actions": [
+                     {
+                     "action": "*"
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   }
+   ```
+::: zone-end
 
 ## Create a hosted MCP server
 
-This quickstart uses Playwright as the example, but the process is generally the same for other hosted MCP servers. A few servers require additional configuration artifacts during deployment. For details, see [Server deployment requirements](connector-namespace-hosted-mcp.md#server-deployment-requirements).
-
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to your **Connector Namespace** resource.
+1. Search for your **Connector Namespace** resource.
 
 1. Select **Connect to Namespace** to open the connector namespace portal in a new browser tab.
 
 1. When redirected, sign in by using your Microsoft account associated with the connector namespace.
 
-1. In the namespace instance, select **Create MCP connector**. 
+1. Inside the namespace instance, look for the **MCP connector** section and click the **+ Create** button. 
 
-1. Search for **Playwright**.
+::: zone pivot="playwright"
+
+1. Search for **Playwright** and pick the server to be deployed.
+
+::: zone-end
+
+::: zone pivot="sql"
+
+1. Search for **Azure SQL** and pick the server to be deployed.
+
+1. In the creation window, select **Manage Identity** for Outbound Authentication method.  
+
+1. Upload the DAB configuration file generated earlier.
+
+1. Click **Create**.
+
+::: zone-end
 
 1. Wait for the required connection and server to be provisioned and deployed.
 
-Don't close the pop-up after server is deployed. You'll set up an application insights resource to collect telemetry from your server. 
+Don't close the create pop-up after server is deployed. You'll set up an Application Insights resource to collect telemetry from your server. 
 
 ### Enable monitoring on the server
 
-1. Open another tab to [get the connection string](/azure/azure-monitor/app/create-workspace-resource#get-the-connection-string) of your application insights resource on Azure portal.
+1. Open another tab to [get the connection string](/azure/azure-monitor/app/create-workspace-resource#get-the-connection-string) of your Application Insights resource on Azure portal.
 
 1. Go back to the namespace portal and click **Enable monitoring**.
 
@@ -70,13 +202,24 @@ Don't close the pop-up after server is deployed. You'll set up an application in
 
 1. Click **Done** when app insights is configured.  
 
-### Get server endpoint
+You should be automatically directed to the deployed server's **Overview** page where you can find the endpoint. If not, click on the **MCP Connectors** tab on the left menu and find the server you deployed. 
 
-1. Go to the **MCP Connectors** tab on the left menu.
+::: zone pivot="sql"
 
-1. Click the name of the server you deployed.
+### Grant the namespace identity access to the database
 
-1. Copy the endpoint from the top.
+The hosted SQL server uses the namespace's system-assigned managed identity to connect to your database. Go to your SQL database on the Azure portal, open the **Query editor** and run the following to grant the managed identity access:
+
+```sql
+CREATE USER [<your-connector-namespace-name>] FROM EXTERNAL PROVIDER;
+ALTER ROLE db_datareader ADD MEMBER [<your-connector-namespace-name>];
+ALTER ROLE db_datawriter ADD MEMBER [<your-connector-namespace-name>];
+GRANT VIEW DEFINITION TO [<your-connector-namespace-name>];
+```
+
+Replace `<your-namespace-name>` with the name of your Connector Namespace resource.
+
+::: zone-end
 
 ### Connect from GitHub Copilot in Visual Studio Code
 
@@ -93,13 +236,23 @@ Don't close the pop-up after server is deployed. You'll set up an application in
    }
    ```
 
-   Replace `<your-mcp-endpoint-url>` with the endpoint URL you copied from the server details page. 
+   Replace `<your-mcp-endpoint-url>` with the endpoint URL you copied from the server's **Overview** page. 
 
 1. Select **Start** above the server name. You're asked to authenticate with Microsoft. Sign in with the email you used to sign in to the Azure portal.
 
 1. You should see the number of tools available above the server name.
 
+::: zone pivot="playwright"
+
 1. Open Copilot agent mode, ask "What is the closest pizzeria to 11 Times Square?" 
+
+::: zone-end
+
+::: zone pivot="sql"
+
+1. Open Copilot agent mode, ask "What tables are available and what data is in them?"
+
+::: zone-end
 
 ### Connect from MCP Inspector 
 
@@ -129,6 +282,8 @@ Don't close the pop-up after server is deployed. You'll set up an application in
 
    You should see the list of tools this server supports. 
 
+::: zone pivot="playwright"
+
 1. Call a specific tool. For example, the following calls the `browser_navigate` tool: 
 
    ```bash
@@ -141,12 +296,43 @@ Don't close the pop-up after server is deployed. You'll set up an application in
    --header "Authorization: Bearer $MCP_TOKEN"
    ```
 
+::: zone-end
+
+::: zone pivot="sql"
+
+1. Call a specific tool. For example, the following calls the `describe_entities` tool to list available tables or entities:
+
+   ```bash
+   npx @modelcontextprotocol/inspector --cli \
+   "<your-mcp-endpoint-url>" \
+   --transport http \
+   --method tools/call \
+   --header "Authorization: Bearer $MCP_TOKEN" \
+   --tool-name describe_entities \
+   --tool-arg 'nameOnly=true'
+   ```
+
+1. Call the `read_records` tool to retrieve records from an entity (`Books`):
+
+   ```bash
+   npx @modelcontextprotocol/inspector --cli \
+   "<your-mcp-endpoint-url>" \
+   --transport http \
+   --method tools/call \
+   --header "Authorization: Bearer $MCP_TOKEN" \
+   --tool-name read_records \
+   --tool-arg 'entity=Books' \
+   --tool-arg 'first=2'
+   ```
+
+::: zone-end
+
 > [!IMPORTANT]
 > Manually passing access tokens is suitable only for local development and testing. For production scenarios, use managed identities or OAuth flows to acquire tokens automatically.
 
 ## Viewing server logs 
 
-1. Go to the Azure portal and find the application insights resource you configured with the MCP server. 
+1. Go to the Azure portal and find the Application Insights resource you configured with the MCP server. 
 
 1. On the left menu, find **Investigate -> Search**. 
 

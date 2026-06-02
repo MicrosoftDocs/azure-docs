@@ -76,23 +76,23 @@ Hosted MCP servers involve two authentication boundaries: *inbound* (client to s
 
 ### Inbound authentication
 
-Inbound authentication secures the connection between MCP clients and the hosted server. The namespace provides OAuth-based authentication with Microsoft Entra ID. 
+Inbound authentication secures the connection *between MCP clients and the hosted server*. The namespace provides OAuth-based authentication with Microsoft Entra ID. 
 
 Connections from GitHub Copilot in Visual Studio Code work out-of-the-box. Connections from other MCP clients require additional configuration.
 
 ### Outbound authentication
 
-Outbound authentication secures the connection between the hosted server and the downstream service it interacts with. Servers generally use one of two mechanisms:
+Outbound authentication secures the connection *between the hosted server and the downstream service* it interacts with. Servers generally use one of two mechanisms:
 
 - **Managed identity** — The server authenticates to the downstream service using a managed identity assigned by the namespace. No credential management is required.
 - **On-behalf-of (OBO)** — The server uses the calling user's identity to authenticate to the downstream service, enabling delegated access scenarios.
 
-#### Managed identity requirement
+If you choose managed identity as the outbound authentication method, you can use either **system-assigned managed identity (SAMI)** or **user-assigned managed identity (UAMI)**. You can enable SAMI during namespace creation so the namespace if automatically assigned a managed identity. Alternatively, you can bring your own UAMI and **add** it to the namespace.
 
-If you choose managed identity as the outbound authentication method, the identity must be assigned to the connector namespace. Generally speaking, you can use either:
+When deciding what to use, consider that SAMI is tied to the lifecyle of the namespace so it's gone with the namespace is deleted. On the other hand, UAMI is its own resource and can be reused even when the namespace is deprovisioned. 
 
-- A **system-assigned managed identity**, which is automatically created during namespace creation.
-- A **user-assigned managed identity** that you assign to the namespace.
+>[!IMPORTANT]
+>When using **user-assigned managed identity**, you MUST add that identity to the namespace. Otherwise the server won't be able to access downstream service using the managed identity.  
 
 ## Considerations
 
