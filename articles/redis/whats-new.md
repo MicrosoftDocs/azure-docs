@@ -1,7 +1,7 @@
 ---
 title: What's new in Azure Managed Redis
 description: Recent updates for Azure Managed Redis
-ms.date: 04/14/2026
+ms.date: 05/29/2026
 ms.topic: whats-new
 ms.custom:
   - references_regions
@@ -21,16 +21,19 @@ Find out what's new in Azure Managed Redis.
 
 You can now assign per-user Redis ACL permissions by using custom access strings on access policy assignments. Control which commands and keys each user can access, enabling fine-grained data access control for your cache. For more information, see [Configure custom data access permissions (preview)](configure-access-permissions.md).
 
+### General Availability for some Flash Optimized SKUs
+
+Azure Managed Redis Flash Optimized A250, A500, A700, A1000, and A1500 are now generally available (GA). For a complete list of the status of SKUs, see [Tiers and SKUs at a glance](overview.md#tiers-and-skus-at-a-glance).
+
 ## April 2026
 
 ### Dashboards with Grafana
 
-*Dashboards with Grafana* in Azure Managed Redis bring Azure Monitor's built-in Grafana experience directly into the Azure portal. You can create and customize Grafana dashboards by using your Azure Managed Redis metrics and logs without deploying a separate Azure Managed Grafana instance. For more information, see [Dashboards with Grafana in Azure Managed Redis](grafana-dashboards.md).
+_Dashboards with Grafana_ in Azure Managed Redis bring Azure Monitor's built-in Grafana experience directly into the Azure portal. You can create and customize Grafana dashboards by using your Azure Managed Redis metrics and logs without deploying a separate Azure Managed Grafana instance. For more information, see [Dashboards with Grafana in Azure Managed Redis](grafana-dashboards.md).
 
 ### Keyspace notifications (preview)
 
 In preview in Azure Managed Redis, Redis keyspace notifications allow clients to subscribe to Pub/Sub channels to receive events that affect the data set in the cache. For more information, see [Enable Redis keyspace notifications (preview)](enable-redis-keyspace-notifications.md).
-
 
 ### General Availability for M/B/X 350 SKUs (350 GB)
 
