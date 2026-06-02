@@ -24,7 +24,7 @@ items:
   - name: Model Context Protocol servers
     href: scenario-ai-model-context-protocol-server.md
   - name: Built-in MCP (Preview)
-    href: configure-built-in-mcp.md
+    href: configure-mcp-built-in.md
   - name: MCP hosting options
     href: /azure/container-apps/mcp-choosing-azure-service?toc=/azure/app-service/toc.json&bc=/azure/app-service/breadcrumb/toc.json
   - name: Local small language models

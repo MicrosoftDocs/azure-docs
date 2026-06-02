@@ -67,7 +67,7 @@ If your app is an existing REST API with an OpenAPI 3.x specification, App Servi
 
 Built-in MCP is a good fit when you want to expose an existing API to MCP clients quickly, when you want the platform to keep up with MCP protocol updates, or when you want to integrate with [App Service Authentication](overview-authentication-authorization.md) without writing OAuth code.
 
-For configuration steps, supported limits, and the management surface, see [Configure App Service built-in MCP](configure-built-in-mcp.md).
+For configuration steps, supported limits, and the management surface, see [Configure App Service built-in MCP](configure-mcp-built-in.md).
 
 ## Get started with tutorials
 
@@ -87,7 +87,7 @@ For configuration steps, supported limits, and the management surface, see [Conf
 
 ## Related content
 
-- [Configure App Service built-in MCP (Preview)](configure-built-in-mcp.md)
+- [Configure App Service built-in MCP (Preview)](configure-mcp-built-in.md)
 - [Integrate AI into your Azure App Service applications](overview-ai-integration.md)
 - [Secure a Model Context Protocol server in Azure App Service](configure-authentication-mcp.md)
 - [Secure Model Context Protocol calls to Azure App Service from Visual Studio Code with Microsoft Entra authentication](configure-authentication-mcp-server-vscode.md)

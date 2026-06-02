@@ -122,7 +122,7 @@ If your App Service app already exposes a REST API with an OpenAPI 3.x specifica
 
 Use built-in MCP when you don't want to take a code dependency on an MCP SDK, or when you want the platform to keep up with MCP protocol updates.
 
-- [Configure App Service built-in MCP (Preview)](/azure/app-service/configure-built-in-mcp)
+- [Configure App Service built-in MCP (Preview)](/azure/app-service/configure-mcp-built-in)
 
 ### Create lightweight, event-driven tool endpoints
 
@@ -162,7 +162,7 @@ For a hybrid scenario where you want the Container Apps managed experience on yo
 Use these questions to narrow your choice:
 
 1. **Do you need sandboxed code execution for untrusted or LLM-generated code?** Use Azure Container Apps dynamic sessions.
-1. **Do you already have a web app running on App Service?** Add the MCP SDK to your existing App Service app, or use [App Service built-in MCP (Preview)](/azure/app-service/configure-built-in-mcp) if your app already exposes a REST API with an OpenAPI spec.
+1. **Do you already have a web app running on App Service?** Add the MCP SDK to your existing App Service app, or use [App Service built-in MCP (Preview)](/azure/app-service/configure-mcp-built-in) if your app already exposes a REST API with an OpenAPI spec.
 1. **Do you need event-driven, per-invocation tool execution?** Use Azure Functions.
 1. **Do you need full container control, custom languages, or a microservices architecture?** Use Azure Container Apps (standalone).
 1. **Do you already run workloads on AKS and need full Kubernetes API access?** Use Azure Kubernetes Service (AKS).
@@ -174,7 +174,7 @@ Use these questions to narrow your choice:
 - [Azure Container Apps overview](overview.md)
 - [Dynamic sessions in Azure Container Apps](sessions.md)
 - [Azure App Service overview](/azure/app-service/overview)
-- [Configure App Service built-in MCP (Preview)](/azure/app-service/configure-built-in-mcp)
+- [Configure App Service built-in MCP (Preview)](/azure/app-service/configure-mcp-built-in)
 - [Azure Functions overview](/azure/azure-functions/functions-overview)
 - [Connect an MCP server on Azure Functions to a Foundry Agent Service agent](/azure/azure-functions/functions-mcp-foundry-tools)
 - [Azure Kubernetes Service (AKS) overview](/azure/aks/intro-kubernetes)
