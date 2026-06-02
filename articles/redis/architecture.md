@@ -7,7 +7,6 @@ ai-usage: ai-assisted
 ms.custom:
   - ignite-2024
   - build-2025
-
 appliesto:
   - ✅ Azure Managed Redis
 ---
@@ -122,8 +121,6 @@ This table shows a general example of the relationship of _Size_ to _vCPUs/prima
 | 720 ¹     | 24/24                |
 
 ¹ The ratio of vCPUs to primary shards at a given tier size doesn't represent a guarantee for the SKU or tier.
-
-<!-- ² These tiers are in public preview. -->
 
 [!INCLUDE [tier-preview](includes/tier-preview.md)]
 

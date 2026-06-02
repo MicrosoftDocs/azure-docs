@@ -61,7 +61,6 @@ Here's the tier that stores data both in memory and on disk:
 
     :::image type="content" source="media/overview/flash-tier.png" alt-text="An image of a table that shows Flash Optimized tiers in a table showing storage usage." lightbox="media/overview/flash-tier-large.png":::
 
-
 You can also use the [data persistence](how-to-persistence.md) feature to store data on-disk for the in-memory tiers. Data persistence stores a backup copy of data on-disk for quick recovery if you experience  an unexpected outage. Data persistence is different from the Flash Optimized tier, which is designed to store data on-disk for typical operations.
 
 Storing some data on-disk by using the Flash Optimized tier doesn't increase data resiliency. You can use data persistence on the Flash Optimized tier as well.
@@ -143,7 +142,7 @@ This table shows the max connections by tier and memory size in the Memory Optim
 | 1920 *    | 200,000             | -        | -                    |
 | 4500 *    | -                   | -        | -                    |
 
-\* The sizes with an asterisk are in Public Preview.
+\* The sizes with an asterisk are in preview.
 
 #### Flash Optimized SKU
 
@@ -159,11 +158,11 @@ This table shows the max connections by tier and memory size in the Flash optimi
 | 1920 *    | 200,000            |
 | 4500 *    | 200,000            |
 
-\* The sizes with an asterisk are in Public Preview.
+\* The sizes with an asterisk are in preview.
 
 ### High availability
 
-Azure Managed Redis provides high availability. The SLA only covers connectivity to the cache endpoints. The SLA doesn't cover protection from data loss. For more information on the SLA, see the [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). You can disable high availability in an Azure Managed Redis instance. Disabling high availability lowers the price but results in data loss and downtime. Only disable high availability for dev/test scenarios.
+Azure Managed Redis provides high availability to the cache endpoints. For more information on the SLA, see the [SLA](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). You can disable high availability in an Azure Managed Redis instance. Disabling high availability lowers the price but results in data loss and downtime. Only disable high availability for dev/test scenarios.
 
 ### Other pricing considerations
 

@@ -8,6 +8,7 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2024
   - build-2025
+ai-usage: ai-assisted
 ms.devlang: csharp
 appliesto:
   - ✅ Azure Managed Redis
@@ -15,11 +16,11 @@ appliesto:
 
 # Scale an Azure Managed Redis instance
 
-Azure Managed Redis offers different SKUs and tiers, so you can choose the cache size and performance that fits your needs. You can scale to a larger memory size or switch to a tier with more compute performance. You can also scale down to a smaller or more appropriate tier. This article shows you how to scale your cache by using the Azure portal and tools such as Azure PowerShell and Azure CLI.
+Azure Managed Redis offers different SKUs and tiers, so you can choose the cache size and performance that fit your needs. You can scale to a larger memory size or switch to a tier with more compute performance. You can also scale down to a smaller or more appropriate tier. This article shows you how to scale your cache by using the Azure portal and tools such as Azure PowerShell and Azure CLI.
 
 > [!NOTE]
 > Because each tier of Azure Managed Redis has almost the same features, use scaling mainly to change memory and performance characteristics.
-Scaling geo-replicated Azure Managed Redis caches is in public preview.
+> Scaling geo-replicated Azure Managed Redis caches is in preview.
 >
 
 ## Types of scaling
@@ -39,6 +40,7 @@ Four tiers of Azure Managed Redis are available, each with different performance
 ### Tiers and SKUs at a glance
 
 Here are three tiers that store data in memory:
+
 - **Memory Optimized** Ideal for memory-intensive use cases that require a high memory-to-vCPU ratio (8:1) but don't need the highest throughput performance. It provides a lower price point for scenarios where less processing power or throughput is necessary, making it an excellent choice for development and testing environments.
 - **Balanced (Memory + Compute)** Offers a balanced memory-to-vCPU (4:1) ratio, making it ideal for standard workloads. This tier provides a healthy balance of memory and compute resources.
 - **Compute Optimized** Designed for performance-intensive workloads requiring maximum throughput, with a low memory-to-vCPU (2:1) ratio. It's ideal for applications that demand the highest performance.
@@ -46,10 +48,10 @@ Here are three tiers that store data in memory:
     :::image type="content" source="media/how-to-scale/sku-tiers.png" alt-text="An image of a table that shows a comparison of skus and tiers." lightbox="media/how-to-scale/sku-tiers-large.png":::
 
 Here's the tier that stores data both in memory and on disk:
+
 - **Flash Optimized** Enables Redis clusters to automatically move less frequently accessed data from memory (RAM) to NVMe storage. This reduction in performance allows for cost-effective scaling of caches with large datasets.
 
   :::image type="content" source="media/overview/flash-tier.png" alt-text="An image of a table that shows Flash Optimized tiers in a table showing storage usage." lightbox="media/overview/flash-tier-large.png":::
-
 
 ## Performance (Throughput and Latency)
 
@@ -92,7 +94,7 @@ This section describes how to scale an Azure Managed Redis cache.
 
 ### Scale by using the Azure portal
 > [!NOTE]
-> Scaling geo-replicated Azure Managed Redis caches remains in public preview.
+> Scaling geo-replicated Azure Managed Redis caches remains in preview.
 >
 
 1. To scale your cache, [browse to the cache](configure.md#configure-azure-managed-redis-settings) in the [Azure portal](https://portal.azure.com) and select **Scale** from the Resource menu.
@@ -180,7 +182,7 @@ For more information on how Azure Managed Redis handles sharding, see [Sharding 
 
 ### Are there scaling limitations with geo-replication?
 
-Scaling geo-replicated caches is in public preview. When you configure [active geo-replication](how-to-active-geo-replication.md), you can't mix and match cache sizes in a geo-replication group. As a result, scaling the caches in a geo-replication group requires a few more steps. See [Scaling instances in a geo-replication group](how-to-active-geo-replication.md#scaling-instances-in-a-geo-replication-group) for instructions. 
+Scaling geo-replicated caches is in preview. When you configure [active geo-replication](how-to-active-geo-replication.md), you can't mix and match cache sizes in a geo-replication group. As a result, scaling the caches in a geo-replication group requires a few more steps. See [Scaling instances in a geo-replication group](how-to-active-geo-replication.md#scaling-instances-in-a-geo-replication-group) for instructions.
 
 Scaling down to a smaller memory size or smaller shard count isn't supported for geo-replicated caches. For more information, see [How many shards does each Azure Managed Redis SKU use](how-to-scale.md#how-many-shards-does-each-azure-managed-redis-sku-use) to find out shards in your cluster.
 
@@ -221,7 +223,7 @@ For more information, see [Keys distribution model](https://redis.io/topics/clus
 
 The largest cache size you can have is 4.5 TB, called Flash Optimized A4500 instance. [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
 
-### Why can only I scale down to a subset of smaller SKUs?
+### Why can I only scale down to a subset of smaller SKUs?
 
 To maintain compatibility with number of shards and vCPU, you're allowed to scale down only to certain SKUs. You can see which SKUs your Redis instance can scale down to by checking the available options in the Scale section of the Azure portal. You can also run the following CLI command.
 
