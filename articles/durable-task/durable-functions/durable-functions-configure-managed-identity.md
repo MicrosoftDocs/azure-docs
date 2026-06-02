@@ -3,8 +3,9 @@ title: "Configure Durable Functions App With Managed Identity"
 description: "Learn how to configure a Durable Functions app with managed identity for secure, secret-free access to Azure Storage. Follow this quickstart to set up identity-based connections."
 author: naiyuantian
 ms.topic: quickstart
-ms.service: azure-functions
-ms.date: 04/23/2026
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.author: azfuncdf
 ---
 

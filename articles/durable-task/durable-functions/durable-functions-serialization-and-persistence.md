@@ -3,8 +3,9 @@ title: "Data Persistence and Serialization in Durable Functions - Azure"
 description: "Learn how Durable Functions persists and serializes data in Azure Functions. Discover best practices for handling large payloads, sensitive data, and custom serialization to optimize performance."
 author: cgillum
 ms.topic: concept-article
-ms.service: azure-functions
-ms.date: 04/23/2026
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.author: azfuncdf
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python

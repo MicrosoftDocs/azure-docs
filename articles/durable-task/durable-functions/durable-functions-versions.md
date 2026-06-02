@@ -3,8 +3,9 @@ title: "Durable Functions versions and migration guide - Azure Functions"
 description: "Compare Durable Functions v1.x, v2.x, and v3.x. Learn what's new in each version and how to migrate between them."
 author: cgillum
 ms.topic: overview
-ms.service: azure-functions
-ms.date: 04/27/2026
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.author: azfuncdf
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 # CustomerIntent: As a developer using Durable Functions, I want to understand the differences between extension versions so that I can upgrade and take advantage of new features.

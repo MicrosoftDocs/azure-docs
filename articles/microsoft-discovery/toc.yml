@@ -32,9 +32,6 @@ items:
       - name: Quickstart - First set of Agent and investigation
         href: quickstart-agents-studio.md
         displayName: Microsoft Discovery, quickstart, project, studio, getting started
-      - name: Quickstart - Add agents using bundles
-        href: quickstart-agents-bundles.md
-        displayName: Microsoft Discovery, quickstart, agents, bundles, hello discovery, getting started
   - name: Plan and prepare
     items:
       - name: Onboarding prerequisites

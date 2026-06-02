@@ -19,7 +19,7 @@ Microsoft Discovery and the Discovery app share core concepts and features such 
 
 ## Positioning at a glance
 
-| Dimension | Microsoft Discovery | Microsoft Discovery app |
+| Dimension | Microsoft Discovery app | Microsoft Discovery |
 |-----------|---------------------|-------------------------|
 | **Primary Purpose** | Individuals and scientific community | Production-grade, governed R&D |
 | **Deployment Model** | Local | Cloud-based, enterprise deployment |

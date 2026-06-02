@@ -3,8 +3,9 @@ title: "Quickstart: Create a C# Durable Functions App in Azure"
 description: Learn how to create and publish a C# Durable Functions app in Azure using Visual Studio or Visual Studio Code. Build stateful serverless orchestrations today.
 author: lilyjma
 ms.topic: quickstart
-ms.service: azure-functions
-ms.date: 04/22/2026
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
 ms.devlang: csharp

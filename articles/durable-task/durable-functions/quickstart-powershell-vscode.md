@@ -4,8 +4,9 @@ description: "Learn how to create, test, and publish a PowerShell Durable Functi
 author: anthonychu
 ms.author: hannahhunter
 ms.topic: quickstart
-ms.service: azure-functions
-ms.date: 07/24/2024
+ms.service: durable-task
+ms.subservice: durable-functions
+ms.date: 05/20/2026
 ms.reviewer: azfuncdf, antchu
 ms.devlang: powershell
 ms.custom: mode-api, vscode-azure-extension-update-complete
