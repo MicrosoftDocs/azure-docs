@@ -19,7 +19,7 @@ ms.custom:
 >
 > This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Logic Apps Automation help you build dynamic, unpredictable, AI-driven workflows that adapt at runtime, rather than follow fixed paths or branches. This article compares Logic Apps Automation with Azure Logic Apps, Microsoft Copilot Studio, and other automation platforms so you can choose the best option for your business needs.
+Logic Apps Automation helps you build dynamic, unpredictable, AI-driven workflows that adapt at runtime, rather than follow fixed paths or branches. This article compares Logic Apps Automation with Azure Logic Apps, Microsoft Copilot Studio, and other automation platforms so you can choose the best option for your business needs.
 
 ## What makes Logic Apps Automation different
 

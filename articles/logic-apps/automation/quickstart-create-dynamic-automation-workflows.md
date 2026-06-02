@@ -256,8 +256,8 @@ After the trigger fires, an action performs a specific task in the workflow. To 
 
    For this example, the **Response** action sends the following information back to the caller:
 
-   | Parameter | Value |
-   |-----------|-------|
+   | Parameter | Value | Description |
+   |-----------|-------|-------------|
    | **Status** | `200` | Acknowledges that your workflow received and successfully processed the request. |
    | **Body** | `Hello, we received your request!` | Responds with a greeting and confirmation message.|
 
