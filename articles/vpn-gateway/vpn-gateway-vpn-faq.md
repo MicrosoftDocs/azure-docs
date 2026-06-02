@@ -55,7 +55,7 @@ For more information about VPN gateway connections, see [What is Azure VPN Gatew
 * *Point-to-site* (VPN over SSTP) configurations let you connect from a single computer from anywhere to anything located in your virtual network. It uses the Windows built-in VPN client.
 
   As part of the point-to-site configuration, you install a certificate and a VPN client configuration package. The package contains the settings that allow your computer to connect to any virtual machine or role instance within the virtual network.
-  
+
   This configuration is useful when you want to connect to a virtual network but aren't located on-premises. It's also a good option when you don't have access to VPN hardware or an externally facing IPv4 address, both of which are required for a site-to-site connection.
 
 You can configure your virtual network to use both site-to-site and point-to-site concurrently, as long as you create your site-to-site connection by using a route-based VPN type for your gateway. Route-based VPN types are called *dynamic gateways* in the classic deployment model.
@@ -332,7 +332,7 @@ RADIUS authentication is supported for the OpenVPN protocol.
 
 ## <a name="V2VMulti"></a>VNet-to-VNet and multi-site connections
 
-[!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-faq-vnet-vnet-include.md)] 
+[!INCLUDE [vpn-gateway-vnet-vnet-faq-include](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ### How do I configure a cross tenant scenario?
 
