@@ -72,7 +72,7 @@ Outbound authentication secures the connection *between the hosted server and th
 
 ## Integration with Application Insights 
 
-Deployed servers can be configured with an Azure Application Insights resource to collect logs and telemetry. Once configured, the namespace automatically forwards server telemetry to Application Insights, giving you visibility into request traces and errors. For setup instructions, see [Configure Application Insights](hosted-mcp-dev-guide.md#configure-application-insights).
+Deployed servers can be configured with an Azure Application Insights resource to collect logs and telemetry. Once configured, the namespace automatically forwards server telemetry to Application Insights, giving you visibility into request traces and errors. For setup instructions, see [Configure Application Insights](hosted-mcp-dev-guide.md#integration-with-application-insights).
 
 ## Considerations
 

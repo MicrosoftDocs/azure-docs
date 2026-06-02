@@ -46,9 +46,9 @@ Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overv
 
 ::: zone pivot="sql"
 
-- An Azure SQL Database server with a database. If you don't have one, [create an Azure SQL database](azure/azure-sql/database/scripts/create-and-configure-database-cli).
+- An Azure SQL Database server with a database. If you don't have one, [create an Azure SQL database](/azure/azure-sql/database/scripts/create-and-configure-database-cli).
 
-- [Data API builder (DAB) CLI](/azure/data-api-builder/quickstart/basic-sql.md#install-the-data-api-builder-cli) installed.
+- [Data API builder (DAB) CLI](/azure/data-api-builder/how-to-install-cli) installed.
 
 ::: zone-end
 
@@ -92,7 +92,7 @@ This file is required by the server.
    dab add Books --source "dbo.Books" --permissions "anonymous:*"
    ```
 
-   For details on configuring entities and permissions, see [Data API builder authorization](azure/data-api-builder/concept/security/authorization-overview).
+   For details on configuring entities and permissions, see [Data API builder authorization](/azure/data-api-builder/concept/security/authorization-overview).
 
    Example configuration file:
    ```json
