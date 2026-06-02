@@ -89,10 +89,10 @@ items:
         items:
           - name: Discovery Agent concepts
             href: concept-discovery-agent.md
-            displayName: Discovery Agent, prompt agent, workflow agent, multi-agent orchestration
+            displayName: Discovery Agent, prompt agent, Discovery app, Microsoft Discovery, multi-agent orchestration
           - name: Discovery Agent types
             href: concept-discovery-agent-types.md
-            displayName: Discovery Agent, agent types, prompt agent, workflow agent, orchestration
+            displayName: Discovery Agent, agent types, prompt agent, Discovery app, Discovery Engine, orchestration
       - name: Tools & Models
         items:
           - name: Discovery Supercomputer and model execution
@@ -162,7 +162,7 @@ items:
         items:
           - name: Create agents
             href: how-to-agent-creation.md
-            displayName: Microsoft Discovery, agents, prompt agent, workflow agent, create, author
+            displayName: Microsoft Discovery, agents, prompt agent, Discovery app, create, author
           - name: Select models for agents
             href: how-to-select-models-for-agents.md
             displayName: Microsoft Discovery, model selection, GPT-5, OpenAI, agent model, cost, performance
