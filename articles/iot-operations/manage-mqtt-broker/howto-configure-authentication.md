@@ -138,7 +138,7 @@ If you need to make changes, modify the `authenticationMethods` field in this re
 
 The order of the specified authentication methods determines how the MQTT broker authenticates clients. The MQTT broker tries to authenticate the client's credentials by using the first specified method and iterates through the specified methods until it finds a match or reaches the end.
 
-For each method, the MQTT broker first checks if the client's credentials are relevant for that method. For example, SAT authentication requires a username starting with `K8S-SAT`, and X.509 authentication requires a client certificate. If the client's credentials are relevant, the MQTT broker then verifies if they're valid. For more information, see the [Configure authentication method](#configure-authentication-method) section.
+For each method, the MQTT broker first checks if the client's credentials are relevant for that method. For example, SAT authentication requires the username `K8S-SAT`, and X.509 authentication requires a client certificate. If the client's credentials are relevant, the MQTT broker then verifies if they're valid. For more information, see the [Configure authentication method](#configure-authentication-method) section.
 
 For custom authentication, the MQTT broker treats failure to communicate with the custom authentication server as *credentials not relevant*. This behavior lets the MQTT broker fall back to other methods if the custom authentication server is unreachable.
 
