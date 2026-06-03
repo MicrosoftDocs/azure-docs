@@ -4,7 +4,7 @@ description: "Quickstart: Configure devices, assets, and data flows in your clus
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
-ms.date: 07/18/2025
+ms.date: 06/03/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange

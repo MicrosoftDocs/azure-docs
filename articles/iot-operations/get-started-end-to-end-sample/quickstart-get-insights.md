@@ -4,7 +4,7 @@ description: "Quickstart: Use a real-time dashboard to capture insights from the
 author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
-ms.date: 01/28/2025
+ms.date: 06/03/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -38,16 +38,26 @@ In this section, you set up a Microsoft Fabric *eventstream* to connect your eve
 
 In this section, you create an eventstream to bring your data from Event Hubs into Microsoft Fabric Real-Time Intelligence, and eventually into a KQL database.
 
-Start by navigating to the [Real-Time hub in Microsoft Fabric](https://app.fabric.microsoft.com/workloads/oneriver/hub?experience=fabric-developer). 
+Start by navigating to the [Real-Time hub in Microsoft Fabric](https://app.fabric.microsoft.com/workloads/oneriver/hub?experience=fabric-developer).
 
-Add your event hub as a data source for a new eventstream. For detailed instructions, see [Get events from Azure Event Hubs into Real-time hub](/fabric/real-time-hub/add-source-azure-event-hubs#microsoft-sources-page). As you add the data source, keep the following notes in mind:
+Add your event hub as a data source for a new eventstream.
 
+Make sure that **Fabric** is selected at the bottom of the left-hand navigation pane, and then select **Real-Time** from the left-hand navigation pane. Next, under **Streaming data** on the **Real-Time hub** pane, select **Add data**. When the **Add data** pane opens, select  the **Azure** tab at the top and then hover over your event hub namespace in the list of resources and select the **Connect data source icon** to open **Configure connection settings**.
+
+:::image type="content" source="media/quickstart-get-insights/add-event-hub-data-source.png" alt-text="Screenshot of how to select an event hub namespace to connect to an eventstream.":::
+
+On **Configure connection settings**, fill in the following details to connect your event hub as a data source for your eventstream.
+
+* Select *destinationeh* from the drop-down for your event hub resource.
+* Select *RootManageSharedAccessKey* from the drop-down for the event hub key.
 * Edit the **Eventstream name** to something friendly in the **Stream details** pane.
-* Select **New connection** and enter the Event Hubs namespace and Event Hub name (destinationeh) that you created in the previous quickstart.
-* Under **Connection credentials**, make sure that **Authentication kind** is set to  *Shared Access Key* and enter *RootManageSharedAccessKey* as the **Shared Access Key name**. Then, copy the **Primary key** of the **RootManageSharedAccessKey** policy of your Event Hubs namespace from the Azure portal and paste it into the **Shared Access Key value** field. You can find the key under **Settings > Shared access policies > RootManageSharedAccessKey > Primary key**.
-    * Make sure local authentication is enabled on your Event Hubs namespace. You can set this authentication from the namespace's Overview page in the Azure portal.
 * For **Consumer group**, use the default selection (*$Default*).
 * For **Data format**, use the default selection (*Json*).
+
+> [!NOTE]
+> Make sure local authentication is enabled on your Event Hubs namespace. You can set this authentication from the namespace's Overview page in the Azure portal.
+
+:::image type="content" source="media/quickstart-get-insights/configure-data-source-connection.png" alt-text="Screenshot of Configure connection settings.":::
 
 After connecting the eventstream, use the **Open Eventstream** button to see it in the authoring canvas. The stream from your Azure event hub is visible as an eventstream source.
 

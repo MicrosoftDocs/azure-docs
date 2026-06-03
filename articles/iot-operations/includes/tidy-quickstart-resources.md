@@ -3,7 +3,7 @@ title: include file
 description: include file
 author: dominicbetts
 ms.topic: include
-ms.date: 10/22/2024
+ms.date: 06/03/2026
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.custom:

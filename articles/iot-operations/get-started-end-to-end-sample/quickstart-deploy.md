@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 05/15/2026
+ms.date: 06/03/2026
 
 #CustomerIntent: As an OT user, I want to deploy Azure IoT Operations to a Kubernetes cluster so that I can begin building an end-to-end data scenario.
 ---
