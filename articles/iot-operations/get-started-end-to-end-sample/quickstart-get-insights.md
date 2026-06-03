@@ -38,16 +38,16 @@ In this section, you set up a Microsoft Fabric *eventstream* to connect your eve
 
 In this section, you create an eventstream to bring your data from Event Hubs into Microsoft Fabric Real-Time Intelligence, and eventually into a KQL database.
 
-Before proceeding, make sure local authentication is enabled on your Event Hubs namespace. You can set this authentication from the namespace's Overview page in the Azure portal.
+Before proceeding, make sure local authentication is enabled on your Event Hubs namespace. You can set this authentication from the namespace's **Overview** page in the Azure portal.
 
 1. Navigate to the [Real-Time hub in Microsoft Fabric](https://app.fabric.microsoft.com/workloads/oneriver/hub?experience=fabric-developer).
 
-1.Add your event hub as a data source for a new eventstream.
+1. Add your event hub as a data source for a new eventstream.
 
-    1. Make sure that **Fabric** is selected at the bottom of the left-hand navigation pane, and then select **Real-Time**. 
+    1. Make sure that **Fabric** is selected at the bottom of the left-hand navigation pane, and then select **Real-Time**.
     1. Under **Streaming data** on the **Real-Time hub** pane, select **Add data**.
-    1. When the **Add data** pane opens, select  the **Azure** tab at the top. 
-    1. In the list of sources, hover over your event hub namespace and select the **Connect data source icon** to open **Configure connection settings**.
+    1. When the **Add data** pane opens, select  the **Azure** tab at the top.
+    1. In the list of sources, hover over your event hub namespace and select the **Connect data source** icon to open **Configure connection settings**.
 
     :::image type="content" source="media/quickstart-get-insights/add-event-hub-data-source.png" alt-text="Screenshot of how to select an event hub namespace to connect to an eventstream.":::
 
