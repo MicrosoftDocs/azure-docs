@@ -32,7 +32,7 @@ No single view that answers "How is my agent doing?" You end up clicking through
 
 Operations Hub combines monitoring into three tabs accessible from the sidebar. Select **Operations Hub** in the left sidebar to open the dashboard.
 
-:::image type="content" source="media/screenshots/opshub-overview-tab.png" alt-text="Screenshot of the Operations Hub Overview tab showing the status bar, metrics chart, and Pending Actions and System Health sections.":::
+:::image type="content" source="media/operations-hub/operations-hub-overview-tab.png" alt-text="Screenshot of the Operations Hub Overview tab showing the status bar, metrics chart, and pending actions and System Health sections." lightbox="media/operations-hub/operations-hub-overview-tab.png":::
 
 ### Overview tab
 
@@ -58,7 +58,7 @@ An interactive analytics dashboard with four KPI cards:
 | **Median Time to Mitigate** | P50 comparison, agent resolution time vs. human resolution time |
 | **IntentMet evaluation score** | Quality rating (1-5 scale with star visualization) based on how effectively the agent resolved incidents |
 
-:::image type="content" source="media/screenshots/opshub-incident-analytics.png" alt-text="Screenshot of the Incident Analytics tab showing four KPI cards for time saved, resolution rate, median time to mitigate, and IntentMet score.":::
+:::image type="content" source="media/operations-hub/operations-hub-incident-analytics.png" alt-text="Screenshot of the Incident Analytics tab showing four KPI cards for time saved, resolution rate, median time to mitigate, and IntentMet score." lightbox="media/operations-hub/operations-hub-incident-analytics.png":::
 
 Select any KPI card to expand a drill-down view with detailed charts. Below the KPI cards, the **Incident Volume & Outcomes** chart shows incident trends over time.
 
@@ -73,7 +73,7 @@ A dashboard for monitoring scheduled tasks and HTTP triggers:
 | **Success Rate** | Percentage of successful runs with succeeded/failed counts |
 | **Avg Run Duration** | Mean execution time with median and P95 percentiles |
 
-:::image type="content" source="media/screenshots/opshub-automation-tab.png" alt-text="Screenshot of the Automation tab showing four KPI cards and the Automation Overview list with individual automation entries.":::
+:::image type="content" source="media/operations-hub/operations-hub-automation-tab.png" alt-text="Screenshot of the Automation tab showing four KPI cards and the Automation Overview list with individual automation entries." lightbox="media/operations-hub/operations-hub-automation-tab.png":::
 
 Below the KPI cards, the **Automation Overview** section lists each automation with its type (Scheduled Task or HTTP Trigger), schedule, autonomy mode, run count, and success rate. Expand any card to see an AI-generated summary of recent executions.
 
