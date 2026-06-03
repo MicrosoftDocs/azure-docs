@@ -10,7 +10,6 @@ ms.date: 05/20/2026
 ms.reviewer: azfuncdf
 ms.devlang: java
 ms.custom: devx-track-extended-java
-zone_pivot_groups: create-java-durable-options
 ---
 
 # Quickstart: Create a Java Durable Functions app
@@ -25,12 +24,6 @@ A basic Durable Functions app has three functions:
 * **Activity function** (`Capitalize`): A function that the orchestrator calls to perform work and return a value.
 * **Client function** (`StartOrchestration`): An HTTP-triggered function that starts the orchestrator.
 
-This quickstart offers three setup paths. Use the selector at the top of the page to choose your preferred approach:
-
-- **Manual setup**: Create each file by hand for full control over the project structure.
-- **Maven command**: Use a Maven archetype to scaffold the project in one command.
-- **Visual Studio Code**: Use the VS Code Azure Functions extension to generate the project through a guided UI.
-
 ## Prerequisites
 
 To complete this quickstart, you need:
@@ -44,14 +37,10 @@ To complete this quickstart, you need:
   For Azure Functions _4.x_, Core Tools version 4.0.4915 or later is required.
 
 * An HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](../../azure-functions/functions-develop-local.md#http-test-tools).
-
-* [Visual Studio Code](https://code.visualstudio.com/) with the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed (required only for the **Visual Studio Code** setup path).
  
 * An Azure subscription. To use Durable Functions, you must have an Azure Storage account.
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
-
-::: zone pivot="create-option-manual-setup"
 
 ## Add required dependencies and plugins to your project
 
@@ -245,8 +234,6 @@ The sample uses the Durable Task Scheduler emulator as its storage backend. This
   }
 }
 ```
-
-::: zone-end
 
 ## Test the function locally
 
