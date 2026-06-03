@@ -96,7 +96,7 @@ https://myvault.vault.azure.net/secrets/my-github-app-key/<version>
 1. Open your agent.
 1. Go to **Builder** > **Code Access**.
 
-:::image type="content" source="media/screenshots/byo-code-access-page.png" alt-text="Screenshot of the Code Access page under Builder navigation in Azure SRE Agent.":::
+:::image type="content" source="media/setup-github-byo-app/byo-code-access-page.png" alt-text="Screenshot of the Code Access page under Builder navigation in Azure SRE Agent." lightbox="media/setup-github-byo-app/byo-code-access-page.png":::
 
 1. Select **Add repositories**.
 1. Choose **GitHub** and enter the host:
@@ -105,7 +105,7 @@ https://myvault.vault.azure.net/secrets/my-github-app-key/<version>
 1. Continue to **Authenticate**.
 1. Select **Bring your own GitHub App**.
 
-:::image type="content" source="media/screenshots/byo-auth-form.png" alt-text="Screenshot of the BYO GitHub App authentication form showing Client ID and Key Vault URI fields.":::
+:::image type="content" source="media/setup-github-byo-app/byo-auth-form.png" alt-text="Screenshot of the BYO GitHub App authentication form showing Client ID and Key Vault URI fields." lightbox="media/setup-github-byo-app/byo-auth-form.png":::
 
 1. Enter:
    - **Client ID**
@@ -115,7 +115,7 @@ https://myvault.vault.azure.net/secrets/my-github-app-key/<version>
 
 The wizard validates your credentials. When successful, you see **Connected as GitHub App** with a green checkmark.
 
-:::image type="content" source="media/screenshots/byo-auth-connected.png" alt-text="Screenshot of the Connected as GitHub App success state with a green checkmark.":::
+:::image type="content" source="media/setup-github-byo-app/byo-auth-connected.png" alt-text="Screenshot of the Connected as GitHub App success state with a green checkmark." lightbox="media/setup-github-byo-app/byo-auth-connected.png":::
 
 > [!NOTE]
 > If you see the green checkmark and **Connected as GitHub App**, your credentials are valid. If **Connect** fails, verify your Client ID, Key Vault URI, and managed identity permissions.
@@ -129,11 +129,11 @@ If **Code Access** doesn't open from left navigation, refresh the agent page, ex
 
 1. Select repositories and save.
 
-:::image type="content" source="media/screenshots/byo-add-repositories.png" alt-text="Screenshot of the repository selection step showing available repositories to add.":::
+:::image type="content" source="media/setup-github-byo-app/byo-add-repositories.png" alt-text="Screenshot of the repository selection step showing available repositories to add." lightbox="media/setup-github-byo-app/byo-add-repositories.png":::
 
 1. Confirm the **Code Access** card shows connected host and auth type `GitHubApp`.
 
-:::image type="content" source="media/screenshots/byo-code-access-configured.png" alt-text="Screenshot of code access page showing connected GitHub host with GitHubApp auth type.":::
+:::image type="content" source="media/setup-github-byo-app/byo-code-access-configured.png" alt-text="Screenshot of code access page showing connected GitHub host with GitHubApp auth type." lightbox="media/setup-github-byo-app/byo-code-access-configured.png":::
 
 1. Test code access in chat:
 
@@ -171,8 +171,3 @@ Disconnecting one host doesn't affect others.
 | Secret read fails | Missing Key Vault RBAC or access policy | Grant Key Vault Secrets User to agent identity. If using Key Vault access policies, grant **Get** permission on secrets. |
 | Repo shows Failed in Code Access | Missing app permissions or install scope | Verify Metadata: Read + Contents: Read and installation scope. |
 | Chat issues work but Code Access fails | Endpoint/path checks differ | Rerun connection test and verify metadata permission. |
-
-## Related content
-
-- [Managed connectors](managed-connectors.md)
-- [MCP server](mcp-server.md)
