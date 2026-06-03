@@ -16,7 +16,7 @@ Application Gateway for Containers allows you to rewrite the URL of a client req
 
 ## Usage details
 
-URL Rewrites take advantage of [filters](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.HTTPURLRewriteFilter) as defined by Kubernetes Gateway API.
+URL Rewrites take advantage of [filters](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#httpurlrewritefilter) as defined by Kubernetes Gateway API.
 
 ## Background
 

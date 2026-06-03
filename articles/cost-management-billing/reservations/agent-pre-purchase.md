@@ -24,6 +24,12 @@ Your Microsoft Agent prepurchase plan automatically uses your ACUs to pay for el
 :::image type="content" source="./media/agentprepurchase/services-covered-screenshot-v3.jpg" alt-text="Screenshot showing services covered by Microsoft Agent prepurchase plan." lightbox="./media/agentprepurchase/services-covered-screenshot-v3.jpg":::
 
 
+## Video overview
+
+The following video provides an overview of the Microsoft Agent Pre-Purchase Plan and how it can help optimize your costs:
+
+> [!VIDEO https://www.youtube.com/embed/0-RN85uZzTY]
+
 ## Prerequisites
 
 To buy a prepurchase plan, you must have one of the following Azure subscriptions and roles:

@@ -993,12 +993,12 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
    sudo crm configure primitive stonith-sbd stonith:external/sbd \
       params pcmk_delay_max="15" \
-      op monitor interval="600" timeout="15"
+      op monitor interval="600" timeout="120"
 
    # For SAP HANA scale-out only, configure stonith-sbd using following command
    sudo crm configure primitive stonith-sbd stonith:external/sbd \
       params pcmk_action_limit=-1 \
-      op monitor interval="600" timeout="15"
+      op monitor interval="600" timeout="120"
 
    sudo crm configure property stonith-timeout=210
    sudo crm configure property stonith-enabled=true
