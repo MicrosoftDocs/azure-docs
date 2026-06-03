@@ -24,6 +24,8 @@ This article explains what hosted MCP servers are, feature available, and what s
 
 When you create a *hosted MCP server* in Connector Namespace, the platform runs a pre-built image of the server in dedicated compute that it provisions. Other than compute, the namespace provides networking, lifecycle management, and dependency management so you don't need to provision or maintain any infrastructure. A curated set of hosted servers is supported during public preview.
 
+A hosted MCP server is a first-class resource within a connector namespace. The namespace is the parent resource that hosts and manages it, and the server inherits the namespace's identity, networking, and access policy capabilities. You create, configure, and manage each hosted MCP server directly inside its connector namespace.
+
 When you deploy a hosted MCP server, the namespace:
 
 - Pulls the pre-built server image from the catalog.

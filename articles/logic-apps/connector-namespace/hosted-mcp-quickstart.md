@@ -21,11 +21,9 @@ zone_pivot_groups: connector-namespace-hosted-servers
 
 In this quickstart, you create a hosted MCP server in Azure Connector Namespace and connect it to MCP clients. Use the server selector at the top of this page to choose the server you want to deploy.
 
-## Connector Namespace and hosted MCP server
+## Hosted MCP server in Connector Namespace
 
-Azure Connector Namespace is a fully managed service that hosts connectors, connections, triggers, and MCP servers. Within a namespace, an *MCP server* is a first-class resource that exposes tools to AI agents over the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/).
-
-When you create a [hosted MCP server](./connector-namespace-hosted-mcp.md) in Connector Namespace, the platform runs a pre-built image of the server in dedicated compute that it provisions. You control server configuration, environment variables, and parameters, while the namespace handles hosting, scaling, and credential management. AI agents like Copilot, custom agents, or any MCP-aware client discover and call the server's tools using the namespace's connection model.  
+MCP servers are a first-class resource in the [Azure Connector Namespace](./connector-namespace-overview.md), a fully managed service that hosts connectors, connections, triggers, and MCP servers. When you create a [hosted MCP server](./connector-namespace-hosted-mcp.md) in a namespace, the platform runs a pre-built image of the server in dedicated compute that it provisions. You control server configuration, environment variables, and parameters, while the namespace handles hosting, scaling, and credential management. AI agents like Copilot, custom agents, or any MCP-aware client discover and call the server's tools using the namespace's connection model.  
 
 Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overview.md#key-concepts), which are platform-managed implementations built on connectors. The namespace handles tool definitions and configuration for managed servers.
 
@@ -75,7 +73,7 @@ Hosted MCP servers differ from [managed MCP servers](./connector-namespace-overv
 
 ## Generate the Data API Builder (DAB) configuration file 
 
-This file is required by the server. 
+The SQL hosted MCP server is built on [Data API Builder (DAB)](/azure/data-api-builder/overview), which provides a secure data API over your database and exposes its entities (tables) as MCP tools. The server requires a DAB configuration file that defines the database connection and the entities to expose. 
 
 1. Generate a DAB configuration file for your database, enabling only MCP: 
 
@@ -88,7 +86,7 @@ This file is required by the server.
    ```bash
    Server=<your-sql-server>.database.windows.net;Database=<your-database>;Authentication=Active Directory Default;Encrypt=True;TrustServerCertificate=False;
    ``` 
-1. Add the **Books** entity (table) and related permission: 
+1. Add the **Books** entity and related permission: 
 
    ```bash
    dab add Books --source "dbo.Books" --permissions "anonymous:*"
@@ -179,13 +177,13 @@ This file is required by the server.
 
 ::: zone pivot="playwright"
 
-6. Search for **Playwright** and pick the server to be deployed.
+6. Search for **Playwright** and click to create the server.
 
 ::: zone-end
 
 ::: zone pivot="sql"
 
-6. Search for **Azure SQL** and pick the server to be deployed.
+6. Search for **Azure SQL** and click to create the server.
 
 7. In the creation window, select **Manage Identity** for Outbound Authentication method.  
 
@@ -215,7 +213,7 @@ You should be automatically directed to the deployed server's **Overview** page 
 
 The hosted SQL server uses the namespace's system-assigned managed identity (SAMI) to access your database, which you can enable during namespace creation. 
 
-If you didn't enable SAMI during creation, you can enable it by going to your namespace instance in the web portal. On the left menu, find the **Identity** tab. Toggle **System Assigned** to **On** and save the update.
+If you didn't enable SAMI during creation, you **must** enable it by going to your namespace instance in the web portal. On the left menu, find the **Identity** tab. Toggle **System Assigned** to **On** and save the update.
 
 Go to your SQL database on the Azure portal, open the **Query editor** and run the following to grant the managed identity access:
 
@@ -279,7 +277,7 @@ Replace `<your-namespace-name>` with the name of your Connector Namespace resour
    MCP_TOKEN=$(az account get-access-token --resource https://apihub.azure.com --query accessToken -o tsv)
    ```
 
-1. Make a call to the server to get tools supported:
+1. Make a call to the server to get tools list:
 
    ```bash
    npx @modelcontextprotocol/inspector --cli \
@@ -307,7 +305,7 @@ Replace `<your-namespace-name>` with the name of your Connector Namespace resour
 
 ::: zone pivot="sql"
 
-4. Call a specific tool. For example, the following calls the `describe_entities` tool to list available tables or entities:
+4. Call a specific tool. For example, the following calls the `describe_entities` tool to list available entities:
 
    ```bash
    npx @modelcontextprotocol/inspector --cli \
@@ -344,6 +342,18 @@ Replace `<your-namespace-name>` with the name of your Connector Namespace resour
 1. On the left menu, find **Investigate -> Search**. 
 
 1. Set the **Local Time** filter on the top to the last 30 minutes. View the logs as *traces* or *individual items*.
+
+::: zone pivot="sql"
+
+## Troubleshoot the SQL server
+
+If your hosted SQL MCP server doesn't connect or return data as expected, check the following:
+
+- **DAB configuration file**: Confirm the uploaded [DAB configuration file](#generate-the-data-api-builder-dab-configuration-file) is valid, uses the correct connection string, and defines the entities and permissions you expect to expose.
+- **System-assigned managed identity (SAMI)**: Ensure SAMI is enabled on the namespace. Go to your namespace instance in the web portal, select the **Identity** tab, and confirm **System Assigned** is set to **On**.
+- **Database access**: Ensure the namespace identity has been granted access to the database. See [Grant the namespace identity access to database](#grant-the-namespace-identity-access-to-database).
+
+::: zone-end
 
 ## Related articles
 

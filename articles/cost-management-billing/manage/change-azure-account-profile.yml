@@ -6,7 +6,7 @@ metadata:
   author: jkinma39
   ms.author: jkinma
   ms.reviewer: jkinma
-  ms.date: 02/27/2026
+  ms.date: 06/03/2026
   ms.service: cost-management-billing
   ms.subservice: billing
   ms.topic: how-to
@@ -63,7 +63,7 @@ procedureSection:
         Select **Properties** from the left-hand side and then select **Update sold-to**.  
           ![Screenshot that shows the properties for an MCA billing account where you can modify the sold-to address.](./media/change-azure-account-profile/update-sold-to-list-properties-mca.png)
       - |
-        Enter the new address and select **Save**.  
+        Enter the new address and select **Save**.  If the sold-to email has not been verified or the email is being updated, you will be sent a one-time verification code before saving the changes. 
           ![Screenshot that shows updating the sold-to address for an MCA account.](./media/change-azure-account-profile/update-sold-to-save-mca.png)
           > [!IMPORTANT]
           > Some accounts require additional verification before their sold-to can be updated. If your account requires manual approval, you would be asked to contact Azure support.
