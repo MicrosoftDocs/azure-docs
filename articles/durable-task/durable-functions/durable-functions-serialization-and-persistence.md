@@ -75,7 +75,7 @@ Inputs and outputs (including exceptions) to and from Durable Functions APIs are
 
 To safely handle sensitive data, fetch that data within activity functions from either Azure Key Vault or environment variables, and never communicate that data directly to or from orchestrators or entities. This approach helps prevent sensitive data from leaking into your storage resources.
 
-Similarly, write access to storage resources must be tightly controlled, as tampered data in storage could alter orchestration behavior. See [Secure your task hub storage](#secure-your-task-hub-storage) for more information.
+Similarly, write access to storage resources must be tightly controlled, as tampered data in storage could alter orchestration behavior. For more information about securing task hub storage, see [Secure your task hub storage](#secure-your-task-hub-storage).
 
 > [!TIP]
 > This guidance also applies to the `CallHttp` orchestrator API, which persists its request and response payloads in storage. If your target HTTP endpoints require authentication, implement the HTTP call inside an activity, or use the [built-in managed identity support offered by CallHttp](./durable-functions-http-features.md#managed-identities), which doesn't persist credentials to storage.
@@ -94,10 +94,10 @@ Alternatively, .NET users have the option of implementing custom serialization p
 
 ## Secure your task hub storage
 
-The storage backend that hosts your task hub is a critical trust boundary. The Durable Task Framework trusts data it reads from storage during orchestration replay and message processing. Anyone with write access to the task hub storage can tamper with orchestration state, pending messages, or stored payloads, potentially altering application behavior, triggering unintended actions, or achieving remote code execution within the context of your function app.
+The storage backend that hosts your task hub is a critical trust boundary. The Durable Task Framework trusts data it reads from storage during orchestration replay and message processing. Anyone with write access to the task hub storage can tamper with orchestration state, pending messages, or stored payloads. This may alter application behavior, trigger unintended actions, or achieve remote code execution within the context of your function app.
 
 > [!IMPORTANT]
-> Do not expose your task hub storage credentials or grant write access to untrusted parties. Write access to task hub storage can be used to alter application behavior, including triggering arbitrary code execution.
+> Don't expose your task hub storage credentials or grant write access to untrusted parties. Write access to task hub storage can be used to alter application behavior, including triggering arbitrary code execution.
 
 ### Shared responsibility
 
@@ -106,7 +106,7 @@ Securing the storage backend is your responsibility, the same as securing any da
 If you use the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md), the storage backend is fully managed and secured by the service, using managed identity authentication and role-based access control (RBAC). For bring-your-own (BYO) storage backends such as [Azure Storage](durable-functions-azure-storage-provider.md), [MSSQL](../common/durable-task-storage-providers.md#mssql), or [Netherite](../common/durable-task-storage-providers.md#netherite), you must secure the underlying storage resources yourself.
 
 > [!NOTE]
-> Don't share a single task hub between untrusted tenants. A task hub doesn't enforce access boundaries between its users, so any tenant that can read or write to the task hub can affect all orchestrations and entities within it. Similarly, don't rely on separate task hubs within the same backend as a security boundary. While [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) supports [RBAC scoped to individual task hubs](../scheduler/durable-task-scheduler-identity.md), network controls such as IP allowlists and private endpoints apply only at the scheduler level, so task hubs within a scheduler aren't a security isolation boundary. The same is true for BYO storage providers — any tenant with access to the storage account or database can reach all task hubs on that backend. When you need security isolation between tenants, provision separate infrastructure for each tenant: separate storage accounts or databases for BYO providers, or separate Durable Task Scheduler instances.
+> Don't share a single task hub between untrusted tenants. A task hub doesn't enforce access boundaries between its users, so any tenant that can read or write to the task hub can affect all orchestrations and entities within it. Similarly, don't rely on separate task hubs within the same backend as a security boundary. While [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) supports [RBAC scoped to individual task hubs](../scheduler/durable-task-scheduler-identity.md), network controls such as IP allow lists and private endpoints apply only at the scheduler level, so task hubs within a scheduler aren't a security isolation boundary. The same is true for BYO storage providers—any tenant with access to the storage account or database can reach all task hubs on that backend. When you need security isolation between tenants, provision separate infrastructure for each tenant: separate storage accounts or databases for BYO providers, or separate Durable Task Scheduler instances.
 
 ### Storage hardening checklist
 
