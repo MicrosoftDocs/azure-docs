@@ -4,12 +4,10 @@ description: Browse, discover, and install community-built skills and MCP integr
 ms.topic: concept-article
 ms.service: azure-sre-agent
 ms.date: 06/02/2026
-ms.custom: plugins, marketplace, skills, MCP, connectors, extend, community
 author: craigshoemaker
 ms.author: cshoe
 ms.reviewer: cshoe
 ms.ai-usage: ai-assisted
-ms.custom: plugins, marketplace, skills, MCP, install, community, connectors, extend, private repo, GitHub Enterprise
 #customer intent: As an SRE, I want to install community and internal skills from GitHub-hosted marketplaces so that I can extend my agent without building everything from scratch.
 ---
 
