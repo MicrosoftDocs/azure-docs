@@ -5,11 +5,9 @@ author: TaylorCorbett
 ms.author: gecorbet
 ms.service: planetary-computer-pro
 ms.topic: tutorial
-ms.date: 4/25/2025
+ms.date: 05/27/2026
 
 #customer intent: As a user, I want to create a GeoCatalog collection and populate it with satellite imagery so that I can learn how to repeat the process with my own data.
-ms.custom:
-  - build-2025
 ---
 
 # Tutorial: Using the Microsoft Planetary Computer Pro APIs to ingest and visualize data
@@ -23,6 +21,12 @@ In this tutorial, you:
 * Query data from within the STAC collection using the Planetary Computer Pro's STAC API
 
 This tutorial shows and explains capabilities through code snippets, for an interactive notebook style experience, [download this tutorial as a Jupyter notebook](https://github.com/Azure/microsoft-planetary-computer-pro/blob/main/notebooks/GeoCatalog_Tutorial.ipynb). 
+
+> [!TIP]
+> This tutorial demonstrates the REST API approach. You can also use the [Planetary Computer Pro Python SDK](/python/api/overview/azure/planetarycomputer-readme) (`pip install azure-planetarycomputer`) for a simplified client experience. See the individual quickstart guides for SDK examples:
+> - [Create a STAC collection](./create-stac-collection.md)
+> - [Add STAC items to a collection](./add-stac-item-to-collection.md)
+> - [Get a collection SAS token](./get-collection-sas-token.md)
 
 ## Prerequisites
 
@@ -53,7 +57,7 @@ geocatalog_url = (
 )
 geocatalog_url = geocatalog_url.rstrip("/")  # Remove trailing slash if present
 
-api_version = "2025-04-30-preview"
+api_version = "2026-04-15"
 
 # User selections for demo
 
