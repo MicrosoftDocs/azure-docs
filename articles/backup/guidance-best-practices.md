@@ -2,7 +2,7 @@
 title: Guidance and best practices
 description: Discover the best practices and guidance for backing up cloud and on-premises workload to the cloud
 ms.topic: overview
-ms.date: 01/30/2026
+ms.date: 06/03/2026
 ms.reviewer: dapatil
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -70,7 +70,7 @@ Azure Backup enables data protection for various workloads (on-premises and clou
 
 * **Native workload integration**: Azure Backup provides native integration with Azure Workloads (VMs, SAP HANA, SQL in Azure VMs and even Azure Files) without requiring you to manage automation or infrastructure to deploy agents, write new scripts or assign storage. 
 
- [Learn more](./backup-overview.md#what-can-i-back-up) about supported workloads.
+ [Learn more](./backup-overview.md#what-can-i-back-up) about supported workloads. To back up system state and restore to bare metal by using MABS, see [this article](backup-mabs-system-state-and-bmr.md).
 
 ### Data plane
 
