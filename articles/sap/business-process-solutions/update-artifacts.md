@@ -1,7 +1,7 @@
 ---
 title: Update artifacts in Business Process Solutions
 description: Learn how to update artifacts in Business Process Solutions, understand what gets upgraded, and resolve common issues after applying upgrades.
-author: tpounjula
+author: thanmayee75
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.topic: how-to
