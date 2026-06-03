@@ -105,6 +105,9 @@ Securing the storage backend is your responsibility, the same as securing any da
 
 If you use the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md), the storage backend is fully managed and secured by the service, using managed identity authentication and role-based access control (RBAC). For bring-your-own (BYO) storage backends such as [Azure Storage](durable-functions-azure-storage-provider.md), [MSSQL](../common/durable-task-storage-providers.md#mssql), or [Netherite](../common/durable-task-storage-providers.md#netherite), you must secure the underlying storage resources yourself.
 
+> [!NOTE]
+> Don't share a single task hub between untrusted tenants. A task hub doesn't enforce access boundaries between its users, so any tenant that can read or write to the task hub can affect all orchestrations and entities within it. For BYO storage providers, using separate task hubs on the same underlying storage also doesn't provide sufficient isolation — any tenant with access to the storage account or database can read or modify data in other task hubs on the same backend. When you need security isolation between tenants with BYO storage, provision separate storage resources for each tenant (for example, separate storage accounts or separate databases). With [Durable Task Scheduler](../scheduler/durable-task-scheduler.md), you can scope [RBAC roles to individual task hubs](../scheduler/durable-task-scheduler-identity.md), which provides tenant isolation within a single scheduler instance.
+
 ### Storage hardening checklist
 
 Apply the following best practices to protect your task hub storage:
