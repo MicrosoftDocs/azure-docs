@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ms.devlang: python
 ms.custom: devx-track-python
 ms.topic: tutorial
-ms.date: 02/04/2026
+ms.date: 06/03/2026
 #Customer intent: I want to learn how to use Azure App Configuration Python client library.
 ---
 

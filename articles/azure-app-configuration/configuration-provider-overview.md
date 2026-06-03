@@ -7,7 +7,7 @@ author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 02/23/2026
+ms.date: 06/03/2026
 #Customer intent: I want to learn about the configuration provider libraries of different languages, specifically to track their feature development status.
 ms.custom:
   - build-2025
