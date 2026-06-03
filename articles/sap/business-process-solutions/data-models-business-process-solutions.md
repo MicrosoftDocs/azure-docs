@@ -184,7 +184,7 @@ With this model, organizations gain a clearer view of their spending activity. T
 **Related resources:**
 [Spend insights](business-templates.md#spend-insights)
 
-## Manufacturing
+## Plan to produce
 
 Supports the management and execution of production orders by providing a comprehensive view of how production is planned, carried out, and confirmed across the manufacturing lifecycle.
 
