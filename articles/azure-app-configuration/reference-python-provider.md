@@ -415,6 +415,23 @@ config = load(
 )
 ```
 
+## Startup retry
+
+Configuration loading is a critical path operation during application startup. To ensure reliability, the Azure App Configuration provider implements a robust retry mechanism during the initial configuration load. This helps protect your application from transient network issues that might otherwise prevent successful startup.
+
+You can customize this behavior by setting the `startup_timeout` parameter, which specifies the amount of time in seconds allowed to load data from Azure App Configuration on startup. The default value is 100 seconds.
+
+```python
+from azure.appconfiguration.provider import load
+from azure.identity import DefaultAzureCredential
+
+config = load(
+    endpoint=endpoint,
+    credential=DefaultAzureCredential(),
+    startup_timeout=300
+)
+```
+
 ## Geo-replication
 
 The Azure App Configuration Provider library automatically discovers the provided configuration store's replicas and uses the replicas if any issue arises. For more information, see [geo-replication](./howto-geo-replication.md).
