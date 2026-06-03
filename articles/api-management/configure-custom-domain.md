@@ -96,7 +96,7 @@ To fetch a TLS/SSL certificate, API Management must have the list and get secret
     
     [!INCLUDE [api-management-key-vault-certificate-access](../../includes/api-management-key-vault-certificate-access.md)]
 
-If the certificate is set to `autorenew` and your API Management tier has an SLA (that is, in all tiers except the Developer tier), API Management will pick up the latest version automatically, without downtime to the service. Typically this update takes place within several hours, but can take longer in some cases. You can trigger certificate synchronization manually if you don't want to wait for API Management to update the certificate automatically.
+If the certificate is set to `autorenew` and your API Management tier has an SLA (that is, in all tiers except the Developer tier), API Management will pick up the latest version automatically, without downtime to the service. This update can take up to 1-2 days. You can trigger certificate synchronization manually if you don't want to wait for API Management to update the certificate automatically.
 
 For more information about synchronization and help with troubleshooting Azure Key Vault certificate access issues, see [Certificate synchronization and troubleshooting for Azure Key Vault-backed certificates](#certificate-synchronization-and-troubleshooting-for-azure-key-vault-backed-certificates) later in this article.
 
