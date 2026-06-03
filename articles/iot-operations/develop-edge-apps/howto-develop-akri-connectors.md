@@ -377,7 +377,7 @@ To verify that the connector works correctly, create a data flow that reads mess
 
 To view the messages flowing to your event hub, follow these steps:
 
-1. In the Azure portal, go to the Event Hubs namespace that the Bicep file deployed. Then go to the **thermostateh** event hub in the namespace.
+1. In the Azure portal, go to the Event Hubs namespace that the Bicep file deployed. Then go to the `thermostateh` event hub in the namespace.
 
 1. Select **Access control** and select **Add > Add role assignment**. Add yourself to the **Azure Event Hubs Data Receiver** role.
 
