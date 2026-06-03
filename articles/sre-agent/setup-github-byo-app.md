@@ -99,18 +99,22 @@ https://myvault.vault.azure.net/secrets/my-github-app-key/<version>
 :::image type="content" source="media/setup-github-byo-app/byo-code-access-page.png" alt-text="Screenshot of the Code Access page under Builder navigation in Azure SRE Agent." lightbox="media/setup-github-byo-app/byo-code-access-page.png":::
 
 1. Select **Add repositories**.
+
 1. Choose **GitHub** and enter the host:
-   - `github.com` for public GitHub.
-   - `<tenant>.ghe.com` for Enterprise Cloud.
+    - `github.com` for public GitHub.
+    - `<tenant>.ghe.com` for Enterprise Cloud.
+
 1. Continue to **Authenticate**.
+
 1. Select **Bring your own GitHub App**.
 
-:::image type="content" source="media/setup-github-byo-app/byo-auth-form.png" alt-text="Screenshot of the BYO GitHub App authentication form showing Client ID and Key Vault URI fields." lightbox="media/setup-github-byo-app/byo-auth-form.png":::
+    :::image type="content" source="media/setup-github-byo-app/byo-auth-form.png" alt-text="Screenshot of the BYO GitHub App authentication form showing Client ID and Key Vault URI fields." lightbox="media/setup-github-byo-app/byo-auth-form.png":::
 
 1. Enter:
-   - **Client ID**
-   - **Private key secret URI (Key Vault)**
-   - Optional **Key Vault identity** (or keep system-assigned)
+    - **Client ID**
+    - **Private key secret URI (Key Vault)**
+    - Optional **Key Vault identity** (or keep system-assigned)
+
 1. Select **Connect**.
 
 The wizard validates your credentials. When successful, you see **Connected as GitHub App** with a green checkmark.
@@ -129,11 +133,11 @@ If **Code Access** doesn't open from left navigation, refresh the agent page, ex
 
 1. Select repositories and save.
 
-:::image type="content" source="media/setup-github-byo-app/byo-add-repositories.png" alt-text="Screenshot of the repository selection step showing available repositories to add." lightbox="media/setup-github-byo-app/byo-add-repositories.png":::
+    :::image type="content" source="media/setup-github-byo-app/byo-add-repositories.png" alt-text="Screenshot of the repository selection step showing available repositories to add." lightbox="media/setup-github-byo-app/byo-add-repositories.png":::
 
 1. Confirm the **Code Access** card shows connected host and auth type `GitHubApp`.
 
-:::image type="content" source="media/setup-github-byo-app/byo-code-access-configured.png" alt-text="Screenshot of code access page showing connected GitHub host with GitHubApp auth type." lightbox="media/setup-github-byo-app/byo-code-access-configured.png":::
+    :::image type="content" source="media/setup-github-byo-app/byo-code-access-configured.png" alt-text="Screenshot of code access page showing connected GitHub host with GitHubApp auth type." lightbox="media/setup-github-byo-app/byo-code-access-configured.png":::
 
 1. Test code access in chat:
 
