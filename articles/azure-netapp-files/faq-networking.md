@@ -71,7 +71,7 @@ No. Existing volumes using Basic network features aren't impacted and will conti
 
 ### Can I still create new volumes using Basic network features? 
 
-No. After the enforcement date, new volumes can't be created with Basic network features via the Portal, CLI, or APIs. 
+No. Beginning July 2026, new volumes can't be created with Basic network features via the Portal, CLI, or APIs. 
 
 ### Is there a cost difference between Basic and Standard network features? 
 

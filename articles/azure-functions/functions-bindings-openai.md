@@ -80,6 +80,10 @@ When using a vector database for storing content, you should also install at lea
 [!INCLUDE [functions-extension-bundles-json-preview](../../includes/functions-extension-bundles-json-preview.md)]  
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## Connecting to OpenAI
 
 To use the Azure OpenAI binding extension, you need to specify a connection to OpenAI. This connection is defined using application settings, and the `AIConnectionName` property of the trigger or binding. You can also use environment variables to define key-based connections. 

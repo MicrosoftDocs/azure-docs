@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -234,85 +234,6 @@ Azure service: [Content Delivery Network](/azure/cdn/)
 > | `Microsoft.Cdn/profiles/tunnelpolicies/write` |  |
 > | `Microsoft.Cdn/profiles/tunnelpolicies/delete` |  |
 
-## Microsoft.ClassicNetwork
-
-Azure service: Classic deployment model virtual network
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | `Microsoft.ClassicNetwork/register/action` | Register to Classic Network |
-> | `Microsoft.ClassicNetwork/expressroutecrossconnections/read` | Get express route cross connections. |
-> | `Microsoft.ClassicNetwork/expressroutecrossconnections/write` | Add express route cross connections. |
-> | `Microsoft.ClassicNetwork/expressroutecrossconnections/operationstatuses/read` | Get an express route cross connection operation status. |
-> | `Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/read` | Get express route cross connection peering. |
-> | `Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/write` | Add express route cross connection peering. |
-> | `Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/delete` | Delete express route cross connection peering. |
-> | `Microsoft.ClassicNetwork/expressroutecrossconnections/peerings/operationstatuses/read` | Get an express route cross connection peering operation status. |
-> | `Microsoft.ClassicNetwork/gatewaySupportedDevices/read` | Retrieves the list of supported devices. |
-> | `Microsoft.ClassicNetwork/networkSecurityGroups/read` | Gets the network security group. |
-> | `Microsoft.ClassicNetwork/networkSecurityGroups/write` | Adds a new network security group. |
-> | `Microsoft.ClassicNetwork/networkSecurityGroups/delete` | Deletes the network security group. |
-> | `Microsoft.ClassicNetwork/networkSecurityGroups/operationStatuses/read` | Reads the operation status for the network security group. |
-> | `Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/read` | Gets the Network Security Groups Diagnostic Settings |
-> | `Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/diagnosticSettings/write` | Creates or updates the Network Security Groups diagnostic settings, this operation is supplemented by insights resource provider. |
-> | `Microsoft.ClassicNetwork/networksecuritygroups/providers/Microsoft.Insights/logDefinitions/read` | Gets the events for network security group |
-> | `Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/read` | Gets the security rule. |
-> | `Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/write` | Adds or update a security rule. |
-> | `Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/delete` | Deletes the security rule. |
-> | `Microsoft.ClassicNetwork/networkSecurityGroups/securityRules/operationStatuses/read` | Reads the operation status for the network security group security rules. |
-> | `Microsoft.ClassicNetwork/operations/read` | Get classic network operations. |
-> | `Microsoft.ClassicNetwork/quotas/read` | Get the quota for the subscription. |
-> | `Microsoft.ClassicNetwork/reservedIps/read` | Gets the reserved Ips |
-> | `Microsoft.ClassicNetwork/reservedIps/write` | Add a new reserved Ip |
-> | `Microsoft.ClassicNetwork/reservedIps/delete` | Delete a reserved Ip. |
-> | `Microsoft.ClassicNetwork/reservedIps/link/action` | Link a reserved Ip |
-> | `Microsoft.ClassicNetwork/reservedIps/join/action` | Join a reserved Ip |
-> | `Microsoft.ClassicNetwork/reservedIps/operationStatuses/read` | Reads the operation status for the reserved ips. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/read` | Get the virtual network. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/write` | Add a new virtual network. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/delete` | Deletes the virtual network. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/peer/action` | Peers a virtual network with another virtual network. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/join/action` | Joins the virtual network. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/checkIPAddressAvailability/action` | Checks the availability of a given IP address in a virtual network. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/validateMigration/action` | Validates the migration of a Virtual Network |
-> | `Microsoft.ClassicNetwork/virtualNetworks/prepareMigration/action` | Prepares the migration of a Virtual Network |
-> | `Microsoft.ClassicNetwork/virtualNetworks/commitMigration/action` | Commits the migration of a Virtual Network |
-> | `Microsoft.ClassicNetwork/virtualNetworks/abortMigration/action` | Aborts the migration of a Virtual Network |
-> | `Microsoft.ClassicNetwork/virtualNetworks/capabilities/read` | Shows the capabilities |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/read` | Gets the virtual network gateways. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/write` | Adds a virtual network gateway. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/delete` | Deletes the virtual network gateway. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/startDiagnostics/action` | Starts diagnostic for the virtual network gateway. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/stopDiagnostics/action` | Stops the diagnostic for the virtual network gateway. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/downloadDiagnostics/action` | Downloads the gateway diagnostics. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/listCircuitServiceKey/action` | Retrieves the circuit service key. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/downloadDeviceConfigurationScript/action` | Downloads the device configuration script. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/listPackage/action` | Lists the virtual network gateway package. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRevokedCertificates/read` | Read the revoked client certificates. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRevokedCertificates/write` | Revokes a client certificate. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRevokedCertificates/delete` | Unrevokes a client certificate. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRootCertificates/read` | Find the client root certificates. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRootCertificates/write` | Uploads a new client root certificate. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRootCertificates/delete` | Deletes the virtual network gateway client certificate. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRootCertificates/download/action` | Downloads certificate by thumbprint. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/clientRootCertificates/listPackage/action` | Lists the virtual network gateway certificate package. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/connections/read` | Retrieves the list of connections. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/connections/connect/action` | Connects a site to site gateway connection. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/connections/disconnect/action` | Disconnects a site to site gateway connection. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/connections/test/action` | Tests a site to site gateway connection. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/operationStatuses/read` | Reads the operation status for the virtual networks gateways. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/gateways/packages/read` | Gets the virtual network gateway package. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/operationStatuses/read` | Reads the operation status for the virtual networks. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/remoteVirtualNetworkPeeringProxies/read` | Gets the remote virtual network peering proxy. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/remoteVirtualNetworkPeeringProxies/write` | Adds or updates the remote virtual network peering proxy. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/remoteVirtualNetworkPeeringProxies/delete` | Deletes the remote virtual network peering proxy. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/read` | Gets the network security group associated with the subnet. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/write` | Adds a network security group associated with the subnet. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/delete` | Deletes the network security group associated with the subnet. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/subnets/associatedNetworkSecurityGroups/operationStatuses/read` | Reads the operation status for the virtual network subnet associated network security group. |
-> | `Microsoft.ClassicNetwork/virtualNetworks/virtualNetworkPeerings/read` | Gets the virtual network peering. |
-
 ## Microsoft.Network
 
 Connect cloud and on-premises infrastructure and services to provide your customers and users the best possible experience.
@@ -342,6 +263,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | `Microsoft.Network/applicationGateways/write` | Creates an application gateway or updates an application gateway |
 > | `Microsoft.Network/applicationGateways/delete` | Deletes an application gateway |
 > | `Microsoft.Network/applicationGateways/backendhealth/action` | Gets an application gateway backend health |
+> | `Microsoft.Network/applicationGateways/applicationGatewayHealth/action` | Gets an application gateway resource health |
 > | `Microsoft.Network/applicationGateways/getBackendHealthOnDemand/action` | Gets an application gateway backend health on demand for given http setting and backend pool |
 > | `Microsoft.Network/applicationGateways/getListenerCertificateMetadata/action` | Gets an application gateway listener certificate metadata |
 > | `Microsoft.Network/applicationGateways/prepareMigration/action` | Prepare application gateway migration |
@@ -380,6 +302,18 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | `Microsoft.Network/applicationSecurityGroups/write` | Creates an Application Security Group, or updates an existing Application Security Group. |
 > | `Microsoft.Network/applicationSecurityGroups/delete` | Deletes an Application Security Group |
 > | `Microsoft.Network/applicationSecurityGroups/listIpConfigurations/action` | Lists IP Configurations in the ApplicationSecurityGroup |
+> | `Microsoft.Network/applicationSecurityGroups/listAddressPrefixSets/action` | Lists address prefix sets in an application security group |
+> | `Microsoft.Network/applicationSecurityGroups/addressPrefixSets/write` | Creates an address prefix set or updates an existing address prefix set |
+> | `Microsoft.Network/applicationSecurityGroups/addressPrefixSets/read` | Gets an Address Prefix Set |
+> | `Microsoft.Network/applicationSecurityGroups/addressPrefixSets/delete` | Deletes an Address Prefix Set |
+> | `Microsoft.Network/authenticationPolicies/read` | Get Authentication Policies |
+> | `Microsoft.Network/authenticationPolicies/write` | Create or update Authentication Policy |
+> | `Microsoft.Network/authenticationPolicies/delete` | Delete Authentication Policy |
+> | `Microsoft.Network/authenticationPolicies/join/action` | Join Authentication Policy |
+> | `Microsoft.Network/authorizationPolicies/read` | Get Authorization Policies |
+> | `Microsoft.Network/authorizationPolicies/write` | Create or update Authorization Policy |
+> | `Microsoft.Network/authorizationPolicies/delete` | Delete Authorization Policy |
+> | `Microsoft.Network/authorizationPolicies/join/action` | Join Authorization Policy |
 > | `Microsoft.Network/azureFirewallFqdnTags/read` | Gets Azure Firewall FQDN Tags |
 > | `Microsoft.Network/azurefirewalls/read` | Get Azure Firewall |
 > | `Microsoft.Network/azurefirewalls/write` | Creates or updates an Azure Firewall |
@@ -553,6 +487,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | `Microsoft.Network/expressRouteCircuits/authorizations/delete` | Deletes an ExpressRouteCircuit Authorization |
 > | `Microsoft.Network/expressRouteCircuits/authorizations/getAuthorization/action` | Gets an ExpressRouteCircuit Authorization with Authorization Key |
 > | `Microsoft.Network/expressRouteCircuits/authorizations/addAuthorization/action` | Create an ExpressRouteCircuit Authorization |
+> | `Microsoft.Network/expressRouteCircuits/authorizations/listkeys/action` | Get an Authorization Key for ExpressRouteCircuit Authorization |
 > | `Microsoft.Network/expressRouteCircuits/peerings/read` | Gets an ExpressRouteCircuit Peering |
 > | `Microsoft.Network/expressRouteCircuits/peerings/write` | Creates or updates an existing ExpressRouteCircuit Peering |
 > | `Microsoft.Network/expressRouteCircuits/peerings/delete` | Deletes an ExpressRouteCircuit Peering |
@@ -580,6 +515,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | `Microsoft.Network/expressRouteCrossConnections/confirmActivationKey/action` | Express Route Cross Connection Confirm Activation Key |
 > | `Microsoft.Network/expressRouteCrossConnections/proposeInterconnect/action` | Express Route Cross Connection operation to propose Interconnect |
 > | `Microsoft.Network/expressRouteCrossConnections/notifyConnectionStatus/action` | Express Route Notify Multi Cloud Connection Status |
+> | `Microsoft.Network/expressRouteCrossConnections/deprovisionConnection/action` | Express Route Deprovision Multi Cloud Connection |
 > | `Microsoft.Network/expressRouteCrossConnections/features/read` | Gets an Express Route Cross Connection Feature |
 > | `Microsoft.Network/expressRouteCrossConnections/features/write` | Creates or Updates an Express Route Cross Connection Feature |
 > | `Microsoft.Network/expressRouteCrossConnections/features/delete` | Deletes an Express Route Cross Connection Feature |
@@ -600,6 +536,14 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | `Microsoft.Network/expressRouteLags/read` | Gets ExpressRouteLag |
 > | `Microsoft.Network/expressRouteLags/write` | Creates or updates ExpressRouteLag |
 > | `Microsoft.Network/expressRouteLags/delete` | Deletes ExpressRouteLag |
+> | `Microsoft.Network/expressRouteLags/generateloa/action` | Generates LOA for ExpressRouteLag |
+> | `Microsoft.Network/expressRouteLags/join/action` | Joins ExpressRouteLag |
+> | `Microsoft.Network/expressRouteLags/authorizations/read` | Gets ExpressRouteLagAuthorization |
+> | `Microsoft.Network/expressRouteLags/authorizations/write` | Create or Update ExpressRouteLagAuthorization |
+> | `Microsoft.Network/expressRouteLags/authorizations/delete` | Deletes an ExpressRouteLagAuthorization |
+> | `Microsoft.Network/expressRouteLags/authorizations/listkeys/action` | Get an AuthorizationKey for ExpressRouteLagAuthorization |
+> | `Microsoft.Network/expressRouteLags/links/read` | Gets ExpressRouteLagLink |
+> | `Microsoft.Network/expressRouteLags/links/members/read` | Gets ExpressRouteLagMember |
 > | `Microsoft.Network/expressRoutePorts/read` | Gets ExpressRoutePorts |
 > | `Microsoft.Network/expressRoutePorts/write` | Creates or updates ExpressRoutePorts |
 > | `Microsoft.Network/expressRoutePorts/join/action` | Joins Express Route ports. Not alertable. |
@@ -612,6 +556,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | `Microsoft.Network/expressRoutePorts/authorizations/delete` | Deletes an ExpressRoutePorts Authorization |
 > | `Microsoft.Network/expressRoutePorts/authorizations/getAuthorization/action` | Get Express Route Ports Authorization with Authorization Key |
 > | `Microsoft.Network/expressRoutePorts/authorizations/addAuthorization/action` | Create ExpressRoutePorts Authorization |
+> | `Microsoft.Network/expressRoutePorts/authorizations/listkeys/action` | Get an Authorization Key for Express Route Ports Authorization |
 > | `Microsoft.Network/expressRoutePorts/links/read` | Gets ExpressRouteLink |
 > | `Microsoft.Network/expressRoutePorts/providers/Microsoft.Insights/metricDefinitions/read` | Gets the metric definitions for ExpressRoute Ports |
 > | `Microsoft.Network/expressRoutePortsLocations/read` | Get Express Route Ports Locations |
@@ -635,6 +580,9 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | `Microsoft.Network/firewallPolicies/ruleGroups/read` | Gets a Firewall Policy Rule Group |
 > | `Microsoft.Network/firewallPolicies/ruleGroups/write` | Creates a Firewall Policy Rule Group or Updates an existing Firewall Policy Rule Group |
 > | `Microsoft.Network/firewallPolicies/ruleGroups/delete` | Deletes a Firewall Policy Rule Group |
+> | `Microsoft.Network/firstPartyServiceTags/read` | Get First Party Service Tag |
+> | `Microsoft.Network/firstPartyServiceTags/write` | Create or Update First Party Service Tag |
+> | `Microsoft.Network/firstPartyServiceTags/delete` | Delete First Party Service Tag |
 > | `Microsoft.Network/frontdooroperationresults/read` | Gets Frontdoor operation result |
 > | `Microsoft.Network/frontdooroperationresults/frontdoorResults/read` | Gets Frontdoor operation result |
 > | `Microsoft.Network/frontdooroperationresults/rulesenginesresults/read` | Gets Rules Engine operation result |
@@ -1004,8 +952,6 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | `Microsoft.Network/networkWatchers/agents/write` | Creates a Network Watcher Agent |
 > | `Microsoft.Network/networkWatchers/agents/delete` | Deletes a Network Watcher Agent |
 > | `Microsoft.Network/networkWatchers/agents/register/action` | Registers a network watcher agent |
-> | `Microsoft.Network/networkWatchers/agents/fetchRegistrationInfo/action` | Fetch Network Watcher Agent Registration detail |
-> | `Microsoft.Network/networkWatchers/agents/deregister/action` | Deregisters a Network Watcher Agent |
 > | `Microsoft.Network/networkWatchers/connectionAnalyzers/read` | Get Connection Analyzer details |
 > | `Microsoft.Network/networkWatchers/connectionAnalyzers/write` | Creates a Connection Analyzer |
 > | `Microsoft.Network/networkWatchers/connectionAnalyzers/delete` | Deletes a Connection Analyzer |
@@ -1168,6 +1114,7 @@ Azure service: [Application Gateway](/azure/application-gateway/), [Azure Bastio
 > | `Microsoft.Network/trafficManagerProfiles/read` | Get the Traffic Manager profile configuration. This includes DNS settings, traffic routing settings, endpoint monitoring settings, and the list of endpoints routed by this Traffic Manager profile. |
 > | `Microsoft.Network/trafficManagerProfiles/write` | Create a Traffic Manager profile, or modify the configuration of an existing Traffic Manager profile.<br>This includes enabling or disabling a profile and modifying DNS settings, traffic routing settings, or endpoint monitoring settings.<br>Endpoints routed by the Traffic Manager profile can be added, removed, enabled or disabled. |
 > | `Microsoft.Network/trafficManagerProfiles/delete` | Delete the Traffic Manager profile. All settings associated with the Traffic Manager profile will be lost, and the profile can no longer be used to route traffic. |
+> | `Microsoft.Network/trafficManagerProfiles/validateLink/action` | Establishes a link between a DNS record and a Traffic Manager Profile so that the traffic manager profile can't be removed while it is being referenced by the dns record |
 > | `Microsoft.Network/trafficManagerProfiles/azureEndpoints/read` | Gets an Azure Endpoint which belongs to a Traffic Manager Profile, including all the properties of that Azure Endpoint. |
 > | `Microsoft.Network/trafficManagerProfiles/azureEndpoints/write` | Add a new Azure Endpoint in an existing Traffic Manager Profile or update the properties of an existing Azure Endpoint in that Traffic Manager Profile. |
 > | `Microsoft.Network/trafficManagerProfiles/azureEndpoints/delete` | Deletes an Azure Endpoint from an existing Traffic Manager Profile. Traffic Manager will stop routing traffic to the deleted Azure Endpoint. |

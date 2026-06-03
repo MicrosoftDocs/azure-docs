@@ -1,11 +1,11 @@
 ---
 title: Microsoft Discovery Agent concepts
-description: Learn about Discovery Agents, AI assistants that execute scientific research tasks with tool-augmented reasoning and multi-agent orchestration.
+description: Learn about Discovery Agents, AI assistants that execute scientific research tasks with tool-augmented reasoning and multi-agent orchestration across Microsoft Discovery and Discovery app.
 author: leijgao
 ms.author: leijiagao
 ms.service: azure
 ms.topic: concept-article
-ms.date: 03/10/2026
+ms.date: 05/29/2026
 
 #CustomerIntent: As a researcher or scientist, I want to understand what Discovery Agents are so that I can build AI-powered scientific agents and workflows.
 ---
@@ -65,19 +65,64 @@ Discovery Studio provides the primary interface for creating and managing agents
 1. **Create a Discovery project**—All agents are scoped to a project
 2. **Deploy chat models**—Deploy custom models as ARM resources at the workspace level using Azure CLI, Bicep, or ARM templates
 3. **Create prompt agents**—Configure name, instructions, model (by deployment name), tools, and knowledge bases through forms
-4. **Create workflow agents**—Use the visual workflow builder or YAML editor to define action flows
-5. **Test interactively**—Use the Foundry playground or test through Discovery Studio chat using `@AgentName` tags
-6. **Iterate**—Each save creates a new immutable version with full history
+4. **Test interactively**—Use the Foundry playground or test through Discovery Studio chat using `@AgentName` tags
+5. **Iterate**—Each save creates a new immutable version with full history
+
+## Multi-agent orchestration
+
+For scenarios that require multiple agents working together, Microsoft Discovery uses the [Discovery Engine](concept-discovery-engine.md) for dynamic, autonomous orchestration. The Discovery Engine plans work, delegates to specialized agents, monitors progress, and adapts when results differ from expectations. This approach replaces static workflow definitions with intelligent, adaptive coordination.
+
+> [!NOTE]
+> Workflow agents (static action-flow orchestration) are deprecated. Use the Discovery Engine for multi-agent orchestration. The Discovery Engine provides dynamic agent selection, automatic error recovery, and adaptive planning that static workflows cannot offer. For details on the Discovery Engine, see [Discovery Engine overview](concept-discovery-engine.md).
 
 ## Agent types
 
-Microsoft Discovery supports prompt agents and workflow agents. Prompt agents are best for focused tasks such as planning, summarization, and tool use. Workflow agents orchestrate prompt agents through action flows for multi-step or human-in-the-loop execution.
+Microsoft Discovery supports prompt agents as the primary agent type. Prompt agents are best for focused tasks such as planning, summarization, and tool use. For multi-step orchestration involving multiple agents, use the Discovery Engine.
 
-For details about agent types, component models, and orchestration patterns, see [Agent types in Microsoft Discovery](concept-discovery-agent-types.md).
+For details about agent types and component models, see [Agent types in Microsoft Discovery](concept-discovery-agent-types.md).
+
+## Discovery app and Microsoft Discovery
+
+Microsoft Discovery is available in two offerings that serve different stages of the agent development lifecycle.
+
+### Microsoft Discovery (cloud service)
+
+Microsoft Discovery is the managed cloud platform for team collaboration and production workloads. It provides:
+
+- Shared workspaces and projects for team-based research
+- Managed model deployments at the workspace level
+- Discovery Engine for autonomous multi-agent orchestration
+- Enterprise-grade security, compliance, and governance
+- Shared bookshelves and knowledge bases across teams
+
+### Discovery app
+
+Discovery app is a local experience built on top of GitHub Copilot that enables individual users to create, test, and iterate on custom agents. It provides:
+
+- **Custom agent authoring**—Create agents using skills following [GitHub Copilot documentation](https://docs.github.com/copilot)
+- **Local knowledge base**—A local version of bookshelf that allows agents to retrieve private knowledge for grounded responses
+- **Multi-agent orchestration**—Discovery app supports the Discovery Engine for autonomous multi-agent orchestration, as well as skill-based orchestration where skills coordinate multiple agents
+- **Individual experimentation**—A personal environment for rapid prototyping and validation
+
+### Comparison
+
+| Area | Discovery app | Microsoft Discovery |
+| --- | --- | --- |
+| **Audience** | Individual users | Teams and organizations |
+| **Runtime** | Local, built on GitHub Copilot | Managed cloud service |
+| **Agent authoring** | Custom agents via Copilot skills | Prompt agents via Discovery Studio |
+| **Knowledge** | Local bookshelf for private knowledge | Shared bookshelves across teams |
+| **Models** | Flexible, supports third-party model endpoints (BYOM) | Workspace-level managed deployments |
+| **Collaboration** | Individual use | Team collaboration and sharing |
+| **Orchestration** | Discovery Engine + skill-based orchestration | Discovery Engine for multi-agent orchestration |
+
+### Graduation path
+
+Discovery app serves as the starting point where individual users experiment with and validate agents, tools, and knowledge configurations. Once validated locally, agent designs, prompts, and tool configurations can be adapted and promoted to Microsoft Discovery for team collaboration and production use.
 
 ## Related content
 
 - [Agent types in Microsoft Discovery](concept-discovery-agent-types.md)
+- [Discovery Engine overview](concept-discovery-engine.md)
 - [Microsoft Foundry Agent Service](/azure/foundry/agents/concepts/runtime-components)
-- [Microsoft Foundry workflows](/azure/foundry/agents/concepts/workflow)
 - [Foundry model catalog](https://ai.azure.com/catalog/models)

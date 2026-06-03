@@ -3,14 +3,14 @@ title: Develop and run Azure Functions locally
 description: Learn how to code and test Azure Functions on your local computer before you run them on Azure Functions.
 ms.topic: concept-article
 zone_pivot_groups: programming-languages-set-functions
-ms.date: 01/23/2026
+ms.date: 05/30/2026
 
 #customer intent: As a developer, I want clear, step-by-step guidance to run, debug, and test Azure Functions locally across languages and runtimes so that I can iterate quickly and validate behavior before I deploy to Azure.
 ---
 
 # Code and test Azure Functions locally
 
-Whenever possible, create and validate your Azure Functions code project in a local development environment. By using Azure Functions Core Tools, you get a local runtime version of Azure Functions that integrates with popular development tools for an integrated development, debugging, and deployments. Your local functions can even connect to live Azure services.
+Whenever possible, create and validate your Azure Functions code project in a local development environment. By using either Azure Functions Core Tools (v4) or the Azure Functions CLI (v5), you get a local runtime version of Azure Functions that integrates with popular development tools for an integrated development, debugging, and deployments. Your local functions can even connect to live Azure services.
 
 This article provides some shared guidance for local development, such as working with the [local.settings.json file](#local-settings-file). It also links to development environment-specific guidance.
 
@@ -22,7 +22,7 @@ This article provides some shared guidance for local development, such as workin
 The way you develop functions on your local computer depends on your [language](supported-languages.md) and tooling preferences. Choose your preferred language at the [top of the article](#top).
 
 >[!TIP]  
->All local development relies on Azure Functions Core Tools to provide the Functions runtime for debugging in a local environment.
+>All local development relies on the local Azure Functions runtime and tools (`func` CLI) to provide the Functions host for debugging in a local environment.
 
 Use these development environments to code functions locally in your preferred language:
 
@@ -32,7 +32,7 @@ Use these development environments to code functions locally in your preferred l
 |------------|-----------|
 | [Visual Studio](functions-develop-vs.md) | The Azure Functions tools are included in the **Azure development** workload of [Visual Studio](https://www.visualstudio.com/vs/). You can compile and deploy your C# function code to Azure as a .NET class library. Includes the Core Tools for local testing. To learn more, see [Create your first C# function in Azure using Visual Studio](functions-create-your-first-function-visual-studio.md).|
 |[Visual Studio Code](functions-develop-vs-code.md)| The [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to Visual Studio Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function using Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-csharp). |
-| [Command prompt or terminal](functions-run-local.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a C# function in Azure from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-csharp).|
+| [Command prompt or terminal](#local-runtime-and-tools) | Azure Functions provides a local runtime and tools that enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a C# function in Azure from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-csharp).|
 
 ::: zone-end
 ::: zone pivot="programming-language-java"
@@ -50,7 +50,7 @@ Use these development environments to code functions locally in your preferred l
 | Environment | Description |
 |------------|-----------|
 |[Visual Studio Code](functions-develop-vs-code.md)| The [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to Visual Studio Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function using Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-javascript). |
-| [Command prompt or terminal](functions-run-local.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a Node.js function in Azure from the command line](./how-to-create-function-azure-cli.md?pivots=programming-language-javascript).|
+| [Command prompt or terminal](#local-runtime-and-tools) | Azure Functions provides a local runtime and tools that enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a Node.js function in Azure from the command line](./how-to-create-function-azure-cli.md?pivots=programming-language-javascript).|
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
@@ -58,7 +58,7 @@ Use these development environments to code functions locally in your preferred l
 | Environment | Description |
 |------------|-----------|
 |[Visual Studio Code](functions-develop-vs-code.md)| The [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to Visual Studio Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function using Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-powershell). |
-| [Command prompt or terminal](functions-run-local.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a PowerShell function in Azure from the command line](./how-to-create-function-azure-cli.md?pivots=programming-language-powershell).|
+| [Command prompt or terminal](#local-runtime-and-tools) | Azure Functions provides a local runtime and tools that enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a PowerShell function in Azure from the command line](./how-to-create-function-azure-cli.md?pivots=programming-language-powershell).|
 
 ::: zone-end
 ::: zone pivot="programming-language-python"
@@ -66,11 +66,17 @@ Use these development environments to code functions locally in your preferred l
 | Environment | Description |
 |------------|-----------|
 |[Visual Studio Code](functions-develop-vs-code.md)| The [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) adds Functions support to Visual Studio Code. Requires the Core Tools. Supports development on Linux, macOS, and Windows. To learn more, see [Create your first function using Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-python). |
-| [Command prompt or terminal](functions-run-local.md) | [Azure Functions Core Tools] provides the core runtime and templates for creating functions, which enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a Python function in Azure from the command line](./how-to-create-function-azure-cli.md?pivots=programming-language-python).|
+| [Command prompt or terminal](#local-runtime-and-tools) | Azure Functions provides a local runtime and tools that enable local development. Supports development on Linux, macOS, and Windows. To learn more, see [Create a Python function in Azure from the command line](./how-to-create-function-azure-cli.md?pivots=programming-language-python).|
 
 ::: zone-end
 
-Each of these local development environments lets you create function app projects and use predefined function templates to create new functions. Each environment uses the Core Tools so that you can test and debug your functions against the real Functions runtime on your own machine just as you would any other app. You can also publish your function app project from any of these environments to Azure.
+Each of these local development environments lets you create function app projects and use predefined function templates to create new functions. Each environment uses the local Azure Functions runtime and tools so that you can test and debug your functions against the real Functions runtime on your own machine just as you would any other app. You can also publish your function app project from any of these environments to Azure.
+
+## Local runtime and tools
+
+[!INCLUDE [functions-cli-v5-preview-note](../../includes/functions-cli-v5-preview-note.md)]
+
+[!INCLUDE [functions-cli-version-comparison](../../includes/functions-cli-version-comparison.md)]
 
 ## Local project files
 
@@ -79,7 +85,7 @@ A Functions project directory contains the following files in the project root f
 | File name | Description |
 | --- | --- |
 | host.json | To learn more, see the [host.json reference](functions-host-json.md). |
-| local.settings.json | Settings that Core Tools uses when running locally, including app settings. To learn more, see [local settings file](#local-settings-file). |
+| local.settings.json | Settings used by the local Functions runtime, including app settings. To learn more, see [local settings file](#local-settings-file). |
 | .gitignore | Prevents the local.settings.json file from being accidentally published to a Git repository. To learn more, see [local settings file](#local-settings-file).|
 | .vscode\extensions.json | Settings file used when opening the project folder in Visual Studio Code.  |
 
@@ -130,9 +136,9 @@ The following application settings can be included in the **`Values`** array whe
 
 | Setting | Values | Description |
 |-----|-----|-----|
-|**`AzureWebJobsStorage`**| Storage account connection string, or<br/>`UseDevelopmentStorage=true`| Contains the connection string for an Azure storage account. Required when using triggers other than HTTP. For more information, see the [`AzureWebJobsStorage`] reference.<br/>When you have the [Azurite Emulator](../storage/common/storage-use-azurite.md) installed locally and you set [`AzureWebJobsStorage`] to `UseDevelopmentStorage=true`, Core Tools uses the emulator. For more information, see [Local storage emulator](#local-storage-emulator).| 
+|**`AzureWebJobsStorage`**| Storage account connection string, or<br/>`UseDevelopmentStorage=true`| Contains the connection string for an Azure storage account. Required when using triggers other than HTTP. For more information, see the [`AzureWebJobsStorage`] reference.<br/>When you have the [Azurite Emulator](../storage/common/storage-use-azurite.md) installed locally and you set [`AzureWebJobsStorage`] to `UseDevelopmentStorage=true`, the local Functions host uses the emulator. For more information, see [Local storage emulator](#local-storage-emulator).| 
 |**`AzureWebJobs.<FUNCTION_NAME>.Disabled`**| `true`\|`false` | To disable a function when running locally, add `"AzureWebJobs.<FUNCTION_NAME>.Disabled": "true"` to the collection, where `<FUNCTION_NAME>` is the name of the function. To learn more, see [How to disable functions in Azure Functions](disable-function.md#disable-functions-locally). |
-|**`FUNCTIONS_WORKER_RUNTIME`** | `dotnet`<br/>`dotnet-isolated`<br/>`node`<br/>`java`<br/>`powershell`<br/>`python`| Indicates the targeted language of the Functions runtime. Required for version 2.x and higher of the Functions runtime. Core Tools generates this setting for your project. To learn more, see the [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) reference.|
+|**`FUNCTIONS_WORKER_RUNTIME`** | `dotnet`<br/>`dotnet-isolated`<br/>`node`<br/>`java`<br/>`powershell`<br/>`python`| Indicates the targeted language of the Functions runtime. Required for version 2.x and higher of the Functions runtime. The `func init` command generates this setting for your project. To learn more, see the [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) reference.|
 | **`FUNCTIONS_WORKER_RUNTIME_VERSION`** | `~7` |Indicates to use PowerShell 7 when running locally. If not set, then PowerShell Core 6 is used. This setting is only used when running locally. The PowerShell runtime version is determined by the `powerShellVersion` site configuration setting, when it runs in Azure, which can be [set in the portal](functions-reference-powershell.md#changing-the-powershell-version). |
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
@@ -164,7 +170,7 @@ When you develop your functions locally, consider trigger and binding behaviors.
 + For storage-based triggers, use a [local storage emulator](#local-storage-emulator).
 + Run non-HTTP trigger functions manually by using special administrator endpoints. For more information, see [Manually run a non-HTTP-triggered function](functions-manually-run-non-http.md). 
 
-During local testing, you must run the host provided by Core Tools (func.exe) locally. For more information, see [Azure Functions Core Tools](functions-run-local.md).
+During local testing, you must run the host provided by the local Functions runtime (`func.exe`) locally. For more information, see [Azure Functions Core Tools](functions-run-local.md) or [Azure Functions CLI](functions-cli-develop-local.md).
 
 ## HTTP test tools
 
@@ -207,8 +213,16 @@ With this setting value, any Azure Storage trigger or binding that uses `AzureWe
 ::: zone pivot="programming-language-csharp"
 + To learn more about local development of functions using Visual Studio, see [Develop Azure Functions using Visual Studio](functions-develop-vs.md).
 ::: zone-end  
+
+::: zone pivot="programming-language-go"
++ To create and run a Go function app locally, see [Create a Go function from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-go).
++ For Go-specific project structure and local development details, see the [Go developer reference](functions-reference-go.md).
+::: zone-end
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 + To learn more about local development of functions using Visual Studio Code on a Mac, Linux, or Windows computer, see [Develop Azure Functions by using Visual Studio Code](functions-develop-vs-code.md).
+::: zone-end
 + To learn more about developing functions from the command prompt or terminal, see [Work with Azure Functions Core Tools](functions-run-local.md).
++ To learn more about the preview Azure Functions CLI (v5), see [Develop Azure Functions locally using the Azure Functions CLI](functions-cli-develop-local.md).
 
 <!-- LINKS -->
 

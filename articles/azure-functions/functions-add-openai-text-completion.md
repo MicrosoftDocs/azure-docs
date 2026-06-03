@@ -8,7 +8,7 @@ author: dbandaru
 ms.author: dbandaru
 ms.collection: 
   - ce-skilling-ai-copilot
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 #customer intent: As an Azure developer, I want learn how to integrate Azure OpenAI capabilities in my function code to leverage AI benefits in my cloud-based code executions.
 ms.custom:
   - build-2025
@@ -252,6 +252,8 @@ In Azure, *resources* refer to function apps, functions, storage accounts, and s
 You created resources to complete these quickstarts. You could be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). If you don't need the resources anymore, here's how to delete them:
 
 [!INCLUDE [functions-cleanup-resources-vs-code-inner.md](../../includes/functions-cleanup-resources-vs-code-inner.md)]
+
+
 
 ## Related content
 

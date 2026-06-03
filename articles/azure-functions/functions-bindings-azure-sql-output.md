@@ -25,6 +25,10 @@ For a complete end-to-end example of using the Azure SQL output binding, see [Re
 ## Examples
 <a id="example"></a>
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]

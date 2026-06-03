@@ -150,7 +150,7 @@ The following tables compare AWS Lambda concepts, resources, and properties with
 | PowerShell | Not supported | 7.4 |
 | .NET | .NET 8 | .NET 8, .NET 9, .NET Framework 4.8.1 |
 | Ruby | 3.2, 3.3 | [Custom handlers](/azure/azure-functions/functions-custom-handlers) |
-| Go | [OS-only runtime](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-provided.html) | [Custom handlers](/azure/azure-functions/functions-custom-handlers) |
+| Go | [OS-only runtime](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-provided.html) | [Go (Preview)](/azure/azure-functions/functions-reference-go) |
 | Rust | [OS-only runtime](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-provided.html) | [Custom handlers](/azure/azure-functions/functions-custom-handlers) |
 
 ### Programming model
