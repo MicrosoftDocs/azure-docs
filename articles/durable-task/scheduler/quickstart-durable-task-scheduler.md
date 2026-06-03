@@ -26,35 +26,33 @@ Use the [Durable Task Scheduler](./durable-task-scheduler.md) as a backend for y
 
 ::: zone pivot="csharp"
 
-   - [Create a Durable Functions app - C#](../durable-functions/durable-functions-isolated-create-first-csharp.md)
+- [Create a Durable Functions app - C#](../durable-functions/durable-functions-isolated-create-first-csharp.md)
 
 ::: zone-end
 
 <!-- markdownlint-disable-next-line MD044 -->
 ::: zone pivot="javascript"
 
-   - [Create a Durable Functions app - JavaScript](../durable-functions/quickstart-js-vscode.md)
+- [Create a Durable Functions app - JavaScript](../durable-functions/quickstart-js-vscode.md)
 
 ::: zone-end
 
 ::: zone pivot="python"
 
-   - [Create a Durable Functions app - Python](../durable-functions/quickstart-python-vscode.md)
+- [Create a Durable Functions app - Python](../durable-functions/quickstart-python-vscode.md)
 
 ::: zone-end
 
 <!-- markdownlint-disable-next-line MD044 -->
 ::: zone pivot="powershell"
 
-   - [Create a Durable Functions app - PowerShell](../durable-functions/quickstart-powershell-vscode.md)
+- [Create a Durable Functions app - PowerShell](../durable-functions/quickstart-powershell-vscode.md)
 
 ::: zone-end
 
-::: zone pivot="csharp,javascript,python"
+::: zone pivot="java"
 
-Pull and start the emulator container:
-
-   - [Create a Durable Functions app - Java](../durable-functions/quickstart-java.md)
+- [Create a Durable Functions app - Java](../durable-functions/quickstart-java.md)
 
 ::: zone-end
 
@@ -78,6 +76,13 @@ Install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.D
 > [!NOTE] 
 > The Durable Task Scheduler extension requires **Microsoft.Azure.Functions.Worker.Extensions.DurableTask** version `1.2.2` or higher. 
 
+1. Build and start the function app:
+
+   ```bash
+   dotnet build
+   func start
+   ```
+
 ::: zone-end
 
 <!-- markdownlint-disable-next-line MD044 -->
@@ -87,14 +92,17 @@ In host.json, update the `extensionBundle` property to use version 4.32.0 or lat
 
    ```json
    {
-     "IsEncrypted": false,
-     "Values": {
-       "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-       "FUNCTIONS_WORKER_RUNTIME": "powershell",
-       "DURABLE_TASK_SCHEDULER_CONNECTION_STRING": "Endpoint=http://localhost:8080;TaskHub=default;Authentication=None"
+     "extensionBundle": {
+       "id": "Microsoft.Azure.Functions.ExtensionBundle",
+       "version": "[4.32.0, 5.0.0)"
      }
    }
    ```
+
+::: zone-end
+
+<!-- markdownlint-disable-next-line MD044 -->
+::: zone pivot="javascript,python,powershell"  
 
 1. Start the function app:
 
@@ -104,7 +112,30 @@ In host.json, update the `extensionBundle` property to use version 4.32.0 or lat
 
 ::: zone-end
 
-::: zone pivot="csharp,javascript,python,java,powershell"
+::: zone pivot="java"
+
+1. Build and start the function app:
+
+   ```bash
+   mvn clean package
+   mvn azure-functions:run
+   ```
+
+::: zone-end
+
+::: zone pivot="csharp"
+
+1. In a separate terminal, trigger an orchestration:
+
+   ```powershell
+   $response = Invoke-RestMethod -Method POST -Uri http://localhost:7071/api/DurableFunctionsOrchestrationCSharp1_HttpStart
+   $response
+   ```
+
+::: zone-end
+
+<!-- markdownlint-disable-next-line MD044 -->
+::: zone pivot="javascript,python,java,powershell"
 
 1. In a separate terminal, trigger an orchestration:
 
@@ -112,6 +143,10 @@ In host.json, update the `extensionBundle` property to use version 4.32.0 or lat
    $response = Invoke-RestMethod -Method POST -Uri http://localhost:7071/api/StartChaining
    $response
    ```
+
+::: zone-end
+
+::: zone pivot="csharp,javascript,python,java,powershell"
 
 1. The response contains status URLs for the orchestration instance. Query the `statusQueryGetUri` to check the result:
 
@@ -201,8 +236,6 @@ az functionapp function list --resource-group <RESOURCE_GROUP_NAME> --name <FUNC
 Check the status of the orchestration instance and activity details on the Durable Task Scheduler dashboard. Accessing the dashboard requires you to log in.
 
 [!INCLUDE [assign-dev-identity-role-based-access-control-portal](./includes/assign-dev-identity-role-based-access-control-portal.md)]
-
-::: zone-end
 
 ## Clean up resources
 
