@@ -6,61 +6,60 @@ ms.author: hannahhunter
 ms.topic: quickstart
 ms.service: durable-task
 ms.subservice: durable-functions
-ms.date: 05/20/2026
+ms.date: 06/03/2026
 ms.reviewer: azfuncdf, antchu
 ms.devlang: powershell
 ---
 
 # Quickstart: Create a PowerShell Durable Functions app
 
-In this quickstart, you use Visual Studio Code to create and test a PowerShell [Durable Functions](../../azure-functions/functions-overview.md) app that orchestrates and chains together calls to other functions. You then publish it to Azure.
+Use Durable Functions, a feature of [Azure Functions](../../azure-functions/functions-overview.md), to write stateful serverless workflows in PowerShell. In this quickstart, you clone and run a sample app that demonstrates two common orchestration patterns:
 
-Durable Functions manages state, checkpoints, and restarts in your application, letting you write stateful workflows in a serverless environment.
+- **Function chaining**: Calls activities sequentially (Tokyo → Seattle → London).
+- **Fan-out/fan-in**: Calls activities in parallel across five cities, then aggregates the results.
+
+By the end, you'll have both orchestrations running locally with the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) emulator and be able to view their status in the dashboard.
+
+> [!div class="checklist"]
+>
+> - Clone and prepare the Hello Cities sample project.
+> - Set up the Durable Task Scheduler emulator and Azurite for local development.
+> - Run the function app and trigger both orchestrations.
+> - Review orchestration status and output in the Durable Task Scheduler dashboard.
 
 ## Prerequisites
 
-To complete this quickstart, you need:
+- [PowerShell 7.4+](/powershell/scripting/install/installing-powershell) installed.
+- [Azure Functions Core Tools](../../azure-functions/functions-run-local.md) v4 or later.
+- [Docker](https://www.docker.com/products/docker-desktop/) for running the emulator and Azurite.
+- Clone the [Durable Task Scheduler GitHub repository](https://github.com/Azure-Samples/Durable-Task-Scheduler) to use the quickstart sample.
 
-* [Visual Studio Code](https://code.visualstudio.com/download) installed.
+## Set up the Durable Task Scheduler emulator
 
-* The Visual Studio Code extension [Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) installed.
+The [Durable Task Scheduler emulator](../scheduler/develop-with-durable-task-scheduler.md#durable-task-scheduler-emulator) provides a local development environment so you can test orchestrations without an Azure subscription. The PowerShell Functions host also requires [Azurite](../../storage/common/storage-use-azurite.md) for local storage.
 
-* The latest version of [Azure Functions Core Tools](../../azure-functions/functions-run-local.md) installed.
+Start both containers:
 
-* An HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](../../azure-functions/functions-develop-local.md#http-test-tools).
+```bash
+docker run -d --name dtsemulator -p 8080:8080 -p 8082:8082 \
+  mcr.microsoft.com/dts/dts-emulator:latest
 
-* An Azure subscription. To use Durable Functions, you must have an Azure Storage account.
+docker run -d --name azurite -p 10000:10000 -p 10001:10001 -p 10002:10002 \
+  mcr.microsoft.com/azure-storage/azurite
+```
 
-[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+> [!TIP]
+> Once the emulator is running, you can access the Durable Task Scheduler dashboard at `http://localhost:8082` to monitor orchestrations.
 
-## <a name="create-an-azure-functions-project"></a>Create your local project
+## Run the quickstart sample
 
-In this section, you use Visual Studio Code to create a local Azure Functions project.
+1. Navigate to the Hello Cities sample directory:
 
-1. In Visual Studio Code, select F1 (or select Ctrl/Cmd+Shift+P) to open the command palette. At the prompt (`>`), enter and then select **Azure Functions: Create New Project**.
+   ```bash
+   cd samples/durable-functions/powershell/HelloCities
+   ```
 
-   :::image type="content" source="media/quickstart-js-vscode/functions-create-project.png" alt-text="Screenshot of the Create New Project command in Visual Studio Code for Azure Functions.":::
-
-1. Select **Browse**. In the **Select Folder** dialog, go to a folder to use for your project, and then choose **Select**.
-
-1. At the prompts, provide the following information:
-
-    | Prompt | Action | Description |
-    | ------ | ----- | ----------- |
-    | **Select a language for your function app project** | Select **PowerShell**. | Creates a local PowerShell Functions project. |
-    | **Select a version** | Select **Azure Functions v4**. | You see this option only when Core Tools isn't already installed. In this case, Core Tools is installed the first time you run the app. |
-    | **Select a template for your project's first function** | Select **Skip for now**. | |
-    | **Select how you would like to open your project** | Select **Open in current window**. | Opens Visual Studio Code in the folder you selected. |
-
-Visual Studio Code installs Azure Functions Core Tools if it's required to create a project. It also creates a function app project in a folder. This project contains the [host.json](../../azure-functions/functions-host-json.md) and [local.settings.json](../../azure-functions/functions-develop-local.md#local-settings-file) configuration files.
-
-A *package.json* file is also created in the root folder.
-
-### Configure the standalone Durable Functions SDK
-
-The standalone SDK provides the best performance and latest features for PowerShell Durable Functions. Configure it in three steps:
-
-**Step 1:** Open `local.settings.json` and verify the following settings are present. Add or update them if needed:
+1. Verify that the `local.settings.json` file contains the following configuration:
 
    ```json
    {
@@ -231,11 +230,14 @@ The `managedDependency` setting automatically installs the required PowerShell m
 
 ## Clean up resources
 
-If you no longer need the resources that you created to complete the quickstart, to avoid related costs in your Azure subscription, [delete the resource group](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-portal#delete-resource-group) and all related resources.
+Stop the emulator containers when you're done:
 
-## Related content
+```bash
+docker stop dtsemulator azurite && docker rm dtsemulator azurite
+```
 
-* [Common Durable Functions app patterns](../common/durable-task-sequence.md)
-* [Standalone PowerShell SDK guide](./durable-functions-powershell-v2-sdk-migration-guide.md)
-* [Durable Functions diagnostics and monitoring](durable-functions-diagnostics.md)
-* [PowerShell developer reference for Azure Functions](../../azure-functions/functions-reference-powershell.md)
+## Next steps
+
+- Learn about [common Durable Functions app patterns](../common/durable-task-sequence.md).
+- Review the [standalone PowerShell SDK guide](./durable-functions-powershell-v2-sdk-migration-guide.md).
+- Learn about [Durable Functions storage providers](../common/durable-task-storage-providers.md).
