@@ -40,7 +40,7 @@ The connector can use `anonymous` or `username password` user authentication whe
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
-Your IT administrator must configure the OPC UA connector template for your Azure IoT Operations instance in the Azure portal.
+Your IT administrator must configure the OPC UA connector template for your Azure IoT Operations instance in the Azure portal or by using the Azure CLI.
 
 An OPC UA server that you can reach from your Azure IoT Operations cluster. If you don't have an OPC UA server, use the OPC PLC simulator from the Azure IoT Operations samples repository.
 
