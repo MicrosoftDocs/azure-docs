@@ -10,7 +10,7 @@ ms.reviewer: cshoe
 ms.ai-usage: ai-assisted
 ---
 
-# Add a private marketplace
+# Add a private marketplace to Azure SRE Agent
 
 In this article, you register a private GitHub repository as a marketplace source, install a plugin from it, and make its skills available in your agent.
 
