@@ -6,7 +6,7 @@ services: api-center
 
 ms.service: azure-api-center
 ms.topic: include
-ms.date: 02/25/2026
+ms.date: 06/02/2026
 
 ms.custom: Include file
 ---
@@ -20,7 +20,7 @@ API Center can set up the app registration automatically, or you can create the 
 To set up the app registration automatically, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com), go to your API center.
-1. In the sidebar menu, select **API Center portal** > **Settings**.
+1. In the sidebar menu, select **Consumption** > **Portal settings**.
 1. On the **Access** tab, select **Configure Entra ID**. 
     :::image type="content" source="../media/set-up-api-center-portal/configure-access-entra-id.png" alt-text="Screenshot showing configuration of Entra ID in the portal.":::
 

@@ -26,7 +26,7 @@ Vaulted backups of Azure Data Lake Storage regional availability is shared below
 
 | Availability type | Region |
 | --- | --- |
-| **General availability** |  Vaulted backup for Azure Data Lake Storage is available in all public cloud regions. |
+| **General availability** | Vaulted backup for Azure Data Lake Storage is available in all public cloud regions. |
 
 ## Supported storage accounts
 

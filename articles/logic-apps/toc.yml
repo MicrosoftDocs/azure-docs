@@ -1,41 +1,100 @@
 items:
-  - name: Azure Logic Apps documentation
-    href: index.yml
-  - name: Overview
+- name: Logic Apps documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: About Azure Logic Apps
+    href: logic-apps-overview.md
+  - name: About Logic Apps Automation
+    href: automation/dynamic-workflow-automation-introduction.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Logic Apps Automation - Dynamic workflows
+    expanded: true
     items:
-      - name: About Azure Logic Apps
-        href: logic-apps-overview.md
-  - name: Quickstarts
+    - name: 1 - Create projects
+      href: automation/quickstart-create-dynamic-automation-projects.md
+    - name: 2 - Create applications
+      href: automation/quickstart-create-dynamic-automation-applications.md
+    - name: 3 - Create workflows
+      href: automation/quickstart-create-dynamic-automation-workflows.md
+  - name: Azure Logic Apps - Standard workflows
+    expanded: true
     items:
-      - name: Consumption logic app workflows
-        items:
-          - name: Portal
-            href: quickstart-create-example-consumption-workflow.md
-          - name: Portal - Templates gallery
-            href: create-workflows-from-templates.md?tabs=consumption
-          - name: Visual Studio
-            href: quickstart-create-logic-apps-with-visual-studio.md
-          - name: Visual Studio Code
-            href: quickstart-create-logic-apps-visual-studio-code.md
-          - name: Bicep
-            href: quickstart-create-deploy-bicep.md
-            displayName: ARM, Resource Manager, Template
-          - name: ARM template
-            href: quickstart-create-deploy-azure-resource-manager-template.md
-            displayName: Resource Manager
-          - name: Azure CLI
-            href: quickstart-logic-apps-azure-cli.md
-          - name: Azure PowerShell
-            href: quickstart-logic-apps-azure-powershell.md
-      - name: Standard logic app workflows
-        items:
-          - name: Portal
-            href: create-single-tenant-workflows-azure-portal.md
-          - name: Portal - Templates gallery
-            href: create-workflows-from-templates.md?tabs=standard
-          - name: Visual Studio Code
-            href: create-standard-workflows-visual-studio-code.md
-  - name: Tutorials
+    - name: Portal
+      href: create-single-tenant-workflows-azure-portal.md
+    - name: Portal - Templates gallery
+      href: create-workflows-from-templates.md?tabs=standard
+    - name: Visual Studio Code
+      href: create-standard-workflows-visual-studio-code.md
+  - name: Azure Logic Apps - Consumption workflows
+    expanded: false
+    items:
+    - name: Portal
+      href: quickstart-create-example-consumption-workflow.md
+    - name: Portal - Templates gallery
+      href: create-workflows-from-templates.md?tabs=consumption
+    - name: Visual Studio Code
+      href: quickstart-create-logic-apps-visual-studio-code.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: quickstart-create-deploy-bicep.md
+    - name: ARM template
+      displayName: Resource Manager
+      href: quickstart-create-deploy-azure-resource-manager-template.md
+    - name: Azure CLI
+      href: quickstart-logic-apps-azure-cli.md
+    - name: Azure PowerShell
+      href: quickstart-logic-apps-azure-powershell.md
+- name: Tutorials
+  items:
+  - name: Create Consumption schedule-based workflow
+    href: tutorial-build-schedule-recurring-logic-app-workflow.md
+  - name: Create Consumption approval-based workflow
+    href: tutorial-process-mailing-list-subscriptions-workflow.md
+  - name: Create Consumption workflow with Azure Storage and Azure Functions
+    href: tutorial-process-email-attachments-workflow.md
+- name: Samples
+  items:
+  - name: Azure CLI - Consumption workflow sample script
+    href: sample-logic-apps-cli-script.md
+  - name: Azure code samples
+    href: /samples/browse/?products=azure-logic-apps
+  - name: Resource Manager - Consumption workflow quickstart templates
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic
+- name: Concepts
+  items:
+  - name: Compare automation services
+    href: automation/compare-automation-services.md
+  - name: Scheduled recurring workflows
+    href: concepts-schedule-automated-recurring-tasks-workflows.md
+  - name: AI playbook and solution development
+    href: ai-resources.md
+  - name: Dynamic workflows automation
+    href: automation/dynamic-workflow-automation-introduction.md
+  - name: Agentic workflows
+    href: agent-workflows-concepts.md
+  - name: Serverless with Azure
+    href: logic-apps-serverless-overview.md
+  - name: Connectors
+    items:
+    - name: About connectors
+      href: ../connectors/introduction.md
+    - name: Built-in connectors
+      href: ../connectors/built-in.md
+    - name: Managed connectors
+      href: ../connectors/managed.md
+    - name: Custom connectors
+      href: custom-connector-overview.md
+  - name: Business rules engine integration
+    href: rules-engine/rules-engine-overview.md
+  - name: Mainframe modernization
+    href: mainframe-modernization-overview.md
+  - name: B2B integration & EDI processing
+    href: logic-apps-enterprise-integration-overview.md
+  - name: Reliability
     items:
       - name: Create Consumption schedule-based workflow
         href: tutorial-build-schedule-recurring-logic-app-workflow.md
@@ -45,15 +104,82 @@ items:
         href: tutorial-process-email-attachments-workflow.md
   - name: Samples
     items:
-      - name: Azure CLI - Consumption workflow sample script
-        href: sample-logic-apps-cli-script.md
-      - name: Azure code samples
-        href: /samples/browse/?products=azure-logic-apps
-      - name: Resource Manager - Consumption workflow quickstart templates
-        href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic
-  - name: Concepts
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
+    - name: Security baseline
+      href: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=/azure/logic-apps/toc.json
+- name: How-to guides
+  items:
+  - name: Logic Apps Automation - Dynamic workflows
     items:
-      - name: Connectors
+    - name: 1 - Create projects
+      href: automation/quickstart-create-dynamic-automation-projects.md
+    - name: 2 - Create applications
+      href: automation/quickstart-create-dynamic-automation-applications.md
+    - name: 3 - Create workflows
+      href: automation/quickstart-create-dynamic-automation-workflows.md
+  - name: Single-tenant Azure Logic Apps
+    items:
+    - name: Overview
+      href: single-tenant-overview-compare.md
+    - name: Navigate the Standard workflow designer
+      href: designer-overview.md
+    - name: Built-in versus Azure connector operations
+      href: ../connectors/compare-built-in-azure-connectors.md
+    - name: Estimate storage costs
+      href: estimate-storage-costs.md
+    - name: Set up SQL database storage
+      href: set-up-sql-database-storage-standard.md
+    - name: Create Standard workflows - Portal
+      href: create-single-tenant-workflows-azure-portal.md
+    - name: Create Standard workflows from templates - Portal
+      href: create-single-tenant-workflows-templates.md
+    - name: Create Standard workflows - Visual Studio Code
+      href: create-single-tenant-workflows-visual-studio-code.md
+    - name: Export Standard from portal to Visual Studio Code
+      href: export-standard-logic-app-to-visual-studio-code.md
+    - name: Create and run .NET code
+      href: create-run-custom-code-functions.md
+    - name: Add and run C# scripts
+      href: add-run-csharp-scripts.md
+    - name: Add and run PowerShell scripts
+      href: add-run-powershell-scripts.md
+    - name: Edit app and host settings
+      href: edit-app-settings-host-settings.md
+    - name: Enable stateful mode for stateless built-in connectors
+      href: ../connectors/enable-stateful-affinity-built-in-connectors.md
+    - name: Create custom built-in connectors
+      href: create-custom-built-in-connector-standard.md
+    - name: Create and publish workflow templates
+      href: create-publish-workflow-templates.md
+    - name: Secure traffic between Standard workflows and virtual networks
+      href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
+    - name: AI scenarios
+      items:
+      - name: Get AI-powered help from the workflow assistant
+        href: workflow-assistant-standard.md
+      - name: Create autonomous agentic workflows
+        href: create-autonomous-agent-workflows.md
+      - name: Create conversational agentic workflows
+        href: create-conversational-agent-workflows.md
+      - name: Create knowledge bases for agentic workflows
+        href: create-knowledge-base-agentic-workflow.md
+      - name: Add agent tools in Foundry backed by connectors
+        href: add-agent-tools-connector-actions.md
+      - name: Add agent actions in Foundry backed by workflows
+        href: add-agent-action-create-run-workflow.md
+      - name: Create MCP servers and tools from connectors
+        href: create-mcp-server-api-center.md
+      - name: Create MCP servers from Standard workflows
+        href: create-model-context-protocol-server-standard.md
+      - name: Run Python code in agent workflows
+        href: connectors/code-interpreter-python-container-apps-session.md
+      - name: Parse or chunk content
+        href: parse-document-chunk-text.md
+      - name: Create chat completions with prompt templates
+        href: connectors/create-chat-completions-prompt-template.md
+      - name: Multiagentic scenarios
         items:
           - name: About connectors
             href: ../connectors/introduction.md
@@ -302,6 +428,8 @@ items:
             href: connector-namespace/connector-namespace-hosted-mcp.md
           - name: Create a hosted MCP server
             href: connector-namespace/hosted-mcp-quickstart.md
+          - name: Hosted MCP servers developer guide
+            href: connector-namespace/hosted-mcp-dev-guide.md
       - name: Access on-premises data sources
         items:
           - name: Install on-premises data gateway
