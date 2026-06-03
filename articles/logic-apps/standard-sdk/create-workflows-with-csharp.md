@@ -171,7 +171,7 @@ The Logic Apps Standard SDK is currently in public preview. The following limita
 
 ## Next Steps
 
-- [Deploy Logic Apps to Azure](..\create-standard-workflows-visual-studio-code#deploy-to-azure)
+- [Deploy Logic Apps to Azure](../create-standard-workflows-visual-studio-code#deploy-to-azure)
 
 ## Related content
 
