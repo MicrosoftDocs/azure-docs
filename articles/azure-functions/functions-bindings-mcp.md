@@ -58,6 +58,10 @@ Add the extension to your project by installing this [NuGet package](https://www
 
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
+::: zone-end
+
 ## host.json settings
 
 [!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]

@@ -4,7 +4,7 @@ description: Learn how to migrate your existing function apps running on version
 ms.service: azure-functions
 ms.topic: how-to
 ms.date: 09/30/2025
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 ms.custom:
   - devx-track-dotnet
   - devx-track-extended-java
@@ -524,6 +524,7 @@ If you don't see your programming language, go select it from the [top of the pa
 
 - Default thread count has been updated. Functions that aren't thread-safe or have high memory usage could be impacted. ([#1962](https://github.com/Azure/Azure-Functions/issues/1962))
 ::: zone-end
+
 
 ## Next steps
 

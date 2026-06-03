@@ -7,8 +7,8 @@ author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom: engagement-fy24
 # Customer intent: As a data engineer, I want to understand the backup aspects before configuring backups for Azure Data Lake Storage, so that I can ensure reliable data protection and restore capabilities for my storage accounts.
---- 
-
+---
+ 
 # About Azure Data Lake Storage vaulted backup
 
 [Azure Data Lake Storage](/azure/storage/blobs/data-lake-storage-introduction) vaulted backup is a streamlined, cloud-native solution to back up, and restore general-purpose v2 storage accounts with a [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace). It allows selective backup and restoration of containers, and store backups in a dedicated vault for granular control.
@@ -35,8 +35,8 @@ Learn about the [supported scenarios and limitations for Azure Data Lake Storage
 ## Azure Data Lake Storage backup configuration and retention
 
 The Azure Data Lake Storage backup requires a Backup vault that provides a centralized view of configured backups. Vaulted backup is set at the storage account level, with the option to exclude containers. 
->[!Note]
->The maximum number of containers in a storage account that can be protected is 1000. If an account has over 1000 containers, reduce the count to **<= 1000**. Learn [about the supported container count for backup](azure-data-lake-storage-backup-support-matrix.md#protection-limits).
+> [!Note]
+> The maximum number of containers in a storage account that can be protected has been increased to 1000 effective May-2026.  If an account has over 1000 containers, reduce the count to **<= 1000**. Learn [about the supported container count for backup](azure-data-lake-storage-backup-support-matrix.md#protection-limits).
 
 Backup policies manage schedules and retention, supporting daily or weekly backups and recovery point creation. Retention can be set for daily, weekly, monthly, or yearly backups and can be retained up to **10 years**, with yearly rules taking priority. If no other rules are set, the default retention rule applies.
 

@@ -320,8 +320,50 @@ def main(myblob: func.InputStream):
 ```
 
 ::: zone-end  
+::: zone pivot="programming-language-go"
 
----
+The following example shows a Blob Storage trigger function that processes uploaded blobs:
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"io"
+	"log"
+
+	"github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob"
+	"github.com/azure/azure-functions-golang-worker/sdk"
+	_ "github.com/azure/azure-functions-golang-worker/triggers/blob"
+	"github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+	app := sdk.FunctionApp()
+	app.Blob("blobTrigger", processBlob,
+		sdk.WithPath("samples-workitems/{name}"),
+		sdk.WithConnection("AzureWebJobsStorage"),
+	)
+	worker.Start(app)
+}
+
+func processBlob(ctx context.Context, client *blob.Client) error {
+	get, err := client.DownloadStream(ctx, nil)
+	if err != nil {
+		return fmt.Errorf("download error: %w", err)
+	}
+	data, _ := io.ReadAll(get.Body)
+	get.Body.Close()
+	log.Printf("Go Blob trigger function processed blob, %d bytes", len(data))
+	return nil
+}
+```
+
+> [!NOTE]
+> The Blob trigger in Go provides an authenticated Azure SDK `*blob.Client` directly to your handler. You must add a blank import for `triggers/blob` to make the Blob trigger package available to the Go worker.
+
+::: zone-end  
 
 ::: zone pivot="programming-language-csharp"
 ## Attributes

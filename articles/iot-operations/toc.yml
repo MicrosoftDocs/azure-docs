@@ -173,6 +173,9 @@ items:
               - name: Configure OPC UA application authentication
                 href: discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md
                 displayName: connector, X.509, certificate, instance, trusted, issuer, cert-manager, enterprise, CA, auth, authn, southbound
+          - name: Create and manage connector template instances
+            href: discover-manage-assets/howto-manage-connector-templates.md
+            displayName: IT administrator, connector template, template instance, PVC, persistent volume claim, Akri, runtime configuration, secrets, trust bundle, southbound
           - name: Connect to media sources
             href: discover-manage-assets/howto-use-media-connector.md
             displayName: image, video, camera, stream, snapshot, RTSP, RTCP, RTP, MJPEG, container, storage, southbound

@@ -8,7 +8,7 @@ ms.date: 11/12/2025
 ms.update-cycle: 180-days
 ms.collection: 
   - ce-skilling-ai-copilot 
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 #Customer intent: As a developer, I want to know how to register remote MCP servers in a registry so that they're organized and easily discoverable. 
 ---
 
@@ -96,6 +96,33 @@ Register your remote MCP server by adding it as an API:
 1. When you select a server name, a pane opens that shows information based on data you provide during server registration and the uploaded API definition. Users with access to the portal can connect to servers of their choice by copying the endpoint URL or the install in Visual Studio Code integration. 
 
     ![Server information in API Center portal](./media/functions-mcp/server-info-api-center-portal.png)
+
+
+
+::: zone pivot="programming-language-csharp"
+C# isn't currently supported for this feature.
+::: zone-end
+
+::: zone pivot="programming-language-java"
+Java isn't currently supported for this feature.
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+JavaScript isn't currently supported for this feature.
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+PowerShell isn't currently supported for this feature.
+::: zone-end
+
+::: zone pivot="programming-language-typescript"
+TypeScript isn't currently supported for this feature.
+::: zone-end
+
+::: zone pivot="programming-language-python"
+Python isn't currently supported for this feature.
+::: zone-end
+
 
 ## Related articles
 

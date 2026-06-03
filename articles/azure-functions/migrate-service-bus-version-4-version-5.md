@@ -5,7 +5,7 @@ ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.topic: how-to 
 ms.date: 01/12/2024
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 ---
 
 # Migrate function apps from Azure Service Bus extension version 4.x to version 5.x 
@@ -113,6 +113,7 @@ To update your application to use the latest extension bundle, update your `host
 
 The Azure Functions Azure Service Bus extension version 5 is built on top of the Azure.Messaging.ServiceBus SDK version 3, which removed support for the `Message` class. Instead, use the `ServiceBusReceivedMessage` type to receive message metadata from Service Bus Queues and Subscriptions.
 ::: zone-end  
+
 
 ## Next steps
 

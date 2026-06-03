@@ -98,7 +98,7 @@ You can create the Discovery tool resource by using either the Azure portal or t
 
 # [Azure portal](#tab/portal)
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal). The link adds the `v2` feature flag required for Public Preview.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Microsoft Discovery Tools** and select it.
 1. Select **+ Create**. The **Basics** tab opens.
 1. On the **Basics** tab, fill in the following fields:

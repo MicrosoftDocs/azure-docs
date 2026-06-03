@@ -9,7 +9,7 @@ ms.collection:
   - ce-skilling-ai-copilot
 ms.custom:
   - ignite-2025
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 #Customer intent: As a developer, I need to know how to host server built with official MCP SDKs on Azure Functions to benefit from serverless scale and security features.
 ---
 
@@ -237,6 +237,7 @@ azd down
 ```
 
 ::: zone-end  
+
 <!--- Re-add this when the new tutorial gets published
 ## Next steps
 

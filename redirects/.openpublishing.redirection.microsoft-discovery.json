@@ -4,6 +4,21 @@
             "source_path_from_root": "/articles/microsoft-discovery/quickstart-agents-bundles.md",
             "redirect_url": "/azure/microsoft-discovery/quickstart-agents-studio",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/microsoft-discovery/concept-v1-to-v2-transition-guide.md",
+            "redirect_url": "/azure/microsoft-discovery/quickstart-infrastructure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/microsoft-discovery/how-to-collect-v1-configurations.md",
+            "redirect_url": "/azure/microsoft-discovery/quickstart-infrastructure-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/microsoft-discovery/how-to-recreate-v2-resources.md",
+            "redirect_url": "/azure/microsoft-discovery/quickstart-infrastructure-portal",
+            "redirect_document_id": false
         }
     ]
 }

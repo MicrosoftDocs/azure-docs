@@ -456,6 +456,41 @@ Here's the Python code:
 ---
 
 ::: zone-end  
+::: zone pivot="programming-language-go"
+
+The following example shows an Azure Cosmos DB trigger function that logs each changed document:
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	"github.com/azure/azure-functions-golang-worker/sdk"
+	"github.com/azure/azure-functions-golang-worker/sdk/bindings"
+	"github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+	app := sdk.FunctionApp()
+	app.CosmosDB("cosmosDBTrigger", processChanges,
+		sdk.WithDatabase("mydb"),
+		sdk.WithContainer("mycontainer"),
+		sdk.WithConnection("CosmosDBConnection"),
+	)
+	worker.Start(app)
+}
+
+func processChanges(ctx context.Context, docs []bindings.CosmosDocument) error {
+	for _, doc := range docs {
+		log.Printf("Document modified: %s", doc.ID)
+	}
+	return nil
+}
+```
+
+::: zone-end  
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 

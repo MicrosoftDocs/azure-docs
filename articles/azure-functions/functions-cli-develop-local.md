@@ -37,7 +37,7 @@ func --version
 ```
 
 After you install the base CLI, install the workloads for your stack. The fastest way is [`func setup`](functions-core-tools-reference.md#func-setup), which installs the host, the language worker, the extension bundles (when needed), the stack workload, and the templates workload in one step. 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-python"  
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-go"  
 For example:
 
 ::: zone-end  
@@ -61,6 +61,14 @@ func setup --features node
 
 ```command
 func setup --features python
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+```command
+func setup --features go
 ```
 
 ::: zone-end
@@ -125,6 +133,14 @@ func init MyProjFolder --stack python
 
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+
+```command
+func init MyProjFolder --stack go
+```
+
+::: zone-end
+
 The `--stack` option specifies which language stack to use. The installed workload for that stack provides the scaffolding.
 
 ## Create a function
@@ -134,9 +150,6 @@ To add a function from a template, use the [`func new`](functions-core-tools-ref
 ```command
 func new --template "HTTP trigger" --name MyHttpTrigger
 ```
-
-> [!NOTE]
-> `func new` is currently a preview stub until a templates workload is installed for the project's stack. The command dynamically hydrates template-specific options from template metadata.
 
 ## Run functions locally
 
@@ -172,6 +185,14 @@ func quickstart --stack node --resource http
 
 ```command
 func quickstart --stack python --resource http
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+```command
+func quickstart --stack go --resource http
 ```
 
 ::: zone-end

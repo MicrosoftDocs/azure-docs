@@ -229,7 +229,7 @@ More information:
 
 ## AI gateway in Microsoft Foundry (preview)
 
-You can now integrate AI gateway directly into Microsoft Foundry, enabling you to govern AI traffic from within your Foundry environment. You can associate a single AI gateway with a Foundry resource.
+You can now integrate AI gateway directly into Microsoft Foundry, enabling you to govern AI traffic from within your Foundry environment.
 
 > [!NOTE]
 > See the [Microsoft Foundry documentation](/azure/foundry/configuration/enable-ai-api-management-gateway-portal#requirements-for-using-an-existing-api-management-instance) for detailed requirements to use an API Management instance as an AI gateway in Foundry, including required permissions and supported service tiers. From the Foundry portal, you can also create a new API Management instance to use as an AI gateway.

@@ -5,10 +5,8 @@ author: TaylorCorbett
 ms.author: gecorbet
 ms.service: planetary-computer-pro
 ms.topic: how-to #Don't Change
-ms.date: 04/18/2024
+ms.date: 05/27/2026
 #customer intent: As a geocatalog user, I want to use the Bulk Ingestion API so that I can efficiently ingest a large amount of geospatial data into my GeoCatalog.
-ms.custom:
-  - build-2025
 ---
 
 # Ingest data into GeoCatalog with the Bulk Ingestion API
@@ -30,7 +28,7 @@ A geospatial dataset in your storage account blob container:
 
 In your local / development environment:
 
-- A Python environment running Python 3.8, or later.
+- A Python environment running Python 3.10 (or later).
 - [Azure CLI](/cli/azure/install-azure-cli)
 - You're [signed in to Azure](/cli/azure/authenticate-azure-cli-interactively)
 
@@ -38,6 +36,8 @@ Microsoft Planetary Computer Pro must have access to the Azure Blob Storage cont
 
 - [Set up Ingestion Credentials for Microsoft Planetary Computer Pro using managed identity](./set-up-ingestion-credentials-managed-identity.md)
 - [Set up Ingestion Credentials for Microsoft Planetary Computer Pro using SAS Tokens](./set-up-ingestion-credentials-sas-tokens.md)
+
+# [REST API](#tab/restapi)
 
 ## Create Ingestion Source
 
@@ -68,7 +68,7 @@ Creating an ingestion source defines for GeoCatalog which source to ingest geosp
     MPCPRO_APP_ID = "https://geocatalog.spatio.azure.com"
     CONTAINER_URI = "<container_uri>" # The URI for the blob storage container housing your geospatial data
     GEOCATALOG_URI = "<geocatalog uri>" # The URI for your GeoCatalog can be found in the Azure portal resource overview 
-    API_VERSION = "2025-04-30-preview"
+    API_VERSION = "2026-04-15"
     ```
 1. Create the SAS Token
 
@@ -173,7 +173,7 @@ A STAC collection is the high-level container for STAC Items and their associate
     ```python
     MPCPRO_APP_ID = "https://geocatalog.spatio.azure.com"
     GEOCATALOG_URI = "<geocatalog uri>" # The URI for your GeoCatalog can be found in the Azure portal resource overview 
-    API_VERSION = "2025-04-30-preview"
+    API_VERSION = "2026-04-15"
 
     COLLECTION_ID = "example-collection" #You can your own collection ID
     COLLECTION_TITLE = "Example Collection" #You can your own collection title    
@@ -247,7 +247,7 @@ In this final step, we're using the ingestion API to initiate a bulk ingestion w
     ```python
     MPCPRO_APP_ID = "https://geocatalog.spatio.azure.com"
     GEOCATALOG_URI = "<geocatalog uri>" # The URI for your GeoCatalog can be found in the Azure portal resource overview 
-    API_VERSION = "2025-04-30-preview"
+    API_VERSION = "2026-04-15"
 
     COLLECTION_ID = "example-collection" #You can your own collection ID
     catalog_href = "<catalog_href>" #The blob storage location of the STAC Catalog JSON file
@@ -334,6 +334,120 @@ Once the workflow is complete, you can query, retrieve, or visualize your geospa
     else:
         print(f"Failed to delete ingestion source")
     ```
+
+# [Python SDK](#tab/pythonsdk)
+
+Install the Planetary Computer Pro Python SDK:
+
+```console
+pip install azure-planetarycomputer azure-identity azure-storage-blob
+```
+
+## Create Ingestion Source
+
+```python
+from azure.planetarycomputer import PlanetaryComputerProClient
+from azure.identity import DefaultAzureCredential
+from datetime import datetime, timedelta, timezone
+from urllib.parse import urlparse
+import azure.storage.blob
+
+client = PlanetaryComputerProClient(
+    endpoint="<your-geocatalog-url>",
+    credential=DefaultAzureCredential()
+)
+
+CONTAINER_URI = "<container_uri>"
+
+# Generate SAS token using azure-storage-blob (same as REST API approach)
+parsed_url = urlparse(CONTAINER_URI)
+account_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
+account_name = parsed_url.netloc.split(".")[0]
+container_name = parsed_url.path.lstrip("/")
+
+credential = DefaultAzureCredential()
+blob_service_client = azure.storage.blob.BlobServiceClient(
+    account_url=account_url,
+    credential=credential,
+)
+now = datetime.now(timezone.utc).replace(microsecond=0)
+key = blob_service_client.get_user_delegation_key(
+    key_start_time=now + timedelta(hours=-1),
+    key_expiry_time=now + timedelta(hours=1),
+)
+sas_token = azure.storage.blob.generate_container_sas(
+    account_name=account_name,
+    container_name=container_name,
+    user_delegation_key=key,
+    permission=azure.storage.blob.ContainerSasPermissions(read=True, list=True),
+    start=now + timedelta(hours=-1),
+    expiry=now + timedelta(hours=1),
+)
+
+# Create the ingestion source
+ingestion_source = client.ingestion.create_source({
+    "kind": "SasToken",
+    "connectionInfo": {
+        "containerUrl": CONTAINER_URI,
+        "sasToken": sas_token,
+    },
+})
+print(f"Ingestion source created: {ingestion_source['id']}")
+```
+
+## Create Collection
+
+```python
+collection = {
+    "id": "example-collection",
+    "type": "Collection",
+    "title": "Example Collection",
+    "description": "An example collection",
+    "license": "CC-BY-4.0",
+    "extent": {
+        "spatial": {"bbox": [[-180, -90, 180, 90]]},
+        "temporal": {"interval": [["2018-01-01T00:00:00Z", "2018-12-31T23:59:59Z"]]},
+    },
+    "links": [],
+    "stac_version": "1.0.0",
+    "msft:short_description": "An example collection",
+}
+
+poller = client.stac.begin_create_collection(body=collection)
+result = poller.result()
+print(f"Collection created: {result}")
+```
+
+## Create Connection and Run Workflow
+
+```python
+COLLECTION_ID = "example-collection"
+catalog_href = "<catalog_href>"  # Blob storage location of the STAC Catalog JSON file
+
+ingestion = client.ingestion.create(COLLECTION_ID, {
+    "importType": "StaticCatalog",
+    "sourceCatalogUrl": catalog_href,
+    "skipExistingItems": False,
+    "keepOriginalAssets": False,
+})
+ingestion_id = ingestion.id
+print(f"Created ingestion with ID: {ingestion_id}")
+
+# Start the ingestion workflow
+run = client.ingestion.create_run(COLLECTION_ID, ingestion_id)
+print("Workflow started successfully")
+```
+
+## Clean up resources
+
+```python
+client.ingestion.delete_source(ingestion_source["id"])
+print("Ingestion source deleted successfully")
+```
+
+For more information, see the [Python SDK reference](/python/api/overview/azure/planetarycomputer-readme).
+
+---
 
 ## Next steps
 

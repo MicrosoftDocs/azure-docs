@@ -56,8 +56,6 @@
         href: track-resource-dependencies.md
     - name: Agents
       items:
-      - name: Overview
-        href: agent-to-agent-overview.md 
       - name: Register and manage agents 
         href: register-manage-agents.md
     - name: MCP servers

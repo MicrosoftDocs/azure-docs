@@ -503,6 +503,40 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 ---
 
 ::: zone-end
+::: zone pivot="programming-language-go"
+
+The following example shows an HTTP trigger function that returns a personalized greeting. The function uses standard Go `net/http` types:
+
+```go
+package main
+
+import (
+	"fmt"
+	"net/http"
+
+	"github.com/azure/azure-functions-golang-worker/sdk"
+	"github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+	app := sdk.FunctionApp()
+	app.HTTP("hello", hello,
+		sdk.WithMethods("GET", "POST"),
+		sdk.WithAuth("anonymous"),
+	)
+	worker.Start(app)
+}
+
+func hello(w http.ResponseWriter, r *http.Request) {
+	name := r.URL.Query().Get("name")
+	if name == "" {
+		name = "world"
+	}
+	fmt.Fprintf(w, "Hello, %s!", name)
+}
+```
+
+::: zone-end
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 

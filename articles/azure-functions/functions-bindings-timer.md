@@ -66,7 +66,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 ::: zone pivot="programming-language-java"
 
-The following example function triggers and executes every five minutes. The `@TimerTrigger` annotation on the function defines the schedule using the same string format as [CRON expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+The following example function triggers and executes every five minutes. The `@TimerTrigger` annotation on the function defines the schedule using the same string format as [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
 ```java
 @FunctionName("keepAlive")
@@ -228,6 +228,40 @@ Write-Host "PowerShell timer trigger function ran! TIME: $currentU
 ```
 
 ::: zone-end
+::: zone pivot="programming-language-go"
+
+The following example shows a timer trigger function that runs every five minutes:
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	"github.com/azure/azure-functions-golang-worker/sdk"
+	"github.com/azure/azure-functions-golang-worker/sdk/bindings"
+	"github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+	app := sdk.FunctionApp()
+	app.Timer("timerTrigger", timerHandler,
+		sdk.WithSchedule("0 */5 * * * *"),
+	)
+	worker.Start(app)
+}
+
+func timerHandler(ctx context.Context, timer bindings.TimerInfo) error {
+	log.Printf("Timer trigger function ran at: %s", timer.ScheduleStatus.Next)
+	if timer.IsPastDue {
+		log.Println("Timer is running late!")
+	}
+	return nil
+}
+```
+
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 ## Attributes
@@ -238,7 +272,7 @@ Write-Host "PowerShell timer trigger function ran! TIME: $currentU
 
 |Attribute property | Description|
 |---------|----------------------|
-|**Schedule**| A [CRON expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as `%ScheduleAppSetting%`. |
+|**Schedule**| A [cron expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as `%ScheduleAppSetting%`. |
 |**RunOnStartup**| If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. *Use with caution.* **RunOnStartup** should rarely if ever be set to `true`, especially in production. |
 |**UseMonitor**| Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. For schedules that trigger more than once per minute, the default is `false`. |
 
@@ -275,7 +309,7 @@ For Python functions defined by using *function.json*, see the [Configuration](#
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
-The `@TimerTrigger` annotation on the function defines the `schedule` using the same string format as [CRON expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression). The annotation supports the following settings:
+The `@TimerTrigger` annotation on the function defines the `schedule` using the same string format as [cron expressions](https://en.wikipedia.org/wiki/Cron#CRON_expression). The annotation supports the following settings:
 
 + [dataType](/java/api/com.microsoft.azure.functions.annotation.timertrigger.datatype)
 + [name](/java/api/com.microsoft.azure.functions.annotation.timertrigger.name)

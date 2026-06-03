@@ -5,10 +5,8 @@ author: aloverro
 ms.author: adamloverro
 ms.service: planetary-computer-pro
 ms.topic: how-to
-ms.date: 01/09/2026
+ms.date: 05/27/2026
 
-ms.custom:
-  - build-2025
 # customer intent: As a GeoCatalog user, I want to configure and authenticate ArcGIS pro to operate with Microsoft Planetary Computer Pro so that I can view imagery stored in my GeoCatalog within the ArcGIS Pro tool.
 ---
 
@@ -360,7 +358,7 @@ This section outlines how to configure authentication and data access in the Arc
 
 ## Prepare and record GeoCatalog information
 
-### GeoCatalog URI, collection name, and token API endpoint
+### GeoCatalog URI, collection ID, and token API endpoint
 
 1. Create a Microsoft Planetary Computer Pro GeoCatalog in your Azure subscription (for example, **arcgisprogeocatalog**), and locate it in the appropriate resource group.
 
@@ -376,9 +374,9 @@ This section outlines how to configure authentication and data access in the Arc
 
    :::image type="content" source="media/media-processing-center-pro-collections.png" alt-text="Screenshot that shows the web interface for Microsoft Planetary Computer Pro." lightbox="media/media-processing-center-pro-collections.png":::
 
-1. Record the value in **Collection Name**. For example, `sentinel-2-l2a-tutorial-1000`.
+1. Record the value in **Collection Name**. This value is the collection ID. For example, `sentinel-2-l2a-tutorial-1000`.
 
-1. Construct the token API endpoint by using this pattern: ```<GeoCatalog URI>/sas/token/<Collection Name>?api-version=2025-04-30-preview```. For example: ```https://arcgisprogeocatalog.<unique-identity>.<cloud-region>.geocatalog.spatio.azure.com/sas/token/sentinel-2-l2a-tutorial-1000?api-version=2025-04-30-preview```.
+1. Construct the token API endpoint by using this pattern: ```<GeoCatalog URI>/sas/token/{collectionId}?api-version=2026-04-15```. For example: ```https://arcgisprogeocatalog.<unique-identity>.<cloud-region>.geocatalog.spatio.azure.com/sas/token/sentinel-2-l2a-tutorial-1000?api-version=2026-04-15```.
 
 ### Find and record the storage location
 
@@ -462,7 +460,7 @@ There are two easy ways to discover the storage account and blob container for a
 1. Add the provider option **ARC_TOKEN_SERVICE_API** and set the value to the token API endpoint that you constructed earlier. For example:
 
    ```bash
-    https://arcgisprogeocatalog.<unique-identity>.<cloud-region>.geocatalog.spatio.azure.com/sas/token/sentinel-2-l2a-tutorial-1000?api-version=2025-04-30-preview
+    https://arcgisprogeocatalog.<unique-identity>.<cloud-region>.geocatalog.spatio.azure.com/sas/token/sentinel-2-l2a-tutorial-1000?api-version=2026-04-15
    ```
 
 1. Add the provider option **ARC_TOKEN_OPTION_NAME** and set the value to **AZURE_STORAGE_SAS_TOKEN**.
@@ -489,7 +487,7 @@ There are two easy ways to discover the storage account and blob container for a
 1. Add values for **Custom Parameters**:
 
    - **Name:** ```api-version```
-   - **Value:** ```2025-04-30-preview```
+   - **Value:** ```2026-04-15```
 
 1. Add the ACS connection file that you created in the previous step to the **Cloud Storage Connections** list. Select **OK**.
 

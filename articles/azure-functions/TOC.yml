@@ -67,10 +67,10 @@
       displayName: azd
       href: create-first-function-azure-developer-cli.md
     - name: Command line tools
-      displayName: quickstart, get started, go, rust
+      displayName: quickstart, get started, go, rust, golang
       href: how-to-create-function-azure-cli.md
     - name: Visual Studio Code
-      displayName: quickstart, get started, go, rust
+      displayName: quickstart, get started, rust
       href: how-to-create-function-vs-code.md
     - name: Visual Studio
       href: functions-create-your-first-function-visual-studio.md
@@ -360,6 +360,9 @@
             href: python-memory-profiler-reference.md
       - name: Python SDK API reference
         href: /python/api/azure-functions/azure.functions
+  - name: Go (Preview)
+    displayName: golang
+    href: functions-reference-go.md
 - name: How-to guides
   items:
   - name: Develop

@@ -29,6 +29,10 @@ Make sure the required package references are in place before you try to impleme
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 # [Isolated worker model](#tab/isolated-process)

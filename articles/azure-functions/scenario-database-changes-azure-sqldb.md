@@ -3,7 +3,7 @@ title: Respond to database changes in Azure SQL Database using Azure Functions
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy a local project to a Flex Consumption plan on Azure. The project features an Azure SQL Database trigger function that runs in response to changes in a SQL table."
 ms.date: 12/01/2025
 ms.topic: quickstart
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy an Azure SQL Database triggered function project securely to a new function app in the Flex Consumption plan in Azure by using azd templates and the azd up command.
 ---
 
@@ -13,19 +13,19 @@ In this Quickstart, you use Visual Studio Code to build an app that responds to 
 
 The project source uses the Azure Developer CLI (azd) extension with Visual Studio Code to simplify initializing and verifying your project code locally, and deploying your code to Azure. This deployment follows current best practices for secure and scalable Azure Functions deployments.
 
-::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell"  
-> [!IMPORTANT]  
-> While responding to [changes in an Azure SQL database](./functions-bindings-azure-mysql-trigger.md) is supported for all languages, this quickstart scenario currently only has examples for C#, Python, and TypeScript. To complete this quickstart, select one of these supported languages at the top of the article. 
-::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell"
+> [!IMPORTANT]
+> While responding to [changes in an Azure SQL database](./functions-bindings-azure-mysql-trigger.md) is supported for all languages, this quickstart scenario currently only has examples for C#, Python, and TypeScript. To complete this quickstart, select one of these supported languages at the top of the article.
+::: zone-end
+::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript"
 [!INCLUDE [functions-scenario-quickstarts-prerequisites](../../includes/functions-scenario-quickstarts-prerequisites.md)]
 + The [SQL Server (mssql) extension](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) for Visual Studio Code.
 
 ## Initialize the project
 
 Use the Azure Developer CLI (`azd`) to create a local Azure Functions code project from a template.
-::: zone-end  
-::: zone pivot="programming-language-csharp" 
+::: zone-end
+::: zone pivot="programming-language-csharp"
 1. From a terminal, run this `azd init` command to create a local project from the template:
 
     ```console
@@ -40,7 +40,7 @@ Use the Azure Developer CLI (`azd`) to create a local Azure Functions code proje
     cd functions-quickstart-dotnet-azd-sql
     ```
 ::: zone-end
-::: zone pivot="programming-language-python" 
+::: zone pivot="programming-language-python"
 1. From a terminal, run this `azd init` command to create a local project from the template:
 
     ```console
@@ -55,7 +55,7 @@ Use the Azure Developer CLI (`azd`) to create a local Azure Functions code proje
     cd functions-quickstart-python-azd-sql
     ```
 ::: zone-end
-::: zone pivot="programming-language-typescript" 
+::: zone pivot="programming-language-typescript"
 1. From a terminal, run this `azd init` command to create a local project from the template:
 
     ```console
@@ -69,12 +69,12 @@ Use the Azure Developer CLI (`azd`) to create a local Azure Functions code proje
     ```console
     cd functions-quickstart-typescript-azd-sql
     ```
-::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
+::: zone-end
+::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript"
 3. Run this command, depending on your local operating system, to grant configuration scripts the required permissions:
 
     ### [Linux/macOS](#tab/linux)
-    
+
     Run this command with sufficient privileges:
 
     ```bash
@@ -82,14 +82,14 @@ Use the Azure Developer CLI (`azd`) to create a local Azure Functions code proje
     ```
 
     ### [Windows](#tab/windows-cmd)
-    
+
     Run this command from the Windows command prompt:
- 
+
     ```cmd
     pwsh -Command "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser"
     ```
 
-    If prompted, select **Yes** to approve the policy change.     
+    If prompted, select **Yes** to approve the policy change.
 
     ---
 
@@ -108,7 +108,7 @@ This project is configured to use the `azd provision` command to create a functi
 1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette, search for and run the command `Azure Developer CLI (azd): Sign In with Azure Developer CLI`, and then sign in using your Azure account.
 2. Press <kbd>F1</kbd> to open the command palette, search for and run the command `Azure Developer CLI (azd): Provision Azure resources (provision)` to create the required Azure resources.
 3. When prompted in the Terminal window, provide these required deployment parameters:
-   
+
     | Prompt | Description |
     | ---- | ---- |
     | Select an Azure Subscription to use | Select the subscription in which you want your resources to be created.|
@@ -129,15 +129,15 @@ Post-provision hooks also generate the _local.settings.json_ file, which is requ
 ## Review the code (optional)
 
 The sample defines two functions:
-::: zone-end 
-::: zone pivot="programming-language-csharp" 
+::: zone-end
+::: zone pivot="programming-language-csharp"
 
 | Function name | Code file | Trigger type | Description |
 | ---- | ---- | ---- |
 | `httptrigger-sql-output` | [sql_output_http_trigger.cs](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-sql/blob/main/sql_output_http_trigger.cs) | HTTP trigger | Accepts a properly formatted JSON payload and uses the SQL output binding to insert the object as a row in the `ToDo` table. |
 |  `ToDoTrigger`| [sql_trigger.cs](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-sql/blob/main/sql_trigger.cs)  | SQL trigger | Listens on the `ToDo` table for row-level changes and returns an object that represents the changed row. |
 
-The `ToDoItem` type is defined in [ToDoItem.cs](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-sql/blob/main/ToDoItem.cs).  
+The `ToDoItem` type is defined in [ToDoItem.cs](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-sql/blob/main/ToDoItem.cs).
 ::: zone-end
 ::: zone pivot="programming-language-python"
 
@@ -146,9 +146,9 @@ The `ToDoItem` type is defined in [ToDoItem.cs](https://github.com/Azure-Samples
 | `http_trigger_sql_output` | [function_app.py](https://github.com/Azure-Samples/functions-quickstart-python-azd-sql/blob/main/function_app.py#L46C5-L46C28) | HTTP trigger | Accepts a properly formatted JSON payload and uses the SQL output binding to insert the object as a row in the `ToDo` table. |
 | `httptrigger-sql-output` | [sql_trigger_todo](https://github.com/Azure-Samples/functions-quickstart-python-azd-sql/blob/main/function_app.py#L15C5-L15C21) | SQL trigger | Listens on the `ToDo` table for row-level changes and returns an object that represents the changed row. |
 
-The `ToDoItem` type is defined in [todo_item.py](https://github.com/Azure-Samples/functions-quickstart-python-azd-sql/blob/main/todo_item.py).  
+The `ToDoItem` type is defined in [todo_item.py](https://github.com/Azure-Samples/functions-quickstart-python-azd-sql/blob/main/todo_item.py).
 ::: zone-end
-::: zone pivot="programming-language-typescript" 
+::: zone pivot="programming-language-typescript"
 
 | Function name | Code file | Trigger type | Description |
 | ---- | ---- | ---- |
@@ -156,8 +156,8 @@ The `ToDoItem` type is defined in [todo_item.py](https://github.com/Azure-Sample
 | `sqlTriggerToDo` | [sql_trigger.ts](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-sql/blob/main/src/functions/sql_trigger.ts) | SQL trigger | Listens on the `ToDo` table for row-level changes and returns an object that represents the changed row. |
 
 The `ToDoItem` type is defined in [ToDoItem.ts](https://github.com/Azure-Samples/functions-quickstart-typescript-azd-sql/blob/main/src/models/ToDoItem.ts).
-::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
+::: zone-end
+::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript"
 
 Both functions use the app-level `AZURE_SQL_CONNECTION_STRING_KEY_*` environment variables that define an identity-based connection to the Azure SQL Database instance using Microsoft Entra ID authentication. These environment variables are created for you both in Azure (function app settings) and locally (local.settings.json) during the `azd provision` operation.
 
@@ -165,7 +165,7 @@ Both functions use the app-level `AZURE_SQL_CONNECTION_STRING_KEY_*` environment
 
 You can use the SQL Server (mssql) extension for Visual Studio Code to connect to the new database. This extension helps you make updates in the `ToDo` table to run the SQL trigger function.
 
-1. Press <kbd>F1</kbd> and in the command palette search for and run the command `MS SQL: Add Connection`.  
+1. Press <kbd>F1</kbd> and in the command palette search for and run the command `MS SQL: Add Connection`.
 
 1. In the **Connection dialog**, change **Input type** to **Browse Azure** and then set these remaining options:
 
@@ -176,7 +176,7 @@ You can use the SQL Server (mssql) extension for Visual Studio Code to connect t
     | **Authentication type** | **Microsoft Entra ID** | If you aren't already signed-in, select **Sign in** and sign in to your Azure account. |
     | **Tenant ID** | The specific account tenant. | If your account has more than one tenant, choose the correct tenant for your subscription. |
 
-1. Select **Connect** to connect to your database. The connection uses your local user account, which is granted admin permissions in the hosting server and mapped to `dbo` in the database.   
+1. Select **Connect** to connect to your database. The connection uses your local user account, which is granted admin permissions in the hosting server and mapped to `dbo` in the database.
 
 1. In the **SQL Server** view, locate and expand **Connections** and then your new server in SQL Server explorer. Expand **Tables** and verify that the `ToDo` table exists. If it doesn't exist, you might need run `azd provision` again and check for errors.
 
@@ -184,9 +184,9 @@ You can use the SQL Server (mssql) extension for Visual Studio Code to connect t
 
 Visual Studio Code integrates with [Azure Functions Core tools](functions-run-local.md) to let you run this project on your local development computer before you publish to your new function app in Azure.
 
-1. Press <kbd>F1</kbd> and in the command palette search for and run the command `Azurite: Start`.  
+1. Press <kbd>F1</kbd> and in the command palette search for and run the command `Azurite: Start`.
 
-1. To start the function locally, press <kbd>F5</kbd> or the **Run and Debug** icon in the left-hand side Activity bar. 
+1. To start the function locally, press <kbd>F5</kbd> or the **Run and Debug** icon in the left-hand side Activity bar.
 
     The **Terminal** panel displays the output from Core Tools. Your app starts in the **Terminal** panel, and you can see the name of the function that's running locally.
 
@@ -200,13 +200,13 @@ To verify the HTTP trigger function that writes to a SQL output binding:
 
     ::: code language="json" source="~/functions-scenarios-quickstart-sql/test.http" range="5-11" :::
 
-    This data represents a row that you insert in your SQL database when you call the HTTP endpoint. The output binding translates the data object into an `INSERT` operation in the database. 
+    This data represents a row that you insert in your SQL database when you call the HTTP endpoint. The output binding translates the data object into an `INSERT` operation in the database.
 
 1. With the app running, in the **Azure** view under **Workspace** expand **Local project** > **Functions**.
 
 1. Right-select your HTTP function (or <kbd>Ctrl</kbd>+click on macOS), select **Execute function now**, paste the copied JSON data, and press <kbd>Enter</kbd>.
 
-    The function handles the HTTP request and writes the item to the connected SQL database and returns the created object. 
+    The function handles the HTTP request and writes the item to the connected SQL database and returns the created object.
 
 1. Back in the SQL Server explorer, right-select the `ToDo` table (or <kbd>Ctrl</kbd>+click on macOS), and choose **Select Top 1000**. When the query executes, it returns the inserted or updated row.
 
@@ -218,7 +218,7 @@ To verify the SQL trigger:
 
 1. With the app running, return to the SQL Server explorer, right-select the database (or <kbd>Ctrl</kbd>+click on macOS), and select **New Query**.
 
-1. Paste this `INSERT` command in the new query window and select the **Execute query** button: 
+1. Paste this `INSERT` command in the new query window and select the **Execute query** button:
 
     ```sql
     INSERT INTO [dbo].[ToDo] ([id], [order], [title], [url], [completed])
@@ -229,18 +229,18 @@ To verify the SQL trigger:
         'https://contoso.com',
         0
     );
-    ``` 
+    ```
 
-    Note in the terminal window that the SQL trigger executes and logs the insert. 
+    Note in the terminal window that the SQL trigger executes and logs the insert.
 
 1. Replace the query with this `UPDATE` command that changes the `completed` column value to `1` for the row you just added:
 
     ```sql
-    UPDATE [dbo].[ToDo] 
+    UPDATE [dbo].[ToDo]
     SET [completed] = 1
     WHERE [id] = '22222222-2222-2222-2222-222222222222';
     ```
-    
+
     Note again in the terminal window that the SQL trigger executes on the update.
 
 ---
@@ -255,15 +255,15 @@ You can run the `azd deploy` command from Visual Studio Code to deploy the proje
 
     The `azd deploy` command packages and deploys your code to the deployment container. The app is then started and runs in the deployed package.
 
-1. After the command completes successfully, your app is running in Azure. Make a note of the `Endpoint` value, which is the URL of your function app running in Azure.  
+1. After the command completes successfully, your app is running in Azure. Make a note of the `Endpoint` value, which is the URL of your function app running in Azure.
 
 ## Invoke the function on Azure
 
 1. In Visual Studio Code, press <kbd>F1</kbd> and in the command palette search for and run the command `Azure: Open in portal`, select `Function app`, and choose your new app. Sign in with your Azure account, if necessary.
 
-1. Select **Log stream** in the left pane, which connects to the Application Insights logs for your app. 
+1. Select **Log stream** in the left pane, which connects to the Application Insights logs for your app.
 
-1. Return to Visual Studio Code to run both the functions in Azure. 
+1. Return to Visual Studio Code to run both the functions in Azure.
 
 ### [HTTP trigger](#tab/http-trigger)
 
@@ -285,7 +285,7 @@ To verify the SQL trigger:
 
 1. With the app running, return to the previous INSERT query tab.
 
-1. Replace the existing `INSERT` command with this new one and select the **Execute query** button: 
+1. Replace the existing `INSERT` command with this new one and select the **Execute query** button:
 
     ```sql
     INSERT INTO [dbo].[ToDo] ([id], [order], [title], [url], [completed])
@@ -296,7 +296,7 @@ To verify the SQL trigger:
         'https://example.com',
         0
     );
-    ``` 
+    ```
 
 1. Return to the portal and view the execution output in the log window.
 
@@ -315,6 +315,7 @@ azd down --no-prompt
 >
 >This command doesn't affect your local code project.
 ::: zone-end
+
 ## Related articles
 
 + [Azure Functions scenarios](functions-scenarios.md)

@@ -12,21 +12,24 @@ ms.custom:
 
 ---
 
-# QuickStart: Link to existing Datadog organization
+# QuickStart: Link to an existing Datadog organization
 
-In this quickstart, you link to an existing organization of Datadog.
+If you have an existing Datadog organization on the US3 site and want to send Azure telemetry from a subscription to that organization, use this approach.
 
 > [!NOTE]
-> You can either [create a new Datadog organization](create.md) or link to an existing Datadog organization.
+> If you don't have an existing Datadog organization, [create a new Datadog organization](create.md) instead.
 
 ## Prerequisites
 
 [!INCLUDE [create-prerequisites-owner](../includes/create-prerequisites-owner.md)]
 
 - You must [configure your environment](prerequisites.md).
-- You must [subscribe to Datadog](overview.md#subscribe-to-datadog).
+- You must have an existing Datadog organization on the **US3** site (`us3.datadoghq.com`) with admin access.
 
-## Create a Datadog resource
+> [!IMPORTANT]
+> Linking only works with Datadog organizations on the **US3** site. If your existing organization is on US1, US5, EU1, AP1, or any other Datadog site, you can't link it to an Azure subscription through this integration. In that case, [create a new Datadog organization](create.md) instead.
+
+## Create a Datadog resource linked to an existing organization
 
 Begin by signing in to the [Azure portal](https://portal.azure.com/).
 
@@ -71,53 +74,28 @@ There are required fields (identified with a red asterisk) in the first two sect
     > [!IMPORTANT]
     >
     > - By default, Azure links your current Datadog organization to your Datadog resource. If you'd like to link to a different organization, select the appropriate organization in the authentication window.
-    > - You can't link the subscription to the same organization through a different Datadog resource if the subscription is already linked to an organization. This is to avoid duplicate logs and metrics being shipped to the same organization for the same subscription.
+    > - You can't link the subscription to the same organization through a different Datadog resource if the subscription is already linked to an organization. This restriction prevents duplicate logs and metrics being shipped to the same organization for the same subscription.
 
     Once you finish authenticating, return to the Azure portal.
 
 1. Select the **Next** button at the bottom of the page.
 
-### Metrics and logs tab (optional)
+[!INCLUDE [datadog-create-tabs](../includes/datadog-create-tabs.md)]
 
-If you wish, you can configure resources to send metrics/logs to Datadog. For more information, see [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md).
+## Verify the link
 
-Enter the names and values for each *Action* listed under Metrics and Logs.
+After creation, verify the link to your existing organization:
 
-- Select **Silence monitoring for expected Azure VM Shutdowns**.
-- Select **Collect custom metrics from App Insights**.
-- Select **Send subscription activity logs**.
-- Select **Send Azure resource logs for all defined sources**.
+1. Navigate to your Datadog resource in the Azure portal.
+2. In the **Overview** pane, confirm the **Datadog organization** field shows your expected organization name.
+3. Select the **Datadog portal** link to open your organization. You should see your existing dashboards and monitors.
+4. Check **Infrastructure** > **Host Map** in the Datadog portal to confirm Azure hosts are appearing.
 
-After you finish configuring metrics and logs, select **Next**.
-
-### Security tab (optional)
-
-If you wish to enable Datadog Cloud Security Posture management, select the checkbox.
-
-Select the **Next** button at the bottom of the page.
-
-### Single sign-on tab (optional)
-
-If your organization uses Microsoft Entra ID as its identity provider, you can establish single sign-on from the Azure portal to Datadog.
-
-To establish single sign-on through Microsoft Entra ID:
-
-1. Select the checkbox.
-
-    The Azure portal retrieves the appropriate Datadog application from Microsoft Entra ID, which matches the Enterprise app you provided previously.
-
-1. Select the Datadog app name.
-
-Select the **Next** button at the bottom of the page.
-
-### Tags tab (optional)
-
-[!INCLUDE [tags](../includes/tags.md)]
-
-### Review + create tab
-
-[!INCLUDE [review-create](../includes/review-create.md)]
+> [!TIP]
+> If you don't see Azure data flowing to your existing organization after 10 minutes, see [Troubleshooting](troubleshoot.md).
 
 ## Next steps
 
-- [Manage settings for your Datadog resource via Azure portal](manage.md)
+- [Manage settings for your Datadog resource](manage.md)
+- [Configure metrics and logs](manage.md#reconfigure-rules-for-metrics-and-logs)
+- [Monitor multiple subscriptions](manage.md#monitor-multiple-subscriptions)
