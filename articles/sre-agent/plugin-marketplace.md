@@ -1,59 +1,96 @@
 ---
 title: Plugin Marketplace in Azure SRE Agent
-description: Browse, discover, and install community-built skills and MCP integrations from curated plugin marketplaces in Azure SRE Agent.
-ms.topic: article
+description: Browse, discover, and install community-built skills and MCP integrations from curated plugin marketplaces, including private repos and GitHub Enterprise.
+ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/16/2026
+ms.date: 06/02/2026
 ms.custom: plugins, marketplace, skills, MCP, connectors, extend, community
 author: craigshoemaker
 ms.author: cshoe
+ms.reviewer: cshoe
 ms.ai-usage: ai-assisted
-#customer intent: As an SRE, I want to browse and install skills from curated marketplaces so that I can extend my agent quickly without manual configuration.
+ms.custom: plugins, marketplace, skills, MCP, install, community, connectors, extend, private repo, GitHub Enterprise
+#customer intent: As an SRE, I want to install community and internal skills from GitHub-hosted marketplaces so that I can extend my agent without building everything from scratch.
 ---
 
 # Plugin marketplace in Azure SRE Agent
 
-The Plugin Marketplace lets you browse, install, and update agent skills from curated GitHub-hosted catalogs. Instead of manually copying skill files and configuring connectors, you can discover plugins with search and filtering, preview their content, and import them with a single select.
+The plugin marketplace in Azure SRE Agent lets you install agent skills and MCP integrations from curated GitHub-hosted repositories. It supports public and private repos, including GitHub Enterprise. Each installation is pinned to a specific git commit, so updates are always explicit.
 
-> [!TIP]
-> **Key highlights**
+## Why organizations use the plugin marketplace
+
+SRE and platform teams build operational skills for their services: investigation runbooks, compliance checks, cost analysis playbooks, deployment verification procedures. These skills are valuable beyond the team that wrote them. Other teams running similar infrastructure benefit from the same automation.
+
+Sharing skills across an organization requires a consistent way to package them, distribute them, control who can access them, and manage versions across multiple agents. A platform team maintaining skills for 10 service teams needs to publish once and let each team install on their own schedule, without changes propagating unexpectedly.
+
+The Plugin Marketplace provides this distribution model for Azure SRE Agent.
+
+## What is a plugin in Azure SRE Agent?
+
+A plugin is a portable, installable package of agent capabilities stored in a GitHub repository. A plugin can contain:
+
+| Component | What it adds to your agent |
+|-----------|---------------------------|
+| **Skills** | Investigation runbooks, troubleshooting playbooks, operational procedures |
+| **MCP servers** | Tool integrations that configure as connectors with pre-filled endpoints and auth |
+
+A marketplace is a GitHub repo that bundles multiple plugins under a single `marketplace.json` manifest. Teams publish a marketplace, and other teams browse and install from it. Each plugin is installed independently, each pinned to a specific version.
+
+## What the plugin marketplace does
+
+**Discover and install plugins from GitHub repositories.** Register a marketplace by pointing to a GitHub repo. Two well-known public marketplaces can be registered:
+
+- [Azure SRE Agent Plugins](https://github.com/Azure/sre-agent-plugins): official SRE Agent skills and integrations
+- [Claude Plugins](https://github.com/anthropics/claude-plugins-official): Anthropic's reference Claude plugins
+
+To get started, add a marketplace URL in **Builder > Plugins > Add marketplace**. The repository is cloned in the background. A status banner on the Plugins page tracks the clone, and a completion toast appears when the plugins are ready to browse.
+
+**Private repos and GitHub Enterprise.** Marketplaces can be hosted in private GitHub repos, including GitHub Enterprise. Authentication is handled per-marketplace using the same methods as the [GitHub Connector](github-connector.md). Auth is configured once per marketplace and all plugins within it inherit the credentials.
+
+### Shared credential boundary for private marketplaces
+
+> [!WARNING]
+> The credential you provide when registering a private marketplace (OAuth token, PAT, or GitHub App) is stored at the marketplace level and shared across all installs:
 >
-> - Browse and install agent skills from curated GitHub-hosted marketplaces in minutes.
-> - One-select skill import with live content preview—no manual copy-pasting.
-> - MCP plugins autoconfigure as connectors with prefilled settings.
-> - SHA-256 content hashing lets you check for upstream skill changes with one select.
+> - **All plugins inherit the marketplace credential.** Every install from that marketplace clones the repo using the stored credential, not the installing user's personal GitHub identity.
+> - **GitHub checks the stored credential, not each user.** GitHub validates that the credential can read the repo. SRE Agent does not re-check individual users' GitHub permissions at install time.
+> - **SRE Agent RBAC controls who can install.** Any user with the **Author** or **Administrator** role on the agent can browse and install from any registered marketplace.
+>
+> **Example:** User A registers a private marketplace with their PAT. User B has the Author role on the agent but no personal access to that GitHub repo. User B can still install plugins from it because the install uses User A's stored PAT. To prevent this, remove User B's Author role on the agent.
 
-## The problem: extending your agent is manual work
+**Version pinning.** Each plugin installation is pinned to the exact git commit at install time. Changes to the source repo after installation have no effect until you explicitly update. This enables production stability (upstream merges don't change your agent's behavior), staged rollouts (update dev first, then production), and version diversity (different agents can run different versions of the same plugin).
 
-When your team finds useful investigation runbooks, MCP tool integrations, or specialized skills built by other teams, the adoption process is entirely manual. You browse GitHub repositories, read individual SKILL.md files, copy content field by field, create skills one by one, and configure MCP connectors by hand. There's no central catalog, no version tracking, and no way to know when a skill source is updated.
+**Install from URL.** You can also install a plugin directly from a GitHub repo URL without registering a marketplace. This is useful for one-off plugins or quick testing. The plugin is installed as a standalone with the same version pinning and authentication support.
 
-For platform teams managing multiple agents, this workflow doesn't scale. Sharing skills across teams means pointing people to a repository and hoping they copy the right files. When a source publishes improvements, nobody knows until something breaks.
+**MCP connectors are set up separately from install.** Installing a plugin records its MCP server requirements but does not provision the connector. The plugin's detail page surfaces a non-blocking **Connector setup required** banner when a required server has no matching connector yet. Matching is loose: a connector is associated with a plugin by URL/command (or, for legacy entries, by name), so renaming a connector still keeps the link as long as the endpoint stays the same.
 
-## How the Plugin Marketplace works
+## Author a marketplace
 
-The Plugin Marketplace adds a discovery and management layer to your agent's skill ecosystem. The following steps describe the end-to-end workflow.
+To create your own marketplace, structure your GitHub repository with a manifest file in one of these locations:
 
-1. **Register marketplace sources**: Add curated GitHub repositories as plugin marketplaces. Start with the official Azure SRE Agent Plugins catalog, or add your team's own repository. Multiple plugin manifest formats are supported, including `.github/plugin/marketplace.json` and `.claude-plugin/marketplace.json`.
+| File path |
+|-----------|
+| `marketplace.json` (root) |
+| `.plugin/marketplace.json` |
+| `.github/plugin/marketplace.json` |
+| `.claude-plugin/marketplace.json` |
 
-1. **Browse and search**: Explore available plugins with search, filtering, and live previews. Each plugin card shows its name, description, version, author, and badges indicating skill availability and MCP requirements.
+For single-plugin repositories, a `plugin.json` file works in the same locations (`.plugin/plugin.json`, `plugin.json` at root, `.github/plugin/plugin.json`, or `.claude-plugin/plugin.json`).
 
-1. **Preview before installing**: Select any plugin to see its full details: skill list with content preview, MCP server configurations, and a direct **View source** link to the plugin's folder on GitHub.
+### MCP server configurations for plugins
 
-1. **Import with a click**: Select the skills you want, select **Import selected**, and the skills are created in your agent immediately. The system automatically handles name conflicts with existing skills.
+If your plugin integrates with an external tool server (like Datadog, Dynatrace, or Elasticsearch), include an `.mcp.json` file describing the server. The agent records these requirements at install time and surfaces them on the plugin's detail page so you can set up the matching connectors. Plugins that only contain skills don't need this file.
 
-1. **MCP plugins bridge to connectors**: When a plugin includes MCP server configurations, each server gets an **Add as connector** button that opens the connector wizard pre-filled with the right command, arguments, URL, and custom headers.
+`.mcp.json` is resolved from the same conventional locations as the manifest:
 
-1. **Track and update**: Every imported skill records its source, version, and an SHA-256 content hash. Select **Check for updates** on any installed plugin to compare against the latest version in the source repository. When updates are available, review a side-by-side diff before applying changes.
+| File path |
+|-----------|
+| `.mcp.json` (root) |
+| `.plugin/.mcp.json` |
+| `.github/plugin/.mcp.json` |
+| `.claude-plugin/.mcp.json` |
 
-## What makes this approach different
-
-The Plugin Marketplace improves on existing workflows in several ways.
-
-**Unlike browsing GitHub directly**, the marketplace provides structured discovery with searchable catalogs, skill previews, and compatibility badges and not just repository file listings.
-
-**Unlike manual skill creation**, imported plugins maintain provenance. You always know which repository a skill came from, what version you installed, and whether updates are available.
-
-**Unlike copy-pasting MCP configurations**, the marketplace detects `.mcp.json` files automatically, classifies servers as supported or unsupported, and prefills the connector wizard. This functionality handles both flat and nested MCP config formats.
+Two formats are supported: [nested and flat](#mcp-config-formats). The portal detects both automatically.
 
 ## Before and after
 
@@ -66,7 +103,7 @@ The following table compares the manual workflow to the marketplace experience.
 | **MCP setup** | Find and parse `.mcp.json`, configure connector by hand | **Add as connector** with prefilled settings |
 | **Update awareness** | Manually check source repos for changes | One-select update check with SHA-256 hash comparison |
 | **Provenance** | No tracking once skill is created | Source, version, and content hash recorded |
-| **Time per skill** | 10–15 minutes | ~30 seconds |
+| **Time per skill** | 10 to 15 minutes | ~30 seconds |
 
 ## Marketplace formats
 
@@ -93,40 +130,34 @@ The nested format wraps server definitions inside a `mcpServers` object.
     "my-server": {
       "command": "node",
       "args": ["server.js"],
-      "env": { "API_KEY": "<YOUR_API_KEY>" }
+      "env": { "API_KEY": "${API_KEY}" }
     }
   }
 }
 ```
 
-### Flat format
-
-The flat format defines servers as top-level keys.
+**Flat format**:
 
 ```json
 {
   "my-server": {
     "command": "node",
     "args": ["server.js"],
-    "env": { "API_KEY": "<YOUR_API_KEY>" }
+    "env": { "API_KEY": "${API_KEY}" }
   }
 }
 ```
 
-### MCP server classification
+> [!NOTE]
+> The `env` values in `.mcp.json` are placeholder references. Users configure actual secrets when setting up the connector. Never commit real API keys or secrets to marketplace repositories.
 
-You can classify MCP servers into two categories based on their configuration.
+MCP servers are classified as:
 
-- **Supported**: Uses a command (stdio) or a URL with authentication headers.
-- **Unsupported**: Requires OAuth or has a bare URL without headers. The browse view filters out unsupported servers by default.
-
-## Next step
-
-> [!div class="nextstepaction"]
-> [Set up an MCP connector](mcp-connector.md)
+- **Supported**: has a command (stdio) or a URL with authentication headers
+- **Unsupported**: anything else (no command and no URL+headers combination)
 
 ## Related content
 
-- [Connectors](connectors.md): Learn how your agent connects to external data sources and tools.
-- [Skills](skills.md): Understand what skills are and how the agent uses them.
-- [Set up an MCP connector](mcp-connector.md): Connect your agent to MCP tool servers.
+- [GitHub Connector](github-connector.md)
+- [MCP connectors](mcp-connector.md)
+- [Skills](skills.md)
