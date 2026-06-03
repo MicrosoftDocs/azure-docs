@@ -24,6 +24,7 @@ In this article:
 - [Task hub contents](#task-hub-contents) - What data is stored and how
 - [Keep inputs and outputs small](#keep-durable-functions-inputs-and-outputs-small) - Strategies for managing payload size
 - [Work with sensitive data](#work-with-sensitive-data) - Protect secrets and personally identifiable information
+- [Secure your task hub storage](#secure-your-task-hub-storage) - Protect your storage backend from unauthorized access
 - [Customize serialization and deserialization](#customize-serialization-and-deserialization) - Language-specific serialization options
 
 ## Task hub contents
@@ -74,6 +75,8 @@ Inputs and outputs (including exceptions) to and from Durable Functions APIs are
 
 To safely handle sensitive data, fetch that data within activity functions from either Azure Key Vault or environment variables, and never communicate that data directly to or from orchestrators or entities. This approach helps prevent sensitive data from leaking into your storage resources.
 
+Similarly, write access to storage resources must be tightly controlled, as tampered data in storage could alter orchestration behavior. See [Secure your task hub storage](#secure-your-task-hub-storage) for more information.
+
 > [!TIP]
 > This guidance also applies to the `CallHttp` orchestrator API, which persists its request and response payloads in storage. If your target HTTP endpoints require authentication, implement the HTTP call inside an activity, or use the [built-in managed identity support offered by CallHttp](./durable-functions-http-features.md#managed-identities), which doesn't persist credentials to storage.
 
@@ -88,6 +91,30 @@ Alternatively, .NET users have the option of implementing custom serialization p
 
 > [!NOTE]
 > If you decide to implement application-level encryption, be aware that orchestrations and entities can exist for indefinite amounts of time. This matters when it comes time to rotate your encryption keys because an orchestration or entities may run longer than your key rotation policy. If a key rotation happens, the key used to encrypt your data may no longer be available to decrypt it the next time your orchestration or entity executes. Custom encryption is therefore recommended only when orchestrations and entities are expected to run for relatively short periods of time.
+
+## Secure your task hub storage
+
+The storage backend that hosts your task hub is a critical trust boundary. The Durable Task Framework trusts data it reads from storage during orchestration replay and message processing. Anyone with write access to the task hub storage can tamper with orchestration state, pending messages, or stored payloads, potentially altering application behavior, triggering unintended actions, or achieving remote code execution within the context of your function app.
+
+> [!IMPORTANT]
+> Do not expose your task hub storage credentials or grant write access to untrusted parties. Write access to task hub storage can be used to alter application behavior, including triggering arbitrary code execution.
+
+### Shared responsibility
+
+Securing the storage backend is your responsibility, the same as securing any database that stores application state or code. The Durable Task Framework doesn't perform integrity verification on stored data, so it relies on the storage layer's access controls to prevent unauthorized modifications.
+
+If you use the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md), the storage backend is fully managed and secured by the service, using managed identity authentication and role-based access control (RBAC). For bring-your-own (BYO) storage backends such as [Azure Storage](durable-functions-azure-storage-provider.md), [MSSQL](../common/durable-task-storage-providers.md#mssql), or [Netherite](../common/durable-task-storage-providers.md#netherite), you must secure the underlying storage resources yourself.
+
+### Storage hardening checklist
+
+Apply the following best practices to protect your task hub storage:
+
+- **Use identity-based connections** instead of connection strings with storage keys. Managed identities provide fine-grained access control and eliminate the risk of credential leakage. See [Configure a managed identity for Durable Functions](durable-functions-configure-managed-identity.md).
+- **Apply least-privilege RBAC roles**. Grant only the minimum permissions required. Avoid granting broad storage account access to users or services that don't need it.
+- **Restrict network access** to your storage account using [private endpoints or service endpoints](../../azure-functions/configure-networking-how-to.md). This prevents unauthorized network-level access to task hub data.
+- **Monitor storage access** by enabling Azure Monitor resource logs for your storage account, especially the `StorageWrite` log category. Route these logs to a destination outside of the monitored storage account, such as Log Analytics, so they can't be tampered with. See [Storage logs](../../azure-functions/storage-considerations.md#storage-logs).
+- **Rotate credentials regularly** if you use connection strings. Treat storage account keys with the same care as any other high-privilege credential.
+- **Consider a managed storage backend**. The [Durable Task Scheduler](../common/durable-task-storage-providers.md) handles storage security automatically, including encryption, authentication, and network isolation.
 
 ## Customize serialization and deserialization
 
