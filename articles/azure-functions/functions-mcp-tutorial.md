@@ -350,28 +350,26 @@ There are two ways to reduce or prevent unauthorized use of your remote MCP serv
 
 ## Enable built-in MCP authentication in Azure portal 
 
-The Azure portal provides a one-click experience to configure built-in authentication and authorization for your MCP server. This **preview** feature automatically creates and configures Microsoft Entra ID as the identity provider, registers the required client applications, and adds the required app settings for you. Turning on built-in MCP auth using this feature will **automatically** turn off the default key-based access to the server.
+The Azure portal provides a one-click experience to configure built-in authentication and authorization for your MCP server. This **preview** feature automatically creates and configures Microsoft Entra ID as the identity provider, registers the required client applications, and adds the required app settings for you. Turning on built-in MCP auth using this feature will _automatically_ turn off the default key-based access to the server.
 
-To enable built-in MCP auth in the portal:  
+To enable built-in MCP auth in the Azure portal:  
 
-1. Open your server app in the Azure portal.
+1. Open your server app in the portal.
 
 1. On the left menu, find the **AI (preview)** tab.
 
-1. Find the **Authentication** section, then click **Turn on MCP authentication**. 
+1. Find the **Authentication** section, and click the **Turn on MCP authentication** button. 
 
 1. In the opened side pane, enter a unique Entra app registration name. This app is required to set up authentication. 
 
 1. Click **Save** and wait for the configuration to complete. 
 
 > [!NOTE]
-> If you prefer to set up authentication manually, see [Manually configure built-in authentication](#manually-configure-built-in-authentication).
+> If you prefer to set up authentication manually, see [Alternative: Manually configure built-in authentication](#alternative-manually-configure-built-in-authentication).
 
 ## Connect to server
 
-Open `.vscode/mcp.json`.
-
-When you select **Connect** in the pop-up after deployment, Visual Studio Code populates the file with server connection information. 
+When you select **Connect** in the pop-up after deployment, Visual Studio Code populates `.vscode/mcp.json` with server connection information. 
 
 If you miss that step, you can also open **Output** (`Ctrl/Cmd+Shift+U`) to find the in-line connection button at the end of deployment logs. 
 
@@ -424,7 +422,7 @@ To understand in detail what happens when Visual Studio Code tries to connect to
 
 ### With access key
 
-If you don't enable built-in MCP auth, your server should be using access key by default. Include the access key in the request header of your server registration. 
+If you don't enable built-in MCP auth, your server should be using Functions access key by default. Include the access key in the request header of your server registration. 
 
 ### [MCP extension server](#tab/mcp-extension)
 The `./vscode/mcp.json` file should look like the following example: 
@@ -503,13 +501,15 @@ To find the access key, go to the Function app on Azure portal. On the left menu
 
 You can configure a Foundry agent to use the tools in your server, not just Copilot in VSCode. For step-by-step instructions, see [Use Azure Functions MCP servers as tools in Microsoft Foundry](functions-mcp-foundry-tools.md).
 
-## Register the server in Azure API Center
+## Register server in Azure API Center
 
-Consider registering your MCP server in Azure API Center to maintain an inventory of remote MCP servers that are easily discoverable across your organization. For step-by-step instructions, see [Register MCP servers hosted in Azure Functions in Azure API Center](register-mcp-server-api-center.md).
+Consider registering your MCP server in Azure API Center to maintain a private inventory of remote MCP servers that are easily discoverable across your organization. For step-by-step instructions, see [Register MCP servers hosted in Azure Functions in Azure API Center](register-mcp-server-api-center.md).
 
-## Manually configure built-in authentication
+## Alternative: Manually configure built-in authentication
 
 The following instructions show how to manually enable the built-in authorization and authentication feature on the server app and configure Microsoft Entra ID as the identity provider. Use these steps if you prefer not to use the [one-click portal experience](#enable-built-in-mcp-authentication-in-azure-portal).
+
+### Disable key-based auth
 
 When enabling built-in auth, disable the default key-based authentication first by allowing anonymous access. If you haven't done that and your app is already deployed, follow the instructions below.
 

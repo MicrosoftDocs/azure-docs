@@ -36,7 +36,7 @@ After hosting your MCP server remotely on Azure Functions, register it on Azure 
 
 ## Publish the API Center portal
 
-If your API Center portal isn't already published, publish it so your team can discover the registered server:
+If your API Center portal isn't already published, publish it so your team can discover the registered server in the portal:
 
 1. Select the API Center name to go to the resource.
 
@@ -50,6 +50,6 @@ If your API Center portal isn't already published, publish it so your team can d
 
 1. In the portal that opens, sign in with your email. Depending on your tenant's policy, you might need admin approval to grant consent.
 
-After signing in, you should see the server listed in the API Center portal. Click into the server to see details, including the server endpoint.
+After signing in, you should see the server listed in the API Center portal. Click into the server to see details, including information like endpoint.
 
 
