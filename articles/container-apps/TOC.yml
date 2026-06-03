@@ -322,12 +322,6 @@ items:
           href: metrics.md
         - name: Alerts
           href: alerts.md
-    - name: End-to-end tracing and dashboards
-      items:
-        - name: Aspire Dashboard
-          href: aspire-dashboard.md
-        - name: Grafana dashboards
-          href: grafana-dashboards.md
     - name: OpenTelemetry agents
       items:
         - name: Overview
@@ -348,6 +342,12 @@ items:
           href: ../sre-agent/usage.md
         - name: Fix app issues with an SRE agent
           href: ../sre-agent/troubleshoot-azure-container-apps.md
+    - name: Dashboards
+      items:
+        - name: Aspire Dashboard
+          href: aspire-dashboard.md
+        - name: Grafana dashboards
+          href: grafana-dashboards.md
 - name: Scaling & performance
   items:
     - name: Overview
