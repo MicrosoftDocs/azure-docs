@@ -99,7 +99,7 @@ For step-by-step deployment instructions, see [Deploy WebAssembly (WASM) modules
 This graph creates a straightforward data processing pipeline:
 
 1. **Source operation**: Receives temperature data from the data flow's source endpoint
-2. **Map operation**: Processes data with the temperature WASM module (`temperature:1.0.0`)
+2. **Map operation**: Processes data with the temperature WASM module. Use `temperature:1.0.0` for a flat registry layout, or include the repository path for a nested layout, for example `azure-samples/explore-iot-operations/temperature:1.0.0`.
 3. **Sink operation**: Sends converted data to the data flow's destination endpoint
 
 The [temperature module](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/operators/temperature/src/lib.rs) converts Fahrenheit to Celsius using the standard formula `(F - 32) × 5/9 = C`.

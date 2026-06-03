@@ -767,8 +767,6 @@ items:
       href: transform-data-databricks-python.md
     - name: Data Explorer Command activity
       href: /azure/data-explorer/data-factory-command-activity?toc=/azure/data-factory/toc.json
-    - name: Data Lake U-SQL activity
-      href: transform-data-using-data-lake-analytics.md
     - name: HDInsight Hive activity
       displayName: timeout
       href: transform-data-using-hadoop-hive.md

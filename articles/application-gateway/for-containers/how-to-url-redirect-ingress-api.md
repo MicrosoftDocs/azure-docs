@@ -16,7 +16,7 @@ Application Gateway for Containers allows you to return a redirect response to t
 
 ## Usage details
 
-URL redirects take advantage of the [RequestRedirect rule filter](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1beta1.HTTPRequestRedirectFilter) as defined by Kubernetes Gateway API.
+URL redirects take advantage of the [RequestRedirect rule filter](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#httprequestredirectfilter) as defined by Kubernetes Gateway API.
 
 ## Redirection
 

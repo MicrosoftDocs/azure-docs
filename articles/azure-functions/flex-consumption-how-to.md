@@ -27,27 +27,31 @@ Function app resources are language-specific. Make sure to choose your preferred
 
 - An Azure account with an active subscription. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- **[Azure CLI](/cli/azure/install-azure-cli)**: used to create and manage resources in Azure. When using the Azure CLI on your local computer, make sure to use version 2.60.0, or a later version. You can also use [Azure Cloud Shell](../cloud-shell/overview.md), which has the correct Azure CLI version.  
+- **[Azure CLI](/cli/azure/install-azure-cli)**: used to create and manage resources in Azure. When using the Azure CLI on your local computer, make sure to use version 2.60.0, or a later version. You can also use [Azure Cloud Shell](../cloud-shell/overview.md), which has the correct Azure CLI version.
 
-- **[Visual Studio Code](./functions-develop-vs-code.md)**: used to create and develop apps, create Azure resources, and deploy code projects to Azure. When using Visual Studio Code, make sure to also install the latest [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). You can also install the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack). 
+::: zone pivot="programming-language-go"
+- For Go apps, use Azure CLI version `2.87.0` or later. Run `az version` to verify your installed version.
+::: zone-end
+
+- **[Visual Studio Code](./functions-develop-vs-code.md)**: used to create and develop apps, create Azure resources, and deploy code projects to Azure. When using Visual Studio Code, make sure to also install the latest [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). You can also install the [Azure Tools extension pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).
 
 - While not required to create a Flex Consumption plan app, you need a code project to be able to deploy to and validate a new function app. Complete the first part of one of these quickstart articles, where you create a code project with an HTTP triggered function:
 
-    - [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md)   
-    - [Create an Azure Functions project using Visual Studio Code](how-to-create-function-vs-code.md) 
- 
-    ::: zone pivot="programming-language-java" 
-    To create an app in a new Flex Consumption plan during a Maven deployment, you must create your local app project and then update the project's pom.xml file. For more information, see [Create a Java Flex Consumption app using Maven](#create-and-deploy-your-app-by-using-maven)   
-    ::: zone-end   
- 
+    - [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md)
+    - [Create an Azure Functions project using Visual Studio Code](how-to-create-function-vs-code.md)
+
+    ::: zone pivot="programming-language-java"
+    To create an app in a new Flex Consumption plan during a Maven deployment, you must create your local app project and then update the project's pom.xml file. For more information, see [Create a Java Flex Consumption app using Maven](#create-and-deploy-your-app-by-using-maven)
+    ::: zone-end
+
     Return to this article after you create and run the local project, but before you're asked to create Azure resources. You create the function app and other Azure resources in the next section.
 
 ## Create a Flex Consumption app
 
 This section shows you how to create a function app in the Flex Consumption plan by using either the Azure CLI, Azure portal, or Visual Studio Code. For an example of creating an app in a Flex Consumption plan using Bicep/ARM templates, see the [Flex Consumption repository](https://github.com/Azure-Samples/azure-functions-flex-consumption-samples/blob/main/README.md#iac-samples-overview).
-::: zone pivot="programming-language-java" 
-You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-by-using-maven).   
-::: zone-end  
+::: zone pivot="programming-language-java"
+You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-by-using-maven).
+::: zone-end
 
 To support your function code, you need to create three resources:
 
@@ -60,57 +64,65 @@ To support your function code, you need to create three resources:
 [!INCLUDE [functions-flex-supported-regions-cli](../../includes/functions-flex-supported-regions-cli.md)]
 
 3. Create a resource group in one of the currently supported regions listed by the command in the previous step.
-    
+
     ```azurecli
     az group create --name <RESOURCE_GROUP> --location <REGION>
     ```
- 
-    In the previous command, replace `<RESOURCE_GROUP>` with a value that's unique in your subscription and `<REGION>` with one of the currently supported regions. The [az group create](/cli/azure/group#az-group-create) command creates a resource group.  
+
+    In the previous command, replace `<RESOURCE_GROUP>` with a value that's unique in your subscription and `<REGION>` with one of the currently supported regions. The [az group create](/cli/azure/group#az-group-create) command creates a resource group.
 
 4. Create a general-purpose storage account in your resource group and region:
 
     ```azurecli
     az storage account create --name <STORAGE_NAME> --location <REGION> --resource-group <RESOURCE_GROUP> --sku Standard_LRS --allow-blob-public-access false
-    ``` 
+    ```
 
     In the previous example, replace `<STORAGE_NAME>` with a name that's appropriate to you and unique in Azure Storage. Names must contain three to 24 characters consisting of numbers and lowercase letters only. `Standard_LRS` specifies a general-purpose account that Azure Functions supports according to [storage account requirements](storage-considerations.md#storage-account-requirements). The [az storage account create](/cli/azure/storage/account#az-storage-account-create) command creates the storage account.
 
-    [!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]    
+    [!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
 
 5. Create the function app in Azure:
-    ::: zone pivot="programming-language-csharp"  
+    ::: zone pivot="programming-language-csharp"
     ```azurecli
-    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime dotnet-isolated --runtime-version 8.0 
+    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime dotnet-isolated --runtime-version 8.0
     ```
-    
+
     [C# apps that run in-process](./functions-dotnet-class-library.md) aren't currently supported when running in a Flex Consumption plan.
-    ::: zone-end   
-    ::: zone pivot="programming-language-java"  
-    ```azurecli
-    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime java --runtime-version 17 
-    ```     
-    
     ::: zone-end
-    ::: zone pivot="programming-language-javascript,programming-language-typescript"  
+    ::: zone pivot="programming-language-java"
     ```azurecli
-    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime node --runtime-version 20 
-    ```     
-    ::: zone-end  
-    ::: zone pivot="programming-language-python"  
-    ```azurecli
-    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime python --runtime-version 3.11 
-    ```     
-    
-    For Python apps, Python 3.10 is also currently supported.
-    ::: zone-end 
-    ::: zone pivot="programming-language-powershell"  
-    ```azurecli
-    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime powershell --runtime-version 7.4 
+    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime java --runtime-version 17
     ```
-    ::: zone-end 
+
+    ::: zone-end
+    ::: zone pivot="programming-language-javascript,programming-language-typescript"
+    ```azurecli
+    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime node --runtime-version 20
+    ```
+    ::: zone-end
+    ::: zone pivot="programming-language-python"
+    ```azurecli
+    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime python --runtime-version 3.11
+    ```
+
+    For Python apps, Python 3.10 is also currently supported.
+    ::: zone-end
+    ::: zone pivot="programming-language-powershell"
+    ```azurecli
+    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime powershell --runtime-version 7.4
+    ```
+    ::: zone-end
+    ::: zone pivot="programming-language-go"
+    ```azurecli
+    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime go --runtime-version 1.0 --functions-version 4
+    az resource update --resource-group <RESOURCE_GROUP> --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
+    ```
+
+    The `az resource update` command disables HTTP/2 on the function app, which is required during the Go public preview.
+    ::: zone-end
     In this example, replace both `<RESOURCE_GROUP>` and `<STORAGE_NAME>` with the resource group and the name of the account you used in the previous step, respectively. Also replace `<APP_NAME>` with a globally unique name appropriate to you. The `<APP_NAME>` is also the default domain name server (DNS) domain for the function app. The [`az functionapp create`] command creates the function app in Azure.
 
-    This command creates a function app running in the Flex Consumption plan. 
+    The `az functionapp create` command creates a function app running in the Flex Consumption plan.
 
     Because you created the app without specifying [always ready instances](#set-always-ready-instance-counts), your app only incurs costs when actively executing functions. The command also creates an associated Azure Application Insights instance in the same resource group, with which you can monitor your function app and view logs. For more information, see [Monitor Azure Functions](functions-monitoring.md).
 
@@ -134,7 +146,7 @@ To support your function code, you need to create three resources:
     | Select a resource group for new resources. | Choose **Create new resource group** and type a resource group name, like `myResourceGroup`, and then select enter. You can also select an existing resource group. |
     | Select a location for new resources. | Select a location in a supported [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. Unsupported regions aren't displayed. |
     | Select a storage account. | Choose **Create new storage account** and at the prompt provide a globally unique name for the new storage account used by your function app and then select Enter. Storage account names must be between 3 and 24 characters long and can contain only numbers and lowercase letters. You can also select an existing account. |
-    | Select an Application Insights resource for your app. | Choose **Create new Application Insights resource** and at the prompt provide the name for the instance used to store runtime data from your functions.| 
+    | Select an Application Insights resource for your app. | Choose **Create new Application Insights resource** and at the prompt provide the name for the instance used to store runtime data from your functions.|
 
     A notification appears after your function app is created. Select **View Output** in this notification to view the creation and deployment results, including the Azure resources that you created.
 
@@ -143,84 +155,91 @@ To support your function code, you need to create three resources:
 ## Deploy your code project
 
 For deployment, Flex Consumption plan apps use a Blob storage container to host .zip package files that contain your project code and all libraries that are required for your app to run. For more information, see [Deployment](flex-consumption-plan.md#deployment).
-::: zone pivot="programming-language-java" 
-You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-by-using-maven).   
-::: zone-end 
+::: zone pivot="programming-language-java"
+You can skip this section if you choose to instead [create and deploy your app using Maven](#create-and-deploy-your-app-by-using-maven).
+::: zone-end
 
 You can choose to deploy your project code to an existing function app using various tools:
 
+::: zone pivot="programming-language-go"
+Go deployment requires [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools) version `4.12` or later. Run `func --version` to verify your installed version.
+::: zone-end
+
 ### [Azure CLI](#tab/azure-cli-publish)
 
-You can use the Azure CLI to upload a deployment package file to the deployment share for a function app in Azure. To make this deployment, you must produce a .zip package file that can run when the package is mounted to your app. 
+You can use the Azure CLI to upload a deployment package file to the deployment share for a function app in Azure. To make this deployment, you must produce a .zip package file that can run when the package is mounted to your app.
 ::: zone pivot="programming-language-csharp,programming-language-java"
-This package file must contain all of the build output files and referenced libraries required for your project to run. 
+This package file must contain all of the build output files and referenced libraries required for your project to run.
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
-For projects with a large number of libraries, package the root of your project file and request a [remote build]. 
+For projects with a large number of libraries, package the root of your project file and request a [remote build].
 ::: zone-end
 ::: zone pivot="programming-language-python"
-For Python projects, package the root of your project file and always request a [remote build]. Using a remote build prevents potential issues that can occur when you build a project on Windows to be deployed on Linux.  
+For Python projects, package the root of your project file and always request a [remote build]. Using a remote build prevents potential issues that can occur when you build a project on Windows to be deployed on Linux.
+::: zone-end
+::: zone pivot="programming-language-go"
+For Go projects, use Core Tools to create a ready-to-run .zip package locally, then deploy that package with the Azure CLI. Don't request a remote build for Go packages created by `func pack`.
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
-1. Using your preferred development tool, build the code project. 
+1. Using your preferred development tool, build the code project.
 
-2. Create a .zip file that contains the output of the build directory. For more information, see [Project structure](dotnet-isolated-process-guide.md#project-structure). 
+2. Create a .zip file that contains the output of the build directory. For more information, see [Project structure](dotnet-isolated-process-guide.md#project-structure).
 
-3. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command.  
+3. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command.
 
     ```azurecli
     az login
     ```
 
-4. Run the [`az functionapp deployment source config-zip`](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) command to deploy the application package located in the relative `<FILE_PATH>`. 
-    
+4. Run the [`az functionapp deployment source config-zip`](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) command to deploy the application package located in the relative `<FILE_PATH>`.
+
     ```azurecli
     az functionapp deployment source config-zip --src <FILE_PATH> --name <APP_NAME> --resource-group <RESOURCE_GROUP>
     ```
 ::: zone-end
 ::: zone pivot="programming-language-java"
-1. Using your preferred development tool, build the code project. 
+1. Using your preferred development tool, build the code project.
 
-2. Create a .zip file that contains the output of the build directory. For more information, see [Folder structure](./functions-reference-java.md#folder-structure). 
+2. Create a .zip file that contains the output of the build directory. For more information, see [Folder structure](./functions-reference-java.md#folder-structure).
 
-3. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command.  
+3. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command.
 
     ```azurecli
     az login
     ```
 
-4. Run the [`az functionapp deployment source config-zip`](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) command to deploy the application package located in the relative `<FILE_PATH>`. 
-    
+4. Run the [`az functionapp deployment source config-zip`](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) command to deploy the application package located in the relative `<FILE_PATH>`.
+
     ```azurecli
     az functionapp deployment source config-zip --src <FILE_PATH> --name <APP_NAME> --resource-group <RESOURCE_GROUP>
     ```
 ::: zone-end
 ::: zone pivot="programming-language-powershell"
-1. Create a .zip file that contains the root directory of your code project. For more information, see [Folder structure](./functions-reference-powershell.md#folder-structure). 
+1. Create a .zip file that contains the root directory of your code project. For more information, see [Folder structure](./functions-reference-powershell.md#folder-structure).
 
-2. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command.  
+2. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command.
 
     ```azurecli
     az login
     ```
 
-3. Run the [`az functionapp deployment source config-zip`](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) command to deploy the application package located in the relative `<FILE_PATH>`. 
-    
+3. Run the [`az functionapp deployment source config-zip`](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) command to deploy the application package located in the relative `<FILE_PATH>`.
+
     ```azurecli
     az functionapp deployment source config-zip --src <FILE_PATH> --name <APP_NAME> --resource-group <RESOURCE_GROUP>
     ```
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
-1. Create a .zip file that contains the root directory of your code project. For more information, see [Folder structure](./functions-reference-node.md#folder-structure). 
+1. Create a .zip file that contains the root directory of your code project. For more information, see [Folder structure](./functions-reference-node.md#folder-structure).
 
-2. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command.  
+2. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command.
 
     ```azurecli
     az login
     ```
 
-3. Run the [`az functionapp deployment source config-zip`](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) command to deploy the application package located in the relative `<FILE_PATH>`. 
-    
+3. Run the [`az functionapp deployment source config-zip`](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) command to deploy the application package located in the relative `<FILE_PATH>`.
+
     ```azurecli
     az functionapp deployment source config-zip --src <FILE_PATH> --name <APP_NAME> --resource-group <RESOURCE_GROUP> --build-remote true
     ```
@@ -228,21 +247,42 @@ For Python projects, package the root of your project file and always request a 
     Make sure to set `--build-remote true` to perform a [remote build].
 ::: zone-end
 ::: zone pivot="programming-language-python"
-1. Create a .zip file that contains the root directory of your code project. For more information, see [Folder structure](./functions-reference-python.md#folder-structure). 
+1. Create a .zip file that contains the root directory of your code project. For more information, see [Folder structure](./functions-reference-python.md#folder-structure).
 
-2. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command.  
+2. When required, sign in to your Azure account and select the active subscription by using the [`az login`](/cli/azure/reference-index#az-login) command.
 
     ```azurecli
     az login
     ```
 
-3. Run the [`az functionapp deployment source config-zip`](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) command to deploy the application package located in the relative `<FILE_PATH>`. 
-    
+3. Run the [`az functionapp deployment source config-zip`](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) command to deploy the application package located in the relative `<FILE_PATH>`.
+
     ```azurecli
     az functionapp deployment source config-zip --src <FILE_PATH> --name <APP_NAME> --resource-group <RESOURCE_GROUP> --build-remote true
     ```
 
     Make sure to set `--build-remote true` to perform a [remote build].
+::: zone-end
+::: zone pivot="programming-language-go"
+1. In your root project folder, run this Core Tools command to build and package your Go project:
+
+    ```console
+    func pack
+    ```
+
+    By default, the output .zip file has the same name as your project folder.
+
+2. When required, sign in to your Azure account and select the active subscription using the [`az login`](/cli/azure/reference-index#az-login) command.
+
+    ```azurecli
+    az login
+    ```
+
+3. Run the [`az functionapp deployment source config-zip`](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip) command to deploy the package located in `<ZIP_FILE_PATH>`.
+
+    ```azurecli
+    az functionapp deployment source config-zip --resource-group <RESOURCE_GROUP> --name <APP_NAME> --src <ZIP_FILE_PATH>
+    ```
 ::: zone-end
 
 ### [Continuous Deployment](#tab/continuous-deployment)
@@ -262,33 +302,33 @@ Azure Functions provides both a custom GitHub Action and a custom Azure Pipeline
 
 ---
 
-::: zone pivot="programming-language-java" 
+::: zone pivot="programming-language-java"
 ## Create and deploy your app by using Maven
 
-You can use Maven to create a Flex Consumption hosted function app and the required resources during deployment by modifying the `pom.xml` file. 
- 
-1. Create a Java code project by completing the first part of one of these quickstart articles:
-        
-    - [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-java)  
-    - [Create an Azure Functions project using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-java) 
+You can use Maven to create a Flex Consumption hosted function app and the required resources during deployment by modifying the `pom.xml` file.
 
-1. In your Java code project, open the `pom.xml` file and make these changes to create your function app in the Flex Consumption plan: 
+1. Create a Java code project by completing the first part of one of these quickstart articles:
+
+    - [Create an Azure Functions project from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-java)
+    - [Create an Azure Functions project using Visual Studio Code](how-to-create-function-vs-code.md?pivot=programming-language-java)
+
+1. In your Java code project, open the `pom.xml` file and make these changes to create your function app in the Flex Consumption plan:
 
     - Change the value of `<properties>.<azure.functions.maven.plugin.version>` to `1.34.0`.
 
     - In the `<plugin>.<configuration>` section for the `azure-functions-maven-plugin`, add or uncomment the `<pricingTier>` element as follows:
-        
+
         ```xml
         <pricingTier>Flex Consumption</pricingTier>
         ```
 
 1. (Optional) Customize the Flex Consumption plan in your Maven deployment by also including these elements in the `<plugin>.<configuration>` section:             .
 
-    - `<instanceSize>` - sets the [instance memory](./flex-consumption-plan.md#instance-sizes) size for the function app. The default value is `2048`.  
-    - `<maximumInstances>` - sets the highest value for the maximum instances count of the function app.  
-    - `<alwaysReadyInstances>` - sets the [always ready instance counts](flex-consumption-plan.md#always-ready-instances) with child elements for HTTP trigger groups (`<http>`), Durable Functions groups (`<durable>`), and other specific triggers (`<my_function>`). When you set any instance count greater than zero, you pay for these instances whether your functions execute or not. For more information, see [Billing](flex-consumption-plan.md#billing).  
+    - `<instanceSize>` - sets the [instance memory](./flex-consumption-plan.md#instance-sizes) size for the function app. The default value is `2048`.
+    - `<maximumInstances>` - sets the highest value for the maximum instances count of the function app.
+    - `<alwaysReadyInstances>` - sets the [always ready instance counts](flex-consumption-plan.md#always-ready-instances) with child elements for HTTP trigger groups (`<http>`), Durable Functions groups (`<durable>`), and other specific triggers (`<my_function>`). When you set any instance count greater than zero, you pay for these instances whether your functions execute or not. For more information, see [Billing](flex-consumption-plan.md#billing).
 
-1. Before you can deploy, sign in to your Azure subscription by using the Azure CLI. 
+1. Before you can deploy, sign in to your Azure subscription by using the Azure CLI.
 
     ```azurecli
     az login
@@ -301,9 +341,15 @@ You can use Maven to create a Flex Consumption hosted function app and the requi
     ```console
     mvn azure-functions:deploy
     ```
-    
+
     Maven uses settings in the `pom.xml` template to create your function app in a Flex Consumption plan in Azure, along with the other required resources. If these resources already exist, the code is deployed to your function app, overwriting any existing code.
-::: zone-end  
+::: zone-end
+
+::: zone pivot="programming-language-go"
+## Create and deploy your Go app
+
+Go function apps are supported only on the Flex Consumption plan. To create, run, and deploy a Go function app, see [Create a Go function from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-go). For Go-specific project structure and deployment details, see the [Go developer reference](functions-reference-go.md).
+::: zone-end
 
 ## Configure virtual network integration
 
@@ -348,7 +394,7 @@ Choose an appropriately sized subnet for your Flex Consumption apps. The followi
 
 ### Enable virtual network integration when you create the app
 
-The examples in this section assume that your account already contains a [virtual network and subnet](../virtual-network/quick-create-cli.md#create-a-virtual-network-and-subnet). 
+The examples in this section assume that your account already contains a [virtual network and subnet](../virtual-network/quick-create-cli.md#create-a-virtual-network-and-subnet).
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -360,19 +406,29 @@ Enable virtual network integration by running the [`az functionapp create`] comm
 
 1. Run the [`az functionapp create`] command, including the `--vnet` and `--subnet` parameters, as in this example:
 
+    ::: zone pivot="programming-language-go"
+    ```azurecli
+    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime go --runtime-version 1.0 --functions-version 4 --vnet <VNET_RESOURCE_ID> --subnet <SUBNET_NAME>
+    az resource update --resource-group <RESOURCE_GROUP> --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
+    ```
+
+    The `az resource update` command disables HTTP/2 on the function app, which is required during the Go public preview.
+    ::: zone-end
+    ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
     ```azurecli
     az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime <RUNTIME_NAME> --runtime-version <RUNTIME_VERSION> --vnet <VNET_RESOURCE_ID> --subnet <SUBNET_NAME>
     ```
+    ::: zone-end
 
-    The `<VNET_RESOURCE_ID>` value is the resource ID for the virtual network, which is in the format: `/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Network/virtualNetworks/<VNET_NAME>`. You can use this command to get a list of virtual network IDs, filtered by `<RESOURCE_GROUP>`: `az network vnet list --resource-group <RESOURCE_GROUP> --output tsv --query "[]".id`. 
+    The `<VNET_RESOURCE_ID>` value is the resource ID for the virtual network, which is in the format: `/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Network/virtualNetworks/<VNET_NAME>`. You can use this command to get a list of virtual network IDs, filtered by `<RESOURCE_GROUP>`: `az network vnet list --resource-group <RESOURCE_GROUP> --output tsv --query "[]".id`.
 
 #### [Azure portal](#tab/azure-portal)
 
-Use these steps to create your function app with virtual network integration and related Azure resources. 
+Use these steps to create your function app with virtual network integration and related Azure resources.
 
 [!INCLUDE [functions-create-flex-consumption-app-portal](../../includes/functions-create-flex-consumption-app-portal.md)]
 
-6. In the **Networking** tab, set **Enable public access** to **Off** and **Enable network injection** to **On**. 
+6. In the **Networking** tab, set **Enable public access** to **Off** and **Enable network injection** to **On**.
 
 7. For **Virtual network**, select or create a virtual network that is in the same region as your app.
 
@@ -421,7 +477,7 @@ az functionapp vnet-integration list --resource-group <RESOURCE_GROUP> --name <A
 
 #### [Azure portal](#tab/azure-portal)
 
-You can integrate your existing app with an existing virtual network and subnet in the portal. 
+You can integrate your existing app with an existing virtual network and subnet in the portal.
 
 1. In your function app page in the [Azure portal], expand **Settings** in the left menu and select **Networking**.
 
@@ -464,7 +520,7 @@ Monitor for these symptoms, which indicate that outbound capacity rather than IP
 
 ## Configure deployment settings
 
-In the Flex Consumption plan, an Azure Blob Storage container holds the deployment package with your app's code. By default, deployments use the same storage account (`AzureWebJobsStorage`) and connection string that the Functions runtime uses to maintain your app. The `DEPLOYMENT_STORAGE_CONNECTION_STRING` application setting stores the connection string. However, you can designate a blob container in a separate storage account as the deployment source for your code. You can also change the authentication method used to access the container. 
+In the Flex Consumption plan, an Azure Blob Storage container holds the deployment package with your app's code. By default, deployments use the same storage account (`AzureWebJobsStorage`) and connection string that the Functions runtime uses to maintain your app. The `DEPLOYMENT_STORAGE_CONNECTION_STRING` application setting stores the connection string. However, you can designate a blob container in a separate storage account as the deployment source for your code. You can also change the authentication method used to access the container.
 
 A customized deployment source should meet these criteria:
 
@@ -474,47 +530,47 @@ A customized deployment source should meet these criteria:
 
 When you configure deployment storage authentication, keep these considerations in mind:
 
-- As a security best practice, use managed identities when connecting to Azure Storage from your apps. For more information, see [Connections](./functions-reference.md#connections). 
+- As a security best practice, use managed identities when connecting to Azure Storage from your apps. For more information, see [Connections](./functions-reference.md#connections).
 - When you use a connection string to connect to the deployment storage account, the application setting that contains the connection string must already exist.
 - When you use a user-assigned managed identity, you link the provided identity to the function app. You also assign the `Storage Blob Data Contributor` role scoped to the deployment storage account to the identity.
 - When you use a system-assigned managed identity, you create an identity when a valid system-assigned identity doesn't already exist in your app. When a system-assigned identity exists, you assign the `Storage Blob Data Contributor` role scoped to the deployment storage account to the identity.
 
 To configure deployment settings when you create your function app in the Flex Consumption plan:
 
-### [Azure CLI](#tab/azure-cli) 
+### [Azure CLI](#tab/azure-cli)
 
-Use the [`az functionapp create`] command and supply these extra options that customize deployment storage:  
+Use the [`az functionapp create`] command and supply these extra options that customize deployment storage:
 
 | Parameter | Description |
 | --- | --- |
-| `--deployment-storage-name` | The name of the deployment storage account. | 
-| `--deployment-storage-container-name` | The name of the container in the account to contain your app's deployment package. | 
+| `--deployment-storage-name` | The name of the deployment storage account. |
+| `--deployment-storage-container-name` | The name of the container in the account to contain your app's deployment package. |
 | `--deployment-storage-auth-type`| The authentication type to use for connecting to the deployment storage account. Accepted values include `StorageAccountConnectionString`, `UserAssignedIdentity`, and `SystemAssignedIdentity`. |
 | `--deployment-storage-auth-value` | When using  `StorageAccountConnectionString`, set this parameter to the name of the application setting that contains the connection string to the deployment storage account. When you set `UserAssignedIdentity`, set this parameter to the name of the resource ID of the identity you want to use. |
 
 This example creates a function app in the Flex Consumption plan with a separate deployment storage account and user assigned identity:
 
 ```azurecli
-az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime dotnet-isolated --runtime-version 8.0 --flexconsumption-location "<REGION>" --deployment-storage-name <DEPLOYMENT_ACCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME> --deployment-storage-auth-type UserAssignedIdentity --deployment-storage-auth-value <MI_RESOURCE_ID>
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --runtime dotnet-isolated --runtime-version 8.0 --flexconsumption-location "<REGION>" --deployment-storage-name <DEPLOYMENT_ACCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME> --deployment-storage-auth-type UserAssignedIdentity --deployment-storage-auth-value <MI_RESOURCE_ID>
 ```
 
 ### [Azure portal](#tab/azure-portal)
 
-You can't currently configure deployment storage when creating your app in the Azure portal. To configure deployment storage during app creation, use Azure CLI to create your app. 
+You can't currently configure deployment storage when creating your app in the Azure portal. To configure deployment storage during app creation, use Azure CLI to create your app.
 
-You can use the portal to modify the deployment settings of an existing app, as detailed in the next section.  
+You can use the portal to modify the deployment settings of an existing app, as detailed in the next section.
 
 ### [Visual Studio Code](#tab/vs-code)
 
-You can't currently configure deployment storage when creating your app in Azure using Visual Studio Code. 
+You can't currently configure deployment storage when creating your app in Azure using Visual Studio Code.
 
 ---
 
 You can also modify the deployment storage configuration for an existing app.
 
-### [Azure CLI](#tab/azure-cli)  
+### [Azure CLI](#tab/azure-cli)
 
-Use the [`az functionapp deployment config set`](/cli/azure/functionapp/deployment/config#az-functionapp-deployment-config-set) command to modify the deployment storage configuration. 
+Use the [`az functionapp deployment config set`](/cli/azure/functionapp/deployment/config#az-functionapp-deployment-config-set) command to modify the deployment storage configuration.
 
 ```azurecli
 az functionapp deployment config set --resource-group <RESOURCE_GROUP> --name <APP_NAME> --deployment-storage-name <DEPLOYMENT_ACCOUNT_NAME> --deployment-storage-container-name <DEPLOYMENT_CONTAINER_NAME>
@@ -526,13 +582,13 @@ az functionapp deployment config set --resource-group <RESOURCE_GROUP> --name <A
 
 1. Under **Application package location**, select an existing **Storage account** and then select an existing empty **container** in the account.
 
-1. Under **Storage authentication**, select your preferred authentication type: 
+1. Under **Storage authentication**, select your preferred authentication type:
 
     - When you select **Connection string**, select the name of the app setting that contains the connection string for the deployment storage account.
 
     - When you select **User assigned identity**, select the identity you want to use.
 
-1. Select **Save** to update the app.  
+1. Select **Save** to update the app.
 
 
 ### [Visual Studio Code](#tab/vs-code)
@@ -543,7 +599,7 @@ You can't currently configure deployment storage for your app in Azure by using 
 
 ## Configure instance memory
 
-Set the instance memory size for your Flex Consumption plan when you create your app. For more information about supported sizes, see [Instance sizes](flex-consumption-plan.md#instance-sizes).  
+Set the instance memory size for your Flex Consumption plan when you create your app. For more information about supported sizes, see [Instance sizes](flex-consumption-plan.md#instance-sizes).
 
 To set an instance memory size that's different from the default when creating your app:
 
@@ -569,7 +625,7 @@ At any point, you can change the instance memory size setting used by your app.
 
 ### [Azure CLI](#tab/azure-cli)
 
-This example uses the [`az functionapp scale config set`](/cli/azure/functionapp/scale/config#az-functionapp-scale-config-set) command to change the instance memory size setting to 512 MB: 
+This example uses the [`az functionapp scale config set`](/cli/azure/functionapp/scale/config#az-functionapp-scale-config-set) command to change the instance memory size setting to 512 MB:
 
 ```azurecli
 az functionapp scale config set --resource-group <resourceGroup> --name <APP_NAME> --instance-memory 512
@@ -590,10 +646,10 @@ You can't currently change the instance memory size setting for your app by usin
 
 ## Set always ready instance counts
 
-Set a specific number of always ready instances for the [Per-function scaling](flex-consumption-plan.md#per-function-scaling) groups or individual functions, to keep your functions loaded and ready to execute. Three special groups exist, as in per-function scaling: 
-- `http` - All of the HTTP triggered functions in the app scale together into their own instances.  
+Set a specific number of always ready instances for the [Per-function scaling](flex-consumption-plan.md#per-function-scaling) groups or individual functions, to keep your functions loaded and ready to execute. Three special groups exist, as in per-function scaling:
+- `http` - All of the HTTP triggered functions in the app scale together into their own instances.
 - `durable` - All of the Durable triggered functions (Orchestration, Activity, Entity) in the app scale together into their own instances.
-- `blob` - All of the blob (Event Grid) triggered functions in the app scale together into their own instances. 
+- `blob` - All of the blob (Event Grid) triggered functions in the app scale together into their own instances.
 
 Use `http`, `durable`, or `blob` as the name for the name value pair setting to configure always ready counts for these groups. For all other functions in the app, configure always ready for each individual function by using the format `function:<FUNCTION_NAME>=n`.
 
@@ -601,29 +657,52 @@ Use `http`, `durable`, or `blob` as the name for the name value pair setting to 
 
 To define one or more always ready instance designations, use the `--always-ready-instances` parameter with the [`az functionapp create`] command. This example sets the always ready instance count for all HTTP triggered functions to `10`:
 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 ```azurecli
-az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime <LANGUAGE_RUNTIME> --runtime-version <RUNTIME_VERSION> --flexconsumption-location <REGION> --always-ready-instances http=10
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --runtime <LANGUAGE_RUNTIME> --runtime-version <RUNTIME_VERSION> --flexconsumption-location <REGION> --always-ready-instances http=10
 ```
+::: zone-end
+::: zone pivot="programming-language-go"
+```azurecli
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --runtime go --runtime-version 1.0 --functions-version 4 --flexconsumption-location <REGION> --always-ready-instances http=10
+az resource update --resource-group <RESOURCE_GROUP> --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
+```
+
+The `az resource update` command disables HTTP/2 on the function app, which is required during the Go public preview.
+::: zone-end
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 
 This example sets the always ready instance count for all Durable trigger functions to `3` and sets the always ready instance count to `2` for a service bus triggered function named `function5`:
 
 ```azurecli
-az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_NAME> --runtime <LANGUAGE_RUNTIME> --runtime-version <RUNTIME_VERSION> --flexconsumption-location <REGION> --always-ready-instances durable=3 function:function5=2
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --runtime <LANGUAGE_RUNTIME> --runtime-version <RUNTIME_VERSION> --flexconsumption-location <REGION> --always-ready-instances durable=3 function:function5=2
 ```
+::: zone-end
+::: zone pivot="programming-language-go"
+
+This example sets the always ready instance count to `2` for a Service Bus triggered function named `function5`:
+
+```azurecli
+az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --runtime go --runtime-version 1.0 --functions-version 4 --flexconsumption-location <REGION> --always-ready-instances function:function5=2
+az resource update --resource-group <RESOURCE_GROUP> --resource-type Microsoft.Web/sites --name <APP_NAME> --set properties.siteConfig.http20Enabled=false
+```
+
+The `az resource update` command disables HTTP/2 on the function app, which is required during the Go public preview.
+::: zone-end
 
 ### [Azure portal](#tab/azure-portal)
 
-You can't currently define always ready instances when creating your app in the Azure portal. To define always ready instances during app creation, use the Azure CLI to create your app. 
+You can't currently define always ready instances when creating your app in the Azure portal. To define always ready instances during app creation, use the Azure CLI to create your app.
 
-You can use the portal to modify always ready instances on an existing app, as detailed in the next section.  
+You can use the portal to modify always ready instances on an existing app, as detailed in the next section.
 
 ### [Visual Studio Code](#tab/vs-code)
 
-You can't currently define always ready instances when creating your app in Azure using Visual Studio Code. 
+You can't currently define always ready instances when creating your app in Azure using Visual Studio Code.
 
 ---
 
-You can also modify always ready instances on an existing app by adding or removing instance designations or by changing existing instance designation counts. 
+You can also modify always ready instances on an existing app by adding or removing instance designations or by changing existing instance designation counts.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -649,13 +728,13 @@ az functionapp scale config always-ready delete --resource-group <RESOURCE_GROUP
 
 ### [Visual Studio Code](#tab/vs-code)
 
-You can't currently modify always ready instances by using Visual Studio Code. 
+You can't currently modify always ready instances by using Visual Studio Code.
 
 ---
 
 ## Set HTTP concurrency limits
 
-If you don't set specific limits, the system determines HTTP concurrency defaults for Flex Consumption plan apps based on your instance size setting. For more information, see [HTTP trigger concurrency](functions-concurrency.md#http-trigger-concurrency). 
+If you don't set specific limits, the system determines HTTP concurrency defaults for Flex Consumption plan apps based on your instance size setting. For more information, see [HTTP trigger concurrency](functions-concurrency.md#http-trigger-concurrency).
 
 Here's how you set HTTP concurrency limits for an existing app:
 
@@ -667,7 +746,7 @@ Use the [`az functionapp scale config set`](/cli/azure/functionapp/scale/config#
 az functionapp scale config set --resource-group <RESOURCE_GROUP> --name <APP_NAME> --trigger-type http --trigger-settings perInstanceConcurrency=10
 ```
 
-This example sets the HTTP trigger concurrency level to `10`. After you set an HTTP concurrency value, the app maintains that value despite any changes in your app's instance size setting. 
+This example sets the HTTP trigger concurrency level to `10`. After you set an HTTP concurrency value, the app maintains that value despite any changes in your app's instance size setting.
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -679,7 +758,7 @@ This example sets the HTTP trigger concurrency level to `10`. After you set an H
 
 ### [Visual Studio Code](#tab/vs-code)
 
-You can't currently set HTTP concurrency limits by using Visual Studio Code. 
+You can't currently set HTTP concurrency limits by using Visual Studio Code.
 
 ---
 
@@ -722,14 +801,14 @@ Flex Consumption introduces site-scoped certificates, a new model where TLS/SSL 
 - Existing apps created before this feature became available don't currently have a migration path for certificates. To use site-scoped certificates, create a new Flex Consumption function app.
 - Azure CLI support for managing site-scoped certificates isn't yet available. In the meantime, use the [Azure portal](https://portal.azure.com) or [ARM/Bicep templates](functions-infrastructure-as-code.md?pivots=flex-consumption-plan#site-scoped-certificates) to manage certificates.
 - Each app supports a maximum of three private certificates and three public certificates.
-- Private certificates must be exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions) that contains all intermediate certificates and the root certificate in the certificate chain. 
+- Private certificates must be exported as a [password-protected PFX file](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Certificate_filename_extensions) that contains all intermediate certificates and the root certificate in the certificate chain.
 - End-to-end (E2E) encryption isn't currently supported.
 - Elliptic Curve Cryptography (ECC) certificates are supported when uploaded as a PFX.
 - Because Flex Consumption runs on Linux, your code must load certificates from file paths rather than from the Windows certificate store. First, follow the steps in [Make a certificate accessible to your code](#make-a-certificate-accessible-to-your-code) to load certificates into the runtime environment. Then, for guidance on reading certificate files from your application code, see [Load certificates in Linux/Windows containers](../app-service/configure-ssl-certificate-in-code.md#load-certificates-in-linuxwindows-containers).
 
 ### Add a certificate
 
-You can add certificates to your app in several ways, depending on the certificate type. Add free managed and Azure certificates directly in the portal. 
+You can add certificates to your app in several ways, depending on the certificate type. Add free managed and Azure certificates directly in the portal.
 
 Select one of the following tabs to see how to add a managed, private (.pfx), public (.cer), or Key Vault-managed certificate.
 
@@ -777,7 +856,7 @@ To upload a custom private certificate that you obtained:
 
 #### [Import from Key Vault](#tab/key-vault)
 
-If you use [Azure Key Vault](/azure/key-vault/general/overview) to manage your certificates, you can import a PKCS12 certificate from Key Vault into your function app. 
+If you use [Azure Key Vault](/azure/key-vault/general/overview) to manage your certificates, you can import a PKCS12 certificate from Key Vault into your function app.
 
 > [!IMPORTANT]
 > For better security, use a managed identity to authenticate to Key Vault instead of a service principal.
@@ -843,12 +922,12 @@ Public certificates are supported in the `.cer` format. Upload a public certific
 1. Select your `.cer` file and provide a **Certificate friendly name**.
 
 1. Select **Add**.
- 
+
 ---
 
 ### Make a certificate accessible to your code
 
-After adding a certificate, you must explicitly make it accessible to your function code. 
+After adding a certificate, you must explicitly make it accessible to your function code.
 
 1. In the [Azure portal](https://portal.azure.com/), go to your function app.
 
@@ -858,7 +937,7 @@ After adding a certificate, you must explicitly make it accessible to your funct
 
 1. Select **...** (ellipsis) next to the certificate you want to make accessible, and then choose **Make accessible to app code**.
 
-When you enable **Accessible to app code**, the platform loads the certificate into the runtime environment on all instances as a file. 
+When you enable **Accessible to app code**, the platform loads the certificate into the runtime environment on all instances as a file.
 
 Certificate files are named by thumbprint and placed in these directories:
 
@@ -877,7 +956,7 @@ Free managed certificates are automatically renewed by the platform. For all oth
 
 ## View currently supported regions
 
-To view the list of regions that currently support Flex Consumption plans, see: 
+To view the list of regions that currently support Flex Consumption plans, see:
 
 [!INCLUDE [functions-flex-supported-regions-cli](../../includes/functions-flex-supported-regions-cli.md)]
 
@@ -912,13 +991,13 @@ In this example, replace `<RESOURCE_GROUP>` and `<APP_NAME>` with your resource 
 
 ### View metrics
 
-You can review current metrics either in the Azure portal or by using the Azure CLI. 
+You can review current metrics either in the Azure portal or by using the Azure CLI.
 
 In the Azure portal, you can also create metrics alerts and pin charts and other reports to dashboards in the portal.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Use this script to generate a report of the current metrics for your app: 
+Use this script to generate a report of the current metrics for your app:
 
 ```azurecli
 appId=$(az functionapp show --name <APP_NAME> --resource-group <RESOURCE_GROUP> --query id -o tsv)
@@ -951,13 +1030,13 @@ az monitor metrics list --resource $appId --metric "CpuPercentage" --interval PT
 
 1. Repeat the previous step to add other metrics to the chart.
 
-1. (Optional) Select **Save to dashboard** to add the current chart to a new or existing dashboard. Remember to include both always-ready and on-demand metrics for broad visibility. 
+1. (Optional) Select **Save to dashboard** to add the current chart to a new or existing dashboard. Remember to include both always-ready and on-demand metrics for broad visibility.
 
-1. (Optional) Select **New alert rule** to create an alert on a specific metric. Remember to include both always-ready and on-demand metrics for broad visibility. 
+1. (Optional) Select **New alert rule** to create an alert on a specific metric. Remember to include both always-ready and on-demand metrics for broad visibility.
 
 ### [Visual Studio Code](#tab/vs-code)
 
-You can't currently review and set metrics by using Visual Studio Code. 
+You can't currently review and set metrics by using Visual Studio Code.
 
 ---
 
@@ -988,7 +1067,7 @@ Use this query to analyze the number of instances that are actively processing y
 let _startTime = ago(20m); //Adjust start time as needed
 let _endTime = now(); //Adjust end time as needed
 let bins = 1s; //Adjust bin as needed - this will give per second results
-requests 
+requests
 | where operation_Name == 'EventHubsTrigger' //Replace with the name of the function in the function app that you are analyzing
 | where timestamp between(_startTime .. _endTime)
 | make-series dcount(cloud_RoleInstance) default=0 on timestamp from _startTime to _endTime step bins
@@ -997,7 +1076,7 @@ requests
 
 ### View costs
 
-Because you can tune your app to adjust performance versus operating costs, it's important to track the costs associated with running your app in the Flex Consumption plan. 
+Because you can tune your app to adjust performance versus operating costs, it's important to track the costs associated with running your app in the Flex Consumption plan.
 
 To view the current costs:
 
@@ -1005,17 +1084,17 @@ To view the current costs:
 
 1. In the resource group page, select **Cost Management** > **Cost analysis**.
 
-1. Review the current costs and cost trajectory of the app itself. 
+1. Review the current costs and cost trajectory of the app itself.
 
 1. Optionally, select **Cost Management** > **Alerts** and then **+ Add** to create a new alert for the app.
 
 ## Fine-tune your app
 
-The Flex Consumption plan provides several settings that you can tune to refine the performance of your app. Actual performance and costs can vary based on your app-specific workload patterns and configuration. For example, higher [memory instance sizes](./flex-consumption-plan.md#instance-sizes) can improve performance for memory-intensive operations but at a higher cost per active period. 
+The Flex Consumption plan provides several settings that you can tune to refine the performance of your app. Actual performance and costs can vary based on your app-specific workload patterns and configuration. For example, higher [memory instance sizes](./flex-consumption-plan.md#instance-sizes) can improve performance for memory-intensive operations but at a higher cost per active period.
 
 Here are some adjustments you can make to fine-tune performance versus cost:
- 
-- [Adjust concurrency settings](./functions-concurrency.md) to maximize throughput per instance. 
+
+- [Adjust concurrency settings](./functions-concurrency.md) to maximize throughput per instance.
 - [Choose the appropriate memory size](#configure-instance-memory) for your workload. Higher memory sizes cost more but can improve performance.
 
 ## Related content

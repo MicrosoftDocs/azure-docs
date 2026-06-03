@@ -27,6 +27,10 @@ For information on setup and configuration details, see the [overview](./functio
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 The usage of the binding depends on the extension package version and the C# modality used in your function app, which can be one of the following:

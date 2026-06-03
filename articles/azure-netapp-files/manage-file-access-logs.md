@@ -93,6 +93,7 @@ Availability for file access log is limited to the following regions:
 - East US 2
 - France Central 
 - Germany North
+- Germany West Central
 - Israel Central 
 - Italy North
 - Japan East
@@ -101,6 +102,7 @@ Availability for file access log is limited to the following regions:
 - Korea South
 - Malaysia West 
 - New Zealand North
+- North Central US
 - North Europe
 - Norway East
 - Norway West

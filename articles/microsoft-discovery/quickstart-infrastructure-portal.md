@@ -26,12 +26,11 @@ In this quickstart, you set up your Microsoft Discovery environment to run your 
 
 ## Prerequisites
 
-- An active [Azure subscription](https://aka.ms/discovery/publicpreviewportal) that is enabled for Microsoft Discovery **Public Preview** support.
-- Once your subscription is enabled, use this [Azure portal URL](https://aka.ms/discovery/PublicPreviewPortal) to create resources using public preview API version (v2).
+- An active [Azure subscription](https://portal.azure.com) that is enabled for Microsoft Discovery access.
 - **Sufficient permissions** in your Azure subscription to register resource providers and create resources:
   - The **Owner** or **Role Based Access Control Administrator** or **User Access Administrator** role is required to assign roles to administrators (Platform Admins, Scientists, and Engineers) who manage and use Discovery resources. For more information, see [Assign roles to administrators](#a-assign-roles-to-administrators).
 - Register resource providers in your Azure subscription: You need to have a Contributor or higher privileged role (for example, Owner) and follow these steps:
-   1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+   1. Sign in to the [Azure portal](https://portal.azure.com).
    1. Navigate to **Subscriptions** and select your subscription.
    1. In the left-hand menu, select **Resource Providers**.
    1. Search for `Microsoft.Discovery`.
@@ -40,7 +39,7 @@ In this quickstart, you set up your Microsoft Discovery environment to run your 
    > [!NOTE]
    > Ensure that the following resource providers are also registered on your subscription. If not, register them:
    > `Microsoft.Network`, `Microsoft.Compute`, `Microsoft.Storage`, `Microsoft.ManagedIdentity`, `Microsoft.AlertsManagement`, `Microsoft.Authorization`, `Microsoft.CognitiveServices`, `Microsoft.ContainerInstance`, `Microsoft.ContainerRegistry`, `Microsoft.ContainerService`, `Microsoft.DocumentDB`, `Microsoft.Features`, `Microsoft.KeyVault`, `Microsoft.MachineLearningServices`, `Microsoft.OperationalInsights`, `Microsoft.ResourceGraph`, `Microsoft.Search`, `Microsoft.Web`, `Microsoft.Insights`, `Microsoft.Resources`, `Microsoft.Sql`, `Microsoft.App`, `Microsoft.Bing`
-- **Microsoft Foundry, Azure OpenAI quotas, and VM SKU/quotas** available in your chosen region. See [Quota reservations](./concept-quota-reservation.md) to learn more.
+- **Microsoft Foundry, Azure OpenAI quotas, and VM SKU/quotas** available in your chosen region. See [Quota reservations](./concept-quota-reservation.md).
 - An existing **resource group**, or permissions to [create a new one](../azure-resource-manager/management/manage-resource-groups-portal.md). Creating a resource group requires **Contributor** role on the subscription.
 - A **virtual network and subnets** for your workspace and supercomputer. See [Create a virtual network and subnets](#c-create-a-virtual-network-and-subnets).
 - **User Assigned Managed Identities (UAMI)** with the required Azure role assignments for your supercomputer, workspace, and Azure Blob Storage. See [Create a User Assigned Managed Identity (UAMI)](#d-create-a-user-assigned-managed-identity-uami).
@@ -67,40 +66,40 @@ Assign the following built-in roles to users at the desired scope (subscription 
 - Microsoft Discovery Bookshelf Index Data Reader (Preview) 
 
 > [!NOTE]
-> If you're assigning all roles at the subscription level, you can skip this note. If you're assigning roles at the resource group level, skip the **Foundry User** role for now. Continue with the next steps and revisit this role assignment after the Discovery workspace resource is created, because it must be assigned to each user (Platform Admin or Scientist) at the workspace managed resource group (MRG) level.
+> If you're assigning all roles at the subscription level, you can skip this note. If you're assigning roles at the resource group level, skip the **Foundry User** role for now. Continue with the next steps and revisit this role assignment after the workspace resource is created. This role must be assigned to each Platform Admin or Scientist user at the workspace managed resource group level.
 
 **Steps to assign roles:**
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Subscriptions** and select your subscription.
 1. In the left-hand menu, select **Access control (IAM)**.
 1. Select **Add**, then select **Add role assignment**.
    :::image type="content" source="media/quickstart-infrastructure-portal/assign-role.jpg" alt-text="Screenshot showing the Add role assignment option in Access control (IAM)." lightbox="media/quickstart-infrastructure-portal/assign-role.jpg":::
-1. On the **Add role assignment** pane, search for each role listed above **one role at a time**, then select **Next**.
+1. On the **Add role assignment** pane, search for each role one at a time, then select **Next**.
 1. On the **Members** tab, ensure **Assign access to** is set to **User, group, or service principal**.
 1. Select **+ Select members**, choose the members to assign this permission to, then select **Next**.
    :::image type="content" source="media/quickstart-infrastructure-portal/assign-role-members.jpg" alt-text="Screenshot showing the Members tab for adding role assignment members." lightbox="media/quickstart-infrastructure-portal/assign-role-members.jpg":::
 1. On the **Conditions** tab, select **Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)**, then select **Next**.
 1. On the **Assignment Type** tab, select the configuration that best suits your organization, then select **Next**.
-1. On the **Review + assign** tab, verify all the information and select **Review + assign**.
+1. On the **Review + assign** tab, verify the information, and select **Review + assign**.
 
-Repeat this process for all roles listed above.
+Repeat this process for all the required roles.
 
 ### b. Assign required roles to Discovery control-plane service App
 
-Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hardened by default. Before you create your first workspace or bookshelf or supercomputer, you must create the **Discovery NSP Perimeter Joiner** custom role. Once created, assign **Discovery NSP Perimeter Joiner** custom role and "Reader" role to the Discovery first-party service principal so the control plane can configure Network Security Perimeters in your subscription. For step-by-step instructions, see [Assign the NSP Perimeter Joiner role](how-to-configure-network-security.md?tabs=azure-cli#assign-the-nsp-perimeter-joiner-role).
+Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hardened by default using Network Security Perimeter (NSP) rules. Before you create your first workspace or bookshelf or supercomputer, you must create the **Discovery NSP Perimeter Joiner** custom role. Once created, assign **Discovery NSP Perimeter Joiner** custom role and "Reader" role to the Discovery first-party service principal so the control plane can configure Network Security Perimeters in your subscription. For step-by-step instructions, see [Assign the NSP Perimeter Joiner role](how-to-configure-network-security.md?tabs=azure-cli#assign-the-nsp-perimeter-joiner-role).
 
 ### c. Create a virtual network and subnets
 
 > [!NOTE]
 > A virtual network can only be associated with one Microsoft Discovery workspace. If you need multiple workspaces, create a separate virtual network and subnets for each one.
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Virtual networks** and select it from the results.
 1. Select **Create** to start creating a new virtual network.
 1. Enter details such as Subscription, Resource Group, Name, and Region, then select **Next**.
 1. Configure IP addresses:
-   - **IPv4 address space**: Enter your chosen CIDR block (for example, `10.0.0.0/16`).
+   - **IPv4 address space**: Enter your chosen CIDR (Classless Inter-Domain Routing) block (for example, `10.0.0.0/16`).
    - Add the following subnets:
      - `supercomputerNodepoolSubnet`: `10.0.1.0/24`
      - `aksSubnet`: `10.0.2.0/24`
@@ -110,7 +109,7 @@ Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hard
      - `searchSubnet`: `10.0.6.0/24`
 1. For `workspaceSubnet`, `agentSubnet` and `searchSubnet`, under **SubnetDelegation**, select `Microsoft.App/environments`.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-vnet-subnet-delegation.jpg" alt-text="Screenshot of the Create virtual network subnet page showing subnet delegation settings." lightbox="media/quickstart-infrastructure-portal/create-vnet-subnet-delegation.jpg":::
-1. For `workspaceSubnet`, `agentSubnet`, `supercomputerNodepoolSubnet`, and `aksSubnet`, under **Service Endpoints**, add `Microsoft.Storage.Global`.
+1. For `workspaceSubnet`, `agentSubnet`, `supercomputerNodepoolSubnet`, and `aksSubnet`, under **Service Endpoints**, add `Microsoft.Storage`.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-vnet-service-endpoint.jpg" alt-text="Screenshot of the Create virtual network subnet page showing service endpoint settings." lightbox="media/quickstart-infrastructure-portal/create-vnet-service-endpoint.jpg":::
 1. Optionally, you can remove the `default` subnet from the list. 
 1. Review and create the virtual network.
@@ -123,13 +122,13 @@ Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hard
 
 You can create different UAMIs each with their own required permissions for specific resource access, or you can create a single UAMI with all necessary permissions for the platform. For this exercise, create a single UAMI by following these steps:
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Managed Identities** and select it from the list.
 1. Select **Create**.
 1. Fill in the required details such as subscription, resource group, region, and name.
 1. Select **Review + Create**, then select **Create**.
 
-### e. Assign RBAC roles to UAMI
+### e. Assign Azure Role Based Access Control (RBAC) roles to UAMI
 
 Assign the following built-in roles to the new User Assigned Managed Identity at Resource Group level:
 
@@ -141,10 +140,10 @@ Assign the following built-in roles to the new User Assigned Managed Identity at
 1. Select the **resource group** that you're using for this exercise.
 1. In the left-hand menu, select **Access control (IAM)**.
 1. Select **Add**, then select **Add role assignment**.
-1. On the **Add role assignment** pane, search for each role listed above **one role at a time**, then select **Next**.
+1. On the **Add role assignment** pane, search for each role one at a time, then select **Next**.
 1. On the **Members** tab, ensure **Assign access to** is set to **Managed Identity**.
 1. Select **+ Select members**. In the **Select managed identities** pane, select your subscription, select **User-assigned managed identity** type, select the managed identity you created in the previous step, then select **Select**.
-1. On the **Review + assign** tab, verify all the information and select **Review + assign**.
+1. On the **Review + assign** tab, verify all the information, and select **Review + assign**.
 
 :::image type="content" source="media/quickstart-infrastructure-portal/assign-roles-uami.jpg" alt-text="Screenshot of the Azure portal showing UAMI role assignment." lightbox="media/quickstart-infrastructure-portal/assign-roles-uami.jpg":::
 
@@ -152,7 +151,7 @@ Assign the following built-in roles to the new User Assigned Managed Identity at
 
 To store input and output data for your investigations, create an Azure blob storage account to associate with your storage container or use an existing one with the following requirements:
 
-- Create a container within the storage account named `discoveryoutputs` where the output files will be stored.
+- Create a container within the storage account named `discoveryoutputs` where the output files are stored.
 - The storage account must allow access from the Virtual Network used to create the supercomputer and workspace.
 - The storage account must allow access from your client public IP or local network so you can access the output data.
 - The storage account must have the correct CORS settings. You must allow these origins: `https://studio.discovery.microsoft.com`, `https://vscode.dev`, and `https://*.vscode-cdn.net`. Set the allowed operations to include `GET`, `HEAD`, `DELETE`, and `PUT` and set `Allowed Headers` and `Exposed Headers` to `*`, and `Max Age` to `200`. This setting is found under the **Resource sharing (CORS)** page under the **Settings** tab.
@@ -160,7 +159,7 @@ To store input and output data for your investigations, create an Azure blob sto
 
 **To create an Azure blob storage account:**
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Storage accounts** and select it from the results.
 1. Select **Create** to start creating a new storage account.
 1. Enter details such as Subscription, Resource Group, Name, and Region.
@@ -172,7 +171,7 @@ To store input and output data for your investigations, create an Azure blob sto
 1. Select **Review + create**, then select **Create**.
 
 > [!NOTE]
-> To view and download output files, your client/browser needs network access to the blob storage. You can allow public internet access (either open public access to all or allow your client's public IP address in the storage networking and firewall settings), or configure private access via Azure VPN or ExpressRoute.
+> To view and download output files, your client or browser needs network access to the blob storage. You can allow public internet access by opening public access to all networks. You can also allow your client's public IP address in the storage networking and firewall settings. Alternatively, configure private access via Azure VPN or ExpressRoute.
 
 #### Create a blob container
 
@@ -180,21 +179,21 @@ To store input and output data for your investigations, create an Azure blob sto
 1. In the left navigation pane, under **Data storage**, select **Containers**.
 1. Select **Add container**.
 1. Enter `discoveryoutputs` as the name and select **Create**.
-   :::image type="content" source="media/quickstart-infrastructure-portal/create-storage-blob-container.jpg" alt-text="Screenshot showing the Add container dialog with discoveryoutputs as the name." lightbox="media/quickstart-infrastructure-portal/create-storage-blob-container.jpg":::
+   :::image type="content" source="media/quickstart-infrastructure-portal/create-storage-blob-container.jpg" alt-text="Screenshot showing the Add container dialog with the name." lightbox="media/quickstart-infrastructure-portal/create-storage-blob-container.jpg":::
 
 #### Enable CORS and UAMI access
 
 1. Open the storage account we created in the previous step.
 1. Under the **Settings** tab, select **Resource sharing (CORS)**.
-1. Under **Blob service** in the **Allowed origins** column, enter `https://studio.discovery.microsoft.com`, `https://vscode.dev` and `https://*.vscode-cdn.net`. For all three, set the allowed operations to include `GET`, `HEAD`, `DELETE`, `OPTIONS`, and `PUT`. Set `Allowed Headers` and `Exposed Headers` to `*`, and `Max Age` to `200`.
+1. Under **Blob service** in the **Allowed origins** column, enter `https://studio.discovery.microsoft.com`, `https://vscode.dev`, and `https://*.vscode-cdn.net`. For all three, set the allowed operations to include `GET`, `HEAD`, `DELETE`, `OPTIONS`, and `PUT`. Set `Allowed Headers` and `Exposed Headers` to `*`, and `Max Age` to `200`.
 1. Select **Save**.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-storage-blob-cors.jpg" alt-text="Screenshot showing the CORS configuration for the storage account blob service." lightbox="media/quickstart-infrastructure-portal/create-storage-blob-cors.jpg":::
 
 ## 2. Create a supercomputer
 
-To deploy and run scientific tools, index your data in Bookshelf knowledge bases, and execute GPU/CPU-intensive workloads for simulation and modeling, you need a supercomputer with associated node pools. The supercomputer provides the compute resources on a specific virtual network within your subscription.
+You need a supercomputer with associated node pools to deploy and run scientific tools, and to index your data in Bookshelf knowledge bases. The supercomputer also executes GPU and CPU intensive workloads for simulation and modeling. It provides the compute resources on a specific virtual network within your subscription.
 
-1. Sign in to the Azure portal using this [link](https://aka.ms/discovery/publicpreviewportal). This link adds a custom feature flag to the Azure portal URL that enables you to create resources with Public Preview API.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Microsoft Discovery Supercomputers**.
 1. Select **Create** and enter details such as Subscription ID, Resource Group name, Location, and Name, then select **Next**.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-supercomputer-basics.jpg" alt-text="Screenshot showing the basic details page for creating a Microsoft Discovery Supercomputer." lightbox="media/quickstart-infrastructure-portal/create-supercomputer-basics.jpg":::
@@ -209,10 +208,6 @@ To deploy and run scientific tools, index your data in Bookshelf knowledge bases
 1. Once validation is successful, select **Create**.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-supercomputer-overview.jpg" alt-text="Screenshot of the Microsoft Discovery Supercomputer overview page after creation." lightbox="media/quickstart-infrastructure-portal/create-supercomputer-overview.jpg":::
 
-> [!NOTE]
-> For resources created using the public preview API version, ensure it has a `"version" : "v2"` tag added to it. If you create the resources using the link above, it's added automatically.
-
-
 ## 3. Create node pools
 
 After your supercomputer is created, follow these steps to create a node pool:
@@ -223,12 +218,12 @@ After your supercomputer is created, follow these steps to create a node pool:
 1. Enter the name and location for the node pool, then select **Next**.
    > [!NOTE]
    > Node pool names must be all lowercase, a maximum of 12 characters, must start with a letter, and can only contain letters and numbers.
-1. On the **Networking** tab, select the Virtual Network and `supercomputerNodepoolSubnet` created in [step 1](#c-create-a-virtual-network-and-subnets). This must be the same virtual network selected for the supercomputer in [step 2](#2-create-a-supercomputer), then select **Next**.
-   :::image type="content" source="media/quickstart-infrastructure-portal/create-supercomputer-node-pool-networking.jpg" alt-text="Screenshot showing the networking configuration for the supercomputer nodepool." lightbox="media/quickstart-infrastructure-portal/create-supercomputer-node-pool-networking.jpg":::
-1. On the **VM configuration** tab, select the Virtual Machine SKU to use for the nodepool, then select **Next**. The selected SKU and quota must be available in the region where you deploy the nodepool.
-   :::image type="content" source="media/quickstart-infrastructure-portal/create-supercomputer-node-pool-vm-sku.jpg" alt-text="Screenshot showing the VM SKU selection for the nodepool." lightbox="media/quickstart-infrastructure-portal/create-supercomputer-node-pool-vm-sku.jpg":::
-1. In the **Scaling** section, enter the maximum node count that your nodepool can scale to, for example: 5 and select **Next**.
-   :::image type="content" source="media/quickstart-infrastructure-portal/create-supercomputer-node-pool-scaling.jpg" alt-text="Screenshot showing the scaling configuration for the nodepool." lightbox="media/quickstart-infrastructure-portal/create-supercomputer-node-pool-scaling.jpg":::
+1. On the **Networking** tab, select the Virtual Network and `supercomputerNodepoolSubnet` created in [step 1](#c-create-a-virtual-network-and-subnets) and select **Next**. **Note:** Use the same virtual network selected for the supercomputer in [step 2](#2-create-a-supercomputer).
+   :::image type="content" source="media/quickstart-infrastructure-portal/create-supercomputer-node-pool-networking.jpg" alt-text="Screenshot showing the networking configuration for the supercomputer node pool." lightbox="media/quickstart-infrastructure-portal/create-supercomputer-node-pool-networking.jpg":::
+1. On the **VM configuration** tab, select the Virtual Machine (VM) SKU to use for the node pool, then select **Next**. The selected SKU and quota must be available in the region where you deploy the node pool.
+   :::image type="content" source="media/quickstart-infrastructure-portal/create-supercomputer-node-pool-vm-sku.jpg" alt-text="Screenshot showing the VM SKU selection for the node pool." lightbox="media/quickstart-infrastructure-portal/create-supercomputer-node-pool-vm-sku.jpg":::
+1. In the **Scaling** section, enter the maximum node count that your node pool can scale to, for example: 5 and select **Next**.
+   :::image type="content" source="media/quickstart-infrastructure-portal/create-supercomputer-node-pool-scaling.jpg" alt-text="Screenshot showing the scaling configuration for the node pool." lightbox="media/quickstart-infrastructure-portal/create-supercomputer-node-pool-scaling.jpg":::
 1. Select **Review + Create** and **Create**.
 
 ## 4. Create a workspace
@@ -238,7 +233,7 @@ A workspace is a collaborative environment where teams manage large-scale scient
 > [!IMPORTANT]
 > Make sure your workspace name is globally unique and uses only lowercase letters.
 
-1. Sign in to the Azure portal using this [link](https://aka.ms/discovery/publicpreviewportal). This link adds a custom feature flag to the Azure portal URL that enables you to create resources with Public Preview API.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Microsoft Discovery Workspaces**.
 1. Select **+ Create** and enter details such as Subscription, Resource Group, Name, and Region, then select **Next**.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-workspace-basics.jpg" alt-text="Screenshot showing the basic details page for creating a Microsoft Discovery workspace." lightbox="media/quickstart-infrastructure-portal/create-workspace-basics.jpg":::
@@ -268,7 +263,7 @@ When a workspace is created, a managed resource group is automatically provision
 1. Select **+ Select members**, choose the users who need to modify agents and workflows, then select **Select**.
 1. Select **Review + assign**, verify the information, and select **Review + assign**.
 
-Repeat this process for all users who require access to agents and workflows in the workspace. Any changes made in Foundry portal directly will be reflected in Discovery agent configuration automatically.
+Repeat this process for all users who require access to agents and workflows in the workspace. Any changes made in Foundry portal directly are reflected in Discovery agent configuration automatically.
 
 ## 6. Create Chat Model Deployment
 
@@ -283,22 +278,22 @@ Chat model deployments provision foundational language models such as GPT-4o or 
    :::image type="content" source="media/quickstart-infrastructure-portal/create-chat-model.jpg" alt-text="Screenshot of the Chat Model Deployment creation page." lightbox="media/quickstart-infrastructure-portal/create-chat-model.jpg":::
 
 > [!IMPORTANT]
-> If you plan to use the Discovery Engine, you must also create a chat model deployment named **gpt-5-2** using model **gpt-5.2**. The Discovery Engine requires this specific deployment for task validation. Repeat the steps above with the model name `gpt-5.2` and deployment name `gpt-5-2`.
+> If you plan to use the Discovery Engine, you must also create a chat model deployment named **gpt-5-2** using model **gpt-5.2**. The Discovery Engine requires this specific deployment for task validation. Repeat the steps with the model name `gpt-5.2` and deployment name `gpt-5-2`.
 
 You can provide access to users via [Role Based Access Control (RBAC)](../role-based-access-control/quickstart-assign-role-user-portal.md) at the resource group level. **Microsoft Discovery Administrator (Preview)** role is required to create projects within a workspace.
 
-## 7. Log in to Microsoft Discovery Studio
+## 7. Sign-in to Microsoft Discovery Studio
 
-Microsoft Discovery Studio is a secure, AI-powered research environment that enables scientists and engineers to accelerate innovation through autonomous agents, simulation workflows, and integrated data tools, all within a unified interface.
+Microsoft Discovery Studio is a secure, AI-powered research environment. It enables scientists and engineers to accelerate innovation through autonomous agents, simulation workflows, and integrated data tools within a unified interface.
 
-After your infrastructure is set up, you can log in to [Microsoft Discovery Studio](https://studio.discovery.microsoft.com) directly via the URL, or find the URL in the Workspace overview page in the Azure portal.
+After your infrastructure is set up, you can sign in to [Microsoft Discovery Studio](https://studio.discovery.microsoft.com) directly via the URL, or find the URL in the Workspace overview page in the Azure portal.
 
 :::image type="content" source="media/quickstart-infrastructure-portal/studio-home.jpg" alt-text="Screenshot of the Microsoft Discovery Studio homepage after signing in." lightbox="media/quickstart-infrastructure-portal/studio-home.jpg":::
 
-You must sign in with your Entra ID (work or school account) credentials. Studio supports single sign-on (SSO) with Entra ID so that you don't have to explicitly provide credentials if you're already signed in to another service with your Entra ID in the same browser.
+You must sign in with your Entra ID credentials for your work or school account. Studio supports single sign-on with Entra ID. You don't have to explicitly provide credentials if you're already signed in to another service with your Entra ID in the same browser.
 
 > [!NOTE]
-> If you have access to multiple Microsoft Entra tenants, make sure the right tenant is selected when signing in by selecting your profile icon on the top right corner of the page.
+> If you have access to multiple Microsoft Entra tenants, select the right tenant by selecting your profile icon on the top right corner of the page.
 
 ## 8. Create storage containers
 
@@ -322,7 +317,7 @@ Storage containers store both input and output data as storage assets. Both inpu
 Projects help you organize and manage scientific investigations within a workspace. Each project defines the functional boundary for access to your agents, tools, and storage containers. Within a project, you can run experiments, analyze data, apply AI models, and track research progress in a collaborative environment.
 
 > [!IMPORTANT]
-> Your project name must be all lowercase and no more than 12 characters long. Also, esnure you refresh your studio UI before you create a project.
+> Your project name must be all lowercase and no more than 12 characters long. Also, ensure you refresh your studio UI before you create a project.
 
 1. In **Microsoft Discovery Studio**, on the left navigation pane, select **Projects**. This lists all existing projects across your Azure subscriptions.
 1. Select **Create Project**.
@@ -341,5 +336,4 @@ Projects help you organize and manage scientific investigations within a workspa
 
 After you create your project, continue with the following next step:
 
-- [Get started with agents and investigations in Microsoft Discovery Studio](quickstart-agents-studio.md)
-- [Get started with agent bundles](quickstart-agents-bundles.md)
+- [Get started with agents and shared sessions in Microsoft Discovery Studio](quickstart-agents-studio.md)

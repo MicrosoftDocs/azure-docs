@@ -132,7 +132,7 @@ Use the following table to determine which function trigger best fits your needs
 
 ### In-region data residency
 
-When all customer data must remain within a single region, the storage account associated with the function app must be one with [in-region redundancy](../storage/common/storage-redundancy.md). An in-region redundant storage account also must be used with [Azure Durable Functions](./durable-functions/durable-functions-azure-storage-provider.md#storage-account-selection).
+When all customer data must remain within a single region, the storage account associated with the function app must be one with [in-region redundancy](../storage/common/storage-redundancy.md). An in-region redundant storage account also must be used with [Azure Durable Functions](../durable-task/durable-functions/durable-functions-azure-storage-provider.md#storage-account-selection).
 
 Other platform-managed customer data is only stored within the region when hosting in an internally load-balanced App Service Environment (ASE). To learn more, see [ASE zone redundancy](../app-service/environment/zone-redundancy.md#in-region-data-residency).
 

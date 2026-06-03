@@ -26,7 +26,7 @@ This article provides an overview of durable orchestrations, including orchestra
 For information about the types of functions available in a Durable Functions app, see [Durable Task programming model](programming-model-overview.md).
 
 > [!TIP]
-> If you use C# with the .NET isolated worker model, you can write orchestrations using either a **function-based** approach (static methods with `[Function]` attributes) or a **class-based** approach (classes that inherit from `TaskOrchestrator<TInput, TOutput>`). The class-based approach requires the [Microsoft.DurableTask.Generators](https://www.nuget.org/packages/Microsoft.DurableTask.Generators) source generator package and provides strongly typed invocations. For more information, see [Source generators and class-based syntax](../../azure-functions/durable-functions/durable-functions-dotnet-isolated-overview.md#source-generators-and-class-based-syntax-preview). The C# code examples in this article show both approaches.
+> If you use C# with the .NET isolated worker model, you can write orchestrations using either a **function-based** approach (static methods with `[Function]` attributes) or a **class-based** approach (classes that inherit from `TaskOrchestrator<TInput, TOutput>`). The class-based approach requires the [Microsoft.DurableTask.Generators](https://www.nuget.org/packages/Microsoft.DurableTask.Generators) source generator package and provides strongly typed invocations. For more information, see [Source generators and class-based syntax](../durable-functions/durable-functions-dotnet-isolated-overview.md#source-generators-and-class-based-syntax-preview). The C# code examples in this article show both approaches.
 
 ::: zone-end
 
@@ -55,7 +55,7 @@ The following rules apply to instance IDs:
 > [!NOTE]
 > The actual enforcement of character restriction rules can vary depending on the [storage provider](durable-task-storage-providers.md) that the app uses. To help ensure correct behavior and compatibility, follow the preceding instance ID rules.
 
-An orchestration's instance ID is a required parameter for most [instance management operations](durable-task-instance-management.md). Instance IDs are also important for diagnostics. For example, you use them when you [search through orchestration tracking data](../../azure-functions/durable-functions/durable-functions-diagnostics.md#configure-application-insights-tracking) in Application Insights for troubleshooting or analytics purposes. For this reason, save generated instance IDs to an external location that makes it easy to reference them later, like a database or application logs.
+An orchestration's instance ID is a required parameter for most [instance management operations](durable-task-instance-management.md). Instance IDs are also important for diagnostics. For example, you use them when you [search through orchestration tracking data](../durable-functions/durable-functions-diagnostics.md#configure-application-insights-tracking) in Application Insights for troubleshooting or analytics purposes. For this reason, save generated instance IDs to an external location that makes it easy to reference them later, like a database or application logs.
 
 ::: zone-end
 
@@ -85,7 +85,7 @@ When an orchestration function gets more work to do (for example, a response mes
 ::: zone pivot="durable-functions"
 
 > [!NOTE]
-> If an orchestrator function emits log messages, the replay behavior can cause duplicate log messages to be emitted. To learn why this behavior occurs and how to work around it, see [Replay-safe logging](../../azure-functions/durable-functions/durable-functions-diagnostics.md#replay-safe-logging-in-orchestrator-functions).
+> If an orchestrator function emits log messages, the replay behavior can cause duplicate log messages to be emitted. To learn why this behavior occurs and how to work around it, see [Replay-safe logging](../durable-functions/durable-functions-diagnostics.md#replay-safe-logging-in-orchestrator-functions).
 
 ::: zone-end
 
@@ -525,7 +525,7 @@ The feature isn't currently supported in Java.
 
 Besides supporting basic request/response patterns, the method supports automatic handling of common asynchronous HTTP 202 polling patterns. It also supports authentication with external services by using [managed identities](/entra/identity/managed-identities-azure-resources/overview).
 
-For more information and for detailed examples, see [HTTP features](../../azure-functions/durable-functions/durable-functions-http-features.md).
+For more information and for detailed examples, see [HTTP features](../durable-functions/durable-functions-http-features.md).
 
 > [!NOTE]
 > Calling HTTP endpoints directly from orchestrator functions is available in Durable Functions 2.0 and later.

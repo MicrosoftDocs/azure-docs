@@ -10,7 +10,7 @@ ms.custom:
   - devx-track-js
 ms.collection: 
   - ce-skilling-ai-copilot
-zone_pivot_groups: programming-languages-set-functions-full
+zone_pivot_groups: programming-languages-set-functions-full-no-go
 #customer intent: As a developer, I want to learn how to create, test, and deploy Azure Functions using Visual Studio Code so that I can build and publish serverless apps efficiently.
 ---
 
@@ -22,7 +22,10 @@ Use Visual Studio Code to create a function that responds to HTTP requests from 
 ::: zone pivot="programming-language-other"
 Use Visual Studio Code to create a [custom handler](functions-custom-handlers.md) function that responds to HTTP requests. After verifying the code locally, you deploy it to the serverless Flex Consumption hosting plan in Azure Functions.
 
-Custom handlers can be used to create functions in any language or runtime by running an HTTP server process. This article supports both Go and Rust.
+Custom handlers can be used to create functions in any language or runtime by running an HTTP server process. This article supports Rust.
+
+> [!TIP]
+> **Looking for Go?** Go is now supported as a first-class language on Azure Functions. See the [Go quickstart](how-to-create-function-azure-cli.md?pivots=programming-language-go) to get started.
 
 ::: zone-end  
 Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
@@ -64,11 +67,7 @@ Make sure to select your preferred development language at the top of the articl
 + The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
 ::: zone-end
 ::: zone pivot="programming-language-other"
-### [Go](#tab/go)
-+ [Go](https://go.dev/doc/install), latest version recommended. Use the `go version` command to check your version.
-### [Rust](#tab/rust)
 + Rust toolchain using [rustup](https://www.rust-lang.org/tools/install). Use the `rustc --version` command to check your version.
----
 ::: zone-end
 
 [!INCLUDE [functions-install-core-tools-vs-code](../../includes/functions-install-core-tools-vs-code.md)]
@@ -265,38 +264,6 @@ After you verify that the function runs correctly on your local computer, use Vi
 
 In this section, you compile your project for deployment to Azure in a function app running Linux. In most cases, you need to recompile your binary and adjust your configuration to match the target platform before publishing it to Azure.
 
-### [Go](#tab/go)
-    
-+ In the integrated terminal, compile the handler to Linux/x64. 
-
-    #### [macOS](#tab/macos)
-    
-    ```bash
-    GOOS=linux GOARCH=amd64 go build handler.go
-    ```
-    
-    #### [Linux](#tab/linux)
-    
-    ```bash
-    GOOS=linux GOARCH=amd64 go build handler.go
-    ```
-    
-    #### [Windows](#tab/windows)
-    
-    ```cmd
-    set GOOS=linux
-    set GOARCH=amd64
-    go build handler.go
-    ```
-    
-    Change the `defaultExecutablePath` in *host.json* from `handler.exe` to `handler`. This change instructs the function app to run the Linux binary.
-    
-    ---
-
-A binary named `handler` is created in the function app root.
-
-### [Rust](#tab/rust)
-
 1. Create a file at *.cargo/config*. Add the following contents and save the file.
 
     ```
@@ -321,8 +288,6 @@ A binary named `handler` is created in the function app root.
     ```
 
     This line prevents publishing the contents of the *target* folder.
-
----
 
 ::: zone-end
 
@@ -361,8 +326,8 @@ You used [Visual Studio Code](functions-develop-vs-code.md) to create a function
 > [Connect to Azure Cosmos DB](functions-add-output-binding-cosmos-db-vs-code.md)
 > [!div class="nextstepaction"]
 > [Connect to Azure Queue Storage](functions-add-output-binding-storage-queue-vs-code.md)
-::: zone-end  
-::: zone pivot="programming-language-other"  
+::: zone-end
+::: zone pivot="programming-language-other"
 > [!div class="nextstepaction"]
 > [Azure Functions custom handlers](functions-custom-handlers.md)
-::: zone-end  
+::: zone-end

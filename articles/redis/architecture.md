@@ -1,13 +1,12 @@
 ---
 title: Azure Managed Redis Architecture
 description: Learn how Azure Managed Redis is architected
-ms.date: 05/21/2026
+ms.date: 05/28/2026
 ms.topic: article
 ai-usage: ai-assisted
 ms.custom:
   - ignite-2024
   - build-2025
-
 appliesto:
   - ✅ Azure Managed Redis
 ---
@@ -116,15 +115,13 @@ This table shows a general example of the relationship of _Size_ to _vCPUs/prima
 
 This table shows a general example of the relationship of _Size_ to _vCPUs/primary shards_.
 
-| Tiers     | Flash Optimized (preview) |
-|:---------:|:-------------------------:|
-| Size (GB) | vCPUs/primary shards      |
-| 480 ¹ ²    | 16/12                |
-| 720 ¹ ²    | 24/24                |
+| Tiers     | Flash Optimized      |
+|:---------:|:--------------------:|
+| Size (GB) | vCPUs/primary shards |
+| 480 ¹     | 16/12                |
+| 720 ¹     | 24/24                |
 
-¹ These tiers are in public preview.
-
-² The ratio of vCPUs to primary shards at a given tier size doesn't represent a guarantee for the SKU or tier.
+¹ The ratio of vCPUs to primary shards at a given tier size doesn't represent a guarantee for the SKU or tier.
 
 [!INCLUDE [tier-preview](includes/tier-preview.md)]
 
@@ -157,7 +154,7 @@ Because Redis optimizes for the best performance, the instance first fills up th
 
 Workloads that run well on the Flash Optimized tier often have the following characteristics:
 
-- Read heavy, with a high ratio of read commands to write commands.
+- Read-heavy workloads with a high ratio of read commands to write commands.
 - Access focused on a subset of keys that you use much more frequently than the rest of the dataset.
 - Relatively large values in comparison to key names. (Because key names are always stored in RAM, large values can become a bottleneck for memory growth.)
 
@@ -165,7 +162,7 @@ Workloads that run well on the Flash Optimized tier often have the following cha
 
 Some workloads have access characteristics that are less optimized for the design of the Flash Optimized tier:
 
-- Write heavy workloads.
+- Write-heavy workloads.
 - Random or uniform data access patterns across most of the dataset.
 - Long key names with relatively small value sizes.
 
