@@ -47,7 +47,7 @@ A registry endpoint defines the connection to your container registry. Data flow
     | **Authentication** | The authentication method. Choose from: [Anonymous](#anonymous-authentication), [Artifact secret](#artifact-pull-secret), [System managed identity](#system-assigned-managed-identity), or [User managed identity](#user-assigned-managed-identity). |
 
     > [!NOTE]
-    > The Azure portal currently only accepts hostnames in the format `<your-registry-name>.azurecr.io` or `mcr.microsoft.com`. To use other registries like GitHub Container Registry (ghcr.io) or Docker Hub, use Bicep or Kubernetes to create the registry endpoint instead.
+    > The Azure portal currently only accepts hostnames in the format `<your-registry-name>.azurecr.io` or `mcr.microsoft.com`. To use other registries like GitHub Container Registry (ghcr.io) or Docker Hub, use Bicep or the Azure CLI to create the registry endpoint instead.
 
     :::image type="content" source="media/howto-configure-registry-endpoint/select-authentication.png" alt-text="Screenshot of the registry endpoint creation form showing name, host, and authentication options." lightbox="media/howto-configure-registry-endpoint/select-authentication.png":::
 
@@ -100,30 +100,20 @@ az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FI
 
 For other authentication methods, see [Authentication methods](#authentication-methods). To use a public registry like ghcr.io, see [Use a public registry](#use-a-public-registry).
 
-# [Kubernetes (debug only)](#tab/kubernetes)
+# [Azure CLI](#tab/cli)
 
-[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+The [az iot ops registry](/cli/azure/iot/ops/registry) commands require the `azure-iot-ops` Azure CLI extension. The extension installs automatically the first time you run an `az iot ops registry` command.
 
-Create a Kubernetes manifest `.yaml` file with the following content. This example uses system-assigned managed identity authentication with ACR:
+The following example creates a registry endpoint that uses system-assigned managed identity authentication with ACR:
 
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: RegistryEndpoint
-metadata:
-  name: <REGISTRY_ENDPOINT_NAME>
-  namespace: azure-iot-operations
-spec:
-  host: <YOUR_ACR_NAME>.azurecr.io
-  authentication:
-    method: SystemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings:
-      audience: https://management.azure.com/
-```
-
-Apply the manifest file to the Kubernetes cluster:
-
-```bash
-kubectl apply -f <FILE>.yaml
+```azurecli
+az iot ops registry create \
+  --name <REGISTRY_ENDPOINT_NAME> \
+  --instance <AIO_INSTANCE_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --host <YOUR_ACR_NAME>.azurecr.io \
+  --auth-type SystemAssignedManagedIdentity \
+  --audience https://management.azure.com/
 ```
 
 For other authentication methods, see [Authentication methods](#authentication-methods). To use a public registry like ghcr.io, see [Use a public registry](#use-a-public-registry).
@@ -196,16 +186,16 @@ authentication: {
 }
 ```
 
-# [Kubernetes (debug only)](#tab/kubernetes)
+# [Azure CLI](#tab/cli)
 
-[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
-
-```yaml
-spec:
-  authentication:
-    method: SystemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings:
-      audience: https://management.azure.com/
+```azurecli
+az iot ops registry create \
+  --name <REGISTRY_ENDPOINT_NAME> \
+  --instance <AIO_INSTANCE_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --host <YOUR_ACR_NAME>.azurecr.io \
+  --auth-type SystemAssignedManagedIdentity \
+  --audience https://management.azure.com/
 ```
 
 ---
@@ -243,17 +233,17 @@ authentication: {
 }
 ```
 
-# [Kubernetes (debug only)](#tab/kubernetes)
+# [Azure CLI](#tab/cli)
 
-[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
-
-```yaml
-spec:
-  authentication:
-    method: UserAssignedManagedIdentity
-    userAssignedManagedIdentitySettings:
-      clientId: <CLIENT_ID>
-      tenantId: <TENANT_ID>
+```azurecli
+az iot ops registry create \
+  --name <REGISTRY_ENDPOINT_NAME> \
+  --instance <AIO_INSTANCE_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --host <YOUR_ACR_NAME>.azurecr.io \
+  --auth-type UserAssignedManagedIdentity \
+  --client-id <CLIENT_ID> \
+  --tenant-id <TENANT_ID>
 ```
 
 ---
@@ -301,16 +291,16 @@ authentication: {
 }
 ```
 
-# [Kubernetes (debug only)](#tab/kubernetes)
+# [Azure CLI](#tab/cli)
 
-[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
-
-```yaml
-spec:
-  authentication:
-    method: ArtifactPullSecret
-    artifactPullSecretSettings:
-      secretRef: my-registry-secret
+```azurecli
+az iot ops registry create \
+  --name <REGISTRY_ENDPOINT_NAME> \
+  --instance <AIO_INSTANCE_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --host <YOUR_REGISTRY_HOST> \
+  --auth-type ArtifactPullSecret \
+  --secret-ref my-registry-secret
 ```
 
 ---
@@ -334,15 +324,15 @@ authentication: {
 }
 ```
 
-# [Kubernetes (debug only)](#tab/kubernetes)
+# [Azure CLI](#tab/cli)
 
-[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
-
-```yaml
-spec:
-  authentication:
-    method: Anonymous
-    anonymousSettings: {}
+```azurecli
+az iot ops registry create \
+  --name <REGISTRY_ENDPOINT_NAME> \
+  --instance <AIO_INSTANCE_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --host <YOUR_REGISTRY_HOST> \
+  --no-auth
 ```
 
 ---
@@ -362,13 +352,13 @@ ACR is the recommended container registry for Azure IoT Operations. ACR provides
 You can configure a registry endpoint to point directly at a public OCI-compatible registry. This approach lets you use prebuilt WASM modules and graph definitions without setting up your own private registry, which is ideal for getting started quickly or for evaluation.
 
 > [!NOTE]
-> The Azure portal currently only supports ACR and MCR hostnames when creating registry endpoints. To configure a registry endpoint for a public registry like ghcr.io, use Bicep or Kubernetes instead.
+> The Azure portal currently only supports ACR and MCR hostnames when creating registry endpoints. To configure a registry endpoint for a public registry like ghcr.io, use Bicep or the Azure CLI instead.
 
 For example, the Azure IoT Operations sample WASM modules and graph definitions are published under `ghcr.io/azure-samples/explore-iot-operations`. Create a registry endpoint for the `ghcr.io` registry host by using anonymous authentication. Put the `azure-samples/explore-iot-operations` repository path in artifact references.
 
 # [Azure portal](#tab/portal)
 
-The Azure portal doesn't currently support creating registry endpoints for public registries other than MCR. Use the Bicep or Kubernetes tab instead.
+The Azure portal doesn't currently support creating registry endpoints for public registries other than MCR. Use Bicep or Azure CLI instead.
 
 # [Bicep](#tab/bicep)
 
@@ -390,21 +380,15 @@ resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpo
 }
 ```
 
-# [Kubernetes (debug only)](#tab/kubernetes)
+# [Azure CLI](#tab/cli)
 
-[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: RegistryEndpoint
-metadata:
-  name: public-ghcr
-  namespace: azure-iot-operations
-spec:
-  host: ghcr.io
-  authentication:
-    method: Anonymous
-    anonymousSettings: {}
+```azurecli
+az iot ops registry create \
+  --name public-ghcr \
+  --instance <AIO_INSTANCE_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --host ghcr.io/azure-samples/explore-iot-operations \
+  --no-auth
 ```
 
 ---
@@ -444,23 +428,23 @@ resource defaultRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndp
 }
 ```
 
-# [Kubernetes (debug only)](#tab/kubernetes)
+# [Azure CLI](#tab/cli)
 
-[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+View the default registry endpoint with the [az iot ops registry show](/cli/azure/iot/ops/registry#az-iot-ops-registry-show) command:
 
-The default endpoint is equivalent to the following `RegistryEndpoint` resource:
+```azurecli
+az iot ops registry show \
+  --name default \
+  --instance <AIO_INSTANCE_NAME> \
+  --resource-group <RESOURCE_GROUP>
+```
 
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1
-kind: RegistryEndpoint
-metadata:
-  name: default
-  namespace: azure-iot-operations
-spec:
-  host: mcr.microsoft.com
-  authentication:
-    method: Anonymous
-    anonymousSettings: {}
+List all registry endpoints for the instance with [az iot ops registry list](/cli/azure/iot/ops/registry#az-iot-ops-registry-list):
+
+```azurecli
+az iot ops registry list \
+  --instance <AIO_INSTANCE_NAME> \
+  --resource-group <RESOURCE_GROUP>
 ```
 
 ---
