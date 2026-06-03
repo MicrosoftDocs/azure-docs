@@ -1,5 +1,5 @@
 ---
-title: Install a plugin from a URL
+title: Install a plugin from a URL in Azure SRE Agent
 description: Install a standalone plugin directly from a GitHub repo URL without registering a marketplace.
 ms.topic: how-to
 ms.service: azure-sre-agent
@@ -10,7 +10,7 @@ ms.reviewer: cshoe
 ms.ai-usage: ai-assisted
 ---
 
-# Install a plugin from a URL
+# Install a plugin from a URL in Azure SRE Agent
 
 In this article, you install a standalone plugin directly from a GitHub repository, with its skills available in your agent. No marketplace registration is required.
 
