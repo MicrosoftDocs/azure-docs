@@ -21,7 +21,7 @@ ms.custom:
 >
 > This preview feature is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-If you're a developer who wants to programmatically build workflows using the same tools available for code, source control, unit testing, IntelliSense, debugging, and refactoring, use the capabilities in Azure Logic Apps Standard SDK. This SDK lets you define workflows in C# entirely by using an imperative coding style. Work in Visual Studio Code with full access to the Azure Logic Apps ecosystem for Azure-hosted connectors and built-in operations Develop, build, and test your workflows by using the Visual Studio Code project structure, debugging experience, and development patterns that you might already know.
+When you want to programmatically build workflows by using the tools in Visual Studio Code for code development, source control, unit testing, IntelliSense, debugging, and refactoring, install and use the Azure Logic Apps Standard SDK. This SDK lets you define workflows entirely in C# by using an imperative coding style. You get full access to the Azure Logic Apps ecosystem for Azure-hosted connectors and built-in operations. Organize, develop, and test your workflows by using the same Visual Studio Code project structure, debugging experience, and development patterns.
 
 Logic Apps Standard is a cloud orchestration platform for building and running automated workflows. Use it to connect services, systems, apps, and data sources, whether you're automating enterprise processes or reducing manual coding effort.
 
