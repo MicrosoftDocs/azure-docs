@@ -1,21 +1,25 @@
 ---
-title: Create a workflow project with Logic Apps standard SDK
-description: Learn how to create and configure a workflow project using code-first workflows with the Azure Logic Apps standard SDK in Visual Studio Code.
+title: Create Standard Workflow Projects with the SDK
+description: Create and set up projects with code-first workflows with the Azure Logic Apps Standard SDK in Visual Studio Code.
+services: azure-logic-apps
+ms.suite: integration
 author: wsilveiranz
 ms.author: wsilveira
-ms.reviewer: ecfan
-ms.date: 05/26/2026
+ms.reviewers: ecfan, azla
 ms.topic: how-to
-ms.service: azure-logic-apps
-# Customer intent: As a developer, I want to create a workflow project using the Logic Apps standard SDK so that I can automate processes with code-first workflows.
-ms.custom: ai-assisted
+ai-usage: ai-assisted
+ms.update-cycle: 365-days
+ms.date: 05/26/2026
+ms.custom:
+- build-2026
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to create a workflow project by using the Standard SDK so I can programmatically automate processes with code-first workflows.
 ---
-# Create a workflow project with C# and Azure Logic Apps Standard SDK
+
+# Create Standard workflow projects with C# by using the Azure Logic Apps Standard SDK (preview)
 
 > [!IMPORTANT]
 >
-> This feature is in preview and is subject to the
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This preview feature is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Logic Apps Standard is a cloud orchestration platform for building and running automated workflows. Use it to connect services, systems, apps, and data sources, whether you're automating enterprise processes or reducing manual coding effort.
 
