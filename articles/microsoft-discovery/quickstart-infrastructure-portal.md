@@ -26,12 +26,11 @@ In this quickstart, you set up your Microsoft Discovery environment to run your 
 
 ## Prerequisites
 
-- An active [Azure subscription](https://aka.ms/discovery/publicpreviewportal) that is enabled for Microsoft Discovery **Public Preview** support.
-- Once your subscription is enabled, use this [Azure portal URL](https://aka.ms/discovery/PublicPreviewPortal) to create resources using public preview API version (v2).
+- An active [Azure subscription](https://portal.azure.com) that is enabled for Microsoft Discovery access.
 - **Sufficient permissions** in your Azure subscription to register resource providers and create resources:
   - The **Owner** or **Role Based Access Control Administrator** or **User Access Administrator** role is required to assign roles to administrators (Platform Admins, Scientists, and Engineers) who manage and use Discovery resources. For more information, see [Assign roles to administrators](#a-assign-roles-to-administrators).
 - Register resource providers in your Azure subscription: You need to have a Contributor or higher privileged role (for example, Owner) and follow these steps:
-   1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+   1. Sign in to the [Azure portal](https://portal.azure.com).
    1. Navigate to **Subscriptions** and select your subscription.
    1. In the left-hand menu, select **Resource Providers**.
    1. Search for `Microsoft.Discovery`.
@@ -71,7 +70,7 @@ Assign the following built-in roles to users at the desired scope (subscription 
 
 **Steps to assign roles:**
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to **Subscriptions** and select your subscription.
 1. In the left-hand menu, select **Access control (IAM)**.
 1. Select **Add**, then select **Add role assignment**.
@@ -95,7 +94,7 @@ Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hard
 > [!NOTE]
 > A virtual network can only be associated with one Microsoft Discovery workspace. If you need multiple workspaces, create a separate virtual network and subnets for each one.
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Virtual networks** and select it from the results.
 1. Select **Create** to start creating a new virtual network.
 1. Enter details such as Subscription, Resource Group, Name, and Region, then select **Next**.
@@ -123,7 +122,7 @@ Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hard
 
 You can create different UAMIs each with their own required permissions for specific resource access, or you can create a single UAMI with all necessary permissions for the platform. For this exercise, create a single UAMI by following these steps:
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Managed Identities** and select it from the list.
 1. Select **Create**.
 1. Fill in the required details such as subscription, resource group, region, and name.
@@ -160,7 +159,7 @@ To store input and output data for your investigations, create an Azure blob sto
 
 **To create an Azure blob storage account:**
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Storage accounts** and select it from the results.
 1. Select **Create** to start creating a new storage account.
 1. Enter details such as Subscription, Resource Group, Name, and Region.
@@ -194,7 +193,7 @@ To store input and output data for your investigations, create an Azure blob sto
 
 You need a supercomputer with associated node pools to deploy and run scientific tools, and to index your data in Bookshelf knowledge bases. The supercomputer also executes GPU and CPU intensive workloads for simulation and modeling. It provides the compute resources on a specific virtual network within your subscription.
 
-1. Sign in to the Azure portal using this [link](https://aka.ms/discovery/publicpreviewportal). This link adds a custom feature flag to the Azure portal URL that enables you to create resources with Public Preview API.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Microsoft Discovery Supercomputers**.
 1. Select **Create** and enter details such as Subscription ID, Resource Group name, Location, and Name, then select **Next**.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-supercomputer-basics.jpg" alt-text="Screenshot showing the basic details page for creating a Microsoft Discovery Supercomputer." lightbox="media/quickstart-infrastructure-portal/create-supercomputer-basics.jpg":::
@@ -234,7 +233,7 @@ A workspace is a collaborative environment where teams manage large-scale scient
 > [!IMPORTANT]
 > Make sure your workspace name is globally unique and uses only lowercase letters.
 
-1. Sign in to the Azure portal using this [link](https://aka.ms/discovery/publicpreviewportal). This link adds a custom feature flag to the Azure portal URL that enables you to create resources with Public Preview API.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Microsoft Discovery Workspaces**.
 1. Select **+ Create** and enter details such as Subscription, Resource Group, Name, and Region, then select **Next**.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-workspace-basics.jpg" alt-text="Screenshot showing the basic details page for creating a Microsoft Discovery workspace." lightbox="media/quickstart-infrastructure-portal/create-workspace-basics.jpg":::

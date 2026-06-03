@@ -1,12 +1,12 @@
 ---
-title: Scalability and performance targets for Azure Blob Storage
+title: Blob Storage Scalability and Performance Targets
 titleSuffix: Azure Storage
-description: Learn about scalability and performance targets for Azure Blob Storage. Understand service limits and design your applications for optimal performance.
+description: Learn Azure Blob Storage scalability and performance targets, understand service limits, and design applications for optimal performance.
 author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: concept-article
-ms.date: 01/11/2023
+ms.date: 06/01/2026
 ms.author: normesta
 # Customer intent: As a cloud architect, I want to understand the scalability and performance targets for Blob storage, so that I can ensure my applications are designed to meet the required performance levels as they grow.
 ---

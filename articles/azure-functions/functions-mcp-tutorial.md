@@ -9,7 +9,7 @@ ms.date: 06/02/2026
 ms.update-cycle: 180-days
 ms.collection: 
   - ce-skilling-ai-copilot 
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 
 #Customer intent: As a developer, I want to learn how to create and host remote and secured MCP servers on Azure Functions. 
 ---
@@ -308,6 +308,8 @@ Deploy the server project:
 ::: zone-end  
 ::: zone pivot="programming-language-python" 
 ### [MCP extension server](#tab/mcp-extension)
+[!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
+
 
 ### [Self-hosted server](#tab/self-hosted)
 Before deploying the server, add the required app settings: 
@@ -325,12 +327,10 @@ Before deploying the server, add the required app settings:
 1. Python apps also require you to add this app setting:
 
     `PYTHONPATH=/home/site/wwwroot/.python_packages/lib/site-packages`.  
-
+    
+[!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 ---
 
-Deploy the server project:
-
-[!INCLUDE [functions-deploy-project-vs-code](../../includes/functions-deploy-project-vs-code.md)]
 ::: zone-end  
 ::: zone pivot="programming-language-csharp,programming-language-python,programming-language-typescript" 
 When deployment finishes, you should see a notification in Visual Studio Code about connecting to the server. Select the **Connect** button to have the editor set up server connection information in `mcp.json`.

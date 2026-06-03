@@ -66,6 +66,10 @@ Functions 1.x doesn't support running in an isolated worker process.
 
 Unless otherwise noted, these examples are specific to version 2.x and later version of the Functions runtime.
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 

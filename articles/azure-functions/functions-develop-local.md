@@ -213,7 +213,14 @@ With this setting value, any Azure Storage trigger or binding that uses `AzureWe
 ::: zone pivot="programming-language-csharp"
 + To learn more about local development of functions using Visual Studio, see [Develop Azure Functions using Visual Studio](functions-develop-vs.md).
 ::: zone-end  
+
+::: zone pivot="programming-language-go"
++ To create and run a Go function app locally, see [Create a Go function from the command line](how-to-create-function-azure-cli.md?pivots=programming-language-go).
++ For Go-specific project structure and local development details, see the [Go developer reference](functions-reference-go.md).
+::: zone-end
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 + To learn more about local development of functions using Visual Studio Code on a Mac, Linux, or Windows computer, see [Develop Azure Functions by using Visual Studio Code](functions-develop-vs-code.md).
+::: zone-end
 + To learn more about developing functions from the command prompt or terminal, see [Work with Azure Functions Core Tools](functions-run-local.md).
 + To learn more about the preview Azure Functions CLI (v5), see [Develop Azure Functions locally using the Azure Functions CLI](functions-cli-develop-local.md).
 
