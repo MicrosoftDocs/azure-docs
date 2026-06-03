@@ -105,7 +105,7 @@ az datadog monitor create \
 |-----------|-------------|
 | `--name` | A unique name for your Datadog resource. |
 | `--resource-group` | The resource group to contain the Datadog resource. |
-| `--location` | The Azure region. Use **West US 2** — see [region availability](overview.md#region-availability). |
+| `--location` | The Azure region. Use **West US 2** — see [region availability](overview.md). |
 | `--sku name=` | Marketplace plan SKU. Use `payg_v3_Monthly` for the public pay-as-you-go plan when creating a new Datadog org, or `Linked` when linking to an existing org. For private offers, supply the SKU name your Datadog account team shared with you. |
 | `--org-properties` | For a new org: `name=<org-name>`. For linking: `api-key=` and `application-key=` from your existing Datadog org. |
 | `--user-info` | Contact name, email, and phone for the Datadog organization admin. |
