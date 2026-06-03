@@ -79,7 +79,7 @@ All in-memory tiers that use over 120 GB of storage are in Public Preview, inclu
 - Balanced B150 and higher
 - Compute Optimized X150 and higher
 
-All Flash Optimized tiers are in public preview.
+All Flash Optimized tiers are in preview.
 
 ## November 2024
 
