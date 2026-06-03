@@ -499,7 +499,7 @@ To find the access key, go to the Function app on Azure portal. On the left menu
 
 ## Configure Microsoft Foundry agent to use your tools
 
-You can configure a Foundry agent to use the tools in your server, not just Copilot in VSCode. For step-by-step instructions, see [Use Azure Functions MCP servers as tools in Microsoft Foundry](functions-mcp-foundry-tools.md).
+You can configure a Foundry agent to use the tools in your server, not just Copilot in VS Code. For step-by-step instructions, see [Use Azure Functions MCP servers as tools in Microsoft Foundry](functions-mcp-foundry-tools.md).
 
 ## Register server in Azure API Center
 
