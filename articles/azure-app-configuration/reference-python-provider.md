@@ -199,12 +199,36 @@ config = await load(endpoint=endpoint, credential=DefaultAzureCredential(), conf
 
 ## Configuration refresh
 
-The provider can be configured to pull the latest settings from the App Configuration store without having to restart the application. You can use the `refresh_on` parameter to enable this behavior. The `refresh_on` parameter is a `List[WatchKey]`, which specifies the one or more key/labels to watch for changes. The loaded configuration is updated when any change of selected key-values is detected on the server. By default, a refresh interval of 30 seconds is used, but you can override it with the `refresh_interval` parameter.
+Dynamic refresh for the configurations lets you pull their latest values from the App Configuration store without having to restart the application. You can enable refresh by setting `refresh_enabled`, which monitors all loaded key-values for changes. By default, a refresh interval of 30 seconds is used, but you can override it with the `refresh_interval` parameter.
+
+```python
+from azure.appconfiguration.provider import load
+from azure.identity import DefaultAzureCredential
+
+config = load(
+    endpoint=endpoint,
+    credential=DefaultAzureCredential(),
+    refresh_enabled=True,
+    refresh_interval=60
+)
+```
+
+Enabling `refresh_enabled` alone won't automatically refresh the configuration. You need to call the `refresh` method on the `AzureAppConfigurationProvider` instance returned by the `load` method to trigger a refresh.
+
+```python
+config.refresh()
+```
+
+This design prevents unnecessary requests to App Configuration when your application is idle. You should include the `refresh` call where your application activity occurs. This process is known as **activity-driven configuration refresh**. For example, you can call `refresh` when processing an incoming request or inside an iteration where you perform a complex task.
+
+Even if the refresh call fails for any reason, your application continues to use the cached configuration. Another attempt is made when the configured refresh interval has passed and the refresh call is triggered by your application activity. Calling `refresh` is a no-op before the configured refresh interval elapses, so its performance impact is minimal even if it's called frequently.
+
+### Custom refresh callback
 
 The `on_refresh_success` callback is called only if a change is detected and no error happens. The `on_refresh_error` callback is called when a refresh fails.
 
 ```python
-from azure.appconfiguration.provider import load, WatchKey
+from azure.appconfiguration.provider import load
 from azure.identity import DefaultAzureCredential
 
 def my_callback_on_success():
@@ -218,20 +242,29 @@ def my_callback_on_fail(error):
 config = load(
     endpoint=endpoint,
     credential=DefaultAzureCredential(),
-    refresh_on=[WatchKey("Sentinel")],
-    refresh_interval=60,
+    refresh_enabled=True,
     on_refresh_success=my_callback_on_success,
     on_refresh_error=my_callback_on_fail
 )
 ```
 
-Setting up `refresh_on` alone doesn't automatically refresh the configuration. You need to call the `refresh` method on `AzureAppConfigurationProvider` instance returned by the `load` method to trigger a refresh. 
+### Refresh on watch keys
+
+You can use the `refresh_on` parameter to configure the provider to monitor specific watch keys for changes instead of monitoring all loaded key-values. The `refresh_on` parameter is a `List[WatchKey]`, which specifies the one or more key/labels to watch for changes. When a change is detected in any of the watched keys, all configuration values are refreshed.
 
 ```python
-config.refresh()
+from azure.appconfiguration.provider import load, WatchKey
+from azure.identity import DefaultAzureCredential
+
+config = load(
+    endpoint=endpoint,
+    credential=DefaultAzureCredential(),
+    refresh_on=[WatchKey("Sentinel")]
+)
 ```
 
-This design prevents unnecessary requests to App Configuration when your application is idle. You should include the `refresh` call where your application activity occurs. This process is known as **activity-driven configuration refresh**. For example, you can call `refresh` when processing an incoming request or inside an iteration where you perform a complex task. If the refresh fails, an error is thrown, unless a `on_refresh_error` is provided. The `refresh` method is a no-op if the refresh interval has not elapsed. In addition, only one refresh check can happen at a time, returning as a no-op if a refresh is already in progress.
+> [!NOTE]
+> When `refresh_on` is set, `refresh_enabled` defaults to `True` automatically. You can set `refresh_enabled` to `False` to disable refresh even when `refresh_on` is configured.
 
 ## Feature flag
 
