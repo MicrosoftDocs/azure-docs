@@ -116,11 +116,11 @@ Every session ends with a color-coded Mermaid network path diagram (green = pass
 
 Ask the agent to find your full network architecture by using Azure Resource Graph. It creates per-VNet IP-to-resource tables, a VNet-to-VNet connectivity graph (peering, gateway transit, Virtual WAN hubs, ExpressRoute), paths to on-premises through every VPN, ExpressRoute, and vWAN egress, a Mermaid topology diagram, and a severity-coded observation table. It uses read-only access and requires only Reader access at the subscription scope.
 
-:::image type="content" source="media/diagnose-azure-observability/network-topology-mermaid-diagram.png" alt-text="Diagram showing VNets, subnets, and peering relationships across regions.":::
+:::image type="content" source="media/diagnose-azure-observability/network-topology-mermaid-diagram.png" alt-text="Diagram showing VNets, subnets, and peering relationships across regions." lightbox="media/diagnose-azure-observability/network-topology-mermaid-diagram.png":::
 
 The agent automatically identifies critical infrastructure problems, including overlapping address spaces, disconnected peerings, deallocated firewalls, blackhole UDRs, and orphaned NICs.
 
-:::image type="content" source="media/diagnose-azure-observability/network-topology-observation-table.png" alt-text="Screenshot of severity-coded observation table showing Critical, High, and Info findings with remediation guidance.":::
+:::image type="content" source="media/diagnose-azure-observability/network-topology-observation-table.png" alt-text="Screenshot of severity-coded observation table showing Critical, High, and Info findings with remediation guidance." lightbox="media/diagnose-azure-observability/network-topology-observation-table.png":::
 
 ### Support request creation
 
