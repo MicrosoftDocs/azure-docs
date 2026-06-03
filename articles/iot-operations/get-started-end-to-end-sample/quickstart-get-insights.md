@@ -38,30 +38,32 @@ In this section, you set up a Microsoft Fabric *eventstream* to connect your eve
 
 In this section, you create an eventstream to bring your data from Event Hubs into Microsoft Fabric Real-Time Intelligence, and eventually into a KQL database.
 
-Start by navigating to the [Real-Time hub in Microsoft Fabric](https://app.fabric.microsoft.com/workloads/oneriver/hub?experience=fabric-developer).
+Before proceeding, make sure local authentication is enabled on your Event Hubs namespace. You can set this authentication from the namespace's Overview page in the Azure portal.
 
-Add your event hub as a data source for a new eventstream.
+1. Navigate to the [Real-Time hub in Microsoft Fabric](https://app.fabric.microsoft.com/workloads/oneriver/hub?experience=fabric-developer).
 
-Make sure that **Fabric** is selected at the bottom of the left-hand navigation pane, and then select **Real-Time** from the left-hand navigation pane. Next, under **Streaming data** on the **Real-Time hub** pane, select **Add data**. When the **Add data** pane opens, select  the **Azure** tab at the top and then hover over your event hub namespace in the list of resources and select the **Connect data source icon** to open **Configure connection settings**.
+1.Add your event hub as a data source for a new eventstream.
 
-:::image type="content" source="media/quickstart-get-insights/add-event-hub-data-source.png" alt-text="Screenshot of how to select an event hub namespace to connect to an eventstream.":::
+    1. Make sure that **Fabric** is selected at the bottom of the left-hand navigation pane, and then select **Real-Time**. 
+    1. Under **Streaming data** on the **Real-Time hub** pane, select **Add data**.
+    1. When the **Add data** pane opens, select  the **Azure** tab at the top. 
+    1. In the list of sources, hover over your event hub namespace and select the **Connect data source icon** to open **Configure connection settings**.
 
-On **Configure connection settings**, fill in the following details to connect your event hub as a data source for your eventstream.
+    :::image type="content" source="media/quickstart-get-insights/add-event-hub-data-source.png" alt-text="Screenshot of how to select an event hub namespace to connect to an eventstream.":::
 
-* Select *destinationeh* from the drop-down for your event hub resource.
-* Select *RootManageSharedAccessKey* from the drop-down for the event hub key.
-* Edit the **Eventstream name** to something friendly in the **Stream details** pane.
-* For **Consumer group**, use the default selection (*$Default*).
-* For **Data format**, use the default selection (*Json*).
+1. On **Configure connection settings**, fill in the following details to connect your event hub as a data source for your eventstream.  When you're finished, select **Review and connect** and then **Connect** to connect your event hub as a source for your eventstream.
 
-> [!NOTE]
-> Make sure local authentication is enabled on your Event Hubs namespace. You can set this authentication from the namespace's Overview page in the Azure portal.
+    * Select *destinationeh* from the drop-down for your event hub resource.
+    * Select *RootManageSharedAccessKey* from the drop-down for the event hub key.
+    * Edit the **Eventstream name** to something friendly in the **Stream details** pane.
+    * For **Consumer group**, use the default selection (*$Default*).
+    * For **Data format**, use the default selection (*Json*).
 
-:::image type="content" source="media/quickstart-get-insights/configure-data-source-connection.png" alt-text="Screenshot of Configure connection settings.":::
+    :::image type="content" source="media/quickstart-get-insights/configure-data-source-connection.png" alt-text="Screenshot of Configure connection settings.":::
 
-After connecting the eventstream, use the **Open Eventstream** button to see it in the authoring canvas. The stream from your Azure event hub is visible as an eventstream source.
+1. After connecting the eventstream, use the **Open Eventstream** button to see it in the authoring canvas. The stream from your Azure event hub is visible as an eventstream source.
 
-:::image type="content" source="media/quickstart-get-insights/source-added.png" alt-text="Screenshot of the eventstream with an AzureEventHub source.":::
+    :::image type="content" source="media/quickstart-get-insights/source-added.png" alt-text="Screenshot of the eventstream with an AzureEventHub source.":::
 
 #### Verify data flow
 
