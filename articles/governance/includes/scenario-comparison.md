@@ -16,4 +16,4 @@ ms.author: kenieva
 
 *: Azure tags can be used as criteria within Azure Policy to apply policies to certain resources. Azure tags are subject to limitations.
 
-**: Tags can be applied across scopes and are added to resources individually. However, does not support first-class native grouping functionality. 
+**: Tags can be applied across scopes and are added to resources individually. However, Tags do not serve as a first-class grouping. 
