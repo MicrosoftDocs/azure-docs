@@ -1,11 +1,13 @@
 ---
-title: Export OpenTelemetry data to Datadog in Azure Container Apps
-description: Learn how to configure Azure Container Apps to export OpenTelemetry logs, traces, and metrics to Datadog by using the managed OpenTelemetry agent.
+title: Export OpenTelemetry Data to Datadog in Azure Container Apps
+description: Configure Azure Container Apps to export OpenTelemetry logs, traces, and metrics to Datadog using the managed OpenTelemetry agent.
+#customer intent: As a developer using Azure Container Apps, I want to export OpenTelemetry logs, traces, and metrics to Datadog so that I can monitor my app's performance in a single observability platform.
 services: container-apps
-author: jefmarti
+author: craigshoemaker
 ms.service: azure-container-apps
-ms.date: 2026-06-02
+ms.date: 06/03/2026
 ms.author: cshoe
+ms.reviewer: cshoe
 ms.topic: how-to
 ---
 
@@ -35,7 +37,7 @@ az extension add --name containerapp --upgrade
 
 ## Create a Datadog API key
 
-Create (or use) a Datadog API key with permissions that allow telemetry ingest.
+Create a Datadog API key with permissions that allow telemetry ingest.
 
 You need the following Datadog values for Container Apps managed OTel configuration:
 
@@ -49,7 +51,7 @@ For Datadog key creation and management, see [Datadog API and application keys](
 Use one of the following options to configure Datadog as an OpenTelemetry destination in your Container Apps environment.
 
 > [!IMPORTANT]
-> Configuring a managed OpenTelemetry destination does not automatically produce telemetry. Your application must also be instrumented to emit traces, metrics, and logs by using an OpenTelemetry SDK.
+> Configuring a managed OpenTelemetry destination doesn't automatically produce telemetry. Your application must also be instrumented to emit traces, metrics, and logs by using an OpenTelemetry SDK.
 
 # [Bicep](#tab/bicep)
 
@@ -64,7 +66,7 @@ $ACR_USERNAME = ""
 $ACR_PASSWORD = ""
 ```
 
-Use a managed environment resource block like the following:
+Use a managed environment resource block like the following example:
 
 ```bicep
 param datadogSite string
@@ -104,7 +106,7 @@ resource environment 'Microsoft.App/managedEnvironments@2024-10-02-preview' = {
 }
 ```
 
-Use a container app resource block like the following to set required environment variables:
+Use a container app resource block like the following example to set required environment variables:
 
 ```bicep
 resource app 'Microsoft.App/containerApps@2024-10-02-preview' = {
@@ -181,9 +183,9 @@ az containerapp env telemetry data-dog set `
   --enable-open-telemetry-metrics true
 ```
 
-The current CLI only exposes flags for Datadog traces and metrics. Logs can be enabled by setting `logsConfiguration.destinations` to `dataDog` in the managed environment resource definition. If the portal shows Logs disabled after running the CLI command, update the environment through Bicep or the portal.
+The current CLI only exposes flags for Datadog traces and metrics. You can enable logs by setting `logsConfiguration.destinations` to `dataDog` in the managed environment resource definition. If the portal shows Logs disabled after running the CLI command, update the environment through Bicep or the portal.
 
-Then ensure your app has required OTel env vars:
+Then confirm your app has required OpenTelemetry environment variables:
 
 ```powershell
 $APP_NAME = "<container-app-name>"
@@ -204,31 +206,31 @@ az containerapp update `
 Use the Azure portal path shown in the platform docs:
 
 1. Open your Container Apps environment.
-2. In the left menu, under Monitoring, select OTel endpoints.
-3. Select Datadog, and then select Update.
-4. In Update Datadog endpoint, set Site to your Datadog site value.
-5. In Key, paste your Datadog API key.
-6. Select the checkboxes for Logs, Traces, and Metrics.
-7. Save the configuration.
-8. Open your Container App, and then go to Revisions and replicas > Edit and deploy new revision.
-9. Under Environment variables, add or confirm the following values:
+1. In the left menu, under **Monitoring**, select **OTel endpoints**.
+1. Select **Datadog**, and then select **Update**.
+1. In **Update Datadog endpoint**, set **Site** to your Datadog site value.
+1. In **Key**, paste your Datadog API key.
+1. Select the checkboxes for **Logs**, **Traces**, and **Metrics**.
+1. Save the configuration.
+1. Open your container app, and then select **Revisions and replicas** > **Edit and deploy new revision**.
+1. Under **Environment variables**, add or confirm the following values:
    - `OTEL_SERVICE_NAME` = your app/service name
    - `OTEL_TRACES_EXPORTER` = `otlp`
    - `OTEL_METRICS_EXPORTER` = `otlp`
    - `OTEL_LOGS_EXPORTER` = `otlp`
    - `OTEL_EXPORTER_OTLP_PROTOCOL` = `grpc`
-10. Deploy the new revision.
+1. Deploy the new revision.
 
-In the update panel, if you are not rotating the key, you can leave Key blank to keep the existing value.
+In the update panel, if you aren't rotating the key, you can leave **Key** blank to keep the existing value.
 
 ---
 
-Your Container App should now be configured to send telemetry to Datadog through the managed OpenTelemetry agent.
+Your Container App is now configured to send telemetry to Datadog through the managed OpenTelemetry agent.
 
 ## Verify OpenTelemetry data in Datadog
 
 After you complete the configuration, your container app starts sending telemetry to Datadog through the managed OpenTelemetry agent. Use Datadog to confirm that logs, traces, and metrics are arriving from the application and that the data appears under the expected service and environment context.
 
-You can validate the result by checking Datadog experiences and tools that fit your workflow, such as log exploration, distributed tracing, and metric search. The exact query or navigation path might vary depending on the data you want to inspect.
+Validate results by checking Datadog tools like log exploration, distributed tracing, and metric search. The exact query or navigation path varies depending on the data you inspect.
 
 For more information about data exploration in Datadog, see [Datadog observability and telemetry](https://docs.datadoghq.com/).
