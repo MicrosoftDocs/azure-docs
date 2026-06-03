@@ -16,8 +16,8 @@ Loading new data into the Microsoft Planetary Computer Pro GeoCatalog resource i
   
 In this guide, you learn how to:
 
-- Create a ingestion source through Azure portal
-- Create a ingestion source through the Microsoft Planetary Computer Pro API using the Azure Python SDK
+- Create an ingestion source through Azure portal
+- Create an ingestion source through the Microsoft Planetary Computer Pro API using the Azure Python SDK
 
 ## Prerequisites
 
