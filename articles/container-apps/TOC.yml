@@ -332,6 +332,8 @@ items:
       items:
         - name: Overview
           href: opentelemetry-agents.md
+        - name: Export to Datadog
+          href: opentelemetry-export-datadog.md
         - name: Export to Dynatrace
           href: opentelemetry-export-dynatrace.md
         - name: Export to Elastic
