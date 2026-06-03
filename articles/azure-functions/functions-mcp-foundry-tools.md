@@ -51,9 +51,9 @@ To learn more about the MCP server authentication options that the Foundry Agent
 
 Before you can connect the agent to a Functions-hosed MCP server, you must get the endpoint URL for the service. The specific URL format depends on how you created and deployed your MCP server:
 
-    ```console
-    https://<FUNCTION_APP_NAME>.azurewebsites.net/runtime/webhooks/mcp
-    ```
+```console
+https://<FUNCTION_APP_NAME>.azurewebsites.net/runtime/webhooks/mcp
+```
 
 For more information, see [Remote MCP servers](./functions-bindings-mcp.md) in Azure Functions.
 
