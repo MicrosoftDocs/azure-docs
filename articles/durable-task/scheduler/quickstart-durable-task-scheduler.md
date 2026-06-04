@@ -125,7 +125,7 @@ In host.json, update the `extensionBundle` property to use version 4.32.0 or lat
 
 ::: zone pivot="csharp"
 
-1. In a separate terminal, trigger an orchestration:
+2. In a separate terminal, trigger an orchestration:
 
    ```powershell
    $response = Invoke-RestMethod -Method POST -Uri http://localhost:7071/api/DurableFunctionsOrchestrationCSharp1_HttpStart
@@ -137,7 +137,7 @@ In host.json, update the `extensionBundle` property to use version 4.32.0 or lat
 <!-- markdownlint-disable-next-line MD044 -->
 ::: zone pivot="javascript,python,java,powershell"
 
-1. In a separate terminal, trigger an orchestration:
+2. In a separate terminal, trigger an orchestration:
 
    ```powershell
    $response = Invoke-RestMethod -Method POST -Uri http://localhost:7071/api/StartChaining
@@ -148,7 +148,7 @@ In host.json, update the `extensionBundle` property to use version 4.32.0 or lat
 
 ::: zone pivot="csharp,javascript,python,java,powershell"
 
-1. The response contains status URLs for the orchestration instance. Query the `statusQueryGetUri` to check the result:
+3. The response contains status URLs for the orchestration instance. Query the `statusQueryGetUri` to check the result:
 
    ```powershell
    Invoke-RestMethod -Uri $response.statusQueryGetUri
@@ -156,7 +156,7 @@ In host.json, update the `extensionBundle` property to use version 4.32.0 or lat
 
    When the orchestration's `runtimeStatus` is `Completed`, the output contains greeting results. If `runtimeStatus` shows `Running` or `Pending`, wait a moment and query again.
 
-1. View more details about the orchestration instance in the [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md) at `http://localhost:8082`.
+4. View more details about the orchestration instance in the [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md) at `http://localhost:8082`.
 
 ::: zone-end
 
