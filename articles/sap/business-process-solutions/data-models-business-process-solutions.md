@@ -25,19 +25,19 @@ Hierarchical structures are transformed to support advanced drill-down and roll-
 ## Data models availability
 ### Featured data models
 
-Featured Data Models are curated, end‑to‑end models designed to help you get results quickly for the most common business scenarios. They often span multiple functional areas and come with dedicated, prebuilt Power BI dashboards, allowing you to explore insights and start visualising your data with minimal setup.
+Featured Data Models are curated, end‑to‑end models designed to help you get results quickly for the most common business scenarios. They often span multiple functional areas and come with dedicated, prebuilt Power BI dashboards, allowing you to explore insights and start visuali__ing your data with minimal setup.
 
 |Area|Dataset|Supported systems|Related content|Additional information|
 |------|---------|-----------------|-----------------|------------------------|
-|Record to Report| Finance Insights | SAP S/4HANA 1909 or newer | Semantic Model <br> PowerBI Report||
-|Order to Cash| Sales and Billing Insights | SAP S/4HANA 1909 or newer  <br> SAP ECC| Semantic Model <br> PowerBI Report | Consider SAP Note: <br> 3070845 - SAP S/4HANA: a CDS-view SD extractor incurs the MEM_ALLOC_FAILED dump|
-|Order to Cash| Opportunity Insights | Salesforce | Semantic Model <br> PowerBI Report | |
-|Procure to Pay| Spend Insights | SAP S/4HANA 2022 or newer | Semantic Model <br> PowerBI Report  | |
-|Record to Report| Accounts Payables Insights | SAP S/4HANA 1909 or newer | Semantic Model <br> PowerBI Report||
-|Record to Report| Accounts Recivables Insights | SAP S/4HANA 1909 or newer | Semantic Model <br> PowerBI Report ||
+|Record to Report| Finance Insights | SAP S/4HANA 1909 or newer | Semantic Model <br> Power BI Report||
+|Order to Cash| Sales and Billing Insights | SAP S/4HANA 1909 or newer  <br> SAP ECC| Semantic Model <br> Power BI Report | Consider SAP Note: <br> 3070845 - SAP S/4HANA: a CDS-view SD extractor incurs the MEM_ALLOC_FAILED dump|
+|Order to Cash| Opportunity Insights | Salesforce | Semantic Model <br> Power BI Report | |
+|Procure to Pay| Spend Insights | SAP S/4HANA 2022 or newer | Semantic Model <br> Power BI Report  | |
+|Record to Report| Accounts Payables Insights | SAP S/4HANA 1909 or newer | Semantic Model <br> Power BI Report||
+|Record to Report| Accounts Recievables Insights | SAP S/4HANA 1909 or newer | Semantic Model <br> Power BI Report ||
 
 ### Additional data models
-Additional Data Models provide focused coverage for specific business domains or processes. They deliver the same high‑quality data structures and business semantics but are typically consumed as building blocks, allowing you to extend, customise, or combine them into tailored analytics and reporting solutions.
+Additional Data Models provide focused coverage for specific business domains or processes. They deliver the same high‑quality data structures and business semantics but are typically consumed as building blocks, allowing you to extend, customize, or combine them into tailored analytics and reporting solutions.
 
 |Area|Dataset|Supported systems|Related content|Additional information|
 |------|---------|-----------------|-----------------|------------------------|
@@ -197,19 +197,19 @@ Supports the management and execution of production orders by providing a compre
 
 ### Manufacturing orders
 
-The Manufacturing Orders data model provides visibility into production orders from a planning and execution perspective. It supports analysis of order volumes and timelines to help organisations understand capacity constraints and improve the reliability of production scheduling. By aligning planned quantities with execution data, the model helps identify risks that may impact delivery commitments and production throughput.
+The Manufacturing Orders data model provides visibility into production orders from a planning and execution perspective. It supports analysis of order volumes and timelines to help organizations understand capacity constraints and improve the reliability of production scheduling. By aligning planned quantities with execution data, the model helps identify risks that may impact delivery commitments and production throughput.
 
 ### Manufacturing operations
 
-The Manufacturing Operations data model focuses on how production work is executed on the shop floor. It enables insight into operational efficiency by highlighting how work progresses over time and where process constraints may arise. This supports informed decisions that help improve utilisation of production resources and address inefficiencies that affect overall manufacturing performance.
+The Manufacturing Operations data model focuses on how production work is executed on the shop floor. It enables insight into operational efficiency by highlighting how work progresses over time and where process constraints may arise. This supports informed decisions that help improve utilization of production resources and address inefficiencies that affect overall manufacturing performance.
 
 ### Manufacturing components
 
-The Manufacturing Components data model provides insight into material requirements derived from the bill of materials associated with production orders. It helps organisations understand how required materials are determined and how demand develops throughout the production lifecycle. By improving visibility into planned consumption, the model supports more proactive material planning and reduces the risk of supply disruptions that can impact production continuity.
+The Manufacturing Components data model provides insight into material requirements derived from the bill of materials associated with production orders. It helps organizations understand how required materials are determined and how demand develops throughout the production lifecycle. By improving visibility into planned consumption, the model supports more proactive material planning and reduces the risk of supply disruptions that can impact production continuity.
 
 ### Manufacturing confirmations
 
-The Manufacturing Confirmations data model captures production execution outcomes and provides transparency into how work is completed. It supports accurate cost tracking and performance evaluation by linking execution results with production expectations. This visibility enables continuous improvement by helping organisations understand productivity trends and optimise labour efficiency over time.
+The Manufacturing Confirmations data model captures production execution outcomes and provides transparency into how work is completed. It supports accurate cost tracking and performance evaluation by linking execution results with production expectations. This visibility enables continuous improvement by helping organizations understand productivity trends and optimize labor efficiency over time.
 
 ## Related content
 
