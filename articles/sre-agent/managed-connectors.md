@@ -71,8 +71,3 @@ To revoke the agent's access, delete the connector from the **Connectors** list.
 Start with a connector your team already uses. The tutorial walks through the setup wizard step by step.
 
 For more information, see [Set up a managed connector](setup-managed-connector.md).
-
-## Related content
-
-- [Tool access policies](tool-access-policies.md)
-- [MCP server](mcp-server.md)
