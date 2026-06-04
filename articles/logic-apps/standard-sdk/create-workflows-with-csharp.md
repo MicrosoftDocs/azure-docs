@@ -70,13 +70,17 @@ During preview release, the following limitations apply:
      | **Workflow name** | The name for the first workflow in the Standard logic app project. |
      | **Workflow type** | - **Stateful**: A non-AI workflow that includes run history. <br><br>- **Conversational agents**: An AI-driven workflow that supports human interactions through chat and includes run history. <br><br>- **Autonomous agents**: An AI-driven workflow that supports human-independent automation and includes run history. |
 
-  For more information, see [Create a local workspace for your logic app project in Visual Studio Code](../create-standard-workflows-visual-studio-code.md#create-workspace).
+  1. When you're ready, select **Next**.
 
-1. When you're ready, select **Next**, verify your inputs, and then select **Create workspace**.
+  1. On the **Review + create** tab, confirm your inputs, and select **Create workspace**.
 
-    VS Code creates and opens the workspace in a new window.
+     Visual Studio Code prompts you to confirm whether to trust the files authors in your workspace.
 
-    :::image type="content" source="media\create-workflows-with-csharp\create-code-first-workspace.png" alt-text="Logic Apps Standard SDK Create Workspace Wizard page showing all configuration steps.":::
+  1. To continue, select **Yes, I trust the authors**.
+
+     After Visual Studio Code creates your workspace and logic app project files, the IDE opens the ****Explorer** window.
+
+     :::image type="content" source="media\create-workflows-with-csharp\create-code-first-workspace.png" alt-text="Screenshot shows Visual Studio Code, wizard for Azure Logic Apps Standard SDK, and the Create Workspace page that shows the creation steps." lightbox="media\create-workflows-with-csharp\create-code-first-workspace.png":::
 
 ## Enable and select connectors from Azure
 
