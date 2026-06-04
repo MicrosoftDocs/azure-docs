@@ -42,7 +42,7 @@ Create a Dynatrace API token with these scopes:
 - `metrics.ingest`
 - `openTelemetryTrace.ingest`
 
-For token creation steps and permission details, see [Dynatrace token and permission requirements](https://docs.dynatrace.com/docs/ingest-from/setup-on-k8s/deployment/tokens-permissions).
+For token creation steps and permission details, see [Dynatrace OTLP authentication guidance](https://docs.dynatrace.com/docs/ingest-from/opentelemetry/otlp-api#authentication-export-to-activegate).
 
 
 ## Configure OpenTelemetry destinations
@@ -205,15 +205,20 @@ Your container app is now configured to send telemetry to Dynatrace.
 
 ## Verify OpenTelemetry data in Dynatrace
 
-After you complete the configuration, your container app starts sending telemetry to Dynatrace through the managed OpenTelemetry agent. Use Dynatrace to check that logs, traces, and metrics are arriving from the application and that the data appears under the expected service or environment context.
+After you complete the configuration, your Container App should begin sending telemetry to Dynatrace through the managed OpenTelemetry agent. The fastest way to confirm that metrics, logs, and traces are all arriving from your application is to open the **Services app** in Dynatrace. The Services app provides a single screen where you can validate all three telemetry signals for your service in one place.
 
-You can validate the result by checking the Dynatrace experiences and tools that fit your workflow, such as log exploration, distributed tracing, and metric search. The exact query or navigation path might vary depending on the data you want to inspect.
+To verify your telemetry:
 
-For more information about data exploration in Dynatrace, see [Dynatrace analyze, explore, and automate](https://docs.dynatrace.com/docs/analyze-explore-automate).
+1. Open the [Services app](https://docs.dynatrace.com/docs/observe/application-observability/services/services-app) in Dynatrace.
+1. Locate your Container App service and confirm that metrics, logs, and traces are present for the expected service or environment context.
+
+If you need background on how OpenTelemetry data is ingested into Dynatrace, see the [OpenTelemetry getting started guide](https://docs.dynatrace.com/docs/ingest-from/opentelemetry/getting-started).
+
+If telemetry is missing or doesn't appear as expected, see the [OpenTelemetry troubleshooting guide](https://docs.dynatrace.com/docs/ingest-from/opentelemetry/troubleshooting).
 
 ## Related content
 
 - [Collect and read OpenTelemetry data in Azure Container Apps](./opentelemetry-agents.md)
 - [Dynatrace analyze, explore, and automate](https://docs.dynatrace.com/docs/analyze-explore-automate)
-- [Dynatrace token and permission requirements](https://docs.dynatrace.com/docs/ingest-from/setup-on-k8s/deployment/tokens-permissions)
+- [Dynatrace OTLP authentication guidance](https://docs.dynatrace.com/docs/ingest-from/opentelemetry/otlp-api#authentication-export-to-activegate)
 
