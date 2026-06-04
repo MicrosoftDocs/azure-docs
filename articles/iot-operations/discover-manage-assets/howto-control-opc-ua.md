@@ -4,6 +4,7 @@ description: Learn how to configure OPC UA assets and devices to enable you to c
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-opcua-connector
 ms.topic: how-to
 ms.date: 10/08/2025
 

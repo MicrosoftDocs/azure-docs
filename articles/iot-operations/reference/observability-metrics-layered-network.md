@@ -4,6 +4,7 @@ description: Available observability metrics for Azure IoT Layered Network Manag
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: layered-network-management
 ms.topic: reference
 ms.custom:
   - ignite-2023

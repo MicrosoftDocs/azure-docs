@@ -4,6 +4,7 @@ description: "Tutorial: Use a Real-Time Dashboard to capture insights from the O
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-data-flows
 ms.topic: tutorial
 ms.date: 03/26/2025
 ms.custom:

@@ -4,6 +4,7 @@ description: Learn about Akri connectors and the options to create custom connec
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-akri
 ms.topic: concept-article
 ms.date: 01/12/2026
 

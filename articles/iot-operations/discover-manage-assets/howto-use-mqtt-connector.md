@@ -4,6 +4,7 @@ description: Use the operations experience web UI or the Azure CLI to configure 
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.date: 05/28/2026
 ai-usage: ai-assisted
