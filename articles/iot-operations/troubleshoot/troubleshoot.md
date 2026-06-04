@@ -3,6 +3,7 @@ title: Troubleshoot Azure IoT Operations
 description: Troubleshoot your Azure IoT Operations deployment and configuration
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: troubleshooting-general
 ms.custom:
   - ignite-2023
@@ -20,11 +21,20 @@ The troubleshooting guidance helps you diagnose and resolve issues you might enc
 
 For information about known issues and temporary workarounds, see [Known issues: Azure IoT Operations](known-issues.md).
 
+## Using health status for troubleshooting
+
+Azure IoT Operations provides [built-in health status reporting](../deploy-iot-ops/health-status-reporting.md) to help you understand the health of your edge workloads from the cloud. When a component reports **Degraded** or **Unavailable** health status, use the following approach to investigate and troubleshoot the issue:
+
+1. **Check the reason code**: Each unhealthy resource includes a reason code (for example, `DataflowMqttSourceConnectionFailed`, `BrokerReplicaFailed`, `OpcUaConnectorInboundEndpointDisconnected`) and a human-readable message explaining the problem.
+1. **Look up the recommended action**: Check the [health status reason codes](../reference/health-status-reason-codes.md) for detailed descriptions and recommended actions for every reason code.
+1. **Check timestamps**: The `lastTransitionTime` shows when the issue started; `lastUpdateTime` shows the most recent status update.
+1. **Investigate further**: Use `az iot ops check`, pod logs, and the Grafana dashboard metrics to correlate the health status with runtime behavior.
+
 ## Troubleshoot Azure IoT Operations deployment
 
 For general deployment and configuration troubleshooting, you can use the Azure CLI IoT Operations `check` and `support` commands.
 
-[Azure CLI version 2.53.0 or higher](/cli/azure/install-azure-cli) is required and the [Azure IoT Operations extension](/cli/azure/iot/ops) installed.
+[Azure CLI version 2.62.0 or higher](/cli/azure/install-azure-cli) is required and the [Azure IoT Operations extension](/cli/azure/iot/ops) installed.
 
 - To evaluate Azure IoT Operations service deployment for health, configuration, and usability, use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check). The `check` command can help you find problems in your deployment and configuration.
 
@@ -48,7 +58,7 @@ This error message indicates that the custom location resource associated with t
 Message: The resource {resource Id} extended location {custom location resource Id} does not support the resource type {IoT Operations resource type} or api version {IoT Operations ARM API}. Please check with the owner of the extended location to ensure the host has the CRD {custom resource name} with group {api group name}.iotoperations.azure.com, plural {custom resource plural name}, and versions [{api group version}] installed.
 ```
 
-To resolve, delete any provisioned resources associated with prior deployments including custom locations. You can use `az iot ops delete` or alternative mechanism. Due to a potential caching issue, waiting a few minutes after deletion before redeploying AIO or choosing a custom location name via `az iot ops create --custom-location` is recommended. The custom location name has a maximum length of 63 characters.
+To resolve, delete any provisioned resources associated with prior deployments including custom locations. You can use `az iot ops delete` or alternative mechanism. Due to a potential caching issue, waiting a few minutes after deletion before redeploying Azure IoT Operations or choosing a custom location name via `az iot ops create --custom-location` is recommended. The custom location name has a maximum length of 63 characters.
 
 ### You see a LinkedAuthorizationFailed error message
 
@@ -65,7 +75,7 @@ To enable resource sync, the logged-in principal must have the `Microsoft.Author
 To resolve the issue elevate principal permissions.
 
 > [!NOTE]
-> Legacy AIO CLIs had an opt-out mechanism by using the `--disable-rsync-rules`.
+> Legacy Azure IoT Operations CLIs had an opt-out mechanism by using the `--disable-rsync-rules`.
 
 ### Deployment of MQTT broker fails
 
@@ -77,7 +87,7 @@ A deployment might fail if the cluster doesn't have sufficient resources for the
 > [!TIP]
 > If you set lower values for sharding, workers, or memory profile, the broker's capacity to handle message load is reduced. Before you deploy to production, test your scenario with the MQTT broker configuration, to ensure the broker can handle the maximum expected load.
 
-To learn more about how to choose suitable values for these parameters, see [Configure broker settings for high availability, scaling, and memory usage](../manage-mqtt-broker/howto-configure-availability-scale.md).
+To learn more about how to choose suitable values for these parameters, see [Deployment planning](../deployment-plan/deployment-planning.md).
 
 ## Troubleshoot Azure IoT Operations uninstall
 

@@ -20,8 +20,14 @@ For information on setup and configuration details, see the [overview](./functio
 [!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
 ::: zone-end
 
+For a complete end-to-end example of using the Azure SQL output binding, see [Respond to Azure SQL Database changes using Azure Functions](scenario-database-changes-azure-sqldb.md).
+
 ## Examples
 <a id="example"></a>
+
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 

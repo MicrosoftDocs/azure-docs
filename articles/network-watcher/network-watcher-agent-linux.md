@@ -85,7 +85,7 @@ Network Watcher Agent extension for Linux can be installed on the following Linu
 | CentOS <sup>1</sup> | 6.10 and 7 |
 | Debian | 7 and 8 |
 | openSUSE Leap | 42.3+ |
-| Oracle Linux | 6.10 <sup>2</sup>, 7 and 8+ |
+| Oracle Linux | 6.10 <sup>2</sup>, 7, 8 and 9+ |
 | Red Hat Enterprise Linux (RHEL) | 6.10 <sup>3</sup>, 7, 8 and 9.2 |
 | Rocky Linux | 9.1 |
 | SUSE Linux Enterprise Server (SLES) | 12 and 15 (SP2, SP3, and SP4) |

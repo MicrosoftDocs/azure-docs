@@ -3,6 +3,7 @@ title: "Tutorial: Add assets"
 description: "Tutorial: Add OPC UA assets that publish messages to the MQTT broker in your Azure IoT Operations cluster."
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: tutorial
 ms.date: 02/16/2026
 ms.custom:
@@ -26,8 +27,7 @@ In this tutorial, you use the operations experience web UI to create your assets
 
 An instance of Azure IoT Operations with secure settings enabled deployed in a Kubernetes cluster. To create an instance, use one of the following to deploy Azure IoT Operations:
 
-- Use these scripts in GitHub for an automated [deployment with secure settings](https://github.com/Azure-Samples/explore-iot-operations/blob/main/quickstart/readme.md).
-- [Deployment overview](../deploy-iot-ops/overview-deploy.md) provides detailed instructions to deploy an Azure IoT Operations instance on Windows using Azure Kubernetes Service Edge Essentials or Ubuntu using K3s. Follow the steps in the deployment article for a secure settings deployment and to install the latest version.
+[!INCLUDE [prereq-secure-settings](../includes/prereq-secure-settings.md)]
 
 > [!IMPORTANT]
 > It's not possible to enable secure settings on the instance you create if you follow the steps in the [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) article.

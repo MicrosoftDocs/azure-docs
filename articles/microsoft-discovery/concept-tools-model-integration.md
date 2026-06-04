@@ -4,7 +4,7 @@ description: Learn about tools in Microsoft Discovery, including tool types, how
 author: anzaman
 ms.author: alzam
 ms.service: azure
-ms.topic: conceptual
+ms.topic: article
 ms.date: 04/17/2026
 ---
 

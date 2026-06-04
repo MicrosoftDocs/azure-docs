@@ -9,7 +9,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Azure Functions HTTP output bindings
 
-Use the HTTP output binding to respond to the HTTP request sender (HTTP trigger). This binding requires an HTTP trigger and allows you to customize the response associated with the trigger's request.
+HTTP-triggered functions use HTTP output to respond to the HTTP request sender. In most languages, this output is represented as an HTTP output binding. In Go, HTTP responses are written directly with the `http.ResponseWriter` passed to your HTTP trigger handler rather than with a separate output binding configuration.
 
 The default return value for an HTTP-triggered function is:
 
@@ -73,6 +73,19 @@ The following table explains the binding configuration properties that you set i
 | **type** |Must be set to `http`. |
 | **direction** | Must be set to `out`. |
 | **name** | The variable name used in function code for the response, or `$return` to use the return value. |
+
+::: zone-end 
+::: zone pivot="programming-language-go"  
+
+In Go, HTTP output is handled through the standard `http.ResponseWriter` that's passed to your HTTP trigger handler. You write your response directly using the writer. No separate output binding configuration is needed.
+
+```go
+func hello(w http.ResponseWriter, r *http.Request) {
+    w.Header().Set("Content-Type", "application/json")
+    w.WriteHeader(http.StatusOK)
+    fmt.Fprintf(w, `{"message": "Hello from Go!"}`)
+}
+```
 
 ::: zone-end 
 

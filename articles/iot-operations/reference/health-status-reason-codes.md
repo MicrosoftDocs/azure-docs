@@ -1,9 +1,9 @@
 ---
 title: Health status reason codes reference
 description: Reference guide for health status reason codes used by Azure IoT Operations components to report runtime health issues.
-author: sethmanheim
-ms.author: sethm
-ms.reviewer: vakavali
+author: dominicbetts
+ms.author: dobett
+ms.service: azure-iot-operations
 ms.date: 04/29/2026
 ms.topic: reference
 ai-usage: ai-assisted
@@ -102,5 +102,5 @@ When Azure IoT Operations resources report **Degraded** or **Unavailable** healt
 
 ## Related content
 
-- [Unified health status reporting and observability](../configure-observability-monitoring/health-status-reporting.md)
-- [Configure observability for your Azure IoT Operations deployment](../configure-observability-monitoring/howto-configure-observability.md)
+- [Unified health status reporting and observability](../deploy-iot-ops/health-status-reporting.md)
+- [Configure observability for your Azure IoT Operations deployment](../deploy-iot-ops/howto-configure-observability.md)

@@ -9,52 +9,6 @@ ms.author: glenga
 
 The *function.json* file in the *HttpExample* folder declares an HTTP trigger function. You complete the function by adding a handler and compiling it into an executable.
 
-### [Go](#tab/go)
-
-1. Press <kbd>Ctrl + N</kbd> (<kbd>Cmd + N</kbd> on macOS) to create a new file. Save it as *handler.go* in the function app root (in the same folder as *host.json*).
-
-1. In *handler.go*, add the following code and save the file. This is your Go custom handler.
-
-    ```go
-    package main
-    
-    import (
-        "fmt"
-        "log"
-        "net/http"
-        "os"
-    )
-    
-    func helloHandler(w http.ResponseWriter, r *http.Request) {
-        message := "This HTTP triggered function executed successfully. Pass a name in the query string for a personalized response.\n"
-        name := r.URL.Query().Get("name")
-        if name != "" {
-            message = fmt.Sprintf("Hello, %s. This HTTP triggered function executed successfully.\n", name)
-        }
-        fmt.Fprint(w, message)
-    }
-    
-    func main() {
-        listenAddr := ":8080"
-        if val, ok := os.LookupEnv("FUNCTIONS_CUSTOMHANDLER_PORT"); ok {
-            listenAddr = ":" + val
-        }
-        http.HandleFunc("/api/HttpExample", helloHandler)
-        log.Printf("About to listen on %s. Go to https://127.0.0.1%s/", listenAddr, listenAddr)
-        log.Fatal(http.ListenAndServe(listenAddr, nil))
-    }
-    ```
-
-1. Press <kbd>Ctrl + Shift + `</kbd> or select *New Terminal* from the *Terminal* menu to open a new integrated terminal in VS Code.
-
-1. Compile your custom handler using the following command. An executable file named `handler` (`handler.exe` on Windows) is output in the function app root folder.
-
-    ```bash
-    go build handler.go
-    ```
-
-# [Rust](#tab/rust)
-
 1. Press <kbd>Ctrl + Shift + `</kbd> or select *New Terminal* from the *Terminal* menu to open a new integrated terminal in VS Code.
 
 1. In the function app root (the same folder as *host.json*), initialize a Rust project named `handler`.
@@ -106,8 +60,6 @@ The *function.json* file in the *HttpExample* folder declares an HTTP trigger fu
     cargo build --release
     cp target/release/handler .
     ```
-
----
 
 ## Configure your function app
 

@@ -9,6 +9,7 @@ ms.service: azure-migrate
 ms.date: 05/12/2025
 ms.reviewer: v-uhabiba
 ms.custom: vmware-scenario-422, engagement-fy24
+ms.update-cycle: 365-days
 # Customer intent: As a cloud architect, I want to understand the agentless migration process of VMware virtual machines to Azure, so that I can effectively plan and execute the migration while ensuring data integrity and minimal downtime.
 ---
 

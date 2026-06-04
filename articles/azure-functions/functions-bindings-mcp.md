@@ -22,7 +22,7 @@ The Azure Functions MCP extension enables you to use Azure Functions to create r
 | --------- | --------- |
 | Run a function from an MCP tool call request | [Tool trigger](./functions-bindings-mcp-tool-trigger.md) |
 | Expose a function as an MCP resource | [Resource trigger](./functions-bindings-mcp-resource-trigger.md) |
-
+| Expose a function as an MCP prompt | [Prompt trigger](./functions-bindings-mcp-prompt-trigger.md) |
 
 [!INCLUDE [functions-mcp-extension-powershell-note](../../includes/functions-mcp-extension-powershell-note.md)]
 ## Prerequisites 
@@ -56,6 +56,10 @@ Add the extension to your project by installing this [NuGet package](https://www
 
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
+::: zone-end
+
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
 ::: zone-end
 
 ## host.json settings

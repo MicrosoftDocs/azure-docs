@@ -2,6 +2,8 @@
 metadata:
   title: Azure Native NGINXaaS frequently asked questions
   description: Answers to common questions about using NGINXaaS as an Azure service, including capabilities, getting started, management, and support.
+  author: BNandiniMSFT
+  ms.author: bnandini
   ms.topic: faq
   ai-usage: ai-generated
   ms.date: 12/17/2025

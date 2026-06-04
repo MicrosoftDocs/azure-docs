@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/data-factory/transform-data-using-data-lake-analytics.md",
+      "redirect_url": "/azure/data-factory/transform-data",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/partner-solutions/neon/create-service-connection.md",
       "redirect_url": "/previous-versions/azure/partner-solutions/neon/create-service-connection",
       "redirect_document_id": false
@@ -1004,7 +1009,7 @@
     },
     {
       "source_path": "articles/azure-functions/durable/tutorial-durable-text-analysis-azure-files.md",
-      "redirect_url": "/azure/azure-functions/durable-functions/tutorial-durable-text-analysis-azure-files",
+      "redirect_url": "/azure/durable-task/durable-functions/tutorial-durable-text-analysis-azure-files",
       "redirect_document_id": false
     },
     {
@@ -7163,6 +7168,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/service-connector/tutorial-java-spring-confluent-kafka.md",
+      "redirect_url": "/azure/spring-apps/basic-standard/retirement-announcement",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-connector/tutorial-java-spring-mysql.md",
+      "redirect_url": "/azure/spring-apps/basic-standard/retirement-announcement",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/service-connector/tutorial-python-aks-openai-connection-string.md",
       "redirect_url": "/azure/service-connector/tutorial-python-aks-openai-workload-identity",
       "redirect_document_id": false
@@ -7425,11 +7440,6 @@
     {
       "source_path": "articles/governance/policy/samples/hipaa-hitrust-9-2.md",
       "redirect_url": "/azure/governance/policy/samples/hipaa-hitrust",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/signups/startup-programs.md",
-      "redirect_url": "/azure/signups/overview",
       "redirect_document_id": false
     },
     {
@@ -7735,6 +7745,31 @@
     {
       "source_path": "articles/certification/edge-secured-core-get-certified.md",
       "redirect_url": "/azure/certification/requirements-edge-secured-core",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/signups/startup-programs.md",
+      "redirect_url": "/startups/microsoft-for-startups/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/signups/index.yml",
+      "redirect_url": "/startups/microsoft-for-startups/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/signups/startup-help.md",
+      "redirect_url": "/startups/microsoft-for-startups/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/signups/overview.md",
+      "redirect_url": "/startups/microsoft-for-startups/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/signups/azure-usage.md",
+      "redirect_url": "/startups/microsoft-for-startups/overview",
       "redirect_document_id": false
     }
   ]

@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: release-notes
-ms.date: 5/7/2026
+ms.date: 5/18/2026
 ms.author: mbender
 # Customer intent: As a Kubernetes operator, I want to access the release notes for the ALB Controller, so that I can understand the latest updates and changes to optimize my configuration and deployments of Application Gateway for Containers.
 ---
@@ -29,12 +29,13 @@ If using the AKS add-on, updates are automatically applied to the cluster.
 
 | ALB Controller Version | Gateway API Version | Minimum Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
-| 1.10.27 | v1.2.1 | v1.27 | Hotfix for pod crash [GitHub issue 5758](https://github.com/Azure/AKS/issues/5758) |
+| 1.10.28 | v1.2.1 | v1.27 | Security updates |
 
 ## Release history
 
 | ALB Controller Version | Gateway API Version | Minimum Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
+| 1.10.27 | v1.2.1 | v1.27 | Hotfix for pod crash [GitHub issue 5758](https://github.com/Azure/AKS/issues/5758) |
 | 1.10.26 | v1.2.1 | v1.27 | Istio service mesh integration fix, security patches |
 | 1.10.21 | v1.2.1 | v1.27 | Load Aware Routing, fixes for AGC + AKS Istio add-on, fix [readiness probe for ingress](https://github.com/Azure/AKS/issues/5644), security patches |
 | 1.9.13 | v1.2.1 | v1.27 | Concurrency-related pod crash fix, security updates |
@@ -49,7 +50,7 @@ If using the AKS add-on, updates are automatically applied to the cluster.
 | 1.3.7| v1.1 | v1.26 | Minor fixes and improvements |
 | 1.2.3| v1.1 | v1.26 | Gateway API v1.1, gRPC support, frontend mutual authentication, readiness probe fixes, custom health probe port and TLS mode  |
 | 1.0.2| v1 | v1.26 | ECDSA + RSA certificate support for both Ingress and Gateway API, Ingress fixes, Server-sent events support |
-| 1.0.0| v1 | v1.26 | General Availability! URL redirect for both Gateway and Ingress API, v1beta1 -> v1 of Gateway API, quality improvements<br/>Breaking Changes: TLS Policy for Gateway API [PolicyTargetReference](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io%2fv1alpha2.PolicyTargetReferenceWithSectionName)<br/>Listener is now referred to as [SectionName](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.SectionName)<br/>Fixes: Request timeout of 3 seconds, [HealthCheckPolicy interval](https://github.com/Azure/AKS/issues/4086), [pod crash for missing API fields](https://github.com/Azure/AKS/issues/4087) |
+| 1.0.0| v1 | v1.26 | General Availability! URL redirect for both Gateway and Ingress API, v1beta1 -> v1 of Gateway API, quality improvements<br/>Breaking Changes: TLS Policy for Gateway API [PolicyTargetReference](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#localpolicytargetreferencewithsectionname)<br/>Listener is now referred to as [SectionName](https://gateway-api.sigs.k8s.io/reference/api-spec/main/spec/#sectionname)<br/>Fixes: Request timeout of 3 seconds, [HealthCheckPolicy interval](https://github.com/Azure/AKS/issues/4086), [pod crash for missing API fields](https://github.com/Azure/AKS/issues/4087) |
 | 0.6.3 | v1beta1 | v1.25 | Hotfix to address handling of Application Gateway for Containers frontends during controller restart in managed scenario |
 | 0.6.2 | - | - | Skipped release |
 | November 6, 2023 - 0.6.1 | v1beta1 | v1.25 | Gateway / Ingress API - Header rewrite support, Ingress API - URL rewrite support, Ingress multiple-TLS listener bug fix, two certificates maximum per host, adopting [semantic versioning (semver)](https://semver.org/), quality improvements |

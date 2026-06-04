@@ -10,6 +10,7 @@ ms.date: 11/03/2025
 
 #CustomerIntent: As an OT user, I want to send my OPC UA data to the cloud so that I can derive insights from it by using a tool such as Real-Time Dashboards.
 ms.service: azure-iot-operations
+ms.subservice: azure-data-flows
 ---
 
 # Tutorial: Send messages from assets to the cloud using a data flow

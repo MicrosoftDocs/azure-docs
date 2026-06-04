@@ -3,7 +3,7 @@ title: Instrument applications with Microsoft OpenTelemetry Distro
 description: Learn about built-in instrumentation, autoinstrumentation, baggage, middleware, and manual scopes in Microsoft OpenTelemetry Distro.
 author: hectorhdzg
 ms.author: hectorh
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure
 ms.date: 04/28/2026
 ms.custom:

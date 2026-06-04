@@ -3,6 +3,7 @@ title: Asset and Device Management
 description: Understand concepts and options for managing the devices and assets that are part of your Azure IoT Operations solution.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: overview
 ms.date: 04/22/2026
 ai-usage: ai-assisted

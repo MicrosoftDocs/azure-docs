@@ -15,7 +15,7 @@ For information about how Auto inflate works, see [Auto inflate in Azure Event H
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A standard tier Event Hubs namespace (Auto inflate isn't supported in the basic tier).
 
 ## Enable Auto inflate using the Azure portal

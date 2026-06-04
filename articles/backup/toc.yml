@@ -583,7 +583,23 @@
         href: backup-azure-database-postgresql-flex-use-rest-api.md
       - name: Restore
         href: backup-azure-database-postgresql-flex-use-rest-api-restore.md
-- name: Azure Database for MySQL - Flexible Server backup retention
+- name: Azure Cosmos DB vaulted backup
+  items:
+  - name: Overview
+    href: backup-azure-cosmos-db-overview.md
+  - name: Support matrix
+    href: backup-azure-cosmos-db-support-matrix.md
+  - name: Backup scenarios
+    items:
+    - name: From the Azure portal
+      items:
+      - name: Configure backup
+        href: backup-azure-cosmos-db.md
+      - name: Restore
+        href: backup-azure-cosmos-db-restore.md
+      - name: Manage
+        href: backup-azure-cosmos-db-manage.md
+- name: Azure Database for MySQL - Flexible Server backup (preview)
   items:
   - name: Overview
     href: backup-azure-mysql-flexible-server-about.md
@@ -673,8 +689,14 @@
           href: backup-sql-server-vm-from-vm-pane.md
         - name: Back up SQL Server from the SQL Server VM blade
           href: backup-sql-server-database-from-azure-vm-blade.md
+        - name: Back up SQL Server instance snapshot
+          href: back-up-sql-server-instance-snapshot.md  
       - name: Restore
-        href: restore-sql-database-azure-vm.md
+        items:
+        - name: Restore SQL Server database from the vault
+          href: restore-sql-database-azure-vm.md
+        - name: Restore SQL Server instance
+          href: back-up-sql-server-instance-snapshot-restore.md
       - name: Manage
         href: manage-monitor-sql-database-backup.md
     - name: With CLI

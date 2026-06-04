@@ -18,7 +18,7 @@ The Durable Task Scheduler provides durable execution in Azure. Durable executio
 - Data processing
 - Infrastructure management
 
-Durable Task Scheduler is the recommended storage provider for [Durable Functions](../../azure-functions/durable-functions/durable-functions-overview.md) and [the Durable Task SDKs](../sdks/durable-task-overview.md). 
+Durable Task Scheduler is the recommended storage provider for [Durable Functions](../durable-functions/durable-functions-overview.md) and [the Durable Task SDKs](../sdks/durable-task-overview.md). 
 
 ## Supported SKUs
 
@@ -42,7 +42,7 @@ Consider using the same region for your Durable Functions app and the Durable Ta
 
 ## Orchestration frameworks
 
-Durable Task Scheduler works with both [Durable Functions](../../azure-functions/durable-functions/durable-functions-overview.md) and [the Durable Task SDKs](../sdks/durable-task-overview.md). [Choose which framework works best for your project.](../common/choose-orchestration-framework.md)
+Durable Task Scheduler works with both [Durable Functions](../durable-functions/durable-functions-overview.md) and [the Durable Task SDKs](../sdks/durable-task-overview.md). [Choose which framework works best for your project.](../common/choose-orchestration-framework.md)
 
 ## Architecture
 
@@ -177,10 +177,6 @@ Stale orchestration data should be purged periodically to ensure efficient stora
   * Allowed characters: Printable ASCII only (letters, numbers, symbols like -, _, ., etc. Characters 0x20 through 0x7E)
   * Minimum length: 1 character (cannot be empty)
   * Instance IDs starting with @ are reserved for entities
-
-- **Feature parity:** 
-
-    [Extended sessions](../../azure-functions/durable-functions/durable-functions-azure-storage-provider.md#extended-sessions) aren't supported by Durable Task Scheduler.
 
 ## Related content
 

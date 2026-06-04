@@ -1,11 +1,11 @@
 ---
 title: Prepare Azure Files data for document-based RAG applications with open-source frameworks
 description: Learn how to authenticate to an Azure file share and download files for ingestion into a document-based RAG application using open-source frameworks.
-author: ftrichardson1
+author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
 ms.date: 04/19/2026
-ms.author: t-flynnr
+ms.author: kendownie
 ms.devlang: python
 ms.custom: devx-track-python
 ---
@@ -31,7 +31,7 @@ When you're finished, your project directory should look like this and be ready 
 
 ## Prerequisites
 
-- An [Azure file share](/azure/storage/files/create-classic-file-share?tabs=azure-portal) containing the documents you want to query. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/).
+- An [Azure file share](/azure/storage/files/create-classic-file-share?tabs=azure-portal) containing the documents you want to query. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Python 3.10–3.12](https://www.python.org/downloads/), with `pip` available. On Windows, install the **x64** build (not ARM64).
 - [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/install-azure-powershell). Either works on any OS.
 - An [Azure OpenAI](/azure/ai-services/openai/how-to/create-resource) resource with the following model deployments:

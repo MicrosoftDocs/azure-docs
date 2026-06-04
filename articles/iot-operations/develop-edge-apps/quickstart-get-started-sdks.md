@@ -3,8 +3,10 @@ title: "Quickstart: Start developing with the Azure IoT Operations SDKs"
 description: Setup up a development environment for building and running the samples, as well as creating and testing your own Azure IoT Operations highly available edge applications.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: quickstart-sdk
 ms.date: 05/08/2025
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Start developing with the Azure IoT Operations SDKs
@@ -17,11 +19,11 @@ Get started developing with the Azure IoT Operations SDKs. Follow these steps to
 
 Before you begin, prepare the following prerequisites:
 
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+[!INCLUDE [prereq-azure-subscription](../includes/prereq-azure-subscription.md)]
 
 * A [GitHub](https://github.com) account.
 
-* Azure access permissions. For more information, see [Deployment details > Required permissions](../deploy-iot-ops/overview-deploy.md#required-permissions).
+* Azure access permissions. For more information, see [Deployment overview > Required permissions](../deploy-iot-ops/overview-deploy.md#required-permissions).
 
 ## Setting up
 
