@@ -114,7 +114,7 @@ For this preview release, you can use only the Azure-hosted, managed connectors 
    | Files | Description |
    |-------|-------------|
    | `Program.cs` | Defines how the host runs your workflows by building, configuring, and starting the host. |
-   | Workflow file named `<workflow_name>.cs` | Defines your workflow with the trigger and actions in code. |
+   | `<workflow_name>.cs` | Defines your workflow with the trigger and actions in code. |
 
    For example:
 
