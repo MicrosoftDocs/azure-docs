@@ -4,6 +4,7 @@ description: Learn how to deploy and configure WebAssembly modules and graph def
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-data-flows
 ms.topic: how-to
 ms.date: 06/02/2026
 ai-usage: ai-assisted

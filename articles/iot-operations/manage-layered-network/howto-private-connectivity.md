@@ -553,7 +553,7 @@ az role assignment create \
 > [!IMPORTANT]
 > **Assign RBAC to the correct identity.** The dataflow endpoint's authentication method determines which identity you must grant the Event Grid role to:
 >
-> - **System-assigned managed identity (default):** Assign the role to the **AIO Arc extension's** service principal. To find it, go to the Azure portal → your Arc-enabled cluster → **Extensions** → **azure-iot-operations** → **Properties**, and copy the **Principal ID**. Or use the CLI:
+> - **System-assigned managed identity (default):** Assign the role to the **Azure IoT Operations Arc extension's** service principal. To find it, go to the Azure portal → your Arc-enabled cluster → **Extensions** → **azure-iot-operations** → **Properties**, and copy the **Principal ID**. Or use the CLI:
 >
 >   ```azurecli
 >   az rest --method get \
@@ -563,7 +563,7 @@ az role assignment create \
 >
 > - **User-assigned managed identity:** Assign the role to that identity's principal ID.
 >
-> If you assign the role to the wrong identity (for example, a user-assigned MI used for SecretSync instead of the AIO extension's system-assigned MI), the dataflow receives a `NotAuthorized` error after CONNACK and enters a reconnect loop.
+> If you assign the role to the wrong identity (for example, a user-assigned managed identity used for SecretSync instead of the Azure IoT Operations extension's system-assigned managed identity), the dataflow receives a `NotAuthorized` error after CONNACK and enters a reconnect loop.
 
 ### Step 3: Disable public access on the Event Grid namespace
 
