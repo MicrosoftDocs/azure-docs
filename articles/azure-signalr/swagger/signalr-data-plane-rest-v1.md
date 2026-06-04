@@ -5,21 +5,21 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-signalr-service
 ms.topic: reference
-ms.date: 06/09/2022
+ms.date: 06/04/2026
 ---
 
 # Azure SignalR Service data plane REST API - v1
 
-This article contains the v1 version REST APIs for Azure SignalR Service data plane. 
+This article contains the v1 version REST APIs for Azure SignalR Service data plane.
 
 ## Available APIs
 
 | API | Path |
-| ---- | ---------- | 
+| ---- | ---------- |
 | [Broadcast a message to all clients connected to target hub.](#broadcast-a-message-to-all-clients-connected-to-target-hub) | `POST /api/v1/hubs/{hub}` |
 | [Broadcast a message to all clients belong to the target user.](#broadcast-a-message-to-all-clients-belong-to-the-target-user) | `POST /api/v1/hubs/{hub}/users/{id}` |
 | [Send message to the specific connection.](#send-message-to-the-specific-connection) | `POST /api/v1/hubs/{hub}/connections/{connectionId}` |
-| [Check if the connection with the given connectionId exists](#check-if-the-connection-with-the-given-connectionid-exists) | `GET /api/v1/hubs/{hub}/connections/{connectionId}` |
+| [Check if the connection with the given connection ID exists](#check-if-the-connection-with-the-given-connectionid-exists) | `GET /api/v1/hubs/{hub}/connections/{connectionId}` |
 | [Close the client connection](#close-the-client-connection) | `DELETE /api/v1/hubs/{hub}/connections/{connectionId}` |
 | [Broadcast a message to all clients within the target group.](#broadcast-a-message-to-all-clients-within-the-target-group) | `POST /api/v1/hubs/{hub}/groups/{group}` |
 | [Check if there are any client connections inside the given group](#check-if-there-are-any-client-connections-inside-the-given-group) | `GET /api/v1/hubs/{hub}/groups/{group}` |
@@ -39,7 +39,7 @@ This article contains the v1 version REST APIs for Azure SignalR Service data pl
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which must start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
-| excluded | query | Excluded connection Ids | No | [ string ] |
+| excluded | query | Excluded connection IDs | No | [ string ] |
 
 ##### Responses
 
@@ -56,7 +56,7 @@ This article contains the v1 version REST APIs for Azure SignalR Service data pl
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which must start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
-| id | path | The user Id. | Yes | string |
+| id | path | The user ID. | Yes | string |
 
 ##### Responses
 
@@ -73,7 +73,7 @@ This article contains the v1 version REST APIs for Azure SignalR Service data pl
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which must start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
-| connectionId | path | The connection Id. | Yes | string |
+| connectionId | path | The connection ID. | Yes | string |
 
 ##### Responses
 
@@ -82,7 +82,7 @@ This article contains the v1 version REST APIs for Azure SignalR Service data pl
 | 202 | Success |
 | 400 | Bad Request |
 
-### Check if the connection with the given connectionId exists
+### Check if the connection with the given connection ID exists
 
 `GET /api/v1/hubs/{hub}/connections/{connectionId}`
 ##### Parameters
@@ -127,7 +127,7 @@ This article contains the v1 version REST APIs for Azure SignalR Service data pl
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which must start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
 | group | path | Target group name, whose length must be greater than 0 and less than 1025. | Yes | string |
-| excluded | query | Excluded connection Ids | No | [ string ] |
+| excluded | query | Excluded connection IDs | No | [ string ] |
 
 ##### Responses
 
@@ -181,7 +181,7 @@ This article contains the v1 version REST APIs for Azure SignalR Service data pl
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which must start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
 | group | path | Target group name, whose length must be greater than 0 and less than 1025. | Yes | string |
-| connectionId | path | Target connection Id | Yes | string |
+| connectionId | path | Target connection ID | Yes | string |
 
 ##### Responses
 
@@ -200,7 +200,7 @@ This article contains the v1 version REST APIs for Azure SignalR Service data pl
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which must start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
 | group | path | Target group name, whose length must be greater than 0 and less than 1025. | Yes | string |
-| connectionId | path | Target connection Id | Yes | string |
+| connectionId | path | Target connection ID | Yes | string |
 
 ##### Responses
 
@@ -219,7 +219,7 @@ This article contains the v1 version REST APIs for Azure SignalR Service data pl
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which must start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
 | group | path | Target group name, whose length must be greater than 0 and less than 1025. | Yes | string |
-| user | path | Target user Id | Yes | string |
+| user | path | Target user ID | Yes | string |
 
 ##### Responses
 
@@ -238,7 +238,7 @@ This article contains the v1 version REST APIs for Azure SignalR Service data pl
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which must start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
 | group | path | Target group name, whose length must be greater than 0 and less than 1025. | Yes | string |
-| user | path | Target user Id | Yes | string |
+| user | path | Target user ID | Yes | string |
 | ttl | query | Specifies the seconds that the user exists in the group. If not set, the user lives in the group for at most 1 year. Note that when ttl is not set, the service preserves 100 user-group relationships per user and old user-group relationship are overwritten by newly added ones. | No | integer |
 
 ##### Responses
@@ -257,7 +257,7 @@ This article contains the v1 version REST APIs for Azure SignalR Service data pl
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which must start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
 | group | path | Target group name, whose length must be greater than 0 and less than 1025. | Yes | string |
-| user | path | Target user Id | Yes | string |
+| user | path | Target user ID | Yes | string |
 
 ##### Responses
 
@@ -274,7 +274,7 @@ This article contains the v1 version REST APIs for Azure SignalR Service data pl
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which must start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
-| user | path | Target user Id | Yes | string |
+| user | path | Target user ID | Yes | string |
 
 ##### Responses
 

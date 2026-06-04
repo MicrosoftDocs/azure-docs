@@ -5,7 +5,7 @@ author: Y-Sindo
 ms.author: zityang
 ms.service: azure-signalr-service
 ms.topic: reference
-ms.date: 06/03/2026
+ms.date: 06/04/2026
 ---
 
 
@@ -23,7 +23,7 @@ ms.date: 06/03/2026
 | [Generate token for the client to connect Azure SignalR service.](#post-generate-token-for-the-client-to-connect-azure-signalr-service) | `POST /api/hubs/{hub}/:generateToken` |
 | [Broadcast a message to all clients connected to target hub.](#post-broadcast-a-message-to-all-clients-connected-to-target-hub) | `POST /api/hubs/{hub}/:send` |
 | [Close the client connection](#delete-close-the-client-connection) | `DELETE /api/hubs/{hub}/connections/{connectionId}` |
-| [Check if the connection with the given connectionId exists](#head-check-if-the-connection-with-the-given-connectionid-exists) | `HEAD /api/hubs/{hub}/connections/{connectionId}` |
+| [Check if the connection with the given connection ID exists](#head-check-if-the-connection-with-the-given-connectionid-exists) | `HEAD /api/hubs/{hub}/connections/{connectionId}` |
 | [Invoke a method on a connection.](#post-invoke-a-method-on-a-connection) | `POST /api/hubs/{hub}/connections/{connectionId}/:invoke` |
 | [Send message to the specific connection.](#post-send-message-to-the-specific-connection) | `POST /api/hubs/{hub}/connections/{connectionId}/:send` |
 | [Remove a connection from all groups](#delete-remove-a-connection-from-all-groups) | `DELETE /api/hubs/{hub}/connections/{connectionId}/groups` |
@@ -103,7 +103,7 @@ Close all of the connections in the hub.
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
 | application | query | Target application name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | No | string |
-| excluded | query | Exclude these connectionIds when closing the connections in the hub. | No | [ string ] |
+| excluded | query | Exclude these connection IDs when closing the connections in the hub. | No | [ string ] |
 | reason | query | The reason closing the client connections. | No | string |
 | api-version | query | The version of the REST APIs. | Yes | string |
 
@@ -157,7 +157,7 @@ Generate token for the client to connect Azure SignalR service.
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
-| userId | query | User Id. | No | string |
+| userId | query | User ID. | No | string |
 | minutesToExpire | query | The expire time of the generated token. | No | integer |
 | api-version | query | The version of the REST APIs. | Yes | string |
 
@@ -185,7 +185,7 @@ Broadcast a message to all clients connected to target hub.
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
 | application | query | Target application name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | No | string |
-| excluded | query | Excluded connection Ids | No | [ string ] |
+| excluded | query | Excluded connection IDs | No | [ string ] |
 | api-version | query | The version of the REST APIs. | Yes | string |
 | payload | body | The payload message. | Yes | [PayloadMessage](#payloadmessage) |
 
@@ -212,7 +212,7 @@ Close the client connection
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
-| connectionId | path | The connection Id. | Yes | string |
+| connectionId | path | The connection ID. | Yes | string |
 | application | query | Target application name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | No | string |
 | reason | query | The reason of the connection close. | No | string |
 | api-version | query | The version of the REST APIs. | Yes | string |
@@ -227,10 +227,10 @@ Close the client connection
 #### HEAD
 ##### Summary
 
-Check if the connection with the given connectionId exists
+Check if the connection with the given connection ID exists
 
 <a name="head-check-if-the-connection-with-the-given-connectionid-exists"></a>
-### Check if the connection with the given connectionId exists
+### Check if the connection with the given connection ID exists
 
 `HEAD /api/hubs/{hub}/connections/{connectionId}`
 ##### Parameters
@@ -238,7 +238,7 @@ Check if the connection with the given connectionId exists
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
-| connectionId | path | The connection Id. | Yes | string |
+| connectionId | path | The connection ID. | Yes | string |
 | application | query | Target application name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | No | string |
 | api-version | query | The version of the REST APIs. | Yes | string |
 
@@ -293,7 +293,7 @@ Send message to the specific connection.
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
-| connectionId | path | The connection Id. | Yes | string |
+| connectionId | path | The connection ID. | Yes | string |
 | application | query | Target application name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | No | string |
 | api-version | query | The version of the REST APIs. | Yes | string |
 | payload | body | The payload message. | Yes | [PayloadMessage](#payloadmessage) |
@@ -321,7 +321,7 @@ Remove a connection from all groups
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
-| connectionId | path | Target connection Id | Yes | string |
+| connectionId | path | Target connection ID | Yes | string |
 | application | query | Target application name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | No | string |
 | api-version | query | The version of the REST APIs. | Yes | string |
 
@@ -348,8 +348,8 @@ Complete a streaming for the specific connection.
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
-| connectionId | path | The connection Id. | Yes | string |
-| streamId | path | The stream Id. | Yes | string |
+| connectionId | path | The connection ID. | Yes | string |
+| streamId | path | The stream ID. | Yes | string |
 | reason | query | An error for completion. | No | string |
 | application | query | Target application name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | No | string |
 | api-version | query | The version of the REST APIs. | Yes | string |
@@ -377,8 +377,8 @@ Send stream message to the specific stream for the connection.
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
-| connectionId | path | The connection Id. | Yes | string |
-| streamId | path | The stream Id. | Yes | string |
+| connectionId | path | The connection ID. | Yes | string |
+| streamId | path | The stream ID. | Yes | string |
 | application | query | Target application name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | No | string |
 | completed | query | Indicated current item is the last item of the stream. | No | boolean |
 | api-version | query | The version of the REST APIs. | Yes | string |
@@ -436,7 +436,7 @@ Close connections in the specific group.
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
 | group | path | Target group name, which length should be greater than 0 and less than 1025. | Yes | string |
 | application | query | Target application name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | No | string |
-| excluded | query | Exclude these connectionIds when closing the connections in the hub. | No | [ string ] |
+| excluded | query | Exclude these connection IDs when closing the connections in the hub. | No | [ string ] |
 | reason | query | The reason closing the client connections. | No | string |
 | api-version | query | The version of the REST APIs. | Yes | string |
 
@@ -465,7 +465,7 @@ Broadcast a message to all clients within the target group.
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
 | group | path | Target group name, which length should be greater than 0 and less than 1025. | Yes | string |
 | application | query | Target application name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | No | string |
-| excluded | query | Excluded connection Ids | No | [ string ] |
+| excluded | query | Excluded connection IDs | No | [ string ] |
 | api-version | query | The version of the REST APIs. | Yes | string |
 | payload | body | The payload message. | Yes | [PayloadMessage](#payloadmessage) |
 
@@ -523,7 +523,7 @@ Remove a connection from the target group.
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
 | group | path | Target group name, which length should be greater than 0 and less than 1025. | Yes | string |
-| connectionId | path | Target connection Id | Yes | string |
+| connectionId | path | Target connection ID | Yes | string |
 | application | query | Target application name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | No | string |
 | api-version | query | The version of the REST APIs. | Yes | string |
 
@@ -549,7 +549,7 @@ Add a connection to the target group.
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
 | group | path | Target group name, which length should be greater than 0 and less than 1025. | Yes | string |
-| connectionId | path | Target connection Id | Yes | string |
+| connectionId | path | Target connection ID | Yes | string |
 | application | query | Target application name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | No | string |
 | api-version | query | The version of the REST APIs. | Yes | string |
 
@@ -577,7 +577,7 @@ Check if there are any client connections connected for the given user
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
-| user | path | The user Id. | Yes | string |
+| user | path | The user ID. | Yes | string |
 | application | query | Target application name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | No | string |
 | api-version | query | The version of the REST APIs. | Yes | string |
 
@@ -605,9 +605,9 @@ Close connections for the specific user.
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
-| user | path | The user Id. | Yes | string |
+| user | path | The user ID. | Yes | string |
 | application | query | Target application name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | No | string |
-| excluded | query | Exclude these connectionIds when closing the connections in the hub. | No | [ string ] |
+| excluded | query | Exclude these connection IDs when closing the connections in the hub. | No | [ string ] |
 | reason | query | The reason closing the client connections. | No | string |
 | api-version | query | The version of the REST APIs. | Yes | string |
 
@@ -634,7 +634,7 @@ Broadcast a message to all clients belong to the target user.
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
-| user | path | The user Id. | Yes | string |
+| user | path | The user ID. | Yes | string |
 | application | query | Target application name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | No | string |
 | api-version | query | The version of the REST APIs. | Yes | string |
 | payload | body | The payload message. | Yes | [PayloadMessage](#payloadmessage) |
@@ -662,7 +662,7 @@ Remove a user from all groups.
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
-| user | path | Target user Id | Yes | string |
+| user | path | Target user ID | Yes | string |
 | application | query | Target application name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | No | string |
 | api-version | query | The version of the REST APIs. | Yes | string |
 
@@ -690,7 +690,7 @@ Remove a user from the target group.
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
 | group | path | Target group name, which length should be greater than 0 and less than 1025. | Yes | string |
-| user | path | Target user Id | Yes | string |
+| user | path | Target user ID | Yes | string |
 | application | query | Target application name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | No | string |
 | api-version | query | The version of the REST APIs. | Yes | string |
 
@@ -716,7 +716,7 @@ Check whether a user exists in the target group.
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
 | group | path | Target group name, which length should be greater than 0 and less than 1025. | Yes | string |
-| user | path | Target user Id | Yes | string |
+| user | path | Target user ID | Yes | string |
 | application | query | Target application name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | No | string |
 | api-version | query | The version of the REST APIs. | Yes | string |
 
@@ -743,7 +743,7 @@ Add a user to the target group.
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
 | group | path | Target group name, which length should be greater than 0 and less than 1025. | Yes | string |
-| user | path | Target user Id | Yes | string |
+| user | path | Target user ID | Yes | string |
 | application | query | Target application name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | No | string |
 | ttl | query | Specifies the seconds that the user exists in the group. If not set, the user lives in the group for 1 year at most. If a user is added to some groups without ttl limitation, only the latest updated 100 groups will be reserved among all groups the user joined without TTL. If ttl = 0, only the current connected connections of the target user will be added to the target group. | No | integer |
 | api-version | query | The version of the REST APIs. | Yes | string |
