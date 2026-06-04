@@ -32,10 +32,10 @@ This guide shows how to create and set up your project in Visual Studio Code wit
 During preview release, the following limitations apply:
 
 | Area | Limitation |
-|------------|------|
-| Built-in service provider-based operations | Support planned in a future release. |
-| Dynamic schemas | aren't supported | Support planned in a future release.  |
-| Custom code | Currently supports only callback methods. Inline lambda functions are currently unsupported. |
+|------|------------|
+| Built-in service provider-based operations | Currently unavailable, but planned for a future release. <br><br>During preview, only Azure-hosted and -managed connectors are available for code-first workflows. |
+| Dynamic schemas | aren't supported | Currently unavailable, but planned for a future release.  |
+| Custom code | Only callback methods are currently supported. Inline lambda functions are unsupported during preview. |
 | Actions | Before you can use and reference these operations in workflows, you must add and name them. |
 | Managed identity authentication | Support is in development. For now, use connection string or API key authentication. |
 
@@ -74,33 +74,34 @@ During preview release, the following limitations apply:
 
   1. On the **Review + create** tab, confirm your inputs, and select **Create workspace**.
 
+     :::image type="content" source="media\create-workflows-with-csharp\create-code-first-workspace.png" alt-text="Screenshot shows Visual Studio Code, wizard for Azure Logic Apps Standard SDK, and the Create Workspace page that shows the creation steps." lightbox="media\create-workflows-with-csharp\create-code-first-workspace.png":::
+
      Visual Studio Code prompts you to confirm whether to trust the files authors in your workspace.
 
   1. To continue, select **Yes, I trust the authors**.
 
-     After Visual Studio Code creates your workspace and logic app project files, the IDE opens the ****Explorer** window.
+     Visual Studio Code creates and opens your workspace and logic app project, which you can view in the **Explorer** window.
 
-     :::image type="content" source="media\create-workflows-with-csharp\create-code-first-workspace.png" alt-text="Screenshot shows Visual Studio Code, wizard for Azure Logic Apps Standard SDK, and the Create Workspace page that shows the creation steps." lightbox="media\create-workflows-with-csharp\create-code-first-workspace.png":::
+     After your workspace opens, you're prompted to enable the Azure connectors that are hosted and run in global, multitenant Azure.
 
-## Enable and select connectors from Azure
+1. Continue with the next steps to enable these connectors.
 
-1. After your workspace opens, you're prompted to enable connectors.
+## Enable Azure-hosted connectors
 
-1. Select **Use connectors from Azure** to enable Azure-managed connectors for your workflows.
+For this preview release, you can use only the Azure-hosted, managed connectors in your code-first workflows.
 
-> [!NOTE]
-> 
-> Azure-managed connectors are currently the only available connectors for code workflows during public preview.
+1. When Visual Studio Code prompts you to activate these connectors, select **Use connectors from Azure**.
 
-1. Choose the Azure subscription where the connectors are created.
+1. Select the Azure subscription to use for these connectors.
 
-1. Select the resource group to manage your connector resources.
+1. Select a resource group to manage your connector resources.
 
-1. Choose an authentication method:
-   - **Managed Service Identity**: Recommended for better security. It uses Azure Managed Identity and avoids storing keys locally.
-   - **Connection Keys**: Uses traditional connection strings and access keys.
+1. Select the authentication type to use:
 
-   Select **Connection Keys**, as managed identity support isn't yet available.
+   | Authentication | Description |
+   |----------------|-------------|
+   | Connection keys | During preview, use connection strings and access keys because managed identity is currently unavailable. |
+   | Managed identity | Recommended for better security through Microsoft Entra so you don't handle, store, and manage credentials, keys, or secrets locally or in the cloud. |
 
 ## Review code for workflow project structure
 
