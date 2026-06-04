@@ -7,10 +7,12 @@ ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.topic: how-to
 ms.date: 06/04/2026
+ai-usage: ai-assisted
 ms.custom:
   - devdivchpfy22
   - build-2023
   - build-2025
+  - awp-ai
 
 #customer intent: As a platform engineer, I want to add and configure an environment definition in a catalog so that I can provide my development teams with a curated set of predefined infrastructure as code templates to deploy environments in Azure.
 ---

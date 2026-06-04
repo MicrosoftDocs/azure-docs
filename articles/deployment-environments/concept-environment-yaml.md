@@ -6,6 +6,9 @@ ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.topic: concept-article
 ms.date: 06/04/2026
+ai-usage: ai-assisted
+ms.custom:
+  - awp-ai
 
 # Customer intent: As a developer, I want to know the properties and parameters that I can use in environment.yaml.
 
