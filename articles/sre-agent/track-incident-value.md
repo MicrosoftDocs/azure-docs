@@ -84,7 +84,7 @@ A horizontal stacked bar chart breaks down incidents by severity level. Each bar
 
 ### Background caching
 
-The incident metrics dashboard runs its data queries in parallel and caches results in memory for the current time range and selected response plan. Leaving the window and returning shows your data instantly without triggering new queries. Only changing the time range, selecting a different response plan, or selecting refresh triggers a fresh data load. When new data loads, previous in-flight queries are automatically cancelled before the new batch starts.
+The incident metrics dashboard runs its data queries in parallel and caches results in memory for the current time range and selected response plan. Leaving the window and returning shows your data instantly without triggering new queries. Only changing the time range, selecting a different response plan, or selecting refresh triggers a fresh data load. When new data loads, previous in-flight queries are automatically canceled before the new batch starts.
 
 ### Response plan performance
 
