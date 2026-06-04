@@ -19,7 +19,7 @@ This article contains the v1 version REST APIs for Azure SignalR Service data pl
 | [Broadcast a message to all clients connected to target hub.](#broadcast-a-message-to-all-clients-connected-to-target-hub) | `POST /api/v1/hubs/{hub}` |
 | [Broadcast a message to all clients belong to the target user.](#broadcast-a-message-to-all-clients-belong-to-the-target-user) | `POST /api/v1/hubs/{hub}/users/{id}` |
 | [Send message to the specific connection.](#send-message-to-the-specific-connection) | `POST /api/v1/hubs/{hub}/connections/{connectionId}` |
-| [Check if the connection with the given connection ID exists](#check-if-the-connection-with-the-given-connectionid-exists) | `GET /api/v1/hubs/{hub}/connections/{connectionId}` |
+| [Check if the connection with the given connection ID exists](#check-if-the-connection-with-the-given-connection-id-exists) | `GET /api/v1/hubs/{hub}/connections/{connectionId}` |
 | [Close the client connection](#close-the-client-connection) | `DELETE /api/v1/hubs/{hub}/connections/{connectionId}` |
 | [Broadcast a message to all clients within the target group.](#broadcast-a-message-to-all-clients-within-the-target-group) | `POST /api/v1/hubs/{hub}/groups/{group}` |
 | [Check if there are any client connections inside the given group](#check-if-there-are-any-client-connections-inside-the-given-group) | `GET /api/v1/hubs/{hub}/groups/{group}` |
