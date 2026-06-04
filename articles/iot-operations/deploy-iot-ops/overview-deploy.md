@@ -99,14 +99,14 @@ If you use the Azure portal to assign privileged admin roles to a user or princi
 
 ### Built-in RBAC roles
 
-Azure IoT Operations offers two built-in roles designed to simplify and secure access management for AIO resources. If your scenario requires more granular access, you can [create a custom RBAC role](../reference/custom-rbac.md).
+Azure IoT Operations offers two built-in roles designed to simplify and secure access management for Azure IoT Operations resources. If your scenario requires more granular access, you can [create a custom RBAC role](../reference/custom-rbac.md).
 
 > [!IMPORTANT]
-> The built-in roles for AIO streamline access management for AIO resources, but don't automatically grant permissions for all required Azure dependencies. AIO relies on several Azure services, such as Azure Key Vault, Azure Storage, Azure Arc, and others. Always review and assign the necessary additional roles to ensure users have end-to-end access for successful AIO deployment and operation.
+> The built-in roles for Azure IoT Operations streamline access management for Azure IoT Operations resources, but don't automatically grant permissions for all required Azure dependencies. Azure IoT Operations relies on several Azure services, such as Azure Key Vault, Azure Storage, Azure Arc, and others. Always review and assign the necessary additional roles to ensure users have end-to-end access for successful Azure IoT Operations deployment and operation.
 
 #### Azure IoT Operations Administrator role
 
-The Azure IoT Operations Administrator role provides comprehensive permissions to manage and operate all Azure IoT Operations components. Assign this role to users who need full access to use AIO resources. To support deployment and ongoing management of AIO, users require additional permissions. If a user only needs to use AIO, you can assign the Administrator role alone.
+The Azure IoT Operations Administrator role provides comprehensive permissions to manage and operate all Azure IoT Operations components. Assign this role to users who need full access to use Azure IoT Operations resources. To support deployment and ongoing management of Azure IoT Operations, users require additional permissions. If a user only needs to use Azure IoT Operations, you can assign the Administrator role alone.
 
 When assigning this built-in role, you need to ensure that the following roles are also assigned to the user:
 
@@ -122,7 +122,7 @@ When assigning this built-in role, you need to ensure that the following roles a
 
 #### Azure IoT Operations Onboarding role
 
-AIO Onboarding is a specialized role that provides the necessary permissions to deploy Azure IoT Operations components.
+Azure IoT Operations Onboarding is a specialized role that provides the necessary permissions to deploy Azure IoT Operations components.
 
 When assigning this built-in role, you need to ensure that the following roles are also assigned to the user:
 

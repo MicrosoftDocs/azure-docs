@@ -131,7 +131,7 @@ Then, follow these steps to upload the dashboard template and connect it to your
 1. Select the template file that you downloaded to your machine.
 1. The template file populates the dashboard with multiple tiles, although the tiles can't get data because you haven't connected a data source yet.
 :::image type="content" source="media/quickstart-get-insights/dashboard-upload-errors.png" alt-text="Screenshot of the dashboard with errors in the visuals.":::
-1. From the **Manage** tab, select **Data sources**. This action opens the **Data sources** pane with a sample source for your AIO data. Select the pencil icon to edit the *AIOdata* data source.
+1. From the **Manage** tab, select **Data sources**. This action opens the **Data sources** pane with a sample source for your Azure IoT Operations data. Select the pencil icon to edit the *AIOdata* data source.
     :::image type="content" source="media/quickstart-get-insights/dashboard-data-sources.png" alt-text="Screenshot of the buttons to connect a data source.":::
 1. Choose your database (it's under **Eventhouse/KQL Database**). When you're finished connecting your data source, select **Apply** and close the **Data sources** pane.
 

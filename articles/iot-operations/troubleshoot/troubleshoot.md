@@ -57,7 +57,7 @@ This error message indicates that the custom location resource associated with t
 Message: The resource {resource Id} extended location {custom location resource Id} does not support the resource type {IoT Operations resource type} or api version {IoT Operations ARM API}. Please check with the owner of the extended location to ensure the host has the CRD {custom resource name} with group {api group name}.iotoperations.azure.com, plural {custom resource plural name}, and versions [{api group version}] installed.
 ```
 
-To resolve, delete any provisioned resources associated with prior deployments including custom locations. You can use `az iot ops delete` or alternative mechanism. Due to a potential caching issue, waiting a few minutes after deletion before redeploying AIO or choosing a custom location name via `az iot ops create --custom-location` is recommended. The custom location name has a maximum length of 63 characters.
+To resolve, delete any provisioned resources associated with prior deployments including custom locations. You can use `az iot ops delete` or alternative mechanism. Due to a potential caching issue, waiting a few minutes after deletion before redeploying Azure IoT Operations or choosing a custom location name via `az iot ops create --custom-location` is recommended. The custom location name has a maximum length of 63 characters.
 
 ### You see a LinkedAuthorizationFailed error message
 
@@ -74,7 +74,7 @@ To enable resource sync, the logged-in principal must have the `Microsoft.Author
 To resolve the issue elevate principal permissions.
 
 > [!NOTE]
-> Legacy AIO CLIs had an opt-out mechanism by using the `--disable-rsync-rules`.
+> Legacy Azure IoT Operations CLIs had an opt-out mechanism by using the `--disable-rsync-rules`.
 
 ### Deployment of MQTT broker fails
 
