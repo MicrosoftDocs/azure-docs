@@ -1,8 +1,8 @@
 ---
-title: Service Bus dead-letter queues | Microsoft Docs
+title: Service Bus dead-letter queues
 description: Describes dead-letter queues in Azure Service Bus. Service Bus queues and topic subscriptions provide a secondary subqueue, called a dead-letter queue.
 ms.topic: concept-article
-ms.date: 05/15/2025
+ms.date: 06/04/2026
 ms.custom:
   - "fasttrack-edit, devx-track-csharp"
   - build-2025
@@ -40,7 +40,7 @@ SubscriptionClient.FormatDeadLetterPath(topicPath, subscriptionName)
 
 ## DLQ message count
 
-Obtaining count of messages in the dead-letter queue at the topic level isn't applicable because messages don't sit at the topic level. Instead, when a sender sends a message to a topic, the message is forwarded to subscriptions for the topic within milliseconds and thus no longer resides at the topic level. So, you can see messages in the DLQ associated with the subscription for the topic. In the following example, [Service Bus Explorer ](https://github.com/paolosalvatori/ServiceBusExplorer)shows that there are 62 messages currently in the DLQ for the subscription: test1.
+Obtaining the count of messages in the dead-letter queue at the topic level isn't applicable because messages don't sit at the topic level. Instead, when a sender sends a message to a topic, the message is forwarded to subscriptions for the topic within milliseconds and thus no longer resides at the topic level. So, you can see messages in the DLQ associated with the subscription for the topic. In the following example, [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)shows that there are 62 messages currently in the DLQ for the subscription: test1.
 
 :::image type="content" source="./media/service-bus-dead-letter-queues/dead-letter-queue-message-count.png" alt-text="Image showing 62 messages in the dead-letter queue.":::
 
@@ -72,7 +72,7 @@ If you enable dead-lettering on filter evaluation exceptions, any errors that oc
 
 ## Application-level dead-lettering
 
-In addition to the system-provided dead-lettering features, applications can use the DLQ to explicitly reject unacceptable messages. They can include messages that can't be properly processed because of any sort of system issue, messages that hold malformed payloads, or messages that fail authentication when some message-level security scheme is used.
+In addition to the system-provided dead-lettering features, applications can use the DLQ to explicitly reject unacceptable messages. Unacceptable messages can include messages that can't be properly processed because of any sort of system issue, messages that hold malformed payloads, or messages that fail authentication when some message-level security scheme is used.
 
 In .NET, it can be done by calling [ServiceBusReceiver.DeadLetterMessageAsync method](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.deadlettermessageasync).
 
