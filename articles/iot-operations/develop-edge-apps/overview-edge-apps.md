@@ -4,6 +4,7 @@ description: Learn how to develop highly available edge applications that work w
 author: dominicbetts
 ms.subservice: azure-mqtt-broker
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: concept-article
 ms.date: 4/17/2025
 

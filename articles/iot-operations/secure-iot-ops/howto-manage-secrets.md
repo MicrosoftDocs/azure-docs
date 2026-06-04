@@ -3,6 +3,7 @@ title: Manage secrets
 description: Create, update, and manage secrets that are required to give your Arc-enabled Kubernetes cluster access to Azure resources.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: how-to
 ms.date: 05/12/2026
 ms.custom: sfi-image-nochange

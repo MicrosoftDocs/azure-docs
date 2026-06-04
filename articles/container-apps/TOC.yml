@@ -125,6 +125,14 @@ items:
               href: sessions-tutorial-python-mcp.md
     - name: Modernize .NET & Java apps
       href: modernize-ai.md
+    - name: Sandboxes
+      items:
+        - name: Overview
+          href: sandboxes-overview.md
+        - name: Snapshots and state management
+          href: sandboxes-snapshots-state-management.md
+        - name: Egress policies
+          href: sandboxes-egress-policies.md
 - name: Key concepts
   items:
     - name: Compute and billing structures
@@ -318,10 +326,20 @@ items:
       items:
         - name: Aspire Dashboard
           href: aspire-dashboard.md
-        - name: OpenTelemetry agents
-          href: opentelemetry-agents.md
         - name: Grafana dashboards
           href: grafana-dashboards.md
+    - name: OpenTelemetry agents
+      items:
+        - name: Overview
+          href: opentelemetry-agents.md
+        - name: Export to Datadog
+          href: opentelemetry-export-datadog.md
+        - name: Export to Dynatrace
+          href: opentelemetry-export-dynatrace.md
+        - name: Export to Elastic
+          href: opentelemetry-export-elastic.md
+        - name: Export to New Relic
+          href: opentelemetry-export-new-relic.md
     - name: Troubleshoot and resolve issues with SRE agent
       items:
         - name: Overview

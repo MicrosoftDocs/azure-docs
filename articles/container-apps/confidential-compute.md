@@ -9,7 +9,7 @@ ms.date: 05/29/2026
 ms.author: jefmarti
 ---
 
-# Confidential compute in Azure Container Apps (preview)
+# Confidential compute in Azure Container Apps
 
 Confidential compute in Azure Container Apps helps protect containerized workloads while data is being processed. In this article, you learn when to use confidential compute, how it works with dedicated workload profiles, how to enable it for a container app, and how to verify that your app runs on confidential compute infrastructure.
 

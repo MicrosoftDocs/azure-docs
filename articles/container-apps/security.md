@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: overview
-ms.date: 11/04/2025
+ms.date: 05/29/2026
 ms.author: cshoe
 ---
 
@@ -32,7 +32,7 @@ Azure Container Apps supports two types of managed identities:
 - Provides fine-grained access control through Azure RBAC
 - Supports the principle of least privilege by granting only necessary permissions
 
-### When to use each identity type
+### Choose between system-assigned and user-assigned identities
 
 - Use **system-assigned identities** for workloads that:
   - Are contained within a single resource
@@ -79,7 +79,7 @@ For more information, see [Import certificates from Azure Key Vault](key-vault-c
 
 The token store feature provides a secure way to manage authentication tokens independent of your application code.
 
-### How the token store works
+### How the authentication token store works
 
 - The system stores tokens in Azure Blob Storage, keeping them separate from your application code.
 - Only the associated user can access cached tokens.
@@ -106,8 +106,12 @@ For more information on network security in Azure Container Apps, see the follow
 
 ## Confidential compute (preview)
 
-Azure Container Apps includes a confidential compute workload profile (public preview) that runs containerized workloads inside hardware-based Trusted Execution Environments (TEEs). Confidential computing complements Azure encryption at rest and in transit by protecting data in use by encrypting memory and attesting the environment before code is executed. This capability helps reduce the risk of unauthorized access to sensitive workloads, including access from cloud operators.
+Azure Container Apps includes a confidential compute workload profile that runs containerized workloads inside hardware-based Trusted Execution Environments (TEEs). Confidential computing complements Azure encryption at rest and in transit by protecting data in use through memory encryption and environment attestation before code execution. This capability helps reduce the risk of unauthorized access to sensitive workloads, including access from cloud operators.
 
-Use the confidential compute workload profile when your applications process regulated or highly sensitive data and require attestation-based assurances. The preview is available in UAE North. For an overview of the platform capabilities, see [Azure confidential computing](/azure/confidential-computing/).
+Use the confidential compute workload profile when your applications process regulated or highly sensitive data and require attestation-based assurances. For an overview of supported regions and platform capabilities, see [Azure confidential computing](/azure/confidential-computing/).
 
 For configuration details, see [Confidential compute in Azure Container Apps](confidential-compute.md).
+
+## Microsoft Defender for Cloud Serverless Containers Posture (preview)
+
+Microsoft Defender for Cloud includes serverless containers posture capabilities in [CSPM](/azure/defender-for-cloud/concept-cloud-security-posture-management) for Azure Container Apps. These capabilities provide inventory, posture assessments, and attack path analysis for Azure Container Apps workloads so security teams can identify and prioritize risks in their container apps environment. For onboarding guidance and feature details, see [Serverless protection](/azure/defender-for-cloud/serverless-protection).

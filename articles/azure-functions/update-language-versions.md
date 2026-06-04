@@ -472,3 +472,8 @@ If you need to revert to the previous language version:
 > [PowerShell developer guide](./functions-reference-powershell.md)
 
 ::: zone-end
+
+::: zone pivot="programming-language-go"
+> [!div class="nextstepaction"]
+> [Go developer reference](./functions-reference-go.md)
+::: zone-end

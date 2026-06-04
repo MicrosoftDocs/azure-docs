@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -35,6 +35,7 @@ Azure service: [Azure Chaos Studio](/azure/chaos-studio/)
 > | `Microsoft.Chaos/locations/operationStatuses/read` | Gets an Operation Status. |
 > | `Microsoft.Chaos/locations/targetTypes/read` | Gets all TargetTypes. |
 > | `Microsoft.Chaos/locations/targetTypes/capabilityTypes/read` | Gets all CapabilityType. |
+> | `Microsoft.Chaos/locations/workspaceOperationResults/read` | Gets a Workspace Operation Result. |
 > | `Microsoft.Chaos/operations/read` | Read the available Operations for Chaos Studio. |
 > | `Microsoft.Chaos/skus/read` | Read the available SKUs for Chaos Studio. |
 > | `Microsoft.Chaos/targets/write` | Creates or update a Target resource that extends a tracked resource. |
@@ -43,6 +44,22 @@ Azure service: [Azure Chaos Studio](/azure/chaos-studio/)
 > | `Microsoft.Chaos/targets/capabilities/write` | Creates or update a Capability resource that extends a Target resource. |
 > | `Microsoft.Chaos/targets/capabilities/delete` | Deletes a Capability resource that extends a Target resource. |
 > | `Microsoft.Chaos/targets/capabilities/read` | Gets all Capabilities that extend a Target resource. |
+> | `Microsoft.Chaos/workspaces/read` | Gets a Workspace resource or lists all Workspace resources in a resource group or subscription. |
+> | `Microsoft.Chaos/workspaces/write` | Creates or updates a Workspace resource in a resource group. |
+> | `Microsoft.Chaos/workspaces/delete` | Deletes a Workspace resource in a resource group. |
+> | `Microsoft.Chaos/workspaces/refreshRecommendations/action` | Refreshes recommendation status for all scenarios in a given workspace. |
+> | `Microsoft.Chaos/workspaces/discoveredResources/read` | Gets a Discovered Resource or lists all Discovered Resources in a Workspace. |
+> | `Microsoft.Chaos/workspaces/scenarios/read` | Gets a Scenario resource or lists all Scenario resources in a Workspace. |
+> | `Microsoft.Chaos/workspaces/scenarios/configurations/read` | Gets a Scenario Configuration resource or lists all Scenario Configuration resources for a Scenario. |
+> | `Microsoft.Chaos/workspaces/scenarios/configurations/write` | Creates or updates a Scenario Configuration resource for a Scenario. |
+> | `Microsoft.Chaos/workspaces/scenarios/configurations/delete` | Deletes a Scenario Configuration resource for a Scenario. |
+> | `Microsoft.Chaos/workspaces/scenarios/configurations/execute/action` | Executes the scenario with the given scenario configuration. |
+> | `Microsoft.Chaos/workspaces/scenarios/configurations/discover/action` | Discovers all Azure resources for the given scenario configuration. |
+> | `Microsoft.Chaos/workspaces/scenarios/configurations/validate/action` | Validates the given scenario configuration. |
+> | `Microsoft.Chaos/workspaces/scenarios/configurations/fixResourcePermissions/action` | Fixes resource permissions for the given scenario configuration. |
+> | `Microsoft.Chaos/workspaces/scenarios/configurations/validations/read` | Gets the latest validation for a Scenario Configuration. |
+> | `Microsoft.Chaos/workspaces/scenarios/runs/read` | Gets a Scenario Run resource or lists all Scenario Run resources for a Scenario. |
+> | `Microsoft.Chaos/workspaces/scenarios/runs/cancel/action` | Cancels a running Scenario Run. |
 
 ## Microsoft.DevCenter
 

@@ -5,11 +5,9 @@ author: aloverro
 ms.author: adamloverro
 ms.service: planetary-computer-pro
 ms.topic: quickstart
-ms.date: 04/09/2025
+ms.date: 05/27/2026
 
 #customer intent: As a user of geospatial data, I want to ingest STAC items so that I can efficiently query and access my geospatial data.
-ms.custom:
-  - build-2025
 ---
   
 # Quickstart: Ingest a Single STAC Item into a Collection in a Microsoft Planetary Computer Pro GeoCatalog
@@ -73,6 +71,8 @@ for item in item_collection["features"]:
 
 ## Get an access token
 
+# [REST API](#tab/restapi)
+
 Planetary Computer Pro requires an access token to authenticate requests via [Microsoft Entra](/entra/fundamentals/whatis). Use the [Azure-identity](/python/api/overview/azure/identity-readme) client library for Python to get a token.
 
 ```python
@@ -91,7 +91,7 @@ Items can be added to a collection by posting an `Item` or `ItemCollection` obje
 
 ```python
 response = requests.post(
-    f"{geocatalog_url}/stac/collections/{collection_id}/items?api-version=2025-04-30-preview",
+    f"{geocatalog_url}/stac/collections/{collection_id}/items?api-version=2026-04-15",
     headers=headers,
     json=item_collection
 )
@@ -122,7 +122,7 @@ Once the items are ingested, use the `/stac/collections/{collection_id}/items` o
 items_response = requests.get(
     f"{geocatalog_url}/stac/collections/{collection_id}/items",
     headers={"Authorization": f"Bearer {token.token}"},
-    params={"api-version": "2025-04-30-preview"},
+    params={"api-version": "2026-04-15"},
 )
 items_ingested = items_response.json()
 print(f"Found {len(items_ingested['features'])} items")
@@ -134,7 +134,7 @@ Or search:
 search_response = requests.get(
     f"{geocatalog_url}/stac/search",
     headers={"Authorization": f"Bearer {token.token}"},
-    params={"api-version": "2025-04-30-preview", "collection": collection_id},
+    params={"api-version": "2026-04-15", "collections": collection_id},
 )
 #print(search_response.json())
 ```
@@ -150,10 +150,62 @@ item_id = item_collection["features"][0]["id"]
 delete = requests.delete(
     f"{geocatalog_url}/stac/collections/{collection_id}/items/{item_id}",
     headers=headers,
-    params={"api-version": "2025-04-30-preview"},
+    params={"api-version": "2026-04-15"},
 )
 print(delete.status_code)
 ```
+
+# [Python SDK](#tab/pythonsdk)
+
+Install the Planetary Computer Pro Python SDK:
+
+```console
+pip install azure-planetarycomputer azure-identity
+```
+
+## Add items to a collection
+
+```python
+from azure.planetarycomputer import PlanetaryComputerProClient
+from azure.identity import DefaultAzureCredential
+
+client = PlanetaryComputerProClient(
+    endpoint="<your-geocatalog-url>",
+    credential=DefaultAzureCredential()
+)
+
+# 'item_collection' is the STAC ItemCollection dict prepared in the previous section
+poller = client.stac.begin_create_item(collection_id, item_collection)
+poller.result()
+print("Items ingested successfully.")
+```
+
+Planetary Computer Pro asynchronously ingests the items into your GeoCatalog. Poll the returned operation to monitor the status of the ingestion workflow.
+
+## Get items from a collection
+
+```python
+item_collection = client.stac.get_item_collection(collection_id)
+print(f"Found {len(item_collection.features)} items")
+```
+
+## Search for items
+
+```python
+search_results = client.stac.search(body={"collections": [collection_id]})
+```
+
+## Delete an item from a collection
+
+```python
+item_id = item_collection.features[0].id
+poller = client.stac.begin_delete_item(collection_id=collection_id, item_id=item_id)
+poller.result()  # Wait for deletion to complete
+```
+
+For more information, see the [Python SDK reference](/python/api/overview/azure/planetarycomputer-readme).
+
+---
 
 ## Clean up resources
 
