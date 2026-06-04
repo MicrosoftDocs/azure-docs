@@ -7,7 +7,6 @@ ms.topic: quickstart
 ms.service: azure-change-tracking-inventory
 ms.author: v-rochak2
 author: RochakSingh-blr
-zone_pivot_groups: enable-change-tracking-inventory-using-monitoring-agent
 ms.custom: sfi-image-nochange
 ---
 
