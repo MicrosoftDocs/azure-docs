@@ -32,6 +32,7 @@ On the **Monitoring** page for your resource, the **Overview** tab is shown. Thi
 - **Issues in the last day (trend)** to [see and investigate active issues and trends](#find-and-investigate-issues). 
 - **Application Map** to [view your application map](#view-application-maps).
 - **Availability tests** to [run availability tests](#run-availability-tests)
+- **Service Level Indicators and Objectives (SLIs and SLOs)** to [measure and maintain service reliability](#slis-and-slos)
 
 The monitoring experience only shows insights for resources in the selected service group. Insights from child and/or nested service groups aren't included.
 
