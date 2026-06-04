@@ -264,7 +264,7 @@ config = load(
 )
 ```
 
-### Refresh on watch keys
+### Refresh when specific keys are changed
 
 You can use the `refresh_on` parameter to configure the provider to monitor specific watch keys for changes instead of monitoring all loaded key-values. The `refresh_on` parameter is a `List[WatchKey]`, which specifies the one or more key/labels to watch for changes. When a change is detected in any of the watched keys, all configuration values are refreshed.
 
