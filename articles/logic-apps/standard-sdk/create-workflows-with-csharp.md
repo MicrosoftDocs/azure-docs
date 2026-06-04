@@ -9,7 +9,7 @@ ms.reviewers: ecfan, azla
 ms.topic: how-to
 ai-usage: ai-assisted
 ms.update-cycle: 365-days
-ms.date: 05/26/2026
+ms.date: 06/05/2026
 ms.custom:
 - build-2026
 # Customer intent: As an integration developer who works with Azure Logic Apps, I want to create a workflow project by using the Standard SDK so I can programmatically automate processes with code-first workflows.
@@ -17,62 +17,66 @@ ms.custom:
 
 # Create Standard workflow projects with C# by using the Azure Logic Apps Standard SDK (preview)
 
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+
 > [!IMPORTANT]
 >
 > This preview feature is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When you want to programmatically build workflows by using the tools in Visual Studio Code for code development, source control, unit testing, IntelliSense, debugging, and refactoring, install and use the Azure Logic Apps Standard SDK. This SDK lets you define workflows entirely in C# by using an imperative coding style. You get full access to the Azure Logic Apps ecosystem for Azure-hosted connectors and built-in operations. Organize, develop, and test your workflows by using the same Visual Studio Code project structure, debugging experience, and development patterns.
+To programmatically build Standard workflows in Azure Logic Apps with the Visual Studio Code tools for code development, source control, unit testing, IntelliSense, debugging, and refactoring, use the Azure Logic Apps Standard SDK. This SDK lets you define workflows entirely in C# and .NET by using an imperative coding style. Not only do you get more control over your workflow design, you get full access to the Azure Logic Apps ecosystem for Azure-hosted connectors and built-in operations. Organize, develop, and test your workflows by using the project structure, debugging experience, and development patterns that you might already work with and know in Visual Studio Code.
 
-Logic Apps Standard is a cloud orchestration platform for building and running automated workflows. Use it to connect services, systems, apps, and data sources, whether you're automating enterprise processes or reducing manual coding effort.
-
-If you work with .NET and C# and want more control over your workflow design, the **Logic Apps Standard SDK** lets you define workflows in code rather than using the visual designer.
-
-By using the SDK, you write workflows in an imperative style with C#, while keeping access to the full ecosystem of Logic Apps connectors and built-in tools.
-
-This article shows you how to create and configure a new workflow project by using code-first workflows with the Logic Apps standard SDK in Visual Studio Code. You learn how to set up your workspace, enable connectors, manage connections, run and debug your workflows, and add new workflows within your project.
+This guide shows how to create and set up your project in Visual Studio Code with code-first workflows by using the Azure Logic Apps Standard SDK. You learn how to set up your workspace, enable connectors, manage connections, debug your workflows, and add workflows to your project.
 
 ## Known issues and limitations
 
-The Logic Apps Standard SDK is currently in public preview. The following limitations apply to this version:
+During preview release, the following limitations apply:
 
-- **Service Providers Connectors aren't supported**. This connector type will be added in a future release.
-- **Dynamic schemas aren't supported**. Support is planned for a future release.
-- **Custom code supports only callback methods**. Inline lambda functions aren't supported in this version.
-- **Actions must be defined and named before they can be used as a dependency**. Add and name an action before referencing it elsewhere in the workflow.
-- **Managed identity authentication is in development**. Use connection keys for connectors in the meantime.
+| Area | Limitation |
+|------------|------|
+| Built-in service provider-based operations | Support planned in a future release. |
+| Dynamic schemas | aren't supported | Support planned in a future release.  |
+| Custom code | Currently supports only callback methods. Inline lambda functions are currently unsupported. |
+| Actions | Before you can use and reference these operations in workflows, you must add and name them. |
+| Managed identity authentication | Support is in development. For now, use connection string or API key authentication. |
 
 ## Prerequisites
 
-- Install VS Code and the latest version of the Logic Apps extension.
-- Have an active Azure subscription with permission to create resources.
-- Be familiar with C# and .NET development in VS Code.
+- An Azure account and subscription that can create resources in Azure. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-## Create a new Logic Apps workspace
+- [Visual Studio Code and the Azure Logic Apps (Standard) extension](../create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
-1. Open VS Code and launch the Logic Apps extension.
+- Familiarity with C# and .NET development in Visual Studio Code.
 
-1. On the Azure tab, select **Create new Logic Apps workspace** to start a new project.
+- A workspace in Visual Studio Code for your Standard logic app project.
 
-1. Specify the folder location where you want to create the workspace.
+  To quickly create this workspace, follow these steps:
 
-1. Enter a workspace name. This name is used for the folder and project files.
+  1. In Visual Studio Code, on the Activity Bar, select the Azure icon.
 
-1. Enter a name for your Logic Apps project.
+  1. In the **Azure** window, on the **Workspace** toolbar, select the **Azure Logic Apps** menu, select **Create new logic app workspace**.
 
-1. For the workflow type, select **Logic Apps codeful** to use code-first workflows with the Logic Apps standard SDK.
+     If Windows Defender Firewall prompts you to give network access for **Code.exe**, which is Visual Studio Code. For **func.exe**, which is the Azure Functions Core Tools, select **Private networks, such as my home or work network** **>** **Allow access**.
 
-1. Enter a name for your initial workflow.
+     The **Create logic app workspace** tab opens so you can provide details about your project and logic app.
 
-1. Choose a workflow type from the following options for code workflows:
-   - Stateful
-   - Autonomous agents (Preview)
-   - Conversational agents (Preview)
+  1. On this tab, provide the following information:
+  
+     | Property | Description |
+     |----------|-------------
+     | **Workspace parent folder path** | The path and folder name for your local workspace. This workspace name is used for the folder and project files. <br><br>To create this folder, follow these steps: <br><br>1. Select **Browse** to open the **Select Folder** window. <br><br>2. Browse to the location for creating the workspace folder. <br><br>3. Create your folder, and then select the folder *only once*. <br><br>4. Choose **Select workspace parent folder** (don't double-select the folder). |
+     | **Workspace name** | The name for your workspace in Visual Studio Code. |
+     | **Logic app name** | The name for your logic app project. |
+     | Logic app project and workflow type | This list shows the possible flavors for a Standard logic app project. | For Standard SDK projects, select **Logic app (codeful)** for code-first workflows. |
+     | **Workflow name** | The name for the first workflow in the Standard logic app project. |
+     | **Workflow type** | - **Stateful**: A non-AI workflow that includes run history. <br><br>- **Conversational agents**: An AI-driven workflow that supports human interactions through chat and includes run history. <br><br>- **Autonomous agents**: An AI-driven workflow that supports human-independent automation and includes run history. |
 
-1. Select **Review + create** to verify your inputs, and then select **Create workspace**.
+  For more information, see [Create a local workspace for your logic app project in Visual Studio Code](../create-standard-workflows-visual-studio-code.md#create-workspace).
+
+1. When you're ready, select **Next**, verify your inputs, and then select **Create workspace**.
 
     VS Code creates and opens the workspace in a new window.
 
-:::image type="content" source="media\create-workflows-with-csharp\create-code-first-workspace.png" alt-text="Logic Apps Standard SDK Create Workspace Wizard page showing all configuration steps.":::
+    :::image type="content" source="media\create-workflows-with-csharp\create-code-first-workspace.png" alt-text="Logic Apps Standard SDK Create Workspace Wizard page showing all configuration steps.":::
 
 ## Enable and select connectors from Azure
 
@@ -94,10 +98,9 @@ The Logic Apps Standard SDK is currently in public preview. The following limita
 
    Select **Connection Keys**, as managed identity support isn't yet available.
 
-
 ## Review code for workflow project structure
 
-1. In VS Code's workspace Explorer, review the key files created:
+1. In Visual Studio Code, open the workspace Explorer, review the key files created:
    - **Program.cs**: Defines how the host runs your workflows by building, configuring, and starting the host.
          - Workflow files (for example, `workflow1.cs`): Define your workflows with triggers and actions in code.
 
