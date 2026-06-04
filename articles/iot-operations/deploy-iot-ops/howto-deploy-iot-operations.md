@@ -139,7 +139,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | **Subscription** | Select the subscription that contains your Azure key vault. |
    | **Azure Key Vault** | Select an Azure key vault or select **Create new**.<br><br>Ensure that your key vault has **Azure role-based access control** as its permission model. To check this setting, select **Manage selected vault** > **Settings** > **Access configuration**. <br><br>Ensure to [give your user account permissions to manage secrets](/azure/key-vault/secrets/quick-create-cli#give-your-user-account-permissions-to-manage-secrets-in-key-vault) with the `Key Vault Secrets Officer` role.|
    | **User assigned managed identity for secrets** | Select an identity or select **Create new**. |
-   | **User assigned managed identity for AIO components** | Select an identity or select **Create new**. Don't use the same managed identity as the one you selected for secrets. |
+   | **User assigned managed identity for Azure IoT Operations components** | Select an identity or select **Create new**. Don't use the same managed identity as the one you selected for secrets. |
 
    :::image type="content" source="./media/howto-deploy-iot-operations/deploy-dependency-management-2.png" alt-text="A screenshot that shows configuring secure settings on the third tab for deploying Azure IoT Operations from the portal." lightbox="./media/howto-deploy-iot-operations/deploy-dependency-management-2.png":::
 
