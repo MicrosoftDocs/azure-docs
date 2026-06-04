@@ -74,9 +74,7 @@ Review the [Windows](prepare-for-migration.md#windows-machines) and [Linux](prep
 
 ### Prepare Azure resources for migration
 
-- Verify permissions for your Azure account
-    - Your Azure account needs permissions to create a VM
-    - write to an Azure managed disk.
+- Verify permissions for your Azure account: Your Azure account needs permissions to create a VM and write to an Azure managed disk.
 - For the required Azure Migrate built‑in roles and permission details to create a project and run discovery, assessments, and migrations, see [Prepare Azure accounts for Azure Migrate](prepare-azure-accounts.md).
 - Assign permissions to register the Replication Appliance in Microsoft Entra ID. For more information, see [required permissions](../site-recovery/deploy-vmware-azure-replication-appliance-modernized.md#required-permissions).
 - Create an Azure network: [Set up](../virtual-network/manage-virtual-network.yml#create-a-virtual-network) an Azure virtual network. When you replicate to Azure, Azure VMs are created and joined to the Azure virtual network that you specified when you set up migration.
@@ -88,7 +86,7 @@ Also,
 
 ## Prepare AWS instances for migration
 
-To prepare for AWS to Azure migration, you need to prepare and deploy a replication appliance for migration.  Physical server  migrations (including AWS/GCP or other clouds) require a separate replication appliance to execute agent-based migrations. You can’t use the Azure Migrate appliance created for discovery to execute physical server migrations.
+To prepare for AWS to Azure migration, you need to prepare and deploy a replication appliance for migration.  Physical server  migrations (including AWS, GCP or other clouds) require a separate replication appliance to execute agent-based migrations. You can’t use the Azure Migrate appliance created for discovery to execute physical server migrations.
 
 ### Prepare a machine for the replication appliance
 
