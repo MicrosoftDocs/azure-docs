@@ -14,16 +14,6 @@ ms.custom: managed-connectors, connectors-v2, connector-gateway, jira, slack, gi
 
 # Managed connectors in Azure SRE Agent (preview)
 
-> [!TIP]
-> Key points:
->
-> - **Connect to Jira, Slack, GitLab, Salesforce, Google Drive, and more.** Your agent only calls the operations you explicitly enable.
-> - **Prevent unintended actions.** Lock values like email recipients or project keys so the agent uses exactly what you set.
-> - **Review sensitive operations.** Mark any tool as "Ask" so the agent waits for your approval before it runs.
-> - **Your credentials are isolated.** Stored separately from the agent runtime, never accessed directly by the agent.
-
-## Connect your agent beyond Azure services
-
 Your agent works with Azure services, Kusto, GitHub, and Azure DevOps. But your team also uses Jira for incident tracking, Slack for communication, GitLab for code, Salesforce for customer cases, and Google Drive for documentation. You want your agent to work with these services too.
 
 When the agent operates against external services, you need governance. You need to control which operations the agent can call, what values it uses for sensitive fields like email recipients or project keys, and whether certain actions require your approval first. This access control is the same kind you'd set up for any service account or automation that touches production systems.
@@ -32,7 +22,7 @@ When the agent operates against external services, you need governance. You need
 
 Managed connectors are a set of SaaS connectors: Jira, Slack, GitLab, Salesforce, OneDrive, Google Drive, Notion, Confluence, and more. Each connector exposes operations as tools your agent can call. You control which operations are available, what values are locked, and which operations require your approval before the agent executes them.
 
-:::image type="content" source="media/managed-connectors/managed-connectors-icon-grid.png" alt-text="Screenshot of available managed connector services like Jira, Slack, GitLab, Salesforce, OneDrive, and Google Drive.":::
+:::image type="content" source="media/managed-connectors/managed-connectors-icon-grid.png" alt-text="Screenshot of available managed connector services like Jira, Slack, GitLab, Salesforce, OneDrive, and Google Drive." lightbox="media/managed-connectors/managed-connectors-icon-grid.png":::
 
 ### Select which connector operations the agent can call
 
@@ -40,7 +30,7 @@ Each connector comes with a set of operations. During setup, you select which on
 
 For example, a Jira connector has operations like Get Issue, Create Issue, Search Issues, and Add Comment. You might enable Get Issue and Search Issues for read access, but leave Create Issue disabled so the agent can't create tickets.
 
-:::image type="content" source="media/managed-connectors/office365-operations.png" alt-text="Screenshot of the operation selection step showing available managed connector tools as clickable cards.":::
+:::image type="content" source="media/managed-connectors/office365-operations.png" alt-text="Screenshot of the operation selection step showing available managed connector tools as clickable cards." lightbox="media/managed-connectors/office365-operations.png":::
 
 ### Lock values in tool calls
 
@@ -54,7 +44,7 @@ For example, on the OneDrive "Copy file" tool, you could lock **File** to Root a
 | **Subject** | Agent-defined | Agent writes the subject based on context |
 | **Body** | Agent-defined | Agent writes the body based on context |
 
-:::image type="content" source="media/managed-connectors/office365-parameter-policy.png" alt-text="Screenshot of the parameter policy configuration showing locked and agent-defined parameters for a managed connector.":::
+:::image type="content" source="media/managed-connectors/office365-parameter-policy.png" alt-text="Screenshot of the parameter policy configuration showing locked and agent-defined parameters for a managed connector." lightbox="media/managed-connectors/office365-parameter-policy.png":::
 
 ### Require approval before execution
 

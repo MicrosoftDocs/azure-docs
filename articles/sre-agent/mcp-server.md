@@ -99,7 +99,3 @@ These two options use the same protocol but work in opposite directions:
 | **Third-party host validation** | ServiceNow restricted to `.service-now.com`; PagerDuty subdomains validated. |
 | **MCP connector secrets** | Environment values must use `${env:NAME}` syntax. Literal secrets are rejected. |
 
-## Related content
-
-- [Managed connectors](managed-connectors.md)
-- [Tool access policies](tool-access-policies.md)
