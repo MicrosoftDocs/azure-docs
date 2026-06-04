@@ -17,7 +17,7 @@ ms.custom:
 
 # Create Standard workflow projects with C# by using the Azure Logic Apps Standard SDK (preview)
 
-[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../includes/logic-apps-sku-standard.md)]
 
 > [!IMPORTANT]
 >
