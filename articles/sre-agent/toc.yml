@@ -30,10 +30,18 @@ items:
         href: agent-identity.md
       - name: Security overview
         href: security-overview.md
+      - name: Network integration
+        href: network-integration.md
       - name: Run modes
         href: run-modes.md
       - name: Connectors
         href: connectors.md
+      - name: Managed connectors
+        href: managed-connectors.md
+      - name: MCP server
+        href: mcp-server-overview.md
+      - name: SRE Agent MCP server
+        href: mcp-server.md
       - name: Incident platforms
         href: incident-platforms.md
       - name: Memory & knowledge
@@ -114,6 +122,8 @@ items:
             href: python-code-execution.md
           - name: Plugin marketplace
             href: plugin-marketplace.md
+          - name: Add a private marketplace
+            href: add-private-marketplace.md
           - name: Agent hooks
             href: agent-hooks.md
           - name: Code interpreter
@@ -142,6 +152,8 @@ items:
             href: favorites-mine-filter.md
       - name: Measure & govern
         items:
+          - name: Operations Hub overview
+            href: operations-hub-overview.md
           - name: Track incident value
             href: track-incident-value.md
           - name: Monitor agent usage
@@ -194,6 +206,8 @@ items:
             href: create-python-tool.md
           - name: Install a Marketplace plugin
             href: install-plugin-from-marketplace.md
+          - name: Install a plugin from URL
+            href: install-plugin-from-url.md
           - name: Use code interpreter
             href: use-code-interpreter.md
           - name: Create a subagent
@@ -204,6 +218,12 @@ items:
             href: use-docsguide.md
       - name: Knowledge & data sources
         items:
+          - name: Set up GitHub connector (OAuth/PAT)
+            href: setup-github-connector.md
+          - name: Set up GitHub BYO App
+            href: setup-github-byo-app.md
+          - name: Connect GitHub Enterprise Cloud
+            href: connect-github-enterprise-cloud.md
           - name: Set up Kusto connector
             href: kusto-connector.md
           - name: Set up Azure DevOps connector
@@ -212,6 +232,10 @@ items:
             href: outlook-connector.md
           - name: Set up MCP connector
             href: mcp-connector.md
+          - name: Set up SRE Agent MCP server
+            href: setup-mcp-server.md
+          - name: Set up a managed connector
+            href: setup-managed-connector.md
           - name: Set up Log Analytics connector
             href: setup-log-analytics-connector.md
           - name: Create a Kusto tool

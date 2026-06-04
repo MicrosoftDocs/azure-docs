@@ -116,7 +116,7 @@ The task hub name is set to the value of the `MyTaskHub` app setting. The follow
 > [!NOTE]
 > When using deployment slots, it's a best practice to set up the task hub name using app settings. If you want to make sure that a particular slot always uses a particular task hub, use ["slot-sticky" app settings](../../azure-functions/functions-deployment-slots.md#create-a-deployment-setting). 
 
-In addition to **host.json**, task hub names can also be set up in [orchestration client binding](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client) metadata. This setup is useful when you need to access orchestrations or entities that live in a separate function app. The following code shows how to write a function that uses the [orchestration client binding](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client) to work with a task hub that's set up as an app setting:
+In addition to **host.json**, task hub names can also be set up in [orchestration client binding](../durable-functions/durable-functions-bindings.md#orchestration-client) metadata. This setup is useful when you need to access orchestrations or entities that live in a separate function app. The following code shows how to write a function that uses the [orchestration client binding](../durable-functions/durable-functions-bindings.md#orchestration-client) to work with a task hub that's set up as an app setting:
 
 # [C#](#tab/csharp)
 
@@ -139,7 +139,7 @@ public static async Task<HttpResponseMessage> Run(
 ```
 
 > [!NOTE]
-> The previous example is for Durable Functions 2.x. For Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
+> The previous example is for Durable Functions 2.x. For Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
 
 # [JavaScript](#tab/javascript)
 
@@ -218,7 +218,7 @@ If not specified, a default task hub name is used as shown in the following tabl
 | 2.x | When deployed in Azure, the task hub name is derived from the name of the *function app*. When running outside of Azure, the default task hub name is `TestHubName`. |
 | 1.x | The default task hub name for all environments is `DurableFunctionsHub`. |
 
-For more information about the differences between extension versions, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
+For more information about the differences between extension versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
 
 ::: zone-end
 
@@ -231,7 +231,7 @@ Each application that shares a backend should connect to its own task hub to avo
 This requirement applies to all storage backends. For BYO storage providers (Azure Storage, Netherite, MSSQL), configure each function app with a separate [task hub name](#task-hub-names). This requirement also applies to staging slots: configure each staging slot with a unique task hub name.
 
 > [!IMPORTANT]
-> By default, the app name is used as the task hub name, which ensures that accidental sharing doesn't happen. If you explicitly configure task hub names in *host.json*, ensure the names are unique. The only exception is if you deploy *copies* of the same app in [multiple regions](../../azure-functions/durable-functions/durable-functions-disaster-recovery-geo-distribution.md) for disaster recovery. In this case, use the same task hub for the copies.
+> By default, the app name is used as the task hub name, which ensures that accidental sharing doesn't happen. If you explicitly configure task hub names in *host.json*, ensure the names are unique. The only exception is if you deploy *copies* of the same app in [multiple regions](../durable-functions/durable-functions-disaster-recovery-geo-distribution.md) for disaster recovery. In this case, use the same task hub for the copies.
 
 The following diagram illustrates one task hub per function app in shared and dedicated Azure Storage accounts.
 
@@ -500,6 +500,9 @@ For complete identity configuration details, see [Configure managed identity for
 
 This section covers task hub creation and deletion and inspecting task hub contents. It applies to bring-your-own (BYO) storage providers: Azure Storage, Netherite, and MSSQL.
 
+> [!IMPORTANT]
+> When you use a BYO storage provider, you are responsible for securing the underlying storage resources. Write access to task hub storage can be used to alter application behavior, including triggering arbitrary code execution. Use identity-based connections, apply least-privilege RBAC, and restrict network access. For a full hardening checklist, see [Secure your task hub storage](../durable-functions/durable-functions-serialization-and-persistence.md#secure-your-task-hub-storage).
+
 ### Create and delete task hubs
 
 An empty task hub with all the required resources is automatically created in storage when a function app starts for the first time.
@@ -517,12 +520,12 @@ If you use the Azure Storage provider, no extra configuration is required. Other
 There are several common ways to inspect the contents of a task hub:
 
 - Within a function app, the client object provides methods to query the instance store. To learn more about what types of queries are supported, see the [Instance Management](durable-task-instance-management.md) article.
-- Similarly, the [HTTP API](../../azure-functions/durable-functions/durable-functions-http-features.md) offers REST requests to query the state of orchestrations and entities. See the [HTTP API Reference](../../azure-functions/durable-functions/durable-functions-http-api.md) for more details.
+- Similarly, the [HTTP API](../durable-functions/durable-functions-http-features.md) offers REST requests to query the state of orchestrations and entities. See the [HTTP API Reference](../durable-functions/durable-functions-http-api.md) for more details.
 - The [Durable Functions Monitor](https://github.com/microsoft/DurableFunctionsMonitor) tool can inspect task hubs and offers various options for visual display.
 
 For some storage providers, you can also inspect the task hub by going directly to the underlying storage:
 
-- If you use the Azure Storage provider, the instance states are stored in the [Instance Table](../../azure-functions/durable-functions/durable-functions-azure-storage-provider.md#instances-table-for-orchestration-and-entity-status) and the [History Table](../../azure-functions/durable-functions/durable-functions-azure-storage-provider.md#history-table-for-orchestration-events), which you can inspect using tools like Azure Storage Explorer.
+- If you use the Azure Storage provider, the instance states are stored in the [Instance Table](../durable-functions/durable-functions-azure-storage-provider.md#instances-table-for-orchestration-and-entity-status) and the [History Table](../durable-functions/durable-functions-azure-storage-provider.md#history-table-for-orchestration-events), which you can inspect using tools like Azure Storage Explorer.
 - If you use the MSSQL storage provider, use SQL queries and tools to inspect the task hub contents in the database.
 
 ::: zone-end
@@ -538,7 +541,7 @@ Workers can process multiple work items at the same time, subject to the configu
 
 ::: zone pivot="durable-functions"
 
-For more information on concurrency throttles, see [Performance and scale](../../azure-functions/durable-functions/durable-functions-perf-and-scale.md#concurrency-throttles).
+For more information on concurrency throttles, see [Performance and scale](../durable-functions/durable-functions-perf-and-scale.md#concurrency-throttles).
 
 ::: zone-end
 
@@ -743,7 +746,7 @@ The Azure Storage provider represents the task hub in storage using the followin
 
 * Two Azure Tables store the instance states.
 * One Azure Queue stores the activity messages.
-* One or more Azure Queues store the instance messages. Each of these so-called *control queues* represents a [partition](../../azure-functions/durable-functions/durable-functions-perf-and-scale.md#partition-count) that is assigned a subset of all instance messages, based on the hash of the instance ID.
+* One or more Azure Queues store the instance messages. Each of these so-called *control queues* represents a [partition](../durable-functions/durable-functions-perf-and-scale.md#partition-count) that is assigned a subset of all instance messages, based on the hash of the instance ID.
 * A few extra blob containers used for lease blobs or large messages.
 
 For example, a task hub named `xyz` with `PartitionCount = 4` contains the following queues and tables:
@@ -752,7 +755,7 @@ For example, a task hub named `xyz` with `PartitionCount = 4` contains the follo
 
 The following sections describe these components and their roles in more detail.
 
-For more information about how task hubs are represented by the Azure Storage provider, see the [Azure Storage provider](../../azure-functions/durable-functions/durable-functions-azure-storage-provider.md) documentation.
+For more information about how task hubs are represented by the Azure Storage provider, see the [Azure Storage provider](../durable-functions/durable-functions-azure-storage-provider.md) documentation.
 
 ### Netherite storage provider (Retirement path)
 
@@ -796,7 +799,7 @@ For more information on task hubs for the MSSQL storage provider, see [Task Hub 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to handle orchestration versioning](../../azure-functions/durable-functions/durable-functions-versioning.md)
+> [Learn how to handle orchestration versioning](../durable-functions/durable-functions-versioning.md)
 
 ::: zone-end
 

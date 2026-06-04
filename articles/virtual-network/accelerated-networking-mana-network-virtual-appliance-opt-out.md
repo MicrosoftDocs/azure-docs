@@ -12,14 +12,14 @@ ms.date: 04/07/2026
 
 # MANA support for Network Virtual Appliances (NVAs)
 
-As Azure expands [Microsoft Azure Network Adapter (MANA)](./accelerated-networking-mana-overview.md) support to [existing VM series](./accelerated-networking-mana-existing-sizes.md), Network Virtual Appliances (NVAs) running on those VM series may be placed on MANA-capable hardware. Existing VM series are supported on Microsoft Azure Network Adapter (MANA) capable hardware. However, since these VM series were introduced before MANA was released, they may not fully benefit from all performance, reliability, and resiliency improvements.
+As Azure expands [Microsoft Azure Network Adapter (MANA)](./accelerated-networking-mana-overview.md) support to [existing VM series](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series), Network Virtual Appliances (NVAs) running on those VM series may be placed on MANA-capable hardware. Existing VM series are supported on Microsoft Azure Network Adapter (MANA) capable hardware. However, since these VM series were introduced before MANA was released, they may not fully benefit from all performance, reliability, and resiliency improvements.
 
 Newer VM series are built and optimized with MANA in mind and are designed to take full advantage of its performance, reliability, and resiliency improvements. For this reason, it is recommended to use newer VM sizes for the most optimal networking experience.
 
 While most workloads transition to MANA-capable hardware without issue, NVA workloads are uniquely impacted due to their direct dependency on the underlying network hardware and drivers. 
 
 ## Compatibility
-Your NVA VMs running on [existing VM series](./accelerated-networking-mana-existing-sizes.md) must meet the one of following requirements. For DPDK-based workloads, see the [DPDK guidance](./setup-dpdk-mana.md) for more information.
+Your NVA VMs running on [existing VM series](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) must meet the one of following requirements. For DPDK-based workloads, see the [DPDK guidance](./setup-dpdk-mana.md) for more information.
 
 1. **Use a compatible VM series and/or operating system**:
     <br>To check whether your configuration is supported, see [MANA support for existing VM series](./accelerated-networking-mana-existing-sizes.md).
@@ -31,7 +31,11 @@ Your NVA VMs running on [existing VM series](./accelerated-networking-mana-exist
 You can apply the `LegacyVMNVA` tag to temporarily avoid placement on MANA‑enabled hardware. This tag prevents NVA VMs and Virtual Machine Scale Sets from landing on MANA hardware while you complete your migration. Follow the steps below to apply the tag.
 
 > [!IMPORTANT]
-> The `LegacyVMNVA` tag must be applied before August 1, 2026. VMs that are created or tagged after this date may be placed on MANA-capable hardware. After May 31, 2027, the tag is ignored and all [MANA-eligible VM series](./accelerated-networking-mana-existing-sizes.md) will be placed on MANA-capable hardware.
+> The `LegacyVMNVA` tag must be applied and enabled with the following considerations:
+> - [MANA-eligible Cobalt 100 and Intel v5 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in Public cloud using network acceleration, by May 26, 2026
+> - [MANA-eligible Intel v1-v4 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in Public cloud using network acceleration, by August 1, 2026
+>   
+> VMs that are created or tagged after this date may be placed on MANA-capable hardware. After May 31, 2027, the tag is ignored and all [MANA-eligible VM series](./accelerated-networking-mana-existing-sizes.md) will be placed on MANA-capable hardware.
 
 1. Open the `LegacyVMNVA` [Azure Policy](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe87a87f5-e6dd-4919-be21-abb0a4ea4630/version/1.0.0/scopes~/%5B%22%2Fsubscriptions%2F12015272-f077-4945-81de-a5f607d067e1%22%2C%22%2Fsubscriptions%2F0ba674a6-9fde-43b4-8370-a7e16fdf0641%22%5D/contextRender~/false).
      - Using the existing [Compliance and Remediation process](/azure/governance/policy/how-to/remediate-resources?tabs=azure-portal), the tag can be applied across your environment at scale and cover individual VM workloads and Virtual Machine Scale Set scenarios.
@@ -52,7 +56,7 @@ You can apply the `LegacyVMNVA` tag to temporarily avoid placement on MANA‑ena
 
 4. Enable **Automatically enroll in minor version changes** to ensure minor revisions are applied automatically. Alternatively, assign the policy using version `1.*.*`.
 
-5. Activate the tag by performing a "stop deallocate and start" operation on the affected resources. The Accelerated Networking enablement status of a VM doesn't affect whether the policy is applied.
+5. Activate the tag by performing a "reapply" operation on the affected resources. The Accelerated Networking enablement status of a VM doesn't affect whether the policy is applied.
 
 ## Network performance for incompatible VMs
 If a VM is placed on MANA-capable hardware but the OS doesn't support MANA, networking automatically falls back to the NetVSC network adapter. In this scenario:
@@ -65,11 +69,16 @@ If a VM is placed on MANA-capable hardware but the OS doesn't support MANA, netw
 
 ## Special tag deployment scenarios
 
+### NVAs with on-demand capacity reservation (ODCR)
+If you use the `LegacyVMNVA` tag on VMs with an [on-demand capacity reservation (ODCR)](/azure/virtual-machines/capacity-reservation-overview) to temporarily avoid deployment on MANA-enabled hardware, the available capacity pool for placement is reduced, and [ODCR SLA guarantees](/azure/virtual-machines/capacity-reservation-overview#sla-for-capacity-reservation) do not apply to those VMs.
+
+To restore ODCR SLA eligibility, remove the opt-out tag and ensure your NVA is compatible with MANA.
+
 ### NVAs acquired outside of Azure Marketplace
 
 If your NVA was acquired directly from your NVA provider rather than through the Azure Marketplace, work with your provider directly to determine whether changes are required to your deployment templates or mechanisms to ensure the `LegacyVMNVA` tag is applied to both existing and new deployments.
 
-### Managed Service NVAs
+### Managed service NVAs
 
 This change also affects NVAs provided through a managed service. Work with your managed service provider to understand their plans and processes for applying the `LegacyVMNVA` tag to your resources.
 

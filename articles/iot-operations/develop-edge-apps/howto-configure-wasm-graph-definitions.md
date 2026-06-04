@@ -4,6 +4,7 @@ description: Learn how to create and configure WebAssembly graph definitions tha
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-data-flows
 ms.topic: how-to
 ms.date: 02/27/2026
 ai-usage: ai-assisted
@@ -39,7 +40,7 @@ Graph definitions follow a formal [JSON schema](https://www.schemastore.org/aio-
 > [!IMPORTANT]
 > The `$schema` field in the graph metadata references the **graph definition schema** hosted on schemastore.org. This schema validates the structure of your graph YAML file (operations, connections, module requirements). It is not a message payload schema.
 >
-> If you need to validate message payloads, your WASM modules must handle that validation logic themselves. You can upload payload schemas to the [AIO schema registry](../connect-to-cloud/concept-schema-registry.md) and reference them in node connections, but the dataflow runtime does not automatically enforce payload validation. The schema reference only makes the schema available to your module code.
+> If you need to validate message payloads, your WASM modules must handle that validation logic themselves. You can upload payload schemas to the [Azure IoT Operations schema registry](../connect-to-cloud/concept-schema-registry.md) and reference them in node connections, but the dataflow runtime does not automatically enforce payload validation. The schema reference only makes the schema available to your module code.
 
 ## Basic graph structure
 
@@ -99,7 +100,7 @@ For step-by-step deployment instructions, see [Deploy WebAssembly (WASM) modules
 This graph creates a straightforward data processing pipeline:
 
 1. **Source operation**: Receives temperature data from the data flow's source endpoint
-2. **Map operation**: Processes data with the temperature WASM module (`temperature:1.0.0`)
+2. **Map operation**: Processes data with the temperature WASM module. Use `temperature:1.0.0` for a flat registry layout, or include the repository path for a nested layout, for example `azure-samples/explore-iot-operations/temperature:1.0.0`.
 3. **Sink operation**: Sends converted data to the data flow's destination endpoint
 
 The [temperature module](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/operators/temperature/src/lib.rs) converts Fahrenheit to Celsius using the standard formula `(F - 32) × 5/9 = C`.

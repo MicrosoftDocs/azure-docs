@@ -3,6 +3,7 @@ title: "Quickstart: Configure your cluster"
 description: "Quickstart: Configure devices, assets, and data flows in your cluster to process and route data from a simulated OPC PLC server to the cloud."
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: quickstart
 ms.date: 06/03/2026
 ms.custom:

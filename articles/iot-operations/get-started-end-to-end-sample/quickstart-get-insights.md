@@ -3,6 +3,7 @@ title: "Quickstart: Get insights from your processed data"
 description: "Quickstart: Use a real-time dashboard to capture insights from the OPC UA data you sent to Event Hubs."
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: quickstart
 ms.date: 06/03/2026
 ms.custom:

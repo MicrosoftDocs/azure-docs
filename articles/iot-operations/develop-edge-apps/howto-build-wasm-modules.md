@@ -6,6 +6,7 @@ ms.author: dobett
 ms.topic: how-to
 ms.date: 04/10/2026
 ms.service: azure-iot-operations
+ms.subservice: azure-data-flows
 ai-usage: ai-assisted
 
 # CustomerIntent: As a developer, I want to understand how to use the VS Code extension or the dataflow-dev CLI to build and test WASM modules to use in data flow graphs or the HTTP/REST connector.

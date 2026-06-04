@@ -165,6 +165,12 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "remote-mcp-functions-javascript",
+            "url": "https://github.com/Azure-Samples/remote-mcp-functions-javascript",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "functions-host-mcp-sdk-dotnet",
             "url": "https://github.com/Azure-Samples/mcp-sdk-functions-hosting-dotnet",
             "branch": "main",
@@ -667,6 +673,24 @@
             "url": "https://github.com/Azure-Samples/durable-functions-quickstart-python-azd",
             "branch": "main",
             "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-scenarios-durable-java",
+            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-java-azd",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-scenarios-durable-javascript",
+            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-javascript-azd",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-scenarios-durable-powershell",
+            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-powershell-azd",
+            "branch": "main",
+            "branch_mapping": {}
         }, 
         {    "path_to_root": "functions-sql-todo-sample",
             "url": "https://github.com/Azure-Samples/azure-sql-binding-func-dotnet-todo",
@@ -690,9 +714,16 @@
             "url": "https://github.com/Azure-Samples/remote-mcp-functions-java",
             "branch": "main",
             "branch_mapping": {}
-        },        {
+        },
+        {
             "path_to_root": "functions-scenarios-custom-mcp-typescript",
             "url": "https://github.com/Azure-Samples/remote-mcp-functions-typescript",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-scenarios-custom-mcp-javascript",
+            "url": "https://github.com/Azure-Samples/remote-mcp-functions-javascript",
             "branch": "main",
             "branch_mapping": {}
         },

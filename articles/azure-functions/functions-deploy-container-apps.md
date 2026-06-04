@@ -4,7 +4,7 @@ description: Get started with Azure Functions on Azure Container Apps by deployi
 ms.date: 01/06/2025
 ms.topic: quickstart
 ms.custom: build-2023, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python, linux-related-content, build-2024, devx-track-ts
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 ---
 
 # Create your first containerized functions on Azure Container Apps 
@@ -177,6 +177,7 @@ The request URL should look something like this:
 ::: zone pivot="programming-language-csharp"  
 `https://myacafunctionapp.kindtree-796af82b.eastus.azurecontainerapps.io/api/httpexample`
 ::: zone-end
+
 
 ## Clean up resources
 

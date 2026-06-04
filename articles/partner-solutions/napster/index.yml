@@ -1,0 +1,54 @@
+### YamlMime:Landing
+
+title: Napster Companion API – Azure Native Integrations
+summary: Build, deploy, and operate persistent multimodal AI agents (Omniagents) with consistent identity, knowledge, and memory across video, voice, text, and telephony channels.
+
+metadata:
+  title: Napster Companion API – Azure Native Integrations
+  description: Napster Companion API – Azure Native Integrations brings Napster's multimodal AI agent platform to Azure with unified billing, single sign-on, and Azure-native resource management.
+  author: shijoy
+  ms.author: shijoy
+  ms.topic: landing-page
+  ms.custom:
+    - ignite-2026
+  ms.date: 05/20/2026
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Napster Companion API
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Napster Companion API?
+            url: overview.md
+          - text: FAQ
+            url: faq.yml
+      - linkListType: how-to-guide
+        links:
+          - text: Manage your Napster Companion API resource
+            url: manage.md
+
+  # Card
+  - title: Create a Napster Companion API resource
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Get started with Napster Companion API
+            url: create.md
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshooting Napster Companion API
+            url: /troubleshoot/azure/partner-solutions/marketplace-purchases-errors
+
+  # Card
+  - title: SDKs and tools
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Napster Companion API developer tools
+            url: tools.md#developer-tools
+          - text: Napster developer portal
+            url: https://developers.napster.com/docs
+          - text: Napster API reference
+            url: https://developers.napster.com/docs/api-reference
