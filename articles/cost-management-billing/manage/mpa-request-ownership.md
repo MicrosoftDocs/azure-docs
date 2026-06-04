@@ -23,7 +23,7 @@ Supported product (subscriptions, reservations and savings plans) billing owners
 - An Enterprise Agreement transfer to an Azure plan under the MPA
 - An enterprise Microsoft Customer Agreement transfer to an Azure plan under the MPA
 
-This feature is available only for CSP Direct Bill Partners certified as [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) and have the Frontier Distributor Designation. It's subject to Microsoft governance and policies and might require review and approval for certain customers.
+This feature is available only for CSP Direct Bill Partners certified as [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) and have the [Frontier Distributor Designation](https://partner.microsoft.com/asset/collection/frontier-distributor-collection). It's subject to Microsoft governance and policies and might require review and approval for certain customers.
 
 This article applies to billing accounts for Microsoft Partner Agreements. These accounts are created for Cloud Solution Providers (CSPs) to manage billing for their customers in the new commerce experience. The new experience is only available for partners, who have at least one customer that has accepted a Microsoft Customer Agreement (MCA) and has an Azure Plan. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement).
 
