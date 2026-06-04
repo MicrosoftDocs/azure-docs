@@ -1,13 +1,14 @@
 ---
-title: Track incident value in Azure SRE Agent
-description: Measure your agent's impact with interactive analytics. Drill into incidents from any chart, filter by response plan, and track quality with star ratings.
+title: "Track Incident Value in Azure SRE Agent"
+description: "Track incident value in Azure SRE Agent with interactive analytics. Drill into incidents, filter by response plan, and measure quality with star ratings."
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 05/12/2026
+ms.date: 06/02/2026
 author: dchelupati
 ms.author: dchelupati
+ms.reviewer: cshoe
 ms.ai-usage: ai-assisted
-ms.custom: incidents, metrics, value, daily reports, response plans, analytics, mitigation rate, intent met
+ms.custom: incidents, metrics, value, daily-reports, incident-scorecard, response-plans, analytics, mttr, mitigation-rate, intent-met, drill-down, treemap, star-ratings, quality-score, root-cause, severity, kpi-cards, stacked-outcome-bar
 #customer intent: As an SRE leader, I want to track incident metrics to show ROI and measure which response plans work best.
 ---
 
@@ -161,51 +162,40 @@ Each row links to the agent's investigation thread, so you can review exactly wh
 
 ## Daily reports
 
-Your agent generates automated daily reports at **Daily reports** in the left sidebar.
+Your agent generates automated daily reports accessible at **Daily reports** in the left sidebar.
 
-![Daily report showing security findings, incident summary, resource health metrics, and recommended actions](media/track-incident-value/daily-reports.png)
+:::image type="content" source="media/track-incident-value/daily-reports.png" alt-text="Screenshot of daily report showing security findings, incident summary, resource health metrics, and recommended actions.":::
 
 Select a date to view that day's report. Each report covers:
 
 - **Security findings**: CVE vulnerabilities across connected repositories, grouped by severity
-- **Incidents**: Active, mitigated, and resolved counts with per-incident details
+- **Incidents**: Active, mitigated, and resolved counts with per-incident investigation details
 - **Health and performance**: Per-resource health status with availability, CPU, and memory metrics
+- **Code optimizations**: Performance recommendations identified by the agent
 - **Recommended actions**: Prioritized action items with descriptions and estimated effort
 
-Daily reports replace the "what happened overnight?" morning routine. The information is already compiled and waiting.
-
-## What makes this different
-
-Incident metrics dashboards are common in observability platforms. What is different here is that you're measuring the **agent's** contribution, not just incident volume.
-
-The per-response-plan breakdown answers a question no general-purpose dashboard can: "Which of my AI automation strategies are actually working?" You see the relationship between a plan's autonomy level and its mitigation rate side by side. A plan running in Autonomous mode with high mitigation numbers validates your investment. A plan with all incidents stuck in "Pending user action" tells you the response plan needs better instructions or the agent needs additional tools.
-
-The daily reports go further. They don't just summarize incidents. They correlate security findings, resource health, and performance data into a single view that would otherwise require opening three or four different tools.
-
-The Intent Met score adds a quality dimension that traditional dashboards lack. Instead of just counting incidents resolved, it evaluates **how well** each thread was resolved by using the same criteria for both incidents and scheduled tasks. A scheduled health check that runs but produces empty results scores differently from one that surfaces actionable findings. This difference gives you a signal to iterate on task instructions, not just monitor completion rates.
+Daily reports replace the "what happened overnight?" morning routine. Instead of asking your agent or querying dashboards, the information is already compiled and waiting.
 
 ## Limits
 
 | Resource | Limit |
 |----------|-------|
-| **Scorecard data** | Retained in Application Insights (follows your workspace retention policy) |
+| **Drill-down results** | Up to 200 incidents per drill-down query |
 | **Daily reports** | Generated once per day |
-| **Intent Met scoring** | Applied automatically to incidents, scheduled tasks, and conversations |
+| **Intent Met scoring** | Applied to incidents and scheduled tasks |
 
 ## Get started
 
-Incident tracking is built in. Open **Monitor** > **Incident metrics** once your agent starts handling incidents.
+Incident tracking is built in. Open **Operations Hub > Incident Analytics** once your agent starts handling incidents.
 
 | Resource | What you learn |
 |----------|-------------------|
 | [Set up a response plan](response-plan.md) | Configure response plans that generate tracking data |
 
-## Related capabilities
+## Related content
 
-| Capability | What it adds |
-|------------|--------------|
-| [Automate incident response](incident-response.md) | Configure response plans for each incident type |
-| [Automate tasks on a schedule](scheduled-tasks.md) | Set up recurring tasks reflected in Intent Met scores |
-| [Monitor agent usage](monitor-agent-usage.md) | Track AAU consumption alongside incident metrics |
-| [Review agent insights](review-agent-insights.md) | Per-thread qualitative evaluation of agent performance |
-| [Audit agent actions](audit-agent-actions.md) | Review specific actions during incident investigations |
+- [Operations Hub](operations-hub.md)
+- [Automate incident response](incident-response.md)
+- [Automate tasks on a schedule](scheduled-tasks.md)
+- [Monitor agent usage](monitor-agent-usage.md)
+- [Audit agent actions](audit-agent-actions.md)

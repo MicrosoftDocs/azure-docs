@@ -5,7 +5,7 @@ keywords: TLS/SSL certificate installation, Azure security, HTTPS setup, custom 
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 04/15/2026
+ms.date: 06/04/2026
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
@@ -379,7 +379,11 @@ This capability is supported for Windows container apps only in multitenant App 
 
 ### Can I load a private CA certificate in my App Service trusted root store?
 
-You can load your own CA certificate into the trusted root store in [App Service Environment version 3](./environment/overview-certificates.md). You can't modify the list of trusted root certificates in App Service (multitenant). For more information on App Service multitenant versus single tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
+In App Service (multitenant), uploading a private CA certificate as a public certificate does not add it to the platform-managed trusted root store. 
+
+If you need to load a CA certificate into the App Service trusted root store, you can do that in App Service Environment version 3 (ASE v3). For more information, see [App Service Environment v3 certificates](./environment/overview-certificates.md).
+
+For a comparison of multitenant App Service and ASE, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
 
 ### Can App Service certificates be used for other services?
 
