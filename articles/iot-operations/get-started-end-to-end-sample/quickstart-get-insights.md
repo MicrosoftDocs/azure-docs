@@ -47,7 +47,7 @@ Before proceeding, make sure local authentication is enabled on your Event Hubs 
     1. Make sure that **Fabric** is selected at the bottom of the left-hand navigation pane, and then select **Real-Time**.
     1. Under **Streaming data** on the **Real-Time hub** pane, select **Add data**.
     1. When the **Add data** pane opens, select  the **Azure** tab at the top.
-    1. In the list of sources, hover over your event hub namespace and select the **Connect data source** icon to open **Configure connection settings**.
+    1. In the list of sources, hover over your Event Hubs namespace and select the **Connect data source** icon to open **Configure connection settings**.
 
     :::image type="content" source="media/quickstart-get-insights/add-event-hub-data-source.png" alt-text="Screenshot of how to select an event hub namespace to connect to an eventstream.":::
 
