@@ -25,7 +25,12 @@ ms.custom:
 
 To programmatically build Standard workflows in Azure Logic Apps with the Visual Studio Code tools for code development, source control, unit testing, IntelliSense, debugging, and refactoring, use the Azure Logic Apps Standard SDK. This SDK lets you define workflows entirely in C# and .NET by using an imperative coding style. Not only do you get more control over your workflow design, you get full access to the Azure Logic Apps ecosystem for Azure-hosted connectors and built-in operations. Organize, develop, and test your workflows by using the project structure, debugging experience, and development patterns that you might already know in Visual Studio Code.
 
-This guide shows how to create and set up your project in Visual Studio Code with code-first workflows by using the Azure Logic Apps Standard SDK. You learn how to set up your workspace, enable connectors, manage connections, debug your workflows, and add workflows to your project.
+This guide shows how to complete the following tasks:
+
+- Create your workspace and code-first workflow project.
+- Enable Azure-hosted connectors and set up connections.
+- Locally run and debug workflows.
+- Add more workflows to your project.
 
 By default, the SDK generates a logic app project that includes sample code that you can review and then replace with your own. 
 
