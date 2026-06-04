@@ -8,6 +8,7 @@ ms.author: glenga
 
 > [!div class="op_single_selector" title1="Select your function language: "]
 > - [C#](../articles/azure-functions/how-to-create-function-azure-cli.md?pivots=programming-language-csharp)
+> - [Go](../articles/azure-functions/how-to-create-function-azure-cli.md?pivots=programming-language-go)
 > - [Java](../articles/azure-functions/how-to-create-function-azure-cli.md?pivots=programming-language-java)
 > - [JavaScript](../articles/azure-functions/how-to-create-function-azure-cli.md?pivots=programming-language-javascript)
 > - [PowerShell](../articles/azure-functions/how-to-create-function-azure-cli.md?pivots=programming-language-powershell)

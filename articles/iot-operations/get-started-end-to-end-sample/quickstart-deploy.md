@@ -3,11 +3,12 @@ title: "Quickstart: Run Azure IoT Operations in Codespaces"
 description: "Quickstart: Deploy Azure IoT Operations to a Kubernetes cluster running in GitHub Codespaces."
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 11/20/2025
+ms.date: 05/15/2026
 
-#CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
+#CustomerIntent: As an OT user, I want to deploy Azure IoT Operations to a Kubernetes cluster so that I can begin building an end-to-end data scenario.
 ---
 
 # Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s
@@ -32,7 +33,7 @@ We use GitHub Codespaces as a virtual environment for this quickstart so that yo
 
 Before you begin, prepare the following prerequisites:
 
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+[!INCLUDE [prereq-azure-subscription](../includes/prereq-azure-subscription.md)]
 
 * A [GitHub](https://github.com) account.
 

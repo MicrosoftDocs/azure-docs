@@ -45,7 +45,14 @@ items:
               href: jobs-get-started-portal.md
             - name: Command line
               href: jobs-get-started-cli.md
-
+    - name: Express
+      items:
+        - name: Overview
+          href: express-overview.md
+        - name: Deploy with the CLI
+          href: deploy-express-cli.md
+        - name: Local testing
+          href: express-local-testing.md
 - name: AI integration
   items:
     - name: Overview
@@ -118,6 +125,14 @@ items:
               href: sessions-tutorial-python-mcp.md
     - name: Modernize .NET & Java apps
       href: modernize-ai.md
+    - name: Sandboxes
+      items:
+        - name: Overview
+          href: sandboxes-overview.md
+        - name: Snapshots and state management
+          href: sandboxes-snapshots-state-management.md
+        - name: Egress policies
+          href: sandboxes-egress-policies.md
 - name: Key concepts
   items:
     - name: Compute and billing structures
@@ -216,10 +231,24 @@ items:
           href: functions-usage.md
         - name: Manage a Functions app
           href: functions-manage.md
-        - name: Manage secrets for Azure Functions on Azure Container Apps
-          href: functions-secrets-tutorial.md
+        - name: Managing Secrets in Functions on ACA
+          items:
+            - name: Overview
+              href: functions-secrets-tutorial.md
+            - name: Store app-level secrets
+              href: functions-secrets-app-level.md
+            - name: Configure host key storage
+              href: functions-secrets-host-keys.md
         - name: KEDA scaling mappings reference
           href: functions-keda-mappings.md      
+        - name: Functions and GPU
+          items:
+            - name: Use GPUs with Functions on Container Apps
+              href: functions-gpu-container-apps.md
+            - name: "Tutorial: GPU image generation with Functions on ACA"
+              href: tutorial-gpu-image-generation.md
+        - name: Override auto-generated KEDA scale rules
+          href: functions-scale-rule-override.md
         - name: Migrate from Functions v1 to v2
           href: migrate-functions.md
         - name: Run event-driven and batch workloads
@@ -297,10 +326,20 @@ items:
       items:
         - name: Aspire Dashboard
           href: aspire-dashboard.md
-        - name: OpenTelemetry agents
-          href: opentelemetry-agents.md
         - name: Grafana dashboards
           href: grafana-dashboards.md
+    - name: OpenTelemetry agents
+      items:
+        - name: Overview
+          href: opentelemetry-agents.md
+        - name: Export to Datadog
+          href: opentelemetry-export-datadog.md
+        - name: Export to Dynatrace
+          href: opentelemetry-export-dynatrace.md
+        - name: Export to Elastic
+          href: opentelemetry-export-elastic.md
+        - name: Export to New Relic
+          href: opentelemetry-export-new-relic.md
     - name: Troubleshoot and resolve issues with SRE agent
       items:
         - name: Overview
@@ -368,6 +407,8 @@ items:
           href: managed-identity-image-pull.md
     - name: Secure deployments
       href: secure-deployment.md
+    - name: Confidential compute
+      href: confidential-compute.md
 - name: Resiliency (preview)
   items:
     - name: Service discovery resiliency
@@ -654,6 +695,9 @@ items:
   items:
     - name: Samples
       href: samples.md
-    - name: Frequently asked questions
+    - name: Container Apps frequently asked questions
       href: faq.yml
+      displayName: faq
+    - name: Express frequently asked questions
+      href: express-faq.yml
       displayName: faq

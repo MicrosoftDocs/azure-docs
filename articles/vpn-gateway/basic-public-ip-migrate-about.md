@@ -30,6 +30,8 @@ To migrate your gateway, you first need to validate whether your resource is cap
 * For VPN Gateway SKUs VpnGw1-5 and Legacy SKUs (High-Performance SKU and Standard SKU):
 
   * Before your initiate migration for your VPN gateway, verify that your gateway subnet has at least **three** available IP addresses in your current prefix.
+ 
+  * When configuring a third VIP in Active‑Active mode for Point‑to‑Site (P2S), a non‑zonal Public IP must be used.
   
   * If your current gateway subnet is /28 or smaller, the migration tool might error out. You can use this to [add multiple prefixes for subnet](../virtual-network/how-to-multiple-prefixes-subnet.md) to /27 or larger before you can proceed with migration.
 
@@ -90,7 +92,65 @@ Yes, the IP address changes with this approach. This means that you'll have to e
 
 No. When following the recommended migration order, migrating the VPN gateway first doesn't migrate, disrupt, or impact ExpressRoute traffic. ExpressRoute connectivity remains unaffected during the VPN gateway migration. Customers shouldn't expect ExpressRoute connectivity issues when migrating the VPN gateway first.
 
+#### Can I enable DDoS protection during gateway migration?
+No. While the gateway is in migration (between Execute and Commit), do not make any changes to the public IP, gateway, or connections. Enabling DDoS protection or other advanced features during this phase may block migration or prevent rollback. Enable such features only after the migration is fully completed (after Commit).
+
+#### Can I modify my IP, VPN Gateway, subnet, or connections during migration?
+No. While the VPN Gateway is under migration (between Execute and Commit), you must not make any changes to the following:
+
+Public IP address
+VPN Gateway configuration
+Gateway subnet
+Connections
+
+Making changes during this phase can put the gateway into an unsupported or stuck state, as the migration workflow does not handle concurrent updates. 
+
+#### What happens if I make changes during migration and the gateway gets stuck?
+If the gateway enters a stuck or unrecoverable migration state due to changes made during migration:
+
+The system may be unable to complete or roll back the migration. 
+In such cases, the only recovery option may be to delete and recreate the gateway.
+
+
+
 ### Active-Active VpnGw1-5 gateway SKUs 
+
+
+#### Why does my Active‑Active VPN Gateway with Point‑to‑Site (P2S) require a third Public IP?
+For Active‑Active VPN Gateways with P2S enabled, a third Public IP is required to support the P2S endpoint alongside the two IPs used for Active‑Active instances.
+
+#### Documentation says the third Public IP must be non‑zonal. Is this still required?
+Yes.  
+For this scenario, the third Public IP must be configured **without zones (non‑zonal)** to ensure compatibility with the VPN Gateway configuration and future update operations.
+
+
+#### When should I create the third Public IP during migration?
+The third Public IP must be created and attached to the VPN Gateway **before starting the migration (Basic → Standard IP)**.
+
+This ensures:
+- The gateway configuration is complete prior to migration  
+- The migration process proceeds without validation or update issues  
+
+
+#### How do I create the required non‑zonal Public IP?
+In regions where zone‑redundant IPs are the default, you should create the third Public IP **using Azure CLI or PowerShell** rest API Version 2020-08-01 or later that sets non-zonal / no-zone Public IP   , ensuring that **no availability zones are specified**.
+
+This allows the Public IP to be created in a **non‑zonal configuration**, which is required for this scenario.
+
+
+#### Can I use a zone‑redundant Public IP instead of a non‑zonal IP for the third P2S IP?
+No.
+
+All Public IPs associated with a VPN Gateway must use a **consistent configuration**. Using a zone‑redundant Public IP for the third IP may result in deployment or update failures.
+
+
+#### Does this behavior impact all VPN Gateway migrations?
+No.
+
+This requirement specifically applies to:
+
+- **Active‑Active VPN Gateways**  
+- **With Point‑to‑Site (P2S) enabled**  
 
 #### How does migration behave for an Active‑Active VPN gateway using a Basic Public IP? Does it cause a full gateway outage?
 

@@ -41,7 +41,7 @@ Microsoft Defender for IoT is a unified security solution built specifically to 
 Both Defender for IoT and Defender for Containers can automatically monitor some of the recommendations included in this article. Defender for IoT and Defender for Containers should be the frontline of defense to protect your edge-connected solution. To learn more, see:
 
 - [Microsoft Defender for Containers - overview](/azure/defender-for-cloud/defender-for-containers-introduction)
-- [Microsoft Defender for IoT for organizations - overview](../defender-for-iot/organizations/overview.md).
+- [Microsoft Defender for IoT for organizations - overview](/azure/defender-for-iot/organizations/overview).
 
 ### Asset security
 
@@ -69,7 +69,7 @@ This section provides guidance on how to secure the connections between your ass
 
 - **Consider using enterprise firewalls or proxies to manage outbound traffic**: If you use enterprise firewalls or proxies, add the  [Azure IoT Operations endpoints](../iot-operations/deploy-iot-ops/overview-deploy.md#azure-iot-operations-endpoints) to your allowlist.
 
-- **Encrypt internal traffic of message broker**: Ensuring the security of internal communications within your edge infrastructure is important to maintain data integrity and confidentiality. You should configure the MQTT broker to encrypt internal traffic and data in transit between the MQTT broker frontend and backend pods. To learn more, see [Configure encryption of broker internal traffic and internal certificates](../iot-operations/manage-mqtt-broker/howto-encrypt-internal-traffic.md).
+- **Encrypt internal traffic of message broker**: Ensuring the security of internal communications within your edge infrastructure is important to maintain data integrity and confidentiality. You should configure the MQTT broker to encrypt internal traffic and data in transit between the MQTT broker frontend and backend pods. To learn more, see [Internal traffic encryption](../iot-operations/deployment-plan/deployment-planning-encryption.md).
 
 - **Configure TLS with automatic certificate management for listeners in your MQTT broker**: Azure IoT Operations provides automatic certificate management for listeners in your MQTT broker. This capability reduces the administrative overhead of manually managing certificates, ensures timely renewals, and helps maintain compliance with security policies. To learn more, see [Secure MQTT broker communication by using BrokerListener](../iot-operations/manage-mqtt-broker/howto-configure-brokerlistener.md).
 
@@ -120,9 +120,9 @@ The recommendations in this article help you meet the security obligations descr
 
 Microsoft Defender for IoT automatically monitors some of the recommendations in this article. Microsoft Defender for IoT periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities and then offers recommendations on how to address them. To learn more, see:
 
-- [What is Microsoft Defender for IoT for organizations?](../defender-for-iot/organizations/overview.md)
-- [What is Microsoft Defender for IoT for device builders?](../defender-for-iot/device-builders/overview.md)
-- [Enhance security posture with security recommendations](../defender-for-iot/organizations/recommendations.md).
+- [What is Microsoft Defender for IoT for organizations?](/azure/defender-for-iot/organizations/overview)
+- [What is Microsoft Defender for IoT for device builders?](/azure/defender-for-iot/device-builders/overview)
+- [Enhance security posture with security recommendations](/azure/defender-for-iot/organizations/recommendations).
 
 ### Device security
 

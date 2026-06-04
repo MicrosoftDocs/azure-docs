@@ -54,5 +54,5 @@ The key differences between the Classic and Simplified experience:
     
 ## Next steps
 
-- Learn more about setting up the [Simplified experience](tutorial-migrate-physical-virtual-machines.md#simplified-experience-recommended).
+- Learn more about setting up the [Simplified experience](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance).
   

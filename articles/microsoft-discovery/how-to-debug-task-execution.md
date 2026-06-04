@@ -5,14 +5,15 @@ author: hectoralinares
 ms.author: hectorl
 ms.service: azure
 ms.topic: how-to
-ms.date: 03/30/2026
+ms.date: 05/29/2026
 
-#CustomerIntent: As a researcher or scientist, I want to diagnose and fix problems with task execution so that my investigation can make progress.
+#CustomerIntent: As a researcher or scientist, I want to diagnose and fix problems with task execution so that my shared session can make progress.
 ---
 
 # Debug task execution
 
-When tasks in your investigation aren't progressing as expected, this guide helps you identify the cause and take action. Most issues fall into a few categories: 
+When tasks in your shared session aren't progressing as expected, this guide helps you identify the cause and take action. Most issues fall into a few categories:
+
 - Tasks that are stuck
 - Validation that's too strict or too loose
 - Agent or tool errors
@@ -35,28 +36,28 @@ The task depends on another task that isn't in a terminal status.
 
 ### Cognition isn't running
 
-Discovery Mode might be stopped.
+The Discovery Engine might be stopped.
 
-**How to check**: Verify that Discovery Mode is enabled in your investigation.
+**How to check**: Verify that the Discovery Engine is running in your shared session.
 
-**How to fix**: Enable Discovery Mode. Cognition starts its reasoning loop and picks up tasks that are ready.
+**How to fix**: Start the Discovery Engine. Cognition starts its reasoning loop and picks up tasks that are ready.
 
 > [!NOTE]
-> Discovery Mode may stop during service upgrades. This is expected. Your investigation data, task results, and execution history are preserved. Re-enable Discovery Mode to resume.
+> The Discovery Engine might stop during service upgrades. This is expected. Your shared session data, task results, and execution history are preserved. Start the Discovery Engine again to resume.
 
 ### Discovery Engine won't start
 
 The required chat model for task validation might not be deployed.
 
-**How to check**: Verify that your workspace has a chat model deployment named `gpt-5-2` (model: `gpt-5.2`).
+**How to check**: Verify that your workspace has a chat model deployment named `gpt-5-4` (model: `gpt-5.4`).
 
-**How to fix**: Deploy the model (see [Create Chat Model Deployment](quickstart-infrastructure-portal.md#5-create-chat-model-deployment)), then enable Discovery Mode.
+**How to fix**: Deploy the model (see [Create chat model deployment](quickstart-infrastructure-portal.md#6-create-chat-model-deployment)), then start the Discovery Engine.
 
 ### Cognition is busy with other tasks
 
 If many tasks are executing or in validation, cognition might be waiting for capacity before starting new ones.
 
-**How to check**: Look at how many tasks are currently in Executing status. Check if cognition is in a wait cycle by looking at the investigation activity.
+**How to check**: Look at how many tasks are currently in Executing status. Check whether cognition is in a wait cycle by looking at the shared session activity.
 
 **How to fix**: Wait for some tasks to finish. Cognition prioritizes tasks based on priority and dependency readiness.
 
@@ -79,7 +80,7 @@ If a task has been Executing for more than 15 minutes with no tool activity, the
 **How to check**: Look at the task's execution history for the current run. If the response shows "in progress" with no new output for an extended period, the response is likely stalled at the model layer.
 
 **How to fix**:
-- Stop and restart Discovery Mode. This causes cognition to reassess all tasks and retry the stalled one.
+- Stop and restart the Discovery Engine. This causes cognition to reassess all tasks and retry the stalled one.
 - If the problem persists, check whether the model deployment in your workspace is healthy.
 
 ### Tool execution failed
@@ -110,7 +111,7 @@ The agent produces reasonable results, but they don't precisely match what the v
 **How to fix**:
 - Adjust validation requirements to be achievable with the available agents and tools.
 - Reword requirements to focus on what matters most rather than requiring exhaustive detail.
-- See [Trust relationship and basic investigation patterns](concept-trust-basic-investigation-patterns.md) for guidance on calibrating validation.
+- See [Trust relationship and basic shared session patterns](concept-trust-basic-investigation-patterns.md) for guidance on calibrating validation.
 
 ### The agent isn't capable of the task
 
@@ -152,9 +153,9 @@ When cognition flags a task, it means cognition tried multiple approaches and co
 
 ### Cognition warmup takes a long time
 
-When you first enable Discovery Mode, cognition goes through a warmup period where it builds context by reviewing all tasks and planning its approach. Typically takes 30-90 seconds and involves several internal reasoning cycles before the first task starts.
+When you first start the Discovery Engine, cognition goes through a warmup period where it builds context by reviewing all tasks and planning its approach. The warmup typically takes 30-90 seconds and involves several internal reasoning cycles before the first task starts.
 
-**This is normal behavior.** Don't stop and re-enable Discovery Mode during warmup, as each restart triggers a new warmup period.
+**This is normal behavior.** Don't stop and start the Discovery Engine again during warmup, because each restart triggers a new warmup period.
 
 ### Cognition keeps waiting instead of working
 
@@ -202,23 +203,23 @@ If any of these is missing, you'll see an error when clicking file links, even t
 **How to fix**: Contact your administrator with the storage account name (visible in the storage container properties) and ask them to verify all three items. See [Azure Blob Storage in Microsoft Discovery](concept-storage-account.md) for the full configuration requirements.
 
 > [!NOTE]
-> Investigations continue to work correctly regardless of your file access. Agents can read and write files, cognition can validate file content, and task results capture the text output. The access issue only affects your ability to view files directly.
+> Shared sessions continue to work correctly regardless of your file access. Agents can read and write files, cognition can validate file content, and task results capture the text output. The access issue only affects your ability to view files directly.
 
-## Checking investigation health
+## Checking shared session health
 
-For a quick assessment of your investigation's state:
+For a quick assessment of your shared session's state:
 
 - **Count tasks by status**: How many are Complete vs. New vs. Executing vs. Needs User Attention?
 - **Identify blockers**: Are there tasks in Executing or Needs User Attention that are holding up other work?
-- **Check cognition state**: Is Discovery Mode enabled? Is cognition actively cycling?
+- **Check cognition state**: Is the Discovery Engine running? Is cognition actively cycling?
 - **Review recent activity**: Has anything changed in the last 30 minutes? If not, something might be stalled.
 
-If you need help with interpreting investigation state, the execution history on individual tasks provides the most detailed information about what happened and why.
+If you need help interpreting shared session state, the execution history on individual tasks provides the most detailed information about what happened and why.
 
 ## Related content
 
-- [Tasks and investigations](concept-tasks-investigations.md)
+- [Tasks and shared sessions](concept-tasks-investigations.md)
 - [Cognition overview](concept-cognition-overview.md)
-- [Trust relationship and basic investigation patterns](concept-trust-basic-investigation-patterns.md)
-- [Build investigations with cognition](how-to-build-investigations-cognition.md)
+- [Trust relationship and basic shared session patterns](concept-trust-basic-investigation-patterns.md)
+- [Build shared sessions with cognition](how-to-build-investigations-cognition.md)
 - [Manage Supercomputer and Node pools](how-to-manage-supercomputers.md)

@@ -1,8 +1,8 @@
 ---
 title: Use Dapr to develop distributed applications
 description: Develop distributed applications that talk with MQTT broker using Dapr.
-author: sethmanheim 
-ms.author: sethm 
+author: dominicbetts 
+ms.author: dobett 
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:

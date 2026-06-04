@@ -4,8 +4,10 @@ description: Use the operations experience web UI or the Azure CLI to configure 
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-akri
 ms.topic: how-to
-ms.date: 04/23/2026
+ms.date: 05/28/2026
+ai-usage: ai-assisted
 
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access data from SSE endpoints.
 ---
@@ -23,9 +25,9 @@ The following table summarizes the features the connector for SSE supports:
 | Feature | Supported | Notes |
 |---------|:---------:|-------|
 | Username/password authentication | Yes | Basic HTTP authentication |
-| X.509 client certificates | Yes | Certificates for client authentication and authorization |
+| X.509 user certificates (mTLS) | Yes | Certificates for client authentication and authorization |
 | Anonymous access | Yes | For testing purposes |
-| Certificate trust list | Yes | For secure TLS connections to the SSE endpoint |
+| Southbound certificate trust list | Yes | For secure TLS connections to the SSE endpoint |
 | OpenTelemetry integration | Yes | |
 | Automatic retries | Yes | Reports failed status for nonretryable errors |
 | WASM data transformation | No | |
@@ -44,7 +46,9 @@ This article explains how to use the connector for SSE to perform tasks such as:
 
 ## Prerequisites
 
-To configure devices and assets, you need a running instance of Azure IoT Operations.
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
@@ -54,11 +58,11 @@ You need any credentials required to access the SSE source. If the SSE source re
 
 Have the event identification ready for each SSE source event you want to receive.
 
-## Deploy the connector for SSE
+### SSE connector template instance
 
-[!INCLUDE [deploy-connectors-simple](../includes/deploy-connectors-simple.md)]
+Before an OT user can create a device that uses the connector for SSE, an IT administrator must add an SSE connector template instance to your Azure IoT Operations instance. To learn more, see [Create and manage connector template instances](howto-manage-connector-templates.md).
 
-### Configure a certificate trust list for the connector
+## Configure a certificate trust list for the connector
 
 [!INCLUDE [connector-certificate-application](../includes/connector-certificate-application.md)]
 
@@ -164,7 +168,19 @@ To use the `Username password` authentication mode, complete the following steps
 
 ### Configure a device to use an X.509 certificate
 
-[!INCLUDE [connector-certificate-user](../includes/connector-certificate-user.md)]
+# [Operations experience](#tab/portal)
+
+[!INCLUDE [connector-certificate-user-portal](../includes/connector-certificate-user-portal.md)]
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [connector-certificate-user-cli](../includes/connector-certificate-user-cli.md)]
+
+# [Bicep](#tab/bicep)
+
+[!INCLUDE [connector-certificate-user-bicep](../includes/connector-certificate-user-bicep.md)]
+
+---
 
 ## Create an asset
 

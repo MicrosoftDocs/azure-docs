@@ -6,34 +6,26 @@ services: application-gateway
 author: MJyot
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 04/19/2023
+ms.date: 04/30/2026
 ms.author: mjyothish
 #customer intent: As an IT administrator who's using Application Gateway V1, I want to migrate to Application Gateway V2 before April 28, 2026, so that I can ensure continuous support and benefit from enhanced performance and security features.
 ---
-
 # Migrate from Application Gateway V1 to V2 by April 28, 2026
 
 **Applies to:** :heavy_check_mark: Application Gateway v1 deployments
 
-We announced the deprecation of Azure Application Gateway V1 on April 28, 2023. On *April 28, 2026*, Application Gateway V1 will be retired. We won't support it after this date.
+We announced the deprecation of Azure Application Gateway V1 on April 28, 2023. Application Gateway V1 is retired as of  *April 28, 2026*. After April 28, 2026, we'll no longer support Application Gateway V1 resources. There's no service-level agreement (SLA) for customers who use this version. As we begin decommissioning the hardware that supports V1, traffic passing through V1 resources will be impacted.
 
-If you use Application Gateway V1, start planning your migration to [Application Gateway V2](./overview-v2.md) now. Complete it by April 28, 2026.
+If you use Application Gateway V1,  migrate to [Application Gateway V2](./overview-v2.md) now. Complete it by April 28, 2026.
 
 ## Retirement timelines
 
 - Deprecation announcement: April 28, 2023.
-
-- No new subscriptions for V1 deployments: July 1, 2023. Application Gateway V1 is no longer available for deployment on subscriptions without V1 gateways.
-
-- No new V1 deployments: September 1, 2024. V1 creation stopped completely for all customers.
-
-- Retirement: April 28, 2026. Any Application Gateway V1 deployments that have a running status are stopped.
+- Retirement: April 28, 2026. Any Application Gateway V1 deployments still running will face traffic disruptions as we start the scream tests as part of decommissioning.
 
 We'll inform you about the timeline for deleting your Application Gateway V1 deployments. After that, we'll delete deployments that aren't migrated to Application Gateway V2.
 
 ## Required action
-
-To start planning your migration to Application Gateway V2, make a list of all Application Gateway V1 gateways. On April 28, 2023, we sent an email with the subject "Retirement Notice: Transition to Application Gateway V2 by 28 April 2026" to V1 subscription owners. The email provided details about the subscription, the names of gateways, and Application Gateway V1 resources. Use these details to build the list.
 
 Complete the migration as soon as possible to prevent business impact and to take advantage of the improved performance, security, and new features of Application Gateway V2.
 

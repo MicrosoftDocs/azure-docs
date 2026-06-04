@@ -21,6 +21,8 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 > [!NOTE]
 > AzCopy supports standard virtual-hosted-style or path-style URLs defined by AWS. For example: `https://bucket.s3.amazonaws.com` or `https://s3.amazonaws.com/bucket`.
 
+To plan to migrate an AWS workload to Azure, see [Migrate storage from Amazon Web Services to Azure](/azure/migration/migrate-storage-from-aws), which includes [example migration scenarios](/azure/migration/migrate-storage-from-aws#migration-guides) that might align to your use case.
+
 ## Choose how you'll provide authorization credentials
 
 - To authorize with the Azure Storage, use Microsoft Entra ID or a Shared Access Signature (SAS) token.

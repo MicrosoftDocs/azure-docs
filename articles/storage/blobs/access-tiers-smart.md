@@ -34,6 +34,8 @@ Access behavior, performance characteristics, and SLAs of the underlying capacit
 - **Redundancy conversions** to non-zone redundant (LRS or GRS) accounts aren't supported. 
 - When a GZRS account **fails over**, convert the LRS account to zone-redundant within **60 days** to continue smart tier support.
 
+- Smart tier starts tracking object access patterns after enablement, the first tiering event will occur 30 days after enablement, moving inactive objects to the cool tier.
+
 ## Enabling smart tier
 Smart tier is **available by default** on supported storage accounts in generally available regions. Set the **default account access tier** to smart tier to enable it.
 After you enable smart tier on existing storage accounts, all blobs in the account that don't have an explicitly set access tier will move to smart tier. Blobs with an **explicit tier set** don't move to smart tier.
@@ -161,11 +163,17 @@ For more information, see [Monitoring Azure Blob Storage](/azure/storage/blobs/m
 
 
 ## Client tooling
-The Azure portal supports smart tier. Smart tier requires the following minimum version of the REST API.
+The Azure portal supports smart tier. Smart tier requires the following minimum version of the REST, SDK, and Tools.
 
 | Environment | Minimum version |
 |---|---|
 | [REST API](/rest/api/storageservices/blob-service-rest-api)| 2025-08-01 |
+| [.NET](/dotnet/api/overview/azure/resourcemanager.storage-readme) | 1.7.0 |
+| [Java](/java/api/overview/azure/resourcemanager-storage-readme) | 2.56.0 |
+| [Python](/python/api/overview/azure/mgmt-storage-readme) | 25.0.0 |
+| [JavaScript](/javascript/api/overview/azure/arm-storage-readme) | 20.0.0 |
+| [PowerShell (Az.Storage)](/powershell/module/az.storage) | 9.7.0 |
+| [Azure CLI](/cli/azure/storage) | 2.87.0 |
 
 
 ## Next steps

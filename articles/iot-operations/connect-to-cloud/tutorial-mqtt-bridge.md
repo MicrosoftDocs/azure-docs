@@ -1,8 +1,8 @@
 ---
 title: "Tutorial: Bi-directional MQTT bridge to Azure Event Grid"
 description: Learn how to create a bi-directional MQTT bridge to Azure Event Grid using Azure IoT Operations data flows.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: tutorial
@@ -19,7 +19,10 @@ In this tutorial, you set up a bi-directional MQTT bridge between an Azure IoT O
 
 ## Prerequisites
 
-- **Azure IoT Operations**. See [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 - **Data flow profile**. See [Configure data flow profile](howto-configure-dataflow-profile.md).
 
 ## Set environment variables
@@ -632,4 +635,4 @@ In this tutorial, you learned how to configure Azure IoT Operations for bi-direc
 * About [BrokerListener resource](../manage-mqtt-broker/howto-configure-brokerlistener.md)
 * [Configure authorization for a BrokerListener](../manage-mqtt-broker/howto-configure-authorization.md)
 * [Configure authentication for a BrokerListener](../manage-mqtt-broker/howto-configure-authentication.md)
-* [Configure TLS with automatic certificate management](../manage-mqtt-broker/howto-configure-tls-auto.md)
+* [Configure TLS with automatic certificate management](../manage-mqtt-broker/howto-configure-brokerlistener.md)

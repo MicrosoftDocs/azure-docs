@@ -13,6 +13,8 @@ ms.custom:
 
 # Upgrade your dedicated SQL pool (formerly SQL DW) to Gen2
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Microsoft is helping to reduce the entry-level cost of running a dedicated SQL pool (formerly SQL DW). Lower compute tiers capable of handling demanding queries are now available for dedicated SQL pool (formerly SQL DW). Read the full announcement [Lower compute tier support for Gen2](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). The new offering is available in the regions noted in the table below. For supported regions, existing Gen1 dedicated SQL pool (formerly SQL DW) can be upgraded to Gen2 through either:
 
 - **The automatic upgrade process:** Automatic upgrades don't start as soon as the service is available in a region. When automatic upgrades start in a specific region, individual data warehouse upgrades will take place during your selected maintenance schedule.

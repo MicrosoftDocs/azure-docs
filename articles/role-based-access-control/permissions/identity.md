@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -181,6 +181,9 @@ Azure service: [Azure Active Directory B2C](/azure/active-directory-b2c/)
 > | `Microsoft.AzureActiveDirectory/directories/write` | Create or update Directory resource |
 > | `Microsoft.AzureActiveDirectory/directories/read` | View Directory resource |
 > | `Microsoft.AzureActiveDirectory/directories/delete` | Delete Directory resource |
+> | `Microsoft.AzureActiveDirectory/entraTenants/write` | Create or update Entra Tenant resource |
+> | `Microsoft.AzureActiveDirectory/entraTenants/read` | View Entra Tenant resource |
+> | `Microsoft.AzureActiveDirectory/entraTenants/delete` | Delete Entra Tenant resource |
 > | `Microsoft.AzureActiveDirectory/guestUsages/write` | Create or update Guest Usages resource |
 > | `Microsoft.AzureActiveDirectory/guestUsages/read` | View Guest Usages resource |
 > | `Microsoft.AzureActiveDirectory/guestUsages/delete` | Delete Guest Usages resource |

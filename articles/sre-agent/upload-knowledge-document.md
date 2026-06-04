@@ -13,27 +13,27 @@ ms.custom: knowledge-base, upload, documents, runbooks, troubleshooting, automat
 
 # Upload knowledge documents in Azure SRE Agent
 
-Every incident your team resolves generates valuable knowledge, including what went wrong, what commands fixed it, and what to check first next time. This knowledge typically ends up in chat threads, individual memory, or postmortems that are difficult to find during a future incident. Runbooks help, but they go stale quickly. When the same issue occurs again, a different engineer often starts from scratch.
+Every incident your team resolves generates valuable knowledge: what went wrong, what commands fixed it, and what to check first next time. But that knowledge lives in chat threads, engineer memory, and postmortems that nobody reads at 3 AM.
 
-Knowledge uploads solve this problem by turning incident fixes, troubleshooting steps, and team documentation into reusable, searchable context. When the same problem happens again, your agent draws on that stored knowledge instead of depending on chat history or memory alone.
+Your team has runbooks, but they go stale. The fix discovered during last night's incident? It's in someone's head, or buried in a conversation that scrolls out of view by next week. The next time the same issue occurs, a different engineer starts from scratch.
 
-> [!NOTE]
-> This feature is available in version 26.1.57.0 and later.
+## How your agent solves this problem
 
 Your agent can upload documents to Knowledge settings during conversations by using the **Upload Knowledge Document** tool. When your agent discovers a fix, creates a troubleshooting guide, or synthesizes investigation findings, it stores that knowledge directly. This approach makes the information searchable for every future conversation.
 
 ```text
-Create a runbook from the steps we just followed to fix this database connection pool exhaustion issue and save it to Knowledge settings.
+Create a runbook from the steps we just followed to fix this database
+connection pool exhaustion issue and save it to Knowledge settings.
 ```
 
 Your agent generates a structured runbook and uploads it in seconds. The document is indexed automatically and becomes searchable for future investigations.
 
 ## Before and after
 
-| Feature | Before | After |
+|  | Before | After |
 |---|--------|-------|
 | **Knowledge capture** | Post-incident: engineer writes runbook (maybe) | Your agent captures the fix as it happens |
-| **Time to document** | 30 to 60 minutes to write a runbook | Seconds. Your agent generates and uploads inline |
+| **Time to document** | 30 to 60 minutes to write a runbook | Seconds. Your agent generates and uploads inline. |
 | **Knowledge freshness** | Runbooks go stale within weeks | Knowledge settings grows with every resolution |
 | **Accessibility** | Knowledge stuck in engineer's head or chat thread | Searchable by your agent across all future conversations |
 | **Format consistency** | Varies by author | Structured, consistent documentation every time |
@@ -42,9 +42,11 @@ Your agent generates a structured runbook and uploads it in seconds. The documen
 
 **Unlike manual uploads**, your agent creates knowledge proactively. You don't need to remember to document what you learned because your agent does it as part of the conversation.
 
-**Unlike chat history**, uploaded documents are indexed for semantic search. When a similar issue occurs months later, your agent finds the relevant runbook automatically through intelligent retrieval rather than by scrolling through old threads.
+**Unlike chat history**, uploaded documents are indexed for semantic search. When a similar issue occurs months later, your agent finds the relevant runbook automatically through intelligent retrieval, not by scrolling through old threads.
 
-**Unlike wiki connectors**, uploaded documents don't require external services. The knowledge lives directly in your agent's Knowledge settings and is available instantly without syncing delays.
+**Unlike wiki connectors**, uploaded documents don't require external services. The knowledge lives directly in your agent's Knowledge settings, available instantly without syncing delays.
+
+## How it works
 
 The **Upload Knowledge Document** tool accepts three parameters:
 
@@ -62,7 +64,7 @@ When your agent uploads a document:
 1. **Confirms** the upload with a success message.
 
 > [!NOTE]
-> If a document with the same filename already exists, the new content replaces it. This process makes it easy for your agent to update knowledge. Upload the document by using the same name to refresh the content.
+> If a document with the same file name that already exists, the new content replaces it. This process makes it easy for your agent to update knowledge. Upload the document by using the same name to refresh the content.
 
 ## Supported file formats
 
@@ -70,7 +72,7 @@ Your agent handles files through three methods, each supporting different format
 
 ### Chat attachments
 
-Drag files into any chat to give your agent immediate context for analysis, including troubleshooting scripts, configuration files, network traces, and more.
+Drag files into any chat to give your agent immediate context for analysis - troubleshooting scripts, configuration files, network traces, and more.
 
 | Category | Extensions |
 |----------|-----------|
@@ -109,8 +111,7 @@ To upload all supported files at once, drag an entire folder onto the upload dro
 > [!NOTE]
 > Uploaded files appear as individual documents in Knowledge sources. The original folder hierarchy isn't maintained. A file at `runbooks/networking/dns-troubleshooting.md` appears as `dns-troubleshooting.md`.
 
-> [!NOTE]
-> Knowledge settings uploads accept legacy Office formats (`.doc`, `.ppt`, `.xls`) and additional image formats (`.bmp`, `.tiff`, `.tif`) that chat attachments don't. Chat attachments support code, scripts, infrastructure, and web formats that Knowledge settings doesn't.
+Knowledge settings uploads accept legacy Office formats (`.doc`, `.ppt`, `.xls`) and additional image formats (`.bmp`, `.tiff`, `.tif`) that chat attachments don't. Chat attachments support code, scripts, infrastructure, and web formats that knowledge settings doesn't.
 
 ### Agent-generated documents
 
@@ -125,14 +126,13 @@ We just resolved the high CPU issue on web-app-prod. It was caused by a memory l
 ```
 
 Your agent generates a structured troubleshooting guide with:
+- **Scoping steps**: How to identify the issue.
+- **Quick mitigations**: Immediate actions to reduce impact.
+- **Root cause analysis**: What to investigate.
+- **Resolution steps**: The fix that worked.
+- **Prevention**: How to avoid recurrence.
 
-- **Scoping steps**: how to identify the issue
-- **Quick mitigations**: immediate actions to reduce impact
-- **Root cause analysis**: what to investigate
-- **Resolution steps**: the fix that worked
-- **Prevention**: how to avoid recurrence
-
-The next time a similar CPU issue occurs, your agent automatically references this document during investigation. That reference turns one engineer's experience into shared team knowledge.
+The next time a similar CPU issue occurs, your agent automatically references this document during investigation, turning one engineer's experience into shared team knowledge.
 
 ## What you need
 
@@ -159,14 +159,14 @@ The next time a similar CPU issue occurs, your agent automatically references th
 
 | Scenario | Better approach |
 |----------|----------------|
-| Connecting live wiki content that stays in sync | [ADO Wiki knowledge](ado-connector.md) |
+| Connecting live wiki content that stays in sync | [ADO Wiki Knowledge](azure-devops-wiki-knowledge.md) |
 | Uploading binary files (PDF, Word, images) | Upload through **Builder → Knowledge settings → Add file** |
 | Bulk importing many documents at once | Upload multiple files through **Builder → Knowledge settings → Add file** |
 | Keeping code repositories up to date automatically | Connect a GitHub or ADO connector |
 
-## Related content
+## Related capabilities
 
 | Capability | What it adds |
 |------------|--------------|
-| [ADO Wiki knowledge](ado-connector.md) | Connect live wiki content that updates automatically |
-| [Root cause analysis](root-cause-analysis.md) | Investigate issues, then capture the findings |
+| [ADO wiki knowledge](azure-devops-wiki-knowledge.md) | Connect live wiki content that updates automatically |
+| [Root cause analysis](root-cause-analysis.md) | Investigate issues and capture the findings |

@@ -13,6 +13,8 @@ ms.custom: azure-synapse
 
 # Use IDENTITY to create surrogate keys in dedicated SQL pool
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you find recommendations and examples for using the `IDENTITY` property to create surrogate keys on tables in dedicated SQL pool.
 
 ## What is a surrogate key?

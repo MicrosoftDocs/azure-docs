@@ -2,10 +2,11 @@
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
 ms.topic: release-notes
-ms.date: 01/28/2026
+ms.date: 05/25/2026
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
+  - build-2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to stay informed about new features and enhancements in Azure Backup, so that I can effectively manage data protection and ensure compliance within my organization's cloud infrastructure."
@@ -19,9 +20,18 @@ You can learn more about the new releases by bookmarking this page or by [subscr
 
 ## Updates summary
 
+- June 2026
+
+  - [Container limit for ADLS backup has been increased from 100 to 1000](/azure/backup/azure-data-lake-storage-backup-overview)
+  
+- May 2026
+- [Snapshot backup for SQL Instances in Azure VM (preview)](#snapshot-backup-for-sql-instances-in-azure-vm-preview)
+- [Vaulted backup support for Azure Cosmos DB (preview)](#vaulted-backup-support-for-azure-cosmos-db-preview)
+- [Bulk restore for Azure Virtual Machines using Azure Backup (preview)](#bulk-restore-for-azure-virtual-machines-using-azure-backup-preview)
 - April 2026
+  - [Cross-subscription backup for Azure VMs (preview)](#cross-subscription-backup-for-azure-vms-preview)
   - [Simplified CLI experience to enable backup for AKS clusters](#simplified-cli-experience-to-enable-backup-for-aks-clusters)
-- January 2026
+- February 2026
   - [Backup support for Confidential VMs (preview)](#backup-support-for-confidential-vms-preview)
 - November 2025
   - [Threat detection in Azure Backup with Microsoft Defender for Cloud integration (preview)](#threat-detection-in-azure-backup-with-microsoft-defender-for-cloud-integration-preview)
@@ -64,6 +74,55 @@ You can learn more about the new releases by bookmarking this page or by [subscr
   - [Support for long-term Retention for Azure Database for MySQL - Flexible Server (preview)](#support-for-long-term-retention-for-azure-database-for-mysql---flexible-server-preview)
 - January 2024
   - [Cross Region Restore support for PostgreSQL by using Azure Backup is now generally available](#cross-region-restore-support-for-postgresql-by-using-azure-backup-is-now-generally-available)
+
+## Snapshot backup for SQL Instances in Azure VM (preview)
+
+Azure Backup now supports snapshot-based backups for SQL Server instances in Azure virtual machines (preview). This capability combines fast, disk-based snapshots with frequent log backups to deliver faster restores (improved [Recovery Time Objective](azure-backup-glossary.md#recovery-time-objective-rto)) and minimal data loss (low [Recovery Point Objective](azure-backup-glossary.md#recovery-point-objective-rpo)) for large SQL databases. 
+
+This feature includes:
+
+- **Instance level snapshots**: Backs up multiple databases together at the SQL Server instance level and restore the entire instance or individual databases as required.
+- **Minimal impact on the source server**: Captures application consistent snapshots with minimal database quiesce time that lasts only a few seconds, unlike resource intensive streaming backups.
+- **Cost efficient protection**: Optimizes storage cost with incremental snapshots.
+- **Improved Recovery Time Objective (RTO)**: Performs faster restores from snapshots retained within the user subscription. This capability also provides secure, long‑term retention in the Recovery Services vault.
+- **Low Recovery Point Objective (RPO)**: Applies frequent log backups (every 15 minutes) to snapshots during restore for point in time recovery.
+
+For more information, see [Back up SQL Server instance snapshots (preview)](backup-azure-sql-database.md#snapshot-backup-for-sql-instances-in-azure-vm-preview).
+
+## Vaulted backup support for Azure Cosmos DB (preview)
+
+Azure Backup now supports vaulted backups for Azure Cosmos DB (preview). You can protect Azure Cosmos DB accounts by using a Backup vault. Azure Backup stores backups in an isolated, off-site vault that strengthens cyber resilience and supports compliance. This approach protects backups from accidental deletion, malicious activity, and ransomware.
+
+Key benefits include:
+- **Policy-based scheduled backups:** Defines and manages backup schedules and long-term retention (up to 10 years) for Azure Cosmos DB by using Azure Backup policies.
+- **Built-in security protections:** Protects backups with encryption, soft delete, immutability, and role-based access control.
+
+   >[!Note]
+   >Pricing is effective from 1 July 2026. Learn about the [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/) and [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to understand the Azure Cosmos DB backup pricing.
+
+For more information, see [About Azure Cosmos DB vaulted backup (preview)](backup-azure-cosmos-db-overview.md).
+
+## Bulk restore for Azure Virtual Machines using Azure Backup (preview)
+
+Azure Backup now supports bulk restore of Azure Virtual Machines (preview). You can restore up to 100 VMs together from a Recovery Services vault in a single operation by selecting multiple protected VMs, defining a restore point time range, and specifying a common restore configuration.
+
+During large-scale outages or ransomware incidents, you can use bulk VM restore to orchestrate restore of multiple VMs as one coordinated operation that simplifies recovery at-scale. Each VM restore runs separately, and you can track its progress independently while retaining full VM-level flexibility and control.
+
+For more information, see [Restore VMs in bulk (preview)](backup-azure-arm-restore-vms.md#restore-vms-in-bulk-preview).
+
+## Cross-subscription backup for Azure VMs (preview)
+
+Azure Backup now supports protecting Azure VMs using a Recovery Services vault in a **different subscription**, within the same Azure AD tenant and region. This capability lets central backup or security teams maintain a single vault to govern VM protection across multiple team or project subscriptions, without requiring the vault and the VM to share the same subscription.
+
+Key capabilities:
+
+- **Centralized governance**: One vault can protect VMs spread across many subscriptions in the same tenant, simplifying policy management and compliance reporting.
+- **Flexible restore**: Vault-tier recovery points can be restored to the protected VM subscription, the vault subscription, or any other subscription when **Cross Subscription Restore** is enabled on the vault. Snapshot-tier recovery points restore only within the protected VM subscription.
+
+For more information, see:
+- [Back up Azure VMs in a Recovery Services vault](backup-azure-arm-vms-prepare.md)
+- [Support matrix for Azure VM backups](backup-support-matrix-iaas.md#supported-backup-actions)
+- [Restore Azure VMs](backup-azure-arm-restore-vms.md#cross-subscription-restore-for-azure-vm)
 
 ## Simplified CLI experience to enable backup for AKS clusters
 

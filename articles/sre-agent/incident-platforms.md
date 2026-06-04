@@ -65,13 +65,10 @@ Your agent can read and write back to the incident. These tools are available au
 
 ### Response plans
 
-Response plans define *what your agent does* when specific types of incidents arrive. You configure rules based on incident severity, title patterns, or other criteria, and the agent follows the plan automatically.
-
-Learn more: [Incident response plans](incident-response-plans.md)
-
-![Diagram showing how response plans combine filters, autonomy levels, and custom instructions](media/incident-platforms/response-plan-flow.svg)
+Response plans define *what your agent does* when specific types of incidents arrive. You configure rules based on incident severity, title patterns, or other criteria, and the agent follows the plan automatically. To learn more, see [Incident response plans](incident-response-plans.md).
 
 A response plan can:
+
 - Run specific investigation steps
 - Use particular connectors and tools
 - Operate at a defined autonomy level (from "gather info only" to "take corrective action")
@@ -91,6 +88,7 @@ When you connect an incident platform, you can enable **Quickstart response plan
 Azure Monitor supports all severity levels from Sev0 to Sev4. The quickstart plan targets the highest-priority alerts by default. You can customize it to include additional severities or create separate plans for lower-priority alerts.
 
 The quickstart plan creates a response plan named `quickstart_handler` that:
+
 - Matches incidents by priority/severity
 - Covers all impacted services
 - Runs in fully autonomous mode
@@ -100,11 +98,7 @@ You can customize this default or create additional response plans with differen
 
 ### Track incident value
 
-The **Monitor → Incident metrics** section shows how your agent handles incidents over time.
-
-Learn more: [Track incident value](track-incident-value.md)
-
-![KPI cards showing incidents reviewed, mitigated by agent, assisted, and pending](media/incident-platforms/incident-metrics-dashboard.svg)
+The **Monitor → Incident metrics** section shows how your agent handles incidents over time. To learn more, see [Track incident value](track-incident-value.md).
 
 | Metric | What it shows |
 |--------|--------------|
@@ -129,16 +123,3 @@ These concepts work together:
 
 Your agent uses both: the incident platform *triggers* the investigation, and connectors provide the *tools* to investigate.
 
-## Related
-
-| Resource | Why it matters |
-|----------|-------------------|
-| [Tutorial: Set up response plans](response-plan.md) | Step-by-step guide to create your first response plan |
-| [Incident response plans](incident-response-plans.md) | How response plans route incidents to custom agents |
-| [Automate incident response](incident-response.md) | End-to-end incident automation capabilities |
-| [Track incident value](track-incident-value.md) | Measure your agent's incident resolution impact |
-| [Monitor agent usage](monitor-agent-usage.md) | Track usage, session insights, and agent activity |
-| [PagerDuty](pagerduty-incidents.md) | PagerDuty-specific setup and capabilities |
-| [ServiceNow](servicenow-incidents.md) | ServiceNow-specific setup and capabilities |
-| [Azure Monitor alerts](azure-monitor-alerts.md) | Azure Monitor alerting, recurring alert merge, and severity mapping |
-| [Connectors](connectors.md) | How connectors provide tools for investigation |

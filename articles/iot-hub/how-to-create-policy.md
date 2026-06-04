@@ -2,8 +2,8 @@
 title: Create or Edit a Policy with Microsoft Root CA in Azure Device Registry
 titleSuffix: Azure IoT Hub
 description: Create or edit a policy in your Azure Device Registry namespace to issue Microsoft-backed X.509 certificates for IoT devices.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: how-to
@@ -34,7 +34,7 @@ In certificate management, a credential manages the namespace-level root CA, and
 
 Before you begin, make sure you have:
 
-- An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/).
+- An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing ADR namespace. For setup steps, see [Deploy Azure IoT Hub with ADR integration](iot-hub-device-registry-setup.md).
 - A configured credential in the ADR namespace. For setup steps, see [Configure a credential in Azure Device Registry](how-to-configure-credential.md).
 - Permissions to manage policies in the ADR namespace, such as the [Azure Device Registry Credentials Contributor](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-credentials-contributor) role.

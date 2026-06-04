@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -1000,15 +1000,15 @@ Custom role for Azure Local resource provider (Microsoft.AzureStackHCI Resource 
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/write | Installs or Updates an Azure Arc licenseProfiles |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/UpgradeExtensions/action | Upgrades Extensions on Azure Arc machines |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/write | Writes an Azure Arc machines |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/read | Gets the endpoint to the resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/read | Gets the details about the service to the resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/write | Update the service details in the service configurations of the target resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/write | Update the endpoint to the target resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/read | Get or list of endpoints to the target resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/read | Get or list of serviceConfigurations to the endpoints resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/write | Create or update the serviceConfigurations to the endpoints resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/write | Create or update the endpoint to the target resource. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.EdgeMarketplace](../permissions/internet-of-things.md#microsoftedgemarketplace)/locations/operationStatuses/read | read operationStatuses |
 > | [Microsoft.EdgeMarketPlace](../permissions/internet-of-things.md#microsoftedgemarketplace)/offers/getAccessToken/action | get access token. |
 > | [Microsoft.EdgeMarketPlace](../permissions/internet-of-things.md#microsoftedgemarketplace)/offers/generateAccessToken/action | A long-running resource action. |
-> | [Microsoft.EdgeMarketplace](../permissions/internet-of-things.md#microsoftedgemarketplace)/publishers/read | Get a Publisher |
+> | [Microsoft.EdgeMarketplace](../permissions/internet-of-things.md#microsoftedgemarketplace)/publishers/read | List Publisher resources by parent |
 > | [Microsoft.EdgeMarketplace](../permissions/internet-of-things.md#microsoftedgemarketplace)/offers/read | List Offer resources by parent |
 > | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/read | Gets an Custom Location resource |
 > | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/write | Adds attestation service. |

@@ -32,33 +32,33 @@ For C#, this quickstart uses the .NET isolated worker model.
 - An existing Azure Functions project on your local computer:
 ::: zone pivot="csharp"  
 
-   - [Create a Durable Functions app - C#](../../azure-functions/durable-functions/durable-functions-isolated-create-first-csharp.md)
+   - [Create a Durable Functions app - C#](../durable-functions/durable-functions-isolated-create-first-csharp.md)
 
 ::: zone-end 
 
 <!-- markdownlint-disable-next-line MD044 -->
 ::: zone pivot="javascript"  
 
-   - [Create a Durable Functions app - JavaScript](../../azure-functions/durable-functions/quickstart-js-vscode.md)
+   - [Create a Durable Functions app - JavaScript](../durable-functions/quickstart-js-vscode.md)
 
 ::: zone-end 
 
 ::: zone pivot="python"  
 
-   - [Create a Durable Functions app - Python](../../azure-functions/durable-functions/quickstart-python-vscode.md)
+   - [Create a Durable Functions app - Python](../durable-functions/quickstart-python-vscode.md)
 
 ::: zone-end 
 
 <!-- markdownlint-disable-next-line MD044 -->
 ::: zone pivot="powershell"  
 
-   - [Create a Durable Functions app - PowerShell](../../azure-functions/durable-functions/quickstart-powershell-vscode.md)
+   - [Create a Durable Functions app - PowerShell](../durable-functions/quickstart-powershell-vscode.md)
 
 ::: zone-end 
 
 ::: zone pivot="java"  
 
-   - [Create a Durable Functions app - Java](../../azure-functions/durable-functions/quickstart-java.md)
+   - [Create a Durable Functions app - Java](../durable-functions/quickstart-java.md)
 
 ::: zone-end 
 - [Docker](https://docs.docker.com/engine/install/) installed to run the Durable Task Scheduler emulator. 
@@ -83,13 +83,13 @@ Install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.D
 <!-- markdownlint-disable-next-line MD044 -->
 ::: zone pivot="javascript,python,java,powershell"  
 
-In host.json, update the `extensionBundle` property to use the preview version that contains the Durable Task Scheduler package:
+In host.json, update the `extensionBundle` property to use version 4.32.0 or later, which includes Durable Task Scheduler support:
 
 ```json
 {
   "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.29.0, 5.0.0)"
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[4.32.0, 5.0.0)"
   }
 }
 ```

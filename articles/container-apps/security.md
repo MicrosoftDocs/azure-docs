@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: overview
-ms.date: 11/04/2025
+ms.date: 05/29/2026
 ms.author: cshoe
 ---
 
@@ -17,7 +17,7 @@ Azure Container Apps provides several built-in security features that help you b
 
 [Managed identities](managed-identity.md) eliminate the need to store credentials in your code or configuration by providing an automatically managed identity in Microsoft Entra ID. Container apps can use these identities to authenticate to any service that supports Microsoft Entra authentication, such as Azure Key Vault, Azure Storage, or Azure SQL Database.
 
-### Types of managed identities
+### Managed identity types
 
 Azure Container Apps supports two types of managed identities:
 
@@ -25,14 +25,14 @@ Azure Container Apps supports two types of managed identities:
 
 - **User-assigned identity**: Created independently and can be assigned to multiple container apps, allowing identity sharing across resources.
 
-### Security benefits of managed identities
+### Security benefits of managed identities in Azure Container Apps
 
 - Eliminates the need to manage and rotate credentials in your application code
 - Reduces risk of credential exposure in configuration files
 - Provides fine-grained access control through Azure RBAC
 - Supports the principle of least privilege by granting only necessary permissions
 
-### When to use each identity type
+### Choose between system-assigned and user-assigned identities
 
 - Use **system-assigned identities** for workloads that:
   - Are contained within a single resource
@@ -59,7 +59,7 @@ Azure Container Apps provides built-in mechanisms to securely store and access s
 
 ### Key security features for secrets
 
-- **Secret isolation**: Secrets are scoped to an application level and isolated from specific revisions.
+- **Secret isolation**: Scope secrets to the application level and isolate them from specific revisions.
 - **Environment variable references**: Expose secrets to containers as environment variables.
 - **Volume mounts**: Mount secrets as files within containers.
 - **Key Vault integration**: Reference secrets stored in Azure Key Vault.
@@ -73,15 +73,15 @@ Azure Container Apps provides built-in mechanisms to securely store and access s
 - Use volume mounts to access secrets as files when appropriate.
 - Implement proper secret rotation practices.
 
-For more information, see [Import certificates from Azure Key Vault](key-vault-certificates-manage.md) for more details on how to set up secrets management for your application.
+For more information, see [Import certificates from Azure Key Vault](key-vault-certificates-manage.md) to learn how to set up secrets management for your application.
 
 ## Token store for secure authentication
 
 The token store feature provides a secure way to manage authentication tokens independent of your application code.
 
-### How the token store works
+### How the authentication token store works
 
-- Tokens are stored in Azure Blob Storage, separate from your application code
+- The system stores tokens in Azure Blob Storage, keeping them separate from your application code.
 - Only the associated user can access cached tokens.
 - Container Apps automatically handles token refresh.
 - This feature reduces the attack surface by eliminating custom token management code.
@@ -104,8 +104,14 @@ For more information on network security in Azure Container Apps, see the follow
   - [Use mTLS](./mtls.md)
   - [Integrate with Azure Front Door](./how-to-integrate-with-azure-front-door.md)
 
-## Confidential compute (Preview)
+## Confidential compute
 
-Azure Container Apps includes a confidential compute workload profile (public preview) that runs containerized workloads inside hardware-based Trusted Execution Environments (TEEs). Confidential computing complements Azure encryption at rest and in transit by protecting data in use by encrypting memory and attesting the environment before code is executed. This capability helps reduce the risk of unauthorized access to sensitive workloads, including access from cloud operators.
+Azure Container Apps includes a confidential compute workload profile that runs containerized workloads inside hardware-based Trusted Execution Environments (TEEs). Confidential computing complements Azure encryption at rest and in transit by protecting data in use through memory encryption and environment attestation before code execution. This capability helps reduce the risk of unauthorized access to sensitive workloads, including access from cloud operators.
 
-Use the confidential compute workload profile when your applications process regulated or highly sensitive data and require attestation-based assurances. The preview is available in UAE North. For an overview of the platform capabilities, see [Azure confidential computing](/azure/confidential-computing/).
+Use the confidential compute workload profile when your applications process regulated or highly sensitive data and require attestation-based assurances. For an overview of supported regions and platform capabilities, see [Azure confidential computing](/azure/confidential-computing/).
+
+For configuration details, see [Confidential compute in Azure Container Apps](confidential-compute.md).
+
+## Microsoft Defender for Cloud Serverless Containers Posture (Preview)
+
+Microsoft Defender for Cloud includes serverless containers posture capabilities in [CSPM](/azure/defender-for-cloud/concept-cloud-security-posture-management) for Azure Container Apps. These capabilities provide inventory, posture assessments, and attack path analysis for Azure Container Apps workloads so security teams can identify and prioritize risks in their container apps environment. For onboarding guidance and feature details, see [Serverless protection](/azure/defender-for-cloud/serverless-protection).

@@ -135,13 +135,3 @@ Use the source type that matches the kind of context you need:
 | A GitHub or Azure DevOps repository | [Connect source code](connect-source-code.md) |
 | External systems such as Datadog or Splunk | [MCP connectors](mcp-connectors.md) |
 
-## Related content
-
-| Capability | What it adds |
-|---|---|
-| [Upload knowledge documents](upload-knowledge-document.md) | Add persistent files and agent-generated knowledge |
-| [Share files in chat](file-attachments.md) | Provide temporary files for immediate analysis |
-| [Connect source code](connect-source-code.md) | Add repository context for investigations and root cause analysis |
-| [GitHub connector](github-connector.md) | Extend repository access with GitHub-specific capabilities |
-| [Azure DevOps connector](ado-connector.md) | Connect repositories, work items, wiki content, and pipelines |
-| [MCP connectors](mcp-connectors.md) | Extend your agent to external tools and systems |

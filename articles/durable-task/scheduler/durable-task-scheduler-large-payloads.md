@@ -17,11 +17,11 @@ Large payload support lets your app pass orchestration inputs and activity outpu
 
 This feature is available for:
 
-- [Durable Functions](../../azure-functions/durable-functions/durable-functions-overview.md) with the .NET isolated worker
+- [Durable Functions](../durable-functions/durable-functions-overview.md) with the .NET isolated worker
 - [.NET Durable Task SDK](../sdks/durable-task-overview.md)
 - [Python Durable Task SDK](../sdks/durable-task-overview.md)
 
-If your workflow stores data in Blob Storage and passes only a URI or identifier, keep using that pattern. Use large payload support when your orchestration logic must pass the payload between durable operations. For general guidance, see [Data persistence and serialization in Durable Functions](../../azure-functions/durable-functions/durable-functions-serialization-and-persistence.md#keep-inputs-and-outputs-small).
+If your workflow stores data in Blob Storage and passes only a URI or identifier, keep using that pattern. Use large payload support when your orchestration logic must pass the payload between durable operations. For general guidance, see [Data persistence and serialization in Durable Functions](../durable-functions/durable-functions-serialization-and-persistence.md#keep-durable-functions-inputs-and-outputs-small).
 
 ## Supported frameworks
 
@@ -71,7 +71,7 @@ Before you enable the feature, make sure your app:
 - Sets `AzureWebJobsStorage` to the storage account that holds externalized payloads.
 - Sets `DTS_CONNECTION_STRING` and `TASKHUB_NAME` for the target scheduler and task hub.
 
-Then enable large payload storage in [host.json](../../azure-functions/durable-functions/durable-functions-host-json-settings.md):
+Then enable large payload storage in [host.json](../durable-functions/durable-functions-host-json-settings.md):
 
 ```json
 {

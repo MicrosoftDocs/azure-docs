@@ -3,9 +3,11 @@ title: How to use the connector for OPC UA
 description: Use the operations experience web UI or the Azure CLI to configure assets and devices for OPC UA connections.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
+ms.subservice: azure-opcua-connector
 ms.topic: how-to
-ms.date: 02/09/2026
-
+ms.date: 05/12/2026
+ai-usage: ai-assisted
 
 #CustomerIntent: As an OT user, I want configure my Azure IoT Operations environment so that data can flow from my OPC UA servers through to the MQTT broker.
 ---
@@ -32,11 +34,15 @@ The connector can use `anonymous` or `username password` user authentication whe
 
 ## Prerequisites
 
-To configure devices and assets, you need an instance of Azure IoT Operations with the connector for OPC UA enabled.
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
+- The connector for OPC UA is enabled on your Azure IoT Operations instance.
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
-Your IT administrator must configure the OPC UA connector template for your Azure IoT Operations instance in the Azure portal.
+Your IT administrator must configure the OPC UA connector template for your Azure IoT Operations instance in the Azure portal or by using the Azure CLI.
 
 An OPC UA server that you can reach from your Azure IoT Operations cluster. If you don't have an OPC UA server, use the OPC PLC simulator from the Azure IoT Operations samples repository.
 
@@ -159,6 +165,22 @@ To use the `UsernamePassword` authentication mode, complete the following steps:
 # [Bicep](#tab/bicep)
 
 [!INCLUDE [connector-username-password-bicep](../includes/connector-username-password-bicep.md)]
+
+---
+
+### Configure a device to use an X.509 certificate
+
+# [Operations experience](#tab/portal)
+
+[!INCLUDE [connector-certificate-user-portal](../includes/connector-certificate-user-portal.md)]
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [connector-certificate-user-cli](../includes/connector-certificate-user-cli.md)]
+
+# [Bicep](#tab/bicep)
+
+[!INCLUDE [connector-certificate-user-bicep](../includes/connector-certificate-user-bicep.md)]
 
 ---
 
@@ -539,7 +561,7 @@ The following screenshot shows an example event filter:
 
 # [Azure CLI](#tab/cli)
 
-The following command updates an existing event definition to include an event filter by using the `config` parameter:
+The following command updates an existing event definition to include an event filter by using the `--filter-type` and `--filter-clause` parameters:
 
 ```azurecli
 az iot ops ns asset opcua event add \
@@ -550,7 +572,11 @@ az iot ops ns asset opcua event add \
   --name serverObjectNotifier \
   --data-source "ns=0;i=2253" \
   --replace true \
-  --config "{\"eventFilter\":{\"selectClauses\":[{\"browsePath\":\"EventId\",\"typeDefinitionId\":\"ns=0;i=2041\",\"fieldId\":\"myEventId\"},{\"browsePath\":\"EventType\",\"typeDefinitionId\":\"ns=0;i=2041\",\"fieldId\":\"EventType\"},{\"browsePath\":\"SourceName\",\"typeDefinitionId\":\"\",\"fieldId\":\"mySourceName\"},{\"browsePath\":\"Severity\",\"typeDefinitionId\":\"\",\"fieldId\":\"Severity\"}]}}"
+  --filter-type "ns=0;i=2041" \
+  --filter-clause path="EventId" type="ns=0;i=2041" field="myEventId" \
+  --filter-clause path="EventType" type="ns=0;i=2041" field="EventType" \
+  --filter-clause path="SourceName" field="mySourceName" \
+  --filter-clause path="Severity" field="Severity"
 ```
 
 # [Bicep](#tab/bicep)
@@ -751,7 +777,7 @@ az iot ops ns asset opcua datapoint add \
   --data-source "ns=3;s=FastUInt100"
 ```
 
-To delete a data point, use the `az iot ops ns asset opcua dataset point remove` command.
+To delete a data point, use the `az iot ops ns asset opcua datapoint remove` command.
 
 You can manage an asset's event groups by using the `az iot ops ns asset opcua event-group` commands.
 

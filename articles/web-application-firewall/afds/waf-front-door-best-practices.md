@@ -11,6 +11,8 @@ ms.date: 10/12/2023
 
 # Best practices for Azure Web Application Firewall in Azure Front Door
 
+**Applies to:** :heavy_check_mark: Front Door Premium
+
 This article summarizes best practices for using Azure Web Application Firewall in Azure Front Door.
 
 ## General best practices

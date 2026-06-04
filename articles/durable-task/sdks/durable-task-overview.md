@@ -1,10 +1,10 @@
 ---
-title: Durable Task SDKs overview
-description: Learn about the portable Durable Task SDKs for .NET, Python, Java, and JavaScript/TypeScript. Build durable orchestrations on any compute platform.
+title: "Durable Task SDKs Overview: Portable Orchestration Libraries"
+description: "Learn about the portable Durable Task SDKs for .NET, Python, Java, and JavaScript/TypeScript. Build durable orchestrations on any compute platform and get started today."
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: azfuncdf
-ms.date: 02/27/2026
+ms.date: 05/05/2026
 ms.topic: get-started
 ms.service: durable-task
 ms.subservice: durable-task-sdks
@@ -14,10 +14,17 @@ ms.subservice: durable-task-sdks
 
 The Durable Task SDKs are portable, open-source libraries for building durable orchestrations, activities, and entities using ordinary code. They work on any compute platform—Azure Container Apps, Kubernetes, or VMs. Each SDK connects to the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) as its managed backend.
 
+Use the Durable Task SDKs when you need to:
+
+- **Orchestrate multi-step workflows** that survive process restarts and infrastructure failures.
+- **Fan out work in parallel** and aggregate results reliably.
+- **Wait for external events** (human approvals, webhooks, timers) without consuming compute.
+- **Run on any compute platform** without being locked to Azure Functions.
+
 > [!TIP]
 > Not sure whether to use the Durable Task SDKs or Durable Functions? See [Choose your orchestration framework](../common/choose-orchestration-framework.md). For a broader overview of the Durable Task ecosystem, see [What is Durable Task?](../common/what-is-durable-task.md).
 
-## Available SDKs
+## Available Durable Task SDKs
 
 The following table summarizes the available Durable Task SDKs, their packages, and where to find source code and samples.
 
@@ -51,7 +58,7 @@ The .NET SDK works with any .NET hosting model: ASP.NET Core, console apps, or w
 pip install durabletask-azuremanaged
 ```
 
-The Python SDK works with any Python 3.9+ hosting. It supports generator-based orchestrations and async or await.
+The Python SDK works with any Python 3.9+ hosting. It supports generator-based orchestrations with async activities.
 
 # [Java](#tab/java)
 
@@ -59,12 +66,12 @@ The Python SDK works with any Python 3.9+ hosting. It supports generator-based o
 <dependency>
     <groupId>com.microsoft</groupId>
     <artifactId>durabletask-client</artifactId>
-    <version>1.7.0</version>
+    <version>1.9.0</version>
 </dependency>
 <dependency>
     <groupId>com.microsoft</groupId>
     <artifactId>durabletask-azure-managed</artifactId>
-    <version>1.7.0</version>
+    <version>1.9.0</version>
 </dependency>
 ```
 
@@ -111,7 +118,7 @@ The following table shows the features each SDK supports.
 | **Sub-orchestrations** | ✅ | ✅ | ✅ | ✅ |
 | **Durable timers** | ✅ | ✅ | ✅ | ✅ |
 | **External events** | ✅ | ✅ | ✅ | ✅ |
-| **Durable entities** | ✅ | ✅ | ❌ | ✅ |
+| **Durable entities** | ✅ | ✅ | ✅ | ✅ |
 | **Retry policies** | ✅ | ✅ | ✅ | ✅ |
 | **Continue-as-new** | ✅ | ✅ | ✅ | ✅ |
 | **Suspend/Resume** | ✅ | ✅ | ✅ | ✅ |

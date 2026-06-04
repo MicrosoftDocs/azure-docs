@@ -1,8 +1,8 @@
 ---
 title: Enrich data with external datasets in data flow graphs
 description: Learn how to augment incoming messages with data from an external state store by configuring datasets in Azure IoT Operations data flow graphs.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -19,7 +19,8 @@ For an overview of data flow graphs, see [Data flow graphs overview](concept-dat
 
 ## Prerequisites
 
-- An Azure IoT Operations instance deployed on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
 - A default registry endpoint named `default` that points to `mcr.microsoft.com` is automatically created during deployment.
 
 ## What is enrichment

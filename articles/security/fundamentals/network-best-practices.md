@@ -7,7 +7,7 @@ ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 11/10/2025
+ms.date: 06/03/2026
 ms.author: mbaldwin
 
 ---
@@ -27,6 +27,8 @@ As you plan your network and the security of your network, we recommend that you
 - Governance of network security elements, such as network virtual appliance functions like ExpressRoute, virtual network and subnet provisioning, and IP addressing.
 
 If you use a common set of management tools to monitor your network and the security of your network, you get clear visibility into both. A straightforward, unified security strategy reduces errors because it increases human understanding and the reliability of automation.
+
+- **Use virtual network flow logs for comprehensive traffic visibility**: Virtual network flow logs provide centralized traffic visibility across your virtual network and replace NSG flow logs for broader monitoring coverage. For more information, see [Virtual network flow logs overview](/azure/network-watcher/vnet-flow-logs-overview).
 
 ## Logically segment subnets
 Azure virtual networks are similar to LANs on your on-premises network. The idea behind an Azure virtual network is that you create a network, based on a single private IP address space, on which you can place all your Azure virtual machines. The private IP address spaces available are in the Class A (10.0.0.0/8), Class B (172.16.0.0/12), and Class C (192.168.0.0/16) ranges.
@@ -54,9 +56,9 @@ Best practices are:
 
 - **Give Conditional Access to resources based on device, identity, assurance, network location, and more.**: [Microsoft Entra Conditional Access](/entra/identity/conditional-access/overview) lets you apply the right access controls by implementing automated access control decisions based on the required conditions. For more information, see [Manage access to Azure management with Conditional Access](/entra/identity/conditional-access/howto-conditional-access-policy-azure-management).
 
-- **Enable port access only after workflow approval.**: You can use [just-in-time VM access in Microsoft Defender for Cloud](../../security-center/security-center-just-in-time.md) to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed.
+- **Enable port access only after workflow approval**: You can use just-in-time VM access in Microsoft Defender for Cloud to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed. For more information, see [Just-in-time VM access in Microsoft Defender for Cloud](/azure/defender-for-cloud/just-in-time-access-usage).
 
-- **Use Azure Bastion for secure remote VM access without exposing public IP addresses or opening inbound ports.**: [Azure Bastion](/azure/bastion/bastion-overview) provides secure and seamless RDP/SSH connectivity to your virtual machines directly through the Azure portal over TLS. Azure Bastion Developer SKU is now available at no additional cost across 35+ Azure regions, making it ideal for Dev/Test scenarios. It eliminates the need for jump boxes or exposing VMs to the internet, significantly reducing your attack surface while streamlining administrative access. For production workloads, consider upgrading to Standard or Premium SKUs for additional features like host scaling and session recording. See [Quickstart: Connect with Azure Bastion Developer](/azure/bastion/quickstart-developer) to get started.
+- **Use Azure Bastion for secure remote VM access without exposing public IP addresses or opening inbound ports.**: [Azure Bastion](../../bastion/bastion-overview.md) provides secure and seamless RDP/SSH connectivity to your virtual machines directly through the Azure portal over TLS. Azure Bastion Developer SKU is now available at no additional cost across 35+ Azure regions, making it ideal for Dev/Test scenarios. It eliminates the need for jump boxes or exposing VMs to the internet, significantly reducing your attack surface while streamlining administrative access. For production workloads, consider upgrading to Standard or Premium SKUs for additional features like host scaling and session recording. See [Quickstart: Connect with Azure Bastion Developer](/azure/bastion/quickstart-developer) to get started.
 
 - **Grant temporary permissions to perform privileged tasks, which prevents malicious or unauthorized users from gaining access after the permissions have expired. Access is granted only when users need it.**: Use just-in-time access in Microsoft Entra Privileged Identity Management or in a third-party solution to grant permissions to perform privileged tasks.
 
@@ -102,6 +104,14 @@ Based on the Zero Trust concept mentioned earlier, we recommend that you conside
 - Azure native controls. [Azure Firewall](../../firewall/overview.md) and [Azure Web Application Firewall](../../web-application-firewall/overview.md) offer basic security advantages. Advantages are a fully stateful firewall as a service, built-in high availability, unrestricted cloud scalability, FQDN filtering, support for OWASP core rule sets, and simple setup and configuration.
 - Third-party offerings. Search the [Azure Marketplace](https://azuremarketplace.microsoft.com/) for next-generation firewall (NGFW) and other third-party offerings that provide familiar security tools and enhanced levels of network security. Configuration might be more complex, but a third-party offering might allow you to use existing capabilities and skillsets.
 
+## Protect against DDoS attacks
+DDoS protection helps preserve availability for internet-facing workloads by reducing the impact of volumetric and protocol attacks before they overwhelm your public endpoints.
+
+- **Enable DDoS Network Protection on virtual networks with public-facing resources**: Apply DDoS Network Protection to virtual networks that host public IP resources so critical workloads benefit from always-on adaptive tuning and response. For more information, see [Azure DDoS Protection overview](/azure/ddos-protection/ddos-protection-overview).
+- **Choose the DDoS protection plan that matches your public exposure**: Use DDoS Network Protection when you need to protect multiple public IP resources in a virtual network, and consider DDoS IP Protection when you need targeted protection for a smaller number of public IP addresses. For more information, see [Azure DDoS Protection overview](/azure/ddos-protection/ddos-protection-overview).
+- **Layer DDoS protection with a web application firewall**: Combine DDoS Protection with Azure Web Application Firewall to address volumetric and protocol attacks at layers 3 and 4 while also inspecting layer 7 web traffic. For more information, see [Azure DDoS Protection overview](/azure/ddos-protection/ddos-protection-overview).
+- **Use DDoS diagnostics and alerts for incident response**: Stream DDoS telemetry to your monitoring tools and configure alerts so your security team can investigate attacks and confirm mitigation actions quickly. For more information, see [Azure DDoS Protection overview](/azure/ddos-protection/ddos-protection-overview).
+
 ## Avoid exposure to the internet with dedicated WAN links
 Many organizations have chosen the hybrid IT route. With hybrid IT, some of the company's information assets are in Azure, and others remain on-premises. In many cases, some components of a service are running in Azure while other components remain on-premises.
 
@@ -130,7 +140,7 @@ We recommend that you employ load balancing whenever you can, and as appropriate
 - Accepts only a secure connection, so unencrypted communication to the server isn't an acceptable option.
 - Requires multiple HTTP requests on the same long-running TCP connection to be routed or load balanced to different back-end servers.
 
-**Load-balancing option**: Use [Azure Application Gateway](../../application-gateway/overview.md), an HTTP web traffic load balancer. Application Gateway supports end-to-end TLS encryption and [TLS termination](../../application-gateway/overview.md) at the gateway. Web servers can then be unburdened from encryption and decryption overhead and traffic flowing unencrypted to the back-end servers.
+**Load-balancing option**: Use [Azure Application Gateway](../../application-gateway/overview.md), an HTTP web traffic load balancer. Application Gateway supports end-to-end TLS encryption and [TLS termination](../../application-gateway/overview.md) at the gateway. Web servers can then be unburdened from encryption and decryption overhead and traffic can flow unencrypted to the back-end servers, although end-to-end TLS remains the safer default when back-end confidentiality matters.
 
 **Scenario**: You need to load balance incoming connections from the internet among your servers located in an Azure virtual network. Scenarios are when you:
 
@@ -176,15 +186,18 @@ Point-to-site VPN is more secure than direct RDP or SSH connections because the 
 Use Azure Private Link to access Azure PaaS Services (for example, Azure Storage and SQL Database) over a private endpoint in your virtual network. Private Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your virtual network to the Azure service always remains on the Microsoft Azure backbone network. Exposing your virtual network to the public internet is no longer necessary to consume Azure PaaS Services. 
 
 Azure Private Link provides the following benefits:
-- **Improved security for your Azure service resources**: With Azure Private Link, Azure service resources can be secured to your virtual network using private endpoint. Securing service resources to a private endpoint in virtual network provides improved security by fully removing public internet access to resources, and allowing traffic only from private endpoint in your virtual network.
-
-- **Privately access Azure service resources on the Azure platform**: Connect your virtual network to services in Azure using private endpoints. There's no need for a public IP address. The Private Link platform will handle the connectivity between the consumer and services over the Azure backbone network.
-- **Access from On-premises and peered networks**: Access services running in Azure from on-premises over ExpressRoute private peering, VPN tunnels, and peered virtual networks using private endpoints. There's no need to configure ExpressRoute Microsoft peering or traverse the internet to reach the service. Private Link provides a secure way to migrate workloads to Azure.
-- **Protection against data leakage**: A private endpoint is mapped to an instance of a PaaS resource instead of the entire service. Consumers can only connect to the specific resource. Access to any other resource in the service is blocked. This mechanism provides protection against data leakage risks.
-- **Global reach**: Connect privately to services running in other regions. The consumer's virtual network could be in region A and it can connect to services in region B.
-- **Simple to set up and manage**: You no longer need reserved, public IP addresses in your virtual networks to secure Azure resources through an IP firewall. There are no NAT or gateway devices required to set up the private endpoints. Private endpoints are configured through a simple workflow. On service side, you can also manage the connection requests on your Azure service resource with ease. Azure Private Link works for consumers and services belonging to different Microsoft Entra tenants too. 
+- **Improve security for your Azure service resources**: With Azure Private Link, Azure service resources can be secured to your virtual network using private endpoints. Securing service resources to a private endpoint in a virtual network improves security by fully removing public internet access to resources and allowing traffic only from private endpoints in your virtual network.
+- **Privately access Azure service resources on the Azure platform**: Connect your virtual network to services in Azure using private endpoints. There's no need for a public IP address. The Private Link platform handles connectivity between consumers and services over the Azure backbone network.
+- **Access services from on-premises and peered networks**: Access services running in Azure from on-premises over ExpressRoute private peering, VPN tunnels, and peered virtual networks by using private endpoints. There's no need to configure ExpressRoute Microsoft peering or traverse the internet to reach the service. Private Link provides a secure way to migrate workloads to Azure.
+- **Protect against data leakage**: A private endpoint is mapped to an instance of a PaaS resource instead of the entire service. Consumers can connect only to the specific resource, and access to any other resource in the service is blocked. This mechanism provides protection against data leakage risks.
+- **Extend private access across regions**: Connect privately to services running in other regions. The consumer's virtual network can be in region A and connect to services in region B.
+- **Simplify private endpoint deployment and operations**: You no longer need reserved public IP addresses in your virtual networks to secure Azure resources through an IP firewall. There are no NAT or gateway devices required to set up private endpoints. Private endpoints are configured through a simple workflow, and on the service side you can also manage connection requests on your Azure service resource with ease. Azure Private Link works for consumers and services belonging to different Microsoft Entra tenants too.
+- **Disable public network access after enabling private endpoints**: When a service supports it, turn off public network access after you validate private endpoint connectivity so the resource accepts traffic only through approved private paths. For more information, see [Azure Private Link](../../private-link/private-link-overview.md).
+- **Design private DNS zones per service**: Use the recommended private DNS zone for each Azure service and link that zone to the virtual networks that host your private endpoints so name resolution stays consistent. For more information, see [Azure Private Endpoint private DNS zone values](/azure/private-link/private-endpoint-dns).
+- **Apply NSGs on private endpoint subnets where supported**: Enable network policies for private endpoints and use NSGs on the hosting subnet to enforce east-west and inbound filtering requirements for supported scenarios. For more information, see [Manage network policies for private endpoints](/azure/private-link/disable-private-endpoint-network-policy).
+- **Use Network Security Perimeter for managed network isolation**: Evaluate Network Security Perimeter when you need a newer managed isolation boundary for PaaS resources that reduces public exposure without relying only on IP-based restrictions. For more information, see [Network Security Perimeter concepts](/azure/private-link/network-security-perimeter-concepts).
 	
-To learn more about private endpoints and the Azure services and regions that private endpoints are available for, see [Azure Private Link](../../private-link/private-link-overview.md).
+For more information about private endpoints and the Azure services and regions that private endpoints are available for, see [Azure Private Link](../../private-link/private-link-overview.md).
 
 
 ## Next steps

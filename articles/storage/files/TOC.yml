@@ -43,6 +43,8 @@
       href: storage-files-identity-auth-linux-kerberos-enable.md
     - name: Update password
       href: storage-files-identity-ad-ds-update-password.md
+    - name: Troubleshoot encryption issues
+      href: /troubleshoot/azure/azure-storage/files/security/files-troubleshoot-encryption?toc=/azure/storage/files/toc.json
   - name: Microsoft Entra Domain Services authentication
     items:
     - name: Enable Microsoft Entra Domain Services
@@ -55,6 +57,8 @@
       href: storage-files-identity-auth-hybrid-identities-enable.md
     - name: Enable authentication for hybrid identities on legacy clients
       href: storage-files-identity-auth-hybrid-cloud-trust.md
+    - name: Enable authentication on macOS with Platform SSO
+      href: identity-kerberos-authentication-macos.md
   - name: Authorization and access control
     items:
     - name: Overview of authorization and access control
@@ -148,7 +152,7 @@
     - name: Encryption at rest
       href: ../common/storage-service-encryption.md?toc=/azure/storage/files/toc.json
     - name: Encryption at rest with customer-managed keys
-      href: ../common/customer-managed-keys-overview.md?toc=/azure/storage/files/toc.json
+      href: customer-managed-keys.md
     - name: Encryption in transit for NFS shares
       href: encryption-in-transit-for-nfs-shares.md
     - name: Manage encryption keys for the storage account
@@ -293,64 +297,70 @@
     items:
     - name: What is retrieval-augmented generation?
       href: artificial-intelligence/retrieval-augmented-generation/overview.md
-    - name: Orchestrations
+    - name: Azure-native services
       items:
-      - name: LangChain
-        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/orchestrations/langchain.md
-      - name: LlamaIndex
-        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/orchestrations/llamaindex.md
-      - name: Haystack
-        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/orchestrations/haystack.md
-    - name: Vector databases
+      - name: Build a RAG pipeline with Logic Apps and AI Search
+        href: artificial-intelligence/retrieval-augmented-generation/azure-native/tutorial-logic-apps-ai-search.md
+    - name: Open-source software
       items:
-      - name: Pinecone
-        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/vector-databases/pinecone.md
-      - name: Weaviate
-        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/vector-databases/weaviate.md
-      - name: Qdrant
-        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/vector-databases/qdrant.md
-    - name: Tutorials
-      items:
-      - name: Get started
-        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/setup.md
-      - name: Use LangChain with Pinecone
-        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/langchain-pinecone/tutorial-langchain-pinecone.md
-      - name: Use LangChain with Weaviate
-        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/langchain-weaviate/tutorial-langchain-weaviate.md
-      - name: Use LangChain with Qdrant
-        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/langchain-qdrant/tutorial-langchain-qdrant.md
-      - name: Use LlamaIndex with Pinecone
-        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/llamaindex-pinecone/tutorial-llamaindex-pinecone.md
-      - name: Use LlamaIndex with Weaviate
-        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/llamaindex-weaviate/tutorial-llamaindex-weaviate.md
-      - name: Use LlamaIndex with Qdrant
-        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/llamaindex-qdrant/tutorial-llamaindex-qdrant.md
-      - name: Use Haystack with Pinecone
-        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/haystack-pinecone/tutorial-haystack-pinecone.md
-      - name: Use Haystack with Weaviate
-        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/haystack-weaviate/tutorial-haystack-weaviate.md
-      - name: Use Haystack with Qdrant
-        href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/haystack-qdrant/tutorial-haystack-qdrant.md
+      - name: Orchestrations
+        items:
+        - name: LangChain
+          href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/orchestrations/langchain.md
+        - name: LlamaIndex
+          href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/orchestrations/llamaindex.md
+        - name: Haystack
+          href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/orchestrations/haystack.md
+      - name: Vector databases
+        items:
+        - name: Pinecone
+          href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/vector-databases/pinecone.md
+        - name: Weaviate
+          href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/vector-databases/weaviate.md
+        - name: Qdrant
+          href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/vector-databases/qdrant.md
+      - name: Tutorials
+        items:
+        - name: Get started
+          href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/setup.md
+        - name: Use LangChain with Pinecone
+          href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/langchain-pinecone/tutorial-langchain-pinecone.md
+        - name: Use LangChain with Weaviate
+          href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/langchain-weaviate/tutorial-langchain-weaviate.md
+        - name: Use LangChain with Qdrant
+          href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/langchain-qdrant/tutorial-langchain-qdrant.md
+        - name: Use LlamaIndex with Pinecone
+          href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/llamaindex-pinecone/tutorial-llamaindex-pinecone.md
+        - name: Use LlamaIndex with Weaviate
+          href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/llamaindex-weaviate/tutorial-llamaindex-weaviate.md
+        - name: Use LlamaIndex with Qdrant
+          href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/llamaindex-qdrant/tutorial-llamaindex-qdrant.md
+        - name: Use Haystack with Pinecone
+          href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/haystack-pinecone/tutorial-haystack-pinecone.md
+        - name: Use Haystack with Weaviate
+          href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/haystack-weaviate/tutorial-haystack-weaviate.md
+        - name: Use Haystack with Qdrant
+          href: artificial-intelligence/retrieval-augmented-generation/open-source-frameworks/tutorials/haystack-qdrant/tutorial-haystack-qdrant.md
 - name: Troubleshooting
   items:
   - name: Troubleshoot Azure Files
-    href: /troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/files/toc.json
+    href: /troubleshoot/azure/azure-storage/files/connectivity/files-troubleshoot?toc=/azure/storage/files/toc.json
   - name: Troubleshoot Azure Files connectivity (SMB)
-    href: /troubleshoot/azure/azure-storage/files-troubleshoot-smb-connectivity?toc=/azure/storage/files/toc.json
+    href: /troubleshoot/azure/azure-storage/files/connectivity/files-troubleshoot-smb-connectivity?toc=/azure/storage/files/toc.json
   - name: Troubleshoot Azure Files authentication (SMB)
-    href: /troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json
+    href: /troubleshoot/azure/azure-storage/files/security/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json
   - name: Troubleshoot Azure Files performance
-    href: /troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json
+    href: /troubleshoot/azure/azure-storage/files/performance/files-troubleshoot-performance?toc=/azure/storage/files/toc.json
   - name: Troubleshoot general SMB issues on Linux
-    href: /troubleshoot/azure/azure-storage/files-troubleshoot-linux-smb?toc=/azure/storage/files/toc.json
+    href: /troubleshoot/azure/azure-storage/files/security/files-troubleshoot-linux-smb?toc=/azure/storage/files/toc.json
   - name: Troubleshoot general NFS issues on Linux
-    href: /troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json
+    href: /troubleshoot/azure/azure-storage/files/security/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json
   - name: Create file share throttling alerts
     href: /troubleshoot/azure/azure-storage/files-troubleshoot-create-alerts?toc=/azure/storage/files/toc.json
   - name: Troubleshoot backing up file shares
     href: ../../backup/troubleshoot-azure-files.md?toc=/azure/storage/files/toc.json
   - name: Troubleshoot ClientOtherErrors
-    href: /troubleshoot/azure/azure-storage/files-client-other-errors?toc=/azure/storage/files/toc.json   
+    href: /troubleshoot/azure/azure-storage/files/security/files-client-other-errors?toc=/azure/storage/files/toc.json   
 - name: Reference
   items:
   - name: Azure Files FAQ

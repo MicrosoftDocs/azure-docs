@@ -1,27 +1,32 @@
 ---
-title: Choose your hosting model
-description: Learn how your hosting platform determines whether to use Durable Functions for Azure Functions or the standalone Durable Task SDKs for self-hosted scenarios.
+title: "Choose Your Durable Task Hosting Model: Azure Functions or Self-Hosted"
+description: Learn how to choose between Durable Functions and the standalone Durable Task SDKs based on your hosting platform. Compare features, storage backends, and scaling options to find the right hosting model for your durable orchestrations.
 author: cgillum
 ms.author: cgillum
 ms.reviewer: hannahhunter
-ms.date: 02/14/2026
+ms.date: 05/04/2026
 ms.topic: concept-article
 ms.service: durable-task
 titleSuffix: Durable Task
 #Customer intent: As a developer, I want to understand which Durable Task hosting model to use based on my hosting platform.
 ---
 
-# Choose your hosting model
+# Choose your Durable Task hosting model
+
+This article helps you decide between the two Durable Task hosting models — **Durable Functions** (Azure Functions) and the **standalone Durable Task SDKs** (self-hosted) — based on your hosting platform, scaling needs, and operational requirements.
+
+> [!TIP]
+> **Already know your hosting platform?** Jump to the [platform lookup table](#choose-based-on-hosting-platform) for a quick answer.
 
 As described in [What is Durable Task?](what-is-durable-task.md), Durable Task supports two hosting models: 
-- **Azure Functions** (via [Durable Functions](../../azure-functions/durable-functions/durable-functions-overview.md))
+- **Azure Functions** (via [Durable Functions](../durable-functions/durable-functions-overview.md))
 - **Self-hosted** (via [the standalone Durable Task SDKs](../sdks/durable-task-overview.md)). 
 
 Both hosting models provide the same core durable execution capabilities (orchestrations, activities, timers, external events, and more) but differ in how your application is hosted, scaled, and deployed.
 
 In general, where your application runs determines which hosting model you use. If you're building on Azure Functions, you use Durable Functions. If you're building on any other compute platform, you use the standalone Durable Task SDKs.
 
-## Choosing based on hosting platform
+## Choose based on hosting platform
 
 If you already know your application's hosting platform, the following table can help you determine which hosting model to use:
 
@@ -36,7 +41,7 @@ If you already know your application's hosting platform, the following table can
 > [!NOTE]
 > Azure App Service and Azure Container Apps can both host the Azure Functions runtime, either through [fully managed Azure Functions integration](../../azure-functions/functions-scale.md#overview-of-plans) or by deploying the Functions runtime directly. Thus, both platforms support either hosting model. For more information on Azure Functions hosting models, see [Azure Functions hosting plans](../../azure-functions/functions-scale.md).
 
-## Comparing the hosting models
+## Compare the hosting models
 
 The following table summarizes the key differences between the two hosting models:
 
@@ -45,14 +50,14 @@ The following table summarizes the key differences between the two hosting model
 | **Hosting** | Azure Functions (Consumption, Flex Consumption, Premium), App Service, and Container Apps (with Functions runtime) | Any platform: Azure Container Apps, AKS, App Service, VMs, on-premises |
 | **Scaling** | Automatic, managed by the Azure Functions managed scale infrastructure | You manage scaling yourself, or use platform-native autoscaling (for example, [KEDA](https://keda.sh/) on Kubernetes) |
 | **Triggers** | Built-in support for HTTP, Queue, Timer, Event Grid, and [other Azure Functions triggers](../../azure-functions/functions-triggers-bindings.md) | You define your own entry points (for example, HTTP endpoints, message consumers, etc.) |
-| **State storage** | [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) (recommended), [Azure Storage](../../azure-functions/durable-functions/durable-functions-azure-storage-provider.md), [MSSQL](durable-task-storage-providers.md#mssql), [Netherite](durable-task-storage-providers.md#netherite) | [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) |
+| **State storage** | [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) (recommended), [Azure Storage](../durable-functions/durable-functions-azure-storage-provider.md), [MSSQL](durable-task-storage-providers.md#mssql), [Netherite](durable-task-storage-providers.md#netherite) | [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) |
 | **Languages** | .NET (C#/F#), JavaScript/TypeScript, Python, Java, PowerShell | .NET (C#/F#), JavaScript/TypeScript, Python, Java |
 | **Monitoring** | Built-in integration with Azure portal, Application Insights | You set up your own monitoring solution (for example, Azure Monitor, Prometheus, or Grafana) |
 
 > [!NOTE]
 > **Cold start** occurs when a function app starts after being idle. [Premium](../../azure-functions/functions-premium-plan.md) and [Dedicated](../../azure-functions/dedicated-plan.md) hosting plans keep instances warm to reduce cold start latency. 
 >
-> The [Flex Consumption](../../azure-functions/flex-consumption-plan.md) hosting plan offers [an "always read instances" concept](../../azure-functions/flex-consumption-plan.md#always-ready-instances) as cold start mitigation.
+> The [Flex Consumption](../../azure-functions/flex-consumption-plan.md) hosting plan offers [an "always ready instances" concept](../../azure-functions/flex-consumption-plan.md#always-ready-instances) as cold start mitigation.
 > 
 > Learn more about [Azure Functions hosting models](../../azure-functions/functions-scale.md).
 
@@ -74,7 +79,7 @@ Durable Functions automatically exposes HTTP endpoints for starting orchestratio
 > [!NOTE]
 > Durable Functions supports using `DurableTaskClient` class directly if you would prefer it to using the built-in HTTP APIs.
 
-Learn more: [HTTP features in Durable Functions](../../azure-functions/durable-functions/durable-functions-http-features.md) | [HTTP API reference](../../azure-functions/durable-functions/durable-functions-http-api.md)
+Learn more: [HTTP features in Durable Functions](../durable-functions/durable-functions-http-features.md) | [HTTP API reference](../durable-functions/durable-functions-http-api.md)
 
 #### Durable Task SDKs management
 
@@ -84,17 +89,7 @@ Learn more: [Manage orchestration instances](durable-task-instance-management.md
 
 ### Storage backends
 
-Durable Functions supports multiple storage backends, while the Durable Task SDKs exclusively use the Durable Task Scheduler.
-
-> [!TIP]
-> The **Durable Task Scheduler** is a fully managed Azure service that handles orchestration state persistence and execution. It's provisioned as a separate Azure resource with its own [pricing](../scheduler/durable-task-scheduler-billing.md). It's the recommended backend for Durable Functions and the only supported backend for the Durable Task SDKs.
-
-| Storage provider | Durable Functions | Durable Task SDKs |
-| ---------------- | ----------------- | ----------------- |
-| **Durable Task Scheduler** | ✅ Recommended | ✅ Required |
-| **Azure Storage** | ✅ Supported | ❌ Not supported |
-| **Microsoft SQL Server** | ✅ Supported | ❌ Not supported |
-| **Netherite** | ⚠️ Supported, but being retired | ❌ Not supported |
+Both hosting models use the **[Durable Task Scheduler](../scheduler/durable-task-scheduler.md)** — a fully managed Azure service for orchestration state persistence and execution ([pricing](../scheduler/durable-task-scheduler-billing.md)). Durable Functions additionally supports bring-your-own storage backends (Azure Storage, MSSQL, and Netherite). The Durable Task SDKs exclusively use the Durable Task Scheduler.
 
 Learn more: [Storage providers](durable-task-storage-providers.md)
 
@@ -112,11 +107,9 @@ Learn more: [Task hubs](durable-task-hubs.md)
 | **Application Insights** | ✅ Built-in | Manual setup |
 | **Zero-downtime deployment** | ✅ Functions slots | Platform-specific |
 
-Learn more: [Diagnostics](../../azure-functions/durable-functions/durable-functions-diagnostics.md) | [Versioning](../../azure-functions/durable-functions/durable-functions-versioning.md)
+Learn more: [Diagnostics](../durable-functions/durable-functions-diagnostics.md) | [Versioning](../durable-functions/durable-functions-versioning.md)
 
-Both hosting models support the **[Durable Task Scheduler](../scheduler/durable-task-scheduler.md)** as a state storage backend, which provides both state storage and extra monitoring capabilities. Durable Functions also supports several bring-your-own (BYO) storage options for scenarios that require them. For more information, see [Storage providers](durable-task-storage-providers.md).
-
-## More considerations
+## When to choose each model
 
 When choosing between the two hosting models, consider the following factors:
 
@@ -134,20 +127,17 @@ When choosing between the two hosting models, consider the following factors:
 
 If you're already using Durable Functions and want to move to a container-based deployment or take advantage of the Durable Task SDKs' hosting flexibility, migration is straightforward. The orchestration code is very similar between both frameworks.
 
-For detailed migration guidance, see [Migrate from Durable Functions to the Durable Task SDKs](../../azure-functions/durable-functions/durable-functions-migrate.md).
+For detailed migration guidance, see [Migrate from Durable Functions to the Durable Task SDKs](../durable-functions/durable-functions-migrate.md).
 
-### Durable Task Framework (DTFx)
-
-The [Durable Task Framework](https://github.com/Azure/durabletask) (DTFx) is a community-maintained, open-source .NET library for durable orchestration. It provides similar orchestration primitives to the modern Durable Task SDKs and continues to be actively used in production by many teams, including within Microsoft. Notably, DTFx is used internally as a dependency of Azure Durable Functions, which is one of the reasons it continues to be maintained. However, it doesn't come with official Microsoft support—bugs and feature requests are addressed on a best-effort basis. It also requires you to manage hosting and operational infrastructure yourself.
-
-If you're starting a new project or need official Microsoft support, we recommend using the modern Durable Task SDKs or Durable Functions instead.
+> [!NOTE]
+> **Durable Task Framework (DTFx)**: The [Durable Task Framework](https://github.com/Azure/durabletask) is a community-maintained, open-source .NET library for durable orchestration. It's used internally as a dependency of Durable Functions, but doesn't come with official Microsoft support. If you're starting a new project, use the modern Durable Task SDKs or Durable Functions instead.
 
 ## Next steps
 
 Get started with the framework you chose:
 
 > [!div class="nextstepaction"]
-> [Durable Functions overview](../../azure-functions/durable-functions/durable-functions-overview.md)
+> [Durable Functions overview](../durable-functions/durable-functions-overview.md)
 
 > [!div class="nextstepaction"]
 > [Durable Task SDKs overview](../sdks/durable-task-overview.md)
