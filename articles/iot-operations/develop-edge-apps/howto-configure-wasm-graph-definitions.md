@@ -4,6 +4,7 @@ description: Learn how to create and configure WebAssembly graph definitions tha
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-data-flows
 ms.topic: how-to
 ms.date: 02/27/2026
 ai-usage: ai-assisted

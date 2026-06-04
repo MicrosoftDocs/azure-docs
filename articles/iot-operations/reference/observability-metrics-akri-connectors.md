@@ -4,6 +4,7 @@ description: Available observability metrics for Akri and connectors to monitor 
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-akri
 ms.topic: reference
 ms.date: 03/30/2026
 

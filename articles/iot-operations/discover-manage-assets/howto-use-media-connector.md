@@ -4,6 +4,7 @@ description: Use the operations experience web UI to configure assets and device
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-akri
 ms.topic: how-to
 ms.date: 05/28/2026
 ai-usage: ai-assisted

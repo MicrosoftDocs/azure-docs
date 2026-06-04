@@ -3,6 +3,8 @@ title: How to use the connector for OPC UA
 description: Use the operations experience web UI or the Azure CLI to configure assets and devices for OPC UA connections.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
+ms.subservice: azure-opcua-connector
 ms.topic: how-to
 ms.date: 05/12/2026
 ai-usage: ai-assisted
