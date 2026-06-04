@@ -1,6 +1,6 @@
 ---
 title: Typed Workflow Trigger Interfaces Definition
-description: Type-safe interfaces for workflow triggers with strongly-typed output contracts for body and structured output access.
+description: Type-safe interfaces for workflow triggers with strongly typed output contracts for body and structured output access.
 services: logic-apps
 ms.suite: integration
 author: wsilveiranz
@@ -13,7 +13,7 @@ ms.date: 05/28/2026
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 
-Provides type-safe interfaces for workflow triggers with strongly-typed output contracts for body and structured output access. These interfaces extend [IWorkflowTrigger](i-workflow-trigger-class-definition.md) so downstream actions can reference trigger payloads and structured outputs through expression-friendly properties.
+Provides type-safe interfaces for workflow triggers with strongly typed output contracts for body and structured output access. These interfaces extend [IWorkflowTrigger](i-workflow-trigger-class-definition.md) so downstream actions can reference trigger payloads and structured outputs through expression-friendly properties.
 
 ## Usage
 
@@ -27,13 +27,13 @@ trigger.Then(compose);
 
 ## IOutputWorkflowTrigger<T>
 
-Represents a typed workflow trigger whose structured output is available through a strongly-typed property.
+Represents a typed workflow trigger whose structured output is available through a strongly typed property.
 
 ### Properties
 
 |Name|Description|Type|Required|
 |---|---|---|---|
-|TriggerOutput|Gets the strongly-typed output produced by the trigger.|T|No|
+|TriggerOutput|Gets the strongly typed output produced by the trigger.|T|No|
 
 ### Methods
 
@@ -41,13 +41,13 @@ _This type implements `Then()` methods from [IChainableNode](i-chainable-node-cl
 
 ## IBodyWorkflowTrigger<T>
 
-Represents a typed workflow trigger whose body payload is available through a strongly-typed property.
+Represents a typed workflow trigger whose body payload is available through a strongly typed property.
 
 ### Properties
 
 |Name|Description|Type|Required|
 |---|---|---|---|
-|TriggerBody|Gets the strongly-typed body payload produced by the trigger.|T|No|
+|TriggerBody|Gets the strongly typed body payload produced by the trigger.|T|No|
 
 ### Methods
 
