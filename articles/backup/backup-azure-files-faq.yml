@@ -131,7 +131,7 @@ sections:
            In the current backup solution for Azure Files, no data is transferred to the vault, and snapshots are retained in the same storage account as the backed-up file share. So, the data transferred in MB is 0.
        
       - question: |
-          Why Azure Files snapshot-based backups doesn't replicate based on the Storage Replication Type setting of the vault?
+          Why are Azure Files snapshot-based backups not replicated based on the Storage Replication Type setting of the vault?
         answer: |
           For snapshot-based backup, the vault's storage replication setting doesn't apply because no data is transferred to the vault. Snapshots are stored in the same storage account as the backed-up file share, and Azure Backup replicates as per the replication setting of storage account.
           
