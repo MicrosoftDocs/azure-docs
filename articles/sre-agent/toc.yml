@@ -154,6 +154,8 @@ items:
         items:
           - name: Operations Hub overview
             href: operations-hub-overview.md
+          - name: Operations Hub
+            href: operations-hub.md
           - name: Track incident value
             href: track-incident-value.md
           - name: Monitor agent usage
@@ -264,6 +266,8 @@ items:
         href: data-privacy.md
       - name: Pricing and billing
         href: pricing-billing.md
+      - name: Create a support request
+        href: create-support-request.md
       - name: API reference
         href: api-reference.md
       - name: Deploy with Infrastructure as Code
