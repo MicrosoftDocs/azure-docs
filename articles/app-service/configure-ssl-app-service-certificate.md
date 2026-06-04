@@ -123,7 +123,7 @@ New-AzRoleAssignment -RoleDefinitionName "Key Vault Secrets Officer" -Applicatio
    | **Days to retain deleted vaults** | The number of days, after deletion, that objects remain recoverable. (See [Azure Key Vault soft-delete overview](/azure/key-vault/general/soft-delete-overview).) Set a value between 7 and 90. |
    | **Purge protection** | Enabling this option forces all deleted objects to remain in soft-deleted state for the entire duration of the retention period. |
 
-1. Select **Next** and then select **Vault access policy**. Currently, App Service certificates support only Key Vault access policies, not the role-based access control model.
+1. Select **Next** and then select **Permission model**: **Azure role-based access control** or **Vault access policy**.
 1. Select **Review + create**, and then select **Create**.
 1. After the key vault is created, don't select **Go to resource**. Wait for the **Select key vault from Azure Key Vault** page to reload.
 1. Choose **Select**.

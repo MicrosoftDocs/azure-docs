@@ -7,7 +7,7 @@ ms.reviewer: azfuncdf
 ms.service: durable-task
 ms.subservice: durable-task-sdks
 ms.topic: quickstart
-ms.date: 05/05/2026
+ms.date: 05/26/2026
 ---
 
 # Quickstart: Host a .NET Durable Task SDK app on Azure Kubernetes Service

@@ -8,12 +8,12 @@ ms.service: azure-container-apps
 ms.subservice: dapr
 ms.custom: build-2023
 ms.topic: concept-article
-ms.date: 02/02/2026
+ms.date: 03/18/2026
 ---
 
 # Dapr components in Azure Container Apps
 
-Dapr uses a modular design where functionality is delivered as a [component][dapr-component]. The use of Dapr components is optional and dictated exclusively by the needs of your application.
+Distributed Application Runtime (Dapr) uses a modular design where functionality is delivered as a [component][dapr-component]. The use of Dapr components is optional and dictated by the needs of your application.
 
 Dapr components in container apps are environment-level resources that:
 
@@ -43,7 +43,7 @@ spec:
       value: [METADATA-VALUE]
 ```
 
-In Azure Container Apps, this schema is slightly simplified to support Dapr components and remove unnecessary fields, including `apiVersion`, `kind`, and redundant metadata and spec properties.
+In Azure Container Apps, this schema is slightly simplified to support Dapr components. The simplified version removes unnecessary fields, including `apiVersion`, `kind`, and redundant metadata and spec properties.
 
 ```yaml
 componentType: [COMPONENT-TYPE]
@@ -57,7 +57,7 @@ metadata:
 
 ## Component scopes
 
-By default, all Dapr-enabled container apps within the same environment load the full set of deployed components. To ensure only the appropriate container apps load components at runtime, application scopes should be used. In the following example, the component is only loaded by the two Dapr-enabled container apps with Dapr application IDs `APP-ID-1` and `APP-ID-2`.
+By default, all Dapr-enabled container apps in the same environment load the full set of deployed components. To ensure only the appropriate container apps load components at runtime, you should use application scopes. In the following example, the component is loaded only by the two Dapr-enabled container apps with Dapr application IDs `APP-ID-1` and `APP-ID-2`.
 
 ```yaml
 componentType: [COMPONENT-TYPE]
@@ -79,7 +79,7 @@ scopes:
 
 # [YAML](#tab/yaml)
 
-To create a Dapr component by using the Container Apps CLI, you can use a container apps YAML manifest. When configuring multiple components, you must create and apply a separate YAML file for each component.
+To create a Dapr component by using the Container Apps CLI, you can use a container apps YAML manifest. When you configure multiple components, create and apply a separate YAML file for each component.
 
 ```azurecli
 az containerapp env dapr-component set --name <your-environment-name> --resource-group <your-resource-group> --dapr-component-name pubsub --yaml "./pubsub.yaml"
@@ -108,7 +108,7 @@ scopes:
 
 # [Bicep](#tab/bicep)
 
-This resource defines a Dapr component called `dapr-pubsub` by using Bicep. The Dapr component is defined as a child resource of the Container Apps environment. To define multiple components, you can add a `daprComponent` resource for each.
+This resource defines a Dapr component called `dapr-pubsub` by using Bicep. The Dapr component is defined as a child resource of the Container Apps environment. To define multiple components, add a `daprComponent` resource for each.
 
 ```bicep
 resource daprComponent 'daprComponents@2022-03-01' = {
@@ -177,7 +177,7 @@ This resource defines a Dapr component called `dapr-pubsub` by using an ARM temp
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Connect to other Azure or external services via Dapr components][dapr-components-connect-services]
+> [Connect to other Azure or partner services by using Dapr components][dapr-components-connect-services]
 
 <!-- Links Internal -->
 

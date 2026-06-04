@@ -37,12 +37,31 @@ The following table summarizes the OpenAI GPT-5.x models recommended for Discove
 | --- | --- | --- | --- | --- |
 | **GPT-5.2** | 400,000 tokens | General-purpose reasoning, tool use, structured output | Medium | Medium |
 | **GPT-5.4** | 1,050,000 tokens | Production-grade tasks with large context requirements | Medium-High | Medium |
+| **GPT-5.5** | 1,050,000 tokens | Latest reasoning capabilities with improved accuracy and instruction following | High | Medium |
 | **GPT-5.2-Pro** | 400,000 tokens | Deep reasoning, complex research, advanced code generation | High | Slow |
 | **GPT-5.4-Pro** | 1,050,000 tokens | Maximum reasoning depth with extended context | Highest | Slowest |
 | **GPT-5.2-Chat** | 400,000 tokens | Conversational interactions, Question and Answer, guidance | Medium-Low | Fast |
 | **GPT-5.4-Chat** | 1,050,000 tokens | Conversational interactions with larger context | Medium | Fast |
 | **GPT-5-mini** | 400,000 tokens | High-volume, cost-sensitive workloads | Low | Fast |
 | **GPT-5-nano** | 400,000 tokens | Ultra-low-cost, latency-sensitive workloads | Lowest | Fastest |
+
+## Understand available Grok models
+
+Grok models are available through Azure AI Foundry and provide an alternative for biology and life sciences research workflows. Compared to GPT models, Grok models have fewer content restrictions on biology-vertical queries, making them better suited for agents that reason over biomedical literature, molecular biology, genomics, and related domains where GPT safety filters might limit useful scientific output.
+
+| Model | Strength | Relative cost | Response time |
+| --- | --- | --- | --- |
+| **Grok-4.20-reasoning** | Chain-of-thought reasoning for complex biology and life sciences tasks | High | Slow |
+| **Grok-4.20-non-reasoning** | Fast inference for biology-focused agents without chain-of-thought overhead | Medium | Fast |
+
+### When to use Grok models
+
+- **Biology and life sciences agents**—Use Grok models when your agent handles queries about molecular structures, drug interactions, genetic pathways, or other biology-specific content where GPT models might refuse or over-filter responses.
+- **Grok-4.20-reasoning**—Choose the reasoning variant for agents that perform multi-step scientific reasoning, hypothesis generation, or complex analysis in biology domains. The chain-of-thought capability produces more thorough and explainable outputs.
+- **Grok-4.20-non-reasoning**—Choose the non-reasoning variant for high-throughput agents that need fast responses for biology-focused queries without the overhead of extended reasoning.
+
+> [!NOTE]
+> Grok models are supported as bring-your-own-model (BYOM) deployments. Ensure the model is available in your target region and the corresponding quota is reserved. Check the [Azure AI Foundry Model Catalog](https://ai.azure.com) for current availability.
 
 ## Match models to agent use cases
 
@@ -54,8 +73,9 @@ Research agents handle literature review, data analysis, summarization, and scie
 
 **Recommended models:**
 
-- **GPT-5.2** (default recommendation)—Provides reliable reasoning for most research tasks. It handles tool execution, structured output, and multi-step analysis well. Start here for most prompt agents.
-- **GPT-5.4**—Choose this model when your agent processes large documents or needs extended context. The 1,050,000 token context window supports ingesting full papers, datasets, or lengthy experiment logs.
+- **GPT-5.4** (default recommendation)—Provides strong reasoning with a large 1,050,000 token context window for most research tasks. It handles tool execution, structured output, and multi-step analysis well. Start here for most prompt agents.
+- **GPT-5.5**—The latest model in the GPT-5.x family with improved reasoning accuracy and instruction following. Choose GPT-5.5 for agents that require cutting-edge performance on complex scientific reasoning tasks. Available in limited regions (eastus2, northcentralus, southcentralus, westus3, polandcentral, swedencentral).
+- **GPT-5.2**—A cost-effective alternative when extended context isn't required. Offers reliable reasoning at a lower cost than GPT-5.4.
 - **GPT-5.2-Pro / GPT-5.4-Pro**—Use Pro variants for agents that perform deep scientific reasoning, complex hypothesis generation, or advanced code synthesis. Pro models allocate more compute per request and produce more thorough outputs. Expect higher cost and slower response times.
 
 ### Prompt agents for planning and routing
@@ -64,7 +84,7 @@ Planning agents generate research plans, make routing decisions, or coordinate o
 
 **Recommended models:**
 
-- **GPT-5.2**—Handles planning and routing reliably. Set temperature to `0` for deterministic behavior.
+- **GPT-5.4**—Handles planning and routing reliably. Set temperature to `0` for deterministic behavior.
 - **GPT-5.2-Chat**—A cost-effective alternative for lightweight planning tasks that don't require deep reasoning. Chat models respond faster and cost less per token.
 - **GPT-5-mini**—Suitable for simple routing decisions where the agent selects from a fixed set of options. Offers the best balance of cost and speed for straightforward classification tasks.
 
@@ -74,8 +94,8 @@ Tool-execution agents invoke Discovery tools, code interpreters, or Model Contex
 
 **Recommended models:**
 
-- **GPT-5.2**—Offers the most consistent tool-calling behavior across the model family. It reliably generates structured JSON for function arguments and parses tool responses accurately.
-- **GPT-5.4**—Choose this model when tool operations involve large input payloads or when the agent needs to maintain context across many sequential tool calls.
+- **GPT-5.4**—Offers consistent tool-calling behavior with a large context window. It reliably generates structured JSON for function arguments and parses tool responses accurately, while supporting many sequential tool calls.
+- **GPT-5.2**—A cost-effective alternative when tool operations don't involve large input payloads or extended context.
 
 ### Prompt agents for user interaction
 
@@ -99,15 +119,18 @@ Use the following decision matrix to guide your model selection.
 | Priority | Recommended model | Tradeoff |
 | --- | --- | --- |
 | **Highest output quality** | GPT-5.4-Pro | Slowest response, highest cost |
-| **Best general-purpose balance** | GPT-5.2 | Good quality, moderate cost, moderate speed |
+| **Latest reasoning capabilities** | GPT-5.5 | Limited region availability |
+| **Best general-purpose balance** | GPT-5.4 | Good quality, large context, moderate cost |
 | **Large context requirements** | GPT-5.4 | Higher cost, supports up to 1,050,000 tokens |
+| **Biology and life sciences** | Grok-4.20-reasoning | Fewer content restrictions on biology queries; BYOM deployment required |
+| **Fast biology inference** | Grok-4.20-non-reasoning | Fewer content restrictions; no chain-of-thought reasoning |
 | **Fast conversational responses** | GPT-5.2-Chat or GPT-5.4-Chat | Reduced reasoning depth |
 | **Cost optimization** | GPT-5-mini | Good quality at lower cost |
 | **Lowest cost and latency** | GPT-5-nano | Reduced output quality, best for simple tasks |
 
 ### Tips for optimizing cost
 
-- **Start with GPT-5.2.** It's the recommended default for Discovery agents. Move to a different model only when you have a specific reason.
+- **Start with GPT-5.4.** It's the recommended default for Discovery agents. Move to a different model only when you have a specific reason.
 - **Use smaller models for simple tasks.** Routing, classification, and formatting tasks don't need Pro-level reasoning. GPT-5-mini or GPT-5-nano reduces cost significantly.
 - **Reserve Pro models for high-value tasks.** Deep research synthesis, complex hypothesis generation, and advanced code analysis justify the higher cost.
 - **Mix models across agents.** Assign different models to different agents based on each agent's task complexity.

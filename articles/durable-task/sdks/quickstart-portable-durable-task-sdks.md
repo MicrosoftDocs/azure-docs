@@ -4,10 +4,10 @@ ms.author: hannahhunter
 title: "Quickstart: Create an App with Durable Task SDKs"
 titleSuffix: Durable Task
 description: Create orchestrations using Durable Task SDKs and the Durable Task Scheduler emulator with the fan-out/fan-in pattern for parallel processing. Get started now.
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: durable-task
 ms.subservice: durable-task-sdks
-ms.date: 05/05/2026
+ms.date: 05/26/2026
 zone_pivot_groups: df-languages
 ms.custom:
   - build-2025
@@ -945,6 +945,14 @@ await client.stop();
 ```
 
 ::: zone-end
+
+## Clean up resources
+
+Stop the emulator container when you're done:
+
+```bash
+docker stop dtsemulator && docker rm dtsemulator
+```
 
 ## Next steps
 
