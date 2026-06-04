@@ -1,5 +1,5 @@
 ---
-title: Service Bus dead-letter queues
+title: Service Bus Dead-Letter Queues
 description: Describes dead-letter queues in Azure Service Bus. Service Bus queues and topic subscriptions provide a secondary subqueue, called a dead-letter queue.
 ms.topic: concept-article
 ms.date: 06/04/2026
@@ -51,8 +51,8 @@ You can also get the count of DLQ messages by using the Azure CLI command [`az s
 
 There are several activities in Service Bus that cause messages to get pushed to the DLQ from within the messaging engine itself. An application can also explicitly move messages to the DLQ. The following two properties (dead-letter reason and dead-letter description) are added to dead-lettered messages. Applications can define their own codes for the dead-letter reason property, but the system sets the following values.
 
-| Dead-letter reason            | Dead-letter error description                                                                                                                |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Dead-letter reason            | Dead-letter error description                 |
+| ------------------- | ---------------------- |
 | `HeaderSizeExceeded`          | The size quota for this stream exceeded the limit.                                                                                           |
 | `TTLExpiredException`         | The message expired and was dead-lettered. See the [Time to live](#time-to-live) section for details.                                        |
 | `Session ID is null`          | Session enabled entity doesn't allow a message whose session identifier is null.                                                             |
@@ -96,7 +96,7 @@ Messages are sent to the dead-letter queue under the following conditions:
 
 Once you resolve the issue that caused the message to be dead-lettered, you can resubmit it to the queue or topic to be reprocessed.
 
-In some cases, if there are many messages in the dead-letter queue that need to be moved, [code like this](https://stackoverflow.com/a/68632602/151350) can help move them all at once. Operators often prefer having a user interface so they can troubleshoot which message types failed processing, from which source queues, and for what reasons, while still being able to resubmit batches of messages to be reprocessed.
+In some cases, if there are many messages in the dead-letter queue that need to be moved, you can write code to move them all at once, like in this [example code from Stack Overflow](https://stackoverflow.com/a/68632602/151350). Operators often prefer having a user interface so they can troubleshoot which message types failed processing, from which source queues, and for what reasons, while still being able to resubmit batches of messages to be reprocessed.
 
 ### Available tools
 
