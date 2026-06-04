@@ -214,6 +214,8 @@ items:
         items:
           - name: Set up GitHub connector (OAuth/PAT)
             href: setup-github-connector.md
+          - name: Set up GitHub BYO App
+            href: setup-github-byo-app.md
           - name: Connect GitHub Enterprise Cloud
             href: connect-github-enterprise-cloud.md
           - name: Set up Kusto connector

@@ -30,6 +30,13 @@ During preview, hosted MCP servers are available in the following regions:
 - Central US
 - North Europe
 
+## Access the Connector Namespace portal
+
+You manage hosted MCP servers and their namespaces in the Connector Namespace portal. You can access it two ways:
+
+- **Through the Azure portal**: Open a provisioned namespace resource in the [Azure portal](https://portal.azure.com/), which links you into the Connector Namespace portal for that namespace.
+- **Directly**: Go to [https://connectors.azure.com/](https://connectors.azure.com/) and select your namespace.
+
 ## Authentication
 
 Hosted MCP servers involve two authentication boundaries.
@@ -100,7 +107,9 @@ Most hosted MCP servers deploy without additional artifacts. You select the serv
 
 ### Azure SQL
 
-Azure SQL requires a **Data API builder (DAB) configuration file** that defines:
+The Azure SQL MCP server is built on [Data API Builder (DAB)](/azure/data-api-builder/overview). DAB provides a secure data API layer over your database and exposes the entities you select as MCP tools that agents can call. Rather than connecting agents directly to the database, the server runs DAB, which enforces the entity definitions and per-entity permissions you specify, so agents can only access the data and operations you explicitly expose.
+
+Because of this, Azure SQL requires a **Data API builder (DAB) configuration file** that defines:
 
 - The database connection string
 - The entities (tables/views) to expose
