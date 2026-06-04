@@ -549,8 +549,6 @@
       items: 
         - name: Manage cache volumes 
           href: configure-cache-volumes.md
-        - name: Manage file access logs in Azure NetApp Files cache volumes
-          href: manage-file-access-logs-cache-volumes.md  
         - name: Change the service level of an Azure NetApp Files cache volume
           href: change-cache-volume-service-level.md
         - name: Break file locks for an Azure NetApp Files cache volume 
