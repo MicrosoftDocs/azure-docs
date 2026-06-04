@@ -3,7 +3,7 @@ title: About Azure Site Recovery
 description: Provides an overview of the Azure Site Recovery service, and summarizes disaster recovery and migration deployment scenarios.
 ms.topic: overview
 ms.service: azure-site-recovery
-ms.date: 05/13/2026
+ms.date: 06/04/2026
 ms.custom: MVC
 ms.author: v-gajeronika
 author: Jeronika-MS
@@ -52,6 +52,7 @@ Site Recovery can manage replication for:
 **Azure automation integration** | A rich Azure Automation library provides production-ready, application-specific scripts that can be downloaded and integrated with Site Recovery.
 **Network integration** | Site Recovery integrates with Azure for application network management. For example, to reserve IP addresses, configure load-balancers, and use Azure Traffic Manager for efficient network switchovers.
 **Shared disk** | You can protect, monitor, failover, and re-protect your workloads running on Windows Server Failover Clusters (WSFC) on Azure VMs using shared disk. <br> You can use shared disks for your critical applications such as SQL FCI, SAP ASCS, Scale-out File Servers, etc., while ensuring business continuity and disaster recovery with Azure Site Recovery.
+**Azure Local integration (preview)** | Site Recovery integrated with Azure Local environments. You can replicate and recover Hyper-V virtual machine workloads running on Azure Local clusters, enabling seamless disaster recovery for your hybrid infrastructure. [Learn more](/azure/azure-local/manage/azure-site-recovery?view=azloc-2602).
 
 ## What can I replicate?
 
