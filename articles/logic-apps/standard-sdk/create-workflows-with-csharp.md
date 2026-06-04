@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 ms.update-cycle: 365-days
 ms.date: 06/05/2026
 ms.custom:
-- build-2026
+  - build-2026
 # Customer intent: As an integration developer who works with Azure Logic Apps, I want to create a workflow project by using the Standard SDK so I can programmatically automate processes with code-first workflows.
 ---
 
@@ -41,7 +41,7 @@ During preview release, the following limitations apply:
 | Area | Limitation |
 |------|------------|
 | Built-in service provider-based operations | Currently unavailable, but planned for a future release. <br><br>During preview, only Azure-hosted and -managed connectors are available for code-first workflows. |
-| Dynamic schemas | aren't supported | Currently unavailable, but planned for a future release.  |
+| Dynamic schemas | Currently unavailable, but planned for a future release. |
 | Custom code | Only callback methods are currently supported. Inline lambda functions are unsupported during preview. |
 | Actions | Before you can use and reference these operations in workflows, you must add and name them. |
 | Managed identity authentication | Support is in development. For now, use connection string or API key authentication. |
@@ -73,7 +73,7 @@ During preview release, the following limitations apply:
      | **Workspace parent folder path** | The path and folder name for your local workspace. This workspace name is used for the folder and project files. <br><br>To create this folder, follow these steps: <br><br>1. Select **Browse** to open the **Select Folder** window. <br><br>2. Browse to the location for creating the workspace folder. <br><br>3. Create your folder, and then select the folder *only once*. <br><br>4. Choose **Select workspace parent folder** (don't double-select the folder). |
      | **Workspace name** | The name for your workspace in Visual Studio Code. |
      | **Logic app name** | The name for your logic app project. |
-     | Logic app project and workflow type | This list shows the possible flavors for a Standard logic app project. | For Standard SDK projects, select **Logic app (codeful)** for code-first workflows. |
+     | Logic app project and workflow type | This list shows the possible flavors for a Standard logic app project. <br><br>For Standard SDK projects, select **Logic app (codeful)** for code-first workflows. |
      | **Workflow name** | The name for the first workflow in the Standard logic app project. |
      | **Workflow type** | - **Stateful**: A non-AI workflow that includes run history. <br><br>- **Conversational agents**: An AI-driven workflow that supports human interactions through chat and includes run history. <br><br>- **Autonomous agents**: An AI-driven workflow that supports human-independent automation and includes run history. |
 
@@ -184,7 +184,7 @@ To set up any connections that the trigger or actions in your workflow need to f
 
    > [!NOTE]
    >
-   > For workflows created with the Azure Logic Apps Standard SDK, the run history uses the same rich, visual representation as workflows created with the visual designer. You can monitor and troubleshoot your workflows the same way, regardless how you created them.
+   > For workflows created with the Azure Logic Apps Standard SDK, the run history uses the same rich, visual representation as workflows created with the visual designer. You can monitor and troubleshoot your workflows the same way, no matter how you created them.
    > 
    > :::image type="content" source="media\create-workflows-with-csharp\create-code-first-workflow-run-details.png" alt-text="Screenshot shows workflow run history with action inputs and outputs after a completed run." lightbox="media\create-workflows-with-csharp\create-code-first-workflow-run-details.png":::
 
