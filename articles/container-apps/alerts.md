@@ -92,7 +92,7 @@ To create an alert rule:
 
 1. Optionally, you can enable alert splitting in the alert rule to send individual alerts for each dimension you select in the **Split by dimensions** section of the editor.
 
-   :::image type="content" source="media/observability/log-alerts-splitting.png" alt-text="Screenshot of the Create an alert rule Split by dimensions section":::
+   :::image type="content" source="media/observability/log-alerts-splitting.png" alt-text="Screenshot of the Create an alert rule Split by dimensions section.":::
 
 1. Enter the threshold criteria in the **Alert logic** section.
 
