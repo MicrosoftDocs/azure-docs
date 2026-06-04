@@ -120,6 +120,8 @@
       href: network-overview.md
 - name: Deploy virtual network
   items:
+    - name: Configure advertised gateway prefixes
+      href: how-to-advertised-gateway-prefixes.md
     - name: Connect a virtual network to ExpressRoute circuits
       href: /azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
     - name: Connect an on-premises network to Azure by using ExpressRoute
