@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.author: wsilveira
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: reference
 ms.date: 05/28/2026
 ---
@@ -44,7 +44,7 @@ Types for defining workflow actions that execute after triggers fire.
 |------|-------------|------|
 | IWorkflowAction | Interface for action steps with run-after configuration | [IWorkflowAction](i-workflow-action-class-definition.md) |
 | IVariableWorkflowAction | Extended action interface for variable operations | [IVariableWorkflowAction](i-variable-workflow-action-class-definition.md) |
-| Typed Workflow Action Interfaces | Type-safe interfaces (`IBodyWorkflowAction<T>`, `IOutputWorkflowAction<T>`) for strongly-typed output | [Typed Action Interfaces](typed-workflow-action-interfaces-class-definition.md) |
+| Typed Workflow Action Interfaces | Type-safe interfaces (`IBodyWorkflowAction<T>`, `IOutputWorkflowAction<T>`) for strongly typed output | [Typed Action Interfaces](typed-workflow-action-interfaces-class-definition.md) |
 | WorkflowActionBase | Abstract base class providing common action functionality | [WorkflowActionBase](workflow-action-base-class-definition.md) |
 | WorkflowBuiltInActions | Factory for built-in actions: HTTP, Compose, Response, CustomCode, NestedWorkflow, Agent | [WorkflowBuiltInActions](workflow-built-in-actions-class-definition.md) |
 | WorkflowControlActions | Factory for control flow: Scope, Condition, ForEach, Until, Switch, Terminate | [WorkflowControlActions](workflow-control-actions-class-definition.md) |
@@ -58,7 +58,7 @@ Types for defining workflow triggers that initiate execution.
 | Type | Description | Link |
 |------|-------------|------|
 | IWorkflowTrigger | Interface for the root trigger that initiates workflow execution | [IWorkflowTrigger](i-workflow-trigger-class-definition.md) |
-| Typed Workflow Trigger Interfaces | Type-safe interfaces (`IOutputWorkflowTrigger<T>`, `IBodyWorkflowTrigger<T>`) for strongly-typed output | [Typed Trigger Interfaces](typed-workflow-trigger-interfaces-class-definition.md) |
+| Typed Workflow Trigger Interfaces | Type-safe interfaces (`IOutputWorkflowTrigger<T>`, `IBodyWorkflowTrigger<T>`) for strongly typed output | [Typed Trigger Interfaces](typed-workflow-trigger-interfaces-class-definition.md) |
 | WorkflowTriggerBase | Abstract base class providing common trigger functionality | [WorkflowTriggerBase](workflow-trigger-base-class-definition.md) |
 | WorkflowBuiltInTriggers | Factory for built-in triggers: HTTP Request, Recurrence, Conversational Agent | [WorkflowBuiltInTriggers](workflow-built-in-triggers-class-definition.md) |
 | WorkflowManagedTriggers | Extensible managed connector triggers (auto-generated from connector definitions) | [WorkflowManagedTriggers](workflow-managed-triggers-class-definition.md) |
