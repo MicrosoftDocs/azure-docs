@@ -1,6 +1,6 @@
 ---
 title: Typed Workflow Action Interfaces Definition
-description: Type-safe interfaces for workflow actions with strongly-typed output contracts for body and structured output access.
+description: Type-safe interfaces for workflow actions with strongly typed output contracts for body and structured output access.
 services: logic-apps
 ms.suite: integration
 author: wsilveiranz
@@ -13,7 +13,7 @@ ms.date: 05/28/2026
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 
-Provides type-safe interfaces for workflow actions with strongly-typed output contracts for body and structured output access. These interfaces extend [IWorkflowAction](i-workflow-action-class-definition.md) so downstream actions can reference outputs through expression-friendly properties.
+Provides type-safe interfaces for workflow actions with strongly typed output contracts for body and structured output access. These interfaces extend [IWorkflowAction](i-workflow-action-class-definition.md) so downstream actions can reference outputs through expression-friendly properties.
 
 ## Usage
 
@@ -35,7 +35,7 @@ var response = WorkflowActions.BuiltIn.Response(
 
 ## IBodyWorkflowAction<T>
 
-Represents a typed workflow action whose primary output is exposed through a strongly-typed body property.
+Represents a typed workflow action whose primary output is exposed through a strongly typed body property.
 
 ### Properties
 
@@ -49,7 +49,7 @@ _This type implements `Then()` methods from [IChainableNode](i-chainable-node-cl
 
 ## IOutputWorkflowAction<T>
 
-Represents a typed workflow action whose primary output is exposed as a strongly-typed structured value.
+Represents a typed workflow action whose primary output is exposed as a strongly typed structured value.
 
 ### Properties
 
