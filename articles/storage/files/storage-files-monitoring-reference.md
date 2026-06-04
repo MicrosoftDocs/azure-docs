@@ -32,6 +32,9 @@ The following table lists the metrics available for the Microsoft.Storage/storag
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Storage/storageAccounts/fileServices](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-storage-storageaccounts-fileservices-metrics-include.md)]
 
+> [!NOTE]
+> The File Capacity and File Count metrics are emitted hourly. A background process computes these metrics and updates them multiple times a day. The timing and frequency of updates may vary day to day based on operational factors.
+
 <a name="metrics-dimensions"></a>
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
