@@ -23,9 +23,11 @@ ms.custom:
 >
 > This preview feature is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-To programmatically build Standard workflows in Azure Logic Apps with the Visual Studio Code tools for code development, source control, unit testing, IntelliSense, debugging, and refactoring, use the Azure Logic Apps Standard SDK. This SDK lets you define workflows entirely in C# and .NET by using an imperative coding style. Not only do you get more control over your workflow design, you get full access to the Azure Logic Apps ecosystem for Azure-hosted connectors and built-in operations. Organize, develop, and test your workflows by using the project structure, debugging experience, and development patterns that you might already work with and know in Visual Studio Code.
+To programmatically build Standard workflows in Azure Logic Apps with the Visual Studio Code tools for code development, source control, unit testing, IntelliSense, debugging, and refactoring, use the Azure Logic Apps Standard SDK. This SDK lets you define workflows entirely in C# and .NET by using an imperative coding style. Not only do you get more control over your workflow design, you get full access to the Azure Logic Apps ecosystem for Azure-hosted connectors and built-in operations. Organize, develop, and test your workflows by using the project structure, debugging experience, and development patterns that you might already know in Visual Studio Code.
 
 This guide shows how to create and set up your project in Visual Studio Code with code-first workflows by using the Azure Logic Apps Standard SDK. You learn how to set up your workspace, enable connectors, manage connections, debug your workflows, and add workflows to your project.
+
+By default, the SDK generates a logic app project that includes sample code that you can review and then replace with your own. 
 
 ## Known issues and limitations
 
@@ -62,7 +64,7 @@ During preview release, the following limitations apply:
   1. On this tab, provide the following information:
   
      | Property | Description |
-     |----------|-------------
+     |----------|-------------|
      | **Workspace parent folder path** | The path and folder name for your local workspace. This workspace name is used for the folder and project files. <br><br>To create this folder, follow these steps: <br><br>1. Select **Browse** to open the **Select Folder** window. <br><br>2. Browse to the location for creating the workspace folder. <br><br>3. Create your folder, and then select the folder *only once*. <br><br>4. Choose **Select workspace parent folder** (don't double-select the folder). |
      | **Workspace name** | The name for your workspace in Visual Studio Code. |
      | **Logic app name** | The name for your logic app project. |
@@ -76,11 +78,11 @@ During preview release, the following limitations apply:
 
      :::image type="content" source="media\create-workflows-with-csharp\create-code-first-workspace.png" alt-text="Screenshot shows Visual Studio Code, wizard for Azure Logic Apps Standard SDK, and the Create Workspace page that shows the creation steps." lightbox="media\create-workflows-with-csharp\create-code-first-workspace.png":::
 
-     Visual Studio Code prompts you to confirm whether to trust the files authors in your workspace.
+     Visual Studio Code prompts you to confirm whether to trust the files' authors in your workspace.
 
   1. To continue, select **Yes, I trust the authors**.
 
-     Visual Studio Code creates and opens your workspace and logic app project, which you can view in the **Explorer** window.
+     Visual Studio Code creates and opens your workspace and your logic app project, which appear in the **Explorer** window.
 
      After your workspace opens, you're prompted to enable the Azure connectors that are hosted and run in global, multitenant Azure.
 
@@ -105,9 +107,9 @@ For this preview release, you can use only the Azure-hosted, managed connectors 
 
 ## Review project and workflow code
 
-1. In Visual Studio Code, on the Activity Bar, select **Explorer** (files icon) to open the workspace.
+1. In Visual Studio Code, on the Activity Bar, select **Explorer** (files icon) to view your project.
 
-1. In the **Explorer** window, review the following key project files:
+1. In the **Explorer** window, review the following key project files and their sample code.
 
    | Files | Description |
    |-------|-------------|
@@ -116,17 +118,19 @@ For this preview release, you can use only the Azure-hosted, managed connectors 
 
    For example:
 
-   :::image type="content" source="media\create-workflows-with-csharp\code-first-csharp-project.png" alt-text="Screenshot shows Visual Studio Code with Explorer window with project files and Program.cs selected.":::
+   :::image type="content" source="media\create-workflows-with-csharp\code-first-csharp-project.png" alt-text="Screenshot shows Visual Studio Code with Explorer window with project files and Program.cs selected." lightbox="media\create-workflows-with-csharp\code-first-csharp-project.png":::
 
-   - In a codeful logic app project, a workflow file uses code to define the steps in your automation, starting with a single trigger that's followed by actions. The structure for these steps appears similar to the sequence in the workflow designer but is expressed in C#.
+   - In your codeful logic app project, a workflow file uses code to define the steps in your automation, starting with a single trigger that's followed by actions. The structure for these steps appears similar to the sequence in the workflow designer but is expressed in C#.
 
    - The SDK compiles your workflow definition, which then executes on the Azure Logic Apps runtime.
 
 ## Set up connections for triggers and actions
 
-1. Open a workflow code file (workflow1.cs).
+To set up any connections that the trigger or actions in your workflow need to function, follow these steps:
 
-1. Find a managed connector action in the code, such as:
+1. In Visual Studio Code, in the **Explorer** window, open your logic app project and a workflow code file, for example, `<workflow_name.cs`.
+
+1. In the code file, find the action definition associated with an Azure-managed connector, for example:
 
    ```csharp
    var getCurrentWeatherAction = WorkflowActions.Managed.Msnweather("msnweather").CurrentWeather(
@@ -134,68 +138,78 @@ For this preview release, you can use only the Azure-hosted, managed connectors 
        units: () => unitsInput.Imperial);
    ```
 
-1. Hover over the connector call and select **Manage Connector** from the tooltip that appears.
+1. Move your mouse pointer over the action call. From the tooltip that appears, select **Manage connector**.
 
-1. The connection view opens, showing existing connections for that connector in your resource group.
+   For example:
 
-1. Select an existing connection or select **Add new** to create a new connection.
+   :::image type="content" source="media\create-workflows-with-csharp\create-code-first-connection.png" alt-text="Screenshot shows Visual Studio Code with the opened file editor for Workflow1.cs, and shows the Change Connection wizard." lightbox="media\create-workflows-with-csharp\create-code-first-connection.png":::
 
-1. When you create a new connection, provide a unique identifier. VS Code creates the connection and records it in the `connections.json` file.
+   The connection view opens and shows any existing connections that exist in your resource group for that connector.
 
-> [!IMPORTANT]
-> 
-> Connection strings and other credentials are stored securely in the `local.settings.json` file. Don't commit this file to source control.
+1. Select a connection.
 
-:::image type="content" source="media\create-workflows-with-csharp\create-code-first-connection.png" alt-text="Visual Studio Code editing Workflow1.cs displaying the Change Connection wizard.":::
+   -or-
+   
+   To create a connection, select **Add new**, and provide a unique identifier for the connection.
+   
+   Visual Studio Code creates and records the connection in the `connections.json` file.
 
-## Run and debug the workflow project
+   > [!IMPORTANT]
+   > 
+   > The project uses the `local.settings.json` file to securely store connection strings and other credentials. Make sure that you don't commit this file to source control.
 
-1. In the workspace Explorer, right-click **Program.cs** and select **Overview** to start debugging your workflow.
+## Run and debug your workflow
 
-   Alternatively, press **F5** or select **Run** > **Start Debugging**.
+1. In Visual Studio Code, on the Activity Bar, open the **Explorer** window (files icon) to view your project.
 
-1. The project compiles, and the Logic Apps runtime starts locally.
+1. On the Visual Studio Code titlebar, open the **Run** menu, and select **Start debugging**. (Keyboard: **F5**)
 
-1. When the application starts, an overview page opens:
-   - If the workspace contains one workflow, it opens that workflow directly.
-   - If multiple workflows exist, you see a list to choose from.
+   -or-
+   
+   Open the `Program.cs` file's shortcut menu, and select **Overview** to start debugging. (Keyboard: **F5**)
 
-:::image type="content" source="media\create-workflows-with-csharp\create-code-first-overview-page.png" alt-text="Logic Apps Standard project overview page, showing multiple workflows to select and the workflow run history.":::
+   When the project starts to compile, the Azure Logic Apps runtime starts locally running your logic app. When the app starts, the **Overview** page opens.
+   
+   - If your project has a single workflow, the **Overview** page directly opens the workflow run history.
+   - If your project has multiple workflows, select a workflow first.
 
-1. Use the overview page to run triggers, view run history, and examine inputs and outputs. 
+   :::image type="content" source="media\create-workflows-with-csharp\create-code-first-overview-page.png" alt-text="Screenshot shows the project Overview page with multiple workflows and the workflow run history." lightbox="media\create-workflows-with-csharp\create-code-first-overview-page.png":::
 
+   You can use the **Overview** page to execute triggers, review the workflow run history, and examine inputs and outputs. 
 
-> [!NOTE]
-> 
-> Run history for workflows written with the Logic Apps Standard SDK uses the same rich visual representation as workflows created with the visual designer. You can monitor and troubleshoot your workflows the same way, regardless of how you defined them.
-> 
-> :::image type="content" source="media\create-workflows-with-csharp\create-code-first-workflow-run-details.png" alt-text="Logic Apps Standard workflow run details page, showing action inputs and outputs for a completed run.":::
+   > [!NOTE]
+   >
+   > For workflows created with the Azure Logic Apps Standard SDK, the run history uses the same rich, visual representation as workflows created with the visual designer. You can monitor and troubleshoot your workflows the same way, regardless how you created them.
+   > 
+   > :::image type="content" source="media\create-workflows-with-csharp\create-code-first-workflow-run-details.png" alt-text="Screenshot shows workflow run history with action inputs and outputs after a completed run." lightbox="media\create-workflows-with-csharp\create-code-first-workflow-run-details.png":::
 
+## Add a new workflow to your project
 
-## Create a new workflow within the Logic Apps workspace
+1. In Visual Studio Code, on the Activity Bar, select **Explorer** (files icon) to view your project.
 
-1. In the Azure extension in VS Code, select **Create Workflow**.
+1. At the project level, open the shortcut menu, and select **Create workflow**.
 
-1. Enter a name for the new workflow.
+1. On the **Create workflow** tab, enter the following information:
 
-1. Select the workflow type from the available options.
+   | Property | Description |
+   |----------|-------------|
+   | **Workflow name** | The name for the first workflow in the Standard logic app project. |
+   | **Workflow type** | - **Stateful**: A non-AI workflow that includes run history. <br><br>- **Conversational agents**: An AI-driven workflow that supports human interactions through chat and includes run history. <br><br>- **Autonomous agents**: An AI-driven workflow that supports human-independent automation and includes run history. |
 
-1. Select **Next**, and then select **Create Workflows**.
+1. When you finish, select **Next**, and then select **Create workflow**.
 
-1. The new workflow appears in the workflows list.
+   After creation completes, the new workflow appears in the workflows list.
 
-1. Open the new workflow file to start editing and adding triggers and actions.
+1. To start editing the workflow and its operations, open the new workflow code file.
 
-   The file opens with starter code for a sample workflow.
+   The file opens and shows sample workflow code.
 
-:::image type="content" source="media\create-workflows-with-csharp\create-code-first-workflow.png" alt-text="Logic Apps Standard SDK Create Workflow Wizard page showing all configuration steps.":::
+   :::image type="content" source="media\create-workflows-with-csharp\create-code-first-workflow.png" alt-text="Screenshot shows Visual Studio Code with the create workflow wizard and setup steps." lightbox="media\create-workflows-with-csharp\create-code-first-workflow.png":::
 
-## Next Steps
+## Next steps
 
-- [Deploy Logic Apps to Azure](..\create-standard-workflows-visual-studio-code#deploy-to-azure)
+- [Deploy Logic Apps to Azure](..\create-standard-workflows-visual-studio-code.md#deploy-to-azure)
 
 ## Related content
 
-- [Logic Apps Standard SDK Reference](logic-apps-standard-sdk.md)
-
----
+- [Azure Logic Apps Standard SDK Reference](logic-apps-standard-sdk.md)
