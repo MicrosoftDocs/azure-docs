@@ -208,7 +208,7 @@ config = await load(endpoint=endpoint, credential=DefaultAzureCredential(), conf
 
 ## Configuration refresh
 
-Dynamic refresh for the configurations lets you pull their latest values from the App Configuration store without having to restart the application. You can enable refresh by setting `refresh_enabled`, which monitors all loaded key-values for changes. By default, a refresh interval of 30 seconds is used, but you can override it with the `refresh_interval` parameter.
+The provider can be configured to pull the latest settings from the App Configuration store without having to restart the application. To refresh settings, ensure that `refresh_enabled` is set to `True` and call the `refresh` method on the `AzureAppConfigurationProvider` instance returned by the `load` method.
 
 ```python
 from azure.appconfiguration.provider import load
@@ -217,15 +217,22 @@ from azure.identity import DefaultAzureCredential
 config = load(
     endpoint=endpoint,
     credential=DefaultAzureCredential(),
+    refresh_enabled=True
+)
+
+# Later in your code, when application activity occurs
+config.refresh()
+```
+
+By default, a refresh interval of 30 seconds is used, but you can override it with the `refresh_interval` parameter. The provider monitors all loaded key-values for changes.
+
+```python
+config = load(
+    endpoint=endpoint,
+    credential=DefaultAzureCredential(),
     refresh_enabled=True,
     refresh_interval=60
 )
-```
-
-Enabling `refresh_enabled` alone won't automatically refresh the configuration. You need to call the `refresh` method on the `AzureAppConfigurationProvider` instance returned by the `load` method to trigger a refresh.
-
-```python
-config.refresh()
 ```
 
 This design prevents unnecessary requests to App Configuration when your application is idle. You should include the `refresh` call where your application activity occurs. This process is known as **activity-driven configuration refresh**. For example, you can call `refresh` when processing an incoming request or inside an iteration where you perform a complex task.
