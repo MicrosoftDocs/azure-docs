@@ -3,6 +3,7 @@ title: How to control OPC UA assets
 description: Learn how to configure OPC UA assets and devices to enable you to control and OPC UA server.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: how-to
 ms.date: 10/08/2025
 
