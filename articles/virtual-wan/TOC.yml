@@ -192,6 +192,12 @@
     href: about-client-address-pools.md
   - name: About global and hub profiles
     href: global-hub-profile.md
+  - name: Gateway root certificate migration
+    items:
+    - name: About gateway root certificate migration
+      href: point-to-site-about-gateway-certificate-migration.md
+    - name: Update a VPN Client profile
+      href: ../vpn-gateway/point-to-site-user-vpn-profile-update.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
   - name: Migrate from the Azure VPN Client for Linux
     href: azure-vpn-client-linux-retirement.md
   - name: Configure P2S - Certificate authentication
