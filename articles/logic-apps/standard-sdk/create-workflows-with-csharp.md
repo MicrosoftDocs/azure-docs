@@ -81,11 +81,11 @@ During preview release, the following limitations apply:
 
   1. On the **Review + create** tab, confirm your inputs, and select **Create workspace**.
 
-     :::image type="content" source="media\create-workflows-with-csharp\create-code-first-workspace.png" alt-text="Screenshot shows Visual Studio Code, wizard for Azure Logic Apps Standard SDK, and the Create Workspace page that shows the creation steps." lightbox="media\create-workflows-with-csharp\create-code-first-workspace.png":::
+     :::image type="content" source="media/create-workflows-with-csharp/create-code-first-workspace.png" alt-text="Screenshot shows Visual Studio Code, wizard for Azure Logic Apps Standard SDK, and the Create Workspace page that shows the creation steps." lightbox="media/create-workflows-with-csharp/create-code-first-workspace.png":::
 
      Visual Studio Code prompts you to confirm whether to trust the files' authors in your workspace.
 
-  1. To continue, select **Yes, I trust the authors**.
+  1. To confirm, select **Yes, I trust the authors**.
 
      Visual Studio Code creates and opens your workspace and your logic app project, which appear in the **Explorer** window.
 
@@ -123,7 +123,7 @@ For this preview release, you can use only the Azure-hosted, managed connectors 
 
    For example:
 
-   :::image type="content" source="media\create-workflows-with-csharp\code-first-csharp-project.png" alt-text="Screenshot shows Visual Studio Code with Explorer window with project files and Program.cs selected." lightbox="media\create-workflows-with-csharp\code-first-csharp-project.png":::
+   :::image type="content" source="media/create-workflows-with-csharp/code-first-csharp-project.png" alt-text="Screenshot shows Visual Studio Code with Explorer window with project files and Program.cs selected." lightbox="media/create-workflows-with-csharp/code-first-csharp-project.png":::
 
    - In your codeful logic app project, a workflow file uses code to define the steps in your automation, starting with a single trigger that's followed by actions. The structure for these steps appears similar to the sequence in the workflow designer but is expressed in C#.
 
@@ -147,9 +147,9 @@ To set up any connections that the trigger or actions in your workflow need to f
 
    For example:
 
-   :::image type="content" source="media\create-workflows-with-csharp\create-code-first-connection.png" alt-text="Screenshot shows Visual Studio Code with the opened file editor for Workflow1.cs, and shows the Change Connection wizard." lightbox="media\create-workflows-with-csharp\create-code-first-connection.png":::
+   :::image type="content" source="media/create-workflows-with-csharp/create-code-first-connection.png" alt-text="Screenshot shows Visual Studio Code with the opened file editor for Workflow1.cs, and shows the Change Connection wizard." lightbox="media/create-workflows-with-csharp/create-code-first-connection.png":::
 
-   The connection view opens and shows any existing connections that exist in your resource group for that connector.
+   The connection view opens and shows any existing connections in your resource group for that connector.
 
 1. Select a connection.
 
@@ -178,7 +178,7 @@ To set up any connections that the trigger or actions in your workflow need to f
    - If your project has a single workflow, the **Overview** page directly opens the workflow run history.
    - If your project has multiple workflows, select a workflow first.
 
-   :::image type="content" source="media\create-workflows-with-csharp\create-code-first-overview-page.png" alt-text="Screenshot shows the project Overview page with multiple workflows and the workflow run history." lightbox="media\create-workflows-with-csharp\create-code-first-overview-page.png":::
+   :::image type="content" source="media/create-workflows-with-csharp/create-code-first-overview-page.png" alt-text="Screenshot shows the project Overview page with multiple workflows and the workflow run history." lightbox="media/create-workflows-with-csharp/create-code-first-overview-page.png":::
 
    You can use the **Overview** page to execute triggers, review the workflow run history, and examine inputs and outputs. 
 
@@ -186,7 +186,7 @@ To set up any connections that the trigger or actions in your workflow need to f
    >
    > For workflows created with the Azure Logic Apps Standard SDK, the run history uses the same rich, visual representation as workflows created with the visual designer. You can monitor and troubleshoot your workflows the same way, no matter how you created them.
    > 
-   > :::image type="content" source="media\create-workflows-with-csharp\create-code-first-workflow-run-details.png" alt-text="Screenshot shows workflow run history with action inputs and outputs after a completed run." lightbox="media\create-workflows-with-csharp\create-code-first-workflow-run-details.png":::
+   > :::image type="content" source="media/create-workflows-with-csharp/create-code-first-workflow-run-details.png" alt-text="Screenshot shows workflow run history with action inputs and outputs after a completed run." lightbox="media/create-workflows-with-csharp/create-code-first-workflow-run-details.png":::
 
 ## Add a new workflow to your project
 
@@ -198,7 +198,7 @@ To set up any connections that the trigger or actions in your workflow need to f
 
    | Property | Description |
    |----------|-------------|
-   | **Workflow name** | The name for the first workflow in the Standard logic app project. |
+   | **Workflow name** | The name for your workflow in your Standard logic app project. |
    | **Workflow type** | - **Stateful**: A non-AI workflow that includes run history. <br><br>- **Conversational agents**: An AI-driven workflow that supports human interactions through chat and includes run history. <br><br>- **Autonomous agents**: An AI-driven workflow that supports human-independent automation and includes run history. |
 
 1. When you finish, select **Next**, and then select **Create workflow**.
@@ -209,7 +209,7 @@ To set up any connections that the trigger or actions in your workflow need to f
 
    The file opens and shows sample workflow code.
 
-   :::image type="content" source="media\create-workflows-with-csharp\create-code-first-workflow.png" alt-text="Screenshot shows Visual Studio Code with the create workflow wizard and setup steps." lightbox="media\create-workflows-with-csharp\create-code-first-workflow.png":::
+   :::image type="content" source="media/create-workflows-with-csharp/create-code-first-workflow.png" alt-text="Screenshot shows Visual Studio Code with the create workflow wizard and setup steps." lightbox="media/create-workflows-with-csharp/create-code-first-workflow.png":::
 
 ## Next steps
 
