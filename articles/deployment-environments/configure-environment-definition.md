@@ -6,7 +6,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.topic: how-to
-ms.date: 05/19/2026
+ms.date: 06/04/2026
 ms.custom:
   - devdivchpfy22
   - build-2023
@@ -69,7 +69,7 @@ To add an environment definition:
       | Field | Description |
       |-------|-------------|
       | `name` | The name of the environment definition. |
-      | `version` | The version of the environment definition. This field is optional. |
+      | `version` | The version of the environment definition. Versioning isn't supported for environment definitions, so this value must always be `1.0.0`. This field is optional. |
       | `summary` | A brief description of the environment definition. |
       | `description` | A detailed description of the environment definition. |
       | `runner` | The IaC framework that the template uses. The value can be `ARM` or `Bicep`. You can also specify a path to a container image stored in a container registry. |
