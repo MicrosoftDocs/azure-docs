@@ -103,19 +103,26 @@ For this preview release, you can use only the Azure-hosted, managed connectors 
    | Connection keys | During preview, use connection strings and access keys because managed identity is currently unavailable. |
    | Managed identity | Recommended for better security through Microsoft Entra so you don't handle, store, and manage credentials, keys, or secrets locally or in the cloud. |
 
-## Review code for workflow project structure
+## Review project and workflow code
 
-1. In Visual Studio Code, open the workspace Explorer, review the key files created:
-   - **Program.cs**: Defines how the host runs your workflows by building, configuring, and starting the host.
-         - Workflow files (for example, `workflow1.cs`): Define your workflows with triggers and actions in code.
+1. In Visual Studio Code, on the Activity Bar, select **Explorer** (files icon) to open the workspace.
 
-1. Workflow files use code to define a series of steps starting with a trigger, followed by actions. The structure is similar to visual designer workflows but expressed in C#.
+1. In the **Explorer** window, review the following key project files:
 
-1. The SDK compiles your workflow definitions, which then run on the Logic Apps runtime.
+   | Files | Description |
+   |-------|-------------|
+   | `Program.cs` | Defines how the host runs your workflows by building, configuring, and starting the host. |
+   | Workflow file named `<workflow_name>.cs` | Defines your workflow with the trigger and actions in code. |
 
-:::image type="content" source="media\create-workflows-with-csharp\code-first-csharp-project.png" alt-text="Visual Studio Code with workspace Explorer open showing project files and Program.cs selected.":::
+   For example:
 
-## Configure connections for workflow triggers and actions
+   :::image type="content" source="media\create-workflows-with-csharp\code-first-csharp-project.png" alt-text="Screenshot shows Visual Studio Code with Explorer window with project files and Program.cs selected.":::
+
+   - In a codeful logic app project, a workflow file uses code to define the steps in your automation, starting with a single trigger that's followed by actions. The structure for these steps appears similar to the sequence in the workflow designer but is expressed in C#.
+
+   - The SDK compiles your workflow definition, which then executes on the Azure Logic Apps runtime.
+
+## Set up connections for triggers and actions
 
 1. Open a workflow code file (workflow1.cs).
 
