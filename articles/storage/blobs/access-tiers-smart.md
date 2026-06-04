@@ -163,11 +163,17 @@ For more information, see [Monitoring Azure Blob Storage](/azure/storage/blobs/m
 
 
 ## Client tooling
-The Azure portal supports smart tier. Smart tier requires the following minimum version of the REST API.
+The Azure portal supports smart tier. Smart tier requires the following minimum version of the REST, SDK, and Tools.
 
 | Environment | Minimum version |
 |---|---|
 | [REST API](/rest/api/storageservices/blob-service-rest-api)| 2025-08-01 |
+| [.NET](/dotnet/api/overview/azure/resourcemanager.storage-readme) | 1.7.0 |
+| [Java](/java/api/overview/azure/resourcemanager-storage-readme) | 2.56.0 |
+| [Python](/python/api/overview/azure/mgmt-storage-readme) | 25.0.0 |
+| [JavaScript](/javascript/api/overview/azure/arm-storage-readme) | 20.0.0 |
+| [PowerShell (Az.Storage)](/powershell/module/az.storage) | 9.7.0 |
+| [Azure CLI](/cli/azure/storage) | 2.87.0 |
 
 
 ## Next steps

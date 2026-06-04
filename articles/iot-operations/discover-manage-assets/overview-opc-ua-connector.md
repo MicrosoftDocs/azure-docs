@@ -3,6 +3,7 @@ title: Connect and control industrial assets using the connector for OPC UA
 description: Use the connector for OPC UA to connect to OPC UA servers and exchange messages and data with the MQTT broker in a Kubernetes cluster.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.subservice: azure-opcua-connector
 ms.topic: overview
 ms.date: 11/04/2025

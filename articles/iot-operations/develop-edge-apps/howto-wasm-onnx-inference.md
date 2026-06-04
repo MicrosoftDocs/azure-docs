@@ -3,6 +3,7 @@ title: Run ONNX Inference in WASM Data Flow Graphs
 description: Learn how to package and run ONNX models inside WebAssembly modules for real-time inference in Azure IoT Operations data flow graphs.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
 ms.date: 06/02/2026

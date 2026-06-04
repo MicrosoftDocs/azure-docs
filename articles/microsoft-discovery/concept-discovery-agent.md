@@ -27,7 +27,6 @@ Discovery Agent V2 represents a fundamental redesign of agent architecture. The 
 | **Agent management** | ARM resources on control plane | Data-plane resources via Discovery APIs |
 | **Workflow model** | State machine with events and transitions | Action flow with explicit control structures |
 | **Agent selection** | Fixed entry point per project | Per-message `@AgentName` routing |
-| **Workflow as resource** | Separate resource type | Workflows are agents with `kind: workflow` |
 | **Model deployment** | Platform-created with no configuration | Workspace-level shared deployments |
 | **Authoring** | YAML files and ARM templates | Discovery Studio UI with YAML export |
 | **Agent invocation** | By reference in state machine | By name in workflow actions |

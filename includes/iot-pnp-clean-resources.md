@@ -1,6 +1,6 @@
 ---
-author: dominicbetts
-ms.author: dominicbetts
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot
 ms.topic: include
 ms.date: 11/17/2022

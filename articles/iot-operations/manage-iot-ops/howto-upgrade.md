@@ -3,6 +3,7 @@ title: Upgrade versions
 description: Upgrade an Azure IoT Operations instance using the Azure portal or CLI.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 05/06/2026

@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 07/23/2024
+ms.date: 06/02/2026
 ms.author: danlep
 ---
 
@@ -21,7 +21,7 @@ The `cache-remove-value` deletes a cached item identified by its key. The key ca
 ## Policy statement
 
 ```xml
-<cache-remove-value key="cache key value" caching-type="prefer-external | external | internal"  />
+<cache-remove-value key="cache key value" caching-type="prefer-external | external | internal" fail-on-cache-removal-error="true | false" />
 ```
 
 
@@ -30,7 +30,9 @@ The `cache-remove-value` deletes a cached item identified by its key. The key ca
 | Attribute         | Description                                            | Required | Default |
 |---|--|--|--|
 | caching-type | Choose between the following values of the attribute:<br />- `internal` to use the [built-in API Management cache](api-management-howto-cache.md),<br />- `external` to use the external cache as described in [Use an external Redis-compatible cache in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` to use external cache if configured or internal cache otherwise. <br/><br/>Policy expressions aren't allowed.    | No       | `prefer-external` |
-| key              | The key of the previously cached value to be removed from the cache. Policy expressions are allowed.                                                                                                                                                                                                                                                                                      | Yes      | N/A               |
+| key              | The key of the previously cached value to be removed from the cache. Policy expressions are allowed.     | Yes      | N/A               |
+| fail-on-cache-removal-error | Set to `true` to fail the request if the cache removal operation fails. Set to `false` to ignore cache removal errors. Policy expressions are allowed. | No | `false` |
+
 ## Usage
 
 

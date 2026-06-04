@@ -3,6 +3,7 @@ title: Manage, update, or uninstall
 description: Use the Azure CLI or Azure portal to manage your Azure IoT Operations instances, including updating and uninstalling.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: how-to
 ms.date: 02/10/2026
 ms.custom:

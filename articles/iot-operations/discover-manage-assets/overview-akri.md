@@ -3,6 +3,7 @@ title: Learn about Akri services
 description: Understand how the Akri services enable you to dynamically configure and deploy Akri connectors to connect a broad variety of assets and devices to the Azure IoT Operations cluster, ingest telemetry from them, and use command and control.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.subservice: azure-akri
 ms.topic: overview
 ms.custom:

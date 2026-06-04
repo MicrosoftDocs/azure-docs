@@ -3,6 +3,7 @@ title: Manage certificates for external communications
 description: Azure IoT Operations uses TLS to encrypt communication. Learn how to manage certificates for external communications such as OPC UA server authentication and trust lists.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: how-to
 ms.date: 05/12/2026
 ai-usage: ai-assisted

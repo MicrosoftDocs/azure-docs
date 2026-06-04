@@ -3,6 +3,7 @@ title: Developer guide for Azure IoT Operations
 description: Learn about Azure IoT Operations SDKs and other tools that let you develop custom Azure IoT Operations solutions.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: concept-article
 ms.date: 03/05/2026
 

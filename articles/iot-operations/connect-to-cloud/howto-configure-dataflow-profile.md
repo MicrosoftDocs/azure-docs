@@ -57,7 +57,7 @@ resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
   name: aioInstanceName
 }
 
-// Pointer to your custom location where AIO is deployed
+// Pointer to your custom location where Azure IoT Operations is deployed
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }

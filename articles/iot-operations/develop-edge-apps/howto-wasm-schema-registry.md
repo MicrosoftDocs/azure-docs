@@ -6,6 +6,7 @@ ms.author: dobett
 ms.topic: how-to
 ms.date: 03/30/2026
 ms.service: azure-iot-operations
+ms.subservice: azure-data-flows
 ai-usage: ai-assisted
 
 # CustomerIntent: As a developer, I want to use the schema registry with WASM modules so that I can validate message formats and ensure data consistency in my data flow processing.

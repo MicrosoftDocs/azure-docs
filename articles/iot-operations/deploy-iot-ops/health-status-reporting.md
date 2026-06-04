@@ -3,6 +3,7 @@ title: Unified Health Status Reporting
 description: Learn how to report runtime health status to the cloud using a unified schema.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.date: 05/06/2026
 ms.topic: concept-article
 ai-usage: ai-assisted

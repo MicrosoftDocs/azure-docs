@@ -4,6 +4,7 @@ description: Learn how to build and deploy custom Akri connectors for Azure IoT 
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-akri
 ms.topic: how-to
 ms.date: 01/09/2026
 ai-usage: ai-assisted

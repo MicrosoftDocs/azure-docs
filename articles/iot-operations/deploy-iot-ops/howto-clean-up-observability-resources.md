@@ -3,6 +3,7 @@ title: Clean up observability resources
 description: Learn how to clean up shared and data collection observability resources from an existing installation in Azure IoT Operations.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: how-to
 ms.date: 11/20/2025
 

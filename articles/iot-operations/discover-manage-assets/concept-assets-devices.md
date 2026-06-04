@@ -3,6 +3,7 @@ title: Assets and Devices
 description: Understand the Azure Device Registry resources that define assets and devices.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 #ms.subservice:
 ms.topic: concept-article
 ms.date: 04/22/2026

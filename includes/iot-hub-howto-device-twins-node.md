@@ -2,8 +2,8 @@
 title: Get started with Azure IoT Hub device twins (Node.js)
 titleSuffix: Azure IoT Hub
 description: How to use the Azure IoT SDK for Node.js to create device and backend service application code for device twins.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.devlang: nodejs
 ms.topic: include

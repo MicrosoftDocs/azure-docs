@@ -467,7 +467,7 @@ For AKS Edge Essentials, you need to perform a few more steps. With AKS Edge Ess
 1. Open the port on the firewall to allow traffic to the broker's service:
 
     ```powershell
-    New-NetFirewallRule -DisplayName "AIO MQTT Broker" -Direction Inbound -Protocol TCP -LocalPort 1883 -Action Allow
+    New-NetFirewallRule -DisplayName "Azure IoT Operations MQTT Broker" -Direction Inbound -Protocol TCP -LocalPort 1883 -Action Allow
     ```
 
 1. Use the host's public IP address to connect to the MQTT broker.

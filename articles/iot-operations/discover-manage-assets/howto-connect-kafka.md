@@ -4,6 +4,7 @@ description: Use a data flow and the connector for MQTT to ingest data from a Ka
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-akri
 ms.topic: how-to
 ms.date: 03/06/2026
 

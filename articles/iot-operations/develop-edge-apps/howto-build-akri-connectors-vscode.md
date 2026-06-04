@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: how-to
 ms.date: 12/08/2025
 ms.service: azure-iot-operations
-
+ms.subservice: azure-akri
 # CustomerIntent: As a developer, I want to understand how to use the VS Code extension to build and deploy custom Akri connectors.
 ---
 
