@@ -3,9 +3,10 @@ title: GitHub connector in Azure SRE Agent
 description: Connect GitHub repositories for source code analysis, issue management, and workflow automation with OAuth or PAT authentication.
 ms.topic: article
 ms.service: azure-sre-agent
-ms.date: 05/27/2026
+ms.date: 06/02/2026
 author: dchelupati
 ms.author: dchelupati
+ms.reviewer: dchelupati
 ms.ai-usage: ai-assisted
 #customer intent: As an SRE, I want to understand the GitHub connector capabilities so that I can decide which authentication method to use and what my agent can do with my GitHub repositories.
 ---
@@ -20,7 +21,7 @@ Connect your GitHub repositories so your agent can read source code, search for 
 > - **Code Access** gives your agent source code, IaC, and configs as investigation context.
 > - **GitHub Connector** enables issue, PR, and workflow operations.
 > - **GitHub MCP** provides full GitHub tool access with governance controls.
-> - Authenticate with **OAuth**, **PAT**, or **BYO GitHub App** — all three work on `github.com`. GitHub Enterprise Cloud (`*.ghe.com`) requires BYO App.
+> - Authenticate with **OAuth**, **PAT**, or **BYO GitHub App** . All three work on `github.com`. GitHub Enterprise Cloud (`<tenant>.ghe.com`) requires BYO App.
 
 Your source code, infrastructure definitions, deployment configs, skills, and runbooks live in GitHub. When your agent can read these artifacts, investigations go from generic troubleshooting to root cause analysis that references the exact file, the exact commit, and the exact config change.
 
@@ -42,11 +43,11 @@ Separately from what the agent does, choose how it authenticates to GitHub. Thre
 
 | Auth method | How it works | Supported hosts | Best for |
 |---|---|---|---|
-| **OAuth** | Sign in with your GitHub account in a browser popup | `github.com` | Quick interactive setup |
-| **PAT** | Provide a Personal Access Token | `github.com` | Service accounts, non-interactive environments |
-| **BYO GitHub App** | Register your own GitHub App, store the private key in Azure Key Vault | `github.com` and `*.ghe.com` | Enterprise governance, EMU environments, GitHub Enterprise Cloud |
+| **OAuth** | Sign in with your GitHub account in a browser popup | `github.com` | Quick interactive setup (limit: 10 tokens per agent) |
+| **PAT** | Provide a fine-grained Personal Access Token with `repo` scope | `github.com` | Service accounts, non-interactive environments |
+| **BYO GitHub App** | Register your own GitHub App, store the private key in Azure Key Vault | `github.com` and `<tenant>.ghe.com` | Enterprise governance, EMU environments, GitHub Enterprise Cloud |
 
-For `github.com`, all three methods work across all connection types. For GitHub Enterprise Cloud hosts (`*.ghe.com`), only BYO GitHub App is available.
+For `github.com`, all three methods work across all connection types. For GitHub Enterprise Cloud hosts (`<tenant>.ghe.com`), only BYO GitHub App is available.
 
 ### Permissions by auth type
 
@@ -59,13 +60,15 @@ For `github.com`, all three methods work across all connection types. For GitHub
 > [!TIP]
 > **OAuth tokens refresh automatically**
 >
-> GitHub OAuth tokens are refreshed automatically before expiration by using a pre-expiry buffer. This process helps keep connector access stable for long investigations and scheduled tasks without frequent manual sign-in.
+> GitHub OAuth tokens expire after about eight hours, but the agent refreshes them automatically before expiration by using a 20-minute buffer. Each refresh generates a new refresh token, creating a self-sustaining renewal chain that lasts about six months. Your connector stays connected through long investigations and overnight scheduled tasks without manual sign-in.
 >
-> **When you need to re-authenticate:** If refresh can no longer complete, if you revoke the GitHub App authorization, or if your connector credentials are no longer valid in GitHub.
+> This auto-refresh applies to **OAuth connections only**. PAT connections require manual token rotation. For BYO GitHub App connections, rotate the private key in Azure Key Vault when needed.
+>
+> **When you need to re-authenticate:** If the refresh token expires (about six months), if you revoke the GitHub App authorization, or if your connector was set up before version 26.2.247.0 (one re-auth stores the refresh token and enables auto-refresh going forward).
 
 ## What the agent can do with the GitHub connector
 
-### Source code analysis
+### Source code analysis capabilities
 
 - **Search code** across all connected repositories.
 - **Read file contents** by path and branch.
@@ -92,28 +95,28 @@ Connect repositories hosted on GitHub Enterprise Cloud (`<tenant>.ghe.com`) by u
 
 Make sure you have:
 
-- A GitHub App created on your GHE instance with **Contents: Read-only** permission
-- The app's private key stored as a secret in Azure Key Vault
-- The agent's managed identity granted **Key Vault Secrets User** role on the vault
+- A GitHub App created on your GHE instance with **Contents: Read-only** permission.
+- The app's private key stored as a secret in Azure Key Vault.
+- The agent's managed identity granted **Key Vault Secrets User** role on the vault.
 
 For the full setup guide, see [Connect GitHub Enterprise Cloud repositories](connect-github-enterprise-cloud.md).
 
 ## Configure the same repository in multiple paths
 
-You can configure the same repo in multiple GitHub paths. Each path serves different runtime jobs.
+Configure the same repo in multiple GitHub paths. Each path serves different runtime jobs.
 
 | Scenario | Recommended approach |
 |---|---|
 | Need code context plus issue operations | Configure Code Access and either GitHub Connector or GitHub MCP |
 | Need broad MCP tool catalog only | Use GitHub MCP only |
-| Need enterprise host (`*.ghe.com`) | Use GHE BYO App via Code Access |
+| Need enterprise host (`<tenant>.ghe.com`) | Use GHE BYO App via Code Access |
 | Need strict connector contract behavior | Use GitHub Connector |
 
 ## Limits and constraints
 
 | Resource | Guidance |
 |---|---|
-| Hosts | Configure each host independently (`github.com`, `*.ghe.com`) |
+| Hosts | Configure each host independently (`github.com`, `<tenant>.ghe.com`) |
 | Auth records | Host-scoped; disconnecting one host doesn't disconnect another |
 | GitHub Enterprise Cloud auth | BYO App only |
 | Key Vault requirement for BYO App | Private key must be in Key Vault and readable by agent identity |
@@ -124,8 +127,8 @@ You can configure the same repo in multiple GitHub paths. Each path serves diffe
 |---|---|---|
 | Code Access repo row shows **Failed**, but issue queries still work | Different endpoint or point-in-time health check failure | Re-test Code Access connection and verify repo metadata permissions |
 | BYO App validation fails | Client ID, private key URI, or app installation scope mismatch | Verify Client ID, Key Vault secret content, and app installation scope |
-| `*.ghe.com` host doesn't show OAuth/PAT | Expected behavior | Use BYO GitHub App |
-| Clone/read fails after auth succeeds | Missing Metadata/Contents read permissions on app or token | Grant required repo permissions and retry |
+| `<tenant>.ghe.com` host doesn't show OAuth/PAT | Expected behavior | Use BYO GitHub App |
+| Clone/read fails after auth succeeds | Missing Metadata/Contents read permissions on app or token | Grant the required repo permissions and retry |
 | PR or issue actions fail | Missing issue/PR permissions | Add issue/PR permissions to OAuth/PAT scope or GitHub App |
 
 ## Get started with the GitHub connector
@@ -134,7 +137,7 @@ You can configure the same repo in multiple GitHub paths. Each path serves diffe
 |---|---|
 | Give your agent code context for investigations (OAuth/PAT) | [Connect source code](connect-source-code.md) |
 | Enable issue, PR, and workflow operations (OAuth/PAT) | [Set up GitHub connector](setup-github-connector.md) |
-| Set up BYO GitHub App for `github.com` or `*.ghe.com` | [Connect GitHub Enterprise Cloud](connect-github-enterprise-cloud.md) |
+| Set up BYO GitHub App for `github.com` or `<tenant>.ghe.com` | [Connect GitHub Enterprise Cloud](connect-github-enterprise-cloud.md) |
 | Add GitHub MCP tools with governance controls | [Set up an MCP connector](mcp-connector.md) |
 
 ## Next step
