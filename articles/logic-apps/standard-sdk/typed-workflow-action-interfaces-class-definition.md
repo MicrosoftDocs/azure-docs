@@ -41,7 +41,7 @@ Represents a typed workflow action whose primary output is exposed through a str
 
 |Name|Description|Type|Required|
 |---|---|---|---|
-|Body|Gets the strongly-typed body output produced by the action.|T|No|
+|Body|Gets the strongly typed body output produced by the action.|T|No|
 
 ### Methods
 
@@ -55,7 +55,7 @@ Represents a typed workflow action whose primary output is exposed as a strongly
 
 |Name|Description|Type|Required|
 |---|---|---|---|
-|Output|Gets the strongly-typed structured output produced by the action.|T|No|
+|Output|Gets the strongly typed structured output produced by the action.|T|No|
 
 ### Methods
 
