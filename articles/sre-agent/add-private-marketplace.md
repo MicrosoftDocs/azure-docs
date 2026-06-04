@@ -24,7 +24,7 @@ In this article, you register a private GitHub repository as a marketplace sourc
 
 ## Open the add marketplace dialog
 
-In the SRE Agent portal, go to **Builder > Plugins**. If you haven't register any marketplaces yet, select **Add marketplace** in the toolbar. If marketplaces already exist, select **Manage marketplaces**, and then select **Add marketplace**.
+In the SRE Agent portal, go to **Builder > Plugins**. If you haven't registered any marketplaces yet, select **Add marketplace** in the toolbar. If marketplaces already exist, select **Manage marketplaces**, and then select **Add marketplace**.
 
 ## Enter the private repository URL
 
@@ -34,22 +34,22 @@ The auth section appears below, showing whether your agent's GitHub identity can
 
 ## Authenticate
 
-**If your agent's GitHub OAuth identity has access to the repo** (same org or authorized OAuth App), you're ready. Skip to the next section.
+1. **If your agent's GitHub OAuth identity has access to the repo** (same org or authorized OAuth App), you're ready. Skip to the next section.
 
-**If the repo is in an org your agent can't reach**, expand the **Advanced** section and enter a personal access token with read access to the repository.
+1. **If the repo is in an org your agent can't reach**, expand the **Advanced** section and enter a personal access token with read access to the repository.
 
-> [!NOTE]
-> PATs are only supported for github.com. For GitHub Enterprise (`*.ghe.com`) hosts, use a GitHub App instead (see below).
+    > [!NOTE]
+    > PATs are only supported for github.com. For GitHub Enterprise (`*.ghe.com`) hosts, use a GitHub App instead (see below).
 
-Create your PAT at [github.com/settings/personal-access-tokens](https://github.com/settings/personal-access-tokens) with **Contents: Read** scope on the target repository.
+1. Create your PAT at [github.com/settings/personal-access-tokens](https://github.com/settings/personal-access-tokens) with **Contents: Read** scope on the target repository.
 
-**For GitHub Enterprise** (`*.ghe.com`), the dialog shows a GitHub App registration form instead:
+    **For GitHub Enterprise** (`*.ghe.com`), the dialog shows a GitHub App registration form instead:
 
-- **Client ID**: the App's client ID
-- **Private key secret URI (Key Vault)**: Azure Key Vault secret URI for the App's private key
-- **Key Vault identity**: the managed identity with Key Vault Secrets User access
+    - **Client ID**: the App's client ID
+    - **Private key secret URI (Key Vault)**: Azure Key Vault secret URI for the App's private key
+    - **Key Vault identity**: the managed identity with Key Vault Secrets User access
 
-Select **Configure GitHub App** to register the connection.
+1. Select **Configure GitHub App** to register the connection.
 
 ## Add the marketplace
 
