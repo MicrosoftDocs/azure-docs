@@ -201,8 +201,8 @@ The following example ARM template snippet deploys a container app.
         "clientCertificateMode": "accept",
         "corsPolicy": {
           "allowedOrigins": [
-            "https://a.test.com",
-            "https://b.test.com"
+            "https://a.contoso.com",
+            "https://b.contoso.com"
           ],
           "allowedMethods": [
             "GET",
@@ -429,8 +429,8 @@ properties:
       clientCertificateMode: accept
       corsPolicy:
         allowedOrigins:
-        - https://a.test.com
-        - https://b.test.com
+        - https://a.contoso.com
+        - https://b.contoso.com
         allowedMethods:
         - GET
         - POST
