@@ -12,6 +12,8 @@ ms.custom: azure monitor, alerts, incident detection, managed identity, alert me
 ---
 
 
+# Azure Monitor Alerts in Azure SRE Agent
+
 Azure Monitor alerts tell you when something changes. Azure SRE Agent turns that signal into action. When an alert fires, the agent acknowledges it, opens an investigation thread, gathers context from connected tools, and keeps the thread in sync as the alert changes state.
 
 This integration is designed for teams that already rely on Azure Monitor and want faster incident handling without adding another credential set or manually triaging repeated alerts.
