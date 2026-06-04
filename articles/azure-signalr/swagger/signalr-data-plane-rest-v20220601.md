@@ -8,7 +8,7 @@ ms.topic: reference
 ms.date: 02/22/2023
 ---
 
-# Azure SignalR Service REST API
+# Azure SignalR Service data plane REST API - 2022-06-01
 ## Version: 2022-06-01
 
 ### Available APIs

@@ -9,7 +9,7 @@ ms.date: 06/03/2026
 ---
 
 
-# Azure SignalR Service REST API
+# Azure SignalR Service data plane REST API - 2024-12-01
 ## Version: 2024-12-01
 
 ### Available APIs
@@ -45,8 +45,8 @@ ms.date: 06/03/2026
 ### /api/auth/accessKey
 
 #### GET
-<a name="get-undefined"></a>
-### undefined
+<a name="get-get-api-auth-accesskey"></a>
+### get /api/auth/accessKey
 
 `GET /api/auth/accessKey`
 ##### Parameters
