@@ -243,4 +243,3 @@ For the full list of endpoints, see [API reference](api-reference.md).
 
 - [Managed connectors](managed-connectors.md)
 - [MCP connectors and tools](mcp-connectors.md)
-- [Custom agents](subagents.md)
