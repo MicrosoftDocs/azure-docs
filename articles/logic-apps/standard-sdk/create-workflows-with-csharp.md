@@ -208,7 +208,7 @@ To set up any connections that the trigger or actions in your workflow need to f
 
 ## Next steps
 
-- [Deploy Logic Apps to Azure](..\create-standard-workflows-visual-studio-code.md#deploy-to-azure)
+- [Deploy logic apps to Azure](../create-standard-workflows-visual-studio-code.md#deploy-to-azure)
 
 ## Related content
 
