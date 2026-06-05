@@ -3,6 +3,7 @@ title: Manage, update, or uninstall
 description: Use the Azure CLI or Azure portal to manage your Azure IoT Operations instances, including updating and uninstalling.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: how-to
 ms.date: 02/10/2026
 ms.custom:
@@ -167,9 +168,9 @@ Once the migration is complete, you can use `az iot ops ns asset` and `az iot op
 
 ### Configure connector templates
 
-In the Azure portal, you can configure *connector templates* for your Azure IoT Operations instance. Connector templates define the configuration of connectors, such as the connector for OPC UA, that are deployed to your cluster. When you create a connector template, it enables an OT user to create a device that uses the connector type in the operations experience web UI.
+In the Azure portal or by using the Azure CLI, you can configure *connector templates* for your Azure IoT Operations instance. Connector templates define the configuration of connectors, such as the connector for OPC UA, that are deployed to your cluster. When you create a connector template, it enables an OT user to create a device that uses the connector type in the operations experience web UI.
 
-To learn more about connector templates, see [Deploy the connector for ONVIF](../discover-manage-assets/howto-use-onvif-connector.md#deploy-the-connector-for-onvif).
+To learn more about connector templates, see [Create and manage connector template instances](../discover-manage-assets/howto-manage-connector-templates.md).
 
 ### Manage instance components
 

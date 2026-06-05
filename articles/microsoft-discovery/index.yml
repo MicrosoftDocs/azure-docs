@@ -23,7 +23,7 @@ landingContent:
           - text: Key scenarios
             url: overview-key-scenarios.md
           - text: Microsoft Discovery and the Microsoft Discovery app
-            url: discovery-and-discovery-app.md
+            url: concept-discovery-and-discovery-app.md
           - text: Microsoft Discovery app GitHub
             url: https://github.com/microsoft/discovery
           - text: Service architecture overview
@@ -40,8 +40,6 @@ landingContent:
             url: quickstart-infrastructure-bicep.md
           - text: Run your first agent and investigation
             url: quickstart-agents-studio.md
-          - text: Add agents using bundles
-            url: quickstart-agents-bundles.md
 
   - title: Agents and investigations
     linkLists:

@@ -20,9 +20,6 @@ items:
         displayName: Microsoft Discovery, Studio, web interface, investigations
   - name: Quickstarts
     items:
-      - name: v1 to v2 transition guidance
-        href: concept-v1-to-v2-transition-guide.md
-        displayName: Microsoft Discovery, v1, v2, migration, transition, resources
       - name: Quickstart - Deploy infrastructure using Azure portal
         href: quickstart-infrastructure-portal.md
         displayName: Microsoft Discovery, quickstart, infrastructure, portal, getting started
@@ -32,9 +29,6 @@ items:
       - name: Quickstart - First set of Agent and investigation
         href: quickstart-agents-studio.md
         displayName: Microsoft Discovery, quickstart, project, studio, getting started
-      - name: Quickstart - Add agents using bundles
-        href: quickstart-agents-bundles.md
-        displayName: Microsoft Discovery, quickstart, agents, bundles, hello discovery, getting started
   - name: Plan and prepare
     items:
       - name: Onboarding prerequisites
@@ -137,14 +131,6 @@ items:
             displayName: Microsoft Discovery, responsible AI, code of conduct
   - name: How-tos
     items:
-      - name: Migration
-        items:
-          - name: Collect v1 resource configurations
-            href: how-to-collect-v1-configurations.md
-            displayName: Microsoft Discovery, v1, v2, migration, export, tools, agents, workflows, collect
-          - name: Recreate resources in v2
-            href: how-to-recreate-v2-resources.md
-            displayName: Microsoft Discovery, v1, v2, migration, recreate, tools, agents, workflows, bookshelves
       - name: Identity & Access
         items:
           - name: Configure managed identities

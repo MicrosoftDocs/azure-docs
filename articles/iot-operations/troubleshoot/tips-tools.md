@@ -3,6 +3,7 @@ title: "Tips and tools for troubleshooting Azure IoT Operations"
 description: Use common Kubernetes and MQTT tools such as kubectl, k9s, MQTT explorer, and mosquitto to troubleshoot and test your Azure IoT Operations instance.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: how-to
 ms.date: 01/27/2025
 ---

@@ -5,7 +5,7 @@ author: aloverro
 ms.author: adamloverro
 ms.service: planetary-computer-pro
 ms.topic: how-to #Don't change
-ms.date: 03/27/2026
+ms.date: 05/27/2026
 
 #customer intent: As a GeoCatalog administrator, I want to create an API proxy for my GeoCatalog using Azure API Management so that I can enable anonymous access and restrict which collections are visible to external callers.
 ---

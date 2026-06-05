@@ -3,9 +3,10 @@ title: Azure SRE Agent MCP Server Overview
 description: Learn how to use Azure SRE Agent MCP Server to discover resources, start investigation threads, and manage agents from MCP clients.
 ms.topic: overview
 ms.service: azure-sre-agent
-ms.date: 05/26/2026
+ms.date: 06/02/2026
 author: craigshoemaker
 ms.author: cshoe
+ms.reviewer: cshoe
 ms.ai-usage: ai-assisted
 ms.custom: mcp, model context protocol, azure mcp server, copilot, claude code, sre agent
 #customer intent: As an SRE, I want to understand how MCP clients can connect to Azure SRE Agent so that I can investigate and manage agents from my development tools.

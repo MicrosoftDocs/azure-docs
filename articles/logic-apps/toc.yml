@@ -114,6 +114,8 @@ items:
             href: export-standard-logic-app-to-visual-studio-code.md
           - name: Create and run .NET code
             href: create-run-custom-code-functions.md
+          - name: Create workflows with C# and Logic Apps Standard SDK
+            href: standard-sdk/create-workflows-with-csharp.md            
           - name: Add and run C# scripts
             href: add-run-csharp-scripts.md
           - name: Add and run PowerShell scripts
@@ -302,6 +304,8 @@ items:
             href: connector-namespace/connector-namespace-hosted-mcp.md
           - name: Create a hosted MCP server
             href: connector-namespace/hosted-mcp-quickstart.md
+          - name: Hosted MCP servers developer guide
+            href: connector-namespace/hosted-mcp-dev-guide.md
       - name: Access on-premises data sources
         items:
           - name: Install on-premises data gateway
@@ -642,6 +646,70 @@ items:
             href: testing-framework/unit-test-executor-class-definition.md
           - name: DataMapTestExecutor class
             href: testing-framework/data-map-test-executor-class-definition.md
+          - name: LiquidDataMapTestExecutor class
+            href: testing-framework/liquid-data-map-test-executor-class-definition.md
+          - name: TestLiquidTransformKind enum
+            href: testing-framework/test-liquid-transform-kind-enum-definition.md
+      - name: Standard Logic Apps SDK
+        items:
+          - name: Logic Apps Standard SDK overview
+            href: standard-sdk/logic-apps-standard-sdk.md
+          - name: Workflow composition and chaining
+            items:
+              - name: IChainableNode interface
+                href: standard-sdk/i-chainable-node-class-definition.md
+              - name: IWorkflowOperation interface
+                href: standard-sdk/i-workflow-operation-class-definition.md
+              - name: OperationChain class
+                href: standard-sdk/operation-chain-class-definition.md
+              - name: WorkflowFactory class
+                href: standard-sdk/workflow-factory-class-definition.md
+          - name: Action definitions
+            items:
+              - name: IWorkflowAction interface
+                href: standard-sdk/i-workflow-action-class-definition.md
+              - name: IVariableWorkflowAction interface
+                href: standard-sdk/i-variable-workflow-action-class-definition.md
+              - name: Typed Workflow Action Interfaces
+                href: standard-sdk/typed-workflow-action-interfaces-class-definition.md
+              - name: WorkflowActionBase class
+                href: standard-sdk/workflow-action-base-class-definition.md
+              - name: WorkflowBuiltInActions class
+                href: standard-sdk/workflow-built-in-actions-class-definition.md
+              - name: WorkflowControlActions class
+                href: standard-sdk/workflow-control-actions-class-definition.md
+              - name: WorkflowVariableActions class
+                href: standard-sdk/workflow-variable-actions-class-definition.md
+              - name: WorkflowManagedActions class
+                href: standard-sdk/workflow-managed-actions-class-definition.md
+          - name: Trigger definitions
+            items:
+              - name: IWorkflowTrigger interface
+                href: standard-sdk/i-workflow-trigger-class-definition.md
+              - name: Typed Workflow Trigger Interfaces
+                href: standard-sdk/typed-workflow-trigger-interfaces-class-definition.md
+              - name: WorkflowTriggerBase class
+                href: standard-sdk/workflow-trigger-base-class-definition.md
+              - name: WorkflowBuiltInTriggers class
+                href: standard-sdk/workflow-built-in-triggers-class-definition.md
+              - name: WorkflowManagedTriggers class
+                href: standard-sdk/workflow-managed-triggers-class-definition.md
+          - name: Entry points and registration
+            items:
+              - name: WorkflowActions class
+                href: standard-sdk/workflow-actions-class-definition.md
+              - name: WorkflowTriggers class
+                href: standard-sdk/workflow-triggers-class-definition.md
+              - name: IWorkflowProvider interface
+                href: standard-sdk/i-workflow-provider-class-definition.md
+              - name: WorkflowProviderExtensions class
+                href: standard-sdk/workflow-provider-extensions-class-definition.md
+          - name: Runtime and context
+            items:
+              - name: WorkflowContext class
+                href: standard-sdk/workflow-context-class-definition.md
+              - name: AgentToolContext class
+                href: standard-sdk/agent-tool-context-class-definition.md
       - name: Azure Policy built-ins
         href: ./policy-reference.md
         displayName: samples, policies, definitions
