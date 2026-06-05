@@ -49,6 +49,7 @@ When planning your NC2 on Azure design, use the following table to understand wh
 | East US 2 | AN36P, AN64 |
 | Germany West Central | AN36P, AN64 |
 | Japan East | AN36P |
+| North Europe | AN64 |
 | North Central US | AN36P, AN64 |
 | Qatar Central | AN36P, AN64 |
 | Southeast Asia | AN36P |
