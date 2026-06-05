@@ -15,7 +15,7 @@ ms.custom: incidents, incident platform, pagerduty, servicenow, azure monitor, r
 
 An incident platform is the system that tells your agent when something goes wrong. By connecting your incident platform, your agent can receive alerts, investigate issues, and take action automatically, without waiting for someone to start a chat.
 
-:::image type="content" source="media/incident-platforms/incident-platform-flow.svg" alt-text="Flow chart showing incident platform sending alerts through response plans to agent investigation and actions.":::
+:::image type="content" source="media/incident-platforms/incident-platform-flow.svg" alt-text="Flow chart showing incident platform sending alerts through response plans to agent investigation and actions." lightbox="media/incident-platforms/incident-platform-flow.svg":::
 
 Without an incident platform, your agent is reactive: users ask questions and it investigates on demand. With one connected, your agent becomes proactive: it picks up incidents the moment they fire and starts working immediately.
 

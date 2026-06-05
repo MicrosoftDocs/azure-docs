@@ -61,9 +61,9 @@ Each plan specifies how your agent responds:
 - **Autonomous**: Your agent analyzes incidents and independently performs mitigation or resource modifications with the required permissions.
 - **Review**: Your agent diagnoses incidents, then mitigates or modifies resources only after its proposed actions are reviewed and approved.
 
-### Autonomous mode acknowledgement
+### Autonomous mode acknowledgment
 
-When you select **Autonomous**, an info icon (ℹ️) appears next to the option. Select it to review the **Autonomous mode acknowledgement**. This dialog explains what autonomous operation means, including agent boundaries, AI model limitations, your responsibilities for scoping access and reviewing outcomes, and liability terms.
+When you select **Autonomous**, an information icon (ℹ️) appears next to the option. Select it to review the **Autonomous mode acknowledgment**. This dialog explains what autonomous operation means, including agent boundaries, AI model limitations, your responsibilities for scoping access and reviewing outcomes, and liability terms.
 
 > [!TIP]
 > Start with **Review** mode for new response plans to validate your agent's investigation behavior before granting full autonomy. You can switch to Autonomous after you're confident in the agent's tool selection and investigation patterns.

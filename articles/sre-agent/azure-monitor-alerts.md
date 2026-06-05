@@ -12,7 +12,7 @@ ms.custom: azure monitor, alerts, incident detection, managed identity, alert me
 ---
 
 
-# Azure Monitor Alerts in Azure SRE Agent
+# Azure Monitor alerts in Azure SRE Agent
 
 Azure Monitor alerts tell you when something changes. Azure SRE Agent turns that signal into action. When an alert fires, the agent acknowledges it, opens an investigation thread, gathers context from connected tools, and keeps the thread in sync as the alert changes state.
 
@@ -24,7 +24,7 @@ This integration is designed for teams that already rely on Azure Monitor and wa
 > - Repeated firings from the same alert rule merge into one investigation thread instead of creating duplicate work.
 > - [Incident response plans](incident-response-plans.md) control which severities the agent handles and whether it acts autonomously or waits for approval.
 
-## Why use Azure Monitor alerts with SRE Agent
+## Why use Azure Monitor alerts with SRE Agent?
 
 Without automation, an alert often creates several kinds of work at once. Someone has to read the alert, decide whether it's new or recurring, open observability tools, correlate evidence, and keep track of status changes.
 
@@ -34,11 +34,14 @@ Azure SRE Agent reduces that overhead by connecting Azure Monitor alerting to th
 - It acknowledges alerts as it picks them up for investigation.
 - It correlates alerts with logs, metrics, deployments, and other [connected data sources](connectors.md).
 - It consolidates repeated firings from the same alert rule into a single active thread.
-| Sev0 | Critical |
-| Sev1 | Error |
-| Sev2 | Warning |
-| Sev3 | Informational |
-| Sev4 | Verbose |
+
+    | Severity | Label |
+    |---|---|
+    | Sev0 | Critical |
+    | Sev1 | Error |
+    | Sev2 | Warning |
+    | Sev3 | Informational |
+    | Sev4 | Verbose |
 
 ## Scanner behavior
 
@@ -53,9 +56,9 @@ Azure SRE Agent reduces that overhead by connecting Azure Monitor alerting to th
 
 If alerts don't appear after you connect Azure Monitor, verify the following conditions:
 
-1. The agent's managed identity has the **Monitoring Contributor** role on the subscription.
-1. Azure Monitor alert rules exist for resources in the subscriptions you expect the agent to scan.
-1. The alert rules actually fired in Azure Monitor.
+- The agent's managed identity has the **Monitoring Contributor** role on the subscription.
+- Azure Monitor alert rules exist for resources in the subscriptions you expect the agent to scan.
+- The alert rules actually fired in Azure Monitor.
 
 ## Get started
 

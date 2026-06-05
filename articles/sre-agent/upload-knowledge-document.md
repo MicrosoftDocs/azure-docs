@@ -64,7 +64,7 @@ When your agent uploads a document:
 1. **Confirms** the upload with a success message.
 
 > [!NOTE]
-> If a document with the same file name that already exists, the new content replaces it. This process makes it easy for your agent to update knowledge. Upload the document by using the same name to refresh the content.
+> If a document with the same file name already exists, the new content replaces it. This process makes it easy for your agent to update knowledge. Upload the document by using the same name to refresh the content.
 
 ## Supported file formats
 
