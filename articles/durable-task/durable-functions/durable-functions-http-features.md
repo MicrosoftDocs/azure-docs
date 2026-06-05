@@ -41,9 +41,9 @@ See the [HTTP APIs article](durable-functions-http-api.md) for a full descriptio
 The [orchestration client binding](durable-functions-bindings.md#orchestration-client) exposes APIs that can generate convenient HTTP response payloads. For example, it can create a response containing links to management APIs for a specific orchestration instance. The following examples show an HTTP-trigger function that demonstrates how to use this API for a new orchestration instance:
 
 # [C# (InProc)](#tab/csharp-inproc)
-
+<!-
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
-
+->
 # [C# (Isolated)](#tab/csharp-isolated)
 
 ```csharp
@@ -76,13 +76,13 @@ public static async Task<HttpResponseData> StartHelloCitiesUntyped(
 # [JavaScript](#tab/javascript)
 
 **index.js**
-
+<!--
 :::code language="javascript" source="~/azure-functions-durable-js/samples/HttpStart/index.js":::
-
+-->
 **function.json**
-
+<!--
 :::code language="javascript" source="~/azure-functions-durable-js/samples/HttpStart/function.json":::
-
+-->
 # [Python](#tab/python)
 
 **__init__.py**

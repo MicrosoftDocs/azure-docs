@@ -289,9 +289,9 @@ You can review the code that defines the two HTTP trigger function endpoints:
 :::code language="csharp" source="~/functions-quickstart-dotnet-azd/http/httpGetFunction.cs" range="17-29" :::
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
-:::code language="java" source="~/functions-quickstart-java-azd/http/src/main/java/com/contoso/Function.java" range="24-38" :::
+<!--:::code language="java" source="~/functions-quickstart-java-azd/http/src/main/java/com/contoso/Function.java" range="24-38" :::
 ::: zone-end  
-::: zone pivot="programming-language-javascript" 
+::: zone pivot="programming-language-javascript" -->
 :::code language="javascript" source="~/functions-quickstart-javascript-azd/src/functions/httpGetFunction.js" :::
 ::: zone-end  
 ::: zone pivot="programming-language-typescript" 
@@ -313,9 +313,9 @@ This `run.ps1` file implements the function code:
 :::code language="csharp" source="~/functions-quickstart-dotnet-azd/http/httpPostBodyFunction.cs" range="19-35":::  
 ::: zone-end  
 ::: zone pivot="programming-language-java" 
-:::code language="java" source="~/functions-quickstart-java-azd/http/src/main/java/com/contoso/Function.java" range="44-71" :::
+<!--:::code language="java" source="~/functions-quickstart-java-azd/http/src/main/java/com/contoso/Function.java" range="44-71" :::
 ::: zone-end  
-::: zone pivot="programming-language-javascript" 
+::: zone pivot="programming-language-javascript"--> 
 :::code language="javascript" source="~/functions-quickstart-javascript-azd/src/functions/httpPostBodyFunction.js" :::
 ::: zone-end  
 ::: zone pivot="programming-language-typescript" 
