@@ -2,10 +2,9 @@
 title: LiquidDataMapTestExecutor class
 titleSuffix: Azure Logic Apps
 description: Executes liquid data map transformations for unit testing Azure Logic Apps workflows with support for schema validation.
-services: azure-logic-apps
-ms.suite: integration
 author: wsilveiranz
-ms.reviewer: estfan, azla
+ms.author: wsilveira
+ms.reviewers: estfan, azla
 ms.topic: reference
 ms.date: 06/05/2026
 ---
@@ -14,11 +13,11 @@ ms.date: 06/05/2026
 
 **Namespace**: Microsoft.Azure.Workflows.UnitTesting
 
-The `LiquidDataMapTestExecutor` class provides the ability to execute Liquid data map transformations during unit testing. It locates a Liquid map file by name within the Logic App project's `Artifacts/Maps` directory and runs the transformation against provided input content, with optional schema validation of the output.
+The `LiquidDataMapTestExecutor` class provides the capability to execute Liquid data map transformations during unit testing. The instance locates a Liquid map file by name within the logic app project directory named `Artifacts/Maps` and runs the transformation against provided input content, with optional schema validation of the output.
 
 ## Usage
 
-```C#
+```csharp
 var executor = new LiquidDataMapTestExecutor(appDirectoryPath: @"C:\MyLogicApp");
 
 JToken result = await executor.RunLiquidMapAsync(
@@ -31,17 +30,17 @@ JToken result = await executor.RunLiquidMapAsync(
 
 ### LiquidDataMapTestExecutor(string appDirectoryPath)
 
-Initializes a new instance of the `LiquidDataMapTestExecutor` class with the specified Logic App project root path.
+Initializes a new instance of the `LiquidDataMapTestExecutor` class with the specified logic app project root path.
 
-```C#
+```csharp
 public LiquidDataMapTestExecutor(string appDirectoryPath)
 ```
 
 |Name|Description|Type|Required|
 |---|---|---|---|
-|appDirectoryPath|The Logic App project root path where the Artifacts/Maps directory is located.|`string`|Yes|
+|appDirectoryPath|The logic app project root path where the Artifacts/Maps directory is located.|`string`|Yes|
 
-```C#
+```csharp
 var executor = new LiquidDataMapTestExecutor(appDirectoryPath: @"C:\MyLogicApp");
 ```
 
@@ -51,7 +50,7 @@ var executor = new LiquidDataMapTestExecutor(appDirectoryPath: @"C:\MyLogicApp")
 
 Executes a Liquid map transformation using the specified map name, transform kind, and input content. Optionally validates the transformed content against a JSON schema. Throws `ArgumentException` if the map file does not exist.
 
-```C#
+```csharp
 public async Task<JToken> RunLiquidMapAsync(string mapName, TestLiquidTransformKind transformKind, JToken inputContent, JSchema transformedContentSchema = null)
 ```
 
@@ -62,7 +61,7 @@ public async Task<JToken> RunLiquidMapAsync(string mapName, TestLiquidTransformK
 |inputContent|The input content to be transformed.|`JToken`|Yes|
 |transformedContentSchema|An optional JSON schema to validate the transformed content.|`JSchema`|No|
 
-```C#
+```csharp
 var executor = new LiquidDataMapTestExecutor(appDirectoryPath: @"C:\MyLogicApp");
 
 // Execute a JSON-to-JSON Liquid transformation with schema validation
