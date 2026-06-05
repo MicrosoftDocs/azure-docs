@@ -57,6 +57,8 @@
     href: monitor-route-server.md
 - name: Security
   items:
+  - name: Secure Route Server deployment
+    href: secure-route-server.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/azure-route-server-security-baseline?toc=/azure/route-server/toc.json
   - name: Azure Network Security Blog
