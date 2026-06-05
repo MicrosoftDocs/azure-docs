@@ -187,17 +187,17 @@ The code you add creates a `whois` HTTP function endpoint in your existing proje
 1. In Visual Studio Code, Press F1 and in the command palette type `Azure Functions: Create Function...`, select **HTTP trigger**, type the function name `whois`, and press Enter.
 
 1. In the new `whois.js` code file, replace the contents of the file with this code:
-
+<!--
     :::code language="javascript" source="~/functions-openai-extension/samples/textcompletion/javascript/src/functions/whois.js" ::: 
-  
+  -->
 :::zone-end  
 :::zone pivot="programming-language-typescript"  
 1. In Visual Studio Code, Press F1 and in the command palette type `Azure Functions: Create Function...`, select **HTTP trigger**, type the function name `whois`, and press Enter.
 
 1. In the new `whois.ts` code file, replace the contents of the file with this code:
-
+<!--
     :::code language="typescript" source="~/functions-openai-extension/samples/textcompletion/typescript/src/functions/whois.ts" ::: 
-  
+  -->
 :::zone-end  
 :::zone pivot="programming-language-python" 
 1. In the existing `function_app.py` project file, add this `import` statement:
