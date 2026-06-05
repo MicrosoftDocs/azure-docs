@@ -37,38 +37,39 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 | Microsoft.Network/networkInterfaces/read | Required to read the network interface resource on which the TAP is configured |
 | Microsoft.Network/tapConfigurations/* | Required to create, update, read, and delete the TAP configuration on a network interface |
 
-## Public preview limitations
-Please note, limitations tagged with **[Temporary]** will be resolved at GA. 
-### Adding a source:
-- Virtual network TAP only supports virtual machine's (VM) network interface as a mirroring source.
-- [Temporary] v6 VM SKU aren't supported as a source. 
-- [Temporary] Before adding a VM as a source, you must **first deploy a virtual network TAP resource** and **then STOP (deallocate) and START the source VM**. This is required only once for any VM that will be added as a source. **If not done, you will get an error stating the NIC is not on fastpath**.
+## Limitations
 
-### Other Limitations
-- Virtual network TAP supports Load Balancer or VM's network interface as a destination resource for mirrored traffic.
-- [Temporary] Virtual network doesn't support Live Migration. Live Migration will be disabled for VMs set as a source.
-- [Temporary] VMs behind a Standard Load Balancer with Floating IP enabled can't be set as a mirroring source. 
-- VMs behind Basic Load Balancer can't be set as a mirroring source. Basic Load Balancer is being deprecated.
-- Virtual network doesn't support mirroring of inbound Private Link Service traffic.
-- VMs in a virtual network with encryption enabled can't be set as mirroring source.
-- Virtual network TAP doesn't support IPv6.
-- [Temporary] When a VM is added or removed as a source, the VM might experience network downtime (up to 60 seconds).
+- Virtual Network TAP supports only virtual machine (VM) network interfaces as traffic mirroring sources.
+- Mirrored traffic can be sent only to a load balancer or a VM network interface.
+- VMs behind a Basic Load Balancer cannot be configured as a mirroring source. Basic Load Balancer is being deprecated.
+- Inbound traffic from Private Link Service is not supported for mirroring.
+- VMs in a virtual network with encryption enabled cannot be configured as mirroring sources.
+- Virtual Network TAP does not support IPv6 or SWIFT.
+- Virtual WAN (vWAN) peering is not supported between the source and destination virtual networks used with VTAP. Direct virtual network peering must be used instead.
+
+### Public Preview limitations
+
+- v6 VM SKUs are not supported as source VMs.
+- Before adding a VM as a source, you must first deploy a Virtual Network TAP resource, and then stop (deallocate) and start the source VM. This is required only once per VM that will be used as a source. If this step is not completed, you may receive an error indicating that the NIC is not on fastpath.
+- When a VM is added or removed as a source, the VM may experience network downtime of up to 60 seconds.
+- Live Migration is not supported for source VMs. Live Migration will be disabled for any VM configured as a source.
 
 ## Supported Regions
-
 - Asia East
-- US West Central
-- UK South
-- US East
-- India Central
-- Germany West Central
-- US Central
-
-
-### Coming soon
-- Australia East
-- Korean Central
+- Southeast Asia
 - Canada Central
+- West Europe
+- Germany West Central
+- Central India
+- Korea Central
+- UAE North
+- UK South
+- Central US
+- Central US EUAP
+- East US
+- East US 2
+- East US 2 EUAP
+- West US 3
 
 ## Virtual network TAP partner solutions
 
