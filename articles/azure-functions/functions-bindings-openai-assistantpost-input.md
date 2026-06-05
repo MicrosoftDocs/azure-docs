@@ -35,26 +35,26 @@ Go support isn't currently available for this binding.
 ::: zone pivot="programming-language-csharp"  
 This example demonstrates the creation process, where the HTTP POST function that sends user prompts to the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantApis.cs" range="58-68"::: 
+<!--- :::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantApis.cs" range="58-68"::: --->
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
 
 This example demonstrates the creation process, where the HTTP POST function that sends user prompts to the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="java" source="~/functions-openai-extension/samples/assistant/java/src/main/java/com/azfs/AssistantApis.java" range="99-121":::
+<!--- :::code language="java" source="~/functions-openai-extension/samples/assistant/java/src/main/java/com/azfs/AssistantApis.java" range="99-121"::: --->
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript" 
 This example demonstrates the creation process, where the HTTP POST function that sends user prompts to the assistant chat bot. The response to the prompt is returned in the HTTP response.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
-:::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantApis.js" range="4-5,36-60":::
+<!--- :::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantApis.js" range="4-5,36-60"::: --->
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
-:::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="4-5,36-60":::
+<!--- :::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="4-5,36-60"::: --->
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -63,17 +63,17 @@ This example demonstrates the creation process, where the HTTP POST function tha
 
 Here's the _function.json_ file for post user query:
 
-:::code language="json" source="~/functions-openai-extension/samples/assistant/powershell/PostUserQuery/function.json" :::
+<!--- :::code language="json" source="~/functions-openai-extension/samples/assistant/powershell/PostUserQuery/function.json" ::: --->
 
 For more information about *function.json* file properties, see the [Configuration](#configuration) section.
 
-:::code language="powershell" source="~/functions-openai-extension/samples/assistant/powershell/PostUserQuery/run.ps1" :::
+<!--- :::code language="powershell" source="~/functions-openai-extension/samples/assistant/powershell/PostUserQuery/run.ps1" ::: --->
 
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
 This example demonstrates the creation process, where the HTTP POST function that sends user prompts to the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="python" source="~/functions-openai-extension/samples/assistant/python/assistant_apis.py" range="34-52":::
+<!--- :::code language="python" source="~/functions-openai-extension/samples/assistant/python/assistant_apis.py" range="34-52"::: --->
 
 ::: zone-end  
 <!--- End code examples section -->  
