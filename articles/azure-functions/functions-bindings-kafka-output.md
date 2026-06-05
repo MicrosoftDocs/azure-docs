@@ -44,11 +44,11 @@ The following example shows a C# function that sends a single message to a Kafka
 
 To send events in a batch, use an array of `KafkaEventData` objects, as shown in the following example:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaOutputMany.cs" range="12-30" :::
+<!-- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaOutputMany.cs" range="12-30" ::: -->
 
 The following function adds headers to the Kafka output data:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaOutputWithHeaders.cs" range="11-31" :::
+<!-- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaOutputWithHeaders.cs" range="11-31" ::: -->
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet/Confluent/). 
 
@@ -56,15 +56,15 @@ For a complete set of working .NET examples, see the [Kafka extension repository
 
 The following example shows a C# function that sends a single message to a Kafka topic, using data provided in an HTTP GET request.
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaOutput.cs" range="11-31" :::
+<!-- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaOutput.cs" range="11-31" ::: -->
 
 To send events in a batch, use an array of `KafkaEventData` objects, as shown in the following example:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaOutputMany.cs" range="12-30" :::
+<!-- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaOutputMany.cs" range="12-30" :::  -->
 
 The following function adds headers to the Kafka output data:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaOutputWithHeaders.cs" range="11-31" :::
+<!-- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaOutputWithHeaders.cs" range="11-31" :::  -->
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet/EventHub). 
 
@@ -72,23 +72,23 @@ For a complete set of working .NET examples, see the [Kafka extension repository
 
 The following example uses a custom return type named `MultipleOutputType`, which consists of an HTTP response and a Kafka output. 
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutput.cs" range="11-31" :::
+<!-- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutput.cs" range="11-31" ::: -->
 
 In the `MultipleOutputType` class, `Kevent` is the output binding variable for the Kafka binding.
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutput.cs" range="34-46" :::
+<!-- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutput.cs" range="34-46" ::: -->
 
 To send a batch of events, pass a string array to the output type, as shown in the following example:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutputMany.cs" range="11-30" :::
+<!-- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutputMany.cs" range="11-30" ::: -->
 
 The string array is defined as the `Kevents` property on the class, and the output binding is defined on this property:  
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutputMany.cs" range="33-45" :::
+<!-- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaOutputMany.cs" range="33-45" ::: -->
 
 The following function adds headers to the Kafka output data:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/Confluent/KafkaOutputWithHeaders.cs" range="11-31" :::
+<!-- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/Confluent/KafkaOutputWithHeaders.cs" range="11-31" :::  -->
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet-isolated/confluent). 
 
@@ -97,23 +97,23 @@ For a complete set of working .NET examples, see the [Kafka extension repository
 
 The following example uses a custom return type named `MultipleOutputType`, which consists of an HTTP response and a Kafka output. 
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutput.cs" range="11-31" :::
+<!-- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutput.cs" range="11-31" ::: --?
 
 In the `MultipleOutputType` class, `Kevent` is the output binding variable for the Kafka binding.
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutput.cs" range="34-46" :::
+<!-- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutput.cs" range="34-46" ::: -->
 
 To send a batch of events, pass a string array to the output type, as shown in the following example:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutputMany.cs" range="11-30" :::
+<!-- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutputMany.cs" range="11-30" ::: -->
 
 The string array is defined as the `Kevents` property on the class, and the output binding is defined on this property:  
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutputMany.cs" range="33-45" :::
+<!-- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutputMany.cs" range="33-45" ::: -->
 
 The following function adds headers to the Kafka output data:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutputWithHeaders.cs" range="11-31" :::
+<!-- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaOutputWithHeaders.cs" range="11-31" ::: -->
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet-isolated/eventhub). 
 
@@ -193,27 +193,27 @@ app.http("kafkaOutputWithHttp", {
 
 # [Event Hubs](#tab/event-hubs/v4)
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript-v4/src/functions/kafkaOutputWithHttpTrigger.js" range="1-20,33-63":::
+<!-- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript-v4/src/functions/kafkaOutputWithHttpTrigger.js" range="1-20,33-63"::: -->
 
 # [Confluent](#tab/confluent/v3)
 
 This `function.json` file defines the output binding for the Confluent provider:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaOutput/function.confluent.json" :::
+<!-- :::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaOutput/function.confluent.json" ::: -->
 
 The following code sends a message to the topic:
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaOutput/index.js" :::
+<!-- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaOutput/index.js" ::: -->
 
 # [Event Hubs](#tab/event-hubs/v3)
 
 This `function.json` file defines the output binding for the Event Hubs provider:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaOutput/function.eventhub.json" :::
+<!-- :::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaOutput/function.eventhub.json" ::: -->
 
 The following code sends a message to the topic:
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaOutput/index.js" :::
+<!-- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaOutput/index.js" ::: -->
 
 ---
 
@@ -264,19 +264,19 @@ app.http("kafkaOutputManyWithHttp", {
 
 # [Event Hubs](#tab/event-hubs/v4)
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript-v4/src/functions/kafkaOutputManyWithHttpTrigger.js" range="1-14,27-49":::
+<!-- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript-v4/src/functions/kafkaOutputManyWithHttpTrigger.js" range="1-14,27-49"::: -->
 
 # [Confluent](#tab/confluent/v3)
 
 This code sends multiple messages as an array to the same topic:
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaOutputMany/index.js" :::
+<!-- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaOutputMany/index.js" ::: -->
 
 # [Event Hubs](#tab/event-hubs/v3)
 
 This code sends multiple messages as an array to the same topic:
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaOutputMany/index.js" :::
+<!-- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaOutputMany/index.js" ::: -->
 
 ---
 
@@ -345,15 +345,15 @@ app.http("kafkaOutputWithHttp", {
 
 # [Event Hubs](#tab/event-hubs/v4)
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript-v4/src/functions/kafkaOutputWithHttpTriggerWithHeaders.js" range="1-20,33-69":::
+<!-- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript-v4/src/functions/kafkaOutputWithHttpTriggerWithHeaders.js" range="1-20,33-69"::: -->
 
 # [Confluent](#tab/confluent/v3)
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaOutputWithHeader/index.js" :::
+<!-- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaOutputWithHeader/index.js" ::: -->
 
 # [Event Hubs](#tab/event-hubs/v3)
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaOutputWithHeader/index.js" :::
+<!-- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaOutputWithHeader/index.js" ::: -->
 
 ---
 
@@ -427,27 +427,27 @@ app.http("kafkaOutputWithHttp", {
 
 # [Event Hubs](#tab/event-hubs/v4)
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript-v4/src/functions/kafkaOutputWithHttpTrigger.ts" range="1-20,33-63":::
+<!-- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript-v4/src/functions/kafkaOutputWithHttpTrigger.ts" range="1-20,33-63"::: -->
 
 # [Confluent](#tab/confluent/v3)
 
 This `function.json` file defines the output binding for the Confluent provider:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/typescript/KafkaOutput/function.confluent.json" :::
+<!-- :::code language="json" source="~/azure-functions-kafka-extension/samples/typescript/KafkaOutput/function.confluent.json" ::: -->
 
 The following code sends a message to the topic:
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaOutput/index.ts" :::
+<!-- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaOutput/index.ts" ::: -->
 
 # [Event Hubs](#tab/event-hubs/v3)
 
 This `function.json` file defines the output binding for the Event Hubs provider:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/typescript/KafkaOutput/function.eventhub.json" :::
+<!-- :::code language="json" source="~/azure-functions-kafka-extension/samples/typescript/KafkaOutput/function.eventhub.json" ::: -->
 
 The following code sends a message to the topic:
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaOutput/index.ts" :::
+<!-- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaOutput/index.ts" ::: -->
 
 ---
 
@@ -507,19 +507,19 @@ app.http("kafkaOutputManyWithHttp", {
 
 # [Event Hubs](#tab/event-hubs/v4)
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript-v4/src/functions/kafkaOutputManyWithHttpTrigger.ts" range="1-20,33-60":::
+<!-- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript-v4/src/functions/kafkaOutputManyWithHttpTrigger.ts" range="1-20,33-60":::  -->
 
 # [Confluent](#tab/confluent/v3)
 
 This code sends multiple messages as an array to the same topic:
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaOutputMany/index.ts" :::
+<!-- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaOutputMany/index.ts" ::: -->
 
 # [Event Hubs](#tab/event-hubs/v3)
 
 This code sends multiple messages as an array to the same topic:
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaOutputMany/index.ts" :::
+<!-- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaOutputMany/index.ts" ::: -->
 
 ---
 
@@ -588,15 +588,15 @@ app.http("kafkaOutputWithHttp", {
 
 # [Event Hubs](#tab/event-hubs/v4)
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript-v4/src/functions/kafkaOutputWithHttpTriggerWithHeaders.ts" range="1-20,33-74":::
+<!-- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript-v4/src/functions/kafkaOutputWithHttpTriggerWithHeaders.ts" range="1-20,33-74"::: -->
 
 # [Confluent](#tab/confluent/v3)
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaOutputWithHeaders/index.ts" :::
+<!-- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaOutputWithHeaders/index.ts" ::: -->
 
 # [Event Hubs](#tab/event-hubs/v3)
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaOutputWithHeaders/index.ts" :::
+<!-- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaOutputWithHeaders/index.ts" ::: -->
 
 ---
 
@@ -617,25 +617,25 @@ The following function.json defines the trigger for the specific provider in the
 
 # [Confluent](#tab/confluent)
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaOutput/function.confluent.json" :::
+<!-- :::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaOutput/function.confluent.json" ::: -->
 
 # [Event Hubs](#tab/event-hubs)
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaOutput/function.eventhub.json" :::
+<!-- :::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaOutput/function.eventhub.json" ::: -->
 
 ---
 
 The following code sends a message to the topic:
 
-:::code language="powershell" source="~/azure-functions-kafka-extension/samples/powershell/KafkaOutput/run.ps1" :::
+<!-- :::code language="powershell" source="~/azure-functions-kafka-extension/samples/powershell/KafkaOutput/run.ps1" ::: -->
 
 The following code sends multiple messages as an array to the same topic:
 
-:::code language="powershell" source="~/azure-functions-kafka-extension/samples/powershell/KafkaOutputMany/run.ps1" :::
+<!-- :::code language="powershell" source="~/azure-functions-kafka-extension/samples/powershell/KafkaOutputMany/run.ps1" ::: -->
 
 The following example shows how to send an event message with headers to the same Kafka topic: 
 
-:::code language="powershell" source="~/azure-functions-kafka-extension/samples/powershell/KafkaOutputWithHeaders/run.ps1" :::
+<!-- :::code language="powershell" source="~/azure-functions-kafka-extension/samples/powershell/KafkaOutputWithHeaders/run.ps1" ::: -->
 
 For a complete set of working PowerShell examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/powershell/). 
 
@@ -659,17 +659,17 @@ These examples show a Kafka output binding for a function that an HTTP request t
 
 # [Version 2](#tab/v2)
 
-:::code language="python" source="~/azure-functions-kafka-extension/samples/python-v2/kafka_output.py" range="10-21" :::
+<!-- :::code language="python" source="~/azure-functions-kafka-extension/samples/python-v2/kafka_output.py" range="10-21" ::: -->
 
 # [Version 1](#tab/v1)
 
 This `function.json` file defines the output binding:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/python/KafkaOutput/function.confluent.json" :::
+<!-- :::code language="json" source="~/azure-functions-kafka-extension/samples/python/KafkaOutput/function.confluent.json" ::: -->
 
 This code sends a message to the topic:
 
-:::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaOutput/main.py" :::
+<!-- :::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaOutput/main.py" ::: -->
 
 ---
 
@@ -677,13 +677,13 @@ To send events in a batch, send an array of messages, as shown in these examples
 
 # [Version 2](#tab/v2)
 
-:::code language="python" source="~/azure-functions-kafka-extension/samples/python-v2/kafka_output.py" range="23-35" :::
+<!-- :::code language="python" source="~/azure-functions-kafka-extension/samples/python-v2/kafka_output.py" range="23-35" ::: -->
 
 # [Version 1](#tab/v1)
 
 This code sends multiple messages as an array to the same topic:
 
-:::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaOutputMany/main.py" :::
+<!-- :::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaOutputMany/main.py" ::: -->
 
 ---
 
@@ -691,11 +691,11 @@ These examples show how to send an event message with headers to a Kafka topic:
 
 # [Version 2](#tab/v2)
 
-:::code language="python" source="~/azure-functions-kafka-extension/samples/python-v2/kafka_output.py" range="37-51" :::
+<!-- :::code language="python" source="~/azure-functions-kafka-extension/samples/python-v2/kafka_output.py" range="37-51" ::: -->
 
 # [Version 1](#tab/v1)
 
-:::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaOutputWithHeaders/__init__.py" :::
+<!-- :::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaOutputWithHeaders/__init__.py" ::: -->
 
 ---
 
@@ -718,23 +718,23 @@ The annotations you use to configure the output binding depend on the specific e
 
 The following function sends a message to the Kafka topic.
 
-:::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/SampleKafkaOutput.java" range="17-38" :::
+<!-- :::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/SampleKafkaOutput.java" range="17-38" ::: -->
 
 The following example shows how to send multiple messages to a Kafka topic. 
 
-:::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/KafkaOutputMany.java" range="10-30" :::
+<!-- :::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/KafkaOutputMany.java" range="10-30" ::: -->
 
 In this example, the output binding parameter is changed to string array.
 
 The last example uses these `KafkaEntity` and `KafkaHeader` classes: 
 
-:::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/entity/KafkaEntity.java" range="3-18" :::
+<!-- :::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/entity/KafkaEntity.java" range="3-18" ::: -->
 
-:::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/entity/KafkaHeaders.java" range="3-10" :::
+<!-- :::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/entity/KafkaHeaders.java" range="3-10" ::: -->
 
 The following example function sends a message with headers to a Kafka topic.
 
-:::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/KafkaOutputWithHeaders.java" range="11-35" :::
+<!-- :::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/KafkaOutputWithHeaders.java" range="11-35" ::: -->
 
 For a complete set of working Java examples for Confluent, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/tree/dev/samples/java/confluent/src/main/java/com/contoso/kafka). 
 
@@ -742,23 +742,23 @@ For a complete set of working Java examples for Confluent, see the [Kafka extens
 
 The following function sends a message to the Kafka topic.
 
-:::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/SampleKafkaOutput.java" range="17-38" :::
+<!-- :::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/SampleKafkaOutput.java" range="17-38" ::: -->
 
 The following example shows how to send multiple messages to a Kafka topic. 
 
-:::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/KafkaOutputMany.java" range="10-30" :::
+<!-- :::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/KafkaOutputMany.java" range="10-30" ::: -->
 
 In this example, the output binding parameter is changed to string array.
 
 The last example uses these `KafkaEntity` and `KafkaHeader` classes: 
 
-:::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/entity/KafkaEntity.java" range="3-18" :::
+<!-- :::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/entity/KafkaEntity.java" range="3-18" ::: -->
 
-:::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/entity/KafkaHeaders.java" range="3-10" :::
+<!-- :::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/entity/KafkaHeaders.java" range="3-10" :::  -->
 
 The following example function sends a message with headers to a Kafka topic.
 
-:::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/KafkaOutputWithHeaders.java" range="11-35" :::
+<!-- :::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/KafkaOutputWithHeaders.java" range="11-35" ::: -->
 
 For a complete set of working Java examples for Confluent, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/tree/dev/samples/java/eventhub/src/main/java/com/contoso/kafka). 
 
