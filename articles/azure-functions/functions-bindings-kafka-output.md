@@ -40,7 +40,7 @@ The attributes you use depend on the specific event provider.
 
 The following example shows a C# function that sends a single message to a Kafka topic, using data provided in an HTTP GET request.
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaOutput.cs" range="12-32" :::
+<!-- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaOutput.cs" range="12-32" ::: -->
 
 To send events in a batch, use an array of `KafkaEventData` objects, as shown in the following example:
 
