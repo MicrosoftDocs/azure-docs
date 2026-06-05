@@ -272,7 +272,7 @@ app.generic("kafkaTriggerMany", {
 
 This code parses the array of events and logs the event data:
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerMany/index.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerMany/index.js" ::: --->
 
 This code logs the header data:
 
@@ -754,7 +754,7 @@ The following example shows a Java function that reads and logs the content of t
 
 To receive events in a batch, use an input string as an array, as shown in the following example:
 
-:::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/KafkaTriggerMany.java" range="8-27" :::
+<!--- :::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/KafkaTriggerMany.java" range="8-27" ::: --->
 
 The following function logs the message and headers for the Kafka Event:
 
