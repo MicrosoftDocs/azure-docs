@@ -43,7 +43,7 @@ This example demonstrates the creation process, where the HTTP GET function that
 This example demonstrates the creation process, where the HTTP GET function that queries the conversation history of the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
 
-:::code language="java" source="~/functions-openai-extension/samples/assistant/java/src/main/java/com/azfs/AssistantApis.java" range="79-97":::
+<!-- :::code language="java" source="~/functions-openai-extension/samples/assistant/java/src/main/java/com/azfs/AssistantApis.java" range="79-97"::: -->
 
 
 ::: zone-end  
@@ -52,14 +52,14 @@ This example demonstrates the creation process, where the HTTP GET function that
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 
-:::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantApis.js" range="4-5,63-79":::  
+<!-- :::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantApis.js" range="4-5,63-79"::: -->
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
 This example demonstrates the creation process, where the HTTP GET function that queries the conversation history of the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="4-5,63-79":::
+<!-- :::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="4-5,63-79"::: -->
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -68,17 +68,17 @@ This example demonstrates the creation process, where the HTTP GET function that
 
 Here's the _function.json_ file for Get Chat State:
 
-:::code language="json" source="~/functions-openai-extension/samples/assistant/powershell/GetChatState/function.json" :::
+<!-- :::code language="json" source="~/functions-openai-extension/samples/assistant/powershell/GetChatState/function.json" ::: -->
 
 For more information about *function.json* file properties, see the [Configuration](#configuration) section.
 
-:::code language="powershell" source="~/functions-openai-extension/samples/assistant/powershell/GetChatState/run.ps1" :::
+<!-- :::code language="powershell" source="~/functions-openai-extension/samples/assistant/powershell/GetChatState/run.ps1" ::: -->
 
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
 This example demonstrates the creation process, where the HTTP GET function that queries the conversation history of the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="python" source="~/functions-openai-extension/samples/assistant/python/assistant_apis.py" range="55-65":::
+<!-- :::code language="python" source="~/functions-openai-extension/samples/assistant/python/assistant_apis.py" range="55-65"::: -->
 
 ::: zone-end  
 <!--- End code examples section -->  
