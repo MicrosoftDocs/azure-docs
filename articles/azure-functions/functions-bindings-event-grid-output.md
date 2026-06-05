@@ -44,7 +44,7 @@ The type of the output parameter used with an Event Grid output binding depends 
 
 The following example shows how the custom type is used in both the trigger and an Event Grid output binding:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="4-49":::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="4-49"::: --->
 
 # [In-process model](#tab/in-process)
 
@@ -282,11 +282,11 @@ class EventGridEvent {
 
 The following example shows a timer triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that outputs a single event:
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventGridOutput1.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventGridOutput1.ts" ::: --->
 
 To output multiple events, return an array instead of a single object. For example:
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventGridOutput2.ts" id="displayInDocs" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventGridOutput2.ts" id="displayInDocs" ::: --->
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -301,11 +301,11 @@ TypeScript samples aren't documented for model v3.
 
 The following example shows a timer triggered [JavaScript function](functions-reference-node.md) that outputs a single event:
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventGridOutput1.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventGridOutput1.js" ::: --->
 
 To output multiple events, return an array instead of a single object. For example:
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventGridOutput2.js" id="displayInDocs" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventGridOutput2.js" id="displayInDocs" ::: --->
 
 # [Model v3](#tab/nodejs-v3)
 
