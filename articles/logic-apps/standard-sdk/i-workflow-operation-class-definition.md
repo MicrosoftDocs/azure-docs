@@ -1,7 +1,8 @@
 ---
-title: IWorkflowOperation Interface Definition
+title: IWorkflowOperation interface
+titleSuffix: Azure Logic Apps
 description: Represents a named workflow operation in the execution graph, providing identity and connections to downstream child actions.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# IWorkflowOperation Interface Definition
+# IWorkflowOperation interface
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 

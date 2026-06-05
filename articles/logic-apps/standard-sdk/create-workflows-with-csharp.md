@@ -1,5 +1,6 @@
 ---
-title: Create Standard Workflow Projects with the SDK
+title: Create Standard workflow projects with the SDK
+titleSuffix: Azure Logic Apps
 description: Create and set up projects with code-first workflows with the Azure Logic Apps Standard SDK in Visual Studio Code.
 services: azure-logic-apps
 ms.suite: integration
@@ -41,7 +42,7 @@ During preview release, the following limitations apply:
 | Area | Limitation |
 |------|------------|
 | Built-in service provider-based operations | Currently unavailable, but planned for a future release. <br><br>During preview, only Azure-hosted and -managed connectors are available for code-first workflows. |
-| Dynamic schemas | Currently unavailable, but planned for a future release. |
+| Dynamic schemas | Currently unavailable during preview. |
 | Custom code | Only callback methods are currently supported. Inline lambda functions are unsupported during preview. |
 | Actions | Before you can use and reference these operations in workflows, you must add and name them. |
 | Managed identity authentication | Support is in development. For now, use connection string or API key authentication. |

@@ -1,7 +1,8 @@
 ---
-title: WorkflowControlActions Class Definition
+title: WorkflowControlActions class
+titleSuffix: Azure Logic Apps
 description: Factory methods for creating control flow actions such as Scope, Condition, ForEach, Until, Switch, and Terminate.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# WorkflowControlActions Class Definition
+# WorkflowControlActions class
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 

@@ -1,7 +1,8 @@
 ---
-title: WorkflowBuiltInActions Class Definition
+title: WorkflowBuiltInActions class
+titleSuffix: Azure Logic Apps
 description: Factory methods for creating built-in workflow actions such as Compose, HTTP, Response, CustomCode, NestedWorkflow, and Agent actions.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# WorkflowBuiltInActions Class Definition
+# WorkflowBuiltInActions class
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 

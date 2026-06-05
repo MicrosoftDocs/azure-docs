@@ -1,7 +1,8 @@
 ---
-title: WorkflowActionBase Class Definition
+title: WorkflowActionBase class
+titleSuffix: Azure Logic Apps
 description: Base implementation for workflow action nodes with fluent chaining, generated names, child tracking, and run-after configuration.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# WorkflowActionBase Class Definition
+# WorkflowActionBase class
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 

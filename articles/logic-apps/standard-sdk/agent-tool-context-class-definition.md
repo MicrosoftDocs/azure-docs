@@ -1,7 +1,8 @@
 ---
-title: AgentToolContext Class Definition
+title: AgentToolContext class
+titleSuffix: Azure Logic Apps
 description: Provides access to agent tool parameters for expression conversion in AI agent workflows.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# AgentToolContext Class Definition
+# AgentToolContext class
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 

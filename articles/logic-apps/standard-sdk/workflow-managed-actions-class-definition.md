@@ -1,7 +1,8 @@
 ---
-title: WorkflowManagedActions Class Definition
+title: WorkflowManagedActions class
+titleSuffix: Azure Logic Apps
 description: Extensible access point for managed connector actions that are generated from Azure connector definitions.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# WorkflowManagedActions Class Definition
+# WorkflowManagedActions class
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 

@@ -1,7 +1,8 @@
 ---
-title: WorkflowBuiltInTriggers Class Definition
+title: WorkflowBuiltInTriggers class
+titleSuffix: Azure Logic Apps
 description: Factory methods for creating built-in workflow triggers such as HTTP request, recurrence, and conversational agent triggers.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# WorkflowBuiltInTriggers Class Definition
+# WorkflowBuiltInTriggers class
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 

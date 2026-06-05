@@ -1,7 +1,8 @@
 ---
-title: WorkflowProviderExtensions Class Definition
+title: WorkflowProviderExtensions class
+titleSuffix: Azure Logic Apps
 description: Extension methods for registering workflow providers with dependency injection service collections.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# WorkflowProviderExtensions Class Definition
+# WorkflowProviderExtensions class
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 

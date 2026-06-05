@@ -1,7 +1,8 @@
 ---
-title: OperationChain Class Definition
+title: OperationChain class
+titleSuffix: Azure Logic Apps
 description: Represents a directed chain of workflow operations with a shared start node and one or more end nodes for fluent workflow composition.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# OperationChain Class Definition
+# OperationChain class
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 

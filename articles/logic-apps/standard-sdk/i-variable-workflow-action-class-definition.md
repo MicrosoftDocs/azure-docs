@@ -1,7 +1,8 @@
 ---
-title: IVariableWorkflowAction Interface Definition
+title: IVariableWorkflowAction interface
+titleSuffix: Azure Logic Apps
 description: Extends IWorkflowAction to support variable operations, providing access to variable name and value.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# IVariableWorkflowAction Interface Definition
+# IVariableWorkflowAction interface
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 

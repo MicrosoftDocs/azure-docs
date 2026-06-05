@@ -1,7 +1,8 @@
 ---
-title: IWorkflowAction Interface Definition
+title: IWorkflowAction interface
+titleSuffix: Azure Logic Apps
 description: Represents an action step within a workflow that executes after a trigger fires or after preceding actions complete.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# IWorkflowAction Interface Definition
+# IWorkflowAction interface
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 

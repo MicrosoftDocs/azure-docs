@@ -1,7 +1,8 @@
 ---
-title: Logic Apps Standard SDK Class Library
+title: Logic Apps Standard SDK class library
+titleSuffix: Azure Logic Apps
 description: Complete reference for the Azure Logic Apps Workflow SDK classes and interfaces.
-services: logic-apps
+services: azure-logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz

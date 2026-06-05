@@ -1,7 +1,8 @@
 ---
-title: WorkflowActions Class Definition
+title: WorkflowActions class
+titleSuffix: Azure Logic Apps
 description: Top-level entry point for creating workflow actions through built-in and managed connector factories.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# WorkflowActions Class Definition
+# WorkflowActions class
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 

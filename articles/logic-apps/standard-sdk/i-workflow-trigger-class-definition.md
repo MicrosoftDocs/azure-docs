@@ -1,7 +1,8 @@
 ---
-title: IWorkflowTrigger Interface Definition
+title: IWorkflowTrigger interface
+titleSuffix: Azure Logic Apps
 description: Represents the entry-point trigger that initiates workflow execution. Every workflow has exactly one trigger as the root node.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# IWorkflowTrigger Interface Definition
+# IWorkflowTrigger interface
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 

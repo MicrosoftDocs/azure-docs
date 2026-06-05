@@ -1,7 +1,8 @@
 ---
-title: Typed Workflow Trigger Interfaces Definition
+title: Typed workflow trigger interfaces
+titleSuffix: Azure Logic Apps
 description: Type-safe interfaces for workflow triggers with strongly typed output contracts for body and structured output access.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# Typed Workflow Trigger Interfaces Definition
+# Typed workflow trigger interfaces
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 

@@ -1,7 +1,8 @@
 ---
-title: WorkflowManagedTriggers Class Definition
+title: WorkflowManagedTriggers class
+titleSuffix: Azure Logic Apps
 description: Extensible access point for managed connector triggers that are generated from Azure connector definitions.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# WorkflowManagedTriggers Class Definition
+# WorkflowManagedTriggers class
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 

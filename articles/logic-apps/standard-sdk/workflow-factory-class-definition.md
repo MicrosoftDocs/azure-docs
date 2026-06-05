@@ -1,7 +1,8 @@
 ---
-title: WorkflowFactory Class Definition
+title: WorkflowFactory class
+titleSuffix: Azure Logic Apps
 description: Primary entry point for creating stateful, stateless, and agent workflows from trigger-rooted operation graphs.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# WorkflowFactory Class Definition
+# WorkflowFactory class
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 

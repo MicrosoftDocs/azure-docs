@@ -1,7 +1,8 @@
 ---
-title: IWorkflowProvider Interface Definition
+title: IWorkflowProvider interface
+titleSuffix: Azure Logic Apps
 description: Provides workflow definitions for registration with the workflow host via dependency injection.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# IWorkflowProvider Interface Definition
+# IWorkflowProvider interface
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 

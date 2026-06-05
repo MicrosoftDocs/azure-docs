@@ -1,7 +1,8 @@
 ---
-title: IChainableNode Interface Definition
+title: IChainableNode interface
+titleSuffix: Azure Logic Apps
 description: Defines the fluent chaining contract for composing workflow operations into sequential and parallel execution pipelines using the Then() method pattern.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# IChainableNode Interface Definition
+# IChainableNode interface
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 

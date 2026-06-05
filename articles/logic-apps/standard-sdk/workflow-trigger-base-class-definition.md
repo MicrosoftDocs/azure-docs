@@ -1,7 +1,8 @@
 ---
-title: WorkflowTriggerBase Class Definition
+title: WorkflowTriggerBase class
+titleSuffix: Azure Logic Apps
 description: Base implementation for workflow trigger nodes with fluent chaining, generated names, and child action tracking.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# WorkflowTriggerBase Class Definition
+# WorkflowTriggerBase class
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 

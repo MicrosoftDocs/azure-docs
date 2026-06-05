@@ -1,7 +1,8 @@
 ---
-title: WorkflowContext Class Definition
+title: WorkflowContext class
+titleSuffix: Azure Logic Apps
 description: Provides runtime access to action and trigger results during custom code execution within workflows.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 author: wsilveiranz
 ms.reviewer: estfan, azla
@@ -9,7 +10,7 @@ ms.topic: reference
 ms.date: 05/28/2026
 ---
 
-# WorkflowContext Class Definition
+# WorkflowContext class
 
 **Namespace**: Microsoft.Azure.Workflows.Sdk
 
