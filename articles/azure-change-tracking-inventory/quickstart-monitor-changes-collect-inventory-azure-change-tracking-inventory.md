@@ -25,9 +25,9 @@ This article describes how you can enable [Azure Change Tracking and Inventory](
 
 The following sections show how you can enable Change Tracking and Inventory on single and multiple Azure VMs and Azure Arc-enabled VMs from the Azure portal.
 
-### [Enable Change Tracking and Inventory for single Azure VMs and Azure Arc-enabled VMs from the Azure portal](#tab/single-VMs)
+### [Single Azure VM and Azure Arc-enabled VM](#tab/single-VMs)
 
-The next section provides detailed procedures on how you can enable Change Tracking on a single Azure VM and a single Azure Arc-enabled VM.
+This section provides detailed procedures on how you can enable Change Tracking on a single Azure VM and a single Azure Arc-enabled VM.
 
 #### Enable Change Tracking and Inventory for a single Azure VM by using the portal
 
@@ -69,7 +69,7 @@ To enable Change Tracking and Inventory for a single Azure Arc-enabled VM by usi
    Deployment of Change Tracking and Inventory gets initiated with a notification in the upper-right corner of the pane.
 
 
-### [Enable Change Tracking and Inventory for multiple VMs by using the Azure portal and the Azure CLI](#tab/Multiple-VMs)
+### [Multiple VMs using Azure portal and Azure CLI](#tab/Multiple-VMs)
 
 This section provides detailed procedures on how you can enable Change Tracking and Inventory on multiple Azure VMs and Azure Arc-enabled VMs.
 

@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Learn the region-based design consideration for Azure AD B2C to provide customer identity management for global customers.
 author: gargi-sinha
 manager: martinco
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: concept-article
 ms.date: 01/26/2024
 ms.author: gasinh

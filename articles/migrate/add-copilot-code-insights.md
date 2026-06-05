@@ -61,7 +61,7 @@ You can generate code assessment report using GitHub Copilot app Modernization e
 
 ### Upload a ZIP file 
 
-1.You can add code assessment report from any of the following:
+1. You can add code assessment report from any of the following:
     - On the Azure Migrate **Overview** page, under **Explore inventory**, select **Web apps**.
     - On the Azure Migrate **Overview** page, under **Explore Applications**, select **Applications**.
     - On the Azure Migrate **Overview** page, under **Decide and Plan**, select **Assessments**. Choose the Application assessment or Web app assessment. 
