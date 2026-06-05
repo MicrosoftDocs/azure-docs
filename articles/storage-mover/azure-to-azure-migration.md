@@ -10,7 +10,7 @@ ms.date: 05/19/2026
 
 # Get started with blob-to-blob migration in Azure Storage Mover
 
-The Azure-to-Azure Migration feature in Azure Storage Mover allows you to securely transfer large datasets between Blob containers across different Azure storage accounts and regions.
+The Azure-to-Azure Migration feature in Azure Storage Mover allows you to securely transfer large datasets between Blob containers across different Azure storage accounts in the same region, different Azure storage accounts across different Azure regions, as well as storage accounts on [private networks](../storage/common/storage-private-endpoints.md).
 
 This article guides you through the complete process of configuring Storage Mover to migrate your data between two Blob containers. The process consists of configuring endpoints, and creating and running a migration job.
 
