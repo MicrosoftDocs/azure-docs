@@ -288,11 +288,11 @@ Examples in this article assume your app uses `IHostApplicationBuilder`, which i
 
     ### [Application Insights](#tab/app-insights)
 
-    :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/otelAppInsights.js":::
+    <!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/otelAppInsights.js"::: --->
 
     ### [OTLP Exporter](#tab/otlp-export) 
 
-    :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/otelOtlp.js":::
+    <!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/otelOtlp.js"::: --->
 
     ---
 
@@ -307,11 +307,11 @@ Examples in this article assume your app uses `IHostApplicationBuilder`, which i
 
     ### [Application Insights](#tab/app-insights)
 
-    :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/otelAppInsights.ts":::
+    <!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/otelAppInsights.ts"::: --->
 
     ### [OTLP Exporter](#tab/otlp-export) 
 
-    :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/otelOtlp.ts":::
+    <!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/otelOtlp.ts"::: --->
 
     ---
 

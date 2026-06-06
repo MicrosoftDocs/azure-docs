@@ -35,21 +35,21 @@ Go support isn't currently available for this binding.
 ::: zone pivot="programming-language-csharp"  
 This example shows how to generate embeddings for a raw text string.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="25-57"::: 
+<!--- :::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="25-57"::: --->
 
 This example shows how to retrieve embeddings stored at a specified file that is accessible to the function.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="63-78"::: 
+<!--- :::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="63-78"::: --->
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
 This example shows how to generate embeddings for a raw text string.
 
-:::code language="java" source="~/functions-openai-extension/samples/embeddings/java/src/main/java/com/azfs/EmbeddingsGenerator.java" range="26-53":::
+<!--- :::code language="java" source="~/functions-openai-extension/samples/embeddings/java/src/main/java/com/azfs/EmbeddingsGenerator.java" range="26-53"::: --->
 
 This example shows how to retrieve embeddings stored at a specified file that is accessible to the function.
 
-:::code language="java" source="~/functions-openai-extension/samples/embeddings/java/src/main/java/com/azfs/EmbeddingsGenerator.java" range="59-86":::
+<!--- :::code language="java" source="~/functions-openai-extension/samples/embeddings/java/src/main/java/com/azfs/EmbeddingsGenerator.java" range="59-86"::: --->
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript" 
@@ -57,12 +57,12 @@ This example shows how to generate embeddings for a raw text string.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-:::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="3-27":::
+<!--- :::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="3-27"::: --->
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
-:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="3-31":::
+<!--- :::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="3-31"::: --->
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript" 
@@ -70,12 +70,12 @@ This example shows how to generate embeddings for a raw text string.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-:::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="29-54":::
+<!--- :::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="29-54"::: --->
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 
-:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="33-62":::
+<!--- :::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="33-62"::: --->
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -83,16 +83,16 @@ This example shows how to generate embeddings for a raw text string.
 
 Here's the _function.json_ file for generating the embeddings:
 
-:::code language="json" source="~/functions-openai-extension/samples/embeddings/powershell/GenerateEmbeddings/function.json" :::
+<!--- :::code language="json" source="~/functions-openai-extension/samples/embeddings/powershell/GenerateEmbeddings/function.json" ::: --->
 
 For more information about *function.json* file properties, see the [Configuration](#configuration) section.
 
-:::code language="powershell" source="~/functions-openai-extension/samples/embeddings/powershell/GenerateEmbeddings/run.ps1" :::
+<!--- :::code language="powershell" source="~/functions-openai-extension/samples/embeddings/powershell/GenerateEmbeddings/run.ps1" ::: --->
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
 This example shows how to generate embeddings for a raw text string.
 
-:::code language="python" source="~/functions-openai-extension/samples/embeddings/python/function_app.py" range="8-27":::
+<!--- :::code language="python" source="~/functions-openai-extension/samples/embeddings/python/function_app.py" range="8-27"::: --->
 
 ::: zone-end  
 <!--- End code examples section -->  

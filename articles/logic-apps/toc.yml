@@ -646,6 +646,10 @@ items:
             href: testing-framework/unit-test-executor-class-definition.md
           - name: DataMapTestExecutor class
             href: testing-framework/data-map-test-executor-class-definition.md
+          - name: LiquidDataMapTestExecutor class
+            href: testing-framework/liquid-data-map-test-executor-class-definition.md
+          - name: TestLiquidTransformKind enum
+            href: testing-framework/test-liquid-transform-kind-enum-definition.md
       - name: Standard Logic Apps SDK
         items:
           - name: Logic Apps Standard SDK overview
