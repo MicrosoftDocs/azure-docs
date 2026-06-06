@@ -29,7 +29,7 @@ For information on setup and configuration details, see the [overview](functions
 
 ### [Isolated worker model](#tab/isolated-process)
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="12-23" :::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="12-23" ::: --->
 
 ### [In-process model](#tab/in-process)
 
