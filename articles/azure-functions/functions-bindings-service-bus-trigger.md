@@ -46,19 +46,19 @@ Service Bus scaling decisions for the Consumption and Premium plans are made bas
 
 This code defines and initializes the `ILogger`: 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebusmessage_createlogger":::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebusmessage_createlogger"::: --->
 
 This example shows a [C# function](dotnet-isolated-process-guide.md) that receives a single Service Bus queue message and writes it to the logs:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readmessage":::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readmessage"::: --->
 
 This example shows a [C# function](dotnet-isolated-process-guide.md) that receives multiple Service Bus queue messages in a single batch and writes each to the logs:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readbatch":::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readbatch"::: --->
 
 This example shows a [C# function](dotnet-isolated-process-guide.md) that receives multiple Service Bus queue messages, writes it to the logs, and then settles the message as completed:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_message_actions":::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_message_actions"::: --->
 
 # [In-process model](#tab/in-process)
 
@@ -127,7 +127,7 @@ For more information, see [SDK types](functions-reference-node.md#sdk-types) in 
 
 The following example shows a Service Bus trigger [TypeScript function](functions-reference-node.md?tabs=typescript). The function reads [message metadata](#message-metadata) and logs a Service Bus queue message.
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/serviceBusTrigger1.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/serviceBusTrigger1.ts" ::: --->
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -142,7 +142,7 @@ TypeScript samples are not documented for model v3.
 
 The following example shows a Service Bus trigger [JavaScript function](functions-reference-node.md). The function reads [message metadata](#message-metadata) and logs a Service Bus queue message.
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/serviceBusTrigger1.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/serviceBusTrigger1.js" ::: --->
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -214,11 +214,11 @@ This example uses SDK types to directly access the underlying [`ServiceBusReceiv
 
 #### [Queue](#tab/queue)
 
-:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-servicebus/samples/servicebus_samples_single/function_app.py" range="9-15,34-50" :::
+<!--- :::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-servicebus/samples/servicebus_samples_single/function_app.py" range="9-15,34-50" ::: --->
 
 #### [Topic](#tab/topic)
 
-:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-servicebus/samples/servicebus_samples_single/function_app.py" range="9-15,53-70" :::
+<!--- :::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-servicebus/samples/servicebus_samples_single/function_app.py" range="9-15,53-70" ::: --->
 
 ---
 

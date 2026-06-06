@@ -412,9 +412,9 @@ The following example shows a SQL input binding that is [triggered by an HTTP](.
 ::: zone pivot="programming-language-typescript"  
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/sqlInput1.ts" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 TypeScript samples aren't documented for model v3.
@@ -425,9 +425,9 @@ TypeScript samples aren't documented for model v3.
 ::: zone pivot="programming-language-javascript"  
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/sqlInput1.js" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 The following is binding data in the function.json file:
@@ -487,9 +487,9 @@ The following example shows a SQL input binding that is [triggered by an HTTP](.
 ::: zone pivot="programming-language-typescript"  
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/sqlInput2.ts" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 TypeScript samples aren't documented for model v3.
@@ -500,9 +500,9 @@ TypeScript samples aren't documented for model v3.
 ::: zone pivot="programming-language-javascript"  
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/sqlInput2.js" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 The following is binding data in the function.json file:
@@ -567,9 +567,9 @@ The stored procedure `dbo.DeleteToDo` must be created on the database. In this e
 ::: zone pivot="programming-language-typescript"  
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/sqlInput3.ts" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 TypeScript samples aren't documented for model v3.
@@ -580,9 +580,9 @@ TypeScript samples aren't documented for model v3.
 ::: zone pivot="programming-language-javascript"  
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/sqlInput3.js" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 ```json
