@@ -92,26 +92,6 @@ To change the redundancy configuration for a storage account that contains blobs
 
 Migrating a storage account from LRS to GRS is supported as long as no blobs were moved to the archive tier while the account was configured for LRS. 
 
-## Minimum billable object size on cooler tiers
-
-For storage accounts that use Azure Blob Storage or Azure Data Lake Storage, a minimum billable object size of **128 KiB** applies to objects stored in the **cool**, **cold**, and **archive** access tiers. Objects in these tiers that are smaller than 128 KiB are billed as 128 KiB objects at the rate for the corresponding tier. Billing uses the existing capacity billing meters (data stored), and there is no change to transaction billing.
-
-This billing behavior will be introduced in two stages:
-
-- **July 1, 2026**: The billing behavior applies to all new storage accounts created on or after this date. There is no change for existing storage accounts.
-- **July 1, 2027**: The billing behavior applies to all storage accounts.
-
-The creation time of a storage account, which is part of the account-level metadata, determines which stage applies. This billing behavior applies to block blobs and append blobs. 
-
-The **hot** access tier continues to have no minimum billable object size. To reduce potential cost impact, consider [packaging small objects into larger objects](access-tiers-best-practices.md#pack-small-files-before-moving-data-to-cooler-tiers) before moving data to cooler tiers, or using [smart tier](access-tiers-smart.md) to automatically keep small objects on the hot access tier.
-
-To support this change, the **Blob Capacity** metrics in the Azure portal will introduce new blob types: **BlockBlobSmall** and Azure **Azure Data Lake Storage Small**.
-
-> [!NOTE]
-> Customers with existing dashboards, alerts, cost reports, or automation that explicitly depend on the BlockBlob blob type should review and update those workflows accordingly.
-> 
-> Workflows that assume all block blobs are reported under the BlockBlob datatype may return incomplete or unexpected results once these new datatypes appear in capacity metrics.
-
 ## Default account access tier setting
 
 Storage accounts have a default access tier setting that indicates the online tier in which a new blob is created. The default access tier setting can be set to either hot, cool or cold. Users can override the default setting for an individual blob when uploading the blob or changing its tier.
