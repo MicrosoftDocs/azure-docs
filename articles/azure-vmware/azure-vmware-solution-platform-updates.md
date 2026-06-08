@@ -12,6 +12,12 @@ ms.date: 05/21/2026
 
 Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-private-cloud-maintenance.md#host-maintenance-and-lifecycle-management).
 
+## June 2026
+
+**nConnect support on Azure VMware Solution for Azure NetApp Files**
+
+Microsoft 
+
 ## May 2026
 
 **Disaster Recovery**
