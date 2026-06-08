@@ -1,12 +1,12 @@
 ---
 title: "Tutorial: Send data from an OPC UA server to Azure Data Lake Storage Gen 2 using Azure IoT Operations"
 description: Learn how to send data from an OPC UA server to Azure Data Lake Storage Gen 2 using Azure IoT Operations.
-author: sethmanheim
+author: dominicbetts
 ms.service: azure-iot-operations
-ms.subservice: azure-mqtt-broker
-ms.author: sethm
-ms.topic: how-to
-ms.date: 11/15/2024
+ms.subservice: azure-data-flows
+ms.author: dobett
+ms.topic: tutorial
+ms.date: 05/19/2026
 ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an operator, I want to send data from an OPC UA server to Azure Data Lake Storage Gen 2 using Azure IoT Operations so that I can store the data for further analysis and processing.
@@ -107,7 +107,7 @@ In the quickstart, the data that comes from the oven asset looks like:
 The required schema format for Delta Lake is a JSON object that follows the Delta Lake schema serialization format. The schema should define the structure of the data, including the types and properties of each field. For more details on the schema format, see [Delta Lake schema serialization format documentation](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#schema-serialization-format).
 
 > [!TIP]
-> To generate the schema from a sample data file, use the [Schema Gen Helper](https://azure-samples.github.io/explore-iot-operations/schema-gen-helper/).
+> To generate the schema from a sample data file, use the [Schema Gen Helper](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/schema-gen-helper).
 
 For this tutorial, the schema for the data looks like this:
 

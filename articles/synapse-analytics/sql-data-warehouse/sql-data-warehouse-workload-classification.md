@@ -13,6 +13,8 @@ ms.custom:
 
 # Workload classification for dedicated SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article explains the workload classification process of assigning a workload group and importance to incoming requests with dedicated SQL pools in Azure Synapse.
 
 ## Classification

@@ -102,7 +102,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: GPU module via Marketplace
-            url: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
+            url: azure-stack-edge-gpu-deploy-sample-module.md
           - text: VMs via Azure portal
             url: azure-stack-edge-gpu-deploy-virtual-machine-portal.md 
           - text: VMs via Templates

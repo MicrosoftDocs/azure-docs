@@ -204,12 +204,12 @@
       href: howto-ai-agent-config.md
     - name: Python
       href: howto-ai-agent-config-python.md
+    - name: .NET
+      href: howto-ai-agent-config-dotnet.md
 - name: Feature management
   items:
   - name: Overview
     href: concept-feature-management.md
-  - name: Experimentation
-    href: concept-experimentation.md
   - name: Enable conditional features with feature filters
     items:
     - name: Overview
@@ -230,6 +230,8 @@
       href: howto-timewindow-filter.md
     - name: ASP.NET Core
       href: howto-timewindow-filter-aspnet-core.md
+    - name: Spring Boot
+      href: how-to-time-window-filter-spring-boot.md
     - name: JavaScript
       href: howto-timewindow-filter-javascript.md
     - name: Go Gin
@@ -347,6 +349,8 @@
       href: concept-geo-replication.md
     - name: Enable geo-replication
       href: howto-geo-replication.md
+  - name: Reliability in App Configuration
+    href: /azure/reliability/reliability-app-configuration?bc=/azure/bread/toc.json&toc=/azure/azure-app-configuration/TOC.json
   - name: Resiliency and disaster recovery
     href: concept-disaster-recovery.md
   - name: Availability zone support

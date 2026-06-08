@@ -2,12 +2,12 @@
 title: Use certificates with Azure Stack Edge Pro GPU | Microsoft Docs
 description: Describes use of certificates with Azure Stack Edge Pro GPU device including why to use, which types and how to upload certificates on your device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 01/28/2022
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Upload, import, export, and delete certificates on Azure Stack Edge Pro GPU
 

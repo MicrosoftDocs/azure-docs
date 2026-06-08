@@ -1,61 +1,58 @@
 ---
-title: Roadmap for Microsoft Dev Box
-description: Learn about features coming soon and in development for Microsoft Dev Box.
+title: Microsoft Dev Box - maintenance mode
+description: Learn about the current status of Microsoft Dev Box and guidance for existing customers.
 ms.service: dev-box
 ms.topic: concept-article
 author: RoseHJM
 ms.author: rosemalcolm
-ms.update-cycle: 30-days
-ms.date: 01/20/2026
+ms.date: 05/01/2026
 
-#customer intent: As a customer, I want to understand upcoming features and enhancements in Microsoft Dev Box so that I can plan and optimize development and deployment strategies.
+#customer intent: As a customer, I want to understand the current status of Microsoft Dev Box so that I can plan for the future of my development environments.
 
 ---
 
-# Microsoft Dev Box roadmap
+# Microsoft Dev Box — maintenance mode
 
 [!INCLUDE [note-windows-365-announcement](includes/note-windows-365-announcement.md)]
 
-This roadmap presents a set of planned feature releases that underscores Microsoft's commitment to deliver the most secure and productive developer experience from the cloud. This feature list offers a glimpse into our plans for the next six months, highlighting key features we're developing. It's not exhaustive but shows major investments. Some features might release as previews and evolve based on your feedback before becoming generally available. We always listen to your input, so the timing, design, and delivery of some features might change.
+Microsoft Dev Box is now in maintenance mode. The features listed on this page were previously planned but won't be released to general availability. No new features or capabilities will be added to the Dev Box service.
 
-Key Dev Box deliverables can be grouped under the following themes:
+We understand this change affects your planning, and we're committed to supporting existing customers through this transition. Dev Box remains fully supported for current usage, and we'll provide guidance and resources to help you evaluate and move to [Windows 365](/windows-365/) when you're ready.
 
-- Enterprise management
+## What this means for you
 
-- Fundamental performance & reliability
+- **Existing deployments continue to work.** Your current dev boxes, pools, and configurations remain fully functional and supported.
+- **No new features will ship.** Previously planned capabilities (listed below) won't proceed to general availability.
+- **Windows 365 is the path forward.** Microsoft's investments in cloud developer environments are now focused on Windows 365, which provides a unified, scalable solution for developer scenarios.
+- **We're here to help.** Guidance and transition resources will be provided to help you move to Windows 365 at a pace that works for your organization.
 
-## Enterprise management
+## Previously planned features (not proceeding to GA)
 
-Microsoft Dev Box aims to deliver centralized governance based on organizational standards for security, compliance, and cost controls. During this period, we're reducing the time it takes enterprises to get started with Dev Box by making it easier to set up a proof of concept (POC) and then move to production. We're also improving our monitoring, cost control, security, and privacy capabilities.
+The following features were on the Dev Box roadmap but are no longer being developed:
 
-**Streamlined and flexible onboarding for enterprises**
+### Enterprise management
 
-- [On-behalf creation](https://developercommunity.microsoft.com/t/On-behalf-creation-of-machines/10859734): As a dev center admin, you'll be able to provision a Dev Box machine for other developers in your team.
+- **On-behalf creation**: Provisioning Dev Box machines for other developers in your team.
+- **Firewall Service Tags**: Configuring traffic rules by using Service Tags in your firewall setup.
+- **Developer offboarding**: Automatic offloading of users from the service when they leave the organization or switch teams.
 
-**Network setup and expansion**
+### Performance & reliability
 
-- [Firewall Service Tags](https://developercommunity.visualstudio.com/t/Dev-Box:-Advanced-notice-and-notificatio/10704156?q=firewall): As an IT administrator working on setting up Dev Box for their organization, quickly configure traffic roles by utilizing Service Tags in your Firewall set up.
+- **Single Sign On (SSO) for existing Dev Box machines**: Enabling SSO for already-existing Dev Box machines.
+- **Auto Remediation Improvements**: Automatic remediation of connectivity issues to prevent connection blockers.
+- **Latency Improvements**: Reduced mouse latency with high-resolution monitors and other latency optimizations.
 
-**Security and privacy**
+## Retired previews
 
-- [Developer offboarding](https://developercommunity.visualstudio.com/t/Provide-a-means-to-do-external-cleanup/10670632?q=delete+unused+): As a dev center admin, configure your Dev Box service to offload users from the service when they leave the organization and switch between teams.
+The following features were previously available in preview and are no longer available:
 
-## Fundamental performance & reliability
+- **Guest account access**: Guest user access to dev boxes via Microsoft Entra B2B collaboration.
 
-Microsoft Dev Box aims to provide a "like-local" developer experience that is as responsive and seamless as working on a local machine. We're continually enhancing the reliability, speed, and performance of Dev Box by optimizing everything from your favorite Visual Studio development tools to Windows, RDP, and the location of Dev Box machines.
+## Get support
 
-**Seamless and reliable connectivity**
-
-- [Single Sign On (SSO) for existing Dev Box machines](https://developercommunity.microsoft.com/t/Single-Sign-On-SSO-for-existing-Dev-Bo/10859770): As a dev center admin, you'll be able to enable Single Sign On experience for already existing Dev Box machines.
-
-- [Auto Remediation Improvements](https://developercommunity.microsoft.com/t/Network-connection-auto-remediation/10861428): As a developer, you won't be blocked from connecting to your Dev Box machine due to networking issues. Autoremediation of connectivity issues should allow you to connect to your machine.
-
-- [Latency Improvements](https://developercommunity.visualstudio.com/t/Latency-improvements-when-using-a-mouse/10859786): As a developer you'll experience reduced mouse latency with high-resolution monitors along with other generic latency improvements.
-
-This roadmap outlines our current priorities, and we remain flexible to adapt based on customer feedback. We invite you to [share your thoughts and suggest more capabilities you would like to see](https://aka.ms/DevBox/Feedback). Your insights help us refine our focus and deliver even greater value.
+If you have questions about this change or need help planning your transition, reach out through [Azure Support](https://aka.ms/azure-support) or contact your Microsoft account team.
 
 ## Related content
 
 - [What is Microsoft Dev Box?](/azure/dev-box/overview-what-is-microsoft-dev-box)
-- [Microsoft Dev Box architecture and key concepts - Microsoft Dev Box | Microsoft Learn](/azure/dev-box/concept-dev-box-architecture)
-- [Microsoft Dev Box architecture - Microsoft Dev Box | Microsoft Learn](/azure/dev-box/concept-dev-box-architecture)
+- [Windows 365 documentation](/windows-365/)

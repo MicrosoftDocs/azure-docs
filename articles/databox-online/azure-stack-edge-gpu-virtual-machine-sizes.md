@@ -2,12 +2,12 @@
 title: Supported virtual machine sizes on Azure Stack Edge 
 description: Describes the supported sizes for virtual machines (VMs) on an Azure Stack Edge Pro device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: reference
 ms.date: 01/19/2024
-ms.author: alkohli
+ms.author: sipastak
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device by using APIs, so that I can efficiently manage my VMs. 
 ---
 

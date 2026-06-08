@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 09/02/2024
+ms.date: 04/24/2026
 ms.author: zityang
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -656,7 +656,7 @@ The following table explains the binding configuration properties that you set i
 | **type** | n/a | Must be set to `webPubSubContext`. |
 | **direction** | n/a | Must be set to `in`. |
 | **name** | n/a | Variable name used in function code for input Web PubSub request. |
-| **connection** | Connection | Optional - the name of an app settings or setting collection that specifies the upstream Azure Web PubSub service. The value is used for [Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0.1/http-webhook.md#4-abuse-protection) and Signature validation. The value is auto resolved with "WebPubSubConnectionString" by default. And `null` means the validation isn't needed and always succeed. |
+| **connections** | Connections | Optional - An array of app setting names or setting collection prefixes that identify the upstream Azure Web PubSub service connections. These values are used for abuse protection and signature validation. When not specified, falls back to the global `WebPubSubConnectionString` app setting. When neither is configured, validation is skipped and all requests are accepted.<br> Example: `["CustomWebPubSubConnection1", "CustomWebPubSubConnection2"]` </br> |
 
 [!INCLUDE [functions-azure-web-pubsub-authorization-note](../../includes/functions-azure-web-pubsub-authorization-note.md)]
 

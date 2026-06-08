@@ -8,7 +8,7 @@ ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/12/2026
+ms.date: 05/05/2026
 ms.author: mbaldwin
 ---
 
@@ -138,7 +138,7 @@ Encrypt your virtual hard disks (VHDs) to help protect your boot volume and data
 
 [!INCLUDE [Azure Disk Encryption retirement notice](~/reusable-content/ce-skilling/azure/includes/security/azure-disk-encryption-retirement.md)]
 
-[Encryption at host](/azure/virtual-machines/disk-encryption) provides end-to-end encryption for your VM data by default, encrypting temporary disks, OS and data disk caches, and data flows to Azure Storage. By default, encryption at host uses platform-managed keys with no extra configuration required. Optionally, you can configure the solution to use customer-managed keys stored in [Azure Key Vault or Azure Key Vault Managed HSM](/azure/security/fundamentals/key-management) when you need to control and manage your own disk-encryption keys. The solution ensures that all data on the virtual machine disks are encrypted at rest in Azure Storage.
+[Encryption at host](/azure/virtual-machines/disk-encryption) provides end-to-end encryption for your VM data by default, encrypting temporary disks, OS and data disk caches, and data flows to Azure Storage. By default, encryption at host uses platform-managed keys with no extra configuration required. Optionally, you can configure the solution to use customer-managed keys stored in [Azure Key Vault or Azure Key Vault Managed HSM](key-management.md) when you need to control and manage your own disk-encryption keys. The solution ensures that all data on the virtual machine disks are encrypted at rest in Azure Storage.
 
 The following best practices help you use encryption at host:
 

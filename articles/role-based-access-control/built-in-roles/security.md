@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -1487,8 +1487,8 @@ This is a legacy role. Please use Security Admin instead.
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.ClassicCompute](../permissions/compute.md#microsoftclassiccompute)/*/read | Read configuration information classic virtual machines |
-> | [Microsoft.ClassicCompute](../permissions/compute.md#microsoftclassiccompute)/virtualMachines/*/write | Write configuration for classic virtual machines |
+> | Microsoft.ClassicCompute/*/read | Read configuration information classic virtual machines |
+> | Microsoft.ClassicCompute/virtualMachines/*/write | Write configuration for classic virtual machines |
 > | [Microsoft.ClassicNetwork](../permissions/networking.md#microsoftclassicnetwork)/*/read | Read configuration information about classic network |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |

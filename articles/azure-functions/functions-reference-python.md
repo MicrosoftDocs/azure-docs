@@ -2,7 +2,7 @@
 title: Python developer reference for Azure Functions
 description: Understand how to develop, validate, and deploy your Python code projects to Azure Functions using the Python library for Azure Functions.
 ms.topic: article
-ms.date: 11/09/2025
+ms.date: 04/26/2026
 ms.devlang: python
 ms.custom:
   - devx-track-python
@@ -215,6 +215,28 @@ Use **type annotations** to improve IntelliSense and editor support:
 ```python
 def http_trigger(req: func.HttpRequest) -> str:
 ```
+
+### Reading route parameters
+
+You can define route parameters directly in the HTTP route template and read them from the request object.
+
+For example, the route products/{product_id} captures the value from the URL path and makes it available through HttpRequest.route_params.
+
+```python
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.route(route="products/{product_id}", methods=["GET"])
+def get_product(req: func.HttpRequest) -> func.HttpResponse:
+    product_id = req.route_params.get("product_id")
+    if not product_id:
+        return func.HttpResponse("Missing route parameter: product_id", status_code=400)
+    return func.HttpResponse(f"Product: {product_id}")
+```
+
+>[!IMPORTANT]
+>In the Python v2 model, route parameters shouldn't be added as extra function arguments. Read them from `req.route_params` instead.
 
 ### Organizing with blueprints
 
@@ -907,7 +929,7 @@ To learn more about optimizing your Python functions apps, see these articles:
 
 - [Scaling & Performance](./python-scale-performance-reference.md)
 - [Using Flask Framework with Azure Functions](/samples/azure-samples/flask-app-on-azure-functions/azure-functions-python-create-flask-app/)
-- [Durable Functions](./durable/what-is-durable-task.md)
+- [Durable Functions](../durable-task/common/what-is-durable-task.md)
 - [HTTP Streaming](./functions-bindings-http-webhook-trigger.md?tabs=python-v2&pivots=programming-language-python#http-streams-1)
 
 ## Related articles

@@ -46,7 +46,7 @@ To see SRE Agent in action, watch the following video.
 
 <br>
 
-> [!VIDEO https://www.youtube.com/embed/DRWppVNOTqQ?si=FJ9dNk5uY1kUET-R]
+<!-- > [!VIDEO https://www.youtube.com/embed/DRWppVNOTqQ?si=FJ9dNk5uY1kUET-R] -->
 
 ## How does SRE Agent work?
 

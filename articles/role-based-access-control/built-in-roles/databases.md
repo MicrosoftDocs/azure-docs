@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -54,6 +54,116 @@ Allows for read and write access to Azure resources for SQL Server on Arc-enable
     }
   ],
   "roleName": "Azure Connected SQL Server Onboarding",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Managed Redis Contributor
+
+Create and manage Azure Managed Redis resources. Cannot read or write data stored in the cache.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/locations/operationsStatus/read | View the status of a long running operation for which the 'AzureAsync' header was previously returned to the client |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/locations/checknameavailability/action | Checks if a name is available for use with a new Redis Enterprise cache |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/operations/read | Lists the operations that 'Microsoft.Cache' provider supports. |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redisEnterprise/* | Create and manage Azure Managed Redis resources |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage Azure Managed Redis resources, but not access the data stored in them.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/3015e5ed-6856-4ab3-b2f0-b8492aa30ca6",
+  "name": "3015e5ed-6856-4ab3-b2f0-b8492aa30ca6",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Cache/locations/operationsStatus/read",
+        "Microsoft.Cache/locations/checknameavailability/action",
+        "Microsoft.Cache/operations/read",
+        "Microsoft.Cache/redisEnterprise/*",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Managed Redis Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Managed Redis Reader
+
+Read Azure Managed Redis resources and their configuration. Cannot modify resources, retrieve access keys, or read data stored in the cache.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/locations/operationsStatus/read | View the status of a long running operation for which the 'AzureAsync' header was previously returned to the client |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/operations/read | Lists the operations that 'Microsoft.Cache' provider supports. |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redisEnterprise/read | View Azure Managed Redis resource’s settings and configurations |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redisEnterprise/*/read | Gets or lists Azure Managed Redis resources |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/read | Read a classic metric alert |
+> | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you view Azure Managed Redis resources, but not modify them or access keys or access to the data stored in them.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/f287ba2f-f923-4464-a5bd-721c3951d32d",
+  "name": "f287ba2f-f923-4464-a5bd-721c3951d32d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Cache/locations/operationsStatus/read",
+        "Microsoft.Cache/operations/read",
+        "Microsoft.Cache/redisEnterprise/read",
+        "Microsoft.Cache/redisEnterprise/*/read",
+        "Microsoft.Insights/alertRules/read",
+        "Microsoft.ResourceHealth/availabilityStatuses/read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Managed Redis Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -345,8 +455,15 @@ Role to allow backup vault to access PostgreSQL Flexible Server Resource APIs fo
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/ltrBackup/action | Start LTR backup operation for a server |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/ltrBackupAccess/action | Start LTR backup access operation for a server |
 > | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/ltrBackupOperations/read | Returns the list of  PostgreSQL server long term backup operation tracking. |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/ltrBackupPreCheck/action | Start LTR backup pre-check operation for a server |
 > | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/ltrPreBackup/action | Checks if a server is ready for a long term backup |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/ltrRestoreFinalize/action | Start LTR restore finalize operation for a server |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/ltrRestoreInitialize/action | Start LTR restore initialize operation for a server |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/ltrRestorePreCheck/action | Start LTR restore pre-check operation for a server |
+> | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/read | Return the list of servers or gets the properties for the specified server. |
 > | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/flexibleServers/startLtrBackup/action | Start long term backup for a server |
 > | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/locations/azureAsyncOperation/read | Return PostgreSQL Server Operation Results |
 > | [Microsoft.DBforPostgreSQL](../permissions/databases.md#microsoftdbforpostgresql)/locations/operationResults/read | Return PostgreSQL Server Operation Results |
@@ -370,8 +487,15 @@ Role to allow backup vault to access PostgreSQL Flexible Server Resource APIs fo
   "permissions": [
     {
       "actions": [
+        "Microsoft.DBforPostgreSQL/flexibleServers/ltrBackup/action",
+        "Microsoft.DBforPostgreSQL/flexibleServers/ltrBackupAccess/action",
         "Microsoft.DBforPostgreSQL/flexibleServers/ltrBackupOperations/read",
+        "Microsoft.DBforPostgreSQL/flexibleServers/ltrBackupPreCheck/action",
         "Microsoft.DBforPostgreSQL/flexibleServers/ltrPreBackup/action",
+        "Microsoft.DBforPostgreSQL/flexibleServers/ltrRestoreFinalize/action",
+        "Microsoft.DBforPostgreSQL/flexibleServers/ltrRestoreInitialize/action",
+        "Microsoft.DBforPostgreSQL/flexibleServers/ltrRestorePreCheck/action",
+        "Microsoft.DBforPostgreSQL/flexibleServers/read",
         "Microsoft.DBforPostgreSQL/flexibleServers/startLtrBackup/action",
         "Microsoft.DBforPostgreSQL/locations/azureAsyncOperation/read",
         "Microsoft.DBforPostgreSQL/locations/operationResults/read",
@@ -391,14 +515,14 @@ Role to allow backup vault to access PostgreSQL Flexible Server Resource APIs fo
 
 ## Redis Cache Contributor
 
-Lets you manage Redis caches, but not access to them.
+Create and manage Azure Cache for Redis resources. Cannot read or write data stored in the cache.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/register/action | Registers the 'Microsoft.Cache' resource provider with a subscription |
-> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redis/* | Create and manage Redis caches |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redis/* | Create and manage Azure Cache for Redis resources |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |

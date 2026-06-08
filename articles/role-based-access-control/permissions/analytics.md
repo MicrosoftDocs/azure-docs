@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 04/09/2026
 ms.custom: generated
 ---
 
@@ -67,6 +67,11 @@ Azure service: [Azure Databricks](/azure/databricks/)
 > | `Microsoft.Databricks/workspaces/privateEndpointConnectionsApproval/action` | Approve or reject a connection to a Private Endpoint resource. |
 > | `Microsoft.Databricks/workspaces/assignWorkspaceAdmin/action` | Makes the user a Workspace Admin within Databricks |
 > | `Microsoft.Databricks/workspaces/dbWorkspaces/write` | Initializes the Databricks workspace (internal only) |
+> | `Microsoft.Databricks/workspaces/dbWorkspaces/read` | Databricks Workspace Read Operation |
+> | `Microsoft.Databricks/workspaces/dbWorkspaces/delete` | Databricks Workspace Delete Operation |
+> | `Microsoft.Databricks/workspaces/dbWorkspaces/dbPrivateEndpointConnections/write` | Creates or updates a Databricks private endpoint connection |
+> | `Microsoft.Databricks/workspaces/dbWorkspaces/dbPrivateEndpointConnections/delete` | Removes a Databricks private endpoint connection. |
+> | `Microsoft.Databricks/workspaces/dbWorkspaces/privateLinkResources/read` | Gets the Databricks private link resources |
 > | `Microsoft.Databricks/workspaces/outboundNetworkDependenciesEndpoints/read` | Gets a list of egress endpoints (network endpoints of all outbound dependencies) for an Azure Databricks Workspace. The operation returns properties of each egress endpoint |
 > | `Microsoft.Databricks/workspaces/privateEndpointConnectionProxies/read` | Get Private Endpoint Connection Proxy |
 > | `Microsoft.Databricks/workspaces/privateEndpointConnectionProxies/validate/action` | Validate Private Endpoint Connection Proxies |
@@ -276,6 +281,7 @@ Azure service: [Data Lake Analytics](/azure/data-lake-analytics/)
 > | `Microsoft.DataLakeAnalytics/accounts/delete` | Delete a DataLakeAnalytics account. |
 > | `Microsoft.DataLakeAnalytics/accounts/transferAnalyticsUnits/action` | Transfer SystemMaxAnalyticsUnits among DataLakeAnalytics accounts. |
 > | `Microsoft.DataLakeAnalytics/accounts/transferEcoAnalyticsUnits/action` | Transfer SystemMaxEcoAnalyticsUnits among DataLakeAnalytics accounts. |
+> | `Microsoft.DataLakeAnalytics/accounts/transferFastAnalyticsUnits/action` | Transfer SystemMaxFastAnalyticsUnits among DataLakeAnalytics accounts. |
 > | `Microsoft.DataLakeAnalytics/accounts/TakeOwnership/action` | Grant permissions to cancel jobs submitted by other users. |
 > | `Microsoft.DataLakeAnalytics/accounts/computePolicies/read` | Get information about a compute policy. |
 > | `Microsoft.DataLakeAnalytics/accounts/computePolicies/write` | Create or update a compute policy. |
@@ -353,6 +359,35 @@ Azure service: [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-sto
 > | `Microsoft.DataLakeStore/locations/operationResults/read` | Get result of a DataLakeStore account operation. |
 > | `Microsoft.DataLakeStore/locations/usages/read` | Get quota usages information of a subscription regarding using DataLakeStore. |
 > | `Microsoft.DataLakeStore/operations/read` | Get available operations of DataLakeStore. |
+
+## Microsoft.Fabric
+
+Azure service: [Microsoft Fabric](/fabric/)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | `Microsoft.Fabric/register/action` | Registers Fabric resource provider. |
+> | `Microsoft.Fabric/capacities/read` | Retrieves the information of the specified Fabric Capacity. |
+> | `Microsoft.Fabric/capacities/write` | Creates or updates the specified Fabric Capacity. |
+> | `Microsoft.Fabric/capacities/delete` | Deletes the Fabric Capacity. |
+> | `Microsoft.Fabric/capacities/suspend/action` | Suspend the specified Fabric capacity. |
+> | `Microsoft.Fabric/capacities/resume/action` | Resume the specified Fabric capacity. |
+> | `Microsoft.Fabric/capacities/skus/read` | Retrieve available SKU information for the Fabric capacity. |
+> | `Microsoft.Fabric/locations/checkNameAvailability/action` | Checks that given Fabric resource name is valid and not in use. |
+> | `Microsoft.Fabric/locations/operationresults/read` | Retrieves the information of the specified operation result. |
+> | `Microsoft.Fabric/locations/operationstatuses/read` | Retrieves the information of the specified operation status. |
+> | `Microsoft.Fabric/operations/read` | Retrieves the information of operations. |
+> | `Microsoft.Fabric/privateLinkServicesForFabric/read` | Gets all Fabric Private Link Services. |
+> | `Microsoft.Fabric/privateLinkServicesForFabric/write` | Creates or updates Fabric Private Link Service. |
+> | `Microsoft.Fabric/privateLinkServicesForFabric/delete` | Deletes Fabric Private Link Service resource. |
+> | `Microsoft.Fabric/privateLinkServicesForFabric/operationResults/read` | Gets result of Fabric Private Link Service operation. |
+> | `Microsoft.Fabric/privateLinkServicesForFabric/operationStatuses/read` | Gets status of Fabric Private Link Service operation. |
+> | `Microsoft.Fabric/privateLinkServicesForFabric/privateEndpointConnections/read` | Gets private endpoint connection to a Fabric Private Link Service. |
+> | `Microsoft.Fabric/privateLinkServicesForFabric/privateEndpointConnections/write` | Creates or updates private endpoint connection to a Fabric Private Link Service. |
+> | `Microsoft.Fabric/privateLinkServicesForFabric/privateEndpointConnections/delete` | Deletes private endpoint connection to a Fabric Private Link Service. |
+> | `Microsoft.Fabric/privateLinkServicesForFabric/privateLinkResources/read` | Gets private link resources in a Fabric Private Link Service. |
+> | `Microsoft.Fabric/skus/read` | Retrieves the information of SKUs. |
 
 ## Microsoft.HDInsight
 

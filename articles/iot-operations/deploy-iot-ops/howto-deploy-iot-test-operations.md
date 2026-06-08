@@ -155,9 +155,6 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
 
     This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
-    > [!IMPORTANT]
-    > When you initialize your Azure IoT Operations instance on a VKS cluster with its [pod security admission controller running in restricted mode](https://techdocs.broadcom.com/us/en/vmware-cis/vcf/vsphere-supervisor-services-and-standalone-components/latest/managing-vsphere-kuberenetes-service-clusters-and-workloads/managing-security-for-tkg-service-clusters/configure-psa-for-tkr-1-25-and-later.html) you must include the `--cm-config global.telemetry.logs.enabled=false` flag when you run `az iot ops init`.
-
 1. To deploy Azure IoT Operations, copy and run the provided [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command. This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
 1. Once all of the Azure CLI commands complete successfully, you can close the **Install Azure IoT Operations** wizard.

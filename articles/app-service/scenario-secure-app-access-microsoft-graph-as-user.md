@@ -5,7 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: tutorial
-ms.date: 09/15/2023
+ms.date: 03/17/2026
 ms.devlang: csharp
 ms.custom: azureday1, devx-track-dotnet, AppServiceIdentity
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph for a signed-in user.
@@ -21,13 +21,14 @@ Your web app now has the required permissions and also adds Microsoft Graph's cl
 
 Using the [Microsoft.Identity.Web library](https://github.com/AzureAD/microsoft-identity-web/), the web app gets an access token for authentication with Microsoft Graph. In version 1.2.0 and later, the Microsoft.Identity.Web library integrates with and can run alongside the App Service authentication/authorization module. Microsoft.Identity.Web detects that the web app is hosted in App Service and automatically retrieves the access token from the `X-MS-TOKEN-AAD-ACCESS-TOKEN` request header that App Service injects (see [Retrieve tokens in app code](configure-authentication-oauth-tokens.md#retrieve-tokens-in-app-code)). You don't need to manually access this header in your code. The access token is then passed along to authenticated requests with the Microsoft Graph API.
 
-To see this code as part of a sample application, see the: 
+To see this code as part of a sample application, see the:
+
 * [Sample on GitHub](https://github.com/Azure-Samples/ms-identity-easyauth-dotnet-storage-graphapi/tree/main/2-WebApp-graphapi-on-behalf).
 
 > [!NOTE]
-> The Microsoft.Identity.Web library isn't required in your web app for basic authentication/authorization or to authenticate requests with Microsoft Graph. It's possible to [securely call downstream APIs](tutorial-auth-aad.md#call-api-securely-from-server-code) with only the App Service authentication/authorization module enabled.
-> 
-> However, the App Service authentication/authorization is designed for more basic authentication scenarios. For more complex scenarios (handling custom claims, for example), you need the Microsoft.Identity.Web library or [Microsoft Authentication Library](../active-directory/develop/msal-overview.md). There's a little more setup and configuration work in the beginning, but the Microsoft.Identity.Web library can run alongside the App Service authentication/authorization module. Later, when your web app needs to handle more complex scenarios, you can disable the App Service authentication/authorization module and Microsoft.Identity.Web will already be a part of your app.
+> The Microsoft.Identity.Web library isn't required in your web app for basic authentication/authorization or to authenticate requests with Microsoft Graph. It's possible to [securely call downstream APIs](tutorial-auth-aad.md) with only the App Service authentication/authorization module enabled.
+>
+> However, the App Service authentication/authorization is designed for more basic authentication scenarios. For more complex scenarios (handling custom claims, for example), you need the Microsoft.Identity.Web library or [Microsoft Authentication Library](/entra/identity-platform/msal-overview). There's a little more setup and configuration work in the beginning, but the Microsoft.Identity.Web library can run alongside the App Service authentication/authorization module. Later, when your web app needs to handle more complex scenarios, you can disable the App Service authentication/authorization module, and Microsoft.Identity.Web will already be a part of your app.
 
 ### Install client library packages
 
@@ -50,6 +51,7 @@ dotnet add package Microsoft.Identity.Web
 Open the project/solution in Visual Studio, and open the console by using the **Tools** > **NuGet Package Manager** > **Package Manager Console** command.
 
 Run the install commands.
+
 ```powershell
 Install-Package Microsoft.Identity.Web.GraphServiceClient
 
@@ -58,7 +60,7 @@ Install-Package Microsoft.Identity.Web
 
 ### Startup.cs
 
-In the *Startup.cs* file, the ```AddMicrosoftIdentityWebApp``` method adds Microsoft.Identity.Web to your web app. The ```AddMicrosoftGraph``` method adds Microsoft Graph support.  For info on managing incremental consent and conditional access, [read this](https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access).
+In the *Startup.cs* file, the ```AddMicrosoftIdentityWebApp``` method adds Microsoft.Identity.Web to your web app. The ```AddMicrosoftGraph``` method adds Microsoft Graph support. For info on managing incremental consent and conditional access, [read this article](https://github.com/AzureAD/microsoft-identity-web/wiki/Managing-incremental-consent-and-conditional-access).
 
 ```csharp
 using Microsoft.AspNetCore.Builder;
@@ -102,7 +104,7 @@ public class Startup
 
 ### appsettings.json
 
-*AzureAd* specifies the configuration for the Microsoft.Identity.Web library. In the [Microsoft Entra admin center](https://entra.microsoft.com), select **Applications** from the portal menu and then select **App registrations**. Select the app registration created when you enabled the App Service authentication/authorization module. (The app registration should have the same name as your web app.) You can find the tenant ID and client ID in the app registration overview page. The domain name can be found in the Microsoft Entra overview page for your tenant.
+*AzureAd* specifies the configuration for the Microsoft.Identity.Web library. In the [Microsoft Entra admin center](https://entra.microsoft.com), select **Entra ID** from the portal menu and then select **App registrations**. Select the app registration created when you enabled the App Service authentication/authorization module. (The app registration should have the same name as your web app.) You can find the tenant ID and client ID in the app registration overview page. The domain name can be found in the Microsoft Entra overview page for your tenant.
 
 *Graph* specifies the Microsoft Graph endpoint and the initial scopes needed by the app.
 
@@ -196,6 +198,5 @@ public class IndexModel : PageModel
     }
 }
 ```
-
 
 [!INCLUDE [second-part](./includes/tutorial-connect-app-access-microsoft-graph-as-user/end.md)]

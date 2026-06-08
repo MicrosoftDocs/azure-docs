@@ -107,28 +107,19 @@ _To use `IHostApplicationBuilder`, your app must use version 2.x or later of the
 The following code shows an example of an [IHostApplicationBuilder] pipeline:
 
 ```csharp
-using Microsoft.Azure.Functions.Worker;
+using Azure.Monitor.OpenTelemetry.Exporter;
 using Microsoft.Azure.Functions.Worker.Builder;
+using Microsoft.Azure.Functions.Worker.OpenTelemetry;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 var builder = FunctionsApplication.CreateBuilder(args);
 
-builder.Services
-    .AddApplicationInsightsTelemetryWorkerService()
-    .ConfigureFunctionsApplicationInsights();
+builder.ConfigureFunctionsWebApplication();
 
-builder.Logging.Services.Configure<LoggerFilterOptions>(options =>
-    {
-        // The Application Insights SDK adds a default logging filter that instructs ILogger to capture only Warning and more severe logs. Application Insights requires an explicit override.
-        // Log levels can also be configured using appsettings.json. For more information, see https://learn.microsoft.com/azure/azure-monitor/app/worker-service#ilogger-logs
-        LoggerFilterRule? defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
-            == "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider");
-        if (defaultRule is not null)
-        {
-            options.Rules.Remove(defaultRule);
-        }
-    });
+builder.Services.AddOpenTelemetry()
+    .UseFunctionsWorkerDefaults()
+    .UseAzureMonitorExporter();
 
 var host = builder.Build();
 ```
@@ -138,7 +129,7 @@ Before calling `Build()` on the `IHostApplicationBuilder`, you should:
 - If you want to use [ASP.NET Core integration](#aspnet-core-integration), call `builder.ConfigureFunctionsWebApplication()`.
 - If you're writing your application using F#, you might need to register some binding extensions. See the setup documentation for the [Blobs extension][fsharp-blobs], the [Tables extension][fsharp-tables], and the [Cosmos DB extension][fsharp-cosmos] when you plan to use these extensions in an F# app.
 - Configure any services or app configuration your project requires. See [Configuration](#configuration) for details.
-- If you're planning to use Application Insights, you need to call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` against the builder's `Services` property. See [Application Insights](#application-insights) for details.
+- If you're planning to use Application Insights, you need to call `AddOpenTelemetry().UseFunctionsWorkerDefaults()` and `AddOpenTelemetry().UseAzureMonitorExporter()` against the builder's `Services` property. See [Application Insights](#application-insights) for details.
 
 If your project targets .NET Framework 4.8, you also need to add `FunctionsDebugger.Enable();` before creating the HostBuilder. It should be the first line of your `Main()` method. For more information, see [Debugging when targeting .NET Framework](#debugging-when-targeting-net-framework).
 
@@ -160,7 +151,7 @@ Considerations for your start-up code:
     - Call either `ConfigureFunctionsWebApplication()` if you're using [ASP.NET Core integration](#aspnet-core-integration) or `ConfigureFunctionsWorkerDefaults()` otherwise. See [HTTP trigger](#http-trigger) for details on these options.   
         If you're writing your application using F#, some trigger and binding extensions require extra configuration. See the setup documentation for the [Blobs extension][fsharp-blobs], the [Tables extension][fsharp-tables], and the [Cosmos DB extension][fsharp-cosmos] when you plan to use these extensions in an F# app.
     - Configure any services or app configuration your project requires. See [Configuration](#configuration) for details.  
-        If you plan to use Application Insights, you need to call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` in the `ConfigureServices()` delegate. See [Application Insights](#application-insights) for details.
+        If you plan to use Application Insights, you need to call `AddOpenTelemetry().UseFunctionsWorkerDefaults()` and `AddOpenTelemetry().UseAzureMonitorExporter()` in the `ConfigureServices()` delegate. See [Application Insights](#application-insights) for details.
 - If your project targets .NET Framework 4.8, you also need to add `FunctionsDebugger.Enable();` before creating the HostBuilder. It should be the first line of your `Main()` method. For more information, see [Debugging when targeting .NET Framework](#debugging-when-targeting-net-framework).
 - This example includes dependency injection, which is optional for your start-up code. Dependency injection also requires `using Microsoft.Extensions.DependencyInjection;`. For more information, see [Dependency injection](#dependency-injection). 
 - The [HostBuilder] builds and returns a fully initialized [`IHost`][IHost] instance. You run this instance asynchronously to start your function app. 
@@ -273,7 +264,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 var host = new HostBuilder()
-    .ConfigureFunctionsWorkerDefaults()
+    .ConfigureFunctionsWebApplication()
     .ConfigureServices((hostContext, services) =>
     {
         services.AddAzureClients(clientBuilder =>
@@ -603,7 +594,7 @@ The .NET isolated worker doesn't set a custom [`SynchronizationContext`](/dotnet
 Because there's no `SynchronizationContext` to suppress, using [`ConfigureAwait(false)`](/dotnet/api/system.threading.tasks.task.configureawait) in your function code has no practical effect. The isolated worker process runs as a standard .NET generic host (console app), so the same async/await behavior you'd expect in any ASP.NET Core or console application applies here. This is also true for .NET Framework (net48) isolated worker apps, since the worker process is always a console executable using `HostBuilder`.
 
 > [!NOTE]
-> [Durable Functions](./durable/durable-functions-overview.md) orchestrators have their own threading constraints. The orchestrator replay thread must run continuations, so using `ConfigureAwait(false)` in orchestrator functions or orchestrator middleware can interfere with orchestration execution. For more information, see the [Durable Functions code constraints](./durable/durable-functions-code-constraints.md).
+> [Durable Functions](./durable-functions/durable-functions-overview.md) orchestrators have their own threading constraints. The orchestrator replay thread must run continuations, so using `ConfigureAwait(false)` in orchestrator functions or orchestrator middleware can interfere with orchestration execution. For more information, see the [Durable Functions code constraints](../durable-task/common/durable-task-code-constraints.md).
 
 ## Bindings 
 
@@ -755,9 +746,11 @@ The following example shows how to configure JSON.NET (`Newtonsoft.Json`) and th
 ##### [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
+using Azure.Monitor.OpenTelemetry.Exporter;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Builder;
+using Microsoft.Azure.Functions.Worker.OpenTelemetry;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -765,9 +758,9 @@ var builder = FunctionsApplication.CreateBuilder(args);
 
 builder.ConfigureFunctionsWebApplication();
 
-builder.Services
-    .AddApplicationInsightsTelemetryWorkerService()
-    .ConfigureFunctionsApplicationInsights();
+builder.Services.AddOpenTelemetry()
+    .UseFunctionsWorkerDefaults()
+    .UseAzureMonitorExporter();
 
 builder.Services.AddMvc().AddNewtonsoftJson();
 
@@ -780,8 +773,9 @@ builder.Build().Run();
 ##### [IHostBuilder](#tab/hostbuilder)
 
 ```csharp
+using Azure.Monitor.OpenTelemetry.Exporter;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
-using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.OpenTelemetry;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -789,8 +783,8 @@ var host = new HostBuilder()
     .ConfigureFunctionsWebApplication()
     .ConfigureServices(services =>
     {
-        services.AddApplicationInsightsTelemetryWorkerService();
-        services.ConfigureFunctionsApplicationInsights();
+        services.AddOpenTelemetry().UseFunctionsWorkerDefaults();
+        services.AddOpenTelemetry().UseAzureMonitorExporter();
         services.AddMvc().AddNewtonsoftJson();
 
         // Only needed if using HttpRequestData/HttpResponseData and a serializer that doesn't support asynchronous IO
@@ -929,37 +923,50 @@ Application Insights integration isn't enabled by default in all setup experienc
 
 If your project is part of an [Aspire orchestration](#aspire), it uses OpenTelemetry for monitoring instead. Don't enable direct Application Insights integration within Aspire projects. Instead, configure the Azure Monitor OpenTelemetry exporter as part of the [service defaults project](/dotnet/aspire/fundamentals/service-defaults#opentelemetry-configuration). If your Functions project uses Application Insights integration in an Aspire context, the application errors on startup.
 
+#### Update host.json
+
+To enable OpenTelemetry output from the Functions host, update the [host.json file](./functions-host-json.md) in your code project to add a `"telemetryMode": "OpenTelemetry"` element to the root collection. With OpenTelemetry enabled, your host.json file might look like this:
+
+```json
+{
+    "version": "2.0",
+    "telemetryMode": "OpenTelemetry",
+    ...
+}
+```
 #### Install packages
 
 To write logs directly to Application Insights from your code, add references to these packages in your project:
 
-+ [Microsoft.Azure.Functions.Worker.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.ApplicationInsights/), version 1.0.0 or later. 
-+ [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService).
++ [Microsoft.Azure.Functions.Worker.OpenTelemetry](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.OpenTelemetry). 
++ [Azure.Monitor.OpenTelemetry.Exporter](https://www.nuget.org/packages/Azure.Monitor.OpenTelemetry.Exporter).
 
 Run the following commands to add these references to your project: 
 
 ```dotnetcli
-dotnet add package Microsoft.ApplicationInsights.WorkerService
-dotnet add package Microsoft.Azure.Functions.Worker.ApplicationInsights
+dotnet add package Microsoft.Azure.Functions.Worker.OpenTelemetry
+dotnet add package Azure.Monitor.OpenTelemetry.Exporter
 ```
 
 #### Configure startup
 
-After installing the packages, call `AddApplicationInsightsTelemetryWorkerService()` and `ConfigureFunctionsApplicationInsights()` during service configuration in your `Program.cs` file, as shown in the following example:
+After installing the packages, call `AddOpenTelemetry().UseFunctionsWorkerDefaults()` and `AddOpenTelemetry().UseAzureMonitorExporter()` during service configuration in your `Program.cs` file, as shown in the following example:
 
 ##### [IHostApplicationBuilder](#tab/ihostapplicationbuilder)
 
 ```csharp
-using Microsoft.Azure.Functions.Worker;
+using Azure.Monitor.OpenTelemetry.Exporter;
 using Microsoft.Azure.Functions.Worker.Builder;
+using Microsoft.Azure.Functions.Worker.OpenTelemetry;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
     
 var builder = FunctionsApplication.CreateBuilder(args);
 
-builder.Services
-    .AddApplicationInsightsTelemetryWorkerService()
-    .ConfigureFunctionsApplicationInsights();
+builder.ConfigureFunctionsWebApplication();
+builder.Services.AddOpenTelemetry()
+    .UseFunctionsWorkerDefaults()
+    .UseAzureMonitorExporter();
 
 builder.Build().Run();
 ```
@@ -967,15 +974,16 @@ builder.Build().Run();
 ##### [IHostBuilder](#tab/hostbuilder)
 
 ```csharp
-using Microsoft.Azure.Functions.Worker;
+using Azure.Monitor.OpenTelemetry.Exporter;
+using Microsoft.Azure.Functions.Worker.OpenTelemetry;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
     
 var host = new HostBuilder()
-    .ConfigureFunctionsWorkerDefaults()
+    .ConfigureFunctionsWebApplication()
     .ConfigureServices(services => {
-        services.AddApplicationInsightsTelemetryWorkerService();
-        services.ConfigureFunctionsApplicationInsights();
+        services.AddOpenTelemetry().UseFunctionsWorkerDefaults();
+        services.AddOpenTelemetry().UseAzureMonitorExporter();
     })
     .Build();
 
@@ -983,83 +991,19 @@ host.Run();
 ```
 
 ---
-
-The call to `ConfigureFunctionsApplicationInsights()` adds an `ITelemetryModule` that listens to a Functions-defined `ActivitySource`. This module creates the dependency telemetry required to support distributed tracing. For more information about `AddApplicationInsightsTelemetryWorkerService()` and how to use it, see [Application Insights for Worker Service applications](/azure/azure-monitor/app/worker-service).
+To learn more, see [Use OpenTelemetry with Azure Functions](opentelemetry-howto.md).
 
 #### <a name="managing-log-levels"></a>Manage log levels
 
 > [!IMPORTANT]
-> The Functions host and the isolated process worker have separate configuration for log levels. Any [Application Insights configuration in host.json](./functions-host-json.md#applicationinsights) doesn't affect logging from the worker, and similarly, configuration in your worker code doesn't impact logging from the host. Apply changes in both places if your scenario requires customization at both layers.
+> The Functions host and the isolated process worker have separate configuration for log levels. Any configuration in host.json doesn't affect logging from the worker, and similarly, configuration in your worker code doesn't impact logging from the host. Apply changes in both places if your scenario requires customization at both layers.
 
-The rest of your application continues to work with `ILogger` and `ILogger<T>`. However, by default, the Application Insights SDK adds a logging filter that instructs the logger to capture only warnings and more severe logs. You can configure log levels in the isolated worker process in one of these ways:
+You can configure log levels in the isolated worker process in one of these ways:
 
 | Configuration method | Benefits | 
-| ---- | ---- | ---- |
+| ---- | ---- | 
 | In your code | Promotes a clearer separation between host-side and worker-side configurations. |
 | Using `appsettings.json` | Useful when you want to set different log levels for different categories without having to modify your code. |
-
-##### [Code-based](#tab/code/ihostapplicationbuilder)
-
-To disable the default behavior and capture all log levels, remove the filter rule as part of service configuration:
-
-```csharp
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Azure.Functions.Worker.Builder;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-
-var builder = FunctionsApplication.CreateBuilder(args);
-
-builder.Services
-    .AddApplicationInsightsTelemetryWorkerService()
-    .ConfigureFunctionsApplicationInsights();
-
-builder.Logging.Services.Configure<LoggerFilterOptions>(options =>
-    {
-        LoggerFilterRule? defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
-            == "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider");
-        if (defaultRule is not null)
-        {
-            options.Rules.Remove(defaultRule);
-        }
-    });
-
-builder.Build().Run();
-```
-
-##### [Code-based](#tab/code/hostbuilder)
-
-To disable the default behavior and capture all log levels, remove the filter rule as part of service configuration:
-
-```csharp
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-
-var host = new HostBuilder()
-    .ConfigureFunctionsWorkerDefaults()
-    .ConfigureServices(services => {
-        services.AddApplicationInsightsTelemetryWorkerService();
-        services.ConfigureFunctionsApplicationInsights();
-    })
-    .ConfigureLogging(logging =>
-    {
-        logging.Services.Configure<LoggerFilterOptions>(options =>
-        {
-            LoggerFilterRule? defaultRule = options.Rules.FirstOrDefault(rule => rule.ProviderName
-                == "Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider");
-            if (defaultRule is not null)
-            {
-                options.Rules.Remove(defaultRule);
-            }
-        });
-    })
-    .Build();
-
-host.Run();
-```
 
 ##### [Configuration](#tab/config/ihostapplicationbuilder)
 
@@ -1067,17 +1011,12 @@ host.Run();
 
 ```json
 {
-  "Logging": {
-    "LogLevel": {
+  "logging": {
+    "logLevel": {
       "Default": "Information",
       "Microsoft": "Warning",
       "Microsoft.Hosting.Lifetime": "Information",
       "Microsoft.Azure.Functions.Worker": "Information"
-    },
-    "ApplicationInsights": {
-      "LogLevel": {
-        "Default": "Information"
-      }
     }
   }
 }
@@ -1086,16 +1025,19 @@ host.Run();
 This configuration is automatically applied when you create the builder. No additional code changes are required in `Program.cs`:
 
 ```csharp
-using Microsoft.Azure.Functions.Worker;
+using Azure.Monitor.OpenTelemetry.Exporter;
 using Microsoft.Azure.Functions.Worker.Builder;
+using Microsoft.Azure.Functions.Worker.OpenTelemetry;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 var builder = FunctionsApplication.CreateBuilder(args);
 
-builder.Services
-    .AddApplicationInsightsTelemetryWorkerService()
-    .ConfigureFunctionsApplicationInsights();
+builder.ConfigureFunctionsWebApplication();
+
+builder.Services.AddOpenTelemetry()
+    .UseFunctionsWorkerDefaults()
+    .UseAzureMonitorExporter();
 
 builder.Build().Run();
 ```
@@ -1105,8 +1047,8 @@ builder.Build().Run();
 When you use `new HostBuilder()`, configuration files like `appsettings.json` aren't loaded automatically. To load these files, use `ConfigureAppConfiguration()`:
 
 ```csharp
-using Microsoft.Azure.Functions.Worker;
-using Microsoft.Extensions.Configuration;
+using Azure.Monitor.OpenTelemetry.Exporter;
+using Microsoft.Azure.Functions.Worker.OpenTelemetry;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -1119,8 +1061,8 @@ var host = new HostBuilder()
     })
     .ConfigureFunctionsWebApplication()
     .ConfigureServices(services => {
-        services.AddApplicationInsightsTelemetryWorkerService();
-        services.ConfigureFunctionsApplicationInsights();
+        services.AddOpenTelemetry().UseFunctionsWorkerDefaults();
+        services.AddOpenTelemetry().UseAzureMonitorExporter();
     })
     .Build();
 
@@ -1131,17 +1073,12 @@ Then create an `appsettings.json` file in your project root with the following c
 
 ```json
 {
-  "Logging": {
-    "LogLevel": {
+  "logging": {
+    "logLevel": {
       "Default": "Information",
       "Microsoft": "Warning",
       "Microsoft.Hosting.Lifetime": "Information",
       "Microsoft.Azure.Functions.Worker": "Information"
-    },
-    "ApplicationInsights": {
-      "LogLevel": {
-        "Default": "Information"
-      }
     }
   }
 }

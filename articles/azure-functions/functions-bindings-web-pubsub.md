@@ -3,7 +3,7 @@ title: Azure Functions Web PubSub bindings
 description: Understand how to use Web PubSub bindings with Azure Functions.
 ms.topic: reference
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 1/21/2026
+ms.date: 01/28/2026
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 

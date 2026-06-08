@@ -67,6 +67,8 @@
       href: migrate-nested-confidential-vms.md
     - name: Virtual Machine Metablob Disk
       href: virtual-machine-metablob-disk.md
+    - name: How to disable Virtual Machine Metablob Disk
+      href: disable-confidential-vm-metadata-blob.md
     - name: Quickly create confidential VMs
       items:
       - name: Create a Confidential VM through the Azure portal

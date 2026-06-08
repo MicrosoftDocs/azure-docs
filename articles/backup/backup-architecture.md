@@ -199,7 +199,7 @@ Azure VMs use disks to store their operating system, apps, and data. Each Azure 
 
 For more information about disk storage and the available disk types for VMs, see these articles:
 
-- [Azure Managed Disks for Linux VMs](/azure/virtual-machines/managed-disks-overview)
+- [Azure managed disks for Linux VMs](/azure/virtual-machines/managed-disks-overview)
 - [Available disk types for VMs](/azure/virtual-machines/disks-types)
 
 ### Back up and restore Azure VMs with premium storage

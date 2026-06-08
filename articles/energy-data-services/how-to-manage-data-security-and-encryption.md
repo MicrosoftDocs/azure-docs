@@ -29,7 +29,7 @@ In addition to TLS, when you interact with Azure Data Manager for Energy, all tr
 
 ## Set up Customer Managed Keys (CMK) for Azure Data Manager for Energy instance
 > [!IMPORTANT]
-> You can't edit CMK settings once the Azure Data Manager for Energy instance is created.
+> The key vault and the user assigned identity must be in the same region as that of the Azure Data Manager for Energy instance. CMK can only be enabled only at the time of instance creation. 
 
 ### Prerequisites
 
@@ -37,7 +37,7 @@ In addition to TLS, when you interact with Azure Data Manager for Energy, all tr
 
 1. You can use a new or existing key vault to store customer-managed keys. To learn more about Azure Key Vault, see [Azure Key Vault Overview](/azure/key-vault/general/overview) and [What is Azure Key Vault](/azure/key-vault/general/basic-concepts)?
 2. Using customer-managed keys with Azure Data Manager for Energy requires that both soft delete and purge protection are enabled for the key vault. Soft delete is enabled by default when you create a new key vault and can't be disabled. You can enable purge protection when you create the key vault or afterwards.
-3. To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal). When you create the key vault, select Enable purge protection.
+3. To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal). The key vault must be in the same region as that of the Azure Data Manager for Energy instance. When you create the key vault, select Enable purge protection.
 
    [![Screenshot of enabling purge protection and soft delete while creating key vault](media/how-to-manage-data-security-and-encryption/customer-managed-key-1-create-key-vault.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-1-create-key-vault.png#lightbox)
  
@@ -71,7 +71,7 @@ In addition to TLS, when you interact with Azure Data Manager for Energy, all tr
     [![Screenshot showing selection of subscription, key vault, and key in the right pane that opens after choosing 'select a key vault and key'](media/how-to-manage-data-security-and-encryption/customer-managed-key-3aa-enable-cmk.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-3aa-enable-cmk.png#lightbox)
 
 8.	Next, select the user-assigned managed identity that is used to authorize access to the key vault that contains the key. 
-9.	Select "**Select a user identity**" Select the user-assigned managed identity that you created in the prerequisites. 
+9.	Select "**Select a user identity**" Select the user-assigned managed identity that you created in the prerequisites. The user-assigned managed identity must be created in the same region as the Azure Data Manager for Energy instance. 
     [![Screenshot of key vault, key, user assigned identity, and CMK on encryption tab.](media/how-to-manage-data-security-and-encryption/customer-managed-key-3bb-select-managed-identity.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-3bb-select-managed-identity.png#lightbox)
 
 10.	This user assigned identity must have _get key_, _list key_, _wrap key_, and _unwrap key_ permissions on the key vault. For more information on assigning Azure Key Vault access policies, see [Assign a Key Vault Access Policy](/azure/key-vault/general/assign-access-policy). 

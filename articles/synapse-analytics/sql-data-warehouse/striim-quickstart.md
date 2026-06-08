@@ -11,6 +11,8 @@ ms.custom: sfi-image-nochange
 ---
 # Striim Azure Synapse Analytics Marketplace Offering Install Guide
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This quickstart assumes that you already have a preexisting instance of Azure Synapse Analytics.
 
 1. Search for Striim in the Azure Marketplace, and select the "Striim for Data Integration to Azure Synapse Analytics (Staged)" option.

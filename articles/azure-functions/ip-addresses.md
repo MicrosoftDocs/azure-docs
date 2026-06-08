@@ -3,7 +3,7 @@ title: IP addresses in Azure Functions
 description: Learn how to find inbound and outbound IP addresses for function apps, and what causes them to change.
 
 ms.topic: concept-article
-ms.date: 05/06/2025
+ms.date: 05/05/2026
 ---
 
 # IP addresses in Azure Functions
@@ -38,10 +38,9 @@ To find the outbound IP addresses available to a function app:
 
 # [Azure portal](#tab/portal)
 
-1. Sign in to the [Azure Resource Explorer](https://resources.azure.com).
-1. Select **subscriptions** > {your subscription} > **providers** > **Microsoft.Web** > **sites**.
-1. In the JSON panel, find the site with an `id` property that ends in the name of your function app.
-1. See `outboundIpAddresses` and `possibleOutboundIpAddresses`.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to the [Resource Explorer](https://portal.azure.com/#view/Microsoft_Azure_Resources/ResourceExplorer.ReactView).
+1. In the resource tree, expand your subscription > resource group, and then select your function app under **Microsoft.Web** > **sites**.
+1. In the JSON displayed in the right pane, find the `outboundIpAddresses` and `possibleOutboundIpAddresses` properties.
 
 # [Azure CLI](#tab/azurecli)
 

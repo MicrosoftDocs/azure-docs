@@ -4,7 +4,7 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 06/04/2025
+ms.date: 04/08/2026
 ms.author: kendownie
 ms.custom:
   - references_regions
@@ -33,7 +33,7 @@ The cost of a deployment of Azure Files is determined by four key factors: billi
 - **Resource model**: Azure Files supports two different top-level resource types, which are items that you create and manage within your Azure subscriptions and resource groups. Each resource type supports slightly different billing model options, which in turn impacts both cost and cost structure:
     - **Storage accounts** represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. Storage accounts support all billing models, media tiers, and redundancy options. All storage resources that are deployed into a storage account share the limits that apply to that storage account. Classic file shares support both the SMB and NFS protocols, although NFS is only supported on SSD storage. Storage accounts are offered by the `Microsoft.Storage` resource provider.
 
-    - **File shares** (preview) are a new top-level resource type that simplifies the deployment of Azure file shares by eliminating the need to create a storage account. File shares support the recommended provisioned v2 model only, and support only the SSD media tier with the NFS file system protocol. File shares are offered by the `Microsoft.FileShares` resource provider.
+    - **File shares** are a new top-level resource type that simplifies the deployment of Azure file shares by eliminating the need to create a storage account. File shares support the recommended provisioned v2 model only, and support only the SSD media tier with the NFS file system protocol. File shares are offered by the `Microsoft.FileShares` resource provider.
 
 For Azure Files pricing information, see [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
@@ -142,6 +142,32 @@ By default, we provide recommendations for IOPS and throughput provisioning base
 | Throughput recommendation | `MIN(MAX(100 + CEILING(0.1 * ProvisionedStorageGiB), 100), 10340)` | `MIN(MAX(60 + CEILING(0.02 * ProvisionedStorageGiB), 60), 5120)` |
 
 Depending on your individual file share requirements, you might find that you require more or less IOPS or throughput than our recommendations. You can optionally override these recommendations with your own values as desired.
+
+### Provisioned v2 IOPS and throughput provisioning limits (guardrails)
+Provisioning *guardrails* helps protect against unnecessary costs by keeping IOPS and throughput proportional to your provisioned storage, while preserving the ability to override the default IOPS and throughput recommendations. Each dimension is capped at **5× its recommended value** for the amount of storage you provision, and can be reduced all the way down to the minimum allowed for your media tier. IOPS and throughput guardrails are evaluated independently against their respective recommendation formulas. If a provisioning request exceeds a guardrail, you can increase your provisioned storage to raise the ceiling and unlock higher IOPS or throughput.
+
+For example, a 32 GiB SSD share has a recommended IOPS of 3,032, so the maximum IOPS you can provision on that share is 5 × 3,032 = 15,160. Increasing the provisioned storage raises the recommended IOPS and throughput and therefore the guardrail ceiling, allowing you to provision more IOPS or throughput. Guardrails apply to both SSD and HDD.
+
+The following table shows the maximum IOPS and throughput you can provision for various provisioned storage amounts:
+
+| Provisioned storage | SSD max IOPS | SSD max throughput (MiB/sec) | HDD max IOPS | HDD max throughput (MiB/sec) |
+|-|-|-|-|-|
+| 32 GiB | 15,160 | 520 | 5,035 | 305 |
+| 64 GiB | 15,320 | 535 | 5,065 | 310 |
+| 128 GiB | 15,640 | 565 | 5,130 | 315 |
+| 256 GiB | 16,280 | 630 | 5,260 | 330 |
+| 512 GiB | 17,560 | 760 | 5,515 | 355 |
+| 1,024 GiB | 20,120 | 1,015 | 6,025 | 405 |
+| 2,048 GiB | 25,240 | 1,525 | 7,050 | 505 |
+| 4,096 GiB | 35,480 | 2,550 | 9,100 | 710 |
+| 8,192 GiB | 55,960 | 4,600 | 13,195 | 1,120 |
+| 16,384 GiB | 96,920 | 8,695 | 21,385 | 1,940 |
+| 32,768 GiB | 102,400 | 10,340 | 37,770 | 3,580 |
+| 65,536 GiB | 102,400 | 10,340 | 50,000 | 5,120 |
+| 131,072 GiB | 102,400 | 10,340 | 50,000 | 5,120 |
+| 262,144 GiB | 102,400 | 10,340 | 50,000 | 5,120 |
+
+Shares provisioned before guardrails were introduced that exceed the 5× limit continue to operate normally. When you change any provisioned quantity on such a share, the ratio of provisioned IOPS or throughput to its recommended value can stay the same or decrease, but can't increase. For example, if a share currently has IOPS provisioned at 7× the recommendation, you can reduce it to 6× but can't increase it to 7.1×. Once the share reaches or falls below 5×, the standard guardrail applies.
 
 ### Provisioned v2 bursting
 Credit-based IOPS bursting provides added flexibility around IOPS usage. This flexibility is best used as a buffer against unanticipated IO-spikes. For established IO patterns, we recommend provisioning for IO peaks.
@@ -660,4 +686,4 @@ For more information on how to purchase reservations, see [Optimize costs for Az
 - [Cost estimation examples](./file-estimate-cost.md)
 - [Planning for an Azure Files deployment](storage-files-planning.md) and [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)
 - [Create a classic file share](./create-classic-file-share.md)
-- [Create a file share (preview)](./create-file-share.md)
+- [Create a file share](./create-file-share.md)

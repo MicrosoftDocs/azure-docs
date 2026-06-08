@@ -2,12 +2,12 @@
 title: 'QuickStart: Create and configure an Azure DDoS Network Protection plan - Azure CLI'
 description: Learn how to create a DDoS Protection Plan using Azure CLI
 services: ddos-protection
-author: AbdullahBell
+author: duongau
 ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ms.date: 01/26/2026
-ms.author: abell
+ms.author: duau
 # Customer intent: As a network administrator, I want to create and configure a DDoS protection plan using Azure CLI, so that I can enhance the security of my virtual networks against DDoS attacks.
 ---
 # QuickStart: Create and configure Azure DDoS Network Protection using Azure CLI

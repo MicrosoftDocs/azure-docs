@@ -14,6 +14,8 @@ ms.custom:
 
 # Optimize performance by upgrading dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Upgrade your dedicated SQL pool (formerly SQL DW) to the latest generation of Azure hardware and storage architecture.
 
 ## Why upgrade?

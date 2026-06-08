@@ -13,6 +13,9 @@ ms.author: mattmcinnes
 
 Learn how to use the Microsoft Azure Network Adapter (MANA) component of Azure Boost to improve the performance and availability of virtual machines (VMs) in Azure. MANA is a next-generation network interface that provides stable forward-compatible device drivers for Windows and Linux operating systems. MANA hardware and software are engineered by Microsoft and take advantage of the latest advancements in cloud networking technology.
 
+> [!IMPORTANT]
+> For timelines pertaining to VM families running on MANA-capable hardware, see the [announcement](https://techcommunity.microsoft.com/blog/AzureInfrastructureBlog/announcing-microsoft-azure-network-adapter-mana-support-for-existing-vm-skus/4493279).
+
 ## Compatibility
 
 MANA supports several VM operating systems. Although your VM might be running a supported operating system, you might need to update the kernel (Linux) or install drivers (Windows) to leverage MANA or the latest features. 
@@ -30,7 +33,7 @@ To maximize performance, we recommend using an operating system that supports MA
 For information about using DPDK on MANA hardware, see [Microsoft Azure Network Adapter and DPDK on Linux](setup-dpdk-mana.md).
 
 > [!NOTE]
-> A 6.2 or later kernel is required for RDMA/InfiniBand and Data Plane Development Kit (DPDK). If you use an earlier Linux image from Azure Marketplace, you need to update the kernel.
+> Running DPDK on MANA hardware requires the Linux kernel 6.14 or later or a backport of the Ethernet and InfiniBand drivers from the Linux kernel 6.14 or later. If you use an earlier Linux image from Azure Marketplace, you need to update the kernel.
 
 ## Evaluating performance
 

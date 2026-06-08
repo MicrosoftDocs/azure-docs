@@ -1,7 +1,7 @@
 ---
 title: Work with Azure Desired State Configuration extension version history
 description: This article shares version history information for the Desired State Configuration (DSC) extension in Azure.
-ms.date: 11/17/2025
+ms.date: 04/24/2026
 keywords: dsc, powershell, azure, extension
 services: automation
 ms.subservice: desired-state-config
@@ -22,6 +22,8 @@ The Azure Desired State Configuration (DSC) VM [extension](/azure/virtual-machin
 This article provides information about each version of the Azure DSC VM extension, what environments it supports, and comments and remarks on new features or changes.
 
 ## Latest version
+
+[!INCLUDE [end-of-support-notes-windows-server-2008](./includes/end-of-support-notes-windows-server-2008.md)]
 
 ### Version 2.83
 
@@ -270,7 +272,7 @@ This article provides information about each version of the Azure DSC VM extensi
 - **Remarks:** This version uses DSC as included in Windows Server 2016 Technical Preview; for other
   Windows OSs, it installs the [Windows Management Framework 5.0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (installing WMF requires a reboot).
 - **New features:**
-  - Make telemetry non-blocking when an error occurs during telemetry hotfix download (known Azure DNS issue) or during install.
+  - Make telemetry nonblocking when an error occurs during telemetry hotfix download (known Azure DNS issue) or during install.
   - Fix for the intermittent issue where extension stops processing configuration after a reboot. This was causing the DSC extension to remain in 'transitioning' state.
   - Minor other fixes and improvements were added.
 
@@ -301,7 +303,7 @@ This article provides information about each version of the Azure DSC VM extensi
   Windows OSs, it installs the [Windows Management Framework 5.0 RTM](https://devblogs.microsoft.com/powershell/windows-management-framework-wmf-5-0-rtm-is-now-available-via-the-microsoft-update-catalog/) (installing WMF requires a reboot).
 - **New features:**
   - Improvement in error handling and other minor bug fixes.
-  - New property in DSC extension settings. `ForcePullAndApply` in AdvancedOptions is added to enable the DSC extension enact DSC configurations when the refresh mode is Pull (as opposed to the default Push mode). For more information about the DSC extension settings, refer to [this blog](https://devblogs.microsoft.com/powershell/arm-dsc-extension-settings/).
+  - New property in DSC extension settings. `ForcePullAndApply` in AdvancedOptions is added to enable the DSC extension enact DSC configurations when the refresh mode is Pull (as opposed to the default Push mode). For more information about the DSC extension settings, see [this blog](https://devblogs.microsoft.com/powershell/arm-dsc-extension-settings/).
 
 ### Version 2.15
 

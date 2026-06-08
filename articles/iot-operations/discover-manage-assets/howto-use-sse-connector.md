@@ -5,7 +5,8 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 09/23/2025
+ms.date: 05/12/2026
+ai-usage: ai-assisted
 
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access data from SSE endpoints.
 ---
@@ -23,9 +24,9 @@ The following table summarizes the features the connector for SSE supports:
 | Feature | Supported | Notes |
 |---------|:---------:|-------|
 | Username/password authentication | Yes | Basic HTTP authentication |
-| X.509 client certificates | Yes | Certificates for client authentication and authorization |
+| X.509 user certificates (mTLS) | Yes | Certificates for client authentication and authorization |
 | Anonymous access | Yes | For testing purposes |
-| Certificate trust list | Yes | For secure TLS connections to the SSE endpoint |
+| Southbound certificate trust list | Yes | For secure TLS connections to the SSE endpoint |
 | OpenTelemetry integration | Yes | |
 | Automatic retries | Yes | Reports failed status for nonretryable errors |
 | WASM data transformation | No | |
@@ -52,11 +53,13 @@ Your IT administrator must configure the connector for SSE template for your Azu
 
 You need any credentials required to access the SSE source. If the SSE source requires authentication, you need to create a Kubernetes secret that contains the username and password for the SSE source.
 
+Have the event identification ready for each SSE source event you want to receive.
+
 ## Deploy the connector for SSE
 
 [!INCLUDE [deploy-connectors-simple](../includes/deploy-connectors-simple.md)]
 
-### Configure a certificate trust list for the connector
+## Configure a certificate trust list for the connector
 
 [!INCLUDE [connector-certificate-application](../includes/connector-certificate-application.md)]
 
@@ -162,7 +165,19 @@ To use the `Username password` authentication mode, complete the following steps
 
 ### Configure a device to use an X.509 certificate
 
-[!INCLUDE [connector-certificate-user](../includes/connector-certificate-user.md)]
+# [Operations experience](#tab/portal)
+
+[!INCLUDE [connector-certificate-user-portal](../includes/connector-certificate-user-portal.md)]
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [connector-certificate-user-cli](../includes/connector-certificate-user-cli.md)]
+
+# [Bicep](#tab/bicep)
+
+[!INCLUDE [connector-certificate-user-bicep](../includes/connector-certificate-user-bicep.md)]
+
+---
 
 ## Create an asset
 
@@ -201,7 +216,7 @@ An event group defines where the connector sends the data it receives from a col
 
     :::image type="content" source="media/howto-use-sse-connector/add-event.png" alt-text="Screenshot that shows how to add an event for SSE source." lightbox="media/howto-use-sse-connector/add-event.png":::
 
-    Add details for each event to publish to the MQTT broker. Select **Next** to continue.
+    Add details for each event including the SSE event identification as the data source and the MQTT topic to publish to as the destination. Select **Next** to continue.
 
 1. On the **Review** page, review the details of the asset and select **Create** to create the asset. After a few minutes, the asset is listed on the **Assets** page:
 

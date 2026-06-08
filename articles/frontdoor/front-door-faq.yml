@@ -6,7 +6,7 @@ metadata:
   ms.author: halkazwini
   ms.service: azure-frontdoor
   ms.topic: faq
-  ms.date: 02/24/2026
+  ms.date: 04/07/2026
 title: Azure Front Door frequently asked questions (FAQ) 
 summary : |
   This article provides answers to the most frequently asked questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
@@ -120,11 +120,11 @@ sections:
         answer: |
           You can redirect host, path, and query string components of a URL with Azure Front Door. To learn how to configure URL redirection, refer to [URL redirection](front-door-url-redirect.md).       
       - question: |
-          Does AFD provide telemetry to show which rules engine rule AFD processes for each request?
+          Does Front Door provide telemetry to show which rules engine rule Front Door processes for each request?
         answer:  |
           Yes. Refer to the MatchedRulesSetName property under [Access Logs](front-door-diagnostics.md).
       - question: |
-          Can AFD provide protection from ‘HTTP/2 Rapid Reset’ DDoS attacks?
+          Can Front Door provide protection from ‘HTTP/2 Rapid Reset’ DDoS attacks?
         answer:  |
           Yes. For more information, see [Microsoft response to DDoS attacks against HTTP/2](front-door-ddos.md).
       - question: |
@@ -306,9 +306,9 @@ sections:
     questions:
 
     - question: | 
-        What is happening with DigiCert’s CNAME Delegation DCV workflow? 
+        What is happening with DigiCert's CNAME Delegation DCV workflow? 
       answer: |
-        On 15 August 2025, DigiCert will deprecate support for the legacy CNAME Delegation DCV workflow. DigiCert is transitioning to a new open-source software (OSS) domain control validation (DCV) platform designed to enhance transparency and accountability in domain validation processes. DigiCert will no longer support the legacy CNAME Delegation DCV workflow for domain control validation in the specified Azure services. [Learn more](https://learn.microsoft.com/en-us/azure/security/fundamentals/managed-tls-changes)
+        Effective August 15, 2025, DigiCert transitioned to a new open-source software (OSS) domain control validation (DCV) platform designed to enhance transparency and accountability in domain validation processes. DigiCert will no longer support the legacy CNAME Delegation DCV workflow for domain control validation in the specified Azure services. [Learn more](https://learn.microsoft.com/en-us/azure/security/fundamentals/managed-tls-changes)
     
     - question: | 
         Which Azure Front Door SKUs are affected by this change? 
@@ -319,39 +319,31 @@ sections:
         - Azure CDN from Microsoft (classic)
 
     - question: | 
-        What will happen after 15 August 2025?
+        What's the current status?
       answer: |
         Azure Front Door (classic) and Azure CDN from Microsoft (classic):
-        - Will no longer support for new domain onboarding and new profile creation.
-        - Will no longer support Azure-managed certificates.
-        - Automation scripts for these actions will begin to fail.
-        - Switching to managed certificates on existing domains will no longer be allowed.
-        - Emergent renewals of managed certificates will not be possible due to the deprecation of CNAME-based validation.
+        - Effective August 15, 2025, no longer support for new domain onboarding,new profile creation, or Azure-managed certificates.
+        - Effective April 14, 2026, existing managed certificates are retired. All existing managed certificates have been either migrated by customer or AFD team to Azure Front Door standard or premium. Please use Azure Front Door Standard or Premium for managed certificate.
 
-    - question: | 
-        What happens to existing managed certificates?
+   
+    - question: |
+        Do I need to take any action to renew my managed certificate after migration?
       answer: |
-        Existing managed certificates will be automatically renewed before 15 August 2025 and remain valid until 14 April, 2026. However, any renewal required after 15 August 2025 will not be possible.
+       In most cases, no action is required. After your profile is migrated, Azure Front Door automatically attempts to rotate your managed certificate if it is within 45 days of expiry. 
+       - If your domain is CNAME-mapped to Azure Front Door and meets CAA record and domain state requirements, the certificate is auto-rotated. Auto-rotation job runs every 6-8 hours and takes around 24-48 hours to complete. If the autorotation fails, the domain validation state goes to 'Pending validation' and you can revalidate domain ownership to manually trigger validation. 
+       - If your domain does not meet the above-mentioned validation requirements or has HTTPS disabled, the certificate state changes to Pending revalidation, and you must revalidate domain ownership. 
 
-    - question: | 
-        What actions should I take to avoid service disruption?
-      answer: |
-        Azure Front Door (classic)
+       You can manually revalidate domain ownership for renewal if you don't want to wait for the auto-rotation by either:
+         - Adding the required DNS validation record following step 3 for [domains pending validation](https://learn.microsoft.com/en-us/azure/frontdoor/standard-premium/how-to-add-custom-domain#add-a-new-custom-domain)
+         - Or triggering validation manually using PowerShell or Azure CLI (`RefreshValidation`).
 
-        - If you want to create new domains or profiles, or use Azure managed certificates, [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/frontdoor/tier-migration) before 15 August 2025.
-        - If you're already using Azure managed certificates on existing domains, you can either [Move to Bring Your Own Certificate (BYOC)](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain-https?tabs=powershell) or [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/frontdoor/tier-migration) before 15 August 2025.
-
-        Azure CDN from Microsoft (classic)
-
-        - If you want to create new domains or profiles, or use Azure managed certificates, [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) before 15 August 2025.
-        - If you're already using Azure managed certificates on existing domains, you can either [Move to Bring Your Own Certificate (BYOC)](https://learn.microsoft.com/en-us/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate) or [migrate to Azure Front Door Standard or Premium](https://learn.microsoft.com/en-us/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) before 15 August 2025.
     
   - name: Billing
     questions:
       - question: |
           Do I get billed for the Azure Front Door resources that are disabled?
         answer: |
-          Azure Front Door resources cannot be disabled. They can only be deleted. Variable meters like Data Transfer Out, Data Transfer In and Requests are not charged when there is no traffic but base fee is charged even if there is no traffic. Base fee will be charged till the profile is deleted. For AFD Classic, WAF policies and rules are charged regardless of their status. Even if you disable a WAF policy or rule, it still incurs costs for you.
+          Azure Front Door resources cannot be disabled. They can only be deleted. Variable meters like Data Transfer Out, Data Transfer In and Requests are not charged when there is no traffic but base fee is charged even if there is no traffic. Base fee will be charged till the profile is deleted. For Front Door Classic, WAF policies and rules are charged regardless of their status. Even if you disable a WAF policy or rule, it still incurs costs for you.
 
   - name: Caching
     questions:
@@ -366,9 +358,9 @@ sections:
       - question: |
           Is it possible to support compression for file sizes above 8 MB?
         answer: |
-          AFD does not support dynamic compression for content greater than 8 MB. However, if the content has been already compressed by the origin, Front Door supports serving static compressed content over 8 MB as long as range request is supported and chunked transfer encoding is not enabled.
+          Front Door does not support dynamic compression for content greater than 8 MB. However, if the content has been already compressed by the origin, Front Door supports serving static compressed content over 8 MB as long as range request is supported and chunked transfer encoding is not enabled.
       - question: |
-          Does AFD support setting the Authorization Header in the HTTP request if caching is enabled?
+          Does Front Door support setting the Authorization Header in the HTTP request if caching is enabled?
         answer: |
           No.
 

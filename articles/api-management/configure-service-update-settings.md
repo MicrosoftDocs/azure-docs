@@ -4,13 +4,13 @@ description: Learn how to configure settings for applying service updates to you
 author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 11/25/2025
+ms.date: 04/13/2026
 ms.author: danlep
 ---
 
 # Configure service update settings for your API Management instances 
 
-[!INCLUDE [api-management-availability-premium-standard-basic](../../includes/api-management-availability-premium-standard-basic.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 
 This article shows you how to configure *service update* settings (preview) in your API Management instance. Azure periodically applies service updates automatically to API Management instances by using a phased rollout approach. These updates include new features, security enhancements, and reliability improvements. 
@@ -25,8 +25,8 @@ An update group (also called a *release channel*) is a set of instances that rec
 |--------------|-------------|
 | **AI Gateway Early** (GenAI release channel) | Gets early access to the latest [AI gateway features and updates](genai-gateway-capabilities.md) before they reach other update groups.<br/><br/>Combines the most stable mainline service updates with the newest AI-specific features. Receives other service updates as part of the **Late** update group, enabling faster deployment of AI-related capabilities. |
 | **Early** | Receives updates early in the rollout, for testing and early access to new features. This option isn't recommended for production deployments. |
-| **Default** | Receives updates as part of the regular release rollout. This option is recommended for most services, including production deployments. |
-| **Late** | Receives updates later than the previous groups, typically weeks after the initial rollout. This option is recommended for mission-critical deployments only. |
+| **Default** | Receives updates as part of the regular release rollout. This option is recommended for most services, including production deployments. *Not available in Developer tier*.|
+| **Late** | Receives updates later than the previous groups, typically weeks after the initial rollout. This option is recommended for mission-critical deployments only. *Not available in Developer tier*.|
 
 
 > [!NOTE]

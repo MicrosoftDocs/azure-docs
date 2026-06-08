@@ -1,8 +1,8 @@
 ---
 title: Accelerate and Secure Your Web Application with Azure Front Door
 description: This article explains how Front Door can help you to build a well architected solution on Azure.
-author: johndowns
-ms.author: jodowns
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 03/02/2026

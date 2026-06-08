@@ -11,6 +11,8 @@ ms.topic: concept-article
 
 # Table data types for dedicated SQL pool (formerly  SQL DW) in Azure Synapse Analytics 
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Included in this article are recommendations for defining table data types in dedicated SQL pool.
 
 ## Supported data types
