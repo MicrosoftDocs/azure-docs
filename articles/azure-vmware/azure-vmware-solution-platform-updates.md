@@ -16,7 +16,7 @@ Microsoft regularly applies important updates to the Azure VMware Solution for n
 
 **nConnect support on Azure VMware Solution for Azure NetApp Files**
 
-Microsoft 
+nConnect support on Azure VMware Solution for Azure NetApp Files is now Generally Available (GA). This feature enables increased network throughput and improved performance for Azure NetApp Files datastores by allowing multiple TCP connections per mount. With nConnect, customers can achieve better scalability and optimize data-intensive workloads running on Azure VMware Solution, enhancing overall storage performance and efficiency.
 
 ## May 2026
 
