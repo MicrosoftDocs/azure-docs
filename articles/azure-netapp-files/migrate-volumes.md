@@ -21,12 +21,12 @@ With Azure NetApp Files' migration assistant, you can peer and migrate volumes f
 * The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: six for cluster peering and one for data access to the migration volumes.
 * The delegated subnet address space should be sized appropriately to accommodate more Azure NetApp Files network interfaces. Review [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) to ensure you meet the requirements for delegated subnet sizing. 
 * With the migration assistant, Azure NetApp Files volumes must be using Standard networking features. For more information about setting network features, see [Configure network features](configure-network-features.md).
-* After issuing the peering request, the request must be accepted within 60 minutes. Peer requests expire if not accepted within 60 minutes.
+* Migration assistant will issue a peering request to the on-premises storage cluster. Peering requests must be accepted on the on-premises cluster within 60 minutes. After 60 minutes, a peering request can no longer be accepted and the peering will fail. You will need to start over if this happens.
 * You should ensure that the earlier cluster peering requests are deleted and are not displaying on the source cluster before initiating a new cluster peering request.
 * You should complete migrations from a single source cluster using one Azure subscription before migrating volumes destined for another subscription. Cluster peering fails when using a second Azure subscription and the same external source clusters.
 * If you use Azure RBAC to separate the role of Azure NetApp Files storage management with the intention of separating volume management tasks where volumes reside on the same network sibling set, be aware that externally connected ONTAP systems peered to that sibling set don't adhere to these Azure-defined roles. The external storage administrator might have limited visibility to all volumes in the sibling set showing storage level metadata details.
 * When creating each migration volume, the Azure NetApp Files volume placement algorithm attempts to reuse the same Azure NetApp Files storage system as any previously created volumes in the subscription to reduce the number of network interface cards (NICs) or IPs consumed in the delegated subnet. If this isn't possible, an additional seven NICs are consumed.
-* You should ensure that there are no external FlexGroup volumes as they can't be migrated to Azure NetApp Files large volumes.
+* On-premises FlexGroup volumes can't be migrated to Azure NetApp Files large volumes. Exclude FlexGroup volumes from your migration.
 * When the migration is in progress, don't enable features such as backup. Only enable features once the migration has completed.
 
 >[!TIP]
