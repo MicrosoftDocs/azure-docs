@@ -23,7 +23,7 @@ By default, an MQTT broker:
 > [!CAUTION]
 > For production scenarios, use TLS and service accounts authentication to secure your IoT solution. For more information, see:
 >
-> - [Configure TLS with automatic certificate management to secure MQTT communication in the MQTT broker](./howto-configure-tls-auto.md).
+> - [Configure TLS with automatic certificate management to secure MQTT communication in the MQTT broker](./howto-configure-brokerlistener.md).
 > - [Configure authentication in the MQTT broker](./howto-configure-authentication.md).
 > - [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service) by using port forwarding or a virtual switch with Azure Kubernetes Services (AKS) Edge Essentials.
 
@@ -467,7 +467,7 @@ For AKS Edge Essentials, you need to perform a few more steps. With AKS Edge Ess
 1. Open the port on the firewall to allow traffic to the broker's service:
 
     ```powershell
-    New-NetFirewallRule -DisplayName "AIO MQTT Broker" -Direction Inbound -Protocol TCP -LocalPort 1883 -Action Allow
+    New-NetFirewallRule -DisplayName "Azure IoT Operations MQTT Broker" -Direction Inbound -Protocol TCP -LocalPort 1883 -Action Allow
     ```
 
 1. Use the host's public IP address to connect to the MQTT broker.
@@ -608,6 +608,6 @@ spec:
 
 ## Related content
 
-- [Configure TLS with manual certificate management to secure MQTT communication](howto-configure-tls-manual.md)
+- [Configure TLS with manual certificate management to secure MQTT communication](howto-configure-brokerlistener.md)
 - [Configure authentication](howto-configure-authentication.md)
 - [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-x509.md)

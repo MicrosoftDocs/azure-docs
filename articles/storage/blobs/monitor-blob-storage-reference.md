@@ -37,7 +37,7 @@ The following table lists the metrics available for the Microsoft.Storage/storag
 [!INCLUDE [Microsoft.Storage/storageAccounts/blobServices](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-storage-storageaccounts-blobservices-metrics-include.md)]
 
 > [!NOTE]
-> The Blob Capacity and Blob Count metrics are emitted hourly. A background process computes these metrics and updates them multiple times a day.
+> The Blob Capacity and Blob Count metrics are emitted hourly. A background process computes these metrics and updates them multiple times a day. The timing and frequency of updates may vary day to day based on operational factors.
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 

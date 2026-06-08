@@ -18,7 +18,7 @@ ms.custom:
 By default your API Management instance is accessed from the internet at a public endpoint, and acts as a gateway to public backends. API Management provides several options to use an Azure virtual network to secure access to your API Management instance and to backend APIs. Available options depend on the [service tier](api-management-features.md) of your API Management instance. Choose networking capabilities to meet your organization's needs.
 
   
-The following table compares virtual networking options. For more information, see later sections of this article and links to detailed guidance.
+The following table compares virtual networking options in the different service tiers. For more information, see later sections of this article and links to detailed guidance. For networking options specific to API Management workspaces, see [Use a virtual network to secure inbound or outbound traffic for API Management workspaces](virtual-network-workspaces-resources.md).
 
 |Networking model  |Supported tiers  |Supported components  |Supported traffic  |Usage scenario |
 |---------|---------|---------|---------|----|

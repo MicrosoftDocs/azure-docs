@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 04/28/2026
+ms.date: 05/20/2026
 ms.author: danlep
 ms.custom:
   - engagement-fy23
@@ -59,9 +59,9 @@ There are several API Management endpoints to which you can assign a custom doma
 
 * You can update any of the endpoints supported in your service tier. Typically, customers update **Gateway** (this URL is used to call the APIs exposed through API Management) and **Developer portal** (the developer portal URL).
 * The default **Gateway** endpoint remains available after you configure a custom Gateway domain name and cannot be deleted. For other API Management endpoints (such as **Developer portal**) that you configure with a custom domain name, the default endpoint is no longer available.
-* Only API Management instance owners can use **Management** and **SCM** endpoints internally. These endpoints are less frequently assigned a custom domain name.
-* The **Premium** and **Developer** tiers support setting multiple hostnames for the **Gateway** endpoint.
-* Wildcard domain names, like `*.contoso.com`, are supported in all tiers except the Consumption tier. A specific subdomain certificate (for example, api.contoso.com) would take precedence over a wildcard certificate (*.contoso.com) for requests to api.contoso.com.
+* Only owners of API Management instances in the classic tiers can use **Management** and **SCM** endpoints internally. These endpoints are less frequently assigned a custom domain name.
+* The **Developer**, **Premium**, and **Premium v2** tiers support setting multiple custom hostnames for the **Gateway** endpoint.
+* Wildcard domain names, like `*.contoso.com`, are supported in the following tiers: **Developer, Basic, Standard, Standard v2, Premium, Premium v2**. A specific subdomain certificate (for example, api.contoso.com) would take precedence over a wildcard certificate (*.contoso.com) for requests to api.contoso.com.
 * When configuring a custom domain for the **Developer portal**, you can [enable CORS](enable-cors-developer-portal.md) for the new domain name. This is needed for developer portal visitors to use the interactive console in the API reference pages.
 
 ## Domain certificate options

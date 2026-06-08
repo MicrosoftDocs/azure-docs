@@ -62,8 +62,8 @@ Without this pattern, you either process items sequentially (limiting throughput
 
 This article describes the functions in the sample app:
 
-* `E2_BackupSiteContent`: An [orchestrator function](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-trigger) that calls `E2_GetFileList` to get a list of files to back up, and then calls `E2_CopyFileToBlob` for each file.
-* `E2_GetFileList`: An [activity function](../../azure-functions/durable-functions/durable-functions-bindings.md#activity-trigger) that returns a list of files in a directory.
+* `E2_BackupSiteContent`: An [orchestrator function](../durable-functions/durable-functions-bindings.md#orchestration-trigger) that calls `E2_GetFileList` to get a list of files to back up, and then calls `E2_CopyFileToBlob` for each file.
+* `E2_GetFileList`: An [activity function](../durable-functions/durable-functions-bindings.md#activity-trigger) that returns a list of files in a directory.
 * `E2_CopyFileToBlob`: An activity function that backs up a single file to Azure Blob Storage.
 
 ::: zone-end
@@ -140,12 +140,13 @@ After the orchestrator awaits `Task.WhenAll`, all function calls are complete an
 
 <details>
 <summary><b>In-process model</b></summary>
-
+<!--
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs?range=16-42)]
-
+-->
+<!--
 > [!NOTE]
 > The [in-process model sample](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs) uses deprecated in-process packages. The preceding code shows the recommended .NET isolated worker model.
-
+-->
 </details>
 
 <br>
@@ -156,13 +157,13 @@ After the orchestrator awaits `Task.WhenAll`, all function calls are complete an
 <summary><b>V3 programming model</b></summary>
 
 The function uses the standard *function.json* for orchestrator functions.
-
+<!--
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E2_BackupSiteContent/function.json":::
-
+-->
 The following code demonstrates implementing the orchestrator function:
-
+<!--
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E2_BackupSiteContent/index.js":::
-
+-->
 Notice the `yield context.df.Task.all(tasks);` line. The code doesn't yield the individual calls to `E2_CopyFileToBlob`, so they run in parallel. When the orchestrator passes the task array to `context.df.Task.all`, it returns a task that doesn't complete until all copy operations complete. If you're familiar with [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) in JavaScript, then this concept isn't new to you. With the Durable Functions extension, these tasks run on multiple virtual machines concurrently, and the end-to-end execution is resilient to process recycling.
 
 > [!NOTE]
@@ -178,9 +179,9 @@ After the orchestrator yields `context.df.Task.all`, all function calls are comp
 <summary><b>V4 programming model</b></summary>
 
 The following code demonstrates implementing the orchestrator function:
-
+<!--
 :::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/backupSiteContent.js" range="1,4,7-35":::
-
+-->
 Notice the `yield context.df.Task.all(tasks);` line. All the individual calls to the `copyFileToBlob` function weren't yielded, which allows them to run in parallel. When we pass this concept array of tasks to `context.df.Task.all`, we get back a task that doesn't complete *until all the copy operations are completed*. If you're familiar with [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all) in JavaScript, then this concept isn't new to you. With the Durable Functions extension, these tasks run on multiple virtual machines concurrently, and the end-to-end execution is resilient to process recycling.
 
 > [!NOTE]
@@ -193,13 +194,13 @@ After yielding from `context.df.Task.all`, we know all function calls are comple
 # [Python](#tab/python)
 
 The function uses the standard *function.json* for orchestrator functions.
-
+<!--
 [!code-json[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_BackupSiteContent/function.json)]
-
+-->
 The following code demonstrates implementing the orchestrator function:
-
+<!--
 [!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_BackupSiteContent/\_\_init\_\_.py)]
-
+-->
 Notice the `yield context.task_all(tasks);` line. The code doesn't yield the individual calls to `E2_CopyFileToBlob`, so they run in parallel. When the orchestrator passes the task array to `context.task_all`, it returns a task that doesn't complete until all copy operations complete. If you're familiar with [`asyncio.gather`](https://docs.python.org/3/library/asyncio-task.html#asyncio.gather) in Python, then this concept isn't new to you. With the Durable Functions extension, these tasks run on multiple virtual machines concurrently, and the end-to-end execution is resilient to process recycling.
 
 > [!NOTE]
@@ -407,9 +408,9 @@ public static class BackupSiteContent
 
 <details>
 <summary><b>In-process model</b></summary>
-
+<!--
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs?range=44-54)]
-
+-->
 </details>
 
 <br>
@@ -420,13 +421,13 @@ public static class BackupSiteContent
 <summary><b>V3 programming model</b></summary>
 
 The *function.json* file for `E2_GetFileList` looks like the following example:
-
+<!--
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E2_GetFileList/function.json":::
-
+-->
 Here's the implementation:
-
+<!--
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E2_GetFileList/index.js":::
-
+-->
 The function uses the `readdirp` module, version `2.x`, to recursively read the directory structure.
 
 </details>
@@ -437,9 +438,9 @@ The function uses the `readdirp` module, version `2.x`, to recursively read the 
 <summary><b>V4 programming model</b></summary>
 
 Here's the implementation of the `getFileList` activity function:
-
+<!--
 :::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/backupSiteContent.js" range="1,3,7,36-48":::
-
+-->
 The function uses the `readdirp` module (version `3.x`) to recursively read the directory structure.
 
 </details>
@@ -447,13 +448,13 @@ The function uses the `readdirp` module (version `3.x`) to recursively read the 
 # [Python](#tab/python)
 
 The *function.json* file for `E2_GetFileList` looks like the following example:
-
+<!--
 [!code-json[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_GetFileList/function.json)]
-
+-->
 Here's the implementation:
-
+<!--
 [!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_GetFileList/\_\_init\_\_.py)]
-
+-->
 # [PowerShell](#tab/powershell)
 
 PowerShell sample coming soon.
@@ -528,9 +529,9 @@ public static class BackupSiteContent
 
 <details>
 <summary><b>In-process model</b></summary>
-
+<!--
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs?range=56-81)]
-
+-->
 > [!NOTE]
 > The in-process model sample requires the `Microsoft.Azure.WebJobs.Extensions.Storage` NuGet package and uses Azure Functions binding features like the [`Binder` parameter](../../azure-functions/functions-dotnet-class-library.md#binding-at-runtime).
 
@@ -544,13 +545,13 @@ public static class BackupSiteContent
 <summary><b>V3 programming model</b></summary>
 
 The *function.json* file for `E2_CopyFileToBlob` is similarly simple:
-
+<!--
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E2_CopyFileToBlob/function.json":::
-
+-->
 The JavaScript implementation uses the [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) to upload the files to Azure Blob Storage.
-
+<!--
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E2_CopyFileToBlob/index.js":::
-
+-->
 </details>
 
 <br>
@@ -559,21 +560,21 @@ The JavaScript implementation uses the [Azure Storage SDK for Node](https://gith
 <summary><b>V4 programming model</b></summary>
 
 The JavaScript implementation of `copyFileToBlob` uses an Azure Storage output binding to upload the files to Azure Blob Storage.
-
+<!--
 :::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/backupSiteContent.js" range="1-2,5-6,8-9,50-68":::
-
+-->
 </details>
 
 # [Python](#tab/python)
 
 The *function.json* file for `E2_CopyFileToBlob` is similarly simple:
-
+<!--
 [!code-json[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_CopyFileToBlob/function.json)]
-
+-->
 The Python implementation uses the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) to upload the files to Azure Blob Storage.
-
+<!--
 [!code-python[Main](~/samples-durable-functions-python/samples/fan_in_fan_out/E2_CopyFileToBlob/\_\_init\_\_.py)]
-
+-->
 # [PowerShell](#tab/powershell)
 
 PowerShell sample coming soon.

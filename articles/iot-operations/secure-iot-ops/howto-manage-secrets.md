@@ -3,6 +3,7 @@ title: Manage secrets
 description: Create, update, and manage secrets that are required to give your Arc-enabled Kubernetes cluster access to Azure resources.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: how-to
 ms.date: 05/12/2026
 ms.custom: sfi-image-nochange
@@ -22,7 +23,7 @@ Examples of secrets that you might store in Azure Key Vault for use by Azure IoT
 
 ## Prerequisites
 
-To manage secrets, you need an Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings, you need to first [enable secure settings](../deploy-iot-ops/howto-enable-secure-settings.md).
+[!INCLUDE [prereq-secure-settings](../includes/prereq-secure-settings.md)]
 
 ## Configure Azure Key Vault permissions
 
@@ -35,7 +36,7 @@ Secrets management for Azure IoT Operations uses the Azure Key Vault secret stor
 > [!NOTE]
 > Azure IoT Operations instances work with only one Azure Key Vault, multiple key vaults per instance isn't supported.
 
-After the [set up secrets management](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-secrets-management) steps are complete, you can add secrets to Azure Key Vault, and sync them to the Kubernetes cluster to be used in **Device inbound endpoints** or **Data flow endpoints**. Secrets are typically usernames, passwords, certificates, or private keys required for authentication to external systems.
+After the [set up secrets management](howto-enable-secure-settings.md#set-up-secrets-management) steps are complete, you can add secrets to Azure Key Vault, and sync them to the Kubernetes cluster to be used in **Device inbound endpoints** or **Data flow endpoints** using the [operations experience](https://iotoperations.azure.com) web UI. Secrets are typically usernames, passwords, certificates, or private keys required for authentication to external systems.
 
 You can create a synced secret on the cluster using either the operations experience web UI or the Azure CLI. The two flows partially overlap: the operations experience can both upload a new value to Azure Key Vault and sync it to the cluster, while the Azure CLI flow assumes the secret already exists in Azure Key Vault and only handles the sync:
 

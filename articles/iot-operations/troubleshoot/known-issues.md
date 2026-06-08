@@ -3,9 +3,10 @@ title: Known Issues
 description: Known issues for the MQTT broker, connector for OPC UA, OPC PLC simulator, data flows, and operations experience web UI.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: troubleshooting-known-issue
 ms.custom: sfi-ropc-nochange
-ms.date: 04/17/2026
+ms.date: 05/21/2026
 ---
 
 # Known issues for Azure IoT Operations
@@ -130,6 +131,10 @@ Issue ID: 6514
 ---
 
 N/A
+
+---
+
+Fixed in release 2605 and later
 
 ---
 
@@ -275,6 +280,23 @@ eventGroups:
         ttl: 5
       target: Mqtt
 ```
+
+## Connector for MQTT issues
+
+### MQTT connector template version mismatch during update
+
+---
+
+Issue ID: 1533
+
+---
+
+Log signature: N/A
+
+---
+
+When updating to version 2605, existing MQTT connector templates may display mismatched metadata versions in the portal. To resolve, delete and recreate the connector template. Alternatively, use the Azure CLI to update the connector.
+
 
 ## Data flows issues
 

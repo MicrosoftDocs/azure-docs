@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/25/2026
+ms.date: 06/02/2026
 ai-usage: ai-assisted
 
 ---
@@ -26,9 +26,9 @@ Azure IoT Operations [data flow graphs](concept-dataflow-graphs.md) include buil
 
 ## Prerequisites
 
-- Deploy an Azure IoT Operations instance on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 - Configure a registry endpoint to access WASM modules and graph definitions. You have two options:
-  - **Quick start with public registry**: Create a registry endpoint pointing to `ghcr.io/azure-samples/explore-iot-operations` with anonymous authentication. For instructions, see [Use prebuilt modules from a public registry](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md#use-prebuilt-modules-from-a-public-registry).
+  - **Quick start with public registry**: Create a registry endpoint for `ghcr.io` with anonymous authentication. For instructions, see [Use prebuilt modules from a public registry](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md#use-prebuilt-modules-from-a-public-registry).
   - **Private registry**: Set up your own container registry and push the sample modules by following guidance in [Deploy WebAssembly (WASM) modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md).
 
 > [!NOTE]
@@ -53,7 +53,7 @@ The following examples show how to configure WASM data flow graphs for common sc
 
 ## Example 1: Basic deployment with one WASM module
 
-This example converts temperature data from Fahrenheit to Celsius by using a WASM module. The [temperature module source code](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/temperature) is available on GitHub. If you followed the example steps in [Deploy WebAssembly (WASM) modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md), the `graph-simple:1.0.0` graph definition and precompiled `temperature:1.0.0` module are already in your container registry.
+This example converts temperature data from Fahrenheit to Celsius by using a WASM module. The [temperature module source code](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/temperature) is available on GitHub. If you followed the example steps in [Deploy WebAssembly (WASM) modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md), the `graph-simple:1.0.0` graph definition and precompiled `temperature:1.0.0` module are already in your container registry. The sample graph artifact path is `azure-samples/explore-iot-operations/graph-simple:1.0.0`. Use this path for the public GHCR samples or when you copy the sample artifacts to your own registry using the same repository path.
 
 ### How it works
 
@@ -75,7 +75,7 @@ Output format:
 {"temperature": {"value": 37.8, "unit": "C"}}
 ```
 
-The following configuration creates a data flow graph that uses this temperature conversion pipeline. The data flow graph references the `graph-simple:1.0.0` YAML graph definition and pulls the temperature module from your container registry.
+The following configuration creates a data flow graph that uses this temperature conversion pipeline. The data flow graph references the `graph-simple:1.0.0` YAML graph definition and pulls the temperature module from your container registry. The Azure sample graph is stored under the `azure-samples/explore-iot-operations` repository path, so include that path in the `artifact` value.
 
 ### Configure the data flow graph
 
@@ -120,6 +120,9 @@ This separation lets you deploy the same graph definition with different endpoin
 
 1. In the data flow diagram, select **Destination** to configure the destination node.
 1. Select **Save** under the data flow graph name to save the data flow graph.
+
+> [!NOTE]
+> The artifact reference is relative to the registry endpoint host. For the public GHCR samples, the registry endpoint host is `ghcr.io`, so use `azure-samples/explore-iot-operations/graph-simple:1.0.0`. Use the same artifact path if you copied the sample artifacts to your own registry under the same repository path. For your own flat private registry layout, use a flat artifact reference such as `graph-simple:1.0.0`.
 
 # [Bicep](#tab/bicep)
 
@@ -168,7 +171,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
         name: 'temperature-processor'
         graphSettings: {
           registryEndpointRef: registryEndpointName
-          artifact: 'graph-simple:1.0.0'
+          artifact: 'azure-samples/explore-iot-operations/graph-simple:1.0.0'
           configuration: [
             {
               key: 'key1'
@@ -234,7 +237,7 @@ spec:
       name: temperature-processor
       graphSettings:
         registryEndpointRef: <REGISTRY_ENDPOINT_NAME>
-        artifact: graph-simple:1.0.0
+        artifact: azure-samples/explore-iot-operations/graph-simple:1.0.0
         configuration:
           - key: key1
             value: example-value
@@ -353,7 +356,7 @@ The graph uses specialized modules from the collection of [Rust operators](https
 
 ### Configure the complex data flow graph
 
-This configuration implements the multi-sensor processing workflow by using the `graph-complex:1.0.0` YAML graph definition. Notice how the data flow graph deployment is similar to [Example 1](#example-1-basic-deployment-with-one-wasm-module) - both use the same three-node pattern (source, graph processor, destination) even though the processing logic is different.
+This configuration implements the multi-sensor processing workflow by using the `graph-complex:1.0.0` YAML graph definition. The sample graph artifact path is `azure-samples/explore-iot-operations/graph-complex:1.0.0`. Notice how the data flow graph deployment is similar to [Example 1](#example-1-basic-deployment-with-one-wasm-module) - both use the same three-node pattern (source, graph processor, destination) even though the processing logic is different.
 
 This similarity occurs because the data flow graph resource acts as a host environment that loads and executes graph definitions. The actual processing logic resides in the graph definition (`graph-simple:1.0.0` or `graph-complex:1.0.0`), which contains the YAML specification of operations and connections between WASM modules. The data flow graph resource provides the runtime infrastructure to pull the graph definition, instantiate the modules, and route data through the defined workflow.
 
@@ -444,7 +447,7 @@ resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfile
         name: 'sensor-processor'
         graphSettings: {
           registryEndpointRef: registryEndpointName
-          artifact: 'graph-complex:1.0.0'
+          artifact: 'azure-samples/explore-iot-operations/graph-complex:1.0.0'
           configuration: [
             {
               key: 'snapshot_topic'
@@ -514,7 +517,7 @@ spec:
       name: sensor-processor
       graphSettings:
         registryEndpointRef: <REGISTRY_ENDPOINT_NAME>
-        artifact: graph-complex:1.0.0
+        artifact: azure-samples/explore-iot-operations/graph-complex:1.0.0
         configuration:
           - key: snapshot_topic
             value: sensor/images/raw

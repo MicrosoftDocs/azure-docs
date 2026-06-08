@@ -3,9 +3,10 @@ title: "Quickstart: Run Azure IoT Operations in Codespaces"
 description: "Quickstart: Deploy Azure IoT Operations to a Kubernetes cluster running in GitHub Codespaces."
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 05/15/2026
+ms.date: 06/03/2026
 
 #CustomerIntent: As an OT user, I want to deploy Azure IoT Operations to a Kubernetes cluster so that I can begin building an end-to-end data scenario.
 ---
@@ -20,19 +21,19 @@ This series of quickstarts is intended to help you get started with Azure IoT Op
 
 For the best new user experience, we recommend using an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) so that you have owner permissions over the resources in these quickstarts.
 
-We use GitHub Codespaces as a virtual environment for this quickstart so that you can test the scenario without installing new tools on your own machines. However, if you want to deploy Azure IoT Operations to a local cluster on Ubuntu or Azure Kubernetes Service (AKS), see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
+We use GitHub Codespaces as a virtual environment for this quickstart so that you can test the scenario without installing new tools on your own machines. If you want to learn about how to deploy Azure IoT Operations to a local cluster on Ubuntu or Azure Kubernetes Service (AKS), see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md), but it is not necessary for this quickstart.
 
 > [!IMPORTANT]
 > Codespaces are easy to set up quickly and tear down later, but they're not suitable for production, performance evaluation, or scale testing. Use GitHub Codespaces for exploration only.
 >
-> The Codespaces environment is sufficient to complete the quickstart steps, but doesn't support advanced configurations like _secure settings_.
+> The Codespaces environment is sufficient to complete the quickstart steps, but it doesn't support advanced configurations like _secure settings_.
 > See these scripts in GitHub for a [production-ready deployment with secure settings](https://github.com/Azure-Samples/explore-iot-operations/blob/main/quickstart/readme.md).
 
 ## Prerequisites
 
 Before you begin, prepare the following prerequisites:
 
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+[!INCLUDE [prereq-azure-subscription](../includes/prereq-azure-subscription.md)]
 
 * A [GitHub](https://github.com) account.
 
@@ -51,7 +52,7 @@ Azure IoT Operations is a suite of data services that run on Kubernetes clusters
 
 ## Create cluster
 
-In this section, you create a new cluster. If you want to reuse a cluster that you deployed Azure IoT Operations to previously, refer to the steps in [Clean up resources](#clean-up-resources) to uninstall Azure IoT Operations before continuing.
+In this section, you create a new cluster.
 
 The **Azure-Samples/explore-iot-operations** codespace is preconfigured with:
 
@@ -91,6 +92,9 @@ To create your codespace and cluster, use the following steps:
 
    Use this terminal to run all of the CLI commands for managing your cluster.
 
+> [!IMPORTANT]
+> The codespace in this article uses an 8-core compute instance. This can impact your budget if you keep the codespace running for a long time. To avoid unexpected costs, make sure to stop your codespace if you pause for extended periods between articles in this quickstart. You can restart it when you're ready to continue. For more information, see [Stopping and starting a codespace](https://docs.github.com/en/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace?tool=vscode).
+
 ## Connect cluster to Azure Arc
 
 To connect your cluster to Azure Arc:
@@ -121,6 +125,7 @@ To connect your cluster to Azure Arc:
    az provider register -n "Microsoft.IoTOperations"
    az provider register -n "Microsoft.DeviceRegistry"
    az provider register -n "Microsoft.SecretSyncController"
+   az provider register -n "Microsoft.Storage"
    ```
 
 1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
@@ -144,7 +149,7 @@ To connect your cluster to Azure Arc:
    export OBJECT_ID=$(az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv)
    ```
 
-1. Use the [az connectedk8s enable-features](/cli/azure/connectedk8s#az-connectedk8s-enable-features) command to enable custom location support on your cluster. This command uses the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses. Run this command on the machine where you deployed the Kubernetes cluster:
+1. Use the [az connectedk8s enable-features](/cli/azure/connectedk8s#az-connectedk8s-enable-features) command to enable custom location support on your cluster. This command uses the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses.
 
    ```azurecli
    az connectedk8s enable-features -n $CLUSTER_NAME -g $RESOURCE_GROUP --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
@@ -152,7 +157,7 @@ To connect your cluster to Azure Arc:
 
 ## Install the latest version of `az iot ops`
 
-This quickstart uses the latest version of Azure IoT Operations. To install the latest version you need the latest version of the Azure IoT Operations CLI extension:
+This quickstart uses the latest version of Azure IoT Operations. To install the latest version, you need the latest version of the Azure IoT Operations CLI extension:
 
 ```azurecli
 az extension add --upgrade --name azure-iot-ops
@@ -186,7 +191,7 @@ Run the following CLI commands in your Codespaces terminal.
    az storage account create --name $STORAGE_ACCOUNT --location $LOCATION --resource-group $RESOURCE_GROUP --enable-hierarchical-namespace
    ```
 
-1. Create a schema registry that connects to your storage account. This command also creates a blob container called **schemas** in the storage account.
+1. Create a schema registry that connects to your storage account. This command also creates a blob container named **schemas** in the storage account.
 
    ```azurecli
    az iot ops schema registry create --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP --registry-namespace $SCHEMA_REGISTRY_NAMESPACE --sa-resource-id $(az storage account show --name $STORAGE_ACCOUNT -o tsv --query id)
@@ -211,7 +216,7 @@ Run the following CLI commands in your Codespaces terminal.
 1. Initialize your cluster for Azure IoT Operations.
 
    >[!TIP]
-   >The `init` command only needs to be run once per cluster. If you're reusing a cluster that already had the latest Azure IoT Operations version deployed on it, you can skip this step.
+   >The `init` command only needs to be run once per cluster.
 
    ```azurecli
    az iot ops init --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP
@@ -257,7 +262,9 @@ In this quickstart, you configured your Arc-enabled Kubernetes cluster so that i
 
 If you're continuing on to the next quickstart, keep all of your resources.
 
-[!INCLUDE [tidy-resources](../includes/tidy-resources.md)]
+If you're pausing before moving on to the next quickstart, we recommend stopping your codespace to avoid unnecessary costs. For more information, see [Stopping and starting a codespace](https://docs.github.com/en/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace?tool=vscode).
+
+[!INCLUDE [tidy-quickstart-resources](../includes/tidy-quickstart-resources.md)]
 
 ## Next step
 

@@ -1,8 +1,8 @@
 ---
 title: Azure Device Update for IoT Hub configuration file
 description: Understand the Azure Device Update for IoT Hub du-config.json configuration file.
-author: cwatson-cat
-ms.author: cwatson
+author: sethmanheim
+ms.author: sethm
 ms.date: 12/30/2024
 ms.topic: concept-article
 ms.service: azure-iot-hub
@@ -40,8 +40,11 @@ To update or create the *du-config.json* configuration file:
 | agents | Information about each Device Update agent, including `connectionSource` type and data. |
 | name | Device Update agent name. |
 | runas | User identity to run the Device Update agent under. |
-| connectionType | Connection type to use for connecting the device to IoT Hub. Accepted values are `string` or `AIS`. Use `AIS` for production scenarios that use the IoT Identity Service to connect. Use `string` to connect using a connection string for testing purposes. |
-| connectionData  | Data to use for connecting the device to IoT Hub. If `connectionType = "AIS"`, set the `connectionData` to an empty string: `"connectionData": ""`. If `connectionType = "string"`, provide your IoT device's device or module connection string. |
+| connectionType | Connection type used to connect the device to IoT Hub. Accepted values are `AIS`, `string`, or `x509`. Use `AIS` when using the IoT Identity Service. Use `string` for connection string–based authentication. Use `x509` for certificate-based authentication. |
+| connectionData | Data used to connect the device to IoT Hub. The format depends on the `connectionType`: <br><br> • If `AIS`, set to an empty string: `"connectionData": ""`. <br> • If `string`, provide your IoT device's device or module connection string. <br> • If `x509`, provide a connection string that includes `x509=true` (for example: `"HostName=<hub>.azure-devices.net;DeviceId=<device>;x509=true"`). |
+| connectionX509CertFilePath | File path to the X.509 client certificate used for authentication. This field is required when `connectionType` is `x509`. |
+| connectionX509PrivateKeyFilePath | File path to the private key associated with the X.509 certificate. This field is required when `connectionType` is `x509`. |
+| connectionX509CaCertFilePath | File path to the certificate authority (CA) certificate used to validate the IoT Hub server certificate. This field is required when `connectionType` is `x509`. |
 | manufacturer | Value reported by the Device Update agent as part of the `DeviceInformation` interface. |
 | model | Value reported by the Device Update agent as part of the `DeviceInformation` interface. |
 | additionalDeviceProperties | Optional, up to five more device properties. |
@@ -83,7 +86,6 @@ To update or create the *du-config.json* configuration file:
   ]
 }
 ```
-
 ## Related content
 
 - [Configuring the Azure IoT Identity Service](https://azure.github.io/iot-identity-service/configuration.html)

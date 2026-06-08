@@ -34,7 +34,7 @@ The following table shows each version of the Node.js programming model along wi
 
 | [Programming Model Version](https://www.npmjs.com/package/@azure/functions?activeTab=versions) | Support Level | [Functions Runtime Version](./functions-versions.md) | [Node.js Version](https://github.com/nodejs/release#release-schedule) | Description                                                                                                   |
 |------------------------------------------------------------------------------------------------|---------------|------------------------------------------------------|-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| 4.x                                                                                            | GA            | 4.25+                                                | 22.x 20.x, 18.x                                                            | Supports a flexible file structure and code-centric approach to triggers and bindings.                        |
+| 4.x                                                                                            | GA            | 4.25+                                                | 24.x, 22.x, 20.x, 18.x                                                | Supports a flexible file structure and code-centric approach to triggers and bindings.                        |
 | 3.x                                                                                            | GA            | 4.x                                                  | 20.x, 18.x, 16.x, 14.x                                                | Requires a specific file structure with your triggers and bindings declared in a "function.json" file         |
 | 2.x                                                                                            | n/a           | 3.x                                                  | 14.x, 12.x, 10.x                                                      | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
 | 1.x                                                                                            | n/a           | 2.x                                                  | 10.x, 8.x                                                             | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
@@ -1632,11 +1632,11 @@ This example shows an HTTP triggered function that receives data via an HTTP POS
 
 #### [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamRequest.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamRequest.js" ::: --->
 
 #### [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamRequest.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamRequest.ts" ::: --->
 
 ---
 
@@ -1644,11 +1644,11 @@ This example shows an HTTP triggered function that streams a file's content as t
 
 #### [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamResponse.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamResponse.js" ::: --->
 
 #### [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamResponse.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamResponse.ts" ::: --->
 
 ---
 
@@ -1676,11 +1676,11 @@ Invocation hooks are executed once per invocation of your function, either befor
 
 # [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/invocationHooks1.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/invocationHooks1.js" ::: --->
 
 # [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/invocationHooks1.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/invocationHooks1.ts" ::: --->
 
 ---
 
@@ -1715,11 +1715,11 @@ The following example registers app hooks:
 
 # [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/appHooks1.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/appHooks1.js" ::: --->
 
 # [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/appHooks1.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/appHooks1.ts" ::: --->
 
 ---
 
@@ -2110,11 +2110,11 @@ In the following example, the asynchronous method `fs.readFile` is invoked with 
 
 # [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerBadAsync.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerBadAsync.js" ::: --->
 
 # [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerBadAsync.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerBadAsync.ts" ::: --->
 
 ---
 
@@ -2180,11 +2180,11 @@ In the following example, any unhandled exceptions thrown during the function ex
 
 # [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerGoodAsync.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerGoodAsync.js" ::: --->
 
 # [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerGoodAsync.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerGoodAsync.ts" ::: --->
 
 ---
 

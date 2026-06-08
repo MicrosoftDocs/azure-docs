@@ -22,6 +22,10 @@ For a complete end-to-end example of using the MCP tool trigger, see [Create a r
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"  
 >[!NOTE]  
 > For C#, the Azure Functions MCP extension supports only the [isolated worker model](dotnet-isolated-process-guide.md). 
@@ -102,14 +106,14 @@ public String saveSnippet(
                 name = "snippetName",
                 propertyType = "string",
                 description = "The name of the snippet.",
-                required = true
+                isRequired = true
         )
         String snippetName,
         @McpToolProperty(
                 name = "snippet",
                 propertyType = "string",
                 description = "The content of the snippet.",
-                required = true
+                isRequired = true
         )
         String snippet,
         @BlobOutput(name = "outputBlob", path = "snippets/{mcptoolargs.snippetName}.json")
@@ -145,7 +149,7 @@ public String getSnippet(
                 name = "snippetName",
                 propertyType = "string",
                 description = "The name of the snippet.",
-                required = true
+                isRequired = true
         )
         String snippetName,
         @BlobInput(name = "inputBlob", path = "snippets/{mcptoolargs.snippetName}.json")
@@ -332,7 +336,7 @@ def get_snippet(file: func.InputStream, context) -> str:
     return snippet_content
 ```
 
-For the complete code example, see [function_app.py](https://github.com/Azure-Samples/remote-mcp-functions-python/blob/main/src/function_app.py).  
+For the complete code example, see [function_app.py](https://github.com/Azure-Samples/remote-mcp-functions-python/blob/main/src/FunctionsMcpTool/function_app.py).  
 ::: zone-end  
 [!INCLUDE [functions-mcp-extension-powershell-note](../../includes/functions-mcp-extension-powershell-note.md)]  
 ::: zone pivot="programming-language-csharp"  
@@ -372,7 +376,8 @@ The `@McpToolProperty` annotation supports the following configuration options:
 | **name**| (Required) name of the tool property that clients see. |
 | **propertyType**| (Required) type of the tool property. Valid types are: `string`, `number`, `integer`, `boolean`, `object`. |
 | **description**| (Optional) description of what the tool property does. |
-| **required** | (Optional) if set to `true`, the tool property is required as an argument for tool calls. Defaults to `false`. |
+| **isRequired** | (Optional) if set to `true`, the tool property is required as an argument for tool calls. Defaults to `false`. |
+| **isArray** | (Optional) if set to `true`, the tool property is an array of the specified property type. Defaults to `false`. |
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"

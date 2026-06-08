@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: how-to
 ms.date: 12/08/2025
 ms.service: azure-iot-operations
-
+ms.subservice: azure-akri
 # CustomerIntent: As a developer, I want to understand how to use the VS Code extension to build and deploy custom Akri connectors.
 ---
 
@@ -35,7 +35,6 @@ Development environment:
 - [.NET SDK](https://dotnet.microsoft.com/download)
 - To debug .NET based connectors - [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 - To debug Rust based connectors - [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-VSCode.cpptools)
-- [Azure CLI](/cli/azure/install-azure-cli)
 - [ORAS CLI](https://oras.land/docs/installation/)
 - Clone the [Explore Azure IoT Operations](https://github.com/Azure-Samples/explore-iot-operations) repository if you haven't already done so.
 
@@ -63,7 +62,7 @@ Docker configuration:
 
 To deploy and use your connector with an Azure IoT Operations instance, you also need:
 
-- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 - Access to a container registry, such as Azure Container Registry, to publish your connector images.
 - A container registry endpoint configured in your Azure IoT Operations instance to pull your connector images. For more information, see [Configure registry endpoints](howto-configure-registry-endpoint.md).
 

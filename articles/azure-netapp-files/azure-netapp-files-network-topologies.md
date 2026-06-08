@@ -20,13 +20,14 @@ Azure NetApp Files volumes are designed to be contained in a special purpose sub
 
 ## Configurable network features  
 
-You can create new volumes or modify existing volumes to use *Standard* or *Basic* network features. For more information, see [Configure network features](configure-network-features.md).
+Starting July 2026, you can create new volumes or modify existing volumes to use Standard network features only. Basic network features will no longer be available for new or modified volumes. For more information, see [Configure network features](configure-network-features.md).
 
 * ***Standard***  
     Selecting this setting enables higher IP limits and standard VNet features such as [network security groups](../virtual-network/network-security-groups-overview.md) and [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) on delegated subnets, and additional connectivity patterns as indicated in this article.
 
 * ***Basic***  
-    Selecting this setting enables selective connectivity patterns and limited IP scale as mentioned in the [Considerations](#considerations) section. All the [constraints](#constraints) apply in this setting. 
+    From July 2026, you will no longer be able to create new volumes or modify existing volumes to use the Basic network features. Only Standard network features are supported after this date. Existing volumes that are using Basic network features will continue to operate normally and no action is required.
+
 
 ## Considerations
 
@@ -38,7 +39,7 @@ You should understand a few considerations when you plan for Azure NetApp Files 
 >Route limit increases for Basic network features will no longer be approved after May 30, 2025. To avoid route limit issues, you should modify your volumes to use Standard network features.
 
 >[!IMPORTANT]
->Starting May 31, 2026, basic networking is no longer available for new volumes and Azure NetApp Files volumes will start using Standard Networking by default. Any requests that that specify Basic Networking will be automatically upgraded to Standard Networking. By default, there is no additional cost for this feature. The charges apply only if you enable billable Standard Networking features. Existing volumes are not affected and no customer action is required.
+>Starting July 2026, Basic network features is no longer available for new volumes and Azure NetApp Files volumes will start using Standard network features by default. Any requests that specify Basic network features will be automatically upgraded to Standard network features. By default, there is no additional cost for this feature. The charges apply only if you enable billable Standard network features. Existing volumes are not affected and no customer action is required.
 
 The following table describes what’s supported for each network features configuration:
 

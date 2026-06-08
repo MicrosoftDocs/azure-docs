@@ -32,7 +32,7 @@ You can get started building your first container app [using the quickstarts](/a
 
 ### Azure Kubernetes Service
 
-[Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks) provides a fully managed Kubernetes option in Azure. It supports direct access to the Kubernetes API and runs any Kubernetes workload. The full cluster resides in your subscription, with the cluster configurations and operations within your control and responsibility. Teams looking for a fully managed version of Kubernetes in Azure, Azure Kubernetes Service is an ideal option.
+[Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks) provides a fully managed Kubernetes platform in Azure, with two experience models: AKS Standard and [AKS Automatic](/azure/aks/intro-aks-automatic). AKS supports direct access to the Kubernetes API and can run any Kubernetes workload. With AKS Standard, the cluster resides in your subscription and you manage cluster configuration and operations. With AKS Automatic, Azure preconfigures and manages common operational tasks such as node management, scaling, security defaults, and upgrades for a more hands-off, production-ready experience.
 
 ### Azure Functions
 
