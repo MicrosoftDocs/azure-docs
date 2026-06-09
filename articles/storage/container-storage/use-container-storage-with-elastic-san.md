@@ -22,7 +22,7 @@ ms.custom:
 
 ## What is Azure Elastic SAN?
 
-Azure Elastic SAN is a managed, shared block storage service. It provides a central pool of storage capacity and performance, including IOPS and throughput. From this pool, you create multiple volumes and attach them to many compute resources. Instead of provisioning and tuning individual disks for each workload, Elastic SAN allocates storage from a single capacity pool and distributes performance across attached volumes. This approach suits environments with many dynamic workloads where demand changes over time and unused performance from one volume serves other volumes. Elastic SAN is typically used for shared, scalable block storage across many volumes or nodes. It also supports faster volume attach and detach for orchestrated workloads, higher volume density per node, and centralized provisioning and management of storage capacity and performance.
+[Azure Elastic SAN](../elastic-san/elastic-san-introduction.md) is a managed, shared block storage service. It provides a central pool of storage capacity and performance, including IOPS and throughput. From this pool, you create multiple volumes and attach them to many compute resources. Instead of provisioning and tuning individual disks for each workload, Elastic SAN allocates storage from a single capacity pool and distributes performance across attached volumes. This approach suits environments with many dynamic workloads where demand changes over time and unused performance from one volume serves other volumes. Elastic SAN is typically used for shared, scalable block storage across many volumes or nodes. It also supports faster volume attach and detach for orchestrated workloads, higher volume density per node, and centralized provisioning and management of storage capacity and performance.
 
 Expanding the capacity of an Elastic SAN through Azure Container Storage is currently unsupported. You can [resize Elastic SAN](../elastic-san/elastic-san-expand.md) directly from the Azure portal or by using Azure CLI.
 
@@ -85,7 +85,7 @@ Create a YAML manifest file such as `storageclass.yaml`, then use the following 
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azuresan
+  name: azuresan-csi
 provisioner: san.csi.azure.com
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
@@ -113,9 +113,9 @@ Alternatively, you can create the storage class using Terraform.
       config_path = "~/.kube/config"
     }
 
-    resource "kubernetes_storage_class_v1" "azuresan" {
+    resource "kubernetes_storage_class_v1" "azuresan_csi" {
       metadata {
-        name = "azuresan"
+        name = "azuresan-csi"
       }
 
       storage_provisioner    = "san.csi.azure.com"
@@ -140,7 +140,7 @@ If you need a different initial capacity than the default 1 TiB, set the `initia
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azuresan
+  name: azuresan-csi
 provisioner: san.csi.azure.com
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
@@ -177,7 +177,7 @@ If you don't already have Azure Container Storage installed, [install it](instal
    apiVersion: storage.k8s.io/v1
    kind: StorageClass
    metadata:
-     name: azuresan
+     name: azuresan-csi
    provisioner: san.csi.azure.com
    reclaimPolicy: Delete
    volumeBindingMode: Immediate
@@ -225,7 +225,7 @@ If you don't already have Azure Container Storage installed, [install it](instal
    apiVersion: storage.k8s.io/v1
    kind: StorageClass
    metadata:
-     name: azuresan
+     name: azuresan-csi
    provisioner: san.csi.azure.com
    reclaimPolicy: Delete
    volumeBindingMode: Immediate
@@ -246,14 +246,14 @@ kubectl apply -f storageclass.yaml
 Verify that the storage class is created:
 
 ```azurecli
-kubectl get storageclass azuresan
+kubectl get storageclass azuresan-csi
 ```
 
 You should see output similar to:
 
 ```output
-NAME       PROVISIONER          RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
-azuresan   san.csi.azure.com    Delete          Immediate           true                   10s
+NAME           PROVISIONER          RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+azuresan-csi   san.csi.azure.com    Delete          Immediate           true                   10s
 ```
 
 ## Create a persistent volume claim
@@ -273,7 +273,7 @@ A persistent volume claim (PVC) automatically provisions storage based on a stor
      resources:
        requests:
          storage: 1Gi
-     storageClassName: azuresan
+     storageClassName: azuresan-csi
    ```
 
 1. Apply the manifest to create the PVC.
@@ -360,7 +360,7 @@ Use the following YAML manifest to create a default Elastic SAN storage class:
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azuresan
+  name: azuresan-csi
 provisioner: san.csi.azure.com
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
@@ -376,7 +376,7 @@ kubectl apply -f storageclass.yaml
 Verify the storage class:
 
 ```azurecli
-kubectl get storageclass azuresan
+kubectl get storageclass azuresan-csi
 ```
 
 ### Create an Elastic SAN volume
@@ -410,7 +410,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: azuresan
+  storageClassName: azuresan-csi
   csi:
     driver: san.csi.azure.com
     volumeHandle: #{rg}#{san}#{vg}#{vol}
@@ -443,7 +443,7 @@ spec:
     requests:
       storage: 5Gi
   volumeName: pv-san
-  storageClassName: azuresan
+  storageClassName: azuresan-csi
 ```
 
 Apply the manifest to create the PVC.

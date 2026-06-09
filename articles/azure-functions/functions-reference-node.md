@@ -34,7 +34,7 @@ The following table shows each version of the Node.js programming model along wi
 
 | [Programming Model Version](https://www.npmjs.com/package/@azure/functions?activeTab=versions) | Support Level | [Functions Runtime Version](./functions-versions.md) | [Node.js Version](https://github.com/nodejs/release#release-schedule) | Description                                                                                                   |
 |------------------------------------------------------------------------------------------------|---------------|------------------------------------------------------|-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| 4.x                                                                                            | GA            | 4.25+                                                | 22.x 20.x, 18.x                                                            | Supports a flexible file structure and code-centric approach to triggers and bindings.                        |
+| 4.x                                                                                            | GA            | 4.25+                                                | 24.x, 22.x, 20.x, 18.x                                                | Supports a flexible file structure and code-centric approach to triggers and bindings.                        |
 | 3.x                                                                                            | GA            | 4.x                                                  | 20.x, 18.x, 16.x, 14.x                                                | Requires a specific file structure with your triggers and bindings declared in a "function.json" file         |
 | 2.x                                                                                            | n/a           | 3.x                                                  | 14.x, 12.x, 10.x                                                      | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
 | 1.x                                                                                            | n/a           | 2.x                                                  | 10.x, 8.x                                                             | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
@@ -1118,7 +1118,9 @@ Azure Functions lets you define the threshold level to be used when tracking and
 
 ## Track custom data
 
-By default, Azure Functions writes output as traces to Application Insights. For more control, you can instead use the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) to send custom logs, metrics, and dependencies to your Application Insights instance.
+By default, Azure Functions writes output as traces to Application Insights. For more control, the recommended approach is to use the [OpenTelemetry exporter](opentelemetry-howto.md), which provides standards-based telemetry that can be sent to Application Insights and any OTLP-compliant endpoint. To learn more, see [Use OpenTelemetry with Azure Functions](opentelemetry-howto.md).
+
+You can also use the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) to send custom logs, metrics, and dependencies to your Application Insights instance. However, this classic SDK is legacy and won't receive new feature updates. Plan to migrate to OpenTelemetry for long-term support.
 
 > [!NOTE]
 > Methods in the Application Insights Node.js SDK might change over time. There might be minor syntax differences from the examples shown here. For the latest API usage examples, see the [Application Insights Node.js SDK documentation](https://github.com/microsoft/applicationinsights-node.js).
@@ -1630,11 +1632,11 @@ This example shows an HTTP triggered function that receives data via an HTTP POS
 
 #### [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamRequest.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamRequest.js" ::: --->
 
 #### [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamRequest.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamRequest.ts" ::: --->
 
 ---
 
@@ -1642,11 +1644,11 @@ This example shows an HTTP triggered function that streams a file's content as t
 
 #### [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamResponse.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamResponse.js" ::: --->
 
 #### [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamResponse.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamResponse.ts" ::: --->
 
 ---
 
@@ -1674,11 +1676,11 @@ Invocation hooks are executed once per invocation of your function, either befor
 
 # [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/invocationHooks1.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/invocationHooks1.js" ::: --->
 
 # [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/invocationHooks1.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/invocationHooks1.ts" ::: --->
 
 ---
 
@@ -1713,11 +1715,11 @@ The following example registers app hooks:
 
 # [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/appHooks1.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/appHooks1.js" ::: --->
 
 # [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/appHooks1.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/appHooks1.ts" ::: --->
 
 ---
 
@@ -2108,11 +2110,11 @@ In the following example, the asynchronous method `fs.readFile` is invoked with 
 
 # [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerBadAsync.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerBadAsync.js" ::: --->
 
 # [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerBadAsync.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerBadAsync.ts" ::: --->
 
 ---
 
@@ -2178,11 +2180,11 @@ In the following example, any unhandled exceptions thrown during the function ex
 
 # [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerGoodAsync.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerGoodAsync.js" ::: --->
 
 # [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerGoodAsync.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerGoodAsync.ts" ::: --->
 
 ---
 

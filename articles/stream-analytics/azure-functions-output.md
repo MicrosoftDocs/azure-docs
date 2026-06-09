@@ -4,7 +4,7 @@ description: This article describes Azure functions as output for Azure Stream A
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/28/2021
 ---
 

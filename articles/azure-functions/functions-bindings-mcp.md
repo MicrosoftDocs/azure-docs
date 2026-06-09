@@ -2,7 +2,7 @@
 title: Model context protocol bindings for Azure Functions
 description: Learn how you can expose your functions as model context protocol (MCP) tools using bindings in Azure Functions.
 ms.topic: reference
-ms.date: 02/20/2026
+ms.date: 04/01/2026
 ms.update-cycle: 180-days
 ms.custom: 
   - build-2025
@@ -22,12 +22,12 @@ The Azure Functions MCP extension enables you to use Azure Functions to create r
 | --------- | --------- |
 | Run a function from an MCP tool call request | [Tool trigger](./functions-bindings-mcp-tool-trigger.md) |
 | Expose a function as an MCP resource | [Resource trigger](./functions-bindings-mcp-resource-trigger.md) |
-
+| Expose a function as an MCP prompt | [Prompt trigger](./functions-bindings-mcp-prompt-trigger.md) |
 
 [!INCLUDE [functions-mcp-extension-powershell-note](../../includes/functions-mcp-extension-powershell-note.md)]
 ## Prerequisites 
 
-+ When you use the SSE transport, the MCP extension relies on Azure Queue storage provided by the [default host storage account](./storage-considerations.md) (`AzureWebJobsStorage`). When using identity-based connections, make sure that your function app has at least the equivalent of these role-based permissions in the host storage account: [Storage Queue Data Reader](/azure/role-based-access-control/built-in-roles#storage-queue-data-reader) and [Storage Queue Data Message Processor](/azure/role-based-access-control/built-in-roles#storage-queue-data-message-processor).
++ When you use the SSE transport, the MCP extension relies on Azure Queue storage provided by the [default host storage account](./storage-considerations.md) (`AzureWebJobsStorage`). When using identity-based connections, make sure that your function app has at least the equivalent of these role-based permissions in the host storage account: [Storage Queue Data Contributor](/azure/role-based-access-control/built-in-roles/storage#storage-queue-data-contributor) and [Storage Queue Data Message Processor](/azure/role-based-access-control/built-in-roles/storage#storage-queue-data-message-processor).
 + When running locally, the MCP extension requires version 4.0.7030 of the [Azure Functions Core Tools](functions-run-local.md), or a later version.
 ::: zone pivot="programming-language-csharp"
 + Requires version 2.1.0 or later of the `Microsoft.Azure.Functions.Worker` package.
@@ -56,6 +56,10 @@ Add the extension to your project by installing this [NuGet package](https://www
 
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
+::: zone-end
+
+::: zone pivot="programming-language-go"
+Go isn't currently supported for this feature.
 ::: zone-end
 
 ## host.json settings

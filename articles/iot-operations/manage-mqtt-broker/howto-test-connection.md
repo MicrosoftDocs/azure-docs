@@ -1,8 +1,8 @@
 ---
 title: Test connectivity to MQTT broker with MQTT clients
 description: Learn how to use common and standard MQTT tools to test connectivity to an MQTT broker in a nonproduction environment.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.date: 02/11/2026
@@ -12,8 +12,6 @@ ms.service: azure-iot-operations
 ---
 
 # Test connectivity to MQTT broker with MQTT clients
-
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 This article shows different ways to test connectivity to an MQTT broker with MQTT clients in a nonproduction environment.
 
@@ -25,7 +23,7 @@ By default, an MQTT broker:
 > [!CAUTION]
 > For production scenarios, use TLS and service accounts authentication to secure your IoT solution. For more information, see:
 >
-> - [Configure TLS with automatic certificate management to secure MQTT communication in the MQTT broker](./howto-configure-tls-auto.md).
+> - [Configure TLS with automatic certificate management to secure MQTT communication in the MQTT broker](./howto-configure-brokerlistener.md).
 > - [Configure authentication in the MQTT broker](./howto-configure-authentication.md).
 > - [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service) by using port forwarding or a virtual switch with Azure Kubernetes Services (AKS) Edge Essentials.
 
@@ -200,7 +198,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Create a file named `broker-nodeport.yaml` with the following configuration. Replace placeholders with your own values, including your own authentication and TLS settings.
 
@@ -369,7 +369,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 > [!CAUTION]
 > Removing `authenticationRef` and `tls` settings from the configuration [turns off authentication and TLS for testing purposes only](#only-turn-off-tls-and-authentication-for-testing).
@@ -465,7 +467,7 @@ For AKS Edge Essentials, you need to perform a few more steps. With AKS Edge Ess
 1. Open the port on the firewall to allow traffic to the broker's service:
 
     ```powershell
-    New-NetFirewallRule -DisplayName "AIO MQTT Broker" -Direction Inbound -Protocol TCP -LocalPort 1883 -Action Allow
+    New-NetFirewallRule -DisplayName "Azure IoT Operations MQTT Broker" -Direction Inbound -Protocol TCP -LocalPort 1883 -Action Allow
     ```
 
 1. Use the host's public IP address to connect to the MQTT broker.
@@ -583,7 +585,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1
@@ -604,6 +608,6 @@ spec:
 
 ## Related content
 
-- [Configure TLS with manual certificate management to secure MQTT communication](howto-configure-tls-manual.md)
+- [Configure TLS with manual certificate management to secure MQTT communication](howto-configure-brokerlistener.md)
 - [Configure authentication](howto-configure-authentication.md)
 - [Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization](./tutorial-tls-x509.md)

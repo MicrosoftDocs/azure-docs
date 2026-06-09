@@ -1,21 +1,22 @@
 ---
-title: Use WebAssembly With Data Flow Graphs 
-description: Learn how to deploy and use WebAssembly modules with data flow graphs in Azure IoT Operations to process data at the edge.
-author: sethmanheim
-ms.author: sethm
+title: Use WASM transforms in data flow graphs
+description: Learn how to build and deploy custom WebAssembly transforms in data flow graphs in Azure IoT Operations.
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 02/27/2026
+ms.date: 06/02/2026
 ai-usage: ai-assisted
 
 ---
 
-# Use WebAssembly (WASM) with data flow graphs
+# Use WASM transforms in data flow graphs
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+Azure IoT Operations [data flow graphs](concept-dataflow-graphs.md) include built-in transforms for common processing tasks like mapping, filtering, and aggregation. When you need custom logic beyond what the built-in transforms provide, you can deploy WebAssembly (WASM) modules as custom transforms in your data flow graph pipelines.
 
-Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for custom data processing at the edge. You can deploy custom business logic and data transformations as part of your data flow pipelines.
+> [!TIP]
+> For most data processing scenarios, start with the [built-in transforms](concept-dataflow-graphs.md#available-transforms). Use WASM transforms when you need custom business logic, specialized algorithms, or processing that the built-in options don't cover.
 
 > [!TIP]
 > Want to run AI in-band? See [Run ONNX inference in WebAssembly data flow graphs](../develop-edge-apps/howto-wasm-onnx-inference.md) to package and execute small ONNX models inside your WASM operators.
@@ -25,13 +26,13 @@ Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for cus
 
 ## Prerequisites
 
-- Deploy an Azure IoT Operations instance on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 - Configure a registry endpoint to access WASM modules and graph definitions. You have two options:
-  - **Quick start with public registry**: Create a registry endpoint pointing to `ghcr.io/azure-samples/explore-iot-operations` with anonymous authentication. For instructions, see [Use prebuilt modules from a public registry](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md#use-prebuilt-modules-from-a-public-registry).
+  - **Quick start with public registry**: Create a registry endpoint for `ghcr.io` with anonymous authentication. For instructions, see [Use prebuilt modules from a public registry](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md#use-prebuilt-modules-from-a-public-registry).
   - **Private registry**: Set up your own container registry and push the sample modules by following guidance in [Deploy WebAssembly (WASM) modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md).
 
 > [!NOTE]
-> **Data flows vs. data flow graphs**: A *data flow* is a pipeline that moves and transforms data between endpoints by using built-in transformations. A *data flow graph* extends data flows with custom processing logic that you implement as WebAssembly modules. Data flow graphs use YAML graph definitions that specify how WASM operators connect. The data flow graph resource wraps this definition and maps its abstract source and sink operations to concrete endpoints, like MQTT topics and Kafka topics. Use data flows for built-in transformations. Use data flow graphs when you need custom processing logic.
+> **Data flows vs. data flow graphs**: A *data flow* is a pipeline that moves and transforms data between endpoints by using built-in transformations. A *data flow graph* extends data flows with composable processing steps. Azure IoT Operations provides [built-in data flow graphs](concept-dataflow-graphs.md) for common operations like mapping, filtering, branching, and aggregation. For custom processing logic, you can implement WebAssembly modules as described in this article. Data flow graphs use YAML graph definitions that specify how operators connect. The data flow graph resource wraps this definition and maps its abstract source and sink operations to concrete endpoints, like MQTT topics and Kafka topics.
 
 ## Overview
 
@@ -41,9 +42,7 @@ By using WebAssembly (WASM) modules in Azure IoT Operations data flow graphs, yo
 
 The WASM data flow implementation follows this workflow:
 
-1. **Develop WASM modules**: Write custom processing logic in a supported language and compile it to the WebAssembly Component Model format. To learn more, see:
-   - [Build WASM modules for data flows in VS Code](../develop-edge-apps/howto-build-wasm-modules-vscode.md)
-   - [Develop WebAssembly (WASM) modules](../develop-edge-apps/howto-develop-wasm-modules.md)
+1. **Develop WASM modules**: Write custom processing logic in a supported language and compile it to the WebAssembly Component Model format. To learn more, see: [Build WASM modules for data flows](../develop-edge-apps/howto-build-wasm-modules.md)
 1. **Develop graph definition**: Define how data moves through the modules by using YAML configuration files. To learn more, see [Configure WebAssembly graph definitions](../develop-edge-apps/howto-configure-wasm-graph-definitions.md).
 1. **Store artifacts in registry**: Push the compiled WASM modules and graph definitions to a container registry by using OCI-compatible tools such as ORAS. To learn more, see [Deploy WebAssembly (WASM) modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md).
 1. **Configure registry endpoints**: Set up authentication and connection details so Azure IoT Operations can access the container registry. To learn more, see [Configure registry endpoints](../develop-edge-apps/howto-configure-registry-endpoint.md).
@@ -54,7 +53,7 @@ The following examples show how to configure WASM data flow graphs for common sc
 
 ## Example 1: Basic deployment with one WASM module
 
-This example converts temperature data from Fahrenheit to Celsius by using a WASM module. The [temperature module source code](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/temperature) is available on GitHub. If you followed the example steps in [Deploy WebAssembly (WASM) modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md), the `graph-simple:1.0.0` graph definition and precompiled `temperature:1.0.0` module are already in your container registry.
+This example converts temperature data from Fahrenheit to Celsius by using a WASM module. The [temperature module source code](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/temperature) is available on GitHub. If you followed the example steps in [Deploy WebAssembly (WASM) modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md), the `graph-simple:1.0.0` graph definition and precompiled `temperature:1.0.0` module are already in your container registry. The sample graph artifact path is `azure-samples/explore-iot-operations/graph-simple:1.0.0`. Use this path for the public GHCR samples or when you copy the sample artifacts to your own registry using the same repository path.
 
 ### How it works
 
@@ -76,7 +75,7 @@ Output format:
 {"temperature": {"value": 37.8, "unit": "C"}}
 ```
 
-The following configuration creates a data flow graph that uses this temperature conversion pipeline. The data flow graph references the `graph-simple:1.0.0` YAML graph definition and pulls the temperature module from your container registry.
+The following configuration creates a data flow graph that uses this temperature conversion pipeline. The data flow graph references the `graph-simple:1.0.0` YAML graph definition and pulls the temperature module from your container registry. The Azure sample graph is stored under the `azure-samples/explore-iot-operations` repository path, so include that path in the `artifact` value.
 
 ### Configure the data flow graph
 
@@ -121,6 +120,9 @@ This separation lets you deploy the same graph definition with different endpoin
 
 1. In the data flow diagram, select **Destination** to configure the destination node.
 1. Select **Save** under the data flow graph name to save the data flow graph.
+
+> [!NOTE]
+> The artifact reference is relative to the registry endpoint host. For the public GHCR samples, the registry endpoint host is `ghcr.io`, so use `azure-samples/explore-iot-operations/graph-simple:1.0.0`. Use the same artifact path if you copied the sample artifacts to your own registry under the same repository path. For your own flat private registry layout, use a flat artifact reference such as `graph-simple:1.0.0`.
 
 # [Bicep](#tab/bicep)
 
@@ -169,7 +171,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
         name: 'temperature-processor'
         graphSettings: {
           registryEndpointRef: registryEndpointName
-          artifact: 'graph-simple:1.0.0'
+          artifact: 'azure-samples/explore-iot-operations/graph-simple:1.0.0'
           configuration: [
             {
               key: 'key1'
@@ -235,7 +237,7 @@ spec:
       name: temperature-processor
       graphSettings:
         registryEndpointRef: <REGISTRY_ENDPOINT_NAME>
-        artifact: graph-simple:1.0.0
+        artifact: azure-samples/explore-iot-operations/graph-simple:1.0.0
         configuration:
           - key: key1
             value: example-value
@@ -354,7 +356,7 @@ The graph uses specialized modules from the collection of [Rust operators](https
 
 ### Configure the complex data flow graph
 
-This configuration implements the multi-sensor processing workflow by using the `graph-complex:1.0.0` YAML graph definition. Notice how the data flow graph deployment is similar to [Example 1](#example-1-basic-deployment-with-one-wasm-module) - both use the same three-node pattern (source, graph processor, destination) even though the processing logic is different.
+This configuration implements the multi-sensor processing workflow by using the `graph-complex:1.0.0` YAML graph definition. The sample graph artifact path is `azure-samples/explore-iot-operations/graph-complex:1.0.0`. Notice how the data flow graph deployment is similar to [Example 1](#example-1-basic-deployment-with-one-wasm-module) - both use the same three-node pattern (source, graph processor, destination) even though the processing logic is different.
 
 This similarity occurs because the data flow graph resource acts as a host environment that loads and executes graph definitions. The actual processing logic resides in the graph definition (`graph-simple:1.0.0` or `graph-complex:1.0.0`), which contains the YAML specification of operations and connections between WASM modules. The data flow graph resource provides the runtime infrastructure to pull the graph definition, instantiate the modules, and route data through the defined workflow.
 
@@ -445,7 +447,7 @@ resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfile
         name: 'sensor-processor'
         graphSettings: {
           registryEndpointRef: registryEndpointName
-          artifact: 'graph-complex:1.0.0'
+          artifact: 'azure-samples/explore-iot-operations/graph-complex:1.0.0'
           configuration: [
             {
               key: 'snapshot_topic'
@@ -515,7 +517,7 @@ spec:
       name: sensor-processor
       graphSettings:
         registryEndpointRef: <REGISTRY_ENDPOINT_NAME>
-        artifact: graph-complex:1.0.0
+        artifact: azure-samples/explore-iot-operations/graph-complex:1.0.0
         configuration:
           - key: snapshot_topic
             value: sensor/images/raw
@@ -1121,10 +1123,9 @@ If you deploy the data flow graph but it doesn't process messages:
 
 ## Related content
 
-- [Develop WebAssembly modules](../develop-edge-apps/howto-develop-wasm-modules.md) for writing operators in Rust and Python (includes quickstart)
+- [Build WASM modules for data flows](../develop-edge-apps/howto-build-wasm-modules.md) for both IDE and CLI-based development workflows
 - [Configure WebAssembly graph definitions](../develop-edge-apps/howto-configure-wasm-graph-definitions.md) for graph YAML structure and configuration parameters
 - [Deploy WASM modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md) for registry setup and artifact management
-- [Build WASM modules with VS Code extension](../develop-edge-apps/howto-build-wasm-modules-vscode.md) for IDE-based development
 - [Run ONNX inference in WASM](../develop-edge-apps/howto-wasm-onnx-inference.md) for ML model integration
 - [Configure MQTT data flow endpoints](howto-configure-mqtt-endpoint.md)
 - [Configure Azure Event Hubs and Kafka data flow endpoints](howto-configure-kafka-endpoint.md)

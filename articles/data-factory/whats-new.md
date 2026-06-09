@@ -5,7 +5,7 @@ author: pennyzhou-msft
 ms.author: xupzhou
 ms.topic: overview
 ms.custom: references_regions
-ms.date: 09/25/2024
+ms.date: 03/26/2026
 ---
 
 # What's new in Azure Data Factory
@@ -18,19 +18,59 @@ Azure Data Factory is improved on an ongoing basis. To stay up to date with the 
 - Deprecated functionality.
 - Plans for changes.
 
-This page is updated monthly, so revisit it regularly.  For older months' updates, refer to the [What's new archive](whats-new-archive.md).
+For older months' updates, refer to the [What's new archive](whats-new-archive.md).
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly update videos.
 
 >[!TIP]
 >Also check [what's new for Data Factory in Microsoft Fabric](/fabric/fundamentals/whats-new?toc=%2Ffabric%2Fdata-factory%2Ftoc.json#data-factory-in-microsoft-fabric)
 
+## March 2026
+
+### Migration
+- Upgrading your Azure Data Factory pipelines to Fabric. [Learn more](how-to-upgrade-your-azure-data-factory-pipelines-to-fabric-data-factory.md).
+- Upgrading your Azure Synapse Analytics pipelines to Fabric. [Learn more](how-to-upgrade-your-azure-synapse-analytics-pipelines-to-fabric-data-factory.md).
+
+## January 2026
+
+### Migration
+Assessing your Azure Data Factory and Synapse pipelines for migration to Fabric. [Learn more](how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration.md).
+
+## December 2025
+
+### Data movement
+
+HDInsight Hive activity now supports Managed Identity authentication to ADLS Gen2 Storage accounts for Bring Your Own Compute. [Learn more](compute-linked-services.md).
+
+## October 2025
+
+### Data movement
+
+HDInsight Hive activity now supports Managed Identity authentication to ADLS Gen2 Storage accounts for Bring Your Own Compute. [Learn more](compute-linked-services.md).
+
+## August 2025
+
+### Data flow
+
+We're updating Azure Data Factory Mapping Data Flows to use to use Spark 3.4.
+
 ## August 2024
 
-## Data movement
+### Data movement
 
-- Azure Table Storage connector now supports two more authentication types: system-assigned managed identity authentication and user-assigned managed identity authentication. [Learn more](connector-azure-table-storage.md)
-- Azure Files connector now supports two more authentication types: system-assigned managed identity authentication and user-assigned managed identity authentication. [Learn more](connector-azure-file-storage.md)
+HDInsight On-demand Spark activity now supports Managed Identity authentication. [Learn more](connector-azure-table-storage.md).
+
+## June 2025
+
+### Data movement
+
+Azure Data Factory Connector Upgrade Advisor now supports additional connectors. [Learn more](connector-upgrade-advisor.md).
+
+## May 2025
+
+### Migration
+
+Mounting your Azure Data Factory in Fabric is now generally available. [Learn more](/fabric/data-factory/tutorial-bring-azure-data-factory-to-fabric).
 
 ## June 2024
 

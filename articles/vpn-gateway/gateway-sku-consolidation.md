@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 02/03/2026
+ms.date: 05/13/2026
 
 ms.author: cherylmc
 
@@ -41,7 +41,7 @@ The following diagram shows current SKUs and the new SKUs that they'll automatic
 
 ### How long will my existing gateway SKUs be supported?
 
-The existing gateway SKUs are supported until they're migrated to the new SKUs. The old SKUs are currently scheduled for deprecation on September 16, 2026. There will be no impact to existing SKUs that are supported by availability zones.
+The existing gateway SKUs are supported until they're migrated to the new SKUs. The old SKUs are currently scheduled for deprecation after September, 2026. There will be no impact to existing SKUs that are supported by availability zones.
 
 ### Will there be any pricing differences for my gateways after migration?
 
@@ -56,12 +56,16 @@ Yes. For more information, see the new [pricing](https://azure.microsoft.com/pri
 
 Yes. If a region doesn't currently support availability zones, you can still create VPN Gateway SKUs supported by availability zones, but the deployment will remain regional. When the region supports availability zones, we'll enable zone redundancy for the gateways.
 
+### Is Gen1 gateway SKU being retired?
+
+There is no announced retirement date for Gen1 SKUs. 
+
 ### Can I migrate my gateway from one generation to another?
 
-* *For gateways that use a Basic public IP address*: You'll need to migrate your gateway to use a Standard public IP address when the migration tool becomes available. As part of this IP address migration, your gateway is upgraded to the next generation (called *Generation 2*). You don't need to take any further action.
-* *For gateways that already use a Standard public IP address*: We'll migrate these gateways to the next generation separately before September 30, 2026. This migration happens seamlessly during regular updates, with no downtime involved.
+Customers **do not** need to run any separate migration to move to Generation 2. The only required action is upgrading from a Basic to a Standard public IP address (if applicable). There is no retirement date announced for Generation 1 SKUs.
 
-No separate customer action is required to migrate your gateway to Gen2 beyond required Basic IP address migration.
+* *For gateways that use a Basic public IP address*: You'll need to migrate your Basic IP address to a Standard public IP address using the [migration tool for VPN Gateway](basic-public-ip-migrate-howto.md?tabs=portal). As part of this IP address upgrade, your gateway is automatically upgraded to the next generation (Generation 2). **No separate Gen2 migration or additional steps are required.**
+* *For gateways that already use a Standard public IP address*: **No customer action is required.** These gateways will be automatically upgraded to the next generation (Generation 2) as part of regular service updates, prior to September 2026. This process is seamless and does not involve downtime.
 
 ### Will there be downtime during migration?
 
@@ -73,7 +77,7 @@ Yes. SKUs get the benefits of zone redundancy for VPN gateways in [Azure regions
 
 ### Is the VPN Gateway Basic SKU retiring?
 
-No, the VPN Gateway Basic SKU isn't retiring. You can create a gateway with this SKU by using [PowerShell](create-gateway-basic-sku-powershell.md) or the Azure CLI.
+No, the VPN Gateway Basic SKU isn't retiring.
 
 ### Can I create a new Basic SKU VPN gateway by using a Basic SKU public IP address?
 

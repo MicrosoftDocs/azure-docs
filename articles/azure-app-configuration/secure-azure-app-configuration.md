@@ -4,7 +4,7 @@ description: Learn how to secure Azure App Configuration, with best practices fo
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 ms.date: 10/27/2025
 ai-usage: ai-assisted
@@ -25,6 +25,8 @@ Network security controls prevent unauthorized access to App Configuration store
 - **Disable public network access**: Block all internet-based connections when using private endpoints to prevent unauthorized access attempts and reduce your attack surface. Configure the service to deny public network access and force all communication through private endpoints. See [Disable public access in Azure App Configuration](/azure/azure-app-configuration/howto-disable-public-access).
 
 - **Configure network security groups for private endpoint subnets**: When using private endpoints, apply Network Security Groups to the subnets (NSGs) hosting the private endpoints to control traffic flow. Enable network policies on the private endpoint subnet and implement restrictive NSG rules to allow only necessary traffic to reach the App Configuration private endpoints. See [Manage network policies for private endpoints](/azure/private-link/disable-private-endpoint-network-policy).
+
+- **Use network security perimeter (preview)**: Define a logical network isolation boundary for your App Configuration store and other PaaS resources using a network security perimeter. Network security perimeters provide centralized network access rule configuration, inbound and outbound access controls, and diagnostic logging for network traffic. See [Network security perimeter for Azure App Configuration (preview)](/azure/azure-app-configuration/concept-network-security-perimeter).
 
 ## Identity and access management
 

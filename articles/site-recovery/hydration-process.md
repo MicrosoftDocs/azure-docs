@@ -5,7 +5,7 @@ author: Jeronika-MS
 ms.author: v-gajeronika
 ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 02/27/2026
+ms.date: 04/15/2026
 ---
 
 # Configure on-premise disks for Azure through Hydration
@@ -95,7 +95,7 @@ The preparation script executes the following changes based on the OS type of th
    Make “VMware Tools” service start-type to disabled if it exists as they aren't required for the VM in Azure.
 
    >[!NOTE]
-   >To connect to Windows Server 2003 VMs, Hyper-V Integration Services must be installed on the Azure VM. Windows Server 2003 machines don't have this installed by default. See this [article](/azure/migrate/prepare-windows-server-2003-migration?view=migrate-classic) to install and prepare for failover.
+   >To connect to Windows Server 2003 VMs, Hyper-V Integration Services must be installed on the Azure VM. Windows Server 2003 machines don't have this installed by default. See this [article](/azure/migrate/prepare-windows-server-2003-migration?view=migrate-classic&preserve-view=true) to install and prepare for failover.
 
 1. **Install the Windows Azure Guest Agent**.
 

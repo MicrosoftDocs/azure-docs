@@ -2,7 +2,7 @@
 title: Transform data using Hadoop Hive activity
 description: Learn how you can use the Hive Activity in an Azure Data Factory or Synapse Analytics pipeline to run Hive queries on an on-demand/your own HDInsight cluster.
 titleSuffix: Azure Data Factory & Azure Synapse
-ms.topic: conceptual
+ms.topic: how-to
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
@@ -80,7 +80,6 @@ To use an HDInsight Hive activity for Azure Data Lake Analytics in a pipeline, c
 ## Related content
 See the following articles that explain how to transform data in other ways: 
 
-* [U-SQL activity](transform-data-using-data-lake-analytics.md)
 * [Pig activity](transform-data-using-hadoop-pig.md)
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)

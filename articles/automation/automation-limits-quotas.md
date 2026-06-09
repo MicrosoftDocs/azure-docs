@@ -3,7 +3,7 @@ title: Manage Azure Automation subscription limits and quotas
 description: This article provides information on how to view automation limits and request for quota increase or decrease.
 services: automation
 ms.topic: how-to
-ms.date: 01/28/2025
+ms.date: 04/15/2026
 ms.service: azure-automation
 ms.author: v-rochak2
 author: RochakSingh-blr
@@ -19,7 +19,7 @@ This article provides steps to view the current limits and request for quota inc
 - Contributor role for Azure Automation account.
 
 > [!NOTE]
-> Free subscriptions including [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quota changes.
+> Free subscriptions including [Azure Free Account](https://azure.microsoft.com/pricing/offers/ms-azr-0044p?cid=msft_learn) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quota changes.
 
 ## View current limits and request for quota changes
 
@@ -71,5 +71,5 @@ Follow these steps to view current limits and request for quota increase:
 
 ## Next steps
 
-Learn more on [the default quotas or limits offered to different resources in Azure Automation](automation-subscription-limits-faq.md).
-
+- Learn more on [the default quotas or limits offered to different resources in Azure Automation](automation-subscription-limits-faq.md).
+- For troubleshooting issues related to Azure Automation account subscription limits and quotas,  see [Troubleshoot runbook issues](troubleshoot/runbooks.md).

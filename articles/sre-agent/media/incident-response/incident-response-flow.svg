@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#0078d4"/>
+    </marker>
+  </defs>
+  
+  <rect width="800" height="200" fill="#fafafa"/>
+  
+  <!-- Title -->
+  <text x="400" y="25" text-anchor="middle" font-family="Segoe UI, Arial" font-size="13" font-weight="600" fill="#333">From alert to resolution in minutes, not hours</text>
+  
+  <!-- Step 1: Alert -->
+  <rect x="30" y="55" width="120" height="80" rx="8" fill="#ffcdd2" stroke="#c62828" stroke-width="2" filter="url(#shadow)"/>
+  <text x="90" y="85" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="600" fill="#b71c1c">Alert Fires</text>
+  <text x="90" y="102" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#c62828">PagerDuty</text>
+  <text x="90" y="115" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#c62828">Azure Monitor</text>
+  <text x="90" y="128" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#c62828">ServiceNow</text>
+  
+  <!-- Arrow 1 -->
+  <path d="M150 95 L185 95" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="167" y="85" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#666">30s</text>
+  
+  <!-- Step 2: Agent Acknowledges -->
+  <rect x="195" y="55" width="120" height="80" rx="8" fill="#fff3e0" stroke="#e65100" stroke-width="2" filter="url(#shadow)"/>
+  <text x="255" y="82" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="600" fill="#e65100">Agent</text>
+  <text x="255" y="97" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="600" fill="#e65100">Acknowledges</text>
+  <text x="255" y="115" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#bf360c">Notifies team</text>
+  <text x="255" y="128" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#bf360c">Starts investigation</text>
+  
+  <!-- Arrow 2 -->
+  <path d="M315 95 L350 95" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="332" y="85" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#666">1 min</text>
+  
+  <!-- Step 3: Investigation -->
+  <rect x="360" y="55" width="130" height="80" rx="8" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" filter="url(#shadow)"/>
+  <text x="425" y="80" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="600" fill="#0d47a1">Investigates</text>
+  <text x="425" y="98" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#1565c0">Queries logs</text>
+  <text x="425" y="111" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#1565c0">Checks metrics</text>
+  <text x="425" y="124" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#1565c0">Correlates deployments</text>
+  
+  <!-- Arrow 3 -->
+  <path d="M490 95 L525 95" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="507" y="85" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#666">2 min</text>
+  
+  <!-- Step 4: Root Cause -->
+  <rect x="535" y="55" width="110" height="80" rx="8" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" filter="url(#shadow)"/>
+  <text x="590" y="82" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="600" fill="#6a1b9a">Root Cause</text>
+  <text x="590" y="97" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="600" fill="#6a1b9a">Found</text>
+  <text x="590" y="115" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#7b1fa2">Proposes fix</text>
+  <text x="590" y="128" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#7b1fa2">or acts autonomously</text>
+  
+  <!-- Arrow 4 -->
+  <path d="M645 95 L680 95" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Step 5: Resolved -->
+  <rect x="690" y="55" width="90" height="80" rx="8" fill="#e8f5e9" stroke="#388e3c" stroke-width="2" filter="url(#shadow)"/>
+  <text x="735" y="88" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="600" fill="#2e7d32">Resolved</text>
+  <text x="735" y="108" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#388e3c">Ticket updated</text>
+  <text x="735" y="121" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#388e3c">Team notified</text>
+  
+  <!-- Bottom timeline -->
+  <line x1="90" y1="155" x2="735" y2="155" stroke="#e0e0e0" stroke-width="2"/>
+  <circle cx="90" cy="155" r="4" fill="#c62828"/>
+  <circle cx="255" cy="155" r="4" fill="#e65100"/>
+  <circle cx="425" cy="155" r="4" fill="#1976d2"/>
+  <circle cx="590" cy="155" r="4" fill="#7b1fa2"/>
+  <circle cx="735" cy="155" r="4" fill="#388e3c"/>
+  
+  <text x="90" y="175" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#666">0:00</text>
+  <text x="255" y="175" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#666">0:30</text>
+  <text x="425" y="175" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#666">1:30</text>
+  <text x="590" y="175" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#666">3:00</text>
+  <text x="735" y="175" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#666">5:00</text>
+  
+  <text x="400" y="192" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#666">Minutes elapsed</text>
+</svg>

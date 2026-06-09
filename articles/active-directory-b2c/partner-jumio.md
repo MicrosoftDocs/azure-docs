@@ -5,7 +5,7 @@ description: Configure Azure Active Directory B2C with Jumio for automated ID ve
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh

@@ -6,11 +6,13 @@ ms.author: ajagadish
 ms.date: 06/26/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: azure-synapse
 ---
 
 # Azure Advisor recommendations for dedicated SQL pool in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This article describes the dedicated SQL pool recommendations available in Azure Advisor.  
 

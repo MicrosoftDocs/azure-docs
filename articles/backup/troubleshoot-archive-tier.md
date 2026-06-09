@@ -3,6 +3,7 @@ title: Archive tier troubleshoots
 description: Learn to troubleshoot Archive Tier errors for Azure Backup.
 ms.topic: troubleshooting
 ms.date: 03/19/2025
+ms.update-cycle: 1095-days
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka

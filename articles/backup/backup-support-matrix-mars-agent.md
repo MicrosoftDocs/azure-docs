@@ -1,7 +1,7 @@
 ---
 title: Support matrix for the MARS agent
 description: This article summarizes Azure Backup support when you back up machines that are running the Microsoft Azure Recovery Services (MARS) agent.
-ms.date: 11/24/2025
+ms.date: 03/09/2026
 ms.topic: reference
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
@@ -12,6 +12,9 @@ ms.author: v-mallicka
 # Support matrix for backup with the Microsoft Azure Recovery Services (MARS) agent
 
 You can use the [Azure Backup service](backup-overview.md) to back up on-premises machines and apps and to back up Azure virtual machines (VMs). This article summarizes support settings and limitations when you use the Microsoft Azure Recovery Services (MARS) agent to back up machines.
+
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
+
 
 ## The MARS agent
 
@@ -197,6 +200,7 @@ The following table lists the previous versions of the agent with their download
 [2.0.9207.0](https://download.microsoft.com/download/b/5/a/b5a29638-1cef-4906-b704-4d3d914af76e/MARSAgentInstaller.exe) | [5001305](https://support.microsoft.com/help/5001305)
 [2.0.9415.0](https://download.microsoft.com/download/MARSAgentInstaller.exe) |[5059322](https://support.microsoft.com/help/5059322) 
 [2.0.9506.0](https://download.microsoft.com/download/398f1a94-03fb-4de2-af98-dbe8ff925f49/MARSAgentInstaller.exe) | [5068415](https://support.microsoft.com/help/5068415)
+[2.0.9615.0](https://download.microsoft.com/download/2e59c45d-c285-4547-9285-f054591b43c5/MARSAgentInstaller.exe) | [5085049](https://support.microsoft.com/help/5085049)
 
 >[!NOTE]
 >MARS agent versions with minor reliability and performance improvements don't have a KB article.

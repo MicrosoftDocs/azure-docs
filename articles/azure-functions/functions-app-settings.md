@@ -739,6 +739,17 @@ Disables caching when deploying function apps using Azure Resource Manager (ARM)
 |---|------------|
 | WEBSITE_FUNCTIONS_ARMCACHE_ENABLED| 0 |
 
+## WEBSITE\_LOAD\_CERTIFICATES
+
+Comma-separated thumbprint values of certificates to load in your code, or `*` to allow all certificates to be loaded. Only [certificates added to your app](../app-service/configure-ssl-certificate.md) can be loaded. For more information, see [Use a TLS/SSL certificate in your code](../app-service/configure-ssl-certificate-in-code.md).
+
+> [!NOTE]
+> This setting isn't used in the [Flex Consumption plan](flex-consumption-plan.md), which uses a [per-certificate toggle](flex-consumption-how-to.md#make-a-certificate-accessible-to-your-code) instead.
+
+|Key|Sample value|
+|---|------------|
+|WEBSITE\_LOAD\_CERTIFICATES|`*`|
+
 
 ## WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
@@ -973,7 +984,7 @@ In the [Flex Consumption plan](./flex-consumption-plan.md), these site propertie
 | `WEBSITE_VNET_ROUTE_ALL` |Not used for networking in Flex Consumption|
 | `properties.alwaysOn` |Not valid|
 | `properties.containerSize` |Renamed as `instanceMemoryMB`|
-| `properties.dnsConfiguration` | Custom DNS servers configured in the Azure Virtual Network are automatically used|
+| 'properties.dnsConfiguration.dnsServers'| DNS is inherited from the integrated virtual network in a Flex Consumption plan. |
 | `properties.ftpsState` | FTPS not supported | 
 | `properties.isReserved` |Not valid|
 | `properties.IsXenon` |Not valid|

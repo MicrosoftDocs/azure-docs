@@ -4,8 +4,10 @@ description: Use the operations experience web UI or the Azure CLI to configure 
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-akri
 ms.topic: how-to
-ms.date: 09/23/2025
+ms.date: 05/28/2026
+ai-usage: ai-assisted
 
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access data from SSE endpoints.
 ---
@@ -23,9 +25,9 @@ The following table summarizes the features the connector for SSE supports:
 | Feature | Supported | Notes |
 |---------|:---------:|-------|
 | Username/password authentication | Yes | Basic HTTP authentication |
-| X.509 client certificates | Yes | Certificates for client authentication and authorization |
+| X.509 user certificates (mTLS) | Yes | Certificates for client authentication and authorization |
 | Anonymous access | Yes | For testing purposes |
-| Certificate trust list | Yes | For secure TLS connections to the SSE endpoint |
+| Southbound certificate trust list | Yes | For secure TLS connections to the SSE endpoint |
 | OpenTelemetry integration | Yes | |
 | Automatic retries | Yes | Reports failed status for nonretryable errors |
 | WASM data transformation | No | |
@@ -44,7 +46,9 @@ This article explains how to use the connector for SSE to perform tasks such as:
 
 ## Prerequisites
 
-To configure devices and assets, you need a running instance of Azure IoT Operations.
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
@@ -52,11 +56,13 @@ Your IT administrator must configure the connector for SSE template for your Azu
 
 You need any credentials required to access the SSE source. If the SSE source requires authentication, you need to create a Kubernetes secret that contains the username and password for the SSE source.
 
-## Deploy the connector for SSE
+Have the event identification ready for each SSE source event you want to receive.
 
-[!INCLUDE [deploy-connectors-simple](../includes/deploy-connectors-simple.md)]
+### SSE connector template instance
 
-### Configure a certificate trust list for the connector
+Before an OT user can create a device that uses the connector for SSE, an IT administrator must add an SSE connector template instance to your Azure IoT Operations instance. To learn more, see [Create and manage connector template instances](howto-manage-connector-templates.md).
+
+## Configure a certificate trust list for the connector
 
 [!INCLUDE [connector-certificate-application](../includes/connector-certificate-application.md)]
 
@@ -162,7 +168,19 @@ To use the `Username password` authentication mode, complete the following steps
 
 ### Configure a device to use an X.509 certificate
 
-[!INCLUDE [connector-certificate-user](../includes/connector-certificate-user.md)]
+# [Operations experience](#tab/portal)
+
+[!INCLUDE [connector-certificate-user-portal](../includes/connector-certificate-user-portal.md)]
+
+# [Azure CLI](#tab/cli)
+
+[!INCLUDE [connector-certificate-user-cli](../includes/connector-certificate-user-cli.md)]
+
+# [Bicep](#tab/bicep)
+
+[!INCLUDE [connector-certificate-user-bicep](../includes/connector-certificate-user-bicep.md)]
+
+---
 
 ## Create an asset
 
@@ -178,17 +196,30 @@ To define an asset that publishes events from the SSE endpoint, follow these ste
 
 1. Add any custom properties you want to associate with the asset. For example, you might add a property to indicate the manufacturer of the camera. Select **Next** to continue.
 
-1. On the **Datasets** page, create any datasets required and define the data points.
+A dataset defines where the connector sends the data it collects from a collection of data points. An SSE asset can have multiple datasets. To create a dataset:
 
-1. On the **Event groups** page, create an event group to define the events to publish to the MQTT broker.
+1. Select **Create dataset**.
 
-1. In the event group, select **Add event** to add an event for the asset. For example:
+1. Enter the details for the dataset such as its name, data source, and destination. For SSE assets, the data source is the path on the SSE endpoint. The destination is either an MQTT topic or a [broker state store](../develop-edge-apps/overview-state-store.md) key.
+
+1. Select **Create and next** to create the dataset.
+
+    > [!TIP]
+    > Use the **Manage default settings** option to configure default dataset settings.
+
+An event group defines where the connector sends the data it receives from a collection of events. An SSE asset can have multiple event groups. To create an event group:
+
+1. Select **Create event group**.
+
+1. Enter a name for the event group and the destination MQTT topic.
+
+1. Select **Create and next** to create the event group and go to the events page.
+
+1. Select **Add event** to add an event to the group. For example:
 
     :::image type="content" source="media/howto-use-sse-connector/add-event.png" alt-text="Screenshot that shows how to add an event for SSE source." lightbox="media/howto-use-sse-connector/add-event.png":::
 
-    Add details for each event to publish to the MQTT broker.
-
-    Select **Next** to continue.
+    Add details for each event including the SSE event identification as the data source and the MQTT topic to publish to as the destination. Select **Next** to continue.
 
 1. On the **Review** page, review the details of the asset and select **Create** to create the asset. After a few minutes, the asset is listed on the **Assets** page:
 
@@ -202,6 +233,10 @@ Run the following command:
 az iot ops ns asset sse create --name mysseasset --instance {your instance name} -g {your resource group name} --device sse-connector-cli --endpoint sse-connector-0
 
 az iot ops ns asset sse dataset add --asset mysseasset --instance {your instance name} -g {your resource group name} --name weatherdata --data-source "/api/weather" --dest topic="azure-iot-operations/data/erp" retain=Never qos=Qos1 ttl=3600
+
+az iot ops ns asset sse event-group add --asset mysseasset --instance {your instance name} -g {your resource group name} --name alerts --data-source "" --dest topic="azure-iot-operations/events/mysseasset" retain=Never qos=Qos1 ttl=3600
+
+az iot ops ns asset sse event add --asset mysseasset --instance {your instance name} -g {your resource group name} --event-group alerts --name temperaturethreshold --data-source "/events/temperaturethreshold" --dest topic="azure-iot-operations/events/mysseasset" retain=Never qos=Qos1 ttl=3600
 ```
 
 To learn more, see [az iot ops ns asset sse](/cli/azure/iot/ops/ns/asset/sse).
@@ -256,6 +291,31 @@ resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2025-10-01' = {
               retain: 'Never'
               ttl: 3600
             }
+          }
+        ]
+      }
+    ]
+
+    eventGroups: [
+      {
+        name: 'alerts'
+        eventGroupConfiguration: '{}'
+        events: [
+          {
+            name: 'temperaturethreshold'
+            dataSource: '/events/temperaturethreshold'
+            eventConfiguration: '{}'
+            destinations: [
+              {
+                target: 'Mqtt'
+                configuration: {
+                  topic: 'azure-iot-operations/events/mysseasset'
+                  qos: 'Qos1'
+                  retain: 'Never'
+                  ttl: 3600
+                }
+              }
+            ]
           }
         ]
       }

@@ -1,19 +1,19 @@
 ---
 title: Azure API Management workspace gateways - virtual network requirements
-description: Learn about requirements for network resources when you integrate or inject your API Management workspace gateway in an Azure virtual network.
+description: Learn about requirements for network resources when you integrate or inject an API Management workspace gateway resource in an Azure virtual network.
 author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 10/08/2025
+ms.date: 05/20/2026
 ms.author: danlep
 ---
 
-# Network resource requirements to integrate or inject a workspace gateway into a virtual network
+# Network resource requirements to integrate or inject a workspace gateway resource into a virtual network
 
-[!INCLUDE [api-management-availability-premium](../../includes/api-management-availability-premium.md)]
+[!INCLUDE [api-management-availability-basicv2-standardv2-premium-premium-v2](../../includes/api-management-availability-basicv2-standardv2-premium-premiumv2.md)]
 
-Network isolation is an optional feature of an API Management [workspace gateway](workspaces-overview.md#workspace-gateway). This article provides network resource requirements when you integrate or inject your gateway in an Azure virtual network. Some requirements differ depending on the desired inbound and outbound access mode. The following modes are supported:
+Network isolation is an optional feature of a [workspace gateway](workspaces-overview.md#workspace-gateway) resource in API Management. This article provides network resource requirements when you integrate or inject your gateway in an Azure virtual network. Some requirements differ depending on the desired inbound and outbound access mode. The following modes are supported:
 
 * **Virtual network integration**: public inbound access, private outbound access 
 * **Virtual network injection**: private inbound access, private outbound access
@@ -94,7 +94,7 @@ For virtual network injection, you have to manage your own DNS to enable inbound
 
 ### Access on default hostname
 
-When you create an API Management workspace, the workspace gateway is assigned a default hostname. The hostname is visible in the Azure portal on the workspace gateway's **Overview** page, along with its private virtual IP address. The default hostname is in the format `<gateway-name>-<random hash>.gateway.<region>-<number>.azure-api.net`. Example: `team-workspace-123456abcdef.gateway.uksouth-01.azure-api.net`.
+When you create an API Management workspace gateway, it's assigned a default hostname. The hostname is visible in the Azure portal on the workspace gateway's **Overview** page, along with its private virtual IP address. The default hostname is in the format `<gateway-name>-<random hash>.gateway.<region>-<number>.azure-api.net`. Example: `team-workspace-123456abcdef.gateway.uksouth-01.azure-api.net`.
 
 > [!NOTE]
 > The workspace gateway only responds to requests to the hostname configured on its endpoint, not its private VIP address. 

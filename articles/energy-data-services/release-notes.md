@@ -20,8 +20,21 @@ Azure Data Manager for Energy is updated on an ongoing basis. To stay up to date
 - Plans for changes
 
 This page is updated with the details about the upcoming release approximately a week before the actual deployment.
-
 <hr width = 100%>
+
+## May 2026
+### External Data Services (EDS) - Generally Available
+External Data Services (EDS) is now generally available on Azure Data Manager for Energy. EDS ingests metadata from registered external OSDU compliant sources into Azure Data Manager for Energy for discovery via the Search API, while leaving associated files at the external source for on-demand retrieval. To enable EDS, see [Enable External Data Services (EDS) in Azure Data Manager for Energy](how-to-enable-external-data-services.md).
+
+### Manifest Ingestion by Reference DAG - Preview
+Manifest Ingestion by Reference DAG supports ingestion of a large number of records by referencing a large manifest uploaded to the Dataset service for processing. This DAG is available as a preview feature in the Azure Data Manager for Energy Developer SKU.
+
+## March 2026
+### Manage OSDU milestone upgrade settings
+Milestone upgrades are major version upgrades to Azure Data Manager for Energy, such as moving from a release compatible with OSDU milestone M25 to M26. ADME now allows customers to choose whether to upgrade the instance immediately as the upgrade becomes available or defer the upgrade for up to 30 days. To learn more, see [Manage upgrade settings in Azure Data Manager for Energy](how-to-manage-upgrade-settings.md).
+
+### Seismic DDMS Change Tier - Preview
+Azure Data Manager for Energy now supports changing the storage tier of seismic datasets as a preview feature. You can move datasets between **Hot**, **Cool**, and **Cold** storage tiers based on access frequency, helping you reduce storage costs for historical or infrequently accessed data while keeping active datasets performant. This feature is available on request. To enable it, raise a support request in the Azure portal. For more information, see [Tutorial: Change the storage tier of seismic datasets](tutorial-seismic-change-tier.md).
 
 ## February 2026
 ### OSDU&reg; Reservoir DMS - Generally Available

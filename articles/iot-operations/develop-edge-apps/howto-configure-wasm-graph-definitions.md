@@ -1,9 +1,10 @@
 ---
 title: Configure WebAssembly Graph Definitions For Data Flow Graphs
 description: Learn how to create and configure WebAssembly graph definitions that define data processing workflows for Azure IoT Operations data flow graphs and connectors.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-data-flows
 ms.topic: how-to
 ms.date: 02/27/2026
 ai-usage: ai-assisted
@@ -16,7 +17,7 @@ Graph definitions are central to WASM development because they define how your m
 
 ## Prerequisites
 
-- Familiarity with [developing custom WASM modules](howto-develop-wasm-modules.md)
+- Familiarity with [developing custom WASM modules](howto-build-wasm-modules.md)
 - Basic understanding of YAML syntax
 
 This article focuses on creating and configuring the YAML graph definitions. For information about deploying and testing data flow graphs, see [Deploy WebAssembly (WASM) modules and graph definitions](howto-deploy-wasm-graph-definitions.md).
@@ -39,7 +40,7 @@ Graph definitions follow a formal [JSON schema](https://www.schemastore.org/aio-
 > [!IMPORTANT]
 > The `$schema` field in the graph metadata references the **graph definition schema** hosted on schemastore.org. This schema validates the structure of your graph YAML file (operations, connections, module requirements). It is not a message payload schema.
 >
-> If you need to validate message payloads, your WASM modules must handle that validation logic themselves. You can upload payload schemas to the [AIO schema registry](../connect-to-cloud/concept-schema-registry.md) and reference them in node connections, but the dataflow runtime does not automatically enforce payload validation. The schema reference only makes the schema available to your module code.
+> If you need to validate message payloads, your WASM modules must handle that validation logic themselves. You can upload payload schemas to the [Azure IoT Operations schema registry](../connect-to-cloud/concept-schema-registry.md) and reference them in node connections, but the dataflow runtime does not automatically enforce payload validation. The schema reference only makes the schema available to your module code.
 
 ## Basic graph structure
 
@@ -99,7 +100,7 @@ For step-by-step deployment instructions, see [Deploy WebAssembly (WASM) modules
 This graph creates a straightforward data processing pipeline:
 
 1. **Source operation**: Receives temperature data from the data flow's source endpoint
-2. **Map operation**: Processes data with the temperature WASM module (`temperature:1.0.0`)
+2. **Map operation**: Processes data with the temperature WASM module. Use `temperature:1.0.0` for a flat registry layout, or include the repository path for a nested layout, for example `azure-samples/explore-iot-operations/temperature:1.0.0`.
 3. **Sink operation**: Sends converted data to the data flow's destination endpoint
 
 The [temperature module](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/wasm/operators/temperature/src/lib.rs) converts Fahrenheit to Celsius using the standard formula `(F - 32) × 5/9 = C`.
@@ -292,12 +293,12 @@ moduleConfigurations:
 
 The `name` field in each configuration entry must match the operator name defined in the graph's `operations` section. Each parameter under `parameters` becomes a key-value tuple in the `configuration.properties` list that your operator's `init` function receives.
 
-For detailed examples of how to access and use these parameters in your Rust and Python code, see [Module configuration parameters](howto-develop-wasm-modules.md#module-configuration-parameters).
+For detailed examples of how to access and use these parameters in your Rust and Python code, see [Module configuration parameters](concepts-wasm-modules.md#module-configuration-parameters).
 
 For a complete implementation example, see the [branch module](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm-python/operators/branch), which demonstrates parameter usage for conditional routing logic.
 
 ## Next steps
 
-- [Develop WebAssembly modules for data flow graphs](howto-develop-wasm-modules.md)
+- [Develop WebAssembly modules for data flow graphs](howto-build-wasm-modules.md)
 - [Use WebAssembly with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md)
 - [Configure registry endpoints](howto-configure-registry-endpoint.md)- [Data flow graph samples with schema validation and WIT composition](https://github.com/Azure-Samples/azure-edge-extensions-aio-dataflow-graphs) on GitHub

@@ -3,8 +3,9 @@ title: "Quickstart: Configure your cluster"
 description: "Quickstart: Configure devices, assets, and data flows in your cluster to process and route data from a simulated OPC PLC server to the cloud."
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: quickstart
-ms.date: 07/18/2025
+ms.date: 06/03/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -37,7 +38,7 @@ Unless otherwise noted, you can run the console commands in this quickstart in e
 
 ## What problem will we solve?
 
-The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQTT broker and data flows. Data flows let you manipulate and route data to cloud services such as Azure Event Hubs. In this quickstart, the data flow changes the names of some fields in payload and adds an asset ID to the messages.
+The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as data points, events, and actions. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQTT broker and data flows. Data flows let you manipulate and route data to cloud services such as Azure Event Hubs. In this quickstart, the data flow changes the names of some fields in payload and adds an asset ID to the messages.
 
 ## Deploy the OPC PLC simulator
 
@@ -132,6 +133,10 @@ To view the device, asset, and data flows, navigate to the [operations experienc
 
 :::image type="content" source="media/quickstart-configure/instance-list.png" alt-text="Screenshot in the operations experience showing unassigned instances.":::
 
+Before continuing, make sure all the resources are in the **Available** state. It may take several minutes for the resources to be created and show as available in the UI.
+
+:::image type="content" source="media/quickstart-configure/codespace-overview.png" alt-text="Screenshot in the operations experience that shows all resources as available.":::
+
 The opc-ua-connector device defines the connection to the OPC PLC simulator:
 
 :::image type="content" source="media/quickstart-configure/device-list.png" alt-text="Screenshot in the operations experience that shows a list of devices.":::
@@ -173,8 +178,11 @@ In this quickstart, you used a bicep file to configure your Azure IoT Operations
 
 If you're continuing on to the next quickstart, keep all of your resources.
 
-[!INCLUDE [tidy-resources](../includes/tidy-resources.md)]
+If you're pausing before moving on to the next quickstart, we recommend stopping your codespace to avoid unnecessary costs. For more information, see [Stopping and starting a codespace](https://docs.github.com/en/codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace?tool=vscode).
+
+[!INCLUDE [tidy-quickstart-resources](../includes/tidy-quickstart-resources.md)]
 
 ## Next step
 
-If you want to learn how to build a Microsoft Fabric dashboard to get insights from your oven data, see [Tutorial: Get insights from your processed data](../end-to-end-tutorials/tutorial-get-insights.md).
+> [!div class="nextstepaction"]
+> [Quickstart: Get insights from your processed data](quickstart-get-insights.md)

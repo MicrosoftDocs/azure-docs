@@ -2,7 +2,7 @@
 title: Deploy Azure Managed Redis cache by using Azure Resource Manager template
 description: Learn how to use an Azure Resource Manager template (ARM template) to deploy an Azure Managed Redis resource. Templates are provided for common scenarios.
 ms.date: 01/28/2026
-ms.topic: conceptual
+ms.topic: quickstart-arm
 ms.custom:
   - subject-arm
   - devx-track-arm-template

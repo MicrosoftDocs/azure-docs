@@ -353,15 +353,15 @@ Keep the following considerations in mind when using this feature:
 - You should [rehearse](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) promoting a complex distributed infrastructure at least once.
 
 ## Pricing
-The Premium tier for Service Bus is priced per [Messaging Unit](service-bus-premium-messaging.md#how-many-messaging-units-are-needed). With the Geo-Replication feature, each region runs on the same number of MUs as configured on the primary, and you're charged for the total MUs across all regions. Additionally, there's a charge based on the data replicated to secondary regions. The data transfer rate is determined by the zone where the primary region is located at the time of replication. For current pricing details, including data transfer rates, see the [Service Bus pricing page](https://azure.microsoft.com/pricing/details/service-bus/).
+The Premium tier for Service Bus is priced per [Messaging Unit](service-bus-premium-messaging.md#how-many-messaging-units-are-needed). With the Geo-Replication feature, each replica runs on the same number of MUs as configured on the primary, and you're charged for the total MUs across all replicas. Additionally, there's a charge based on the data replicated to secondary replicas. The data transfer rate is determined by the zone where the primary region is located at the time of replication. For current pricing details, including data transfer rates, see the [Service Bus pricing page](https://azure.microsoft.com/pricing/details/service-bus/).
 
 The total cost can be calculated as follows:
 </br>
-(number of regions x MUs configured on primary x hours x hourly rate per MU) + (GBs replicated x data transfer rate per GB)
+(number of replicas x MUs configured on primary x hours x hourly rate per MU) + (GBs replicated x data transfer rate per GB)
 
 For example, if you have 2 MUs configured on the primary namespace with 10 GB of data replicated:
 </br>
-(2 regions x 2 MUs x hours x hourly rate) + (10 GB x data transfer rate)
+(2 replicas x 2 MUs x hours x hourly rate) + (10 GB x data transfer rate)
 
 ## Recommended scenarios to trigger promotion
 While you can trigger a promotion at any time, here are some recommended scenarios where promoting a secondary to primary is advisable. For more details on each scenario, see [Scenarios](#scenarios).

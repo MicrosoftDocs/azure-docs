@@ -127,8 +127,8 @@ You can learn more about changing a storage account's replication options in the
         
 ### How does a SKU conversion affect performance and availability? Is there any application downtime expected? Is there any data loss expected?
 
-During a SKU conversion, you can continue to access data in your storage account with no loss of durability or availability. The Azure Storage SLA is maintained during the conversion process and no data is lost. Similarly, service endpoints, access keys, shared access signatures, and other account options also remain unchanged.
-        
+During a SKU conversion, you can continue to access data in your storage account with no loss of durability, and non-HNS-enabled accounts experience no interruption to availability. However, HNS-enabled accounts might experience a brief pause while the account switches to the new resiliency level. This pause lasts less than 30 seconds and requests will complete automatically after the pause. The Azure Storage SLA is maintained during the conversion process and no data is lost. Similarly, service endpoints, access keys, shared access signatures, and other account options also remain unchanged.
+
 You can learn more about changing a storage account's replication options in the [Change the redundancy option for a storage account](redundancy-migration.md) article.
     
 ### How do I convert my account from LRS to GZRS?

@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: tutorial
-ms.date: 11/18/2024
+ms.date: 05/04/2026
 ms.custom: devx-track-azurecli
 
 # Customer intent: As an IT admin, I want to learn about Front Door and how to configure Rules Engine feature via the Azure portal or Azure CLI.
@@ -16,11 +16,7 @@ ms.custom: devx-track-azurecli
 
 **Applies to:** :heavy_check_mark: Front Door (classic)
 
-> [!IMPORTANT]
-> - Starting August 15, 2025, Azure Front Door (classic) will no longer support new domain onboarding. Migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) to create new domains or profiles and avoid service disruption. [Learn more](https://azure.microsoft.com/updates?id=498522)
-- Starting August 15, 2025, Azure Front Door (classic) will no longer support Managed certificates. To avoid service disruption, either [switch to Bring Your Own Certificate (BYOC)](/azure/frontdoor/front-door-custom-domain-https?tabs=powershell) or migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) by August 15, 2025. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026.  [Learn more](https://azure.microsoft.com/updates?id=498522)
-- Azure Front Door (classic) will be retired on March 31, 2027. To avoid service disruption, ⁠[migrate to ⁠AFD Standard or Premium](/azure/frontdoor/tier-migration). ⁠[Learn more](https://azure.microsoft.com/updates?id=azure-front-door-classic-will-be-retired-on-31-march-2027).
-
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 This tutorial shows how to create a Rules engine configuration and your first rule in both Azure portal and CLI.
 
@@ -33,31 +29,31 @@ In this tutorial, you learn how to:
 
 * Before you can complete the steps in this tutorial, you must first create an Azure Front Door (classic). For more information, see [Create an Azure Front Door (classic)](quickstart-create-front-door.md).
 
-## Configure Rules Engine in Azure portal
+## Configure Rules Engine in the Azure portal
 
-1. Within your Azure Front Door (classic) resource, select **Rule Engine configuration** from under *Settings* on the left side menu pane. Select **+ Add**, give your configuration a name, and start creating your first Rules Engine configuration.
+1. In your Azure Front Door (classic) resource, select **Rule Engine configuration** under *Settings* in the left menu. Select **+ Add**, enter a name for your configuration, and start creating your first Rules Engine configuration.
 
 1. Enter a name for your first rule. Then select **+ Add condition** or **+ Add action** to define your rule.
     
     > [!NOTE]
     > - To delete a condition or action from a rule, use the trash can icon on the right-hand side of the specific condition or action.
-    > - To create a rule that applies to all incoming traffic, do not specify any conditions.
-    > - To stop evaluating rules once the first match condition is met, check **Stop evaluating remaining rule**. If this is checked and all of the match conditions of a particular rule are met, then the remaining rules in the configuration will not be executed.
+    > - To create a rule that applies to all incoming traffic, don't specify any conditions.
+    > - To stop evaluating rules once the first match condition is met, check **Stop evaluating remaining rule**. If this condition is met, the remaining rules in the configuration aren't executed.
     > - All paths in the rules engine configuration are case sensitive.
     > - Header names should adhere to [RFC 7230](https://datatracker.ietf.org/doc/html/rfc7230#section-3.2.6).
 
-1. Determine the priority of the rules within your configuration by using the Move up, Move down, and Move to top buttons. The priority is in ascending order, meaning the rule first listed is the most important rule.
+1. Determine the priority of the rules within your configuration by using the **Move up**, **Move down**, and **Move to top** buttons. The priority is in ascending order, meaning the rule first listed is the most important rule.
 
     > [!TIP]
-    > If you want to verify when the changes are propagated to Azure Front Door (classic), you can create a custom response header in the rule using the the following example. You can add a response header `_X-<RuleName>-Version_` and change the value each time the rule is updated.
+    > If you want to verify when the changes are propagated to Azure Front Door (classic), you can create a custom response header in the rule by using the following example. You can add a response header `_X-<RuleName>-Version_` and change the value each time the rule is updated.
     >  
     > :::image type="content" source="./media/front-door-rules-engine/rules-version.png" alt-text="Screenshot of custom version header rule." lightbox="./media/front-door-rules-engine/rules-version-expanded.png":::
     > After the changes are updated, you can go to the URL to confirm the rule version being invoked:
     > :::image type="content" source="./media/front-door-rules-engine/version-output.png" alt-text="Screenshot of custom header version output.":::
 
-1. Once you create one or more rules, select **Save**. This action creates your rules engine configuration.
+1. When you create one or more rules, select **Save**. This action creates your rules engine configuration.
 
-1. Once you create a rules engine configuration, you can associate the configuration with a routing rule. A single configuration can be applied to multiple routing rules, but a routing rule can only have one rules engine configuration. To associate the configuration, go to the **Azure Front Door (classic) designer** and select a **Route**. Then select the **Rules engine configuration** to associate with the routing rule.
+1. After you create a rules engine configuration, associate the configuration with a routing rule. You can apply a single configuration to multiple routing rules, but a routing rule can only have one rules engine configuration. To associate the configuration, go to the **Azure Front Door (classic) designer** and select a **Route**. Then select the **Rules engine configuration** to associate with the routing rule.
 
     :::image type="content" source="./media/front-door-rules-engine/rules-engine-tutorial-5.png" alt-text="Screenshot of rules engine configuration associate from the routing rule page.":::
 
@@ -108,9 +104,9 @@ For more information, see the full list of [Azure Front Door (classic) Rules eng
 
 To remove the Rules Engine configuration from your Front Door (classic):
 
-1. Disassociate any routing rules from the rule engine configuration by selecting the three dots next to the rule engine name and selecting **Associate routing rule**:
+1. Select the three dots next to the rule engine name, and then select **Associate routing rule** to disassociate any routing rules from the rule engine configuration:
 
-1. Uncheck all routing rules associated with this Rule Engine configuration and select **Save**:
+1. Uncheck all routing rules associated with this Rule Engine configuration, and then select **Save**:
 
 1. Delete the Rule Engine configuration from your Front Door:
 
@@ -121,9 +117,9 @@ To remove the Rules Engine configuration from your Front Door (classic):
 In this tutorial, you learned how to:
 
 * Create a Rule engine configuration
-* Associate a configuration to a routing rule.
+* Associate a configuration to a routing rule
 
-To learn how to add security headers with Rule engine, continue to the next tutorial.
+To learn how to add security headers by using Rule engine, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Security headers with Rules Engine](front-door-security-headers.md)

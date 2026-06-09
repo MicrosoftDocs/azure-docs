@@ -1,13 +1,13 @@
 ---
-title: Create an Azure storage account
+title: Create an Azure Storage Account
 titleSuffix: Azure Storage
-description: Learn to create a storage account to store blobs, files, queues, and tables. An Azure storage account provides a unique namespace in Microsoft Azure for reading and writing your data.
+description: Create an Azure storage account to store blobs, files, queues, and tables. Use the Azure portal, CLI, PowerShell, or templates to get started.
 services: storage
 author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 07/09/2025
+ms.date: 05/08/2026
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ms.custom:
@@ -24,7 +24,7 @@ ms.custom:
 
 An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS. For more information about Azure storage accounts, see [Storage account overview](storage-account-overview.md). To create a storage account specifically for use with Azure Files, see [Create an SMB file share](../files/storage-how-to-create-file-share.md?tabs=azure-portal#create-a-storage-account).
 
-In this how-to article, you learn to create a storage account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](/powershell/azure/), [Azure CLI](/cli/azure), or an [Azure Resource Manager template](../../azure-resource-manager/management/overview.md).
+In this article, you learn how to create a storage account by using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](/powershell/azure/), [Azure CLI](/cli/azure), or an [Azure Resource Manager template](../../azure-resource-manager/management/overview.md).
 
 ## Prerequisites
 
@@ -36,28 +36,28 @@ None.
 
 # [PowerShell](#tab/azure-powershell)
 
-To create an Azure storage account with PowerShell, make sure you have installed the latest [Azure Az PowerShell module](https://www.powershellgallery.com/packages/Az). See [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
+To create an Azure storage account by using PowerShell, make sure you install the latest [Azure Az PowerShell module](https://www.powershellgallery.com/packages/Az). See [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 
 # [Azure CLI](#tab/azure-cli)
 
 You can sign in to Azure and run Azure CLI commands in one of two ways:
 
-- You can run CLI commands from within the Azure portal, in Azure Cloud Shell.
-- You can install the CLI and run CLI commands locally.
+- Run CLI commands from within the Azure portal, in Azure Cloud Shell.
+- Install the CLI and run CLI commands locally.
 
 ### Use Azure Cloud Shell
 
 Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. The Azure CLI is preinstalled and configured to use with your account. Select the **Cloud Shell** button on the menu in the upper-right section of the Azure portal:
 
-[![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
+[![Screenshot of the Cloud Shell button in the upper-right area of the Azure portal.](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
 The button launches an interactive shell that you can use to run the steps outlined in this how-to article:
 
-[![Screenshot showing the Cloud Shell window in the portal](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
+[![Screenshot of the Cloud Shell window open in the Azure portal.](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
 ### Install the Azure CLI locally
 
-You can also install and use the Azure CLI locally. If you plan to use Azure CLI locally, make sure you have installed the latest version of the Azure CLI. See [Install the Azure CLI](/cli/azure/install-azure-cli).
+You can also install and use the Azure CLI locally. If you plan to use Azure CLI locally, make sure you install the latest version of the Azure CLI. See [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 # [Bicep](#tab/bicep)
 
@@ -69,13 +69,13 @@ None.
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
-[The Azure Developer CLI](/azure/developer/azure-developer-cli/overview) (`azd`) is an open-source, command-line tool that streamlines provisioning and deploying resources to Azure using a template system. `azd` is available for several development [environments](/azure/developer/azure-developer-cli/supported-languages-environments#supported-development-environments), including the following:
+[The Azure Developer CLI](/azure/developer/azure-developer-cli/overview) (`azd`) is an open-source, command-line tool that streamlines provisioning and deploying resources to Azure by using a template system. `azd` is available for several development [environments](/azure/developer/azure-developer-cli/supported-languages-environments#supported-development-environments), including the following options:
 
 - Locally via CLI by [installing azd](/azure/developer/azure-developer-cli/overview).
 - [GitHub Codespaces](https://github.com/features/codespaces) environments.
-- The Azure portal using [Cloud Shell](/azure/cloud-shell/overview)
+- The Azure portal by using [Cloud Shell](/azure/cloud-shell/overview).
   > [!NOTE]
-  > The `azd` template includes a `.devcontainer` that already has `azd` installed, therefore you can skip the installation step if you plan to use a `devcontainer` either locally or in an environment like Codespaces.
+  > The `azd` template includes a `.devcontainer` that already has `azd` installed. You can skip the installation step if you plan to use a `devcontainer` either locally or in an environment like Codespaces.
 
 # [Terraform](#tab/terraform)
 
@@ -93,7 +93,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 # [PowerShell](#tab/azure-powershell)
 
-Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions to authenticate.
+Sign in to your Azure subscription by using the `Connect-AzAccount` command and follow the on-screen directions to authenticate.
 
 ```powershell
 Connect-AzAccount
@@ -103,7 +103,7 @@ Connect-AzAccount
 
 To launch Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
 
-To log into your local installation of the CLI, run the [az sign-in](/cli/azure/reference-index#az-login) command:
+To log in to your local installation of the CLI, run the [az sign-in](/cli/azure/reference-index#az-login) command:
 
 ```azurecli-interactive
 az login
@@ -121,18 +121,18 @@ N/A
 
 If you plan to use `azd` via Cloud Shell:
 
-- Sign-in to the [Azure portal](https://portal.azure.com)
-- Launch Cloud Shell by clicking on the corresponding icon. `azd` is automatically available in Cloud Shell and will authenticate via the account you used to sign-in to the Azure portal.
+- Sign in to the [Azure portal](https://portal.azure.com).
+- Launch Cloud Shell by selecting the corresponding icon. `azd` is automatically available in Cloud Shell and authenticates by using the account you used to sign in to the Azure portal.
 
-  :::image type="content" source="media/storage-account-create/azure-developer-cli-cloudshell.png" alt-text="A screenshot showing how to access Azure Developer CLI from Cloud Shell.":::
+  :::image type="content" source="media/storage-account-create/azure-developer-cli-cloudshell.png" alt-text="Screenshot of Azure Developer CLI access from Cloud Shell in the Azure portal.":::
 
-To sign-in to a local installation of `azd` or Codespaces environment, run the [azd auth sign-in](/azure/developer/azure-developer-cli/reference#azd-auth-login) command:
+To sign in to a local installation of `azd` or Codespaces environment, run the [azd auth sign-in](/azure/developer/azure-developer-cli/reference#azd-auth-login) command:
 
 ```azurecli-interactive
     azd auth login
 ```
 
-`azd` will launch a browser window that you can use to sign-in to Azure.
+`azd` opens a browser window that you can use to sign in to Azure.
 
 # [Terraform](#tab/terraform)
 
@@ -144,11 +144,11 @@ To sign-in to a local installation of `azd` or Codespaces environment, run the [
 
 A storage account is an Azure Resource Manager resource. Resource Manager is the deployment and management service for Azure. For more information, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 
-Every Resource Manager resource, including an Azure storage account, must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group. This how-to shows how to create a new resource group.
+Every Resource Manager resource, including an Azure storage account, must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you can either create a new resource group or use an existing resource group. This article shows how to create a new resource group.
 
 ### Storage account type parameters
 
-When you create a storage account using PowerShell, the Azure CLI, Bicep, Azure Templates, or the Azure Developer CLI, the storage account type is specified by the `kind` parameter (for example, `StorageV2`). The performance tier and redundancy configuration are specified together by the `sku` or `SkuName` parameter (for example, `Standard_GRS`). The following table shows which values to use for the `kind` parameter and the `sku` or `SkuName` parameter to create a particular type of storage account with the desired redundancy configuration.
+When you create a storage account by using PowerShell, the Azure CLI, Bicep, Azure Templates, or the Azure Developer CLI, specify the storage account type by using the `kind` parameter (for example, `StorageV2`). Specify the performance tier and redundancy configuration together by using the `sku` or `SkuName` parameter (for example, `Standard_GRS`). The following table shows which values to use for the `kind` parameter and the `sku` or `SkuName` parameter to create a particular type of storage account with the desired redundancy configuration.
 
 | Type of storage account            | Supported redundancy configurations       | Supported values for the kind parameter | Supported values for the sku or SkuName parameter                                            | Supports hierarchical namespace |
 | ---------------------------------- | ----------------------------------------- | --------------------------------------- | -------------------------------------------------------------------------------------------- | ------------------------------- |
@@ -161,21 +161,23 @@ When you create a storage account using PowerShell, the Azure CLI, Bicep, Azure 
 
 # [Portal](#tab/azure-portal)
 
-To create an Azure storage account with the Azure portal, follow these steps:
+To create an Azure storage account by using the Azure portal, follow these steps:
 
-1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts. If the portal menu isn't visible, select the menu button to toggle it on.
+1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts. If you don't see the portal menu, select the menu button to toggle it on.
 
-   :::image type="content" source="media/storage-account-create/menu-expand-sml.png" alt-text="Image of the Azure portal homepage showing the location of the Menu button near the top left corner of the browser." lightbox="media/storage-account-create/menu-expand-lrg.png":::
+   :::image type="content" source="media/storage-account-create/menu-expand-sml.png" alt-text="Screenshot of the Azure portal homepage with the Menu button near the upper-left corner of the browser." lightbox="media/storage-account-create/menu-expand-lrg.png":::
 
 1. On the **Storage accounts** page, select **Create**.
 
-   :::image type="content" source="media/storage-account-create/create-button-sml.png" alt-text="Image showing the location of the create button within the Azure portal Storage Accounts page." lightbox="media/storage-account-create/create-button-lrg.png":::
+   :::image type="content" source="media/storage-account-create/create-button-sml.png" alt-text="Screenshot of the Create button on the Storage accounts page in the Azure portal." lightbox="media/storage-account-create/create-button-lrg.png":::
 
-Options for your new storage account are organized into tabs in the **Create a storage account** page. The following sections describe each of the tabs and their options.
+The **Create a storage account** page organizes options for your new storage account into tabs. The following image shows these tabs.
+
+:::image type="content" source="media/storage-account-create/create-account-tabs.png" alt-text="Screenshot of the tabs that contain each storage account setting.":::
 
 ### Basics tab
 
-On the **Basics** tab, provide the essential information for your storage account. After you complete the **Basics** tab, you can choose to further customize your new storage account by setting options on the other tabs, or you can select **Review + create** to accept the default options and proceed to validate and create the account.
+On the **Basics** tab, enter the essential information for your storage account. After you complete the **Basics** tab, you can choose to further customize your new storage account by setting options on the other tabs, or you can select **Review + create** to accept the default options and proceed to validate and create the account.
 
 The following table describes the fields on the **Basics** tab.
 
@@ -183,115 +185,100 @@ The following table describes the fields on the **Basics** tab.
 |--|--|--|--|
 | Project details | Subscription | Required | Select the subscription for the new storage account. |
 | Project details | Resource group | Required | Create a new resource group for this storage account, or select an existing one. For more information, see [Resource groups](../../azure-resource-manager/management/overview.md#resource-groups). |
-| Instance details | Storage account name | Required | Choose a unique name for your storage account. Storage account names must be between 3 and 24 characters in length and might contain numbers and lowercase letters only. |
-| Instance details | Region | Required | Select the appropriate region for your storage account. For more information, see [Regions and Availability Zones in Azure](/azure/reliability/availability-zones-overview).<br /><br />Not all regions are supported for all types of storage accounts or redundancy configurations. For more information, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />The choice of region can have a billing impact. For more information, see [Storage account billing](storage-account-overview.md#storage-account-billing). |
-| Instance details | Preferred storage type | Required | Preferred storage type allows us to provide relevant guidance in the account creation experience based on your selected storage type. There are four storage types to choose from: Blob storage or Azure Data Lake Storage (ADLS) Gen 2, Azure Files, Tables, and Queues. Choosing a preferred storage type does not limit you from using any other services inside the storage account. |
+| Instance details | Storage account name | Required | Choose a unique name for your storage account. Storage account names must be between 3 and 24 characters in length and can contain only numbers and lowercase letters. |
+| Instance details | Region | Required | Select the appropriate region for your storage account. For more information, see [Regions and Availability Zones in Azure](/azure/reliability/availability-zones-overview).<br /><br />Not all regions support all types of storage accounts or redundancy configurations. For more information, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />The choice of region can affect billing. For more information, see [Storage account billing](storage-account-overview.md#storage-account-billing). |
+| Instance details | Preferred storage type | Required | Preferred storage type allows Azure to provide relevant guidance in the account creation experience based on your selected storage type. Choose from four storage types: Blob storage or Azure Data Lake Storage (ADLS) Gen 2, Azure Files, Tables, and Queues. Choosing a preferred storage type doesn't limit you from using any other services inside the storage account. |
 | Instance details | Performance | Required | Select **Standard** performance for general-purpose v2 storage accounts (default). This type of account is recommended by Microsoft for most scenarios. For more information, see [Types of storage accounts](storage-account-overview.md#types-of-storage-accounts).<br /><br />Select **Premium** for scenarios requiring low latency. After selecting **Premium**, select the type of premium storage account to create. The following types of premium storage accounts are available: <ul><li>[Block blobs](./storage-account-overview.md)</li><li>[File shares](../files/storage-files-planning.md#management-concepts)</li><li>[Page blobs](../blobs/storage-blob-pageblob-overview.md)</li></ul>
-| Instance details | Redundancy | Required | Select your desired redundancy configuration. Not all redundancy options are available for all types of storage accounts in all regions. For more information about redundancy configurations, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />If you select a geo-redundant configuration (GRS or GZRS), your data is replicated to a data center in a different region. For read access to data in the secondary region, select **Make read access to data available in the event of regional unavailability**. |
-
-The following image shows a standard configuration of the basic properties for a new storage account.
-
-:::image type="content" source="media/storage-account-create/create-account-basics-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Basics tab." lightbox="media/storage-account-create/create-account-basics-tab-lrg.png":::
+| Instance details | Redundancy | Required | Select your desired redundancy configuration. Not all redundancy options are available for all types of storage accounts in all regions. For more information about redundancy configurations, see [Azure Storage redundancy](storage-redundancy.md).<br /><br />If you select a geo-redundant configuration (GRS or GZRS), Azure replicates your data to a data center in a different region. For read access to data in the secondary region, select **Make read access to data available in the event of regional unavailability**. |
 
 ### Advanced tab
 
-On the **Advanced** tab, you can configure additional options and modify default settings for your new storage account. Some of these options can also be configured after the storage account is created, while others must be configured at the time of creation.
+On the **Advanced** tab, you can configure additional options and modify default settings for your new storage account. Some of these options you can configure after creating the storage account, while others require configuration at the time of creation.
 
 The following table describes the fields on the **Advanced** tab.
 
-| Section           | Field                                                        | Required or optional | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ----------------- | ------------------------------------------------------------ | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Security          | Require secure transfer for REST API operations              | Optional             | Require secure transfer to ensure that incoming requests to this storage account are made only via HTTPS (default). Recommended for optimal security. For more information, see [Require secure transfer to ensure secure connections](storage-require-secure-transfer.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Security          | Allow enabling anonymous access on individual containers     | Optional             | When enabled, this setting allows a user with the appropriate permissions to enable anonymous access to a container in the storage account (default). Disabling this setting prevents all anonymous access to the storage account. Microsoft recommends disabling this setting for optimal security.<br/> <br/> For more information, see [Prevent anonymous read access to containers and blobs](../blobs/anonymous-read-access-prevent.md).<br/> <br/> Enabling anonymous access does not make blob data available for anonymous access unless the user takes the additional step to explicitly configure the container's anonymous access setting.                                                                                                                                      |
-| Security          | Enable storage account key access                            | Optional             | When enabled, this setting allows clients to authorize requests to the storage account using either the account access keys or a Microsoft Entra account (default). Disabling this setting prevents authorization with the account access keys. For more information, see [Prevent Shared Key authorization for an Azure Storage account](shared-key-authorization-prevent.md).                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Security          | Default to Microsoft Entra authorization in the Azure portal | Optional             | When enabled, the Azure portal authorizes data operations with the user's Microsoft Entra credentials by default. If the user does not have the appropriate permissions assigned via Azure role-based access control (Azure RBAC) to perform data operations, then the portal will use the account access keys for data access instead. The user can also choose to switch to using the account access keys. For more information, see [Default to Microsoft Entra authorization in the Azure portal](../blobs/authorize-data-operations-portal.md#default-to-azure-ad-authorization-in-the-azure-portal).                                                                                                                                                                                 |
-| Security          | Minimum TLS version                                          | Required             | Select the minimum version of Transport Layer Security (TLS) for incoming requests to the storage account. The default value is TLS version 1.2. When set to the default value, incoming requests made using TLS 1.0 or TLS 1.1 are rejected. For more information, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a storage account](transport-layer-security-configure-minimum-version.md).                                                                                                                                                                                                                                                                                                                                                   |
-| Security          | Permitted scope for copy operations (preview)                | Required             | Select the scope of storage accounts from which data can be copied to the new account. The default value is `From any storage account`. When set to the default value, users with the appropriate permissions can copy data from any storage account to the new account.<br /><br />Select `From storage accounts in the same Azure AD tenant` to only allow copy operations from storage accounts within the same Microsoft Entra tenant.<br />Select `From storage accounts that have a private endpoint to the same virtual network` to only allow copy operations from storage accounts with private endpoints on the same virtual network.<br /><br /> For more information, see [Restrict the source of copy operations to a storage account](security-restrict-copy-operations.md). |
-| Data Lake Storage | Enable hierarchical namespace                                | Optional             | To use this storage account for Azure Data Lake Storage workloads, configure a hierarchical namespace. For more information, see [Introduction to Azure Data Lake Storage](../blobs/data-lake-storage-introduction.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
-| Blob storage      | Enable SFTP                                                  | Optional             | Enable the use of Secure File Transfer Protocol (SFTP) to securely transfer of data over the internet. For more information, see [Secure File Transfer (SFTP) protocol support in Azure Blob Storage](../blobs/secure-file-transfer-protocol-support.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Blob storage      | Enable network file system (NFS) v3                          | Optional             | NFS v3 provides Linux file system compatibility at object storage scale enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. For more information, see [Network File System (NFS) 3.0 protocol support in Azure Blob Storage](../blobs/network-file-system-protocol-support.md).                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Blob storage      | Allow cross-tenant replication                               | Required             | By default, users with appropriate permissions can configure object replication across Microsoft Entra tenants. To prevent replication across tenants, deselect this option. For more information, see [Prevent replication across Microsoft Entra tenants](../blobs/object-replication-overview.md#prevent-replication-across-azure-ad-tenants).                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| Blob storage      | Access tier                                                  | Required             | Blob access tiers enable you to store blob data in the most cost-effective manner, based on usage. Select the hot tier (default) for frequently accessed data. Select the cool tier for infrequently accessed data. For more information, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md).                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-
-The following image shows a standard configuration of the advanced properties for a new storage account.
-
-:::image type="content" source="media/storage-account-create/create-account-advanced-tab.png" alt-text="Screenshot showing a standard configuration for a new storage account - Advanced tab." lightbox="media/storage-account-create/create-account-advanced-tab.png":::
+| Section           | Field                                 | Required or optional | Description                                                                                                                                                                                                                                                                                                                                                                                                          |
+|-------------------|---------------------------------------|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Data Lake Storage | Enable hierarchical namespace         | Optional             | To use this storage account for Azure Data Lake Storage workloads, configure a hierarchical namespace. For more information, see [Introduction to Azure Data Lake Storage](../blobs/data-lake-storage-introduction.md).                                                                                                                                                                                              |
+| Blob storage      | Enable SFTP                           | Optional             | Enable the use of Secure File Transfer Protocol (SFTP) to securely transfer data over the internet. For more information, see [Secure File Transfer (SFTP) protocol support in Azure Blob Storage](../blobs/secure-file-transfer-protocol-support.                                                                                                                                                                |
+| Blob storage      | Enable network file system (NFS) v3   | Optional             | NFS v3 provides Linux file system compatibility at object storage scale and enables Linux clients to mount a container in Blob storage from an Azure Virtual Machine (VM) or a computer on-premises. For more information, see [Network File System (NFS) 3.0 protocol support in Azure Blob Storage](../blobs/network-file-system-protocol-support.md).                                                                 |
+| Blob storage      | Allow cross-tenant replication        | Required             | By default, users with appropriate permissions can configure object replication across Microsoft Entra tenants. To prevent replication across tenants, deselect this option. For more information, see [Prevent replication across Microsoft Entra tenants](../blobs/object-replication-overview.md#prevent-replication-across-azure-ad-tenants).                                                                    |
+| Blob storage      | Access tier                           | Required             | Blob access tiers enable you to store blob data in the most cost-effective manner, based on usage. Select the hot tier (default) for frequently accessed data. Select the cool tier for infrequently accessed data. For more information, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md).                                                                                |
+| Azure Files       | Enable Managed Identity for SMB       | Optional             | This setting enables secure, credential-free access to Azure SMB file shares by allowing authentication through Microsoft Entra ID instead of storage account keys. This approach strengthens security and eliminates the need for storage account key access for VM and application. See [Access SMB Azure file shares by using managed identities with Microsoft Entra ID](../files/files-managed-identities.md). |
+| Azure Files       | Require Encryption in Transit for SMB | Optional             | This setting lets you independently control whether encryption is required for SMB access to Azure file shares in the storage account. This setting gives more granular control than the **Require secure transfer** setting. When **Require Encryption in Transit for SMB** is enabled on a storage account, the **Require secure transfer** setting applies only to REST/HTTPS traffic.                            |
 
 ### Networking tab
 
-On the **Networking** tab, you can configure network connectivity and routing preference settings for your new storage account. These options can also be configured after the storage account is created.
+On the **Networking** tab, you can configure network connectivity and routing preference settings for your new storage account. You can also configure these options after creating the storage account.
 
 The following table describes the fields on the **Networking** tab.
 
-| Section              | Field              | Required or optional | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| -------------------- | ------------------ | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Network connectivity | Network access     | Required             | By default, incoming network traffic is routed to the public endpoint for your storage account. You can specify that traffic must be routed to the public endpoint through an Azure virtual network. You can also configure private endpoints for your storage account. For more information, see [Use private endpoints for Azure Storage](storage-private-endpoints.md).                                                                                                                                                                                            |
-| Network connectivity | Endpoint type      | Required             | Azure Storage supports two types of endpoints: [standard endpoints](storage-account-overview.md#standard-endpoints) (the default) and [Azure DNS zone endpoints](storage-account-overview.md#azure-dns-zone-endpoints-preview) (preview). Within a given subscription, you can create up to 250<sup>1</sup> accounts with standard endpoints per region, and up to 5000 accounts with Azure DNS zone endpoints per region, for a total of 5250 storage accounts. To register for the preview, see [About the preview](storage-account-overview.md#about-the-preview). |
-| Network routing      | Routing preference | Required             | The network routing preference specifies how network traffic is routed to the public endpoint of your storage account from clients over the internet. By default, a new storage account uses Microsoft network routing. You can also choose to route network traffic through the POP closest to the storage account, which might lower networking costs. For more information, see [Network routing preference for Azure Storage](network-routing-preference.md).                                                                                                     |
-
-<sup>1</sup> With a quota increase, you can create up to 500 storage accounts with standard endpoints per region in a given subscription, for a total of 5500 storage accounts per region. For more information, see [Increase Azure Storage account quotas](/azure/quotas/storage-account-quota-requests).
-
-The following image shows a standard configuration of the networking properties for a new storage account.
-
-:::image type="content" source="media/storage-account-create/create-account-networking-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Networking tab." lightbox="media/storage-account-create/create-account-Networking-tab-lrg.png":::
-
-> [!IMPORTANT]
-> Azure DNS zone endpoints are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+| Field                        | Required or optional | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+|------------------------------|----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Public network access        | Required             | This setting specifies the default public network access rule. You can enable inbound traffic, block all traffic, or secure traffic by using a network security perimeter. If you choose to enable traffic, you can apply more granular control by using the options available in the **Public network access scope** section of this page.                                                                                                                            |
+| Public network access scope  | Required             | If you enable public network access, you can enable inbound traffic from all networks or allow traffic only from specific virtual networks or IP address ranges.                                                                                                                                                                                                                                                                                             |
+| Virtual network subscription | Optional             | If you choose to enable inbound traffic only from specific virtual networks or IP address ranges, use this setting to specify the subscription of a virtual network to which you want to allow traffic.                                                                                                                                                                                                                                                |
+| Virtual network              | Optional             | If you choose to enable inbound traffic only from specific virtual networks or IP address ranges, use this setting to specify the name of a virtual network from which you want to allow traffic.                                                                                                                                                                                                                                                   |
+| IPv4 Addresses               | Optional             | If you choose to enable inbound traffic only from specific virtual networks or IP address ranges, use this setting to select public internet IP addresses from which you want to allow traffic.                                                                                                                                                                                                                                                |
+| Private endpoint             | Optional             | Enables you to create a private endpoint which assigns a private IP address from your virtual network to your storage account.                                                                                                                                                                                                                                                    |
+| Network routing              | Required             | The network routing preference specifies how network traffic is routed to the public endpoint of your storage account from clients over the internet. By default, a new storage account uses Microsoft network routing. You can also choose to route network traffic through the POP closest to the storage account, which might lower networking costs. For more information, see [Network routing preference for Azure Storage](network-routing-preference.md). |
+| Internet protocol            | Optional             | You can optionally enable the IPv6 protocol in addition to IPv4. IPv6 requires public endpoint access, and is currently incompatible with private endpoints and internet routing. |
 
 ### Data protection tab
 
-On the **Data protection** tab, you can configure data protection options for blob data in your new storage account. These options can also be configured after the storage account is created. For an overview of data protection options in Azure Storage, see [Data protection overview](../blobs/data-protection-overview.md).
+On the **Data protection** tab, you can configure data protection options for blob data in your new storage account. You can also configure these options after creating the storage account. For an overview of data protection options in Azure Storage, see [Data protection overview](../blobs/data-protection-overview.md).
 
 The following table describes the fields on the **Data protection** tab.
 
 | Section        | Field                                       | Required or optional | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| -------------- | ------------------------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|----------------|---------------------------------------------|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Recovery       | Enable point-in-time restore for containers | Optional             | Point-in-time restore provides protection against accidental deletion or corruption by enabling you to restore block blob data to an earlier state. For more information, see [Point-in-time restore for block blobs](../blobs/point-in-time-restore-overview.md).<br /><br />Enabling point-in-time restore also enables blob versioning, blob soft delete, and blob change feed. These prerequisite features might have a cost impact. For more information, see [Pricing and billing](../blobs/point-in-time-restore-overview.md#pricing-and-billing) for point-in-time restore.  |
 | Recovery       | Enable soft delete for blobs                | Optional             | Blob soft delete protects an individual blob, snapshot, or version from accidental deletes or overwrites by maintaining the deleted data in the system for a specified retention period. During the retention period, you can restore a soft-deleted object to its state at the time it was deleted. For more information, see [Soft delete for blobs](../blobs/soft-delete-blob-overview.md).<br /><br />Microsoft recommends enabling blob soft delete for your storage accounts and setting a minimum retention period of seven days.                                             |
 | Recovery       | Enable soft delete for containers           | Optional             | Container soft delete protects a container and its contents from accidental deletes by maintaining the deleted data in the system for a specified retention period. During the retention period, you can restore a soft-deleted container to its state at the time it was deleted. For more information, see [Soft delete for containers](../blobs/soft-delete-container-overview.md).<br /><br />Microsoft recommends enabling container soft delete for your storage accounts and setting a minimum retention period of seven days.                                                |
 | Recovery       | Enable soft delete for file shares          | Optional             | Soft delete for file shares protects a file share and its contents from accidental deletes by maintaining the deleted data in the system for a specified retention period. During the retention period, you can restore a soft-deleted file share to its state at the time it was deleted. For more information, see [Prevent accidental deletion of Azure file shares](../files/storage-files-prevent-file-share-deletion.md).<br /><br />Microsoft recommends enabling soft delete for file shares for Azure Files workloads and setting a minimum retention period of seven days. |
 | Tracking       | Enable versioning for blobs                 | Optional             | Blob versioning automatically saves the state of a blob in a previous version when the blob is overwritten. For more information, see [Blob versioning](../blobs/versioning-overview.md).<br /><br />Microsoft recommends enabling blob versioning for optimal data protection for the storage account.                                                                                                                                                                                                                                                                              |
 | Tracking       | Enable blob change feed                     | Optional             | The blob change feed provides transaction logs of all changes to all blobs in your storage account, as well as to their metadata. For more information, see [Change feed support in Azure Blob Storage](../blobs/storage-blob-change-feed.md).                                                                                                                                                                                                                                                                                                                                       |
-| Access control | Enable version-level immutability support   | Optional             | Enable support for immutability policies that are scoped to the blob version. If this option is selected, then after you create the storage account, you can configure a default time-based retention policy for the account or for the container, which blob versions within the account or container will inherit by default. For more information, see [Enable version-level immutability support on a storage account](../blobs/immutable-policy-configure-version-scope.md#enable-version-level-immutability-support-on-a-storage-account).                                     |
+| Access control | Enable version-level immutability support   | Optional             | Enable support for immutability policies that are scoped to the blob version. If you select this option, then after you create the storage account, you can configure a default time-based retention policy for the account or for the container, which blob versions within the account or container inherit by default. For more information, see [Enable version-level immutability support on a storage account](../blobs/immutable-policy-configure-version-scope.md#enable-version-level-immutability-support-on-a-storage-account).                                     |
 
-The following image shows a standard configuration of the data protection properties for a new storage account.
+### Security tab
 
-:::image type="content" source="media/storage-account-create/create-account-protection-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Data Protection tab." lightbox="media/storage-account-create/create-account-protection-tab-lrg.png":::
+On the **Security** tab, you can configure options that relate to security.
+
+The following table describes the fields on the **Security** tab.
+
+| Section                        | Field                                                        | Required or optional | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+|--------------------------------|--------------------------------------------------------------|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Security                       | Require secure transfer for REST API operations              | Optional             | Require secure transfer to ensure that incoming requests to this storage account are made only via HTTPS (default). Recommended for optimal security. If neither **Require Encryption in Transit for SMB** or **Require Encryption in Transit for NFS** are selected in the **Azure Files** section of the **Advanced** tab, this setting applies to SMB and NFS for Azure Files as well as REST/HTTPS traffic. If you have clients that need access to unencrypted SMB (such as SMB 2.1), uncheck this checkbox. For more information, see [Require secure transfer to ensure secure connections](storage-require-secure-transfer.md).                                                                                                                                                    |
+| Security                       | Allow enabling anonymous access on individual containers     | Optional             | When enabled, this setting allows a user with the appropriate permissions to enable anonymous access to a container in the storage account (default). Disabling this setting prevents all anonymous access to the storage account. Microsoft recommends disabling this setting for optimal security.<br/> <br/> For more information, see [Prevent anonymous read access to containers and blobs](../blobs/anonymous-read-access-prevent.md).<br/> <br/> Enabling anonymous access doesn't make blob data available for anonymous access unless the user takes the additional step to explicitly configure the container's anonymous access setting.                                                                                                                                      |
+| Security                       | Enable storage account key access                            | Optional             | When enabled, this setting allows clients to authorize requests to the storage account by using either the account access keys or a Microsoft Entra account (default). Disabling this setting is more secure because it prevents authorization by using the account access keys. For more information, see [Prevent Shared Key authorization for an Azure Storage account](shared-key-authorization-prevent.md).                                                                                                                                                                                                                                                                                                                                                                                  |
+| Security                       | Default to Microsoft Entra authorization in the Azure portal | Optional             | When enabled, the Azure portal authorizes data operations by using the user's Microsoft Entra credentials by default. If the user doesn't have the appropriate permissions assigned via Azure role-based access control (Azure RBAC) to perform data operations, the portal uses the account access keys for data access instead. The user can also choose to switch to using the account access keys. For more information, see [Default to Microsoft Entra authorization in the Azure portal](../blobs/authorize-data-operations-portal.md#default-to-azure-ad-authorization-in-the-azure-portal).                                                                                                                                                                                 |
+| Security                       | Minimum TLS version                                          | Required             | Select the minimum version of Transport Layer Security (TLS) for incoming requests to the storage account. The default value is TLS version 1.2. When set to the default value, incoming requests made by using TLS 1.0 or TLS 1.1 are rejected. For more information, see [Enforce a minimum required version of Transport Layer Security (TLS) for requests to a storage account](transport-layer-security-configure-minimum-version.                                                                                                                                                                                                                                                                                                                                                       |
+| Security                       | Permitted scope for copy operations (preview)                | Required             | Select the scope of storage accounts from which data can be copied to the new account. The default value is `From any storage account`. When set to the default value, users with the appropriate permissions can copy data from any storage account to the new account.<br /><br />Select `From storage accounts in the same Azure AD tenant` to only allow copy operations from storage accounts within the same Microsoft Entra tenant.<br />Select `From storage accounts that have a private endpoint to the same virtual network` to only allow copy operations from storage accounts with private endpoints on the same virtual network.<br /><br /> For more information, see [Restrict the source of copy operations to a storage account](security-restrict-copy-operations.md). |
+| Microsoft Defender for Storage | Enable Defender for Storage                                  | Optional             | When enabled, your account activates an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts.<br /><br /> For more information, see [What is Microsoft Defender for Cloud?](/azure/defender-for-cloud/defender-for-cloud-introduction).                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
 ### Encryption tab
 
-On the **Encryption** tab, you can configure options that relate to how your data is encrypted when it is persisted to the cloud. Some of these options can be configured only when you create the storage account.
+On the **Encryption** tab, you can configure options that relate to how your data is encrypted when it's persisted to the cloud. Some of these options can be configured only when you create the storage account.
+
+The following table describes the fields on the **Encryption** tab.
 
 | Field                                    | Required or optional                                                       | Description                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Encryption type                          | Required                                                                   | By default, data in the storage account is encrypted by using Microsoft-managed keys. You can rely on Microsoft-managed keys for the encryption of your data, or you can manage encryption with your own keys. For more information, see [Azure Storage encryption for data at rest](storage-service-encryption.md).                                                                                                     |
-| Enable support for customer-managed keys | Required                                                                   | By default, customer managed keys can be used to encrypt only blobs and files. Set this option to **All service types (blobs, files, tables, and queues)** to enable support for customer-managed keys for all services. You are not required to use customer-managed keys if you choose this option. For more information, see [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md). |
-| Encryption key                           | Required if **Encryption type** field is set to **Customer-managed keys**. | If you choose **Select a key vault and key**, you are presented with the option to navigate to the key vault and key that you wish to use. If you choose **Enter key from URI**, then you are presented with a field to enter the key URI and the subscription.                                                                                                                                                          |
-| User-assigned identity                   | Required if **Encryption type** field is set to **Customer-managed keys**. | If you are configuring customer-managed keys at create time for the storage account, you must provide a user-assigned identity to use for authorizing access to the key vault.                                                                                                                                                                                                                                           |
-| Enable infrastructure encryption         | Optional                                                                   | By default, infrastructure encryption is not enabled. Enable infrastructure encryption to encrypt your data at both the service level and the infrastructure level. For more information, see [Create a storage account with infrastructure encryption enabled for double encryption of data](infrastructure-encryption-enable.md).                                                                                      |
-
-The following image shows a standard configuration of the encryption properties for a new storage account.
-
-:::image type="content" source="media/storage-account-create/create-account-encryption-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Encryption tab." lightbox="media/storage-account-create/create-account-encryption-tab-lrg.png":::
+| Encryption type                          | Required                                                                   | By default, data in the storage account is encrypted by using Microsoft-managed keys. You can rely on Microsoft-managed keys for the encryption of your data, or you can manage encryption by using your own keys. For more information, see [Azure Storage encryption for data at rest](storage-service-encryption.md).                                                                                                     |
+| Enable support for customer-managed keys | Required                                                                   | By default, customer managed keys can be used to encrypt only blobs and files. Set this option to **All service types (blobs, files, tables, and queues)** to enable support for customer-managed keys for all services. You don't need to use customer-managed keys if you choose this option. For more information, see [Customer-managed keys for Azure Storage encryption](customer-managed-keys-overview.md). |
+| Encryption key                           | Required if **Encryption type** field is set to **Customer-managed keys**. | If you choose **Select a key vault and key**, you are presented with the option to navigate to the key vault and key that you wish to use. If you choose **Enter key from URI**, you're presented with a field to enter the key URI and the subscription.                                                                                                                                                          |
+| User-assigned identity                   | Required if **Encryption type** field is set to **Customer-managed keys**. | If you're configuring customer-managed keys when creating the storage account, you must provide a user-assigned identity to use for authorizing access to the key vault.                                                                                                                                                                                                                                           |
+| Enable infrastructure encryption         | Optional                                                                   | By default, infrastructure encryption isn't enabled. Enable infrastructure encryption to encrypt your data at both the service level and the infrastructure level. For more information, see [Create a storage account with infrastructure encryption enabled for double encryption of data](infrastructure-encryption-enable.md).                                                                                      |
 
 ### Tags tab
 
-On the **Tags** tab, you can specify Resource Manager tags to help organize your Azure resources. For more information, see [Tag resources, resource groups, and subscriptions for logical organization](../../azure-resource-manager/management/tag-resources.md).
-
-The following image shows a standard configuration of the index tag properties for a new storage account.
-
-:::image type="content" source="media/storage-account-create/create-account-tags-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Tags tab." lightbox="media/storage-account-create/create-account-tags-tab-lrg.png":::
+On the **Tags** tab, specify Resource Manager tags to help organize your Azure resources. For more information, see [Tag resources, resource groups, and subscriptions for logical organization](../../azure-resource-manager/management/tag-resources.md).
 
 ### Review + create tab
 
-When you navigate to the **Review + create** tab, Azure runs validation on the storage account settings that you have chosen. If validation passes, you can proceed to create the storage account.
+When you go to the **Review + create** tab, Azure validates the storage account settings that you choose. If validation passes, you can create the storage account.
 
-If validation fails, then the portal indicates which settings need to be modified.
-
-The following image shows the **Review** tab data prior to the creation of a new storage account.
-
-:::image type="content" source="media/storage-account-create/create-account-review-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Review tab." lightbox="media/storage-account-create/create-account-review-tab-lrg.png":::
+If validation fails, the portal indicates which settings you need to modify.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -303,7 +290,7 @@ $location = "<location>"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-If you're not sure which region to specify for the `-Location` parameter, you can retrieve a list of supported regions for your subscription with the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command:
+If you're not sure which region to specify for the `-Location` parameter, retrieve a list of supported regions for your subscription by using the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command:
 
 ```azurepowershell
 Get-AzLocation | select Location
@@ -372,7 +359,7 @@ az group create \
   --location eastus
 ```
 
-If you're not sure which region to specify for the `--location` parameter, you can retrieve a list of supported regions for your subscription with the [az account list-locations](/cli/azure/account#az-account-list) command.
+If you're not sure which region to specify for the `--location` parameter, retrieve a list of supported regions for your subscription by using the [az account list-locations](/cli/azure/account#az-account-list) command.
 
 ```azurecli-interactive
 az account list-locations \
@@ -444,7 +431,7 @@ az deployment group create --resource-group $resourceGroupName --template-file "
 ```
 
 > [!NOTE]
-> This Bicep file serves only as an example. There are many storage account settings that aren't configured as part of this Bicep file. For example, if you want to use [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), you would modify this Bicep file by setting the `isHnsEnabled` property of the `StorageAccountPropertiesCreateParameters` object to `true`.
+> This Bicep file serves only as an example. There are many storage account settings that aren't configured as part of this Bicep file. For example, if you want to use [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), you need to modify this Bicep file by setting the `isHnsEnabled` property of the `StorageAccountPropertiesCreateParameters` object to `true`.
 
 To learn how to modify this Bicep file or create new ones, see:
 
@@ -474,7 +461,7 @@ az deployment group create --resource-group $resourceGroupName --template-uri "h
 ```
 
 > [!NOTE]
-> This template serves only as an example. There are many storage account settings that aren't configured as part of this template. For example, if you want to use [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), you would modify this template by setting the `isHnsEnabled` property of the `StorageAccountPropertiesCreateParameters` object to `true`.
+> This template serves only as an example. There are many storage account settings that aren't configured as part of this template. For example, if you want to use [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), you need to modify this template by setting the `isHnsEnabled` property of the `StorageAccountPropertiesCreateParameters` object to `true`.
 
 To learn how to modify this template or create new ones, see:
 
@@ -484,49 +471,49 @@ To learn how to modify this template or create new ones, see:
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
-The Azure Developer CLI (`azd`) is designed around [`azd` templates](/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-convert). These templates leverage Bicep files, basic configurations and automation tasks to provision and deploy resources to Azure. You can also view the source code for the template in the [create a storage account quickstart](https://github.com/Azure-Samples/azd-create-storage-account/tree/main) repository.
+The Azure Developer CLI (`azd`) is designed around [`azd` templates](/azure/developer/azure-developer-cli/make-azd-compatible?pivots=azd-convert). These templates use Bicep files, basic configurations, and automation tasks to provision and deploy resources to Azure. You can also view the source code for the template in the [create a storage account quickstart](https://github.com/Azure-Samples/azd-create-storage-account/tree/main) repository.
 
-Initialize and run the template for this quickstart using the following steps:
+Initialize and run the template for this quickstart by using the following steps:
 
-1. Run the `azd init` command in a local terminal or CloudShell:
+1. Run the `azd init` command in a local terminal or CloudShell.
 
    ```azurecli-interactive
    azd init --template https://github.com/azure-samples/azd-create-storage-account
    ```
 
-1. `azd` will prompt you for an environment name, which will determine the naming of provisioned resources in Azure. Enter the name `azdstorage` and press enter.
+1. `azd` prompts you for an environment name, which determines the naming of provisioned resources in Azure. Enter the name `azdstorage` and press Enter.
 
    :::image type="content" source="media/storage-account-create/azure-developer-cli-init.png" alt-text="A screenshot showing the Azure Developer CLI init command.":::
 
-1. Next, run the `azd up` command to begin the template provisioning and deployment process.
+1. Next, run the `azd up` command to start the template provisioning and deployment process.
 
    ```azurecli-interactive
    azd up
    ```
 
-1. If you are not already authenticated to Azure, `azd` will output a message instructing you to sign-in to Azure using the `azd auth login` command.
+1. If you're not already authenticated to Azure, `azd` outputs a message instructing you to sign in to Azure by using the `azd auth login` command.
 
    ```azurecli-interactive
    azd auth login
    ```
 
-1. Once you are authenticated, `azd` will prompt you for the Azure location to provision the storage account to from a list of regions. Select your desired location from the list and press enter.
+1. After you authenticate, `azd` prompts you for the Azure location to provision the storage account from a list of regions. Select your desired location from the list and press Enter.
 
 1. `azd` will also prompt you for a storage account type. The type is a custom parameter that was added to the azd template to add flexibility to the storage account provisioning. Choose `Standard_LRS` or whatever type you would like, and then press enter.
 
-1. `azd` will begin provisioning the storage account. The command output will provide a link to the deployment in Azure and status details until the command finishes.
+1. `azd` begins provisioning the storage account. The command output provides a link to the deployment in Azure and status details until the command finishes.
 
-   :::image type="content" source="media/storage-account-create/azure-developer-cli-up.png" alt-text="A screenshot showing the output of the azd up command.":::
+   :::image type="content" source="media/storage-account-create/azure-developer-cli-up.png" alt-text="Screenshot of the azd up command output in the terminal.":::
 
-1. When the command finishes, click the link to open the Azure portal to the provisioned resource group and storage account.
+1. When the command finishes, select the link to open the Azure portal to the provisioned resource group and storage account.
 
-   :::image type="content" source="media/storage-account-create/azure-developer-cli-resource-group.png" alt-text="A screenshot showing the deployed resource group and storage account.":::
+   :::image type="content" source="media/storage-account-create/azure-developer-cli-resource-group.png" alt-text="Screenshot of the deployed resource group and storage account in the Azure portal.":::
 
 # [Terraform](#tab/terraform)
 
-The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-storage-account). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-storage-account/TestRecord.md). See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
+The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-storage-account). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-storage-account/TestRecord.md). For more information, see [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform).
 
-1. Create a directory in which to test and run the sample Terraform code, and make it the current directory.
+1. Create a directory to test and run the sample Terraform code, and make it the current directory.
 
 1. Create a file named `providers.tf`, and insert the following code:
    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-storage-account/providers.tf":::
@@ -562,13 +549,13 @@ The sample code for this article is located in the [Azure Terraform GitHub repo]
 
 Deleting a storage account deletes the entire account, including all data in the account. Be sure to back up any data you want to save before you delete the account.
 
-Under certain circumstances, a deleted storage account might be recovered, but recovery is not guaranteed. For more information, see [Recover a deleted storage account](storage-account-recover.md).
+Under certain circumstances, you might be able to recover a deleted storage account, but recovery isn't guaranteed. For more information, see [Recover a deleted storage account](storage-account-recover.md).
 
 If you try to delete a storage account associated with an Azure virtual machine, you might get an error about the storage account still being in use. For help with troubleshooting this error, see [Troubleshoot errors when you delete storage accounts](/troubleshoot/azure/virtual-machines/storage-resource-deletion-errors).
 
 # [Portal](#tab/azure-portal)
 
-1. Navigate to the storage account in the [Azure portal](https://portal.azure.com).
+1. Go to the storage account in the [Azure portal](https://portal.azure.com).
 1. Select **Delete**.
 
 # [PowerShell](#tab/azure-powershell)
@@ -625,7 +612,7 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
-To delete the resource group and storage account created by `azd`, use the `azd down` command:
+To delete the resource group and storage account that `azd` created, use the `azd down` command:
 
 ```azurecli-interactive
 azd down
@@ -637,7 +624,7 @@ azd down
 
 ---
 
-Alternately, you can delete the resource group, which deletes the storage account and any other resources in that resource group. For more information about deleting a resource group, see [Delete resource group and resources](../../azure-resource-manager/management/delete-resource-group.md).
+You can also delete the resource group. This action deletes the storage account and any other resources in that resource group. For more information about deleting a resource group, see [Delete resource group and resources](../../azure-resource-manager/management/delete-resource-group.md).
 
 ## Next steps
 

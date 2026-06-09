@@ -3,7 +3,7 @@ title: Deploy Azure Stream Analytics as an Azure IoT Edge Module
 description: Deploy Azure Stream Analytics to IoT Edge devices to process data locally, reduce cloud traffic, and react to insights faster. Learn how in this step-by-step guide.
 author: sethmanheim
 ms.author: sethm
-ms.date: 02/25/2026
+ms.date: 03/05/2026
 ms.topic: tutorial
 ms.service: azure-iot-edge
 ms.custom:
@@ -276,7 +276,7 @@ Otherwise, delete the local configurations and Azure resources you used in this 
 
 ## Next steps
 
-In this tutorial, you set up an Azure Stream Analytics job to analyze data from your IoT Edge device. You loaded the Azure Stream Analytics module on your IoT Edge device to process and react to temperature increases locally, and sent the aggregated data stream to the cloud. To learn how Azure IoT Edge can help you build more solutions, try next tutorial.
+In this tutorial, you set up an Azure Stream Analytics job to analyze data from your IoT Edge device. You loaded the Azure Stream Analytics module on your IoT Edge device to process and react to temperature increases locally, and sent the aggregated data stream to the cloud. To learn how Azure IoT Edge can help you build more solutions, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Deploy an Azure Machine Learning model as a module](tutorial-deploy-machine-learning.md)
+> [Develop Azure IoT Edge modules using Visual Studio Code](tutorial-develop-for-linux.md)

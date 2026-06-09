@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/16/2025
+ms.date: 03/26/2026
 ---
 
 # Trusted Hardware Identity Management
@@ -184,25 +184,25 @@ Follow these steps to request AMD collateral in a confidential container:
        1. Create a resource group in one of the CVM supported regions:
 
           ```bash
-          az group create --resource-group <RG_NAME> --location <LOCATION> 
+          az group create --resource-group <resource-group> --location <location> 
           ```
 
        2. Create an AKS cluster with one CVM node in the resource group:
 
           ```bash
-          az aks create --name <CLUSTER_NAME> --resource-group <RG_NAME> -l <LOCATION> --node-vm-size Standard_DC4as_v5 --nodepool-name <POOL_NAME> --node-count 1
+          az aks create --name <aks-cluster-name> --resource-group <resource-group> -l <location> --node-vm-size Standard_DC4as_v5 --nodepool-name <pool-name> --node-count 1
           ```
 
        3. Configure kubectl to connect to the cluster:
 
           ```bash
-          az aks get-credentials --resource-group <RG_NAME> --name <CLUSTER_NAME> 
+          az aks get-credentials --resource-group <resource-group> --name <aks-cluster-name> 
           ```
 
     - Add a CVM node pool to an existing AKS cluster:
 
       ```bash
-      az aks nodepool add --cluster-name <CLUSTER_NAME> --resource-group <RG_NAME> --name <POOL_NAME > --node-vm-size Standard_DC4as_v5 --node-count 1 
+      az aks nodepool add --cluster-name <aks-cluster-name> --resource-group <resource-group> --name <pool-name> --node-vm-size Standard_DC4as_v5 --node-count 1 
       ```
 
 2. Verify the connection to your cluster by using the `kubectl get` command. This command returns a list of the cluster nodes.

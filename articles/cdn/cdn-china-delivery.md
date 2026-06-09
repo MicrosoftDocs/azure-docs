@@ -41,7 +41,7 @@ Azure Content Delivery Network global and Azure Content Delivery Network China h
 
      - Two pricing tiers: Standard and premium
 
-     - [Documentation](https://docs.azure.cn/en-us/cdn/)
+     - [Documentation](https://docs.azure.cn/en-us/frontdoor/china-cdn-retirement-faq)
 
 ## Next steps
 
@@ -49,8 +49,8 @@ To learn more about Azure Content Delivery Network China, see:
 
 - [Content Delivery Network features](https://www.azure.cn/en-us/home/features/cdn/)
 
-- [Overview of Azure Content Delivery Network](https://docs.azure.cn/en-us/cdn/cdn-overview)
+- [Overview of Azure Content Delivery Network](https://docs.azure.cn/en-us/frontdoor/azure-china-cdn-and-afd-comparison)
 
-- [Use the Azure content delivery network](https://docs.azure.cn/en-us/cdn/cdn-how-to-use)
+- [Use the Azure content delivery network](https://docs.azure.cn/en-us/frontdoor/azure-china-cdn-migration-to-azure-front-door-guidance)
 
 - [Azure service availability in China](/azure/china/concepts-service-availability)

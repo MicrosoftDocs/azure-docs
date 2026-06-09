@@ -1,8 +1,8 @@
 ---
 title: About Azure Bastion configuration settings
 description: Learn about the available configuration settings for Azure Bastion.
-author: abell
-ms.author: abell
+author: cherylmc
+ms.author: cherylmc
 ms.service: azure-bastion
 ms.topic: concept-article
 ms.date: 11/24/2025
@@ -67,18 +67,9 @@ Refer to the table below for creating/using public IP addresses for zonal Bastio
 
 ## <a name="instance"></a>Instances and host scaling
 
-An instance is an optimized Azure VM that is created when you configure Azure Bastion. It's fully managed by Azure and runs all of the processes needed for Azure Bastion. An instance is also referred to as a scale unit. You connect to client VMs via an Azure Bastion instance. When you configure Azure Bastion using the Basic SKU, two instances are created. If you use the Standard SKU or higher, you can specify the number of instances (with a minimum of two instances). This is called **host scaling**.
+An instance is an optimized Azure VM that is created when you configure Azure Bastion. Azure fully manages each instance for you. An instance is also referred to as a scale unit. You connect to client VMs via an Azure Bastion instance. When you configure Azure Bastion using the Basic SKU, two instances are created. If you use the Standard SKU or higher, you can specify the number of instances. This is called **host scaling**.
 
-Each instance can support 20 concurrent RDP connections and 40 concurrent SSH connections for medium workloads (see [Azure subscription limits and quotas](../azure-resource-manager/management/azure-subscription-service-limits.md) for more information). The number of connections per instances depends on what actions you're taking when connected to the client VM. For example, if you're doing something data intensive, it creates a larger load for the instance to process. Once the concurrent sessions are exceeded, another scale unit (instance) is required.
-
-Instances are created in the AzureBastionSubnet. To allow for host scaling, the AzureBastionSubnet should be /26 or larger. Using a smaller subnet limits the number of instances you can create. For more information about the AzureBastionSubnet, see the [subnets](#subnet) section in this article.
-
-You can configure this setting using the following methods:
-
-| Method | Value | Links | Requires Standard SKU or higher|
-| --- | --- | --- | ---|
-| Azure portal |Instance count  | [How-to](configure-host-scaling.md)| Yes |
-| Azure PowerShell | ScaleUnit | [How-to](configure-host-scaling-powershell.md) | Yes |
+To configure host scaling, see [Configure host scaling](configure-host-scaling.md).
 
 ## <a name="ports"></a>Custom ports
 
@@ -110,6 +101,7 @@ When a user without Azure credentials clicks a shareable link, a webpage opens t
 
 ## Next steps
 
-For frequently asked questions, see the [Azure Bastion FAQ](bastion-faq.md).
-Choose the right Azure Bastion SKU for your needs by reading [Choose the right Azure Bastion SKUs to meet your needs](bastion-sku-comparison.md).
-Review the cost optimization recommendations for Azure Bastion in [Optimize Azure Bastion costs](cost-optimization.md).
+* Learn about [frequently asked questions for Azure Bastion](bastion-faq.md).
+* Learn about the different [Azure Bastion SKU tiers](bastion-sku-comparison.md) and choose the right one for your requirements.
+* Learn how to [optimize Azure Bastion costs](cost-optimization.md) while maintaining secure remote access.
+* Learn how to [add more instances (scale units) to Azure Bastion](configure-host-scaling.md).

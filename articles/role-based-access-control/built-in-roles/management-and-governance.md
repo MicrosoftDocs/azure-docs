@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -1008,7 +1008,7 @@ Custom role for Azure Local resource provider (Microsoft.AzureStackHCI Resource 
 > | [Microsoft.EdgeMarketplace](../permissions/internet-of-things.md#microsoftedgemarketplace)/locations/operationStatuses/read | read operationStatuses |
 > | [Microsoft.EdgeMarketPlace](../permissions/internet-of-things.md#microsoftedgemarketplace)/offers/getAccessToken/action | get access token. |
 > | [Microsoft.EdgeMarketPlace](../permissions/internet-of-things.md#microsoftedgemarketplace)/offers/generateAccessToken/action | A long-running resource action. |
-> | [Microsoft.EdgeMarketplace](../permissions/internet-of-things.md#microsoftedgemarketplace)/publishers/read | Get a Publisher |
+> | [Microsoft.EdgeMarketplace](../permissions/internet-of-things.md#microsoftedgemarketplace)/publishers/read | List Publisher resources by parent |
 > | [Microsoft.EdgeMarketplace](../permissions/internet-of-things.md#microsoftedgemarketplace)/offers/read | List Offer resources by parent |
 > | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/read | Gets an Custom Location resource |
 > | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/write | Adds attestation service. |

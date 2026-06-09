@@ -3,6 +3,7 @@ title: Validate images
 description: Validate that Azure IoT Operations docker and helm images are legitimate.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: how-to
 ms.date: 11/01/2024
 

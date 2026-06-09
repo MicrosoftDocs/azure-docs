@@ -96,6 +96,8 @@
       href: subnet-delegation-overview.md
     - name: Subnet extension
       href: subnet-extension.md
+    - name: Advertised gateway prefixes
+      href: advertised-gateway-prefixes-overview.md
     - name: Virtual network peering
       href: virtual-network-peering-overview.md
     - name: What is IP address 168.63.129.16?
@@ -118,6 +120,8 @@
       href: network-overview.md
 - name: Deploy virtual network
   items:
+    - name: Configure advertised gateway prefixes
+      href: how-to-advertised-gateway-prefixes.md
     - name: Connect a virtual network to ExpressRoute circuits
       href: /azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
     - name: Connect an on-premises network to Azure by using ExpressRoute
@@ -212,6 +216,8 @@
               href: accelerated-networking-mana-windows.md
             - name: MANA support for existing VM sizes
               href: accelerated-networking-mana-existing-sizes.md
+            - name: MANA on Network Virtual Appliances (NVAs) for existing VM sizes
+              href: accelerated-networking-mana-network-virtual-appliance-opt-out.md
         - name: Migrate a VM public IP address to a NAT gateway
           href: /azure/nat-gateway/tutorial-migrate-ilip-nat?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
         - name: Network bandwidth

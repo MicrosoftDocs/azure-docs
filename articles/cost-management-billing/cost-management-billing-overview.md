@@ -134,7 +134,7 @@ Microsoft offers a wide range of tools for optimizing your costs. Some of these 
 - [**Azure reservations**](https://azure.microsoft.com/reservations/) help you save up to 72% compared to pay-as-you-go rates by pre-committing to specific usage amounts for a set time duration.
 - [**Azure Hybrid Benefit**](https://azure.microsoft.com/pricing/hybrid-benefit/) helps you significantly reduce costs by using on-premises Windows Server and SQL Server licenses or RedHat and SUSE Linux subscriptions on Azure.
 
-For other options, see [Azure benefits and incentives](https://azure.microsoft.com/pricing/offers/#cloud).
+For other options, see [Azure benefits and incentives](https://azure.microsoft.com/pricing/offers?cid=msft_learn).
 
 ## Next steps
 

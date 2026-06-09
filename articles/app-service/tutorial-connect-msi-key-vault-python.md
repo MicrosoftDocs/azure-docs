@@ -1,16 +1,16 @@
 ---
 title: 'Tutorial: Python connect to Azure services securely with Key Vault'
-description: Learn how to secure connectivity to back-end Azure services that don't support managed identity natively from a Python web app
+description: Learn how to secure connectivity to back-end Azure services that don't support managed identity natively using a Python web app.
 ms.devlang: python
 # ms.devlang: python, azurecli
 ms.topic: tutorial
-ms.date: 08/23/2024
+ms.date: 03/31/2026
 author: cephalin
 ms.author: cephalin
-
 ms.reviewer: jordanselig 
 ms.custom: devx-track-azurecli, devx-track-python, AppServiceConnectivity
 ms.service: azure-app-service
+#customer intent: As a developer, I need to support back-end services that don't support managed identities and still require connection secrets.
 ---
 
 # Tutorial: Secure Cognitive Service connection from Python App Service using Key Vault
@@ -38,10 +38,10 @@ az webapp deploy --resource-group $groupName --name $appName --src-path ./defaul
 
 The preceding commands:
 
-* Create a linux app service plan
-* Create a web app for Python 3.14
-* Configure the web app to install the python packages on deployment
-* Upload the zip file, and install the python packages
+- Create a Linux App Service plan
+- Create a Python web app
+- Configure the web app to install the Python packages on deployment
+- Upload the zip file, and install the Python packages
 
 ## Configure secrets as app settings
 

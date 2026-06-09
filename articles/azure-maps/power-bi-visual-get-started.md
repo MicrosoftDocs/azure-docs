@@ -42,6 +42,8 @@ Other than the scenarios previously described, no other data overlaid on the map
 > - `https://atlas.microsoft.com`
 > - `https://us.atlas.microsoft.com`
 > - `https://eu.atlas.microsoft.com`
+> - 'https://kr.atlas.microsoft.com'
+> - 'https://br.atlas.microsoft.com '
 
 > [!IMPORTANT]
 > The selection tool within the Azure Maps Power BI visual relies on TomTom data, consequently user data may not always remain within the user's geographical boundary.

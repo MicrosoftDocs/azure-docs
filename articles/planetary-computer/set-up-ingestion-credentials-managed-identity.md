@@ -1,8 +1,8 @@
 --- 
 title: Configure Managed Identity for Sources in Microsoft Planetary Computer Pro
 description: Learn how to add credentials and ingest data into Microsoft Planetary Computer Pro using managed identities.
-author: prasadko
-ms.author: prasadkomma
+author: aloverro
+ms.author: adamloverro
 ms.service: planetary-computer-pro
 ms.topic: how-to
 ms.date: 05/08/2025

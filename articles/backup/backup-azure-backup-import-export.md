@@ -4,6 +4,7 @@ description: Learn how you can use Azure Backup to send data off the network by 
 ms.reviewer: saurse
 ms.topic: how-to
 ms.date: 05/19/2025
+ms.update-cycle: 1095-days
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom:

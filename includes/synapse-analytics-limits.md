@@ -1,11 +1,11 @@
 ---
 title: Include file
 description: Include file
-author: jonburchel
 ms.service: azure-synapse-analytics
 ms.topic: include
 ms.date: 02/20/2025
-ms.author: jburchel
+author: juluczni
+ms.author: juluczni
 ms.custom: include file
 ---
 

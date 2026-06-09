@@ -6,63 +6,63 @@ author: stevenmatthew
 
 ms.service: azure-data-box-disk
 ms.topic: concept-article
-ms.date: 03/10/2024
+ms.date: 04/08/2026
 ms.author: shaas
 # Customer intent: As a cloud administrator, I want to understand the limits and requirements for deploying Azure Data Box Disk, so that I can ensure compliance and optimize data transfer to Azure storage.
 ---
 # Azure Data Box Disk limits
 
-Consider these limits as you deploy and operate your Microsoft Azure Data Box Disk solution.
+The following sections contain limits that should be observed as you deploy and operate your Azure Data Box Disk solution.
 
 ## Data Box service limits
 
- - Data Box service is available in the Azure regions listed in [Region availability](data-box-disk-overview.md#region-availability).
- - A single storage account is supported with Data Box Disk.
+ - The Data Box service is available in the Azure regions listed within the [Region availability](data-box-disk-overview.md#region-availability) section of the [Data Box overview](data-box-disk-overview.md) article.
+ - Data Box Disk supports a single storage account.
  - Data Box Disk can store a maximum of 100,000 files 
  - Data Box Disk supports a maximum of 512 containers or shares in the cloud. The top-level directories within the user share become containers or Azure file shares in the cloud.
 
 ## Data Box Disk performance
 
-When tested with disks connected via USB 3.0, the disk performance was up to 430 MB/s. The actual numbers vary depending upon the file size used. For smaller files, you may see lower performance.
+Disk throughput performance of up to 430 MB/s was observed when disks are connected via USB 3.0. Actual performance varies depending upon the file size used. For example, smaller files frequently result in lower performance.
 
 ## Azure storage limits
 
-This section describes the limits for Azure Storage service, and the required naming conventions for Azure Files, Azure block blobs, and Azure page blobs, as applicable to the Data Box service. Review the storage limits carefully and follow all the recommendations.
+This section describes the limits for the Azure Storage service, including required naming conventions for Azure Files, and block and page blobs, as they pertain to the Data Box service. Review the storage limits carefully and follow all recommendations.
 
-For the latest information on Azure storage service limits and best practices for naming shares, containers, and files, go to:
+For the latest Azure storage service limits, including and best practices for naming shares, containers, and files, refer to:
 
-- [Naming and referencing containers](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)
-- [Naming and referencing shares](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
-- [Block blobs and page blob conventions](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs)
+- [Naming and referencing containers](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+- [Naming and referencing shares](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata).
+- [Block blobs and page blob conventions](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 > [!IMPORTANT]
-> If there are any files or directories that exceed the Azure Storage service limits, or don't conform to Azure Files/Blob naming conventions, then these files or directories are not ingested into the Azure Storage via the Data Box service.
+> Files or directories that exceed Azure Storage service limits or don't conform to Azure file or blob naming conventions aren't ingested into Azure Storage via the Data Box service.
 
 ## Data copy and upload caveats
 
-- Importing data into NFS Azure file shares isn't supported by Azure Data Box. Copying data from Data Box into an existing NFS Azure file share with an identical name as your source folder creates a conflict. To resolve this conflict, Data Box renames the source share to `databox-<GUID>` and uploads it to the target storage account as an SMB Azure file share.
-- Don't copy data directly into the disks. Copy data to pre-created *BlockBlob*, *PageBlob*, and *AzureFile* folders.
-- A folder under the *BlockBlob* and *PageBlob* is a container. For instance, containers are created as *BlockBlob/container* and *PageBlob/container*.
-- If a folder has the same name as an existing container, the folder's contents are merged with the container's contents. Files or blobs that aren't already in the cloud are added to the container. If a file or blob has the same name as a file or blob that's already in the container, the existing file or blob is overwritten.
-- Every file written into *BlockBlob* and *PageBlob* shares is uploaded as a block blob and page blob respectively. 
-- The hierarchy of files is maintained while uploading to the cloud for both blobs and Azure Files. For example, you copied a file at this path: `<container folder>\A\B\C.txt`. This file is uploaded to the same path in cloud.
+- Azure Data Box doesn't support importing data into Network File System (NFS) Azure file shares. Copying data between source and destination NFS Azure file shares sharing identical names creates a conflict. To resolve this conflict, Data Box renames the source share to *databox`-<GUID>`* and uploads it to the target storage account as a Server Message Block (SMB) Azure file share.
+- Don't copy data directly onto the disk root. Copy data to precreated *BlockBlob*, *PageBlob*, and *AzureFile* folders.
+- Any folder created within the *BlockBlob* and *PageBlob* folder becomes a container. For instance, containers are created as *BlockBlob/`container`* and *PageBlob/`container`*.
+- If a folder shares the same name as an existing container, that folder's contents are merged with the container's contents. Files or blobs that don't already in the cloud are added to the container. If a file or blob shares the same name as a file or blob that already exists within the container, the existing file or blob is overwritten.
+- Every file written into *BlockBlob* and *PageBlob* shares is uploaded as a block blob and page blob, respectively.
+- Azure blob and file hierarchies are maintained while uploading to the cloud. For example, copying a file with a path of `<container folder>\A\B\C.txt` results in the file uploaded to the same cloud path.
 - Any empty directory hierarchy (without any files) created under *BlockBlob* and *PageBlob* folders isn't uploaded.
-- If you don't have long paths enabled on the client, and any path and file name in your data copy exceeds 256 characters, the Data Box Split Copy Tool (DataBoxDiskSplitCopy.exe) or the Data Box Disk Validation tool (DataBoxDiskValidation.cmd) will report failures. To avoid this kind of failure, [enable long paths on your Windows client](/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later).
-- If there are any errors when uploading data to Azure, an error log is created in the target storage account. The path to this error log is available in the portal when the upload is complete and you can review the log to take corrective action. Don't delete data from the source without verifying the uploaded data.
-- If you specified managed disks in the order, review the following additional considerations:
+- Any path and file name exceeding 256 characters in your copy operations lead to failures by the Data Box Split Copy Tool (`DataBoxDiskSplitCopy.exe`) or the Data Box Disk Validation tool (`DataBoxDiskValidation.cmd`) if long paths aren't enabled on the client. To avoid this kind of failure, [enable long paths on your Windows client](/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later).
+- Any error generated during upload to Azure generates an error log within the target storage account. The path to this error log is available in the portal after the upload is complete. You must review the log file and take corrective action to avoid data loss. Never delete data from the source without verifying the uploaded data.
+- If you specified managed disks in your order, review the following considerations:
 
-    - You can only have one managed disk with a given name in a resource group across all the precreated folders and across all the Data Box Disk. This implies that the VHDs uploaded to the precreated folders should have unique names. Make sure that the given name doesn't match an already existing managed disk in a resource group. If VHDs have same names, then only one VHD is converted to managed disk with that name. The other VHDs are uploaded as page blobs into the staging storage account.
-    - Always copy the VHDs to one of the precreated folders. If you copy the VHDs outside of these folders or in a folder that you created, the VHDs are uploaded to Azure Storage account as page blobs and not managed disks.
-    - Only the fixed VHDs can be uploaded to create managed disks. Dynamic VHDs, differencing VHDs or VHDX files aren't supported.
-    - Non VHD files copied to the precreated managed disk folders won't be converted to a managed disk.
+    - You can have only one managed disk with a given name in a resource group across the precreated folders, across the Data Box Disk. Therefore, all Virtual Hard Disks (VHD) uploaded to the precreated folders must have unique names. Make sure that the given name doesn't match an existing managed disk within a resource group. If any VHDs share an identical name, only one VHD is converted to a managed disk with that name. All other VHDs are uploaded as page blobs into the staging storage account.
+    - Always copy the VHDs to one of the precreated folders. Any VHD copied outside of these folders or into a folder that you create is uploaded to your storage account as a page blob instead of a managed disk.
+    - Only fixed VHDs can be uploaded to create managed disks. Operations for Dynamic VHDs, differencing VHDs, or Virtual Hard Disk v2 (VHDX) files aren't supported.
+    - Non VHD files copied to the precreated managed disk folders aren't converted to a managed disk.
 
 ## Azure storage account size limits
 
-Here are the limits on the size of data that can be copied into a storage account. Make sure that the data you upload conforms to these limits. 
+The following table contains the limits pertaining to the size of data that can be copied into a storage account. Ensure that the data you upload complies with these limits. 
 
 | Type of data             | Default limit          |
 |--------------------------|------------------------|
-| block blob, page blob    | For current information about these limits, see [Azure Blob storage scale targets](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage), [Azure standard storage scale targets](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts-and-disk-access-resources), and [Azure Files scale targets](../storage/files/storage-files-scale-targets.md). <br /><br /> The limits include data from all the sources, including Data Box Disk.|
+| block blob, page blob    | For current information about these limits, see [Azure Blob storage scale targets](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage), [Azure standard storage scale targets](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts-and-disk-access-resources), and [Azure Files scale targets](../storage/files/storage-files-scale-targets.md). <br /><br /> The limits include data from all the sources, including Data Box Disk. |
 
 ## Azure object size limits
 
@@ -71,7 +71,7 @@ Here are the sizes of the Azure objects that can be written. Make sure that all 
 | Azure object type | Default limit                                             |
 |-------------------|-----------------------------------------------------------|
 | Block blob        | 7 TiB                                                  |
-| Page blob         | 4 TiB <br> Every file uploaded in page blob format must be 512 bytes aligned (an integral multiple), else the upload fails. <br> VHD and VHDX are 512 bytes aligned. |
+| Page blob         | 7 TiB <br> Every file uploaded in page blob format must be 512 bytes aligned (an integral multiple), else the upload fails. <br> VHD and VHDX are 512 bytes aligned. |
 | Azure Files        | 4 TiB                                                      |
 | Managed disks     | 4 TiB <br> For more information on size and limits, see: <li>[Scalability targets of Standard SSDs](/azure/virtual-machines/disks-types#standard-ssds)</li><li>[Scalability targets of Premium SSDs](/azure/virtual-machines/disks-types#standard-hdds)</li><li>[Scalability targets of Standard HDDs](/azure/virtual-machines/disks-types#premium-ssds)</li><li>[Pricing and billing of managed disks](/azure/virtual-machines/disks-types#billing)</li>
 
@@ -87,9 +87,9 @@ Here are the sizes of the Azure objects that can be written. Make sure that all 
 
 ## Managed disk naming conventions
 
-| Entity | Conventions                                             |
-|-------------------|-----------------------------------------------------------|
-| Managed disk names       | <li> The name must be 1 to 80 characters long. </li><li> The name must begin with a letter or number, end with a letter, number or underscore. </li><li> The name may contain only letters, numbers, underscores, periods, or hyphens. </li><li>     The name shouldn't have spaces or `/`.                     |
+| Entity             | Conventions                                               |
+|--------------------|-----------------------------------------------------------|
+| Managed disk names | <li>The name must be 1 to 80 characters long. </li><li> The name must begin with a letter or number, end with a letter, number, or underscore. </li><li> The name can only contain letters, numbers, underscores, periods, or hyphens. </li><li>The name shouldn't contain spaces or `/`.</li>                            |
 
 ## Next steps
 

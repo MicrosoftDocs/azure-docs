@@ -32,29 +32,38 @@ All releases are produced compliant with Microsoft’s Secure Development Lifecy
 ## Release notes for the latest release
 The following release is the latest generally available release.
 
-## Release 2601.01
-This 2601.01 Azure Operator Service Manager release includes updating the NFO version to 3.0.3294-233 and the RP version to 1.0.03310.523. 
+## Release 2605.02
+This 2605.02 Azure Operator Service Manager release bundles together changes across RP, NFO, CLI and Github product components. 
 
-### Latest release details
-* NFO Release Version: 3.0.3294-233
-* RP Release Version: 1.0.03310.523
-* CLI Extension Release Version: 2.0.0b3
-* Release Date: January 30, 2026
+### Release details
+* Release Date: May 31, 2026
+* R2D Approvals: 203931, 226891
+* NFO Release Version: 3.0.3432.245
+* RP Release Version: 1.0.03406.567 or later
+* CLI Extension Release Version: [2.0.0b6](https://github.com/Azure/azure-cli-extensions/blob/main/src/aosm/HISTORY.rst)
 * Is NFO update required: YES, Update only
-* Dependency Versions: Go/1.24.3 - Helm/3.18.4 - Base Image/AzureLinux 3.0
+* Dependency Versions: Go/1.24.11 - Helm/3.18.4 - Azure Linux 3.0.20260517
 
-### Latest release updates to improve quality
+### Release updates to improve quality
 The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
-* NFO - [2482164] Add self-healing TLS DaemonSet to automatically refresh registry CA on nodes
-* RP  - [2477770] Private end point creation improvements
-* RP  - [2386166] Support NF level rollback configuration for SNS Create (first PUT) for CNF workflows
+* NFO - [506028] Add granular error codes for all Helm operations
+* NFO - [498591] Add structured lifecycle logs for helm operations 
+* NFO - [486191] Shared InstanceID across webhook and artifact controller
+* NFO - [495515] Add ./github/unit-test-instructions.md for unit tests
+* NFO - [479538] Add .github/copilot-instructions.md for Copilot context
+* RP  - [2498814] Fix for unable to delete unused NFDV after NF is updated.
+* RP  - [2279740] Return a Better Error Message when an Operation Fails Due to Hitting the RBAC Limit.
+* RP  - [2754792] Enhanced observability for Network Function component lifecycle.
 
 ### Release updates to improve security
-* NFO - [CVE] A total of 6 CVEs are addressed in this release.
-* NFO - Updates cbl-mariner/base/core from 2.0.20251106 to 2.0.20251206
-* NFO - Updates Containerd from 1.7.27 to 1.7.29
-* RP  - [2254238] MISE Compliance for dSTS
-* RP  - Updates production clusters from .NET 6 to .NET 8
+* NFO - [493920] Upgrade github.com/moby/spdystream from 0.5.0 to 0.5.1
+* NFO - [476074] Upgrade google.golang.org/grpc from 1.68.1 to 1.79.3
+* NFO - [485471] Upgrade Go to 1.26.1 and fluentd image version to latest
+* NFO - [483706] Upgrade OpenSSL from 3.3.5-1.azl3 to 3.3.5-2.azl3
+* NFO - [483706] Upgrade msi-adapter:1.32.3 to msi-adapter:1.32.7
+* NFO - [483706] Upgrade mdsd:1.38.2-20260111-1 to mdsd:1.40.2-20260218-1
+* NFO - [485471] Upgrade fluentd:1.18.0-20260211-1 to fluentd:1.18.0-20260323-1
+* CVE - A total of 14 direct CVE are resolved.
 
 ## Release notes for all releases 
 The following generally available releases are listed in order from oldest to newest.
@@ -501,7 +510,7 @@ The following bug fixes, defect resolutions, or usability improvements are deliv
 ## Release 2509.02
 This 2509.02 Azure Operator Service Manager release includes updating the NFO version to 3.0.3243-229 and the RP version to 1.0.03180.486. This release is a hotfix to be applied only to systems presently running release 2509.01.
 
-### Latest release details
+### Release details
 * NFO Release Version: 3.0.3243-229
 * RP Release Version: 1.0.03180.486
 * CLI Extension Release Version: 2.0.0b3
@@ -509,6 +518,58 @@ This 2509.02 Azure Operator Service Manager release includes updating the NFO ve
 * Is NFO update required: YES, Update only
 * Dependency Versions: Go/1.24.3 - Helm/3.18.4 - Base Image/AzureLinux 3.0
 
-### Latest release updates to improve quality
+### Release updates to improve quality
 The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
 * NFO - [408044] Change maxAvailable for tls-daemonset to restart even when cluster has notReady nodes.
+
+## Release 2601.01
+This 2601.01 Azure Operator Service Manager release includes updating the NFO version to 3.0.3294-233 and the RP version to 1.0.03310.523. 
+
+### Release details
+* NFO Release Version: 3.0.3294-233
+* RP Release Version: 1.0.03310.523
+* CLI Extension Release Version: 2.0.0b3
+* Release Date: January 30, 2026
+* Is NFO update required: YES, Update only
+* Dependency Versions: Go/1.24.3 - Helm/3.18.4 - Base Image/AzureLinux 3.0
+
+### Release updates to improve quality
+The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
+* NFO - [2482164] Add self-healing TLS DaemonSet to automatically refresh registry CA on nodes
+* RP  - [2477770] Private end point creation improvements
+* RP  - [2386166] Support NF level rollback configuration for SNS Create (first PUT) for CNF workflows
+
+### Release updates to improve security
+* NFO - [CVE] A total of 6 CVEs are addressed in this release.
+* NFO - Updates cbl-mariner/base/core from 2.0.20251106 to 2.0.20251206
+* NFO - Updates Containerd from 1.7.27 to 1.7.29
+* RP  - [2254238] MISE Compliance for dSTS
+* RP  - Updates production clusters from .NET 6 to .NET 8
+
+## Release 2603.01
+This 2603.01 Azure Operator Service Manager release bundles together changes across RP, NFO, CLI and Github product components. 
+
+### Release details
+* Release Date: March 31, 2026
+* R2D Approvals: 184438, 180732, 180469
+* NFO Release Version: 3.0.3372-239
+* RP Release Version: 1.0.03365.558 or later
+* CLI Extension Release Version: [2.0.0b6](https://github.com/Azure/azure-cli-extensions/blob/main/src/aosm/HISTORY.rst)
+* Is NFO update required: YES, Update only
+* Dependency Versions: Go/1.24.11 - Helm/3.18.4 - Base Image/AzureLinux 3.0
+
+### Release updates to improve quality
+The following bug fixes, defect resolutions, or usability improvements are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
+* NFO - [2606984] Fix to prevent chart deletion from disabling webhook in a shared namespace. 
+* NFO - [2651233] Improved logging of helm operations including rollback.
+* RP  - [2659027] Fix to prevent incorrect skipping of nfApps after a nf-rollback.
+* CLI - [51000000959992] Resolved conflict when installing extension in newer version of az cli. 
+
+### Release updates to improve security
+* NFO - [2602088] Upgraded containerd to v1.7.29 from v1.7.27.
+* NFO - [2605002] Upgraded MSI Adapter to v1.32.3 from v1.29.3.
+* NFO - [2607039] Upgraded Geneva MDSD to 1.38.2-20260111-1 from 1.35.7-20250611-1.
+* NFO - [2604981] Upgraded Geneva Fluentd to 1.18.0-20260211-1 from 1.18.0-20250522-1.
+* NFO - [2607039] Upgraded Geneva MDM to 2.202602101834.0-20260211-1 from 2.202507111244.0-20250711-1.
+* NFO - [2571975] Upgraded Go to 1.24.3 from 1.24.11.
+* CVE - A total of 4 CVE resolved.

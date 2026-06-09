@@ -2,12 +2,11 @@
 title: Add and Configure an Environment Definition in a Catalog
 titleSuffix: Azure Deployment Environments
 description: Learn how to add and configure an environment definition to use in Azure Deployment Environments projects. 
-services: Azure Deployment Environments
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.topic: how-to
-ms.date: 07/25/2025
+ms.date: 05/19/2026
 ms.custom:
   - devdivchpfy22
   - build-2023
@@ -32,7 +31,7 @@ An environment definition is composed of at least two files:
 
 Your development teams use the environment definitions that you provide in the catalog to deploy environments in Azure.
 
-Microsoft provides a [sample catalog](https://aka.ms/deployment-environments/SampleCatalog) that you can use as your repository. You can also use your own private repository, or you can fork and customize the environment definitions in the sample catalog.
+Microsoft provides [sample templates](https://aka.ms/deployment-environments/SampleCatalog) that you can use to get started with Deployment Environments. You can also use your own private repository, or you can fork and customize the environment definitions in the sample catalog.
 
 After you [add a catalog](how-to-configure-catalog.md) to your dev center, the service scans the specified folder path to identify folders that contain a template and an associated environment file. The specified folder path should be a folder that contains subfolders that hold the environment definition files.
 
@@ -52,9 +51,9 @@ To add an environment definition:
 
    - An environment as a YAML file.
 
-      The environment.yaml file contains metadata related to the IaC template.
+      The *environment.yaml* file contains metadata related to the IaC template.
 
-       The following script is an example of the contents of an environment.yaml file for an ARM template:
+       The following script is an example of the contents of an *environment.yaml* file for an ARM template:
 
        ```yaml
            name: WebApp
@@ -65,7 +64,7 @@ To add an environment definition:
            templatePath: azuredeploy.json
        ```  
 
-      This table describes the fields in the environment.yaml file:
+      This table describes the fields in the *environment.yaml* file:
 
       | Field | Description |
       |-------|-------------|
@@ -73,12 +72,12 @@ To add an environment definition:
       | `version` | The version of the environment definition. This field is optional. |
       | `summary` | A brief description of the environment definition. |
       | `description` | A detailed description of the environment definition. |
-      | `runner` | The IaC framework that the template uses. The value can be `ARM` or `Bicep`. You can also specify a path to a template stored in a container registry. |
+      | `runner` | The IaC framework that the template uses. The value can be `ARM` or `Bicep`. You can also specify a path to a container image stored in a container registry. |
       | `templatePath` | The path to the IaC template file. |
 
-      To learn more about the options and data types you can use in environment.yaml, see [Parameters and data types in environment.yaml](concept-environment-yaml.md#what-is-environmentyaml).
+      To learn more about the options and data types you can use, see [What is environment.yaml?](concept-environment-yaml.md#what-is-environmentyaml)
 
-1. In your dev center, under **Environment configuration**, select **Catalogs**. Select the repository, and then select **Sync**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select your dev center. Under **Environment configuration** in the sidebar menu, select **Catalogs**. Select the repository, and then choose **Sync**.
 
     :::image type="content" source="../deployment-environments/media/configure-environment-definition/sync-catalog-list.png" alt-text="Screenshot that shows how to synchronize a catalog." lightbox="../deployment-environments/media/configure-environment-definition/sync-catalog-list.png":::
 
@@ -86,22 +85,22 @@ The service scans the repository to find new environment definitions. After you 
 
 ## Use container images to deploy environments
 
-Deployment Environments uses container images to define how templates for deployment environments are deployed. Deployment Environments supports ARM and Bicep natively, so you can configure an environment definition that deploys Azure resources for a deployment environment by adding the template files (azuredeploy.json and environment.yaml) to your catalog. Deployment Environments then uses a standard ARM or Bicep container image to create the deployment environment.
+Deployment Environments uses container images to define how templates for deployment environments are deployed. Deployment Environments supports ARM and Bicep natively, so you can configure an environment definition that deploys Azure resources for a deployment environment by adding the template files (*azuredeploy.json* and *environment.yaml*) to your catalog. Deployment Environments then uses a standard ARM or Bicep container image to create the deployment environment.
 
 You can create custom container images for more advanced environment deployments. For example, you can run scripts before or after the deployment. Deployment Environments supports custom container images for environment deployments, which can help deploy IaC frameworks such as Pulumi and Terraform.
 
 To get started, you can get sample ARM and Bicep container images via the Microsoft Artifact Registry (also known as the Microsoft Container Registry). 
 
-For more information on building a custom container image, see [Configure a container image to execute deployments](how-to-configure-extensibility-generic-container-image.md).
+For more information on building a custom container image, see [Configure a container image to execute deployments](how-to-configure-extensibility-model-custom-image.md).
 
 ### Specify the ARM or Bicep sample container image
 
-In the environment.yaml file, the `runner` property specifies the location of the image you want to use. To use the sample image published in the Microsoft Artifact Registry, use the `runner` values listed in the following table.
+In the *environment.yaml* file, the `runner` property specifies the location of the image you want to use. To use the sample image published in the Microsoft Artifact Registry, use the `runner` values listed in the following table.
 
 | IaC framework | `runner` value |
 |---------------|--------------|
-| ARM           | ARM |
-| Bicep         | Bicep |
+| ARM           | `ARM` |
+| Bicep         | `Bicep` |
 | Terraform     | No sample image. Use a custom container image instead. |
 
 The following example shows a `runner` property that references the sample Bicep container image:
@@ -117,10 +116,10 @@ The following example shows a `runner` property that references the sample Bicep
 
 ### Specify a custom container image
 
-To use a custom container image stored in a repository, use the following `runner` format in the environment.yaml file:
+To use a custom container image stored in a repository, use the following `runner` format in the *environment.yaml* file:
 
 ```yaml
-runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}”`
+runner: "<your-registry>.azurecr.io/<your-repository>:<your-tag>"
 ```
 
 Edit the `runner` value to reference your repository and custom image, as shown in this example:
@@ -130,23 +129,23 @@ Edit the `runner` value to reference your repository and custom image, as shown 
     version: 1.0.0
     summary: Azure Web App Environment
     description: Deploys a web app in Azure without a datastore
-    runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
+    runner: "<your-registry>.azurecr.io/<your-repository>:<your-tag>"
     templatePath: azuredeploy.json
 ```
 
 | Property |	Description |
 |----------|--------------|
-| YOUR_REGISTRY |	The registry that stores the custom image. |
-| YOUR_REPOSITORY |	Your repository in that registry. |
-| YOUR_TAG |	A tag, such as a version number. |
+| your-registry   |	The registry that stores the custom image. |
+| your-repository |	Your repository in that registry. |
+| your-tag        | A tag, such as a version number. |
 
 ## Specify parameters for an environment definition
 
 You can specify parameters for your environment definitions to allow developers to customize their environments. 
 
-Parameters are defined in the environment.yaml file. 
+Parameters are defined in the *environment.yaml* file. 
 
-The following script is an example of an environment.yaml file for an ARM template that includes two parameters: `location` and `name`. 
+The following script is an example of an *environment.yaml* file for an ARM template that includes two parameters: `location` and `name`. 
 
 ```YAML
 name: WebApp
@@ -169,13 +168,13 @@ parameters:
   required: false
 ```
 
-For more information, see [Parameters and data types in environment.yaml](concept-environment-yaml.md#parameters-in-environmentyaml).
+For more information, see [Parameters in environment.yaml](concept-environment-yaml.md#parameters-in-environmentyaml).
 
-Developers can supply values for specific parameters for their environments via the [developer portal](https://devportal.microsoft.com).
+Developers can supply values for specific parameters for their environments through the [developer portal](https://devportal.microsoft.com).
 
 :::image type="content" source="media/configure-environment-definition/parameters.png" alt-text="Screenshot of the parameters pane in the developer portal.":::
 
-Developers can also supply values for specific parameters for their environments via the Azure CLI:
+Developers can also supply values for specific parameters for their environments through the Azure CLI:
 
 ```azurecli
 az devcenter dev environment create --environment-definition-name
@@ -198,15 +197,15 @@ To learn more about the `az devcenter dev environment create` command, see [Azur
 
 To modify the configuration of Azure resources in an existing environment definition in Deployment Environments, update the associated template file in the repository. The change is immediately reflected when you create a new environment by using the specific environment definition. The update is also applied when you redeploy an environment associated with that environment definition.
 
-To update any metadata related to the template, modify environment.yaml, and then [update the catalog](how-to-configure-catalog.md#update-a-catalog).
+To update any metadata related to the template, modify *environment.yaml*, and then [update the catalog](how-to-configure-catalog.md#update-a-catalog).
 
 ## Delete an environment definition
 
-To delete an environment definition, in the repository, delete the subfolder that contains the template file and the associated environment.yaml file. Then [update the catalog](how-to-configure-catalog.md#update-a-catalog).
+To delete an environment definition, delete the subfolder in the repository that contains the template file and the associated *environment.yaml* file. Then [update the catalog](how-to-configure-catalog.md#update-a-catalog).
 
 After you delete an environment definition, development teams can no longer use it to deploy a new environment. Update the environment definition reference for any existing environments that use the deleted environment definition. If the reference isn't updated and the environment is redeployed, the deployment fails.
 
 ## Related content
 
 - [Add and configure a catalog from GitHub or Azure DevOps](how-to-configure-catalog.md)
-- [Create and configure an environment type](quickstart-create-access-environments.md)
+- [Quickstart: Create and access an environment in Azure Deployment Environments](quickstart-create-access-environments.md)

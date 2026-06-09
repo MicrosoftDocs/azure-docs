@@ -3,8 +3,8 @@ title: Azure EA agreements and amendments
 description: The article describes how Azure EA agreements and amendments might affect your access, use, and payments for Azure services.
 author: SandeepReddyAcc
 ms.author: v-salin
-ms.date: 10/13/2025
-ms.topic: conceptual
+ms.date: 04/20/2026
+ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: anjai
@@ -104,7 +104,7 @@ Make sure to review the commercial information - monetary balance information, p
 
 #### Azure savings plan purchases
 
-For [Azure Savings plan](../savings-plan/savings-plan-compute-overview.md) purchases, in some situations, indirect EA end customers could see minor variances in their utilization percentage when they view their [cost reports](../savings-plan/utilization-cost-reports.md) in Cost Management. Actual purchase and usage charges are always computed in partner prices and not in customer prices (for example, with markup). Subsequent markdown and uplift could result in floating point numbers exceeding eight decimal point precision. Azure rounds calculations to eight decimal precision, which can cause minor variances in the utilization numbers for end customers.
+For [Azure Savings plan](../savings-plan/savings-plan-overview.md) purchases, in some situations, indirect EA end customers could see minor variances in their utilization percentage when they view their [cost reports](../savings-plan/utilization-cost-reports.md) in Cost Management. Actual purchase and usage charges are always computed in partner prices and not in customer prices (for example, with markup). Subsequent markdown and uplift could result in floating point numbers exceeding eight decimal point precision. Azure rounds calculations to eight decimal precision, which can cause minor variances in the utilization numbers for end customers.
 
 Let's look at an example. Assume that a customer enters an Azure Savings Plan commitment amount of 3.33/hour. If the markup is 13%, after the markdown to arrive at the partner price and the subsequent markup in the cost and usage reports, there's minor variance in numbers:
 

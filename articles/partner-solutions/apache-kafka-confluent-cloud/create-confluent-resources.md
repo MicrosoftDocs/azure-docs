@@ -1,6 +1,8 @@
 ---
 title: Create Confluent Resources in Azure (preview)
 description: Learn how to create and manage Confluent environments, clusters, and topics in Azure via the Azure portal.
+ms.author: praveenrajap
+author: praveenrajap
 ms.topic: how-to
 ms.date: 1/28/2026
 

@@ -59,7 +59,7 @@ To follow this chapter, read the information presented in:
 - [What SAP software is supported for Azure deployments](./supported-product-on-azure.md)
 - [SAP workload on Azure virtual machine supported scenarios](./planning-supported-configurations.md)
 
-For Azure block storage, the usage of Azure Managed Disks is mandatory. For details about Azure Managed Disks read the article [Introduction to managed disks for Azure VMs](/azure/virtual-machines/managed-disks-overview).
+For Azure block storage, the usage of Azure managed disks is mandatory. For details about Azure managed disks read the article [Introduction to managed disks for Azure VMs](/azure/virtual-machines/managed-disks-overview).
 
 In a basic configuration, we usually recommend a deployment structure where the operating system, DBMS, and eventual SAP binaries are separate from the database files. We recommend having separate Azure disks for:
 
@@ -122,10 +122,10 @@ For Azure Premium Storage v2 and Ultra Disk, striping might not necessary since 
 
 An Azure storage account is an administrative construct and also a subject of limitations. For information on capabilities and limitations, see [Azure Storage scalability and performance targets](../../storage/common/scalability-targets-standard-account.md). For standard storage, remember that there's a limit on the IOPS per storage account. See the row that contains **Total Request Rate** in the article [Azure Storage scalability and performance targets](../../storage/common/scalability-targets-standard-account.md). There's also an initial limit on the number of storage accounts per Azure subscription.
 
-As of 2017, Azure introduced the concepts of [Azure Disk Storage](https://azure.microsoft.com/services/managed-disks/) that relieve you of taking care of any storage account administration. Using Azure Managed Disks is the default to deploy for SAP workload in Azure.
+As of 2017, Azure introduced the concepts of [Azure Disk Storage](https://azure.microsoft.com/services/managed-disks/) that relieve you of taking care of any storage account administration. Using Azure managed disks is the default to deploy for SAP workload in Azure.
 
 > [!IMPORTANT]
-> Given the advantages of Azure Managed Disks, it's mandatory that you use Azure Managed Disks for your DBMS deployments and SAP deployments in general.
+> Given the advantages of Azure managed disks, it's mandatory that you use Azure managed disks for your DBMS deployments and SAP deployments in general.
 
 If you happen to have SAP workload that isn't yet using managed disks, to convert from unmanaged to managed disks, see:
 

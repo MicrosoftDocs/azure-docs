@@ -4,7 +4,7 @@ description: Learn how to secure Azure Managed Grafana, with best practices for 
 author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 ms.date: 10/16/2025
 ai-usage: ai-assisted
@@ -85,9 +85,9 @@ Compliance and governance controls ensure that Azure Managed Grafana deployments
 
 Backup and recovery controls protect against data loss and ensure business continuity for Azure Managed Grafana monitoring capabilities during outages or disasters.
 
-- **Enable zone redundancy for high availability**: Configure zone redundancy when creating Azure Managed Grafana workspaces in supported regions to distribute virtual machines across availability zones. This provides automatic failover capabilities during zone-level outages without user intervention. See [Azure Managed Grafana service reliability](/azure/managed-grafana/high-availability).
+- **Enable zone redundancy for high availability**: Configure zone redundancy when creating Azure Managed Grafana workspaces in supported regions to distribute virtual machines across availability zones. This provides automatic failover capabilities during zone-level outages without user intervention. See [Azure Managed Grafana service reliability](/azure/reliability/reliability-managed-grafana?toc=/azure/managed-grafana/toc.json&bc=/azure/managed-grafana/breadcrumb/toc.json).
 
-- **Plan multi-region deployment strategy**: Deploy Azure Managed Grafana workspaces in multiple regions for disaster recovery purposes since Microsoft doesn't provide cross-region disaster recovery for this service. Maintain consistent dashboard configurations across regions for seamless failover capabilities during regional outages. See [Azure Managed Grafana service reliability](/azure/managed-grafana/high-availability).
+- **Plan multi-region deployment strategy**: Deploy Azure Managed Grafana workspaces in multiple regions for disaster recovery purposes since Microsoft doesn't provide cross-region disaster recovery for this service. Maintain consistent dashboard configurations across regions for seamless failover capabilities during regional outages. See [Azure Managed Grafana service reliability](/azure/reliability/reliability-managed-grafana?toc=/azure/managed-grafana/toc.json&bc=/azure/managed-grafana/breadcrumb/toc.json).
 
 - **Export and version control dashboard configurations**: Regularly export dashboard definitions and data source configurations to version control systems or backup storage locations. This enables restoration of monitoring capabilities and maintains configuration history for compliance and recovery purposes. Use Grafana's native export functionality to backup dashboard JSON definitions. See [How to create a dashboard](/azure/managed-grafana/how-to-create-dashboard).
 
@@ -99,7 +99,7 @@ Service-specific security controls address unique security considerations and fe
 
 - **Implement proper service account token management**: When service accounts are required, configure tokens with appropriate expiration times and minimal necessary permissions. Use the most restrictive Grafana role that allows the needed tasks (Viewer or Editor rather than Admin unless absolutely required). Take advantage of token expiration settings and avoid selecting "No expiration" unless operationally unavoidable. Regularly rotate service account tokens and revoke unused tokens to reduce the risk of credential compromise. Store tokens securely in systems like Azure Key Vault and never expose them in logs or client-side code. Monitor service account usage through Grafana login events in diagnostic settings to track when tokens are used for authentication. See [How to use service accounts in Azure Managed Grafana](/azure/managed-grafana/how-to-service-accounts).
 
-- **Document recovery procedures**: Create detailed recovery procedures that include steps for recreating workspaces, restoring configurations, and reestablishing data source connections. Test recovery procedures regularly to ensure they remain current and effective. See [Azure Managed Grafana service reliability](/azure/managed-grafana/high-availability).
+- **Document recovery procedures**: Create detailed recovery procedures that include steps for recreating workspaces, restoring configurations, and reestablishing data source connections. Test recovery procedures regularly to ensure they remain current and effective. See [Azure Managed Grafana service reliability](/azure/reliability/reliability-managed-grafana?toc=/azure/managed-grafana/toc.json&bc=/azure/managed-grafana/breadcrumb/toc.json).
 
 Azure Managed Grafana provides unique security capabilities designed specifically for data visualization, dashboard management, and monitoring workloads that require specific attention to maintain secure operations.
 

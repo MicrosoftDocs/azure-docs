@@ -479,8 +479,8 @@ If you're building a cluster on **RHEL 8.x/9.x**, use the following commands:
 ```bash
 sudo pcs resource create SAPHana_HN1_03 SAPHana SID=HN1 InstanceNumber=03 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
   op start timeout=3600 op stop timeout=3600 \
-  op monitor interval=61 role="Slave" timeout=700 \
-  op monitor interval=59 role="Master" timeout=700 \
+  op monitor interval=61 role="Secondary" timeout=700 \
+  op monitor interval=59 role="Primary" timeout=700 \
   op promote timeout=3600 op demote timeout=3600 \
   promotable notify=true clone-max=2 clone-node-max=1 interleave=true
 
@@ -504,8 +504,8 @@ If you're building a cluster on **RHEL 7.x**, use the following commands:
 ```bash
 sudo pcs resource create SAPHana_HN1_03 SAPHana SID=HN1 InstanceNumber=03 PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
   op start timeout=3600 op stop timeout=3600 \
-  op monitor interval=61 role="Slave" timeout=700 \
-  op monitor interval=59 role="Master" timeout=700 \
+  op monitor interval=61 role="Secondary" timeout=700 \
+  op monitor interval=59 role="Primary" timeout=700 \
   op promote timeout=3600 op demote timeout=3600 \
   master notify=true clone-max=2 clone-node-max=1 interleave=true
 
@@ -560,9 +560,9 @@ Use the command `sudo pcs status` to check the state of the cluster resources cr
 # azure_fence     (stonith:fence_azure_arm):      Started hn1-db-0
 #  Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
 #      Started: [ hn1-db-0 hn1-db-1 ]
-#  Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-#      Masters: [ hn1-db-0 ]
-#      Slaves: [ hn1-db-1 ]
+#  Primary/Secondary Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+#      Primaries: [ hn1-db-0 ]
+#      Secondaries: [ hn1-db-1 ]
 #  Resource Group: g_ip_HN1_03
 #      nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-0
 #      vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
@@ -690,8 +690,8 @@ sudo pcs status
 #   Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]:
 #     Started: [ hn1-db-0 hn1-db-1 ]
 #   Clone Set: SAPHana_HN1_03-clone [SAPHana_HN1_03] (promotable):
-#     Masters: [ hn1-db-0 ]
-#     Slaves: [ hn1-db-1 ]
+#     Primaries: [ hn1-db-0 ]
+#     Secondaries: [ hn1-db-1 ]
 #   Resource Group: g_ip_HN1_03:
 #     nc_HN1_03         (ocf::heartbeat:azure-lb):      Started hn1-db-0
 #     vip_HN1_03        (ocf::heartbeat:IPaddr2):       Started hn1-db-0
@@ -727,9 +727,9 @@ Resource state before starting the test:
 ```output
 Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
-Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-    Masters: [ hn1-db-0 ]
-    Slaves: [ hn1-db-1 ]
+Primary/Secondary Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Primaries: [ hn1-db-0 ]
+    Secondaries: [ hn1-db-1 ]
 Resource Group: g_ip_HN1_03
     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-0
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
@@ -764,8 +764,8 @@ After the migration is done, the `sudo pcs status` output looks like:
 ```output
 Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
-Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-    Masters: [ hn1-db-1 ]
+Primary/Secondary Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Primaries: [ hn1-db-1 ]
     Stopped: [ hn1-db-0 ]
 Resource Group: g_ip_HN1_03
     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-1
@@ -790,9 +790,9 @@ Monitor the state of the HANA resource by using `pcs status`. After HANA is star
 ```output
 Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
-Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-    Masters: [ hn1-db-1 ]
-    Slaves: [ hn1-db-0 ]
+Primary/Secondary Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Primaries: [ hn1-db-1 ]
+    Secondaries: [ hn1-db-0 ]
 Resource Group: g_ip_HN1_03
     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-1
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
@@ -805,9 +805,9 @@ Resource state before starting the test:
 ```output
 Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
-Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-    Masters: [ hn1-db-1 ]
-    Slaves: [ hn1-db-0 ]
+Primary/Secondary Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Primaries: [ hn1-db-1 ]
+    Secondaries: [ hn1-db-0 ]
 Resource Group: g_ip_HN1_03
     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-1
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
@@ -841,15 +841,15 @@ Resource state before starting the test:
 ```output
 Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
-Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-    Masters: [ hn1-db-1 ]
-    Slaves: [ hn1-db-0 ]
+Primary/Secondary Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Primaries: [ hn1-db-1 ]
+    Secondaries: [ hn1-db-0 ]
 Resource Group: g_ip_HN1_03
     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-1
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1
 ```
 
-You can test the setup of the Azure fencing agent by disabling the network interface on the node where SAP HANA is running as Master. For a description on how to simulate a network failure, see [Red Hat Knowledge Base article 79523](https://access.redhat.com/solutions/79523).
+You can test the setup of the Azure fencing agent by disabling the network interface on the node where SAP HANA is running as Primary. For a description on how to simulate a network failure, see [Red Hat Knowledge Base article 79523](https://access.redhat.com/solutions/79523).
 
 In this example, we use the `net_breaker` script as root to block all access to the network:
 
@@ -881,9 +881,9 @@ Resource state after the test:
 ```output
 Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
-Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-    Masters: [ hn1-db-0 ]
-    Slaves: [ hn1-db-1 ]
+Primary/Secondary Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Primaries: [ hn1-db-0 ]
+    Secondaries: [ hn1-db-1 ]
 Resource Group: g_ip_HN1_03
     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-0
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
@@ -896,9 +896,9 @@ Resource state before starting the test:
 ```output
 Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
-Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-    Masters: [ hn1-db-0 ]
-    Slaves: [ hn1-db-1 ]
+Primary/Secondary Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Primaries: [ hn1-db-0 ]
+    Secondaries: [ hn1-db-1 ]
 Resource Group: g_ip_HN1_03
     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-0
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
@@ -937,9 +937,9 @@ Resource state after the test:
 ```output
 Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
-Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-    Masters: [ hn1-db-1 ]
-     Slaves: [ hn1-db-0 ]
+Primary/Secondary Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+    Primaries: [ hn1-db-1 ]
+     Secondaries: [ hn1-db-0 ]
 Resource Group: g_ip_HN1_03
     nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hn1-db-1
     vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-1

@@ -230,7 +230,7 @@ If you chose to create a new template that models the data correctly, migrate de
 
 ### Invalid JSON
 
-If there are no errors reported, but a value isn't appearing, then it's probably malformed JSON in the payload the device sends. To learn more, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md).
+If there are no errors reported, but a value isn't appearing, then it's probably malformed JSON in the payload the device sends. To learn more, see [Telemetry, property, and command payloads](/previous-versions/azure/iot/concepts-message-payloads).
 
 You can't use the validate commands or the **Raw data** view in the UI to detect if the device is sending malformed JSON.
 
@@ -273,6 +273,19 @@ To learn more, see [Export IoT data to Blob Storage](howto-export-data.md?tabs=m
 The export definition page shows information about failed connections to the export destination:
 
 :::image type="content" source="media/troubleshooting/export-error.png" alt-text="Screenshot that shows an example export error.":::
+
+### Webhook destination: "The webhook could not be reached"
+
+If you're configuring a Webhook destination and you see the error **"The webhook could not be reached. Please make sure the webhook is online and available"**, IoT Central tried to validate the callback URL when you saved the destination and couldn't establish a successful connection.
+
+Common causes:
+
+- **Endpoint isn't reachable from the public internet.** IoT Central can only deliver to endpoints with a public DNS name and IP address.
+- **Server certificate isn't trusted.** IoT Central rejects self-signed certificates and certificates issued by a private CA. The certificate must be signed by a publicly trusted CA, and the certificate's subject or subject alternative name must match the callback URL hostname.
+- **Certificate is expired or the hostname doesn't match the URL.**
+- **Endpoint returns a non-2xx response** to the validation request that IoT Central sends when you save the destination.
+
+For more information about the TLS requirements for webhook endpoints, see [HTTPS endpoint and TLS requirements](howto-export-to-webhook.md#https-endpoint-and-tls-requirements).
 
 ## Data export missing data issues
 

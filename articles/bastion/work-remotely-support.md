@@ -2,12 +2,12 @@
 title: Enable remote work by using Azure Bastion
 description: Learn how to use Azure Bastion to enable remote access to virtual machines.
 services: bastion
-author: abell
+author: cherylmc
 
 ms.service: azure-bastion
 ms.topic: concept-article
 ms.date: 03/31/2025
-ms.author: abell
+ms.author: cherylmc
 # Customer intent: "As an IT administrator, I want to use Azure Bastion to securely access and manage virtual machines remotely, so that I can support remote work scenarios from any location around the globe."
 ---
 

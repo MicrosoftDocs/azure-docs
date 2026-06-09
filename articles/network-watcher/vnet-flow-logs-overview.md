@@ -208,6 +208,18 @@ Here's an example bandwidth calculation for flow tuples from a TCP conversation 
 
 For continuation (`C`) and end (`E`) flow states, byte and packet counts are aggregate counts from the time of the previous flow's tuple record. In the example conversation, the total number of packets transferred is 1,021 + 52 + 8,005 + 47 = 9,125. The total number of bytes transferred is 588,096 + 29,952 + 4,610,880 + 27,072 = 5,256,000.
 
+## Platform Rules
+
+#### What is a platform rule in flow logs
+
+In flow logs, a platform rule represents network traffic that is processed by the Azure platform itself rather than by user‑configured rules, such as Network Security Groups (NSGs) or Azure Virtual Network Manager rules. This traffic is handled automatically by the platform and is not the result of an explicit allow or deny rule defined within a deployment. Platform rule entries provide visibility into system‑managed or infrastructure‑level traffic. If analysis is focused only on traffic evaluated by explicitly configured rules, these entries can be filtered out during log analysis.
+
+In some scenarios, traffic associated with you application or workload may appear under a platform rule. This can occur in a limited number of well‑understood cases, such as when load‑balanced connections are recreated as part of normal platform operations, or when return traffic does not require rule evaluation for the response path. In these cases, the traffic is processed as expected, but the flow log may associate it with a platform rule instead of a user‑defined rule.
+
+#### Does the presence of platform rules affect traffic?
+
+No. Platform rules do not change your traffic behavior, connectivity, security posture, or performance. They only affect how certain network flows are represented in flow logs. Platform rule entries are provided for informational purposes. Excluding them from analysis does not impact how traffic is handled. If traffic appears under a platform rule and does not align with the scenarios described above, the behavior can be investigated further. In such cases, reaching out through Azure support channels is recommended so the flow logs can be reviewed in detail.
+
 ## Considerations for virtual network flow logs
 
 ### Storage account

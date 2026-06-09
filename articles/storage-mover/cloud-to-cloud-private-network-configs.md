@@ -85,7 +85,7 @@ Example custom IPsec/IKE settings (validate against your device compatibility): 
 
 :::image type="content" source="./media/cloud-to-cloud-networking/ipsec-policy.png" alt-text="Screenshot of ipsec policy." lightbox="./media/cloud-to-cloud-networking/ipsec-policy.png":::
 
-**Learn more:** [Configure custom IPsec/IKE connection policies](https://docs.azure.cn/en-us/vpn-gateway/ipsec-ike-policy-howto).
+**Learn more:** [Configure custom IPsec/IKE connection policies](/azure/vpn-gateway/ipsec-ike-policy-howto).
 
 ### SD-WAN with network virtual appliances (NVAs)
 
@@ -102,10 +102,6 @@ SD-WAN and firewall NVAs can terminate VPN tunnels, perform inspection, and appl
 **Arista (VMware)**: VeloCloud SD-WAN Virtual Edge
 
 SD-WAN NVAs are commonly licensed as either pay-as-you-go (PAYG) or bring-your-own-license (BYOL). Vendor support varies by deployment option.
-
-PAYG: Pay as you go
-
-BYOL: Bring your own license
 
 #### Example deployment (FortiGate NVA in Azure)
 
@@ -206,7 +202,16 @@ After creating the Direct Connect resource, create a private connection in Stora
 4. Only private connections in **Approved** state can be selected.
 5. Remaining job steps are the same as a public S3-to-Blob migration.
 
+## Architecture
+### Cloud-to-cloud Migration flow (private networking)
 
+:::image type="content" source="./media/cloud-to-cloud-networking/cloud-to-cloud-private-networking.png" alt-text="Screenshot of cloud-to-cloud private networking architecture." lightbox="./media/cloud-to-cloud-networking/cloud-to-cloud-private-networking.png":::
+
+Above diagram shown with private networking to AWS but same applies for other private networking scenarios.
+
+### Cloud-to-cloud Migration flow (public S3 bucket to Azure Blob)
+
+:::image type="content" source="./media/cloud-to-cloud-networking/cloud-to-cloud-public.png" alt-text="Screenshot of cloud-to-cloud public workflow." lightbox="./media/cloud-to-cloud-networking/cloud-to-cloud-public.png":::
 
 
 ## Troubleshooting
@@ -258,6 +263,8 @@ Review ExpressRoute concepts and planning in the [ExpressRoute documentation](/a
 Create a site-to-site VPN connection in Azure: [Tutorial - Create an S2S VPN connection](/azure/vpn-gateway/tutorial-site-to-site-portal).
 
 For BGP between Azure and AWS, follow: [Tutorial - Configure a BGP-enabled connection between Azure and AWS](/azure/vpn-gateway/vpn-gateway-howto-aws-bgp).
+
+
 
 
 

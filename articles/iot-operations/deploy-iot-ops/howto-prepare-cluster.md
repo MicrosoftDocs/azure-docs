@@ -3,9 +3,11 @@ title: Prepare your Kubernetes cluster
 description: Prepare an Azure Arc-enabled Kubernetes cluster before you deploy Azure IoT Operations. This article includes guidance for both Ubuntu and Windows machines.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
 ms.date: 10/23/2024
+ai-usage: ai-assisted
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster so that I can deploy Azure IoT Operations to it.
 ---
@@ -18,7 +20,7 @@ If you want to deploy Azure IoT Operations quickly and run a sample workload in 
 
 ## Prerequisites
 
-Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows, K3s for deployments on Ubuntu, AKS deployments on Azure Local, and Tanzu Kubernetes release (TKr) on TKG. If you want to deploy Azure IoT Operations to a multi-node solution, use K3s on Ubuntu.
+For multi-node deployments, K3s for deployments on Ubuntu, AKS deployments on Azure Local, and Tanzu Kubernetes release (TKr) on TKG. Azure Kubernetes Service (AKS) Edge Essentials for Windows only supports single-node deployments.
 
 ### [Ubuntu](#tab/ubuntu)
 
@@ -38,7 +40,7 @@ To prepare an Azure Arc-enabled Kubernetes cluster, you need:
 
 To prepare an Azure Arc-enabled Kubernetes cluster, you need:
 
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+[!INCLUDE [prereq-azure-subscription](../includes/prereq-azure-subscription.md)]
 
 * Hardware that meets the system requirements:
 
@@ -51,7 +53,7 @@ To prepare an Azure Arc-enabled Kubernetes cluster, you need:
 
 To prepare an Azure Arc-enabled Kubernetes cluster, you need:
 
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+[!INCLUDE [prereq-azure-subscription](../includes/prereq-azure-subscription.md)]
 
 * An [Azure Local server or cluster](/azure-stack/hci/overview).
 
@@ -340,16 +342,10 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
    ```
 ---
 
-## Advanced configuration 
-
-At this point, when you have an Azure Arc-enabled Kubernetes cluster but before you deploy Azure IoT Operations to it, you might want to configure your cluster for advanced scenarios.
-
-* If you want to enable observability features on the cluster, follow the steps in [Deploy observability resources and set up logs](../configure-observability-monitoring/howto-configure-observability.md).
-* If you want to configure your own certificate issuer on the cluster, follow the steps in [Certificate management > Bring your own issuer](../secure-iot-ops/howto-manage-certificates.md#bring-your-own-issuer).
-
 ## Next steps
 
-Now that you have an Azure Arc-enabled Kubernetes cluster, you can choose to deploy Azure IoT Operation with test settings or with production settings.
+Now that you have an Azure Arc-enabled Kubernetes cluster, you can deploy Azure IoT Operations.
 
-- [Test deployment](howto-deploy-iot-test-operations.md): Recommended for quick evaluation and prototyping before deploying in production. Test deployment isn't suitable for production, it lacks observability and hardened security.
-- [Production deployment](howto-deploy-iot-operations.md): Recommended for production-ready workloads. Production deployment is suitable for real-world IoT deployments with compliance and security needs.
+- [Bring your own issuer](howto-bring-your-own-issuer.md): If you want to configure your own certificate issuer on the cluster before deploying Azure IoT Operations.
+- [Deploy to a test cluster](howto-deploy-iot-test-operations.md): For quick evaluation and testing before deploying in production.
+- [Deploy to a production cluster](howto-deploy-iot-operations.md): For production-ready workloads with secure settings.

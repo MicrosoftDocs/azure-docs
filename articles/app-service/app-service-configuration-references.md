@@ -4,7 +4,7 @@ description: Set up Azure App Service and Azure Functions to use App Configurati
 author: muksvso
 
 ms.topic: how-to
-ms.date: 05/08/2025
+ms.date: 03/30/2026
 ms.author: mubatra
 
 #customer intent: As a developer, I want to use Azure App Configuration references so that I can make configuration key/value pairs available to code.  
@@ -16,6 +16,20 @@ ms.custom: sfi-ropc-nochange
 # Use App Configuration references for Azure App Service and Azure Functions
 
 This article shows how to work with configuration data in Azure App Service or Azure Functions applications without making any code changes. [Azure App Configuration](../azure-app-configuration/overview.md) is an Azure service that you can use to centrally manage application configuration. It's also an effective tool for auditing your configuration values over time or across releases.
+
+## Important notes for Azure Functions local development
+
+App Configuration references (`@Microsoft.AppConfiguration(...)`) are resolved by the Azure App Service/Functions platform when your app runs in Azure.
+
+- **Azure (supported):** Put the reference in your function app's **Application settings** (for example, in the Azure portal, ARM/Bicep, or other deployment tooling).
+- **Local (not supported):** The Functions host running on your development machine doesn't resolve `@Microsoft.AppConfiguration(...)` values from *local.settings.json*.
+- **User secrets (not supported):** The Functions user secrets store (*secrets.json*) is also not processed for `@Microsoft.AppConfiguration(...)` references.
+- **SDK code (not required for this feature):** Calling `AddAzureAppConfiguration()` configures the App Configuration SDK for in-process resolution, but it doesn't make the platform resolve `@Microsoft.AppConfiguration(...)` references locally.
+
+If you want the same configuration values locally, use one of the following approaches:
+
+- Add the values directly to *local.settings.json* (for example, set `MySetting` to the literal value you want locally).
+- Use the App Configuration SDK in your app code (for example, by configuring `AddAzureAppConfiguration()` and connecting to your store with a connection string or credentials appropriate for local dev). This approach is separate from platform references.
 
 ## Grant app access to App Configuration
 
@@ -78,19 +92,57 @@ An App Configuration reference has the form `@Microsoft.AppConfiguration({refere
 Here's an example of a complete reference that includes `Label`:
 
 ```json
-@Microsoft.AppConfiguration(Endpoint=https://myAppConfigStore.azconfig.io; Key=myAppConfigKey; Label=myKeyLabel)​
+@Microsoft.AppConfiguration(Endpoint=https://myAppConfigStore.azconfig.io; Key=myAppConfigKey; Label=myKeyLabel)
 ```
 
 Here's an example that doesn't include `Label`:
 
 ```json
-@Microsoft.AppConfiguration(Endpoint=https://myAppConfigStore.azconfig.io; Key=myAppConfigKey)​
+@Microsoft.AppConfiguration(Endpoint=https://myAppConfigStore.azconfig.io; Key=myAppConfigKey)
 ```
 
 Any configuration change to the app that results in a site restart causes an immediate refetch of all referenced key/value pairs from the App Configuration store.
 
 > [!NOTE]
 > Automatic refresh and refetch of these values when the key/value pairs are updated in App Configuration isn't currently supported.
+
+## Working example (Azure Functions)
+
+The following example shows where the `@Microsoft.AppConfiguration(...)` syntax goes for an Azure Functions app.
+
+### 1) Create a key/value in App Configuration
+
+In your App Configuration store, create a key/value pair:
+
+- **Key:** `Demo:Color`
+- **Label:** (optional) `dev`
+- **Value:** `Blue`
+
+### 2) Add an application setting to your function app in Azure
+
+In your Function App (in Azure), add an application setting named `Demo__Color` and set its value to an App Configuration reference.
+
+> [!NOTE]
+> Use double underscores (`__`) if you want .NET configuration binding to map to `Demo:Color`.
+
+**Application setting name**
+
+```text
+Demo__Color
+```
+
+**Application setting value**
+
+```text
+@Microsoft.AppConfiguration(Endpoint=https://myAppConfigStore.azconfig.io; Key=Demo:Color; Label=dev)
+```
+
+### 3) Read the setting in your function code
+
+At runtime, your code reads `Demo:Color` like any other app setting.
+
+> [!TIP]
+> You don't need to call `AddAzureAppConfiguration()` for platform references. Use `AddAzureAppConfiguration()` only when you want to load configuration directly via the SDK.
 
 ## Source application settings from App Configuration
 
@@ -162,8 +214,8 @@ Here's a sample template for a function app that has App Configuration reference
                         "[resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigStoreName'))]"
                     ],
                     "properties": {
-                        "WEBSITE_FONTNAME": "[concat('@Microsoft.AppConfiguration(Endpoint=', reference(resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigStoreName'))).endpoint,'; Key=',variables('FontNameKey'),'; Label=',variables('myLabel'), ')')]",
-                        "WEBSITE_FONTCOLOR": "[concat('@Microsoft.AppConfiguration(Endpoint=', reference(resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigStoreName'))).endpoint,'; Key=',variables('FontColorKey'),'; Label=',variables('myLabel'), ')')]",
+                        "WEBSITE_FONTNAME": "[concat('@Microsoft.AppConfiguration(Endpoint=', reference(resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigStoreName'))).endpoint,'; Key=',variables('FontNameKey'),'; Label=',variables('myLabel'), ')]",
+                        "WEBSITE_FONTCOLOR": "[concat('@Microsoft.AppConfiguration(Endpoint=', reference(resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigStoreName'))).endpoint,'; Key=',variables('FontColorKey'),'; Label=',variables('myLabel'), ')]",
                         "WEBSITE_ENABLE_SYNC_UPDATE_SITE": "true"
                         //...
                     }
@@ -202,7 +254,6 @@ Here's a sample template for a function app that has App Configuration reference
                     //...
                     "dependsOn": [
                         "[resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigStoreName'))]"
-
                     ],
                     "properties": {
                         "value": "Calibri",
@@ -216,7 +267,6 @@ Here's a sample template for a function app that has App Configuration reference
                     //...
                     "dependsOn": [
                         "[resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigStoreName'))]"
-
                     ],
                     "properties": {
                         "value": "Blue",
@@ -226,8 +276,8 @@ Here's a sample template for a function app that has App Configuration reference
             ]
         },
         {
-            "scope": "[resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigStoreName'))]",
-            "type": "Microsoft.Authorization/roleAssignments",
+            "scope": "[resourceId('Microsoft.AppConfiguration/configurationStores', variables('appConfigStoreName')]
+            ,"type": "Microsoft.Authorization/roleAssignments",
             "apiVersion": "2020-04-01-preview",
             "name": "[parameters('roleNameGuid')]",
             "properties": {

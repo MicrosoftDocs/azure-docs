@@ -1,10 +1,10 @@
 ---
 title: Security practices for manufacturers - Azure IoT Device Provisioning Service
 description: Overviews common security practices for OEMs and device manufactures who prepare devices to enroll in Azure IoT Device Provisioning Service (DPS). 
-author: dominicbetts
-ms.author: dobett
+author: sethmanheim
+ms.author: sethm
 ms.date: 1/10/2025
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: azure-iot-hub
 services: iot-dps
 ms.custom: iot-p0-scenario, iot-devices-deviceOEM

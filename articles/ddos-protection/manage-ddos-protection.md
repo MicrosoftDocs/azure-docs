@@ -1,22 +1,19 @@
 ---
-title: 'QuickStart: Create and configure Azure DDoS Network Protection using - Azure portal'
+title: 'Quickstart: Create and configure Azure DDoS Network Protection using the Azure portal'
 description: Learn how to use Azure DDoS Network Protection to mitigate an attack.
-author: AbdullahBell
-ms.author: abell
+author: duongau
+ms.author: duau
 ms.service: azure-ddos-protection
 ms.topic: quickstart
-ms.date: 03/17/2025
-ms.custom: template-quickstart
+ms.date: 01/26/2026
 # Customer intent: As a network administrator, I want to create and configure a DDoS protection plan for my virtual networks, so that I can safeguard my resources from distributed denial-of-service attacks.
 ---
 
-# QuickStart: Create and configure Azure DDoS Network Protection using the Azure portal
+# Quickstart: Create and configure Azure DDoS Network Protection using the Azure portal
 
-Get started with Azure DDoS Network Protection by using the Azure portal.
+In this Quickstart, you create a DDoS protection plan and link it to a virtual network.
 
 A DDoS protection plan defines a set of virtual networks that have DDoS Network Protection enabled, across subscriptions. You can configure one DDoS protection plan for your organization and link virtual networks from multiple subscriptions under a single Microsoft Entra tenant to the same plan.
-
-In this QuickStart, you create a DDoS protection plan and link it to a virtual network.
 
 :::image type="content" source="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png" alt-text="Diagram of DDoS Network Protection." lightbox="./media/manage-ddos-protection/ddos-network-protection-diagram-simple.png":::
 
@@ -44,7 +41,8 @@ In this QuickStart, you create a DDoS protection plan and link it to a virtual n
 [!INCLUDE [DDoS-Protection-region-requirement.md](../../includes/DDoS-Protection-region-requirement.md)]
 
 ## Enable DDoS protection for a virtual network
-### Enable for a new virtual network
+
+# [New virtual network](#tab/new-vnet)
 
 1. Select **Create a resource** in the upper left corner of the Azure portal.
 1. Select **Networking**, and then select **Virtual network**.
@@ -58,27 +56,28 @@ In this QuickStart, you create a DDoS protection plan and link it to a virtual n
     | Region          | Enter **East US**.                                                   |
 
 1. In the *Security* pane, select **Enable** on the **Azure DDoS Network Protection** radio.
-1. Select **MyDdosProtectionPlan** from the **DDoS protection plan** pane. The plan you select can be in the same, or different subscription than the virtual network, but both subscriptions must be associated to the same Microsoft Entra tenant.
-1. Select **Next**. In the IP address pane, select **Add IPv4 address space** and enter the following values. Then select **Add**.
+1. Select **MyDdosProtectionPlan** from the **DDoS protection plan** pane or create a new plan. The plan you select can be in the same, or different subscription than the virtual network, but both subscriptions must be associated to the same Microsoft Entra tenant.
+1. Select **Next**. In the **IP addresses** pane, update the IP address space with the following values.
 
     | Setting              | Value                                                                         |
     | ---------            | ---------                                                                     |
-    | IPv4 address space   | Enter **10.1.0.0/16.**                                                        |
-    | Subnet name          | Under **Subnet name**, select the **Add subnet** link and enter **mySubnet.** |
-    | Subnet address range | Enter **10.1.0.0/24.**                                                        |
+    | IPv4 address space   | Enter **10.1.0.0/16**.                                                        |
+    | Subnet name          | Under **Subnets**, select the **default** link and update the name to **mySubnet**. |
+    | Starting address     | Enter **10.1.0.0**.                                                        |
+    | Size          | Select **/24**.                                                              |
 
-1. Select **Review + create** then **Create**.
+1. Select **Save** > **Review + create** > **Create**.
 
 [!INCLUDE [DDoS-Protection-virtual-network-relocate-note.md](../../includes/DDoS-Protection-virtual-network-relocate-note.md)]
 
-### Enable for an existing virtual network
+# [Existing virtual network](#tab/existing-vnet)
 
 1. Create a DDoS protection plan by completing the steps in [Create a DDoS protection plan](#create-a-ddos-protection-plan), if you don't have an existing DDoS protection plan.
 1. Enter the name of the virtual network in the **Search resources, services, and docs** box at the top of the Azure portal. When it appears in the search results, select it.
 1. Under **Settings**, select **DDoS protection**.
 1. Select **Enable**. Under **DDoS protection plan**, choose an existing plan or the one you created in step 1, then select **Save**. The plan can be in the same or a different subscription than the virtual network, but both must be associated with the same Microsoft Entra tenant. 
 
-### Add Virtual Networks to an existing DDoS protection plan
+# [Existing DDoS protection plan](#tab/existing-plan)
 
 You can also enable the DDoS protection plan for an existing virtual network from the DDoS Protection plan itself. This is useful if you have multiple virtual networks to protect with the same plan. 
 
@@ -86,6 +85,8 @@ You can also enable the DDoS protection plan for an existing virtual network fro
 1. Select the desired DDoS protection plan from the list.
 1. Under **Settings**, select **Protected resources**.
 1. Select **Add**, choose the subscription, resource group, and virtual network, then select **Add** again.
+
+---
 
 ## Configure an Azure DDoS Protection Plan using Azure Firewall Manager 
 

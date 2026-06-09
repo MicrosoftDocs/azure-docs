@@ -5,8 +5,8 @@ description: 'Automate performance testing by adding it to your CI/CD workflows 
 services: load-testing
 ms.service: azure-load-testing
 ms.topic: quickstart
-author: ninallam
-ms.author: ninallam
+author: nandinimurali
+ms.author: nandinim
 ms.date: 08/05/2023
 adobe-target: true
 ---

@@ -1,0 +1,19 @@
+items:
+  - name: Overview
+    href: about-sap-with-microsoft-ai.md
+  - name: SAP Joule and Microsoft 365 Copilot
+    href: joule/joule-copilot-overview.md
+  - name: Copilot Studio and SAP
+    items:
+    - name: Copilot Studio overview
+      href: copilot-studio/copilot-with-sap-overview.md
+    - name: Azure API Management and virtual network peering
+      href: copilot-studio/architecture-apim-virtual-network.md
+    - name: On-premises data gateway with access to BAPIs, RFCs, and OData services
+      href: copilot-studio/architecture-on-premises-data-gateway.md
+    - name: SAP Business Technology Platform with SAP API Management and SAP Cloud Connector
+      href: copilot-studio/architecture-business-technology-platform-api.md
+    - name: Publicly available SAP system (demo scenario)
+      href: copilot-studio/architecture-demo.md
+  - name: Foundry AI and SAP overview
+    href: foundry/foundry-ai-sap.md

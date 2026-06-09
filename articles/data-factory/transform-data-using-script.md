@@ -2,7 +2,7 @@
 title: Transform data by using the Script activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Explains how to use the Script Activity to transform data in an Azure Data Factory or Synapse Analytics pipeline.
-ms.topic: conceptual
+ms.topic: how-to
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
@@ -183,7 +183,6 @@ Logging options:
 ## Related content
 See the following articles that explain how to transform data in other ways:
 
-* [U-SQL activity](transform-data-using-data-lake-analytics.md)
 * [Hive activity](transform-data-using-hadoop-hive.md)
 * [Pig activity](transform-data-using-hadoop-pig.md)
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md)

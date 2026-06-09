@@ -2,8 +2,8 @@
 title: Azure product transfer hub
 description: This article helps you understand the Azure subscription, reservation, and savings plan transfer requirements and support. This article also provides links to other articles for more detailed information.
 author: Nicholak-MS
-ms.author: nicholak
-ms.reviewer: nicholak
+ms.author: clodwig
+ms.reviewer: clodwig
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
@@ -75,7 +75,7 @@ For information about how to cancel a support plan, see [Cancel your Azure subsc
 
 The following table describes product transfer support between the different agreement types. Links are provided for more information about each type of transfer.
 
-Currently transfer isn't supported for [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) products. For a workaround, see [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
+Currently transfer isn't supported for [Free Trial](https://azure.microsoft.com/pricing/offers/ms-azr-0044p?cid=msft_learn) products. For a workaround, see [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Dev/Test products aren't shown in the following table. Transfers for Dev/Test products are handled in the same way as other product types. For example, an EA Dev/Test product transfer is handled in the way an EA product transfer.
 
@@ -117,10 +117,16 @@ Self-service reservation and savings plan transfers with no pricing or billing c
 - If your enrollment transfer (e.g. EA to MCA, EA to EA, etc.) involves a change in **billing currency** (e.g. EUR to USD) from billing group, the transfer will proceed. However, if the reservation has monthly or flexible payment plan, the billing plan will be cancelled at next billing cycle. If the reservation has an upfront payment, there will be no impact on the reservation. 
 
 **Savings Plan**:
-- For transfer of savings plans that involve a **pricing currency** change, the transfer will be immediately blocked. Except: 
-    - **Only If** you are transfering your savings plan from EA to MCA-E, MCA-online or CSP (MCA managed by partner), **and** the original pricing currency is non-USD: the original savings plan will be immediately cancelled and returned with full refund and a new savings plan will be repurchased. The new savings plan will be purchased in destination enrollment with pricing currency in USD , 1-year term, and monthly billing frequency. The scope and commitment will remain the same. 
-        - If the original Savings Plan has a 1-year term, the new 1-year Savings Plan will provide identical savings benefits. If you are going from 3-year to 1-year Savings Plans, expect reduced savings benefits due to the discount differences between the terms. To maintain your previous savings level, you should buy an additional 1- year Savings Plan. Hourly commitment recommendations for the additional savings plan may take up to 2 days to appear in the Azure portal.
-        - Customers with 3-year savings plans, who want to retain their discount levels should immediately contact Azure support for assistance purchasing the new 3-year Savings Plans in the destination enrollment.
+- Savings plan transfers that involve a change in **pricing currency** (e.g. EUR to USD) are permitted only when the transfer is from EA to MCA-E, MCA-online, or CSP (MCA managed by partner), **and** the original pricing currency is non-USD. In these cases, there are two options:
+    - Choose to have all savings plans automatically canceled in the source account and repurchased in the destination account as 1-year plans.
+        - Newly purchased savings plans will have:
+          - A USD-equivalent commitment. For example, assuming a €1:$1.17 exchange rate, a €5/hr. plan will be replaced by a $5.85/hr. plan.
+          - Monthly billing frequency, regardless of the original billing frequency.
+        - Canceled savings plans will result in a prorated refund.
+        - If the original savings plan has a 1-year term, the new plan will provide identical savings.
+        - One-year savings plans provide less savings than 3-year savings plans because of the discount differences between the terms. To retain the 3-year discount, don't proceed with the automatic cancellation option.
+    - If you want to retain the discount level of a 3-year savings plan, contact Azure support immediately for assistance purchasing new 1-year and 3-year savings plans in the destination account and canceling savings plans in the source account.
+
 - If your enrollment transfer (e.g. EA to MCA, EA to EA, etc.) involves a change in **billing currency** (e.g. EUR to USD) from billing group, the transfer will proceed. If the savings plan has monthly or flexible payment plan, the billing plan will be cancelled at next billing cycle. If the savings plan has an upfront payment, there will be no impact on the savings plan. 
 
 ## Perform resource transfers
@@ -154,6 +160,73 @@ Cost Management Data Access Requirements After Subscription Transfer
 ### Transfer terms and conditions
 
 When you send or accept a transfer, you agree to terms and conditions. The following information provides more details.
+
+#### Azure Marketplace: Transfer Between Billing Accounts — Subscription Type Eligibility
+
+**Overview:**
+
+When you transfer an Azure subscription from one billing account to another, all Azure Marketplace resources on that subscription move with it. The subscription itself remains the same — only the billing account it belongs to changes.
+
+Before the transfer proceeds, Azure validates whether the **target billing account** supports the Marketplace products on the subscription.
+
+---
+
+**How does the eligibility check work?**
+
+The check evaluates the **target billing account's** payment type. The source billing account's type is not relevant to this check.
+
+- **Paid Marketplace products**: The target billing account must have a supported payment type (see the table below).
+- **Free Marketplace products**: No payment type restriction — the transfer is allowed to any billing account type.
+
+---
+
+**Transfer Eligibility by Payment Type — Paid Marketplace Products:**
+
+Each Azure billing account has a **payment type**. For paid Marketplace products, the transfer is allowed only when the target billing account's payment type is **Paid** or **SponsoredPlus (MultipleSponsorships)**.
+
+| Target Payment Type | Transfer Allowed | Examples |
+|---------------------|:---:|--------------------------|
+| **Paid** | ✅ | Pay-As-You-Go, Microsoft Customer Agreement, Enterprise Agreement, CSP |
+| **SponsoredPlus** (MultipleSponsorships) | ✅ | Azure Sponsorship |
+| SponsoredPlus (without MultipleSponsorships) | ❌ | — |
+| Free | ❌ | Azure Free Account, Azure for Students |
+| Sponsored | ❌ | Academic Sponsorship |
+| Entitlement | ❌ | Visual Studio Enterprise, Visual Studio Professional, MPN, MSDN Platforms |
+| Benefit | ❌ | Partner benefit |
+
+---
+
+**Free Marketplace products have no payment type restrictions. Transfers are allowed regardless of the target billing account type.**
+
+---
+
+Common Scenarios:
+
+| Scenario | Allowed | Reason |
+|----------|:---:|--------|
+| Transfer paid product to a Pay-As-You-Go billing account | ✅ | Payment type is Paid. |
+| Transfer paid product to a Microsoft Customer Agreement billing account | ✅ | Payment type is Paid. |
+| Transfer paid product to a CSP billing account | ✅ | Payment type is Paid. |
+| Transfer paid product to an Azure Sponsorship (MultipleSponsorships) billing account | ✅ | Payment type is SponsoredPlus with MultipleSponsorships. |
+| Transfer paid product to an Azure Free Account | ❌ | Payment type is Free. |
+| Transfer paid product to an Academic Sponsorship billing account | ❌ | Payment type is Sponsored. |
+| Transfer paid product to a Visual Studio Enterprise billing account | ❌ | Payment type is Entitlement. |
+| Transfer free product to any billing account | ✅ | Free products have no payment type restrictions. |
+
+---
+
+**Error Message:**
+
+If the target billing account does not support the Marketplace product being transferred, you will see the following error:
+
+> *"The operation has failed because we couldn't find a valid payment method on this Azure subscription, or the existing payment method is not allowed for transfer. Please add/update current payment method for this subscription and retry."*
+
+**How to resolve:**
+
+- Verify that the target billing account has a **Paid** or **SponsoredPlus (MultipleSponsorships)** payment type.
+- Billing accounts with a Free, Sponsored, Entitlement, or Benefit payment type do not support transfer of paid Marketplace products.
+- Free Marketplace products can be transferred to any billing account type. If you see this error for a free product, please contact support.
+
 
 #### Send transfer
 

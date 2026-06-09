@@ -5,7 +5,7 @@ author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/01/2024
 ms.author: rolyon
 ms.custom: subject-rbac-steps

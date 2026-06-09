@@ -1,8 +1,8 @@
 ---
 title: Create or link an API Center from the Azure portal
 description: "How to create a new API Center or link an existing API Center to an API Management service from the Azure portal."
-author: ProfessorKendrick
-ms.author: kkendrick
+author: dlepow
+ms.author: danlep
 ms.service: azure-api-management
 ms.topic: tutorial  
 ms.date: 10/20/2025
@@ -13,11 +13,13 @@ ms.date: 10/20/2025
 
 # Tutorial: Create or link an API Center to API Management
 
-This tutorial shows how to integrate an Azure API Management instance with an Azure API Center. When linked, the API Management instance's APIs — and optional API definitions — are continuously synchronized into the API Center inventory. API Center is a central catalog and governance hub for APIs and related artifacts, and API Management customers use it to discover and reuse APIs, share definitions across teams, and apply consistent governance and lifecycle policies.
+This tutorial shows how to integrate (link) an Azure API Management instance with an Azure API Center. When linked, the API Management instance's APIs — and optional API definitions — are continuously synchronized into the API Center inventory. API Center is a central catalog and governance hub for APIs and related artifacts, and API Management customers use it to discover and reuse APIs, share definitions across teams, and apply consistent governance and lifecycle policies.
 
 > [!NOTE]
 > 
 > Only one API Center can be linked to a single API Management instance.
+
+[!INCLUDE [free-standard-plan-linked-api-management](../../api-center/includes/free-standard-plan-linked-api-management.md)]
 
 In this tutorial, you:
 

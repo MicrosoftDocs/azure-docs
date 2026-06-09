@@ -9,7 +9,7 @@ ms.collection:
   - ce-skilling-ai-copilot
 ms.custom:
   - ignite-2025
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 #Customer intent: As a developer, I need to know how to host server built with official MCP SDKs on Azure Functions to benefit from serverless scale and security features.
 ---
 
@@ -61,7 +61,7 @@ Because the new server runs in a Flex Consumption plan, which follows a _pay-for
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 > [!NOTE]  
-> This sample requires that you have permission to create a [Microsoft Entra app](https://docs.azure.cn/entra/fundamentals/what-is-entra) in the Azure subscription you use.
+> This sample requires that you have permission to create a [Microsoft Entra app](/entra/identity/role-based-access-control/custom-available-permissions#create-and-delete) in the Azure subscription you use.
 
 ## Get started with a sample project
 
@@ -237,6 +237,7 @@ azd down
 ```
 
 ::: zone-end  
+
 <!--- Re-add this when the new tutorial gets published
 ## Next steps
 

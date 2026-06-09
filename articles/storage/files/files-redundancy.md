@@ -4,7 +4,7 @@ description: Understand the data redundancy options available for Azure file sha
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 09/10/2025
+ms.date: 03/09/2026
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: "As a data engineer, I want to select the appropriate data redundancy option for Azure file shares, so that I can ensure optimal availability and disaster recovery tailored to my organization's needs."
@@ -22,22 +22,6 @@ When deciding which redundancy option is best for your scenario, consider the tr
 Azure classic file shares created with the Microsoft.Storage resource provider are managed through a common Azure resource called a *storage account*. The storage account represents a shared pool of storage that can be used to deploy file shares. For more information about storage accounts, see [Storage account overview](../common/storage-account-overview.md).
 
 When you create a storage account, you choose a redundancy setting for the storage account that's shared for all storage services exposed by that account. Therefore, all file shares deployed in the same storage account have the same redundancy setting. You might want to isolate file shares in separate storage accounts if they have different redundancy requirements.
-
-## Applies to
-| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
-|-|-|-|-|:-:|:-:|
-| Microsoft.Storage | Provisioned v2 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v2 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
 ## Redundancy in the primary region
 
@@ -208,31 +192,43 @@ You can verify region supportability for various billing models using the follow
 
 To view region supportability based on different billing models, use Azure PowerShell or Azure CLI.
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 ```powershell
-# Login to Azure account
+# Login
 Connect-AzAccount
+# (Optional but recommended if you have multiple subs)
+# Set-AzContext -Subscription $subscriptionID
 
-# Track down the subscription ID in GUID format
 $subscriptionID = "your-subscription-id-number"
 
-# Get Token
-$token = Get-AzAccessToken
+# Get token (output is now SecureString by default, see https://learn.microsoft.com/powershell/module/az.accounts/get-azaccesstoken)
+$secureToken = (Get-AzAccessToken).Token  # SecureString now
 
-# Invoke SRP list SKU API, and get the returned SKU list
-$result = Invoke-RestMethod -Method Get -Uri "https://management.azure.com/subscriptions/$($subscriptionID)/providers/Microsoft.Storage/skus?api-version=2024-01-01" -Headers @{"Authorization" = "Bearer $($token.Token)"}
+# Convert SecureString -> plaintext (Az 14 migration pattern)
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secureToken)
+try {
+    $plainToken = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+}
+finally {
+    [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
 
-# Filter the SKU list to get the required information, customization required here to get the best result.
+# Call List SKUs
+$uri = "https://management.azure.com/subscriptions/$subscriptionID/providers/Microsoft.Storage/skus?api-version=2025-08-01"
+$headers = @{ Authorization = "Bearer $plainToken" }
+
+$result = Invoke-RestMethod -Method Get -Uri $uri -Headers $headers
+
 $filteredResult = $result | `
     Select-Object -ExpandProperty value | `
     Where-Object {
         $_.resourceType -eq "storageAccounts" -and
-        # Filter based on your needs. FileStorage kind includes pv2, and pv1 file share, where StorageV2 kind include PayGO file shares.
+        # Filter based on your needs. FileStorage account kind includes Pv2 and Pv1 file share, where StorageV2 kind includes PayGO file shares.
         $_.kind -in @("FileStorage", "StorageV2") -and
-        # Filter based on your needs. "Standard_" for PayGO file share, "StandardV2_" for Pv2 file share, "Premium_" for pv1 file shares.
+        # Filter based on your needs. "Standard_" for PayGO file share, "StandardV2_" for Pv2 file share, "Premium_" for Pv1 file shares.
         # $_.name.StartsWith("StandardV2_") -and
-        # Change region based on your need to see if we currently support the region (all small cases, no space in between).
+        # Change region based on your need to see if the region is currently supported (all lowercase, no space in between).
         # $_.locations -eq "italynorth" -and
         $_.name -notin @("Standard_RAGRS", "Standard_RAGZRS")
     }
@@ -296,7 +292,7 @@ subscriptionID="your-subscription-id-number"
 token=$(az account get-access-token --query accessToken --output tsv)
 
 # Invoke SRP list SKU API, and get the returned SKU list
-result=$(az rest --method get --uri "https://management.azure.com/subscriptions/$subscriptionID/providers/Microsoft.Storage/skus?api-version=2024-01-01" --headers "Authorization=Bearer $token")
+result=$(az rest --method get --uri "https://management.azure.com/subscriptions/$subscriptionID/providers/Microsoft.Storage/skus?api-version=2025-08-01" --headers "Authorization=Bearer $token")
 
 # Filter the SKU list to get the required information, customization required here to get the best result.
 filteredResult=$(echo $result | jq '.value[] | select(.resourceType == "storageAccounts" and (.kind == "FileStorage" or .kind == "StorageV2") and (.name | test("^(?!Standard_RAGRS|Standard_RAGZRS)")))' )

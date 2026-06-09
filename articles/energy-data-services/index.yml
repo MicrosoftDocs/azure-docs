@@ -66,6 +66,8 @@ landingContent:
             url: tutorial-seismic-ddms-sdutil.md
           - text: Seismic DDMS tutorial
             url: tutorial-seismic-ddms.md
+          - text: Change tier for seismic workloads
+            url: tutorial-seismic-change-tier.md
           - text: Wellbore DDMS tutorial
             url: tutorial-wellbore-ddms.md
           - text: Well delivery DDMS tutorial
@@ -110,6 +112,8 @@ landingContent:
             url: how-to-deploy-gcz.md
           - text: How to deploy OSDU Admin UI
             url: how-to-deploy-osdu-admin-ui.md
+          - text: How to manage upgrade settings
+            url: how-to-manage-upgrade-settings.md
       - linkListType: concept
         links:
           - text: Entitlement concepts

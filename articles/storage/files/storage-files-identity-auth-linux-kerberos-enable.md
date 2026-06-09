@@ -12,7 +12,7 @@ ms.author: kendownie
 
 # Enable Active Directory authentication over SMB for Linux clients accessing Azure Files
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
 For more information on supported options and considerations, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md).
 

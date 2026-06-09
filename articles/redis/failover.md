@@ -2,7 +2,7 @@
 title: Failover and patching - Azure Managed Redis
 description: Learn about failover, patching, and the update process for Azure Managed Redis.
 ms.date: 02/26/2026
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - engagement-fy23
   - ignite-2024

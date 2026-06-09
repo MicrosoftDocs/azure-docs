@@ -10,6 +10,8 @@ ms.date: 01/22/2026
 
 # HTTP DDoS Ruleset in Azure Application Gateway WAF (preview)
 
+**Applies to:** :heavy_check_mark: Application Gateway V2
+
 > [!IMPORTANT]
 > The Microsoft HTTP DDoS Ruleset in the Azure Application Gateway Web Application Firewall (WAF) v2 is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

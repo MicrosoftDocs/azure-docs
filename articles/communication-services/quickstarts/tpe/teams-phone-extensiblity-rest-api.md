@@ -7,7 +7,7 @@ manager: miguelher
 services: azure-communication-services
 ms.author: sofiar
 ms.date: 09/01/2025
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.subservice: identity
 ---
@@ -35,8 +35,8 @@ PUT {endpoint}/access/teamsExtension/tenants/{tenantId}/assignments/{objectId}?a
 ### Request body
 
 | Name | In | Required | Type | Description |
-| --- | --- | --- |
-| `request ` | body | true | [TeamsExtensionAssignmentCreateOrUpdateRequest](#teamsextensionassignmentcreateorupdaterequest) | Request for teams account assignment. |
+| --- | --- | --- | --- | --- |
+| `request` | body | true | [TeamsExtensionAssignmentCreateOrUpdateRequest](#teamsextensionassignmentcreateorupdaterequest) | Request for teams account assignment. |
 
 ### Responses
 
@@ -51,14 +51,16 @@ PUT {endpoint}/access/teamsExtension/tenants/{tenantId}/assignments/{objectId}?a
 Get the assignment for a resource access from a Teams user or Teams resource account.
 
 ```http
-GET {endpoint}/access/teamsExtension/assignments/{objectId}?api-version=2025-06-30
+GET {endpoint}/access/teamsExtension/tenants/{tenantId}/assignments/{objectId}?api-version=2025-06-30
 ```
 
 ### URI parameters
 
 | Name | In | Required | Type | Description |
-| --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | `objectId` | path | true | string | Object ID of the principal, that is, the user ID or resource account ID. |
+| `tenantId` | path | true | string | Tenant ID of the tenant that the principal belongs to. |
+| `api-version` | query | true | string | Version of API to invoke. |
 
 ### Responses
 
@@ -72,14 +74,16 @@ GET {endpoint}/access/teamsExtension/assignments/{objectId}?api-version=2025-06-
 Delete the assignment to remove resource access from a Teams user or Teams resource account.
 
 ```http
-DELETE {endpoint}/access/teamsExtension/assignments/{objectId}?api-version=2025-06-30
+DELETE {endpoint}/access/teamsExtension/tenants/{tenantId}/assignments/{objectId}?api-version=2025-06-30
 ```
 
 ### URI parameters
 
 | Name | In | Required | Type | Description |
-| --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | `objectId` | path | true | string | Object ID of the principal, that is, the user ID or resource account ID. |
+| `tenantId` | path | true | string | Tenant ID of the tenant that the principal belongs to. |
+| `api-version` | query | true | string | Version of API to invoke. |
 
 ### Responses
 

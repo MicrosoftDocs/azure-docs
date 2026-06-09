@@ -14,6 +14,8 @@ ms.custom:
 
 # CREATE TABLE AS SELECT (CTAS)
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article explains the CREATE TABLE AS SELECT (CTAS) T-SQL statement in dedicated SQL pool (formerly SQL DW) for developing solutions. The article also provides code examples.
 
 ## CREATE TABLE AS SELECT
