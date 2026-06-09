@@ -243,17 +243,17 @@ The preceding example uses app settings references (`%VAR_NAME%`) instead of har
 # [Functions 2.x+](#tab/functionsv2/isolated-process)
 
 The following code defines a `MyDocument` type:
-
+<!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="49-58":::
-
+-->
 The following example uses an [`IReadOnlyList<T>`](/dotnet/api/system.collections.generic.ireadonlylist-1) as the Azure Cosmos DB trigger binding parameter:
-
+<!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" id="docsnippet_exponential_backoff_retry_example":::
-
+-->
 This example requires the following `using` statements:
-
+<!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-7":::
-
+-->
 ---
 
 ::: zone-end
