@@ -17,6 +17,23 @@ ms.custom:
 
 Release notes describe features, enhancements, and bug fixes released in 2026 for the FHIR&reg; service and DICOM&reg; service in Azure Health Data Services.
 
+## June 2026
+### FHIR service
+
+**Transaction bundle conflict handling**: Transaction bundle conflict handling has been improved. When concurrent transaction bundles encounter conflicts, the service now returns HTTP 409 Conflict instead of HTTP 500 Internal Server Error, allowing clients to retry appropriately.
+
+**Improved error handling for malformed continuation tokens**: Malformed continuation tokens now return HTTP 400 Bad Request instead of HTTP 500 Internal Server Error, improving error classification for invalid client requests.
+
+**Birthdate search performance improvement**: Birthdate search performance has been improved. Date-of-birth equality queries now use a more efficient query pattern, reducing database load for common patient birthdate searches.
+
+**Reject JWT access tokens in URL**: Requests containing JWT access tokens in URL paths or query strings are now rejected with HTTP 400 Bad Request, helping prevent accidental token exposure in logs and telemetry.
+
+**HTTP 404 for mis-cased FHIR resource types**: Requests with incorrectly cased FHIR resource types, such as `/patient` instead of `/Patient`, now return HTTP 404 Not Found, aligning behavior more clearly with FHIR resource type casing expectations.
+
+**Parallel bundle error handling improvement**: Parallel bundle error handling has been improved. Client-side errors now return HTTP 400 Bad Request, and dependent operations are marked as HTTP 424 Failed Dependency.
+
+**Deduplication of duplicate query parameters**: Duplicate query parameters with identical key-value pairs are now deduplicated before query parsing, reducing unnecessary database load.
+
 ## May 2026
 ### FHIR service
 

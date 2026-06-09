@@ -19,6 +19,13 @@ ms.author: evach
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## June 2026
+### FHIR service
+
+**Parallel bundle error handling improvement**: Parallel bundle error handling has been improved. Client-side errors now return HTTP 400 Bad Request, and dependent operations are marked as HTTP 424 Failed Dependency.
+
+**Deduplication of duplicate query parameters**: Duplicate query parameters with identical key-value pairs are now deduplicated before query parsing, reducing unnecessary database load.
+
 ## May 2026
 ### FHIR service
 
