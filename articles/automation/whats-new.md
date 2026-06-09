@@ -71,7 +71,7 @@ Starting **April 01, 2025** all jobs running on Agent-based User Hybrid Runbook 
 
 ### General Availability: Azure Automation supports PowerShell 7.2 runbooks in Government clouds
 
-Azure Automation now supports PowerShell 7.2 runbooks in Government clouds.
+Azure Automation now supports PowerShell 7.2 runbooks in Government clouds. [Learn more](./automation-runbook-types.md).
 
 
 ## April 2024
@@ -194,7 +194,7 @@ Azure Automation now supports [Azure availability zones](/azure/reliability/avai
 **Type:** Plan for change
 
 
-Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities.Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity.md?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
+Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](./automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](./migrate-run-as-accounts-managed-identity.md?tabs=run-as-account#migrate-from-an-automation-run-as-account-to-a-managed-identity) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
 
 ## August 2022
 
@@ -249,13 +249,13 @@ New scripts are added to the Azure Automation [GitHub organization](https://gith
 
 **Type:** New feature
 
-Azure Automation now supports Managed Identities in Azure public, Azure Gov, and Microsoft Azure operated by 21Vianet. [System Assigned Managed Identities](./enable-managed-identity-for-automation.md) is supported for cloud as well as hybrid jobs, while  [User Assigned Managed Identities](./automation-security-overview.md) is supported only for cloud jobs. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-managed-identities-ga/) for more information.
+Azure Automation now supports Managed Identities in Azure public, Azure Gov, and Microsoft Azure operated by 21Vianet. [System Assigned Managed Identities](./enable-managed-identity-for-automation.md) is supported for cloud as well as hybrid jobs, while  [User Assigned Managed Identities](./add-user-assigned-identity.md) is supported only for cloud jobs. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-managed-identities-ga/) for more information.
 
 ### Preview support for PowerShell 7.1
 
 **Type:** New feature
 
-Azure Automation support for PowerShell 7.1 runbooks is available as public preview in Azure public, Azure Gov, and  Azure operated by 21Vianet clouds. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-powershell-7/) for more information.
+Azure Automation support for PowerShell 7.1 runbooks is available as public preview in Azure public, Azure Gov, and  Azure operated by 21Vianet clouds. For more information, see [Azure Automation runbook types](./automation-runbook-types.md) and [announcement](https://azure.microsoft.com/updates/azure-automation-powershell-7/).
 
 
 
@@ -265,7 +265,7 @@ Azure Automation support for PowerShell 7.1 runbooks is available as public prev
 
 **Type:** New feature
 
-Azure Automation released native integration of User Hybrid Runbook Worker for Azure VMs, and for non-Azure machines through Arc-enabled servers. Read the [announcement](https://azure.microsoft.com/updates/automation-user-hybrid-extension-support) for more information.
+Azure Automation released native integration of User Hybrid Runbook Worker for Azure VMs, and for non-Azure machines through Arc-enabled servers. For more information, see [Automation Hybrid Runbook Worker overview](./automation-hybrid-runbook-worker.md) and [announcement](https://azure.microsoft.com/updates/automation-user-hybrid-extension-support).
 
 ### Preview support for Azure Active Directory authentication
 
@@ -279,9 +279,9 @@ This removes the dependency on certificates and enables you to meet your stringe
 
 **Type:** New feature
 
-Source control integration in Azure Automation can now use [managed identities](automation-security-overview.md#managed-identities) instead of a Run As account. For more information, see [source control integration prerequisites](source-control-integration.md#prerequisites).
+Source control integration in Azure Automation can now use [managed identities](./automation-security-overview.md#managed-identities) instead of a Run As account. For more information, see [source control integration prerequisites](source-control-integration.md#prerequisites).
 
-## September
+## September 2021
 
 ### Support for Az modules by default
 
@@ -303,7 +303,7 @@ Customers should evaluate and plan for migration from Azure Automation State Con
 
 **Type:** New feature
 
-Azure Automation now supports [user-assigned Managed Identities](automation-secure-asset-encryption.md) for cloud jobs in Azure global, Azure Government, and  Azure operated by 21Vianet regions. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-user-assigned-identities/) for more information.
+Azure Automation now supports [user-assigned Managed Identities](./automation-security-overview.md#managed-identities) for cloud jobs in Azure global, Azure Government, and  Azure operated by 21Vianet regions. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-user-assigned-identities/) for more information.
 
 ### General Availability of customer-managed keys for Azure Automation
 
@@ -327,7 +327,7 @@ As a result of this security risk, we recommend you don't use the Log Analytics 
 
 **Type:** New feature
 
-For more information, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/) and select your geography from the drop-down list.
+For regional availability details, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/) and select your geography from the drop-down list. [Learn more](./automation-dsc-overview.md). 
 
 ## May 2021
 
