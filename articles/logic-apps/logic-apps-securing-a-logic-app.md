@@ -1794,5 +1794,4 @@ For more information about isolation, see the following documentation:
 
 * [Azure security baseline for Azure Logic Apps](security-baseline.md)
 * [Automate deployment for Azure Logic Apps](logic-apps-azure-resource-manager-templates-overview.md)
-
 * [Monitor logic apps](monitor-workflows-collect-diagnostic-data.md)
