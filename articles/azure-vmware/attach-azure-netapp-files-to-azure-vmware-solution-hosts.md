@@ -149,8 +149,12 @@ To enable nConnect for Azure NetApp Files datastores in your Azure VMware Soluti
 
 1. Datastore name (Multiple datastores connect to the same cluster can be requested)
 
->[!NOTE]
-> nConnect will be enabled with default connection value of 4 for the NFS datastores. Connection value cannot be changed to any other value and only can be reverted back to connection value of 1. 
+> [!NOTE]
+> nConnect is enabled with a default connection value of **4** for NFS datastores. This value cannot be modified to any other setting. If required, nConnect can only be reverted to the default configuration with a connection value of **1**.
+> 
+> nConnect is configured at the ESXi host level and is applied to all the ESXi hosts within the cluster the datastore(s) are attached to.
+
+Authorized users can use the Get-NFSDatastoreNConnectValue run command to get the configured nConnect values on the datastores after nConnect is deployed.
 
 ### Considerations for Azure NetApp Files storage with cool access
 
