@@ -43,7 +43,7 @@ With the Azure VMware Solution Gen 2 private clouds offering, you get the follow
 
 ### Other features and capabilities unlocked 
 - Ability to select Private DNS resolution for your private cloud, enabling businesses to communicate across Azure and on-premises environments without being exposed to the internal.  
-- Ability to specify the Availability Zone in which the private cloud is deployed to optimise connectivity and latency with zonal Azure resources or ExpressRoute gateways within the same region. If no zonal alignment is required, the private cloud can be deployed without specifying an Availability Zone.
+- Ability to specify the Availability Zone in which the private cloud is deployed to optimize connectivity and latency with zonal Azure resources or ExpressRoute gateways within the same region. If no zonal alignment is required, the private cloud can be deployed without specifying an Availability Zone.
 
 ## Supported SKU type
 
