@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 05/15/2026
+ms.date: 06/10/2026
 ai-usage: ai-assisted
 ms.custom:
   - sfi-image-nochange
@@ -161,11 +161,11 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
-resource fabricRealtimeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' = {
+resource fabricRealtimeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' = {
   parent: aioInstance
   name: endpointName
   extendedLocation: {
