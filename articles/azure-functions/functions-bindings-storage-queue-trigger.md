@@ -32,6 +32,10 @@ Azure Queue storage scaling decisions for the Consumption and Premium plans are 
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 Use the queue trigger to start a function when a new item is received on a queue. The queue message is provided as input to the function.
@@ -44,7 +48,7 @@ Use the queue trigger to start a function when a new item is received on a queue
 
 The following example shows a [C# function](dotnet-isolated-process-guide.md) that polls the `input-queue` queue and writes several messages to an output queue each time a queue item is processed.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding":::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding"::: --->
 
 # [In-process model](#tab/in-process)
 
@@ -89,9 +93,12 @@ public void run(
 
 The following example shows a queue trigger [TypeScript function](functions-reference-node.md?tabs=typescript). The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageQueueTrigger1.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageQueueTrigger1.ts" ::: --->
 
-The [usage](#usage) section explains `queueItem`. The [message metadata section](#message-metadata) explains all of the other variables shown.
+> [!TIP]
+> To avoid the default `unknown` type on the queue input, use the generic type parameter (for example, `app.storageQueue<string>(...)`). This requires `@azure/functions` version 4.11.0 or later. For more information, see [Usage](#usage).
+
+The [message metadata section](#message-metadata) explains all of the other variables shown.
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -106,7 +113,7 @@ TypeScript samples aren't documented for model v3.
 
 The following example shows a queue trigger [JavaScript function](functions-reference-node.md). The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageQueueTrigger1.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageQueueTrigger1.js" ::: --->
 
 The [usage](#usage) section explains `queueItem`. The [message metadata section](#message-metadata) explains all of the other variables shown.
 
@@ -276,7 +283,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated worker proces
 
 In [C# class libraries](dotnet-isolated-process-guide.md), the attribute's constructor takes the name of the queue to monitor, as shown in the following example:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger":::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger"::: --->
 
 This example also demonstrates setting the [connection string setting](#connections) in the attribute itself. 
 
@@ -468,16 +475,31 @@ Earlier versions of this extension in the isolated worker process only support b
 ::: zone pivot="programming-language-java"
 The [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger) annotation gives you access to the queue message that triggered the function.
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
-# [Model v4](#tab/nodejs-v4)
+::: zone pivot="programming-language-typescript"  
+### [Model v4](#tab/nodejs-v4)
 
 Access the queue item as the first argument to your function. If the payload is JSON, the value is deserialized into an object.
 
-# [Model v3](#tab/nodejs-v3)
+Use the generic type parameter on `app.storageQueue<string>(...)` to type the queue trigger input. Without the generic, the input parameter defaults to `unknown`, which requires explicit type narrowing before you can use the value. Generic type support requires `@azure/functions` version 4.11.0 or later.
+
+### [Model v3](#tab/nodejs-v3)
 
 Access the queue item using `context.bindings.<NAME>` where `<NAME>` matches the value defined in *function.json*. If the payload is JSON, the value is deserialized into an object.
 
 ---
+
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+### [Model v4](#tab/nodejs-v4)
+
+Access the queue item as the first argument to your function. If the payload is JSON, the value is deserialized into an object.
+
+### [Model v3](#tab/nodejs-v3)
+
+Access the queue item using `context.bindings.<NAME>` where `<NAME>` matches the value defined in *function.json*. If the payload is JSON, the value is deserialized into an object.
+
+---
+
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 Access the queue message via string parameter that matches the name designated by binding's `name` parameter in the *function.json* file.

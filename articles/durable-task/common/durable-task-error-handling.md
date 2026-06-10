@@ -1,9 +1,9 @@
 ---
-title: Handling errors and Retries
-description: Learn how to handle errors in the Durable Functions extension for Azure Functions and Durable Task SDKs.
+title: "Handle Errors and Retries in Durable Functions"
+description: Learn how to handle errors, configure automatic retries, and set timeouts in Durable Functions and Durable Task SDKs. Explore retry policies, custom retry handlers, and compensation patterns to build resilient orchestrations.
 ms.topic: how-to
 ms.service: durable-task
-ms.date: 02/04/2026
+ms.date: 04/22/2026
 ms.author: hannahhunter
 author: hhunter-ms
 ms.devlang: csharp
@@ -12,7 +12,7 @@ ms.custom: devx-track-js
 zone_pivot_groups: azure-durable-approach
 ---
 
-# Handling errors in orchestrations
+# Handle errors and retries in orchestrations
 
 ::: zone pivot="durable-functions"
 
@@ -29,7 +29,7 @@ Apps that use cloud services need to handle failures, and client side retries ar
 ::: zone-end
 
 
-## Errors in activity functions and sub-orchestrations
+## Handle errors in activity functions and sub-orchestrations
 
 ::: zone pivot="durable-functions"
 
@@ -134,7 +134,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 ```
 
 > [!NOTE]
-> The previous C# examples use Durable Functions 2.x. For Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For version differences, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
+> The previous C# examples use Durable Functions 2.x. For Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For version differences, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
 
 </details>
 
@@ -443,7 +443,7 @@ If the **CreditAccount** activity fails, the orchestrator catches the exception 
 
 ::: zone pivot="durable-functions"
 
-## Errors with multiple activity calls (fan-out/fan-in)
+## Handle errors with multiple activity calls (fan-out/fan-in)
 
 # [C#](#tab/csharp)
 
@@ -539,7 +539,7 @@ In Java, when you use `ctx.allOf` to run multiple activity calls in parallel, th
 
 ---
 
-## Errors in entity functions
+## Handle errors in entity functions
 Exception handling in entity functions depends on the Durable Functions hosting model:
 
 # [C#](#tab/csharp)
@@ -694,7 +694,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 ```
 
 > [!NOTE]
-> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
+> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
 
 </details>
 
@@ -1257,7 +1257,7 @@ public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationC
 ```
 
 > [!NOTE]
-> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
+> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
 
 </details>
 
@@ -1384,7 +1384,7 @@ public boolean timerOrchestrator(
 ---
 
 > [!NOTE]
-> This mechanism doesn't end activity function execution that's already in progress. It lets the orchestrator function ignore the result and move on. For more information, see [Timers](durable-task-timers.md#usage-for-timeouts).
+> This mechanism doesn't end activity function execution that's already in progress. It lets the orchestrator function ignore the result and move on. For more information, see [Timers](durable-task-timers.md#use-durable-timers-for-timeouts).
 
 ::: zone-end
 
@@ -1526,7 +1526,7 @@ public TaskOrchestration createOrchestratorWithTimeout() {
 ---
 
 > [!NOTE]
-> This mechanism doesn't end activity execution that's already in progress. It lets the orchestrator ignore the result and move on. For more information, see the [Timers](durable-task-timers.md#usage-for-timeouts) documentation.
+> This mechanism doesn't end activity execution that's already in progress. It lets the orchestrator ignore the result and move on. For more information, see the [Timers](durable-task-timers.md#use-durable-timers-for-timeouts) documentation.
 
 ::: zone-end
 
@@ -1633,7 +1633,7 @@ If an orchestrator fails because of an unhandled exception, the runtime logs the
 > [Eternal orchestrations](durable-task-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
-> [Diagnose problems](../../azure-functions/durable-functions/durable-functions-diagnostics.md)
+> [Diagnose problems](../durable-functions/durable-functions-diagnostics.md)
 
 ::: zone-end
 

@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: overview
-ms.date: 01/29/2026
+ms.date: 04/23/2026
 ms.author: anfdocs
 # Customer intent: As a cloud administrator, I want to learn about the latest enhancements in Azure NetApp Files, so that I can effectively utilize new features for improved data security, resilience, and operational efficiency in my organization's cloud storage solutions.
 ---
@@ -17,7 +17,45 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-## April 2026
+## May 2026 
+
+* [Object REST API](object-rest-api-access-configure.md) is now generally available (GA)
+
+    The Azure NetApp Files [object REST API](object-rest-api-introduction.md) bridges the gap between traditional file-based storage and modern cloud services, enabling you to use your existing data in new ways. With the object REST API, you can seamlessly integrate Azure NetApp Files data with Microsoft Fabric, Foundry Tools, and other Azure and ISV offerings without the need to move or replicate data. This unlocks new use cases such as advanced analytics, machine learning, and real-time business intelligence, while reducing costs and accelerating innovation.
+
+    The object REST API introduces native S3-compatible read/write access, allowing modern applications to interact with your data directly and efficiently. Enterprises benefit from simplified integration, enhanced productivity, and improved data security, as data remains in place and protected by Azure NetApp Files' robust security measures. This feature is ideal for organizations looking to leverage AI-driven insights, streamline workflows, and maintain compliance with industry standards.
+
+* [Azure NetApp Files cache volumes](configure-cache-volumes.md) is now generally available (GA)
+
+    Azure NetApp Files now support cache volumes, which are cloud-based caches of an external origin volume, containing only the most actively accessed data on the volume. This brings data and files closer to the user for faster throughput with a smaller footprint. Azure NetApp Files cache volumes simplify file distribution, reduces WAN latency, and lowers WAN/ExpressRoute bandwidth costs.
+
+* [Support for Red Hat IdM, Oracle Unified Directory (OUD), and bind distinguished name authentication](configure-directory-server.md) (preview)
+ 
+    Azure NetApp Files now supports Red Hat IdM and Oracle Unified Directory, enabling seamless integration with widely used enterprise directory services. This capability allows organizations to leverage their existing LDAP-based identity infrastructure for authentication and access control providing simplified identity management, enhanced security and compliance, and improved scalability. This feature is ideal for enterprises-grade LDAP service with advanced scalability and security features. This feature is available in all Azure NetApp Files supported regions. This feature in currently in preview.
+
+    This enhancement also supports bind distinguished name (Bind DN) authentication for additional LDAP services. When you provide Bind DN credentials during the LDAP configuration, the password is stored in Azure Key Vault. Azure NetApp Files service retrieves the password from the Azure Key Vault when establishing LDAP connections. 
+ 
+* [Azure NetApp Files now supports files up to 64TiB on regular Azure NetApp Files volumes](azure-netapp-files-resource-limits.md) is now generally available (GA)
+
+   To support seamless migration and operation of workloads that use large files including Azure VMware Solution (AVS) virtual machines with large VMDK disks, [Azure NetApp Files now supports file sizes of up to 64 TiB for regular volumes](azure-netapp-files-resource-limits.md). This enhancement enables the migration of on premises workloads with large virtual machine disks to Azure VMware Solution and supports ongoing operation of data intensive workloads in Azure. The capability is available in all Azure NetApp Files enabled regions across the Flexible, Standard, Premium, and Ultra service levels.
+
+## April 2026 
+
+* [Backup enabled by default](protect-volumes.md) (preview)
+    
+    Azure NetApp Files now enables backup by default when creating new volumes, delivering a more seamless and secure data protection experience. Backups are automatically provisioned during volume creation, reducing setup effort while still allowing customers to opt out when needed. This enhancement improves usability and strengthens data resilience. This feature is available in all Azure NetApp Files supported regions.
+
+* Azure NetApp Files supports [one Active Directory connection per NetApp account](create-active-directory-connections.md#netapp-accounts-and-active-directory-type) as the new default (GA)
+
+    One Active Directory connection per NetApp account is now the default in Azure NetApp Files. Registration is no longer required to take advantage of this feature which became generally available (GA) in May 2025. Each NetApp account maintains its own Active Directory connection and allows connecting to its own Active Directory forest and domain, except those that were created as part of the preview of shared Active Directory connection. For more information, see the [Active Directory field in NetApp accounts](create-active-directory-connections.md#netapp-accounts-and-active-directory-type).
+
+* [Advanced ransomware protection](ransomware-configure.md) is now generally available (GA)
+
+    Azure NetApp Files advanced ransomware protection is designed to help organizations proactively detect, respond to, and recover from ransomware threats on cloud volumes. Advanced ransomware protection monitors Azure NetApp Files volumes for suspicious activity using file extension profiling, entropy, and I/OPS patterns. When a threat is detected, the system creates a point-in-time snapshot, enabling rapid evaluation and recovery. Notifications are sent through the Azure Activity log, and attack reports are retained for 30 days. 
+
+* [User and group quota reporting](generate-user-group-quota-reports.md) is now generally available (GA)
+
+    If you're using individual user and group quotas in Azure NetApp Files to manage capacity on NFS, SMB, and dual-protocol volumes, the user and group quota reporting feature now offers clear visibility into key metrics such as quota limits, used capacity, and percentage utilization for each target user and quota rule. Administrators can generate quota usage reports and modify quota rules directly within the Azure portal for any volume with quota rules, removing the previous dependency on host-based tools and the need to mount the volume for reporting.
 
 * [Secure object REST API access using Azure Key Vault certificates and credentials](object-rest-api-access-configure.md) (preview)
 
@@ -35,7 +73,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Large volumes operational improvement no longer requires a support ticket to increase a large volume past the 30% imposed limit. This allows customer to automate their large volume size increases without waiting for approval and human intervention.
     
-  ## January 2026
+## January 2026
 
 * [Elastic zone-redundant storage service level](elastic-zone-redundant-concept.md) (preview)
 
@@ -135,7 +173,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Enterprises upgrading their domain infrastructure can maintain high-performance, enterprise-grade file services with Azure NetApp Files SMB and dual-protocol volumes. This compatibility means you can confidently adopt the latest Windows Server capabilities while continuing to leverage the scalability and reliability of Azure NetApp Files.
 
-* [Flexible service level](manage-cool-access.md?tabs=flexible#register-the-feature) with cool access is now generally available (GA)
+* [Flexible service level](manage-cool-access.md) with cool access is now generally available (GA)
 
     Azure NetApp Files supports cool access for the Flexible service level, enabling you to further optimize performance and cost by automatically tiering infrequently accessed data to lower-cost Azure storage accounts. This enhancement builds on the Flexible service level's ability to decouple storage capacity and throughput, allowing precise resource alignment for diverse workloads while maintaining configured throughput levels—even with cool access enabled. These features help organizations reduce total cost of ownership without compromising performance. This feature is now generally available (GA).
 
@@ -179,9 +217,9 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     File access logs provide enterprise-grade visibility into file-level operations across SMB3, NFSv4.1, and dual-protocol volumes. This capability enhances security, reliability, and operational insight by capturing detailed access activity—including user identity, operation type, and timestamps. Organizations can use file access logs to monitor access patterns, detect unauthorized activity, support compliance investigations, and optimize data usage. By integrating this feature, you strengthen your security posture and align with the Well-Architected Framework's best practices for operational excellence.
 
-* [Flexible service level](manage-cool-access.md?tabs=flexible#register-the-feature) now supports storage with cool access (preview)
+* [Flexible service level](manage-cool-access.md) now supports storage with cool access (preview)
 
-    Azure NetApp Files now supports cool access for the Flexible service level, enabling you to further optimize performance and cost by automatically tiering infrequently accessed data to lower-cost Azure storage accounts. This enhancement builds on the Flexible service level's ability to decouple storage capacity and throughput, allowing precise resource alignment for diverse workloads while maintaining configured throughput levels—even with cool access enabled. These features help organizations reduce total cost of ownership without compromising performance. You must be registered for the [Flexible service level](azure-netapp-files-set-up-capacity-pool.md) before enrolling in [the preview for the Flexible service level with cool access](manage-cool-access.md#register-the-feature). 
+    Azure NetApp Files now supports cool access for the Flexible service level, enabling you to further optimize performance and cost by automatically tiering infrequently accessed data to lower-cost Azure storage accounts. This enhancement builds on the Flexible service level's ability to decouple storage capacity and throughput, allowing precise resource alignment for diverse workloads while maintaining configured throughput levels—even with cool access enabled. These features help organizations reduce total cost of ownership without compromising performance. 
 
 ## June 2025
 
@@ -207,7 +245,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     [Cross-zone-region replication](replication.md#cross-zone-region-replication) is an extension to cross-region and cross-zone replication. With cross-zone-region replication, you can configure two protection volumes in any combination of cross-region and cross-zone replication for the same source volume. Replication is now also supported across subscriptions under the same tenant. This feature is in preview.
 
-* [Support for one Active Directory connection per NetApp account](create-active-directory-connections.md#multi-ad) is now generally available (GA)
+* [Support for one Active Directory connection per NetApp account](create-active-directory-connections.md) is now generally available (GA)
 
     The Azure NetApp Files support for Active Directory connection per NetApp account feature is now generally available. The feature allows each NetApp account to connect to its own Active Directory Forest and Domain, providing the ability to manage more than one Active Directory connections within a single region under a subscription. This enhancement enables distinct Active Directory connections for each NetApp account, facilitating operational isolation and specialized hosting scenarios. Active Directory connections can be configured multiple times for multiple NetApp accounts to make use of it. With the creation of SMB volumes in Azure NetApp Files now tied to these Active Directory connections in the NetApp account, the management of Active Directory environments becomes more scalable, streamlined, and efficient.
 
@@ -228,8 +266,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Azure NetApp Files cross-subscription replication enables replication across different subscriptions under the same tenant. This feature enhances disaster recovery and operational agility by leveraging NetApp SnapMirror technology, which ensures efficient data transfer by sending only changed blocks in a compressed format. The feature is supported with both [cross-zone replication](replication.md) in all Azure NetApp Files regions with [availability zones](/azure/reliability/regions-list) and [cross-region replication](replication.md) in all supported regions.
     
-    You must [register the feature](enable-cross-subscription-replication.md) before using it for the first time. 
-
+    
 ## April 2025
 
 * [Cross-tenant customer-managed keys for Azure NetApp Files volume encryption](customer-managed-keys-cross-tenant.md) (preview)
@@ -352,8 +389,6 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     In a cross-region or cross-zone replication setting, cool access can now be configured for destination only volumes to ensure data protection. This capability provides cost savings without any latency impact on source volumes.
 
-    You still must [register the feature](manage-cool-access.md#register-the-feature) before enabling cool access. 
-
 * [Volume encryption with customer-managed keys with managed Hardware Security Module (HSM)](configure-customer-managed-keys-hardware.md) (preview)
 
     Volume encryption with customer-managed keys with managed HSM extends the [customer-managed keys](configure-customer-managed-keys.md), enabling you to store your keys in a more secure FIPS 140-2 Level 3 HSM service instead of the FIPS 140-2 Level 1 or 2 encryption offered with Azure Key Vault. 
@@ -416,7 +451,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
     
     For HPC workloads, which are essential for simulating processes and electronic design automation, this feature enhances data protection and availability, crucial for maintaining uninterrupted operations. AI/ML workloads, especially those involving large datasets for training complex models, will benefit from the added security and recovery options, ensuring data integrity for critical applications. Content repositories with large files, which often remain unchanged for extended periods but require immediate access, can now leverage the benefits of cross-zone and cross-region replication to safeguard against data loss while optimizing for cost and scale. By integrating these replication features, you can achieve a new level of data security and operational stability.
 
-* [Support for one Active Directory connection per NetApp account](create-active-directory-connections.md#multi-ad) (preview)
+* [Support for one Active Directory connection per NetApp account](create-active-directory-connections.md#netapp-accounts-and-active-directory-type) (Preview)
 
     The Azure NetApp Files support for one Active Directory (AD) connection per NetApp account feature now allows each NetApp account to connect to its own AD Forest and Domain, providing the ability to manage more than one AD connections within a single region under a subscription. This enhancement enables distinct AD connections for each NetApp account, facilitating operational isolation and specialized hosting scenarios. AD connections can be configured multiple times for multiple NetApp accounts to make use of it. With the creation of SMB volumes in Azure NetApp Files now tied to AD connections in the NetApp account, the management of AD environments becomes more scalable, streamlined and efficient. This feature is in preview.
 

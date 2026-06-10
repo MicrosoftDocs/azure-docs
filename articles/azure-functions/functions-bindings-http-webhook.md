@@ -60,10 +60,14 @@ Functions 1.x doesn't support running in an isolated worker process.
 ---
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-go,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"
 
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 
+::: zone-end
+
+::: zone pivot="programming-language-go"
+Register HTTP functions in code by using `app.HTTP()`. For examples, see the [HTTP trigger](functions-bindings-http-webhook-trigger.md) article. Go handles HTTP responses through the standard response writer in your HTTP trigger handler, as shown in the [HTTP output](functions-bindings-http-webhook-output.md) article.
 ::: zone-end
 
 ## host.json settings

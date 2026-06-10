@@ -3,8 +3,8 @@ title: Run MapReduce jobs on Entra enabled HDInsight cluster using REST API
 description: Learn how to run MapReduce jobs on Entra enabled HDInsight cluster using REST API
 ms.service: azure-hdinsight
 ms.topic: how-to
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date: 08/21/2025
 ---

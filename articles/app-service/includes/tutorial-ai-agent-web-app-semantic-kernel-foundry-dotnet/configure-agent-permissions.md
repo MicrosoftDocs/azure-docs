@@ -17,6 +17,6 @@ ms.service: azure-app-service
 
     | Target resource                | Required role                       | Needed for              |
     |--------------------------------|-------------------------------------|-------------------------|
-    | Foundry Project       | Azure AI User                       | Reading and calling the Foundry agent. |
+    | Foundry Project       | Foundry User                       | Reading and calling the Foundry agent. |
 
     For instructions, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).

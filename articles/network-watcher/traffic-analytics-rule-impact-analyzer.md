@@ -1,5 +1,5 @@
 ---
-title: Analyze Security Rules in Traffic Analytics (Preview)
+title: Analyze Security Rules in Traffic Analytics 
 titleSuffix: Azure Network Watcher
 description: Use Rule Impact Analyzer to simulate and assess security admin rule effects in Azure Virtual Network Manager. Ensure compliance and prevent misconfigurations.
 author: halkazwini
@@ -9,15 +9,11 @@ ms.date: 04/07/2026
 ms.topic: how-to
 ---
 
-# Analyze security rules using Rule Impact Analyzer in Traffic Analytics (preview)
+# Analyze security rules using Rule Impact Analyzer in Traffic Analytics
 
-In this article, you learn how to use the rule impact analyzer feature with network groups in Azure Virtual Network Manager. You can use the Azure portal to create a security admin configuration, add a security admin rule, and simulate the impact of your rule changes before deploying them.
+In this article, you learn how to use the rule impact analyzer feature with network groups in the traffic analytics blade of Network Watcher. You can use the Azure portal to create a security admin configuration, add a security admin rule, and simulate the impact of your rule changes before deploying them.
 
-The rules impact analyzer enables you to preview the impact of security admin rules before applying them to your environment. This feature helps you validate rule behavior, identify potential conflicts, and ensure that connectivity requirements are met without disrupting live traffic. By understanding the impact of your proposed rules changes, you can confidently plan changes, maintain compliance, and reduce the risk of misconfiguration across your virtual networks.
-
-> [!IMPORTANT]
-> Rule Impact Analyzer is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+The rules impact analyzer enables you to preview the impact of security admin rules and network security group (NSG) rules before applying them to your environment. This feature helps you validate rule behavior, identify potential conflicts, and ensure that connectivity requirements are met without disrupting live traffic. By understanding the impact of your proposed rules changes, you can confidently plan changes, maintain compliance, and reduce the risk of misconfiguration across your virtual networks.
 
 ## Prerequisites
 

@@ -49,8 +49,12 @@
       href: /azure/redis/migrate/migrate-redis-enterprise-overview
     - name: Understand differences
       href: /azure/redis/migrate/migrate-redis-enterprise-understand
+    - name: Explore migration options
+      href: /azure/redis/migrate/migrate-redis-enterprise-options
     - name: Self-service migration
       href: /azure/redis/migrate/migrate-redis-enterprise-self-service
+    - name: Migration using tooling
+      href: /azure/redis/migrate/migrate-redis-enterprise-with-tooling
   - name: Migrate to Azure Redis from other caches
     href: cache-migration-guide.md
 

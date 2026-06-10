@@ -5,7 +5,7 @@ description: Tutorial to configure Keyless with Azure Active Directory B2C for p
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 08/09/2024
 

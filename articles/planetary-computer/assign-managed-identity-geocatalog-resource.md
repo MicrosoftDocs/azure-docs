@@ -1,13 +1,11 @@
 ---
 title: Assign Managed Identity to GeoCatalog in Microsoft Planetary Computer Pro via the CLI
 description: Learn how to assign a User-assigned managed identity to a Microsoft Planetary Computer Pro GeoCatalog using either PowerShell or Bash.
-author: prasadko
+author: jglixon
 ms.topic: how-to
 ms.service: planetary-computer-pro
-ms.date: 04/24/2025
-ms.author: prasadkomma
-ms.custom:
-  - build-2025
+ms.date: 05/27/2026
+ms.author: jglixon
 ---
 
 # Assign a user-assigned managed identity to a Microsoft Planetary Computer Pro GeoCatalog via the CLI
@@ -44,7 +42,7 @@ $USER_ASSIGNED_IDENTITY = "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOU
 
 # Use the Azure CLI to create or update a GeoCatalog with the specified properties
 az rest --method PUT `
-  --uri "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Orbital/geoCatalogs/${GEOCATALOG_NAME}?api-version=2025-02-11-preview" `
+  --uri "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Orbital/geoCatalogs/${GEOCATALOG_NAME}?api-version=2026-04-15" `
   --headers "Content-Type=application/json" `
   --body "{'location': '$LOCATION', 'Properties': {'tier': '$TIER'}, 'identity': {'type': 'UserAssigned', 'userAssignedIdentities': {'$USER_ASSIGNED_IDENTITY': {}}}}"
 ```
@@ -122,7 +120,7 @@ EOF
 
 # Use the Azure CLI to create or update a geo catalog with the specified properties
 az rest --method PUT \
-  --uri "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Orbital/geoCatalogs/$GEOCATALOG_NAME?api-version=2025-02-11-preview" \
+  --uri "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Orbital/geoCatalogs/$GEOCATALOG_NAME?api-version=2026-04-15" \
   --body "$PROPERTIES"
 ```
 
@@ -157,8 +155,228 @@ az rest --method PUT \
     ./assign_identity.sh
     ```
 
+# [.NET](#tab/dotnet)
+## Use the .NET SDK to assign a user-assigned managed identity
 
-## Next steps
+```csharp
+using Azure.Identity;
+using Azure.ResourceManager;
+using Azure.ResourceManager.PlanetaryComputer;
+using Azure.ResourceManager.PlanetaryComputer.Models;
+using Azure.ResourceManager.Models;
+using Azure.Core;
+
+var client = new ArmClient(new DefaultAzureCredential());
+
+string subscriptionId = "<your-subscription-id>";
+string resourceGroupName = "<your-resource-group>";
+string catalogName = "<your-geocatalog-name>";
+string identityName = "<your-identity-name>";
+
+var geoCatalogResourceId = PlanetaryComputerGeoCatalogResource.CreateResourceIdentifier(
+    subscriptionId, resourceGroupName, catalogName);
+var geoCatalog = client.GetPlanetaryComputerGeoCatalogResource(geoCatalogResourceId);
+
+string userAssignedIdentityId =
+    $"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}" +
+    $"/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}";
+
+var patch = new PlanetaryComputerGeoCatalogPatch
+{
+    Identity = new ManagedServiceIdentity(ManagedServiceIdentityType.UserAssigned)
+    {
+        UserAssignedIdentities =
+        {
+            [new ResourceIdentifier(userAssignedIdentityId)] = new UserAssignedIdentity()
+        }
+    }
+};
+
+var operation = await geoCatalog.UpdateAsync(Azure.WaitUntil.Completed, patch);
+Console.WriteLine("Managed identity assigned successfully.");
+```
+
+For more information, see the [.NET SDK reference](/dotnet/api/azure.resourcemanager.planetarycomputer).
+
+# [Java](#tab/java)
+## Use the Java SDK to assign a user-assigned managed identity
+
+```java
+import com.azure.identity.DefaultAzureCredentialBuilder;
+import com.azure.resourcemanager.planetarycomputer.PlanetaryComputerManager;
+import com.azure.resourcemanager.planetarycomputer.models.ManagedServiceIdentity;
+import com.azure.resourcemanager.planetarycomputer.models.ManagedServiceIdentityType;
+import com.azure.resourcemanager.planetarycomputer.models.UserAssignedIdentity;
+import com.azure.resourcemanager.planetarycomputer.models.GeoCatalogProperties;
+import com.azure.resourcemanager.planetarycomputer.models.CatalogTier;
+
+import java.util.Map;
+
+PlanetaryComputerManager manager = PlanetaryComputerManager.authenticate(
+    new DefaultAzureCredentialBuilder().build(),
+    "<your-subscription-id>");
+
+String userAssignedIdentityId =
+    "/subscriptions/<your-subscription-id>/resourceGroups/<your-resource-group>" +
+    "/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<your-identity-name>";
+
+manager.geoCatalogs()
+    .define("<your-geocatalog-name>")
+    .withRegion("<your-location>")
+    .withExistingResourceGroup("<your-resource-group>")
+    .withProperties(new GeoCatalogProperties().withTier(CatalogTier.BASIC))
+    .withIdentity(new ManagedServiceIdentity()
+        .withType(ManagedServiceIdentityType.USER_ASSIGNED)
+        .withUserAssignedIdentities(Map.of(userAssignedIdentityId, new UserAssignedIdentity())))
+    .create();
+
+System.out.println("Managed identity assigned successfully.");
+```
+
+For more information, see the [Java SDK reference](/java/api/overview/azure/resourcemanager-planetarycomputer-readme).
+
+# [JavaScript](#tab/javascript)
+## Use the JavaScript SDK to assign a user-assigned managed identity
+
+```javascript
+import { SpatioClient } from "@azure/arm-planetarycomputer";
+import { DefaultAzureCredential } from "@azure/identity";
+
+const subscriptionId = "<your-subscription-id>";
+const resourceGroupName = "<your-resource-group>";
+const catalogName = "<your-geocatalog-name>";
+const identityName = "<your-identity-name>";
+
+const credential = new DefaultAzureCredential();
+const client = new SpatioClient(credential, subscriptionId);
+
+const userAssignedIdentityId =
+  `/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}` +
+  `/providers/Microsoft.ManagedIdentity/userAssignedIdentities/${identityName}`;
+
+const result = await client.geoCatalogs.update(
+  resourceGroupName,
+  catalogName,
+  {
+    identity: {
+      type: "UserAssigned",
+      userAssignedIdentities: {
+        [userAssignedIdentityId]: {}
+      }
+    }
+  }
+);
+
+console.log("Managed identity assigned successfully.");
+```
+
+For more information, see the [JavaScript SDK reference](/javascript/api/@azure/arm-planetarycomputer).
+
+# [Python](#tab/python)
+## Use the Python SDK to assign a user-assigned managed identity
+
+```python
+from azure.identity import DefaultAzureCredential
+from azure.mgmt.planetarycomputer import PlanetaryComputerMgmtClient
+from azure.mgmt.planetarycomputer.models import (
+    GeoCatalogUpdate,
+    ManagedServiceIdentity,
+    UserAssignedIdentity,
+)
+
+subscription_id = "<your-subscription-id>"
+resource_group = "<your-resource-group>"
+catalog_name = "<your-geocatalog-name>"
+identity_name = "<your-identity-name>"
+
+credential = DefaultAzureCredential()
+client = PlanetaryComputerMgmtClient(credential=credential, subscription_id=subscription_id)
+
+user_assigned_identity_id = (
+    f"/subscriptions/{subscription_id}/resourceGroups/{resource_group}"
+    f"/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity_name}"
+)
+
+client.geo_catalogs.begin_update(
+    resource_group_name=resource_group,
+    catalog_name=catalog_name,
+    properties=GeoCatalogUpdate(
+        identity=ManagedServiceIdentity(
+            type="UserAssigned",
+            user_assigned_identities={user_assigned_identity_id: UserAssignedIdentity()},
+        ),
+    ),
+).result()
+
+print("Managed identity assigned successfully.")
+```
+
+For more information, see the [Python SDK reference](/python/api/overview/azure/mgmt-planetarycomputer-readme).
+
+# [Go](#tab/go)
+## Use the Go SDK to assign a user-assigned managed identity
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"log"
+
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore/to"
+	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/planetarycomputer/armplanetarycomputer"
+)
+
+func main() {
+	subscriptionID := "<your-subscription-id>"
+	resourceGroup := "<your-resource-group>"
+	catalogName := "<your-geocatalog-name>"
+	identityName := "<your-identity-name>"
+
+	userAssignedIdentityID := fmt.Sprintf(
+		"/subscriptions/%s/resourceGroups/%s/providers/Microsoft.ManagedIdentity/userAssignedIdentities/%s",
+		subscriptionID, resourceGroup, identityName)
+
+	cred, err := azidentity.NewDefaultAzureCredential(nil)
+	if err != nil {
+		log.Fatalf("failed to create credential: %v", err)
+	}
+
+	clientFactory, err := armplanetarycomputer.NewClientFactory(subscriptionID, cred, nil)
+	if err != nil {
+		log.Fatalf("failed to create client factory: %v", err)
+	}
+
+	client := clientFactory.NewGeoCatalogsClient()
+
+	poller, err := client.BeginUpdate(context.Background(),
+		resourceGroup, catalogName,
+		armplanetarycomputer.GeoCatalogUpdate{
+			Identity: &armplanetarycomputer.ManagedServiceIdentity{
+				Type: to.Ptr(armplanetarycomputer.ManagedServiceIdentityTypeUserAssigned),
+				UserAssignedIdentities: map[string]*armplanetarycomputer.UserAssignedIdentity{
+					userAssignedIdentityID: {},
+				},
+			},
+		}, nil)
+	if err != nil {
+		log.Fatalf("failed to assign identity: %v", err)
+	}
+
+	_, err = poller.PollUntilDone(context.Background(), nil)
+	if err != nil {
+		log.Fatalf("failed to complete: %v", err)
+	}
+
+	fmt.Println("Managed identity assigned successfully.")
+}
+```
+
+For more information, see the [Go SDK source](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/resourcemanager/planetarycomputer/armplanetarycomputer).
+
+---
 Once complete, proceed to assign managed identity to Storage Blob Data reader role. 
 
 > [!div class="nextstepaction"]

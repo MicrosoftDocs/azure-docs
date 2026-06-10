@@ -1,7 +1,8 @@
 ---
 title: Manage Settings for Pure Storage Cloud Resource
 description: Manage settings, view resources, reconfigure metrics/logs, and more for your Pure Storage Cloud resource by using the Azure portal.
-
+author: Reshmi-Sriram
+ms.author: reshmisriram
 ms.topic: how-to
 ms.date: 12/10/2025
 

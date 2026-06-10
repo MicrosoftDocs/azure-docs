@@ -13,6 +13,8 @@ ms.custom:
 
 # Manage compute resources for dedicated SQL pool
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article explains how to manage compute resources for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics. You can lower costs by pausing the dedicated SQL pool, or scale the dedicated SQL pool to meet performance demands.
 
 ## What is compute management?

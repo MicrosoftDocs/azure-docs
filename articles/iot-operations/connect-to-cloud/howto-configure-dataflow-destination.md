@@ -1,8 +1,8 @@
 ---
 title: Configure a data flow destination
 description: Configure destination endpoints, data destinations, and dynamic topic routing for data flows and data flow graphs in Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
@@ -241,7 +241,7 @@ For more information and complete examples, see [Route messages to different top
 If you want to serialize the data before sending it to the destination, specify a schema and serialization format. Otherwise, the system serializes the data in JSON with the types inferred. Storage endpoints like Microsoft Fabric or Azure Data Lake require a schema to ensure data consistency. Supported serialization formats are Parquet and Delta.
 
 > [!TIP]
-> To generate the schema from a sample data file, use the [Schema Gen Helper](https://azure-samples.github.io/explore-iot-operations/schema-gen-helper/).
+> To generate the schema from a sample data file, use the [Schema Gen Helper](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/schema-gen-helper).
 
 # [Operations experience](#tab/portal)
 

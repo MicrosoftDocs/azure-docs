@@ -81,8 +81,11 @@ The organization name must:
 
 - Start with a letter or digit
 - Contain only letters, numbers, and hyphens
-- Be up to 255 characters long
+- Not end with a hyphen
+- Be between 1 and 50 characters long
 - Be unique among your existing Azure DevOps OAuth connectors
+
+If the name is invalid, an inline error appears below the field and the **Next** button is disabled until you correct it. After authentication, the agent also verifies that your token has access to the specified organization.
 
 > [!WARNING]
 > Each Azure DevOps OAuth connector maps to one organization. If you need access to multiple organizations, create a separate connector for each one.

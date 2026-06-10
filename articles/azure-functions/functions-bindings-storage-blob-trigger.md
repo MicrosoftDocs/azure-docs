@@ -34,6 +34,8 @@ For information on setup and configuration details, see the [overview](./functio
 [!INCLUDE [functions-python-model-tabs-description](../../includes/functions-python-model-tabs-description.md)]  
 ::: zone-end   
 
+For a complete end-to-end example of using the Blob Storage trigger, see [Respond to blob storage events by using Azure Functions](scenario-blob-storage-events.md).
+
 ## Example
 
 ::: zone pivot="programming-language-csharp"
@@ -46,7 +48,7 @@ For information on setup and configuration details, see the [overview](./functio
 
 The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated worker process and uses a blob trigger with both blob input and blob output blob bindings. The function is triggered by the creation of a blob in the *test-samples-trigger* container. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="9-25":::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="9-25"::: --->
 
 # [In-process model](#tab/in-process)
 
@@ -168,7 +170,7 @@ The following example shows a blob trigger [TypeScript code](functions-reference
 
 The string `{name}` in the blob trigger path `samples-workitems/{name}` creates a [binding expression](./functions-bindings-expressions-patterns.md) that you can use in function code to access the file name of the triggering blob. For more information, see [Blob name patterns](#blob-name-patterns) later in this article.
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageBlobTrigger1.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageBlobTrigger1.ts" ::: --->
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -185,7 +187,7 @@ The following example shows a blob trigger [JavaScript code](functions-reference
 
 The string `{name}` in the blob trigger path `samples-workitems/{name}` creates a [binding expression](./functions-bindings-expressions-patterns.md) that you can use in function code to access the file name of the triggering blob. For more information, see [Blob name patterns](#blob-name-patterns) later in this article.
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageBlobTrigger1.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageBlobTrigger1.js" ::: --->
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -257,7 +259,7 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 
 This example uses SDK types to directly access the underlying [`BlobClient`](/python/api/azure-storage-blob/azure.storage.blob.blobclient) object provided by the Blob storage trigger: 
 
-:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="9-12,29-37"::: 
+<!--- :::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="9-12,29-37"::: --->
 
 For examples of using other SDK types, see the [`ContainerClient`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_containerclient/function_app.py) and [`StorageStreamDownloader`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_storagestreamdownloader/function_app.py) samples. For a step-by-step tutorial on how to include SDK-type bindings in your function app, follow the [Python SDK Bindings for Blob Sample](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-python).
 
@@ -318,8 +320,50 @@ def main(myblob: func.InputStream):
 ```
 
 ::: zone-end  
+::: zone pivot="programming-language-go"
 
----
+The following example shows a Blob Storage trigger function that processes uploaded blobs:
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"io"
+	"log"
+
+	"github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob"
+	"github.com/azure/azure-functions-golang-worker/sdk"
+	_ "github.com/azure/azure-functions-golang-worker/triggers/blob"
+	"github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+	app := sdk.FunctionApp()
+	app.Blob("blobTrigger", processBlob,
+		sdk.WithPath("samples-workitems/{name}"),
+		sdk.WithConnection("AzureWebJobsStorage"),
+	)
+	worker.Start(app)
+}
+
+func processBlob(ctx context.Context, client *blob.Client) error {
+	get, err := client.DownloadStream(ctx, nil)
+	if err != nil {
+		return fmt.Errorf("download error: %w", err)
+	}
+	data, _ := io.ReadAll(get.Body)
+	get.Body.Close()
+	log.Printf("Go Blob trigger function processed blob, %d bytes", len(data))
+	return nil
+}
+```
+
+> [!NOTE]
+> The Blob trigger in Go provides an authenticated Azure SDK `*blob.Client` directly to your handler. You must add a blank import for `triggers/blob` to make the Blob trigger package available to the Go worker.
+
+::: zone-end  
 
 ::: zone pivot="programming-language-csharp"
 ## Attributes
@@ -339,7 +383,7 @@ The attribute's constructor takes the following parameters:
 
 Here's an `BlobTrigger` attribute in a method signature:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="11-16":::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="11-16"::: --->
 
 # [In-process model](#tab/in-process)
 
@@ -434,6 +478,9 @@ The following table explains the binding configuration properties that you set i
 ::: zone-end  
 
 See the [Example section](#example) for complete examples.
+
+> [!TIP]
+> For a complete working example that uses an Event Grid-based blob trigger with connection, source, and output binding configuration, see [Respond to blob storage events using Azure Functions](./scenario-blob-storage-events.md).
 
 ::: zone pivot="programming-language-csharp"
 ## Metadata
@@ -665,5 +712,6 @@ The [host.json](functions-host-json.md#blobs) file contains settings that contro
 
 ## Next steps
 
+- [Respond to blob storage events using Azure Functions](./scenario-blob-storage-events.md)
 - [Read blob storage data when a function runs](./functions-bindings-storage-blob-input.md)
 - [Write blob storage data from a function](./functions-bindings-storage-blob-output.md)

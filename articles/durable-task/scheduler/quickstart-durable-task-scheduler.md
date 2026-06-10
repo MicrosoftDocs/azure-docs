@@ -3,71 +3,69 @@ author: hhunter-ms
 ms.author: hannahhunter
 title: "Quickstart: Configure a Durable Functions app to use Durable Task Scheduler"
 titleSuffix: Durable Task
-description: Learn how to configure an existing Durable Functions app to use Durable Task Scheduler as a backend.
-ms.topic: how-to
+description: Configure an existing Durable Functions app to use the Durable Task Scheduler backend and run locally with the emulator. Get started now.
+ms.topic: quickstart
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
-ms.date: 10/29/2025
+ms.date: 05/26/2026
 zone_pivot_groups: df-languages
 ---
 
 # Quickstart: Configure a Durable Functions app to use Durable Task Scheduler
 
-Write stateful functions in a serverless environment using Durable Functions, a feature of [Azure Functions](../../azure-functions/functions-overview.md). Scenarios where Durable Functions is useful include orchestrating microservices and workflows, stateful patterns like fan-out/fan-in, and long-running tasks.  
-
-You can use the Durable Task Scheduler as a backend for your Durable Functions, to store orchestration and entity runtime state. 
-
-In this quickstart, you: 
+Use the [Durable Task Scheduler](./durable-task-scheduler.md) as a backend for your [Durable Functions](../../azure-functions/durable-functions/durable-functions-overview.md) apps to store orchestration and entity runtime state. In this quickstart, you clone a Hello Cities sample that's already configured to use the Durable Task Scheduler, run it locally with the emulator, and then deploy it to Azure.
 
 > [!div class="checklist"]
-> * Configure an existing Durable Functions app to use the Durable Task Scheduler. 
-> * Set up the Durable Task emulator for local development.
-> * Deploy your app to Azure on the App Service plan using Visual Studio Code.
-> * Monitor the status of your app and task hub on the Durable Task Scheduler dashboard. 
-
-For C#, this quickstart uses the .NET isolated worker model.
+>
+> - Clone the Hello Cities sample pre-configured for Durable Task Scheduler.
+> - Set up the Durable Task Scheduler emulator for local development.
+> - Run the sample and verify orchestration output.
+> - Deploy your app to Azure and monitor it via the Durable Task Scheduler dashboard.
 
 ## Prerequisites
 
-- An existing Azure Functions project on your local computer:
-::: zone pivot="csharp"  
+::: zone pivot="csharp"
 
-   - [Create a Durable Functions app - C#](../../azure-functions/durable-functions/durable-functions-isolated-create-first-csharp.md)
+- [Create a Durable Functions app - C#](../durable-functions/durable-functions-isolated-create-first-csharp.md)
 
-::: zone-end 
-
-<!-- markdownlint-disable-next-line MD044 -->
-::: zone pivot="javascript"  
-
-   - [Create a Durable Functions app - JavaScript](../../azure-functions/durable-functions/quickstart-js-vscode.md)
-
-::: zone-end 
-
-::: zone pivot="python"  
-
-   - [Create a Durable Functions app - Python](../../azure-functions/durable-functions/quickstart-python-vscode.md)
-
-::: zone-end 
+::: zone-end
 
 <!-- markdownlint-disable-next-line MD044 -->
-::: zone pivot="powershell"  
+::: zone pivot="javascript"
 
-   - [Create a Durable Functions app - PowerShell](../../azure-functions/durable-functions/quickstart-powershell-vscode.md)
+- [Create a Durable Functions app - JavaScript](../durable-functions/quickstart-js-vscode.md)
 
-::: zone-end 
+::: zone-end
 
-::: zone pivot="java"  
+::: zone pivot="python"
 
-   - [Create a Durable Functions app - Java](../../azure-functions/durable-functions/quickstart-java.md)
+- [Create a Durable Functions app - Python](../durable-functions/quickstart-python-vscode.md)
 
-::: zone-end 
-- [Docker](https://docs.docker.com/engine/install/) installed to run the Durable Task Scheduler emulator. 
-- [Azurite](../../storage/common/storage-install-azurite.md#install-azurite) installed.
-- An [HTTP test tool](../../azure-functions/functions-develop-local.md#http-test-tools) that keeps your data secure.
+::: zone-end
 
-## Add the Durable Task Scheduler package
+<!-- markdownlint-disable-next-line MD044 -->
+::: zone pivot="powershell"
 
-::: zone pivot="csharp" 
+- [Create a Durable Functions app - PowerShell](../durable-functions/quickstart-powershell-vscode.md)
+
+::: zone-end
+
+::: zone pivot="java"
+
+- [Create a Durable Functions app - Java](../durable-functions/quickstart-java.md)
+
+::: zone-end
+
+::: zone pivot="csharp,javascript,python,java,powershell"
+
+> [!TIP]
+> Once the emulator is running, you can access the Durable Task Scheduler dashboard at `http://localhost:8082` to monitor orchestrations.
+
+## Run the quickstart sample
+
+::: zone-end
+
+::: zone pivot="csharp"
 
 Install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) package by using the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command:
 
@@ -78,33 +76,105 @@ Install the latest version of the [Microsoft.Azure.Functions.Worker.Extensions.D
 > [!NOTE] 
 > The Durable Task Scheduler extension requires **Microsoft.Azure.Functions.Worker.Extensions.DurableTask** version `1.2.2` or higher. 
 
-::: zone-end 
+1. Build and start the function app:
+
+   ```bash
+   dotnet build
+   func start
+   ```
+
+::: zone-end
 
 <!-- markdownlint-disable-next-line MD044 -->
 ::: zone pivot="javascript,python,java,powershell"  
 
-In host.json, update the `extensionBundle` property to use the preview version that contains the Durable Task Scheduler package:
+In host.json, update the `extensionBundle` property to use version 4.32.0 or later, which includes Durable Task Scheduler support:
 
-```json
-{
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[4.29.0, 5.0.0)"
-  }
-}
-```
+   ```json
+   {
+     "extensionBundle": {
+       "id": "Microsoft.Azure.Functions.ExtensionBundle",
+       "version": "[4.32.0, 5.0.0)"
+     }
+   }
+   ```
 
-::: zone-end 
+::: zone-end
 
-## Update host.json
+<!-- markdownlint-disable-next-line MD044 -->
+::: zone pivot="javascript,python,powershell"  
 
-Update the host.json as follows to use Durable Task Scheduler as the backend. 
+1. Start the function app:
+
+   ```bash
+   func start
+   ```
+
+::: zone-end
+
+::: zone pivot="java"
+
+1. Build and start the function app:
+
+   ```bash
+   mvn clean package
+   mvn azure-functions:run
+   ```
+
+::: zone-end
+
+::: zone pivot="csharp"
+
+2. In a separate terminal, trigger an orchestration:
+
+   ```powershell
+   $response = Invoke-RestMethod -Method POST -Uri http://localhost:7071/api/DurableFunctionsOrchestrationCSharp1_HttpStart
+   $response
+   ```
+
+::: zone-end
+
+<!-- markdownlint-disable-next-line MD044 -->
+::: zone pivot="javascript,python,java,powershell"
+
+2. In a separate terminal, trigger an orchestration:
+
+   ```powershell
+   $response = Invoke-RestMethod -Method POST -Uri http://localhost:7071/api/StartChaining
+   $response
+   ```
+
+::: zone-end
+
+::: zone pivot="csharp,javascript,python,java,powershell"
+
+3. The response contains status URLs for the orchestration instance. Query the `statusQueryGetUri` to check the result:
+
+   ```powershell
+   Invoke-RestMethod -Uri $response.statusQueryGetUri
+   ```
+
+   When the orchestration's `runtimeStatus` is `Completed`, the output contains greeting results. If `runtimeStatus` shows `Running` or `Pending`, wait a moment and query again.
+
+4. View more details about the orchestration instance in the [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md) at `http://localhost:8082`.
+
+::: zone-end
+
+::: zone pivot="csharp,javascript,python,java,powershell"
+
+## Understand the Durable Task Scheduler configuration
+
+The key configuration that makes these samples use the Durable Task Scheduler is in two files.
+
+### host.json
+
+The `storageProvider` section tells Durable Functions to use the Durable Task Scheduler (`azureManaged`) instead of the default Azure Storage backend:
 
 ```json
 {
   "extensions": {
     "durableTask": {
-      "hubName": "%TASKHUB_NAME%",
+      "hubName": "default",
       "storageProvider": {
         "type": "azureManaged",
         "connectionStringName": "DURABLE_TASK_SCHEDULER_CONNECTION_STRING"
@@ -114,102 +184,32 @@ Update the host.json as follows to use Durable Task Scheduler as the backend.
 }
 ```
 
-## Configure local.settings.json 
+### local.settings.json
 
-Add connection information for local development:
+The connection string points to the local emulator for development:
 
 ```json
 {
-  "IsEncrypted": false,
   "Values": {
-    "FUNCTIONS_WORKER_RUNTIME": "<DEPENDENT ON YOUR PROGRAMMING LANGUAGE>",
-    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "DURABLE_TASK_SCHEDULER_CONNECTION_STRING": "Endpoint=http://localhost:8080;Authentication=None",
-    "TASKHUB_NAME": "default"
+    "DURABLE_TASK_SCHEDULER_CONNECTION_STRING": "Endpoint=http://localhost:8080;TaskHub=default;Authentication=None"
   }
 }
 ```
 
-## Set up the Durable Task emulator 
-
-1. Pull the docker image containing the emulator. 
-
-   ```bash
-   docker pull mcr.microsoft.com/dts/dts-emulator:latest
-   ```
-
-1. Run the emulator.
-
-   ```bash
-   docker run -d -p 8080:8080 -p 8082:8082 mcr.microsoft.com/dts/dts-emulator:latest
-   ```
-   
-   The following output indicates the emulator started successfully.
-
-     :::image type="content" source="media/quickstart-durable-task-scheduler/emulator-started.png" alt-text="Screenshot showing emulator started successfully on terminal.":::
-
-1. Make note of the ports exposed on Docker desktop. The scheduler exposes multiple ports for different purposes:  
-
-   - `8080`: gRPC endpoint that allows an app to connect to the scheduler
-   - `8082`: Endpoint for Durable Task Scheduler dashboard
-
-   :::image type="content" source="media/quickstart-durable-task-scheduler/docker-ports.png" alt-text="Screenshot of ports on Docker.":::
-
 > [!NOTE]
-> The [Durable Task Scheduler emulator](./durable-task-scheduler.md#emulator-for-local-development) stores orchestration data in memory, which means all data is lost when it shuts down.
+> To migrate an existing Durable Functions app, update these two files and add the appropriate extension package for your language. For .NET, install the [Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged) NuGet package. For other languages, update the extension bundle in `host.json` to version `[4.32.0, 5.0.0)`.
 
-## Test locally 
+::: zone-end
 
-1. Go to the root directory of your app and start Azurite.
-
-   ```bash
-   azurite start
-   ```
-
-1. Run the application.
-
-   ```bash
-   func start
-   ```
-
-   You should see a list of the functions in your app. 
-
-1. Start an orchestration instance by sending an HTTP `POST` request to the URL endpoint using the [HTTP test tool](../../azure-functions/functions-develop-local.md#http-test-tools) you chose. 
-
-1. Copy the URL value for `statusQueryGetUri` and paste it in your browser's address bar. You should see the status on the orchestration instance:
-
-   ```json
-     {
-       "name": "DurableFunctionsOrchestration",
-       "instanceId": "<instanceID>",
-       "runtimeStatus": "Completed",
-       "input": null,
-       "customStatus": null,
-       "output": [
-         "Hello Tokyo!",
-         "Hello Seattle!",
-         "Hello London!"
-       ],
-       "createdTime": "2025-02-21T21:09:59Z",
-       "lastUpdatedTime": "2025-02-21T21:10:00Z"
-     }
-   ```
-
-1. To view more details about the orchestration instance, go to **http://localhost:8082/** access the [Durable Task Scheduler dashboard](./durable-task-scheduler-dashboard.md). 
-
-1. Click on the *default* task hub to see its dashboard. 
-
-Running into issues testing? [See the troubleshooting guide.](./troubleshoot-durable-task-scheduler.md)
-
-## Run your app in Azure 
+## Run your app in Azure
 
 ### Create required resources
 
-Create a Durable Task Scheduler instance and Azure Functions app on Azure following the *Function app integrated creation flow*. This experience will automatically set up identity-based access and configure the required environment variables for the app to access the scheduler. 
+Create a Durable Task Scheduler instance and Azure Functions app on Azure following the *Function app integrated creation flow*. This experience will automatically set up identity-based access and configure the required environment variables for the app to access the scheduler.
 
 [!INCLUDE [function-app-integrated-creation](./includes/function-app-integrated-creation.md)]
 
-Resource deployment could take around 15 to 20 minutes. Once that is finished, you can deploy your app to Azure. 
+Resource deployment could take around 15 to 20 minutes. Once that is finished, you can deploy your app to Azure.
 
 ### Deploy your function app to Azure
 
@@ -223,17 +223,17 @@ If your app is running on the Functions Premium plan, turn on the *Runtime Scale
   az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
   ```
 
-## Test your function app 
+## Test your function app
 
-Run the following command to get your function's URL: 
-  
+Run the following command to get your function's URL:
+
 ```azurecli
 az functionapp function list --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_NAME>  --query '[].{Function:name, URL:invokeUrlTemplate}' --output json
 ```
 
 ### Check orchestration status
 
-Check the status of the orchestration instance and activity details on the Durable Task Scheduler dashboard. Accessing the dashboard requires you to log in. 
+Check the status of the orchestration instance and activity details on the Durable Task Scheduler dashboard. Accessing the dashboard requires you to log in.
 
 [!INCLUDE [assign-dev-identity-role-based-access-control-portal](./includes/assign-dev-identity-role-based-access-control-portal.md)]
 

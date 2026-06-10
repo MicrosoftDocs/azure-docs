@@ -10,7 +10,7 @@ metadata:
   author: reginahack
   ms.author: rhackenberg
   ms.reviewr: rhackenberg, chkittel
-  ms.date: 03/26/2025
+  ms.date: 04/29/2026
   ms.collection:
    - migration
    - gcp-to-azure
@@ -31,8 +31,7 @@ landingContent:
           - text: Migrate databases
             url:  migrate-databases-from-google-cloud.md
 
-
-  - title: Start with component comparisons
+  - title: GCP to Azure service comparison
     linkLists:
       - linkListType: concept
         links:
@@ -49,20 +48,20 @@ landingContent:
           - text: Azure security and identity services map
             url:  /azure/architecture/gcp-professional/services#security-and-identity            
 
-  - title: Migration examples
+  - title: Step-by-step migration scenarios
     linkLists:
       - linkListType: concept
         links:
           - text: Migrate to Azure Database for PostgreSQL (online)
             url:  /azure/postgresql/migrate/migration-service/tutorial-migration-service-cloud-sql-online
-          - text: Migrate MySQL on Google Cloud to Azure Database for MySQL
+          - text: Migrate MySQL to Azure SQL Database
             url: /azure/azure-sql/migration-guides/database/mysql-to-sql-database-guide?view=azuresql-db&preserve-view=true
           - text: Migrate your SIEM in Google Cloud to Microsoft Sentinel
             url: /azure/sentinel/migration
           - text: Google Cloud Platform IAM connector for Microsoft Sentinel
             url: /azure/sentinel/connect-google-cloud-platform
 
-  - title: Migration training modules
+  - title: Migration tools and training
     linkLists:
       - linkListType: learn
         links:
@@ -81,7 +80,5 @@ landingContent:
             url: /azure/architecture/gcp-professional/
           - text: Azure Migrate documentation
             url: /azure/migrate/
-          - text: Assess Google Cloud Platform (GCP) VM instances for migration to Azure
-            url: /azure/migrate/tutorial-assess-gcp
-
-
+          - text: Discover physical servers and servers running in GCP
+            url: /azure/migrate/tutorial-discover-physical?view=migrate-classic

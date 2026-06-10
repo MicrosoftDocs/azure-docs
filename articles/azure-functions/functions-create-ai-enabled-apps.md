@@ -1,5 +1,5 @@
 ---
-title: Use AI tools and models in Azure Functions  
+title: Use AI tools and models in Azure Functions
 description: "Learn how Azure Functions supports AI integration in your applications, including LLMs, RAG, agentic workflows, and AI frameworks. Build scalable AI-powered serverless solutions."
 ms.topic: concept-article
 ms.date: 11/03/2025
@@ -9,25 +9,37 @@ ms.custom:
   - build-2025
 ms.collection: 
   - ce-skilling-ai-copilot 
-zone_pivot_groups: programming-languages-set-functions
-#Customer intent: As a developer, I want to learn how I can leverage AI models, tools, and other resourtcers so that my function executions can take full advantage of all of the AI-related resources available to an Azure service.
+zone_pivot_groups: programming-languages-set-functions-no-go
+#Customer intent: As a developer, I want to learn how I can use AI models, tools, and other resources so that my function executions can take advantage of Azure AI-related resources.
 ---
 
 # Use AI tools and models in Azure Functions
 
-Azure Functions provides serverless compute resources that integrate with AI and Azure services to streamline building cloud-hosted intelligent applications. This article provides a survey of the breadth of AI-related scenarios, integrations, and other AI resources that you can use in your function apps. 
+Azure Functions provides serverless compute resources that integrate with AI and Azure services to help you build cloud-hosted intelligent applications. This article surveys AI-related scenarios, integrations, and resources that you can use in your function apps.
 
 Consider using Azure Functions in your AI-enabled experiences for these scenarios:
 
 | Scenario | Description |
 | ----- | ----- |
-| [Tools and MCP servers](#tools-and-mcp-servers) | Functions lets you create and host remote Model Content Protocol (MCP) servers and implement various AI tools. MCP servers are the industry standard for enabling function calling through remote tools. |
+| [Serverless agents runtime](#serverless-agents-runtime) | Functions lets you build event-driven agents that use models, MCP tools, connections from Azure connectors, sandboxed execution, and Functions triggers while running on serverless infrastructure. |
+| [Tools and MCP servers](#tools-and-mcp-servers) | Functions lets you create and host remote Model Context Protocol (MCP) servers and implement various AI tools. MCP servers are the industry standard for enabling function calling through remote tools. |
 | [Agentic workflows](#agentic-workflows) | Durable Functions helps you create multistep, long-running agent operations with built-in fault tolerance. |
 | [Retrieval-augmented generation (RAG)](#retrieval-augmented-generation) | RAG systems require fast data retrieval and processing. Functions can interact with multiple data sources simultaneously and provide the rapid scale required by RAG scenarios. |
  
-Select one of these scenarios to learn more in this article. 
+Select one of these scenarios to learn more in this article.
 
 This article is language-specific, so make sure you choose your programming language at the [top of the page](#top).
+
+## Serverless agents runtime
+
+The Azure Functions serverless agents runtime is a preview programming model for building event-driven agents as function apps. With this runtime, an agent is defined in a `.agent.md` file, app-wide runtime defaults are configured in `agents.config.yaml`, and remote MCP servers are listed in `mcp.json`. The runtime discovers these files, registers the required triggers and endpoints, and runs the agent through Microsoft Agent Framework when an event starts the function.
+
+Use the serverless agents runtime when you want agents that are triggered by events, schedules, messages, or HTTP requests and can call tools across connected systems. Agents can use MCP-enabled connections based on Azure connectors, remote MCP servers, skills, and sandboxed execution while the app runs on Flex Consumption with managed identity, monitoring, and scale-to-zero hosting. Use custom Python tools for app-specific logic.
+
+To get started, see these articles:
+
++ [Overview: serverless agents runtime in Azure Functions](functions-serverless-agents-runtime.md)
++ [Get started: Build serverless agents using Azure Functions](scenario-serverless-agents-runtime.md)
 
 ## Tools and MCP servers
 
@@ -53,7 +65,7 @@ Functions supports these options for creating and hosting remote MCP servers:
 
 Here's a comparison of the current MCP server hosting options provided by Functions:
 
-| Feature  | [MCP binding extension] | Self-hosted MCP servers |
+| Feature  | [MCP binding extension] | [Self-hosted MCP servers](self-hosted-mcp-servers.md) |
 | ---- | ----- | ----- |
 | Current support level |  GA |Preview<sup>*</sup> |
 | Programming model | [Functions triggers and bindings](./functions-triggers-bindings.md) | Standard MCP SDKs |
@@ -194,6 +206,7 @@ Here are some reference samples for RAG-based scenarios:
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python" 
 > Shows you how to create a friendly chat bot that issues simple prompts, receives text completions, and sends messages, all in a stateful session using the [OpenAI binding extension].
 ::: zone-end
+
 
 ## AI tools and frameworks for Azure Functions
 

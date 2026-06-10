@@ -53,7 +53,7 @@ Locally redundant storage (LRS) replicates the data within your storage accounts
 
 LRS is the lowest-cost redundancy option and offers the least durability compared to other options. LRS protects your data against drive, server, and rack failures. However, if a disaster such as fire or flooding occurs within the data center, all replicas of a storage account using LRS might be lost or unrecoverable. If a temporary event, such as a thermal event, occurs within the data center, all replicas might be temporarily unavailable until the event is resolved. To mitigate these risks, Microsoft recommends using [zone-redundant storage](#zone-redundant-storage) (ZRS), [geo-redundant storage](#geo-redundant-storage) (GRS), or [geo-zone-redundant storage](#geo-zone-redundant-storage) (GZRS).
 
-A write request to a storage account that's using LRS happens synchronously. The write operation returns successfully only after the data is written to all three replicas.
+All replicas reflect the same current state — deletions and overwrites are applied to all copies simultaneously. Redundancy protects against hardware failure, not against data-modifying operations.
 
 The following diagram shows how your data is replicated within a single data center with LRS:
 
@@ -200,7 +200,7 @@ The following table shows the redundancy options supported by each Azure Storage
 <sup>2</sup> ZRS managed disks have certain limitations. See the [Limitations](/azure/virtual-machines/disks-redundancy#limitations) section of the redundancy options for managed disks article for details.<br/>
 
 > [!NOTE]
-> For storage accounts that utilize the smart tier public preview, redundancy conversions and account failover scenarios have dependencies. For more information, see [Optimize costs with smart tier](../blobs/access-tiers-smart.md)
+> For storage accounts that utilize smart tier, redundancy conversions and account failover scenarios have dependencies. For more information, see [Optimize costs with smart tier](../blobs/access-tiers-smart.md)
 
 ### Supported storage account types
 

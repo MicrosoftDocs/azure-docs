@@ -1665,7 +1665,6 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | services / privateEndpointConnectionProxies | No |
 > | services / privateEndpointConnections | No |
 > | services / privateLinkResources | No |
-> | validateMedtechMappings | No |
 > | workspaces | Yes |
 > | workspaces / analyticsconnectors | Yes |
 > | workspaces / dicomservices | Yes |

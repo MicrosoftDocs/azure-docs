@@ -6,17 +6,17 @@ ms.custom: build-2023
 ms.topic: concept-article
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 03/21/2025
+ms.date: 05/22/2026
 
-#customer intent: As a developer, I want to learn how to authenticate to Microsoft Dev Box REST APIs so that I can securely interact with Microsoft Dev Box services.
+#customer intent: As a developer, I want to learn how to authenticate to Azure Deployment Environments REST APIs so that I can securely interact with Azure Deployment Environments services.
 ---
 
 # Authenticate to Azure Deployment Environments REST APIs
 
-In this article, you learn how to authenticate to Microsoft Dev Box REST APIs by using Azure CLI. Authentication is a crucial step for accessing both administrator (control plane) and developer (data plane) APIs. This guide walks you through retrieving an access token from Microsoft Entra ID, understanding the token's structure and validity, and using the bearer token to access REST APIs. By following these steps, you can securely interact with Microsoft Dev Box services.
+In this article, you learn how to authenticate to Azure Deployment Environments REST APIs by using Azure CLI. Authentication is a crucial step for accessing both administrator (*control plane*) and developer (*data plane*) APIs. This article walks you through retrieving an access token from Microsoft Entra ID, understanding the token's structure and validity, and using the bearer token to access REST APIs. By following these steps, you can securely interact with Azure Deployment Environments services.
 
 > [!TIP]
-> Before authenticating, ensure that the user or identity has the appropriate permissions to perform the desired action. For more information, see [Provide access for dev team leads](./how-to-manage-deployment-environments-access.md) and [Provide access for developers](./how-to-manage-deployment-environments-access.md).
+> Before you authenticate, ensure that the user or identity has the appropriate permissions to perform the desired action. For more information, see [Provide access for dev team leads](./how-to-manage-deployment-environments-access.md#grant-permissions-for-dev-team-leads) and [Provide access for developers](./how-to-manage-deployment-environments-access.md#grant-permissions-for-developers).
 
 <a name='using-azure-ad-authentication-for-rest-apis'></a>
 
@@ -73,7 +73,7 @@ After authentication succeeds, Microsoft Entra ID returns an access token for th
 The token is a Base64 string. The token is valid for at least five minutes. The maximum duration is 90 minutes. The `expiresOn` value defines the actual token expiration time.
 
 > [!TIP]
-> Developer API tokens for the service are encrypted and can't be decoded by JWT decoding tools. They can be processed only by the service.
+> Developer API tokens for the service are encrypted. JWT decoding tools can't decrypt the tokens. Only the service can process them.
 
 ### Use a bearer token to access REST APIs
 
@@ -81,4 +81,4 @@ To access REST APIs, you must set the authorization header on your request. The 
 
 ## Related content
 
-- [Microsoft Entra ID fundamentals](../../articles/active-directory/fundamentals/whatis.md)
+- [Microsoft Entra ID fundamentals](/entra/fundamentals/whatis)

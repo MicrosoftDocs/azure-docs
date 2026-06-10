@@ -55,4 +55,4 @@ In this article, you learned about Azure Load Balancer health event logs and hea
 For more information about how to collect, analyze, and create alerts using these logs, along with troubleshooting each health event type, see:
 
 - [Learn to monitor and alert with Azure Load Balancer health event logs](load-balancer-monitor-alert-health-event-logs.md).
-- [Troubleshoot Azure Load Balancer health event logs](load-balancer-troubleshoot-health-event-logs.md)
+- [Support and troubleshooting for Azure Load Balancer](load-balancer-support-help.md)

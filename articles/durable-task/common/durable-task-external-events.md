@@ -1,16 +1,21 @@
 ---
 author: hhunter-ms
-title: Handling external events
-description: Learn how to handle external events
+title: "Handle External Events in Durable Orchestrations"
+description: "Learn how to handle external events in durable orchestrations. Discover how to wait for, send, and process external events like human approvals using the Durable Task framework."
 ms.topic: how-to
 ms.service: durable-task
-ms.date: 01/28/2026
+ms.date: 05/04/2026
 ms.author: azfuncdf
 # ms.devlang: csharp, javascript, powershell, python, java
 zone_pivot_groups: azure-durable-approach
 ---
 
-# Handling external events
+# Handle external events in durable orchestrations
+
+External events allow running orchestrations to receive signals from external sources — such as human approvals, webhook callbacks, or other systems. This article shows you how to wait for, send, and handle external events in your durable orchestrations.
+
+> [!TIP]
+> **Looking to send events to an orchestration?** Jump to [Send events](#send-events).
 
 ::: zone pivot="durable-functions"
 Orchestrator functions can wait and listen for external events. This feature of [Durable Functions](what-is-durable-task.md) is often useful for handling human interaction or other external triggers.
@@ -29,10 +34,10 @@ Orchestrations can wait and listen for external events. This feature is often us
 
 ::: zone-end
 
-## Wait for events
+## Wait for external events
 
 ::: zone pivot="durable-functions"
-The *"wait-for-external-event"* API of the [orchestration trigger binding](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-trigger) allows an orchestrator function to asynchronously wait and listen for an event delivered by an external client. The listening orchestrator function declares the *name* of the event and the *shape of the data* it expects to receive.
+The *"wait-for-external-event"* API of the [orchestration trigger binding](../durable-functions/durable-functions-bindings.md#orchestration-trigger) allows an orchestrator function to asynchronously wait and listen for an event delivered by an external client. The listening orchestrator function declares the *name* of the event and the *shape of the data* it expects to receive.
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
@@ -96,7 +101,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> If you're using Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. Check out the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article for more version-specific details.
+> If you're using Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. Check out the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article for more version-specific details.
 
 # [JavaScript](#tab/javascript)
 
@@ -304,7 +309,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Using Durable Functions 1.x? Swap in `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. See the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article to learn about other version differences.
+> Using Durable Functions 1.x? Swap in `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. See the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article to learn about other version differences.
 
 # [JavaScript](#tab/javascript)
 
@@ -545,7 +550,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> If you're running Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. Head over to [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) for a full breakdown of version differences.
+> If you're running Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. Head over to [Durable Functions versions](../durable-functions/durable-functions-versions.md) for a full breakdown of version differences.
 
 In .NET, if the event payload cannot be converted into the expected type `T`, an exception is thrown.
 
@@ -737,9 +742,9 @@ External events have an _at-least-once_ delivery guarantee. This means that, und
 ## Send events
 
 ::: zone pivot="durable-functions"
-You can use the *"raise-event"* API defined by the [orchestration client](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client) binding to send an external event to an orchestration. You can also use the built-in [raise event HTTP API](../../azure-functions/durable-functions/durable-functions-http-api.md#raise-event) to send an external event to an orchestration.
+You can use the *"raise-event"* API defined by the [orchestration client](../durable-functions/durable-functions-bindings.md#orchestration-client) binding to send an external event to an orchestration. You can also use the built-in [raise event HTTP API](../durable-functions/durable-functions-http-api.md#raise-event) to send an external event to an orchestration.
 
-A raised event includes an `instanceID`, an `eventName`, and `eventData` as parameters. Orchestrator functions handle these events using the [`wait-for-external-event`](#wait-for-events) APIs. The `eventName` must match on both the *sending* and *receiving* ends in order for the event to be processed. The event data must also be JSON-serializable.
+A raised event includes an `instanceID`, an `eventName`, and `eventData` as parameters. Orchestrator functions handle these events using the [`wait-for-external-event`](#wait-for-external-events) APIs. The `eventName` must match on both the *sending* and *receiving* ends in order for the event to be processed. The event data must also be JSON-serializable.
 
 Internally, the *"raise-event"* mechanisms enqueue a message that gets picked up by the waiting orchestrator function. If the instance isn't waiting on the specified *event name,* the event message is added to an in-memory queue. If the orchestration instance later begins listening for that *event name,* it checks the queue for event messages.
 
@@ -752,7 +757,7 @@ Below is an example queue-triggered function that sends an "Approval" event to a
 ::: zone pivot="durable-task-sdks"
 You can use the *"raise-event"* API on the Durable Task client to send an external event to an orchestration.
 
-A raised event includes an *instance ID*, an *eventName*, and *eventData* as parameters. Orchestrations handle these events using the [*"wait-for-external-event"*](#wait-for-events) APIs. The *eventName* must match on both the sending and receiving ends in order for the event to be processed. The event data must also be JSON-serializable.
+A raised event includes an *instance ID*, an *eventName*, and *eventData* as parameters. Orchestrations handle these events using the [*"wait-for-external-event"*](#wait-for-external-events) APIs. The *eventName* must match on both the sending and receiving ends in order for the event to be processed. The event data must also be JSON-serializable.
 
 Internally, the *"raise-event"* mechanisms enqueue a message that gets picked up by the waiting orchestration. If the instance is not waiting on the specified *event name,* the event message is added to an in-memory queue. If the orchestration instance later begins listening for that *event name,* it will check the queue for event messages.
 
@@ -797,7 +802,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> For Durable Functions 1.x, use the `OrchestrationClient` attribute and `DurableOrchestrationClient` parameter type instead. Check the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article for all version-specific changes.
+> For Durable Functions 1.x, use the `OrchestrationClient` attribute and `DurableOrchestrationClient` parameter type instead. Check the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article for all version-specific changes.
 
 # [JavaScript](#tab/javascript)
 
@@ -841,11 +846,6 @@ Send-DurableExternalEvent -InstanceId $InstanceId -EventName "Approval"
 ```
 
 ---
-
-Internally, the "*raise-event*" API enqueues a message that gets picked up by the waiting orchestrator function. If the instance isn't waiting on the specified *event name,* the event message is added to an in-memory buffer. If the orchestration instance later begins listening for that *event name,* it checks the buffer for event messages and triggers the task that was waiting for it.
-
-> [!NOTE]
-> If there is no orchestration instance with the specified *instance ID*, the event message is discarded.
 
 ::: zone-end
 
@@ -905,7 +905,7 @@ In this case, the instance ID is hardcoded as *MyInstanceId*.
 
 ::: zone-end
 
-## Best practices for external events
+## Best practices
 
 Keep the following best practices in mind when working with external events:
 
@@ -915,6 +915,12 @@ External events have an *at-least-once* delivery guarantee. Under certain rare c
 
 > [!NOTE]
 > The [MSSQL storage provider](durable-task-storage-providers.md#mssql) consumes external events and updates orchestrator state transactionally, so there's no risk of duplicate events with that backend, unlike the [Azure Storage provider](durable-task-storage-providers.md#azure-storage). However, it's still recommended that external events have unique names so that code is portable across backends.
+
+### Use timeouts to avoid indefinite waits
+
+The `wait-for-external-event` API waits indefinitely by default. In most real-world scenarios — such as human approvals — you should race a [durable timer](durable-task-timers.md) against the external event so your orchestration can take action (escalate, reject, retry) if the event doesn't arrive within a deadline.
+
+For a complete walkthrough with code samples, see [Human interaction and timeouts](durable-task-human-interaction.md).
 
 ## Next steps
 

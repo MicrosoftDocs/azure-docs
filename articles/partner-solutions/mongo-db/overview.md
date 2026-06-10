@@ -1,6 +1,8 @@
 ---
 title: What is MongoDB Atlas? 
 description: Learn about using MongoDB Atlas in Azure Marketplace.
+author: vpriyanshi
+ms.author: priyverma
 ms.topic: overview
 ms.date: 12/11/2025
 ai-usage: ai-assisted

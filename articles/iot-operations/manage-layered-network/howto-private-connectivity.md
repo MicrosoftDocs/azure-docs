@@ -1,9 +1,9 @@
 ---
 title: Deploy Azure IoT Operations with private connectivity
 description: Configure private connectivity for Azure IoT Operations using Private Link, Arc Gateway, and Azure Firewall Explicit Proxy.
-author: david-emakenemi
+author: dominicbetts
 ms.subservice: layered-network-management
-ms.author: demakenemi
+ms.author: dobett
 ms.topic: how-to
 ms.date: 03/25/2026
 
@@ -28,7 +28,7 @@ These scenarios apply to environments with a single Arc-enabled Kubernetes clust
 
 ## Prerequisites
 
-- An [Azure subscription](/azure/cost-management-billing/manage/create-subscription) with sufficient permissions to create Private Endpoints, Private DNS Zones, and role assignments (typically **Owner** or **Contributor** + **User Access Administrator**). If you don't have a subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- An [Azure subscription](/azure/cost-management-billing/manage/create-subscription) with sufficient permissions to create Private Endpoints, Private DNS Zones, and role assignments (typically **Owner** or **Contributor** + **User Access Administrator**). If you don't have a subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Azure CLI](/cli/azure/install-azure-cli) and [kubectl](https://kubernetes.io/docs/tasks/tools/) installed on your admin or jump machine.
 - A Kubernetes cluster deployed and ready to Arc-enable. See [Prepare your cluster](/azure/iot-operations/deploy-iot-ops/howto-prepare-cluster) for supported configurations and setup steps.
 - An Azure VNet with network connectivity from your cluster ([ExpressRoute](/azure/expressroute/expressroute-introduction), [VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways), VNet peering, or other private routing). If your cluster runs on Azure VMs within the same VNet or a peered VNet, this connectivity is already in place.
@@ -553,7 +553,7 @@ az role assignment create \
 > [!IMPORTANT]
 > **Assign RBAC to the correct identity.** The dataflow endpoint's authentication method determines which identity you must grant the Event Grid role to:
 >
-> - **System-assigned managed identity (default):** Assign the role to the **AIO Arc extension's** service principal. To find it, go to the Azure portal → your Arc-enabled cluster → **Extensions** → **azure-iot-operations** → **Properties**, and copy the **Principal ID**. Or use the CLI:
+> - **System-assigned managed identity (default):** Assign the role to the **Azure IoT Operations Arc extension's** service principal. To find it, go to the Azure portal → your Arc-enabled cluster → **Extensions** → **azure-iot-operations** → **Properties**, and copy the **Principal ID**. Or use the CLI:
 >
 >   ```azurecli
 >   az rest --method get \
@@ -563,7 +563,7 @@ az role assignment create \
 >
 > - **User-assigned managed identity:** Assign the role to that identity's principal ID.
 >
-> If you assign the role to the wrong identity (for example, a user-assigned MI used for SecretSync instead of the AIO extension's system-assigned MI), the dataflow receives a `NotAuthorized` error after CONNACK and enters a reconnect loop.
+> If you assign the role to the wrong identity (for example, a user-assigned managed identity used for SecretSync instead of the Azure IoT Operations extension's system-assigned managed identity), the dataflow receives a `NotAuthorized` error after CONNACK and enters a reconnect loop.
 
 ### Step 3: Disable public access on the Event Grid namespace
 

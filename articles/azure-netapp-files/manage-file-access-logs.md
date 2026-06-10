@@ -17,7 +17,8 @@ File access logs provide file access logging for individual volumes, capturing f
 ## Considerations
 
 >[!IMPORTANT]
->The file access logs feature is only supported with SMB3, NFSv4.1, and dual-protocol volumes. It's not supported on NFSv3 volumes. 
+> * The file access logs feature is only supported with SMB3, NFSv4.1, cache volumes, and dual-protocol volumes. It's not supported on NFSv3 volumes. 
+> * The file access logs feature is only supported on cache volumes from API version 2026-04-01 and onwards.
 
 * Once file access logs are enabled on a volume, they can take up to 75 minutes to become visible. 
 * Each log entry consumes approximately 1 KB of space.
@@ -26,6 +27,7 @@ File access logs provide file access logging for individual volumes, capturing f
 * Before enabling file access logs on a volume, either [access control lists (ACLs)](configure-access-control-lists.md) or Audit access control entries (ACEs) need to be set on a file or directory. You must set ACLs or Audit ACEs after mounting a volume.  
     >[!IMPORTANT]
     >For dual-protocol volumes using the NTFS security style, you must set Audit ACLs from a Windows machine. For dual-protocol volumes using UNIX security style, Audit ACLs must be set from a Linux machine.
+* Before enabling file access logs on cache volumes, you must enable auditing on the origin volume.
 * Azure NetApp Files file access logs provide detailed information about successful and failed requests to the storage service. This information can be used to monitor individual requests and to diagnose file access issues. Requests are logged on a best-effort basis, meaning that most requests result in a log record, but the completeness and timeliness of file access logs aren't guaranteed. The Azure NetApp Files file access logs feature doesn't provide explicit or implicit expectations or guarantees around logging for auditing and compliance purposes.  
 
 
@@ -93,13 +95,16 @@ Availability for file access log is limited to the following regions:
 - East US 2
 - France Central 
 - Germany North
+- Germany West Central
 - Israel Central 
 - Italy North
 - Japan East
 - Japan West
 - Korea Central
 - Korea South
+- Malaysia West 
 - New Zealand North
+- North Central US
 - North Europe
 - Norway East
 - Norway West
@@ -115,7 +120,8 @@ Availability for file access log is limited to the following regions:
 - UAE North 
 - UK South
 - UK West
-- US Gov Arizona 
+- US Gov Arizona
+- US Gov Texas
 - US Gov Virginia
 - West Europe
 - West US
@@ -167,6 +173,7 @@ When configuring the Audit ACE, ensure you use the `U:` prefix to denote it's an
     * Send to a partner solution
 1. Save the settings.
 
+
 ## Disable file access logs
 
 1. In the **Volumes** menu, select the volume on which you want to disable file access logs.
@@ -176,7 +183,167 @@ When configuring the Audit ACE, ensure you use the `U:` prefix to denote it's an
 
 >[!NOTE]
 >After disabling file access logs, you must wait at least ten minutes before attempting to enable or re-enable file access logs on any volume.
+
+> [!NOTE]
+> You should use REST APIs to add/delete diagnostic settings to enable/disable file access logs for cache volumes as portal support is not available. For more information, see [Diagnostic Settings](/rest/api/monitor/diagnostic-settings).
  
+## Enable file access logs for cache volumes
+
+The following is an example to enable file access logs for cache volumes:
+
+Request:
+```
+curl --request PUT \
+--url 'https://management.azure.com/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.NetApp/netAppAccounts/shn-women-scus-na/capacityPools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings/log-analytics-setting?api-version=2021-05-01-preview' \
+--header 'authorization: Bearer <TOKEN>' \
+--header 'content-type: application/json' \
+--data '{
+  "name": "log-analytics-setting",
+  "properties": {
+      "logs": [
+          {
+              "category": "ANFFileAccess",
+              "categoryGroup": null,
+              "enabled": true,
+              "retentionPolicy": {
+                  "days": 0,
+                  "enabled": false
+              }
+          }
+      ],
+      "metrics": [
+          {
+              "enabled": false,
+              "retentionPolicy": {
+                  "days": 0,
+                  "enabled": false
+              },
+              "category": "AllMetrics"
+          }
+      ],
+      "workspaceId": "/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.OperationalInsights/workspaces/shn-log-analytics-workspace",
+      "logAnalyticsDestinationType": null
+  }
+}
+```
+
+Response:
+```
+{
+  "id": "/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourcegroups/shn-cache-scus-rg3/providers/microsoft.netapp/netappaccounts/shn-women-scus-na/capacitypools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings/log-analytics-setting",
+  "type": "Microsoft.Insights/diagnosticSettings",
+  "name": "log-analytics-setting",
+  "location": null,
+  "kind": null,
+  "tags": null,
+  "properties": {
+    "storageAccountId": null,
+    "serviceBusRuleId": null,
+    "workspaceId": "/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.OperationalInsights/workspaces/shn-log-analytics-workspace",
+    "eventHubAuthorizationRuleId": null,
+    "eventHubName": null,
+    "metrics": [
+      {
+        "timeGrain": "PT1M",
+        "category": "AllMetrics",
+        "enabled": false,
+        "retentionPolicy": {
+          "enabled": false,
+          "days": 0
+        }
+      }
+    ],
+    "logs": [
+      {
+        "category": "ANFFileAccess",
+        "categoryGroup": null,
+        "enabled": true,
+        "retentionPolicy": {
+          "enabled": false,
+          "days": 0
+        }
+      }
+    ],
+    "logAnalyticsDestinationType": null
+  },
+  "identity": null
+}
+```
+
+## Fetch diagnostic settings on a cache volume
+
+The following is an example to fetch diagnostic settings on a cache volume:
+
+Request:
+```
+curl --request GET \
+  --url 'https://management.azure.com/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.NetApp/netAppAccounts/shn-women-scus-na/capacityPools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings?api-version=2021-05-01-preview' \
+  --header 'authorization: Bearer <TOKEN>' \
+  --header 'content-type: application/json'
+```
+
+Response:
+```
+{
+  "value": [
+    {
+      "id": "/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourcegroups/shn-cache-scus-rg3/providers/microsoft.netapp/netappaccounts/shn-women-scus-na/capacitypools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings/log-analytics-setting",
+      "type": "Microsoft.Insights/diagnosticSettings",
+      "name": "log-analytics-setting",
+      "location": "southcentralus",
+      "kind": null,
+      "tags": null,
+      "properties": {
+        "storageAccountId": null,
+        "serviceBusRuleId": null,
+        "workspaceId": "/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.OperationalInsights/workspaces/shn-log-analytics-workspace",
+        "eventHubAuthorizationRuleId": null,
+        "eventHubName": null,
+        "metrics": [
+          {
+            "category": "AllMetrics",
+            "enabled": false,
+            "retentionPolicy": {
+              "enabled": false,
+              "days": 0
+            }
+          }
+        ],
+        "logs": [
+          {
+            "category": "ANFFileAccess",
+            "categoryGroup": null,
+            "enabled": true,
+            "retentionPolicy": {
+              "enabled": false,
+              "days": 0
+            }
+          }
+        ],
+        "logAnalyticsDestinationType": null
+      },
+      "identity": null
+    }
+  ]
+}    
+```
+
+## Disable file access logs on cache volumes by removing diagnostic setting
+
+The following is an example to disable file access logs on cache volumes by removing diagnostic setting:
+
+Request:
+```
+curl --request DELETE \
+--url 'https://management.azure.com/subscriptions/8172f5a6-59c6-4303-84c9-f7a2090a5d49/resourceGroups/shn-cache-scus-rg3/providers/Microsoft.NetApp/netAppAccounts/shn-women-scus-na/capacityPools/cp1/caches/shn-nfs-cache101/providers/microsoft.insights/diagnosticSettings/log-analytics-setting?api-version=2021-05-01-preview' \
+--header 'authorization: Bearer <TOKEN>'
+```
+
+Response:
+```
+200 OK
+```
+
 ## Next Steps
 
 * [Security FAQs](faq-security.md) 

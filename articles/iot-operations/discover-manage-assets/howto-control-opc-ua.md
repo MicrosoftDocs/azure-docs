@@ -3,6 +3,8 @@ title: How to control OPC UA assets
 description: Learn how to configure OPC UA assets and devices to enable you to control and OPC UA server.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
+ms.subservice: azure-opcua-connector
 ms.topic: how-to
 ms.date: 10/08/2025
 
@@ -54,7 +56,7 @@ resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2025-10-01' = {
   }
   properties: {
     displayName: 'Process Control Demo'
-    description: 'A asset containing simple datapoints used for read/write'
+    description: 'A asset containing simple data points used for read/write'
     enabled: true
     deviceRef: {
       deviceName: deviceName

@@ -1,13 +1,13 @@
 ---
 title: Introduction to Blob (object) Storage
 titleSuffix: Azure Storage
-description: Use Azure Blob Storage to store massive amounts of unstructured object data, such as text or binary data. Azure Blob Storage is highly scalable and available.
+description: Learn how Azure Blob Storage helps you store and manage unstructured data at scale with high availability.
 services: storage
-author: akashdubey-ms
+author: normesta
 ms.service: azure-blob-storage
 ms.topic: overview
-ms.date: 03/28/2023
-ms.author: akashdubey
+ms.date: 05/15/2026
+ms.author: normesta
 ms.custom: engagement-fy23
 #customer intent: As a data engineer, I want to understand how to effectively utilize Blob Storage, so that I can store and manage large volumes of unstructured data efficiently while ensuring high availability and scalability.
 ---
@@ -26,23 +26,23 @@ Blob Storage offers three types of resources:
 
 The following diagram shows the relationship between these resources.
 
-![Diagram showing the relationship between a storage account, containers, and blobs](./media/storage-blobs-introduction/blob1.png)
+:::image type="content" source="./media/storage-blobs-introduction/blob1.png" alt-text="Screenshot of the relationship between an Azure Blob Storage account, containers, and blobs.":::
 
 ### Storage accounts
 
 A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Blob Storage endpoint forms the base address for the objects in your storage account.
 
-For example, if your storage account is named *mystorageaccount*, then the default endpoint for Blob Storage is:
+For example, if your storage account is named *mystorageaccount*, the default endpoint for Blob Storage is:
 
 ```
 http://mystorageaccount.blob.core.windows.net
 ```
 
-The following table describes the different types of storage accounts that are supported for Blob Storage:
+The following table describes the different types of storage accounts that support Blob Storage:
 
 | Type of storage account | Performance tier | Usage |
 |--|--|--|
-| General-purpose v2 | Standard | Standard storage account type for blobs, file shares, queues, and tables. Recommended for most scenarios using Blob Storage or one of the other Azure Storage services. |
+| General-purpose v2 | Standard | Standard storage account type for blobs, file shares, queues, and tables. Recommended for most scenarios that use Blob Storage or one of the other Azure Storage services. |
 | Block blob | Premium | Premium storage account type for block blobs and append blobs. Recommended for scenarios with high transaction rates or that use smaller objects or require consistently low storage latency. [Learn more about workloads for premium block blob accounts...](../blobs/storage-blob-block-blob-premium.md) |
 | Page blob | Premium | Premium storage account type for page blobs only. [Learn more about workloads for premium page blob accounts...](../blobs/storage-blob-pageblob-overview.md) |
 
@@ -71,8 +71,8 @@ For more information about naming containers, see [Naming and Referencing Contai
 Azure Storage supports three types of blobs:
 
 - **Block blobs** store text and binary data. Block blobs are made up of blocks of data that can be managed individually. Block blobs can store up to about 190.7 TiB.
-- **Append blobs** are made up of blocks like block blobs, but are optimized for append operations. Append blobs are ideal for scenarios such as logging data from virtual machines.
-- **Page blobs** store random access files up to 8 TiB in size. Page blobs store virtual hard drive (VHD) files and serve as disks for Azure virtual machines. For more information about page blobs, see [Overview of Azure page blobs](storage-blob-pageblob-overview.md)
+- **Append blobs** are made up of blocks like block blobs, but they're optimized for append operations. Append blobs are ideal for scenarios such as logging data from virtual machines.
+- **Page blobs** store random access files up to 8 TiB in size. Page blobs store virtual hard drive (VHD) files and serve as disks for Azure virtual machines. For more information about page blobs, see [Overview of Azure page blobs](storage-blob-pageblob-overview.md).
 
 For more information about the different types of blobs, see [Understanding Block Blobs, Append Blobs, and Page Blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
@@ -87,12 +87,12 @@ or
 Follow these rules when naming a blob:  
   
 - A blob name can contain any combination of characters.  
-- A blob name must be at least one character long and cannot be more than 1,024 characters long, for blobs in Azure Storage. 
+- A blob name must be at least one character long and can't be more than 1,024 characters long, for blobs in Azure Storage. 
 - Blob names are case-sensitive.  
 - Reserved URL characters must be properly escaped.  
 - There are limitations on the number of path segments comprising a blob name. A path segment is the string between consecutive delimiter characters (for example, a forward slash `/`) that corresponds to the directory or virtual directory. The following path segment limitations apply to blob names:
-  - If the storage account *does not* have hierarchical namespace enabled, the number of path segments comprising the blob name cannot exceed 254.
-  - If the storage account has hierarchical namespace enabled, the number of path segments comprising the blob name cannot exceed 63 (including path segments for container name and account host name).
+  - If the storage account *doesn't* have hierarchical namespace enabled, the number of path segments comprising the blob name can't exceed 254.
+  - If the storage account has hierarchical namespace enabled, the number of path segments comprising the blob name can't exceed 63 (including path segments for container name and account host name).
   
 > [!NOTE]
 > Avoid blob names that end with a dot (.), a forward slash (/), or a sequence or combination of the two. No path segments should end with a dot (.).
@@ -108,7 +108,7 @@ A number of solutions exist for migrating existing data to Blob Storage:
 - **Azure Data Factory** supports copying data to and from Blob Storage by using the account key, a shared access signature, a service principal, or managed identities for Azure resources. For more information, see [Copy data to or from Azure Blob Storage by using Azure Data Factory](../../data-factory/connector-azure-blob-storage.md?toc=/azure/storage/blobs/toc.json).
 - **Blobfuse** is a virtual file system driver for Azure Blob Storage. You can use BlobFuse to access your existing block blob data in your Storage account through the Linux file system. For more information, see [What is BlobFuse? - BlobFuse2 (preview)](blobfuse2-what-is.md).
 - **Azure Data Box** service is available to transfer on-premises data to Blob Storage when large datasets or network constraints make uploading data over the wire unrealistic. Depending on your data size, you can request [Azure Data Box Disk](../../databox/data-box-disk-overview.md), [Azure Data Box](../../databox/data-box-overview.md), or [Azure Data Box Heavy](../../databox/data-box-heavy-overview.md) devices from Microsoft. You can then copy your data to those devices and ship them back to Microsoft to be uploaded into Blob Storage.
-- The **Azure Import/Export service** provides a way to import or export large amounts of data to and from your storage account using hard drives that you provide. For more information, see [What is Azure Import/Export service?](../../import-export/storage-import-export-service.md)
+- The **Azure Import/Export service** provides a way to import or export large amounts of data to and from your storage account by using hard drives that you provide. For more information, see [What is Azure Import/Export service?](../../import-export/storage-import-export-service.md)
 
 ## Next steps
 

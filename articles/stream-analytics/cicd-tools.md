@@ -5,19 +5,19 @@ author: alexlzx
 ms.author: zhenxilin
 ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.date: 01/23/2025
+ms.date: 04/29/2026
 # Customer intent: I want to know how to automate builds, tests, and deployments of Azure Stream Analytics projects using CI/CD tools. 
 ---
 
 # Automate builds, tests, and deployments of a Stream Analytics project
 
-The Azure Stream Analytics (ASA) CI/CD npm package allows you to automatically build, test, and deploy your Stream Analytics projects. This article shows how to use the npm package with any CI/CD system. To set up a pipeline with Azure DevOps, see [Use Azure DevOps to create a CI/CD pipeline for a Stream Analytics job](set-up-cicd-pipeline.md).
+The Azure Stream Analytics (ASA) CI/CD npm package helps you automatically build, test, and deploy your Stream Analytics projects. This article shows how to use the npm package with any CI/CD system. To set up a pipeline by using Azure DevOps, see [Use Azure DevOps to create a CI/CD pipeline for a Stream Analytics job](set-up-cicd-pipeline.md).
 
 If you don't have a Stream Analytics project, [create one using Visual Studio Code](./quick-create-visual-studio-code.md) or export an existing one from the Azure portal.
 
 ## Installation
 
-You can download the package from [npm site](https://www.npmjs.com/package/azure-streamanalytics-cicd), or run the following command in your terminal.
+You can download the package from the [npm site](https://www.npmjs.com/package/azure-streamanalytics-cicd), or run the following command in your terminal.
 
 ```powershell
 npm install -g azure-streamanalytics-cicd
@@ -26,20 +26,20 @@ npm install -g azure-streamanalytics-cicd
 ## Build project
 
 > [!NOTE]
-> We highly recommend that you use the `--v2` option for the updated ARM template schema. The updated schema has fewer parameters yet retains the same functionality as the previous version.
+> Use the `--v2` option for the updated ARM template schema. The updated schema has fewer parameters but retains the same functionality as the previous version.
 >
-> The old ARM template will be deprecated in the future. From now on, only templates that were created via `build --v2` will receive updates or bug fixes.
+> The old ARM template is deprecated. Only templates created through `build --v2` receive updates or bug fixes.
 
 ```powershell
 azure-streamanalytics-cicd build --v2 --project <projectFullPath> [--outputPath <outputPath>]
 ```
 
-The *build* command does a keyword syntax check and generates Azure Resource Manager (ARM) templates.
+The *build* command performs a keyword syntax check and generates Azure Resource Manager (ARM) templates.
 
 | Argument | Description |
 |---|---|
-| `--project` | Specify the **asaproj.json** file using absolute or relative path. |
-| `--outputPath` |  Specify the output folder for storing ARM Templates using absolute or relative path. If `outputPath` isn't specified, the templates are placed in the current directory. |
+| `--project` | Specify the **asaproj.json** file by using an absolute or relative path. |
+| `--outputPath` |  Specify the output folder for storing ARM templates by using an absolute or relative path. If you don't specify `outputPath`, the templates go in the current directory. |
 
 **Example**:
 
@@ -51,14 +51,14 @@ cd <path-to-the-project>
 azure-streamanalytics-cicd build --v2 --project ./asaproj.json --outputPath ./Deploy
 ```
 
-If the project is built successfully, you see two JSON files created under the output folder:
+If the project builds successfully, you see two JSON files created under the output folder:
 
 * ARM template file: `[ProjectName].JobTemplate.json`
 * Azure Resource Manager parameter file: `[ProjectName].JobTemplate.parameters.json`
 
-The default values for **parameters.json** file come from your project settings. If you want to deploy to another environment, replace the values accordingly.
+The default values for the **parameters.json** file come from your project settings. If you want to deploy to another environment, replace the values accordingly.
 
-The default values for all credentials are **null**. You're required to set the values before you deploy to Azure.
+The default values for all credentials are **null**. Set the values before you deploy to Azure.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
@@ -66,11 +66,11 @@ The default values for all credentials are **null**. You're required to set the 
 }
 ```
 
-To use Managed Identity for Azure Data Lake Store Gen1 as output sink, you need to provide Access to the service principal using PowerShell before deploying to Azure. Learn more about how to [deploy ADLS Gen1 with Managed Identity with Resource Manager template](https://aka.ms/asamideploy).
+To use Managed Identity for Azure Data Lake Store Gen1 as output sink, you need to provide access to the service principal by using PowerShell before deploying to Azure. To learn more, see [deploy ADLS Gen1 with Managed Identity with Resource Manager template](https://aka.ms/asamideploy).
 
 ## Run locally
 
-If your project has specified local input files, you can run a Stream Analytics script locally by using the `localrun` command.
+If your project includes local input files, use the `localrun` command to run a Stream Analytics script locally.
 
 ```powershell
 azure-streamanalytics-cicd localrun -project <projectFullPath> [-outputPath <outputPath>] [-customCodeZipFilePath <zipFilePath>]
@@ -79,7 +79,7 @@ azure-streamanalytics-cicd localrun -project <projectFullPath> [-outputPath <out
 |---|---|
 | `--project` | Specify the **asaproj.json** file using absolute or relative path. |
 | `--outputPath` |  Specify the output folder for storing ARM Templates using absolute or relative path. If `outputPath` isn't specified, the templates are placed in the current directory. |
-| `--customCodeZipFilePath` | The path of the zip file for C# custom code, such as a UDF or deserializer, if they're used. Package the DLLs into a zip file and specify this path. |
+| `--customCodeZipFilePath` | The path of the zip file for C# custom code, such as a UDF or deserializer, if you use them. Package the DLLs into a zip file and specify this path. |
 
 **Example**:
 
@@ -92,11 +92,11 @@ azure-streamanalytics-cicd localrun --project ./asaproj.json"
 ```
 
 > [!NOTE]
-> JavaScript UDF only works on Windows.
+> JavaScript UDFs work only on Windows.
 
 ## Automated test
 
-You can use the CI/CD npm package to configure and run automated tests for your Stream Analytics project.
+Use the CI/CD npm package to configure and run automated tests for your Stream Analytics project.
 
 ### Add a test case
 
@@ -109,7 +109,7 @@ You can find the test cases in the test configuration file.
 | Argument | Description |
 |---|---|
 | `--project` | Specify the **asaproj.json** file using absolute or relative path. |
-| `--testConfigPath` | The path of the test configuration file. If it isn't specified, the file is searched in **\test** under the current directory of the **asaproj.json** file, with default file name **testConfig.json**. A new file is created if not existed. |
+| `--testConfigPath` | The path of the test configuration file. If you don't specify this argument, the tool searches for the file in **\test** under the current directory of the **asaproj.json** file, with the default file name **testConfig.json**. If the file doesn't exist, the tool creates a new file. |
 
 **Example**:
 
@@ -121,7 +121,7 @@ cd <path-to-the-project>
 azure-streamanalytics-cicd addtestcase --project ./asaproj.json
 ```
 
-If the test configuration file is empty, the following content is added to the file. Otherwise, a test case is added to a **TestCases** array. Necessary input configurations are automatically filled according to the input configuration file. **FilePath** of each input and expected output must be specified before running the test. You can modify this configuration manually.
+If the test configuration file is empty, add the following content to the file. Otherwise, add a test case to a **TestCases** array. The tool automatically fills in the necessary input configurations according to the input configuration file. You must specify the **FilePath** for each input and expected output before running the test. You can modify this configuration manually.
 
 If you want the test validation to ignore a certain output, set the **Required** field of that expected output to **false**.
 
@@ -155,7 +155,7 @@ If you want the test validation to ignore a certain output, set the **Required**
 
 ### Run unit test
 
-You can use the following command to run multiple test cases for your project. A summary of test results is generated in the output folder. The process exits with code **0** for all tests passed; **-1** for exception occurred; **-2** for tests failed.
+Use the following command to run multiple test cases for your project. The process generates a summary of test results in the output folder. The process exits with code **0** if all tests pass, **-1** if an exception occurs, and **-2** if tests fail.
 
 ```powershell
 azure-streamanalytics-cicd test --project <projectFullPath> [--testConfigPath <testConfigFileFullPath>] [--outputPath <outputPath>] [--customCodeZipFilePath <zipFilePath>]
@@ -164,11 +164,11 @@ azure-streamanalytics-cicd test --project <projectFullPath> [--testConfigPath <t
 | Argument | Description |
 |---|---|
 | `--project` | The path of the **asaproj.json** file. |
-| `--testConfigPath` | The path to the test configuration file. If it isn't specified, the file is searched in **\test** under the current directory of the **asaproj.json** file, with default file name **testConfig.json**.
-| `--outputPath` | The path of the test result output folder. If it isn't specified, the output result files are placed in the current directory. |
+| `--testConfigPath` | The path to the test configuration file. If you don't specify this argument, the process searches for the file in **\test** under the current directory of the **asaproj.json** file, with default file name **testConfig.json**.
+| `--outputPath` | The path of the test result output folder. If you don't specify this argument, the process places the output result files in the current directory. |
 | `--customCodeZipFilePath` | The path of the zip file for custom code such as a UDF or deserializer, if they're used. You need to package the DLLs to zip file and specify the path. |
 
-If test cases are executed, you can find a **testResultSummary.json** file generated in the output folder.
+If you run test cases, you can find a **testResultSummary.json** file generated in the output folder.
 
 ```json
 {
@@ -223,12 +223,12 @@ If test cases are executed, you can find a **testResultSummary.json** file gener
 ```
 
 > [!NOTE]
-> If the query results contain float values, you might experience slight differences in the produced values leading to a probably failed test. This is based on the different .NET frameworks powering the Visual Studio or Visual Studio engine and the test processing engine. If you want to make sure that the tests run successfully, you'll have to decrease the precision of your produced values or align the results to be compared manually to the generated test results.
+> If the query results contain float values, you might experience slight differences in the produced values that lead to a probably failed test. This difference is based on the different .NET frameworks powering the Visual Studio or Visual Studio engine and the test processing engine. To make sure that the tests run successfully, decrease the precision of your produced values or align the results to be compared manually to the generated test results.
 
 
 ## Deploy to Azure
 
-To deploy your Stream Analytics project using ARM templates, follow these steps:
+To deploy your Stream Analytics project by using ARM templates, follow these steps:
 1. Connect to your Azure account:
 
     ```powershell
@@ -238,7 +238,7 @@ To deploy your Stream Analytics project using ARM templates, follow these steps:
     Set-AzContext [SubscriptionID/SubscriptionName]
     ```
 
-2. Deploy your Stream Analytics project:
+1. Deploy your Stream Analytics project:
 
     ```powershell
     $templateFile = ".\Deploy\ClickStream-Filter.JobTemplate.json"
@@ -250,7 +250,7 @@ To deploy your Stream Analytics project using ARM templates, follow these steps:
       -TemplateParameterFile $parameterFile
     ```
 
-For more information about deploying resources with ARM templates, see [Deploy with a Resource Manager template file and Azure PowerShell](https://aka.ms/armdeploytemplate).
+For more information about deploying resources by using ARM templates, see [Deploy with a Resource Manager template file and Azure PowerShell](https://aka.ms/armdeploytemplate).
 
 ## Related content
 

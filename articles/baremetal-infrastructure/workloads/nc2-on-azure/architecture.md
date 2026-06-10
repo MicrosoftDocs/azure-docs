@@ -2,7 +2,7 @@
 title: Architecture of BareMetal Infrastructure for NC2 on Azure
 author: jjaygbay1
 ms.author: jacobjaygbay
-description: Learn about the architecture of several configurations of BareMetal Infrastructure for NC2 on Azure.
+description: Learn about the architecture of several configurations of BareMetal Infrastructure for NC2 on Azure (obsolete).
 ms.topic: reference
 ms.subservice: baremetal-nutanix
 ms.date: 04/23/2025
@@ -13,7 +13,7 @@ ms.custom:
 # Customer intent: "As a cloud architect, I want to understand the architecture of BareMetal Infrastructure for NC2 on Azure, so that I can design scalable and efficient private cloud solutions integrated with existing services."
 ---
 
-# Nutanix Cloud Clusters (NC2) on Azure architectural concepts
+# Nutanix Cloud Clusters (NC2) on Azure architectural concepts (obsolete)
 
 NC2 provides Nutanix-based private clouds in Azure. The private cloud hardware and software deployments are fully integrated and automated in Azure. Deploy and manage the private cloud through the Azure portal, CLI, or PowerShell.
 

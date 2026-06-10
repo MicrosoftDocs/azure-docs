@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Shell release notes
 description: This article lists the new features and changes released in Azure Cloud Shell.
-ms.date: 04/07/2026
+ms.date: 05/22/2026
 ms.topic: release-notes
 ---
 
@@ -25,6 +25,37 @@ criteria, see [Cloud Shell Package inclusion guide][12].
 You can install any tool you need in your Cloud Shell session as long as it doesn't require root
 access. For installation instructions, consult the documentation for the package you require.
 
+## May 2026
+
+Feature update
+
+There's a new button to the Cloud Shell menu bar that opens a new browser tab and transfers your
+session to a Visual Studio Code (VS Code) environment in the browser. This feature gives you access
+to a more feature rich code editor when the built-in Cloud Shell editor doesn't meet your needs.
+
+In this environment, you have the full VS Code interface, including the file explorer, editor, and
+integrated terminal. The terminal in VS Code is now your Cloud Shell terminal with the same
+built-in authentication and packages that cloud shell provides. VS Code has access to all files
+stored in your Cloud Shell session and any mounted storage account.
+
+For more information, see [How to use Azure Cloud Shell in the new user interface][18].
+
+Tool updates
+
+- Az CLI upgraded to v2.86.0
+- Azure Developer CLI upgraded to v1.24.1
+- Azure Functions Core Tools CLI upgraded to v4.10.0
+- Azure PowerShell upgraded to v15.6.0
+- Bicep CLI upgraded to v0.42.1
+- CLI for M365 upgraded to v11.6.0
+- Helm upgraded to v4.1
+- Inspektor Gadget (`ig`) upgraded to v0.52.0
+- `kubectl` upgraded to v1.36.0
+- `Node.js` upgraded to v24.14.1
+- `npm` upgraded to v11.11.0
+- `istioctl` upgraded to v1.29.1
+- `containerd` upgraded to v2.1.6
+
 ## April 2026
 
 Feature updates
@@ -47,7 +78,7 @@ Tool updates
 - Bicep CLI upgraded to 0.41.2
 - Go upgraded to v1.26.1
 - Helm upgraded to v3.19
-- Inspektor Gadget (ig) upgraded to v0.50
+- Inspektor Gadget (`ig`) upgraded to v0.50
 - Microsoft.Graph PowerShell modules upgraded to v2.36.0
 - MicrosoftPowerBIMgmt modules upgraded to v1.3.80
 - PostreSQL upgraded to v16.12
@@ -189,3 +220,4 @@ require.
 [15]: https://yeoman.io/
 [16]: use-the-shell-window-new.md
 [17]: use-cloud-shell-editor-new.md
+[18]: use-the-shell-window-new.md
