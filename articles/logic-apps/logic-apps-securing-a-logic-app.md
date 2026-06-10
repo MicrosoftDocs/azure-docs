@@ -802,7 +802,7 @@ To add an authorization policy to your Consumption logic app, follow the steps f
    
       The following example shows the information for a PoP token:
 
-      :::image type="content" source="media/logic-apps-securing-a-logic-app/pop-policy-example.png" alt-text="Screenshot shows Azure portal, Authorization page, and proof-of-possession policy information." lightbox="media/logic-apps-securing-a-logic-app/pop-policy-example.png":::
+   :::image type="content" source="media/logic-apps-securing-a-logic-app/pop-policy-example.png" alt-text="Screenshot shows Azure portal, Authorization page, and proof-of-possession policy information." lightbox="media/logic-apps-securing-a-logic-app/pop-policy-example.png":::
 
 1. To add another claim, select from these options:
 
