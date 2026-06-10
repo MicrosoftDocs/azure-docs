@@ -74,7 +74,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-10-01' = {
+resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-03-01' = {
   parent: aioInstance
   name: registryEndpointName
   extendedLocation: {
@@ -364,7 +364,7 @@ The Azure portal doesn't currently support creating registry endpoints for publi
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-10-01' = {
+resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-03-01' = {
   parent: aioInstance
   name: 'public-ghcr'
   extendedLocation: {
@@ -412,7 +412,7 @@ You can view the default registry endpoint in the Azure portal under **Component
 The default endpoint is equivalent to the following configuration:
 
 ```bicep
-resource defaultRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-10-01' = {
+resource defaultRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-03-01' = {
   parent: aioInstance
   name: 'default'
   extendedLocation: {
