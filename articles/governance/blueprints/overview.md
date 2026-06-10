@@ -131,9 +131,23 @@ blueprint parameters, then the parameters are defined during the assignment proc
 
 ## Permissions in Azure Blueprints
 
-To use blueprints, you must be granted permissions through [Azure role-based access
-control (Azure RBAC)](../../role-based-access-control/overview.md). To read or view a blueprint in Azure
-portal, your account must have read access to the scope where the blueprint definition is located.
+To use blueprints, you create, assign, and manage blueprint definitions through [Azure role-based access
+control (Azure RBAC)](../../role-based-access-control/overview.md).
+
+You don't need a dedicated Azure RBAC permission to read or view a blueprint definition. Blueprint
+definitions are intended to be discoverable by the principals they govern, so any authenticated principal in
+the tenant can list and read management group-scoped blueprint definitions, their versions, and their
+artifacts—including through the REST API—even without a role assignment on that management group. Reading a
+blueprint definition that's stored at a subscription requires read access to that subscription. Creating,
+publishing, assigning, updating, and deleting blueprints always require the permissions described in this
+article.
+
+> [!IMPORTANT]
+> Because blueprint definitions can be read by any authenticated principal in the tenant, don't store
+> secrets or other sensitive information directly in a blueprint definition or in its parameter
+> `defaultValue`s. For secrets, use `secureString` or `secureObject` parameters backed by [Azure Key Vault
+> references](./concepts/parameters.md#using-securestring-and-secureobject-parameters), which keep the secret
+> value in Key Vault instead of in the blueprint.
 
 To create blueprints, your account needs the following permissions:
 
