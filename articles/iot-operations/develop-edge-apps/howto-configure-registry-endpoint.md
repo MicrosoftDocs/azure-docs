@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/02/2026
+ms.date: 06/10/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure registry endpoints in Azure IoT Operations so that I can pull custom connectors, WASM modules, and graph definitions from container registries for use in data flow graphs and connectors.
@@ -74,7 +74,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-10-01-preview' = {
+resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-10-01' = {
   parent: aioInstance
   name: registryEndpointName
   extendedLocation: {
@@ -364,7 +364,7 @@ The Azure portal doesn't currently support creating registry endpoints for publi
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-10-01-preview' = {
+resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-10-01' = {
   parent: aioInstance
   name: 'public-ghcr'
   extendedLocation: {
@@ -388,7 +388,7 @@ az iot ops registry create \
   --name public-ghcr \
   --instance <AIO_INSTANCE_NAME> \
   --resource-group <RESOURCE_GROUP> \
-  --host ghcr.io/azure-samples/explore-iot-operations \
+  --host ghcr.io \
   --no-auth
 ```
 
@@ -412,7 +412,7 @@ You can view the default registry endpoint in the Azure portal under **Component
 The default endpoint is equivalent to the following configuration:
 
 ```bicep
-resource defaultRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-10-01-preview' = {
+resource defaultRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-10-01' = {
   parent: aioInstance
   name: 'default'
   extendedLocation: {
