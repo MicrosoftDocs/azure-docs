@@ -5,7 +5,7 @@ description: Learn how to troubleshoot connector issues in Azure Data Factory an
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 07/03/2025
+ms.date: 06/10/2025
 ms.author: jianleishen
 ai-usage: ai-assisted
 ms.custom:
@@ -89,21 +89,23 @@ The following errors are general to the copy activity and could occur with any c
 
 ### FIPS issue
 
-- **Symptoms**: Copy activity fails on a FIPS-enabled self-hosted IR machine with the following error message: `This implementation is not part of the Windows Platform FIPS validated cryptographic algorithms.` 
+- **Symptoms**: Copy activity fails on a FIPS-enabled self-hosted IR machine with the following error message: `This implementation is not part of the Windows Platform FIPS validated cryptographic algorithms.`
 
-- **Cause**: This error might occur when you copy data with connectors such as Azure Blob, SFTP, and so on. Federal Information Processing Standards (FIPS) defines a certain set of cryptographic algorithms that are allowed to be used. When FIPS mode is enabled on the machine, some cryptographic classes that copy activity depends on are blocked in some scenarios.
+- **Cause**: FIPS mode blocks certain cryptographic classes that copy activity depends on. For a full explanation of the cause and background, see [FIPS issue in Troubleshoot connector issues with Data Factory in Fabric](/fabric/data-factory/connector-troubleshoot-overview#fips-issue).
 
 - **Resolution**: Learn [why we’re not recommending "FIPS Mode" anymore](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/why-we-8217-re-not-recommending-8220-fips-mode-8221-anymore/ba-p/701037), and evaluate whether you can disable FIPS on your self-hosted IR machine.
 
-    Alternatively, if you only want to bypass FIPS and make the activity runs succeed, take the following steps:
+    To bypass FIPS and make the activity runs succeed on a self-hosted integration runtime, take the following steps:
 
     1. Open the folder where Self-hosted IR is installed. The path is usually *C:\Program Files\Microsoft Integration Runtime \<IR version>\Shared*.
 
-    2. Open the *diawp.exe.config* file and then, at the end of the `<runtime>` section, add `<enforceFIPSPolicy enabled="false"/>`, as shown here:
+    1. Open the *diawp.exe.config* file and then, at the end of the `<runtime>` section, add `<enforceFIPSPolicy enabled="false"/>`, as shown here:
 
         :::image type="content" source="./media/connector-troubleshoot-guide/disable-fips-policy.png" alt-text="Screenshot of a section of the diawp.exe.config file showing FIPS disabled.":::
 
-    3. Save the file, and then restart the Self-hosted IR machine.
+    1. Save the file, and then restart the Self-hosted IR machine.
+
+    If you use an on-premises data gateway instead of a self-hosted IR, see [FIPS issue](/fabric/data-factory/connector-troubleshoot-overview#fips-issue) for gateway-specific steps.
 
 #### <a name="error-code-getoauth2accesstokenerrorresponse"></a> Error code: 20150 - GetOAuth2AccessTokenErrorResponse
 
