@@ -305,7 +305,6 @@ Before using these settings to help you secure this data, review these considera
   If the **Compose**, **Parse JSON**, and **Response** actions explicitly use the visible outputs from the trigger or action that has the secured inputs, Azure Logic Apps hides these actions' inputs and outputs, but *doesn't enable* these action's **Secure Inputs** setting. If a downstream action explicitly uses the hidden outputs from the **Compose**, **Parse JSON**, or **Response** actions as inputs, Azure Logic Apps *doesn't hide this downstream action's inputs or outputs*.
 
   ![Secured inputs and downstream impact on specific actions](./media/logic-apps-securing-a-logic-app/secure-inputs-flow-special.png)
-  
 #### Secure inputs and outputs in the designer
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
@@ -791,7 +790,7 @@ To add an authorization policy to your Consumption logic app, follow the steps f
 
 1. Provide information about the authorization policy by specifying the [claim types](/entra/identity-platform/developer-glossary#claim) and values that your logic app expects in the access token presented by each inbound call to the **Request** trigger:
 
-      :::image type="content" source="media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png" alt-text="Screenshot shows Azure portal, Authorization page, and authorization policy details." lightbox="media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png":::
+   :::image type="content" source="media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png" alt-text="Screenshot shows Azure portal, Authorization page, and authorization policy details." lightbox="media/logic-apps-securing-a-logic-app/set-up-authorization-policy.png":::
 
    | Property | Required | Type | Description |
    |----------|----------|------|-------------|
