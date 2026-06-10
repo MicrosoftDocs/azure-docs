@@ -832,7 +832,13 @@ In your ARM template, define an authorization policy following these steps and s
 
 1. Provide a name for authorization policy, set the policy type to `AAD`, and include a `claims` array where you specify one or more claim types.
 
-   At a minimum, the `claims` array must include the Issuer claim type where you set the claim's `name` property to `iss` and set the `value` to start with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Microsoft Entra issuer ID, and the Audience claim type where you set the claim's `name` property to `aud` and set the `value` to the expected audience for your logic app resource. For more information about these claim types, see [Claims in Microsoft Entra security tokens](/entra/identity-platform/security-tokens#json-web-tokens-and-claims). You can also specify your own claim type and value.
+   At a minimum, the `claims` array must include the following claim types:
+
+   - **Issuer**: Set the claim's `name` property to `iss`. Set the `value` to start with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Microsoft Entra issuer ID.
+   
+   -  **Audience**: Set the claim's `name` property to `aud`. Set the `value` to the expected audience for your logic app resource.
+   
+   You can also specify your own claim type and value. For more information about these claim types, see [Claims in Microsoft Entra security tokens](/entra/identity-platform/security-tokens#json-web-tokens-and-claims).
 
 1. To include the `Authorization` header from the access token in the request-based trigger outputs, see [Include 'Authorization' header in request trigger outputs](#include-auth-header).
 
