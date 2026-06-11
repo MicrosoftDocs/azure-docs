@@ -6,7 +6,7 @@ description: Define an OAuth 1.0 technical profile in a custom policy in Azure A
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/11/2024
