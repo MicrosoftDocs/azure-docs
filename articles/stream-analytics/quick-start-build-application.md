@@ -1,15 +1,17 @@
 ---
-title: Build a clickstream analyzer using one-click deployment
-description: This quickstart shows you how to get started ASA using a GitHub repository and PowerShell scripts with data generator. 
+title: Quickstart - Build a clickstream analyzer using one-click deployment
+description: Build a streaming application for clickstream analysis by using Azure Stream Analytics with a GitHub repository and PowerShell scripts.
 ms.service: azure-stream-analytics
 author: alexlzx
 ms.author: zhenxilin
-ms.date: 03/15/2023
+ms.date: 06/10/2026
 ms.topic: quickstart
 ms.custom: sfi-image-nochange
+ai-usage: ai-assisted
+#customer intent: As a developer, I want to quickly deploy a clickstream analysis pipeline so that I can process and analyze website traffic data in real time.
 ---
 
-# Quickstart: Build an e2e Streaming Application for Clickstream Analysis
+# Quickstart: Build an end-to-end streaming application for clickstream analysis
 
 Analyzing clickstream data is an effective way for businesses to optimize website traffic and gain insights into user behavior. This quickstart outlines how you can build a streaming application for analyzing website clickstream data.
 
@@ -27,7 +29,7 @@ Here are the typical scenarios for processing and analyzing clickstream:
 ## Filter clickstream requests
 
 In this example, you learn to extract `GET` and `POST` requests from a website clickstream and store the output results to an Azure Blob Storage. Here's the architecture for this example:
-![Clickstream one input](./media/quick-start-with-mock-data/clickstream-one-input.png)
+![Diagram that shows the clickstream filter architecture with one input flowing through Stream Analytics to Blob Storage.](./media/quick-start-with-mock-data/clickstream-one-input.png)
 
 Sample of a website clickstream:
 
@@ -35,7 +37,7 @@ Sample of a website clickstream:
 {
     "EventTime": "2022-09-09 08:58:59 UTC",
     "UserID": 465,
-    "IP": "145.140.61.170",
+    "IP": "203.0.113.170",
     "Request": {
     "Method": "GET",
     "URI": "/index.html",
@@ -49,27 +51,27 @@ Sample of a website clickstream:
 }
 ```
 
-We'll be using the scripts available in the [GitHub repository](https://github.com/Azure/azure-stream-analytics) for deploying our required resources:
+Use the scripts available in the [GitHub repository](https://github.com/Azure/azure-stream-analytics) to deploy the required resources:
 
-1. Open **PowerShell** from the Start menu, clone this GitHub repository to your working directory.
+1. Open **PowerShell** from the Start menu and clone this GitHub repository to your working directory.
 
     ```powershell
     git clone https://github.com/Azure/azure-stream-analytics.git
     ```
 
-2. Go to **BuildApplications** folder.
+1. Go to the **BuildApplications** folder.
 
     ```powershell
     cd .\azure-stream-analytics\BuildApplications\
     ```
 
-3. Sign in to Azure and enter your Azure credentials in the pop-up browser.
+1. Sign in to Azure and enter your Azure credentials in the pop-up browser.
 
     ```powershell
     Connect-AzAccount
     ```
 
-4. Replace `$subscriptionId` with your Azure subscription ID and run the following command to deploy Azure resources. This process may take a few minutes to complete.
+1. Replace `$subscriptionId` with your Azure subscription ID and run the following command to deploy Azure resources. This process might take a few minutes to complete.
 
     ```powershell
     .\CreateJob.ps1 -job ClickStream-Filter -eventsPerMinute 11 -subscriptionid $subscriptionId
@@ -78,19 +80,19 @@ We'll be using the scripts available in the [GitHub repository](https://github.c
     * `eventsPerMinute` is the input rate for generated data. In this case, the input source generates 11 events per minute.
     * You can find your subscription ID in **Azure portal > Subscriptions**.
 
-5. Once the deployment is completed, it opens your browser automatically, and you can see a resource group named **ClickStream-Filter-rg-\*** in the Azure portal. The resource group contains the following five resources:
+1. After the deployment finishes, it opens your browser automatically. You can see a resource group named **ClickStream-Filter-rg-\*** in the Azure portal. The resource group contains the following five resources:
 
     | Resource Type | Name | Description |
     | ------------ | --------------------------------------------- | -------------------------------- |
     | Azure Function | clickstream* | Generate clickstream data |
     | Event Hubs | clickstream* | Ingest clickstream data for consuming |
     | Stream Analytics Job | ClickStream-Filter | Define a query to extract `GET` requests from the clickstream input |
-    | Blob Storage | clickstream* | Output destination for the ASA job |
+    | Blob Storage | clickstream* | Output destination for the Stream Analytics job |
     | App Service Plan | clickstream* | A necessity for Azure Function |
 
-6. **Congratulation!** You've deployed a streaming application to extract requests from a website clickstream. 
+1. You deployed a streaming application to extract requests from a website clickstream.
 
-7. The ASA job **ClickStream-Filter** uses the following query to extract HTTP requests from the clickstream. Select **Test query** in the query editor to preview the output results.
+1. The Stream Analytics job **ClickStream-Filter** uses the following query to extract HTTP requests from the clickstream. Select **Test query** in the query editor to preview the output results.
 
     ```sql
     SELECT System.Timestamp Systime, UserId, Request.Method, Response.Code, Browser
@@ -99,9 +101,9 @@ We'll be using the scripts available in the [GitHub repository](https://github.c
     WHERE Request.Method = 'GET' or Request.Method = 'POST'
     ```
 
-    ![Test Query](./media/quick-start-with-mock-data/test-query.png)
+    ![Screenshot of the Stream Analytics query editor showing test query output results.](./media/quick-start-with-mock-data/test-query.png)
 
-8. There are sample codes in the query comments that you can use for other stream analytic scenarios with one stream input.
+1. The following sample queries in the query comments are available for other stream analytic scenarios with one stream input.
 
     * Count clicks for every hour
 
@@ -121,25 +123,25 @@ We'll be using the scripts available in the [GitHub repository](https://github.c
         WHERE ISFIRST(hour, 1) OVER(PARTITION BY userId) = 1
         ```
 
-8. All output results are stored as `JSON` file in the Blog Storage. You can find it via: **Blob Storage > Containers > job-output**.
-![Blob Storage](./media/quick-start-with-mock-data/blog-storage-containers.png)
+1. All output results are stored as a `JSON` file in Azure Blob Storage. You can find it via **Blob Storage > Containers > job-output**.
+![Screenshot of the Blob Storage containers page showing the job output container.](./media/quick-start-with-mock-data/blog-storage-containers.png)
 
-## Clickstream-RefJoin
+## Join clickstream with a reference file
 
-If you want to find out the username for the clickstream using a user file in storage, you can join the clickstream with a reference input as following architecture:
-![Clickstream two input](./media/quick-start-with-mock-data/clickstream-two-inputs.png)
+To find out the username for the clickstream by using a user file in storage, you can join the clickstream with a reference input as shown in the following architecture:
+![Diagram that shows the clickstream architecture with two inputs joining a stream input and a reference file.](./media/quick-start-with-mock-data/clickstream-two-inputs.png)
 
-Assume you've completed the steps for previous example, run following commands to create a new resource group: 
+This section builds on the resources deployed in [Filter clickstream requests](#filter-clickstream-requests). Run the following commands to create a new resource group:
 
-1. Replace `$subscriptionId` with your Azure subscription ID and run the following command to deploy Azure resources. This process may take a few minutes to complete.
+1. Replace `$subscriptionId` with your Azure subscription ID and run the following command to deploy Azure resources. This process might take a few minutes to complete.
 
     ```powershell
     .\CreateJob.ps1 -job ClickStream-RefJoin -eventsPerMinute 11 -subscriptionid $subscriptionId
     ```
 
-2. Once the deployment is completed, it opens your browser automatically, and you can see a resource group named **ClickStream-RefJoin-rg-\*** in the Azure portal. The resource group contains five resources.
+1. After the deployment finishes, it opens your browser automatically. You can see a resource group named **ClickStream-RefJoin-rg-\*** in the Azure portal. The resource group contains five resources.
 
-3. The ASA job **ClickStream-RefJoin** uses the following query to join the clickstream with reference sql input.
+1. The Stream Analytics job **ClickStream-RefJoin** uses the following query to join the clickstream with reference SQL input.
 
     ```sql
     CREATE TABLE UserInfo(
@@ -153,17 +155,17 @@ Assume you've completed the steps for previous example, run following commands t
     LEFT JOIN UserInfo ON ClickStream.UserId = UserInfo.UserId
     ```
 
-4. **Congratulation!** You've deployed a streaming application to join your user file with a website clickstream.
+1. You deployed a streaming application to join your user file with a website clickstream.
 
 ## Clean up resources
 
-If you've tried out this project and no longer need the resource group, run this command on PowerShell to delete the resource group.
+If you no longer need the resource group, run this command in PowerShell to delete it.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 
-If you're planning to use this project in the future, you can skip deleting it, and stop the job for now.
+If you plan to use this project in the future, you can skip deleting the resource group and stop the job instead.
 
 ## Next steps
 

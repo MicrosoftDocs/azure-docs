@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Secure your custom RESTful APIs used for API connectors in Azure AD B2C.
 author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 10/14/2024
 ms.author: kengaderdus

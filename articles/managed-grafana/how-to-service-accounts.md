@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
 ms.topic: concept-article
-ms.date: 10/30/2025
+ms.date: 05/28/2026
 ms.custom:
   - devx-track-azurecli
   - sfi-image-nochange
@@ -24,6 +24,8 @@ Common use cases include:
 - Defining alerts
 - Setting up an external SAML authentication provider
 - Interacting with Grafana without signing in as a user
+
+For an automation scenario where you want to use Microsoft Entra ID instead of a service account token, see [Authenticate to Azure Managed Grafana data plane APIs with Microsoft Entra ID](./how-to-authenticate-data-plane-api.md).
 
 ## Prerequisites
 
@@ -228,3 +230,7 @@ In this how-to guide, you learned how to create and manage service accounts and 
 
 > [!div class="nextstepaction"]
 > [Enable zone redundancy](how-to-enable-zone-redundancy.md)
+
+## Related content
+
+- [Authenticate to Azure Managed Grafana data plane APIs with Microsoft Entra ID](./how-to-authenticate-data-plane-api.md)

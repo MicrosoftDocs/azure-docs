@@ -44,11 +44,11 @@ The type of the input parameter used with an Event Grid trigger depends on these
 
 When running your C# function in an isolated worker process, you need to define a custom type for event properties. The following example defines a `MyEventType` class.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="33-45":::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="33-45"::: --->
 
 The following example shows how the custom type is used in both the trigger and an Event Grid output binding:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="11-29":::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="11-29"::: --->
 
 # [In-process model](#tab/in-process)
 
@@ -191,7 +191,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 The following example shows an event grid trigger [TypeScript function](functions-reference-node.md?tabs=typescript).
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventGridTrigger1.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventGridTrigger1.ts" ::: --->
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -206,7 +206,7 @@ TypeScript samples are not documented for model v3.
 
 The following example shows an event grid trigger [JavaScript function](functions-reference-node.md).
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventGridTrigger1.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventGridTrigger1.js" ::: --->
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -374,7 +374,7 @@ Both [in-process](functions-dotnet-class-library.md) and [isolated worker proces
 
 Here's an `EventGridTrigger` attribute in a method signature:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="11-14":::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="11-14"::: --->
 
 # [In-process model](#tab/in-process)
 

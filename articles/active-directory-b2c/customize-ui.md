@@ -6,7 +6,7 @@ description: Learn how to customize the user interface for your applications tha
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 02/19/2025

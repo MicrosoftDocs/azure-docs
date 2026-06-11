@@ -477,20 +477,29 @@ The output should include your user-assigned managed identity's resource ID with
 
 ## Step 4: Verify user has entitlement group access
 
-To call ACZ APIs, you (the user) must be a member of the `users@{data-partition-id}.dataservices.energy` entitlement group.
+To call ACZ APIs, you (the user) must be a member of the following entitlement groups:
+- `users@{data-partition-id}.dataservices.energy`
+- `users.datalake.ops@{data-partition-id}.dataservices.energy`
 
 > [!IMPORTANT]
 > This step verifies that YOU (the user calling ACZ APIs) have access, not the user-assigned managed identity. The user-assigned managed identity created in Step 2 is only used by the ACZ service to write data to storage—it doesn't need entitlement group membership.
 
-If you're not already a member of the users entitlement group, have an Azure Data Manager for Energy administrator add your user account. See [How to manage users](how-to-manage-users.md) for detailed instructions.
+If you're not already a member of these entitlement groups, have an Azure Data Manager for Energy administrator add your user account. See [How to manage users](how-to-manage-users.md) for detailed instructions.
 
-**To verify you have access**, use the Entitlements Service API to check your membership:
+**To verify you have access**, use the Entitlements Service API to check your membership in both groups:
 
 ### [Bash](#tab/bash)
 
 ```bash
+# Check users group membership
 curl --http1.1 --request GET \
   --url https://{base_url}/api/entitlements/v2/groups/users@{data-partition-id}.dataservices.energy/members \
+  --header 'Authorization: Bearer {access_token}' \
+  --header 'data-partition-id: {data-partition-id}'
+
+# Check users.datalake.ops group membership
+curl --http1.1 --request GET \
+  --url https://{base_url}/api/entitlements/v2/groups/users.datalake.ops@{data-partition-id}.dataservices.energy/members \
   --header 'Authorization: Bearer {access_token}' \
   --header 'data-partition-id: {data-partition-id}'
 ```
@@ -498,7 +507,14 @@ curl --http1.1 --request GET \
 ### [PowerShell](#tab/powershell)
 
 ```powershell
+# Check users group membership
 Invoke-RestMethod -Uri "https://{base_url}/api/entitlements/v2/groups/users@{data-partition-id}.dataservices.energy/members" -Method Get -Headers @{
+    "Authorization" = "Bearer {access_token}"
+    "data-partition-id" = "{data-partition-id}"
+}
+
+# Check users.datalake.ops group membership
+Invoke-RestMethod -Uri "https://{base_url}/api/entitlements/v2/groups/users.datalake.ops@{data-partition-id}.dataservices.energy/members" -Method Get -Headers @{
     "Authorization" = "Bearer {access_token}"
     "data-partition-id" = "{data-partition-id}"
 }
@@ -535,7 +551,7 @@ Invoke-RestMethod -Uri "https://{base_url}/api/entitlements/v2/groups/users@{dat
 }
 ```
 
-The response should include your user account in the `members` array. If you're not listed, contact your Azure Data Manager for Energy administrator to add you to the users group.
+Both responses should include your user account in the `members` array. If you're not listed in either group, contact your Azure Data Manager for Energy administrator to add you to both required groups.
 
 ## Step 5: Grant the user-assigned managed identity permissions on the ADLS Gen2 container
 

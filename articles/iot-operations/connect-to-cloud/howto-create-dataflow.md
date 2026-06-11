@@ -18,6 +18,7 @@ ms.custom:
 
 A data flow is the path that data takes from the source to the destination with optional transformations. You can configure the data flow by creating a *Data flow* custom resource or using the operations experience web UI. A data flow is made up of three parts: the **source**, the **transformation**, and the **destination**. 
 
+<!--
 ```mermaid
 flowchart LR
   subgraph Source
@@ -34,6 +35,7 @@ flowchart LR
   Source - -> BuiltInTransformation
   BuiltInTransformation - -> Destination
 ```
+--->
 
 :::image type="content" source="media/howto-create-dataflow/dataflow.svg" alt-text="Diagram of a data flow showing flow from source to transform then destination.":::
 

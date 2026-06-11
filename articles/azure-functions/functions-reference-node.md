@@ -1632,11 +1632,11 @@ This example shows an HTTP triggered function that receives data via an HTTP POS
 
 #### [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamRequest.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamRequest.js" ::: --->
 
 #### [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamRequest.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamRequest.ts" ::: --->
 
 ---
 
@@ -1644,11 +1644,11 @@ This example shows an HTTP triggered function that streams a file's content as t
 
 #### [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamResponse.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamResponse.js" ::: --->
 
 #### [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamResponse.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamResponse.ts" ::: --->
 
 ---
 
@@ -1676,11 +1676,11 @@ Invocation hooks are executed once per invocation of your function, either befor
 
 # [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/invocationHooks1.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/invocationHooks1.js" ::: --->
 
 # [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/invocationHooks1.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/invocationHooks1.ts" ::: --->
 
 ---
 
@@ -1715,11 +1715,11 @@ The following example registers app hooks:
 
 # [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/appHooks1.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/appHooks1.js" ::: --->
 
 # [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/appHooks1.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/appHooks1.ts" ::: --->
 
 ---
 
@@ -2110,11 +2110,11 @@ In the following example, the asynchronous method `fs.readFile` is invoked with 
 
 # [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerBadAsync.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerBadAsync.js" ::: --->
 
 # [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerBadAsync.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerBadAsync.ts" ::: --->
 
 ---
 
@@ -2180,11 +2180,11 @@ In the following example, any unhandled exceptions thrown during the function ex
 
 # [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerGoodAsync.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerGoodAsync.js" ::: --->
 
 # [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerGoodAsync.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerGoodAsync.ts" ::: --->
 
 ---
 

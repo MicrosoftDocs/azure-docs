@@ -6,7 +6,7 @@ description: Learn how to write your first Azure AD B2C custom policy. Configure
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements

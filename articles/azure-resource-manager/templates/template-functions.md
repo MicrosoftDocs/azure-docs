@@ -51,6 +51,7 @@ Resource Manager provides several functions for working with arrays.
 * [concat](template-functions-array.md#concat)
 * [contains](template-functions-array.md#contains)
 * [createArray](template-functions-array.md#createarray)
+* [distinct](template-functions-array.md#distinct)
 * [empty](template-functions-array.md#empty)
 * [first](template-functions-array.md#first)
 * [indexFromEnd](template-functions-array.md#indexfromend)

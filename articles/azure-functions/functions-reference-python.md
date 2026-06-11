@@ -67,7 +67,7 @@ def main(req):
 ```
 
 Here's the corresponding `function.json` file:
-:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
+<!--- :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json"::: --->
 
 #### Key concepts
 - The function has a single HTTP trigger.

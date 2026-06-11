@@ -6,7 +6,7 @@ description: Learn how to create and run custom policies in Azure AD B2C. Follow
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements

@@ -193,6 +193,8 @@
     href: traffic-analytics-policy-portal.md
 - name: Security
   items:
+  - name: Secure Network Watcher deployment
+    href: secure-network-watcher.md
   - name: Security baseline
     href: /security/benchmark/azure/baselines/network-watcher-security-baseline?toc=/azure/network-watcher/toc.json
   - name: Azure Network Security Blog

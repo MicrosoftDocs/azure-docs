@@ -6,7 +6,7 @@ description: Provide sign-up and sign-in to customers with SwissID accounts in y
 author: garrodonnell
 manager: celestedg
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 12/07/2021

@@ -4,7 +4,7 @@ description: Learn about the sections and metrics available in the Azure Load Te
 author: nagarjuna-vipparthi
 ms.author: vevippar
 ms.date: 11/20/2025
-ms.service: azure-load-testing
+ms.service: azure-app-testing
 ms.topic: how-to
 ---
 

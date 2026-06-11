@@ -45,7 +45,7 @@ Go support isn't currently available for this binding.
 
 The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated worker process and uses a blob trigger with both blob input and blob output blob bindings. The creation of a blob in the *test-samples-trigger* container triggers the function. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="9-26":::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="9-26"::: --->
 
 # [In-process](#tab/in-process)
 
@@ -131,7 +131,7 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 The following example shows a queue triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that makes a copy of a blob. A queue message that contains the name of the blob to copy triggers the function. The new blob is named *{originalblobname}-Copy*.
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageBlobInputAndOutput1.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageBlobInputAndOutput1.ts" ::: --->
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -146,7 +146,7 @@ TypeScript samples are not documented for model v3.
 
 The following example shows a queue triggered [JavaScript function](functions-reference-node.md) that makes a copy of a blob. A queue message that contains the name of the blob to copy triggers the function. The new blob is named *{originalblobname}-Copy*.
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageBlobInputAndOutput1.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageBlobInputAndOutput1.js" ::: --->
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -232,7 +232,7 @@ Write-Host "PowerShell Blob trigger: Name: $($TriggerMetadata.Name) Size: $($Inp
 
 This example uses SDK types to directly access the underlying `BlobClient` object provided by the Blob storage input binding: 
 
-:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="9-12,40-50"::: 
+<!--- :::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-bindings-blob/samples/blob_samples_blobclient/function_app.py" range="9-12,40-50"::: --->
 
 For examples of using other SDK types, see the [`ContainerClient`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_containerclient/function_app.py) and [`StorageStreamDownloader`](https://github.com/Azure/azure-functions-python-extensions/blob/dev/azurefunctions-extensions-bindings-blob/samples/blob_samples_storagestreamdownloader/function_app.py) samples. For a step-by-step tutorial on how to include SDK-type bindings in your function app, follow the [Python SDK Bindings for Blob Sample](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-python).
 

@@ -3,7 +3,7 @@ title: Optimize Azure Functions for performance and cost
 titleSuffix: Azure Load Testing
 description: Learn how to optimize Azure Functions for Performance and Costs using Azure Load Testing
 services: load-testing
-ms.service: azure-load-testing
+ms.service: azure-app-testing
 ms.author: nandinim
 author: nandinimurali
 ms.date: 06/12/2024

@@ -127,7 +127,7 @@ Function-level retries are supported with the following NuGet packages:
 - [Microsoft.Azure.Functions.Worker.Extensions.Kafka](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Kafka) version 3.8.0 and later
 - [Microsoft.Azure.Functions.Worker.Extensions.Timer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer) version 4.2.0 and later
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Timer/TimerFunction.cs" id="docsnippet_fixed_delay_retry_example" :::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Timer/TimerFunction.cs" id="docsnippet_fixed_delay_retry_example" ::: --->
 
 |Property  | Description |
 |---------|-------------|
@@ -161,7 +161,7 @@ Function-level retries are supported with the following NuGet packages:
 - [Microsoft.Azure.Functions.Worker.Extensions.Kafka](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Kafka) version 3.8.0 or later
 - [Microsoft.Azure.Functions.Worker.Extensions.Timer](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Timer) version 4.2.0 or later
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" id="docsnippet_exponential_backoff_retry_example" :::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" id="docsnippet_exponential_backoff_retry_example" ::: --->
 
 #### [In-process model](#tab/in-process/exponential-backoff)
 
@@ -211,7 +211,7 @@ The way that you define the retry policy for the trigger depends on your Node.js
 
 Here's an example of a timer trigger function that uses a fixed-delay retry strategy:
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/timerTriggerWithRetry.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/timerTriggerWithRetry.js" ::: --->
 
 #### [Node.js v3](#tab/node-v3)
 
@@ -230,7 +230,7 @@ The way that you define the retry policy for the trigger depends on your Node.js
 
 Here's an example of a timer trigger function that uses a fixed-delay retry strategy:
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/timerTriggerWithRetry.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/timerTriggerWithRetry.ts" ::: --->
 
 #### [Node.js v3](#tab/node-v3)
 
@@ -254,13 +254,13 @@ You can set these properties on retry policy definitions:
 
 Here's an example of a timer trigger function that uses a fixed-delay retry strategy:
 
-:::code language="python" source="~/azure-functions-python-worker/workers/tests/endtoend/retry_policy_functions/fixed_strategy/function_app.py" :::
+<!--- :::code language="python" source="~/azure-functions-python-worker/workers/tests/endtoend/retry_policy_functions/fixed_strategy/function_app.py" ::: --->
 
 #### [Python v2 model](#tab/python-v2/exponential-backoff)
 
 Here's an example of a timer trigger function that uses an exponential-backoff retry strategy:
 
-:::code language="python" source="~/azure-functions-python-worker/workers/tests/endtoend/retry_policy_functions/exponential_strategy/function_app.py" :::
+<!--- :::code language="python" source="~/azure-functions-python-worker/workers/tests/endtoend/retry_policy_functions/exponential_strategy/function_app.py" ::: --->
 
 #### [Python v1 model](#tab/python-v1/fixed-delay)
 

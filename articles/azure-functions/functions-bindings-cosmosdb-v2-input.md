@@ -58,17 +58,17 @@ This section contains examples that require version 3.x of Azure Cosmos DB exten
 * [Queue trigger, look up ID from JSON](#queue-trigger-look-up-id-from-json-isolated)
 
 The examples refer to a simple `ToDoItem` type:
-
+<!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosInputBindingFunctions.cs" range="244-264":::
-
+-->
 <a id="queue-trigger-look-up-id-from-json-isolated"></a>
 
 ### Queue trigger, look up ID from JSON
 
 The following example shows a function that retrieves a single document. The function is triggered by a JSON message in the storage queue. The queue trigger parses the JSON into an object of type `ToDoItemLookup`, which contains the ID and partition key value to retrieve. That ID and partition key value are used to return a `ToDoItem` document from the specified database and collection.
-
+<!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosInputBindingFunctions.cs" range="244-264":::
-
+-->
 # [In-process model](#tab/in-process)
 
 This section contains the following examples for using [in-process C# class library functions](functions-dotnet-class-library.md) with extension version 3.x:
@@ -748,9 +748,9 @@ This section contains the following examples that read a single document by spec
 The following example shows a [TypeScript function](functions-reference-node.md?tabs=typescript) that reads a single document and updates the document's text value.
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/cosmosInput1.ts" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
@@ -764,9 +764,9 @@ TypeScript samples are not documented for model v3.
 The following example shows a [TypeScript function](functions-reference-node.md?tabs=typescript) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/cosmosInput2.ts" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
@@ -780,9 +780,9 @@ TypeScript samples are not documented for model v3.
 The following example shows a [TypeScript function](functions-reference-node.md?tabs=typescript) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/cosmosInput3.ts" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
@@ -798,9 +798,9 @@ The following example shows a [TypeScript function](functions-reference-node.md?
 The queue trigger provides a parameter `departmentId`. A queue message of `{ "departmentId" : "Finance" }` would return all records for the finance department.
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/cosmosInput4.ts" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
@@ -824,9 +824,9 @@ This section contains the following examples that read a single document by spec
 The following example shows a [JavaScript function](functions-reference-node.md) that reads a single document and updates the document's text value.
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/cosmosInput1.js" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 Here's the binding data in the *function.json* file:
@@ -875,9 +875,9 @@ Here's the JavaScript code:
 The following example shows a [JavaScript function](functions-reference-node.md) that retrieves a single document. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/cosmosInput2.js" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 Here's the *function.json* file:
@@ -939,9 +939,9 @@ module.exports = async function (context, req, toDoItem) {
 The following example shows a [JavaScript function](functions-reference-node.md) that retrieves a single document. The function is triggered by an HTTP request that uses route data to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/cosmosInput3.js" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 Here's the *function.json* file:
@@ -1007,9 +1007,9 @@ The following example shows a [JavaScript function](functions-reference-node.md)
 The queue trigger provides a parameter `departmentId`. A queue message of `{ "departmentId" : "Finance" }` would return all records for the finance department.
 
 # [Model v4](#tab/nodejs-v4)
-
+<!--
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/cosmosInput4.js" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 Here's the binding data in the *function.json* file:

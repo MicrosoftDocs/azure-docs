@@ -276,19 +276,19 @@ To run on version 4.x, you must add `"version": "2.0"` to the host.json file. Yo
 
 # [.NET 8](#tab/net8)
 
-:::code language="json" source="~/functions-quickstart-templates//Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/host.json":::
+<!--- :::code language="json" source="~/functions-quickstart-templates//Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/host.json"::: --->
 
 The `host.json` file only controls logging from the Functions host runtime, and in the isolated worker model, some of these logs come from your application directly, giving you more control. See [Managing log levels in the isolated worker model](./dotnet-isolated-process-guide.md#managing-log-levels) for details on how to filter these logs.
 
 # [.NET Framework 4.8](#tab/netframework48)
 
-:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/host.json":::
+<!--- :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/host.json"::: --->
 
 The `host.json` file only controls logging from the Functions host runtime, and in the isolated worker model, some of these logs come from your application directly, giving you more control. See [Managing log levels in the isolated worker model](./dotnet-isolated-process-guide.md#managing-log-levels) for details on how to filter these logs.
 
 # [.NET 8 (in-process model)](#tab/net8-in-proc)
 
-:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp/host.json":::
+<!--- :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp/host.json"::: --->
 
 ---
 
@@ -296,20 +296,20 @@ The `host.json` file only controls logging from the Functions host runtime, and 
 
 The local.settings.json file is only used when running locally. For information, see [Local settings file](functions-develop-local.md#local-settings-file). In version 1.x, the local.settings.json file has only two required values:
 
-:::code language="json" source="~/functions-quickstart-templates-v1/Functions.Templates/ProjectTemplate/local.settings.json":::
+<!--- :::code language="json" source="~/functions-quickstart-templates-v1/Functions.Templates/ProjectTemplate/local.settings.json"::: --->
 
 When you migrate to version 4.x, make sure that your local.settings.json file has at least the following elements:
 
 # [.NET 8](#tab/net8)
 
-:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
+<!--- :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json"::: --->
 
 > [!NOTE]
 > When migrating from running in-process to running in an isolated worker process, you need to change the `FUNCTIONS_WORKER_RUNTIME` value to "dotnet-isolated".
 
 # [.NET Framework 4.8](#tab/netframework48)
 
-:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
+<!--- :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json"::: --->
 
 > [!NOTE]
 > When migrating from running in-process to running in an isolated worker process, you need to change the `FUNCTIONS_WORKER_RUNTIME` value to "dotnet-isolated".
@@ -505,7 +505,7 @@ namespace Company.Function
 
 # [.NET 8 (in-process model)](#tab/net8-in-proc)
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp/HttpTriggerCSharp.cs":::
+<!--- :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp/HttpTriggerCSharp.cs"::: --->
 
 ---
 

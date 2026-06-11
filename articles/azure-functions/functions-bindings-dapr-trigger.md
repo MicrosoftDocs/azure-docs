@@ -41,9 +41,9 @@ public static void Run(
 ```
  
 # [Isolated process](#tab/isolated-process)
-
+<!--
 :::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/Trigger/ConsumeMessageFromKafka.cs" range="19-30"::: 
-
+-->
 ---
 
 ::: zone-end 

@@ -44,7 +44,7 @@ Go support isn't currently available for this binding.
 
 The following example is a [C# function](dotnet-isolated-process-guide.md) that runs in an isolated worker process and uses a blob trigger with both blob input and blob output blob bindings. The creation of a blob in the *test-samples-trigger* container triggers the function. It reads a text file from the *test-samples-input* container and creates a new text file in an output container based on the name of the triggered file.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="4-26":::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Blob/BlobFunction.cs" range="4-26"::: --->
 
 # [In-process model](#tab/in-process)
 
@@ -176,7 +176,7 @@ This section contains the following examples:
 
 The following example shows a queue triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that makes a copy of a blob. A queue message that contains the name of the blob to copy triggers the function. The new blob is named *{originalblobname}-Copy*.
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageBlobInputAndOutput1.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageBlobInputAndOutput1.ts" ::: --->
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -191,7 +191,7 @@ TypeScript samples are not documented for model v3.
 
 The following example shows a queue triggered [JavaScript function](functions-reference-node.md) that makes a copy of a blob. A queue message that contains the name of the blob to copy triggers the function. The new blob is named *{originalblobname}-Copy*.
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageBlobInputAndOutput1.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageBlobInputAndOutput1.js" ::: --->
 
 # [Model v3](#tab/nodejs-v3)
 

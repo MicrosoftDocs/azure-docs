@@ -1,27 +1,28 @@
 ---
 title: Run Modes in Azure SRE Agent
-description: Learn how run modes control whether your agent asks for approval before taking actions or acts autonomously.
+description: "Learn how run modes in Azure SRE Agent control whether your agent asks for approval or acts autonomously. Choose review or autonomous mode to manage incident response and scheduled tasks."
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 06/02/2026
 author: craigshoemaker
 ms.author: cshoe
+ms.reviewer: cshoe
 ms.ai-usage: ai-assisted
 ms.custom: run modes, review, autonomous, triggers, incident response, scheduled tasks, approval
 #customer intent: As an SRE, I want to understand run modes so that I can control whether my agent acts autonomously or requires approval.
 ---
 
 # Run modes in Azure SRE Agent
-<!-- Video: Agent_Autonomy__Your_Control.mp4 — Replace with the hosted video URL using > [!VIDEO https://...] syntax -->
+<!-- Video: Agent_Autonomy__Your_Control.mp4: Replace with the hosted video URL using > [!VIDEO https://...] syntax -->
 
-Run modes control whether your agent **asks for approval** before taking actions or **acts on its own**. The key distinction is between Azure infrastructure operations (which have system-enforced approval) and other actions.
+Run modes in Azure SRE Agent control whether your agent **asks for approval** before taking actions or **acts on its own**. Use run modes to enforce approval workflows for Azure infrastructure operations while allowing other actions to proceed based on your response plan.
 
 > [!NOTE]
 > Run modes control the **approval workflow**, deciding whether the agent should ask before acting. [Permissions](permissions.md) control **resource access**, determining whether the agent can reach a resource. The agent needs both conditions satisfied to act.
 
-## Two modes
+## Review and autonomous run modes
 
-:::image type="content" source="media/run-modes/run-modes-comparison.svg" alt-text="Screenshot of a comparison of review mode where the agent proposes and the user decides versus autonomous mode where the agent executes immediately." lightbox="media/run-modes/run-modes-comparison.svg":::
+:::image type="content" source="media/run-modes/run-modes-comparison.svg" alt-text="Diagram of run modes comparison showing review mode where the agent proposes actions and autonomous mode where the agent executes immediately." lightbox="media/run-modes/run-modes-comparison.svg":::
 
 The following table summarizes the two available modes:
 
@@ -35,7 +36,7 @@ The following table summarizes the two available modes:
 Review is the default mode. Your agent investigates, identifies a fix, and asks for your approval before executing Azure infrastructure operations (Azure CLI commands, Azure Resource Manager operations, and similar write actions).
 
 > [!NOTE]
-> Review mode shows **Approve** and **Deny** buttons only for Azure infrastructure operations. Other actions, like sending emails, posting to Teams, or querying external data sources, proceed based on the agent's available tools and permissions.
+> Review mode shows **Approve** and **Deny** buttons only for Azure infrastructure operations. Other actions, like sending emails, posting to Teams, or querying external data sources, proceed based on the agent's reasoning and your response plan instructions. To add governance controls for these actions, use [Hooks](agent-hooks.md) or [Tool Access Policies](tool-access-policies.md) to enforce safety checks before or after specific tool calls.
 
 The following example shows what you see for Azure infrastructure actions:
 
@@ -62,7 +63,7 @@ I found app-service-staging was running slowly.
 Done: I've restarted app-service-staging. Memory usage is now normal.
 ```
 
-## Where to configure run modes
+## Configure run modes per response plan or task
 
 Set run modes **per [response plan](response-plan.md) and per [scheduled task](scheduled-tasks.md)**. You don't set run modes at the agent level.
 
@@ -73,7 +74,7 @@ Set run modes **per [response plan](response-plan.md) and per [scheduled task](s
 
 Set the **Agent autonomy level** when you create or edit a response plan or task:
 
-:::image type="content" source="media/run-modes/portal-trigger-review-autonomous-modes.png" alt-text="Edit incident trigger dialog showing Agent autonomy level with Autonomous and Review options." lightbox="media/run-modes/portal-trigger-review-autonomous-modes.png":::
+:::image type="content" source="media/run-modes/portal-trigger-review-autonomous-modes.png" alt-text="Screenshot of the edit incident trigger dialog showing agent autonomy level with autonomous and review run mode options." lightbox="media/run-modes/portal-trigger-review-autonomous-modes.png":::
 
 ### Agent-level default
 
@@ -103,8 +104,8 @@ The following table details how the agent behaves when it attempts a read-only o
 
 | Agent has permission? | Execution mode | Agent behavior |
 |---|---|---|
-| Yes | Review | Uses its permissions to perform the action |
-| No | Review | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow) |
+| Yes | Review | Uses its permissions to perform the action. |
+| No | Review | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow). |
 | Yes | Autonomous | Uses its permissions to perform the action. |
 | No | Autonomous | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow). |
 
@@ -115,8 +116,16 @@ The following table explains how the agent behaves when it tries to perform a wr
 | Agent has permission? | Execution mode | Agent behavior |
 |---|---|---|
 | Yes | Review | Prompts for consent to take action, and then uses its permissions to perform the action once consent is granted. |
-| No | Review | Prompts for consent to take action, and then prompts for temporary access to perform the action on behalf of the user. |
-| Yes | Autonomous | Uses its permissions to perform the action. |
 | No | Autonomous | Prompts for temporary access to perform the action [on behalf of the user](/entra/identity-platform/v2-oauth2-on-behalf-of-flow). |
+
+## Related content
+
+| Resource | Why it matters |
+|----------|-------------------|
+| [Set up a response plan](response-plan.md) | Create response plans and set the autonomy level |
+| [Scheduled tasks](scheduled-tasks.md) | Create recurring automated tasks with mode selection |
+| [Agent hooks](agent-hooks.md) | Add governance controls for non-Azure actions |
+| [Permissions](permissions.md) | Configure Azure resource access for your agent |
+| [User roles](user-roles.md) | Who can approve actions and manage the agent |
 
 

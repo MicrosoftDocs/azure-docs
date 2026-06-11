@@ -32,6 +32,8 @@ items:
         href: security-overview.md
       - name: Network integration
         href: network-integration.md
+      - name: Tool access policies
+        href: tool-access-policies.md
       - name: Run modes
         href: run-modes.md
       - name: Connectors
@@ -260,6 +262,10 @@ items:
         href: supported-regions.md
       - name: Network requirements
         href: network-requirements.md
+      - name: Configure network controls
+        href: configure-network-controls.md
+      - name: Allow list Key Vault firewall
+        href: allow-list-key-vault-firewall.md
       - name: Starter prompts
         href: starter-prompts.md
       - name: Data privacy and residency

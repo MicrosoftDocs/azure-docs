@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
 ms.topic: reference
-ms.date: 04/30/2025
+ms.date: 05/28/2026
 ai-usage: ai-assisted
 ms.custom:
   - build-2025
@@ -21,6 +21,12 @@ No. Azure Managed Grafana hosts a commercial version called [Grafana Enterprise]
 
 > [!NOTE]
 > [Grafana Enterprise plugins](https://grafana.com/grafana/plugins/?enterprise=1&orderBy=weight&direction=asc) aren't included in the base service. They're purchasable as a separately licensed [add-on option](./how-to-grafana-enterprise.md) for Azure Managed Grafana.
+
+## Which Microsoft Entra audience should I use for Azure Managed Grafana data plane APIs?
+
+Use `https://dashboard.azure.com` as the audience when requesting tokens for Azure Managed Grafana data plane API calls.
+
+For examples and troubleshooting, see [Authenticate to Azure Managed Grafana data plane APIs with Microsoft Entra ID](./how-to-authenticate-data-plane-api.md).
 
 ## Does Azure Managed Grafana encrypt my data?
 

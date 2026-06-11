@@ -1105,7 +1105,7 @@
         "articles/event-hubs/**/*": "azure-event-hubs",
         "articles/governance/*.md": "azure-policy",
         "articles/governance/blueprints/**/*.md": "azure-blueprints",
-        "articles/governance/machine-configuration/**/*.md": "machine-configuration",
+        "articles/governance/machine-configuration/**/*.md": "azure-machine-configuration",
         "articles/governance/management-groups/**/*.md": "azure",
         "articles/governance/policy/**/*.md": "azure-policy",
         "articles/governance/resource-graph/**/*.md": "azure-resource-graph",

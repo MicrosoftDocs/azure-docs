@@ -40,31 +40,31 @@ The attributes you use depend on the specific event provider.
 
 The following example shows a C# function that reads and logs the Kafka message as a Kafka event:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaTrigger.cs" range="10-21" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaTrigger.cs" range="10-21" ::: --->
 
 To receive events in a batch, use an input string or `KafkaEventData` as an array, as shown in the following example:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaTriggerMany.cs" range="10-24" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaTriggerMany.cs" range="10-24" ::: --->
 
 The following function logs the message and headers for the Kafka Event:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaTriggerWithHeaders.cs" range="10-27" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/Confluent/KafkaTriggerWithHeaders.cs" range="10-27" ::: --->
 
 You can define a generic [Avro schema] for the event passed to the trigger. The following string value defines the generic Avro schema:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroGenericTriggers.cs" range="23-41" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroGenericTriggers.cs" range="23-41" ::: --->
 
 In the following function, an instance of `GenericRecord` is available in the `KafkaEvent.Value` property:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroGenericTriggers.cs" range="43-60" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroGenericTriggers.cs" range="43-60" ::: --->
 
 You can define a specific [Avro schema] for the event passed to the trigger. The following code defines the `UserRecord` class:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/User.cs" range="9-32" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/User.cs" range="9-32" ::: --->
 
 In the following function, an instance of `UserRecord` is available in the `KafkaEvent.Value` property:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroSpecificTriggers.cs" range="16-25" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroSpecificTriggers.cs" range="16-25" ::: --->
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet/). 
 
@@ -72,31 +72,31 @@ For a complete set of working .NET examples, see the [Kafka extension repository
 
 The following example shows a C# function that reads and logs the Kafka message as a Kafka event:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaTrigger.cs" range="10-21" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaTrigger.cs" range="10-21" ::: --->
 
 To receive events in a batch, use a string array or `KafkaEventData` array as input, as shown in the following example:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaTriggerMany.cs" range="10-24" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaTriggerMany.cs" range="10-24" ::: --->
 
 The following function logs the message and headers for the Kafka Event:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaTriggerWithHeaders.cs" range="10-26" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/EventHub/KafkaTriggerWithHeaders.cs" range="10-26" ::: --->
 
 You can define a generic [Avro schema] for the event passed to the trigger. The following string value defines the generic Avro schema:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroGenericTriggers.cs" range="23-41" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroGenericTriggers.cs" range="23-41" ::: --->
 
 In the following function, an instance of `GenericRecord` is available in the `KafkaEvent.Value` property:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroGenericTriggers.cs" range="43-60" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroGenericTriggers.cs" range="43-60" ::: --->
 
 You can define a specific [Avro schema] for the event passed to the trigger. The following code defines the `UserRecord` class:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/User.cs" range="9-32" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/User.cs" range="9-32" ::: --->
 
 In the following function, an instance of `UserRecord` is available in the `KafkaEvent.Value` property:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroSpecificTriggers.cs" range="16-25" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet/KafkaFunctionSample/AvroSpecificTriggers.cs" range="16-25" ::: --->
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet/). 
 
@@ -104,15 +104,15 @@ For a complete set of working .NET examples, see the [Kafka extension repository
 
 The following example shows a C# function that reads and logs the Kafka message as a Kafka event:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaTrigger.cs" range="12-24" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaTrigger.cs" range="12-24" ::: --->
 
 To receive events in a batch, use a string array as input, as shown in the following example:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaTriggerMany.cs" range="12-27" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/confluent/KafkaTriggerMany.cs" range="12-27" ::: --->
 
 The following function logs the message and headers for the Kafka Event:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/Confluent/KafkaTriggerWithHeaders.cs" range="12-32" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/Confluent/KafkaTriggerWithHeaders.cs" range="12-32" ::: --->
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet-isolated/). 
 
@@ -120,15 +120,15 @@ For a complete set of working .NET examples, see the [Kafka extension repository
 
 The following example shows a C# function that reads and logs the Kafka message as a Kafka event:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaTrigger.cs" range="12-24" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaTrigger.cs" range="12-24" ::: --->
 
 To receive events in a batch, use a string array as input, as shown in the following example:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaTriggerMany.cs" range="12-27" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaTriggerMany.cs" range="12-27" ::: --->
 
 The following function logs the message and headers for the Kafka Event:
 
-:::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaTriggerWithHeaders.cs" range="12-32" :::
+<!--- :::code language="csharp" source="~/azure-functions-kafka-extension/samples/dotnet-isolated/eventhub/KafkaTriggerWithHeaders.cs" range="12-32" ::: --->
 
 For a complete set of working .NET examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/dotnet-isolated/). 
 
@@ -193,27 +193,27 @@ app.generic("Kafkatrigger", {
 
 # [Event Hubs](#tab/event-hubs/v4)
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript-v4/src/functions/kafkaTrigger.js" range="1-19,21-36":::
+<!--- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript-v4/src/functions/kafkaTrigger.js" range="1-19,21-36"::: --->
 
 # [Confluent](#tab/confluent/v3)
 
 This `function.json` file defines the trigger for the Confluent provider:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTrigger/function.confluent.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTrigger/function.confluent.json" ::: --->
 
 The following code runs when the function is triggered:
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTrigger/index.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTrigger/index.js" ::: --->
 
 # [Event Hubs](#tab/event-hubs/v3)
 
 This `function.json` file defines the trigger for the Event Hubs provider:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTrigger/function.eventhub.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTrigger/function.eventhub.json" ::: --->
 
 The following code runs when the function is triggered:
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTrigger/index.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTrigger/index.js" ::: --->
 
 ---
 
@@ -264,31 +264,31 @@ app.generic("kafkaTriggerMany", {
 
 # [Event Hubs](#tab/event-hubs/v4)
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript-v4/src/functions/kafkaTriggerMany.js" range="1-21,23-39":::
+<!--- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript-v4/src/functions/kafkaTriggerMany.js" range="1-21,23-39"::: --->
 
 # [Confluent](#tab/confluent/v3)
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerMany/function.confluent.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerMany/function.confluent.json" ::: --->
 
 This code parses the array of events and logs the event data:
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerMany/index.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerMany/index.js" ::: --->
 
 This code logs the header data:
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerManyWithHeaders/index.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerManyWithHeaders/index.js" ::: --->
 
 # [Event Hubs](#tab/event-hubs/v3)
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerMany/function.eventhub.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerMany/function.eventhub.json" ::: --->
 
 This code parses the array of events and logs the event data:
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerMany/index.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerMany/index.js" ::: --->
 
 This code logs the header data:
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerManyWithHeaders/index.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerManyWithHeaders/index.js" ::: --->
 
 ---
 
@@ -328,23 +328,23 @@ app.generic("kafkaAvroGenericTrigger", {
 
 # [Event Hubs](#tab/event-hubs/v4)
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript-v4/src/functions/kafkaAvroGenericTrigger.js" range="1-9,11-28":::
+<!--- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript-v4/src/functions/kafkaAvroGenericTrigger.js" range="1-9,11-28"::: --->
 
 # [Confluent](#tab/confluent/v3)
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerAvroGeneric/function.confluent.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerAvroGeneric/function.confluent.json" ::: --->
 
 The following code runs when the function is triggered:
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerAvroGeneric/index.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerAvroGeneric/index.js" ::: --->
 
 # [Event Hubs](#tab/event-hubs/v3)
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerAvroGeneric/function.eventhub.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerAvroGeneric/function.eventhub.json" ::: --->
 
 The following code runs when the function is triggered:
 
-:::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerAvroGeneric/index.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-kafka-extension/samples/javascript/KafkaTriggerAvroGeneric/index.js" ::: --->
 
 ---
 
@@ -413,27 +413,27 @@ app.generic("Kafkatrigger", {
 
 # [Event Hubs](#tab/event-hubs/v4)
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript-v4/src/functions/kafkaTrigger.ts" range="1-29,31-46":::
+<!--- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript-v4/src/functions/kafkaTrigger.ts" range="1-29,31-46"::: --->
 
 # [Confluent](#tab/confluent/v3)
 
 This `function.json` file defines the trigger for the Confluent provider:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTrigger/function.confluent.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTrigger/function.confluent.json" ::: --->
 
 The following code runs when the function is triggered:
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTrigger/index.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTrigger/index.ts" ::: --->
 
 # [Event Hubs](#tab/event-hubs/v3)
 
 This `function.json` file defines the trigger for the Event Hubs provider:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTrigger/function.eventhub.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTrigger/function.eventhub.json" ::: --->
 
 The following code runs when the function is triggered:
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTrigger/index.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTrigger/index.ts" ::: --->
 
 ---
 
@@ -502,31 +502,31 @@ app.generic("kafkaTriggerMany", {
 
 # [Event Hubs](#tab/event-hubs/v4)
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript-v4/src/functions/kafkaTriggerMany.ts" range="1-39,41-57":::
+<!--- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript-v4/src/functions/kafkaTriggerMany.ts" range="1-39,41-57"::: --->
 
 # [Confluent](#tab/confluent/v3)
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerMany/function.confluent.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerMany/function.confluent.json" ::: --->
 
 This code parses the array of events and logs the event data:
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerMany/index.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerMany/index.ts" ::: --->
 
 This code logs the header data:
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerManyWithHeaders/index.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerManyWithHeaders/index.ts" ::: --->
 
 # [Event Hubs](#tab/event-hubs/v3)
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerMany/function.eventhub.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerMany/function.eventhub.json" ::: --->
 
 This code parses the array of events and logs the event data:
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerMany/index.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerMany/index.ts" ::: --->
 
 This code logs the header data:
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerManyWithHeaders/index.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerManyWithHeaders/index.ts" ::: --->
 
 ---
 
@@ -534,7 +534,7 @@ You can define a generic [Avro schema] for the event passed to the trigger. This
 
 # [Confluent](#tab/confluent/v4)
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript-v4/src/functions/kafkaAvroGenericTrigger.ts" range="1-15,17-34":::
+<!--- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript-v4/src/functions/kafkaAvroGenericTrigger.ts" range="1-15,17-34"::: --->
 
 # [Event Hubs](#tab/event-hubs/v4)
 
@@ -576,19 +576,19 @@ app.generic("kafkaAvroGenericTrigger", {
 
 # [Confluent](#tab/confluent/v3)
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerAvroGeneric/function.confluent.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerAvroGeneric/function.confluent.json" ::: --->
 
 The following code runs when the function is triggered:
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerAvroGeneric/index.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerAvroGeneric/index.ts" ::: --->
 
 # [Event Hubs](#tab/event-hubs/v3)
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerAvroGeneric/function.eventhub.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerAvroGeneric/function.eventhub.json" ::: --->
 
 The following code runs when the function is triggered:
 
-:::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerAvroGeneric/index.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-kafka-extension/samples/typescript/KafkaTriggerAvroGeneric/index.ts" ::: --->
 
 ---
 
@@ -611,53 +611,53 @@ The following `function.json` file defines the trigger for the specific provider
 
 # [Confluent](#tab/confluent)
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTrigger/function.confluent.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTrigger/function.confluent.json" ::: --->
 
 # [Event Hubs](#tab/event-hubs)
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTrigger/function.eventhub.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTrigger/function.eventhub.json" ::: --->
 
 ---
 
 The following code runs when the function is triggered:
 
-:::code language="powershell" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTrigger/run.ps1" :::
+<!--- :::code language="powershell" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTrigger/run.ps1" ::: --->
 
 To receive events in a batch, set the `cardinality` value to `many` in the function.json file, as shown in the following examples:
 
 # [Confluent](#tab/confluent)
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerMany/function.confluent.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerMany/function.confluent.json" ::: --->
 
 # [Event Hubs](#tab/event-hubs)
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerMany/function.eventhub.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerMany/function.eventhub.json" ::: --->
 
 ---
 
 The following code parses the array of events and logs the event data:
 
-:::code language="powershell" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerMany/run.ps1" :::
+<!--- :::code language="powershell" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerMany/run.ps1" ::: --->
 
 The following code logs the header data:
 
-:::code language="powershell" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerManyWithHeaders/run.ps1" :::
+<!--- :::code language="powershell" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerManyWithHeaders/run.ps1" ::: --->
 
 You can define a generic [Avro schema] for the event passed to the trigger. The following function.json defines the trigger for the specific provider with a generic Avro schema:
 
 # [Confluent](#tab/confluent)
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerAvroGeneric/function.confluent.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerAvroGeneric/function.confluent.json" ::: --->
 
 # [Event Hubs](#tab/event-hubs)
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerAvroGeneric/function.eventhub.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerAvroGeneric/function.eventhub.json" ::: --->
 
 ---
 
 The following code runs when the function is triggered:
 
-:::code language="powershell" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerAvroGeneric/run.ps1" :::
+<!--- :::code language="powershell" source="~/azure-functions-kafka-extension/samples/powershell/KafkaTriggerAvroGeneric/run.ps1" ::: --->
 
 For a complete set of working PowerShell examples, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/blob/dev/samples/powershell/). 
 
@@ -679,17 +679,17 @@ These examples show how to define a Kafka trigger for a function that reads a Ka
 
 # [Version 2](#tab/v2)
 
-:::code language="python" source="~/azure-functions-kafka-extension/samples/python-v2/kafka_trigger.py" range="10-22" :::
+<!--- :::code language="python" source="~/azure-functions-kafka-extension/samples/python-v2/kafka_trigger.py" range="10-22" ::: --->
 
 # [Version 1](#tab/v1)
 
 This `function.json` file defines the trigger:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/python/KafkaTrigger/function.confluent.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/python/KafkaTrigger/function.confluent.json" ::: --->
 
 This code runs when the function is triggered:
 
-:::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaTrigger/main.py" :::
+<!--- :::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaTrigger/main.py" ::: --->
 
 ---
 
@@ -697,19 +697,19 @@ This example receives events in a batch by setting the `cardinality` value to `m
 
 # [Version 2](#tab/v2)
 
-:::code language="python" source="~/azure-functions-kafka-extension/samples/python-v2/kafka_trigger.py" range="24-38" :::
+<!--- :::code language="python" source="~/azure-functions-kafka-extension/samples/python-v2/kafka_trigger.py" range="24-38" ::: --->
 
 # [Version 1](#tab/v1)
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerMany/function.confluent.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerMany/function.confluent.json" ::: --->
 
 This code parses the array of events and logs the event data:
 
-:::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerMany/main.py" :::
+<!--- :::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerMany/main.py" ::: --->
 
 This code logs the header data:
 
-:::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerManyWithHeaders/__init__.py" :::
+<!--- :::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerManyWithHeaders/__init__.py" ::: --->
 
 ---
 
@@ -717,17 +717,17 @@ You can define a generic [Avro schema] for the event passed to the trigger.
 
 # [Version 2](#tab/v2)
 
-:::code language="python" source="~/azure-functions-kafka-extension/samples/python-v2/kafka_trigger_avro.py" range="24-37" :::
+<!--- :::code language="python" source="~/azure-functions-kafka-extension/samples/python-v2/kafka_trigger_avro.py" range="24-37" ::: --->
 
 # [Version 1](#tab/v1)
 
 This `function.json` defines the trigger with a generic Avro schema:
 
-:::code language="json" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerAvroGeneric/function.confluent.json" :::
+<!--- :::code language="json" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerAvroGeneric/function.confluent.json" ::: --->
 
 This code runs when the function is triggered:
 
-:::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerAvroGeneric/main.py" :::
+<!--- :::code language="python" source="~/azure-functions-kafka-extension/samples/python/KafkaTriggerAvroGeneric/main.py" ::: --->
 
 ---
 
@@ -750,19 +750,19 @@ The annotations you use to configure your trigger depend on the specific event p
 
 The following example shows a Java function that reads and logs the content of the Kafka event:
 
-:::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/SampleKafkaTrigger.java" range="19-35" :::
+<!--- :::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/SampleKafkaTrigger.java" range="19-35" ::: --->
 
 To receive events in a batch, use an input string as an array, as shown in the following example:
 
-:::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/KafkaTriggerMany.java" range="8-27" :::
+<!--- :::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/KafkaTriggerMany.java" range="8-27" ::: --->
 
 The following function logs the message and headers for the Kafka Event:
 
-:::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/KafkaTriggerManyWithHeaders.java" range="12-38" :::
+<!--- :::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/KafkaTriggerManyWithHeaders.java" range="12-38" ::: --->
 
 You can define a generic [Avro schema] for the event passed to the trigger. The following function defines a trigger for the specific provider with a generic Avro schema:
 
-:::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/avro/generic/KafkaTriggerAvroGeneric.java" range="15-31" :::
+<!--- :::code language="java" source="~/azure-functions-kafka-extension/samples/java/confluent/src/main/java/com/contoso/kafka/avro/generic/KafkaTriggerAvroGeneric.java" range="15-31" ::: --->
 
 For a complete set of working Java examples for Confluent, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/tree/dev/samples/java/confluent/src/main/java/com/contoso/kafka). 
 
@@ -770,19 +770,19 @@ For a complete set of working Java examples for Confluent, see the [Kafka extens
 
 The following example shows a Java function that reads and logs the content of the Kafka event:
 
-:::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/SampleKafkaTrigger.java" range="19-35" :::
+<!--- :::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/SampleKafkaTrigger.java" range="19-35" ::: --->
 
 To receive events in a batch, use an input string as an array, as shown in the following example:
 
-:::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/KafkaTriggerMany.java" range="8-27" :::
+<!--- :::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/KafkaTriggerMany.java" range="8-27" ::: --->
 
 The following function logs the message and headers for the Kafka Event:
 
-:::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/KafkaTriggerManyWithHeaders.java" range="12-38" :::
+<!--- :::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/KafkaTriggerManyWithHeaders.java" range="12-38" ::: --->
 
 You can define a generic [Avro schema] for the event passed to the trigger. The following function defines a trigger for the specific provider with a generic Avro schema:
 
-:::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/avro/generic/KafkaTriggerAvroGeneric.java" range="15-31" :::
+<!--- :::code language="java" source="~/azure-functions-kafka-extension/samples/java/eventhub/src/main/java/com/contoso/kafka/avro/generic/KafkaTriggerAvroGeneric.java" range="15-31" ::: --->
 
 For a complete set of working Java examples for Event Hubs, see the [Kafka extension repository](https://github.com/Azure/azure-functions-kafka-extension/tree/dev/samples/java/confluent/src/main/java/com/contoso/kafka). 
 
