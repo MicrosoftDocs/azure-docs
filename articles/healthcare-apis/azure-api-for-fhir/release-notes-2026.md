@@ -29,7 +29,7 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 ## May 2026
 ### FHIR service
 
-**Improved bundle error handling**: When a bundle request was throttled (HTTP 429) and the client cancelled the request during the retry wait, the server could exhibit unexpected behavior. The server now properly handles cancellation during retry delays and returns HTTP 408 (Request Timeout) for affected bundle entries. The maximum Retry-After delay is also capped at 15 seconds.
+**Improved bundle error handling**: When a bundle request was throttled (HTTP 429) and the client canceled the request during the retry wait, the server could exhibit unexpected behavior. The server now properly handles cancellation during retry delays and returns HTTP 408 (Request Timeout) for affected bundle entries. The maximum Retry-After delay is also capped at 15 seconds.
 
 **Security enhancements for export**: Added validation to reject path traversal sequences in $export endpoint parameters to prevent unauthorized access to blob storage paths.
 
@@ -38,7 +38,7 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 
 ## April 2026
 ### FHIR service
-**Security enhancements for narrative sanitizer**: Enhanced security by detecting and handling dangerous href schemes (javascript:, data:, vbscript:, etc.) in FHIR narrative HTML. The FHIR service rejects links with these schemes in an href property because they don't pass validation.
+**Security enhancements for narrative sanitizer**: Enhanced security by detecting and handling dangerous href schemes (`javascript:`, `data:`, `vbscript:`, etc.) in FHIR narrative HTML. The FHIR service rejects links with these schemes in an href property because they don't pass validation.
 
 #### Bug fixes:
 **Improved monitoring accuracy for Azure API for FHIR**: An issue was identified and resolved that affected Azure Monitor metrics under Microsoft.HealthcareAPIs: CosmosDbThrottleRate, CosmosDbRequests, TotalErrors, and TotalRequests. An unsupported aggregation configuration caused inconsistency in metric data. This issue was limited to observability scenarios and did not impact service availability, performance, or data processing. After the fix, customers may now observe improved accuracy and consistency in monitoring experiences without requiring any action.
@@ -47,11 +47,11 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 
 ## March 2026
 ### FHIR service
-**Bulk Export cancellation behavior update**: Added updates to align the FHIR server to support [Bulk Data Access 2.0](https://hl7.org/fhir/uv/bulkdata/STU2/export.html#bulk-data-delete-request). This update includes a change to bulk export cancellation behavior. Previously, cancellation request of an already completed, cancelled, or failed export job returned "200 OK." The behavior is now updated to return more informative operation outcomes:
-  - Cancelling an already-cancelled export job returns "404 Job Not Found."
-  - Cancelling a completed or failed export job returns "404 Job Not Found" if the job is already cancelled or failed; otherwise returns "202 Accepted."
+**Bulk Export cancellation behavior update**: Added updates to align the FHIR server to support [Bulk Data Access 2.0](https://hl7.org/fhir/uv/bulkdata/STU2/export.html#bulk-data-delete-request). This update includes a change to bulk export cancellation behavior. Previously, cancellation request of an already completed, canceled, or failed export job returned "200 OK." The behavior is now updated to return more informative operation outcomes:
+  - Cancelling an already-canceled export job returns "404 Job Not Found."
+  - Cancelling a completed or failed export job returns "404 Job Not Found" if the job is already canceled or failed; otherwise returns "202 Accepted."
   - Cancelling a queued or running export job returns "202 Accepted"; no behavior change.
-  - Trying to get the status of a user-requested cancelled job returns "404 Job Not Found."
+  - Trying to get the status of a user-requested canceled job returns "404 Job Not Found."
 
 
 #### Bug fixes:
