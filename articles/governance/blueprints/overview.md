@@ -131,7 +131,7 @@ blueprint parameters, then the parameters are defined during the assignment proc
 
 ## Permissions in Azure Blueprints
 
-To use blueprints, you create, assign, and manage blueprint definitions through [Azure role-based access
+Blueprint definitions are managed through [Azure role-based access
 control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 You don't need a dedicated Azure RBAC permission to read or view a blueprint definition. Blueprint
