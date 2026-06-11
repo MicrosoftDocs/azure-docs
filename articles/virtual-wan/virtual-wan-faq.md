@@ -538,6 +538,12 @@ Yes but there are limitations. See the [Azure Bastion FAQ](../bastion/bastion-fa
 
 ## <a name="vwan-customer-controlled-maintenance"></a>Virtual WAN customer-controlled gateway maintenance
 
+### How does maintenance impact traffic transiting the Virtual WAN Hub router?
+
+Virtual Network to Virtual Network traffic and inter-hub traffic flows are routed via the Virtual WAN Hub router. During maintenance events on the Virtual WAN Hub router, active traffic flows are interrupted. To minimize the impact of such events, tune the TCP timeout value of any applications. A smaller TCP timeout value allows application traffic to recover more quickly from maintenance events. Alternatively, test different application timeout values to determine a suitable timeout based on your requirements. 
+
+For Private Link and Private Endpoint traffic, see [Private Link in Virtual WAN](howto-private-link.md#routing-considerations-with-private-link-in-virtual-wan) for more information.
+
 ### Which services are included in the Maintenance Configuration scope of Network Gateways? 
 
 For Virtual WAN, you can configure maintenance windows for site-to-site VPN gateways, point-to-site VPN gateways and ExpressRoute gateways. 
