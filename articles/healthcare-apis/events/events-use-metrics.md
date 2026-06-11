@@ -17,7 +17,7 @@ In this article, you learn how to view events metrics in the Azure portal to mon
 
 Events metrics provide a way to track the health and performance of your event subscriptions and Event Hubs by showing how many events are successfully processed, delivered, or failed over time.
 
-To learn more about Azure Monitor and metrics, see [Azure Monitor Metrics overview](/azure-monitor/essentials/data-platform-metrics).
+To learn more about Azure Monitor and metrics, see [Azure Monitor Metrics overview](/azure/azure-monitor/metrics/data-platform-metrics).
 
 ## Prerequisites
 
