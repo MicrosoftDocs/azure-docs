@@ -578,6 +578,9 @@ items:
       - name: Use stable VM image
         displayName: linter
         href: linter-rule-use-stable-vm-image.md
+      - name: Use user-defined-types for complex objects
+        displayName: linter
+        href: linter-rule-use-user-defined-types.md        
       - name: What-if short-circuiting
         displayName: linter
         href: linter-rule-what-if-short-circuiting.md
