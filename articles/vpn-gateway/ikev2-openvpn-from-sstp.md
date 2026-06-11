@@ -149,9 +149,7 @@ Yes, you can. If you choose to go to IKEv2 directly, your gateway will stop work
 
 ### <a name="gwsku"></a>Which gateway SKUs support P2S VPN?
 
-The following table shows gateway SKUs by tunnel, connection, and throughput. For additional tables and more information regarding this table, see the Gateway SKUs section of the [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku) article.
-
-[!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+See [About Gateway SKUs](about-gateway-skus.md) for the list of SKUs that support P2S VPN, and the number of tunnels and connections supported on each SKU.
 
 ### <a name="IKE/IPsec policies"></a>What IKE/IPsec policies are configured on VPN gateways for P2S?
 
