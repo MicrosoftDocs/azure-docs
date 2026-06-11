@@ -10,7 +10,7 @@ metadata:
   description: >-
     A collection of release notes and documentation about the new features available in and changes
     to Azure machine configuration.
-  ms.service:    machine-configuration
+  ms.service: azure-machine-configuration
   ms.topic:      landing-page
   author:        michaeltlombardi
   ms.author:     mlombardi
