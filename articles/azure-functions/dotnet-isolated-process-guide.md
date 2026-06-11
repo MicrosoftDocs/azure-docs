@@ -142,9 +142,9 @@ await host.RunAsync();
 # [IHostBuilder](#tab/hostbuilder)
 
 The following code shows an example of a [HostBuilder] pipeline:
-
+<!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_startup":::
-
+-->
 Considerations for your start-up code:
 
 - Before calling `Build()` on the `IHostBuilder`, you should:
@@ -155,9 +155,9 @@ Considerations for your start-up code:
 - If your project targets .NET Framework 4.8, you also need to add `FunctionsDebugger.Enable();` before creating the HostBuilder. It should be the first line of your `Main()` method. For more information, see [Debugging when targeting .NET Framework](#debugging-when-targeting-net-framework).
 - This example includes dependency injection, which is optional for your start-up code. Dependency injection also requires `using Microsoft.Extensions.DependencyInjection;`. For more information, see [Dependency injection](#dependency-injection). 
 - The [HostBuilder] builds and returns a fully initialized [`IHost`][IHost] instance. You run this instance asynchronously to start your function app. 
-
+<!--
     :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
-
+-->
 ---
 
 [fsharp-blobs]: ./functions-bindings-storage-blob.md#install-extension
@@ -192,9 +192,9 @@ Use the [ConfigureFunctionsWorkerDefaults] method to add the settings required f
 + Output binding middleware and features.
 + Function execution middleware.
 + Default gRPC support.
-
+<!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_configure_defaults" :::   
-
+-->
 You have access to the host builder pipeline, so you can set any app-specific configurations during initialization. Call the [ConfigureAppConfiguration] method on [HostBuilder] one or more times to add any configuration sources required by your code. For more information about app configuration, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration). 
 
 ---
@@ -347,9 +347,9 @@ builder.Build().Run();
 ```
 
 ##### [IHostBuilder](#tab/hostbuilder)
-
+<!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/Program.cs" id="docsnippet_middleware_register" :::
-
+-->
 ---
 
  The `UseWhen` extension method registers a middleware that executes conditionally. You must pass a predicate that returns a boolean value to this method. The middleware participates in the invocation processing pipeline when the predicate returns `true`.
@@ -365,9 +365,9 @@ The following extension methods on [FunctionContext] make it easier to work with
 |  **`BindInputAsync`** | Binds an input binding item for the requested `BindingMetadata` instance. For example, use this method when you have a function with a `BlobInput` input binding that needs to be used by your middleware. |
 
 This example shows a middleware implementation that reads the `HttpRequestData` instance and updates the `HttpResponseData` instance during function execution:
- 
+ <!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/CustomMiddleware/StampHttpHeaderMiddleware.cs" id="docsnippet_middleware_example_stampheader" :::
- 
+ -->
 This middleware checks for the presence of a specific request header (`x-correlationId`). When the header is present, the middleware uses the header value to stamp a response header. Otherwise, it generates a new GUID value and uses that value for stamping the response header.
 
 > [!TIP]
@@ -487,9 +487,9 @@ host.Run();
 ## Methods recognized as functions
 
 A function method is a public method of a public class with a `Function` attribute applied to the method and a trigger attribute applied to an input parameter, as shown in the following example:
-
+<!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
-
+-->
 The trigger attribute specifies the trigger type and binds input data to a method parameter. The preceding example function is triggered by a queue message, and the queue message is passed to the method in the `myQueueItem` parameter.
 
 The `Function` attribute marks the method as a function entry point. The name must be unique within a project, start with a letter, and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. Project templates often create a method named `Run`, but the method name can be any valid C# method name. The method must be a public member of a public class. It should generally be an instance method so that services can be passed in via [dependency injection](#dependency-injection).
@@ -594,7 +594,7 @@ The .NET isolated worker doesn't set a custom [`SynchronizationContext`](/dotnet
 Because there's no `SynchronizationContext` to suppress, using [`ConfigureAwait(false)`](/dotnet/api/system.threading.tasks.task.configureawait) in your function code has no practical effect. The isolated worker process runs as a standard .NET generic host (console app), so the same async/await behavior you'd expect in any ASP.NET Core or console application applies here. This is also true for .NET Framework (net48) isolated worker apps, since the worker process is always a console executable using `HostBuilder`.
 
 > [!NOTE]
-> [Durable Functions](./durable-functions/durable-functions-overview.md) orchestrators have their own threading constraints. The orchestrator replay thread must run continuations, so using `ConfigureAwait(false)` in orchestrator functions or orchestrator middleware can interfere with orchestration execution. For more information, see the [Durable Functions code constraints](../durable-task/common/durable-task-code-constraints.md).
+> [Durable Functions](../durable-task/durable-functions/durable-functions-overview.md) orchestrators have their own threading constraints. The orchestrator replay thread must run continuations, so using `ConfigureAwait(false)` in orchestrator functions or orchestrator middleware can interfere with orchestration execution. For more information, see the [Durable Functions code constraints](../durable-task/common/durable-task-code-constraints.md).
 
 ## Bindings 
 
@@ -611,9 +611,9 @@ A function can have zero or more input bindings that pass data to the function. 
 ### Output bindings
 
 To write to an output binding, you must apply an output binding attribute to the function method. This attribute defines how to write to the bound service. The method's return value is written to the output binding. For example, the following example writes a string value to a message queue named `output-queue` by using an output binding:
-
+<!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
-
+-->
 ### Multiple output bindings
 
 The data written to an output binding is always the return value of the function. If you need to write to more than one output binding, you must create a custom return type. This return type must have the output binding attribute applied to one or more properties of the class. The following example is an HTTP-triggered function that uses [ASP.NET Core integration](#aspnet-core-integration) and writes to both the HTTP response and a queue output binding:
@@ -806,9 +806,9 @@ In the built-in model, the system translates the incoming HTTP request message i
 Likewise, the function returns an [HttpResponseData] object, which provides data used to create the HTTP response, including message `StatusCode`, `Headers`, and optionally a message `Body`.  
 
 The following example demonstrates the use of `HttpRequestData` and `HttpResponseData`:
-
+<!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
-
+-->
 ## Logging
 
 You can write to logs by using an [`ILogger<T>`][ILogger&lt;T&gt;] or [`ILogger`][ILogger] instance. You can get the logger through [dependency injection](#dependency-injection) of an [`ILogger<T>`][ILogger&lt;T&gt;] or of an [ILoggerFactory]:

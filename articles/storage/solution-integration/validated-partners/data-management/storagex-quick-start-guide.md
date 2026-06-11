@@ -53,7 +53,7 @@ Upfront planning will ease the migration and reduce the risks. Some of tips to e
 - Gather data on the source and targets services,
 - Make sure you have a list of your connectivity points and all necessary network ports.
 - Your StorageX server in Azure will need to be part of your Active Directory infrastructure. Ensure you engage an administrator with Active Directory privileges to add the server to Active Directory.
-- For easier implementation use [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=Overview).
+- For easier implementation use [Azure Marketplace](https://marketplace.microsoft.com/en-us/product/azure-applications/datadynamicsinc1581991927942.data_mobility_public?tab=Overview).
 
 ### Get started with Azure
 
@@ -138,7 +138,7 @@ Once the configuration for Azure NetApp Files is done, we can create a share we 
 
     Once the volume has been created, we can proceed with StorageX deployment.
 
-1.	Deploy the Data Dynamics Data Movement and Mobility offering in Azure. Recommended approach is using [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadynamicsinc1581991927942.vm_4?tab=Overview). Add the deployed server into your Active Directory domain.
+1.	Deploy the Data Dynamics Data Movement and Mobility offering in Azure. Recommended approach is using [Azure Marketplace](https://marketplace.microsoft.com/en-us/product/azure-applications/datadynamicsinc1581991927942.data_mobility_public?tab=Overview). Add the deployed server into your Active Directory domain.
 1.	On the deployed server, verify that all required network ports are open.
 1.	Run the StorageX installation script. Installation script is available on the desktop when you log in to your deployed server in Azure. 
     All installation files and output logs are located in the folder **C:\ProgramData\data Dynamics\StorageX**. Within that folder, the **InstallationFiles** subfolder contains the zipped source installation files, while the **SilentInstaller-DD** folder contains the configuration XML files and installation logs.

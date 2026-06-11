@@ -95,7 +95,7 @@ In Node.js for Azure Functions version 3, you configure triggers and bindings in
 
 The `http` method on the exported `app` object defines an HTTP trigger. The `storageQueue` method on `output` defines an output binding on this trigger.
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageQueueOutput1.js" :::
+<!-- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageQueueOutput1.js" ::: -->
 
 ### [v3](#tab/node-v3)
 
@@ -255,6 +255,16 @@ For more information, see [SDK types](./functions-reference-java.md#sdk-types) i
 ::: zone pivot="programming-language-powershell"  
 >[!IMPORTANT]  
 >SDK types aren't currently supported for PowerShell apps.
+::: zone-end
+
+::: zone pivot="programming-language-go"
+Go supports SDK client injection for triggers that provide Azure SDK clients. During the public preview, Blob Storage triggers can receive an authenticated Azure SDK `*blob.Client` directly in the handler.
+
+| Extension | Types | Support level |
+| ----- | ----- | ----- |
+| [Azure Blob Storage](functions-bindings-storage-blob.md) | `*blob.Client` | Preview |
+
+For more information, see [Extension triggers](functions-reference-go.md#extension-triggers) in the Go developer reference.
 ::: zone-end
 ## Code examples for bindings
 

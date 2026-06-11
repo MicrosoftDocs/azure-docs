@@ -7,7 +7,7 @@ ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
 ms.reviewer: v-uhabiba
-ms.date: 05/19/2026
+ms.date: 05/26/2026
 ms.custom: engagement-fy26
 # Customer intent: As an IT professional, I want to use Azure Migrate Collector to discover my IT estate and generate assessment and business case reports, so that I can plan migration and modernization effectively.
 ---
@@ -19,6 +19,9 @@ This article explains how to use Azure Migrate collector to quickly discover ser
 Azure Migrate collector can discover your VMware estate or individual Windows and Linux servers running on any hypervisor or public cloud. You can collect server configurations, performance metrics, installed software, SQL Server and PostgreSQL database instances, and web apps (.NET on IIS and Java on Tomcat). With no Azure connectivity required, you can scan the estate locally and upload data securely, saving time and avoiding complex networking or access approval requirements.
 
 ## Collect data from VMware estate
+
+> [!NOTE]
+> If you prefer agentless continuous discovery using an appliance, see [Discover servers in VMware environment](tutorial-discover-vmware.md).
 
 ### Prerequisites
 
@@ -101,6 +104,8 @@ You can add up to 10 vCenter servers per collector
 ## Collect data from physical servers
 
 You can use the same Azure migrate collector to discover both VMware machines and physical servers that’s hypervisor agnostic. To collect data about physical servers, switch the fabric type to physical. 
+
+To discover physical servers using an appliance-based approach, see [Discover physical servers](tutorial-discover-physical.md).
 
 ### Provide credentials for Windows and Linux servers
 
@@ -205,3 +210,4 @@ You can use the same Azure migrate collector to discover both VMware machines an
 - Review the [discovered inventory](how-to-review-discovered-inventory.md).
 - Generate a [business case](migrate-appliance.md).
 - Create an [assessment](tutorial-discover-import.md).
+- Compare [discovery approaches](discovery-methods-modes.md)

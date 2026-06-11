@@ -51,6 +51,8 @@ You can create queues using one of the following options:
 - [CLI](service-bus-quickstart-cli.md)
 - [Azure Resource Manager templates (ARM templates)](service-bus-resource-manager-namespace-queue.md)
 
+Service Bus supports hierarchical entity names with forward slashes as separators, for example `orders/region/west`. When using ARM-based tools (portal, CLI, PowerShell, or templates), replace `/` with `~` in entity names. For details, see [Entity names with forward slashes](service-bus-resource-manager-exceptions.md#error-entity-names-with-forward-slashes).
+
 Then, send and receive messages using clients written in programming languages including the following ones:
 
 - [C#](service-bus-dotnet-get-started-with-queues.md)

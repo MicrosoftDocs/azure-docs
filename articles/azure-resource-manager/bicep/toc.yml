@@ -322,7 +322,7 @@ items:
     - name: Any function
       href: bicep-functions-any.md
     - name: Array functions
-      displayName: array,concat,contains,empty,first,flatten,indexOf,intersection,last,lastIndexOf,length,max,min,range,skip,take,union
+      displayName: array,concat,contains,distinct,empty,first,flatten,indexOf,intersection,last,lastIndexOf,length,max,min,range,skip,take,union
       href: bicep-functions-array.md
     - name: CIDR functions
       displayName: parseCidr,cidrSubnet,cidrHost
@@ -578,6 +578,9 @@ items:
       - name: Use stable VM image
         displayName: linter
         href: linter-rule-use-stable-vm-image.md
+      - name: Use user-defined-types for complex objects
+        displayName: linter
+        href: linter-rule-use-user-defined-types.md        
       - name: What-if short-circuiting
         displayName: linter
         href: linter-rule-what-if-short-circuiting.md

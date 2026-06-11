@@ -1,7 +1,8 @@
 ---
 title: Manage an Arize AI resource through the Azure portal
 description: Learn how to manage Arize AI resources on the Azure portal.
-
+author: shijojoy
+ms.author: shijoy
 ms.topic: how-to
 ms.date: 04/21/2025
 ms.custom:

@@ -82,7 +82,7 @@ Azure policy to prevent modifications to the networking settings in Synapse Work
 
 ## Networking and connectivity
 
-You can change these settings in your [logical server](/azure/azure-sql/database/logical-servers). A logical SQL server can host both Azure SQL databases and standalone dedicated SQL pools not in an Azure Synapse Analytics workspace.
+You can change these settings in your [logical server](../sql/logical-servers.md). A logical SQL server can host both Azure SQL databases and standalone dedicated SQL pools not in an Azure Synapse Analytics workspace.
 
 > [!IMPORTANT]
 > These settings apply to standalone dedicated SQL pools (formerly SQL DW) associated with the logical server, not in an Azure Synapse Analytics workspace. These instructions do not apply to dedicated SQL pools in an Azure Synapse analytics workspace. 
@@ -281,4 +281,4 @@ Logins for SQL pools in Azure Synapse Analytics can land on **any of the individ
 
  - [Azure Synapse Analytics IP firewall rules](synapse-workspace-ip-firewall.md)
  - [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](https://aka.ms/dedicatedSQLpooldiff)
- - [What is a logical SQL server in Azure SQL Database and Azure Synapse?](/azure/azure-sql/database/logical-servers)
+ - [What is a logical SQL server in Azure SQL Database and Azure Synapse?](../sql/logical-servers.md)

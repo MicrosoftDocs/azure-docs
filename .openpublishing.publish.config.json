@@ -135,12 +135,6 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "azure-functions-dotnet-worker",
-            "url": "https://github.com/Azure/azure-functions-dotnet-worker",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "remote-mcp-functions-dotnet",
             "url": "https://github.com/Azure-Samples/remote-mcp-functions-dotnet",
             "branch": "main",
@@ -165,6 +159,12 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "remote-mcp-functions-javascript",
+            "url": "https://github.com/Azure-Samples/remote-mcp-functions-javascript",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "functions-host-mcp-sdk-dotnet",
             "url": "https://github.com/Azure-Samples/mcp-sdk-functions-hosting-dotnet",
             "branch": "main",
@@ -183,24 +183,6 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "azure-functions-durable-js",
-            "url": "https://github.com/Azure/azure-functions-durable-js",
-            "branch": "v2.x",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-functions-durable-js-v3",
-            "url": "https://github.com/Azure/azure-functions-durable-js",
-            "branch": "v3.x",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-functions-kafka-extension",
-            "url": "https://github.com/Azure/azure-functions-kafka-extension",
-            "branch": "dev",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "azure-functions-mongodb-extension",
             "url": "https://github.com/Azure/Azure-functions-mongodb-extension",
             "branch": "main",
@@ -210,12 +192,6 @@
             "path_to_root": "azure-functions-nodejs-v4",
             "url": "https://github.com/Azure/azure-functions-nodejs-samples",
             "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-functions-python-worker",
-            "url": "https://github.com/Azure/azure-functions-python-worker",
-            "branch": "dev",
             "branch_mapping": {}
         },
         {
@@ -239,12 +215,6 @@
         {
           "path_to_root": "functions-flex-azure-files-samples",
           "url": "https://github.com/Azure-Samples/Azure-Functions-Flex-Consumption-with-Azure-Files-OS-Mount-Samples",
-          "branch": "main",
-          "branch_mapping": {}
-        },
-        {
-          "path_to_root": "functions-quickstart-java-azd",
-          "url": "https://github.com/Azure-Samples/azure-functions-java-flex-consumption-azd",
           "branch": "main",
           "branch_mapping": {}
         },
@@ -378,12 +348,6 @@
             "path_to_root": "functions-event-hub-azd-powershell",
             "url": "https://github.com/Azure-Samples/functions-quickstart-powershell-azd-eventhub",
             "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-functions-templates-v3",
-            "url": "https://github.com/Azure/azure-functions-templates",
-            "branch": "v3.x",
             "branch_mapping": {}
         },
         {
@@ -579,12 +543,6 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "functions-openai-extension",
-            "url": "https://github.com/Azure/azure-functions-openai-extension",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "functions-openapi-turbine-repair",
             "url": "https://github.com/Azure-Samples/functions-openapi-turbine-repair",
             "branch": "main",
@@ -594,12 +552,6 @@
             "path_to_root": "functions-openapi-turbine-repair-isolated",
             "url": "https://github.com/Azure-Samples/functions-openapi-turbine-repair-isolated",
             "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "functions-python-extensions",
-            "url": "https://github.com/Azure/azure-functions-python-extensions",
-            "branch": "dev",
             "branch_mapping": {}
         },
         {
@@ -633,18 +585,6 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "functions-quickstart-templates",
-            "url": "https://github.com/Azure/azure-functions-templates",
-            "branch": "dev",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "functions-quickstart-templates-v1",
-            "url": "https://github.com/Azure/azure-functions-templates",
-            "branch": "v1.x",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "functions-scenarios-quickstart-sql",
             "url": "https://github.com/Azure-Samples/functions-quickstart-dotnet-azd-sql",
             "branch": "main",
@@ -665,6 +605,24 @@
         {
             "path_to_root": "functions-scenarios-durable-python",
             "url": "https://github.com/Azure-Samples/durable-functions-quickstart-python-azd",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-scenarios-durable-java",
+            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-java-azd",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-scenarios-durable-javascript",
+            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-javascript-azd",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-scenarios-durable-powershell",
+            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-powershell-azd",
             "branch": "main",
             "branch_mapping": {}
         }, 
@@ -690,9 +648,16 @@
             "url": "https://github.com/Azure-Samples/remote-mcp-functions-java",
             "branch": "main",
             "branch_mapping": {}
-        },        {
+        },
+        {
             "path_to_root": "functions-scenarios-custom-mcp-typescript",
             "url": "https://github.com/Azure-Samples/remote-mcp-functions-typescript",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-scenarios-custom-mcp-javascript",
+            "url": "https://github.com/Azure-Samples/remote-mcp-functions-javascript",
             "branch": "main",
             "branch_mapping": {}
         },
@@ -892,18 +857,6 @@
             "path_to_root": "samples-anomaly-detector",
             "url": "https://github.com/Azure-Samples/anomalydetector",
             "branch": "master",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "samples-durable-functions",
-            "url": "https://github.com/Azure/azure-functions-durable-extension",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "samples-durable-functions-python",
-            "url": "https://github.com/Azure/azure-functions-durable-python",
-            "branch": "main",
             "branch_mapping": {}
         },
         {

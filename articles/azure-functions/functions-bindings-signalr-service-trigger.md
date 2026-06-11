@@ -33,7 +33,7 @@ For information on setup and configuration details, see the [overview](functions
 
 The following sample shows a C# function that receives a message event from clients and logs the message content.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRTriggerFunctions.cs" id="snippet_on_message":::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRTriggerFunctions.cs" id="snippet_on_message"::: --->
 
 > [!IMPORTANT]
 > Class based model of SignalR Service bindings in C# isolated worker doesn't optimize how you write SignalR triggers due to the limitation of C# worker model. For more information about class based model, see [Class based model](../azure-signalr/signalr-concept-serverless-development-config.md#class-based-model).

@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -142,7 +142,7 @@ Read Azure Managed Redis resources and their configuration. Cannot modify resour
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you view Azure Managed Redis resources, but not modify them or access keys or access to the data stored in them.",
+  "description": "Read Azure Managed Redis resources and their configuration. Cannot modify resources, retrieve access keys, or read data stored in the cache.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/f287ba2f-f923-4464-a5bd-721c3951d32d",
   "name": "f287ba2f-f923-4464-a5bd-721c3951d32d",
   "permissions": [
@@ -254,6 +254,22 @@ Lets you manage Azure Cosmos DB accounts, but not access data in them. Prevents 
 > | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/mongodbRoleDefinitions/delete | Delete a MongoDB Role Definition |
 > | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/mongodbUserDefinitions/write | Create or update a MongoDB User Definition |
 > | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/mongodbUserDefinitions/delete | Delete a MongoDB User Definition |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/tableRoleAssignments/write |  |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/tableRoleAssignments/delete |  |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/tableRoleDefinitions/write |  |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/tableRoleDefinitions/delete |  |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/gremlinRoleAssignments/write |  |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/gremlinRoleAssignments/delete |  |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/gremlinRoleDefinitions/write |  |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/gremlinRoleDefinitions/delete |  |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/cassandraRoleAssignments/write |  |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/cassandraRoleAssignments/delete |  |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/cassandraRoleDefinitions/write |  |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/cassandraRoleDefinitions/delete |  |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/mongoMIRoleAssignments/write |  |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/mongoMIRoleAssignments/delete |  |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/mongoMIRoleDefinitions/write |  |
+> | [Microsoft.DocumentDB](../permissions/databases.md#microsoftdocumentdb)/databaseAccounts/mongoMIRoleDefinitions/delete |  |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -293,7 +309,23 @@ Lets you manage Azure Cosmos DB accounts, but not access data in them. Prevents 
         "Microsoft.DocumentDB/databaseAccounts/mongodbRoleDefinitions/write",
         "Microsoft.DocumentDB/databaseAccounts/mongodbRoleDefinitions/delete",
         "Microsoft.DocumentDB/databaseAccounts/mongodbUserDefinitions/write",
-        "Microsoft.DocumentDB/databaseAccounts/mongodbUserDefinitions/delete"
+        "Microsoft.DocumentDB/databaseAccounts/mongodbUserDefinitions/delete",
+        "Microsoft.DocumentDB/databaseAccounts/tableRoleAssignments/write",
+        "Microsoft.DocumentDB/databaseAccounts/tableRoleAssignments/delete",
+        "Microsoft.DocumentDB/databaseAccounts/tableRoleDefinitions/write",
+        "Microsoft.DocumentDB/databaseAccounts/tableRoleDefinitions/delete",
+        "Microsoft.DocumentDB/databaseAccounts/gremlinRoleAssignments/write",
+        "Microsoft.DocumentDB/databaseAccounts/gremlinRoleAssignments/delete",
+        "Microsoft.DocumentDB/databaseAccounts/gremlinRoleDefinitions/write",
+        "Microsoft.DocumentDB/databaseAccounts/gremlinRoleDefinitions/delete",
+        "Microsoft.DocumentDB/databaseAccounts/cassandraRoleAssignments/write",
+        "Microsoft.DocumentDB/databaseAccounts/cassandraRoleAssignments/delete",
+        "Microsoft.DocumentDB/databaseAccounts/cassandraRoleDefinitions/write",
+        "Microsoft.DocumentDB/databaseAccounts/cassandraRoleDefinitions/delete",
+        "Microsoft.DocumentDB/databaseAccounts/mongoMIRoleAssignments/write",
+        "Microsoft.DocumentDB/databaseAccounts/mongoMIRoleAssignments/delete",
+        "Microsoft.DocumentDB/databaseAccounts/mongoMIRoleDefinitions/write",
+        "Microsoft.DocumentDB/databaseAccounts/mongoMIRoleDefinitions/delete"
       ],
       "dataActions": [],
       "notDataActions": []
@@ -540,7 +572,7 @@ Create and manage Azure Cache for Redis resources. Cannot read or write data sto
   "assignableScopes": [
     "/"
   ],
-  "description": "Lets you manage Redis caches, but not access to them.",
+  "description": "Create and manage Azure Cache for Redis resources. Cannot read or write data stored in the cache.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/e0f68234-74aa-48ed-b826-c38b57376e17",
   "name": "e0f68234-74aa-48ed-b826-c38b57376e17",
   "permissions": [
@@ -561,6 +593,51 @@ Create and manage Azure Cache for Redis resources. Cannot read or write data sto
     }
   ],
   "roleName": "Redis Cache Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Semantic Reranker User
+
+Execute semantic reranking operations against registered inference accounts. This role should be assigned to users who need to run semantic reranking workloads but do not need to manage the accounts themselves.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.InferenceService](../permissions/databases.md#microsoftinferenceservice)/inferenceAccounts/read | Reads an inference service. |
+> | **NotActions** |  |
+> | [Microsoft.InferenceService](../permissions/databases.md#microsoftinferenceservice)/inferenceAccounts/write | Creates or updates an inference service. |
+> | [Microsoft.InferenceService](../permissions/databases.md#microsoftinferenceservice)/inferenceAccounts/delete | Deletes an inference service. |
+> | **DataActions** |  |
+> | [Microsoft.InferenceService](../permissions/databases.md#microsoftinferenceservice)/inferenceAccounts/invoke/semanticReranker/action | Invokes the semantic reranker on an inference account. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Execute semantic reranking operations against registered inference accounts. This role should be assigned to users who need to run semantic reranking workloads but do not need to manage the accounts themselves.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/6c74a7c5-4a87-40f9-bb03-61e49aecbc78",
+  "name": "6c74a7c5-4a87-40f9-bb03-61e49aecbc78",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.InferenceService/inferenceAccounts/read"
+      ],
+      "notActions": [
+        "Microsoft.InferenceService/inferenceAccounts/write",
+        "Microsoft.InferenceService/inferenceAccounts/delete"
+      ],
+      "dataActions": [
+        "Microsoft.InferenceService/inferenceAccounts/invoke/semanticReranker/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Semantic Reranker User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

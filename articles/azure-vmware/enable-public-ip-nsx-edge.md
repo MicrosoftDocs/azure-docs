@@ -3,7 +3,7 @@ title: Turn on public IP addresses to an NSX Edge node for VMware NSX
 description: Learn how to turn on internet access for NSX in Azure VMware Solution. Learn how to turn on public IP addresses to an NSX Edge node and set internet access rules.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 2/4/2025
+ms.date: 06/01/2026
 ms.custom: engagement-fy23
 # Customer intent: "As a network administrator, I want to enable public IP addresses for an NSX Edge node in Azure VMware Solution, so that my workloads can have inbound and outbound internet access while maintaining security and scalability."
 ---
@@ -15,10 +15,10 @@ In this article, learn how to turn on public IP addresses on a VMware NSX Edge n
 > [!TIP]
 > Before you turn on internet access to your instance of Azure VMware Solution, review [Internet connectivity design considerations](architecture-design-public-internet-access.md).
 
-Public IP addresses to an NSX Edge node for NSX is a feature in Azure VMware Solution that turns on inbound and outbound internet access for your Azure VMware Solution environment.
+A public IP address to an NSX Edge node for NSX is a feature in Azure VMware Solution that turns on inbound and outbound internet access for your Azure VMware Solution environment.
 
 > [!IMPORTANT]
-> IPv4 public IP address usage can be consumed directly in Azure VMware Solution and charged based on the IPv4 public IP address prefix that's shown in [Pricing - Virtual machine IP addresses](https://azure.microsoft.com/pricing/details/ip-addresses/). No charges for data ingress or egress are related to this service.
+> IPv4 public IP address usage can be consumed directly in Azure VMware Solution and charged based on the IPv4 public IP address prefix shown in [Pricing - Virtual machine IP addresses](https://azure.microsoft.com/pricing/details/ip-addresses/). No charges for data ingress or egress are related to this service.
 
 The public IP address range is configured in Azure VMware Solution through the Azure portal and the NSX interface within your Azure VMware Solution private cloud.
 
@@ -31,7 +31,7 @@ With this capability, you have the following features:
 - VMware HCX migration support over the public internet.
 
 > [!IMPORTANT]
-> You can set up a maximum of 64 total public IP addresses across these network blocks. If you want to configure more than 64 public IP addresses, please submit a support ticket that indicates the number of addresses you need.
+> You can set up a maximum of 64 total public IP addresses across these network blocks. If you want to configure more than 64 public IP addresses, submit a support ticket that indicates the number of addresses you need.
 
 ## Prerequisites
 
@@ -40,14 +40,14 @@ With this capability, you have the following features:
 
 ## Reference architecture
 
-The following figure shows internet access to and from your Azure VMware Solution private cloud via a public IP address directly to the NSX Edge node for NSX.
+The following diagram demonstrates internet access to and from your Azure VMware Solution private cloud via a public IP address directly to the NSX Edge node for NSX.
 
-:::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png" alt-text="Diagram that shows internet access to and from an Azure VMware Solution private cloud and a public IP address directly to the NSX Edge node." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
+:::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png" alt-text="Diagram shows internet access to and from an Azure VMware Solution private cloud and a public IP address directly to the NSX Edge node." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
 
 > [!IMPORTANT]
-> When using a Public IP on NSX the Public IP address(es) will not be advertised via the Private Cloud ExpressRoute. For customers advertising public IP space from on premises to Azure VMware Solution via Express Route this will cause asymmetric routing when accessing a Public IP address assigned in NSX from an IP address that is within the range(s) advertised from on-premises.
+> When customers use a Public IP on NSX, the Public IP address isn't advertised via the Private Cloud ExpressRoute. Related to customers who advertise public IP space from on premises to Azure VMware Solution via Express Route. Doing so causes asymmetric routing when accessing a Public IP address assigned in NSX from an IP address that is within the range advertised from on-premises.
 >
-> Also, using a public IP address at the NSX Edge node for NSX is not compatible with reverse DNS lookup. If you use this scenario, you can't host a mail server in the Azure VMware Solution.
+> Also, using a public IP address at the NSX Edge node for NSX isn't compatible with reverse DNS lookup. If you use this scenario, you can't host a mail server in the Azure VMware Solution.
 
 ## Set up a public IP address or range
 

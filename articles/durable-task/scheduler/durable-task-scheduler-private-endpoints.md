@@ -12,10 +12,7 @@ ms.date: 03/24/2026
 #customer intent: As a developer or cloud architect, I want to understand how private endpoints work with Durable Task Scheduler so that I can secure my orchestration traffic within a virtual network.
 ---
 
-# Private endpoints for Durable Task Scheduler (preview)
-
-> [!IMPORTANT]
-> Private endpoints for Durable Task Scheduler are currently in **limited preview**. To gain access to this feature, contact us at [dtspe@microsoft.com](mailto:dtspe@microsoft.com). General availability is expected in late May 2026.
+# Private endpoints for Durable Task Scheduler
 
 A [private endpoint](/azure/private-link/private-endpoint-overview) is a network interface that connects you privately and securely to a service powered by Azure Private Link. You can use private endpoints with Durable Task Scheduler to allow apps in your virtual network to connect to the scheduler over a private connection, without exposing traffic to the public internet.
 
@@ -73,7 +70,7 @@ Keep the following considerations in mind when using private endpoints with Dura
 - **Multiple private endpoints**: You can create multiple private endpoints for the same scheduler resource in different virtual networks to enable access from multiple networks.
 - **Identity and RBAC**: Private endpoints secure the *network path* to the scheduler. You still need to configure [identity-based access control](./durable-task-scheduler-identity.md) to authenticate and authorize your apps.
 - **Task hubs**: A private endpoint connection on the scheduler applies to all task hubs within that scheduler. You can't create private endpoint connections for individual task hubs.
-- **Emulator**: The [Durable Task Scheduler emulator](./quickstart-durable-task-scheduler.md#set-up-the-durable-task-emulator) runs locally and doesn't support private endpoints. Private endpoints apply only to scheduler resources deployed in Azure.
+- **Emulator**: The [Durable Task Scheduler emulator](./develop-with-durable-task-scheduler.md#durable-task-scheduler-emulator) runs locally and doesn't support private endpoints. Private endpoints apply only to scheduler resources deployed in Azure.
 
 ## Next steps
 

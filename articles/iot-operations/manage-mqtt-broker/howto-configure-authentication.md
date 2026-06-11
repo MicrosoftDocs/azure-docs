@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
-ms.date: 05/20/2026
+ms.date: 05/26/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -138,7 +138,7 @@ If you need to make changes, modify the `authenticationMethods` field in this re
 
 The order of the specified authentication methods determines how the MQTT broker authenticates clients. The MQTT broker tries to authenticate the client's credentials by using the first specified method and iterates through the specified methods until it finds a match or reaches the end.
 
-For each method, the MQTT broker first checks if the client's credentials are relevant for that method. For example, SAT authentication requires a username starting with `K8S-SAT`, and X.509 authentication requires a client certificate. If the client's credentials are relevant, the MQTT broker then verifies if they're valid. For more information, see the [Configure authentication method](#configure-authentication-method) section.
+For each method, the MQTT broker first checks if the client's credentials are relevant for that method. For example, SAT authentication requires the username `K8S-SAT`, and X.509 authentication requires a client certificate. If the client's credentials are relevant, the MQTT broker then verifies if they're valid. For more information, see the [Configure authentication method](#configure-authentication-method) section.
 
 For custom authentication, the MQTT broker treats failure to communicate with the custom authentication server as *credentials not relevant*. This behavior lets the MQTT broker fall back to other methods if the custom authentication server is unreachable.
 
@@ -413,7 +413,7 @@ To change the configuration, modify the `authenticationMethods` setting in this 
 
 To learn more about each of the authentication options, see the next sections for each method.
 
-For more information about how to enable secure settings by configuring an Azure Key Vault instance and enabling workload identities, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+For more information about how to enable secure settings by configuring an Azure Key Vault instance and enabling workload identities, see [Enable secure settings in Azure IoT Operations deployment](../secure-iot-ops/howto-enable-secure-settings.md).
 
 ## X.509
 
@@ -1324,7 +1324,7 @@ MQTT v5 clients authenticated with SATs and custom authentication can reauthenti
 
 Clients can reauthenticate by sending an MQTT v5 AUTH packet with reason `ReAuth`.
 
-SAT clients send an AUTH client with the fields `method: K8S-SAT` and `data: <token>`. Custom authentication clients set the method and data field as required by the custom authentication server.
+SAT clients send an AUTH packet with the fields `method: K8S-SAT` and `data: <token>`. Custom authentication clients set the method and data field as required by the custom authentication server.
 
 Successful reauthentication updates the client's credential expiry with the expiry time of its new credential. The broker responds with a `Success` AUTH packet. Failed authentication because of transient issues, such as the custom authentication server being unavailable, causes the broker to respond with a `ContinueAuthentication` AUTH packet. The client can try again later. Other authentication failures cause the broker to send a DISCONNECT packet and close the client's network connection.
 

@@ -20,6 +20,10 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 ## May 2026
 ### FHIR service
 
+**Improved bundle error handling**: When a bundle request was throttled (HTTP 429) and the client canceled the request during the retry wait, the server could exhibit unexpected behavior. The server now properly handles cancellation during retry delays and returns HTTP 408 (Request Timeout) for affected bundle entries. The maximum Retry-After delay is also capped at 15 seconds.
+
+**Improved error handling for incorrectly cased resource types**: Requests with incorrectly cased resource types (for example, `GET /patient/{id}` instead of `GET /Patient/{id}`) now return 404 Not Found instead of 405 Method Not Allowed.
+
 **Security enhancements for export**: Added validation to reject path traversal sequences in $export endpoint parameters to prevent unauthorized access to blob storage paths.
 
 **Case change for custom headers in diagnostic logs**: Custom headers in diagnostic logs will now appear in lowercase to align with modern HTTP standards. This does not impact API functionality, but customers using case-sensitive parsing in logging or monitoring pipelines may need to update their logic. We recommend ensuring header processing is case-insensitive.

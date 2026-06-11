@@ -2,9 +2,9 @@
 title: Use OpenTelemetry with Azure Functions
 description: This article shows you how to enable export of application logs and traces from your function app using OpenTelemetry.
 ms.service: azure-functions
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
+ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python, devx-track-ts
 ms.topic: how-to 
-ms.date: 11/17/2025
+ms.date: 05/22/2026
 zone_pivot_groups: programming-languages-set-functions
 
 #CustomerIntent: As a developer, I want to learn how to enable the export of logs and metrics from my function apps by using OpenTelemetry so I can consume and analyze my application telemetry data either in Application Insights or to any OTLP-compliant tools.
@@ -22,7 +22,9 @@ You can obtain these benefits by enabling OpenTelemetry in your function app:
 
 Keep these considerations in mind when using this article: 
 
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 + Try the [OpenTelemetry tutorial](monitor-functions-opentelemetry-distributed-tracing.md), which is designed to help you get started quickly with OpenTelemetry and Azure Functions. This article uses the Azure Developer CLI (`azd`) to create and deploy a function app that uses OpenTelemetry integration for distributed tracing.
+::: zone-end
 
 + Because this article is targeted at your development language of choice, remember to choose the correct language at the top of the article.
 ::: zone pivot="programming-language-csharp" 
@@ -60,6 +62,9 @@ Create specific application settings in your function app based on the OpenTelem
 ::: zone pivot="programming-language-python"
 **[PYTHON_APPLICATIONINSIGHTS_ENABLE_TELEMETRY](./functions-app-settings.md#python_applicationinsights_enable_telemetry)**: set to `true` so that the Functions host allows the Python worker process to stream OpenTelemetry logs directly, which prevents duplicate host-level entries.
 ::: zone-end
+::: zone pivot="programming-language-go"
+For Go apps, this setting configures OpenTelemetry export from the Functions host to Application Insights. It doesn't configure the Go worker OpenTelemetry middleware, which exports worker telemetry by using OTLP settings. To send Go worker telemetry to Application Insights, route OTLP output through an OpenTelemetry Collector or another OpenTelemetry pipeline configured to export to Azure Monitor.
+::: zone-end
 
 ### [OTLP Exporter](#tab/otlp-export) 
 
@@ -75,6 +80,9 @@ Many providers also require:
 
 ::: zone pivot="programming-language-python"
 **[PYTHON_ENABLE_OPENTELEMETRY](./functions-app-settings.md#python_applicationinsights_enable_telemetry)**: set to `true` so that the Functions host allows the Python worker process to stream OpenTelemetry logs directly, which prevents duplicate host-level entries.
+::: zone-end
+::: zone pivot="programming-language-go"
+The Go worker OpenTelemetry middleware reads the standard `OTEL_EXPORTER_OTLP_*` settings when you register the middleware with its default configuration. You can also set `OTEL_SERVICE_NAME` to override the service name reported by the worker process.
 ::: zone-end
 
 Azure Functions supports any environment variables defined in the [OpenTelemetry SDK configuration documentation](https://opentelemetry.io/docs/languages/sdk-configuration/). However, the specific variables and values required vary by provider. Consult your observability provider's documentation for:
@@ -280,11 +288,11 @@ Examples in this article assume your app uses `IHostApplicationBuilder`, which i
 
     ### [Application Insights](#tab/app-insights)
 
-    :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/otelAppInsights.js":::
+    <!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/otelAppInsights.js"::: --->
 
     ### [OTLP Exporter](#tab/otlp-export) 
 
-    :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/otelOtlp.js":::
+    <!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/otelOtlp.js"::: --->
 
     ---
 
@@ -299,11 +307,11 @@ Examples in this article assume your app uses `IHostApplicationBuilder`, which i
 
     ### [Application Insights](#tab/app-insights)
 
-    :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/otelAppInsights.ts":::
+    <!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/otelAppInsights.ts"::: --->
 
     ### [OTLP Exporter](#tab/otlp-export) 
 
-    :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/otelOtlp.ts":::
+    <!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/otelOtlp.ts"::: --->
 
     ---
 
@@ -401,6 +409,52 @@ These instructions only apply for an OTLP exporter:
 1. Review [Azure monitor Distro usage](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry#usage) documentation for options on how to further configure the SDK.
   
 ::: zone-end  
+::: zone pivot="programming-language-go"
+For Go apps, the same worker setup is used for any OpenTelemetry destination. The middleware exports worker telemetry by using OTLP settings. Your OTLP endpoint can be a vendor endpoint or an OpenTelemetry Collector that forwards telemetry to another destination, such as Azure Monitor.
+
+1. Make sure your project uses a version of the Go worker SDK that includes the OpenTelemetry middleware:
+
+    ```console
+    go get github.com/azure/azure-functions-golang-worker@latest
+    go mod tidy
+    ```
+
+1. In your `main.go` file, import the OpenTelemetry middleware and register it before you register your functions:
+
+    ```go
+    package main
+
+    import (
+        "fmt"
+        "log/slog"
+        "net/http"
+
+        "github.com/azure/azure-functions-golang-worker/middleware/otelfunc"
+        "github.com/azure/azure-functions-golang-worker/sdk"
+        "github.com/azure/azure-functions-golang-worker/worker"
+    )
+
+    func hello(w http.ResponseWriter, r *http.Request) {
+        slog.InfoContext(r.Context(), "processing request", "path", r.URL.Path)
+        fmt.Fprintln(w, "hello")
+    }
+
+    func main() {
+        app := sdk.FunctionApp()
+        app.Use(otelfunc.Middleware())
+
+        app.HTTP("hello", hello,
+            sdk.WithMethods("GET"),
+            sdk.WithAuth("anonymous"),
+        )
+        worker.Start(app)
+    }
+    ```
+
+The zero-argument middleware uses the standard `OTEL_EXPORTER_OTLP_*` application settings you configured earlier in this article. It creates invocation spans, correlates `slog` records emitted with the invocation context, and flushes telemetry after each invocation.
+
+To create custom child spans, use the standard OpenTelemetry Go APIs with the invocation context. For HTTP triggers, use `r.Context()` as the parent context. For other trigger types, use the `context.Context` parameter passed to your handler.
+::: zone-end
 
 ## Considerations for OpenTelemetry
 
@@ -424,6 +478,16 @@ When you export your data by using OpenTelemetry, keep these considerations in m
 
 * You don't need to manually register middleware; the Java worker autodiscovers `OpenTelemetryInvocationMiddleware`.
 ::: zone-end  
+::: zone pivot="programming-language-go"
++ Use context-aware methods from the standard `log/slog` package, such as `slog.InfoContext` and `slog.ErrorContext`, to correlate structured logs with the current invocation and trace.
+
++ The Go worker OpenTelemetry middleware is opt-in. Apps that don't import and register `middleware/otelfunc` don't include OpenTelemetry packages in the compiled binary.
+
++ To temporarily disable the Go worker middleware without redeploying your app, set `AZURE_FUNCTIONS_WORKER_OPENTELEMETRY_DISABLED` to `true`.
+
++ For advanced configuration, you can configure custom OpenTelemetry providers, exporters, resource attributes, and propagators in code before registering the middleware.
+::: zone-end
+
 
 ## Resource detectors and semantic conventions
 

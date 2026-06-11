@@ -100,12 +100,13 @@ The following table shows the total TPM required per model for a workspace with 
 
 | Model | Total minimum TPM | Total recommended TPM | Contributing services |
 |---|---|---|---|
-| **GPT-5.2** | 550,000 | 4,000,000 | Discovery Engine + Bookshelf + Agents (Copilot Service) |
-| **GPT-5 Mini** | 100,000 | 10,000,000 | Bookshelf |
-| **Text Embedding 3 (Large)** | 50,000 | 2,000,000 | Bookshelf |
+| **GPT-5.4** | 450,000 | 2,000,000 | Discovery Engine + Agents (Copilot Service) |
+| **GPT-5.2** | 200,000 | 2,000,000 | Bookshelf |
+| **GPT-5 Mini** | 2,000,000 | 10,000,000 | Bookshelf |
+| **Text Embedding 3 (Small)** | 2,000,000 | 2,000,000 | Bookshelf |
 
 > [!TIP]
-> For deployments with multiple Bookshelves, multiply the Bookshelf per-instance TPM by the number of Bookshelf instances and add it to the workspace-scoped totals. For example, a workspace with three Bookshelves at recommended TPM requires: GPT-5.2 = 1,000,000 + (2,000,000 × 3) + 1,000,000 = **8,000,000 TPM**.
+> For deployments with multiple Bookshelves, multiply the Bookshelf per-instance TPM by the number of Bookshelf instances and add it to the workspace-scoped totals. For example, a workspace with three Bookshelves at recommended TPM requires: GPT-5.2 = 2,000,000 × 3 = **6,000,000 TPM**.
 
 ### Consolidated model TPM requirements
 
@@ -115,11 +116,11 @@ The following table provides a consolidated view of model TPM requirements acros
 
 | Model | Service | Minimum TPM | Recommended TPM | Scope |
 |---|---|---|---|---|
-| **GPT-5.2** | Discovery Engine | 250,000 | 1,000,000 | Per workspace |
-| **GPT-5.2** | Bookshelf | 100,000 | 2,000,000 | Per Bookshelf instance |
-| **GPT-5.2** | Agents (Copilot Service) | 200,000 | 1,000,000 | Per workspace |
-| **GPT-5 Mini** | Bookshelf | 100,000 | 10,000,000 | Per Bookshelf instance |
-| **Text Embedding 3 (Large)** | Bookshelf | 50,000 | 2,000,000 | Per Bookshelf instance |
+| **GPT-5.4** | Discovery Engine | 250,000 | 1,000,000 | Per workspace |
+| **GPT-5.4** | Agents (Copilot Service) | 200,000 | 1,000,000 | Per workspace |
+| **GPT-5.2** | Bookshelf | 200,000 | 2,000,000 | Per Bookshelf instance |
+| **GPT-5 Mini** | Bookshelf | 2,000,000 | 10,000,000 | Per Bookshelf instance |
+| **Text Embedding 3 (Small)** | Bookshelf | 2,000,000 | 2,000,000 | Per Bookshelf instance |
 
 ### Discovery Engine models
 
@@ -127,14 +128,14 @@ Discovery Engine requires two GPT model deployments. The first is created automa
 
 | Model | Deployment name | Minimum TPM | Recommended TPM | Purpose |
 |---|---|---|---|---|
-| **GPT-5.2** | *(auto-provisioned)* | 250,000 | 1,000,000 | Cognition reasoning, task planning, and answer generation |
-| **GPT-5.2** | `gpt-5-2` | 250,000 | 250,000 | Task validation. evaluates agent results against validation requirements |
+| **GPT-5.4** | *(auto-provisioned)* | 250,000 | 1,000,000 | Cognition reasoning, task planning, and answer generation |
+| **GPT-5.4** | `gpt-5-4` | 200,000 | 250,000 | Task validation. evaluates agent results against validation requirements |
 
 - **Cognition model**: Deployed automatically during workspace creation with an initial quota of 250,000 TPM. This deployment is dedicated to the Discovery Engine and isn't shared with other services. After workspace creation, increase the TPM to the recommended 1,000,000 TPM for optimal performance. For instructions, see [How to update quota assigned to a model deployment](/azure/ai-foundry/openai/how-to/quota).
-- **Validation model**: You must manually create a chat model deployment named `gpt-5-2` using model `gpt-5.2`. Without this deployment, the Discovery Engine can't validate task results and won't start. See [Create Chat Model Deployment](quickstart-infrastructure-portal.md#6-create-chat-model-deployment) for setup instructions.
+- **Validation model**: You must manually create a chat model deployment named `gpt-5-4` using model `gpt-5.4`. Without this deployment, the Discovery Engine can't validate task results and won't start. See [Create Chat Model Deployment](quickstart-infrastructure-portal.md#6-create-chat-model-deployment) for setup instructions.
 
 > [!IMPORTANT]
-> Both deployments consume GPT-5.2 quota in your subscription. Ensure you have at least 500,000 TPM of GPT-5.2 quota available (250,000 minimum per deployment).
+> Both deployments consume GPT-5.4 quota in your subscription. Ensure you have at least 500,000 TPM of GPT-5.4 quota available (250,000 minimum per deployment).
 
 ### Bookshelf service quotas
 
@@ -168,9 +169,9 @@ Bookshelf uses three models for indexing and search operations. Ensure that each
 
 | Model | Minimum TPM | Preferred TPM | Purpose |
 |---|---|---|---|
-| **Text Embedding 3 (Large)** | 50,000 | 2,000,000 | Document indexing and embedding generation |
+| **Text Embedding 3 (Small)** | 2,000,000 | 2,000,000 | Document indexing and embedding generation |
 | **GPT-5.2** | 100,000 | 2,000,000 | Query decomposition and answer generation |
-| **GPT-5 Mini** | 100,000 | 10,000,000 | Primary search model |
+| **GPT-5 Mini** | 2,000,000 | 10,000,000 | Primary search model |
 
 GPT-5 Mini has the highest preferred quota because a single search query can consume approximately 800K–1M tokens.
 
@@ -197,12 +198,38 @@ The Copilot Service requires the following GPT model for agents. Ensure that eac
 
 | Model | Minimum TPM | Recommended TPM | Purpose |
 |---|---|---|---|
-| **GPT-5.2** | 200,000 | 1,000,000 | Conversation and reasoning for Copilot agents |
+| **GPT-5.4** | 200,000 | 1,000,000 | Conversation and reasoning for Copilot agents |
 
 > [!NOTE]
-> GPT-5.2 is the recommended model. Other models available in the [Azure AI Foundry Model Catalog](https://ai.azure.com) can also be supported. If you choose a different model, ensure the corresponding model quota is reserved in your subscription.
+> GPT-5.4 is the recommended model. Other models available in the [Azure AI Foundry Model Catalog](https://ai.azure.com) can also be supported. If you choose a different model, ensure the corresponding model quota is reserved in your subscription.
 
 By default, **Global Standard** is the deployment mode for model deployments. If data residency is required, **Data Zone Standard** is supported as an alternative deployment mode. For more information, see [Data Zone Standard deployment type](/azure/foundry/foundry-models/concepts/deployment-types#data-zone-standard).
+
+### Supported model variants
+
+Microsoft Discovery supports the following model families for agent reasoning, orchestration, and knowledge retrieval. You can use these models as alternatives or upgrades depending on your use case and regional availability.
+
+#### GPT model family
+
+| Model | Use case | Region availability |
+|---|---|---|
+| **GPT-5.2** | Bookshelf query decomposition and answer generation | All Azure OpenAI regions |
+| **GPT-5.4** | Discovery Engine, validation agent, BYO agents (recommended) | All Azure OpenAI regions |
+| **GPT-5.5** | Discovery Engine, validation agent, BYO agents (latest) | Limited: eastus2, northcentralus, southcentralus, westus3, polandcentral, swedencentral |
+
+For the full GPT model region availability matrix, see [Region availability for Foundry Models sold by Azure](/azure/foundry/foundry-models/concepts/models-sold-directly-by-azure-region-availability).
+
+#### Grok model family
+
+Grok models are available through Azure AI Foundry and offer less restrictive content filtering for biology-vertical queries compared to GPT models, making them suitable for life sciences research workflows that require broader reasoning over biological and biomedical content.
+
+| Model | Use case | Notes |
+|---|---|---|
+| **Grok-4.20-reasoning** | Complex scientific reasoning tasks requiring chain-of-thought in biology and life sciences domains | Extended reasoning capabilities with fewer content restrictions on biology-related queries |
+| **Grok-4.20-non-reasoning** | Fast inference for BYO agents in biology-focused workflows | Standard inference without chain-of-thought; fewer content restrictions on biology-related queries |
+
+> [!NOTE]
+> Grok models are supported as BYO (bring your own) model deployments in Discovery. If you choose a Grok model, ensure the corresponding model quota is reserved in your subscription and that the model is available in your target region. Check the [Azure AI Foundry Model Catalog](https://ai.azure.com) for current availability.
 
 ### Requesting Azure OpenAI quota
 

@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -288,6 +288,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='documentdb-account-contributor'></a>[DocumentDB Account Contributor](./built-in-roles/databases.md#documentdb-account-contributor) | Can manage Azure Cosmos DB accounts. Azure Cosmos DB is formerly known as DocumentDB. | 5bd9cd88-fe45-4216-938b-f97437e15450 |
 > | <a name='postgresql-flexible-server-long-term-retention-backup-role'></a>[PostgreSQL Flexible Server Long Term Retention Backup Role](./built-in-roles/databases.md#postgresql-flexible-server-long-term-retention-backup-role) | Role to allow backup vault to access PostgreSQL Flexible Server Resource APIs for Long Term Retention Backup. | c088a766-074b-43ba-90d4-1fb21feae531 |
 > | <a name='redis-cache-contributor'></a>[Redis Cache Contributor](./built-in-roles/databases.md#redis-cache-contributor) | Create and manage Azure Cache for Redis resources. Cannot read or write data stored in the cache. | e0f68234-74aa-48ed-b826-c38b57376e17 |
+> | <a name='semantic-reranker-user'></a>[Semantic Reranker User](./built-in-roles/databases.md#semantic-reranker-user) | Execute semantic reranking operations against registered inference accounts. This role should be assigned to users who need to run semantic reranking workloads but do not need to manage the accounts themselves. | 6c74a7c5-4a87-40f9-bb03-61e49aecbc78 |
 > | <a name='sql-db-contributor'></a>[SQL DB Contributor](./built-in-roles/databases.md#sql-db-contributor) | Lets you manage SQL databases, but not access to them. Also, you can't manage their security-related policies or their parent SQL servers. | 9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
 > | <a name='sql-managed-instance-contributor'></a>[SQL Managed Instance Contributor](./built-in-roles/databases.md#sql-managed-instance-contributor) | Lets you manage SQL Managed Instances and required network configuration, but can't give access to others. | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
 > | <a name='sql-security-manager'></a>[SQL Security Manager](./built-in-roles/databases.md#sql-security-manager) | Lets you manage the security-related policies of SQL servers and databases, but not access to them. | 056cd41c-7e88-42e1-933e-88ba6a50c9c3 |

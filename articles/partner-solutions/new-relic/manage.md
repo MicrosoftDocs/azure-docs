@@ -1,6 +1,8 @@
 ---
 title: Manage Azure Native New Relic Service
 description: Learn how to manage your Azure Native New Relic Service settings.
+author: shijojoy
+ms.author: shijoy
 ms.topic: how-to
 ms.date: 01/10/2025
 
