@@ -33,7 +33,7 @@ The following table describes the types of storage accounts that we recommend fo
 
 <sup>1</sup> Data Lake Storage is a set of capabilities dedicated to big data analytics, built on Blob Storage. For more information, see [Introduction to Data Lake Storage](../blobs/data-lake-storage-introduction.md) and [Create a storage account to use with Data Lake Storage](../blobs/create-data-lake-storage-account.md).
 
-<sup>2</sup> ZRS, GZRS, and RA-GZRS are not available for all storage account types. They are supported for standard general-purpose v2, premium block blob, premium file share, and premium page blob accounts; however, the available redundancy options vary depending on the account type and the region. For more information, see [Azure Storage redundancy](storage-redundancy.md).
+<sup>2</sup> ZRS, GZRS, and RA-GZRS are not available for all storage account types. They are supported for standard general-purpose v2, premium block blob, premium file share, and premium page blob accounts. However, the available redundancy options can vary not only by type, but also by region. For more information, see [Azure Storage redundancy](storage-redundancy.md).
 
 <sup>3</sup> Premium performance storage accounts use solid-state drives (SSDs) for low latency and high throughput.
 
