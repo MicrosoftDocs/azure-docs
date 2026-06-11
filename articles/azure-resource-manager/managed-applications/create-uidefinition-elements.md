@@ -2,12 +2,14 @@
 title: Create UI definition elements
 description: Describes the elements to use when constructing UI definitions for Azure portal.
 ms.topic: reference
-ms.date: 06/24/2024
+ms.date: 05/29/2026
 ---
 
 # CreateUiDefinition elements
 
-This article describes the schema and properties for all supported elements of a _createUiDefinition.json_ file.
+This article is the element reference for a _createUiDefinition.json_ file, which is used by Azure Managed Applications. Use this article to determine which elements are supported in CreateUiDefinition.
+
+[Form view](../templates/form-view-overview.md) for template specs uses the _uiFormDefinition.json_ format. It has its own [supported element list](../templates/form-view-elements.md). Many Form view elements use the same schema as CreateUiDefinition elements and link to these reference pages to avoid duplicating content, but the two formats don't support exactly the same elements.
 
 ## Schema
 
@@ -39,7 +41,7 @@ The schema for most elements is as follows:
 
 ## Elements
 
-The documentation for each element contains a UI sample, schema, remarks on the behavior of the element (usually concerning validation and supported customization), and sample output.
+The following elements are supported in _createUiDefinition.json_. The documentation for each element contains a UI sample, schema, remarks on the behavior of the element (usually concerning validation and supported customization), and sample output.
 
 - [Microsoft.Common.CheckBox](microsoft-common-checkbox.md)
 - [Microsoft.Common.DropDown](microsoft-common-dropdown.md)
@@ -66,6 +68,8 @@ The documentation for each element contains a UI sample, schema, remarks on the 
 - [Microsoft.Storage.MultiStorageAccountCombo](microsoft-storage-multistorageaccountcombo.md)
 - [Microsoft.Storage.StorageAccountSelector](microsoft-storage-storageaccountselector.md)
 - [Microsoft.Storage.StorageBlobSelector](microsoft-storage-storageblobselector.md)
+
+For elements supported in _uiFormDefinition.json_, including Form view-specific scope selectors, see [Form view elements](../templates/form-view-elements.md).
 
 ## Next steps
 
