@@ -118,7 +118,7 @@ Adding a virtual network firewall isn't a recommended pattern. Azure Virtual Enc
 
 ### What access is allowed by default?
 
-Azure Virtual Enclaves configures required platform access for managed enclave resources. Key Management Service (KMS) access can be configured through network security group and firewall policy rules, depending on the deployed configuration and firewall SKU.
+Azure Virtual Enclaves configures required platform egress for managed resources. For communities using a non-Basic firewall SKU, a default outbound firewall policy rule is created for Key Management Service (KMS) over TCP port 1688.
 
 ### How can I make deployments faster?
 
