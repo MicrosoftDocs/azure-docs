@@ -7,7 +7,7 @@ ms.service: azure-migrate
 ms.topic: concept-article 
 ms.date: 09/17/2025
 ms.custom: engagement-fy24 
-ms.update-cycle: 1875-days
+ms.update-cycle: 1825-days
 monikerRange:
 # Customer intent: As a cloud architect, I want to generate an Azure Migrate assessment report, so that I can evaluate workload readiness, receive sizing recommendations, and estimate migration costs effectively for a successful cloud transition.
 --- 

@@ -5,7 +5,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.topic: how-to
 ms.date: 09/18/2024
-ms.update-cycle: 1875-days
+ms.update-cycle: 1825-days
 # Customer intent: As an azure administrator, I want to understand the process of migrating from the MMA agent to the AMA agent.
 
 ---
