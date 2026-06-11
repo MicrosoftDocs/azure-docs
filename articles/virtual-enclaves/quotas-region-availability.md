@@ -4,7 +4,7 @@ description: Quota and region availability in Azure Virtual Enclaves
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
-ms.date: 9/30/2025
+ms.date: 3/26/2026
 ---
 # Quota and region availability in Azure Virtual Enclaves
 
@@ -15,16 +15,16 @@ This article details the default resource limits for Azure Virtual Enclaves (AVE
 
 ## Product Limitation Summary
 
-|Product Feature | Limit |
+| Product Feature | Limit |
 |--|--|
 | Enclaves in a community | 200[^2] |
 | Workloads in an enclave | 800[^3] |
-| Workloads in a community| 160,000[^1] |
-| Endpoints (either type)| 800[^3] |
+| Workloads in a community | 160,000[^1] |
+| Endpoints (either type) | 800[^3] |
 
-[^1]: Theoretically the number of workloads in a community can reach 200 * 800 = **160,000** if the `resourceGroupCollection` property is an empty list. Otherwise, the number is limited by the number of resource groups per subscription which is 980.
+[^1]: Theoretically the number of workloads in a community can reach 200 * 800 = **160,000** with zero workload resource groups added to the workload (the `resourceGroupCollection` property is an empty list). Practically, you're likely to add at least one workload resource group to each workload so the maximum workloads in a community are limited by the number of resource groups per subscription which is 980.
 
-[^2]: The number of enclaves that can be deployed into a subscription is limited by the number of Private DNS zones, which is 1,000 per subscription. Each enclave deploys five Private DNS zones, which means up to 200 can be deployed before reaching the Private DNS zone limit. Each Private DNS Zone you add for your workloads will count for the 1,000 per subscription limit. You can use more than one subscription and spread the enclaves between each subscription.
+[^2]: The number of enclaves that can be deployed into a subscription is limited by the number of Private DNS zones, which is 1,000 per subscription. Assuming each enclave requires five Private DNS zones you could deploy up to 200 enclaves before reaching the Private DNS zone limit in one subscription. You can create more than one subscription and spread your enclaves between each subscription. Each Private DNS Zone you add for your workloads will count for the 1,000 per subscription limit.
 
 [^3]: This is a child resource, so it must be deployed in the same resource group as the parent resource. Therefore, the number of child resources is limited by the Azure limit of 800 resources per resource group, per resource type.
 
@@ -32,28 +32,28 @@ This article details the default resource limits for Azure Virtual Enclaves (AVE
 
 ### Core Resources
 
-|Resource | Limit |
+| Resource | Limit |
 |--|--|
 | Community | 978[^4] |
 | Enclave | 200[^2] |
 | Workloads per enclave | 800[^3] |
 
-[^4]: The maximum is limited by the number of resource groups allowed in a subscription given that a community deploys an MRG. Among these resource groups, two of these must be reserved for deploying communities since each resource group can only have a maximum of 800 resource, per resource type.
+[^4]: The maximum is limited by the number of resource groups allowed in a subscription given that a community deploys a community managed resource group. Among these resource groups, two of these must be reserved for deploying communities since each resource group can only have a maximum of 800 resource, per resource type.
 
 ### Networking Resources
 
-|Resource | Limit |
+| Resource | Limit |
 |--|--|
 | Community endpoint per community | 800[^3] |
 | Community endpoint Rule | Unlimited[^5] |
 | Enclave endpoint per Enclave | 800[^3] |
 | Enclave endpoint rule | 993[^6] |
 | Transit hub | 499[^7] |
-| Enclave connection| 993[^8] |
+| Enclave connection | 993[^8] |
 
-[^5]: Each community endpoint rule deploys only internal metadata.
+[^5]: Each community endpoint rule deploys only metadata.
 
-[^6]: The number of rules per enclave endpoint is limited by the number of NSG rules that can be created per NSG, which is 1,000. An enclave comes built in with three inbound and four outbound rules. Each endpoint rule creates another inbound NSG rule.
+[^6]: The number of rules per enclave endpoint is limited by the number of network security group (NSG) rules that can be created per NSG, which is 1,000. An enclave comes built in with three inbound and four outbound rules. Each endpoint rule creates another inbound NSG rule.
 
 [^7]: The maximum is limited by the number of virtual network connections per hub that a Virtual WAN can support, which is 500 minus the number of hubs. At least one virtual network connection is reserved for enclave deployment which would imply a maximum of 499 remaining connections that can be allocated for transit hubs.
 

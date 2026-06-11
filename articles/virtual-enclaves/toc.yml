@@ -173,7 +173,7 @@
   - name: Move data inside an enclave
     href: move-data-inside-enclave.md
   - name: Quotas and region availability
-    href: quotas-region-availability-azure-virtual-enclaves.md
+    href: quotas-region-availability.md
   - name: Disaster recovery planning
     href: disaster-recovery-planning.md
 - name: Troubleshoot
