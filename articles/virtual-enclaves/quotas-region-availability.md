@@ -66,5 +66,11 @@ All other network, compute, and storage limitations apply to the created infrast
 ## Regions
 For current regional availability, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
+You can also query the current regions allowed for communities with the Azure CLI.
+
+```azurecli
+az provider show --namespace Microsoft.Mission --query "resourceTypes[?resourceType=='communities'].locations"
+```
+
 ## Next steps
 You can increase certain default limits and quotas. If your resource supports an increase, request the increase through an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) (for **Issue type**, select **Quota**).
