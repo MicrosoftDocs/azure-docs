@@ -322,7 +322,7 @@ items:
     - name: Any function
       href: bicep-functions-any.md
     - name: Array functions
-      displayName: array,concat,contains,empty,first,flatten,indexOf,intersection,last,lastIndexOf,length,max,min,range,skip,take,union
+      displayName: array,concat,contains,distinct,empty,first,flatten,indexOf,intersection,last,lastIndexOf,length,max,min,range,skip,take,union
       href: bicep-functions-array.md
     - name: CIDR functions
       displayName: parseCidr,cidrSubnet,cidrHost
