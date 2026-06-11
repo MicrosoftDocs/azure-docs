@@ -2,7 +2,7 @@
 title: "Include file"
 description: "Include file"
 services: load-testing
-ms.service: azure-load-testing
+ms.service: azure-app-testing
 ms.topic: "include"
 author: ntrogh
 ms.author: nicktrog

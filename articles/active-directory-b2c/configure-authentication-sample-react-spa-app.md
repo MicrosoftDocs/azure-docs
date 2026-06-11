@@ -4,7 +4,7 @@ description: Learn how to use Azure AD B2C to sign in and sign up users in a Rea
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 02/19/2025

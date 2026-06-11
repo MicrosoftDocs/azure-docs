@@ -12,10 +12,7 @@ ms.date: 03/24/2026
 #customer intent: As a developer or cloud architect, I want to understand how private endpoints work with Durable Task Scheduler so that I can secure my orchestration traffic within a virtual network.
 ---
 
-# Private endpoints for Durable Task Scheduler (preview)
-
-> [!IMPORTANT]
-> Private endpoints for Durable Task Scheduler are currently in **limited preview**. To gain access to this feature, contact us at [dtspe@microsoft.com](mailto:dtspe@microsoft.com). General availability is expected in late May 2026.
+# Private endpoints for Durable Task Scheduler
 
 A [private endpoint](/azure/private-link/private-endpoint-overview) is a network interface that connects you privately and securely to a service powered by Azure Private Link. You can use private endpoints with Durable Task Scheduler to allow apps in your virtual network to connect to the scheduler over a private connection, without exposing traffic to the public internet.
 

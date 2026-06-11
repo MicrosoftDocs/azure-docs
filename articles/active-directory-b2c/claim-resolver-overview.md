@@ -6,7 +6,7 @@ description: Learn how to use claim resolvers in Azure AD B2C custom policies to
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 02/19/2025

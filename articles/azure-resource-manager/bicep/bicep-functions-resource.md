@@ -663,9 +663,9 @@ For more information, see the [JSON template resourceId function](../templates/t
 
 ## roleDefinitions
 
-`roleDefinisions(roleName)`
+`roleDefinitions(roleName)`
 
-Returns information about the specified role definition, including `id` and `roleDefinitionId`. It's a name-based helper for Azure RBAC role assignments. Instead of requiring you to hardcode the GUID of a built-in role definition (like Contributor, Reader, and others), it lets you provide the built-in role’s display name, and the function resolves the corresponding role definition information at deployment time.
+Returns information about the specified role definition, including `id` and `roleDefinitionId`. It's a name-based helper for Azure RBAC role assignments. Instead of requiring you to hardcode the GUID of a custom or built-in role definition (like Contributor, Reader, and others), it lets you provide the custom or built-in role’s display name, and the function resolves the corresponding role definition information at deployment time.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
