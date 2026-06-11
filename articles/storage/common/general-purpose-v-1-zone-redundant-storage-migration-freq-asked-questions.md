@@ -30,7 +30,7 @@ This FAQ addresses common questions about upgrading from **GPv1 standard ZRS** t
 
 ### Can I still create a new account using ZRS standard redundancy?
 
-No. Creation of new accounts using **standard ZRS on GPv1** is blocked starting **September 2025**.
+No. Creation of new accounts using **standard ZRS on GPv1** is blocked starting **September 2026**.
 
 ### How does modern ZRS differ from GPv1 standard ZRS?
 

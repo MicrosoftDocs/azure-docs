@@ -6,7 +6,7 @@ description: Learn how to set up the resource owner password credentials (ROPC) 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 02/24/2025

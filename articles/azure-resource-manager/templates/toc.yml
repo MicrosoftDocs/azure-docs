@@ -468,7 +468,7 @@ items:
     - name: All functions
       href: template-functions.md
     - name: Array functions
-      displayName: array,concat,contains,createArray,empty,first,indexFromEnd,indexOf,intersection,last,lastIndexOf,length,max,min,range,skip,take,tryIndexFromEnd,tryGet,union
+      displayName: array,concat,contains,createArray,distinct,empty,first,indexFromEnd,indexOf,intersection,last,lastIndexOf,length,max,min,range,skip,take,tryIndexFromEnd,tryGet,union
       href: template-functions-array.md
     - name: CIDR functions
       displayName: parseCidr,cidrSubnet,cidrHost
@@ -501,7 +501,7 @@ items:
       displayName: managementGroup,resourceGroup,subscription,tenant
       href: template-functions-scope.md
     - name: String functions
-      displayName: base64,base64ToJson,base64ToString,concat,contains,dataUri,dataUriToString,empty,endsWith,first,format,guid,indexOf,join,json,last,lastIndexOf,length,newGuid,padLeft,replace,skip,split,startsWith,string,substring,take,toLower,toUpper,trim,uniqueString,uri,uriComponent,uriComponentToString
+      displayName: base64,base64ToJson,base64ToString,concat,contains,dataUri,dataUriToString,empty,endsWith,first,format,guid,indexOf,join,json,last,lastIndexOf,length,like,newGuid,padLeft,replace,skip,split,startsWith,string,substring,take,toLower,toUpper,trim,uniqueString,uri,uriComponent,uriComponentToString
       href: template-functions-string.md
   - name: REST
     href: /rest/api/resources/
