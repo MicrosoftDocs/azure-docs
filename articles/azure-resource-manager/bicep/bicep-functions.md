@@ -198,6 +198,7 @@ Bicep provides the following functions for working with strings. All of these fu
 * [last](./bicep-functions-string.md#last)
 * [lastIndexOf](./bicep-functions-string.md#lastindexof)
 * [length](./bicep-functions-string.md#length)
+* [like](./bicep-functions-string.md#like)
 * [newGuid](./bicep-functions-string.md#newguid)
 * [padLeft](./bicep-functions-string.md#padleft)
 * [parseUri](./bicep-functions-string.md#parseuri)
