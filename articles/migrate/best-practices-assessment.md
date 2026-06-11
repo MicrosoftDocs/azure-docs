@@ -6,6 +6,7 @@ ms.topic: concept-article
 ms.author: v-uhabiba
 ms.date: 09/19/2025
 ms.custom: engagement-fy23
+ms.update-cycle: 1875-days
 # Customer intent: "As an IT administrator, I want to create and recalculate assessments using the Azure Migrate Discovery and assessment tool, so that I can effectively evaluate my on-premises workloads for migration to Azure and optimize resource utilization."
 ---
 
