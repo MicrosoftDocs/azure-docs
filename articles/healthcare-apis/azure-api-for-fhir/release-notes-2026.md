@@ -29,9 +29,13 @@ Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHI
 ## May 2026
 ### FHIR service
 
+**Improved bundle error handling**: When a bundle request was throttled (HTTP 429) and the client cancelled the request during the retry wait, the server could exhibit unexpected behavior. The server now properly handles cancellation during retry delays and returns HTTP 408 (Request Timeout) for affected bundle entries. The maximum Retry-After delay is also capped at 15 seconds.
+
 **Security enhancements for export**: Added validation to reject path traversal sequences in $export endpoint parameters to prevent unauthorized access to blob storage paths.
 
 **Case change for custom headers in diagnostic logs**: Custom headers in diagnostic logs will now appear in lowercase to align with modern HTTP standards. This does not impact API functionality, but customers using case-sensitive parsing in logging or monitoring pipelines may need to update their logic. We recommend ensuring header processing is case-insensitive.
+
+
 ## April 2026
 ### FHIR service
 **Security enhancements for narrative sanitizer**: Enhanced security by detecting and handling dangerous href schemes (javascript:, data:, vbscript:, etc.) in FHIR narrative HTML. The FHIR service rejects links with these schemes in an href property because they don't pass validation.

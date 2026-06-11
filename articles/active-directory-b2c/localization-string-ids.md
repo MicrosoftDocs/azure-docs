@@ -5,7 +5,7 @@ description: Specify the IDs for a content definition with an ID of api.signupor
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 02/24/2024

@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Set up sign-in with a Salesforce SAML provider by using SAML protocol in Azure Active Directory B2C.
 author: garrodonnell
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 09/16/2021
 ms.author: godonnell

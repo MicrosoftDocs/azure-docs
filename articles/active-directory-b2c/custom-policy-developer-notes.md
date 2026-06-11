@@ -6,7 +6,7 @@ description: Notes for developers on configuring and maintaining Azure AD B2C wi
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 10/10/2024
