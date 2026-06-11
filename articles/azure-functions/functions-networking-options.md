@@ -457,6 +457,10 @@ When you restrict access to your function app with private endpoints or any othe
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
+### Use Application Insights to investigate networking issues
+
+For Flex Consumption apps, Application Insights is the first place to look when you see DNS failures, dependency timeouts, or other connectivity symptoms. The `traces`, `exceptions`, and `dependencies` tables show what your code observed at runtime, which helps you separate application failures from platform or network issues. For tables, when to use each, and starter Kusto queries, see [Troubleshoot networking issues with Application Insights](./flex-consumption-how-to.md#troubleshoot-networking-issues-with-application-insights).
+
 ### Network troubleshooter
 
 You can also use the Network troubleshooter to resolve connection issues. To open the network troubleshooter, go to the app in the Azure portal. Select **Diagnostic and solve problem**, and then search for **Network troubleshooter**.

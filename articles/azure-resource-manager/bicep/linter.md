@@ -60,6 +60,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 | <a id='use-secure-value-for-secure-inputs' />[use-secure-value-for-secure-inputs](./linter-rule-use-secure-value-for-secure-inputs.md) | warning |
 | <a id='use-stable-resource-identifiers' />[use-stable-resource-identifiers](./linter-rule-use-stable-resource-identifier.md) | warning |
 | <a id='use-stable-vm-image' />[use-stable-vm-image](./linter-rule-use-stable-vm-image.md) | warning |
+| <a id='use-user-defined-types' />[use-user-defined-types](./linter-rule-use-user-defined-types.md) | off |
 | <a id='what-if-short-circuiting' />[what-if-short-circuiting](./linter-rule-what-if-short-circuiting.md) | off |
 
 You can enable or disable all linter rules and control how they are applied using a configuration file. To override the default behavior, create a **bicepconfig.json** file with your custom settings. For more information about applying those settings, see [Add custom settings in the Bicep config file](bicep-config-linter.md).

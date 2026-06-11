@@ -4,7 +4,7 @@ titleSuffix: Azure Load Testing
 description: 'This article shows how to run your load tests with Azure Load Testing in CI/CD. Learn how to add a load test to GitHub Actions, Azure Pipelines or other CI tools.'
 author: nandinimurali
 ms.author: nandinim
-ms.service: azure-load-testing
+ms.service: azure-app-testing
 ms.custom: devx-track-azurecli
 ms.topic: how-to 
 ms.date: 06/05/2023

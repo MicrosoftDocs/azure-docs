@@ -6,7 +6,7 @@ description: Learn how to set up a one-time password (OTP) scenario by using Azu
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/11/2024

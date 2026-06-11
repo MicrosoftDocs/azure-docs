@@ -4,7 +4,7 @@ description:  This article discusses how to use Azure Active Directory B2C to si
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 02/17/2025
