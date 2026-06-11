@@ -6,7 +6,7 @@ description: Notes for developers on HTTPS cipher suite and TLS requirements whe
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 05/14/2026
