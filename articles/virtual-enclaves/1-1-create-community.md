@@ -1,50 +1,38 @@
 ---
-title: Deploy a community on Azure Virtual Enclaves
-description: Deploy a community on Azure Virtual Enclaves.
+title: "Tutorial 1-1: Deploy a community on Azure Virtual Enclaves"
+description: Learn how to plan, deploy, validate, and clean up an Azure Virtual Enclaves community in the Azure portal.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
-ms.date: 12/18/2024
-ms.custom: references_regions
+ms.date: 06/01/2026
 ---
 
 # Tutorial 1-1: Deploy a community on Azure Virtual Enclaves
-
-⏱️ **Estimated time to complete:**
-- Reading: 15 minutes
-- Implementation: 45 minutes
-- Total: 60 minutes
-
-💡 **Complexity level:** Beginner
 
 ## Overview
 
 Azure Virtual Enclaves is an Azure service that accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments for the most sensitive mission workloads.
 
-Communities are isolated hub networks that can securely and logically group several enclaves together for governance, management, and security purposes. A community owner can enable other communities or on-premises networks to connect through transit hub or endpoints.
+Communities provide the isolated hub network foundation that securely and logically group enclaves together for governance, management, connectivity, and monitoring. A community owner can enable connectivity to other communities or on-premises networks through community endpoints and transit hubs.
 
-In this tutorial, part one of eight, you prepare a monitored and secure network cloud environment in the Azure portal using Azure Virtual Enclaves. One [enclave](./what-enclave.md) contains web applications and is publicly accessible by routing traffic through a second enclave with a Web Application Gateway, Web Application Firewall, and a Public IP address. An [enclave endpoint](./what-enclave-endpoint.md) for the Web App and creating an [enclave connection](./what-enclave-connection.md) between the Web App enclave and second enclaves enables Web App access.
+In this tutorial, part one of eight, you create an Azure Virtual Enclaves community in the Azure portal. Later tutorials in this series create [enclaves](./what-enclave.md), [enclave endpoints](./what-enclave-endpoint.md), and [enclave connections](./what-enclave-connection.md).
 
-You learn how to:
-  - Plan your community architecture and address space
-  - Deploy a community for your enclaves
-  - Understand hub-and-spoke topology benefits
-  - Validate community deployment and networking
-  - Monitor your community infrastructure
+In this tutorial, you:
+
+- Plan your community architecture and address space.
+- Deploy a community for your enclaves.
+- Understand hub-and-spoke topology benefits.
+- Validate community deployment, connectivity resources, monitoring, and access.
+- Clean up the community when you no longer need it.
 
 ## Prerequisites
 
-**Azure requirements:**
-  - Azure subscription with appropriate quotas
-  - Required Azure role permissions for Role Based Access Control (RBAC):
-  - Contributor on subscription or resource group
-  - User Access Administrator (for other RBAC assignments)
-  - Azure CLI or PowerShell installed (optional, for validation)
-
-**Knowledge:**
-- Basic understanding of Azure networking concepts
-- Familiarity with Azure Resource Manager
-- Understanding of private IP addressing
+- An Azure subscription with quota for the required networking, firewall policy, and monitoring resources.
+- Permissions to create and manage resources in the target subscription or resource group:
+  - Contributor
+  - User Access Administrator, if you need to create or update role assignments
+- Basic familiarity with Azure networking, Azure resource groups, and private IP address planning.
+- Azure CLI or Azure PowerShell installed, if you want to run optional validation commands.
 
 ## Before you begin
 
@@ -59,7 +47,7 @@ Calculate the total IP space needed for all planned enclaves:
 - **Estimate enclave count**: Plan for current needs plus 20-30% growth
 - **Calculate required space**: Each enclave typically needs /16 to /24 CIDR
 - **Avoid overlaps**: Ensure no overlap with on-premises networks or other Azure environments
-- **Can't be changed**: Address space can't be modified after creation
+- **Plan carefully**: Determine your required IP address space for your community and enclaves
 
 **Example calculation:**
 - Planning five enclaves, each with /16 CIDR (65,536 IPs each and 327,680 IPs total)
@@ -118,9 +106,6 @@ Choose the Azure region based on:
 - Plan for secondary region if needed
 - Consider paired regions for Azure DR
 
-> [!IMPORTANT]
-> All enclaves within a community must be deployed in the same Azure region as the community. You can create communities in different regions and connect them together.
-
 ## Architecture considerations
 
 ### Hub-and-spoke topology
@@ -128,11 +113,11 @@ Choose the Azure region based on:
 Communities create the hub and enclaves create the spokes for your hub-and-spoke network topology that provides several architectural benefits:
 
 **Hub (Community) components:**
-- **Azure Firewall**: Centralized traffic inspection and filtering
-- **Virtual Network Gateway**: Connectivity to on-premises networks (optional)
-- **Centralized Logging**: Configurable logging and monitoring
-- **Shared services**: Monitoring, DNS, management resources
-- **Policy enforcement**: Centralized governance and compliance
+- **Managed resource group**: Azure-managed resources that support the community
+- **Connectivity resources**: Virtual WAN and related connectivity resources for the community hub
+- **Firewall policy**: Centralized rule policy and rule collections for traffic governance
+- **Centralized logging**: Configurable logging and monitoring resources
+- **Policy enforcement**: Centralized governance and compliance controls
 
 **Spoke (Enclave) components:**
 - **Isolated virtual networks**: Separate network boundaries per enclave
@@ -181,7 +166,7 @@ Communities provide multiple security layers:
 
 ### Architecture diagram
 
-The following diagram shows the high-level architecture of an Azure Virtual Enclaves community:
+The following diagram shows an example Azure Virtual Enclaves environment that starts with a community and adds enclaves and workloads in later tutorials:
 
 [ ![Diagram showing two example workloads linked to both the other Virtual Enclaves resources and their workload resource groups.](./media/mermaid-workloads-example.png) ](./media/mermaid-workloads-example.png#lightbox)
 
@@ -206,11 +191,11 @@ Before creating a community, you need a resource group. An Azure resource group 
 
 ### Deploy the community
 
-Community deployments take approximately **30-45 minutes** to complete. Azure Virtual Enclaves creates several resources including networking, firewall, and monitoring infrastructure.
+Community deployments take approximately **30-45 minutes** to complete. Azure Virtual Enclaves creates the community resource and supporting managed resources for connectivity, firewall policy, and monitoring.
 
 #### Step 1: Navigate to Azure Virtual Enclaves
 
-In the **Azure Virtual Enclaves** page, select the **Communities** option in the left menu.
+In the `Azure Virtual Enclaves` page, select `Communities` in the left menu.
 
 [ ![Screenshot showing the Azure portal homepage for Azure Virtual Enclaves with the Create a Community button.](./media/azure-virtual-enclaves-homepage.png) ](./media/azure-virtual-enclaves-homepage.png#lightbox)
 
@@ -225,11 +210,11 @@ On the `Communities` page, select `Create`.
 Enter the basic details for your community:
 
 **Basic configuration:**
-- **Subscription**: Select your Azure subscription
-- **Resource Group**: `myResourceGroup` (or create new)
-- **Community name**: `fabrikam` (or use your naming convention)
-- **Region**: `East US` (choose based on your requirements)
-- **Community address space**: `10.0.0.0/16`
+- `Subscription`: Select your Azure subscription
+- `Resource Group`: `myResourceGroup` (or create new)
+- `Community name`: `fabrikam` (or use your naming convention)
+- `Region`: `East US` (choose based on your requirements)
+- `Community address space`: `10.0.0.0/16`
 
 **Understanding the configuration parameters:**
 
@@ -297,8 +282,8 @@ After the community deployment completes, perform these validation steps to ensu
 ### Step 1: Check community status
 
 1. Navigate to the community in Azure portal
-2. Verify **Status** shows **Succeeded**
-3. Review the **Overview** page for basic information
+2. Verify `Status` shows `Succeeded`
+3. Review the `Overview` page for basic information
 
 ![Screenshot showing created community on its overview page.](./media/tutorial-step-one-community-overview-page.png)
 
@@ -311,46 +296,24 @@ After the community deployment completes, perform these validation steps to ensu
 
 ### Step 2: Verify network configuration
 
-1. In the community overview, select **Managed Resource Group**
+1. In the community overview, select `Managed Resource Group`
 2. Review the resources created:
 
 **Expected resources in managed resource group:**
-- Virtual Network (virtual network) with community address space
-- Azure Firewall or Firewall Policy
-- Public IP address for firewall
-- Route tables
-- Network security groups
+- Managed identity
+- Log Analytics workspace
+- Virtual WAN and related connectivity resources
+- Firewall policy and rule collection resources
+- Diagnostic settings, where applicable
 
-**Verify Virtual Network:**
-- Navigate to the virtual network in the managed resource group
-- Check address space matches your configuration
-- Confirm subnets created for firewall and other components
+**Verify managed connectivity resources:**
+- Navigate to the managed resource group.
+- Confirm the expected connectivity and firewall policy resources were created.
+- Check that the configured address space matches your community planning.
 
-### Step 3: Review monitoring setup
+### Step 3: Review RBAC and access
 
-1. Navigate to **Diagnostic settings** in the community
-2. Verify Log Analytics workspace connection
-
-**Expected monitoring configuration:**
-- Log Analytics workspace created or linked
-- Diagnostic settings enabled for community
-- Azure Firewall logs configured
-- Metrics collection enabled
-
-**Verify logging is working:**
-Adjust the `ago(1hr)` if more time passed since the deployment.
-```kusto
-// Query to verify logs are flowing (run in Log Analytics)
-AzureDiagnostics
-| where TimeGenerated > ago(1h)
-| where Category == "AzureFirewallApplicationRule" or Category == "AzureFirewallNetworkRule"
-| summarize Count = count() by Category
-| order by Count desc
-```
-
-### Step 4: Review RBAC and access
-
-1. Navigate to **Access control (IAM)** in the community
+1. Navigate to `Access control (IAM)` in the community
 2. Review role assignments
 
 **Expected roles:**
@@ -364,8 +327,8 @@ After deployment, confirm:
 
   - Community status shows **Succeeded**
   - Community managed resource group created with expected resources
-  - Virtual Network configured with correct address space and subnets
-  - Azure Firewall deployed and running
+  - Managed connectivity resources configured with the correct address space
+  - Firewall policy and rule collections created
   - Log Analytics workspace connected
   - Diagnostic settings enabled
   - RBAC permissions are configured
@@ -376,7 +339,7 @@ After deployment, confirm:
 If you need to delete your community after completing this tutorial:
 
 > [!WARNING]
-> Deleting a community is **permanent** and **cannot be undone**. All enclaves, workloads, and resources within the community are deleted. Deletion is blocked if any of the workload resources groups contain resources to prevent accidental deletion.
+> Deleting a community is **permanent** and **cannot be undone**. Associated enclaves, workloads, and managed resources can be deleted as part of the community deletion process. Review dependent resources before you delete the community.
 
 **Before deleting:**
 - Export any important configurations or data
@@ -387,11 +350,11 @@ If you need to delete your community after completing this tutorial:
 **To delete a community:**
 
 1. Navigate to Azure Virtual Enclaves in Azure portal
-2. Select **Communities** from the left menu
+2. Select `Communities` from the left menu
 3. Select the community to delete (for example, `fabrikam`)
-4. Select **Delete** from the top menu
+4. Select `Delete` from the top menu
 5. Type the community name to confirm deletion
-6. Select **Delete**
+6. Select `Delete`
 
 ![Screenshot showing the completed community in the Azure Virtual Enclaves portal page communities list.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list-deployed.png)
 
@@ -400,17 +363,18 @@ If you need to delete your community after completing this tutorial:
 # Delete community (replace with your values)
 az resource delete \
   --resource-group myResourceGroup \
-  --resource-type Microsoft.AVE/communities \
-  --name fabrikam
+  --resource-type Microsoft.Mission/communities \
+  --name fabrikam \
+  --api-version 2025-05-01-preview
 ```
 
 **What gets deleted:**
 - Community resource
-- All enclaves within the community
-- All workloads and workload resource groups (if they're empty)
-- Managed resource groups
-- Azure Firewall and associated resources
-- Log Analytics workspace (if not shared)
+- Associated enclaves within the community
+- Associated workloads and empty workload resource groups
+- Managed resource group and service-managed resources
+- Firewall policy and associated rule collection resources
+- Log Analytics workspace, if it isn't shared
 
 **What is retained:**
 - Resource group (if containing other resources)
@@ -485,7 +449,7 @@ If you continue experiencing issues:
 
 1. **Check the AVE troubleshooting guide**: [Troubleshooting guide](./troubleshoot.md)
 2. **Review logs**: Check Activity Log for error messages
-3. **Azure documentation**: Review [Azure Virtual Enclaves documentation](./index.yml)
+3. **Azure documentation**: Review the [Azure Virtual Enclaves documentation](./index.yml) and [Azure Virtual Enclaves FAQs](./virtual-enclaves-faq.md)
 4. **Contact support**: Create a support ticket with:
    - Subscription ID
    - Community resource ID
@@ -518,4 +482,4 @@ In the next tutorial, you'll learn how to create isolated enclaves within your c
 - [Best practices for Azure Virtual Enclaves](./best-practices.md)
 - [Azure Virtual Enclaves FAQs](./virtual-enclaves-faq.md)
 - [Naming rules and restrictions](./name-rules-restrictions-azure-virtual-enclaves-resources.md)
-- [Quotas and region availability](./quotas-region-availability-azure-virtual-enclaves.md)
+- [Quotas and region availability](./quotas-region-availability.md)

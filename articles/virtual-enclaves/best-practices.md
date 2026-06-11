@@ -269,7 +269,7 @@ The workload is linked to one or more resource groups where you can create and o
 Adding a new resource group normally requires the user to have permissions to create a new resource group. Subscription `Owner` or `Contributor` roles have this permission but the person creating the workload resource group might not have or need this privileged permission. Azure Virtual Enclaves attempts three ways to create the new resource group ranging from the highest to lowest user permission requirements, offering flexibility for the user:
 
 - Option 1: Requires the most privileged permissions for the individual creating or updating the workload, providing full control but necessitating elevated access.
-- Option 2: Involves manual intervention by the user to [grant our `Mission Enclave` application ownership at the subscription level](./onboard.md), which might not align with all customers’ preferences.
+- Option 2: Involves manual setup by the user to [grant our `Mission Enclave` application ownership at the subscription level](./onboard.md), which might not align with all customers’ preferences.
 - Option 3: Requires no permissions for either the user or the `Mission Enclave` application, making it the easiest method but imposing a strict 1:1 relationship between the resource group and workload.
 
 Each option has benefits and limitations, balancing control, convenience, and flexibility to fit varying needs. These options are each evaluated starting with option 1 and the first option to succeed is used to create the new resource group.

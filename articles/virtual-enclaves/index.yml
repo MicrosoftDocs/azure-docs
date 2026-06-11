@@ -206,7 +206,7 @@ landingContent:
           - text: Move data inside an enclave
             url: move-data-inside-enclave.md
           - text: Quotas and region availability
-            url: quotas-region-availability-azure-virtual-enclaves.md
+            url: quotas-region-availability.md
       - linkListType: architecture
         links:
           - text: Understand creation and deletion logic
