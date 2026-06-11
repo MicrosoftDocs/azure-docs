@@ -98,6 +98,8 @@ items:
     items:
     - name: Use service accounts
       href: how-to-service-accounts.md
+    - name: Authenticate data plane APIs with Microsoft Entra ID
+      href: how-to-authenticate-data-plane-api.md
     - name: Configure MCP for AI Foundry agents
       href: how-to-configure-mcp-for-ai-foundry.md
     - name: Monitor using metrics

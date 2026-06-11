@@ -195,7 +195,7 @@ You need to switch the trigger source from the default Blob trigger source (cont
 ::: zone pivot="programming-language-csharp"
 Open the generated `EventGridBlobTrigger.cs` file. You see a definition for an `EventGridBlobTrigger` function that looks something like this: 
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/EventGridBlobTrigger-CSharp-Isolated-6.x/EventGridBlobTriggerCSharp.cs" range="17-23":::
+<!--- :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/EventGridBlobTrigger-CSharp-Isolated-6.x/EventGridBlobTriggerCSharp.cs" range="17-23"::: --->
 
 In this definition, `Source = BlobTriggerSource.EventGrid` indicates that an event subscription to the blob container (in the example `PathValue`) is the source of the event that starts the trigger. 
 ::: zone-end  
@@ -219,21 +219,21 @@ In this definition, `source = EventGrid` indicates that an event subscription to
 ::: zone pivot="programming-language-powershell"
 In the `EventGridBlobTrigger` folder, open the `function.json` file and find a binding definition like this with a `type` of `blobTrigger` and a `source` of `EventGrid`: 
 
-:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/EventGridBlobTrigger-PowerShell/function.json" :::
+<!--- :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/EventGridBlobTrigger-PowerShell/function.json" ::: --->
 
 The `path` indicates that the `samples-workitems` blob container is the source of the event that starts the trigger. 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 Open the generated `EventGridBlobTrigger.js` file. You see a definition for a function that looks something like this: 
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageBlobTriggerEventGrid1.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageBlobTriggerEventGrid1.js" ::: --->
 
 In this definition, a `source` of `EventGrid` indicates that an event subscription to the `samples-workitems` blob container is the source of the event that starts the trigger. 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 Open the generated `EventGridBlobTrigger.ts` file. You see a definition for a function that looks something like this: 
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageBlobTriggerEventGrid1.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageBlobTriggerEventGrid1.ts" ::: --->
 
 In this definition, a `source` of `EventGrid` indicates that an event subscription to the `samples-workitems` blob container is the source of the event that starts the trigger. 
 ::: zone-end  

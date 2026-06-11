@@ -6,7 +6,7 @@ manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: troubleshooting
-ms.date: 05/29/2025
+ms.date: 06/07/2026
 ms.author: rolyon
 ms.custom:
   - devx-track-azurepowershell
@@ -105,7 +105,7 @@ When you try to add a role assignment with a condition, **Principal** doesn't ap
 
 Instead, you see the message:
 
-`To use principal (user) attributes, you must have Microsoft Entra permissions (such as the [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator) role) and custom security attributes defined in Microsoft Entra ID.`
+`To use principal (user) attributes, you must have Microsoft Entra permissions (such as the Attribute Assignment Administrator role) and custom security attributes defined in Microsoft Entra ID.`
 
 **Cause**
 
@@ -122,17 +122,17 @@ You don't meet the prerequisites. To use principal attributes, you must have the
 
     ![Screenshot that shows Custom security attributes Get started page.](./media/conditions-troubleshoot/attributes-get-started.png)
 
-1. If custom security attributes have been defined, assign one of the following roles at tenant scope or attribute set scope. For more information, see [Manage access to custom security attributes in Microsoft Entra ID](../active-directory/fundamentals/custom-security-attributes-manage.md).
+1. If custom security attributes have been defined, assign one of the following roles at tenant scope or attribute set scope. For more information, see [Manage access to custom security attributes in Microsoft Entra ID](/entra/fundamentals/custom-security-attributes-manage).
 
-    - [Attribute Definition Reader](../active-directory/roles/permissions-reference.md#attribute-definition-reader)
-    - [Attribute Assignment Reader](../active-directory/roles/permissions-reference.md#attribute-assignment-reader)
-    - [Attribute Definition Administrator](../active-directory/roles/permissions-reference.md#attribute-definition-administrator)
-    - [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator)
+    - [Attribute Definition Reader](/entra/identity/role-based-access-control/permissions-reference#attribute-definition-reader)
+    - [Attribute Assignment Reader](/entra/identity/role-based-access-control/permissions-reference#attribute-assignment-reader)
+    - [Attribute Definition Administrator](/entra/identity/role-based-access-control/permissions-reference#attribute-definition-administrator)
+    - [Attribute Assignment Administrator](/entra/identity/role-based-access-control/permissions-reference#attribute-assignment-administrator)
     
     > [!IMPORTANT]
-    > By default, [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
+    > By default, [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
 
-1. If custom security attributes haven't been defined yet, assign the [Attribute Definition Administrator](../active-directory/roles/permissions-reference.md#attribute-definition-administrator) role at tenant scope and add custom security attributes. For more information, see [Add or deactivate custom security attributes in Microsoft Entra ID](../active-directory/fundamentals/custom-security-attributes-add.md).
+1. If custom security attributes haven't been defined yet, assign the [Attribute Definition Administrator](/entra/identity/role-based-access-control/permissions-reference#attribute-definition-administrator) role at tenant scope and add custom security attributes. For more information, see [Add or deactivate custom security attributes in Microsoft Entra ID](/entra/fundamentals/custom-security-attributes-add).
 
     When finished, you should be able to read at least one attribute set. 
 
@@ -142,7 +142,7 @@ You don't meet the prerequisites. To use principal attributes, you must have the
 
 ### Symptom - Principal does not appear in Attribute source when using PIM 
 
-When you try to add a role assignment with a condition using [Microsoft Entra Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-configure.md), **Principal** does not appear in the **Attribute source** list.
+When you try to add a role assignment with a condition using [Microsoft Entra Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure), **Principal** does not appear in the **Attribute source** list.
 
 ![Screenshot showing Principal in Attribute source list when adding a condition using Privileged Identity Management.](./media/conditions-troubleshoot/condition-principal-attribute-source.png)
 
@@ -405,4 +405,4 @@ When handling responses for authorization permissions that also include a condit
 
 - [Azure role assignment condition format and syntax](conditions-format.md)
 - [FAQ for Azure role assignment conditions](conditions-faq.md)
-- [Troubleshoot custom security attributes in Microsoft Entra ID (Preview)](../active-directory/fundamentals/custom-security-attributes-troubleshoot.md)
+- [Troubleshoot custom security attributes in Microsoft Entra ID](/entra/fundamentals/custom-security-attributes-troubleshoot)

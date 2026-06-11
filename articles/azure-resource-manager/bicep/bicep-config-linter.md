@@ -142,6 +142,9 @@ The following example shows the rules that are available for configuration.
         "use-stable-vm-image": {
           "level": "warning"
         },
+        "use-user-defined-types": {
+          "level": "off"
+        },
         "what-if-short-circuiting": {
           "level": "off"
         }

@@ -6,7 +6,7 @@ description: Learn how to manage directory size quota in your Azure AD B2C tenan
 author: alvesfabi
 manager: DavidHoerster
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: tutorial
 ms.date: 07/31/2024

@@ -310,11 +310,11 @@ The `Filter` and `Take` properties are used to limit the number of entities retu
 
 The following `MyTableData` class represents a row of data in the table: 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Table/TableFunction.cs" range="31-38" :::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Table/TableFunction.cs" range="31-38" ::: --->
 
 The following function, which is started by a Queue Storage trigger, reads a row key from the queue, which is used to get the row from the input table. The expression `{queueTrigger}` binds the row key to the message metadata, which is the message string.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Table/TableFunction.cs" range="12-29" ::: 
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Table/TableFunction.cs" range="12-29" ::: --->
 
 The following Queue-triggered function returns the first 5 entities as an `IEnumerable<T>`, with the partition key value set as the queue message.  
 
@@ -422,7 +422,7 @@ The following example shows a table input binding that uses a queue trigger to r
 
 # [Model v4](#tab/nodejs-v4)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/tableInput1.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/tableInput1.ts" ::: --->
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -435,7 +435,7 @@ TypeScript samples are not documented for model v3.
 
 # [Model v4](#tab/nodejs-v4)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/tableInput1.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/tableInput1.js" ::: --->
 
 # [Model v3](#tab/nodejs-v3)
 
