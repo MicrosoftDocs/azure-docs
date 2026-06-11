@@ -11,9 +11,9 @@ ms.date: 06/11/2026
 
 # Assign Microsoft Discovery persona roles with a PowerShell script
 
-Microsoft Discovery personas — **Platform Administrator** and **Scientist** — each require multiple Azure built-in roles (storage, networking, managed identity, container registry, Azure AI, and the Microsoft Discovery built-in roles) at the right scope. Assigning them one-by-one through the Azure portal is repetitive and error-prone, and missing even one role typically surfaces only at runtime as an opaque `AuthorizationFailed` error.
+Microsoft Discovery personas - **Platform Administrator** and **Scientist** - each require multiple Azure built-in roles (storage, networking, managed identity, container registry, Azure AI, and the Microsoft Discovery built-in roles) at the right scope. Assigning them one-by-one through the Azure portal is repetitive and error-prone, and missing even one role typically surfaces only at runtime as an opaque `AuthorizationFailed` error.
 
-To make this a single, repeatable, idempotent step, the Microsoft Discovery team publishes the open-source PowerShell script **`Set-DiscoveryRoleAssignments.ps1`** in the [microsoft/discovery](https://github.com/microsoft/discovery) GitHub repository. This article shows you how to use it.
+To make this process a single, repeatable, idempotent step, the Microsoft Discovery team publishes the open-source PowerShell script **`Set-DiscoveryRoleAssignments.ps1`** in the [microsoft/discovery](https://github.com/microsoft/discovery) GitHub repository. This article shows you how to use it.
 
 > [!TIP]
 > Run this script **before** users try to access Microsoft Discovery. Most permission-related support cases come from one or more persona roles being missing or assigned at the wrong scope.
@@ -23,7 +23,7 @@ To make this a single, repeatable, idempotent step, the Microsoft Discovery team
 Use the script when you need to:
 
 - Onboard one or more users as **Platform Administrator** or **Scientist** on a Microsoft Discovery subscription or resource group.
-- Re-verify that an existing user holds the full persona role set (the script is idempotent — already-assigned roles are reported as `AlreadyAssigned` and not re-created).
+- Re-verify that an existing user holds the full persona role set (the script is idempotent - already-assigned roles are reported as `AlreadyAssigned` and not re-created).
 - Preview the role assignments that *would* be made for a user, without making any changes (`-WhatIf`).
 - Automate persona onboarding from CI/CD with `-Force` and `-SkipModuleInstall`.
 
@@ -35,7 +35,7 @@ If you only need to assign a single Microsoft Discovery built-in role, the Azure
 |---|---|
 | PowerShell | 5.1+ on Windows, 7.x on macOS or Linux |
 | Az modules | `Az.Accounts >= 3.0.0`, `Az.Resources >= 7.0.0` (the script auto-installs them unless you pass `-SkipModuleInstall`) |
-| Executor role | The user running the script must hold **Owner**, **User Access Administrator**, or **Role Based Access Control Administrator** at the target scope. The *Microsoft Discovery Platform Administrator (Preview)* role alone is **not** sufficient — that role cannot grant the Azure built-in roles (Storage, Network, Managed Identity, Azure AI) each persona requires. |
+| Executor role | The user running the script must hold **Owner**, **User Access Administrator**, or **Role Based Access Control Administrator** at the target scope. The *Microsoft Discovery Platform Administrator (Preview)* role alone is **not** sufficient - that role can't grant the Azure built-in roles (Storage, Network, Managed Identity, Azure AI) each persona requires. |
 | Target users | Must already exist in the tenant. Guest users must be invited to the tenant before role assignment. |
 
 ## What the script assigns
@@ -79,7 +79,7 @@ Invoke-WebRequest `
 ```
 
 > [!NOTE]
-> The full README — including parameter reference, exit codes, troubleshooting, and cross-tenant guidance — is at [utilities/rbac-roles-assignment/README.md](https://github.com/microsoft/discovery/blob/main/utilities/rbac-roles-assignment/README.md).
+> The full README including parameter reference, exit codes, troubleshooting, and cross-tenant guidance is at [utilities/rbac-roles-assignment/README.md](https://github.com/microsoft/discovery/blob/main/utilities/rbac-roles-assignment/README.md).
 
 ## Run the script
 
@@ -103,7 +103,7 @@ The script prompts for `SubscriptionId`, `Persona`, `UserIds`, `Scope`, `Resourc
 
 ### Assign Scientist at resource group scope
 
-This assumes the Azure Container Registry, storage account, virtual network, managed identities, and the Discovery workspace all live in the same resource group `contoso-discovery-rg`.
+This assignment assumes the Azure Container Registry, storage account, virtual network, managed identities, and the Discovery workspace all live in the same resource group `contoso-discovery-rg`.
 
 ```powershell
 ./Set-DiscoveryRoleAssignments.ps1 `
@@ -150,7 +150,7 @@ When you choose **`-Scope ResourceGroup`**, the script grants every non-subscrip
 - Virtual network and subnets used by Discovery
 - User-assigned managed identities used by Discovery
 
-If your Discovery resources span multiple resource groups (for example, ACR or the virtual network in a shared networking resource group), RG-scoped assignments will not cover them and the platform will surface permission errors at runtime. In that case, use **`-Scope Subscription`** instead, or run the script multiple times — once per resource group — using the appropriate persona.
+If your Discovery resources span multiple resource groups (for example, ACR or the virtual network in a shared networking resource group), RG-scoped assignments won't cover them and the platform will surface permission errors at runtime. In that case, use **`-Scope Subscription`** instead, or run the script multiple times, once per resource group using the appropriate persona.
 
 The Reader role is always assigned at subscription scope. The Azure AI Owner (Platform Administrator) and Azure AI User (Scientist) roles are assigned at the workspace managed resource group when `-Scope ResourceGroup`, and at subscription scope when `-Scope Subscription`.
 
@@ -158,9 +158,9 @@ The Reader role is always assigned at subscription scope. The Azure AI Owner (Pl
 
 The workspace managed resource group is created only after the Microsoft Discovery workspace is provisioned. If you run the script before the workspace exists, the **Azure AI Owner/User** role assignment is skipped.
 
-1. **Step 1 — pre-create the other roles.** Run the script without `-WorkspaceManagedRGName`. When prompted to include the AI role, answer **N**. All other roles are assigned and the AI role is reported as `Skipped`.
+1. **Step 1: pre-create the other roles.** Run the script without `-WorkspaceManagedRGName`. When prompted to include the AI role, answer **N**. All other roles are assigned and the AI role is reported as `Skipped`.
 1. **Create the Microsoft Discovery workspace** through the Azure portal, CLI, or Bicep. Note the generated managed resource group name.
-1. **Step 2 — finish the AI role.** Rerun the script with `-WorkspaceManagedRGName <mrg-name>`. The script prints a ready-to-paste rerun command at the end of step 1 to make this easy. Already-assigned roles are detected and reported as `AlreadyAssigned`.
+1. **Step 2: finish the AI role.** Rerun the script with `-WorkspaceManagedRGName <mrg-name>`. The script prints a ready-to-paste rerun command at the end of step 1 to make this easy. Already-assigned roles are detected and reported as `AlreadyAssigned`.
 
 With `-Scope Subscription`, the AI role is assigned at subscription scope alongside the other roles, and this two-step workflow isn't needed.
 
@@ -168,14 +168,14 @@ With `-Scope Subscription`, the AI role is assigned at subscription scope alongs
 
 After execution, the script prints three clearly separated sections:
 
-- **ASSIGNED ROLES** — successfully assigned, already in place, or planned (in `-WhatIf`).
-- **ROLES THAT COULD NOT BE ASSIGNED (FAILED)** — includes the underlying error per row.
-- **SKIPPED ROLES** — includes the reason (for example, the workspace managed resource group name wasn't provided, or the role hasn't propagated to your tenant yet).
+- **ASSIGNED ROLES**: successfully assigned, already in place, or planned (in `-WhatIf`).
+- **ROLES THAT COULD NOT BE ASSIGNED (FAILED)**: includes the underlying error per row.
+- **SKIPPED ROLES**: includes the reason (for example, the workspace managed resource group name wasn't provided, or the role hasn't propagated to your tenant yet).
 
 | Exit code | Meaning |
 |---|---|
 | 0 | All assignments succeeded or already existed |
-| 2 | Partial success — one or more roles were skipped or failed |
+| 2 | Partial success—one or more roles were skipped or failed |
 | 3 | Aborted before any changes (validation, permission, or no resolvable users) |
 | 4 | Unhandled exception |
 

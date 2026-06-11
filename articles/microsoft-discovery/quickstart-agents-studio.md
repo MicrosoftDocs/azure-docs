@@ -27,7 +27,7 @@ In this quickstart, you will set up resources for your Microsoft Discovery proje
 
 - An existing and functional Microsoft Discovery Workspace and Project.
 - Review [Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure-portal.md) before you begin this tutorial.
-- The **Scientist** or **Platform Administrator** persona role set assigned to the user that will sign in to Microsoft Discovery Studio. For the recommended one-step assignment, see [Assign Microsoft Discovery persona roles with a PowerShell script](how-to-assign-persona-roles.md).
+- The **Scientist** or **Platform Administrator** persona role set assigned to the user. For the recommended one-step assignment, see [Assign Microsoft Discovery persona roles with a PowerShell script](how-to-assign-persona-roles.md).
 
 ## 1. Log in to Microsoft Discovery Studio
 
