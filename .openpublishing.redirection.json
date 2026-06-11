@@ -1,6 +1,22 @@
 {
   "redirections": [
     {
+      "source_path": "articles/migrate/create-project.md",
+      "redirect_url": "/azure/migrate/quickstart-create-project",
+      "redirect_document_id": false,
+      "monikers": [
+        "migrate"
+      ]
+    },
+    {
+      "source_path": "articles/migrate/create-manage-projects.md",
+      "redirect_url": "/azure/migrate/quickstart-create-project",
+      "redirect_document_id": false,
+      "monikers": [
+        "migrate"
+      ]
+    },
+    {
       "source_path": "articles/data-factory/transform-data-using-data-lake-analytics.md",
       "redirect_url": "/azure/data-factory/transform-data",
       "redirect_document_id": false

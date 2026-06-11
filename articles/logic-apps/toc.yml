@@ -2,20 +2,36 @@ items:
   - name: Azure Logic Apps documentation
     href: index.yml
   - name: Overview
+    expanded: true
     items:
       - name: About Azure Logic Apps
         href: logic-apps-overview.md
+      - name: About Azure Logic Apps Automation
+        href: automation/dynamic-workflow-automation-introduction.md
   - name: Quickstarts
+    expanded: true
     items:
-      - name: Consumption logic app workflows
+      - name: Dynamic workflows
+        items:
+          - name: 1 - Create projects
+            href: automation/quickstart-create-dynamic-automation-projects.md
+          - name: 2 - Create applications
+            href: automation/quickstart-create-dynamic-automation-applications.md
+          - name: 3 - Create workflows
+            href: automation/quickstart-create-dynamic-automation-workflows.md
+      - name: Standard workflows
+        items:
+          - name: Portal
+            href: create-single-tenant-workflows-azure-portal.md
+          - name: Portal - Templates gallery
+            href: create-workflows-from-templates.md?tabs=standard
+          - name: Visual Studio Code
+            href: create-standard-workflows-visual-studio-code.md
+      - name: Consumption workflows
         items:
           - name: Portal
             href: quickstart-create-example-consumption-workflow.md
           - name: Portal - Templates gallery
-            href: create-workflows-from-templates.md?tabs=consumption
-          - name: Visual Studio
-            href: quickstart-create-logic-apps-with-visual-studio.md
-          - name: Visual Studio Code
             href: quickstart-create-logic-apps-visual-studio-code.md
           - name: Bicep
             href: quickstart-create-deploy-bicep.md
@@ -27,14 +43,6 @@ items:
             href: quickstart-logic-apps-azure-cli.md
           - name: Azure PowerShell
             href: quickstart-logic-apps-azure-powershell.md
-      - name: Standard logic app workflows
-        items:
-          - name: Portal
-            href: create-single-tenant-workflows-azure-portal.md
-          - name: Portal - Templates gallery
-            href: create-workflows-from-templates.md?tabs=standard
-          - name: Visual Studio Code
-            href: create-standard-workflows-visual-studio-code.md
   - name: Tutorials
     items:
       - name: Create Consumption schedule-based workflow

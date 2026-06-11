@@ -1,5 +1,5 @@
 ---
-title: Azure SRE Agent network integration (preview)
+title: Azure SRE Agent Network Integration (Preview)
 description: Learn how VNet integration controls outbound access for the SRE Agent. Understand the three network control modes, traffic routing, and how to configure Azure VNet mode.
 ms.topic: concept-article
 ms.date: 06/02/2026
@@ -12,13 +12,17 @@ ms.collection: ce-skilling-ai-copilot
 
 # Azure SRE Agent network integration (preview)
 
-When you grant the SRE Agent's managed identity the appropriate RBAC permissions, it can act on your infrastructure, query your databases, and run commands against your clusters. RBAC is the primary security boundary that controls what the agent can do. Virtual network (VNet) integration adds a complementary layer of protection by controlling where the agent can send traffic. Without VNet integration, outbound traffic from the agent flows over the public internet. With it, every outbound call routes through your Azure Virtual Network and your existing network security infrastructure.
+You can improve the security of your agent in Azure SRE Agent in a couple of ways: through appropriate role-based access control (RBAC) permissions, and through virtual network (VNet) integration.
 
-This article explains why network-level control matters for enterprise deployments, how VNet integration works, and how to choose the right network control mode for your workload.
+If you grant the agent's managed identity the appropriate RBAC permissions, the agent can act on your infrastructure, query your databases, and run commands against your clusters. RBAC is the primary security boundary that controls what the agent can do.
+
+Virtual network integration adds a complementary layer of protection by controlling where the agent can send traffic. Without this integration, outbound traffic from the agent flows over the public internet. With it, every outbound call routes through Azure Virtual Network and your existing network security infrastructure.
+
+This article explains why network-level control matters for enterprise deployments, how virtual network integration works, and how to choose the right network control mode for your workload.
 
 ## Why network control matters
 
-By default, the SRE Agent can reach any endpoint on the internet. For development and test workloads, this behavior is acceptable. For production enterprise deployments, this level of access creates unnecessary risk.
+By default, the agent can reach any endpoint on the internet. For development and test workloads, this behavior is acceptable. For production enterprise deployments, this level of access creates unnecessary risk.
 
 Two risks drive the enterprise requirement for network controls:
 
@@ -26,33 +30,33 @@ Two risks drive the enterprise requirement for network controls:
 
 - **Prompt injection**: Malicious content on the public internet can be crafted to manipulate agent behavior. An unrestricted agent that fetches external content is exposed to injection attacks through those responses.
 
-Place the SRE Agent inside a virtual network for better control over its behavior.
+Place the agent inside a virtual network for better control over its behavior.
 
-## How VNet integration works
+## How virtual network integration works
 
-VNet integration connects the SRE Agent to your existing Azure Virtual Network. When the agent makes an outbound call, traffic flows through your network infrastructure instead of the public internet.
+Virtual network integration connects SRE Agent to your existing virtual network. When the agent makes an outbound call, traffic flows through your network infrastructure instead of the public internet.
 
-After you configure VNet integration, agent traffic:
+After you configure virtual network integration, agent traffic:
 
-- Appears in your **network logs** for auditing and monitoring
-- Passes through your **Layer 4 and Layer 7 firewalls**
-- Respects your **custom DNS** configuration
-- Follows your **enterprise security policies** and egress rules
+- Appears in your network logs for auditing and monitoring.
+- Passes through your layer 4 and layer 7 firewalls.
+- Respects your custom Domain Name System (DNS) configuration.
+- Follows your enterprise security policies and egress rules.
 
-After the SRE Agent joins the VNet, it operates under the same rules as any other workload on that network, including firewall inspection, DNS resolution, and traffic logging.
+After SRE Agent joins the virtual network, it operates under the same rules as any other workload on that network, including firewall inspection, DNS resolution, and traffic logging.
 
 > [!IMPORTANT]
-> VNet integration controls **outbound (egress) traffic only**.
+> Virtual network integration controls outbound (egress) traffic only.
 
 ## Network control modes
 
-The SRE Agent offers three network control modes. Select the mode that matches your security posture and operational context.
+SRE Agent offers three network control modes. Select the mode that matches your security posture and operational context.
 
 | Mode | Description | Best for |
 |------|-------------|----------|
-| **Unrestricted** | No network restrictions. The agent can reach any internet endpoint. | Development, test, and non-sensitive workloads. |
-| **Limited** | Wildcard-based URL allow list controls which endpoints the agent can call. | Host-level control without full VNet routing. |
-| **Azure VNet** | All non-platform outbound traffic routes through your VNet with your DNS and firewall rules applied. | Production deployments requiring egress control and audit compliance. |
+| Unrestricted | No network restrictions. The agent can reach any internet endpoint. | Development, test, and non-sensitive workloads. |
+| Limited | Wildcard-based URL allow list controls which endpoints the agent can call. | Host-level control without full VNet routing. |
+| Azure VNet | All non-platform outbound traffic routes through your VNet with your DNS and firewall rules applied. | Production deployments requiring egress control and audit compliance. |
 
 ### Choose a network control mode for your workload
 
@@ -60,9 +64,9 @@ Use the following criteria to select a mode:
 
 - **Azure VNet**: Choose this mode if the workload handles sensitive or regulated data, requires a full audit trail of outbound network activity, or must comply with enterprise security policies. This mode is recommended for production enterprise deployments.
 
-- **Limited**: Choose this mode if you want to restrict specific external destinations without routing all traffic through a VNet. This mode works well when you need partial control without the overhead of full VNet configuration.
+- **Limited**: Choose this mode if you want to restrict specific external destinations without routing all traffic through a virtual network. This mode works well when you need partial control without the overhead of full virtual network configuration.
 
-- **Unrestricted**: Choose this mode if the workload is a short-lived development or test environment with no access to sensitive data. This mode is the default.
+- **Unrestricted**: Choose this mode if the workload is a short-term development or test environment with no access to sensitive data. This mode is the default.
 
 To select a mode, open your agent in the Azure portal and select **Settings** > **Workspace configuration**. Switch between modes on a running agent. Settings persist across mode changes.
 
@@ -107,7 +111,7 @@ Azure VNet mode requires a dedicated subnet in your virtual network:
 
 1. Go to **Settings** > **Workspace configuration** > **Network**.
 1. Select **Azure VNet** as the egress mode.
-1. Select **Browse subnets...**
+1. Select **Browse subnets**.
 1. Select your **Subscription**, **Resource group**, **Virtual network**, and **Subnet** that meets the [subnet requirements](#subnet-requirements).
 1. Select **Save**.
 1. Test the agent with a representative incident to confirm it can reach the resources it needs.
@@ -128,8 +132,11 @@ Preinstall packages in the sandbox base disk image so they're available every ti
 To configure preinstalled packages:
 
 1. Open your agent in the Azure portal, and select **Settings** > **Workspace configuration**.
+
 1. Select the **Packages** tab.
+
 1. Enter the package name, select the package manager (**pip** or **NuGet**), and optionally specify a version.
+
 1. Select **+ Add package**.
 
 :::image type="content" source="media/network-integration/azure-sre-agent-packages.png" alt-text="Screenshot of the Packages tab in Azure SRE Agent workspace configuration showing fields for package name, package manager, and version." lightbox="media/network-integration/azure-sre-agent-packages.png":::
@@ -137,15 +144,15 @@ To configure preinstalled packages:
 > [!NOTE]
 > NuGet entries must be .NET CLI tools (for example, `dotnet-ef`). You can't install library packages globally.
 
-## VNet bypass controls
+## Virtual network bypass controls
 
 When you enable Azure VNet mode, the **On the infra network** section of the workspace configuration page lets you route categories of traffic outside your VNet over the public internet. If you don't enable any of these controls, all agent traffic routes through your VNet.
 
 Not every external service provides an Azure service tag. GitHub, for example, isn't an Azure service and doesn't expose a service tag. If your agent needs to reach GitHub, your only option with a Layer 4, IP-based firewall is to maintain a list of the provider's IP addresses. Those lists change frequently, and a firewall that doesn't stay current breaks the agent.
 
-The bypass controls help when the agent needs to reach hosts that are hard to express as a static IP allow list. Major public services such as GitHub, PyPI, npm, NuGet, and container registries operate from large, frequently changing global IP ranges and aren't covered by Azure service tags. If your egress firewall does L4 (IP-based) filtering only, keeping these IP lists current is costly and a stale list breaks the agent.
+The same is true for several major public services such as PyPI, npm, NuGet, and container registries. These services operate from large, frequently changing global IP ranges, and they aren't covered by Azure service tags.
 
-The bypass toggles let the agent reach these hosts through the platform egress while your network team updates firewall rules or moves to a firewall that supports hostname or FQDN-based filtering. Examples include Azure Firewall Premium with FQDN rules, or an NVA that supports TLS inspection.
+The bypass toggles let the agent reach these hosts through the platform egress. Your network team updates firewall rules, or moves to a firewall that supports hostname filtering or fully qualified domain name (FQDN) filtering. Examples include Azure Firewall Premium with FQDN rules, or a network virtual appliance that supports Transport Layer Security inspection.
 
 Treat the bypass controls as a transitional tool, not a permanent substitute for hostname-aware egress filtering.
 
@@ -153,10 +160,10 @@ The following controls are available:
 
 | Control | Description |
 |---------|-------------|
-| **MCP server access** | When enabled, MCP server traffic routes over the public internet instead of your VNet. |
-| **Package manager access** | When enabled, package manager traffic (PyPI, npm, NuGet) routes over the public internet instead of your VNet. |
-| **Code repositories** | Select which code repository providers (GitHub, GitHub Enterprise, Azure DevOps) route over the public internet instead of your VNet. |
-| **Additional hosts** | Enter extra hostnames or wildcard patterns (for example, `github.com`, `*.example.com`, `raw.contoso.io`) to route over the public internet instead of your VNet. Your configured packages automatically allow their own hosts. |
+| Model Context Protocol (MCP) server access | When enabled, MCP server traffic routes over the public internet instead of your virtual network. |
+| Package manager access | When enabled, package manager traffic (PyPI, npm, NuGet) routes over the public internet instead of your virtual network. |
+| Code repositories | Select which code repository providers (GitHub, GitHub Enterprise, Azure DevOps) route over the public internet instead of your virtual network. |
+| Additional hosts | Enter extra hostnames or wildcard patterns (for example, `github.com`, `*.example.com`, `raw.contoso.io`) to route over the public internet instead of your virtual network. Your configured packages automatically allow their own hosts. |
 
 ### Governance considerations
 
@@ -170,22 +177,21 @@ If an outbound request is denied by an NSG rule or has no route, the agent sees 
 
 The following limitations apply during preview.
 
-- **Egress only**: VNet integration controls outbound (egress) traffic only. Inbound connections to the agent from inside a private network aren't supported.
+- **Egress only**: Virtual network integration controls outbound (egress) traffic only. Inbound connections to the agent from inside a private network aren't supported.
 
-- **Connectors don't route through the VNet**: There's no support for routing connector traffic through the VNet.
+- **Connectors don't route through the virtual network**: There's no support for routing connector traffic through the virtual network. Connectors are also in preview. During preview, connector traffic routes over the public internet. For more information, see [SRE Agent connectors](mcp-connectors.md).
 
-- **kubectl against private clusters requires managed identity**: When the agent reaches a private [Azure Kubernetes Service (AKS) API server through VNet integration](/azure/aks/access-private-cluster), kubectl commands run through the AKS command invoke flow.
+- **kubectl commands against private clusters require managed identity**: When the agent reaches a private [Azure Kubernetes Service (AKS) API server through virtual network integration](/azure/aks/access-private-cluster), kubectl commands run through the AKS command invoke flow.
 
   This flow supports the agent's managed identity but doesn't pass on-behalf-of (OBO) user credentials.
 
-  The command also has operational limits including a 60-second ARM API timeout and a 512 KB output size limit. Long-running or high-output kubectl operations can truncate or fail.
+  The command also has operational limits, including a 60-second Azure Resource Manager API timeout and a 512-KB output size limit. Long-running or high-output kubectl operations can truncate or fail.
 
-  If you need OBO support for kubectl, or you need to run operations that exceed those limits, keep the AKS API server publicly reachable and use *Unrestricted* or *Limited* mode.
-
-> [!NOTE]
-> MCP servers and Azure resources behind the VNet are accessible as expected, provided your IP address and service tag configuration is correct.
+  If you need OBO support for kubectl, or you need to run operations that exceed those limits, keep the AKS API server publicly reachable, and use unrestricted or limited mode.
 
 > [!NOTE]
+> MCP servers and Azure resources behind the VNet are accessible as expected, if your IP address and service tag configuration is correct.
+>
 > Connectors are also in preview. During preview, connector traffic routes over the public internet rather than through the VNet. For more information, see [SRE Agent connectors](mcp-connectors.md).
 
 ## Related content

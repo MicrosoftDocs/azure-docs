@@ -55,9 +55,9 @@ This article describes these components in the sample app:
 ::: zone pivot="durable-functions"
 
 # [C#](#tab/csharp)
-<!--
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=13-25)]
--->
+
 All C# orchestration functions must have a parameter of type `DurableOrchestrationContext`, which exists in the `Microsoft.Azure.WebJobs.Extensions.DurableTask` assembly. This context object lets you call other *activity* functions and pass input parameters using its `CallActivityAsync` method.
 
 The code calls `E1_SayHello` three times in sequence with different parameter values. The return value of each call is added to the `outputs` list, which is returned at the end of the function.
@@ -70,9 +70,9 @@ The code calls `E1_SayHello` three times in sequence with different parameter va
 #### function.json
 
 If you develop in Visual Studio Code or the Azure portal, here's the orchestrator *function.json* file.
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E1_HelloSequence/function.json":::
--->
+
 The key setting is the `orchestrationTrigger` binding type. All orchestrator functions must use this trigger type.
 
 > [!WARNING]
@@ -81,9 +81,9 @@ The key setting is the `orchestrationTrigger` binding type. All orchestrator fun
 #### index.js
 
 Here is the orchestrator function:
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E1_HelloSequence/index.js":::
--->
+
 All JavaScript orchestration functions must include the [`durable-functions` module](https://www.npmjs.com/package/durable-functions). It's a library that enables you to write Durable Functions in JavaScript. Three key differences between an orchestrator function and other JavaScript functions:
 
 1. The orchestrator function is a [generator function](/scripting/javascript/advanced/iterators-and-generators-javascript).
@@ -98,9 +98,9 @@ The `context` object contains a `df` durable orchestration context object that l
 
 <details>
 <summary><b>V4 programming model</b></summary>
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/sayHello.js" range="1-14":::
--->
+
 All JavaScript orchestration functions must include the [`durable-functions` module](https://www.npmjs.com/package/durable-functions). This module enables you to write Durable Functions in JavaScript. To use the V4 node programming model, you need to install the `v3.x` version of `durable-functions`.
 
 Two key differences between an orchestrator function and other JavaScript functions:
@@ -121,9 +121,8 @@ The `context` object contains a `df` durable orchestration context object that l
 #### function.json
 
 If you use Visual Studio Code or the Azure portal for development, here's the content of the *function.json* file for the orchestrator function. Most orchestrator *function.json* files look almost exactly like this.
-<!--
 [!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/function.json)]
--->
+
 The important thing is the `orchestrationTrigger` binding type. All orchestrator functions must use this trigger type.
 
 > [!WARNING]
@@ -132,9 +131,8 @@ The important thing is the `orchestrationTrigger` binding type. All orchestrator
 #### \_\_init\_\_.py
 
 Here is the orchestrator function:
-<!--
 [!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/\_\_init\_\_.py)]
--->
+
 All Python orchestration functions must include the [`durable-functions` package](https://pypi.org/project/azure-functions-durable). It's a library that enables you to write Durable Functions in Python. Two key differences between an orchestrator function and other Python functions:
 
 1. The orchestrator function is a [generator function](https://wiki.python.org/moin/Generators).
@@ -286,17 +284,16 @@ In Java, orchestrators are defined using `TaskOrchestrationFactory`. The context
 ::: zone pivot="durable-functions"
 
 # [C#](#tab/csharp)
-<!--
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=27-32)]
--->
+
 Activities use the `ActivityTrigger` attribute. Use `IDurableActivityContext` for activity actions, like reading input with `GetInput<T>`.
 
 `E1_SayHello` formats a greeting string.
 
 Instead of binding to `IDurableActivityContext`, bind directly to the type passed into the activity function. For example:
-<!--
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=34-38)]
--->
+
 # [JavaScript](#tab/javascript)
 
 <details>
@@ -305,18 +302,18 @@ Instead of binding to `IDurableActivityContext`, bind directly to the type passe
 #### E1_SayHello/function.json
 
 The *function.json* file for the activity function `E1_SayHello` is similar to that of `E1_HelloSequence` except that it uses an `activityTrigger` binding type instead of an `orchestrationTrigger` binding type.
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E1_SayHello/function.json":::
--->
+
 > [!NOTE]
 > Use the `activityTrigger` binding for all activity functions that an orchestration function calls.
 
 The implementation of `E1_SayHello` is a relatively trivial string formatting operation.
 
 #### E1_SayHello/index.js
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E1_SayHello/index.js":::
--->
+
 Unlike the orchestration function, an activity function doesn't need special setup. The orchestrator passes input on the `context.bindings` object under the name of the `activityTrigger` binding—in this case, `context.bindings.name`. Set the binding name as a parameter of the exported function to access it directly, as the sample does.
 
 </details>
@@ -327,9 +324,9 @@ Unlike the orchestration function, an activity function doesn't need special set
 <summary><b>V4 programming model</b></summary>
 
 `sayHello` formats a greeting string.
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/sayHello.js" range="1-4, 37-41":::
--->
+
 Unlike the orchestration function, an activity function doesn't need special setup. The orchestrator passes input as the first argument to the function. The second argument is the invocation context, which this example doesn't use.
 
 </details>
@@ -339,18 +336,16 @@ Unlike the orchestration function, an activity function doesn't need special set
 #### E1_SayHello/function.json
 
 The *function.json* file for the activity function `E1_SayHello` is similar to that of `E1_HelloSequence` except that it uses an `activityTrigger` binding type instead of an `orchestrationTrigger` binding type.
-<!--
 [!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/E1_SayHello/function.json)]
--->
+
 > [!NOTE]
 > All activity functions called by an orchestration function must use the `activityTrigger` binding.
 
 The implementation of `E1_SayHello` is a relatively trivial string formatting operation.
 
 #### E1_SayHello/\_\_init\_\_.py
-<!--
 [!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_SayHello/\_\_init\_\_.py)]
--->
+
 Unlike the orchestrator function, an activity function needs no special setup. The input passed to it by the orchestrator function is directly accessible as the parameter to the function.
 
 # [PowerShell](#tab/powershell)
@@ -520,9 +515,9 @@ Register each activity with the worker builder by using `addActivity`. Activitie
 Start an orchestrator function instance from a client function. Use the `HttpStart` HTTP-triggered function to start instances of `E1_HelloSequence`.
 
 # [C#](#tab/csharp)
-<!--
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs?range=13-30)]
--->
+
 To interact with orchestrators, add a `DurableClient` input binding. Use the client to start an orchestration and return an HTTP response that includes URLs to check the status of the new orchestration.
 
 # [JavaScript](#tab/javascript)
@@ -531,15 +526,15 @@ To interact with orchestrators, add a `DurableClient` input binding. Use the cli
 <summary><b>V3 programming model</b></summary>
 
 #### HttpStart/function.json
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js/samples/HttpStart/function.json?highlight=16-20":::
--->
+
 To interact with orchestrators, add a `durableClient` input binding.
 
 #### HttpStart/index.js
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js/samples/HttpStart/index.js":::
--->
+
 Use `df.getClient` to get a `DurableOrchestrationClient` object. Use the client to start an orchestration and return an HTTP response that includes URLs to check the status of the new orchestration.
 
 </details>
@@ -548,9 +543,9 @@ Use `df.getClient` to get a `DurableOrchestrationClient` object. Use the client 
 
 <details>
 <summary><b>V4 programming model</b></summary>
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/httpStart.js":::
--->
+
 To manage and interact with orchestrators, add a `durableClient` input binding. Specify the binding in the `extraInputs` argument when you register the function. Get the `durableClient` input by calling `df.input.durableClient()`.
 
 Use `df.getClient` to get a `DurableClient` object. Use the client to start an orchestration and return an HTTP response that includes URLs to check the status of the new orchestration.
@@ -560,15 +555,13 @@ Use `df.getClient` to get a `DurableClient` object. Use the client to start an o
 # [Python](#tab/python)
 
 #### HttpStart/function.json
-<!--
 [!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/HttpStart/function.json)]
--->
+
 To interact with orchestrators, the function must include a `durableClient` input binding.
 
 #### HttpStart/\_\_init\_\_.py
-<!--
 [!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/HttpStart/\_\_init\_\_.py)]
--->
+
 Use the `DurableOrchestrationClient` constructor to create a Durable Functions client. Use the client to start an orchestration and return an HTTP response that includes URLs to check the status of the new orchestration.
 
 # [PowerShell](#tab/powershell)

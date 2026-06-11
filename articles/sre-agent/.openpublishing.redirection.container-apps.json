@@ -89,6 +89,11 @@
             "source_path_from_root": "/articles/sre-agent/anthropic-sub-processor.md",
             "redirect_url": "/azure/sre-agent/data-privacy",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/automate-actions.md",
+            "redirect_url": "/azure/sre-agent/automate-workflows",
+            "redirect_document_id": false
         }
     ]
 }

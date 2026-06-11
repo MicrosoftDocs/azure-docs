@@ -342,6 +342,7 @@ Resource Manager provides the following functions for working with strings:
 * [last](template-functions-string.md#last)
 * [lastIndexOf](template-functions-string.md#lastindexof)
 * [length](template-functions-string.md#length)
+* [like](template-functions-string.md#like)
 * [newGuid](template-functions-string.md#newguid)
 * [padLeft](template-functions-string.md#padleft)
 * [replace](template-functions-string.md#replace)

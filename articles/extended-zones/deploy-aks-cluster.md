@@ -5,12 +5,14 @@ author: svaldesgzz
 ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: how-to
-ms.date: 02/25/2026
+ms.date: 06/11/2026
 ---
 
 # Deploy an Azure Kubernetes Service (AKS) cluster in an Azure extended zone
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you learn how to create an AKS cluster in extended zones.
+
+AKS is generally available in Azure Extended Zones for **public clusters** and **private clusters**. Other AKS features and add-ons might work, but only the features explicitly listed as supported are covered by the AKS support contract for Azure Extended Zones. The list of supported features continues to grow as we validate more capabilities based on customer signals. For the up-to-date list of supported services and features, see [Service offerings for Azure Extended Zones](overview.md#service-offerings-for-azure-extended-zones).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
@@ -59,6 +61,35 @@ In this section, you create an AKS cluster in an extended zone. Los Angeles is u
     It takes a few minutes to create the AKS cluster.
 
 1. When your deployment is finished, go to your resource by selecting **Go to resource**.
+
+## Create an AKS cluster in an extended zone by using the Azure CLI
+
+You can also create an AKS cluster in an extended zone by using the [az aks create](/cli/azure/aks#az-aks-create) command. Use the `--edge-zone` parameter to target the extended zone, and set `--location` to the extended zone's parent Azure region.
+
+Replace `$RG_NAME`, `$cluster_name`, `$parent_region`, and `$edge_zone` with values appropriate for your environment.
+
+### Create a public AKS cluster
+
+```azurecli
+az aks create \
+    --resource-group "$RG_NAME" \
+    --name "$cluster_name" \
+    --location "$parent_region" \
+    --edge-zone "$edge_zone"
+```
+
+### Create a private AKS cluster
+
+```azurecli
+az aks create \
+    --resource-group "$RG_NAME" \
+    --name "$cluster_name" \
+    --location "$parent_region" \
+    --edge-zone "$edge_zone" \
+    --enable-private-cluster
+```
+
+For more information about private clusters, see [Create a private Azure Kubernetes Service (AKS) cluster](/azure/aks/private-clusters).
 
 ## Clean up resources
 

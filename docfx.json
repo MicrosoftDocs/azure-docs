@@ -297,7 +297,7 @@
         "articles/azure-portal/**/*.md": "JnHs",
         "articles/azure-portal/**/*.yml": "JnHs",
         "articles/azure-relay/**/*.md": "spelluru",
-        "articles/azure-relay/**/*.yml": "spelluru",        
+        "articles/azure-relay/**/*.yml": "spelluru",
         "articles/azure-resource-manager/*.md": "mumian",
         "articles/azure-resource-manager/bicep/**/*.md": "mumian",
         "articles/azure-resource-manager/custom-providers/**/*.md": "MSEvanhi",
@@ -1924,6 +1924,12 @@
           "migrate"
         ],
         "articles/migrate/migrate-support-matrix-physical-migration.md": [
+          "migrate"
+        ],
+        "articles/migrate/create-project.md": [
+          "migrate"
+        ],
+        "articles/migrate/create-manage-projects.md": [
           "migrate"
         ]
       }

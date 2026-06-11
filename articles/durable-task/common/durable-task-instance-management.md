@@ -1355,13 +1355,13 @@ Here's an example HTTP-trigger function that demonstrates how to use this API:
 ::: zone pivot="durable-functions"
 
 # [C#](#tab/csharp)
-<!--
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
--->
+
 # [JavaScript](#tab/javascript)
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js/samples/HttpSyncStart/index.js":::
--->
+
 See [Start instances](#javascript-function-json) for the function.json configuration.
 
 # [Python](#tab/python)

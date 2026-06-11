@@ -6,7 +6,7 @@ ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.author: dobett
 ms.topic: tutorial
-ms.date: 05/19/2026
+ms.date: 06/10/2026
 ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an operator, I want to send data from an OPC UA server to Azure Data Lake Storage Gen 2 using Azure IoT Operations so that I can store the data for further analysis and processing.
@@ -222,7 +222,7 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param endpointName string = 'adls-gen2-endpoint'
 param host string = 'https://<ACCOUNT>.blob.core.windows.net'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -230,7 +230,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' = {
+resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' = {
   parent: aioInstance
   name: endpointName
   extendedLocation: {
