@@ -103,7 +103,7 @@ The script prompts for `SubscriptionId`, `Persona`, `UserIds`, `Scope`, `Resourc
 
 ### Assign Scientist at resource group scope
 
-This assignment assumes the Azure Container Registry, storage account, virtual network, managed identities, and the Discovery workspace all live in the same resource group `contoso-discovery-rg`.
+This assignment assumes the Azure Container Registry, storage account, virtual network, managed identities, and the Microsoft Discovery workspace all live in the same resource group `contoso-discovery-rg`.
 
 ```powershell
 ./Set-DiscoveryRoleAssignments.ps1 `
@@ -144,11 +144,11 @@ This assignment assumes the Azure Container Registry, storage account, virtual n
 
 When you choose **`-Scope ResourceGroup`**, the script grants every non-subscription role at that single resource group. **This works only if every Azure resource that Microsoft Discovery uses lives in that same resource group**, including:
 
-- The Microsoft Discovery workspace
+- Microsoft Discovery workspace
 - Azure Container Registry
-- Storage accounts used by Discovery
-- Virtual network and subnets used by Discovery
-- User-assigned managed identities used by Discovery
+- Storage accounts used by Microsoft Discovery
+- Virtual network and subnets used by Microsoft Discovery
+- User-assigned managed identities used by Microsoft Discovery
 
 If your Discovery resources span multiple resource groups (for example, ACR or the virtual network in a shared networking resource group), RG-scoped assignments won't cover them and the platform will surface permission errors at runtime. In that case, use **`-Scope Subscription`** instead, or run the script multiple times, once per resource group using the appropriate persona.
 
