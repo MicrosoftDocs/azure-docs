@@ -2,7 +2,7 @@
 title: Bicep functions - arrays
 description: Describes the functions to use in a Bicep file for working with arrays.
 ms.topic: reference
-ms.date: 10/30/2025
+ms.date: 06/03/2026
 ms.custom:
   - devx-track-bicep
   - sfi-ropc-nochange
@@ -10,7 +10,7 @@ ms.custom:
 
 # Array functions for Bicep
 
-This article describes the Bicep functions for working with arrays. The lambda functions for working with arrays can be found [here](./bicep-functions-lambda.md).
+This article describes the Bicep functions for working with arrays. You can find the lambda functions for working with arrays [here](./bicep-functions-lambda.md).
 
 ## array
 
@@ -118,11 +118,11 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
-**True** if the item is found; otherwise, **False**.
+**True** if the function finds the item; otherwise, **False**.
 
 ### Example
 
-The following example shows how to use contains with different types:
+The following example shows how to use `contains` with different types:
 
 ```bicep
 param stringToTest string = 'OneTwoThree'
@@ -155,6 +155,72 @@ The output from the preceding example with the default values is:
 | objectFalse | Bool | False |
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
+
+## distinct
+
+`distinct(arrayToModify)`
+
+Returns a new array with all duplicate values removed from the input array. The function preserves the original order of first occurrence.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+| --- | --- | --- | --- |
+| arrayToModify | Yes | array | The array to remove duplicates from. |
+
+### Return value
+
+An array containing only unique elements from the input array. The order of elements is preserved based on their first appearance.
+
+### Example
+
+The following example shows how to use the `distinct` function with different types of arrays.
+
+```bicep
+var numbers = [
+  1
+  2
+  2
+  3
+  1
+]
+
+var names = [
+  'apple'
+  'banana'
+  'apple'
+  'cherry'
+]
+
+var resources = [
+  {
+    name: 'storage1'
+    type: 'Microsoft.Storage/storageAccounts'
+  }
+  {
+    name: 'vm1'
+    type: 'Microsoft.Compute/virtualMachines'
+  }
+  {
+    name: 'storage1'
+    type: 'Microsoft.Storage/storageAccounts'
+  }
+]
+
+output uniqueNumbers array = distinct(numbers)
+output uniqueNames array = distinct(names)
+output uniqueResources array = distinct(resources)
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| uniqueNumbers | Array | [1, 2, 3] |
+| uniqueNames | Array | ["apple", "banana", "cherry"] |
+| uniqueResources | Array | [{"name": "storage1", "type": "Microsoft.Storage/storageAccounts"}, {"name": "vm1", "type": "Microsoft.Compute/virtualMachines"}] |
 
 ## empty
 
@@ -320,11 +386,11 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
-An integer representing the first index of the item in the array. The index is zero-based. If the item isn't found, -1 is returned.
+An integer representing the first index of the item in the array. The index is zero-based. If the item isn't found, the function returns -1.
 
 ### Examples
 
-The following example shows how to use the indexOf and lastIndexOf functions:
+The following example shows how to use the `indexOf` and `lastIndexOf` functions:
 
 ```bicep
 var names = [
@@ -533,7 +599,7 @@ An integer representing the last index of the item in the array. The index is ze
 
 ### Examples
 
-The following example shows how to use the indexOf and lastIndexOf functions:
+The following example shows how to use the `indexOf` and `lastIndexOf` functions:
 
 ```bicep
 var names = [
@@ -608,7 +674,7 @@ An int.
 
 ### Example
 
-The following example shows how to use length with an array and string:
+The following example shows how to use the `length` function with an array and string:
 
 ```bicep
 param arrayToTest array = [
@@ -664,9 +730,9 @@ resource exampleApim 'Microsoft.ApiManagement/service@2024-10-01-preview' = {
 }
 ```
 
-In the [conditional expression](./operators-logical.md#conditional-expression--), the `length` function check the length of the **availabilityZones** array.
+In the [conditional expression](./operators-logical.md#conditional-expression--), the `length` function checks the length of the **availabilityZones** array.
 
-More examples can be found in these quickstart Bicep files:
+You can find more examples in these quickstart Bicep files:
 - [Backup Resource Manager VMs using Recovery Services vault
 ](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.recoveryservices/recovery-services-backup-vms/)
 - [Deploy API Management into Availability Zones](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-simple-zones)
@@ -769,8 +835,8 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| startIndex |Yes |int |The first integer in the array. The sum of startIndex and count must be no greater than 2147483647. |
-| count |Yes |int |The number of integers in the array. Must be non-negative integer up to 10000. |
+| startIndex |Yes |int |The first integer in the array. The sum of `startIndex` and `count` can't be greater than 2,147,483,647. |
+| count |Yes |int |The number of integers in the array. Must be a non-negative integer up to 10,000. |
 
 ### Return value
 
@@ -778,7 +844,7 @@ An array of integers.
 
 ### Example
 
-The following example shows how to use the range function:
+The following example shows how to use the `range` function:
 
 ```bicep
 param startingInt int = 5
@@ -821,7 +887,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2025-04-01' = [for i in range(0, 
 
 The Bicep file creates two networkInterface and two virtualMachine resources.
 
-More examples can be found in these quickstart Bicep files:
+You can find more examples in these quickstart Bicep files:
 
 - [Multi VM Template with Managed Disk](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-copy-managed-disks)
 - [Create a VM with multiple empty StandardSSD_LRS Data Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.compute/vm-with-standardssd-disk)
@@ -849,7 +915,7 @@ Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | originalValue |Yes |array or string |The array or string to use for skipping. |
-| numberToSkip |Yes |int |The number of elements or characters to skip. If this value is 0 or less, all the elements or characters in the value are returned. If it's larger than the length of the array or string, an empty array or string is returned. |
+| numberToSkip |Yes |int |The number of elements or characters to skip. If this value is 0 or less, the function returns all the elements or characters in the value. If it's larger than the length of the array or string, the function returns an empty array or string. |
 
 ### Return value
 
@@ -952,11 +1018,11 @@ For arrays, the function iterates through each element in the first parameter an
 
 For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 
-The union function merges not only the top-level elements but also recursively merges any nested objects within them. Nested array values are not merged. See the second example in the following section.
+The union function merges not only the top-level elements but also recursively merges any nested objects within them. Nested array values aren't merged. See the second example in the following section.
 
 ### Example
 
-The following example shows how to use union with arrays and objects:
+The following example shows how to use `union` with arrays and objects:
 
 ```bicep
 param firstObject object = {
@@ -1049,7 +1115,7 @@ The output from the preceding example is:
 | objectOutput | Object |{"property":{"one":"a","two":"b","three":"c2","four":"d","five":"e"},"nestedArray":[3,4]}|
 | arrayOutput | Array |[["one","two"],["three"],["four","two"]]|
 
-If nested arrays were merged, then the value of **objectOutput.nestedArray** would be [1, 2, 3, 4], and the value of **arrayOutput** would be [["one", "two", "three"], ["three", "four", "two"]].
+If nested arrays were merged, the value of **objectOutput.nestedArray** would be [1, 2, 3, 4], and the value of **arrayOutput** would be [["one", "two", "three"], ["three", "four", "two"]].
 
 ## Next steps
 
