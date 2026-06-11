@@ -8,6 +8,7 @@ ms.service: azure-migrate
 ms.date: 09/09/2024
 ms.reviewer: v-uhabiba
 ms.custom: engagement-fy25
+ms.update-cycle: 1095-days
 # Customer intent: As a cloud migration planner, I want to utilize dependency analysis for my on-premises or Azure VMware Solution servers, so that I can accurately group and assess them for migration to ensure smooth application functionality and avoid potential outages post-migration.
 ---
 
