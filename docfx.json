@@ -1080,7 +1080,7 @@
         "articles/azure-video-indexer/*.md": "azure-video-indexer",
         "articles/azure-vmware/**/*.md": "azure-vmware",
         "articles/backup/**/*.md": "azure-backup",
-        "articles/baremetal-infrastructure/**/*.md": "azure-baremetal-infrastructure",
+        "articles/baremetal-infrastructure/**/*.md": "baremetal-infrastructure-azure",
         "articles/batch/**/*.md": "azure-batch",
         "articles/blockchain/**/*.md": "azure-blockchain",
         "articles/business-process-tracking/*.md": "azure-business-process-tracking",
