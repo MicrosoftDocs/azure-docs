@@ -248,6 +248,8 @@
         href: ../scheduler/durable-task-scheduler-dashboard.md
       - name: OpenTelemetry and distributed tracing
         href: ../sdks/durable-task-scheduler-opentelemetry-tracing.md
+      - name: Action metrics
+        href: durable-task-metrics.md
     - name: Debug
       items:
       - name: Troubleshoot Durable Task Scheduler
