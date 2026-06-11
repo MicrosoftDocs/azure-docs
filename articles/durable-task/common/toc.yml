@@ -234,6 +234,8 @@
         href: ../sdks/durable-task-scheduler-auto-scaling.md
       - name: Auto-purge
         href: ../scheduler/durable-task-scheduler-auto-purge.md
+      - name: Add tags to orchestrations and activities
+        href: ../scheduler/durable-task-scheduler-tags.md
     - name: Secure
       items:
       - name: Identity-based access
