@@ -70,6 +70,7 @@ To send SMS, you must have a sender ID—this can be a phone number or an alphan
 
 > [!IMPORTANT]
 > **Sender geographic scope**
+> 
 > SMS senders are **country/region-scoped**. A sender can deliver messages only within the country/region (or countries/regions) for which it was provisioned, enabled, or approved.
 >
 > - **Short Codes:**  
