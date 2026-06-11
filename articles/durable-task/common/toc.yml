@@ -240,6 +240,8 @@
       items:
       - name: Identity-based access
         href: ../scheduler/durable-task-scheduler-identity.md
+      - name: Customer-managed keys
+        href: ../scheduler/durable-task-scheduler-customer-managed-keys.md
       - name: Private endpoints
         href: ../scheduler/durable-task-scheduler-private-endpoints.md
     - name: Monitor
