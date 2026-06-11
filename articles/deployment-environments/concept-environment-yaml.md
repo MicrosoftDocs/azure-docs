@@ -5,7 +5,10 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.topic: concept-article
-ms.date: 04/30/2026
+ms.date: 06/04/2026
+ai-usage: ai-assisted
+ms.custom:
+  - awp-ai
 
 # Customer intent: As a developer, I want to know the properties and parameters that I can use in environment.yaml.
 
@@ -40,7 +43,7 @@ The following table describes the properties that you can use in environment.yam
 | Property | Type | Description   | Required?|Example|
 | ------------ | -------- |------- | ------------ | ---------------- |
 | `name`         | string   | The display name of the catalog item.            | Yes          |         WebApp                                        |
-| `version`      | string   | The version of the catalog item.                 |         No     | 1.0.0                                           |
+| `version`      | string   | The version of the catalog item. Versioning isn't supported for catalog items, so this value must always be `1.0.0`.                 |         No     | 1.0.0                                           |
 | `summary`      | string   | A short string that summarizes the catalog item.   |           No   |          Azure Web App Environment                                       |
 | `description`  | string   | A description of the catalog item. |   No           |          Deploys a web app in Azure without a datastore |
 | `runner`       | string   | The container image to use when running actions. |          No    | ARM template </br> Terraform                             |

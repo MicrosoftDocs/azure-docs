@@ -189,6 +189,30 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "azure-functions-durable-js",
+            "url": "https://github.com/Azure/azure-functions-durable-js",
+            "branch": "v2.x",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "azure-functions-durable-js-v3",
+            "url": "https://github.com/Azure/azure-functions-durable-js",
+            "branch": "v3.x",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "samples-durable-functions",
+            "url": "https://github.com/Azure/azure-functions-durable-extension",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "samples-durable-functions-python",
+            "url": "https://github.com/Azure/azure-functions-durable-python",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "azure-functions-nodejs-v4",
             "url": "https://github.com/Azure/azure-functions-nodejs-samples",
             "branch": "main",
