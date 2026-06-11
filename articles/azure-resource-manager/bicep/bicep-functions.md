@@ -40,6 +40,7 @@ The following functions are available for working with arrays. All of these func
 * [array](./bicep-functions-array.md#array)
 * [concat](./bicep-functions-array.md#concat)
 * [contains](./bicep-functions-array.md#contains)
+* [distinct](./bicep-functions-array.md#distinct)
 * [empty](./bicep-functions-array.md#empty)
 * [indexOf](./bicep-functions-array.md#indexof)
 * [first](./bicep-functions-array.md#first)

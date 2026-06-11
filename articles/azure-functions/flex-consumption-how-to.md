@@ -493,6 +493,75 @@ You can't currently configure virtual networking in Visual Studio Code.
 
 ---
 
+### Troubleshoot networking issues with Application Insights
+
+[Application Insights](./functions-monitoring.md) is the first place to look when a Flex Consumption app shows DNS failures, dependency timeouts, or other connectivity symptoms. It captures what your code observed at runtime: exceptions, outbound dependency calls, and end-to-end execution behavior. This helps you distinguish application-level failures from underlying platform or network issues.
+
+The following Application Insights tables are most useful for networking investigations:
+
+| Table | What it shows | Use it for |
+| --- | --- | --- |
+| `traces` | Runtime, host, `ILogger`, and scale-controller logs. On Flex Consumption, deployment initialization details also appear here. | Host startup problems, cold start behavior, deployment failures, and DNS failures that surface through host or dependency logs. |
+| `requests` | One entry per HTTP invocation, with duration, result code, and success. | High-latency HTTP triggers, 4xx and 5xx failures, and confirming that the app is receiving and serving requests. |
+| `exceptions` | Runtime and user exceptions, including stack traces. | Root-cause investigation for DNS, Azure Storage, Azure Key Vault, module-not-found, timeout, and similar runtime failures. |
+| `dependencies` | Outgoing HTTP, SQL, Service Bus, and other dependency calls, with timing and failure codes. | "Works locally but fails on Flex Consumption" symptoms, and DNS, TLS, or authentication failures on outbound calls caused by virtual network, DNS, or NAT behavior. |
+| `customMetrics` | Aggregated metrics such as duration and success or failure counts. | Trend analysis, sudden drops in success rate, and spikes in duration that indicate scaling or stuck executions. |
+| `FunctionAppLogs` (resource log) | Platform-level function app logs sent to Azure Monitor Logs. | When Application Insights data is missing or incomplete, or for control-plane and host-level issues such as binding failures. |
+| `AzureActivity` | Control-plane operations such as start, stop, sync triggers, delete, and list keys. | Auditing configuration changes and diagnosing trigger registration issues (sync trigger failures are common). |
+
+#### Example queries
+
+Use these starter queries in the **Logs** experience of your Application Insights resource. Replace `<APP_NAME>` with the name of your function app.
+
+Host startup or deployment failures (Flex Consumption specific):
+
+```kusto
+traces
+| where timestamp > ago(1d)
+| where cloud_RoleName == "<APP_NAME>"
+| where message contains "Starting" or message contains "host"
+| project timestamp, message, customDimensions
+| order by timestamp desc
+```
+
+HTTP trigger issues, latency, or 5xx errors:
+
+```kusto
+requests
+| where timestamp > ago(1h)
+| where cloud_RoleName == "<APP_NAME>"
+| project timestamp, name, resultCode, duration, success, url, operation_Name
+| order by timestamp desc
+```
+
+Common exceptions grouped by type, such as DNS, Key Vault, Storage, or language-runtime modules:
+
+```kusto
+exceptions
+| where timestamp > ago(1d)
+| where cloud_RoleName == "<APP_NAME>"
+| summarize count() by type, innermostMessage
+| order by count_ desc
+```
+
+Outbound dependency failures (DNS, TLS, authentication, virtual network routing):
+
+```kusto
+dependencies
+| where timestamp > ago(2h)
+| where cloud_RoleName == "<APP_NAME>"
+| where success == false
+| project timestamp, target, resultCode, duration, type, data
+```
+
+Non-HTTP trigger that isn't firing (queue, blob, or Event Grid triggers). A common cause is that the trigger registration succeeded but the listener didn't enable; the related exceptions appear in scale-controller traces:
+
+```kusto
+traces
+| where timestamp > ago(2h)
+| where message contains "listener" or message contains "trigger"
+```
+
 ### Troubleshoot network performance
 
 When a Flex Consumption app integrates with a subnet smaller than the recommended size, you might experience performance degradation as the app scales. This problem can also happen if you integrate many apps with the same subnet when they scale out and have significant outbound traffic.
