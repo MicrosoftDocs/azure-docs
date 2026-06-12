@@ -20,10 +20,12 @@ Container soft delete protects your containers from being accidentally deleted b
 
 Container soft delete is part of a comprehensive in-account data protection strategy. For optimal protection for your storage account, Microsoft recommends enabling the following data protection features:
 
-- Blob soft delete, to restore a deleted blob, snapshot, or version. To learn how to enable blob soft delete, see [Enable and manage soft delete for blobs](soft-delete-blob-enable.md).
+- Blob soft delete, to restore a blob, snapshot, or version that has been deleted. To learn how to enable blob soft delete, see [Enable and manage soft delete for blobs](https://github.com/MicrosoftDocs/azure-docs-pr/blob/9dff4252ed2e5c9e51ca94956025ea01988a7fac/articles/storage/blobs/soft-delete-blob-enable.md).
 
-- Container soft delete, to restore a deleted container. To learn how to enable container soft delete, see [Enable and manage soft delete for containers](soft-delete-container-enable.md).
-For protection against broader data loss scenarios such as accidental account deletion or ransomware, consider enabling Azure Backup in addition to in-account features. To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
+- Container soft delete, to restore a container that has been deleted. To learn how to enable container soft delete, see [Enable and manage soft delete for containers](https://github.com/MicrosoftDocs/azure-docs-pr/blob/9dff4252ed2e5c9e51ca94956025ea01988a7fac/articles/storage/blobs/soft-delete-container-enable.md).
+
+For protection against broader data loss scenarios such as accidental account deletion or ransomware, consider enabling Azure Backup in addition to in-account features. To learn more about Microsoft's recommendations for data protection, see [Data protection overview](https://github.com/MicrosoftDocs/azure-docs-pr/blob/9dff4252ed2e5c9e51ca94956025ea01988a7fac/articles/storage/blobs/data-protection-overview.md).
+
 ## How container soft delete works
 
 When you enable container soft delete, you can specify a retention period for deleted containers that is between 1 and 365 days. The default retention period is seven days. We recommend a minimum of seven days and increasing the retention period as needed based on data volume and how long it may take to detect and respond to data‑loss events. 
