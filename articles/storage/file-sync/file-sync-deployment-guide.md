@@ -155,9 +155,13 @@ We strongly recommend that you read [Plan to deploy Azure Files](../files/storag
   - SMB security settings must allow the SMB 3.1.1 protocol version, NTLM v2 authentication, and AES-128-GCM encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
   - **Allow storage account key access** must be set to **Enabled**. To check this setting, go to your storage account and select **Configuration** in the **Settings** section.
 
-- The administrator who registers the server and creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner, or Contributor for the storage sync service. You can configure this role under **Access Control (IAM)** on the Azure portal page for the storage sync service.
+-The administrator must also have sufficient permissions on the storage account that contains the Azure file share. Storage account read-only access is insufficient. Cloud endpoint create and update operations require:
+- Microsoft.Storage/storageAccounts/listKeys/action
+- Microsoft.Storage/storageAccounts/ListAccountSas/action
+
+Assign a role on the storage account that includes these permissions, such as Reader and Data Access or Storage Account Contributor. You can configure this role under **Access Control (IAM)** on the Azure portal page for the storage sync service.
   
-  When assigning the Azure File Sync Administrator role, follow these steps to ensure least privilege.
+When assigning the Azure File Sync Administrator role, follow these steps to ensure least privilege.
    
   1. Under the **Conditions** tab, select **Allow users to assign selected roles to only selected principals (fewer privileges)**.
    
@@ -519,7 +523,11 @@ The entirety of the Azure file share is synced, with one exception. A special fo
 > [!IMPORTANT]
 > You can make changes to any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, an Azure File Sync change detection job first needs to discover the changes. A change detection job starts for a cloud endpoint only once every 24 hours. For more information, see [Frequently asked questions about Azure Files and Azure File Sync](../files/storage-files-faq.md?toc=/azure/storage/filesync/toc.json#afs-change-detection).
 
-The administrator who creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator) or Owner for the storage account that contains the Azure file share that the cloud endpoint points to. Configure this role under **Access Control (IAM)** on the Azure portal page for the storage account.
+The administrator who creates or updates the cloud endpoint must have sufficient permissions on the storage account that contains the Azure file share that the cloud endpoint points to. Storage account read-only access is insufficient. Cloud endpoint create and update operations require the following storage account permissions:
+- Microsoft.Storage/storageAccounts/listKeys/action
+- Microsoft.Storage/storageAccounts/ListAccountSas/action
+
+Assign a role on the storage account that includes these permissions, such as Reader and Data Access or Storage Account Contributor. Configure this role under Access Control (IAM) on the Azure portal page for the storage account. Configure this role under **Access Control (IAM)** on the Azure portal page for the storage account.
 
 When assigning the Azure File Sync Administrator role, follow these steps to ensure least privilege.
  
