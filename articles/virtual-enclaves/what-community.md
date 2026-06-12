@@ -22,9 +22,14 @@ Communities come with the following primary platform-managed and platform-deploy
 - [Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-overview). By default, all community resources are integrated into Azure Log Analytics, ensuring all activities within a community are effectively monitored, logged, and audited, laying the foundation for actionable insights. More specifically, all resources deployed in a community send their [diagnostic platform logs](/azure/azure-monitor/essentials/diagnostic-settings) to this Log Analytics Workspace.
 
 ### Community address space
+
+Community managers can add one or more address spaces (prefixes between /8 and /16) to an existing community, which is treated as metadata-only updates at the community layer. This action doesn't require the community to be in maintenance mode. Address spaces can't be fully removed if they're already in use—however, an existing range can be replaced by adding a broader address space that fully contains it, preserving allocation continuity and avoiding breaking changes.
+
+When you create new enclaves, AVE uses an IP address management strategy that always allocates the smallest available community address space that can accommodate the requested enclave size. This approach minimizes fragmentation and preserves larger address ranges for future needs, such as large enclave deployments. For example, allocating a smaller enclave into a smaller fitting address space avoids blocking future allocations that would require a larger contiguous range.
+
 > [!NOTE]
 > 
-> `192.168.0.0/16`, `192.0.0.0/8`, `192.128.0.0/9`, or any other range that includes `192.168.x.x` addresses are reserved for the platform to manage enclaves deployed within a community. Users shouldn't create communities with any of these address spaces as that would create overlapping conflicts with the platform-managed enclave management IP ranges.
+> `192.168.0.0/16` is reserved for the platform to manage enclaves deployed within a community. Users shouldn't create communities with any of these address spaces as that would create overlapping conflicts with the platform-managed enclave management IP ranges.
 
 ## Community managed resource group
 When you create a community, the Azure Virtual Enclaves resource provider also creates and manages a separate resource group called the community managed resource group. For more details regarding the community managed resource group, learn more about [Best practices of Azure Virtual Enclaves](./best-practices.md).

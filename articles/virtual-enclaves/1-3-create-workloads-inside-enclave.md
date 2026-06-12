@@ -1,75 +1,99 @@
 ---
-title: Create workloads in an enclave on Azure Virtual Enclaves
-description: Create workloads in an enclave on Azure Virtual Enclaves.
+title: "Tutorial 1-3: Create workloads in an enclave on Azure Virtual Enclaves"
+description: Create frontend and backend workloads in an Azure Virtual Enclaves enclave by using the Azure portal.
 author: aserfass-msft
 ms.author: aserfass
-ms.topic: overview
-ms.date: 9/30/2025
+ms.topic: tutorial
+ms.date: 06/02/2026
 ---
 
 # Tutorial 1-3: Create workloads in an enclave on Azure Virtual Enclaves
 
-Workloads are logical groups of Azure resources that you define to create and audit connections in Azure Virtual Enclaves (AVE). They also automatically inherit security posture and policies of their enclave.
+Workloads are logical groupings that help you organize Azure resources inside an Azure Virtual Enclaves (AVE) enclave. Each workload is associated with one or more workload resource groups where you deploy resources in later tutorials.
 
-In this tutorial, part three of eight, you deploy workloads into an enclave. You learn how to:
+In this tutorial, part three of eight, you create workloads inside an enclave. You learn how to:
 
-  - Create several workloads in an enclave
-  - Create Azure resources into workloads within enclaves
-  - View workloads in Azure portal
+- Create frontend and backend workloads in an enclave.
+- Associate each workload with a workload resource group.
+- View workloads in the Azure portal.
 
 ## Before you begin
-In the previous [tutorial](./1-2-create-enclaves-inside-community.md), you used Azure portal to create an enclave. If you didn't create the enclave yet, return to [Tutorial 1-2 - Create enclaves within a community](./1-2-create-enclaves-inside-community.md).
 
-## Create a workload using Azure Virtual Enclaves
-Before creating your resources, you need to create the AVE workload resource. Workloads are logical groups of Azure resources, similar to an Azure resource group, that you define to create and audit connections in Azure Virtual Enclaves.
+Complete [Tutorial 1-2: Create enclaves in a community](./1-2-create-enclaves-inside-community.md). This tutorial assumes that you have:
+
+- An Azure account with an active subscription.
+- An AVE community named `fabrikam`.
+- An enclave named `Enclave-WebApp`.
+- Permissions to create AVE workload resources and resource groups in the subscription.
+
+## Create workloads using Azure Virtual Enclaves
+
+Before creating Azure resources in an enclave, create the AVE workload resources and associate them with workload resource groups. Azure Virtual Enclaves applies enclave policy, guardrail, deny-assignment, and RBAC configuration to workload resource groups during creation.
 
 > [!Important]
->
-> This tutorial uses `myResourceGroup` as a placeholder for the resource group name. If you want to use a different name, replace `myResourceGroup` with your own resource group name.
+> This tutorial uses sample names such as `wl-webapp-frontend`, `wl-webapp-backend`, `rg-webapp-frontend`, and `rg-webapp-backend`. If you use different names, update the later tutorials to match your environment.
 
+1. In the Azure portal, go to `Azure Virtual Enclaves`.
 
-1. In the `Azure Virtual Enclaves` page, select `Enclaves` in the left menu.
+2. In the left menu, select `Enclaves`.
 
-2. On the fabrikam `Enclaves` page, select the `Enclave-WebApp` enclave that we created in [2 - Create enclaves within a community](./1-2-create-enclaves-inside-community.md).
+3. On the `Enclaves` page for the `fabrikam` community, select the `Enclave-WebApp` enclave that you created in [Tutorial 1-2: Create enclaves in a community](./1-2-create-enclaves-inside-community.md).
 
 [ ![Screenshot showing the WebApp enclave overview.](./media/tutorial-step-two-webapp-enclave-overview-page.png) ](./media/tutorial-step-two-webapp-enclave-overview-page.png#lightbox)
 
-3. Go to the `Workloads` on the left underneath the `Manage` section in the left-hand menu.
+4. Under `Manage`, select `Workloads`.
 
-4. On the workloads page, select `Create`
+5. On the `Workloads` page, select `Create`.
 
 [ ![Screenshot showing the WebApp enclave workloads list with the create button highlighted.](./media/tutorial-step-three-webapp-enclave-workload-list-create.png) ](./media/tutorial-step-three-webapp-enclave-workload-list-create.png#lightbox)
 
-5. Enter the basic details for your workload
-   - **Enclave**: Select an existing enclave. This value is automatically applied from `Enclave-WebApp`.
-   - **Workload name**: Name of the workload for this tutorial `wl-webapp-frontend`.
-   - **Add**: Select to add a resource group
-      - **Create new**: Select and enter the name `rg-webapp-frontend` then select `Ok`
+6. On the `Basics` tab, enter the following values for the frontend workload:
+
+   - `Enclave`: Confirm that `Enclave-WebApp` is selected.
+   - `Workload name`: Enter `wl-webapp-frontend`.
+   - `Resource groups`: Select `Add`.
+   - `Create new`: Enter `rg-webapp-frontend`, and then select `OK`.
+
 > [!Note]
->
-> Organizations should choose a workload naming convention that makes sense for the organization. Learn more about [defining your naming convention](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming).
+> Choose workload and resource group names that match your organization's naming convention. For guidance, see [Define your naming convention](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming).
 
 ![Screenshot showing the frontend workload creation screen with the tutorial inputs entered.](./media/tutorial-step-three-create-frontend-workload-screen-basics-input.png)
 
-6. Select `Review + create` (this skips optional resource tags), ensure the details for your enclave are correct, and select `Create`.
+7. Select `Review + create`, confirm the workload details, and then select `Create`.
 
-7. Now, to create another workload. While the previous step is completing the deployment, open a new browser tab to the portal and **repeat Steps 4 through 6.** Once you're on the **Create a workload** page, enter these basic details for your second workload:
-   - **Enclave**: Select an existing enclave. This value is automatically applied from `Enclave-WebApp`.
-   - **Workload name**: Name of the workload for this tutorial `wl-webapp-backend`.
-   - **Add**: Select to add a resource group
-      - **Create new**: Select and enter the name `rg-webapp-backend` then select `Ok`
+8. To create the backend workload, repeat the previous steps with these values:
+
+   - `Enclave`: Confirm that `Enclave-WebApp` is selected.
+   - `Workload name`: Enter `wl-webapp-backend`.
+   - `Resource groups`: Select `Add`.
+   - `Create new`: Enter `rg-webapp-backend`, and then select `OK`.
 
 ![Screenshot showing the backend workload creation screen with the tutorial inputs entered.](./media/tutorial-step-three-create-backend-workload-screen-basics-input.png)
 
-8. After the two workload resources have been created, you can view them in Azure portal.
+9. Select `Review + create`, confirm the workload details, and then select `Create`.
+
+## Validate the workloads
+
+After both deployments complete, return to the `Workloads` page for `Enclave-WebApp`.
 
 [ ![Screenshot showing both workloads deployed successfully.](./media/tutorial-step-three-workloads-deployed.png) ](./media/tutorial-step-three-workloads-deployed.png#lightbox)
 
+Confirm that:
+
+- `wl-webapp-frontend` appears in the workload list.
+- `wl-webapp-backend` appears in the workload list.
+- Each workload is associated with the expected workload resource group.
+
 ## Clean up resources
-If you need to delete your enclaves created after completing this tutorial, this can be also achieved from the Azure portal. It's best to wait until after you complete the full tutorial but if you need to, select each workload resource `wl-webapp-frontend` and `wl-webapp-backend` then select `Delete`
+
+If you plan to continue the tutorial series, keep these workloads. Tutorial 1-4 uses them to deploy Azure resources from the service catalog.
+
+If you need to remove the workloads created in this tutorial, first delete any resources in the associated workload resource groups. Workload deletion can fail when associated resource groups aren't empty.
+
+After the workload resource groups are empty, delete the `wl-webapp-frontend` and `wl-webapp-backend` workload resources from the Azure portal.
 
 [ ![Screenshot showing both workloads deployed successfully and selected for deletion.](./media/tutorial-step-three-workloads-deployed.png) ](./media/tutorial-step-three-workloads-deployed.png#lightbox)
 
-
 ## Next steps
-In this tutorial, you created sample workloads using Azure portal. In the [next tutorial](./1-4-use-service-catalog-create-azure-resources-workloads.md), you'll learn how to use the service catalog to deploy Azure resources and apps into your enclave workloads.
+
+In this tutorial, you created sample workloads in an enclave by using the Azure portal. In the [next tutorial](./1-4-use-service-catalog-create-azure-resources-workloads.md), you deploy Azure resources into those workloads by using the service catalog.

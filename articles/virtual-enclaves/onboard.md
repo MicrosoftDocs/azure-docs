@@ -34,7 +34,6 @@ You can run the following code to quickly register all required resource provide
 # Register the Azure Virtual Enclaves Resource Provider and grant permissions to the Resource Provider application
 
 $resourceProviders = @(
-   "Microsoft.ADHybridHealthService",
    "Microsoft.Advisor",
    "Microsoft.AlertsManagement",
    "Microsoft.Authorization",
@@ -44,12 +43,10 @@ $resourceProviders = @(
    "Microsoft.ChangeAnalysis",
    "Microsoft.ClassicSubscription",
    "Microsoft.CognitiveServices",
-   "Microsoft.Commerce",
    "Microsoft.Compute",
    "Microsoft.Consumption",
    "Microsoft.CostManagement",
    "Microsoft.DesktopVirtualization",
-   "Microsoft.DevTestLab",
    "Microsoft.Features",
    "Microsoft.GuestConfiguration",
    "Microsoft.insights",
@@ -80,7 +77,22 @@ $resourceProviders | foreach {Register-AzResourceProvider -ProviderNamespace $_ 
 
 ```
 
-5. Once the update is complete, proceed to [Azure setup](./best-practices.md#azure-setup) or [next steps](#next-steps).
+5. (Optional) Enable EncryptionAtHost feature
+
+The [EncryptionAtHost](/azure/virtual-machines/linux/disks-enable-host-based-encryption-cli) feature enables encryption at the compute host level.
+
+```azurecli
+# Register the feature
+az feature register --namespace Microsoft.Compute --name EncryptionAtHost
+
+# Check registration status (may take 10-15 minutes)
+az feature show --namespace Microsoft.Compute --name EncryptionAtHost
+
+# Once registered, refresh the provider
+az provider register --namespace Microsoft.Compute
+```
+
+6. Once the update is complete, proceed to [Azure setup](./best-practices.md#azure-setup) or [next steps](#next-steps).
 
 ### Option 2: Azure portal
 
@@ -88,8 +100,9 @@ $resourceProviders | foreach {Register-AzResourceProvider -ProviderNamespace $_ 
 2. Open the `Resource Providers` on the left side under `Settings`.
 3. The [listed resource providers](#option-1-powershell-fastest) must be registered in the subscription. The [PowerShell](#option-1-powershell-fastest) script to enable these resource providers is the fastest option and includes the authoritative source of resource providers. These images are provided as an example of the view you should see in the end.
 
-   ![Screenshot showing the first set of resource providers required by Azure Virtual Enclaves.](./media/onboard-providers-1.png)
-   ![Screenshot showing the second set of resource providers required by Azure Virtual Enclaves.](./media/onboard-providers-2.png)
+:::image type="content" source="./media/onboard-providers-1.png" alt-text="Screenshot showing the first set of resource providers required by Azure Virtual Enclaves." border="true" lightbox="./media/onboard-providers-1.png":::
+
+:::image type="content" source="./media/onboard-providers-2.png" alt-text="Screenshot showing the second set of resource providers required by Azure Virtual Enclaves." border="true" lightbox="./media/onboard-providers-2.png":::
 
 4. Search for and select `Microsoft.Mission` and select `Register`.
 

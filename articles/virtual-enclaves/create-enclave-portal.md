@@ -1,10 +1,11 @@
 ---
 title: Create an Enclave in the Azure portal
 description: Create an Enclave in the Azure portal
-author: jadean-msft
-ms.author: jadean
+author: aserfass-msft
+ms.author: aserfass
 ms.topic: overview
 ms.date: 9/30/2025
+ai-usage: ai-assisted
 ---
 
 # Create an Enclave in the Azure portal

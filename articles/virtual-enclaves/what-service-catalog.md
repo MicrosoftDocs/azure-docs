@@ -20,8 +20,23 @@ Diagram Description: The user/admin accesses the service catalog through the por
 Browse the [Service Catalog List](./list-service-catalog-templates.md) to view the available templates in the service catalog. Review the documentation for each service catalog template you wish to deploy to determine if there are any prerequisite steps.
 
 > [!NOTE]
-> Editing service catalog templates before deployment
-> You can edit the service catalog template itself but edits might change the parameter inputs view. 
+> You can edit the service catalog template itself but edits might change the parameter inputs view.
+
+## Service Catalog Setup
+Since Azure Virtual Enclaves deploys with connections denied by default, you need to create a community endpoint to allow access to the storage account that contains service catalog templates.
+
+```bicep
+{
+    endpointRuleName: 'service-catalog'
+    destinationType: 'FQDN'
+    #disable-next-line no-hardcoded-env-urls
+    destination: 'veservicecatalogprod.z22.web.core.windows.net'
+    protocols: ['HTTPS']
+    ports: '443'
+  }
+```
+
+You can update the destination for other Clouds using the values in [this article](./deploy-template-service-catalog-azure-cli.md).
 
 ## Ready? Deploy from the service catalog!
 
