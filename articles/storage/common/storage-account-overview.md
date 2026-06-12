@@ -173,7 +173,7 @@ An Azure DNS zone service endpoint in Azure Storage includes:
 
 * The protocol. (We recommend HTTPS.)
 * The storage account name as the subdomain.
-* A domain that includes the name of the service and the identifier for the DNS zone. The identifier for the DNS zone always begins with `z` and can range from `z0` to `z9`, or `z10` to `z50`.
+* A domain that includes the name of the service and the identifier for the DNS zone. The identifier for the DNS zone always begins with `z` and can range from `z1` to `z9`, or `z10` to `z50`.
 
 The following table lists the format for Azure DNS zone endpoints for each of the Azure Storage services:
 
