@@ -1,14 +1,14 @@
 ---
 ms.author: cherylmc
 author: cherylmc
-ms.date: 03/23/2026
+ms.date: 06/10/2026
 ms.service: azure-vpn-gateway
 ms.topic: include
 ---
 
 ### Can I create a new gateway that uses a Standard or High Performance SKU after the deprecation?
   
-No. You can create gateways that use VpnGw1 and VpnGw2 SKUs for the same price as the Standard and High Performance SKUs, listed respectively on the [pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/).
+No.
 
 ### How long will my existing gateways be supported on the Standard and High Performance SKUs?
 

@@ -484,30 +484,31 @@ To create a snapshot of an existing file share, sign in to the Azure portal and 
 To create a snapshot of an existing file share, run the following PowerShell command. Be sure to replace variables with your own values.
 
 ```powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/0.1.0
-Install-Module -Name Az.FileShare -Repository psgallery -RequiredVersion 0.1.0
+# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
+Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
 
 $resourceGroup = "<resource-group-name>"
 $shareName = "<file-share-name>" 
 $snapshotName = "<snapshot-name>"
 
-New-AzFileShareSnapshot -ResourceGroupName $resourceGroup -ResourceName $shareName -Name $snapshotName #-Metadata @{metakey1 = "metavalue1"}
+# -InitiatorId is an optional free-form caller tag surfaced in Get-AzFileShareSnapshot output.
+New-AzFileShareSnapshot -ResourceGroupName $resourceGroup -ResourceName $shareName -Name $snapshotName #-InitiatorId "<your-name-or-id>" -Metadata @{metakey1 = "metavalue1"}
 ```
 
 # [Azure CLI](#tab/cli)
 To create a snapshot of an existing file share, run the following Azure CLI commands. Replace the variables with your own values.
 
 ```bash
-# Install the fileshares extension
-az extension add --name fileshares
+# Install the fileshare extension
+az extension add --name fileshare
 
 # Specify your values
 shareName="<file-share-name>"
 snapshotName="<snapshot-name>"
 resourceGroup="<resource-group-name>"
 
-# Create the snapshot. Use --metadata to add optional key=value pairs.
-az fileshare snapshot create --name $snapshotName --resource-group $resourceGroup --resource-name $shareName #--metadata test=value1
+# Create the snapshot. Use --initiator-id for an optional caller tag and --metadata for key=value pairs.
+az fileshare snapshot create --name $snapshotName --resource-group $resourceGroup --resource-name $shareName #--initiator-id "<your-name-or-id>" --metadata test=value1
 ```
 
 ---
@@ -535,8 +536,8 @@ You can update an existing NFS file share snapshot (for example, to modify its m
 To update a file share snapshot, run the following PowerShell commands. Be sure to replace variables with your own values.
 
 ```powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/0.1.0
-Install-Module -Name Az.FileShare -Repository psgallery -RequiredVersion 0.1.0
+# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
+Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
 
 $resourceGroup = "<resource-group-name>"
 $shareName = "<file-share-name>"
@@ -550,8 +551,8 @@ Update-AzFileShareSnapshot -ResourceGroupName $resourceGroup -ResourceName $shar
 To update a file share snapshot, run the following Azure CLI commands. Replace the variables with your own values.
 
 ```bash
-# Install the fileshares extension
-az extension add --name fileshares
+# Install the fileshare extension
+az extension add --name fileshare
 
 # Specify your values
 shareName="<file-share-name>"
@@ -583,8 +584,8 @@ To list all the snapshots for an existing file share, sign in to the Azure porta
 To list all file share snapshots, run the following PowerShell command. Be sure to replace variables with your own values.
 
 ```powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/0.1.0
-Install-Module -Name Az.FileShare -Repository psgallery -RequiredVersion 0.1.0
+# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
+Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
 
 $resourceGroup = "<resource-group-name>"
 $shareName = "<file-share-name>"
@@ -598,8 +599,8 @@ Get-AzFileShareSnapshot -ResourceGroupName $resourceGroup -ResourceName $shareNa
 To list all file share snapshots, run the following Azure CLI commands. Replace the variables with your own values.
 
 ```bash
-# Install the fileshares extension
-az extension add --name fileshares
+# Install the fileshare extension
+az extension add --name fileshare
 
 # Specify your values
 shareName="<file-share-name>"
@@ -680,8 +681,8 @@ To delete a snapshot of an existing file share, sign in to the Azure portal and 
 # [Azure PowerShell](#tab/powershell)
 
 ``` powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/0.1.0
-Install-Module -Name Az.FileShare -Repository psgallery -RequiredVersion 0.1.0
+# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
+Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
 
 $resourceGroup = "<resource-group-name>"
 $shareName = "<file-share-name>"
@@ -695,8 +696,8 @@ Remove-AzFileShareSnapshot -ResourceGroupName $resourceGroup -ResourceName $shar
 To delete a file share snapshot, run the following Azure CLI commands. Replace the variables with your own values.
 
 ```bash
-# Install the fileshares extension
-az extension add --name fileshares
+# Install the fileshare extension
+az extension add --name fileshare
 
 # Specify your values
 shareName="<file-share-name>"
