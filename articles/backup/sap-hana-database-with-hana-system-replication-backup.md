@@ -16,7 +16,7 @@ SAP HANA databases are critical workloads that require a low recovery-point obje
 
 You can also switch the protection of SAP HANA database on Azure VM (standalone) on Azure Backup to HSR. [Learn more](#scenarios-to-protect-hsr-nodes-on-azure-backup).
 
-Azure Backup also supports instance snapshot backups for HSR-enabled SAP HANA systems. Use the snapshot backup policy for fast operational recovery, and keep Backint-based backups enabled for long-term retention and log-based point-in-time recovery.
+Azure Backup also supports instance snapshot backups for HSR-enabled SAP HANA systems (Preview). You can use the snapshot backup policy for fast operational recovery, and keep Backint-based backups enabled for long-term retention and log-based point-in-time recovery.
 
 To learn about the supported SAP HANA database backup and restore scenarios, region availability, and limitations, see the [support matrix](backup-azure-sql-database.md). For common questions, see the [frequently asked questions](sap-hana-faq-backup-azure-vm.yml).
 
@@ -136,51 +136,47 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
    
 To set up the database for backup, see the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and the [What the preregistration script does](tutorial-backup-sap-hana-db.md#preregistration-script-functionality-for-sap-hana-database-backup) sections.
 
-## Snapshot backup for HSR
+## SAP HANA HSR snapshot backup behavior and configuration
 
 You can protect an HSR pair with the existing SAP HANA instance snapshot workflow.
 
-Before you configure snapshot protection for HSR, make sure that:
-
+Before you configure snapshot protection for HSR, ensure that:
 - Both HSR nodes are registered with the same Recovery Services vault.
 - The vault and both VMs are in the same Azure region.
-- The preregistration script has been run on both nodes with the same unique HSR name.
+- The preregistration script is run on both nodes with the same unique HSR name.
 - The source VM managed identity has permissions to create and manage snapshots in the snapshot resource group and to take snapshots on both HSR nodes.
 
 Snapshot backups for HSR use HANA-consistent snapshots for the data and log volumes. Shared volumes, such as `/hana/shared`, aren't included.
 
 For the step-by-step snapshot setup, see [Back up SAP HANA database instance snapshots on Azure VMs](sap-hana-database-instances-backup.md).
 
-### Snapshot consistency
-
-- Snapshots are triggered by SAP HANA native snapshot APIs.
-- HANA I/O is quiesced during snapshot creation.
-- Log backups continue independently through the streaming backup solution and are used for recovery.
-
 ### Backup behavior
 
-- The first incremental restore point is a full snapshot. Subsequent backups transfer only the changed blocks since the last snapshot backup.
-- Logs aren't embedded in the snapshot. Log backups and weekly full backups are part of the streaming backup solution.
-- Hourly log backups and weekly full backups must be enabled and healthy.
-- The snapshot serves as the baseline, and logs are replayed during snapshot restore.
-- Azure Backup maintains a single logical backup chain across HSR nodes.
-- After HSR takeover, backups continue on the new primary.
-- If Azure Backup detects a log chain break, it can trigger a remedial streaming full backup.
+During snapshot backup (Preview), Azure Backup performs the following actions:
+
+- Transfers all disk data in the first snapshot backup. Subsequent backups transfer only changed blocks since the last snapshot backup.
+- Keeps log backups healthy and requires weekly full backups for recovery. Logs aren't embedded in the snapshot.
+- Ensures that hourly log backups and weekly full backups are enabled and healthy.
+- Uses the snapshot as the baseline for recovery and replays logs over the snapshot during restore.
+- Maintains a single logical backup chain across HSR nodes.
+- Continues backups on the new primary after HSR takeover.
+- Runs a remedial streaming full backup if a log chain break is detected.
 
 ### Failover and operational scenarios
 
-- Ensure that both nodes remain registered with the vault.
+- Ensure both nodes remain registered with the vault.
 - Azure Backup automatically detects the new primary.
 - Backup continues without reconfiguration after planned HSR takeover.
-- Make sure the former primary is registered as the secondary node.
+- Ensure the former primary is registered as the secondary node.
 
-### Policy and configuration requirements
+## Policy and configuration requirements
 
-- The HANA enhanced snapshot backup policy is a prerequisite for HSR snapshot backup.
-- Managed identity permissions are required on the snapshot resource group and on both HSR nodes to take snapshots.
-- Run the preregistration script on both HSR nodes with the same unique HSR name.
-- Ensure outbound connectivity to Azure services.
+Before you configure SAP HANA HSR snapshot backup, ensure that:
 
+- You use the HANA enhanced snapshot backup policy.
+- Managed identity permissions are present on the snapshot resource group and on both HSR nodes to take snapshots.
+- You run the preregistration script on both HSR nodes with the same unique HSR name.
+- You enable outbound connectivity to Azure services.
 
 ## Discover the databases
 

@@ -2,14 +2,14 @@
 title: Back up SAP HANA database instances on Azure VMs
 description: In this article, you'll learn how to back up SAP HANA database instances that are running on Azure virtual machines.
 ms.topic: how-to
-ms.date: 02/16/2026
+ms.date: 06/12/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As an IT administrator managing SAP HANA databases on Azure VMs, I want to configure a snapshot-based backup policy, so that I can ensure consistent backups and simplify the recovery process while adhering to SAP's backup requirements.
 ---
 
-# Back up SAP HANA database instance snapshots on Azure VMs
+# Back up SAP HANA database instance snapshots on Azure VMs (Preview)
 
 This article describes how to back up SAP HANA database instances that are running on Azure VMs to an Azure Backup Recovery Services vault.
 
@@ -17,15 +17,15 @@ Azure Backup now performs an SAP HANA storage snapshot-based backup of an entire
 
 This snapshot workflow also applies to HSR-enabled SAP HANA systems when you register both nodes with the same vault and use the supported snapshot backup policy.
 
-## Snapshot consistency and backup behavior
+## Snapshot consistency and backup behavior for SAP HANA backups
+For SAP HANA database snapshot backup, Azure Backup performs the following actions:
 
-- Snapshots are triggered through SAP HANA native snapshot APIs.
-- HANA I/O is quiesced during snapshot creation.
-- Log backups continue independently through the streaming backup solution and are used for recovery.
-- The first snapshot backup transfers all disk data. Subsequent backups transfer only changed blocks since the last snapshot backup.
-- Logs aren't embedded in the snapshot, so you still need healthy log backups and weekly full backups for recovery.
-- The snapshot serves as the baseline for recovery, and logs are replayed over the snapshot during restore.
-
+- Triggers snapshots through SAP HANA native snapshot APIs.
+- Quiesces HANA I/O during snapshot creation to maintain consistency.
+- Continues log backups independently through the streaming backup solution and uses them for recovery.
+- Transfers all disk data in the first snapshot backup. Subsequent backups transfer only changed blocks since the last snapshot backup.
+- Keeps log backups healthy and requires weekly full backups for recovery. Logs aren't embedded in the snapshot.
+- Uses the snapshot as the baseline for recovery and replays logs over the snapshot during restore.
 
 >[!Note]
 >- You can now store the Snapshot backups in a Recovery Services vault by using **Enhanced backup policy (preview)** for HANA Snapshot backup. This provides all the vault level features, such as Immutability, Soft-delete, cross-region restore, and more, for SAP HANA snapshot backups. This policy also ensures faster restores from **instant tier**.
@@ -159,8 +159,7 @@ You'll also need to [create a policy for SAP HANA database backup](backup-azure-
 
 To discover the database instance where the snapshot is present, see the [Back up SAP HANA databases in Azure VMs](backup-azure-sap-hana-database.md#discover-the-databases).
 
-For HSR-enabled systems, make sure that both HSR nodes are already registered with the same vault before you enable snapshot protection.
-
+For HSR-enabled systems, ensure that both HSR nodes are  registered with the same vault before you enable snapshot protection. [Learn how to register HSR nodes with a vault](sap-hana-database-with-hana-system-replication-backup). 
 
 [!INCLUDE [How to configure backup for SAP HANA instance snapshot, run an on-demand backup, and monitor the backup job](../../includes/backup-azure-configure-sap-hana-database-instance-backup.md)]
 
