@@ -30,7 +30,7 @@ External Data Services (EDS) is now generally available on Azure Data Manager fo
 Manifest Ingestion by Reference DAG supports ingestion of a large number of records by referencing a large manifest uploaded to the Dataset service for processing. This DAG is available as a preview feature in the Azure Data Manager for Energy Developer SKU.
 
 ### Analytics Consumption Zone (ACZ) - Preview
-Analytics Consumption Zone (ACZ) exports selected entity data from your Azure Data Manager for Energy instance to your Azure Data Lake Storage (ADLS) Gen2 account. ACZ writes data in open Delta Parquet format that analytics engines like Microsoft Fabric and Azure Databricks can read directly. This feature is available as a preview on Developer Tier.
+Analytics Consumption Zone (ACZ) exports selected entity data from your Azure Data Manager for Energy instance to your Azure Data Lake Storage (ADLS) Gen2 account. ACZ writes data in open Delta Parquet format that analytics engines like Microsoft Fabric and Azure Databricks can read directly. This feature is available as a preview on Developer Tier. For more information, see [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md).
 
 ## March 2026
 ### Manage OSDU milestone upgrade settings
