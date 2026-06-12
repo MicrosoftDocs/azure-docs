@@ -58,7 +58,7 @@ CAA records allow domain owners to specify which Certificate Authorities (CAs) a
 
 ### CNAME records
 
-A CNAME is a record that makes one DNS name an alias of another DNS name.
+CNAME records are used to make one DNS name an alias of another DNS name.
 
 CNAME record sets can't coexist with other record sets with the same name. For example, you can't create a CNAME record set with the relative name `www` and an A record with the relative name `www` at the same time.
 
