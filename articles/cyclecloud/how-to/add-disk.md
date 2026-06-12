@@ -2,7 +2,7 @@
 title: managed disk Options
 description: Learn about volumes (Azure managed disks) within Azure CycleCloud. Understand persistent volumes and disk type options.
 author: mvrequa
-ms.date: 06/30/2025
+ms.date: 05/29/2026
 ms.author: adjohnso
 ---
 
