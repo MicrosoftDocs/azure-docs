@@ -6,7 +6,7 @@ author: mbender-ms
 ms.custom: references_regions
 ms.service: azure-appgw-for-containers
 ms.topic: overview
-ms.date: 4/22/2026
+ms.date: 6/12/2026
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to understand how Application Gateway for Containers functions, so that I can effectively implement it for load balancing and traffic management within my Kubernetes cluster."
 ---
@@ -116,6 +116,7 @@ Application Gateway for Containers is currently offered in the following regions
 - Norway East
 - South Central US
 - Southeast Asia
+- Sweden Central
 - Switzerland North
 - UAE North
 - UK South
