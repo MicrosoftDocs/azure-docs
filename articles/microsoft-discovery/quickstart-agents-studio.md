@@ -39,7 +39,7 @@ After your infrastructure is set up, you can log in to [Microsoft Discovery Stud
 
 After signing in, you land on the **Discovery** tab, which provides quick access to recent shared sessions and common actions like creating new project or links to the official documentation.
 
-You must sign in with your Entra ID (work or school account) credentials. Microsoft Discovery Studio supports Single Sign-On (SSO) with Entra ID so that you don't have to explicitly provide credentials if you're already signed in to another service with your Entra ID in the same browser.
+You must sign in with your Entra ID (work or school account) credentials. Microsoft Discovery Studio supports single sign-on (SSO) with Entra ID so that you don't have to explicitly provide credentials if you're already signed in to another service with your Entra ID in the same browser.
 
 > [!NOTE]
 > If you have access to multiple Entra tenants, make sure the right tenant is selected when signing in by selecting your profile icon on the top right corner of the page.
