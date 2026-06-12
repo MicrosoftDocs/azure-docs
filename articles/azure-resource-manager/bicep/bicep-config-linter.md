@@ -14,9 +14,9 @@ This article describes the settings that are available for working with the Bice
 
 ## Customize linter
 
-The linter settings are available under the `analyzers` element. You can enable or disable the linter, supply rule-specific values, and set the level of rules.
+You can find the linter settings under the `analyzers` element. You can enable or disable the linter, supply rule-specific values, and set the level of rules.
 
-The following example shows the rules that are available for configuration.
+The following example shows the rules that you can configure.
 
 ```json
 {
@@ -70,6 +70,9 @@ The following example shows the rules that are available for configuration.
           "level": "off"
         },
         "no-loc-expr-outside-params": {
+          "level": "off"
+        },
+        "no-module-name": {
           "level": "off"
         },
         "no-unnecessary-dependson": {
@@ -157,15 +160,15 @@ The following example shows the rules that are available for configuration.
 
 The properties are:
 
-- **enabled**: specify **true** for enabling linter, **false** for disabling linter.
+- **enabled**: specify **true** to enable the linter, **false** to disable it.
 - **verbose**: specify **true** to show the bicepconfig.json file used by Visual Studio Code.
-- **rules**: specify rule-specific values. Each rule has a level that determines how the linter responds when a violation is found.
+- **rules**: specify rule-specific values. Each rule has a level that determines how the linter responds when it finds a violation.
 
 The available values for **level** are:
 
-| **level**  | **Build-time behavior** | **Editor behavior** |
-|--|--|--|
-| `Error` | Violations appear as Errors in command-line build output, and causes the build to fail. | Offending code is underlined with a red squiggle and appears in Problems tab. |
+| **level** | **Build-time behavior** | **Editor behavior** |
+| -- | -- | -- |
+| `Error` | Violations appear as errors in command-line build output, and cause the build to fail. | Offending code is underlined with a red squiggle and appears in Problems tab. |
 | `Warning` | Violations appear as Warnings in command-line build output, but they don't cause the build to fail. | Offending code is underlined with a yellow squiggle and appears in Problems tab. |
 | `Info` | Violations don't appear in the command-line build output. | Offending code is underlined with a blue squiggle and appears in Problems tab. |
 | `Off` | Suppressed completely. | Suppressed completely. |
