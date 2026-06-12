@@ -230,7 +230,7 @@ Authentication options vary, depending on the protocol and application. Here's a
 
 ## Recommended integration patterns
 
-The following list provides an overview of reference architectures. There isn't only one architecture, because it depends on your existing infrastructure and what components you're using. In the simplest form (for a first percentage of completion), you can use Copilot Studio and the SAP OData connector to connect directly to your SAP system in the cloud ([Option #1](https://github.com/MicrosoftDocs/azure-docs-pr/compare/architecture-demo.md?expand=1).
+The following list provides an overview of reference architectures. There isn't only one architecture, because it depends on your existing infrastructure and what components you're using. In the simplest form (for a first percentage of completion), you can use Copilot Studio and the SAP OData connector to connect directly to your SAP system in the cloud ([Option #1](https://github.com/hobru/Microsoft-Learning/blob/main/CopilotStudio/Architecture-Demo.md).
 
 * Are you running your SAP system on Azure and RISE? Do you have a good in-house Azure practice? See [Azure API Management and virtual network peering](architecture-apim-virtual-network.md).
 * Do you want to use BAPI or RFC? See [On-premises data gateway with access to BAPIs, RFCs, and OData services](architecture-on-premises-data-gateway.md).
