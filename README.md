@@ -20,7 +20,7 @@ To install the necessary tools, follow the instructions for [Install content aut
 
 ## License
 
-For all licensing information, refer to:
+For all licensing information,refer to:
 
 - [LICENSE](LICENSE)
 - [LICENSE-CODE](LICENSE-CODE)
