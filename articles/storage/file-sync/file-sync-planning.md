@@ -364,7 +364,13 @@ For more information, see [Azure File Sync performance metrics](./file-sync-scal
 
 The administrator who registers the server and creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner, or Contributor for the storage sync service. You can configure this role under Access Control (IAM) on the Azure portal page for the storage sync service.
 
-To create or update a cloud endpoint, the administrator must also have sufficient permissions on the storage account that contains the Azure file share. Storage account read-only access is insufficient. A user with only storage account Reader permission can view or select the storage account, but cloud endpoint create or update operations will fail. Assign Reader and Data Access or Storage File Data Privileged Contributor on the storage account, or use a role such as Owner that includes the required permission.
+Azure File Sync also requires additional storage account permissions for cloud endpoint create and update operations. Users who previously had only storage account read permissions can no longer create or update cloud endpoints.
+
+For non-managed identity deployments, the administrator must have a role that includes:
+- Microsoft.Storage/storageAccounts/listKeys/action
+- Microsoft.Storage/storageAccounts/ListAccountSas/action
+  
+For managed identity deployments, ensure the Azure File Sync managed identity or service principal has the required storage account roles, such as Reader and Data Access or Storage File Data Privileged Contributor, as applicable.
 
 When assigning the Azure File Sync Administrator role, follow these steps to ensure least privilege for the role assignments that Azure File Sync creates on the storage account.
 
