@@ -34,7 +34,7 @@ Azure Data Manager for Energy is currently compliant with the M25.1 OSDU® miles
 - **Seismic DDMS**: Enables secure access and efficient handling of seismic datasets.
 - **Wellbore DDMS**: Enables secure access and handling of wellbore-related data.
 - **Rock and Fluid Samples DDMS**: Allows you to manage storage, retrieval, and association of rock and fluid sample master data, analyses, and reports.
-- **Reservoir DDMS [[Preview]](how-to-enable-reservoir-ddms.md)**: Provides storage associated with seismic and well interpretation, structural modeling, geological modeling, and reservoir modeling including reservoir simulation input.
+- **Reservoir DDMS**: Provides storage associated with seismic and well interpretation, structural modeling, geological modeling, and reservoir modeling including reservoir simulation input.
 
 ### Ingestion services
 - **EDS DMS [[Preview]](how-to-enable-external-data-services.md)**: Pulls specified data (metadata) from OSDU-compliant data sources via scheduled jobs while leaving associated dataset files (LAS, SEG-Y, etc.) stored at the external source for retrieval on demand.
