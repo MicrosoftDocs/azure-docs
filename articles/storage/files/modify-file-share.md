@@ -330,8 +330,8 @@ Follow these instructions to change the size and performance of a file share (Mi
 To change the size and performance of a file share (Microsoft.FileShares) using PowerShell, use the following commands. Be sure to replace the variables with your intended values.
 
 ```powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/0.1.0
-Install-Module -Name Az.FileShare -Repository psgallery -RequiredVersion 0.1.0
+# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
+Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
 
 $resourceGroup = "<resource-group>"
 $shareName = "<file-share-name>"
@@ -340,7 +340,8 @@ $shareName = "<file-share-name>"
 Update-AzFileShare `
     -ResourceName $shareName `
     -ResourceGroupName $resourceGroup `
-    -NfProtocolPropertyRootSquash RootSquash `
+    -RootSquash RootSquash `
+    -EncryptionInTransitRequired Enabled `
     -ProvisionedIoPerSec 5001 `
     -ProvisionedStorageGiB 101 `
     -ProvisionedThroughputMiBPerSec 126 `
@@ -354,8 +355,8 @@ Get-AzFileShare -ResourceGroupName $resourceGroup -ResourceName $shareName
 To change the size and performance of a file share (Microsoft.FileShares) using Azure CLI, use the following commands.
 
 ```bash
-# Install the fileshares extension
-az extension add --name fileshares
+# Install the fileshare extension
+az extension add --name fileshare
 
 # Specify your values
 shareName="<your-file-share-name>"
@@ -363,10 +364,11 @@ resourceGroup="<your-resource-group-name>"
 
 # Update the file share. Uncomment and set only the parameters you want to change.
 az fileshare update --name $shareName --resource-group $resourceGroup 
-# --provisioned-storage-GiB 2048
+# --provisioned-storage-gib 2048 \
 # --provisioned-iops 3000 \
-# --provisioned-throughput-MiB 125 \
+# --provisioned-throughput-mib 125 \
 # --root-squash RootSquash \
+# --encryption-in-transit-required Enabled \
 # --public-network-access Disabled \
 # --allowed-subnets <subnet-resource-id> \
 # --tags tag1=value1
@@ -454,8 +456,8 @@ To delete a file share (Microsoft.FileShares) using the Azure portal, follow the
 To delete a file share (Microsoft.FileShares) using PowerShell, run the following command. Be sure to replace the variables with your intended values.
 
 ```powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/0.1.0
-Install-Module -Name Az.FileShare -Repository psgallery -RequiredVersion 0.1.0
+# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
+Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
 
 $resourceGroup = "<resource-group>"
 $shareName = "<file-share-name>"
@@ -468,8 +470,8 @@ Remove-AzFileShare -ResourceName $shareName -ResourceGroupName $resourceGroup
 To delete a file share (Microsoft.FileShares) by using Azure CLI, run the following command.
 
 ```bash
-# Install the fileshares extension
-az extension add --name fileshares
+# Install the fileshare extension
+az extension add --name fileshare
 
 # Delete the file share
 az fileshare delete --name <file-share-name> --resource-group <your-resource-group-name> -y
