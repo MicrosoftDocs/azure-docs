@@ -89,7 +89,7 @@ When the agent resolves a PagerDuty incident, it records an `SREAgent_Resolved` 
 
 ## Get started
 
-For a step-by-step guide, see [Tutorial: Connect to PagerDuty](connect-pagerduty.md).
+For a step-by-step guide, see [Set up PagerDuty incident indexing](set-up-pagerduty-indexing.md).
 
 ## Next step
 

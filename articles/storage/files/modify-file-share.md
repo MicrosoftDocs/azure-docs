@@ -31,7 +31,7 @@ After creating your provisioned v2 classic file share, you can change one or all
 
 Follow these instructions to update the provisioning for your file share.
 
-1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
+1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 
 2. In the file share listing, select the file share for which you desire to change the provisioning.
 
@@ -115,7 +115,7 @@ After creating your provisioned v1 file share, you can change the provisioned st
 
 Follow these instructions to update the provisioning for your file share.
 
-1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
+1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 
 2. In the file share listing, select the file share for which you desire to change the provisioning.
 
@@ -221,27 +221,27 @@ After you've created your pay-as-you-go file share, there are two properties you
 
 Follow these instructions to update the access tier of your file share using the Azure portal.
 
-1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
+1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 
-2. In the file share listing, select the file share for which you desire to change the access tier.
+1. In the file share listing, select the file share for which you want to change the access tier.
 
-3. In the file share overview, select **Change tier**.
+1. In the file share overview, select **Change tier**.
 
-4. Select the desired **Access tier** from the provided drop-down list.
+1. Select the desired **Access tier** from the provided drop-down list.
 
-5. Select **Apply** to save the access tier change.
+1. Select **Apply** to save the access tier change.
 
-For these instructions to update the quota of your file share.
+Follow these instructions to update the quota of your file share.
 
-1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
+1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 
-2. In the file share listing, select the file share for which you desire to change the quota.
+1. In the file share listing, select the file share for which you want to change the quota.
 
-3. In the file share overview, select **Edit quota**.
+1. In the file share overview, select **Edit quota**.
 
-4. In the edit quota pop-out, enter the desired maximum size of the share or select **Set to maximum**. There is no cost implication of setting the share to the maximum size.
+1. In the edit quota pop-out, enter the desired maximum size of the share or select **Set to maximum**. There's no cost implication of setting the share to the maximum size.
 
-5. Select **OK** to save quota changes. The new quota is effective within a few minutes.
+1. Select **OK** to save quota changes. The new quota is effective within a few minutes.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -390,7 +390,7 @@ You might want to delete unused or outdated file shares. File shares in storage 
 
 Follow these instructions to delete a classic file share using the Azure portal.
 
-1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
+1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 
 2. In the file share list, select the **...** for the file share you want to delete.
 
