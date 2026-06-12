@@ -3,8 +3,8 @@ title: Azure API Center - Key concepts
 description: Key concepts of Azure API Center. API Center inventories an organization's APIs for discovery, reuse, and governance at scale.
 
 ms.service: azure-api-center
-ms.topic: conceptual
-ms.date: 11/15/2024
+ms.topic: concept-article
+ms.date: 02/25/2026
 
 ---
 
@@ -22,7 +22,7 @@ The following diagram shows the main entities and how they relate to each other.
 
 ## API
 
-A top-level logical entity in Azure API Center, an API represents any real-world API that you want to track. An API center can include APIs of any type, including REST, GraphQL, gRPC, SOAP, WebSocket, and Webhook.
+A top-level logical entity in Azure API Center, an API represents any real-world API that you want to track. An API center can include APIs of any type, including REST, GraphQL, gRPC, SOAP, WebSocket, and Webhook. You can also include local and remote MCP servers and A2A agents in your API center inventory.
 
 You can manage an API in the inventory by any API management solution. For example, use Azure [API Management](../api-management/api-management-key-concepts.md), Apigee API Management, Kong Konnect, MuleSoft API Management, or another platform. An API represented in Azure API Center can also be unmanaged.
 

@@ -5,7 +5,7 @@ description: Learn about Microsoft Entra ID features, which are still supported 
 author: kengaderdus
 manager: mwongerapk
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: overview
 ms.date: 05/20/2025
@@ -19,7 +19,10 @@ ms.subservice: b2c
 
 # Supported Microsoft Entra ID features
 
+[!INCLUDE [active-directory-b2c-identity-protection-retirement](../../includes/active-directory-b2c-identity-protection-retirement.md)]
+
 [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 
 An Azure Active Directory B2C (Azure AD B2C) tenant is different than a Microsoft Entra tenant, which you may already have, but it relies on it. The following Microsoft Entra ID features can be used in your Azure AD B2C tenant.
 

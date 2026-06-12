@@ -1,128 +1,87 @@
 ---
 title: Register and Manage Agents in Azure API Center
-description: "Learn how to update agent metadata, add skills, configure capabilities, and manage provider information for A2A agents."
-
+description: Learn how to register AI agents in Azure API Center to create a centralized agents registry for your organization.   
 
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 11/11/2025
+ms.date: 06/02/2026
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ---
 
 # Register and manage agents in Azure API Center
 
-This article shows you how to register A2A agents in API Center, and how to update and manage them after registration. You can add skills, configure capabilities, and update provider information.
+This article shows you how to register AI agents, including [A2A agents](https://a2a-protocol.org/latest/specification/), in API Center, make them discoverable to users, and update and manage them. 
 
 ## Prerequisites
 
 - An Azure API Center instance 
-- An A2A agent described by an agent card
+- An agent described by an agent card in JSON format or an agent definition in Markdown format
 - Appropriate permissions to edit APIs in your API Center
 
 ## Register agent
 
-Enter required values from the agent's agent card. Optionally add skills and other metadata that define the capabilities and actions your A2A agent can perform.
+1. Sign in to the [Azure portal](https://portal.azure.com), and go to your API center.
 
-> [!TIP]
-> For detailed skill schema information, see the [Agent2Agent (A2A) Protocol Official Specification](https://a2a-protocol.org/latest/specification/).
+1. In the sidebar menu, under **Inventory**, select **Assets**.
 
-1. Sign in to the [Azure portal](https://portal.azure.com), then navigate to your API center.
+1. Select **+ Register an asset** > **Agent**.
 
-1. In the sidebar menu, under **Assets**, select **APIs** > **+ Register an API**.
+    :::image type="content" source="media/register-manage-agents/register-agent.png" alt-text="Screenshot of registering an agent in the portal."::: 
 
-1. In the **Register an API** page, fill in the [standard properties](tutorials/register-apis.md) to register an API and choose **A2A** as the agent type.
+1. In the **Register an agent** form, enter the information described in the following table:
 
-    - The form updates to display other fields specific to the **A2A** API type.
+    | Field | Description |
+    |-------|-------------|
+    | **Title** | Enter a descriptive name for the agent, such as *Help Desk Agent*. |
+    | **Identification** | API Center automatically generates an identifier based on the title, such as *help-desk-agent*. You can edit this identifier if needed. |
+    | **Short summary** | Enter a brief one-line description of what the agent does that appears in the API Center portal and other locations. |
+    | **Description** | Optionally enter a more detailed description of the skill's capabilities, use cases, and behavior. |
+    | **Version** | |
+    | **Version title** | Enter a version title of your choice, such as *v1*.|
+    | **Version identification** | API Center automatically generates an identifier based on the version title. You can edit this identifier if needed. |
+    | **Version lifecycle** | Select the current stage of the agent version's lifecycle from the dropdown menu. Learn more about [versions in API Center](key-concepts.md#api-version). |
+    | **Agent details** |  |
+    | **Agent definition** | Enter a URL or **Select a file** to upload an agent definition. The agent definition should be in Markdown format and include details about the agent's capabilities, skills, and other relevant information. |
+    | **Protocol** | If applicable, select the **A2A** protocol if the agent adheres to it. |
+    | **Agent card** | Optionally enter a URL or **Select a file** to upload an A2A agent card in JSON format. |
 
-1. In the **Agent Card** section, enter the following details:
+    :::image type="content" source="media/register-manage-agents/agent-registration-details.png" alt-text="Screenshot of the Register an agent pane in the Azure portal.":::
 
-    |Field                |Description                                                |
-    |---------------------|-----------------------------------------------------------|
-    |Protocol Version     |The version of the A2A protocol this agent supports.       |
-    |Agent URL            |The preferred endpoint URL for interacting with the agent. |
-    |Preferred Transport  |The transport protocol for the preferred endpoint.         |
-    |Agent Version        |The agent's own version number.                            |
+1. Select **Create** to add the agent.
 
-1. Locate the **Agent Skills** section.
+After registration, the agent appears in your inventory on the **Inventory** > **Assets** page.
 
-1. Select **+ Add**.
+## Update a registered agent
 
-1. On the **Agent Skills** page, define the skill by providing information for the required fields.
-
-1. Select **Add** to add the skill.
-
-1. In the **Agent Provider** section, enter the following details:
-
-    |Field                 |Description                                                              |
-    |----------------------|-------------------------------------------------------------------------|
-    |Organization name     |The name of the agent provider's organization                            |
-    |Organization URL      |A URL for the agent provider's website or relevant documentation         |
-
-1. Enable or disable the **Agent Capabilities** as needed:
-
-    |Field                    |Description                                                                             |
-    |-------------------------|----------------------------------------------------------------------------------------|
-    |Streaming Support        |Indicates if the agent supports Server-Sent Events (SSE) for streaming responses        |
-    |Push Notifications       |Indicates if the agent supports sending push notifications for asynchronous task updates|
-    |State Transition History | Indicates if the agent provides a history of state transitions for a task              |
-
-1. Select **Create** to register the API.
-
-## Update agent
+You can update agent information at any time.
 
 1. In the [Azure portal](https://azure.microsoft.com), go to your API center.
-1. In the sidebar menu, under **Assets**, select **APIs**.
-1. From the table, select your A2A agent by selecting the agent name in the **Title** column.
+1. In the sidebar menu, under **Inventory**, select **Assets**.
+1. From the table, select the agent name in the **Title** column.
 1. Select the **Edit** button to open the **Edit** page in the working pane.
+1. Make your changes and select **Save**.
 
-    :::image type="content" source="media/register-manage-agents/edit-agent.png" alt-text="Screenshot of the AI agent overview in Azure portal with the edit button highlighted.":::
+## Synchronize agents from API sources
 
-### Add skills to your agent
+To automate agent registration and keep your inventory up to date, you can integrate the following upstream sources with your API center:
 
-Skills define the capabilities and actions your A2A agent can perform.
+- **Azure API Management**: If you manage A2A agents in Azure API Management, you can enable automatic synchronization to keep your API center up to date. To learn more, see [Synchronize APIs from Azure API Management instance](synchronize-api-management-apis.md).
 
-> [!TIP]
-> For detailed skill schema information, see the [Agent2Agent (A2A) Protocol Official Specification](https://a2a-protocol.org/latest/specification/).
+- **Git repository**: For A2A agents and other AI assets stored in a Git repository, you can enable automatic synchronization to keep your API center up to date. For more information, see [Synchronize API assets from a Git repo](synchronize-assets-git.md).
 
-1. On the **Edit** page, locate the **Agent Skills** section.
-1. Select **+ Add**.
-1. On the **Agent Skills** page, define the skill by providing information for the required fields.
-1. Select **Add** to add the skill.
+## Discover agents in the API Center portal
 
-### Add provider information
+Set up your [API Center portal](set-up-api-center-portal.md) so that developers and other stakeholders in your organization can discover agents in your API inventory. From the API Center portal, users can:
 
-Provider information helps other teams identify who maintains the agent.
+* Browse and filter agents in the inventory.
+* View detailed information about each agent.
 
-1. On the agent **Edit** page, locate the **Agent Provider** section.
-1. Enter the following details:
-
-    |Field                 |Description                                                              |
-    |----------------------|-------------------------------------------------------------------------|
-    |Organization name     |The name of the agent provider's organization                            |
-    |Organization URL      |A URL for the agent provider's website or relevant documentation         |
-
-1. Select **Save**.
-
-### Configure agent capabilities
-
-Agent capabilities describe what features your A2A agent supports.
-
-1. On the **Edit** page, locate the **Agent Capabilities** section.
-1. Enable or disable the following capabilities as needed:
-
-    |Field                    |Description                                                                             |
-    |-------------------------|----------------------------------------------------------------------------------------|
-    |Streaming Support        |Indicates if the agent supports Server-Sent Events (SSE) for streaming responses        |
-    |Push Notifications       |Indicates if the agent supports sending push notifications for asynchronous task updates|
-    |State Transition History | Indicates if the agent provides a history of state transitions for a task              |
-
-1. Select **Save**.
-
-## Limitations
-
-Agent-to-Agent APIs in API Management don't synchronize with API Center.
+[!INCLUDE [assess-ai-assets](includes/assess-ai-assets.md)]
 
 ## Related content
 
-[Agent registry in Azure API Center](agent-to-agent-overview.md)
+* [Synchronize API assets from a Git repo](synchronize-assets-git.md)
+* [Register and discover MCP servers in your API inventory](register-discover-mcp-server.md)
+* [Set up your API Center portal](set-up-api-center-portal.md)
+* [Key concepts in Azure API Center](key-concepts.md)

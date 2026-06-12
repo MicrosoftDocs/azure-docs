@@ -1,11 +1,11 @@
 ---
 title: License SQL Server, Windows Server, and Linux in Azure VMware Solution 
 description: Learn about licensing considerations for running SQL Server, Windows Server, and Linux in VMs in Azure VMware Solution and how to utilize Azure Hybrid Benefits and register your SQL Server licenses.
-author: MikeWeiner-Microsoft
-ms.author: michwe
+author: jjaygbay1
+ms.author: jacobjaygbay
 ms.service: azure-vmware
 ms.topic: how-to  
-ms.date: 05/24/2024
+ms.date: 03/12/2026
 # Customer intent: "As a cloud administrator, I want to understand the licensing requirements for SQL Server, Windows Server, and Linux in Azure VMware Solution, so that I can ensure compliance and optimize costs while migrating and managing virtual machines in the cloud."
 ---
 
@@ -40,7 +40,7 @@ You can use the following licenses for SQL Server and Windows Server to apply to
 - **SQL Server**: Standard or Enterprise core licenses.
 
 ## Dual-use rights for Azure Migration
-Migration to Azure VMware Solution is usually executed over an extended time-frame instead of at a single point in time. To give you flexibility around your migration timelines, you can continue to use your licenses outside of Azure for 180 days from the time when the licenses are allocated within Azure VMware Solution. This dual-use rights benefit applies to SQL Server and Windows Server.
+Migration to Azure VMware Solution is done over an extended time-frame instead of at a single point in time. To give you flexibility around your migration timelines, you can continue to use your licenses outside of Azure for 180 days from the time when the licenses are allocated within Azure VMware Solution. This dual-use rights benefit applies to SQL Server and Windows Server.
 
 For more information and other considerations for dual-use rights outside of migration, see [Azure Product Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS).
 
@@ -80,9 +80,9 @@ You can enable Azure Hybrid Benefit for SQL Server and achieve unlimited virtual
 
 ##### License a virtual machine
 You can register SQL Server licenses and apply them to VMs running SQL Server in Azure VMware Solution by registering through Azure Arc:
-1.	Azure VMware Solution must be Azure Arc-enabled. For more information, see [Deploy Azure Arc-enabled VMware vSphere for Azure VMware Solution](/azure/azure-vmware/deploy-arc-for-azure-vmware-solution). You can Azure Arc-enable the VMs and install extensions to that VM by following the steps provided in the section titled "Enable guest management and extension installation."
+1.	Azure VMware Solution must be Azure Arc-enabled. For more information, see [Deploy Azure Arc-enabled VMware vSphere for Azure VMware Solution](/azure/azure-vmware/deploy-arc-for-azure-vmware-solution). You can enable Azure Arc on the VMs and install extensions to that VM by following the next steps.
 1.	When **Guest Management** is configured, the Azure Extension for SQL Server should be installed on that VM. The extension installation enables you to configure the license type for the SQL Server instance running in the VM.
-1. Now you can configure the license type and other SQL Server configuration settings by using the Azure portal, PowerShell, or the Azure CLI for a specific Azure Arc-enabled server. To configure from the Azure portal with VMware vSphere in the Azure VMware Solution experience, follow these steps:
+1. Now you can configure the license type and other SQL Server configuration settings by using the Azure portal, PowerShell, or the Azure CLI for a specific Azure Arc-enabled server. To configure from the Azure portal with VMware vSphere in the Azure VMware Solution experience, use the following steps:
  
    1. In the Azure VMware Solution portal, go to **vCenter Server Inventory** and **Virtual Machines** by clicking through one of the Azure Arc-enabled VMs. The **Machine-Azure Arc (AVS)** page appears.
    1. On the left pane, under **Operations**, select **SQL Server Configuration**.

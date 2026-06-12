@@ -162,6 +162,8 @@ Global load balancer routes the traffic to the appropriate regional load balance
 
 - When placing the same NIC(s) behind multiple regional load balancers with global load balancer, the load balancing rules on each regional load balancer with the same frontend port must also be configured to the same backend port.
 
+- ICMP protocol is not supported for global load balancer and ICMP Ping is expected to fail.
+
 ## Pricing and SLA
 Global load balancer shares the [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) of standard load balancer.
 

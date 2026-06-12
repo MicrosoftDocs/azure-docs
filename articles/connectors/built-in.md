@@ -1,12 +1,14 @@
 ---
-title: Built-in connector overview
+title: Built-In Connectors Overview
 description: Learn about connectors that run natively with the runtime in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: concept-article
+ms.update-cycle: 1095-days
+ms.date: 03/09/2026
 ms.custom: engagement-fy23
-ms.date: 03/18/2025
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to learn about built-in connectors, which directly run alongside the runtime to provide better performance and throughput, compared to their counterparts that run in multitenant Azure.
 ---
 
 # Built-in connectors in Azure Logic Apps
@@ -192,7 +194,7 @@ You can use the following built-in connectors to access specific services and sy
     :::column:::
         [![Azure File Storage icon][azure-file-storage-icon]][azure-file-storage-doc]
         <br><br>[**Azure File Storage**][azure-file-storage-doc]<br>(*Standard workflow only*)
-        <br><br>Connect to your Azure Storage account so that you can create, update, and manage files.
+        <br><br>Connect to your Azure Storage account so that you can create, update, and manage Azure classic file shares. This built-in connector for Azure Files includes triggers and actions. The triggers monitor only the specified folder and don't fire for files added to or updated in subfolders. The [Azure File Storage *managed* connector](/connectors/azurefile/) provides actions only with no triggers.
     :::column-end:::
     :::column:::
         [![Azure Functions icon][azure-functions-icon]][azure-functions-doc]
@@ -360,13 +362,13 @@ Azure Logic Apps provides the following built-in actions for working with data o
         [![Data Operations icon][data-operations-icon]][data-operations-doc]
         <br><br>[**Data Operations**][data-operations-doc]
         <br><br>Perform operations with data.
-        <br><br>**Chunk text**: Split up content into pieces to use in AI solutions or with Foundry Tool operations such as [Azure OpenAI and Azure AI Search operations](../logic-apps/connectors/azure-ai.md). For more information, see [Parse or chunk content](../logic-apps/parse-document-chunk-text.md).
+        <br><br>**Chunk text**: Split up content into pieces to use in AI solutions or with Foundry Tools operations such as [Azure OpenAI and Azure AI Search operations](../logic-apps/connectors/azure-ai.md). For more information, see [Parse or chunk content](../logic-apps/parse-document-chunk-text.md).
         <br><br>**Compose**: Create a single output from multiple inputs with various types.
         <br><br>**Create CSV table**: Create a comma-separated-value (CSV) table from an array with JSON objects.
         <br><br>**Create HTML table**: Create an HTML table from an array with JSON objects.
         <br><br>**Filter array**: Create an array from items in another array that meet your criteria.
         <br><br>**Join**: Create a string from all items in an array and separate those items with the specified delimiter.
-        <br><br>**Parse a document**: Create a tokenized string to use in AI solutions or with Foundry Tool operations such as [Azure OpenAI and Azure AI Search operations](../logic-apps/connectors/azure-ai.md). For more information, see [Parse or chunk content](../logic-apps/parse-document-chunk-text.md).
+        <br><br>**Parse a document**: Create a tokenized string to use in AI solutions or with Foundry Tools operations such as [Azure OpenAI and Azure AI Search operations](../logic-apps/connectors/azure-ai.md). For more information, see [Parse or chunk content](../logic-apps/parse-document-chunk-text.md).
         <br><br>**Parse JSON**: Create user-friendly tokens from properties and their values in JSON content so that you can use those properties in your workflow.
         <br><br>**Select**: Create an array with JSON objects by transforming items or values in another array and mapping those items to specified properties.
     :::column-end:::
@@ -486,10 +488,9 @@ For more information, review the following documentation:
     :::column-end:::
 :::row-end:::
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Create custom APIs that you can call from Azure Logic Apps](../logic-apps/logic-apps-create-api-app.md)
+- [Create custom APIs that you can call from Azure Logic Apps](../logic-apps/logic-apps-create-api-app.md)
 
 <!-- Built-in icons -->
 [azure-ai-search-icon]: ./media/apis-list/azure-ai-search.png
@@ -600,9 +601,9 @@ For more information, review the following documentation:
 [scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "Organize actions into groups, which get their own status after the actions in group finish running"
 [sftp-doc]: /azure/logic-apps/connectors/built-in/reference/sftp/ "Connect to your SFTP account by using SSH. Upload, get, delete files, and more"
 [smtp-doc]: /azure/logic-apps/connectors/built-in/reference/smtp/ "Connect to your SMTP server so you can send email"
-[sql-server-doc]: /azure/logic-apps/connectors/built-in/reference/sql/ "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in an SQL database table"
+[sql-server-doc]: /azure/logic-apps/connectors/built-in/reference/sql/ "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in a SQL database table"
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organize actions into cases, which are assigned unique values. Run only the case whose value matches the result from an expression, object, or token. If no matches exist, run the default case"
-[swift-doc]: https://techcommunity.microsoft.com/t5/azure-integration-services-blog/announcement-public-preview-of-swift-message-processing-using/ba-p/3670014 "Encode and decode SWIFT transactions in flat-file XML format"
+[swift-doc]: https://techcommunity.microsoft.com/blog/integrationsonazureblog/-announcement--public-preview-of-swift-message-processing-using-azure-logic-apps/3670014 "Encode and decode SWIFT transactions in flat-file XML format"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stop or cancel an actively running workflow for your logic app workflow"
 [until-doc]: ../logic-apps/logic-apps-control-flow-loops.md#until-loop "Repeat actions until the specified condition is true or some state has changed"
 [variables-doc]: ../logic-apps/logic-apps-create-variables-store-values.md "Perform operations with variables, such as initialize, set, increment, decrement, and append to string or array variable"

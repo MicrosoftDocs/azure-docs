@@ -3,8 +3,8 @@ title: Industry-wide certificate changes impacting Azure App Service
 description: Describes industry-wide TLS certificate changes that affect Azure App Service Managed Certificates and App Service Certificates, including scope, timelines, and required actions.
 author: msangapu-msft
 ms.author: msangapu
-ms.date: 02/03/2026
-ms.topic: conceptual
+ms.date: 05/18/2026
+ms.topic: concept-article
 ms.service: azure-app-service
 ---
 
@@ -89,9 +89,9 @@ If validation is required, certificate orders remain in a pending issuance state
 
 ## Client authentication EKU (ASMC and ASC)
 
-App Service Managed Certificates and App Service Certificates will stop supporting the client authentication extended key usage (EKU) as part of industry-driven changes to public TLS certificates.
+App Service Managed Certificates and App Service Certificates will stop supporting the client authentication extended key usage (EKU) as part of industry-driven changes to public TLS certificates. This change aligns with the Chrome Root Program policy update that disallows the `clientAuth` EKU in publicly trusted server certificates issued on or after **June 15, 2026**. Certificates issued before the migration that include the client authentication EKU remain valid until they expire or are revoked.
 
-For background on this change across Azure services, see [Changes to the Managed TLS feature](/azure/security/fundamentals/managed-tls-changes).
+For App Service Managed Certificates specifically, see [Changes to the Managed TLS feature](/azure/security/fundamentals/managed-tls-changes). For App Service Certificates specifically, see GoDaddy's article on [removing the clientAuth EKU and transitioning to the R1 root hierarchy](https://www.godaddy.com/en/help/why-is-godaddy-removing-clientauth-eku-and-transitioning-to-the-r1-root-hierarchy-for-dv-tls-issuance-42783).
 
 > [!NOTE]
 > Apps that rely on these certificates for mutual TLS (mTLS) must transition to an alternative authentication mechanism before the migration dates.
@@ -99,11 +99,11 @@ For background on this change across Azure services, see [Changes to the Managed
 
 ## Certificate chain changes (ASMC and ASC)
 
-Both App Service Managed Certificates and App Service Certificates will migrate to a new certificate chain as part of industry-driven updates to TLS certificates, which includes changes to certificate authorities and intermediates.
+Both App Service Managed Certificates and App Service Certificates will migrate to a new certificate chain as part of industry-driven updates to TLS certificates, which includes changes to certificate authorities and intermediates. For App Service Certificates specifically, GoDaddy is moving DV TLS issuance to its new **GoDaddy TLS Root CA – R1** hierarchy.
 
 Apps that pin certificates or certificate chains must review and remove pinning before the migration dates to avoid service disruption.
 
-For background on the managed TLS certificate authority changes across Azure services, see [Changes to the Managed TLS feature](/azure/security/fundamentals/managed-tls-changes).
+For App Service Managed Certificates specifically, see [Changes to the Managed TLS feature](/azure/security/fundamentals/managed-tls-changes). For App Service Certificates specifically, see GoDaddy's article on [removing the clientAuth EKU and transitioning to the R1 root hierarchy](https://www.godaddy.com/en/help/why-is-godaddy-removing-clientauth-eku-and-transitioning-to-the-r1-root-hierarchy-for-dv-tls-issuance-42783).
 
 > [!NOTE]
 > Certificate pinning is not recommended for App Service Managed Certificates (ASMC), because certificate issuance and rotation are controlled by the service.  
@@ -115,7 +115,7 @@ For background on the managed TLS certificate authority changes across Azure ser
 |-----|--------|------|-----|
 | Feb–Mar 2026 | New certificate chain | Migrates to new chain | — |
 | Starting March 2026 | Validity period + validation reuse | — | Shortened validity and validation reuse |
-| Mar–Apr 2026 (TBD) | New certificate chain + Client auth EKU | — | Migrates to new chain; EKU removed |
+| By May 27, 2026 | New certificate chain + Client auth EKU | — | Migrates to GoDaddy R1 chain; clientAuth EKU removed |
 | Mar–Apr 2026 (TBD) | Client auth EKU | EKU removed | — |
 
 
@@ -126,6 +126,9 @@ No. For App Service Certificates, Azure App Service automatically issues overlap
 
 ### Are these changes specific to DigiCert or GoDaddy?
 No. These are industry-wide changes driven by browser programs and the CA/Browser Forum, and they apply to public TLS certificates issued by all certificate authorities.
+
+### Where can I learn more about the GoDaddy R1 hierarchy migration that affects App Service Certificates?
+See GoDaddy's article: [Why is GoDaddy removing clientAuth EKU and transitioning to the R1 root hierarchy for DV TLS issuance?](https://www.godaddy.com/en/help/why-is-godaddy-removing-clientauth-eku-and-transitioning-to-the-r1-root-hierarchy-for-dv-tls-issuance-42783)
 
 ### Do these changes affect certificates from other certificate authorities?
 Yes. These are industry-wide changes that apply to public TLS certificates regardless of the issuing certificate authority. For certificates not managed by Azure App Service, contact your certificate authority for guidance.

@@ -8,7 +8,7 @@ manager: nmurav
 
 services: azure-communication-services
 ms.date: 11/30/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-plat-web-ios-android-windows

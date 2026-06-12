@@ -6,6 +6,8 @@ summary: Provides monitoring and analytics for large-scale applications.
 metadata:
   title: Datadog - An Azure Native ISV Service documentation
   description: Datadog - An Azure Native ISV Service provides monitoring and analytics for large-scale applications.
+  author: pdjokar96
+  ms.author: piyushdash
   ms.service: partner-services
   ms.subservice: datadog
   ms.topic: landing-page
@@ -21,6 +23,8 @@ landingContent:
         links:
           - text: What is Datadog?
             url: overview.md
+          - text: FAQ
+            url: faq.yml
       - linkListType: how-to-guide
         links:
           - text: Manage your Datadog resource

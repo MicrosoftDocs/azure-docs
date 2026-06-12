@@ -3,7 +3,7 @@ title: Basic Concepts for Azure Operator Service Manager
 description: Understand Azure Operator Service Manager basic concepts behind onboarding and deploying a network function.
 author: msftadam
 ms.author: adamdor
-ms.date: 10/06/2025
+ms.date: 03/09/2026
 ms.topic: best-practice
 ms.service: azure-operator-service-manager
 ---
@@ -202,3 +202,53 @@ As the first step toward cleaning up an onboarded environment, delete publisher 
 > Be sure to delete the SNS before you delete the NFDV.
 
 Azure Operator Service Manager doesn't delete namespaces as part of any deletion operation. As such, after all resources are deleted, some artifacts might remain on the cluster. To remove any remaining artifacts, you should delete any workload namespaces created on the cluster. Including the namespace deletion operation as part of the workflow pipeline is a recommendation to automate the action.
+
+## Azure global limits considerations
+Azure enforces certain global service limits and constraints across all Azure services. The following is a curated list of those limits which should be considereed when onboarding, designing or operating workloads using Azure Operator Service Manager.
+
+### ARM template limits
+These limits would apply to rendered ARM templates used with Azure Operator Service Manager.
+
+| Value	| Limit |
+|-----------|-------|
+|Parameters |256 |
+|Variables|	256 |
+|Resources (including copy count)|	800 |
+|Outputs|	64 |
+|Template expression|	24,576 chars |
+|Resources in exported templates|	200 |
+|Template size|	4 MB |
+|Resource definition size|	1 MB |
+|Parameter file size|	4 MB |
+
+### Azure RBAC limits
+These limits would apply to the target subscription used for Azure Operator Service Manager deployment.
+
+|Resource	|Limit|
+|---------|-----|
+|Number of Azure role assignments per Azure subscription|	4,000|
+|Number of Azure role assignments per management group| 500|
+|Size of description for Azure role assignments	Recommended maximum| 512 chars|
+|Size of condition for Azure role assignments|	8 KB|
+|Number of Azure custom roles per tenant|	5,000|
+|Number of Azure custom roles per tenant (21Vianet)|	2,000|
+|Size of role name for Azure custom roles	Recommended maximum| 256 chars|
+|Size of description for Azure custom roles	Recommended maximum| 512 chars|
+|Size of an Azure custom role definition|	1 MB|
+|Number of assignable scopes for Azure custom roles|	2,000|
+|Number of system-managed deny assignments per Azure subscription|	2,000|
+
+Generally, AOSM requires 8x the number of concurrent SNS operations against a target subscription.
+
+### Other limits
+These limits have been observed in certain real-world use-cases.
+
+|Resource	|Limit|
+|---------|-----|
+|Maximum duration of system-assigned scope token (OBO) | 4h 30m no refresh|
+|Maximum duration of user assigned managed identity (UAMI) | 24h + refresh|
+|VNF timeout|24h|
+|RPAAS Delete timeout|2h 30m|
+|DTF Orchestration timeout| 7d |
+
+For a comprehensive list, see the following article: [Azure subscription and service limits, quotas, and constraints](/azure/azure-resource-manager/management/azure-subscription-service-limits).

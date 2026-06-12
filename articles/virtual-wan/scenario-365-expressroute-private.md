@@ -8,7 +8,7 @@ author: floklaffenbach
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 03/26/2025
-ms.author: flofox
+ms.author: cherylmc
 ms.custom: sfi-image-nochange
 
 ---

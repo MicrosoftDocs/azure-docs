@@ -2,12 +2,13 @@
 title: Azure Cloud Services (extended support) post-migration changes
 description: Overview of post migration changes after migrating to Cloud Services (extended support)
 ms.topic: how-to
-ms.service: azure-virtual-machines
-ms.subservice: classic-to-arm-migration
+ms.service: azure-cloud-services-classic
 author: tanmaygore
 ms.author: tagore
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+ms.update-cycle: 365-days
+ms.custom: cloud-services-extended-support, classic-to-arm-migration
 # Customer intent: As an IT admin managing legacy deployments, I want to update deployment files, automation scripts, and resource configurations post-migration to Azure Resource Manager, so that I can ensure compatibility, manage endpoints, and leverage new features in Cloud Services (extended support).
 ---
  

@@ -4,7 +4,7 @@ description: This tutorial shows how to create a low-latency, event-driven trigg
 ms.topic: tutorial
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts, ignite-2024
 ms.date: 11/01/2025
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 #Customer intent: As an Azure Functions developer, I want learn how to create an event-based trigger on a Blob Storage container so that I can get a more rapid response to changes in the container.
 ---
 
@@ -195,7 +195,7 @@ You need to switch the trigger source from the default Blob trigger source (cont
 ::: zone pivot="programming-language-csharp"
 Open the generated `EventGridBlobTrigger.cs` file. You see a definition for an `EventGridBlobTrigger` function that looks something like this: 
 
-:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/EventGridBlobTrigger-CSharp-Isolated-6.x/EventGridBlobTriggerCSharp.cs" range="17-23":::
+<!--- :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/EventGridBlobTrigger-CSharp-Isolated-6.x/EventGridBlobTriggerCSharp.cs" range="17-23"::: --->
 
 In this definition, `Source = BlobTriggerSource.EventGrid` indicates that an event subscription to the blob container (in the example `PathValue`) is the source of the event that starts the trigger. 
 ::: zone-end  
@@ -219,21 +219,21 @@ In this definition, `source = EventGrid` indicates that an event subscription to
 ::: zone pivot="programming-language-powershell"
 In the `EventGridBlobTrigger` folder, open the `function.json` file and find a binding definition like this with a `type` of `blobTrigger` and a `source` of `EventGrid`: 
 
-:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/EventGridBlobTrigger-PowerShell/function.json" :::
+<!--- :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/EventGridBlobTrigger-PowerShell/function.json" ::: --->
 
 The `path` indicates that the `samples-workitems` blob container is the source of the event that starts the trigger. 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 Open the generated `EventGridBlobTrigger.js` file. You see a definition for a function that looks something like this: 
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageBlobTriggerEventGrid1.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageBlobTriggerEventGrid1.js" ::: --->
 
 In this definition, a `source` of `EventGrid` indicates that an event subscription to the `samples-workitems` blob container is the source of the event that starts the trigger. 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 Open the generated `EventGridBlobTrigger.ts` file. You see a definition for a function that looks something like this: 
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageBlobTriggerEventGrid1.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageBlobTriggerEventGrid1.ts" ::: --->
 
 In this definition, a `source` of `EventGrid` indicates that an event subscription to the `samples-workitems` blob container is the source of the event that starts the trigger. 
 ::: zone-end  
@@ -333,20 +333,20 @@ Use these steps to create a function app in the Flex Consumption plan. When you 
 
 1. Follow the prompts and provide this information:
 
-    | Prompt |  Selection |
-    | ------ |  ----------- |
-    | **Enter a globally unique name for the new function app** | Type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
-    | **Select a hosting plan** | Choose **Flex Consumption**, which is the recommended [hosting plan](functions-scale.md) for serverless hosting. |
-        | **Select a location for new resources** | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
-    | **Select a runtime stack**| Select the language version you currently run locally. |
-        | **Select an instance size** | Select **512**. You can always [change the instance size](./flex-consumption-how-to.md#configure-instance-memory) setting to a larger size later. |
-    | **Enter the maximum instance count** | Select the default value of **100**, which limits the total scale-out of your app. You can also choose a different value between 1 and 1,000.  |
-    | **Select a resource group**  | Select **Create new resource group** and accept the default or enter another name for the new group that's unique in your subscription.| 
-    | **Select resource authentication type** | Select **Managed identity** so that your app connects to remote resources by using Microsoft Entra ID authentication instead of using shared secrets (connection strings and keys), which are less secure. |
-    | **Select a user assigned identity** | Select **Create new user-assigned identity**. | 
-    | **Select a location for new resources** | Select the same region as the storage account you created. If for some reason this region isn't supported by the Flex Consumption play, it isn't displayed. In that case, choose a nearby [region](https://azure.microsoft.com/regions/) instead. For more information, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).|
-    | **Select a storage account** | Choose the name of the storage account you created. |
-    | **Select an Application Insights resource for your app** | Choose **Create new Application Insights resource** and at the prompt provide the name for the instance used to store runtime data from your functions.| 
+   | Prompt |  Selection |
+   | ------ |  ----------- |
+   | **Enter a globally unique name for the new function app** | Type a globally unique name that identifies your new function app and then select Enter. Valid characters for a function app name are `a-z`, `0-9`, and `-`. |
+   | **Select a hosting plan** | Choose **Flex Consumption**, which is the recommended [hosting plan](functions-scale.md) for serverless hosting. |
+   | **Select a location for new resources** | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. |
+   | **Select a runtime stack**| Select the language version you currently run locally. |
+   | **Select an instance size** | Select **512**. You can always [change the instance size](./flex-consumption-how-to.md#configure-instance-memory) setting to a larger size later. |
+   | **Enter the maximum instance count** | Select the default value of **100**, which limits the total scale-out of your app. You can also choose a different value between 1 and 1,000.  |
+   | **Select a resource group**  | Select **Create new resource group** and accept the default or enter another name for the new group that's unique in your subscription.| 
+   | **Select resource authentication type** | Select **Managed identity** so that your app connects to remote resources by using Microsoft Entra ID authentication instead of using shared secrets (connection strings and keys), which are less secure. |
+   | **Select a user assigned identity** | Select **Create new user-assigned identity**. | 
+   | **Select a location for new resources** | Select the same region as the storage account you created. If for some reason this region isn't supported by the Flex Consumption play, it isn't displayed. In that case, choose a nearby [region](https://azure.microsoft.com/regions/) instead. For more information, see [View currently supported regions](flex-consumption-how-to.md#view-currently-supported-regions).|
+   | **Select a storage account** | Choose the name of the storage account you created. |
+   | **Select an Application Insights resource for your app** | Choose **Create new Application Insights resource** and at the prompt provide the name for the instance used to store runtime data from your functions.| 
 
     A notification appears after your function app is created. Select **View Output** in this notification to view the creation results, including the Azure resources that you created.
 

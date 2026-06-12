@@ -1,9 +1,9 @@
-﻿---
+---
 title: Manage Resource Management Private Links
 description: Use APIs to manage existing resource management private links
 ms.topic: article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 02/09/2025
+ms.date: 02/27/2026
 ---
 
 # Manage resource management private links

@@ -1,17 +1,21 @@
 ---
-title: Azure Web Application Firewall monitoring and logging
+title: Monitoring and Logging
+titleSuffix: Azure Web Application Firewall
 description: Learn about Azure Web Application Firewall in Azure Front Door monitoring and logging.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
-ms.date: 05/23/2024
+ms.date: 02/25/2026
 ms.custom: devx-track-js
 zone_pivot_groups: front-door-tiers
+
 # Customer intent: As a security analyst, I want to monitor and analyze Azure Web Application Firewall logs and metrics, so that I can ensure my application's security and identify any potential threats to its integrity.
 ---
 
 # Azure Web Application Firewall monitoring and logging
+
+**Applies to:** :heavy_check_mark: Front Door Standard/Premium :heavy_check_mark: Front Door (classic)
 
 Azure Web Application Firewall on Azure Front Door provides extensive logging and telemetry to help you understand how your web application firewall (WAF) is performing and the actions it takes.
 
@@ -185,6 +189,9 @@ The following snippet shows an example log entry, including the reason that the 
 
 For more information about the other Azure Front Door logs, see [Monitor metrics and logs in Azure Front Door](../../frontdoor/front-door-diagnostics.md#logs).
 
-## Next step
+## Related content
 
-Learn more about [Azure Front Door](../../frontdoor/front-door-overview.md).
+- [Best practices for Azure Front Door WAF](waf-front-door-best-practices.md)
+- [Create a WAF policy on Azure Front Door](waf-front-door-create-portal.md)
+- [Azure Web Application Firewall on Azure Front Door](afds-overview.md)
+

@@ -7,12 +7,14 @@ ms.author: joanpo
 ms.date: 04/17/2018
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: quickstart
 ms.custom:
   - azure-synapse
 ---
 
 # Connect to a dedicated SQL pool in Azure Synapse Analytics with sqlcmd
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 > [!div class="op_single_selector"]
 >

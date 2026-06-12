@@ -83,20 +83,7 @@ If the backed-up VM has managed disks and if the intent is to restore managed di
     ```
 
     > [!WARNING]
-    > If **target-resource-group** isn't provided, then the managed disks will be restored as unmanaged disks to the given storage account. This will have significant consequences to the restore time since the time taken to restore the disks entirely depends on the given storage account. You'll get the benefit of instant restore only when the target-resource-group parameter is given. If the intention is to restore managed disks as unmanaged then don't provide the **target-resource-group** parameter and instead provide the **restore-as-unmanaged-disk** parameter as shown below. This parameter is available from Azure CLI 3.4.0 onwards.
-
-    ```azurecli-interactive
-    az backup restore restore-disks \
-    --resource-group myResourceGroup \
-    --vault-name myRecoveryServicesVault \
-    --container-name myVM \
-    --item-name myVM \
-    --storage-account mystorageaccount \
-    --rp-name myRecoveryPointName \
-    --restore-as-unmanaged-disk
-    ```
-
-This will restore managed disks as unmanaged disks to the given storage account and won't be leveraging the 'instant' restore functionality. In future versions of CLI, it will be mandatory to provide either the **target-resource-group** parameter or **restore-as-unmanaged-disk** parameter.
+    > Provide **target-resource-group** for managed disk restores. Azure Backup doesn't support restoring disks as unmanaged disks. For legacy recovery points from VMs that used unmanaged disks, see [Restore legacy recovery points from VMs that used unmanaged disks](backup-azure-arm-restore-vms.md#restore-legacy-recovery-points-from-vms-that-used-unmanaged-disks).
 
 ### Restore disks to secondary region
 
@@ -144,9 +131,9 @@ Cross-zonal restore is supported only in scenarios where:
 
 ### Unmanaged disks restore
 
-If the backed-up VM has unmanaged disks and if the intent is to restore disks from the recovery point, you first provide an Azure storage account. This storage account is used to store the VM configuration and the deployment template that can be later used to deploy the VM from the restored disks. By default, the unmanaged disks will be restored to their original storage accounts. If you wish to restore all unmanaged disks to one single place, then the given storage account can also be used as a staging location for those disks too.
+If the recovery point is from a VM that used unmanaged disks, Azure Backup restores those disks only as managed disks. Provide an Azure storage account to store the VM configuration, deployment template, and temporary VHD files, and provide a target resource group for the restored managed disks.
 
-In additional steps, the restored disk is used to create a VM.
+In additional steps, the restored disks are used to create a VM.
 
 1. To create a storage account, use [az storage account create](/cli/azure/storage/account#az-storage-account-create). The storage account name must be all lowercase, and be globally unique. Replace *mystorageaccount* with your own unique name:
 
@@ -157,7 +144,7 @@ In additional steps, the restored disk is used to create a VM.
         --sku Standard_LRS
     ```
 
-2. Restore the disk from your recovery point with [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Replace *mystorageaccount* with the name of the storage account you created in the preceding command. Replace *myRecoveryPointName* with the recovery point name you obtained in the output from the previous [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) command:
+2. Restore the disk from your recovery point with [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Replace *mystorageaccount* with the name of the storage account you created in the preceding command. Replace *myRecoveryPointName* with the recovery point name you obtained in the output from the previous [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) command. Also provide the target resource group for the restored managed disks:
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -166,21 +153,11 @@ In additional steps, the restored disk is used to create a VM.
         --container-name myVM \
         --item-name myVM \
         --storage-account mystorageaccount \
-        --rp-name myRecoveryPointName
-    ```
-
-As mentioned above, the unmanaged disks will be restored to their original storage account. This provides the best restore performance. But if all unmanaged disks need to be restored to given storage account, then use the relevant flag as shown below.
-
-```azurecli-interactive
-    az backup restore restore-disks \
-        --resource-group myResourceGroup \
-        --vault-name myRecoveryServicesVault \
-        --container-name myVM \
-        --item-name myVM \
-        --storage-account mystorageaccount \
         --rp-name myRecoveryPointName \
-        --restore-to-staging-storage-account
+        --target-resource-group targetRG
     ```
+
+Restore to unmanaged disks isn't supported. For legacy recovery points from VMs that used unmanaged disks, follow the guidance in [Restore legacy recovery points from VMs that used unmanaged disks](backup-azure-arm-restore-vms.md#restore-legacy-recovery-points-from-vms-that-used-unmanaged-disks).
 
 ## Monitor the restore job
 

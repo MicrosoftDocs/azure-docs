@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 01/15/2026
+ms.date: 05/20/2026
 ms.author: danlep
 ms.custom:
   - build-2024
@@ -108,8 +108,8 @@ To add CA certificate details, follow these steps:
 1. In the **Authorization credentials** section of the backend configuration, select **CA Certificates**.
 1. Select **+ Add CA certificate details**.
 1. In the **Add CA certificate** pane, select one of the following options:
-    * **Certificate thumbprint** - Enter the thumbprint (a SHA-1, SHA-256, or SHA-512 hash) of a custom CA certificate.
-    * **Subject name and issuer thumbprint** - Enter the subject name that uniquely identifies the CA and the thumbprint of the CA.
+    * **Certificate thumbprint** - Enter the issuer thumbprint (a SHA-1, SHA-256, or SHA-512 hash) of a custom CA certificate. 
+    * **Subject name and issuer thumbprint** - In addition to the issuer thumbprint, enter the subject name (CN or common name of the leaf certificate) that identifies the hostname it secures (for example, `api.contoso.com` or `*.contoso.com`).
 1. Select **Add**.
 1. Select **Create**.
 
@@ -305,9 +305,6 @@ API Management supports the following load balancing options for backend pools:
 
 By using any of the preceding load balancing options, you can enable **session awareness** (session affinity) to ensure that all requests from a specific user during a session go to the same backend in the pool. API Management sets a session ID cookie to maintain session state. This option is useful, for example, in scenarios with backends such as AI chat assistants or other conversational agents to route requests from the same session to the same endpoint.
 
-> [!NOTE]
-> Session awareness in load-balanced pools is being released first to the **AI Gateway Early** [update group](configure-service-update-settings.md).
-
 #### Manage cookies for session awareness
 
 When you use session awareness, the client must handle cookies appropriately. The client needs to store the `Set-Cookie` header value and send it with subsequent requests to maintain session state.
@@ -317,32 +314,32 @@ You can use API Management policies to help set cookies for session awareness. F
 
 ```xml
 <policies>
-  <inbound>
-    <base />
-    <set-backend-service backend-id="APIMBackend" />
-  </inbound>
-  <backend>
-    <base />
-  </backend>
-  <outbound>
-    <base />
-    <set-variable name="gwSetCookie" value="@{
-      var payload = context.Response.Body.As<JObject>();
-      var threadId = payload["id"];
-      var gwSetCookieHeaderValue = context.Request.Headers.GetValueOrDefault("SetCookie", string.Empty);
-      if(!string.IsNullOrEmpty(gwSetCookieHeaderValue))
-      {
-        gwSetCookieHeaderValue = gwSetCookieHeaderValue + $";Path=/threads/{threadId};";
-      }
-      return gwSetCookieHeaderValue;
-    }" />
-    <set-header name="Set-Cookie" exists-action="override">
-      <value>Cookie=gwSetCookieHeaderValue</value>
-    </set-header>
-  </outbound>
-  <on-error>
-    <base />
-  </on-error>
+  <inbound>
+    <base />
+    <set-backend-service backend-id="APIMBackend" />
+  </inbound>
+  <backend>
+    <base />
+  </backend>
+  <outbound>
+    <base />
+    <set-variable name="gwSetCookie" value="@{
+      var payload = context.Response.Body.As<JObject>(preserveContent: true);
+      var threadId = payload["id"];
+      var gwSetCookieHeaderValue = context.Request.Headers.GetValueOrDefault("Set-Cookie", string.Empty);
+      if(!string.IsNullOrEmpty(gwSetCookieHeaderValue))
+          {
+            gwSetCookieHeaderValue = gwSetCookieHeaderValue + $";Path=/threads/{threadId};";
+          }
+      return gwSetCookieHeaderValue;
+    }" />
+    <set-header name="Set-Cookie" exists-action="override">
+        <value>@((string)context.Variables["gwSetCookie"])</value>
+    </set-header>
+  </outbound>
+  <on-error>
+    <base />
+  </on-error>
 </policies>
 ```
 
@@ -467,12 +464,12 @@ The following example shows how to set a custom header with the backend type in 
 
 ## Limitations
 
-- For **Developer** and **Premium** tiers, an API Management instance deployed in an [internal virtual network](api-management-using-with-internal-vnet.md) can throw HTTP 500 `BackendConnectionFailure` errors when the gateway endpoint URL and backend URL are the same. If you encounter this limitation, follow the instructions in the [Self-Chained API Management request limitation in internal virtual network mode](https://techcommunity.microsoft.com/t5/azure-paas-blog/self-chained-apim-request-limitation-in-internal-virtual-network/ba-p/1940417) article in the Tech Community blog.
+- For **Developer** and **Premium** tiers, an API Management instance deployed in an [internal virtual network](api-management-using-with-internal-vnet.md) can throw HTTP 500 `BackendConnectionFailure` errors when the gateway endpoint URL and backend URL are the same. If you encounter this limitation, follow the instructions in the [Self-Chained API Management request limitation in internal virtual network mode](https://techcommunity.microsoft.com/blog/azurepaasblog/self-chained-apim-request-limitation-in-internal-virtual-network-mode-developer-/1940417) article in the Tech Community blog.
 - Currently, you can configure only one rule for a backend circuit breaker.  
 
 ## Related content
 
-* Blog: [Using Azure API Management circuit breaker and load balancing with Azure OpenAI Service](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/using-azure-api-management-circuit-breaker-and-load-balancing/ba-p/4041003)
+* Blog: [Using Azure API Management circuit breaker and load balancing with Azure OpenAI Service](https://techcommunity.microsoft.com/blog/fasttrackforazureblog/using-azure-api-management-circuit-breaker-and-load-balancing-with-azure-openai-/4041003)
 * Set up a [Service Fabric backend](how-to-configure-service-fabric-backend.yml) using the Azure portal.
 * Quickstart [Create a Backend Pool in Azure API Management using Bicep for load balance OpenAI requests](https://github.com/Azure-Samples/apim-lbpool-openai-quickstart)
 * See [Azure API Management as an Event Grid source](/azure/event-grid/event-schema-api-management) for information about Event Grid events that the gateway generates when a circuit breaker trips or resets. Use these events to take action before backend issues escalate. 

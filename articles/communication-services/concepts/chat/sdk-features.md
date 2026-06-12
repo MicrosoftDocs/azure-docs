@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: sundraman
 ms.date: 07/18/2023
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-communication-services
 ms.subservice: chat
 ms.custom: devx-track-js

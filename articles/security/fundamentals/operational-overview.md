@@ -7,7 +7,7 @@ author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/12/2026
+ms.date: 05/05/2026
 ms.author: mbaldwin
 
 ---
@@ -48,7 +48,7 @@ For more information, see the [Azure Backup components table](../../backup/backu
 
 ## Microsoft Entra ID
 
-[Microsoft Entra ID](/entra/identity/enterprise-apps/what-is-application-management.md) is a comprehensive identity service that:
+[Microsoft Entra ID](/entra/identity/enterprise-apps/what-is-application-management) is a comprehensive identity service that:
 
 -	Enables identity and access management (IAM) as a cloud service.
 -	Provides central access management, single sign-on (SSO), and reporting.
@@ -56,13 +56,13 @@ For more information, see the [Azure Backup components table](../../backup/backu
 
 Microsoft Entra ID also includes a full suite of [identity management capabilities](./identity-management-overview.md), including these:
 
-- [Multi-factor authentication](/entra/identity/authentication/concept-mfa-howitworks.md)
+- [Multi-factor authentication](/entra/identity/authentication/concept-mfa-howitworks)
 - [Self-service password management](/shows/azure/how-to-configure-self-service-password-reset-users-in-windows-azure-ad)
 - [Self-service group management](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e)
-- [Privileged account management](/entra/id-governance/privileged-identity-management/pim-configure.md)
+- [Privileged account management](/entra/id-governance/privileged-identity-management/pim-configure)
 - [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)
-- [Application usage monitoring](/entra/identity/hybrid/whatis-hybrid-identity.md)
-- [Rich auditing](/entra/identity/monitoring-health/concept-audit-logs.md)
+- [Application usage monitoring](/entra/identity/hybrid/whatis-hybrid-identity)
+- [Rich auditing](/entra/identity/monitoring-health/concept-audit-logs)
 - [Security monitoring and alerting](../../security-center/security-center-managing-and-responding-alerts.md)
 
 With Microsoft Entra ID, all applications that you publish for your partners and customers (business or consumer) have the same identity and access management capabilities. This enables you to significantly reduce your operational costs.
@@ -79,7 +79,7 @@ With Microsoft Entra ID, all applications that you publish for your partners and
 - Disk encryption validation.
 - Network-based attacks.
 
-Defender for Cloud uses [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal). Azure RBAC provides [built-in roles](../../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
+Defender for Cloud uses [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md). Azure RBAC provides [built-in roles](../../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
 
 Defender for Cloud assesses the configuration of your resources to identify security issues and vulnerabilities. In Defender for Cloud, you see information related to a resource only when you're assigned the role of owner, contributor, or reader for the subscription or resource group that a resource belongs to.
 

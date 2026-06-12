@@ -13,9 +13,6 @@ items:
         - name: DICOM service
           tocHref: /azure/healthcare-apis/dicom/
           topicHref: /azure/healthcare-apis/dicom/index
-        - name: MedTech service
-          tocHref: /azure/healthcare-apis/iot/
-          topicHref: /azure/healthcare-apis/iot/index
         - name: De-identification service
           tocHref: /azure/healthcare-apis/deidentification/
           topicHref: /azure/healthcare-apis/deidentification/index

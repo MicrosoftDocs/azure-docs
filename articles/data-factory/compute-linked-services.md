@@ -2,7 +2,7 @@
 title: Compute environments 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about compute environments that can be used with Azure Data Factory and Synapse Analytics pipelines (such as Azure HDInsight) to transform or process data.
-ms.topic: conceptual
+ms.topic: concept-article
 author: nabhishek
 ms.author: abnarain
 ms.date: 10/23/2025
@@ -26,7 +26,6 @@ The following table provides a list of supported compute environments and the ac
 | [Azure Batch](#azure-batch-linked-service)                   | [Custom](transform-data-using-dotnet-custom-activity.md)     |
 | [ML Studio (classic)](#machine-learning-studio-classic-linked-service) | [ML Studio (classic) activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) |
 | [Azure Machine Learning](#azure-machine-learning-linked-service) | [Azure Machine Learning Execute Pipeline](transform-data-machine-learning-service.md) |
-| [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure Synapse Analytics](#azure-synapse-analytics-linked-service), [SQL Server](#sql-server-linked-service) | [Stored Procedure](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [Jar](transform-data-databricks-jar.md), [Python](transform-data-databricks-python.md) |
 | [Azure Synapse Analytics (Artifacts)](#azure-synapse-analytics-artifacts-linked-service) | [Synapse Notebook activity](transform-data-synapse-notebook.md), [Synapse Spark job definition](transform-data-synapse-spark-job-definition.md) |
@@ -347,7 +346,6 @@ This type of configuration is supported for the following compute environments:
 * Azure HDInsight
 * Azure Batch
 * Azure Machine Learning
-* Azure Data Lake Analytics
 * Azure SQL DB, Azure Synapse Analytics, SQL Server
 
 ## Azure HDInsight linked service
@@ -597,52 +595,6 @@ You create an Azure Machine Learning linked service to connect an Azure Machine 
 | servicePrincipalKey    | Specify the application's key.           | Yes |
 | tenant                 | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Required if updateResourceEndpoint is specified |
 | connectVia             | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No |
-
-## Azure Data Lake Analytics linked service
-You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to a data factory or Synapse workspace. The Data Lake Analytics U-SQL activity in the pipeline refers to this linked service. 
-
-### Example
-
-```json
-{
-    "name": "AzureDataLakeAnalyticsLinkedService",
-    "properties": {
-        "type": "AzureDataLakeAnalytics",
-        "typeProperties": {
-            "accountName": "adftestaccount",
-            "dataLakeAnalyticsUri": "azuredatalakeanalytics URI",
-            "servicePrincipalId": "service principal id",
-            "servicePrincipalKey": {
-                "value": "service principal key",
-                "type": "SecureString"
-            },
-            "tenant": "tenant ID",
-            "subscriptionId": "<optional, subscription ID of ADLA>",
-            "resourceGroupName": "<optional, resource group name of ADLA>"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-### Properties
-
-| Property             | Description                              | Required                                 |
-| -------------------- | ---------------------------------------- | ---------------------------------------- |
-| type                 | The type property should be set to: **AzureDataLakeAnalytics**. | Yes                                      |
-| accountName          | Azure Data Lake Analytics Account Name.  | Yes                                      |
-| dataLakeAnalyticsUri | Azure Data Lake Analytics URI.           | No                                       |
-| subscriptionId       | Azure subscription ID                    | No                                       |
-| resourceGroupName    | Azure resource group name                | No                                       |
-| servicePrincipalId   | Specify the application's client ID.     | Yes                                      |
-| servicePrincipalKey  | Specify the application's key.           | Yes                                      |
-| tenant               | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes                                      |
-| connectVia           | The Integration Runtime to be used to dispatch the activities to this linked service. You can use Azure Integration Runtime or Self-hosted Integration Runtime. If not specified, it uses the default Azure Integration Runtime. | No                                       |
-
-
 
 ## Azure Databricks linked service
 You can create **Azure Databricks linked service** to register Databricks workspace that you use to run the Databricks workloads(notebook, jar, python). 

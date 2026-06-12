@@ -3,6 +3,8 @@ title: Akri connectors
 description: Learn about Akri connectors and the options to create custom connectors.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
+ms.subservice: azure-akri
 ms.topic: concept-article
 ms.date: 01/12/2026
 
@@ -12,7 +14,9 @@ ms.date: 01/12/2026
 
 # Akri connectors
 
-Akri connectors are custom software components that enable Azure IoT Operations to discover, connect to, and communicate with edge devices and assets. They act as protocol adapters that translate between device-specific communication protocols and the standardized Azure IoT Operations data model.
+Akri connectors are custom software components that enable Azure IoT Operations to discover, connect to, and communicate with edge devices and assets. They act as protocol adapters that translate between device-specific communication protocols and the standardized Azure IoT Operations data model. Use custom Akri connectors to extend the connectivity capabilities of Azure IoT Operations beyond the built-in connectors such as MQTT and OPC UA.
+
+After you develop a custom Akri connector, you make it visible in the operations experience by packaging it with a valid configuration file, pushing it to a container registry, and registering it as a connector type in the Azure portal.
 
 For more information about Akri services and how they relate to Azure IoT Operations, see [What are Akri services](../discover-manage-assets/overview-akri.md).
 
@@ -21,6 +25,7 @@ For more information about Akri services and how they relate to Azure IoT Operat
 Understanding these core concepts is essential for developing custom Akri connectors:
 
 - **Akri connector**: A custom software component that acts as a protocol adapter, enabling Azure IoT Operations to discover, connect to, and communicate with physical devices. The connector translates between device-specific protocols and the standardized Azure IoT Operations data model.
+- **Akri operator and connector contract**: A defined interface and set of requirements that connectors must implement to ensure compatibility with Akri services and Azure IoT Operations. This contract specifies how connectors should handle configuration, device discovery, data exchange, and communication with other platform components. TO learn more, see the [Akri operator and connector contract](https://github.com/Azure/iot-operations-sdks/blob/main/doc/akri_connector/Akri%20operator%20and%20connector%20contract.md)
 - **Connector metadata**: A JSON file that describes the connector's configuration options, capabilities, and UI schemas. The metadata defines how the connector appears and behaves when you:
     - Create connector template instances in the Azure portal.
     - Configure devices and assets in the operations experience UI.
@@ -43,6 +48,7 @@ The development and deployment of Akri connectors follows a structured workflow 
 - **Build the connector**: Use the Azure IoT Operations SDK, templates, or VS Code extension to develop connector logic that implements:
     - Connectivity to a physical device.
     - Authentication to a physical device.
+    - Configuration management based on the connector contract.
     - Data exchange with the physical device.
     - Optionally, device and asset discovery.
     - Delivery of the data to a destination in the cluster.
@@ -97,3 +103,4 @@ Akri connectors integrate seamlessly with the broader Azure IoT Operations envir
 - [What are Akri services?](../discover-manage-assets/overview-akri.md)
 - [Build and deploy Akri connectors](howto-develop-akri-connectors.md)
 - [Build Akri connectors with the VS Code extension](howto-build-akri-connectors-vscode.md)
+- [Akri operator and connector contract](https://github.com/Azure/iot-operations-sdks/blob/main/doc/akri_connector/Akri%20operator%20and%20connector%20contract.md)

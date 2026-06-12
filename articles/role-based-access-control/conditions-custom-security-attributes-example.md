@@ -5,7 +5,7 @@ author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.subservice: conditions
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/15/2023
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to

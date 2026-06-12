@@ -25,7 +25,7 @@ To see which regions support Container Apps, see [Product Availability by Region
 
 ## Create a zone-redundant container app
 
-Use Azure Portal, Azure CLI, or PowerShell to create a zone-redundant container app.
+Use Azure portal, Azure CLI, or PowerShell to create a zone-redundant container app.
 
 # [Azure portal](#tab/portal)
 

@@ -17,14 +17,14 @@ ms.update-cycle: 180-days
 
 # Tutorial: Build a retrieval augmented generation app in Azure App Service with Azure OpenAI and Azure AI Search (.NET)
 
-In this tutorial, you'll create a .NET retrieval augmented generation (RAG) application using .NET Blazor, Azure OpenAI, and Azure AI Search and deploy it to Azure App Service. This application demonstrates how to implement a chat interface that retrieves information from your own documents and leverages Azure AI services to provide accurate, contextually aware answers with proper citations. The solution uses managed identities for passwordless authentication between services. 
+In this tutorial, you'll create a .NET retrieval augmented generation (RAG) application using .NET Blazor, Azure OpenAI, and Azure AI Search and deploy it to Azure App Service. This application demonstrates how to implement a chat interface that retrieves information from your own documents and leverages AI services in Azure to provide accurate, contextually aware answers with proper citations. The solution uses managed identities for passwordless authentication between services. 
 
 :::image type="content" source="media/tutorial-ai-openai-search-dotnet/chat-interface.png" alt-text="Screenshot showing the Blazor chat interface in introduction.":::
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Deploy a Blazor application that uses RAG pattern with Azure AI services.
+> * Deploy a Blazor application that uses RAG pattern with AI services in Azure.
 > * Configure Azure OpenAI and Azure AI Search for hybrid search.
 > * Upload and index documents for use in your AI-powered application.
 > * Use managed identities for secure service-to-service communication.

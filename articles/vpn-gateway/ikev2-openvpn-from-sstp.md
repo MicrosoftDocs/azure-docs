@@ -127,6 +127,10 @@ Any existing SSTP connections after March 31, 2027 will be suspended and will st
 
 Effective November 2025, Basic SKU will start supporting IKEv2 protocol
 
+### Why am I not able to see Azure diagnostics on my VPN gateway?
+
+Azure diagnostics is not supported for SSTP protocol on VPN gateway, please migrate your gateway to use IKEv2 or OpenVPN to enable diagnostics.
+
 ### Will there be downtime while I migrate my SSTP connections to other protocol?
 
 No, there won't be any downtime when you transition your “SSTP” protocol to “IKEv2 and SSTP (SSL)” protocol. However, if you migrate to “IKEv2” only, the gateway will have downtime until the new configuration is applied.
@@ -145,9 +149,7 @@ Yes, you can. If you choose to go to IKEv2 directly, your gateway will stop work
 
 ### <a name="gwsku"></a>Which gateway SKUs support P2S VPN?
 
-The following table shows gateway SKUs by tunnel, connection, and throughput. For additional tables and more information regarding this table, see the Gateway SKUs section of the [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku) article.
-
-[!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+See [About Gateway SKUs](about-gateway-skus.md) for the list of SKUs that support P2S VPN, and the number of tunnels and connections supported on each SKU.
 
 ### <a name="IKE/IPsec policies"></a>What IKE/IPsec policies are configured on VPN gateways for P2S?
 

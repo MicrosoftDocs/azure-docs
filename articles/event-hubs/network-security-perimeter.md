@@ -4,7 +4,7 @@ titleSuffix: Azure Event Hubs
 description: Learn how Network Security Perimeter (NSP) enhances security for Azure Event Hubs by controlling network access between PaaS services.
 ms.reviewer: spelluru
 ms.date: 01/31/2026
-ms.topic: conceptual
+ms.topic: overview
 ms.custom:
 ---
 

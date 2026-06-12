@@ -6,7 +6,7 @@ author: sethmanheim
 manager: lizross
 ms.service: azure-notification-hubs
 ms.devlang: java
-ms.topic: conceptual
+ms.topic: tutorial
 ms.tgt_pltfrm: mobile-baidu
 ms.date: 07/17/2023
 ms.author: sethm

@@ -5,7 +5,7 @@ description: Learn about the integration runtime in Azure Data Factory and Azure
 ms.author: lle
 author: lrtoyou1223
 ms.subservice: integration-runtime
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: synapse
 ms.date: 02/13/2025
 ---
@@ -58,7 +58,6 @@ An Azure integration runtime can:
    - .NET custom activity
    - Azure Function activity
    - Databricks Notebook/ Jar/ Python activity
-   - Data Lake Analytics U-SQL activity
    - Get Metadata activity
    - HDInsight Hive activity
    - HDInsight Pig activity
@@ -97,7 +96,6 @@ A self-hosted IR is capable of:
 - Dispatching the following transform activities against compute resources in on-premises or Azure Virtual Network: 
   - Azure Function activity
   - Custom activity (runs on Azure Batch)
-  - Data Lake Analytics U-SQL activity
   - Get Metadata activity
   - HDInsight Hive activity (BYOC-Bring Your Own Cluster)
   - HDInsight Pig activity (BYOC)

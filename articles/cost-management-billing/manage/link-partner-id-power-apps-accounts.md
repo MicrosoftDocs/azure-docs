@@ -2,12 +2,12 @@
 title: Link a partner ID to your Power Platform and Dynamics Customer Insights accounts with your Azure credentials 
 description: This article helps Microsoft partners use their Azure credentials to provide customers with services for Microsoft Power Apps, Power Automate, Power BI and Dynamics Customer Insights.
 author: Nicholak-MS
-ms.author: nicholak
-ms.reviewer: nicholak
+ms.author: mijeffer
+ms.reviewer: mijeffer
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 12/29/2025
+ms.topic: how-to
+ms.date: 3/30/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
@@ -44,13 +44,7 @@ Use a dedicated Service Account for work performed and delivered into production
 
 Through the normal course of business with your customer, determine ownership and access rights of a service account dedicated to you as a partner. 
 
-[Creating a Service Account Video](https://aka.ms/ServiceAcct) 
-
 ## Registration - link your access account to your partner ID
-
-Perform PAL Association on this Service Account.
-
-[PAL Association Via Azure portal Video](https://aka.ms/PALAssocAzurePortal)
 
 To use the Azure portal to link to a new partner ID:
 

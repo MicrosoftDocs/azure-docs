@@ -4,7 +4,7 @@ description: Get started with using serverless containers with Azure Container A
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: get-started
 ms.date: 01/28/2026
 ms.author: cshoe
 ---

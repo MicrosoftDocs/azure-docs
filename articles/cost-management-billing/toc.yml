@@ -129,6 +129,8 @@
       - name: Change administrator
         displayName: azure subscription owner, add user to azure subscription, azure subscription permissions, azure change account admin
         href: manage/add-change-subscription-administrator.md
+      - name: Change Entra Directory
+        href: manage/subscription-change-directory.md
       - name: Switch subscription offer
         href: manage/switch-azure-offer.md
       - name: Cancel and delete subscription
@@ -265,6 +267,12 @@
         href: benefits/macc/track-consumption-commitment.md
       - name: Manage a Microsoft Azure Consumption Commitment
         href: benefits/macc/manage-consumption-commitment.md
+    - name: Manage Conditional Azure Credit Offer
+      items:
+      - name: Track your Conditional Azure Credit Offer
+        href: benefits/caco/track-conditional-credit-offer.md
+      - name: Manage a Conditional Azure Credit Offer
+        href: benefits/caco/manage-conditional-credit-offer.md
   - name: Troubleshoot billing
     items:
     - name: Can't view or find invoices

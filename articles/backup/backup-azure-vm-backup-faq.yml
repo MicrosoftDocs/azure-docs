@@ -76,9 +76,9 @@ sections:
       - question: I have a lock at the resource group level that contains all the resources related to my virtual machine. Will my backup work?
         answer: Azure Backup creates a separate resource group in the format `AzureBackupRG_<geo>_<number>` to store ResourcePointCollections objects. Since this resource group is service owned, locking it will cause backups to fail. Locks can be only applied to customer-created resource groups.
 
-      - question: Does Azure Backup support standard SSD-managed disks?
+      - question: Does Azure Backup support Standard SSD-managed disks?
         answer: |
-          Yes, Azure Backup supports [standard SSD managed disks](/azure/virtual-machines/disks-types#standard-ssds).
+          Yes, Azure Backup supports [Standard SSD managed disks](/azure/virtual-machines/disks-types#standard-ssds).
 
       - question: Can we back up a VM with a Write Accelerator (WA)-enabled disk?
         answer: Snapshots can be taken on only data disks that are WA enabled and not OS disks. So, only data disks that are WA enabled can be protected.
@@ -220,11 +220,11 @@ sections:
 
       - question: Can I restore backups of unmanaged VM disks after I upgrade to managed disks?
         answer: |
-          Yes, you can use backups taken before disks were migrated from unmanaged to managed.
+          Yes, you can use backups taken before disks were migrated from unmanaged to managed. Azure Backup restores those legacy recovery points as managed disks.
 
       - question: How do I restore a VM to a restore point before the VM was migrated to managed disks?
         answer: |
-          The restore process remains the same. If the recovery point is of a point-in-time when VM had unmanaged disks, you can [restore disks as unmanaged](tutorial-restore-disk.md#unmanaged-disks-restore). If the VM had managed disks, then you can [restore disks as managed disks](tutorial-restore-disk.md#managed-disk-restore). Then you can [create a VM from those disks](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
+          The restore process remains the same. If the recovery point is from a point in time when the VM had unmanaged disks, follow [Restore legacy recovery points from VMs that used unmanaged disks](backup-azure-arm-restore-vms.md#restore-legacy-recovery-points-from-vms-that-used-unmanaged-disks). If the VM had managed disks, restore the disks as managed disks by following [managed disk restore](tutorial-restore-disk.md#managed-disk-restore). Then you can [create a VM from those disks](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk).
 
           [Learn more](backup-azure-vms-automation.md#restore-an-azure-vm) about doing this in PowerShell.
 
@@ -235,7 +235,7 @@ sections:
         answer: Yes. Even if you delete the VM, you can go to the corresponding backup item in the vault and [restore from a recovery point](backup-azure-arm-restore-vms.md#select-a-restore-point).
 
       - question: How do I restore a VM to the same availability sets?
-        answer: For Managed Disk Azure VMs, restoring to the availability sets is enabled by providing an option in the template while restoring as managed disks. This template has the input parameter called **Availability sets**.
+        answer: For managed disk Azure VMs, restoring to the availability sets is enabled by providing an option in the template while restoring as managed disks. This template has the input parameter called **Availability sets**.
 
       - question: How do we get faster restore performance?
         answer: |
@@ -279,11 +279,10 @@ sections:
 
       - question: How does restored disk SKU depend on target SA provided?
         answer: |
-          In the case of an unmanaged VM, the VM disk type is Premium SSD or HDD and depends on the SA in which VHDs exist. If you provide normal SA during restore, the VM disk would be HDD, and if you provide Premium SA, all disks would be Premium SSDs.
+          This guidance applied to older restore flows that restored disks as unmanaged VHDs. Recovery points from VMs that used unmanaged disks are now restored only as managed disks, so the target storage account doesn't determine the final disk type. The storage account is used only to hold restore metadata and temporary VHD files.
 
           >[!Note]
           >- Azure Backup currently doesn't support taking different SAs as inputs for different disks.
-          >- **Restore to original disks SA** is only available for snapshot tier, and it increases restore performance because data is copied faster to the same SA than to a different SA. It's not intended to support disk type, but can be used to retain it.
 
       - question: Can I delete JSON template and VHD files after the restore process is complete?
         answer: |
@@ -458,7 +457,7 @@ sections:
 
       - question: When Vault is configured with CRR, what happens to the secondary data if the primary region fails?
         answer: |
-          Backup data fully replicated to the secondary region before the failure of the primary region will remain intact. This remains the case even after the primary region has recovered from the failure. In other words, the virtual machine can be recovered in the secondary region with the data it had before the failure as per the replication schedule. Note that the RPO for the secondary region is 36 hours i.e., data takes approximately 36 hours to be fully replicated from primary to the secondary region.
+          Backup data fully replicated to the secondary region before the failure of the primary region remains intact. This remains true even after the primary region recovers from the failure. In other words, the virtual machine can be recovered in the secondary region with the data it had before the failure, based on the replication schedule. For Azure VM backups, the secondary region RPO can be up to 36 hours in the worst case. With the Standard policy, this is based on up to 24 hours in the primary region plus up to 12 hours for replication to the secondary region. With the Enhanced policy, more frequent local recovery point creation can improve the best-case achievable secondary region RPO, but the worst-case can still be up to 36 hours.
 
       - question: When I update the backup policy, why is the expiry time not getting updated immediately?
         answer: |
@@ -510,12 +509,12 @@ sections:
         answer: |
           For Initial Replica, a full backup will be reinitiated in case of failure. However, for Incremental the snapshot from the last successful backup will be compared to the latest snapshot to copy the changed data into the vault.
 
-      - question: Why SSD V2 with GRS Vaults/Cross Region Restore is not supported?
+      - question: Why Premium SSD v2 with GRS Vaults/Cross Region Restore is not supported?
         answer: |
-          SSD V2/Ultra disks are currently not available in all regions, so Geo-Redundant Storage (GRS) can't be enabled.
+          Premium SSD v2/Ultra Disks are currently not available in all regions, so Geo-Redundant Storage (GRS) can't be enabled.
 
           >[!Note]
-          >GRS functions only when both paired regions support SSD V2/Ultra disks. 
+          >GRS functions only when both paired regions support Premium SSD v2/Ultra Disks. 
 
       - question: Why don’t I see the updated expiry time for my Recovery Points immediately after changing the backup policy?
         answer: |

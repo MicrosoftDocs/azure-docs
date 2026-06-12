@@ -5,7 +5,7 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: whhender
 ms.subservice: orchestration
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2026
 ai-usage: ai-assisted
 ---

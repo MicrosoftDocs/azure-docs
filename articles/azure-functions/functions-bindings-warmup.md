@@ -35,6 +35,10 @@ You must install this [NuGet package](https://www.nuget.org/packages/Microsoft.A
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 <!--Optional intro text goes here, followed by the C# modes include.-->
@@ -47,7 +51,7 @@ You must install this [NuGet package](https://www.nuget.org/packages/Microsoft.A
 
 The following example shows a [C# function](dotnet-isolated-process-guide.md) that runs on each new instance when added to your app. 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Warmup/Warmup.cs" range="4-18":::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Warmup/Warmup.cs" range="4-18"::: --->
 
 # [In-process model](#tab/in-process)
 
@@ -97,7 +101,7 @@ public void warmup( @WarmupTrigger Object warmupContext, ExecutionContext contex
 
 The following example shows a [JavaScript function](functions-reference-node.md) with a warmup trigger that runs on each new instance when added to your app:
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/warmupTrigger.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/warmupTrigger.js" ::: --->
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -135,7 +139,7 @@ module.exports = async function (warmupContext, context) {
 
 The following example shows a [TypeScript function](functions-reference-node.md) with a warmup trigger that runs on each new instance when added to your app:
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/warmupTrigger1.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/warmupTrigger1.ts" ::: --->
 
 # [Model v3](#tab/nodejs-v3)
 TypeScript samples aren't documented for model v3.

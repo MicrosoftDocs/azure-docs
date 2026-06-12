@@ -6,7 +6,7 @@ author: ovishesh
 
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/22/2023
 ms.author: visho
 ms.custom: public_preview

@@ -39,14 +39,14 @@ Let's say you want to deploy Azure Container Storage with a storage pool capacit
 | Service fee   | 4 TiB          | $0 (storage pool < 5 TiB) |
 | Storage costs | One 4 TiB P50 Premium SSD managed disk, East US (LRS) | Price of P50 Premium Disk (LRS) |
 
-Now, let's say you want to deploy Azure Container Storage with a storage pool capacity of 9 TiB using a Premium SSD v2 disk. In this case, there's a service fee for Azure Container Storage orchestration because the storage pool is greater than 5 TiB. The service fee is calculated on 4 TiB (the difference between 9 TiB and 5 TiB).
+Now, let's say you want to deploy Azure Container Storage with a storage pool capacity of 9 TiB using a Premium SSD v2. In this case, there's a service fee for Azure Container Storage orchestration because the storage pool is greater than 5 TiB. The service fee is calculated on 4 TiB (the difference between 9 TiB and 5 TiB).
 
 | **Cost type** | **Deployment** | **Price**                 |
 |---------------|----------------|---------------------------|
 | Service fee   | 9 TiB          | 4 * 1024 * Azure Container Storage service fee per GiB |
 | Storage costs | Premium SSD v2 managed disk, East US (LRS) | Price of 9 TiB Premium SSD v2 |
 
-See [Azure Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+See [Azure managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## Azure Container Storage with Ephemeral Disk
 

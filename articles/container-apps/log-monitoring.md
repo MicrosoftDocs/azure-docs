@@ -5,22 +5,23 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 05/02/2025
+ms.date: 06/01/2026
 ms.author: cshoe
 ---
 
 # Monitor logs in Azure Container Apps with Log Analytics
 
-Azure Container Apps is integrated with Azure Monitor Log Analytics to monitor and analyze your container app's logs. When selected as your log monitoring solution, your Container Apps environment includes a Log Analytics workspace that provides a common place to store the system and application log data from all container apps running in the environment. 
+Azure Container Apps integrates with Azure Monitor Log Analytics to help you monitor and analyze your container app's logs. When you select this solution for log monitoring, your Container Apps environment includes a Log Analytics workspace that provides a common place to store system and application log data from all container apps running in the environment.
 
-Log entries are accessible by querying Log Analytics tables through the Azure portal or a command shell using the [Azure CLI](/cli/azure/monitor/log-analytics).
+You can access log entries by querying Log Analytics tables through the Azure portal or a command shell by using the [Azure CLI](/cli/azure/monitor/log-analytics).
 
-Azure Container Apps provides two types of logs to help you monitor and troubleshoot: 
+Azure Container Apps provides three log types to help you monitor and troubleshoot:
 
 - **Console logs**: Your application generates these logs.
 - **System logs**: The Container Apps service generates these logs.
+- **HTTP logs**: The ingress layer emits these logs when HTTP logging is enabled through diagnostic settings.
 
-## System Logs
+## System logs
 
 The Container Apps service provides system log messages at the container app level. System logs emit the following messages:
 
@@ -31,16 +32,16 @@ The Container Apps service provides system log messages at the container app lev
 | Dapr | Error | Error creating dapr component \<component-name\> |
 | Volume Mounts | Info | Successfully mounted volume \<volume-name\> for revision \<revision-scope\> |
 | Volume Mounts | Error | Error mounting volume \<volume-name\> |
-| Domain Binding | Info | Successfully bound Domain \<domain\> to the container app \<container app name\> |
+| Domain Binding | Info | Successfully bound domain \<domain\> to the container app \<container app name\> |
 | Authentication | Info | Auth enabled on app. Creating authentication config |
 | Authentication | Info | Auth config created successfully |
 | Traffic weight | Info | Setting a traffic weight of \<percentage>% for revision \<revision-name\\> |
 | Revision Provisioning | Info | Creating a new revision: \<revision-name\> |
 | Revision Provisioning | Info | Successfully provisioned revision \<name\> |
-| Revision Provisioning | Info| Deactivating Old revisions since 'ActiveRevisionsMode=Single' |
+| Revision Provisioning | Info| Deactivating old revisions since 'ActiveRevisionsMode=Single' |
 | Revision Provisioning | Error | Error provisioning revision \<revision-name>. ErrorCode: \<[ErrImagePull]\|[Timeout]\|[ContainerCrashing]\> |
 
-The system log data is accessible by querying the `ContainerAppSystemLogs_CL` table. The most used Container Apps specific columns in the table are:
+You can access the system log data by querying the `ContainerAppSystemLogs_CL` table. The most commonly used Container Apps-specific columns in the table are:
 
 | Column  | Description |
 |---|---|
@@ -49,14 +50,14 @@ The system log data is accessible by querying the `ContainerAppSystemLogs_CL` ta
 | `Log_s` | Log message |
 | `RevisionName_s` | Revision name |
 
-## Console Logs
+## Console logs
 
-Console logs originate from the `stderr` and `stdout` messages from the containers in your container app and Dapr sidecars. You can view console logs by querying the `ContainerAppConsoleLogs_CL` table.
+Console logs come from the `stderr` and `stdout` messages from the containers in your container app and Dapr sidecars. You can view console logs by querying the `ContainerAppConsoleLogs_CL` table.
 
 > [!TIP]
-> Instrumenting your code with well-defined log messages can help you to understand how your code is performing and to debug issues. To learn more about best practices, refer to [Design for operations](/azure/architecture/guide/design-principles/design-for-operations).
+> Instrumenting your code with well-defined log messages can help you understand how your code is performing and debug issues. To learn more about best practices, see [Design for operations](/azure/architecture/guide/design-principles/design-for-operations).
 
-The most commonly used Container Apps specific columns in ContainerAppConsoleLogs_CL include:
+The most commonly used Container Apps-specific columns in `ContainerAppConsoleLogs_CL` include:
 
 |Column  |Description |
 |---------|---------|
@@ -68,17 +69,212 @@ The most commonly used Container Apps specific columns in ContainerAppConsoleLog
 | `Log_s` | Log message |
 | `RevisionName_s` | Revision name |
 
-## Query Log with Log Analytics
+## HTTP logs
 
-Log Analytics is a tool in the Azure portal that you can use to view and analyze log data. Using Log Analytics, you can write Kusto queries and then sort, filter, and visualize the results in charts to spot trends and identify issues. You can work interactively with the query results or use them with other features such as alerts, dashboards, and workbooks.
+Azure Container Apps can emit HTTP logs by using Azure Monitor diagnostic settings on the Container Apps managed environment.
+
+Use HTTP logs to inspect request volume, paths, methods, and response outcomes when diagnosing API and web traffic behavior.
+
+The `ContainerAppHTTPLogs` schema contains the following fields and descriptions:
+
+ | Field | Type | Description |
+   | --- | --- | --- |
+   | **Request** | | |
+   | `Method` | string | HTTP request method (for example, `GET`, `POST`). |
+   | `Path` | string | Request path including query string. Sensitive values such as tokens or API keys might appear here if your clients pass them in the query, so handle accordingly. |
+   | `Authority` | string | The HTTP `Host` header (or HTTP/2 `:authority` pseudo-header) sent by the client. |
+   | `Protocol` | string | Protocol version observed by ingress, one of `HTTP/1.1`, `HTTP/2`, or `HTTP/3`. |
+   | `UserAgent` | string | Client `User-Agent` header. |
+   | `XForwardedFor` | string | Client IP chain from the `X-Forwarded-For` header. Contains end-user IPs, so treat as PII. |
+   | `BytesReceived` | long | Size of the request body received from the client, in bytes([`%BYTES_RECEIVED%`](https://www.envoyproxy.io/docs/envoy/latest/configuration/advanced/substitution_formatter#supported-commands)). |
+   | **Response** | | |
+   | `StatusCode` | int | HTTP response status code returned to the client. `0` indicates the client disconnected before the response started([`%RESPONSE_CODE%`](https://www.envoyproxy.io/docs/envoy/latest/configuration/advanced/substitution_formatter#supported-commands)). |
+   | `ResponseCodeDetails` | string | Short token explaining who set the status code and why. For example, `via_upstream`, `direct_response`, `route_not_found`, `upstream_per_try_timeout`([full list](https://www.envoyproxy.io/docs/envoy/latest/configuration/http/http_conn_man/response_code_details)). |
+   | `ResponseFlags` | string | One or more short codes describing transport-level conditions. For example, `-` (none), `UH` (no healthy upstream), `UT` (upstream timeout), `NR` (no route) ([full list](https://www.envoyproxy.io/docs/envoy/latest/configuration/advanced/substitution_formatter#config-access-log-format-response-flags)). |
+   | `BytesSent` | long | Size of the response body sent to the client, in bytes([`%BYTES_SENT%`](https://www.envoyproxy.io/docs/envoy/latest/configuration/advanced/substitution_formatter#supported-commands)). |
+   | **Timing** | | |
+   | `StartTime` | datetime | Time (UTC) ingress began processing the request([`%START_TIME%`](https://www.envoyproxy.io/docs/envoy/latest/configuration/advanced/substitution_formatter#config-access-log-format-start-time)). |
+   | `RequestDuration` | long | Total time, in milliseconds, from request start to last response byte sent([`%DURATION%`](https://www.envoyproxy.io/docs/envoy/latest/configuration/advanced/substitution_formatter#config-access-log-format-duration)). |
+   | **Identifiers** | | |
+   | `RequestId` | string | Request correlation ID. Reflects the `x-request-id` header if the client supplied one; otherwise ingress generates a value. Not guaranteed to be a UUID. |
+   | `ConnectionId` | string | Identifier of the downstream connection on which this request arrived. Multiple requests on the same connection share this value([`%CONNECTION_ID%`](https://www.envoyproxy.io/docs/envoy/latest/configuration/advanced/substitution_formatter#config-access-log-format-connection-id)). |
+   | **App / Routing** | | |
+   | `ContainerAppName` | string | Container App that handled the request. |
+   | `RevisionName` | string | Revision of the Container App that served the request. |
+   | `ReplicaName` | string | Replica (pod) that served the request. |
+   | `EnvironmentName` | string | Container Apps environment hosting the app. |
+   | **Upstream** | | |
+   | `UpstreamHost` | string | Address (`IP:port`) of the upstream endpoint that served the request([`%UPSTREAM_HOST%`](https://www.envoyproxy.io/docs/envoy/latest/configuration/advanced/substitution_formatter#config-access-log-format-upstream-host)). |
+   | `UpstreamRequestAttemptCount` | int | Number of times the request was attempted upstream, including retries. `0` means it was never attempted. |
+   | **Ingress diagnostics** | | |
+   | `EnvoyPodName` | string | Name of the ingress pod that produced this record. Useful for cross-referencing ingress logs during incident investigation. |
+   | `EnvoyContainerId` | string | Container ID of the ingress instance. Useful for cross-referencing ingress logs during incident investigation. |
+
+> [!NOTE]
+> After you enable HTTP logs, it can take several minutes before the `ContainerAppHTTPLogs` table appears in Log Analytics.
+
+### Query HTTP logs in Log Analytics
+
+Use the following triage-focused queries first, then use the additional analysis examples that follow.
+
+#### View recent HTTP errors
+
+Use this query when you see elevated error rates in your dashboards, customers report failures, or you want a quick triage of what is failing right now.
+
+```kusto
+ContainerAppHTTPLogs
+| where TimeGenerated > ago(1h)
+| where StatusCode >= 400
+| project TimeGenerated, ContainerAppName, RevisionName, Method, Path,
+  StatusCode, ResponseCodeDetails, RequestDuration, RequestId
+| order by TimeGenerated desc
+| take 100
+```
+
+> [!TIP]
+> Check `ResponseCodeDetails` to see why a request failed. For example, `route_not_found` indicates a routing misconfiguration, while `via_upstream` means your container returned the error itself.
+
+#### Find slow requests
+
+Use this query when you app feels slow, you're investigating a latency complaint, or you want to verify a performance fix.
+
+```kusto
+ContainerAppHTTPLogs
+| where TimeGenerated > ago(1h)
+| where ContainerAppName == "<app-name>"
+| top 50 by RequestDuration desc
+| project TimeGenerated, Method, Path, StatusCode, RequestDuration,
+  ReplicaName, UpstreamRequestAttemptCount, RequestId
+```
+
+> [!TIP]
+> `RequestDuration` is reported in milliseconds. If you see high values together with `UpstreamRequestAttemptCount > 1`, the request was retried, which adds to the total time.
+
+#### Track request volume and error rate by revision
+
+Use this query after you deploy a new revision and want to confirm it's healthy, or you're running a blue/green rollout and want to compare two revisions side by side.
+
+```kusto
+ContainerAppHTTPLogs
+| where TimeGenerated > ago(6h)
+| where ContainerAppName == "<app-name>"
+| summarize Requests = count(),
+  Errors = countif(StatusCode >= 500),
+  ErrorRatePct = round(100.0 * countif(StatusCode >= 500) / count(), 2),
+  P95DurationMs = percentile(RequestDuration, 95)
+  by RevisionName, bin(TimeGenerated, 5m)
+| order by TimeGenerated desc
+| render timechart
+```
+
+> [!TIP]
+> A new revision suddenly serving `0` requests usually means a traffic-weight problem in your ingress configuration. A new revision with a higher error rate or P95 than the previous one is a deployment regression; consider rolling back.
+
+#### Trace a single request end-to-end
+
+Use this query when a customer reports a specific failed transaction and gives you their request ID (the `x-request-id` header value they saw). You need to find that exact request and any related app logs.
+
+```kusto
+let _requestId = "<request-id>";
+ContainerAppHTTPLogs
+| where TimeGenerated > ago(24h)
+| where RequestId == _requestId
+| project TimeGenerated, ContainerAppName, RevisionName, ReplicaName,
+  Method, Path, StatusCode, ResponseCodeDetails, ResponseFlags,
+  RequestDuration, UpstreamHost, UserAgent, XForwardedFor
+```
+
+> [!TIP]
+> Once you have the `ReplicaName` from the row above, join with `ContainerAppConsoleLogs_CL` filtered to the same replica and a small time window around `TimeGenerated` to see your app's own log lines for that request.
+
+#### Identify your top failing endpoints
+
+Use this query when you see lots of errors but don't know where to focus first. This query surfaces which paths are responsible for the most failures, so you can prioritize fixes by impact.
+
+```kusto
+ContainerAppHTTPLogs
+| where TimeGenerated > ago(24h)
+| where StatusCode >= 400
+| summarize Errors = count(),
+  DistinctClientIPs = dcount(XForwardedFor),
+  SampleStatusCodes = make_set(StatusCode, 5),
+  ExampleDetails = take_any(ResponseCodeDetails)
+  by ContainerAppName, Method, Path
+| order by Errors desc
+| take 20
+```
+
+> [!TIP]
+> A high `DistinctClientIPs` count alongside the errors suggests a real, broadly impacting issue. A low count usually indicates a single misbehaving client (for example, a scanner or a buggy retry loop).
+
+#### Inspect recent HTTP log records
+
+Use this query to inspect recent HTTP log records:
+
+```kusto
+ContainerAppHTTPLogs
+| where TimeGenerated > ago(2h)
+| project TimeGenerated, Method, Path, StatusCode, ContainerAppName, EnvironmentName
+| order by TimeGenerated desc
+| take 100
+```
+
+Use the following examples for common HTTP log analysis scenarios.
+
+#### Status code distribution
+
+```kusto
+ContainerAppHTTPLogs
+| where TimeGenerated > ago(24h)
+| summarize Count = count() by toint(StatusCode)
+| order by Count desc
+```
+
+#### Error-focused view (4xx/5xx)
+
+```kusto
+ContainerAppHTTPLogs
+| where TimeGenerated > ago(2h)
+| extend StatusCodeInt = toint(StatusCode)
+| where StatusCodeInt >= 400
+| project
+    Time=TimeGenerated,
+    StatusCode=StatusCodeInt,
+    Method,
+    Path,
+    Details=ResponseCodeDetails,
+    EnvName=EnvironmentName,
+    AppName=ContainerAppName,
+    Revision=RevisionName
+| top 100 by Time desc
+```
+
+#### Latency (P50/P95/P99) by app and path
+
+```kusto
+ContainerAppHTTPLogs
+| where TimeGenerated > ago(2h)
+| summarize
+    Requests = count(),
+    P50 = percentile(RequestDuration, 50),
+    P95 = percentile(RequestDuration, 95),
+    P99 = percentile(RequestDuration, 99)
+  by ContainerAppName, Path
+| order by P95 desc
+```
+
+
+## Query logs by using Log Analytics
+
+Log Analytics is a tool in the Azure portal that you can use to view and analyze log data. By using Log Analytics, you can write Kusto queries and then sort, filter, and visualize the results in charts to spot trends and identify problems. You can work interactively with the query results or use them with other features such as alerts, dashboards, and workbooks.
 
 ### Azure portal
 
-Start Log Analytics from **Logs** in the sidebar menu on your container app page. You can also start Log Analytics from **Monitor>Logs**. 
+Start Log Analytics from **Logs** in the sidebar menu on your container app page. You can also start Log Analytics from **Monitor > Logs**.
 
-You can query the logs using the tables listed in the **CustomLogs** category **Tables** tab. The tables in this category are the `ContainerAppSystemlogs_CL` and `ContainerAppConsoleLogs_CL` tables.
+Query the logs by using the tables listed in the **Custom logs** category on the **Tables** tab. The tables in this category are `ContainerAppSystemLogs_CL` and `ContainerAppConsoleLogs_CL`.
 
-:::image type="content" source="media/observability/log-analytics-query-page.png" alt-text="Screenshot of the Log Analytics custom log tables.":::
+:::image type="content" source="media/observability/log-analytics-query-page.png" alt-text="Screenshot of the Log Analytics query page showing custom log tables.":::
 
 The following Kusto query displays console log entries for the container app named *album-api*. 
 
@@ -98,13 +294,13 @@ ContainerAppSystemLogs_CL
 | take 100
 ```
 
-For more information regarding Log Analytics and log queries, see the [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
+For more information about Log Analytics and log queries, see the [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
-### Azure CLI/PowerShell
+### Azure CLI or PowerShell
 
-Container Apps logs can be queried using the [Azure CLI](/cli/azure/monitor/log-analytics). 
+You can query Container Apps logs by using [Azure CLI](/cli/azure/monitor/log-analytics).
 
-These example Azure CLI queries output a table containing log records for the container app name **album-api**. The parameters after the `project` operator specify the table columns. The `$WORKSPACE_CUSTOMER_ID` variable contains the GUID of the Log Analytics workspace.
+These example Azure CLI queries output a table containing log records for the container app name **album-api**. The parameters after the `project` operator specify the table columns. The `$WORKSPACE_CUSTOMER_ID` variable has the GUID of the Log Analytics workspace.
 
 
 This example queries the `ContainerAppConsoleLogs_CL` table:

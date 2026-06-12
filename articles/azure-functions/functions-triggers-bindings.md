@@ -2,7 +2,7 @@
 title: Triggers and Bindings in Azure Functions
 description: Learn how to use triggers and bindings to connect your Azure function to online events and cloud-based services.
 ms.topic: concept-article
-ms.date: 10/10/2025
+ms.date: 02/26/2026
 ms.custom: devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ai-usage: ai-assisted
@@ -46,7 +46,7 @@ For C# class library functions, you configure triggers and bindings by decoratin
 
 The HTTP trigger (`HttpTrigger`) is defined on the `Run` method for a function named `HttpExample` that returns a `MultiResponse` object:
 
-:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="11-14":::
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="17-18":::
 
 This example shows the `MultiResponse` object definition. The object definition returns `HttpResponse` to the HTTP request and writes a message to a storage queue by using a `QueueOutput` binding:
 
@@ -95,7 +95,7 @@ In Node.js for Azure Functions version 3, you configure triggers and bindings in
 
 The `http` method on the exported `app` object defines an HTTP trigger. The `storageQueue` method on `output` defines an output binding on this trigger.
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageQueueOutput1.js" :::
+<!-- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageQueueOutput1.js" ::: -->
 
 ### [v3](#tab/node-v3)
 
@@ -256,6 +256,16 @@ For more information, see [SDK types](./functions-reference-java.md#sdk-types) i
 >[!IMPORTANT]  
 >SDK types aren't currently supported for PowerShell apps.
 ::: zone-end
+
+::: zone pivot="programming-language-go"
+Go supports SDK client injection for triggers that provide Azure SDK clients. During the public preview, Blob Storage triggers can receive an authenticated Azure SDK `*blob.Client` directly in the handler.
+
+| Extension | Types | Support level |
+| ----- | ----- | ----- |
+| [Azure Blob Storage](functions-bindings-storage-blob.md) | `*blob.Client` | Preview |
+
+For more information, see [Extension triggers](functions-reference-go.md#extension-triggers) in the Go developer reference.
+::: zone-end
 ## Code examples for bindings
 
 Use the following table to find more examples of specific binding types that show you how to work with bindings in your functions. First, choose the language tab that corresponds to your project.
@@ -271,4 +281,4 @@ You can create custom input and output bindings. Bindings must be authored in .N
 - [Binding expressions and patterns](./functions-bindings-expressions-patterns.md)
 - [Register Azure Functions binding extensions](./functions-bindings-register.md)
 - [Manually run a non-HTTP-triggered function](functions-manually-run-non-http.md)
-- [Handling binding errors](./functions-bindings-errors.md)
+- [Handling binding errors](./functions-bindings-error-pages.md)

@@ -90,7 +90,7 @@ Azure enforces an IOPS quota per data disk or NFS share. These quotas are differ
 
 Each of the different VM types has a limited number of data disks that you can attach. Another restriction is that only certain VM types can use, for example, Azure Premium Storage. Typically, you decide to use a certain VM type based on CPU and memory requirements. You also need to consider the IOPS, latency, and disk throughput requirements that usually are scaled with the number of disks, or the type of Azure Premium Storage disks v1. The number of IOPS and the throughput to be achieved by each disk might dictate disk size, especially with Azure Premium Storage v1. With Azure Premium Storage v2 or Ultra Disk, you can select provisioned IOPS and throughput independent of the disk capacity.
 
-For DBMS deployments, we highly recommend Azure Premium Storage (v1 and v2), Ultra Disk or Azure NetApp Files based NFS shares for any data, transaction log, or redo files. It doesn't matter whether you want to deploy production or nonproduction systems. Latency of Azure standard HDD or SSD isn't acceptable for any type of production system.
+For DBMS deployments, we highly recommend Azure Premium Storage (v1 and v2), Ultra Disk or Azure NetApp Files based NFS shares for any data, transaction log, or redo files. It doesn't matter whether you want to deploy production or nonproduction systems. Latency of Azure Standard HDD or SSD isn't acceptable for any type of production system.
 
 > [!NOTE]
 > To maximize Azure's [single VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/), all disks that are attached must be Azure Premium Storage v1 or v2. It can also be an Azure Ultra Disk type, which includes the base VHD (Azure Premium Storage).
@@ -125,7 +125,7 @@ An Azure storage account is an administrative construct and also a subject of li
 As of 2017, Azure introduced the concepts of [Azure Disk Storage](https://azure.microsoft.com/services/managed-disks/) that relieve you of taking care of any storage account administration. Using Azure managed disks is the default to deploy for SAP workload in Azure.
 
 > [!IMPORTANT]
-> Given the advantages of Azure Managed Disks, it's mandatory that you use Azure Managed Disks for your DBMS deployments and SAP deployments in general.
+> Given the advantages of Azure managed disks, it's mandatory that you use Azure managed disks for your DBMS deployments and SAP deployments in general.
 
 If you happen to have SAP workload that isn't yet using managed disks, to convert from unmanaged to managed disks, see:
 

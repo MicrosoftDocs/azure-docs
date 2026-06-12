@@ -5,7 +5,7 @@ description: The search autocomplete coverage table lists the countries/regions 
 author: sinnypan
 ms.author: sipa
 ms.date: 09/23/2025
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-maps
 ms.subservice: search
 ---

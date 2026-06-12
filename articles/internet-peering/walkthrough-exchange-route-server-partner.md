@@ -1,13 +1,14 @@
 ---
-title: Set up an interconnect for peering with exchange route server
-titleSuffix: Internet peering
+title: Set Up an Interconnect for Peering with Exchange Route Server
+titleSuffix: Internet Peering
 description: Learn how to set up an interconnect for a peering with exchange route server in Azure Peering Service. Learn the requirements, the steps to establish a direct interconnect, and how to register your ASN.
 author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 03/03/2025
+ms.date: 02/25/2026
 ms.custom: sfi-image-nochange
+
 # Customer intent: As a network engineer, I want to establish an interconnect for peering with an exchange route server, so that I can ensure reliable and high-performance connectivity for my organization's internet exchange needs.
 ---
 

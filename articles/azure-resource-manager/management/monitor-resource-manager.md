@@ -1,7 +1,7 @@
-﻿---
+---
 title: Monitor Azure Resource Manager
 description: Start here to learn how to monitor Azure Resource Manager. Learn about Traffic and latency observability for subscription-level control plane requests.
-ms.date: 01/22/2025
+ms.date: 02/27/2026
 ms.custom: horz-monitor, devx-track-arm-template
 ms.topic: article
 ---

@@ -3,7 +3,7 @@ title: Set an external identity source for vCenter Server
 description: Learn how to set Windows Server Active Directory over LDAP or LDAPS for VMware vCenter Server as an external identity source.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 10/22/2025
+ms.date: 03/9/2026
 ms.custom: engagement-fy23
 # Customer intent: "As a system administrator, I want to configure Windows Server Active Directory as an external identity source for vCenter Server, so that I can authenticate users and manage role-based access efficiently."
 ---
@@ -45,6 +45,25 @@ In this article, you learn how to:
 
 > [!NOTE]
 > For more information about LDAPS and certificate issuance, contact your security team or your identity management team.
+
+## Microsoft Entra ID as an Identity Source
+
+Integrating Microsoft Entra ID as your external identity provider for Azure VMware Solution vCenter transforms your administrative security and operational efficiency. While Azure VMware Solution traditionally relies on Windows Server Active Directory via LDAPS, native Entra ID federation (using OIDC in vSphere 8.0 U2+) offers a modernized approach. The primary advantage is centralized identity management, which breaks down authentication silos between your cloud and on-premises environments.
+
+By relying on Entra ID, you can natively enforce advanced security policies—such as Multi-Factor Authentication (MFA) and Conditional Access—without deploying additional infrastructure. Because this is a federated model, vCenter never directly handles or stores user credentials; instead, it trusts Entra ID's validation. This protects credentials, ensures a seamless Single Sign-On (SSO) experience for your administrators, and provides centralized audit trails for better compliance.
+
+Azure VMware Solution is a managed service, standard CloudAdmin accounts do not have the elevated native vCenter permissions required to manage external identity provider directly. To bridge this gap, you must use Run Commands—specifically packaged PowerShell cmdlets executed directly through the Azure portal.
+
+| Category | Component/Feature | Description |
+| --- | --- | --- |
+| **Security Benefits** | MFA & Conditional Access | Enforces native Entra ID security policies to protect vCenter Access. |
+|  | Credential Protection | Federated authentication ensures vCenter never sees raw credentials. | 
+| **Run Commands** | Add-VCenterCloudAdminRoleVcIdentityProvidersManagePrivilege | Add required permission for external identity provider to Cloudadmin account. |
+|  | Remove-AVSIdentityProviderEntraId | Deletes the configured Entra ID from vCenter Server. |
+| **Permissions** | VcIdentityProviders.Manage | vCenter privilege required to create, update, or delete external identiy providers. |
+
+> [!NOTE]
+> Use Microsoft Entra ID or LDAPS authentication for external identity sources with vCenter. Azure VMware Solution supports both options. 
 
 ## Export the certificate for LDAPS authentication (Optional)
 
@@ -114,8 +133,8 @@ To add Windows Server Active Directory over LDAP with SSL as an external identit
 
    | Name | Description |
    | --- | --- |
-   | **GroupName** | The group in the external identity source that grants CloudAdmin access. For example, **avs-admins**.  |
-   | **SSLCertificatesSasUrl** | The path to SAS strings that contain the certificates for authentication to the Windows Server Active Directory source. Separate multiple certificates with a comma. For example, **pathtocert1,pathtocert2**.  |
+   | **GroupName** | Optional. The group in the external identity source that will be granted CloudAdmins membership once the source is added. For example, **avs-admins**. This can be done separately later via `Add-GroupToCloudAdmins`. |
+   | **SSLCertificatesSasUrl** | Optional. The path to SAS strings that contain the certificates for authentication to the Windows Server Active Directory source. Separate multiple certificates with a comma. For example, **pathtocert1,pathtocert2**.  |
    | **Credential** | The domain username and password for authentication with the Windows Server Active Directory source (not CloudAdmin). Use the `<username@avslab.local>` format. |
    | **BaseDNGroups** | The location to search for groups. For example, **CN=group1, DC=avsldap,DC=local**. Base DN is required for LDAP authentication.  |
    | **BaseDNUsers** |  The location to search for valid users. For example, **CN=users,DC=avsldap,DC=local**. Base DN is required for LDAP authentication.  |
@@ -154,7 +173,7 @@ To add Windows Server Active Directory over LDAP as an external identity source 
    | **BaseDNUsers**  |  The location to search for valid users. For example, **CN=users,DC=avslab,DC=local**. Base DN is required for LDAP authentication.  |
    | **BaseDNGroups**  | The location to search for groups. For example, **CN=group1, DC=avslab,DC=local**. Base DN is required for LDAP authentication.  |
    | **Credential**  | The domain username and password for authentication with the Windows Server Active Directory source (not CloudAdmin). The user must be in the `<username@avslab.local>` format.  |
-   | **GroupName**  | The group in your external identity source that grants CloudAdmin access. For example, **avs-admins**.  |
+   | **GroupName**  | Optional. The group in your external identity that will be granted CloudAdmin membership upon addition of the source. For example, **avs-admins**. Can be done separately later. |
    | **Retain up to**  | The retention period for the cmdlet output. The default value is 60 days.   |
    | **Specify name for execution**  | An alphanumeric name. For example, **addExternalIdentity**.  |
    | **Timeout**  |  The period after which a cmdlet exits if it isn't finished running.  |
@@ -280,7 +299,7 @@ To remove all existing external identity sources at once, run the Remove-Externa
 1. To see the progress, check **Notifications** or the **Run Execution Status** pane.
 
 > [!WARNING]
-> If you don't provide a value for **DomainName**, all external identity sources are removed. Run the cmdlet Update-IdentitySourceCredential only after the password is rotated in the domain controller.
+> Run the cmdlet Update-IdentitySourceCredential only after the password is rotated in the domain controller.
 
 ## Renew existing certificates for LDAPS identity source
 

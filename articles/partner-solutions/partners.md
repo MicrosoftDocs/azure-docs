@@ -1,8 +1,8 @@
 ---
 title: Azure Native Integrations Partner Solutions
 description: Explore Azure Native Integrations partner solutions for observability, data, networking, and storage.
-author: ProfessorKendrick
-ms.author: kkendrick
+author: pavanatgit
+ms.author: plekkala
 ms.service: partner-services
 ms.topic: overview
 ms.date: 10/31/2025
@@ -26,6 +26,7 @@ The following Azure Native Integrations partners provide advanced machine learni
 |-------------------------------|-------------|
 | **Arize AI**                  | [Azure Native Arize AI Cloud Service](arize-ai/overview.md) is a platform for machine learning observability that helps teams monitor, troubleshoot, and improve their AI models. It provides tools for understanding model performance, detecting issues, and optimizing model behavior. |
 | **LambdaTest** | [LambdaTest - HyperExecute](lambda-test/overview.md) is a managed AI-powered platform for test execution and automation that enables teams to run tests at scale across various environments. It provides capabilities for parallel test execution, real-time analytics, and integration with continuous integration and continuous delivery (CI/CD) pipelines. |
+| **Napster Companion API**     | [Napster Companion API](napster/overview.md) lets you build, deploy, and operate persistent multimodal AI agents (Omniagents) with consistent identity, knowledge, and memory across video, voice, text, and telephony channels. |
 
 ## Observability partners
 
@@ -49,7 +50,7 @@ The following Azure Native Integrations partners provide data management, integr
 |**Dell PowerScale** Preview|[Dell PowerScale Preview](dell/overview.md) is an enterprise-class, high-performance software-defined file storage solution that brings PowerScale OneFS software to Azure.|
 | **Informatica**               | [Informatica Intelligent Data Management Cloud](informatica/overview.md) enables the management of an Informatica organization in Azure. Informatica delivers solutions that help organizations manage and secure their cloud data assets. |
 | **MongoDB**    | [MongoDB Atlas](mongo-db/overview.md) is a managed document database with vector search capabilities. It supports modern application development. |
-| **Neon**  | [Neon Serverless Postgres](neon/overview.md) offers a serverless Postgres database service that enables scalable and cost-effective relational data storage. |
+| **Neon (retired)**  | [Neon Serverless Postgres](neon/overview.md) offers a serverless Postgres database service that enables scalable and cost-effective relational data storage. |
 | **Pure Storage Cloud** | [Pure Storage Cloud](pure-storage/overview.md) provides managed block storage to help organizations manage their storage and compute resources. |
 | **Qumulo**                    | [Azure Native Qumulo](qumulo/overview.md) is a service that provisions a Qumulo file system that supports multiple protocols. It helps organizations efficiently manage unstructured data. |
 

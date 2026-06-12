@@ -19,7 +19,7 @@ ms.custom:
 
 This tutorial describes how to inspect, or *trace*, request processing in Azure API Management. Tracing helps you debug and troubleshoot your API.
 
-[!INCLUDE [api-management-workspace-try-it](../../includes/api-management-workspace-try-it.md)]
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 In this tutorial, you learn how to:
 
@@ -85,7 +85,8 @@ Detailed steps follow.
 
 > [!NOTE]
 >
-> - These steps require API Management REST API version 2023-05-01-preview or later. You must be assigned the Contributor or higher role on the API Management instance to call the REST API.
+> - These steps require API Management REST API version 2023-05-01-preview or later.
+> - You must be assigned the Contributor or higher role on the API Management instance or have equivalent write permissions on the API to obtain a debug token.
 > - For information about authenticating to the REST API, see [Azure REST API reference](/rest/api/azure). 
 
 1. **Obtain a debug token**. Call the API Management gateway's [List debug credentials](/rest/api/apimanagement/gateway/list-debug-credentials) API. In the URI, enter *managed* for the instance's managed gateway in the cloud, or the gateway ID for a self-hosted gateway. For example, to obtain trace credentials for the instance's managed gateway, use a request similar to the following example:

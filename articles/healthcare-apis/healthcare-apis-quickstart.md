@@ -1,11 +1,11 @@
 ---
 title: Azure Health Data Services quickstart
-description: Learn how to create a workspace for Azure Health Data Services by using the Azure portal. The workspace is a centralized logical container for instances of the FHIR service, DICOM service, and MedTech service.
+description: Learn how to create a workspace for Azure Health Data Services by using the Azure portal. The workspace is a centralized logical container for instances of the FHIR service and DICOM service.
 author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.subservice: workspace
 ms.topic: quickstart
-ms.date: 06/02/2025
+ms.date: 02/25/2026
 ms.author: kesheth
 ms.custom:
   - mode-api
@@ -14,7 +14,7 @@ ms.custom:
 
 # Quickstart: Azure Health Data Services
 
-Follow the steps in this article to create a workspace before you deploy instances of Azure Health Data Services in the Azure portal. The workspace is a centralized logical container for Azure Health Data services such as FHIR&reg; services, DICOM&reg; services, and MedTech services. It allows you to organize and manage configuration settings that are shared among all the underlying datasets and services.
+Follow the steps in this article to create a workspace before you deploy instances of Azure Health Data Services in the Azure portal. The workspace is a centralized logical container for Azure Health Data services such as FHIR&reg; and DICOM&reg; services. It allows you to organize and manage configuration settings that are shared among all the underlying datasets and services.
 
 ## Prerequisites
 
@@ -56,21 +56,18 @@ Before you create a workspace in the Azure portal, you need an Azure account sub
 
       **Optional**: Select **Download a template for automation** of the newly created workspace.
 
-1. After the workspace deployment process is complete, select **Go to resource**.
+1. To see your newly deployed workspace, select **Go to resource** after the workspace deployment process is complete.
 
    :::image type="content" source="media/healthcare-apis-quickstart/workspace-deployment-details.png" alt-text="Screenshot showing the workspace and the Go to resource button." lightbox="media/healthcare-apis-quickstart/workspace-deployment-details.png":::
 
-1. Create instances of the FHIR service, DICOM service, and MedTech service in the newly created Azure Health Data Services workspace.
-
-   :::image type="content" source="media/healthcare-apis-quickstart/deploy-health-data-services-workspace.png" alt-text="Screenshot showing the newly created workspace." lightbox="media/healthcare-apis-quickstart/deploy-health-data-services-workspace.png":::
 
 ## Next steps
+
+Select the following articles to create a new service instance in your workspace.
 
 [Deploy the FHIR service](./../healthcare-apis/fhir/fhir-portal-quickstart.md)
 
 [Deploy the DICOM service](./../healthcare-apis/dicom/deploy-dicom-services-in-azure.md)
-
-[Deploy the MedTech service and ingest data into the FHIR service](./../healthcare-apis/iot/deploy-iot-connector-in-azure.md)
 
 [Convert data to FHIR format](./../healthcare-apis/fhir/convert-data-overview.md)
 

@@ -2,16 +2,16 @@
 title: About Nutanix Cloud Clusters on Azure
 author: jjaygbay1
 ms.author: jacobjaygbay
-description: Learn about Nutanix Cloud Clusters on Azure and the benefits it offers.
+description: Learn about Nutanix Cloud Clusters on Azure and the benefits it offers (obsolete).
 ms.topic: overview
-ms.subservice: baremetal-nutanix
+ms.subservice: nutanix
 ms.custom: engagement-fy23
 ms.date: 03/28/2025
-ms.service: azure-baremetal-infrastructure
+ms.service: baremetal-infrastructure-azure
 # Customer intent: "As a cloud architect, I want to leverage Nutanix Cloud Clusters on Azure, so that I can seamlessly manage hybrid workloads and optimize resource provisioning while utilizing existing skills and licenses."
 ---
 
-# About Nutanix Cloud Clusters on Azure
+# About Nutanix Cloud Clusters on Azure (obsolete)
 
 In this article, we'll give an overview of the features BareMetal Infrastructure offers for Nutanix workloads.
 
@@ -103,7 +103,11 @@ On-premises Nutanix environments require the Nutanix customer to support all the
 
 Microsoft manages the Azure BareMetal specialized compute hardware and its data and control plane platform for underlay network. Microsoft supports if the customers plan to bring their existing Azure Subscription, virtual network, vWAN, etc.
 
-Nutanix covers the life-cycle management of Nutanix software (MCM, Prism Central/Element, etc.) and their licenses.
+
+Nutanix covers the deployment of Nutanix software (Prism Central/Element, AHV, AOS, etc.) and their licenses.
+
+Customers are responsible for the lifecycle management of the Nutanix software after their deployment is successful.
+
 
 **Monitoring and remediation**
 

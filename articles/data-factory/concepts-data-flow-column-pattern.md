@@ -7,7 +7,7 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.subservice: data-flows
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/26/2024
 ---
 

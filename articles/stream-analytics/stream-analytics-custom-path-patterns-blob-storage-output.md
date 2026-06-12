@@ -1,12 +1,15 @@
 ---
 title: Azure Stream Analytics custom blob output partitioning
-description: This article describes the custom DateTime path patterns and the custom field or attributes features for Azure Blob Storage output from Azure Stream Analytics jobs.
+description: Learn about custom DateTime path patterns and custom field or attribute features for Azure Blob Storage output from Azure Stream Analytics jobs.
 author: an-emma
 ms.author: raan
 ms.service: azure-stream-analytics
-ms.topic: conceptual
-ms.date: 02/15/2023
+ms.topic: concept-article
+ms.date: 06/10/2026
 ms.custom: sfi-image-nochange
+ai-usage: ai-assisted
+
+#customer intent: As a data engineer, I want to understand custom blob output partitioning options in Azure Stream Analytics so that I can organize output data effectively.
 ---
 
 # Azure Stream Analytics custom blob output partitioning
@@ -19,7 +22,7 @@ Custom field or input attributes improve downstream data-processing and reportin
 
 ### Partition key options
 
-The partition key, or column name, used to partition input data may contain any character that's accepted for [blob names](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata). It isn't possible to use nested fields as a partition key unless they're used along with aliases. However, you can use certain characters to create a hierarchy of files. For example, to create a column that combines data from two other columns to make a unique partition key, you can use the following query:
+The partition key, or column name, used to partition input data might contain any character that's accepted for [blob names](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata). You can't use nested fields as a partition key unless you use them along with aliases. However, you can use certain characters to create a hierarchy of files. For example, to create a column that combines data from two other columns to make a unique partition key, you can use the following query:
 
 ```sql
 SELECT name, id, CONCAT(name, "/", id) AS nameid
@@ -27,7 +30,7 @@ SELECT name, id, CONCAT(name, "/", id) AS nameid
 
 The partition key must be `NVARCHAR(MAX)`, `BIGINT`, `FLOAT`, or `BIT` (1.2 compatibility level or higher). The `DateTime`, `Array`, and `Records` types aren't supported, but they could be used as partition keys if they're converted to strings. For more information, see [Azure Stream Analytics data types](/stream-analytics-query/data-types-azure-stream-analytics).
 
-### Example
+### Partition blob output by a custom field
 
 Suppose a job takes input data from live user sessions connected to an external video game service where ingested data contains a column `client_id` to identify the sessions. To partition the data by `client_id`, set the blob **Path pattern** field to include a partition token `{client_id}` in blob output properties when you create a job. As data with various `client_id` values flow through the Stream Analytics job, the output data is saved into separate folders based on a single `client_id` value per folder.
 
@@ -37,7 +40,7 @@ Similarly, if the job input was sensor data from millions of sensors where each 
 
 When you use the REST API, the output section of a JSON file used for that request might look like the following image:
 
-![Screenshot that shows REST API output.](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-rest-output.png)
+![Screenshot that shows the REST API JSON output configuration for blob storage.](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-rest-output.png)
 
 After the job starts running, the `clients` container might look like the following image:
 
@@ -45,11 +48,11 @@ After the job starts running, the `clients` container might look like the follow
 
 Each folder might contain multiple blobs where each blob contains one or more records. In the preceding example, there's a single blob in a folder labeled `"06000000"` with the following contents:
 
-![Screenshot that shows blob contents.](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-contents.png)
+![Screenshot that shows the blob contents with client ID records.](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-blob-contents.png)
 
 Notice that each record in the blob has a `client_id` column matching the folder name because the column used to partition the output in the output path was `client_id`.
 
-### Limitations
+### Custom partition key limitations
 
 1. Only one custom partition key is permitted in the path pattern blob output property. All of the following path patterns are valid:
 
@@ -58,11 +61,11 @@ Notice that each record in the blob has a `client_id` column matching the folder
    * `cluster1/{aFieldInMyData}`
    * `cluster1/{date}/{time}/{aFieldInMyData}`
 
-1. If customers want to use more than one input field, they can create a composite key in query for custom path partition in blob output by using `CONCAT`. An example is `select concat (col1, col2) as compositeColumn into blobOutput from input`. Then they can specify `compositeColumn` as the custom path in Azure Blob Storage.
+1. If you want to use more than one input field, you can create a composite key in a query for custom path partition in blob output by using `CONCAT`. An example is `select concat (col1, col2) as compositeColumn into blobOutput from input`. Then you can specify `compositeColumn` as the custom path in Azure Blob Storage.
 
-1. Partition keys are case insensitive, so partition keys like `John` and `john` are equivalent. Also, expressions can't be used as partition keys. For example, `{columnA + columnB}` doesn't work.
+1. Partition keys are case insensitive, so partition keys like `John` and `john` are equivalent. Also, you can't use expressions as partition keys. For example, `{columnA + columnB}` doesn't work.
 
-1. When an input stream consists of records with a partition key cardinality under 8,000, the records are appended to existing blobs. They only create new blobs when necessary. If the cardinality is over 8,000, there's no guarantee existing blobs will be written to. New blobs won't be created for an arbitrary number of records with the same partition key.
+1. When an input stream consists of records with a partition key cardinality under 8,000, Stream Analytics appends the records to existing blobs and only creates new blobs when necessary. If the cardinality is over 8,000, there's no guarantee that Stream Analytics writes to existing blobs. Stream Analytics doesn't create new blobs for an arbitrary number of records with the same partition key.
 
 1. If the blob output is [configured as immutable](../storage/blobs/immutable-storage-overview.md), Stream Analytics creates a new blob each time data is sent.
 
@@ -90,7 +93,7 @@ If you don't want to use custom `DateTime` patterns, you can add the `{date}` an
 
 ![Screenshot that shows Stream Analytics old DateTime formats.](./media/stream-analytics-custom-path-patterns-blob-storage-output/stream-analytics-old-date-time-formats.png)
 
-### Extensibility and restrictions
+### DateTime token extensibility and restrictions
 
 You can use as many tokens (`{datetime:<specifier>}`) as you like in the path pattern until you reach the path prefix character limit. Format specifiers can't be combined within a single token beyond the combinations already listed by the date and time dropdowns.
 
@@ -104,7 +107,7 @@ You might use the same format specifier multiple times in the path prefix. The t
 
 ### Hive Streaming conventions
 
-Custom path patterns for Blob Storage can be used with the Hive Streaming convention, which expects folders to be labeled with `column=` in the folder name.
+You can use custom path patterns for Blob Storage with the Hive Streaming convention, which expects folders to be labeled with `column=` in the folder name.
 
 An example is `year={datetime:yyyy}/month={datetime:MM}/day={datetime:dd}/hour={datetime:HH}`.
 
@@ -114,7 +117,7 @@ Custom output eliminates the hassle of altering tables and manually adding parti
 MSCK REPAIR TABLE while hive.exec.dynamic.partition true
 ```
 
-### Example
+### Create a Hive-compatible DateTime folder structure
 
 Create a storage account, a resource group, a Stream Analytics job, and an input source according to the [Stream Analytics Azure portal](stream-analytics-quick-create-portal.md) quickstart. Use the same sample data used in the quickstart. Sample data is also available in [GitHub](https://raw.githubusercontent.com/Azure/azure-stream-analytics/master/Samples/GettingStarted/HelloWorldASA-InputStream.json).
 

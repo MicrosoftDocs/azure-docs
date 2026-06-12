@@ -91,6 +91,9 @@
     href: compliance/compliance-tic.md
   - name: Cloud services by audit scope
     href: compliance/azure-services-in-fedramp-auditscope.md
+  - name: Recommended Secure Configuration
+    href: ./compliance/recommended-secure-configuration.md
+    displayName: Configuration
   - name: Accelerate your path to ATO with Azure
     href: compliance/documentation-accelerate-compliance.md
 - name: Reference

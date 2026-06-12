@@ -3,7 +3,7 @@ title: "Security, access, and operations for Netezza migrations"
 description: Learn about authentication, users, roles, permissions, monitoring, and auditing, and workload management in Azure Synapse Analytics and Netezza.
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: concept-article
 author: ajagadish-24
 ms.author: ajagadish
 

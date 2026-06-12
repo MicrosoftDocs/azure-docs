@@ -20,7 +20,7 @@ Azure App Service makes it easy to integrate AI capabilities into your web appli
 
 App Service offers several advantages for developing and deploying AI-powered applications:
 
-- **Native integration with Azure AI services** - Seamlessly connect to Azure OpenAI and other AI services using managed identities for secure, passwordless authentication
+- **Native integration with Foundry Tools** - Seamlessly connect to Azure OpenAI and other Foundry Tools using managed identities for secure, passwordless authentication
 - **Local SLM support** - Use sidecar extensions to deploy smaller language models directly with your application
 - **Enterprise-grade security** - Implement network isolation, end-to-end encryption, and role-based access control
 - **Simplified DevOps with GitHub integration** - Streamline CI/CD pipelines using GitHub Actions, leverage GitHub Codespaces with integrated GitHub Copilot for AI-assisted development, and create end-to-end workflows from development to production deployment

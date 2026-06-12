@@ -23,7 +23,7 @@ This change will have no effect on the availability of your API Management servi
 
 Your service is impacted by this change if:
 
-* You've configured an [Microsoft Entra ID](../api-management-howto-aad.md) or [Azure AD B2C](../api-management-howto-aad-b2c.md) identity provider for user account authentication using the ADAL and use the provided developer portal.
+* You've configured a [Microsoft Entra ID](../api-management-howto-aad.md) or [Azure AD B2C](../api-management-howto-aad-b2c.md) identity provider for user account authentication using the ADAL and use the provided developer portal.
 
 ## What is the deadline for the change?
 

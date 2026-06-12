@@ -148,7 +148,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |Derek Coleman & Associates Corporation|
 |[Developing Today LLC](https://www.developingtoday.net/)|
 |Diamond Capture Associates LLC|
-|[Diffeo, Inc.](https://diffeo.com)|
+|[Diffeo, Inc.](https://en.wikipedia.org/wiki/Diffeo,_Inc.)|
 |[DirectApps, Inc. D.B.A. Direct Technology](https://directtechnology.com)|
 |[DominionTech Inc.](https://www.dominiontech.com)|
 |[DOT Personable Inc](https://cloud.personable.com/1/login.htm)|
@@ -206,7 +206,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Hendrix Corporation](https://www.hendrixcorp.com/)|
 |[Hewlett Packard Enterprise](https://www.hpe.com)|
 |[Hiscomp](http://www.hiscompllc.com/)|
-|[Hitachi Vantara](https://www.hitachivantarafederal.com/services/cloud-services/)|
+|[Hitachi Vantara](https://www.hitachivantara.com/content/hitachivantara/en_us/services/cloud-infrastructure-services.html)|
 |[HTS Voice & Data Systems, Inc.](https://www.hts-tx.com/)|
 |[HumanTouch LLC](https://www.humantouchllc.com/)|
 |[Hyertek Inc.](https://www.hyertek.com)|
@@ -268,7 +268,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Mainstay Technologies](https://www.mstech.com)|
 |[Managed Solution](https://www.managedsolution.com/)|
 |[ManCom Inc](https://www.mancominc.com/)|
-|[ManTech](https://www.mantech.com/Pages/Home.aspx)|
+|[ManTech](https://www.mantech.com/)|
 |[Marco Technologies LLC](https://www.marconet.com/)|
 |[Maureen Data Systems](https://www.mdsny.com)|
 |[Mazteck IT](https://www.mazteck.com)|
@@ -281,7 +281,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[mindSHIFT Technologies, Inc.](https://www.mindshift.com/)|
 |[MIS Sciences Corp](https://www.mis-sciences.com/)|
 |[Mission Cyber LLC](https://missioncyber.com/b/)|
-|[MNSG Acquisition Company LLC]()|
+|[MNSG Acquisition Company LLC](https://www.mnsgroup.com/)|
 |[Mobomo, LLC](https://www.mobomo.com)|
 |[Nanavati Consulting, Inc.](https://www.nanavaticonsulting.com)|
 |[Navisite LLC](https://www.navisite.com/)|
@@ -310,13 +310,13 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Om Group, Inc.](http://www.omgroupinc.us/)|
 |[OneNeck IT Solutions](https://www.oneneck.com)|
 |[Onyx Point, Inc.](https://www.onyxpoint.com)|
-|[Opsgility](https://www.opsgility.com)|
+|[Opsgility](https://opsgility.com/)|
 |[OpsPro](https://opspro.com/)|
 |[Optuminsight Inc.](https://www.optum.com)|
 |[Orion Communications, Inc.](https://www.orioncom.com)|
 |[Outlook Insight, LLC](http://outlookinsight.com/)|
 |[Overview Technology Solutions Inc.](https://overviewts.com/)|
-|[PA-Group](https://pa-group.us/)|
+|[PA-Group](https://dmsiworks.com/resellers/pa-group-usa)
 |[Palecek Consulting Group](https://www.pcgit.net)|
 |[Pangea Group Inc.](http://www.pangea-group.com)|
 |[Paragon Software Solutions, Inc.](http://www.paragonhq.com/)|
@@ -557,7 +557,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[NeoSystems LLC](https://www.neosystemscorp.com/solutions-services/microsoft-licenses/microsoft-365-licenses/)|
 |[Nimbus Logic, LLC](https://www.nimbus-logic.com/)|
 |[Northrop Grumman](https://www.northropgrumman.com/)|
-|[Novetta](https://www.novetta.com)|
+|[Novetta](https://www.linkedin.com/company/novetta/)|
 |[Orbis](https://orbisops.com)|
 |[PAX 8](https://www.pax8.com)|
 |[Peraton](https://www.peraton.com/)|
@@ -581,4 +581,4 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Vexcel](https://www.vexcel.com/)|
 |[VLCM](https://www.vlcm.com)|
 
-To learn more about the Cloud Solution Provider program, see [Frequently asked questions for Partner Center](/partner-center/faq-for-us-govt-cloud). If you would like to apply for the program, visit [Azure Government CSP application process](./documentation-government-csp-application.md). For any other questions, contact [Americas CSP Gov](mailto:AmericasCSPgov@microsoft.com).
+To learn more about the Cloud Solution Provider program, see [Frequently asked questions for Partner Center](/partner-center/faq-for-us-govt-cloud). If you would like to apply for the program, visit [Azure Government CSP application process](./documentation-government-csp-application.md).

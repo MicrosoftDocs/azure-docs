@@ -93,7 +93,7 @@ Before a server can be used as a *server endpoint* in an Azure File Sync *sync g
 4. You might be prompted to sign into Azure again to complete the process.
 
 > [!IMPORTANT]  
-> If the server is a member of a Failover Cluster, each server needs to run the Server Registration. When you view the registered servers in the Azure Portal, Azure File Sync automatically recognizes each node as a member of the same Failover Cluster, and groups them together appropriately.
+> If the server is a member of a Failover Cluster, each server needs to run the Server Registration. When you view the registered servers in the Azure portal, Azure File Sync automatically recognizes each node as a member of the same Failover Cluster, and groups them together appropriately.
 
 #### Register the server with PowerShell
 

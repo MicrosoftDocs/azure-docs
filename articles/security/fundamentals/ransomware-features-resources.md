@@ -67,7 +67,7 @@ Microsoft Sentinel is your birds-eye view across the enterprise alleviating the 
 
 Collect data at cloud scale across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds. 
 
-Detect previously undetected threats, and minimize [false positives](../../sentinel/false-positives.md) using Microsoft's analytics and unparalleled threat intelligence. 
+Detect previously undetected threats, and minimize [false positives](/azure/sentinel/false-positives) using Microsoft's analytics and unparalleled threat intelligence. 
 
 Investigate threats with artificial intelligence, and hunt for suspicious activities at scale, tapping into years of Cyber security work at Microsoft.
 
@@ -115,9 +115,9 @@ Key Features:
 - [Zero Trust Guidance Center](/security/zero-trust/)
 - [Azure Web Application Firewall](../../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md?tabs=owasp32)
 - [Azure VPN gateway](../../vpn-gateway/openvpn-azure-ad-tenant.md#enable-authentication)
-- [Microsoft Entra multifactor authentication (MFA)](/entra/identity/authentication/howto-mfa-userstates.md)
-- [Microsoft Entra ID Protection](/entra/identity/authentication/concept-password-ban-bad.md)
-- [Microsoft Entra Conditional Access](/entra/identity/conditional-access/overview.md)
+- [Microsoft Entra multifactor authentication (MFA)](/entra/identity/authentication/howto-mfa-userstates)
+- [Microsoft Entra ID Protection](/entra/identity/authentication/concept-password-ban-bad)
+- [Microsoft Entra Conditional Access](/entra/identity/conditional-access/overview)
 - [Microsoft Defender for Cloud documentation](/azure/defender-for-cloud/)
 
 ## Conclusion

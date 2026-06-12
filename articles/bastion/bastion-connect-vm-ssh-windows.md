@@ -1,168 +1,141 @@
 ---
 title: 'Connect to a Windows VM using SSH'
 titleSuffix: Azure Bastion
-description: Learn how to use Azure Bastion to connect to Windows VM using SSH.
-author: abell
+description: Learn how to use Azure Bastion to connect to a Windows VM using SSH via the Azure portal.
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 02/10/2025
-ms.author: abell
+ms.date: 03/12/2026
+ms.author: cherylmc
 # Customer intent: "As a cloud administrator, I want to connect to a Windows VM using SSH through a secure service, so that I can manage the VM without exposing sensitive ports to the internet."
 ---
 
 # Create an SSH connection to a Windows VM using Azure Bastion
 
-This article shows you how to securely and seamlessly create an SSH connection to your Windows VMs located in an Azure virtual network directly through the Azure portal. When you use Azure Bastion, your VMs don't require a client, agent, or additional software. You can also connect to a Windows VM using RDP. For information, see [Create an RDP connection to a Windows VM](bastion-connect-vm-rdp-windows.md).
+This article describes how to create a secure SSH connection to your Windows virtual machines using Azure Bastion. You can connect through the Azure portal (browser-based). When you use Azure Bastion, your virtual machines don't require a client, agent, or additional software. Azure Bastion securely connects to all virtual machines in the virtual network without exposing RDP/SSH ports to the public internet. For more information, see [What is Azure Bastion?](bastion-overview.md)
 
-Azure Bastion provides secure connectivity to all of the VMs in the virtual network in which it's provisioned. Using Azure Bastion protects your virtual machines from exposing RDP/SSH ports to the outside world, while still providing secure access using RDP/SSH. For more information, see the [What is Azure Bastion?](bastion-overview.md)
+For RDP connections to a Windows virtual machine, see [Create an RDP connection to a Windows VM](bastion-connect-vm-rdp-windows.md). For native client connections using Azure CLI (including SSH tunnels), see [Connect to a VM using a native client](connect-vm-native-client-windows.md).
 
-> [!NOTE]
-> If you want to create an SSH connection to a Windows VM, Azure Bastion must be configured using the Standard SKU or higher.
->
+The following diagram shows the dedicated deployment architecture using an SSH connection.
 
-When connecting to a Windows virtual machine using SSH, you can use both username/password and SSH keys for authentication.
-
-The SSH private key must be in a format that begins with  `"-----BEGIN RSA PRIVATE KEY-----"` and ends with `"-----END RSA PRIVATE KEY-----"`.
+:::image type="content" source="./media/connect-vm-ssh-windows/host-architecture-ssh-windows.png" alt-text="Diagram that shows the Azure Bastion architecture." lightbox="./media/connect-vm-ssh-windows/host-architecture-ssh-windows.png":::
 
 ## Prerequisites
 
-Make sure that you have set up an Azure Bastion host for the virtual network in which the VM resides. For more information, see [Create an Azure Bastion host](quickstart-host-portal.md). Once the Bastion service is provisioned and deployed in your virtual network, you can use it to connect to any VM in this virtual network.
+Before you begin, verify that you meet the following criteria:
 
-To SSH to a Windows virtual machine, you must also ensure that:
-* Your Windows virtual machine is running Windows Server 2019 or later.
-* You have OpenSSH Server installed and running on your Windows virtual machine. To learn how to do this, see [Install OpenSSH](/windows-server/administration/openssh/openssh_install_firstuse).
-* Azure Bastion has been configured to use the Standard SKU or higher.
+* An Azure Bastion host deployed in the virtual network where the virtual machine is located, or in a [peered virtual network](vnet-peering.md). To set up a Bastion host, see [Create a bastion host](quickstart-host-portal.md#createhost). The [Standard SKU](bastion-sku-comparison.md) or higher is required for SSH connections to Windows VMs.
 
-### Required roles
+  | Connection method | Minimum SKU | Additional configuration |
+  |---|---|---|
+  | Azure portal (browser) | Standard | None |
 
-In order to make a connection, the following roles are required:
+* A Windows virtual machine running Windows Server 2019 or later in the virtual network.
 
-* Reader role on the virtual machine
-* Reader role on the NIC with private IP of the virtual machine
-* Reader role on the Azure Bastion resource
-* Reader role on the virtual network of the target virtual machine (if the Bastion deployment is in a peered virtual network).
+* [OpenSSH Server](/windows-server/administration/openssh/openssh_install_firstuse) installed and running on your Windows virtual machine. Azure Bastion only supports connecting to Windows VMs via SSH using **OpenSSH**.
 
-### Ports
+* Azure Bastion uses SSH port 22 by default. Custom ports require the [Standard SKU or higher](bastion-sku-comparison.md).
 
-In order to connect to the Windows VM via SSH, you must have the following ports open on your VM:
+* **Required roles:**
 
-* Inbound port: SSH (22) *or*
-* Inbound port: Custom value (you'll then need to specify this custom port when you connect to the VM via Azure Bastion)
+  * Reader role on the virtual machine.
+  * Reader role on the NIC with the IP of the virtual machine.
+  * Reader role on the Azure Bastion resource.
+  * Reader role on the virtual network of the target virtual machine (if the Bastion deployment is in a peered virtual network).
 
 See the [Azure Bastion FAQ](bastion-faq.md) for additional requirements.
 
-### Supported configurations
+## Authentication methods
 
-Currently, Azure Bastion only supports connecting to Windows VMs via SSH using **OpenSSH**.
+The following authentication methods are available for SSH connections to Windows VMs through Azure Bastion. Select an authentication method tab to see the corresponding steps.
 
-## Bastion connection page
+| Authentication method | Minimum SKU |
+|---|---|
+| Username and password | Standard |
+| SSH private key from local file | Standard |
+| Password from Azure Key Vault | Standard |
+| SSH private key from Azure Key Vault | Standard |
 
-1. In the [Azure portal](https://portal.azure.com), go to the virtual machine that you want to connect to. On the **Overview** page, select **Connect**, then select **Bastion** from the dropdown to open the Bastion connection page. You can also select **Bastion** from the left pane.
+> [!NOTE]
+> [Microsoft Entra ID authentication](bastion-entra-id-authentication.md) and [Kerberos authentication](kerberos-authentication-portal.md) are not supported for SSH connections to Windows VMs. These authentication methods are available for [RDP connections](bastion-connect-vm-rdp-windows.md).
 
-1. On the **Bastion** connection page, click the **Connection Settings** arrow to expand all the available settings. Notice that if you're using the Bastion **Standard** SKU or higher, you have more available settings.
+## Connect to a virtual machine using SSH
 
-1. Authenticate and connect using one of the methods in the following sections.
+1. In the [Azure portal](https://portal.azure.com), select your virtual machine. On the left pane, select **Connect**, then select **Bastion**.
 
-   * [Username and password](#username-and-password)
-   * [Private key from local file](#private-key-from-local-file)
-   * [Password - Azure Key Vault](#password---azure-key-vault)
-   * [Private key - Azure Key Vault](#private-key---azure-key-vault)
+1. In the **Connection Settings**, select **SSH** as the protocol, and enter the port number if you changed it from the default of 22.
 
-## Username and password
+1. Select your authentication method and configure the settings shown in the corresponding tab. Then select **Connect** to open the SSH connection to your virtual machine in a new browser tab.
 
-Use the following steps to authenticate using username and password.
+# [Username and password](#tab/password)
 
+To authenticate using a username and password, configure the following settings:
 
-1. To authenticate using a username and password, configure the following settings:
+| Setting | Value |
+|---|---|
+| **Authentication type** | Select **Password** from the dropdown. |
+| **Username** | Enter the username. |
+| **Password** | Enter the password. |
 
-    | Setting              | Value                                                                 |
-    |----------------------|-----------------------------------------------------------------------|
-    | **Protocol**         | Select SSH                                                            |
-    | **Port**             | Input the port number. Custom port connections are available for the Standard SKU or higher. |
-    | **Authentication type** | Select **Password** from the dropdown                                |
-    | **Username**         | Enter the username                                                    |
-    | **Password**         | Enter the **Password**                                                |
-    
-1. To work with the VM in a new browser tab, select **Open in new browser tab**.
+# [Private key from local file](#tab/local-key)
 
-1. Click **Connect** to connect to the VM.
+To authenticate using an SSH private key from a local file, configure the following settings:
 
-## Private key from local file
+| Setting | Value |
+|---|---|
+| **Authentication type** | Select **SSH Private Key from Local File** from the dropdown. |
+| **Username** | Enter the username. |
+| **Local File** | Select the local file. |
+| **SSH Passphrase** | Enter the SSH passphrase if necessary. |
 
-Use the following steps to authenticate using an SSH private key from a local file.
+# [Password - Azure Key Vault](#tab/kv-password)
 
-1. To authenticate using a private key from a local file, configure the following settings:
+To authenticate using a password from Azure Key Vault, configure the following settings:
 
-    | Setting              | Value                                                                 |
-    |----------------------|-----------------------------------------------------------------------|
-    | **Protocol**         | Select SSH                                                            |
-    | **Port**             | Input the port number. Custom port connections are available for the Standard SKU or higher. |
-    | **Authentication type** | Select **SSH Private Key from Local File** from the dropdown         |
-    | **Local File**       | Select the local file                                                 |
-    | **SSH Passphrase**   | Enter the SSH passphrase if necessary                                 |
+| Setting | Value |
+|---|---|
+| **Authentication type** | Select **Password from Azure Key Vault** from the dropdown. |
+| **Username** | Enter the username. |
+| **Subscription** | Select the subscription. |
+| **Azure Key Vault** | Select the Key Vault. |
+| **Azure Key Vault Secret** | Select the Key Vault secret containing the value of your password. |
 
-1. To work with the VM in a new browser tab, select **Open in new browser tab**.
+If you didn't set up an Azure Key Vault resource, see [Create a key vault](/azure/key-vault/secrets/quick-create-powershell) and store your password as the value of a new Key Vault secret.
 
-1. Click **Connect** to connect to the VM.
+Make sure you have **List** and **Get** access to the secrets stored in the Key Vault resource. To assign and modify access policies for your Key Vault resource, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-portal).
 
-## Password - Azure Key Vault
+# [Private key - Azure Key Vault](#tab/kv-key)
 
-Use the following steps to authenticate using a password from Azure Key Vault.
+To authenticate using a private key stored in Azure Key Vault, configure the following settings:
 
-1. To authenticate using a password from Azure Key Vault, configure the following settings:
+| Setting | Value |
+|---|---|
+| **Authentication type** | Select **SSH Private Key from Azure Key Vault** from the dropdown. |
+| **Username** | Enter the username. |
+| **Subscription** | Select the subscription. |
+| **Azure Key Vault** | Select the Key Vault. |
+| **Azure Key Vault Secret** | Select the Key Vault secret containing the value of your SSH private key. |
 
-    | Setting                | Value                                                                 |
-    |------------------------|-----------------------------------------------------------------------|
-    | **Protocol**           | Select SSH                                                            |
-    | **Port**               | Input the port number. Custom port connections are available for the Standard SKU or higher. |
-    | **Authentication type**| Select **Password from Azure Key Vault** from the dropdown            |
-    | **Username**           | Enter the username                                                    |
-    | **Subscription**       | Select the subscription                                               |
-    | **Azure Key Vault**    | Select the Key Vault                                                  |
-    | **Azure Key Vault Secret** | Select the Key Vault secret containing the value of your SSH private key |
+If you didn't set up an Azure Key Vault resource, see [Create a key vault](/azure/key-vault/secrets/quick-create-powershell) and store your SSH private key as the value of a new Key Vault secret.
 
-   * If you didn’t set up an Azure Key Vault resource, see [Create a key vault](/azure/key-vault/secrets/quick-create-powershell) and store your SSH private key as the value of a new Key Vault secret.
+Make sure you have **List** and **Get** access to the secrets stored in the Key Vault resource. To assign and modify access policies for your Key Vault resource, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-portal).
 
-   * Make sure you have **List** and **Get** access to the secrets stored in the Key Vault resource. To assign and modify access policies for your Key Vault resource, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-portal).
+> [!NOTE]
+> Store your SSH private key as a secret in Azure Key Vault using the **PowerShell** or **Azure CLI** experience. Storing your private key via the Azure Key Vault portal experience will interfere with the formatting and result in unsuccessful login. If you did store your private key as a secret using the portal experience and no longer have access to the original private key file, see [Update SSH key](/azure/virtual-machines/extensions/vmaccess-linux#update-ssh-key) to update access to your target VM with a new SSH key pair.
 
-      > [!NOTE]
-      > Please store your SSH private key as a secret in Azure Key Vault using the **PowerShell** or **Azure CLI** experience. Storing your private key via the Azure Key Vault portal experience will interfere with the formatting and result in unsuccessful login. If you did store your private key as a secret using the portal experience and no longer have access to the original private key file, see [Update SSH key](/azure/virtual-machines/extensions/vmaccess-linux#update-ssh-key) to update access to your target VM with a new SSH key pair.
-      >
+---
 
-1. To work with the VM in a new browser tab, select **Open in new browser tab**.
+## Limitations
 
-1. Click **Connect** to connect to the VM.
-
-## Private key - Azure Key Vault
-
-Use the following steps to authenticate using a private key stored in Azure Key Vault.
-
-
-1. To authenticate using a private key stored in Azure Key Vault, configure the following settings:
-
-    | Setting                | Value                                                                 |
-    |------------------------|-----------------------------------------------------------------------|
-    | **Protocol**           | Select SSH                                                            |
-    | **Port**               | Input the port number. Custom port connections are available for the Standard SKU or higher. |
-    | **Authentication type**| Select **SSH Private Key from Azure Key Vault** from the dropdown     |
-    | **Username**           | Enter the username                                                    |
-    | **Subscription**       | Select the subscription                                               |
-    | **Azure Key Vault**    | Select the Key Vault                                                  |
-    | **Azure Key Vault Secret** | Select the Key Vault secret containing the value of your SSH private key |
-    
-
-   * If you didn’t set up an Azure Key Vault resource, see [Create a key vault](/azure/key-vault/secrets/quick-create-powershell) and store your SSH private key as the value of a new Key Vault secret.
-
-   * Make sure you have **List** and **Get** access to the secrets stored in the Key Vault resource. To assign and modify access policies for your Key Vault resource, see [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-portal).
-
-      > [!NOTE]
-      > Please store your SSH private key as a secret in Azure Key Vault using the **PowerShell** or **Azure CLI** experience. Storing your private key via the Azure Key Vault portal experience will interfere with the formatting and result in unsuccessful login. If you did store your private key as a secret using the portal experience and no longer have access to the original private key file, see [Update SSH key](/azure/virtual-machines/extensions/vmaccess-linux#update-ssh-key) to update access to your target VM with a new SSH key pair.
-      >
-
-1. To work with the VM in a new browser tab, select **Open in new browser tab**.
-
-1. Click **Connect** to connect to the VM.
+* **Connection methods:** SSH connections to Windows VMs are supported through the Azure portal only. Native client (`az network bastion ssh`) and IP-based connections aren't supported for SSH to Windows VMs. For a workaround using RDP over port 22, see [Connect to a VM using a native client](connect-vm-native-client-windows.md).
+* **Microsoft Entra ID:** Microsoft Entra authentication isn't supported for SSH connections to Windows VMs. For Entra ID auth details, see [About Microsoft Entra ID authentication](bastion-entra-id-authentication.md).
+* **Kerberos:** Kerberos authentication isn't supported for SSH connections. For Kerberos with RDP connections, see [Configure Kerberos authentication](kerberos-authentication-portal.md).
+* **File transfer:** File transfer isn't available for SSH connections via the portal. To transfer files, use a [native client RDP connection](vm-upload-download-native.md).
+* **Key format:** SSH private keys must be in RSA format (`-----BEGIN RSA PRIVATE KEY-----`).
 
 ## Next steps
 
-For more information about Azure Bastion, see the [Bastion FAQ](bastion-faq.md).
+* [Connect to a Windows VM using RDP](bastion-connect-vm-rdp-windows.md)
+* [What is Azure Bastion?](bastion-overview.md)
+* [Connect to a VM using a native client](connect-vm-native-client-windows.md)
+* [Azure Bastion FAQ](bastion-faq.md)

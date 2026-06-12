@@ -14,7 +14,7 @@ ms.custom:
   - devx-track-python
   - build-2024
   - devx-track-ts
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 ---
 
 # Create an HTTP endpoint using Azure Functions in the portal
@@ -118,6 +118,7 @@ If you aren't able to create your function code in the portal, you can instead c
     >[!TIP]
     >When publishing your new project, make sure to use the function app and related resources you just created. 
 ::: zone-end  
+
 ## Test the function
 
 [!INCLUDE [functions-test-function-portal](../../includes/functions-test-function-portal.md)]

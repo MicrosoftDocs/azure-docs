@@ -6,12 +6,14 @@ ms.author: ajagadish
 ms.date: 03/09/2022
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: reference
 ms.custom:
   - azure-synapse
 ---
 
 # REST APIs for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 REST APIs for managing compute for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
 

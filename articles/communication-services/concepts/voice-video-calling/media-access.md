@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: laithrodan
 ms.date: 06/24/2025
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-communication-services
 ms.subservice: calling
 ---

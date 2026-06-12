@@ -1,7 +1,7 @@
 ---
 title: Azure Data Manager for Agriculture
 description: Describes the properties that are provided for Azure Data Manager for Agriculture events with Azure Event Grid.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/17/2023
 ---
 

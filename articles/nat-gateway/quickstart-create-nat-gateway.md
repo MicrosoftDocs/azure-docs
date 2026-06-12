@@ -1,21 +1,23 @@
 ---
-title: Create an Azure NAT Gateway
+title: Create a Standard NAT Gateway
 titlesuffix: Azure NAT Gateway
-description: This quickstart shows how to create a NAT gateway by using the Azure portal.
+description: This quickstart shows how to create a Standard NAT gateway by using the Azure portal, Azure PowerShell, and the Azure CLI.
 author: asudbring
 ms.author: allensu
 ms.service: azure-nat-gateway
 ms.topic: quickstart 
 ms.date: 04/30/2025
 ms.custom: template-quickstart, FY23 content-maintenance, linux-related-content
-# Customer intent: As a cloud engineer, I want to create a NAT gateway using various deployment methods, so that I can facilitate outbound internet connectivity for virtual machines in Azure.
+#customer intent: As a cloud engineer, I want to create a NAT gateway by using various deployment methods so that I can facilitate outbound internet connectivity for virtual machines in Azure.
 ---
 
-# Quickstart: Create a NAT gateway
+# Quickstart: Create a Standard NAT gateway
 
-In this quickstart, learn how to create a NAT gateway by using the Azure portal, Azure CLI, PowerShell, Bicep, ARM template and Terraform. The NAT Gateway service provides scalable outbound connectivity for virtual machines in Azure.
+In this quickstart, learn how to create a network address translation (NAT) gateway for the Standard SKU of Azure NAT Gateway by using the Azure portal, Azure PowerShell, or the Azure CLI. The Azure NAT Gateway service provides scalable outbound connectivity for virtual machines in Azure.
 
-:::image type="content" source="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png" alt-text="Diagram of resources created in nat gateway quickstart." lightbox="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png":::
+The following diagram shows the resources that you'll create in this quickstart.
+
+:::image type="content" source="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png" alt-text="Diagram of resources associated with a NAT gateway." lightbox="./media/quickstart-create-nat-gateway-portal/nat-gateway-qs-resources.png":::
 
 ## Prerequisites
 
@@ -29,37 +31,45 @@ In this quickstart, learn how to create a NAT gateway by using the Azure portal,
 
 - Azure Cloud Shell or Azure PowerShell.
 
-  The steps in this quickstart run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloudshell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
+  The steps in this quickstart run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and then paste it into Cloud Shell to run it. You can also run Cloud Shell from within the Azure portal.
 
-  You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. The steps in this article require Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Update the Azure PowerShell module](/powershell/azure/install-Az-ps#update-the-azure-powershell-module).
+  You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. The steps in this article require Azure PowerShell module version 5.4.1 or later. To find your installed version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [`Update-AzModule`](/powershell/module/az.tools.installer/update-azmodule).
 
 ### [CLI](#tab/cli)
 
-[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-### [Terraform](#tab/terraform)
-
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-
-- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
-
 ---
-
-### [Portal](#tab/portal)
-
-[!INCLUDE [virtual-network-create-with-nat-bastion.md](../../includes/virtual-network-create-with-nat-bastion.md)]
-
-[!INCLUDE [create-test-virtual-machine-linux.md](~/reusable-content/ce-skilling/azure/includes/create-test-virtual-machine-linux.md)]
-
-### [PowerShell](#tab/powershell)
 
 ## Create a resource group
 
-Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). An Azure resource group is a logical container into which Azure resources are deployed and managed.
+### [Portal](#tab/portal)
 
-The following example creates a resource group named **test-rg** in the **eastus2** location:
+1. In the search box at the top of the portal, enter **Resource groups**. Select **Resource groups** in the search results.
+
+1. Select **+ Create**.
+
+1. In **Create a resource group**, enter or select the following values:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Project details** | |
+    | **Subscription** | Select your Azure subscription. |
+    | **Resource group** | Enter **test-rg**. |
+    | **Resource details** | |
+    | **Region** | Select **(US) East US 2**. |
+
+1. Select **Review + create**.
+
+1. Select **Create**.
+
+### [PowerShell](#tab/powershell)
+
+Create a resource group by using [`New-AzResourceGroup`](/powershell/module/az.resources/new-azresourcegroup). An Azure resource group is a logical container into which Azure resources are deployed and managed.
+
+The following example creates a resource group named `test-rg` in the `eastus2` location:
 
 ```azurepowershell-interactive
 $rsg = @{
@@ -69,70 +79,169 @@ $rsg = @{
 New-AzResourceGroup @rsg
 ```
 
-## Create the NAT gateway
+### [CLI](#tab/cli)
 
-In this section, create the NAT gateway and supporting resources.
+Create a resource group by using [`az group create`](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources are deployed and managed.
+
+```azurecli-interactive
+az group create \
+    --name test-rg \
+    --location eastus2
+```
+
+---
+
+## Create a virtual network
+
+### [Portal](#tab/portal)
+
+The following procedure creates a virtual network with a resource subnet:
+
+1. In the portal, search for and select **Virtual networks**.
+
+1. On the **Virtual networks** page, select **+ Create**.
+
+1. On the **Basics** tab of **Create virtual network**, enter or select the following information:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Project details** | |
+    | **Subscription** | Select your subscription. |
+    | **Resource group** | Select **test-rg**. |
+    | **Instance details** | |
+    | **Name** | Enter **vnet-1**. |
+    | **Region** | Select **(US) East US 2**. |
+
+1. Select **Next** to proceed to the **Security** tab.
+
+1. Select **Next** to proceed to the **IP Addresses** tab.
+
+1. In the address space box in **Subnets**, select the **default** subnet.
+
+1. In **Edit subnet**, enter or select the following information:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Subnet purpose** | Leave **Default**. |
+    | **Name** | Enter **subnet-1**. |
+    | **IPv4** | |
+    | **IPv4 address range** | Leave the default of **10.0.0.0/16**. |
+    | **Starting address** | Leave the default of **10.0.0.0**. |
+    | **Size** | Leave the default of **/24 (256 addresses)**. |
+
+1. Select **Save**.
+
+1. Select **Review + create** at the bottom of the pane. When the virtual network passes validation, select **Create**.
+
+### [PowerShell](#tab/powershell)
+
+Create a subnet configuration for the virtual machine subnet and an Azure Bastion host subnet by using [`New-AzVirtualNetworkSubnetConfig`](/powershell/module/az.network/new-azvirtualnetworksubnetconfig).
 
 ```azurepowershell-interactive
-## Create public IP address for NAT gateway ##
-$ip = @{
-    Name = 'public-ip-nat'
-    ResourceGroupName = 'test-rg'
-    Location = 'eastus2'
-    Sku = 'Standard'
-    AllocationMethod = 'Static'
-    Zone = 1,2,3
-}
-$publicIP = New-AzPublicIpAddress @ip
-
-## Create NAT gateway resource ##
-$nat = @{
-    ResourceGroupName = 'test-rg'
-    Name = 'nat-gateway'
-    IdleTimeoutInMinutes = '10'
-    Sku = 'Standard'
-    Location = 'eastus2'
-    PublicIpAddress = $publicIP
-}
-$natGateway = New-AzNatGateway @nat
-
-## Create subnet config and associate NAT gateway to subnet##
 $subnet = @{
     Name = 'subnet-1'
     AddressPrefix = '10.0.0.0/24'
-    NatGateway = $natGateway
 }
-$subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet 
+$subnetConfig = New-AzVirtualNetworkSubnetConfig @subnet
 
-## Create Azure Bastion subnet ##
 $bastsubnet = @{
-    Name = 'AzureBastionSubnet' 
+    Name = 'AzureBastionSubnet'
     AddressPrefix = '10.0.1.0/26'
 }
 $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
+```
 
-## Create the virtual network ##
+Create a virtual network by using [`New-AzVirtualNetwork`](/powershell/module/az.network/new-azvirtualnetwork).
+
+```azurepowershell-interactive
 $net = @{
     Name = 'vnet-1'
     ResourceGroupName = 'test-rg'
     Location = 'eastus2'
     AddressPrefix = '10.0.0.0/16'
-    Subnet = $subnetConfig,$bastsubnetConfig
+    Subnet = $subnetConfig, $bastsubnetConfig
 }
 $vnet = New-AzVirtualNetwork @net
+```
 
-## Create public IP address for bastion host ##
+### [CLI](#tab/cli)
+
+Create a virtual network named `vnet-1` with a subnet named `subnet-1` by using [`az network vnet create`](/cli/azure/network/vnet#az-network-vnet-create).
+
+```azurecli-interactive
+az network vnet create \
+    --resource-group test-rg \
+    --name vnet-1 \
+    --address-prefix 10.0.0.0/16 \
+    --subnet-name subnet-1 \
+    --subnet-prefixes 10.0.0.0/24
+```
+
+Create an Azure Bastion subnet named `AzureBastionSubnet` by using [`az network vnet subnet create`](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create).
+
+```azurecli-interactive
+az network vnet subnet create \
+    --name AzureBastionSubnet \
+    --resource-group test-rg \
+    --vnet-name vnet-1 \
+    --address-prefix 10.0.1.0/26
+```
+
+---
+
+## Deploy Azure Bastion
+
+### [Portal](#tab/portal)
+
+Azure Bastion uses your browser to connect to virtual machines (VMs) in your virtual network over Secure Shell (SSH) or Remote Desktop Protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information, see [What is Azure Bastion?](../bastion/bastion-overview.md).
+
+> [!NOTE]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
+1. In the search box at the top of the portal, enter **Bastion**. Select **Bastions** in the search results.
+
+1. Select **+ Create**.
+
+1. On the **Basics** tab of **Create a Bastion**, enter or select the following information:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Project details** | |
+    | **Subscription** | Select your subscription. |
+    | **Resource group** | Select **test-rg**. |
+    | **Instance details** | |
+    | **Name** | Enter **bastion**. |
+    | **Region** | Select **(US) East US 2**. |
+    | **Tier** | Select **Developer**. |
+    | **Configure virtual networks** | |
+    | **Virtual network** | Select **vnet-1**. |
+
+    > [!NOTE]
+    > The Developer SKU for Azure Bastion is free and doesn't require a dedicated Azure Bastion subnet. For more information, see [Quickstart: Deploy Azure Bastion - Developer SKU](../bastion/quickstart-developer-sku.md).
+
+1. Select **Review + create**.
+
+1. Select **Create**.
+
+### [PowerShell](#tab/powershell)
+
+Create a public IP address for the Azure Bastion host by using [`New-AzPublicIpAddress`](/powershell/module/az.network/new-azpublicipaddress).
+
+```azurepowershell-interactive
 $ip = @{
     Name = 'public-ip'
     ResourceGroupName = 'test-rg'
     Location = 'eastus2'
     Sku = 'Standard'
     AllocationMethod = 'Static'
-    Zone = 1,2,3
+    Zone = 1, 2, 3
 }
 $publicip = New-AzPublicIpAddress @ip
+```
 
-## Create bastion host ##
+Create an Azure Bastion host by using [`New-AzBastion`](/powershell/module/az.network/new-azbastion).
+
+```azurepowershell-interactive
 $bastion = @{
     Name = 'bastion'
     ResourceGroupName = 'test-rg'
@@ -142,82 +251,233 @@ $bastion = @{
     VirtualNetworkName = 'vnet-1'
     Sku = 'Basic'
 }
-New-AzBastion @bastion
+New-AzBastion @bastion -AsJob
 ```
 
-The bastion host can take several minutes to deploy. Wait for the bastion host to deploy before moving on to the next section.
+The Azure Bastion host can take several minutes to deploy.
 
-## Create virtual machine
+### [CLI](#tab/cli)
+
+Create a public IP address for the Azure Bastion host by using [`az network public-ip create`](/cli/azure/network/public-ip#az-network-public-ip-create).
+
+```azurecli-interactive
+az network public-ip create \
+    --resource-group test-rg \
+    --name public-ip \
+    --sku Standard \
+    --location eastus2 \
+    --zone 1 2 3
+```
+
+Create the Azure Bastion host by using [`az network bastion create`](/cli/azure/network/bastion#az-network-bastion-create).
+
+```azurecli-interactive
+az network bastion create \
+    --name bastion \
+    --public-ip-address public-ip \
+    --resource-group test-rg \
+    --vnet-name vnet-1 \
+    --location eastus2 \
+    --sku Basic \
+    --no-wait
+```
+
+The Azure Bastion host can take several minutes to deploy.
+
+---
+
+## Create a virtual machine
+
+### [Portal](#tab/portal)
+
+The following procedure creates a Linux virtual machine with SSH key authentication:
+
+1. In the search box at the top of the portal, enter **Virtual machines**. Select **Virtual machines** in the search results.
+
+1. Select **+ Create**, and then select **Azure virtual machine**.
+
+1. On the **Basics** tab of **Create a virtual machine**, enter or select the following values:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Project details** | |
+    | **Subscription** | Select your Azure subscription. |
+    | **Resource group** | Select **test-rg**. |
+    | **Instance details** | |
+    | **Virtual machine name** | Enter **vm-1**. |
+    | **Region** | Select **(US) East US 2**. |
+    | **Availability options** | Select **No infrastructure redundancy required**. |
+    | **Security type** | Select **Standard**. |
+    | **Image** | Select **Ubuntu Server 24.04 LTS - x64 Gen2**. |
+    | **Size** | Choose a size or leave the default setting. |
+    | **Administrator account** | |
+    | **Authentication type** | Select **SSH public key**. |
+    | **Username** | Enter **azureuser**. |
+    | **SSH public key source** | Select **Generate new key pair**. |
+    | **Key pair name** | Enter **vm-1_key**. |
+
+1. Select the **Networking** tab, or select **Next: Disks** > **Next: Networking**.
+
+1. Select the following values:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Network interface** | |
+    | **Virtual network** | Select **vnet-1**. |
+    | **Subnet** | Select **subnet-1**. |
+    | **Public IP** | Select **None**. |
+
+1. Select **Review + create**.
+
+1. Review the settings, and then select **Create**.
+
+1. When the **Generate new key pair** window opens, select **Download private key and create resource**. The key file is downloaded as **vm-1_key.pem**. Make sure you know where the .pem file is downloaded. You need the path to the key file to connect to the VM.
+
+### [PowerShell](#tab/powershell)
 
 In this section, you create a virtual machine to test the NAT gateway and verify the public IP address of the outbound connection.
 
+Create a virtual machine by using [`New-AzVM`](/powershell/module/az.compute/new-azvm). An SSH key pair is generated during VM creation.
+
 ```azurepowershell-interactive
-# Set the administrator and password for the VM ##
-$cred = Get-Credential
+$securePassword = ConvertTo-SecureString ' ' -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential ('azureuser', $securePassword)
 
-## Place the virtual network into a variable ##
-$vnet = Get-AzVirtualNetwork -Name 'vnet-1' -ResourceGroupName 'test-rg'
-
-## Create network interface for virtual machine ##
-$nic = @{
-    Name = "nic-1"
-    ResourceGroupName = 'test-rg'
-    Location = 'eastus2'
-    Subnet = $vnet.Subnets[0]
-}
-$nicVM = New-AzNetworkInterface @nic
-
-## Create a virtual machine configuration ##
-$vmsz = @{
-    VMName = 'vm-1'
-    VMSize = 'Standard_DS1_v2'  
-}
-$vmos = @{
-    ComputerName = 'vm-1'
-    Credential = $cred
-}
-$vmimage = @{
-    PublisherName = 'Canonical'
-    Offer = '0001-com-ubuntu-server-jammy'
-    Skus = '22_04-lts-gen2'
-    Version = 'latest'     
-}
-$vmConfig = New-AzVMConfig @vmsz `
-    | Set-AzVMOperatingSystem @vmos -Linux `
-    | Set-AzVMSourceImage @vmimage `
-    | Add-AzVMNetworkInterface -Id $nicVM.Id
-
-## Create the virtual machine ##
 $vm = @{
     ResourceGroupName = 'test-rg'
     Location = 'eastus2'
-    VM = $vmConfig
+    Name = 'vm-1'
+    Image = 'Ubuntu2204'
+    Size = 'Standard_DS1_v2'
+    VirtualNetworkName = 'vnet-1'
+    SubnetName = 'subnet-1'
+    PublicIpAddressName = ''
+    GenerateSshKey = $true
+    SshKeyName = 'vm-1_key'
+    Credential = $cred
 }
 New-AzVM @vm
 ```
 
-Wait for the virtual machine creation to complete before moving on to the next section.
-
+Wait for the virtual machine creation to finish before moving on to the next section.
 
 ### [CLI](#tab/cli)
 
-## Create a resource group
-
-Create a resource group with [az group create](/cli/azure/group#az-group-create). An Azure resource group is a logical container into which Azure resources are deployed and managed.
+Create a Linux virtual machine named `vm-1` with SSH key authentication by using [`az vm create`](/cli/azure/vm#az-vm-create).
 
 ```azurecli-interactive
-az group create \
-    --name test-rg \
-    --location eastus2
+az vm create \
+    --resource-group test-rg \
+    --name vm-1 \
+    --image Ubuntu2404 \
+    --admin-username azureuser \
+    --generate-ssh-keys \
+    --public-ip-address "" \
+    --subnet subnet-1 \
+    --vnet-name vnet-1
 ```
+
+Wait for the virtual machine creation to finish before moving on to the next section.
+
+---
 
 ## Create the NAT gateway
 
-In this section, create the NAT gateway and supporting resources.
+### [Portal](#tab/portal)
 
-### Create public IP address
+In this section, you create the NAT gateway resource and associate it with the subnet of the virtual network that you created.
 
-To access the internet, you need one or more public IP addresses for the NAT gateway. Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public IP address resource.
+1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
+
+1. Select **+ Create**.
+
+1. In **Create network address translation (NAT) gateway**, enter or select this information on the **Basics** tab:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Project details** | |
+    | **Subscription** | Select your Azure subscription. |
+    | **Resource group** | Select **test-rg**. |
+    | **Instance details** | |
+    | **NAT gateway name** | Enter **nat-gateway**. |
+    | **Region** | Select **(US) East US 2**. |
+    | **SKU** | Select **Standard**. |
+    | **Availability zone** | Select **No Zone**. |
+    | **TCP idle timeout (minutes)** | Leave the default of **4**. |
+
+    For information about availability zones and NAT gateway, see [Reliability in Azure NAT Gateway](/azure/reliability/reliability-nat-gateway).
+
+1. Select the **Outbound IP** tab, or select **Next: Outbound IP**.
+
+1. Enter or select the following information:
+
+    | Setting | Value |
+    | --- | --- |
+    | **Public IP addresses** | Select **Create a new public IP address**. </br> In **Name**, enter **public-ip-nat**. </br> Select **OK**. |
+
+1. Select the **Networking** tab, or select **Next: Networking**.
+
+1. In **Virtual network**, select **vnet-1**.
+
+1. In **Subnet name**, select the **subnet-1** checkbox.
+
+1. Select the **Review + create** tab, or select the **Review + create** button at the bottom of the pane.
+
+1. Select **Create**.
+
+### [PowerShell](#tab/powershell)
+
+In this section, you create the NAT gateway resource and associate it with the subnet of the virtual network.
+
+Create a public IP address for the NAT gateway by using [`New-AzPublicIpAddress`](/powershell/module/az.network/new-azpublicipaddress).
+
+```azurepowershell-interactive
+$ip = @{
+    Name = 'public-ip-nat'
+    ResourceGroupName = 'test-rg'
+    Location = 'eastus2'
+    Sku = 'Standard'
+    AllocationMethod = 'Static'
+    Zone = 1, 2, 3
+}
+$publicIP = New-AzPublicIpAddress @ip
+```
+
+Create a NAT gateway resource by using [`New-AzNatGateway`](/powershell/module/az.network/new-aznatgateway).
+
+```azurepowershell-interactive
+$nat = @{
+    ResourceGroupName = 'test-rg'
+    Name = 'nat-gateway'
+    IdleTimeoutInMinutes = '10'
+    Sku = 'Standard'
+    Location = 'eastus2'
+    PublicIpAddress = $publicIP
+}
+$natGateway = New-AzNatGateway @nat
+```
+
+Associate the NAT gateway with `subnet-1` by using [`Set-AzVirtualNetworkSubnetConfig`](/powershell/module/az.network/set-azvirtualnetworksubnetconfig). Apply the configuration by using [`Set-AzVirtualNetwork`](/powershell/module/az.network/set-azvirtualnetwork).
+
+```azurepowershell-interactive
+$vnet = Get-AzVirtualNetwork -Name 'vnet-1' -ResourceGroupName 'test-rg'
+
+$subnet = @{
+    VirtualNetwork = $vnet
+    Name = 'subnet-1'
+    AddressPrefix = '10.0.0.0/24'
+    NatGateway = $natGateway
+}
+Set-AzVirtualNetworkSubnetConfig @subnet
+
+$vnet | Set-AzVirtualNetwork
+```
+
+### [CLI](#tab/cli)
+
+In this section, you create the NAT gateway resource and associate it with the subnet of the virtual network.
+
+Create a public IP address for the NAT gateway by using [`az network public-ip create`](/cli/azure/network/public-ip#az-network-public-ip-create).
 
 ```azurecli-interactive
 az network public-ip create \
@@ -229,9 +489,7 @@ az network public-ip create \
     --zone 1 2 3
 ```
 
-### Create NAT gateway resource
-
-Create a NAT gateway resource using [az network nat gateway create](/cli/azure/network/nat#az-network-nat-gateway-create). The NAT gateway uses the public IP address created in the previous step. The idle time out is set to 10 minutes.
+Create a NAT gateway resource by using [`az network nat gateway create`](/cli/azure/network/nat#az-network-nat-gateway-create).
 
 ```azurecli-interactive
 az network nat gateway create \
@@ -241,34 +499,7 @@ az network nat gateway create \
     --idle-timeout 10
 ```
 
-### Create virtual network and subnet
-
-Create a virtual network named **vnet-1** with a subnet named **subnet-1** using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). The IP address space for the virtual network is **10.0.0.0/16**. The subnet within the virtual network is **10.0.0.0/24**.
-
-```azurecli-interactive
-az network vnet create \
-    --resource-group test-rg \
-    --name vnet-1 \
-    --address-prefix 10.0.0.0/16 \
-    --subnet-name subnet-1 \
-    --subnet-prefixes 10.0.0.0/24
-```
-
-### Create Azure Bastion subnet
-
-Create an Azure Bastion subnet named **AzureBastionSubnet** using [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create):
-
-```azurecli-interactive
-az network vnet subnet create \
-    --name AzureBastionSubnet \
-    --resource-group test-rg \
-    --vnet-name vnet-1 \
-    --address-prefix 10.0.1.0/26
-```
-
-### Associate NAT gateway to subnet
-
-Associate the NAT gateway to the subnet using [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+Associate the NAT gateway with `subnet-1` by using [`az network vnet subnet update`](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update).
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -278,185 +509,43 @@ az network vnet subnet update \
     --nat-gateway nat-gateway
 ```
 
-### Create public IP address for Bastion host
-
-Create a public IP address for the Bastion host using [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create):
-
-```azurecli-interactive
-az network public-ip create \
-    --resource-group test-rg \
-    --name public-ip \
-    --sku Standard \
-    --location eastus2 \
-    --zone 1 2 3
-```
-
-### Create Bastion host
-
-Create the Azure Bastion host using [az network bastion create](/cli/azure/network/bastion#az-network-bastion-create):
-
-```azurecli-interactive
-az network bastion create \
-    --name bastion \
-    --public-ip-address public-ip \
-    --resource-group test-rg \
-    --vnet-name vnet-1 \
-    --location eastus2
-```
-
-The Bastion host can take several minutes to deploy. Wait for the Bastion host to deploy before moving on to the next section.
-
-## Create virtual machine
-
-Create a virtual machine named **vm-1** to test the NAT gateway and verify the public IP address of the outbound connection. Use [az vm create](/cli/azure/vm#az-vm-create):
-
-```azurecli-interactive
-az vm create \
-    --resource-group test-rg \
-    --name vm-1 \
-    --image Ubuntu2204 \
-    --admin-username azureuser \
-    --authentication-type password \
-    --public-ip-address "" \
-    --subnet subnet-1 \
-    --vnet-name vnet-1
-```
-
-Wait for the virtual machine creation to complete before moving on to the next section.
-
-### [Terraform](#tab/terraform)
-
-This Terraform file deploys a virtual network, a NAT gateway resource, and Ubuntu virtual machine. The Ubuntu virtual machine is deployed to a subnet that is associated with the NAT gateway resource.
-
-The script also generates a random SSH public key and associates it with the virtual machine for secure access. The public key is outputted at the end of the script execution. 
-
-The script uses the Random and AzAPI providers in addition to the AzureRM provider. The Random provider is used to generate a unique name for the resource group and the SSH key. The AzAPI provider is used to generate the SSH public key. 
-
-As with the public key, the names of the created resource group, virtual network, subnet, and NAT gateway are printed when the script is run.
-
-[!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
-
-## Implement the Terraform code
-
-> [!NOTE]
-> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-nat-gateway-create).
-> 
-> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
-
-1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
-
-1. Create a file named `main.tf` and insert the following code:
-
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-nat-gateway-create/main.tf":::
-
-1. Create a file named `outputs.tf` and insert the following code:
-
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-nat-gateway-create/outputs.tf":::
-
-1. Create a file named `providers.tf` and insert the following code:
-
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-nat-gateway-create/providers.tf":::
-
-1. Create a file named `ssh.tf` and insert the following code:
-
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-nat-gateway-create/ssh.tf":::
-
-1. Create a file named `variables.tf` and insert the following code:
-
-    :::code language="Terraform" source="~/terraform_samples/quickstart/101-nat-gateway-create/variables.tf":::
-
-
-## Initialize Terraform
-
-[!INCLUDE [terraform-init.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-init.md)]
-
-## Create a Terraform execution plan
-
-[!INCLUDE [terraform-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan.md)]
-
-## Apply a Terraform execution plan
-
-[!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
-
-## Verify the results
-
-### Azure CLI
-
-1. Get the Azure resource group name.
-
-    ```console
-    resource_group_name=$(terraform output -raw resource_group_name)
-    ```
-
-1. Get the NAT gateway ID.
-
-    ```console
-    nat_gateway=$(terraform output -raw nat_gateway)
-    ```
-
-1. Run [az network nat gateway show](/cli/azure/network/nat/gateway#az-network-nat-gateway-show) to display the details about the NAT gateway.
-
-    ```azurecli
-    az network nat gateway show \
-        --resource-group $resource_group_name \
-        --ids $nat_gateway
-    ```
-
-### PowerShell
-
-1. Get the Azure resource group name.
-
-    ```console
-    $resource_group_name=$(terraform output -raw resource_group_name)
-    ```
-
-1. Get the NAT gateway ID.
-
-    ```console
-    $nat_gateway=$(terraform output -raw nat_gateway)
-    ```
-
-1. Run [Get-AzNatGateway](/powershell/module/az.network/get-aznatgateway) to display the details about the NAT gateway.
-
-    ```azurepowershell
-    $nat = @{
-        Name = $nat_gateway
-        ResourceGroupName = $resource_group_name
-    }
-    Get-AzNatGateway @nat
-    ```
-
 ---
 
-## Test NAT gateway
+## Test the NAT gateway
 
-In this section, you test the NAT gateway. You first discover the public IP of the NAT gateway. You then connect to the test virtual machine and verify the outbound connection through the NAT gateway public IP.
-    
+To test the NAT gateway, you first discover its public IP. You then connect to the test virtual machine and verify the outbound connection through that public IP.
+
 1. In the search box at the top of the portal, enter **Public IP**. Select **Public IP addresses** in the search results.
 
 1. Select **public-ip-nat**.
 
-1. Make note of the public IP address:
+1. Make note of the public IP address.
 
-    :::image type="content" source="./media/quickstart-create-nat-gateway-portal/find-public-ip.png" alt-text="Discover public IP address of NAT gateway" border="true":::
+    :::image type="content" source="./media/quickstart-create-nat-gateway-portal/find-public-ip.png" alt-text="Screenshot that shows the location of the public IP address for a NAT gateway." border="true":::
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
 1. Select **vm-1**.
 
-1. On the **Overview** page, select **Connect**, then select the **Bastion** tab.
+1. On the **Overview** page, select **Connect**, and then select the **Bastion** tab.
 
 1. Select **Use Bastion**.
 
-1. Enter the username and password entered during virtual machine creation. Select **Connect**.
+1. Under **Authentication Type**, select **SSH Private Key from Local File**.
 
-1. In the bash prompt, enter the following command:
+1. In **Username**, enter **azureuser**.
+
+1. Select **Browse** and go to the **vm-1_key.pem** file downloaded during VM creation.
+
+1. Select **Connect**.
+
+1. In the Bash prompt, enter the following command:
 
     ```bash
     curl ifconfig.me
     ```
 
-1. Verify the IP address returned by the command matches the public IP address of the NAT gateway.
+1. Verify that the IP address returned by the command matches the public IP address of the NAT gateway.
 
     ```output
     azureuser@vm-1:~$ curl ifconfig.me
@@ -471,7 +560,7 @@ In this section, you test the NAT gateway. You first discover the public IP of t
 
 ### [PowerShell](#tab/powershell)
 
-If you're not going to continue to use this application, delete the virtual network, virtual machine, and NAT gateway with the following command:
+If you no longer need this application, delete the virtual network, virtual machine, and NAT gateway by using the following command:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name 'test-rg' -Force
@@ -479,7 +568,7 @@ Remove-AzResourceGroup -Name 'test-rg' -Force
 
 ### [CLI](#tab/cli)
 
-If you're not going to continue to use this application, delete the virtual network, virtual machine, and NAT gateway with the following command:
+If you no longer need this application, delete the virtual network, virtual machine, and NAT gateway by using the following command:
 
 ```azurecli-interactive
 az group delete \
@@ -487,15 +576,9 @@ az group delete \
     --yes
 ```
 
-### [Terraform](#tab/terraform)
-
-[!INCLUDE [terraform-plan-destroy.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
-
 ---
 
-## Next steps
+## Related content
 
-For more information on Azure NAT Gateway, see:
-> [!div class="nextstepaction"]
-> [Azure NAT Gateway overview](nat-overview.md)
-> [Azure NAT Gateway resource](nat-gateway-resource.md)
+- [Azure NAT Gateway overview](nat-overview.md)
+- [NAT gateway resource](nat-gateway-resource.md)

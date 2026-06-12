@@ -8,7 +8,7 @@ author: dbandaru
 ms.author: dbandaru
 ms.collection: 
   - ce-skilling-ai-copilot
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 #customer intent: As an Azure developer, I want learn how to integrate Azure OpenAI capabilities in my function code to leverage AI benefits in my cloud-based code executions.
 ms.custom:
   - build-2025
@@ -143,9 +143,9 @@ Now, you can use the Azure OpenAI output binding in your project.
 The code you add creates a `whois` HTTP function endpoint in your existing project. In this function, data passed in a URL `name` parameter of a GET request is used to dynamically create a completion prompt. This dynamic prompt is bound to a text completion input binding, which returns a response from the model based on the prompt. The completion from the model is returned in the HTTP response. 
 :::zone pivot="programming-language-csharp"  
 1. In your existing `HttpExample` class file, add this `using` statement:
-
+<!--
     :::code language="csharp" source="~/functions-openai-extension/samples/textcompletion/csharp-ooproc/TextCompletions.cs" range="5" ::: 
-
+-->
 1. In the same file, add this code that defines a new HTTP trigger endpoint named `whois`: 
 
     ```csharp
@@ -167,58 +167,59 @@ The code you add creates a `whois` HTTP function endpoint in your existing proje
 :::zone-end  
 :::zone pivot="programming-language-java"  
 1. Update the `pom.xml` project file to add this reference to the `properties` collection:
-
+<!--
     :::code language="xml" source="~/functions-openai-extension/samples/textcompletion/java/pom.xml" range="18" ::: 
-
+-->
 1. In the same file, add this dependency to the `dependencies` collection: 
-
+<!--
     :::code language="xml" source="~/functions-openai-extension/samples/textcompletion/java/pom.xml" range="29-33" ::: 
-
+-->
 1. In the existing `Function.java` project file, add these `import` statements:
-
+<!--
     :::code language="java" source="~/functions-openai-extension/samples/textcompletion/java/src/main/java/com/azfs/TextCompletions.java" range="19-20" ::: 
-
+-->
 1. In the same file, add this code that defines a new HTTP trigger endpoint named `whois`: 
-
+<!--
     :::code language="java" source="~/functions-openai-extension/samples/textcompletion/java/src/main/java/com/azfs/TextCompletions.java" range="31-46" ::: 
-
+-->
 :::zone-end  
 :::zone pivot="programming-language-javascript"  
 1. In Visual Studio Code, Press F1 and in the command palette type `Azure Functions: Create Function...`, select **HTTP trigger**, type the function name `whois`, and press Enter.
 
 1. In the new `whois.js` code file, replace the contents of the file with this code:
-
+<!--
     :::code language="javascript" source="~/functions-openai-extension/samples/textcompletion/javascript/src/functions/whois.js" ::: 
-  
+  -->
 :::zone-end  
 :::zone pivot="programming-language-typescript"  
 1. In Visual Studio Code, Press F1 and in the command palette type `Azure Functions: Create Function...`, select **HTTP trigger**, type the function name `whois`, and press Enter.
 
 1. In the new `whois.ts` code file, replace the contents of the file with this code:
-
+<!--
     :::code language="typescript" source="~/functions-openai-extension/samples/textcompletion/typescript/src/functions/whois.ts" ::: 
-  
+  -->
 :::zone-end  
 :::zone pivot="programming-language-python" 
 1. In the existing `function_app.py` project file, add this `import` statement:
-
+<!--
     :::code language="python" source="~/functions-openai-extension/samples/textcompletion/python/function_app.py" range="1" ::: 
-
+-->
 1. In the same file, add this code that defines a new HTTP trigger endpoint named `whois`: 
+<!--
     :::code language="python" source="~/functions-openai-extension/samples/textcompletion/python/function_app.py" range="7-18" ::: 
- 
+ -->
 :::zone-end  
 :::zone pivot="programming-language-powershell" 
 1. In Visual Studio Code, Press F1 and in the command palette type `Azure Functions: Create Function...`, select **HTTP trigger**, type the function name `whois`, select **Anonymous**, and press Enter.
 
 1. Open the new `whois/function.json` code file and replace its contents with this code, which adds a definition for the `TextCompletionResponse` input binding:
-
+<!--
     :::code language="json" source="~/functions-openai-extension/samples/textcompletion/powershell/WhoIs/function.json" ::: 
-  
+-->  
 1. Replace the content of the `whois/run.ps1` code file with this code, which returns the input binding response:
-
+<!--
     :::code language="powershell" source="~/functions-openai-extension/samples/textcompletion/powershell/WhoIs/run.ps1" ::: 
-  
+-->  
 :::zone-end 
 
 ## 7. Run the function
@@ -252,6 +253,8 @@ In Azure, *resources* refer to function apps, functions, storage accounts, and s
 You created resources to complete these quickstarts. You could be billed for these resources, depending on your [account status](https://azure.microsoft.com/account/) and [service pricing](https://azure.microsoft.com/pricing/). If you don't need the resources anymore, here's how to delete them:
 
 [!INCLUDE [functions-cleanup-resources-vs-code-inner.md](../../includes/functions-cleanup-resources-vs-code-inner.md)]
+
+
 
 ## Related content
 

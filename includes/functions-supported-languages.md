@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 08/21/2025
+ms.date: 05/20/2026
 ms.author: glenga
 ms.custom:
   - include file
@@ -32,7 +32,7 @@ Your function app code runs in the same process as the Functions host process. T
 | ---- | ---- |--- |
 | [.NET 8 (LTS)][dotnet-policy] | GA | November 10, 2026 |
 
-.NET 6 was previously supported by the in-process model but reached the end of official support on [November 12, 2024][dotnet-policy].
+Support for .NET 6 reached the end of official support on [November 12, 2024][dotnet-policy].
 
 > [!IMPORTANT]
 > The in-process model currently only supports .NET 8. To be able to update your function app to use a later .NET version, you must [migrate to the isolated worker model](../articles/azure-functions/migrate-dotnet-to-isolated-model.md).
@@ -53,10 +53,10 @@ For more information, see [Develop C# class library functions using Azure Functi
 
 | Supported version    | Support level | Expected end-of-support date                                  |
 |----------------------|---------------|---------------------------------------------------------------|
-| .NET 10              | GA            | [November 14, 2028][dotnet-policy].                           |
+| .NET 10              | GA            | [November 14, 2028][dotnet-policy]                            |
 | .NET 9               | GA            | [November 10, 2026][dotnet-policy]<sup>1</sup>                |
 | .NET 8               | GA            | [November 10, 2026][dotnet-policy]                            |
-| .NET Framework 4.8.1 | GA            | See [.NET Framework Support Policy][dotnet-framework-policy]. |
+| .NET Framework 4.8.1 | GA            | See [.NET Framework Support Policy][dotnet-framework-policy]  |
 
 <sup>1</sup> .NET 9 previously had an expected end-of-support date of May 12, 2026. During the .NET 9 service window, the .NET team extended support for STS versions to 24 months, starting with .NET 9. For more information, see [the blog post](https://devblogs.microsoft.com/dotnet/dotnet-sts-releases-supported-for-24-months/).
 
@@ -66,9 +66,9 @@ For more information, see [Develop C# class library functions using Azure Functi
 [dotnet-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-core#lifecycle
 [dotnet-framework-policy]: https://dotnet.microsoft.com/platform/support/policy/dotnet-framework
 
-.NET 6 was previously supported by the isolated worker model but reached the end of official support on [November 12, 2024][dotnet-policy].
+.NET 6 reached the end of official support on [November 12, 2024][dotnet-policy].
 
-.NET 7 was previously supported by the isolated worker model but reached the end of official support on [May 14, 2024][dotnet-policy].
+.NET 7 reached the end of official support on [May 14, 2024][dotnet-policy].
 
 For more information, see [Guide for running C# Azure Functions in the isolated worker model](../articles/azure-functions/dotnet-isolated-process-guide.md).
 
@@ -84,13 +84,11 @@ The following table shows the language versions supported for Java function apps
 
 | Supported version | Support level | Supported until |
 | ---- | ---- |--- |
-| **Java 25** | Preview | Pending<sup>*</sup> |
-| **Java 21** | GA | See [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
-| **Java 17** | GA | See [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
-| **Java 11** | GA |See [Release and servicing roadmap](/java/openjdk/support#release-and-servicing-roadmap). |
-| **Java 8** | GA | See the [Temurin support page](https://adoptium.net/support/). |
-
-<sup>*</sup>The end-of-support date for Java 25 is determined when general availability (GA) is declared.
+| **Java 25** | GA | May 2029 |
+| **Java 21** | GA | September 2028 |
+| **Java 17** | GA | September 2027 |
+| **Java 11** | GA | September 2027 |
+| **Java 8** | GA | September 2027 |
 
 > [!NOTE]
 > Java 21 is the last Java version supported for Linux Consumption plan apps. Newer Java versions aren't added to Linux Consumption. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md).
@@ -103,9 +101,8 @@ The following table shows the language versions supported for Node.js function a
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
-| [Node.js 24](https://endoflife.date/nodejs) | Preview | April 30, 2028 |
+| [Node.js 24](https://endoflife.date/nodejs) | GA | April 30, 2028 |
 | [Node.js 22](https://endoflife.date/nodejs) | GA | April 30, 2027 |
-| [Node.js 20](https://endoflife.date/nodejs) | GA | April 30, 2026 |
 
 TypeScript is supported through transpiling to JavaScript. For more information, see [Azure Functions Node.js developer guide](../articles/azure-functions/functions-reference-node.md#supported-versions).
 
@@ -114,10 +111,11 @@ TypeScript is supported through transpiling to JavaScript. For more information,
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-The following table shows the language version supported for PowerShell function apps:
+The following table shows the language versions supported for PowerShell function apps:
 
 | Supported version | Support level | Expected end-of-support date |
 | ---- | ---- |--- |
+| [PowerShell 7.6](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | Preview | TBD |
 | [PowerShell 7.4](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 10, 2026 |
 
 > [!NOTE]
@@ -136,13 +134,27 @@ The following table shows the language versions supported for Python function ap
 | Python 3.11 | GA | October 2027 |
 | Python 3.10 | GA | October 2026 |
 
-1. The end-of-support date for Python 3.14 is determined when general availability (GA) is declared.
-2. Remote build support for Python 3.14 isn't yet available when running in a Flex Consumption plan.
+<sup>1</sup> The end-of-support date for Python 3.14 is determined when general availability (GA) is declared.
+<sup>2</sup> Remote build support for Python 3.14 isn't yet available when running in a Flex Consumption plan.
 
 > [!NOTE]
 > Python 3.12 is the last Python version supported for Linux Consumption plan apps. Newer Python versions aren't added to Linux Consumption. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md).
 
 For more information, see [Azure Functions Python developer guide](../articles/azure-functions/functions-reference-python.md).
+::: zone-end
+::: zone pivot="programming-language-go"
+The following table shows the Go versions supported by Azure Functions:
+
+| Supported version | Support level | Expected end-of-support date |
+| ---- | ---- |--- |
+| Go 1.24 or later | Preview | Pending<sup>1</sup> |
+
+<sup>1</sup> The end-of-support date for Go support is determined when general availability (GA) is declared.
+
+> [!NOTE]
+> Go support is currently available only for function apps hosted in the Flex Consumption plan.
+
+For more information, see [Azure Functions Go developer reference](../articles/azure-functions/functions-reference-go.md).
 ::: zone-end
 
 For information about planned changes to language support, see the [Azure roadmap updates](https://techcommunity.microsoft.com/search?q=functions+roadmap).

@@ -3,9 +3,9 @@ title: Compare load test runs
 titleSuffix: Azure Load Testing
 description: 'Learn how you can visually compare multiple test runs with Azure Load Testing to identify and analyze performance regressions.'
 services: load-testing
-ms.service: azure-load-testing
-ms.author: ninallam
-author: ninallam
+ms.service: azure-app-testing
+ms.author: nandinim
+author: nandinimurali
 ms.date: 01/11/2024
 ms.topic: how-to
 ---

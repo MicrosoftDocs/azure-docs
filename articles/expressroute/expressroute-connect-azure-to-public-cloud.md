@@ -1,11 +1,10 @@
 ---
-title: 'Connecting Azure to public clouds | Microsoft Docs'
+title: Connecting Azure to public clouds
 description: Describe various ways to connect Azure to other public clouds 
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 06/30/2023
+ms.date: 03/11/2026
 ms.author: duau
 ---
 
@@ -29,7 +28,7 @@ Layer 3 providers are commonly known as IP VPN or MPLS VPN providers. You use th
  
 When you're connecting through Layer 3 provider, Microsoft will advertise customer VNET routes to the service provider over BGP. The provider can have two different implementations.
 
-![Diagram that shows a Layer3 provider.](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
+:::image type="content" source="media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png" alt-text="Diagram that shows a Layer 3 provider.":::
 
 Provider may be landing each cloud provider in a separate VRF, if traffic from all the cloud providers reach at customer router. If customer is running BGP with service provider, then these routes are readvertised to other cloud providers by default. 
 
@@ -41,7 +40,7 @@ Each public cloud has different prefix limit so while distributing the routes se
 
 Although physical connectivity in both models is different, but at layer3 BGP is established directly between MSEE and the customer router. For ExpressRoute Direct, you connect to the MSEE directly. While in Layer 2, service provider extends VLAN from your on-premises to the cloud you run BGP on top of layer2 network to connect their DCs to the cloud.
 
-![Diagram that shows a Layer2 provider and Direct connection.](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l2.png)
+:::image type="content" source="media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l2.png" alt-text="Diagram that shows a Layer 2 provider and Direct connection.":::
 
 In both cases, customer has point-to-point connections to each of the public clouds. Customer establishes separate BGP connection to each public cloud. Routes received by one cloud provider get advertised to other cloud provider by default. Each cloud provider has different prefix limit so while advertising the routes customer should take care of these limits. Customer can use usual BGP knobs with Microsoft while advertising routes from other public clouds.
 
@@ -56,10 +55,6 @@ You can use the Internet to connect their instances in Azure with other public c
 Site-to-site VPN isn't considered a high throughput and low latency solution. However, it can be used as a backup to physical connectivity.
 
 ## Next steps
-See [ExpressRoute FAQ][ER-FAQ] for any further questions on ExpressRoute and virtual network connectivity.
+See [ExpressRoute FAQ](./expressroute-faqs.md) for any further questions on ExpressRoute and virtual network connectivity.
 
-See [Set up direct connection between Azure and Oracle Cloud][ER-OCI] for connectivity between Azure and Oracle
-
-<!--Link References-->
-[ER-FAQ]: ./expressroute-faqs.md
-[ER-OCI]: /azure/virtual-machines/workloads/oracle/configure-azure-oci-networking
+See [Set up direct connection between Azure and Oracle Cloud](/azure/virtual-machines/workloads/oracle/configure-azure-oci-networking) for connectivity between Azure and Oracle

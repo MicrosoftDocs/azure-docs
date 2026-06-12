@@ -104,4 +104,4 @@ To connect to Azure OpenAI using a service principal, refer to the following ste
 
 - [Connect to Azure OpenAI in AKS using Workload Identity](./tutorial-python-aks-openai-workload-identity.md)
 - [Connect to an Azure AI multi-service resource](./how-to-integrate-cognitive-services.md)
-- [Connect to Azure AI services](./how-to-integrate-ai-services.md)
+- [Connect to Foundry Tools](./how-to-integrate-ai-services.md)

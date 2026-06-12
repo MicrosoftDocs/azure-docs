@@ -1,11 +1,10 @@
 ---
 title: 'Configure peering for Expressroute circuit - Azure CLI'
 description: This article shows you how to create and provision the private, public, and Microsoft peering of an ExpressRoute circuit. This article also shows you how to check the status, update, or delete peerings for your circuit.
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 04/22/2024
+ms.date: 03/12/2026
 ms.author: duau
 ms.custom: devx-track-azurecli
 # Customer intent: As a network engineer, I want to configure private and Microsoft peerings for an ExpressRoute circuit using CLI, so that I can manage high-performance connections between on-premises infrastructure and the cloud.
@@ -19,7 +18,7 @@ This article shows you how to create and manage routing configuration/peering fo
 > * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
-> * [PowerShell (classic)](expressroute-howto-routing-classic.md)
+> * [PowerShell (classic)](/previous-versions/azure/expressroute/expressroute-howto-routing-classic)
 > 
 
 :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/expressroute-network.png" alt-text="Diagram showing an on-premises network connected to the Microsoft cloud through an ExpressRoute circuit." lightbox="./media/expressroute-howto-routing-portal-resource-manager/expressroute-network.png":::
@@ -39,7 +38,7 @@ You can configure private peering and Microsoft peering for an ExpressRoute circ
 This section helps you create, get, update, and delete the Microsoft peering configuration for an ExpressRoute circuit.
 
 > [!IMPORTANT]
-> Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all service prefixes advertised through the Microsoft peering, even if route filters are not defined. Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit. For more information, see [Configure a route filter for Microsoft peering](how-to-routefilter-powershell.md).
+> Microsoft peering of ExpressRoute circuits that were configured prior to August 1, 2017 will have all service prefixes advertised through the Microsoft peering, even if route filters are not defined. Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit. For more information, see [Configure a route filter for Microsoft peering](how-to-routefilter-portal.md).
 
 ### To create Microsoft peering
 
@@ -69,7 +68,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
    "allowClassicOperations": false,
    "authorizations": [],
    "circuitProvisioningState": "Enabled",
-   "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
+   "etag": "W/\"aaaa0000-bb11-2222-33cc-444444dddddd\"",
    "gatewayManagerEtag": null,
    "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
    "location": "westus",
@@ -77,7 +76,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
    "peerings": [],
    "provisioningState": "Succeeded",
    "resourceGroup": "ExpressRouteResourceGroup",
-   "serviceKey": "1d05cf70-1db5-419f-ad86-1ca62c3c125b",
+   "serviceKey": "aaaaaaaa-0b0b-1c1c-2d2d-333333333333",
    "serviceProviderNotes": null,
    "serviceProviderProperties": {
     "bandwidthInMbps": 200,
@@ -91,7 +90,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
     "tier": "Standard"
    },
    "tags": null,
-   "type": "Microsoft.Network/expressRouteCircuits]
+   "type": "Microsoft.Network/expressRouteCircuits"
    ```
 
 4. Configure Microsoft peering for the circuit. Make sure that you have the following information before you continue.
@@ -135,7 +134,7 @@ The output is similar to the following example:
 ```output
 {
   "azureAsn": 12076,
-  "etag": "W/\"2e97be83-a684-4f29-bf3c-96191e270666\"",
+  "etag": "W/\"bbbb1111-cc22-3333-44dd-555555eeeeee\"",
   "gatewayManagerEtag": "18",
   "id": "/subscriptions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/peerings/AzureMicrosoftPeering",
   "lastModifiedBy": "Customer",
@@ -209,7 +208,7 @@ This section helps you create, get, update, and delete the Azure private peering
    "allowClassicOperations": false,
    "authorizations": [],
    "circuitProvisioningState": "Enabled",
-   "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
+   "etag": "W/\"aaaa0000-bb11-2222-33cc-444444dddddd\"",
    "gatewayManagerEtag": null,
    "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
    "location": "westus",
@@ -217,7 +216,7 @@ This section helps you create, get, update, and delete the Azure private peering
    "peerings": [],
    "provisioningState": "Succeeded",
    "resourceGroup": "ExpressRouteResourceGroup",
-   "serviceKey": "1d05cf70-1db5-419f-ad86-1ca62c3c125b",
+   "serviceKey": "aaaaaaaa-0b0b-1c1c-2d2d-333333333333",
    "serviceProviderNotes": null,
    "serviceProviderProperties": {
    "bandwidthInMbps": 200,
@@ -231,7 +230,7 @@ This section helps you create, get, update, and delete the Azure private peering
     "tier": "Standard"
    },
    "tags": null,
-   "type": "Microsoft.Network/expressRouteCircuits]
+   "type": "Microsoft.Network/expressRouteCircuits"
    ```
 
 1. Configure Azure private peering for the circuit. Make sure that you have the following items before you continue with the next steps:

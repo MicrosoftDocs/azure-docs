@@ -45,6 +45,94 @@ items:
               href: jobs-get-started-portal.md
             - name: Command line
               href: jobs-get-started-cli.md
+    - name: Express
+      items:
+        - name: Overview
+          href: express-overview.md
+        - name: Deploy with the CLI
+          href: deploy-express-cli.md
+        - name: Local testing
+          href: express-local-testing.md
+- name: AI integration
+  items:
+    - name: Overview
+      href: ai-integration.md
+    - name: Compose for agents
+      href: compose-agent.md
+    - name: MCP servers
+      items:
+        - name: Overview
+          href: mcp-overview.md
+        - name: Choose a hosting option
+          href: mcp-choosing-azure-service.md
+        - name: Tutorials
+          items:
+            - name: Deploy with .NET
+              href: tutorial-mcp-server-dotnet.md
+            - name: Deploy with Python
+              href: tutorial-mcp-server-python.md
+            - name: Deploy with Node.js
+              href: tutorial-mcp-server-nodejs.md
+            - name: Deploy with Java
+              href: tutorial-mcp-server-java.md
+        - name: Authentication
+          href: mcp-authentication.md
+        - name: Troubleshooting
+          href: mcp-troubleshooting.md
+    - name: GPUs
+      items:
+        - name: Serverless GPUs
+          href: gpu-serverless-overview.md
+        - name: GPU types
+          href: gpu-types.md
+        - name: Tutorials
+          items:
+            - name: Deploy AI image generation with serverless GPUs
+              href: tutorial-gpu-image-generation.md
+            - name: Deploy an NVIDIA Llama3 NIM
+              href: serverless-gpu-nim.md
+            - name: Deploy OpenAI GPT with OSS Ollama
+              href: deploy-openai-gpt-oss-ollama.md
+    - name: Dynamic sessions
+      items:
+        - name: Overview
+          href: sessions.md
+        - name: Usage
+          href: sessions-usage.md
+        - name: Session pools
+          href: session-pool.md
+        - name: Code interpreter sessions
+          href: sessions-code-interpreter.md
+        - name: Custom container sessions
+          href: sessions-custom-container.md
+        - name: Tutorials
+          items:
+            - name: AutoGen
+              href: sessions-tutorial-autogen.md
+            - name: LangChain
+              href: sessions-tutorial-langchain.md
+            - name: LlamaIndex
+              href: sessions-tutorial-llamaindex.md
+            - name: Semantic Kernel
+              href: sessions-tutorial-semantic-kernel.md
+            - name: JavaScript code interpreter
+              href: sessions-tutorial-nodejs.md
+            - name: Shell session
+              href: sessions-tutorial-shell.md
+            - name: Shell session with MCP
+              href: sessions-tutorial-shell-mcp.md
+            - name: Python code interpreter with MCP
+              href: sessions-tutorial-python-mcp.md
+    - name: Modernize .NET & Java apps
+      href: modernize-ai.md
+    - name: Sandboxes
+      items:
+        - name: Overview
+          href: sandboxes-overview.md
+        - name: Snapshots and state management
+          href: sandboxes-snapshots-state-management.md
+        - name: Egress policies
+          href: sandboxes-egress-policies.md
 - name: Key concepts
   items:
     - name: Compute and billing structures
@@ -89,7 +177,7 @@ items:
       href: tutorial-deploy-from-code.md
     - name: Update a container app deployed from code
       href: tutorial-update-from-code.md
-    - name: Create a functions app deployed from code
+    - name: Create a function app deployed from code
       href: functions-container-apps.md
     - name: Connect to apps & services
       items:
@@ -142,9 +230,25 @@ items:
         - name: Create a Functions app through the portal and CLI
           href: functions-usage.md
         - name: Manage a Functions app
-          href: functions-manage.md 
+          href: functions-manage.md
+        - name: Managing Secrets in Functions on ACA
+          items:
+            - name: Overview
+              href: functions-secrets-tutorial.md
+            - name: Store app-level secrets
+              href: functions-secrets-app-level.md
+            - name: Configure host key storage
+              href: functions-secrets-host-keys.md
         - name: KEDA scaling mappings reference
           href: functions-keda-mappings.md      
+        - name: Functions and GPU
+          items:
+            - name: Use GPUs with Functions on Container Apps
+              href: functions-gpu-container-apps.md
+            - name: "Tutorial: GPU image generation with Functions on ACA"
+              href: tutorial-gpu-image-generation.md
+        - name: Override auto-generated KEDA scale rules
+          href: functions-scale-rule-override.md
         - name: Migrate from Functions v1 to v2
           href: migrate-functions.md
         - name: Run event-driven and batch workloads
@@ -163,7 +267,7 @@ items:
           href: troubleshooting.md
         - name: Errors and failures
           items:
-            - name: Container create
+            - name: Container exits
               href: troubleshoot-container-create-failures.md
             - name: Open Container Initiative (OCI)
               href: troubleshoot-open-container-initiative-errors.md
@@ -177,70 +281,66 @@ items:
               href: troubleshoot-target-port-settings.md
             - name: Container start
               href: troubleshoot-container-start-failures.md
-    - name: Migration
+    - name: Migrate to Azure Container Apps
       items:
         - name: Heroku migration overview
           href: migrate-heroku-overview.md
         - name: Migrate from Heroku
           href: migrate-heroku.md
-- name: AI integration
-  items:
-    - name: Overview
-      href: ai-integration.md
-    - name: Compose for agents
-      href: compose-agent.md
-    - name: GPUs
-      items:
-        - name: Serverless GPUs
-          href: gpu-serverless-overview.md
-        - name: GPU types
-          href: gpu-types.md
-        - name: Tutorials
-          items:
-            - name: Deploy AI image generation with serverless GPUs
-              href: tutorial-gpu-image-generation.md
-            - name: Deploy an NVIDIA Llama3 NIM
-              href: serverless-gpu-nim.md
-            - name: Deploy OpenAI GPT with OSS Ollama
-              href: deploy-openai-gpt-oss-ollama.md
-    - name: Dynamic sessions
-      items:
-        - name: Overview
-          href: sessions.md
-        - name: Usage
-          href: sessions-usage.md
-        - name: Session pools
-          href: session-pool.md
-        - name: Code interpreter sessions
-          href: sessions-code-interpreter.md
-        - name: Custom container sessions
-          href: sessions-custom-container.md
-        - name: Tutorials
-          items:
-            - name: AutoGen
-              href: sessions-tutorial-autogen.md
-            - name: LangChain
-              href: sessions-tutorial-langchain.md
-            - name: LlamaIndex
-              href: sessions-tutorial-llamaindex.md
-            - name: Semantic Kernel
-              href: sessions-tutorial-semantic-kernel.md
-            - name: JavaScript code interpreter
-              href: sessions-tutorial-nodejs.md
-            - name: Shell session
-              href: sessions-tutorial-shell.md
-            - name: Shell session with MCP
-              href: sessions-tutorial-shell-mcp.md
-            - name: Python code interpreter with MCP
-              href: sessions-tutorial-python-mcp.md
-    - name: Modernize .NET & Java apps
-      href: modernize-ai.md
+        - name: Migrate Spring Boot applications 
+          href: migrate-spring-boot.md
+        - name: Migrate Spring Cloud applications 
+          href: migrate-spring-cloud.md
+        - name: Migrate Tomcat applications
+          href: migrate-tomcat.md
+        - name: Migrate Java with GitHub Copilot app modernization
+          href: migrate-java-github-copilot-app-modernization.md
+    - name: Azure Developer CLI (azd) templates
+      href: container-apps-cli-templates.md
 - name: Observability
   items:
     - name: Overview
       href: observability.md
       displayName: Observability overview
-    - name: Troubleshoot and resolve issues with an agent
+    - name: Develop and debug with real-time logs
+      items:
+        - name: Log streaming
+          href: log-streaming.md
+        - name: Container console
+          href: container-console.md
+        - name: Container debug console
+          href: container-debug-console.md
+    - name: Monitor production workloads
+      items:
+        - name: Application logging
+          href: logging.md
+        - name: Logging options
+          href: log-options.md
+        - name: Log monitoring
+          href: log-monitoring.md
+        - name: Metrics
+          href: metrics.md
+        - name: Alerts
+          href: alerts.md
+    - name: End-to-end tracing and dashboards
+      items:
+        - name: Aspire Dashboard
+          href: aspire-dashboard.md
+        - name: Grafana dashboards
+          href: grafana-dashboards.md
+    - name: OpenTelemetry agents
+      items:
+        - name: Overview
+          href: opentelemetry-agents.md
+        - name: Export to Datadog
+          href: opentelemetry-export-datadog.md
+        - name: Export to Dynatrace
+          href: opentelemetry-export-dynatrace.md
+        - name: Export to Elastic
+          href: opentelemetry-export-elastic.md
+        - name: Export to New Relic
+          href: opentelemetry-export-new-relic.md
+    - name: Troubleshoot and resolve issues with SRE agent
       items:
         - name: Overview
           href: ../sre-agent/overview.md
@@ -248,28 +348,6 @@ items:
           href: ../sre-agent/usage.md
         - name: Fix app issues with an SRE agent
           href: ../sre-agent/troubleshoot-azure-container-apps.md
-    - name: Application logging
-      href: logging.md
-    - name: Real time data
-      href: aspire-dashboard.md
-    - name: Logging options
-      href: log-options.md
-    - name: Log streaming
-      href: log-streaming.md
-    - name: Container console
-      href: container-console.md
-    - name: Container debug console
-      href: container-debug-console.md
-    - name: Metrics
-      href: metrics.md
-    - name: Log monitoring
-      href: log-monitoring.md
-    - name: Alerts
-      href: alerts.md
-    - name: OpenTelemetry agents
-      href: opentelemetry-agents.md
-    - name: Grafana dashboards
-      href: grafana-dashboards.md
 - name: Scaling & performance
   items:
     - name: Overview
@@ -329,6 +407,8 @@ items:
           href: managed-identity-image-pull.md
     - name: Secure deployments
       href: secure-deployment.md
+    - name: Confidential compute
+      href: confidential-compute.md
 - name: Resiliency (preview)
   items:
     - name: Service discovery resiliency
@@ -341,6 +421,8 @@ items:
       href: /azure/reliability/reliability-container-apps?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
     - name: Create a zone-redundant container app
       href: how-to-zone-redundancy.md
+    - name: Relocate to another region
+      href: relocate-region.md
 - name: Dedicated compute
   items:
     - name: Workload profiles
@@ -449,6 +531,8 @@ items:
           href: mtls.md
         - name: Integrate with Azure Front Door
           href: how-to-integrate-with-azure-front-door.md
+        - name: Use Azure Front Door and Private Link
+          href: front-door-custom-virtual-network-private-link.md
 - name: Languages and runtimes
   items:
     - name: .NET
@@ -503,7 +587,7 @@ items:
                   displayName: java
         - name: Java components
           items:
-            - name: Launch your first Java microservice apps with managed Java components
+            - name: Launch Java microservice apps
               href: java-microservice-get-started.md
               displayName: java
             - name: Connect to Eureka Server for Spring
@@ -611,6 +695,9 @@ items:
   items:
     - name: Samples
       href: samples.md
-    - name: Frequently asked questions
+    - name: Container Apps frequently asked questions
       href: faq.yml
+      displayName: faq
+    - name: Express frequently asked questions
+      href: express-faq.yml
       displayName: faq

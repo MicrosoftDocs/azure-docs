@@ -1,7 +1,7 @@
 ---
 title: Save compute costs with reserved capacity
 description: Learn how to buy Azure Data Factory data flow reserved capacity to save on your compute costs.
-ms.topic: conceptual
+ms.topic: concept-article
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows

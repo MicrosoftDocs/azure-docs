@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-edge
 services: iot-edge
 ms.topic: overview
-ms.date: 08/28/2025
+ms.date: 04/01/2026
 ms.custom:
   - mvc, linux-related-content
   - ai-gen-docs-bap
@@ -44,7 +44,7 @@ Azure IoT Edge allows you to deploy advanced AI capabilities like machine learni
 
 ### Bring your own code
 
-When you want to deploy your own code to your devices, Azure IoT Edge supports that, too. Azure IoT Edge holds to the same programming model as the other Azure IoT services. You can run the same code on a device or in the cloud. Azure IoT Edge supports both Linux and Windows so you can code to the platform of your choice. It supports Java, .NET Core 3.1, Node.js, C, and Python, so your developers can code in a language they already know and use existing business logic.
+When you want to deploy your own code to your devices, Azure IoT Edge supports that, too. Azure IoT Edge holds to the same programming model as the other Azure IoT services. You can run the same code on a device or in the cloud. Azure IoT Edge runs natively on Linux and on Windows devices through [IoT Edge for Linux on Windows (EFLOW)](iot-edge-for-linux-on-windows.md). It supports Java, .NET, Node.js, C, and Python, so your developers can code in a language they already know and use existing business logic.
 
 ## IoT Edge runtime
 
@@ -60,7 +60,7 @@ The Azure IoT Edge runtime enables custom and cloud logic on IoT Edge devices. T
 
 How you use an Azure IoT Edge device is up to you. The runtime is often used to deploy AI to gateway devices that aggregate and process data from other on-premises devices, but this deployment model is just one option.
 
-The Azure IoT Edge runtime runs on a large set of IoT devices that enables using it in a wide variety of ways. It supports both Linux and Windows operating systems and abstracts hardware details. Use a device smaller than a Raspberry Pi 3 if you're not processing much data, or use an industrial server to run resource-intensive applications.
+The Azure IoT Edge runtime runs on a large set of IoT devices that enables using it in a wide variety of ways. It runs natively on Linux and on Windows devices through [IoT Edge for Linux on Windows (EFLOW)](iot-edge-for-linux-on-windows.md), and abstracts hardware details. Use a device smaller than a Raspberry Pi 3 if you're not processing much data, or use an industrial server to run resource-intensive applications.
 
 ## IoT Edge cloud interface
 

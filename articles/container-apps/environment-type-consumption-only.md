@@ -4,7 +4,7 @@ description: Learn about features and billing considerations for the legacy Cons
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/05/2025
 ms.author: cshoe
 ---

@@ -119,7 +119,7 @@ The sizes for the backup volumes are estimations. Exact requirements need to be 
 > [!NOTE]
 > The Azure NetApp Files, sizing recommendations stated in this document are targeting the minimum requirements SAP expresses towards their infrastructure providers. In real customer deployments and workload scenarios, that may not be enough. Use these recommendations as a starting point and adapt, based on the requirements of your specific workload.  
 
-Therefore you could consider to deploy similar throughput for the Azure NetApp Files volumes as listed for Ultra disk storage already. Also consider the sizes for the sizes listed for the volumes for the different VM SKUs as done in the Ultra disk tables already.
+Therefore you could consider to deploy similar throughput for the Azure NetApp Files volumes as listed for Ultra Disk storage already. Also consider the sizes for the sizes listed for the volumes for the different VM SKUs as done in the Ultra Disk tables already.
 
 > [!TIP]
 > You can re-size Azure NetApp Files volumes dynamically, without the need to `unmount` the volumes, stop the virtual machines or stop SAP HANA. That allows flexibility to meet your application both expected and unforeseen throughput demands.

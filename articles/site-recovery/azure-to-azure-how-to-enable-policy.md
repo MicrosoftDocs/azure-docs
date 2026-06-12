@@ -37,7 +37,7 @@ By using built-in Azure Policy capabilities, you can enable Site Recovery on spe
   Unmanaged disks  | Not supported
   Multiple disks | Supported for up to 100 disks per VM
   Ephemeral disks | Not supported
-  Ultra disks | Not supported
+  Ultra Disks | Not supported
   Availability sets | Supported
   Availability zones | Supported
   Azure Disk Encryption enabled VMs | Not supported

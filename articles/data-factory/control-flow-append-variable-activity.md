@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to set the Append Variable activity to add a value to an existing array variable defined in a Data Factory or Synapse Analytics pipeline.
 ms.subservice: orchestration
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: concept-article
 author: kromerm
 ms.author: makromer
 ms.reviewer: whhender

@@ -5,7 +5,7 @@ author: an-emma
 ms.author: raan
 ms.service: azure-stream-analytics
 ms.custom: build-2023
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 02/27/2023
 ---
 # Event Hubs output from Azure Stream Analytics

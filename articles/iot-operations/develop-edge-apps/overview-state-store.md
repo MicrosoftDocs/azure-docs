@@ -4,6 +4,7 @@ description: Understand how to develop applications that persist data between se
 author: dominicbetts
 ms.subservice: azure-mqtt-broker
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: concept-article
 ms.custom:
   - ignite-2023

@@ -7,6 +7,7 @@ ms.topic: tutorial
 author: habibaum
 ms.author: v-uhabiba
 ms.custom: sfi-image-nochange
+ms.update-cycle: 1095-days
 # Customer intent: "As a cloud administrator, I want to create pre-maintenance and post-maintenance event triggers by using serverless functions, so that I can automate the starting and stopping of virtual machines during scheduled maintenance tasks."
 ---
 

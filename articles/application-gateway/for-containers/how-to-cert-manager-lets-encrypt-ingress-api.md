@@ -5,7 +5,7 @@ services: application-gateway
 author: philwelz
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 10/23/2025
+ms.date: 2/20/2026
 ms.author: mbender
 # Customer intent: As a cloud engineer, I want to automate the issuance and renewal of SSL/TLS certificates for my Application Gateway for Containers using cert-manager and Let's Encrypt, so that I can securely manage traffic for my applications without manual intervention.
 ---
@@ -46,7 +46,7 @@ Install cert-manager using Helm:
 ```bash
 helm install \
   cert-manager oci://quay.io/jetstack/charts/cert-manager \
-  --version v1.19.1 \
+  --version v1.19.3 \
   --namespace cert-manager \
   --create-namespace \
   --set config.enableGatewayAPI=true \

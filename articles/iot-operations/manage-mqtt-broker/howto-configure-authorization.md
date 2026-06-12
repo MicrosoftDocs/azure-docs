@@ -1,21 +1,19 @@
 ---
 title: Configure MQTT broker authorization
 description: Configure MQTT broker authorization using BrokerAuthorization.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 09/03/2025
+ms.date: 06/02/2026
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ms.service: azure-iot-operations
 ---
 
 # Configure MQTT broker authorization
-
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
 
 Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure the MQTT broker to use one or multiple authorization policies with the BrokerAuthorization resource. Each BrokerAuthorization resource contains a list of rules that specify the principals and resources for the authorization policies.
 
@@ -52,9 +50,9 @@ The following example shows how to create a BrokerAuthorization resource by usin
 1. In the Azure portal, go to your IoT Operations instance.
 1. Under **Components**, select **MQTT Broker**.
 1. Select the **Authorization** tab.
-1. Choose an existing authentication policy or create a new one by selecting **Create authorization policy**.
+1. Choose an existing authorization policy or create a new one by selecting **Create authorization policy**.
 
-    :::image type="content" source="media/howto-configure-authorization/authorization-rules.png" alt-text="Screenshot that shows using the Azure portal to create broker authorization rules.":::
+    :::image type="content" source="media/howto-configure-authorization/authorization-rules.png" alt-text="Screenshot that shows using the Azure portal to create broker authorization rules." lightbox="media/howto-configure-authorization/authorization-rules.png":::
 
 # [Azure CLI](#tab/cli)
 
@@ -192,7 +190,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1
@@ -420,7 +420,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1
@@ -643,7 +645,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1
@@ -744,7 +748,9 @@ stateStoreResources: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 
 In your custom resource definition, include the `stateStoreResources` section in your authorization policy.
@@ -1020,7 +1026,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 
 ``` yaml
@@ -1041,7 +1049,7 @@ stateStoreResources:
 
 ## Update authorization
 
-You can update broker authorization resources at runtime without restart. All clients connected at the time of the update of policy are disconnected. Changing the policy type is also supported.
+You can update broker authorization resources at runtime without a restart. All clients connected at the time of the update of policy are disconnected. Changing the policy type is also supported.
 
 ```bash
 kubectl edit brokerauthorization my-authz-policies
@@ -1066,7 +1074,7 @@ To reduce authorization overhead on high-throughput topics, enable in-memory cac
 
 # [Azure CLI](#tab/cli)
 
-Use the [az iot ops broker listener port add](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-port-add) command to disable authorization for a port. To disable authentication, don't include the `--authz-ref` parameter.
+Use the [az iot ops broker listener port add](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-port-add) command to disable authorization for a port. To disable authorization, don't include the `--authz-ref` parameter.
 
 ```azurecli
 az iot ops broker listener port add --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --listener <ListenerName> --port <ListenerServicePort>
@@ -1082,7 +1090,9 @@ az iot ops broker listener port add --resource-group myResourceGroupName --insta
 
 To disable authorization, omit `authorizationRef` in the `ports` setting of your BrokerListener resource.
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 To disable authorization, omit `authorizationRef` in the `ports` setting of your BrokerListener resource.
 
@@ -1096,9 +1106,9 @@ With MQTT 3.1.1, when publish is denied, the client receives PUBACK with no erro
 
 ### Validate rules
 
-1. Review your BrokerAuthorization YAML/JSON for schema issues.
-2. Check output when applying the config; schema errors are reported by the API server.
-3. Set frontend pod logs to `debug` or `trace`, restart pods, and inspect for entries tagged with `authz` that show parsed and effective rules.
+- Review your BrokerAuthorization YAML/JSON for schema issues.
+- Check output when applying the config; schema errors are reported by the API server.
+- Set frontend pod logs to `debug` or `trace`, restart pods, and inspect for entries tagged with `authz` that show parsed and effective rules.
 
 Example healthy logs (abridged):
 

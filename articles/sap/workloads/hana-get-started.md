@@ -101,7 +101,7 @@ One of the Azure-specific preparations is the installation of an Azure VM extens
 
 With the Azure virtual machines deployed and the operating systems registered and configured, you can install SAP HANA according to the SAP install instructions. A good starting point is this SAP website: [HANA resources](https://www.sap.com/products/s4hana-erp.html?btp=9d3e6f82-d8ab-4122-8d2d-bf4971217afd)
 
-For SAP HANA scale-out configurations using direct attached disks of Azure Premium Storage or Ultra disk, read the specifics in the document [SAP HANA infrastructure configurations and operations on Azure](./hana-vm-operations.md#configuring-azure-infrastructure-for-sap-hana-scale-out)
+For SAP HANA scale-out configurations using direct attached disks of Azure Premium Storage or Ultra Disk, read the specifics in the document [SAP HANA infrastructure configurations and operations on Azure](./hana-vm-operations.md#configuring-azure-infrastructure-for-sap-hana-scale-out)
 
 ## Resources for SAP HANA backup
 

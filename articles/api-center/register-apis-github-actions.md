@@ -1,44 +1,51 @@
 ---
-title: Register APIs using GitHub Actions - Azure API Center
-description: Learn how to automate the registration of APIs in your API center using a CI/CD workflow based on GitHub Actions.
+title: Register APIs with GitHub Actions
+titleSuffix: Azure API Center
+description: Learn how to automate the registration of APIs in your API center by using a CI/CD workflow based on GitHub Actions.
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 12/23/2024
-
-
+ms.date: 02/20/2026
+ms.author: danlep
+author: dlepow
 ms.custom: devx-track-azurecli
-# Customer intent: As an API developer, I want to automate the registration of APIs in my API center using a CI/CD workflow based on GitHub Actions.
+# Customer intent: As an API developer, I want to automate the registration of APIs in my API center by using a CI/CD workflow based on GitHub Actions.
 ---
 
-# Register APIs in your API center using GitHub Actions
+# Register APIs in your API center by using GitHub Actions
 
-This article shows how to set up a basic [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions) workflow to register an API in your organization's [API center](overview.md) when an API specification file is added to a GitHub repository.
+This article shows how to set up a basic [GitHub Actions workflow](https://docs.github.com/actions/how-tos/write-workflows) to register an API in your organization's [API center](overview.md). The registration occurs when an API specification file is added to a GitHub repository.
 
 Using a GitHub Actions workflow to register APIs in your API center provides a consistent and repeatable CI/CD process for every new or updated API. The workflow can be extended to include steps such as adding metadata to the API registration.
 
-The following diagram shows how API registration in your API center can be automated using a GitHub Actions workflow.
+The following diagram shows how API registration in your API center can be automated with a GitHub Actions workflow.
 
-:::image type="content" source="media/register-apis-github-actions/scenario-overview.svg" alt-text="Diagram showing steps to trigger a GitHub actions workflow to register an API in an Azure API center." lightbox="media/register-apis-github-actions/scenario-overview.svg":::
+:::image type="content" source="media/register-apis-github-actions/scenario-overview.svg" border="false" alt-text="Diagram showing steps to trigger a GitHub actions workflow to register an API in an Azure API center." lightbox="media/register-apis-github-actions/scenario-overview.svg":::
 
-1. Set up a GitHub Actions workflow in your repository that triggers when a pull request adding an API definition file is merged.
+The process includes the following steps:
+
+1. Set up a GitHub Actions workflow in your repository that triggers when a pull request that adds an API definition file is merged.
 1. Create a branch from the main branch in your GitHub repository.
 1. Add an API definition file, commit the changes, and push to the new branch.
 1. Create a pull request to merge the new branch into the main branch.
 1. Merge the pull request.
 1. The merge triggers a GitHub Actions workflow that registers the API in your API center.
 
+> [!NOTE]
+> Azure CLI command examples in this article can run in PowerShell or a bash shell. Where needed because of different variable syntax, separate command examples are provided for the two shells.
+
 ## Prerequisites
 
-* An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
-* Permissions to create a service principal in the Microsoft Entra ID tenant
-* A GitHub account and a GitHub repo in which you can configure secrets and GitHub Actions workflows
+* An API center in your Azure subscription. You can create an API center by following the procedure in [Quickstart: Create your API center (Azure portal)](set-up-api-center.md).
+
+* Permissions to create a service principal in the Microsoft Entra ID tenant.
+
+* A GitHub account and a GitHub repo in which you can configure secrets and GitHub Actions workflows.
+
 * For Azure CLI:
-    [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-    [!INCLUDE [install-apic-extension](includes/install-apic-extension.md)]
+   [!INCLUDE [include](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-    > [!NOTE]
-    > Azure CLI command examples in this article can run in PowerShell or a bash shell. Where needed because of different variable syntax, separate command examples are provided for the two shells.
+   [!INCLUDE [install-apic-extension](includes/install-apic-extension.md)]
 
 ## Set up a GitHub Actions workflow
 
@@ -50,12 +57,12 @@ In this section, you set up the GitHub Actions workflow for this scenario:
 
 ### Set up a service principal secret
 
-In the following steps, create a Microsoft Entra ID service principal, which will be used to add credentials to the workflow to authenticate with Azure.
+The following steps create a Microsoft Entra ID service principal, which is used to add credentials to the workflow to authenticate with Azure.
 
 > [!NOTE]
-> Configuring a service principal is shown for demonstration purposes. The recommended way to authenticate with Azure for GitHub Actions is with OpenID Connect, an authentication method that uses short-lived tokens. Setting up OpenID Connect with GitHub Actions is more complex but offers hardened security. [Learn more](../app-service/deploy-github-actions.md?tabs=openid%2Caspnetcore#generate-deployment-credentials)
+> Configuring a service principal is shown for demonstration purposes. The recommended way to authenticate with Azure for GitHub Actions is with OpenID Connect, an authentication method that uses short-lived tokens. Setting up OpenID Connect with GitHub Actions is more complex but offers hardened security. For more information, see [Deploy to Azure App Service by using GitHub Actions - Generate deployment credentials for OpenID Connect](../app-service/deploy-github-actions.md?tabs=openid%2Caspnetcore#generate-deployment-credentials).
 
-Create a service principal using the [az ad sp create-for-rbac](/cli/azure/ad#az-ad-sp-create-for-rbac) command. The following example first uses the [az apic show](/cli/azure/apic#az-apic-show) command to retrieve the resource ID of the API center. The service principal is then created with the Azure API Center Service Contributor role for the API center.
+Create a service principal by using the [az ad sp create-for-rbac](/cli/azure/ad#az-ad-sp-create-for-rbac) command. The following example first uses the [az apic show](/cli/azure/apic#az-apic-show) command to retrieve the resource ID of the API center. The service principal is then created with the Azure API Center Service Contributor role for the API center.
 
 #### [Bash](#tab/bash)
 
@@ -84,7 +91,7 @@ az ad sp create-for-rbac --name $spName --role "Azure API Center Service Contrib
 ```
 ---
 
-Copy the JSON output, which should look similar to the following:
+Copy the JSON output, which should look similar to the following example:
 
 ```json
 {
@@ -100,15 +107,19 @@ Copy the JSON output, which should look similar to the following:
 
 ### Add the service principal as a GitHub secret
 
-1. In [GitHub](https://github.com/), browse your repository. Select **Settings**. 
-1. Under **Security**, select **Secrets and variables** > **Actions** 
+After you have the service principal, add it as a GitHub secret:
+
+1. In [GitHub](https://github.com/), browse your repository, and select **Settings** in the top menu bar.
+
+1. In the left navigation under **Security**, select **Secrets and variables** > **Actions** 
+
 1. Select **New repository secret**.
-1. Paste the entire JSON output from the Azure CLI command into the secret's value field. Name the secret `AZURE_CREDENTIALS`. Select **Add secret**.
 
-    The secret is listed under **Repository secrets**.
+1. In the **Secret** field, paste the entire JSON output from the Azure CLI command. For the **Name**, enter `AZURE_CREDENTIALS`. Select **Add secret**.
 
-    :::image type="content" source="media/register-apis-github-actions/repository-secrets-github-small.png" alt-text="Screenshot of secrets for Actions in a GitHub repository." lightbox="media/register-apis-github-actions/repository-secrets-github.png":::
+   The secret is listed under **Repository secrets**.
 
+   :::image type="content" source="media/register-apis-github-actions/repository-secrets-github.png" alt-text="Screenshot of secrets for Actions in a GitHub repository.":::
 
 When you configure the GitHub workflow file later, you use the secret for the input `creds` of the [Azure/login](https://github.com/marketplace/actions/azure-login) action. For example:
 
@@ -120,25 +131,32 @@ When you configure the GitHub workflow file later, you use the secret for the in
 
 ### Add the workflow file to your GitHub repository
 
-A GitHub Actions workflow is represented by a YAML (.yml) definition file. This definition contains the various steps and parameters that make up the workflow. [Learn more](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions)
+A GitHub Actions workflow is specified in a YAML (_.yml_) definition file. This definition contains the various steps and parameters that make up the workflow. For more information, see [Workflow syntax for GitHub Actions](https://docs.github.com/actions/reference/workflows-and-actions/workflow-syntax).
 
-The following is a basic workflow file for this example that you can use or modify. 
+The following example provides a basic workflow file that you can use or modify.
 
-In this example:
-* The workflow is triggered when a pull request that adds a JSON definition in the `APIs` path is closed on the main branch.
-* The location of the definition is extracted from the pull request using a GitHub script, which is authenticated with the default GitHub token.
-* The Azure credentials saved in your repo are used to sign into Azure.
+* The workflow triggers when a pull request that adds a JSON definition in the `APIs` path is closed on the main branch.
+
+* The location of the definition is extracted from the pull request by using a GitHub script, which is authenticated with the default GitHub token.
+
+* The Azure credentials saved in your repository are used to sign into Azure.
+
 * The [az apic register](/cli/azure/apic/api#az-apic-api-register) command registers the API in the API center specified in the environment variables.
 
-To configure the workflow file:
+Follow these steps to configure the workflow file:
 
 1. Copy and save the file under a name such as `register-api.yml`.
-1. Confirm or update the name of the repository folder (`APIs`) where you'll add the API definition file.
-1. Add this workflow file in the  `/.github/workflows/` path in your GitHub repository.
-1. Set the [Actions variables](https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables) `SERVICE_NAME` and `RESOURCE_GROUP` in your repo for your API center name and resource group name in Azure.
+
+1. Confirm or update the name of the repository folder (`APIs`) where you plan to add the API definition file.
+
+1. Add this workflow file in the `/.github/workflows/` path in your GitHub repository.
+
+1. Set the [Actions variables](https://docs.github.com/actions/how-tos/write-workflows/choose-what-workflows-do/use-variables) `SERVICE_NAME` and `RESOURCE_GROUP` in your repository for your API center name and resource group name in Azure.
 
 > [!TIP]
-> Using the [Visual Studio Code extension](build-register-apis-vscode-extension.md) for Azure API Center, you can generate a starting workflow file by running an extension command. In the Command Palette, select **Azure API Center: Register APIs**. Select **CI/CD** > **GitHub**. You can then modify or extend the file for your scenario.
+> Using the [Visual Studio Code extension](build-register-apis-vscode-extension.md) for Azure API Center, you can generate a starting workflow file by running an extension command. In the Command Palette (**Ctrl**+**Shift**+**P**), enter **Azure API Center: Register API** and select **CI/CD** > **GitHub**. You can then modify or extend the file for your scenario.
+
+Here's the example workflow file:
 
 ```yml
 name: Register API Definition to Azure API Center
@@ -195,39 +213,49 @@ jobs:
             az apic api register -g ${{ vars.RESOURCE_GROUP }} -n ${{ vars.SERVICE_NAME }} --api-location ${{ env.API_FILE_LOCATION }}
 ```
 
-
 ## Add API definition file to the repository
 
-Test the workflow by adding an API definition file to the repository. Follow these high-level steps, which are typical of a development workflow. For details on working with GitHub branches, see the [GitHub documentation](https://docs.github.com/en/github/collaborating-with-pull-requests/getting-started/about-collaborative-development-models).
+Test the workflow by adding an API definition file to the repository. Follow these high-level steps, which are typical of a development workflow. For details on working with GitHub branches, see [About collaborative development models](https://docs.github.com/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models) in the GitHub documentation.
 
 1. Create a new working branch from the main branch in your repository.
+
 1. Add the API definition file to the repository in the `APIs` path. For example, `APIs/catfacts-api/07-15-2024.json`.
+
 1. Commit the changes and push them to the working branch.
+
 1. Create a pull request to merge the working branch into the main branch.
+
 1. After review, merge the pull request. The merge triggers the GitHub Actions workflow that registers the API in your API center.
 
-    :::image type="content" source="media/register-apis-github-actions/workflow-action.png" alt-text="Screenshot showing successful workflow run in GitHub.":::
+   :::image type="content" source="media/register-apis-github-actions/workflow-action.png" alt-text="Screenshot showing successful workflow run in GitHub.":::
 
 ## Verify the API registration
 
 Verify that the API is registered in your API center.
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your API center.
-1. In the left menu, under **Assets**, select **APIs**.
-1. Verify that the newly registered API appears in the list of APIs.
+1. In the [Azure portal](https://portal.azure.com), browse to your API center.
 
-:::image type="content" source="media/register-apis-github-actions/api-registered-api-center.png" alt-text="Screenshot of API registered in API Center after workflow."::: 
+1. In the left navigation, expand the **Inventory** section, and select **Assets**.
+
+1. Verify that the newly registered API appears in the list.
+
+:::image type="content" source="media/register-apis-github-actions/api-registered-api-center.png" alt-text="Screenshot of a new API registered in API Center after the workflow runs."::: 
 
 ## Add a new API version
 
-To add a new version to an existing API in your API center, follow the preceding steps, with a slight modification:
+You can add a new version to an existing API in your API center by following the same steps with a slight modification.
 
 1. Change to the same working branch in your repo, or create a new working branch.
+
 1. Add a new API definition file to the repository in the `APIs` path, in the folder for an existing API. For example, if you previously added a Cat Facts API definition, add a new version such as `APIs/catfacts-api/07-22-2024.json`.
+
 1. Commit the changes and push them to the working branch.
+
 1. Create a pull request to merge the working branch into the main branch.
+
 1. After review, merge the pull request. The merge triggers the GitHub Actions workflow that registers the new API version in your API center.
-1. In the Azure portal, navigate to your API center and confirm that the new version is registered.
+
+1. In the Azure portal, browse to your API center and confirm that the new version for the API is registered.
 
 ## Extend the scenario
 
@@ -235,29 +263,31 @@ You can extend the GitHub Actions workflow to include other steps, such as addin
 
 1. Using the [metadata schema](metadata.md) in your API center, create a metadata JSON file to apply metadata values to your API registration. 
 
-    For example, if the metadata schema includes properties such as `approver`, `team`, and `cost center`, a metadata JSON file might look like this:
+   For example, if the metadata schema includes properties such as `approver`, `team`, and `cost center`, a metadata JSON file might look like this:
 
-    ```json
-    {
-      "approver": "diego@contoso.com",
-      "team": "Store API dev team",
-      "costCenter": "12345"  
-    }
-    ```
+   ```json
+   {
+     "approver": "admin-user@contoso.com",
+     "team": "Store API dev team",
+     "costCenter": "12345"  
+   }
+   ```
+
 1. Upload a metadata JSON file in the folder for each API in the repository. 
-1. Add a workflow step to apply the metadata to the API registration using the [az apic api update](/cli/azure/apic/api#az-apic-api-update) command. In the following example, the API ID and metadata file are passed in environment variables, which would be set elsewhere in the workflow file.
 
-    ```yml
-    [...]
-    - name: Apply metadata to API in API Center
+1. Add a workflow step to apply the metadata to the API registration by using the [az apic api update](/cli/azure/apic/api#az-apic-api-update) command. In the following example, the API ID and metadata file are passed in environment variables, which would be set elsewhere in the workflow file.
+
+   ```yml
+   [...]
+   - name: Apply metadata to API in API Center
         uses: azure/CLI@v2
         with:
           azcliversion: latest
           inlineScript: |
             az apic api update -g ${{ vars.RESOURCE_GROUP }} -n ${{ vars.SERVICE_NAME }} --api-id {{ env.API_ID }} --custom-properties {{ env.METADATA_FILE }}
-    ```
+   ```
 
 ## Related content
 
-* [Using secrets in GitHub Actions](https://docs.github.com/en/actions/reference/encrypted-secrets)
-* [Creating configuration variables for a repository](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions)
+* [Secrets in GitHub Actions](https://docs.github.com/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets)
+* [Workflow syntax for GitHub Actions](https://docs.github.com/actions/reference/workflows-and-actions/workflow-syntax)

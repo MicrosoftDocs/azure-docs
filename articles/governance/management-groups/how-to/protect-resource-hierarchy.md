@@ -2,7 +2,7 @@
 title: Protect your resource hierarchy - Azure Governance
 description: Learn how to help protect your resource hierarchy by using hierarchy settings that include defining the default management group.
 ms.date: 07/23/2024
-ms.topic: conceptual
+ms.topic: how-to
 ---
 # Protect your resource hierarchy
 

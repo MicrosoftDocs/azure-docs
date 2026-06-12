@@ -185,8 +185,8 @@ An example of a configuration for a larger SAP ASE DB Server with a database siz
 | Disk aggregation | Storage Spaces | LVM2 | --- |
 | File system | NTFS | XFS |
 | Format block size | Needs workload testing | Needs workload testing | --- |
-| # and type of data disks | Premium storage v1: 4+ x P30 (RAID0) <br /> Premium storage v2: 4+ x 1,000 GiB - 4,000 GiB - plus 3,000 IOPS and 125 MB/sec throughput per disk | Premium storage v1: 4+ x P30 (RAID0) <br /> Premium storage v2: 4+ x 1,000 GiB - 4,000 GiB - plus 3,000 IOPS and 125 MB/sec throughput per disk | Cache = Read Only, Consider Azure Ultra disk |
-| # and type of log disks | Premium storage v1: 1 x P30 <br /> Premium storage v2: 1 x 500 GiB - plus 2,000 IOPS and 125 MB/sec throughput | Premium storage v1: 1 x P30 <br /> Premium storage v2: 1 x 500 GiB - plus 2,000 IOPS and 125 MB/sec throughput | Consider Write Accelerator or Azure Ultra disk |
+| # and type of data disks | Premium storage v1: 4+ x P30 (RAID0) <br /> Premium storage v2: 4+ x 1,000 GiB - 4,000 GiB - plus 3,000 IOPS and 125 MB/sec throughput per disk | Premium storage v1: 4+ x P30 (RAID0) <br /> Premium storage v2: 4+ x 1,000 GiB - 4,000 GiB - plus 3,000 IOPS and 125 MB/sec throughput per disk | Cache = Read Only, Consider Azure Ultra Disk |
+| # and type of log disks | Premium storage v1: 1 x P30 <br /> Premium storage v2: 1 x 500 GiB - plus 2,000 IOPS and 125 MB/sec throughput | Premium storage v1: 1 x P30 <br /> Premium storage v2: 1 x 500 GiB - plus 2,000 IOPS and 125 MB/sec throughput | Consider Write Accelerator or Azure Ultra Disk |
 | ASE MaxMemory parameter | 90% of Physical RAM | 90% of Physical RAM | Assuming single instance |
 | # of backup devices | 16 | 16 | --- |
 | # and type of backup disks | 4 | 4 | Use LVM2/Storage Spaces |
@@ -258,7 +258,7 @@ SAP Software provisioning Manager (SWPM) is giving an option to encrypt the data
 - Match the disk IOPS and total VM aggregate throughput quota of the VM with the disk design (deploy sufficient number of disks)
 - Aggregate disks using Windows Storage Spaces or Linux LVM2 with correct stripe size and file system
 - Create sufficient number of devices for data, log, temp, and backup purposes
-- Consider using UltraDisk for x-large systems
+- Consider using Ultra Disk for x-large systems
 - Run `saptune` SAP-ASE on SLES. Tune RHEL VMs per [69988](https://access.redhat.com/solutions/69988)
 - Secure the database with DB Encryption – manually store keys in Azure Key Vault
 - Complete the [SAP on Azure Checklist](./deployment-checklist.md)
@@ -330,8 +330,6 @@ The starting page for [SAP ASE 16.0.03.07 Documentation](https://help.sap.com/vi
 
 - SAP ASE Learning Journey - Administration and monitoring
 - SAP ASE Learning Journey - Installation and upgrade
-
-Are helpful. Another useful document is [SAP Applications on SAP Adaptive Server Enterprise Best Practices for Migration and Runtime](https://assets.cdn.sap.com/sapcom/docs/2016/06/26450353-767c-0010-82c7-eda71af511fa.pdf).
 
 Other helpful SAP support notes are:
 

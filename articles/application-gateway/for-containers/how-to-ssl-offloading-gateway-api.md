@@ -14,8 +14,8 @@ ms.author: mbender
 
 This document helps set up an example application that uses the following resources from Gateway API. Steps are provided to:
 
-- Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
-- Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/api-types/httproute) that references a backend service.
+- Create a [Gateway](https://gateway-api.sigs.k8s.io/docs/concepts/api-overview/#gateway) resource with one HTTPS listener.
+- Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/reference/api-types/httproute/) that references a backend service.
 
 ## Background
 

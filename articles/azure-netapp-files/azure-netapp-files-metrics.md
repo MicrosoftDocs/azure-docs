@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 01/16/2026
+ms.date: 03/16/2026
 ms.author: anfdocs
 # Customer intent: As a cloud storage administrator, I want to analyze performance and usage metrics for Azure NetApp Files, so that I can optimize storage provisioning and ensure efficient operation of my storage resources.
 ---
@@ -314,7 +314,7 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     The delay between when data is written to the source volume and when it’s available on the destination volume.
 
 > [!NOTE]
-> When assessing the health status of the volume replication, consider the volume replication lag time. If the lag time is greater than the replication schedule, the replication volume won't catch up to the source. To resolve this issue, adjust the replication speed or the replication schedule. 
+> When assessing the health status of the volume replication, consider the volume replication lag time. If the lag time is greater than the replication schedule, the replication volume won't catch up to the source. To resolve this issue, adjust the replication schedule. 
 
 - *Volume replication last transfer duration*   
     The time taken for the most recent replication session to transfer all changed data (example: blocks, snapshots) from the source volume to the destination volume. 

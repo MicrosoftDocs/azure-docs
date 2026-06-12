@@ -4,7 +4,7 @@ description: Learn how to fetch weather data from various weather data providers
 author: BlackRider97
 ms.author: ramithar
 ms.service: azure-data-manager-agriculture
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/14/2023
 ms.custom: template-concept
 ---

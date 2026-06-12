@@ -3,9 +3,10 @@ title: Known Issues
 description: Known issues for the MQTT broker, connector for OPC UA, OPC PLC simulator, data flows, and operations experience web UI.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: troubleshooting-known-issue
 ms.custom: sfi-ropc-nochange
-ms.date: 11/21/2025
+ms.date: 05/21/2026
 ---
 
 # Known issues for Azure IoT Operations
@@ -13,6 +14,88 @@ ms.date: 11/21/2025
 This article lists the current known issues you might encounter when using Azure IoT Operations. The guidance helps you identify these issues and provides workarounds where available.
 
 For general troubleshooting guidance, see [Troubleshoot Azure IoT Operations](troubleshoot.md).
+
+## Deployment and upgrade issues
+
+This section lists current known issues with deploying and upgrading Azure IoT Operations.
+
+### Upgrade to Azure IoT Operations 2603 can silently fail
+
+---
+
+Log signature: N/A
+
+---
+
+When you run `az iot ops upgrade` to upgrade to Azure IoT Operations 2603, the upgrade can silently fail to reach the cluster. You then observe the following symptoms:
+ 
+- `provisioningState: Failed` on the Azure IoT Operations extension.
+- All on-cluster workloads remain healthy (no upgrade activity occurs).
+- `az iot ops upgrade` might report nothing to upgrade on subsequent attempts.
+
+#### Root cause
+ 
+During the upgrade, if a dependent system extension, such as `microsoft.extensiondiagnostics` experiences a transient Helm timeout, Azure Resource Manager marks it as **Failed**. Even if the extension eventually succeeds on-cluster, the cloud-side state remains **Failed**. This blocks the dependency chain — Azure Resource Manager never delivers the updated Azure IoT Operations or secret-store extension config to the cluster's config agent.
+ 
+Symptoms include:
+ 
+- Config agent PostStatus returns `400: "Configuration spec has been modified"`
+- `getPendingConfigs` returns empty results
+- Extension manager never receives Helm upgrade instructions
+
+#### Workaround
+ 
+The workaround is to force Azure Resource Manager to re-submit the extension specs by running a no-op update on both the Azure IoT Operations and secret-store extensions, then retrying the upgrade:
+ 
+```azurecli
+az k8s-extension update --name <aio-extension-name> \
+    --cluster-name <cluster-name> \
+    --resource-group <resource-group> \
+    --cluster-type connectedClusters \
+    --configuration-settings AgentOperationTimeoutInMinutes=120
+
+az k8s-extension update --name azure-secret-store \
+    --cluster-name <cluster-name> \
+    --resource-group <resource-group> \
+    --cluster-type connectedClusters \
+    --configuration-settings AgentOperationTimeoutInMinutes=120
+
+az iot ops upgrade
+```
+
+To identify the Azure IoT Operations extension name, which includes a random suffix (for example, `azure-iot-operations-cym7h`), find your specific extension name by running:
+
+```azurecli
+az k8s-extension list \
+    --cluster-name <cluster-name> \
+    --resource-group <resource-group> \
+    --cluster-type connectedClusters \
+    --query "[?extensionType=='microsoft.iotoperations'].name" -o tsv
+```
+
+> [!IMPORTANT]
+> After the upgrade completes, reset `AgentOperationTimeoutInMinutes` back to a lower value like five minutes to avoid long wait times on future operations if something else fails.
+
+## Azure Device Registry issues
+
+This section lists current known issues for the Azure Device Registry.
+
+### ADR namespace asset healthstate resources don't sync from edge to cloud
+
+---
+
+Issue ID: 1235
+
+---
+
+Log signature: N/A
+
+---
+
+Azure Device Registry namespace asset healthstate resources don't synchronize back to the cloud if they were created with an API version older than 2026-04-01. This failure occurs because a required Kubernetes resource annotation is missing.
+
+Workaround: Use the [arc proxy](/azure/azure-arc/kubernetes/quickstart-connect-cluster#connect-an-existing-kubernetes-cluster) to connect to your Kubernetes cluster and then run the [remediation script](https://github.com/Azure/azure-iot-operations/tree/main/scripts/known-issues/asset-health-status-reporting) for the shell you're using (PowerShell or bash). The scripts list all outdated namespace assets and request confirmation before they add the missing annotations.
+
 
 ## MQTT broker issues
 
@@ -30,7 +113,7 @@ Log signature: N/A
 
 ---
 
-MQTT broker resources created in your cluster using Kubernetes aren't visible in the Azure portal. This result is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#manage-components-using-kubernetes-deployment-manifests-preview), and synchronizing resources from the edge to the cloud isn't currently supported.
+MQTT broker resources created in your cluster using Kubernetes aren't visible in the Azure portal. This result is expected because [managing Azure IoT Operations components using Kubernetes](tips-tools.md#manage-components-using-kubernetes-deployment-manifests) is for debugging and testing only, and synchronizing resources from the edge to the cloud isn't currently supported.
 
 There's currently no workaround for this issue.
 
@@ -48,6 +131,10 @@ Issue ID: 6514
 ---
 
 N/A
+
+---
+
+Fixed in release 2605 and later
 
 ---
 
@@ -93,6 +180,22 @@ If you create a `RegistryEndpoint` resource using bicep and reference it in the 
 
 Workaround: Don't use `RegistryEndpoint` resources with Akri connectors. Instead, specify the registry information in the `ContainerRegistry` settings in the `ConnectorTemplate` resource.
 
+### Akri error when updating or deleting an Azure IoT Operations instance
+
+---
+
+Issue ID: 9347
+
+---
+
+Fixed in version 1.2.154 (2512) and later
+
+---
+
+Users may encounter an error regarding expired webhook certificates with Akri when deleting/upgrading instances of Azure IoT Operations or performing CRUD operations on Akri resources such as *Connector* and *ConnectorTemplates* instances. 
+
+Workaround: run `kubectl delete pod -n azure-iot-operations aio-akri-webhook-0 --ignore-not-found` to delete and restart the webhook pods to enable the pod to pick up the new certificate.
+
 ## Connector for OPC UA issues
 
 This section lists current known issues for the connector for OPC UA.
@@ -102,6 +205,10 @@ This section lists current known issues for the connector for OPC UA.
 ---
 
 Issue ID: 1532
+
+---
+
+Fixed in version 1.3.36 (2603) and later
 
 ---
 
@@ -174,6 +281,23 @@ eventGroups:
       target: Mqtt
 ```
 
+## Connector for MQTT issues
+
+### MQTT connector template version mismatch during update
+
+---
+
+Issue ID: 1533
+
+---
+
+Log signature: N/A
+
+---
+
+When updating to version 2605, existing MQTT connector templates may display mismatched metadata versions in the portal. To resolve, delete and recreate the connector template. Alternatively, use the Azure CLI to update the connector.
+
+
 ## Data flows issues
 
 This section lists current known issues for data flows.
@@ -190,7 +314,7 @@ Log signature: N/A
 
 ---
 
-Data flow custom resources created in your cluster using Kubernetes aren't visible in the operations experience web UI. This result is expected because [managing Azure IoT Operations components using Kubernetes is in preview](../deploy-iot-ops/howto-manage-update-uninstall.md#manage-components-using-kubernetes-deployment-manifests-preview), and synchronizing resources from the edge to the cloud isn't currently supported.
+Data flow custom resources created in your cluster using Kubernetes aren't visible in the operations experience web UI. This result is expected because [managing Azure IoT Operations components using Kubernetes](tips-tools.md#manage-components-using-kubernetes-deployment-manifests) is for debugging and testing only, and synchronizing resources from the edge to the cloud isn't currently supported.
 
 There's currently no workaround for this issue.
 
@@ -229,7 +353,7 @@ Data flow graphs (WASM) currently only support MQTT, Kafka, and OpenTelemetry (O
 To work around this issue, use one of the supported endpoint types:
 - [MQTT endpoints](../connect-to-cloud/howto-configure-mqtt-endpoint.md) for bi-directional messaging with MQTT brokers
 - [Kafka endpoints](../connect-to-cloud/howto-configure-kafka-endpoint.md) for bi-directional messaging with Kafka brokers, including Azure Event Hubs
-- [OpenTelemetry endpoints](../connect-to-cloud/howto-configure-opentelemetry-endpoint.md) for sending metrics and logs to observability platforms (destination only)
+- [OpenTelemetry endpoints](../connect-to-cloud/open-telemetry.md) for sending metrics and logs to observability platforms (destination only)
 
 For more information about data flow graphs, see [Use WebAssembly (WASM) with data flow graphs](../connect-to-cloud/howto-dataflow-graph-wasm.md).
 
@@ -238,6 +362,10 @@ For more information about data flow graphs, see [Use WebAssembly (WASM) with da
 ---
 
 Issue ID: 1352
+
+---
+
+Fixed in version 1.3.36 (2603) and later
 
 ---
 
@@ -283,3 +411,23 @@ You create a chained graph scenario by using the output of one data flow graph a
 ```
 
 To solve this error, push the graph definition to the ACR as many times as needed with the scenario with a different name or tag each time. For example, in the scenario described, the graph definition need to be pushed twice with either a different name or a different tag, such as `graph-passthrough-one:1.3.6` and `graph-passthrough-two:1.3.6`.
+
+## Broker listener issues
+
+This section lists current known issues for broker listeners    .
+
+### Azure portal fails to fetch broker authentications
+
+---
+
+Issue ID: 3072
+
+---
+
+Log signature: Azure portal message `Fetch broker authentications: Failed to fetch broker authentications`
+
+---
+
+When you configure a broker listener in the Azure portal and select a value in the "Authentication" dropdown, the portal tries to fetch the list of broker authentications. The portal displays the error message `Fetch broker authentications: Failed to fetch broker authentications`.
+
+To workaround this issue, upgrade to the 2603 release.

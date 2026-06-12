@@ -4,7 +4,7 @@ description: Expose preview environments to evaluate changes in Azure Static Web
 author: cjk7989
 ms.author: jikunchen
 ms.service: azure-static-web-apps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/16/2024
 ms.custom: template-how-to
 ---

@@ -3,7 +3,7 @@ title:  Manage the backup jobs using REST API in Azure Backup
 description: In this article, learn how to track and manage the backup and restore jobs of Azure Backup using REST API.
 ms.service: azure-backup
 ms.topic: how-to
-ms.date: 02/09/2025
+ms.date: 02/20/2026
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -13,11 +13,9 @@ ms.custom: engagement-fy24
 
 # Track the backup and restore jobs using REST API in Azure Backup
 
-This article describes how to monitor the backup and restore jobs using REST API in Azure Backup.
+This article describes how to fetch, track, and monitor Azure Backup job status by using REST APIs. You learn how to identify job IDs from backup and restore operations, retrieve job details to track progress, and access extended information for completed jobs, such as task-level status, backup metrics, and protected entity details. Azure Backup runs these jobs in the background for operations like backup, restore, and disable backup, and REST API endpoints provide end-to-end visibility into job execution and completion status.
 
-The Azure Backup service triggers jobs that run in background in various scenarios such as triggering backup, restore operations, disabling backup. You can track these jobs using their IDs.
-
-## Fetch Job information from operations
+## Fetch Job information from backup and restore operations
 
 Triggering a backup operation always returns a jobID. The following example provides the final response of a [trigger backup REST API operation](backup-azure-arm-userestapi-backupazurevms.md#example-responses-for-on-demand-backup):
 
@@ -37,7 +35,7 @@ Triggering a backup operation always returns a jobID. The following example prov
 
 You can identify the Azure Virtual Machine (VM) backup job by the "jobId" field. Track the job  as mentioned [here](/rest/api/backup/job-details) using a simple `GET` request.
 
-## Track the job
+## Track the backup and restore jobs
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
@@ -113,4 +111,9 @@ X-Powered-By: ASP.NET
 ```
 ## Next steps
 
-[About Azure Backup](backup-overview.md).
+- [Support matrix for automation in Azure Backup](backup-support-automation.md).
+- [Back up an Azure VM using Azure Backup via REST API](backup-azure-arm-userestapi-backupazurevms.md).
+- [Restore Azure Virtual machines using REST API](backup-azure-arm-userestapi-restoreazurevms.md).
+- [Backup Azure Files using Azure Backup via REST API](backup-azure-file-share-rest-api.md).
+- [Restore Azure Files using REST API](restore-azure-file-share-rest-api.md).
+- [Back up SQL server databases in Azure VMs using Azure Backup via REST API](backup-azure-sql-vm-rest-api.md).

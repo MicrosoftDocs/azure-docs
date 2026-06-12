@@ -3,8 +3,9 @@ title: Azure IoT Operations versions, support, and licensing
 description: Explore supported versions, environments, dependencies, and licensing for Azure IoT Operations deployments.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: overview
-ms.date: 10/08/2025
+ms.date: 02/18/2026
 ms.custom: references_regions
 
 # As an IT admin, you want to know the supported environments for Azure IoT Operations to plan your deployment effectively.
@@ -33,6 +34,7 @@ Azure IoT Operations supports Arc-enabled clusters in these regions:
 | West US      | westus      |
 | West US 2    | westus2     |
 | West US 3    | westus3     |
+| South Central US | southcentralus |
 | West Europe  | westeurope  |
 | North Europe | northeurope |
 | Germany West Central | germanywestcentral |
@@ -70,4 +72,4 @@ If any of the licensing terms found in these documents block your adoption of Az
 * [Pricing for Azure IoT Operations](https://azure.microsoft.com/pricing/details/iot-operations/)
 * [Overview of Azure IoT Operations](overview-iot-operations.md)
 * [Deployment details](deploy-iot-ops/overview-deploy.md)
-* [Upgrade to a new version](deploy-iot-ops/howto-upgrade.md)
+* [Upgrade to a new version](manage-iot-ops/howto-upgrade.md)

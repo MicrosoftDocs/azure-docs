@@ -3,7 +3,7 @@ title: App Service Environment networking
 description: App Service Environment networking details
 author: seligj95
 ms.topic: overview
-ms.date: 02/03/2026
+ms.date: 03/30/2026
 ms.author: jordanselig
 ms.service: azure-app-service
 ---
@@ -153,6 +153,46 @@ To enable the feature, configure the `MultipleSubnetJoinEnabled` cluster setting
 
 For guidance on configuring cluster settings, see [Custom configuration settings for App Service Environments](app-service-app-service-environment-custom-settings.md).
 
+You must also set the `allowNewDirectNetworkIntegrations` property to `true` in the App Service Environment's networking configuration. This property is a required part of the networking configuration body. If you update the networking configuration without including this property, it could be disabled since it defaults to `false`.
+
+You can set this property using the CLI or directly in an ARM template.
+
+#### [CLI](#tab/cli)
+
+There's no dedicated CLI parameter for this property, so use the following `az rest` command to enable it:
+
+```azurecli-interactive
+az rest --method put \
+  --uri "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{aseName}/configurations/networking?api-version=2024-04-01" \
+  --body '{
+    "properties": {
+      "allowNewDirectNetworkIntegrations": true
+    }
+  }'
+```
+
+Replace `{subscriptionId}`, `{resourceGroupName}`, and `{aseName}` with your values.
+
+#### [ARM template](#tab/arm)
+
+In your ARM template, set the property in the networking configuration resource:
+
+```json
+{
+  "type": "Microsoft.Web/hostingEnvironments/configurations",
+  "apiVersion": "2024-04-01",
+  "name": "[concat(parameters('aseName'), '/networking')]",
+  "properties": {
+    "allowNewDirectNetworkIntegrations": true
+  }
+}
+```
+
+---
+
+> [!IMPORTANT]
+> When updating the networking configuration, include all properties you want to preserve. The `allowNewDirectNetworkIntegrations` property is a non-nullable boolean that defaults to `false`, so omitting it from a networking configuration update disables the feature.
+
 ### Join an app to an alternate subnet
 
 The alternate subnet must be empty and delegated to `Microsoft.Web/serverFarms`. Ensure that [application traffic routing is enabled for your app](../configure-vnet-integration-routing.md#configure-application-routing) to route all traffic through the alternate subnet.
@@ -228,7 +268,7 @@ For FTP access to Internal Load balancer (ILB) App Service Environment v3 specif
 1. Create an Azure DNS private zone named `ftp.appserviceenvironment.net`.
 1. Create an A record in that zone that points `<App Service Environment-name>` to the inbound IP address.
 
-In addition to setting up DNS, you also need to enable it in the [App Service Environment configuration](./configure-network-settings.md#ftp-access) and at the [app level](../deploy-ftp.md?tabs=cli#enforce-ftps).
+In addition to setting up DNS, you also need to enable it in the [App Service Environment - Configure networking settings](./configure-network-settings.md#allow-incoming-ftp-connections) and at the [app level](../deploy-ftp.md?tabs=cli#enforce-ftps).
 
 ### DNS configuration from your App Service Environment
 

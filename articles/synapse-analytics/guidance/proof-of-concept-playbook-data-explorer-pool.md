@@ -5,7 +5,7 @@ author: spelluru
 ms.author: spelluru
 ms.reviewer: devsha
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/28/2022
 ---
 

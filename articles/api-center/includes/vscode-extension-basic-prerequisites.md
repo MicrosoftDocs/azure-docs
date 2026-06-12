@@ -1,6 +1,6 @@
 ---
 title: Include file
-description: Include file
+description: Basic prerequisites for using the Azure API Center extension for Visual Studio Code.
 services: api-center
 
 
@@ -17,6 +17,6 @@ ms.custom: Include file
     
 * [Azure API Center extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center)
 
-* One or more API centers in your Azure subscription. You can [create an API center using the Azure API Center extension](../set-up-api-center-vs-code-extension.md) or other tools.
+* One or more API centers in your Azure subscription. You can [create an API center by using the Azure API Center extension](../set-up-api-center-vs-code-extension.md) or other tools.
 
-    * Currently, you need to be assigned the Azure API Center Service Contributor role or higher permissions on an API center to manage APIs with the extension.
+   * To manage APIs with the extension, you currently need the Azure API Center Service Contributor role or higher permissions on an API center.

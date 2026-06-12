@@ -128,4 +128,4 @@ If you want to share files between modules across generations, they must not con
 
 ## Next steps
 
-For an additional example of accessing host storage from a module, see [Store data at the edge with Azure Blob Storage on IoT Edge](how-to-store-data-blob.md).
+For more information about storage options, see [Azure Blob Storage documentation](/azure/storage/blobs/storage-blobs-overview).

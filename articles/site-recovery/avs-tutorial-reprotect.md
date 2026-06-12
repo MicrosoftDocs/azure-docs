@@ -4,7 +4,7 @@ description: Learn how to reprotect Azure VMware Solution VMs after failover to 
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 02/12/2026
+ms.date: 02/27/2026
 ms.author: v-gajeronika
 ms.custom: MVC
 # Customer intent: As an IT administrator managing virtual machines, I want to reprotect Azure VMware Solution VMs after failover, so that I can ensure data consistency and maintain disaster recovery capabilities in my cloud environment.
@@ -15,6 +15,8 @@ ms.custom: MVC
 After [failover](avs-tutorial-failover.md) of Azure VMware Solution VMs to Azure, the first step in failing back to your Azure VMware Solution private cloud is to reprotect the Azure VMs that were created during failover. This article describes how to do this. 
 
 ## Before you begin
+
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
 1. Follow the steps in [this article](vmware-azure-prepare-failback.md) to prepare for reprotection and failback, including setting up a process server in Azure, and an Azure VMware Solution private cloud master target server, and configuring a site-to-site VPN, or ExpressRoute private peering, for failback.
 2. Make sure that the Azure VMware Solution private cloud configuration server is running and connected to Azure. During failback, the VM must exist in the configuration server database. Otherwise, failback is unsuccessful.

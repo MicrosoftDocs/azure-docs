@@ -6,7 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.subservice: orchestration
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/05/2024
 ---
 

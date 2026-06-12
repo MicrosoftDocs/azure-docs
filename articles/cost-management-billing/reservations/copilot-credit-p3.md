@@ -5,8 +5,8 @@ author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.topic: conceptual
-ms.date: 01/15/2026
+ms.topic: how-to
+ms.date: 03/19/2026
 ms.author: primittal
 ---
 
@@ -39,7 +39,7 @@ Purchase Copilot Credit pre-purchase plans in the [Azure portal reservations](ht
 2. Navigate to the **Reservations** service.
 3. On the **Purchase reservations page**, select **Copilot Credit Pre-Purchase Plan**.  
    :::image type="content" source="./media/copilot-credit/copilot-credit.png" alt-text="Screenshot showing Copilot Credit pre-purchase plan." lightbox="./media/copilot-credit/copilot-credit.png":::
-4. On the **Select the product you want to purchase** page, select a subscription. Use the **Subscription** list to select the subscription used to pay for the reserved capacity. The payment method of the subscription is charged the upfront costs for the reserved capacity. Charges **not** are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
+4. On the **Select the product you want to purchase** page, select a subscription. Use the **Subscription** list to select the subscription used to pay for the reserved capacity. The payment method of the subscription is charged the upfront costs for the reserved capacity. Charges **not** are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage. The Copilot Credit prepurchase plan is billed as a separate charge and appears as its own line item on your invoice.
 5. Select a scope.
    - **Single resource group scope** - Applies the reservation discount to the matching resources in the selected resource group only.
    - **Single subscription scope** - Applies the reservation discount to the matching resources in the selected subscription.

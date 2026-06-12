@@ -3,7 +3,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: include
-ms.date: 01/23/2024
+ms.date: 05/21/2026
 ---
 
 - **Connection**: A connection, also known as a client or a **client connection**, it's a logical relationship between a client and the Web PubSub service. Over a 'connection', the client and the service engage in a series of stateful interactions. **Connections** using different protocols might behave differently, for example, some **connections** are limited to the duration of a network connection, while others can extend across multiple successive network connections between a client and the service.
@@ -20,6 +20,6 @@ ms.date: 01/23/2024
 
 - **Event Handler**: The event handler contains the logic to handle the client events. Register and configure event handlers in the service through the portal or Azure CLI beforehand. Details are described in [Event handler](..\concept-service-internals.md#event-handler) section.
 
-- **Event Listener(preview)**: The event listener just listens to the client events but can't interfere the lifetime of your clients through their response. Details are described in [Event listener](..\concept-service-internals.md#event-listener) section.
+- **Event Listener**: The event listener just listens to the client events but can't interfere the lifetime of your clients through their response. Details are described in [Event listener](..\concept-service-internals.md#event-listener) section.
 
 - **Server**: The server can handle client events, manage client connections, or publish messages to groups. Both event handler and event listener are considered to be server-side. Details about **server** are described in the [Server protocol](..\concept-service-internals.md#server-protocol) section.

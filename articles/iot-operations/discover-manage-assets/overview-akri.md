@@ -3,6 +3,7 @@ title: Learn about Akri services
 description: Understand how the Akri services enable you to dynamically configure and deploy Akri connectors to connect a broad variety of assets and devices to the Azure IoT Operations cluster, ingest telemetry from them, and use command and control.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.subservice: azure-akri
 ms.topic: overview
 ms.custom:
@@ -27,7 +28,7 @@ The following diagram shows the architecture of the Akri services in Azure IoT O
 
 The following steps explain how the Akri services work together to configure devices and assets, and connect them to your physical assets and devices:
 
-1. An IT admin creates a connector template in the Azure portal with configurations for a connector like the media connector.
+1. An IT admin creates a connector template in the Azure portal or by using the Azure CLI with configurations for a connector like the media connector.
 1. The connector template syncs to the edge. The Akri operator detects the new connector template.
 1. An OT user creates a device and inbound endpoint in the operations experience portal. The Akri operator detects the device and inbound endpoint and deploys a matching connector instance. The Akri operator uses the configuration  details in the connector template to configure the connector instance to connect to the physical device or asset.
 1. Data starts flowing from the physical device or asset through the connector instance to destinations set in the assets associated with the inbound endpoint.
@@ -48,7 +49,7 @@ Akri services enable the connectors that let you connect to different devices an
 
 The Akri operator manages the lifecycle of the Akri connector. It lets you deploy connectors dynamically when the cluster detects certain types of devices and allocates the corresponding assets to the inbound connector.
 
-The Akri operator uses *connector templates* to deploy and configure connectors. The IT admin adds the connector templates to the Azure IoT Operations environment from the Azure portal. Templates define how to deploy and configure connectors. For example, the connector template for the media connector lets the IT admin specify how the connector syncs captured media streams to Azure Storage.
+The Akri operator uses *connector templates* to deploy and configure connectors. The IT admin adds the connector templates to the Azure IoT Operations environment from the Azure portal or by using the Azure CLI. Templates define how to deploy and configure connectors. For example, the connector template for the media connector lets the IT admin specify how the connector syncs captured media streams to Azure Storage.
 
 After the IT admin adds a connector template, such as the one for the media connector, the Akri operator watches for assets and devices in the cluster that match the criteria in the template. When it finds a match, it deploys and configures the connector dynamically. Dynamic configuration includes:
 
@@ -71,9 +72,9 @@ For example, the Akri Azure Device Registry service helps an OT user to onboard 
 
 ## Akri SDKs
 
-Akri SDKs (preview) let you build custom connectors that integrate with Akri services. The SDKs provide a framework that simplifies connector development, so you can focus on the specific logic for your southbound connector. The SDKs manage all interactions with other Azure IoT Operations services for you.
+Akri SDKs let you build custom connectors that integrate with Akri services. The SDKs provide a framework that simplifies connector development, so you can focus on the specific logic for your southbound connector. The SDKs manage all interactions with other Azure IoT Operations services for you.
 
-To learn about the languages the SDKs support and the available libraries, see [Overview of the Azure IoT Operations SDKs (preview)](../develop-edge-apps/overview-iot-operations-development.md).
+To learn about the languages the SDKs support and the available libraries, see [Overview of the Azure IoT Operations SDKs](../develop-edge-apps/overview-iot-operations-development.md).
 
 ## Open-source Akri
 
@@ -91,4 +92,4 @@ Akri services build on the capabilities of the open-source Akri project and prov
 - [Configure the connector for OPC UA](howto-configure-opc-ua.md)
 - [Configure the connector for HTTP/REST](howto-use-http-connector.md)
 - [Configure the connector for SSE](howto-use-sse-connector.md)
-- [Configure the connector for MQTT (preview)](howto-use-mqtt-connector.md)
+- [Configure the connector for MQTT](howto-use-mqtt-connector.md)

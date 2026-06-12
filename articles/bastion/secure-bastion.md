@@ -1,12 +1,12 @@
 ---
 title: Secure Your Azure Bastion Deployment
 description: Learn how to secure your Azure Bastion deployment using actionable guidance aligned to the Microsoft Cloud Security Benchmark.
-author: abell
+author: cherylmc
 ms.service: azure-bastion
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: subject-security-benchmark
 ms.date: 08/28/2025
-ms.author: abell
+ms.author: cherylmc
 ai-usage: ai-assisted
 ---
 
@@ -116,7 +116,7 @@ Asset management for Azure Bastion involves implementing governance controls, mo
 
 * **Monitor compliance continuously**: Use Azure Policy to continuously audit and enforce network configurations for your Bastion resources, ensuring they remain compliant with organizational security standards.
 
-* **Choose appropriate SKU for security requirements**: Select the SKU tier based on required security features. Use Premium SKU for session recording and private-only deployments, Standard SKU for shareable links and host scaling, or Basic SKU for standard deployments. For more information, see [About Bastion configuration settings](./configuration-settings.md).
+* **Choose appropriate SKU for security requirements**: Select the SKU based on required security features. Use Premium SKU for session recording and private-only deployments, Standard SKU for shareable links and host scaling, or Basic SKU for standard deployments. For more information, see [About Bastion configuration settings](./configuration-settings.md).
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Diagnose a VM traffic filter problem - Azure PowerShell'
+title: 'Quickstart: Diagnose a VM Traffic Filter Problem - Azure PowerShell'
 titleSuffix: Azure Network Watcher
 description: In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using Azure Network Watcher IP flow verify in Azure PowerShell.
 author: halkazwini

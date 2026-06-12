@@ -4,7 +4,7 @@ description: This article explains how you can manage Azure costs with automatio
 author: vikramdesai01
 ms.author: vikdesai
 ms.date: 07/03/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: vikdesai
@@ -12,7 +12,7 @@ ms.reviewer: vikdesai
 
 # Manage costs with automation
 
-You can use Cost Management automation to build a custom set of solutions to retrieve and manage cost data. This article covers common scenarios for Cost Management automation and options available based on your situation. If you want to develop using APIs, common API request examples and presented to help accelerate your development process.
+You can use Cost Management automation to build a custom set of solutions to retrieve and manage cost data. This article covers common scenarios for Cost Management automation and options available based on your situation. If you want to develop using APIs, common API request examples are presented to help accelerate your development process.
 
 ## Automate cost data retrieval for offline analysis
 

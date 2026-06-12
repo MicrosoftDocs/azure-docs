@@ -4,7 +4,7 @@ description: Learn to record and query data collected using OpenTelemetry in Azu
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.date: 12/09/2025
+ms.date: 03/31/2026
 ms.author: cshoe
 ms.topic: how-to
 ms.custom:
@@ -25,7 +25,7 @@ This article shows you how to set up and configure an OpenTelemetry agent for yo
 
 OpenTelemetry agents live within your container app environment. You configure agent settings via an ARM template or Bicep calls to the environment, or through the CLI, or through Terraform (via the [AzAPI provider](https://registry.terraform.io/providers/Azure/azapi/latest/docs)).
 
-Each endpoint type (Azure Monitor Application Insights, DataDog, and OTLP) has specific configuration requirements.
+Each endpoint type (Azure Monitor Application Insights, Datadog, and OTLP) has specific configuration requirements.
 
 ## Prerequisites
 
@@ -52,9 +52,25 @@ The following table shows you what type of data you can send to each destination
 
 | Destination | Logs | Metrics | Traces |
 |---|------|---------|--------|
-| [Azure App Insights](/azure/azure-monitor/app/app-insights-overview) | Yes | No | Yes |
-| [Datadog](https://datadoghq.com/) | Yes | Yes | Yes |
-| [OpenTelemetry](https://opentelemetry.io/) protocol (OTLP) configured endpoint | Yes | Yes | Yes |
+| [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) | Yes | No | Yes |
+| [Datadog](./opentelemetry-export-datadog.md) | Yes | Yes | Yes |
+| [Dynatrace](./opentelemetry-export-dynatrace.md) | Yes | Yes | Yes |
+| [New Relic](./opentelemetry-export-new-relic.md) | Yes | Yes | Yes |
+| [Elastic](./opentelemetry-export-elastic.md) | Yes | Yes | Yes |
+| [OpenTelemetry Protocol (OTLP)-compatible endpoint](#otlp-endpoint) | Yes | Yes | Yes |
+
+## Export destination guides
+
+Use the following guides for destination-specific setup and validation details.
+
+| Destination | Guide |
+|---|---|
+| Datadog | [Export OpenTelemetry data to Datadog in Azure Container Apps](./opentelemetry-export-datadog.md) |
+| Dynatrace | [Export OpenTelemetry data to Dynatrace in Azure Container Apps](./opentelemetry-export-dynatrace.md) |
+| New Relic | [Export OpenTelemetry data to New Relic in Azure Container Apps](./opentelemetry-export-new-relic.md) |
+| Elastic | [Export OpenTelemetry data to Elastic in Azure Container Apps](./opentelemetry-export-elastic.md) |
+| Azure Monitor Application Insights | [Azure Monitor Application Insights](#azure-monitor-application-insights) |
+| Other OTLP-compatible endpoints | [OTLP endpoint](#otlp-endpoint) |
 
 ## Azure Monitor Application Insights
 
@@ -167,6 +183,8 @@ resource "azapi_update_resource" "app_insights_open_telemetry_integration" {
 ## Datadog
 
 You don't need to run the Datadog agent in your container app if you enable the managed OpenTelemetry agent for your environment.
+
+For a detailed walkthrough, see [Export telemetry data from Azure Container Apps managed OpenTelemetry agent to Datadog](opentelemetry-export-datadog.md).
 
 The OpenTelemetry agent configuration requires a value for `site` and `key` from your Datadog instance. Gather these values from your Datadog instance according to this table:
 
@@ -537,8 +555,8 @@ To configure an agent, use the `destinations` array to define which agents your 
 |---|---|
 | Select a data type. | You can configure logs, metrics, and/or traces individually. |
 | Enable or disable any data type. | You can choose to send only traces and no other data. |
-| Send one data type to multiple endpoints. | You can send logs to both DataDog and an OTLP-configured endpoint. |
-| Send different data types to different locations. | You can send traces to an OTLP endpoint and metrics to DataDog. |
+| Send one data type to multiple endpoints. | You can send logs to both Datadog and an OTLP-configured endpoint. |
+| Send different data types to different locations. | You can send traces to an OTLP endpoint and metrics to Datadog. |
 | Disable sending all data types. | You can choose to not send any data through the OpenTelemetry agent. |
 
 ### By endpoint
@@ -549,7 +567,7 @@ To configure an agent, use the `destinations` array to define which agents your 
 The following example ARM template shows how to use an OTLP endpoint named `customDashboard`. It sends:
 - traces to app insights and `customDashboard`
 - logs to app insights and `customDashboard`
-- metrics to DataDog and `customDashboard`
+- metrics to Datadog and `customDashboard`
 
 ```json
 {
@@ -747,7 +765,7 @@ For more information, see [Microsoft.App/managedEnvironments](/azure/templates/m
 
 ## Data resilience
 
-In the event of a messaging inturruptions to an endpoint, the OpenTelemetry agent uses the following procedure to support data resilience: 
+In the event of a messaging interruption to an endpoint, the OpenTelemetry agent uses the following procedure to support data resilience: 
 
 - **In-memory buffering and retries**: The agent holds data in memory and keeps retrying (with backoff) for up to five minutes.
 - **Dropping data**: If the buffered queue fills up, or the endpoint is still down after retries, the agent discards the oldest batches to avoid running out of memory.
@@ -756,7 +774,7 @@ In the event of a messaging inturruptions to an endpoint, the OpenTelemetry agen
 
 The OpenTelemetry agent automatically injects a set of environment variables into your application at runtime.
 
-The first two environment variables follow standard OpenTelemetry exporter configuration and are used in OTLP standard software development kits. If you explicitly set the environment variable in the container app specification, your value overwrites the automatically injected value.
+The first three environment variables follow standard OpenTelemetry configuration and are used in OTLP standard software development kits. If you explicitly set the environment variable in the container app specification, your value overwrites the automatically injected value.
 
 Learn about the OTLP exporter configuration see, [OTLP Exporter Configuration](https://opentelemetry.io/docs/languages/sdk-configuration/otlp-exporter/).
 
@@ -764,6 +782,7 @@ Learn about the OTLP exporter configuration see, [OTLP Exporter Configuration](h
 |---|---|
 | `OTEL_EXPORTER_OTLP_ENDPOINT` | A base endpoint URL for any signal type, with an optionally specified port number. This setting is helpful when you’re sending more than one signal to the same endpoint and want one environment variable to control the endpoint. Example:  `http://otel.service.k8se-apps:4317/` |
 | `OTEL_EXPORTER_OTLP_PROTOCOL` | Specifies the OTLP transport protocol used for all telemetry data. The managed agent only supports `grpc`. Value: `grpc`. |
+| `OTEL_RESOURCE_ATTRIBUTES` | A comma-separated list of key-value pairs that define [resource attributes](https://opentelemetry.io/docs/specs/otel/resource/sdk/) attached to all telemetry data. The managed agent populates this variable with container app attributes such as the app name and environment. Some OpenTelemetry SDK implementations require you to explicitly enable environment-based resource detection to use these attributes. If you set this variable in the container app specification, your value overwrites the automatically injected value. |
 
 The other three environment variables are specific to Azure Container Apps, and are always injected. These variables hold agent’s endpoint URLs for each specific data type (logs, metrics, traces).
 
@@ -822,6 +841,11 @@ These resources are managed by Microsoft and don't appear in your billing or res
 - **How can I monitor the health and status of the OpenTelemetry agent?**
 
     Agent status and health metrics aren't currently exposed. This capability is planned for a future release.
+
+
+## Custom DNS configuration
+
+The managed OpenTelemetry collector respects custom DNS configuration in your Container Apps environment. If you've configured custom DNS settings, the collector automatically uses those settings for name resolution when connecting to external endpoints. This ensures that your OpenTelemetry data is routed correctly through your network infrastructure.
 
 ## Next steps
 

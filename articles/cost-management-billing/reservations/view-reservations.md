@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 01/15/2026
+ms.date: 03/19/2026
 ms.author: primittal
 ms.custom:
   - devx-track-azurepowershell
@@ -64,7 +64,7 @@ You can view, manage, and delegate permissions to reservations by using built-in
 - **Enterprise Agreement**: Users with the Enterprise Agreement Purchaser role or higher
 - **Microsoft Partner Agreement**: Not supported
 
-To purchase a reservation, Enterprise Agreement admins or billing profile owners must have Owner or Reservations Purchaser access on at least one Enterprise Agreement or Microsoft Customer Agreement subscription. This option is useful for enterprises that want a centralized team to purchase reservations. For more information, see [Buy an Azure reservation](prepare-buy-reservation.md).
+To purchase a reservation, Enterprise Agreement admins or billing profile owners must have Owner or Reservation Purchaser access on at least one Enterprise Agreement or Microsoft Customer Agreement subscription. This option is useful for enterprises that want a centralized team to purchase reservations. For more information, see [Buy an Azure reservation](prepare-buy-reservation.md).
 
 ### View and manage reservations as a Billing Admin
 
@@ -92,7 +92,7 @@ Add a user as billing administrator to an Enterprise Agreement or a Microsoft Cu
 Azure provides four reservation-specific RBAC roles with different permission levels:
 
 - **Reservations Administrator**: Users with this role can manage one or more reservations in their Microsoft Entra tenant (directory). They can also [delegate RBAC roles](/azure/role-based-access-control/role-assignments-portal) to other users.
-- **Reservations Purchaser**: Users with this role can purchase reservations with a specified subscription (even non-subscription owners).
+- **Reservation Purchaser**: Users with this role can purchase reservations with a specified subscription (even non-subscription owners).
 - **Reservations Contributor**: Users with this role can manage one or more reservations in their Microsoft Entra tenant (directory) but can't delegate RBAC roles to other users.
 - **Reservations Reader**: Users with this role have read-only access to one or more reservations in their Microsoft Entra tenant (directory).
 
@@ -131,7 +131,7 @@ If you have reservation-specific RBAC roles (Reservations Administrator, Purchas
 
 In this section, you learn how to:
 
-- Delegate the Reservations Purchaser role to a specific subscription.
+- Delegate the Reservation Purchaser role to a specific subscription.
 - Delegate the Reservations Administrator, Contributor, or Reader roles to a specific reservation.
 - Delegate the Reservations Administrator, Contributor, or Reader roles to all reservations.
 
@@ -142,7 +142,7 @@ Users and groups who gain the ability to purchase, manage, or view reservations 
 
 #### Delegate the Reservation Purchaser role to a specific subscription
 
-To delegate the Reservations Purchaser role to a specific subscription, first make sure you have elevated access. Then, follow these steps:
+To delegate the Reservation Purchaser role to a specific subscription, first make sure you have elevated access. Then, follow these steps:
 
 1. Go to **Home** > **Reservations** to see all reservations in the tenant.
 2. To make modifications to the reservation, add yourself as an owner of the reservation order by using the **Access control (IAM)** option.

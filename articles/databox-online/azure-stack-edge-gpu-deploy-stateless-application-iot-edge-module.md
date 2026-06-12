@@ -2,12 +2,12 @@
 title: Deploy Kubernetes stateless app on Azure Stack Edge Pro GPU via IoT Edge module| Microsoft Docs 
 description: Describes how to deploy a Kubernetes stateless application on your Azure Stack Edge Pro GPU device by using an IoT Edge module which is accessed via an external IP.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.author: alkohli
+ms.author: sipastak
 ms.custom: sfi-image-nochange
 ---
 

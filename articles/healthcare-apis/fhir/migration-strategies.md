@@ -7,14 +7,14 @@ ms.subservice: fhir
 ms.topic: tutorial
 ms.author: evach
 author: evachen96
-ms.date: 10/10/2025
+ms.date: 02/25/2026
 ---
 
 # Migration strategies for moving from Azure API for FHIR
 
 [!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-Azure Health Data Services FHIR&reg; service is the next-generation platform for health data integration. It offers managed, enterprise-grade FHIR, DICOM, and MedTech services for diverse health data exchange. 
+Azure Health Data Services FHIR&reg; service is the next-generation platform for health data integration. It offers managed, enterprise-grade FHIR and DICOM services for diverse health data exchange. 
 
 When you migrate your FHIR data from Azure API for FHIR to Azure Health Data Services FHIR service, your organization can benefit from improved performance, scalability, security, and compliance. Organizations can also access new features and capabilities that aren't available in Azure API for FHIR. 
 
@@ -43,6 +43,9 @@ Compare the differences between Azure API for FHIR and Azure Health Data Service
 |**Events**|Not Supported|Supported|
 |**Infrastructure**|Supported: <br> • Customer managed keys <br> • Cross region DR (disaster recovery)  <br>|Supported: <br> • PITR (point in time recovery)  <br> • [Customer managed keys](configure-customer-managed-keys.md) <br> Upcoming: <br> • Availability zone support|
 
+> [!IMPORTANT]
+> If your Azure API for FHIR instance contains more than 2 TB of data, open an [Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) **before** starting your migration. In the support ticket, include your Azure API for FHIR instance name and your Azure Health Data Services FHIR service instance name so the team can assist with your migration planning.
+
 ### Things to consider that may affect your architecture
 
 - **Sync agent is being deprecated**. If you're using sync agent to connect to Dataverse, see [Overview of data integration toolkit](/dynamics365/industry/healthcare/data-integration-toolkit-overview?toc=%2Findustry%2Fhealthcare%2Ftoc.json&bc=%2Findustry%2Fbreadcrumb%2Ftoc.json)
@@ -53,9 +56,7 @@ Compare the differences between Azure API for FHIR and Azure Health Data Service
 
 - **Azure Health Data Services FHIR service does not support local RBAC and custom authority**. The token issuer authority needs to be the authentication endpoint for the tenant that the FHIR Service is running in.
 
-- **The IoT connector is only supported using an Azure API for FHIR service**. The IoT connector is succeeded by the MedTech service. You need to deploy a MedTech service and corresponding FHIR service within an existing or new Azure Health Data Services workspace, and point your devices to the new Azure Events Hubs device event hub. Use the existing IoT connector device and destination mapping files with the MedTech service deployment.
-
-If you want to migrate existing IoT connector device FHIR data from your Azure API for FHIR service to the Azure Health Data Services FHIR service, use the bulk export and import functionality in the migration tool. Another migration path would be to deploy a new MedTech service and replay the IoT device messages through the MedTech service.
+- **The IoT connector is only supported using an Azure API for FHIR service**. If you want to migrate existing IoT connector device FHIR data from your Azure API for FHIR service to the Azure Health Data Services FHIR service, use the bulk export and import functionality in the migration tool. 
 
 ## Step 2: Prepare to migrate
 

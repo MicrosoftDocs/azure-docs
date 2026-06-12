@@ -4,7 +4,7 @@ description: This guide helps customers who buy Microsoft software and services 
 author: KennyDay
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/08/2025
 ms.author: kenday
 ms.reviewer: clionabolger

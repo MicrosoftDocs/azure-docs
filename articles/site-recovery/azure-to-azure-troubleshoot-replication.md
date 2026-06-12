@@ -55,7 +55,7 @@ Azure Site Recovery has limits on data change rates, depending on the type of di
 A spike in data change rate might come from an occasional data burst. If the data change rate is greater than 10 MB/s (for Premium) or 2 MB/s (for Standard) and comes down, replication will catch up. If the churn is consistently well beyond the supported limit, consider one of these options:
 
 - Exclude the disk that's causing a high data-change rate: First, disable the replication. Then you can exclude the disk by using [PowerShell](azure-to-azure-exclude-disks.md).
-- Change the disk size of the replica disk. This option is useful only if the disk data churn is less than 20 MB/s per disk, or less than 50 MB/s per disk for [High Churn](./concepts-azure-to-azure-high-churn-support.md). For example, assuming you have not opted for high churn support and have a VM with disk of 128 GiB and a data churn between 8 MB/s and 10 MB/s. Now since, disk size of 128 GiB has churn limit of 8 MB/s, you can increase the disk size to 512 GiB to support higher churn. This solution is only possible for machines that use Premium-Managed Disks. Follow these steps:
+- Change the disk size of the replica disk. This option is useful only if the disk data churn is less than 20 MB/s per disk, or less than 50 MB/s per disk for [High Churn](./concepts-azure-to-azure-high-churn-support.md). For example, assuming you have not opted for high churn support and have a VM with disk of 128 GiB and a data churn between 8 MB/s and 10 MB/s. Now since, disk size of 128 GiB has churn limit of 8 MB/s, you can increase the disk size to 512 GiB to support higher churn. This solution is only possible for machines that use Premium-managed disks. Follow these steps:
 
   1. Go to **Disks** of the affected replicated machine and copy the replica disk name.
   1. Go to this replica of the managed disk.
@@ -63,7 +63,7 @@ A spike in data change rate might come from an occasional data burst. If the dat
   1. As soon as the SAS URL is revoked, go to **Size + Performance** for the managed disk. Increase the size so that Site Recovery supports the observed churn rate on the source disk.
 
 > [!IMPORTANT]
-> The churn limit supported by Azure Site Recovery depends on the disk size of the replica premium SSD disk. This limit remains the same even if you [change the performance tier](/azure/virtual-machines/disks-change-performance) of the replica disk.  For example, if you have premium SSD replica disk of disk size 128 GiB created, its base performance tier is P10. If you update its performance tier to P50 without changing the disk size, the churn limit won't change.  
+> The churn limit supported by Azure Site Recovery depends on the disk size of the replica Premium SSD. This limit remains the same even if you [change the performance tier](/azure/virtual-machines/disks-change-performance) of the replica disk.  For example, if you have Premium SSD replica disk of disk size 128 GiB created, its base performance tier is P10. If you update its performance tier to P50 without changing the disk size, the churn limit won't change.  
 
 
 ### Disk tier/SKU change considerations

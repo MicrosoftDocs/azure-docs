@@ -2,11 +2,11 @@
 title: 'Deploy Bastion:PowerShell'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion using PowerShell.
-author: abell
+author: cherylmc
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 03/03/2025
-ms.author: abell
+ms.author: cherylmc
 ms.custom: devx-track-azurepowershell
 # Customer intent: As someone with a networking background, I want to deploy Bastion and connect to a VM.
 ---
@@ -19,7 +19,7 @@ Once you deploy Bastion to your virtual network, you can connect to your VMs via
 
 :::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram showing Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
 
-In this article, you create a virtual network (if you don't already have one), deploy Azure Bastion using PowerShell, and connect to a VM. The examples show Bastion deployed using the Standard SKU tier, but you can use a different Bastion SKU, depending on the features you'd like to use. For more information, see [Bastion SKUs](bastion-sku-comparison.md).
+In this article, you create a virtual network (if you don't already have one), deploy Azure Bastion using PowerShell, and connect to a VM. The examples show Bastion deployed using the Standard SKU, but you can use a different Bastion SKU, depending on the features you'd like to use. For more information, see [Bastion SKUs](bastion-sku-comparison.md).
 
 You can also deploy Bastion by using the following other methods:
 
@@ -63,7 +63,7 @@ You can use the following example values when creating this configuration, or yo
 | Subnet Name | FrontEnd |
 | Subnet Name | AzureBastionSubnet|
 | AzureBastionSubnet addresses | A subnet within your virtual network address space with a subnet mask /26 or larger.<br> For example, 10.1.1.0/26.  |
-| Tier/SKU | Standard |
+| SKU | Standard |
 | Public IP address |  Create new |
 | Public IP address name | VNet1-ip  |
 | Public IP address SKU |  Standard  |

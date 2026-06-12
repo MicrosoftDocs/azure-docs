@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-edge
 services: iot-edge
 ms.topic: concept-article
-ms.date: 01/21/2025
+ms.date: 03/09/2026
 ms.custom:
   - linux-related-content
   - sfi-image-nochange
@@ -42,7 +42,7 @@ For the other network, the EFLOW host device is physically connected to the DMZ 
 Secure network:
 
 - No internet connectivity - access restricted.
-- PLCs or UPC UA-compatible devices connected.
+- PLCs or OPC UA-compatible devices connected.
 - EFLOW VM connected using an External virtual switch.
 
 DMZ:
@@ -72,7 +72,7 @@ To create an external virtual switch, follow these steps:
 6. Under **Connection Type**, select **External Network** then choose the *network adapter* connected to your DMZ network.
 7. Select **Apply**.
 
-Once the external virtual switch is created, you need to attach it to the EFLOW VM using the following steps. If you need to attach multiple NICs, see [EFLOW Multiple NICs](https://github.com/Azure/iotedge-eflow/wiki/Multiple-NICs).
+Once the external virtual switch is created, you need to attach it to the EFLOW VM using the following steps. If you need to attach multiple NICs, see [Azure IoT Edge for Linux on Windows virtual multiple NIC configurations](./how-to-configure-multiple-nics.md).
 
 For the custom new *external virtual switch* you created, use the following PowerShell commands to: 
 
@@ -112,7 +112,7 @@ Once complete, you have the *OnlineOPCUA* switch assigned to the EFLOW VM. To ch
 
 ## Configure VM network routing 
 
-When using the EFLOW multiple NICs feature, you may want to set up the different route priorities. By default, EFLOW creates one *default* route per *ehtX* interface assigned to the VM. EFLOW assigns the default route a random priority. If all interfaces are connected to the internet, random priorities may not be a problem. However, if one of the NICs is connected to an *offline* network, you may want to prioritize the *online* NIC over the *offline* NIC to get the EFLOW VM connected to the internet.
+When using the EFLOW multiple NICs feature, you may want to set up the different route priorities. By default, EFLOW creates one *default* route per *ethX* interface assigned to the VM. EFLOW assigns the default route a random priority. If all interfaces are connected to the internet, random priorities may not be a problem. However, if one of the NICs is connected to an *offline* network, you may want to prioritize the *online* NIC over the *offline* NIC to get the EFLOW VM connected to the internet.
 
 EFLOW uses the [route](https://man7.org/linux/man-pages/man8/route.8.html) service to manage the network routing alternatives. In order to check the available EFLOW VM routes, use the following steps:
 

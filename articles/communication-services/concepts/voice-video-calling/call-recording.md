@@ -7,7 +7,7 @@ manager: seaen
 services: azure-communication-services
 ms.author: sundraman
 ms.date: 06/30/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: references_regions
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -63,6 +63,11 @@ A `recordingId` is returned when recording is started, which can then be used fo
 | Resume Recording      | `recordingId` | Resumes a Paused recording operation. Content is included in the same file as content from prior to pausing. | 
 | Stop Recording        | `recordingId` | Stops recording, and initiates final media processing for file download. | 
 
+> [!NOTE]
+> **Storing `recordingId` and `serverCallId`**
+>
+> `recordingId` and `serverCallId` are opaque, Base64-encoded strings of **variable length**. Their length is not fixed and may change in future service releases. When persisting these values, use an unbounded variable-length column type  rather than a fixed-width column. Treat both values as opaque tokens.
+>
 
 ## Event Grid notifications
 

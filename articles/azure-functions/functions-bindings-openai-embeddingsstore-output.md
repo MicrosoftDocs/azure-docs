@@ -28,16 +28,20 @@ For information on setup and configuration details of the Azure OpenAI extension
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"  
 This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
-:::code language="csharp" source="~/functions-openai-extension/samples/rag-aisearch/csharp-ooproc/FilePrompt.cs" range="17-21,29-66"::: 
+<!-- :::code language="csharp" source="~/functions-openai-extension/samples/rag-aisearch/csharp-ooproc/FilePrompt.cs" range="17-21,29-66"::: -->
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
 This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
-:::code language="java" source="~/functions-openai-extension/samples/rag-aisearch/java/src/main/java/com/azfs/FilePrompt.java" range="29-73":::
+<!-- :::code language="java" source="~/functions-openai-extension/samples/rag-aisearch/java/src/main/java/com/azfs/FilePrompt.java" range="29-73"::: -->
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript" 
@@ -45,12 +49,12 @@ This example writes an HTTP input stream to a semantic document store at the pro
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 
-:::code language="javascript" source="~/functions-openai-extension/samples/rag-aisearch/javascript/src/app.js" range="5-37":::
+<!-- :::code language="javascript" source="~/functions-openai-extension/samples/rag-aisearch/javascript/src/app.js" range="5-37"::: -->
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
-:::code language="typescript" source="~/functions-openai-extension/samples/rag-aisearch/typescript/src/app.ts" range="4-40":::
+<!-- :::code language="typescript" source="~/functions-openai-extension/samples/rag-aisearch/typescript/src/app.ts" range="4-40"::: -->
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -58,17 +62,17 @@ This example writes an HTTP input stream to a semantic document store at the pro
 
 Here's the _function.json_ file for ingesting files:
 
-:::code language="json" source="~/functions-openai-extension/samples/rag-aisearch/powershell/IngestFile/function.json" :::
+<!-- :::code language="json" source="~/functions-openai-extension/samples/rag-aisearch/powershell/IngestFile/function.json" ::: -->
 
 For more information about *function.json* file properties, see the [Configuration](#configuration) section.
 
-:::code language="powershell" source="~/functions-openai-extension/samples/rag-aisearch/powershell/IngestFile/run.ps1" :::
+<!-- :::code language="powershell" source="~/functions-openai-extension/samples/rag-aisearch/powershell/IngestFile/run.ps1" ::: -->
 
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
 This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
-:::code language="python" source="~/functions-openai-extension/samples/rag-aisearch/python/function_app.py" range="8-35":::
+<!-- :::code language="python" source="~/functions-openai-extension/samples/rag-aisearch/python/function_app.py" range="8-35"::: -->
 
 ::: zone-end  
 <!--- End code examples section -->  

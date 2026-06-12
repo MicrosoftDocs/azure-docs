@@ -6,7 +6,7 @@ author: henikaraa
 ms.service: azure-communication-services
 ms.subservice: pstn
 ms.date: 09/01/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: henikaraa
 ms.custom: general_Availability
 services: azure-communication-services

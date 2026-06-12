@@ -77,7 +77,7 @@ The [Batch node agent](https://github.com/Azure/Batch/blob/master/changelogs/nod
 
 ### Node Agent SKUs
 
-When you create a pool, you need to select the appropriate **nodeAgentSkuId**, depending on the OS of the base image of your VHD. You can get a mapping of available node agent SKU IDs to their OS Image references by calling the [List Supported Node Agent SKUs](/rest/api/batchservice/list-supported-node-agent-skus) operation.
+When you create a pool, you need to select the appropriate **nodeAgentSkuId**, depending on the OS of the base image of your VHD. You can get a mapping of available node agent SKU IDs to their OS Image references by calling the [List Supported Node Agent SKUs](/rest/api/batchservice/pools/list-supported-images) operation.
 
 ### Custom images for Virtual Machine pools
 
@@ -130,7 +130,7 @@ A scaling formula can be based on the following metrics:
 - **Resource metrics** are based on CPU usage, bandwidth usage, memory usage, and number of nodes.
 - **Task metrics** are based on task state, such as *Active* (queued), *Running*, or *Completed*.
 
-When automatic scaling decreases the number of compute nodes in a pool, you must consider how to handle tasks that are running at the time of the decrease operation. To accommodate this, Batch provides a [*node deallocation option*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) that you can include in your formulas. For example, you can specify that running tasks are stopped immediately and then requeued for execution on another node, or allowed to finish before the node is removed from the pool. Setting the node deallocation option as `taskcompletion` or `retaineddata` prevents pool resize operations until all tasks complete, or when all task retention periods expire, respectively.
+When automatic scaling decreases the number of compute nodes in a pool, you must consider how to handle tasks that are running at the time of the decrease operation. To accommodate this, Batch provides a [*node deallocation option*](/rest/api/batchservice/pools/remove-nodes) that you can include in your formulas. For example, you can specify that running tasks are stopped immediately and then requeued for execution on another node, or allowed to finish before the node is removed from the pool. Setting the node deallocation option as `taskcompletion` or `retaineddata` prevents pool resize operations until all tasks complete, or when all task retention periods expire, respectively.
 
 For more information about automatically scaling an application, see [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md).
 

@@ -3,9 +3,10 @@ title: Azure Role-Based Access Control for firmware analysis
 description: Learn about how to use Azure Role-Based Access Control for firmware analysis.
 author: karengu0
 ms.author: karenguo
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/12/2025
 ms.service: azure
+ms.subservice: azure-firmware-analysis
 ---
 
 # Overview of Azure Role-Based Access Control for firmware analysis

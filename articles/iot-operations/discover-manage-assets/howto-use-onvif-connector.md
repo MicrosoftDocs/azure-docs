@@ -4,15 +4,20 @@ description: Use the operations experience web UI to discover and configure asse
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-akri
 ms.topic: how-to
-ms.date: 12/11/2025
+ms.date: 05/28/2026
+ai-usage: ai-assisted
 
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can discover and use media streams from an ONVIF compliant camera.
 ---
 
 # Configure the connector for ONVIF
 
-In Azure IoT Operations, the connector for ONVIF enables you to discover and use an [ONVIF conformant](https://www.onvif.org/profiles-add-ons-specifications/) camera  connected to your Azure IoT Operations cluster.
+In Azure IoT Operations, the connector for ONVIF enables you to discover media profiles and capabilities from a known [ONVIF conformant](https://www.onvif.org/profiles-add-ons-specifications/) camera connected to your Azure IoT Operations cluster.
+
+> [!NOTE]
+> The connector for ONVIF doesn't support network-level discovery of ONVIF cameras. You must manually add a device with the camera's ONVIF endpoint before the connector can discover the camera's media profiles and capabilities.
 
 [!INCLUDE [iot-operations-asset-definition](../includes/iot-operations-asset-definition.md)]
 
@@ -23,17 +28,18 @@ The following table summarizes the features the connector for ONVIF supports:
 | Feature | Supported | Notes |
 |---------|:---------:|-------|
 | Username/password authentication | Yes | |
-| X.509 client certificates | No | |
+| X.509 user certificates | No | |
 | Anonymous access | Yes | For testing purposes |
-| Certificate trust list | Yes | For secure TLS connections to ONVIF cameras |
+| Southbound certificate trust list | Yes | For secure TLS connections to ONVIF cameras |
 | OpenTelemetry integration | Yes | |
-| Device discovery | Yes | Discovers ONVIF cameras on the network |
+| Network discovery | No | Discovering ONVIF cameras on the network isn't currently supported |
+| Media profile discovery | Yes | Discovers media profiles within a known camera |
 | Capability discovery | Yes | Discovers PTZ and other device capabilities |
 | Media endpoint discovery | Yes | Discovers media streams, framerate, resolution, encoding |
 | Camera configuration | Yes | Retrieve and update camera settings |
 | PTZ control | Yes | Control pan, tilt, and zoom |
 
-The connector connects ONVIF cameras to your Azure IoT Operations instance and registers them in the Azure Device Registry. The connector then automatically discovers:
+The connector connects ONVIF cameras to your Azure IoT Operations instance and registers them in the Azure Device Registry. After you add a known camera, the connector automatically discovers the following information from that camera:
 
 - The capabilities, such as pan-tilt-zoom (PTZ), of the ONVIF device.
 - The media endpoints exposed by the ONVIF device.
@@ -64,6 +70,8 @@ This article describes how to use the operations experience web UI and Azure CLI
 
 [!INCLUDE [enable-resource-sync-rules](../includes/enable-resource-sync-rules.md)]
 
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
 An ONVIF compliant camera that you can reach from your Azure IoT Operations cluster.
@@ -79,17 +87,17 @@ The connector for ONVIF in Azure IoT Operations focuses on support for camera de
 
 The connector enables support for the following capabilities:
 
-- Discovery of device information and capabilities.
+- Discovery of device information and capabilities from a known camera.
 - Monitoring events from devices.
 - Discovery of the media URIs exposed by a device. The connector for ONVIF makes these URIs available to the media connector.
 - Imaging control such as filters and receiving motion and tampering events.
 - Controlling device PTZ.
 
-## Deploy the connector for ONVIF
+### ONVIF connector template instance
 
-[!INCLUDE [deploy-connectors-simple](../includes/deploy-connectors-simple.md)]
+Before an OT user can create a device that uses the connector for ONVIF, an IT administrator must add an ONVIF connector template instance to your Azure IoT Operations instance. To learn more, see [Create and manage connector template instances](howto-manage-connector-templates.md).
 
-### Configure a certificate trust list for the connector
+## Configure a certificate trust list for the connector
 
 [!INCLUDE [connector-certificate-application](../includes/connector-certificate-application.md)]
 
@@ -303,9 +311,13 @@ To create an ONVIF asset for event management and control:
 
 To interact with the ONVIF camera, you can publish MQTT messages that the connector for ONVIF subscribes to. The message format is based on the [ONVIF network interface specifications](https://www.onvif.org/profiles/specifications/).
 
-The [Azure IoT Operations connector for ONVIF PTZ Demo](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/aio-onvif-connector-ptz-demo) sample application shows how to use the connector for ONVIF to:
+To publish MQTT messages to interact with the camera, options include:
 
-- Use the media asset definition to retrieve a profile token from the camera's media service.
-- Use the profile token when you use the camera's PTZ capabilities control its position and orientation.
+- Management actions CLI commands. To learn more, see[Enable and run management actions](howto-use-management-actions.md).
 
-The sample application uses the Azure IoT Operations MQTT broker to send commands to interact with the connector for ONVIF. To learn more, see [Publish and subscribe MQTT messages using MQTT broker](../manage-mqtt-broker/overview-broker.md).
+- Programmatically. The [Azure IoT Operations connector for ONVIF PTZ Demo](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/aio-onvif-connector-ptz-demo) sample application shows how to use the connector for ONVIF to:
+
+    - Use the media asset definition to retrieve a profile token from the camera's media service.
+    - Use the profile token when you use the camera's PTZ capabilities control its position and orientation.
+
+    The sample application uses the Azure IoT Operations MQTT broker to send commands to interact with the connector for ONVIF. To learn more about using the MQTT broker, see [Azure IoT Operations built-in local MQTT broker](../manage-mqtt-broker/overview-broker.md).

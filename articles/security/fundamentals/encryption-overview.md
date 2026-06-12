@@ -6,7 +6,7 @@ author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/12/2026
+ms.date: 05/05/2026
 ms.author: mbaldwin
 ---
 
@@ -53,7 +53,7 @@ All Managed Disks, Snapshots, and Images are encrypted by default using Storage 
 
 You can encrypt data at rest in Azure Blob storage and Azure file shares for both server-side and client-side scenarios.
 
-[Azure Storage Service Encryption (SSE)](/azure/storage/common/storage-service-encryption) automatically encrypts data before it is stored and automatically decrypts the data when you retrieve it. Storage Service Encryption uses 256-bit AES encryption, one of the strongest block ciphers available.
+[Azure Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md) automatically encrypts data before it is stored and automatically decrypts the data when you retrieve it. Storage Service Encryption uses 256-bit AES encryption, one of the strongest block ciphers available.
 
 ### Azure SQL Database encryption
 
@@ -61,7 +61,7 @@ You can encrypt data at rest in Azure Blob storage and Azure file shares for bot
 
 #### Transparent Data Encryption
 
-[TDE](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) encrypts [SQL Server](https://www.microsoft.com/sql-server), [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), and [Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is) data files in real time by using a Database Encryption Key (DEK). TDE is enabled by default on newly created Azure SQL databases.
+[TDE](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) encrypts [SQL Server](https://www.microsoft.com/sql-server), [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) data files in real time by using a Database Encryption Key (DEK). TDE is enabled by default on newly created Azure SQL databases.
 
 #### Always Encrypted
 
@@ -102,7 +102,7 @@ Microsoft gives customers the ability to use [Transport Layer Security (TLS)](ht
 
 When you interact with Azure Storage through the Azure portal, all transactions take place over HTTPS. You can also use the Storage REST API over HTTPS to interact with Azure Storage. You can enforce the use of HTTPS when you call the REST APIs by enabling the secure transfer requirement for the storage account.
 
-[Shared Access Signatures (SAS)](/azure/storage/common/storage-sas-overview), which you can use to delegate access to Azure Storage objects, include an option to specify that only the HTTPS protocol can be used.
+[Shared Access Signatures (SAS)](../../storage/common/storage-sas-overview.md), which you can use to delegate access to Azure Storage objects, include an option to specify that only the HTTPS protocol can be used.
 
 ### SMB encryption
 
@@ -114,30 +114,30 @@ You can connect to Azure through a virtual private network that creates a secure
 
 #### Azure VPN gateways
 
-[Azure VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings) sends encrypted traffic between your virtual network and your on-premises location across a public connection, or between virtual networks. Site-to-site VPNs use [IPsec](https://en.wikipedia.org/wiki/IPsec) for transport encryption.
+[Azure VPN gateway](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md) sends encrypted traffic between your virtual network and your on-premises location across a public connection, or between virtual networks. Site-to-site VPNs use [IPsec](https://en.wikipedia.org/wiki/IPsec) for transport encryption.
 
 #### Point-to-site VPNs
 
-Point-to-site VPNs allow individual client computers access to an Azure virtual network. The Secure Socket Tunneling Protocol (SSTP) creates the VPN tunnel. For more information, see [Configure a point-to-site connection to a virtual network](/azure/vpn-gateway/point-to-site-certificate-gateway).
+Point-to-site VPNs allow individual client computers access to an Azure virtual network. The Secure Socket Tunneling Protocol (SSTP) creates the VPN tunnel. For more information, see [Configure a point-to-site connection to a virtual network](../../vpn-gateway/point-to-site-certificate-gateway.md).
 
 #### Site-to-site VPNs
 
-A site-to-site VPN gateway connection connects your on-premises network to an Azure virtual network over an IPsec/IKE VPN tunnel. For more information, see [Create a site-to-site connection](/azure/vpn-gateway/tutorial-site-to-site-portal).
+A site-to-site VPN gateway connection connects your on-premises network to an Azure virtual network over an IPsec/IKE VPN tunnel. For more information, see [Create a site-to-site connection](../../vpn-gateway/tutorial-site-to-site-portal.md).
 
 ## Key management with Key Vault
 
 Without proper protection and management of keys, encryption is useless. Azure offers several key management solutions, including Azure Key Vault, Azure Key Vault Managed HSM, Azure Cloud HSM, and Azure Payment HSM.
 
-Key Vault removes the need to configure, patch, and maintain hardware security modules (HSMs) and key management software. By using Key Vault, you maintain control—Microsoft never sees your keys, and applications don't have direct access to them. You can also import or generate keys in HSMs.
+Key Vault removes the need to configure, patch, and maintain hardware security modules (HSMs) and key management software. By using Key Vault, you maintain control—applications don't have direct access to your keys. You can also import or generate keys in HSMs. For the strongest key isolation guarantees, Azure Managed HSM provides a customer-owned security domain where Microsoft has no access to your key material.
 
-For more information about key management in Azure, see [Key management in Azure](/azure/security/fundamentals/key-management).
+For more information about key management in Azure, see [Key management in Azure](key-management.md).
 
 ## Next steps
 
-- [Azure security overview](/azure/security/fundamentals/overview)
-- [Azure network security overview](/azure/security/fundamentals/network-overview)
+- [Azure security overview](overview.md)
+- [Azure network security overview](network-overview.md)
 - [Azure database security overview](/azure/azure-sql/database/security-overview)
-- [Azure virtual machines security overview](/azure/security/fundamentals/virtual-machines-overview)
-- [Data encryption at rest](/azure/security/fundamentals/encryption-atrest)
-- [Data security and encryption best practices](/azure/security/fundamentals/data-encryption-best-practices)
-- [Key management in Azure](/azure/security/fundamentals/key-management)
+- [Azure virtual machines security overview](virtual-machines-overview.md)
+- [Data encryption at rest](encryption-atrest.md)
+- [Data security and encryption best practices](data-encryption-best-practices.md)
+- [Key management in Azure](key-management.md)

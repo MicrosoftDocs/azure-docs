@@ -2,7 +2,7 @@
 title: Configure a virtual network for standard injection of Azure-SSIS integration runtime
 description: Learn how to configure a virtual network for standard injection of Azure-SSIS integration runtime. 
 ms.subservice: integration-services
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu 

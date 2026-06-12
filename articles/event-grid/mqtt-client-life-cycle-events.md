@@ -1,7 +1,7 @@
 ---
 title: 'MQTT Clients Life Cycle Events'
 description: 'An overview of the MQTT Client Life Cycle Events and how to configure them.'
-ms.topic: conceptual
+ms.topic: reference
 ms.custom:
   - build-2023
   - ignite-2023

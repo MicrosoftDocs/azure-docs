@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 12/31/2025
+ms.date: 05/25/2026
 ms.custom: generated
 ---
 
@@ -165,9 +165,9 @@ Can read write or delete the attestation provider instance
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | Microsoft.Attestation/attestationProviders/attestation/read | Gets the attestation service status. |
-> | Microsoft.Attestation/attestationProviders/attestation/write | Adds attestation service. |
-> | Microsoft.Attestation/attestationProviders/attestation/delete | Removes attestation service. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/attestation/read | Gets the attestation service status. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/attestation/write | Adds attestation service. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/attestation/delete | Removes attestation service. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -210,8 +210,8 @@ Can read the attestation provider properties
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | Microsoft.Attestation/attestationProviders/attestation/read | Gets the attestation service status. |
-> | Microsoft.Attestation/attestationProviders/read | Gets the attestation service status. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/attestation/read | Gets the attestation service status. |
+> | [Microsoft.Attestation](../permissions/security.md#microsoftattestation)/attestationProviders/read | Gets the attestation service status. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -760,7 +760,6 @@ Read metadata of key vaults and its certificates, keys, and secrets. Cannot read
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.KeyVault](../permissions/security.md#microsoftkeyvault)/checkNameAvailability/read | Checks that a key vault name is valid and is not in use |
@@ -789,7 +788,6 @@ Read metadata of key vaults and its certificates, keys, and secrets. Cannot read
       "actions": [
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
-        "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*",
         "Microsoft.KeyVault/checkNameAvailability/read",
@@ -1289,7 +1287,7 @@ Microsoft Sentinel Responder
 > | [Microsoft.SecurityInsights](../permissions/security.md#microsoftsecurityinsights)/threatIntelligence/indicators/appendTags/action | Append tags to Threat Intelligence Indicator |
 > | [Microsoft.SecurityInsights](../permissions/security.md#microsoftsecurityinsights)/threatIntelligence/indicators/replaceTags/action | Replace Tags of Threat Intelligence Indicator |
 > | [Microsoft.SecurityInsights](../permissions/security.md#microsoftsecurityinsights)/threatIntelligence/queryIndicators/action | Query Threat Intelligence Indicators |
-> | [Microsoft.SecurityInsights](../permissions/security.md#microsoftsecurityinsights)/businessApplicationAgents/systems/undoAction/action | Undoes an action |
+> | [Microsoft.SecurityInsights](../permissions/security.md#microsoftsecurityinsights)/businessApplicationAgents/systems/undoAction/action |  |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/analytics/query/action | Search using new engine. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/*/read | View log analytics data |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/dataSources/read | Get data source under a workspace. |
@@ -1487,9 +1485,9 @@ This is a legacy role. Please use Security Admin instead.
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.ClassicCompute](../permissions/compute.md#microsoftclassiccompute)/*/read | Read configuration information classic virtual machines |
-> | [Microsoft.ClassicCompute](../permissions/compute.md#microsoftclassiccompute)/virtualMachines/*/write | Write configuration for classic virtual machines |
-> | [Microsoft.ClassicNetwork](../permissions/networking.md#microsoftclassicnetwork)/*/read | Read configuration information about classic network |
+> | Microsoft.ClassicCompute/*/read | Read configuration information classic virtual machines |
+> | Microsoft.ClassicCompute/virtualMachines/*/write | Write configuration for classic virtual machines |
+> | Microsoft.ClassicNetwork/*/read |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |

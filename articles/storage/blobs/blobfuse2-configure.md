@@ -98,8 +98,8 @@ You can override settings that you define in the configuration file by using env
 
 - To disable only kernel cache but keep BlobFuse cache (data and metadata), set `disable-kernel-cache: true` in common configurations.
 
-  - Don't use both `direct-io: true` and `disable-kernel-cache: true` together.
-  
+  - When both `direct-io: true` and `disable-kernel-cache: true` are set together, `direct-io: true` takes precedence.
+    
   - To control metadata caching at the BlobFuse level, set `attr-cache-timeout`.
   
   - To control data caching at the BlobFuse level, set `file-cache-timeout`.

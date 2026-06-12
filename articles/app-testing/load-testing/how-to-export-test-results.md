@@ -3,9 +3,9 @@ title: Export load test results for reporting
 titleSuffix: Azure Load Testing
 description: Learn how to export load test results in Azure Load Testing and use them for reporting in third-party tools.
 services: load-testing
-ms.service: azure-load-testing
-ms.author: ninallam
-author: ninallam
+ms.service: azure-app-testing
+ms.author: nandinim
+author: nandinimurali
 ms.date: 02/08/2024
 ms.topic: how-to
 # CustomerIntent: As a tester, I want to understand how I can export the load test results, so that I can use other reporting tools to analyze the load test results.

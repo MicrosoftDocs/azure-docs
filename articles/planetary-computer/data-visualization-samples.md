@@ -1,8 +1,8 @@
 ---
 title: Microsoft Planetary Computer Pro Data Visualization Gallery
 description: Learn the step-by-step process to configure render settings for visualizing geospatial data using the Microsoft Planetary Computer Pro data explorer and Tiler application programming interface (API).
-author: prasadko
-ms.author: prasadkomma
+author: beharris
+ms.author: brentharris
 ms.service: planetary-computer-pro
 ms.topic: quickstart
 ms.date: 07/14/2025
@@ -1103,7 +1103,7 @@ The STAC Collection configuration defines the core metadata for this NAIP collec
       "roles": [
         "metadata"
       ],
-      "title": "FGDC Metdata"
+      "title": "FGDC Metadata"
     },
     "thumbnail": {
       "type": "image/jpeg",

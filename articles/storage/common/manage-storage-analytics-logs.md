@@ -211,7 +211,7 @@ The following example changes the retention period to 4 days.
 You can verify that logs are being deleted by viewing the contents of the `$logs` container of your storage account. The following image shows the contents of a folder in the `$logs` container. The folder corresponds to January 2021 and each folder contains logs for one day. If the day today was January 29th 2021, and your retention policy is set to only one day, then this folder should contain logs for only one day.
 
 > [!div class="mx-imgBorder"]
-> ![List of log folders in the Azure Portal](./media/manage-storage-analytics-logs/verify-and-delete-logs.png)
+> ![List of log folders in the Azure portal](./media/manage-storage-analytics-logs/verify-and-delete-logs.png)
 
 <a id="download-storage-logging-log-data"></a>
 

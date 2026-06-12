@@ -6,7 +6,7 @@ description: Learn how to pass an access token for OAuth 2.0 identity providers 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 09/11/2024

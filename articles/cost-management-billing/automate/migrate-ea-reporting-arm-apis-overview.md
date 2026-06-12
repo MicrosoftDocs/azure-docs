@@ -5,7 +5,7 @@ description: This article provides an overview about migrating from Azure Enterp
 author: vikramdesai01
 ms.author: vikdesai
 ms.date: 07/01/2025
-ms.topic: conceptual
+ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: vikdesai

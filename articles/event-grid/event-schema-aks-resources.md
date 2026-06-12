@@ -1,7 +1,7 @@
 ---
 title: Azure Resource Notifications - AKS resources events in Azure Event Grid
 description: This article provides information on Azure Event Grid events supported by Azure Resource Notifications AKS resources. It provides the schema and links to how-to articles. 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/29/2025
 ---
 

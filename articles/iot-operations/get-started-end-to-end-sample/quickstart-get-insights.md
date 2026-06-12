@@ -1,10 +1,11 @@
 ---
 title: "Quickstart: Get insights from your processed data"
 description: "Quickstart: Use a real-time dashboard to capture insights from the OPC UA data you sent to Event Hubs."
-author: baanders
-ms.author: baanders
+author: dominicbetts
+ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: quickstart
-ms.date: 01/28/2025
+ms.date: 06/03/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -38,20 +39,32 @@ In this section, you set up a Microsoft Fabric *eventstream* to connect your eve
 
 In this section, you create an eventstream to bring your data from Event Hubs into Microsoft Fabric Real-Time Intelligence, and eventually into a KQL database.
 
-Start by navigating to the [Real-Time hub in Microsoft Fabric](https://app.powerbi.com/workloads/oneriver/hub?experience=fabric-developer). 
+Before proceeding, make sure local authentication is enabled on your Event Hubs namespace. You can set this authentication from the namespace's **Overview** page in the Azure portal.
 
-Add your event hub as a data source for a new eventstream. For detailed instructions, see [Get events from Azure Event Hubs into Real-time hub](/fabric/real-time-hub/add-source-azure-event-hubs#microsoft-sources-page). As you add the data source, keep the following notes in mind:
+1. Navigate to the [Real-Time hub in Microsoft Fabric](https://app.fabric.microsoft.com/workloads/oneriver/hub?experience=fabric-developer).
 
-* Edit the **Eventstream name** to something friendly in the **Stream details** pane.
-* For **Azure Event Hub Key**, use the default selection (*RootManageSharedAccessKey*).
-* For **Connection**, create a new connection with Shared Access Key authentication. The connection credential details fill automatically.
-    * Make sure local authentication is enabled on your Event Hubs namespace. You can set this authentication from the namespace's Overview page in the Azure portal.
-* For **Consumer group**, use the default selection (*$Default*).
-* For **Data format**, use the default selection (*Json*).
+1. Add your event hub as a data source for a new eventstream.
 
-After connecting the eventstream, use the **Open Eventstream** button to see it in the authoring canvas. The stream from your Azure event hub is visible as an eventstream source.
+    1. Make sure that **Fabric** is selected at the bottom of the left-hand navigation pane, and then select **Real-Time**.
+    1. Under **Streaming data** on the **Real-Time hub** pane, select **Add data**.
+    1. When the **Add data** pane opens, select  the **Azure** tab at the top.
+    1. In the list of sources, hover over your Event Hubs namespace and select the **Connect data source** icon to open **Configure connection settings**.
 
-:::image type="content" source="media/quickstart-get-insights/source-added.png" alt-text="Screenshot of the eventstream with an AzureEventHub source.":::
+    :::image type="content" source="media/quickstart-get-insights/add-event-hub-data-source.png" alt-text="Screenshot of how to select an event hub namespace to connect to an eventstream.":::
+
+1. On **Configure connection settings**, fill in the following details to connect your event hub as a data source for your eventstream.  When you're finished, select **Review and connect** and then **Connect** to connect your event hub as a source for your eventstream.
+
+    * Select *destinationeh* from the drop-down for your event hub resource.
+    * Select *RootManageSharedAccessKey* from the drop-down for the event hub key.
+    * Edit the **Eventstream name** to something friendly in the **Stream details** pane.
+    * For **Consumer group**, use the default selection (*$Default*).
+    * For **Data format**, use the default selection (*Json*).
+
+    :::image type="content" source="media/quickstart-get-insights/configure-data-source-connection.png" alt-text="Screenshot of Configure connection settings.":::
+
+1. After connecting the eventstream, use the **Open Eventstream** button to see it in the authoring canvas. The stream from your Azure event hub is visible as an eventstream source.
+
+    :::image type="content" source="media/quickstart-get-insights/source-added.png" alt-text="Screenshot of the eventstream with an AzureEventHub source.":::
 
 #### Verify data flow
 
@@ -90,7 +103,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 1. Clear the sample query, and run the following KQL query that creates a data mapping for your table. The data mapping is called *opcua_mapping*.
 
     ```kql
-    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"AssetId", "Properties":{"Path":"$[\'AssetId\']"}},{"column":"Spike", "Properties":{"Path":"$.Spike"}},{"column":"Temperature", "Properties":{"Path":"$.TemperatureF"}},{"column":"FillWeight", "Properties":{"Path":"$.FillWeight"}},{"column":"EnergyUse", "Properties":{"Path":"$.EnergyUse.Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
+    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"Properties":{"Path":"$[\'AssetId\']"},"column":"AssetId","datatype":""},{"Properties":{"Path":"$.Spike"},"column":"Spike","datatype":""},{"Properties":{"Path":"$.TemperatureF"},"column":"Temperature","datatype":""},{"Properties":{"Path":"$.FillWeight"},"column":"FillWeight","datatype":""},{"Properties":{"Path":"$.EnergyUse.Value"},"column":"EnergyUse","datatype":""},{"Properties":{"Path":"$.Temperature.SourceTimestamp"},"column":"Timestamp","datatype":""}]'
     ```
 
 ### Add eventstream data to KQL database
@@ -131,9 +144,10 @@ Then, follow these steps to upload the dashboard template and connect it to your
 1. Select the template file that you downloaded to your machine.
 1. The template file populates the dashboard with multiple tiles, although the tiles can't get data because you haven't connected a data source yet.
 :::image type="content" source="media/quickstart-get-insights/dashboard-upload-errors.png" alt-text="Screenshot of the dashboard with errors in the visuals.":::
-1. From the **Manage** tab, select **Data sources**. This action opens the **Data sources** pane with a sample source for your AIO data. Select the pencil icon to edit the *AIOdata* data source.
-    :::image type="content" source="media/quickstart-get-insights/dashboard-data-sources.png" alt-text="Screenshot of the buttons to connect a data source.":::
-1. Choose your database (it's under **Eventhouse/KQL Database**). When you're finished connecting your data source, select **Apply** and close the **Data sources** pane.
+1. From the **Manage** tab, select the **Data sources** toggle from the right side of the screen. This action opens the **Data sources** pane with a sample source for your AIO data. Select the settings icon to edit the *AIOdata* data source.
+    :::image type="content" source="media/quickstart-get-insights/dashboard-data-sources.png" alt-text="Screenshot of the buttons to open the data source settings.":::
+1. In the **Data source settings** pane, select the **Database** dropdown and then select **KQL database** to connect your KQL database as the data source for the dashboard.  :::image type="content" source="media/quickstart-get-insights/dashboard-data-source-settings.png" alt-text="Screenshot of the buttons to connect a data source.":::
+1. Choose your database on the **Select a KQL Database from the catalog** pane and then select **Connect**. When you're finished connecting your data source, select **Apply** and close the **Data source settings** pane. Finally, you can toggle the **Data sources** pane out of the way and return to the dashboard canvas.
 
 The visuals populate with the data from your KQL database.
 
@@ -160,7 +174,7 @@ This step completes the quickstart flow for using Azure IoT Operations to manage
 
 Now that you're finished with the quickstart experience, this section contains instructions to delete your sample resources.
 
-[!INCLUDE [tidy-resources](../includes/tidy-resources.md)]
+[!INCLUDE [tidy-quickstart-resources](../includes/tidy-quickstart-resources.md)]
 
 > [!NOTE]
 > The resource group contains the Event Hubs namespace you created in this quickstart.

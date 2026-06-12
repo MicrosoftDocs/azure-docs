@@ -1,12 +1,12 @@
 ---
-title: 'Quickstart: Diagnose a VM traffic filter problem - Azure CLI'
+title: 'Quickstart: Diagnose a VM Traffic Filter Problem - Azure CLI'
 titleSuffix: Azure Network Watcher
 description: In this quickstart, you learn how to diagnose a virtual machine network traffic filter problem using Azure Network Watcher IP flow verify in Azure CLI.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: quickstart
-ms.date: 02/17/2026
+ms.date: 02/25/2026
 ms.custom: devx-track-azurecli, mode-api
 
 # Customer intent: As a system administrator, I want to diagnose network traffic filter issues on a virtual machine using an IP flow verification tool, so that I can identify and resolve security rules that are blocking communication.
@@ -54,6 +54,9 @@ In this section, you create a virtual network and a subnet in the East US region
     # Create a default network security group.
     az network nsg create --name 'myVM-nsg' --resource-group 'myResourceGroup' --location 'eastus'
     ```
+
+    > [!NOTE]
+    > The default rules of the network security group block all inbound access from the internet, including SSH. To connect to the virtual machine, use Azure Bastion. For more information, see [Quickstart: Deploy Azure Bastion with default settings](../bastion/quickstart-host-portal.md).
 
 1. Create a virtual machine using [az vm create](/cli/azure/vm#az-vm-create).
 

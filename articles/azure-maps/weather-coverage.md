@@ -4,7 +4,7 @@ description: Learn about Microsoft Azure Maps Weather service coverage
 author: farazgis
 ms.author: fsiddiqui
 ms.date: 11/08/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-maps
 ms.subservice: weather
 ms.custom: references_regions

@@ -30,6 +30,10 @@ For information on setup and configuration details, see the [overview](./functio
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
@@ -190,7 +194,7 @@ The following example shows a table output binding that writes multiple table en
 
 # [Model v4](#tab/nodejs-v4)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/tableOutput1.ts" :::
+<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/tableOutput1.ts" ::: --->
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -203,7 +207,7 @@ TypeScript samples are not documented for model v3.
 
 # [Model v4](#tab/nodejs-v4)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/tableOutput1.js" :::
+<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/tableOutput1.js" ::: --->
 
 # [Model v3](#tab/nodejs-v3)
 

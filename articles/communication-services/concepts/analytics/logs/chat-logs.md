@@ -6,7 +6,7 @@ author: sundiraman
 services: azure-communication-services
 ms.author: sundraman
 ms.date: 03/21/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.subservice: data
 ---

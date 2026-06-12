@@ -26,7 +26,7 @@ The **hostname**, **parent_hostname**, **trust_bundle_cert**, **allow_elevated_d
 
 ### Hostname
 
-To enable gateway discovery, every IoT Edge gateway (parent) device needs to specify a hostname parameter that its child devices use to find it on the local network. The *edgeHub* module also uses the hostname parameter to match with its server certificate. For more information, see [Why does EdgeGateway need to be told about its own hostname?](iot-edge-certs.md#why-does-edgegateway-need-to-be-told-about-its-own-hostname)
+To enable gateway discovery, every IoT Edge gateway (parent) device needs to specify a hostname parameter that its child devices use to find it on the local network. The *edgeHub* module also uses the hostname parameter to match with its server certificate. For more information, see [Why does EdgeGateway need to be told about its own hostname?](iot-edge-certs.md#why-does-edgegateway-need-to-know-its-own-hostname)
 
 > [!NOTE]
 > When the hostname value isn't set, IoT Edge attempts to find it automatically. However, clients in the network might not be able to discover the device if it isn't set.
@@ -476,7 +476,7 @@ retry = "4%"
 If you need to override the default image garbage collection configuration, use this section and replace the values in this section with your own.
 
 | Parameter | Description |
-|--------------------------|
+|-----------|-------------|
 | `enabled` | Runs image garbage collection |
 | `cleanup_recurrence` | How often you want the image garbage collection to run |
 | `image_age_cleanup_threshold` | The *age* of unused images. Images older than the threshold are removed |

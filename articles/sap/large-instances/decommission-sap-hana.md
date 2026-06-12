@@ -5,7 +5,7 @@ author: bqtrinh
 ms.author: bentrin
 ms.date: 09/15/2025
 ms.service: sap-on-azure
-ms.topic: conceptual
+ms.topic: retired
 ---
 
 

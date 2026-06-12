@@ -104,6 +104,8 @@ Before you migrate from Amazon API Gateway to Azure API Management, assess the e
 > [!NOTE]
 > Amazon API Gateway capabilities can vary depending on whether you expose your APIs as a REST API or an HTTP API product type. In Azure API Management, capabilities vary by service tier, not by API type designation.
 
+To plan to migrate your AWS workload to Azure, see [Migrate networking from Amazon Web Services to Azure](/azure/migration/migrate-networking-from-aws), which includes [example migration scenarios](/azure/migration/migrate-compute-from-aws#migration-guides) that might align to your use case.
+
 ### Assess infrastructure capabilities
 
 | Amazon API Gateway capability | Azure API Management equivalent | Migration approach |
@@ -142,7 +144,7 @@ As part of the assessment, consider whether to retain or replace existing servic
 - *OpenAPI specifications* exported from an Amazon API Gateway REST API contain details specific to the frontend implementation in Amazon API Gateway, not the backend service. You need to remove AWS-specific tags and configure details in the specification (such as the backend service URL) before import to Azure API Management or during the migration process. 
 - *Kubernetes microservices* backends, such as gRPC APIs, are handled differently:
   - Amazon API Gateway connects to the application load balancer in VPC, which in turn provides ingress to AWS EKS.
-  - Azure API Management supports gRPC APIs on Kubernetes clusters accessed only through the self-hosted gateway.
+  - Azure API Management typically supports gRPC and other microservice APIs on Kubernetes clusters through the self-hosted gateway.
   - Use of gRPC prevents the use of Application Gateway as a WAF.
 
 ### Compare API configurations

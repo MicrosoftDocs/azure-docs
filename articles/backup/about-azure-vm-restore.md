@@ -19,10 +19,10 @@ To understand the Azure VM restore process, review the following key concepts:
 
 - **Recovery Point** (also known as **Restore Point**): A recovery point is a copy of the original data that's being backed up.
 
-- **Tier (snapshot vs. vault)**:  Azure VM backup happens in two phases:
+- **Tier (snapshot vs. vault)**: Azure VM recovery points are available in two tiers:
 
-  - In phase 1, the snapshot taken is stored along with the disk. This process is called **snapshot tier**. Snapshot tier restores are faster (than restore from vault) because they eliminate the wait time for snapshots to copy to the vault before triggering the restore. So restore from the snapshot tier is also referred as [Instant Restore](./backup-instant-restore-capability.md).
-  - In phase 2, the snapshot is transferred and stored in the vault managed by the Azure Backup service. This process is called **vault tier**.
+  - **Snapshot tier**: The snapshot is stored along with the disk. Snapshot-tier restores are faster than restore from vault because they eliminate the wait time for snapshots to copy to the vault before triggering the restore. So restore from the snapshot tier is also referred to as [Instant Restore](./backup-instant-restore-capability.md).
+  - **Vault tier**: The snapshot is transferred and stored in the vault managed by Azure Backup.
 
 - **Original Location Recovery (OLR)**: A recovery done from the restore point to the source Azure VM from where the backups were taken, replacing it with the state stored in the recovery point. This process replaces the OS disk and the data disks of the source VM.
 

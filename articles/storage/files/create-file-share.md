@@ -1,28 +1,28 @@
 ---
 title: Create a file share (Microsoft.FileShares)
-description: Learn to use the Azure portal to deploy an NFS file share with Microsoft.FileShares resource provider (preview).
+description: Learn to use the Azure portal to deploy an NFS file share with Microsoft.FileShares resource provider.
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 10/08/2025
+ms.date: 05/06/2026
 ms.author: kendownie
-# Customer intent: "As an IT admin, I want to learn how to deploy an NFS file share with Microsoft.FileShares resource provider (preview)."
+# Customer intent: "As an IT admin, I want to learn how to deploy an NFS file share with Microsoft.FileShares resource provider."
 ---
 
-# Create an Azure file share with Microsoft.FileShares (preview)
+# Create an Azure file share with Microsoft.FileShares
 
-:heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider (preview)
+:heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider
 
 :heavy_multiplication_x: **Doesn't apply to:** Classic file shares created with the Microsoft.Storage resource provider
 
-The new Microsoft.FileShares resource provider (preview) and management model allows you to deploy file shares without creating an Azure storage account. Before you create an Azure file share with the Microsoft.FileShares resource provider, review the following to decide if it's the right fit for your needs. If you need all the features that Azure Files offers, or you need to use the SMB protocol, or want HDD (standard) performance, use a [classic file share](create-classic-file-share.md) instead.
+The new Microsoft.FileShares resource provider and management model allows you to deploy file shares without creating an Azure storage account. Before you create an Azure file share with the Microsoft.FileShares resource provider, review the following to decide if it's the right fit for your needs. If you need all the features that Azure Files offers, or you need to use the SMB protocol, or want HDD (standard) performance, use a [classic file share](create-classic-file-share.md) instead.
 
 - The Microsoft.FileShares resource provider and management model is current only available for NFS file shares, which require SSD (premium) storage. SSD media provides consistent high performance and low latency, within single-digit milliseconds for most IO operations.
 
-- The preview only supports the [provisioned v2 billing model](understanding-billing.md#provisioned-v2-model), which allows you to specify how much storage, IOPS, and throughput your file share needs. The amount that you provision determines your total bill. When you create a new file share using the provisioned v2 model, we provide a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. Depending on your requirements, you can choose to override these recommendations with your own values.
+- The file shares only supports the [provisioned v2 billing model](understanding-billing.md#provisioned-v2-model), which allows you to specify how much storage, IOPS, and throughput your file share needs. The amount that you provision determines your total bill. When you create a new file share using the provisioned v2 model, we provide a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. Depending on your requirements, you can choose to override these recommendations with your own values.
 
-- The Microsoft.FileShares preview only supports locally-redundant storage (LRS) and zone-redundant storage (ZRS). See [Azure Files redundancy](./files-redundancy.md) for more information.
+- The Microsoft.FileShares only supports locally-redundant storage (LRS) and zone-redundant storage (ZRS). See [Azure Files redundancy](./files-redundancy.md) for more information.
 
 For more information on Azure Files management concepts, see [Plan for an Azure Files deployment](storage-files-planning.md#management-concepts).
 
@@ -39,9 +39,6 @@ Make sure both Microsoft.FileShares and Microsoft.Storage resource providers are
 1. Select the resource provider you intend to add and then select **Register**.
 
 ## Create a file share (Microsoft.FileShares)
-
-> [!NOTE]
-> File share with Microsoft.FileShares is currently in preview. You may use the Azure portal, or you can use generic PowerShell or Azure CLI commands to work with file shares. If you want to try the CLI private package for Microsoft.FileShares resource provider, fill out this [survey](https://forms.microsoft.com/r/nEGcB0ccaD).
 
 You can also create a file share with Microsoft.FileShares using Azure MCP Server. To learn more, see [Azure Files tools for the Azure MCP Server overview](/azure/developer/azure-mcp-server/tools/azure-file-shares). 
 
@@ -67,16 +64,16 @@ The first tab to complete creating a file share is labeled **Basics**, which con
 | Subscription | Drop-down list | *Available Azure subscriptions* | The selected subscription in which to deploy the storage account. |
 | Resource group | Drop-down list | *Available resource groups in selected subscription* | The resource group in which to deploy the file share. A resource group is a logical container for organizing Azure resources, including file shares. |
 | File share name | Text box | -- | The name of the file share must be unique across all existing file share names in Microsoft Azure. It must be 3 to 63 characters long and can contain only lowercase letters, numbers, and hyphens. The name must start and end with a letter or number. |
-| Tier | N/A | -- | The media tier for the file share. The Microsoft.FileShares preview only supports the SSD media tier. |
-| Protocol | N/A | -- | File shares support a multitude of access protocols. If you need the SMB protocol, deploy your file share within a storage account. Currently, the Microsoft.FileShares preview only supports NFS protocol. |
+| Tier | N/A | -- | The media tier for the file share. The Microsoft.FileShares only supports the SSD media tier. |
+| Protocol | N/A | -- | File shares support a multitude of access protocols. If you need the SMB protocol, deploy your file share within a storage account. Currently, the Microsoft.FileShares only supports NFS protocol. |
 | Region | Drop-down list | *Available Azure regions* | The region for the file share to be deployed into. This can be the region associated with the resource group, or any other available region. |
 | Provisioned capacity (GiB) | Text box | Integer  | Provisioned capacity for the file share, ranging from 32 GiB to 262,144 GiB. |
 | Redundancy | Drop-down list | <ul><li>Locally redundant storage (LRS)</li><li>Zone redundant storage (ZRS)</li></ul> | The redundancy choice for the file share. See [Azure Files redundancy](files-redundancy.md) for more information. |
-| Provisioned IOPS and throughput | Radio button group | <ul><li>Recommended provisioning</li><li>Manually specify IOPS and throughput:<ul><li>Provisioned IOPS</li><li>Provisioned throughput (MiB/sec)</li></ul></li></ul> | The Microsoft.FileShares preview only uses the [provisioned v2 billing model](understanding-billing.md#provisioned-v2-model). |
+| Provisioned IOPS and throughput | Radio button group | <ul><li>Recommended provisioning</li><li>Manually specify IOPS and throughput:<ul><li>Provisioned IOPS</li><li>Provisioned throughput (MiB/sec)</li></ul></li></ul> | The Microsoft.FileShares only uses the [provisioned v2 billing model](understanding-billing.md#provisioned-v2-model). |
 
 ### Advanced
 
-The **Advanced** tab is optional and provides more granular settings. You can choose to set up [root squash options](nfs-root-squash.md) or specify a mount name for the file share. Mount name allows you to choose a different name to use to mount the file share. By default, it's the same as the file share name. Customize it if you want a unique mount name. The same rules still apply to the naming policy. See [Naming rules and restrictions for Azure resources](../../azure-resource-manager/management/resource-name-rules.md).
+The **Advanced** tab is optional and provides more granular settings. You can choose to set up [root squash options](nfs-root-squash.md), require this specific file share to use the encryption in transit setting, or specify a mount name for the file share. Mount name allows you to choose a different name to use to mount the file share. By default, it's the same as the file share name. Customize it if you want a unique mount name. The same rules still apply to the naming policy. See [Naming rules and restrictions for Azure resources](../../azure-resource-manager/management/resource-name-rules.md).
 
 ![A screenshot of the  of the advanced tab.](./media/storage-how-to-create-microsoft-fileshares/file-share-create-flow-advanced.png)
 
@@ -88,14 +85,14 @@ If you don't require a static IP address, you can enable a service endpoint for 
 
 The **Networking** tab is optional, and allows you to set up both service and private endpoint. A virtual network is required if you intend to set up private endpoint while creating the file share. You may also set up networking configurations after the file share is created. 
 
-With public endpoints access enabled, you can create or choose an existing virtual network for the service endpoint connection to this file share. If you decide to disable public endpoint access, service endpoint will be disabled for this specific file share.
+With public endpoints access enabled, and public endpoint access scope enabled from selected virtual networks, you can create or choose an existing virtual network for the service endpoint connection to this file share. If you decide to disable public endpoint access, service endpoint will be disabled for this specific file share. If you choose public endpoint access scope as enable (no network restrictions), you will need to set up the virtual network after the file share is created. 
 
 ![A screenshot of the  of service endpoint tab.](./media/storage-how-to-create-microsoft-fileshares/file-share-service-endpoint.png)
 
 For private endpoint configurations, each file share will have its own private endpoint. To get started, follow these steps.
-1. Select **+ Create private endpoint**. Leave **Subscription** and **Resource group** the same. Choose the same location as the virtual network and desired name for the private endpoint. Choose FileShare for storage sub-resource.
-1. Under networking section, choose the desired virtual network and subnet setting. Select **Yes** for **Integrate with private DNS zone**.
-1. Select **OK**.
+1. Select **+ Create private endpoint**. Leave **Subscription** and **Resource group** the same. Choose the same location as the virtual network and desired name for the private endpoint. Choose FileShare for target sub-resource.
+1. Choose the desired virtual network and subnet setting. Be sure to check the box for **Enable Private DNS Integration**.
+1. Select **Add**.
 
 ![A screenshot of the  of the private endpoint tab.](./media/storage-how-to-create-microsoft-fileshares/file-share-private-endpoint.png)
 
@@ -109,58 +106,58 @@ The final step to create the file share is to select the **Create** button on th
 
 # [PowerShell](#tab/powershell)
 
-To create a file share via PowerShell, run this command.
+To create a file share by using PowerShell, run the following commands. Replace the variables with your values. 
 
-```azure-powershell
-New-AzResource -ResourceType "Microsoft.FileShares/fileShares" `
-               -ResourceName "<your-file-share-name>" `
-               -Location "<intended-region-for-deployment>" `
-               -ResourceGroupName "<your-resource-group-name>" `
-               -Properties @{
-                   # redundancy support "Local" and "Zone"
-                   redundancy = "Local"
-                   protocol = "NFS"
-                   provisionedStorageGiB = <intended capacity>
-                   ProvisionedIoPerSec = <intended IOPS> 
-                   ProvisionedThroughputMiBPerSec = <intended throughput>
-                   mediaTier = "SSD"
-                   # optional: mountName = "<mount-name-for-file-share>"
-                   nfsProtocolProperties = @{
-                       rootSquash = "RootSquash"
-                   }
-               } `
-               -Force
+```powershell
+# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/0.1.0
+Install-Module -Name Az.FileShare -Repository psgallery -RequiredVersion 0.1.0
+
+# To learn more about the parameters for New-AzFileShare, use command 
+# Get-Help New-AzFileShare
+
+$shareName = "<your-file-share-name>"
+$resourceGroup = "<your-resource-group-name>"
+$region = "<intended-region-for-deployment>"
+
+# The provisioned storage size of the share in GiB. Valid range is 32 to 262,144.
+$provisionedStorageGib = 1024
+
+# If you don't specify ProvisionedBandwidthMibps and ProvisionedIops, the deployment will use the recommended provisioning.
+$provisionedIops = 3500
+$provisionedThroughput = 200
+
+New-AzFileShare -ResourceName $shareName -ResourceGroupName $resourceGroup -Location $region -Protocol NFS -ProvisionedStorageGiB $provisionedStorageGib  #-ProvisionedIoPerSec $provisionedIops -ProvisionedThroughputMiBPerSec $provisionedThroughput
+
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
-To create a file share via Azure CLI, run this command.
+To create a file share via Azure CLI, run the following commands. Replace the variables with your values. 
 
 ```bash
-az resource create \
-  --resource-type "Microsoft.FileShares/fileShares" \
-  --name <your-file-share-name> \
-  --location <intended-region-for-deployment> \
-  --resource-group <your-resource-group-name> \
-  --properties '{
-    # redundancy support "Local" and "Zone"
-    "redundancy": "Local",
-    "protocol": "NFS",
-    "provisionedStorageGiB": <intended capacity>,
-    "ProvisionedIoPerSec": <intended IOPS>,
-    "ProvisionedThroughputMiBPerSec": <intended throughput,
-    "mediaTier": "SSD",
-    "nfsProtocolProperties": {
-      "rootSquash": "RootSquash"
-    }
-}'
+# Install the fileshares extension
+az extension add --name fileshares
 
+# Specify your values
+shareName="<your-file-share-name>"
+resourceGroup="<your-resource-group-name>"
+region="<intended-region-for-deployment>"
+
+# The provisioned storage size of the share in GiB. Valid range is 32 to 262,144.
+provisionedStorageGiB=1024
+
+# If you don't specify provisioned IOPS and throughput, the deployment uses the recommended provisioning.
+# provisionedIops=3000
+# provisionedThroughput=125
+
+# Create the file share. Redundancy supports "Local" and "Zone".
+az fileshare create --name $shareName --resource-group $resourceGroup --location $region --provisioned-storage-GiB $provisionedStorageGiB --protocol NFS --redundancy Local #--provisioned-iops $provisionedIops --provisioned-throughput-MiB $provisionedThroughput
 ```
 
 ---
 
 ## Next steps
 
-- Learn how to [create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu)
-- Learn how to [mount an NFS file share on Linux](storage-files-how-to-mount-nfs-shares.md)
-- Learn how to [modify a file share](modify-file-share.md)
+- Learn how to [create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu).
+- Learn how to [mount an NFS file share on Linux](storage-files-how-to-mount-nfs-shares.md).
+- Learn how to [modify a file share](modify-file-share.md).

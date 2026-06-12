@@ -21,9 +21,9 @@
     href: get-started-planetary-computer.md
   - name: Deploy a GeoCatalog resource
     href: deploy-geocatalog-resource.md
-  - name: Manage access
+  - name: Manage access for Microsoft Planetary Computer Pro
     href: manage-access.md
-  - name: Assign a user-assigned managed identity to a GeoCatalog resource
+  - name: Using managed identities with GeoCatalog resource
     href: assign-managed-identity-geocatalog-resource.md
   - name: Using the Microsoft Planetary Computer Pro APIs
     href: api-tutorial.md
@@ -99,6 +99,8 @@
       href: configure-cross-tenant-application.md
   - name: Azure Batch and Microsoft Planetary Computer Pro
     href: azure-batch.md
+  - name: Create an API Proxy for GeoCatalogs
+    href: create-api-proxy-geocatalog.md
   - name: API Reference
     href: /rest/api/planetarycomputer
 - name: Working with data cubes

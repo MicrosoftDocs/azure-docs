@@ -2,12 +2,12 @@
 title: Azure Stack Edge Pro GPU Kubernetes networking
 description: Describes how Kubernetes networking works on an Azure Stack Edge Pro GPU device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/27/2021
-ms.author: alkohli
+ms.author: sipastak
 ms.custom: sfi-image-nochange
 ---
 # Kubernetes networking on Azure Stack Edge Pro GPU device

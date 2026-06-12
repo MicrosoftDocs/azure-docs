@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 11/10/2025
+ms.date: 03/31/2026
 ms.author: duau
 ms.custom: references_regions
 ---
@@ -27,8 +27,6 @@ You can upgrade your gateway to a higher-capacity SKU within the same SKU family
 - Upgrade from one availability zone-enabled SKU to another availability zone-enabled SKU
 
 For all other scenarios, including downgrades or switching between availability zone types, you must delete and recreate the gateway. This process incurs downtime.
-> [!NOTE]
-> If the gateway is connected to a Private Link, customers should expect up to 2 hours of downtime during the upgrade.
 
 ## Gateway subnet
 
@@ -77,6 +75,14 @@ The following table shows the features that each gateway SKU supports and the ma
 > [!NOTE]
 > The maximum number of ExpressRoute circuits from the same peering location that can connect to the same virtual network is 4 for all gateways.
 
+### Advertised prefix scale
+
+ExpressRoute private peering has limits on how many IPv4 prefixes can be advertised from a virtual network to on-premises (for example, 1,000 IPv4 prefixes and 100 IPv6 prefixes).
+
+If you need to reduce the number of prefixes advertised from Azure to on-premises in hub-and-spoke environments, configure advertised gateway prefixes on the gateway virtual network using the `summarizedGatewayPrefixes` property. With this property set, Azure VPN Gateway and ExpressRoute Gateway advertise the summarized prefixes and suppress advertisement of spoke address spaces that are covered by the summarized space.
+
+For more information, see [Advertised gateway prefixes overview](/azure/virtual-network/advertised-gateway-prefixes-overview).
+
 <a name="aggthroughput"></a>
 ### Estimated performance by gateway SKU
 
@@ -105,11 +111,16 @@ When you create an ExpressRoute gateway, Microsoft automatically provisions and 
 
 **Availability:**  
 
-Auto-assigned public IP isn't available for Virtual WAN (vWAN) or Extended Zone deployments.
+Auto-assigned public IP isn't available for Virtual WAN (vWAN).
  
 ## Connectivity from virtual network to virtual network and from virtual network to virtual WAN
 
+> [!NOTE]
+> If your Virtual WAN hub has undergone the software upgrade associated with [enabling route maps](../virtual-wan/route-maps-how-to.md), a known issue prevents the virtual network gateway from properly identifying Virtual WAN routes. As a result, the **Allow traffic from remote Virtual WAN network** setting on Virtual Network Gateway isn't applied correctly, and Virtual WAN address prefixes from that Virtual WAN hub are always learned by the Virtual Network Gateway regardless of the configured setting.
+
 By default, virtual network-to-virtual network and virtual network-to-virtual WAN connectivity is disabled through an ExpressRoute circuit for all gateway SKUs. To enable this connectivity, you must configure the ExpressRoute virtual network gateway to allow this traffic. For more information, see guidance about [virtual network connectivity over ExpressRoute](virtual-network-connectivity-guidance.md). To enable this traffic, see [Enable virtual network-to-virtual network or virtual network-to-virtual WAN connectivity through ExpressRoute](expressroute-howto-add-gateway-portal-resource-manager.md#enable-or-disable-vnet-to-vnet-or-vnet-to-virtual-wan-traffic-through-expressroute).
+
+
 
 ## FastPath
 

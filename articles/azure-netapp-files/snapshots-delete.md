@@ -21,6 +21,7 @@ You can delete snapshots that you no longer need.
 
 * You can't delete a snapshot if it's part of an active file-restore operation or if it's in the process of being cloned.
 * You can't delete a replication generated snapshot that is used for volume baseline data replication.
+* You can't delete a snapshot in a data protection volume that is in an active replication relationship. 
 
 ## Steps
 

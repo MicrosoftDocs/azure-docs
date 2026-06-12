@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: concept-article
 ms.collection: ce-skilling-ai-copilot
-ms.date: 09/14/2025
+ms.date: 02/18/2026
 ms.update-cycle: 180-days
-#Customer intent: As an AI developer, I want a guide that introduces starting points, building blocks, examples, samples, and other resources so I can learn how I can use AI in my integration solutions using Standard and Consumption workflows in Azure Logic Apps.
+#Customer intent: As an AI developer who works with Azure Logic Apps, I want a guide that introduces starting points, building blocks, examples, samples, and other resources so I can learn how I can use AI in my integration solutions using Standard and Consumption workflows in Azure Logic Apps.
 ---
 
-# Playbook, examples, samples, and other resources for AI workflows in Azure Logic Apps
+# Playbook, examples, samples, and other resources for AI agentic workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
@@ -19,9 +19,9 @@ AI capabilities play a fast and growing role in applications and other software 
 
 This guide provides building blocks, examples, and other resources that show how to use Foundry Tools like Azure OpenAI, Microsoft Foundry, and Azure AI Search with Azure Logic Apps to build automated workflows for AI integration solutions.
 
-## AI agent and model-powered workflows (Preview)
+## AI agent and model-powered workflows
 
-Azure Logic Apps supports Standard logic app workflows that complete tasks by using *agents* with *large language models* (LLMs). An agent uses an iterative looped process to solve complex, multistep problems. An LLM is a trained program that recognizes patterns and performs jobs without human interaction.
+Azure Logic Apps supports Standard logic app workflows that complete tasks by using *agent loops* with *large language models* (LLMs). An agent uses an iterative looped process to solve complex, multistep problems. An LLM is a trained program that recognizes patterns and performs jobs without human interaction.
 
 For example, an LLM can perform the following tasks:
 
@@ -33,8 +33,7 @@ After you create a Standard logic app, you can add a workflow that uses the **Au
 
 > [!TIP]
 >
-> If you choose to start with a nonagent **Stateful** workflow, 
-> you can always add an **Agent** action later.
+> If you choose to start with a nonagent **Stateful** workflow, you can always add an **Agent** action later.
 
 The agent uses natural language and the connected LLM to interpret previously provided instructions or real-time human interactions, respectively. The agent also uses model-generated outputs to do work. The model helps the agent provide the following capabilities:
 
@@ -44,17 +43,17 @@ The agent uses natural language and the connected LLM to interpret previously pr
 - Choose *tools* to complete the tasks necessary to fulfill requests. In AI scenarios, a tool is a sequence with one or more actions that complete a task.
 - Adapt to environments that require flexibility and are fluid, dynamic, unpredictable, or unstable.
 
-With [1,400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) available to help you build tools for agents to use, agent workflows support many scenarios that greatly benefit from agent and model capabilities.
+With [1,400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) available to help you build tools for agents to use, agentic workflows support many scenarios that greatly benefit from agent and model capabilities.
 
 For more information, see the following resources:
 
 | Resource type | Link |
 |---------------|------|
 | **Documentation** | [Workflows with AI agents and models in Azure Logic Apps](agent-workflows-concepts.md) |
-| **Documentation** | [Create autonomous agent workflows in Azure Logic Apps](create-autonomous-agent-workflows.md) |
-| **Documentation** | [Create conversational agent workflows in Azure Logic Apps](create-conversational-agent-workflows.md) |
-| **Lab** | [Build your first autonomous agent workflow in Azure Logic Apps](https://azure.github.io/logicapps-labs/docs/logicapps-ai-course/build_autonomous_agents/create-first-autonomous-agent) |
-| **Lab** | [Build your first conversational agent workflow in Azure Logic Apps](https://azure.github.io/logicapps-labs/docs/logicapps-ai-course/build_conversational_agents/create-first-conversational-agent) |
+| **Documentation** | [Create autonomous agentic workflows in Azure Logic Apps](create-autonomous-agent-workflows.md) |
+| **Documentation** | [Create conversational agentic workflows in Azure Logic Apps](create-conversational-agent-workflows.md) |
+| **Lab** | [Build your first autonomous agentic workflow in Azure Logic Apps](https://azure.github.io/logicapps-labs/docs/logicapps-ai-course/build_autonomous_agents/create-first-autonomous-agent) |
+| **Lab** | [Build your first conversational agentic workflow in Azure Logic Apps](https://azure.github.io/logicapps-labs/docs/logicapps-ai-course/build_conversational_agents/create-first-conversational-agent) |
 | **Blog article** | [Ushering in the era of multi-agentic business process automation](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%8E%89-azure-logic-apps-ushering-in-the-era-of-multi-agentic-business-process-automa/4452275) |
 | **Video demo** | [Codeful and declarative multiple agents](https://youtu.be/sQaAzhkzT6E) |
 
@@ -111,7 +110,7 @@ For more information, see the following resources:
 | **Documentation** | Various | [Process and create documents in Azure Cosmos DB with Azure Logic Apps](/azure/connectors/connectors-create-api-cosmos-db?tabs=standard) |
 | **Documentation** | Various | [Azure Cosmos DB connector reference](/connectors/documentdb) |
 | **Blog article** | Generally available | [Azure OpenAI and Azure AI Search connectors are now generally available for Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%93%A2-announcement-azure-openai-and-azure-ai-search-connectors-are-now-generally-av/4163682) |
-| **Blog article** | Generally available | [Automate RAG indexing: Azure Logic Apps & AI Search for source document processing](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/automate-rag-indexing-azure-logic-apps--ai-search-for-source-document-processing/4266083) |
+| **Blog article** | Generally available | [Automate RAG indexing: Azure Logic Apps & AI Search for source document processing](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/automate-rag-indexing-azure-logic-apps--ai-search-for-source-document-processing/4266083) |
 | **Blog article** | Public preview | [Azure OpenAI and Azure AI Search connectors are in public preview for Azure Logic Apps (Standard)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/public-preview-of-azure-openai-and-ai-search-in-app-connectors-for-logic-apps-st/4049584) |
 | **Demo video** | Generally available | [Build an end-to-end RAG-based AI application with Azure Logic Apps (Standard)](https://youtu.be/6QO4hKBmTR0) |
 | **Demo video** | Public preview | [Ingest document data into Azure AI Search and chat with data using Azure Logic Apps](https://youtu.be/tiU5yCvMW9o) |
@@ -124,7 +123,7 @@ The following sections describe ways that you can set up near-real time chat cap
 
 ### Build Azure OpenAI Assistants with Azure Logic Apps
 
-With Azure OpenAI, you can easily build agent-like features into your applications by using the Assistants API. Although the capability to build agents existed previously, the process often required significant engineering, external libraries, and multiple integrations.
+With Azure OpenAI, you can easily build agent-like features into your applications by using the Assistants API. Although the capability to build agents previously existed, the process often required significant engineering, external libraries, and multiple integrations.
 
 With Assistants, you can now rapidly create customized stateful copilots that are trained on their enterprise data and can handle diverse tasks by using the latest Generative Pretrained Transformer (GPT) models, tools, and knowledge. The current release includes features such as File Search and Browse tools, enhanced data security features, improved controls, new models, and expanded region support. These enhancements ease the transition from prototyping to production.
 
@@ -137,8 +136,8 @@ For more information, see the following resources:
 | Resource type | Link |
 |---------------|------|
 | **Documentation** | [Call Azure Logic Apps workflows as functions using Azure OpenAI Assistants](/azure/ai-services/openai/how-to/assistants-logic-apps) |
-| **Blog article** | [Build Azure OpenAI assistants with function calling](https://techcommunity.microsoft.com/blog/azure-ai-services-blog/announcing-azure-openai-service-assistants-public-preview-refresh/4143217) |
-| **Blog article** | [Azure AI Assistants with Azure Logic Apps](https://techcommunity.microsoft.com/discussions/azure-ai-services/azure-ai-assistants-with-logic-apps/4246711) |
+| **Blog article** | [Build Azure OpenAI assistants with function calling](https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-azure-openai-service-assistants-public-preview-refresh/4143217) |
+| **Blog article** | [Azure AI Assistants with Azure Logic Apps](https://techcommunity.microsoft.com/discussions/azure-ai-foundry-discussions/azure-ai-assistants-with-logic-apps/4246711) |
 | **Demo video** | [Azure Logic Apps as an AI plugin](https://youtu.be/cW0t2WvqtCc) |
 
 ### Integrate with Semantic Kernel
