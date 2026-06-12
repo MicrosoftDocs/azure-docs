@@ -11,7 +11,7 @@ items:
   - name: Quickstarts
     expanded: true
     items:
-      - name: Dynamic workflows
+      - name: Automation workflows
         items:
           - name: 1 - Create projects
             href: automation/quickstart-create-dynamic-automation-projects.md
@@ -100,7 +100,19 @@ items:
             href: /security/benchmark/azure/baselines/logic-apps-security-baseline?toc=/azure/logic-apps/toc.json
   - name: How-to guides
     items:
-      - name: Single-tenant Azure Logic Apps
+      - name: Azure Logic Apps Automation
+        items:
+          - name: About Azure Logic Apps Automation
+            href: automation/dynamic-workflow-automation-introduction.md
+          - name: Compare automation services
+            href: automation/compare-automation-services.md
+          - name: 1 - Create projects
+            href: automation/quickstart-create-dynamic-automation-projects.md
+          - name: 2 - Create applications
+            href: automation/quickstart-create-dynamic-automation-applications.md
+          - name: 3 - Create workflows
+            href: automation/quickstart-create-dynamic-automation-workflows.md
+      - name: Azure Logic Apps Standard
         items:
           - name: Overview
             href: single-tenant-overview-compare.md
@@ -300,17 +312,17 @@ items:
             href: support-non-unicode-character-encoding.md
           - name: Troubleshoot errors
             href: logic-apps-diagnosing-failures.md
-      - name: Connector Namespace
+      - name: Azure Connector Namespaces
         items:
           - name: Overview
             href: connector-namespace/connector-namespace-overview.md
-          - name: Create connector namespace
+          - name: Create connector namespaces
             href: connector-namespace/create-connector-namespace.md
-          - name: Create connector namespace connection
+          - name: Create connections for connector namespaces
             href: connector-namespace/create-connector-namespace-connection.md
           - name: Hosted MCP servers
             href: connector-namespace/connector-namespace-hosted-mcp.md
-          - name: Create a hosted MCP server
+          - name: Create hosted MCP servers
             href: connector-namespace/hosted-mcp-quickstart.md
           - name: Hosted MCP servers developer guide
             href: connector-namespace/hosted-mcp-dev-guide.md
@@ -338,7 +350,7 @@ items:
                 href: logic-apps-enterprise-integration-certificates.md
               - name: Artifact metadata
                 href: logic-apps-enterprise-integration-metadata.md
-          - name: Receive and send B2B messages
+          - name: Exchange B2B messages
             href: logic-apps-enterprise-integration-b2b.md
           - name: AS2 messaging
             items:
@@ -534,11 +546,11 @@ items:
             href: testing-framework/test-logic-apps-mock-data-static-results.md
       - name: Deploy
         items:
-          - name: About automated deployment - Multitenant
+          - name: Automated deployment for multitenant
             href: logic-apps-azure-resource-manager-templates-overview.md
-          - name: Create logic app templates
+          - name: Create logic app templates for multitenant
             href: logic-apps-create-azure-resource-manager-templates.md
-          - name: Deploy logic app templates
+          - name: Deploy logic app templates for multitenant
             href: logic-apps-deploy-azure-resource-manager-templates.md
       - name: Monitor
         items:
@@ -658,9 +670,9 @@ items:
             href: testing-framework/liquid-data-map-test-executor-class-definition.md
           - name: TestLiquidTransformKind enum
             href: testing-framework/test-liquid-transform-kind-enum-definition.md
-      - name: Standard Logic Apps SDK
+      - name: Azure Logic Apps Standard SDK
         items:
-          - name: Logic Apps Standard SDK overview
+          - name: Overview
             href: standard-sdk/logic-apps-standard-sdk.md
           - name: Workflow composition and chaining
             items:

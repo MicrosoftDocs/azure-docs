@@ -17,7 +17,7 @@ zone_pivot_groups: passwordless
 
 Passwordless connections use managed identities to access Azure services. With this approach, you don't have to manually track and manage secrets for managed identities. These tasks are securely handled internally by Azure.
 
-Service Connector enables managed identities in app hosting services like Azure Spring Apps, Azure App Service, and Azure Container Apps. Service Connector also configures database services, such as Azure Database for PostgreSQL, Azure Database for MySQL, Azure SQL Database, and SQL database in Microsoft Fabric, to accept managed identities.
+Service Connector enables managed identities in app hosting services like Azure Spring Apps and Azure App Service. Service Connector also configures database services, such as Azure Database for PostgreSQL, Azure Database for MySQL, Azure SQL Database, and SQL database in Microsoft Fabric, to accept managed identities.
 
 In this tutorial, you use the Azure CLI to complete the following tasks:
 
@@ -43,7 +43,6 @@ To begin using the Azure CLI:
 1. Deploy your application to an Azure hosting service. Optionally refer to the guides below for more information about deploying these resources.
 
    - Azure App Service: [Quickstart: Deploy an ASP.NET web app](../app-service/quickstart-dotnetcore.md).
-   - Azure Container Apps: [Quickstart: Deploy your first container app](../container-apps/get-started.md).
    - Azure Spring Apps: [Build and deploy the app](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app?#build-and-deploy-the-app).
        [!INCLUDE [deprecation-note](../spring-apps/includes/deprecation-note.md)]
 

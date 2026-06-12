@@ -7175,7 +7175,12 @@
     },
     {
       "source_path_from_root": "/articles/service-connector/quickstart-cli-container-apps.md",
-      "redirect_url": "/azure/service-connector/quickstart-portal-container-apps",
+      "redirect_url": "https://github.com/microsoft/azure-container-apps/issues/1566",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-connector/quickstart-portal-container-apps.md",
+      "redirect_url": "https://github.com/microsoft/azure-container-apps/issues/1566",
       "redirect_document_id": false
     },
     {

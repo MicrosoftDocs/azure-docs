@@ -364,7 +364,7 @@ The `regex.match` function in rego uses RE2, which is not the default flavor ser
 
 #### Resolution
 
-You will need to select the RE2 or golang flavor of regex in your matcher. See [the rego docs](https://docs.styra.com/opa/rego-by-example/builtins/regex/match) for more details on the RE2 flavor and what online tooling is recommended to test your regex.
+You will need to select the RE2 or golang flavor of regex in your matcher. See [the rego docs](https://www.openpolicyagent.org/docs/policy-reference/builtins/regex#match) for more details on the RE2 flavor and what online tooling is recommended to test your regex.
 
 ### Scenario: I'm seeing a large number of updates on constraint.gatekeeper.sh CRDs and other Gatekeeper resources
 

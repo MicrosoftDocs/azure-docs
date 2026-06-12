@@ -27,7 +27,7 @@ This section describes how to restore:
 - Individual files or folders
 
 >[!Note]
->Vaulted backup currently supports only full share recovery to an alternate location. The target File Share selected for restore needs to be empty.
+>Vaulted backup currently supports only full share recovery.
 
 **Choose a restore option**:
 

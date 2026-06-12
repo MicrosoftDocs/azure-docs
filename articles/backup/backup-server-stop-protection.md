@@ -3,7 +3,7 @@ title: Stop Protection for workloads in Microsoft Azure Backup Server (MABS)
 description: This article describes how to stop protection for workloads that are already protected by Microsoft Azure Backup Server (MABS)
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 06/09/2026
+ms.date: 06/11/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.reviewer: v-mallicka

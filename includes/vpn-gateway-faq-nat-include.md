@@ -2,12 +2,12 @@
  author: cherylmc
  ms.service: azure-vpn-gateway
  ms.topic: include
- ms.date: 10/16/2024
+ ms.date: 06/10/2026
  ms.author: cherylmc
 ---
 ### Is NAT supported on all Azure VPN Gateway SKUs?
 
-NAT is supported on VpnGw2 to VpnGw25 and on VpnGw2AZ to VpnGw5AZ.
+NAT is supported on VpnGw2 to VpnGw5 and on VpnGw2AZ to VpnGw5AZ.
 
 ### Can I use NAT on VNet-to-VNet or P2S connections?
 

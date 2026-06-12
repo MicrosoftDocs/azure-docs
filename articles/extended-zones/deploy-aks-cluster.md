@@ -10,9 +10,9 @@ ms.date: 06/11/2026
 
 # Deploy an Azure Kubernetes Service (AKS) cluster in an Azure extended zone
 
-Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you learn how to create an AKS cluster in extended zones.
+Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this article, you learn how to create an AKS cluster in extended zones. For ARM template and Terraform deployment options, conceptual background, and additional Azure CLI guidance, see [Azure Kubernetes Service (AKS) for Extended Zones](/azure/aks/extended-zones) in the AKS documentation.
 
-AKS is generally available in Azure Extended Zones for **public clusters** and **private clusters**. Other AKS features and add-ons might work, but only the features explicitly listed as supported are covered by the AKS support contract for Azure Extended Zones. The list of supported features continues to grow as we validate more capabilities based on customer signals. For the up-to-date list of supported services and features, see [Service offerings for Azure Extended Zones](overview.md#service-offerings-for-azure-extended-zones).
+AKS is generally available in Azure Extended Zones for **public clusters** and **private clusters**. For the up-to-date list of supported services and features, see [Service offerings for Azure Extended Zones](overview.md#service-offerings-for-azure-extended-zones).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 

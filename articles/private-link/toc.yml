@@ -182,7 +182,7 @@
         - name: Python
           href: https://azure.microsoft.com/develop/python/
         - name: REST
-          href: https://github.com/Azure/azure-rest-api-specs/blob/main/specification/network/resource-manager/Microsoft.Network/preview/2023-07-01-preview/networkSecurityPerimeter.json
+          href: https://github.com/Azure/azure-rest-api-specs/blob/main/specification/network/resource-manager/Microsoft.Network/Network/preview/2023-07-01-preview/networkSecurityPerimeter.json
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn training
