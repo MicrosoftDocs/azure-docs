@@ -29,6 +29,9 @@ External Data Services (EDS) is now generally available on Azure Data Manager fo
 ### Manifest Ingestion by Reference DAG - Preview
 Manifest Ingestion by Reference DAG supports ingestion of a large number of records by referencing a large manifest uploaded to the Dataset service for processing. This DAG is available as a preview feature in the Azure Data Manager for Energy Developer SKU.
 
+### Analytics Consumption Zone (ACZ) - Preview
+Analytics Consumption Zone (ACZ) exports selected entity data from your Azure Data Manager for Energy instance to your Azure Data Lake Storage (ADLS) Gen2 account. ACZ writes data in open Delta Parquet format that analytics engines like Microsoft Fabric and Azure Databricks can read directly. This feature is available as a preview on Developer Tier.
+
 ## March 2026
 ### Manage OSDU milestone upgrade settings
 Milestone upgrades are major version upgrades to Azure Data Manager for Energy, such as moving from a release compatible with OSDU milestone M25 to M26. ADME now allows customers to choose whether to upgrade the instance immediately as the upgrade becomes available or defer the upgrade for up to 30 days. To learn more, see [Manage upgrade settings in Azure Data Manager for Energy](how-to-manage-upgrade-settings.md).

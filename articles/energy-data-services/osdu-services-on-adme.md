@@ -51,6 +51,9 @@ Azure Data Manager for Energy is currently compliant with the M25.1 OSDU® miles
 - **SegY-to-oZGY DAG**: Converts SrgY file formats to ZGY.
 - **Wellbore-DDMS Worker**: Used internally by the Wellbore DDMS Service & handles high‑volume, bulk wellbore data access through an internal API.
 
+### Analytics services
+- **Analytics Consumption Zone (ACZ) [[Preview]](how-to-enable-analytics-consumption-zone.md)**: Exports selected entity data from Azure Data Manager for Energy to Azure Data Lake Storage (ADLS) Gen2 in open Delta Parquet format for consumption by analytics tools like Microsoft Fabric and Azure Databricks.
+
 ### Reference Data Values and Schema Versions
 Reference Data Values and Schemas are released on independent OSDU community schedules and are not tied to OSDU Milestone releases. As a result, when Azure Data Manager for Energy is upgraded to a new milestone, it includes the versions of the OSDU Schemas and OSDU Reference Data Values that are current at the time of the upgrade.
 
