@@ -3,7 +3,7 @@ title: Incident Platforms in Azure SRE Agent
 description: Connect an incident platform to your agent so it can receive alerts, investigate issues, and take action automatically.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 04/24/2026
+ms.date: 06/08/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -80,6 +80,8 @@ A response plan can:
 Response plans turn your agent from a general-purpose assistant into an incident responder, with defined procedures for known incident types.
 
 #### Quickstart response plan
+
+[!INCLUDE [quickstart-response-plan-warning](includes/quickstart-response-plan-warning.md)]
 
 When you connect an incident platform, you can enable this feature to automatically create a default response plan. This plan gets you started immediately:
 

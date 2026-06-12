@@ -26,7 +26,7 @@ ms.custom: Include file
 | API definitions [analyzed](../enable-managed-api-analysis-linting.md) | 10 | 2,000<sup>4</sup>  |
 | Analysis profiles | 1 | 3 |
 | Linked (integrated) API sources<sup>5</sup> | 1  |  5 |
-| APIs synchronized from a linked API source | 200 | 2,000<sup>4</sup>  |
+| APIs synchronized from a linked API source | 200 | 10,000<sup>4</sup>  |
 | Dependencies | 200 | 200 |
 | Semantic search in API Center portal | No | Yes |
 

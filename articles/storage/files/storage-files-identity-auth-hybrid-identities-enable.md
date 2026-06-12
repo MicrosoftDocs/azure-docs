@@ -137,7 +137,7 @@ You can enable Microsoft Entra Kerberos authentication on Azure Files by using t
 To enable Microsoft Entra Kerberos authentication by using the [Azure portal](https://portal.azure.com), follow these steps.
 
 1. Sign in to the Azure portal and select the storage account you want to enable Microsoft Entra Kerberos authentication for.
-1. Under **Data storage**, select **File shares**.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
 1. Next to **Identity-based access**, select the configuration status, such as **Not configured**.
  
    :::image type="content" source="media/storage-files-identity-auth-hybrid-identities-enable/configure-identity-based-access.png" alt-text="Screenshot of the Azure portal showing file share settings for a storage account." lightbox="media/storage-files-identity-auth-hybrid-identities-enable/configure-identity-based-access.png" border="true":::
@@ -393,7 +393,7 @@ If you want to use another authentication method, you can disable Microsoft Entr
 To disable Microsoft Entra Kerberos authentication on your storage account by using the Azure portal, follow these steps.
 
 1. Sign in to the Azure portal and select the storage account you want to disable Microsoft Entra Kerberos authentication for.
-1. Under **Data storage**, select **File shares**.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
 1. Next to **Identity-based access**, select the configuration status.
 1. Under **Microsoft Entra Kerberos**, select **Configure**.
 1. Uncheck the **Microsoft Entra Kerberos** checkbox.

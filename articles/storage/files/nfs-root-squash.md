@@ -57,7 +57,7 @@ For Azure classic file shares that use the Microsoft.Storage resource provider, 
 
 1. Sign in to the Azure portal and navigate to the FileStorage storage account containing the NFS Azure file share.
 
-1. In the service menu, under **Data storage**, select **File shares**.
+1. In the service menu, under **Data storage**, select **Classic file shares**.
 
 1. Select the file share for which you want to modify the root squash setting.
 

@@ -197,7 +197,7 @@ To delete a snapshot of an existing file share, sign in to the Azure portal and 
 
 1. Select the storage account that contains the file share for which you want to delete snapshots.
 
-1. Select **Data storage** > **File shares**.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
 
 1. Select the file share for which you want to delete one or more snapshots, and then select **Operations** > **Snapshots**. The portal lists any existing snapshots for the file share.
 
@@ -266,7 +266,8 @@ To mount a specific snapshot of an SMB Azure file share on Linux, you must suppl
 After you create the file share snapshot, follow these instructions to mount it.
 
 1. In the Azure portal, go to the storage account that contains the file share you want to mount a snapshot of.
-1. Select **Data storage > File shares** and select the file share.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
+1. Select the file share.
 1. Select **Operations > Snapshots** and take note of the name of the snapshot you want to mount. The snapshot name is a GMT timestamp, such as in the screenshot.
 
    :::image type="content" source="media/storage-snapshots-files/mount-smb-snapshot-on-linux.png" alt-text="Screenshot showing how to locate a file share snapshot name and timestamp in the Azure portal." border="true" :::
@@ -309,7 +310,7 @@ To create a snapshot of an existing classic file share, sign in to the Azure por
 
 1. Select the FileStorage storage account that contains the NFS classic file share that you want to take a snapshot of.
 
-1. Select **Data storage** > **File shares**.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
 
 1. Select the classic file share that you want to snapshot, and then select **Operations** > **Snapshots**.
 
@@ -345,7 +346,7 @@ To list all the snapshots for an existing classic file share, sign in to the Azu
 
 1. Select the storage account that contains the NFS classic file share that you want to list the snapshots for.
 
-1. Select **Data storage** > **File shares**.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
 
 1. Select the classic file share for which you want to list the snapshots.
 
@@ -423,7 +424,7 @@ To delete a snapshot of an existing classic file share, sign in to the Azure por
 
 1. Select the FileStorage storage account that contains the NFS classic file share for which you want to delete snapshots.
 
-1. Select **Data storage** > **File shares**.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
 
 1. Select the file share for which you want to delete one or more snapshots, and then select **Operations** > **Snapshots**. The portal lists any existing snapshots for the file share.
 

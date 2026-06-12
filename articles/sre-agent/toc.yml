@@ -184,10 +184,6 @@ items:
             href: manage-permissions.md
           - name: Set up incident response
             href: tutorial-incident-response.md
-          - name: Connect to PagerDuty
-            href: connect-pagerduty.md
-          - name: Connect to ServiceNow
-            href: connect-servicenow.md
       - name: Act
         items:
           - name: Create scheduled tasks

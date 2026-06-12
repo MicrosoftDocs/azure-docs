@@ -288,7 +288,7 @@ If you disable this identity source, the file shares in your storage account won
 To disable AD DS authentication on your storage account by using the Azure portal, follow these steps.
 
 1. Sign in to the Azure portal and select the storage account you want to disable AD DS authentication for.
-1. Under **Data storage**, select **File shares**.
+1. Under **Data storage**, select **Classic file shares**.
 1. Next to **Identity-based access**, select the configuration status, which should be **Configured**.
 1. Under **Active Directory Domain Services (AD DS)**, select **Configure**.
 1. Check the **Disable Active Directory for this storage account** checkbox.
