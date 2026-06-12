@@ -8,7 +8,6 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 06/12/2026
 ms.author: normesta
-ms.reviewer: fryu
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
