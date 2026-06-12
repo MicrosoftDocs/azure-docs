@@ -43,7 +43,7 @@ Azure Data Manager for Energy is currently compliant with the M25.1 OSDU® miles
   - **EDS Naturalization DAG**: Converts external dataset references into internal ones by fetching and storing actual data files into the OSDU platform, enabling full integration and alignment with internal schemas.
 -  **Ingestion Workflow**: Initiates business processes within the system. During the prototype phase, it facilitates CRUD operations on workflow metadata and triggers workflows in Apache Airflow. Additionally, the service manages process startup records, acting as a wrapper around Airflow functions.
 - **Manifest Ingestion DAG**: Used for ingesting single or multiple metadata artifacts about datasets in Azure Data Manager for Energy instance. Learn more about [Manifest-based ingestion](concepts-manifest-ingestion.md).
-- **Manifest Ingestion by Reference DAG**: Supports ingestion of large numbers of records by referencing a manifest uploaded to the Dataset service for processing.
+- **Manifest Ingestion by Reference DAG [Preview]**: Supports ingestion of large numbers of records by referencing a manifest uploaded to the Dataset service for processing.
 - **CSV Parser DAG**: Helps in parsing CSV files into a format for ingestion and processing. Learn more about [CSV Parser Ingestion](concepts-csv-parser-ingestion.md).
 - **osdu-airflow-lib**: A library that enables user context ingestion within the Airflow workflows.
 - **osdu-ingestion-lib**: A library that supports user context ingestion and includes various fixes related to Python versioning and authority replacement.
