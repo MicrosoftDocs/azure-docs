@@ -199,7 +199,7 @@ Migration of file shares protected with snapshot backup to vaulted backup is sup
 
 | Restore method | Description |
 | --- | --- |
-| Full Share Restore | You can restore the complete file share to the original an alternate location
+| Full Share Restore | You can restore the complete file share to the original or an alternate location
 
 >[!Note]
 >File-level recovery is not supported.
