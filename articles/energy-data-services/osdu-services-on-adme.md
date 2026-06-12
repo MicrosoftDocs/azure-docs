@@ -33,7 +33,6 @@ Azure Data Manager for Energy is currently compliant with the M25.1 OSDU® miles
 ### Domain data management services (DDMS)
 - **Seismic DDMS**: Enables secure access and efficient handling of seismic datasets.
 - **Wellbore DDMS**: Enables secure access and handling of wellbore-related data.
-- **Well Delivery DDMS**: Enables secure access, storage, and interaction of Well Delivery (planning and execution) data.
 - **Rock and Fluid Samples DDMS**: Allows you to manage storage, retrieval, and association of rock and fluid sample master data, analyses, and reports.
 - **Reservoir DDMS [[Preview]](how-to-enable-reservoir-ddms.md)**: Provides storage associated with seismic and well interpretation, structural modeling, geological modeling, and reservoir modeling including reservoir simulation input.
 
@@ -60,6 +59,7 @@ Reference Data Values and Schemas are released on independent OSDU community sch
 
 ## OSDU&reg; services unavailable on Azure Data Manager for Energy
 Note: The following OSDU&reg; services are currently unavailable on Azure Data Manager for Energy.
+- **Well Delivery DDMS**: Enables secure access, storage, and interaction of Well Delivery (planning and execution) data.
 - **Geospatial Consumption Zone** Users can alternatively [deploy the Geospatial Consumption Zone](how-to-deploy-gcz.md) service integrated with ADME.
 - **Partition** Operations can still be performed using the available data partition APIs or through Azure portal.
 - **Schema Upgrade** Users can alternatively [deploy the Schema Upgrade Tool](https://github.com/EirikHaughom/ADME/tree/main/Guides/Schema%20Upgrade%20Tool) integrated with ADME.
