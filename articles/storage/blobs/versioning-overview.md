@@ -121,7 +121,7 @@ The following diagram shows how modifying a blob after versioning is disabled cr
 
 ## Blob versioning and soft delete
 
-Blob versioning and blob soft delete are part of the recommended data protection configuration for storage accounts. For more information about Microsoft's recommendations for data protection, see [Recommended data protection configuration](#recommended-data-protection-configuration) in this article, and [Data protection overview](data-protection-overview.md).
+Blob versioning and blob soft delete are part of the recommended data protection configuration for storage accounts. For more information about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
 
 ### Overwriting a blob
 
