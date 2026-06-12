@@ -55,23 +55,28 @@ Gen 2 private clouds are supported on the following SKU type:
 Gen 2 is available in the following Azure public regions. 
 
 - Australia East
+- Belgium Central
 - Brazil South
-
-- East US
 - Canada Central
 - Canada East
 - Central US
-- Malaysia West
+- East US
+- East US 2
 - France Central
+- Germany West Central
+- Japan East
+- Malaysia West
+- New Zealand North
 - North Europe
 - North Central US
-
+- North Europe
 - Norway East
 - Qatar Central
-
+- Southeast Asia
+- South Central US
 - Switzerland North
 - Switzerland West
-
+- UK South
 - UK West
 - West US 2
 
