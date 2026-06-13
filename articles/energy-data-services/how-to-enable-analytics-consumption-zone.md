@@ -28,6 +28,14 @@ The setup configures a managed identity that enables ACZ to access Azure Data Ma
 
 Complete the following one-time setup tasks to enable ACZ on your Azure Data Manager for Energy resource. After enablement, you can create multiple ACZs using the APIs.
 
+> [!TIP]
+> **Planning your ACZ configuration**  
+> Before creating an ACZ, decide whether you need:
+> - **All catalog data**: Set `allCatalogSync: true` to export all catalog entity types from your partition
+> - **Specific entity types**: Use `catalogKinds` to export only selected kinds (for example, Wells, Wellbores, Fields)
+>
+> See [Tutorial: Use Analytics Consumption Zone (ACZ) APIs](tutorial-analytics-consumption-zone-apis.md) for configuration examples.
+
 | Step | Task |
 |------|------|
 | 1 | Create or use existing ADLS Gen2 storage account |
