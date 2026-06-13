@@ -114,8 +114,14 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])?
 
 Verification would involve comparing the fingerprint from the client output with the one stored in the table below. If they match, then type `yes` to continue and the client will then automatically store the new key in the `known_hosts` for the future.
 
+### What is the timeline for key rotation?
+When the expiry time in the below table hits, Azure Storage will begin the process of rotating keys across all storage accounts. Different storage accounts will experience the key rotation at different times. All storage accounts should see their host keys rotated within several months.
+
 ### How long does the rotation take?
-Rotations are gradual and may take multiple weeks. Either the old or new host key may be presented by the Azure service during this time.
+Rotations are gradual and may take multiple weeks. Once host key rotation has begun for a stoage account, either the old or new host key may be presented by the Azure service during this time.
+
+### Is it a hard expiry?
+No. The expiration date marks the date that Azure Storage will begin rotation host keys. If you do not update your clients before this date, it is possible you will immediately start seeing the new host key, but it is also possible that you will still see the prior host key until all host keys have been rotated.
 
 ### Why do the host keys expire?
 Periodically rotating secrets is a standard security practice and can help reduce attack vectors.
