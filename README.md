@@ -1,8 +1,9 @@
 # Microsoft Azure Documentation
 
-Welcome to the open-source [documentation](https://learn.microsoft.com/azure/?product=popular) of [Microsoft Azure](https://azure.microsoft.com). Please review this README file to understand how you can assist in contributing to the Microsoft Azure documentation . 
+Welcome to the open-source [documentation](https://learn.microsoft.com/azure/?product=popular) of [Microsoft Azure](https://azure.microsoft.com). Please review this README file to understand how you can assist in contributing to the Microsoft Azure documentation. 
  
 ## Getting Started
+
 
 Contributing to open source is more than just providing updates. It's also about letting us know when there is an issue. Read our [Contributing guidance](CONTRIBUTING.md) to find out more.
 
