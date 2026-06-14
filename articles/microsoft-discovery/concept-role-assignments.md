@@ -390,8 +390,15 @@ New-AzRoleAssignment `
   -Scope "/subscriptions/{subscription-id}/resourceGroups/{rg-name}"
 ```
 
+## Assign all persona roles in one step
+
+If you need to grant the full set of roles required by the **Platform Administrator** or **Scientist** persona to one or more users, you can do this in a single, idempotent command using the open-source `Set-DiscoveryRoleAssignments.ps1` script published in the [microsoft/discovery](https://github.com/microsoft/discovery/tree/main/utilities/rbac-roles-assignment) repository.
+
+The script validates the executor's permissions, supports both subscription and resource group scope, handles guest users, and prints a clear three-section summary (Assigned / Failed / Skipped). For step-by-step instructions, see [Assign Microsoft Discovery persona roles with a PowerShell script](how-to-assign-persona-roles.md).
+
 ## Related content
 
+- [Assign Microsoft Discovery persona roles with a PowerShell script](how-to-assign-persona-roles.md)
 - [What is Microsoft Discovery?](overview-what-is-microsoft-discovery.md)
 - [Resource provider registration in Microsoft Discovery](concept-resource-provider-registration.md)
 - [Azure RBAC documentation](../role-based-access-control/overview.md)

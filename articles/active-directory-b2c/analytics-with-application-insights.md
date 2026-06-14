@@ -6,7 +6,7 @@ description: Learn how to enable event logs in Application Insights from Azure A
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 
 ms.date: 04/17/2025

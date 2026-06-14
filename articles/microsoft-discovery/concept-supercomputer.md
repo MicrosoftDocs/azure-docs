@@ -63,6 +63,41 @@ The Supercomputer runs in your Azure environment, so you supply the networking c
 
 The Supercomputer requires an Azure virtual network and uses two subnets, one for system orchestration and management components, and a second for the compute nodes. Both subnets must reside in the same virtual network, and the system subnet must have connectivity to the node pool subnets so that the control plane can coordinate scheduling and health checks.
 
+### Pod CIDR and Service CIDR
+
+The Supercomputer's underlying AKS cluster uses separate IP address ranges for Kubernetes pods and services, referred to as the Pod CIDR and Service CIDR. These ranges are intentionally configured outside of the virtual network address space and are used exclusively for internal Kubernetes networking.
+
+#### Pod CIDR
+
+The Pod CIDR is the IP address range from which Kubernetes assigns IP addresses to application pods running in the cluster. Each pod receives an IP address from the Pod CIDR range, enabling direct pod-to-pod communication within the cluster.
+
+#### Service CIDR
+
+The Service CIDR is the IP address range used for Kubernetes Services (ClusterIP services). Each service is assigned a virtual IP address from this range. These virtual IPs provide a stable endpoint for accessing applications, regardless of which pods are currently serving traffic.
+
+#### Why these CIDR ranges are outside the VNet address space
+
+In the Supercomputer's AKS cluster, the Pod CIDR and Service CIDR are configured outside the VNet address space for the following reasons:
+
+- **Separation of infrastructure and Kubernetes networking.** The VNet address space is used for infrastructure resources such as AKS nodes, virtual machines, load balancers, private endpoints, and other Azure services. Separate CIDR ranges prevent contention between infrastructure IP addresses and Kubernetes-managed IP addresses.
+- **Improved IP address utilization.** Pods can scale rapidly and consume a large number of IP addresses. A dedicated Pod CIDR supports large-scale workloads without exhausting VNet address space. This is particularly beneficial when using Azure CNI Overlay networking, where pod IPs are managed independently from the VNet.
+- **Simplified network management.** Keeping Pod and Service CIDRs separate makes it easier to plan network address allocation, avoid address exhaustion, manage cluster growth, and troubleshoot networking issues.
+- **Avoidance of routing conflicts.** The Pod CIDR and Service CIDR must not overlap with the AKS VNet address space, peered VNets, on-premises networks connected through VPN or ExpressRoute, or other AKS cluster networking ranges. Using dedicated, non-overlapping address ranges ensures predictable routing behavior.
+
+#### Example configuration
+
+| Component | CIDR range |
+|-----------|-----------|
+| VNet | `10.100.0.0/16` |
+| AKS node subnet | `10.100.1.0/24` |
+| Pod CIDR | `10.244.0.0/16` |
+| Service CIDR | `10.0.0.0/16` |
+
+In this example, AKS nodes receive IPs from the VNet subnet (`10.100.1.0/24`), pods receive IPs from the Pod CIDR (`10.244.0.0/16`), and Kubernetes Services receive virtual IPs from the Service CIDR (`10.0.0.0/16`).
+
+> [!IMPORTANT]
+> Proper planning of non-overlapping CIDR ranges is essential for successful Supercomputer deployments and future cluster growth. Ensure that Pod CIDR and Service CIDR ranges don't conflict with any networks reachable from your VNet.
+
 ### Security and identity
 
 The Supercomputer uses Azure managed identities to interact with other Azure services and to manage VMs.

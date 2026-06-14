@@ -148,7 +148,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |Derek Coleman & Associates Corporation|
 |[Developing Today LLC](https://www.developingtoday.net/)|
 |Diamond Capture Associates LLC|
-|[Diffeo, Inc.](https://diffeo.com)|
+|[Diffeo, Inc.](https://en.wikipedia.org/wiki/Diffeo,_Inc.)|
 |[DirectApps, Inc. D.B.A. Direct Technology](https://directtechnology.com)|
 |[DominionTech Inc.](https://www.dominiontech.com)|
 |[DOT Personable Inc](https://cloud.personable.com/1/login.htm)|
@@ -268,7 +268,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Mainstay Technologies](https://www.mstech.com)|
 |[Managed Solution](https://www.managedsolution.com/)|
 |[ManCom Inc](https://www.mancominc.com/)|
-|[ManTech](https://www.mantech.com/Pages/Home.aspx)|
+|[ManTech](https://www.mantech.com/)|
 |[Marco Technologies LLC](https://www.marconet.com/)|
 |[Maureen Data Systems](https://www.mdsny.com)|
 |[Mazteck IT](https://www.mazteck.com)|
@@ -281,7 +281,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[mindSHIFT Technologies, Inc.](https://www.mindshift.com/)|
 |[MIS Sciences Corp](https://www.mis-sciences.com/)|
 |[Mission Cyber LLC](https://missioncyber.com/b/)|
-|[MNSG Acquisition Company LLC]()|
+|[MNSG Acquisition Company LLC](https://www.mnsgroup.com/)|
 |[Mobomo, LLC](https://www.mobomo.com)|
 |[Nanavati Consulting, Inc.](https://www.nanavaticonsulting.com)|
 |[Navisite LLC](https://www.navisite.com/)|
@@ -316,7 +316,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Orion Communications, Inc.](https://www.orioncom.com)|
 |[Outlook Insight, LLC](http://outlookinsight.com/)|
 |[Overview Technology Solutions Inc.](https://overviewts.com/)|
-|[PA-Group](https://pa-group.us/)|
+|[PA-Group](https://dmsiworks.com/resellers/pa-group-usa)
 |[Palecek Consulting Group](https://www.pcgit.net)|
 |[Pangea Group Inc.](http://www.pangea-group.com)|
 |[Paragon Software Solutions, Inc.](http://www.paragonhq.com/)|

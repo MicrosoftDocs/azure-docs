@@ -6,7 +6,7 @@ description: Learn how to enable a .NET web API to support tokens issued by mult
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.custom: devx-track-dotnet
 ms.topic: how-to

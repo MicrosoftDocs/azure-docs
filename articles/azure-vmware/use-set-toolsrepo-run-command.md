@@ -60,10 +60,10 @@ Before making any changes, validation that the URL is usable and the ZIP file ca
 
 3. Customer runs the Set-ToolsRepo Run Command.
     - Run the AVS Run Command and provide the ZIP URL shared in step 2. When it completes, the command output will indicate success or provide an error message.
-4. VMware Tools packaged is published.
+4. VMware Tools package is published.
     - Once the Run Command completes successfully, the requested VMware Tools version is available from vSAN central Tools location for the private cloud.
 5. Hosts are configured to use the vSAN repository
-    - As part of the Run Command, the relavant ESXi hosts in the private cloud are updated to use vSAN central Tools location as the VMware Tools source.
+    - As part of the Run Command, the relevant ESXi hosts in the private cloud are updated to use vSAN central Tools location as the VMware Tools source.
 
 ## Validation
 After successful run of the Set-ToolsRepo Run Command, be sure to follow the below steps for validation. 
@@ -86,6 +86,58 @@ Use the error message along with the troubleshooting steps listed below.
 ### Datastore issues
   - **Service-side publish/configure error**. If the URL and ZIP structure are correct but the command still fails, capture the full Run Command output and open a support request.
   - **Intermittent failures**. Retry the Run Command after confirming the ZIP URL is still valid and reachable.
+  
+### VMware Tools upgrade option greyed out and not on the current version
+### Issue
+The VMware Tools Install/Upgrade option appears disabled (greyed out) for virtual machines in vCenter.  
+This can occur when the VMware Tools repository metadata in the vSAN datastore is inconsistent or incorrect.
+
+### Resolution
+#### Check repository metadata in GuestStore
+- Navigate to:  
+  **vSAN Datastore → GuestStore → vmware → apps → vmtools → windows64**
+  
+:::image type="content" source="../azure-vmware/media/tools-troubleshooting/vsan-windows64.png" alt-text="Screenshot of the vSAN datastore showing the GuestStore path vmware apps vmtools windows64 directory." lightbox="../azure-vmware/media/tools-troubleshooting/vsan-windows64.png" border="false":::
+- Verify the following files:
+  - Top-level metadata:  
+    **windows64/metadata.json**
+    
+![Screenshot of the top-level metadata.json file in the windows64 directory.](../azure-vmware/media/tools-troubleshooting/windows64-metadata.png)
+  - Version-specific metadata:  
+    **windows64/vmtools-&lt;version&gt;/metadata.json**
+    
+![Screenshot of the version-specific metadata.json file inside the vmtools version folder.](../azure-vmware/media/tools-troubleshooting/version-metadata.png)
+
+#### Validate metadata consistency
+- The top-level metadata.json and version-specific metadata.json should:
+  - Match the same VMware Tools version
+  - Be consistent with each other (as shown in reference screenshots)
+- Interpretation:
+  - If they match → metadata is consistent  
+  - If they do not match → metadata inconsistency exists  
+
+#### Fix metadata mismatch (if identified)
+- If the **top-level file is incorrect**:
+  - Delete:  
+    **windows64/metadata.json**  
+    *(Example: vSAN Datastore/GuestStore/vmware/apps/vmtools/windows64/metadata.json)*
+  - Upload the correct windows64/metadata.json from the **highest VMware Tools package uploaded**
+- If the **version-specific file is incorrect**:
+  - Delete:  
+    **windows64/vmtools-&lt;version&gt;/metadata.json**  
+    *(Example: vSAN Datastore/GuestStore/vmware/apps/vmtools/windows64/vmtools-&lt;version&gt;/metadata.json)*
+  - Upload the correct windows64/vmtools-&lt;version&gt;/metadata.json from the **highest VMware Tools package uploaded**
+- Ensure both metadata files match the same VMware Tools version
+
+#### Wait for host refresh
+- Allow time for the change to propagate across hosts (up to 24 hours)
+
+#### Verify resolution
+- Recheck the VM in vCenter  
+- The VMware Tools Install/Upgrade option should now be enabled  
+
+#### Optional
+- Run **Set-ToolsRepo -Validate** to confirm metadata consistency
 
  ## Next step
 To learn more about Run Commands, see [Run Commands](using-run-command.md).

@@ -6,6 +6,8 @@ author: kengaderdus
 manager: CelesteDG
 
 ms.service: azure-active-directory
+ms.service: entra-id
+
 ms.topic: concept-article
 ms.date: 02/17/2025
 ms.author: kengaderdus
