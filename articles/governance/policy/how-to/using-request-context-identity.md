@@ -1,3 +1,10 @@
+---
+title: Use requestContext().identity to return caller identity in Azure Policy
+description: Learn how to use requestContext().identity in Azure Policy to evaluate caller identity and enforce request-time governance controls.
+ms.topic: how-to
+ms.date: 06/08/2026
+---
+
 # Use requestContext().identity to return caller identity in Azure Policy
 
 If you have ever wanted Azure Policy to behave differently based on *who* (or *what*) made a
@@ -25,7 +32,8 @@ At a high level, you can evaluate:
 - `acrs`: authentication context class references (used to inspect sign-in context, such as MFA-related values)
 - `http://schemas.microsoft.com/identity/claims/objectidentifier`: caller object ID (user or service principal object identifier)
 
-> [!IMPORTANT] When you use `requestContext().identity`, Azure Policy enforcement still occurs at
+> [!IMPORTANT]
+> When you use `requestContext().identity`, Azure Policy enforcement still occurs at
 > request time (for example, `deny`, `modify`, and `deployIfNotExists`). However, compliance scans
 > for that policy are marked as `NotApplicable`. This pattern is best when your goal is real-time
 > enforcement on incoming create/update operations, not post-deployment compliance reporting.
@@ -165,7 +173,7 @@ This pattern is strict and explicit, but it requires good operational hygiene to
 
 - Start with `audit` or assign with enforcement disabled to validate behavior before enforcing `deny`.
 - Use `tryGet()` for every identity claim access to avoid evaluation failures from missing keys.
-- Pilot at a narrow scope (single subscription or management group branch) before broad assignment. To learn more about staged rollout best practices, see [Safe deployment of Azure Policy assignments](https://learn.microsoft.com/en-us/azure/governance/policy/how-to/policy-safe-deployment-practices).
+- Pilot at a narrow scope (single subscription or management group branch) before broad assignment. To learn more about staged rollout best practices, see [Safe deployment of Azure Policy assignments](policy-safe-deployment-practices.md).
 - Communicate clearly with platform and security teams that compliance state will be `NotApplicable` for these policies.
 - Pair identity-based rules with resource-configuration policies for layered governance.
 
