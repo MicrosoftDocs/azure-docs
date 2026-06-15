@@ -10,7 +10,7 @@ ms.date: 05/18/2026
 ms.custom: template-how-to, devx-track-azurecli
 ---
 
-# Associate Azure App Configuration with a network security perimeter
+# Associate Azure App Configuration with a network security perimeter (private preview)
 
 In this article, you learn how to associate your Azure App Configuration store with a [network security perimeter](../private-link/network-security-perimeter-concepts.md). For more information, see [Network security perimeter for Azure App Configuration](./concept-network-security-perimeter.md).
 
