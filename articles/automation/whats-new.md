@@ -187,6 +187,15 @@ Set up disaster recovery for your Automation accounts to handle a region-wide or
 Azure Automation now supports [Azure availability zones](/azure/reliability/availability-zones-overview#zonal-and-zone-redundant-services) to provide improved resiliency and reliability by providing high availability to the service, runbooks, and other Automation assets. [Learn more](automation-availability-zones.md).
 
 
+## August 2022
+
+### Azure Automation Hybrid Worker Extension (preview) now supports Arc-enabled VMware VMs
+
+**Type:** Enhancement to an existing feature
+
+In addition to the support for Azure VMs and Arc-enabled Servers, Azure Automation Hybrid Worker Extension (preview) now supports Arc-enabled VMware VMs as a target. You can now orchestrate management tasks using PowerShell and Python runbooks on Azure VMs, Arc-enabled Servers, and Arc-enabled VMware VMs with an identical experience. Read [here](extension-based-hybrid-runbook-worker-install.md) for more information.
+
+
 ## July 2022
 
 ### Support for Run As accounts
@@ -195,14 +204,6 @@ Azure Automation now supports [Azure availability zones](/azure/reliability/avai
 
 
 Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](./automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](./migrate-run-as-accounts-managed-identity.md?tabs=run-as-account#migrate-from-an-automation-run-as-account-to-a-managed-identity) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
-
-## August 2022
-
-### Azure Automation Hybrid Worker Extension (preview) now supports Arc-enabled VMware VMs
-
-**Type:** Enhancement to an existing feature
-
-In addition to the support for Azure VMs and Arc-enabled Servers, Azure Automation Hybrid Worker Extension (preview) now supports Arc-enabled VMware VMs as a target. You can now orchestrate management tasks using PowerShell and Python runbooks on Azure VMs, Arc-enabled Servers, and Arc-enabled VMware VMs with an identical experience. Read [here](extension-based-hybrid-runbook-worker-install.md) for more information.
 
 
 ## March 2022
