@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 05/27/2026
+ms.date: 06/15/2026
 ms.update-cycle: 180-days
 ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
@@ -81,7 +81,7 @@ Token count metrics are model- and provider-dependent and can include total, pro
 * This policy can be used multiple times per policy definition.
 * You can configure at most 5 custom dimensions for this policy.
 * Values in the usage section of the response from the LLM API, when available, are used to determine token metrics. 
-* Certain LLM endpoints support streaming of responses. When `stream` is set to `true` in the API request to enable streaming, token counts are read from the response. If the stream is unexpectedly interrupted or terminated, the captured token counts are inaccurate. 
+* Certain LLM endpoints support streaming of responses. If the stream is unexpectedly interrupted or terminated, the captured token counts are inaccurate. 
 * Certain OpenAI models, especially when streaming, don't include token counts in the response by default. To receive the token counts, set the `include_usage` parameter to `true` in the API request.
 
 ## Example
