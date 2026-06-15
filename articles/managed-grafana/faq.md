@@ -24,7 +24,7 @@ No. Azure Managed Grafana hosts a commercial version called [Grafana Enterprise]
 
 ## Which Microsoft Entra audience should I use for Azure Managed Grafana data plane APIs?
 
-Use `https://dashboard.azure.com` as the audience when requesting tokens for Azure Managed Grafana data plane API calls.
+Use `6f2d169c-08f3-4a4c-a982-bcaf2d038c45` as the audience when requesting tokens for Azure Managed Grafana data plane API calls.
 
 For examples and troubleshooting, see [Authenticate to Azure Managed Grafana data plane APIs with Microsoft Entra ID](./how-to-authenticate-data-plane-api.md).
 
