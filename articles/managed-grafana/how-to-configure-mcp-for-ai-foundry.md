@@ -79,7 +79,7 @@ To find the correct principal:
     | **workspace-hostname** | Your Azure Managed Grafana endpoint hostname. Enter only the hostname. Don't include `https://` or `/api/azure-mcp`. |
     | **Authentication** | **Microsoft Entra** |
     | **Type** | **Project Managed Identity** |
-    | **Audience** | The Azure Managed Grafana audience: `https://dashboard.azure.com` |
+    | **Audience** | The Azure Managed Grafana audience: `6f2d169c-08f3-4a4c-a982-bcaf2d038c45` |
 
 
     :::image type="content" source="media/how-to-configure-mcp-for-ai-foundry/5-mcp-config.png" alt-text="Screenshot of Azure AI Foundry showing Azure Managed Grafana MCP tool configuration values." lightbox="media/how-to-configure-mcp-for-ai-foundry/5-mcp-config-expanded.png":::
@@ -108,7 +108,7 @@ If validation fails:
 
 - Verify the managed identity has a Grafana role on the Azure Managed Grafana resource.
 - Verify the **workspace-hostname** value is the Grafana hostname only.
-- Verify the audience is `https://dashboard.azure.com`.
+- Verify the audience is `6f2d169c-08f3-4a4c-a982-bcaf2d038c45`.
 - Verify the Grafana data source required by the prompt exists and can access the target Azure scope.
 - Check for RBAC propagation delay and retry after a few minutes.
 
