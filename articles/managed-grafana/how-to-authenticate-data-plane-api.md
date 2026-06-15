@@ -13,7 +13,7 @@ ms.date: 05/28/2026
 
 This article shows how to get a Microsoft Entra ID access token for Azure Managed Grafana data plane APIs so you can call Grafana APIs programmatically.
 
-Use the Azure Managed Grafana audience `https://dashboard.azure.com` for Microsoft Entra ID authentication to Azure Managed Grafana data plane APIs.
+Use the Azure Managed Grafana audience `6f2d169c-08f3-4a4c-a982-bcaf2d038c45` for Microsoft Entra ID authentication to Azure Managed Grafana data plane APIs.
 
 Choose one token acquisition method based on your scenario.
 
@@ -30,18 +30,18 @@ Choose one token acquisition method based on your scenario.
 Run this command to get an access token for the Azure Managed Grafana audience:
 
 ```azurecli
-az account get-access-token --resource https://dashboard.azure.com --query accessToken -o tsv
+az account get-access-token --resource 6f2d169c-08f3-4a4c-a982-bcaf2d038c45 --query accessToken -o tsv
 ```
 
 If you plan to run the validation command in this article, store the token in a shell variable:
 
 ```bash
-TOKEN=$(az account get-access-token --resource https://dashboard.azure.com --query accessToken -o tsv)
+TOKEN=$(az account get-access-token --resource 6f2d169c-08f3-4a4c-a982-bcaf2d038c45 --query accessToken -o tsv)
 ```
 
 ### Option 2: Code (application and automation scenarios)
 
-Request a token for this scope when you use managed identity or service principal authentication in code: `https://dashboard.azure.com/.default`.
+Request a token for this scope when you use managed identity or service principal authentication in code.
 
 Use `DefaultAzureCredential` as shown in this Python example:
 
@@ -49,7 +49,7 @@ Use `DefaultAzureCredential` as shown in this Python example:
 from azure.identity import DefaultAzureCredential
 
 credential = DefaultAzureCredential()
-token = credential.get_token("https://dashboard.azure.com/.default")
+token = credential.get_token("6f2d169c-08f3-4a4c-a982-bcaf2d038c45")
 print(token.token)
 ```
 
@@ -77,7 +77,7 @@ Use the same `Authorization: Bearer` header pattern to call other Azure Managed 
 
 If a request fails with `401` or an authorization error:
 
-- Check that the token audience is `https://dashboard.azure.com`.
+- Check that the token audience is `6f2d169c-08f3-4a4c-a982-bcaf2d038c45`.
 - Check that the caller has a Grafana role assignment on the Azure Managed Grafana resource.
 - If role assignments changed recently, wait a few minutes and retry.
 

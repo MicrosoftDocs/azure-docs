@@ -212,14 +212,14 @@ When you migrate to version 4.x, make sure that your local.settings.json file ha
 
 # [.NET 8](#tab/net8)
 
-<!-- :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json"::: -->
+:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
 
 > [!NOTE]
 > When migrating from running in-process to running in an isolated worker process, you need to change the `FUNCTIONS_WORKER_RUNTIME` value to "dotnet-isolated".
 
 # [.NET Framework 4.8](#tab/netframework48)
 
-<!-- :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json"::: -->
+:::code language="json" source="~/functions-quickstart-templates/Functions.Templates/ProjectTemplate_v4.x/CSharp-Isolated/local.settings.json":::
 
 > [!NOTE]
 > When migrating from running in-process to running in an isolated worker process, you need to change the `FUNCTIONS_WORKER_RUNTIME` value to "dotnet-isolated".
@@ -327,7 +327,7 @@ Make sure to check [Breaking changes between 3.x and 4.x](#breaking-changes-betw
 
 The differences between in-process and isolated worker process can be seen in HTTP triggered functions. The HTTP trigger template for version 3.x (in-process) looks like the following example:
 
-<!-- :::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp/HttpTriggerCSharp.cs"::: -->
+:::code language="csharp" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-CSharp/HttpTriggerCSharp.cs":::
 
 The HTTP trigger template for the migrated version looks like the following example:
 

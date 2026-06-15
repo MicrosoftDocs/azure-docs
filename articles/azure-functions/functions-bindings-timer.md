@@ -44,7 +44,7 @@ This example shows a C# function that executes each time the minutes have a valu
 
 # [Isolated worker model](#tab/isolated-process)
 
-<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Timer/TimerFunction.cs" id="docsnippet_fixed_delay_retry_example" ::: --->
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Timer/TimerFunction.cs" id="docsnippet_fixed_delay_retry_example" :::
 
 # [In-process model](#tab/in-process)
 
@@ -147,7 +147,7 @@ The following example shows a timer trigger [TypeScript function](functions-refe
 
 # [Model v4](#tab/nodejs-v4)
 
-<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/timerTrigger1.ts" ::: --->
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/timerTrigger1.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -163,7 +163,7 @@ The following example shows a timer trigger [JavaScript function](functions-refe
 
 # [Model v4](#tab/nodejs-v4)
 
-<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/timerTrigger1.js" ::: --->
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/timerTrigger1.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 

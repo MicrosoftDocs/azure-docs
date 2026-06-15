@@ -4,7 +4,7 @@ description: Learn how to assess and upgrade your Azure Data Factory pipelines t
 author: ssindhub
 ms.author: ssrinivasara
 ms.topic: how-to
-ms.date: 04/20/2026
+ms.date: 06/04/2026
 ms.custom: pipelines
 ai-usage: ai-assisted
 ---
@@ -193,7 +193,7 @@ The following items aren't supported in the UX-based migration experience today.
 | | Dynamic linked services (parameterized connections) | Not supported. Each permutation must be a separate connection and can't migrate. |
 | | Metadata‑driven pipelines | Highly dynamic linked service or dataset‑driven patterns can't migrate. |
 | **Activities and compute** | Azure Synapse Spark job definition (SJD) or notebook | Partially supported. Requires redesign into Fabric notebooks or Spark jobs. |
-| | Mapping data flows (MDF) | Support is coming soon. |
+| | Mapping data flows (MDF) | Supported (preview). Mapping data flows are converted to MDF transforms in Dataflow Gen2. See [Upgrade Azure Data Factory Mapping Data Flows pipelines to Fabric](/fabric/data-factory/dataflow-gen2-mapping-data-flows-transforms-upgrade). |
 | | Web, webhook, or HTTP activities with custom authentication or headers | Complex authentication scenarios must be rebuilt manually. |
 | | Notebook pool environment settings | Not supported. Migration is blocked. |
 | | Batch or custom activity workspace identity support | Missing workspace identity support blocks migration for these activities. |
@@ -240,6 +240,7 @@ These differences are expected as the platforms evolve independently, and they c
 - [Compare Azure Data Factory and Fabric Data Factory](/fabric/data-factory/compare-fabric-data-factory-and-azure-data-factory)
 - [Plan your migration from Azure Data Factory to Fabric Data Factory](/fabric/data-factory/migrate-planning-azure-data-factory)
 - [Assess your pipelines for migration to Fabric Data Factory](how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration.md)
+- [Upgrade Azure Data Factory Mapping Data Flows pipelines to Fabric (preview)](/fabric/data-factory/dataflow-gen2-mapping-data-flows-transforms-upgrade)
 - [Migration best practices](/fabric/data-factory/migration-best-practices)
 - [Connector parity](/fabric/data-factory/connector-parity)
 - [Convert global parameters to variable libraries](/fabric/data-factory/convert-global-parameters-to-variable-libraries)

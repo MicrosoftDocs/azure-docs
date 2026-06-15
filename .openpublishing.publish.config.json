@@ -135,6 +135,48 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "azure-functions-dotnet-worker",
+            "url": "https://github.com/Azure/azure-functions-dotnet-worker",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "azure-functions-kafka-extension",
+            "url": "https://github.com/Azure/azure-functions-kafka-extension",
+            "branch": "dev",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "azure-functions-python-worker",
+            "url": "https://github.com/Azure/azure-functions-python-worker",
+            "branch": "dev",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-openai-extension",
+            "url": "https://github.com/Azure/azure-functions-openai-extension",
+            "branch": "main",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-python-extensions",
+            "url": "https://github.com/Azure/azure-functions-python-extensions",
+            "branch": "dev",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-quickstart-templates",
+            "url": "https://github.com/Azure/azure-functions-templates",
+            "branch": "dev",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-quickstart-templates-v1",
+            "url": "https://github.com/Azure/azure-functions-templates",
+            "branch": "v1.x",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "remote-mcp-functions-dotnet",
             "url": "https://github.com/Azure-Samples/remote-mcp-functions-dotnet",
             "branch": "main",
@@ -549,21 +591,9 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "functions-docs-python",
-            "url": "https://github.com/Azure-Samples/functions-docs-python",
-            "branch": "master",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "functions-docs-python-v2",
             "url": "https://github.com/Azure-Samples/functions-docs-python-v2",
             "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "functions-docs-typescript",
-            "url": "https://github.com/Azure-Samples/functions-docs-typescript",
-            "branch": "master",
             "branch_mapping": {}
         },
         {

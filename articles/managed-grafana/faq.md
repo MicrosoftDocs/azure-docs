@@ -17,14 +17,14 @@ This article answers frequently asked questions about Azure Managed Grafana.
 
 ## Do you use open source Grafana for Azure Managed Grafana?
 
-No. Azure Managed Grafana hosts a commercial version called [Grafana Enterprise](https://grafana.com/products/enterprise/grafana/) that Microsoft is licensing from Grafana Labs. While not all of the Enterprise features are available yet, Azure Managed Grafana continues to add support as these features are fully integrated with Azure.
+No. Azure Managed Grafana hosts a commercial version called [Grafana Enterprise](https://grafana.com/docs/grafana/latest/introduction/grafana-enterprise/) that Microsoft is licensing from Grafana Labs. While not all of the Enterprise features are available yet, Azure Managed Grafana continues to add support as these features are fully integrated with Azure.
 
 > [!NOTE]
 > [Grafana Enterprise plugins](https://grafana.com/grafana/plugins/?enterprise=1&orderBy=weight&direction=asc) aren't included in the base service. They're purchasable as a separately licensed [add-on option](./how-to-grafana-enterprise.md) for Azure Managed Grafana.
 
 ## Which Microsoft Entra audience should I use for Azure Managed Grafana data plane APIs?
 
-Use `https://dashboard.azure.com` as the audience when requesting tokens for Azure Managed Grafana data plane API calls.
+Use `6f2d169c-08f3-4a4c-a982-bcaf2d038c45` as the audience when requesting tokens for Azure Managed Grafana data plane API calls.
 
 For examples and troubleshooting, see [Authenticate to Azure Managed Grafana data plane APIs with Microsoft Entra ID](./how-to-authenticate-data-plane-api.md).
 

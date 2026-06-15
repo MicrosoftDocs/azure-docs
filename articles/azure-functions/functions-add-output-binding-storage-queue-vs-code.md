@@ -60,7 +60,7 @@ Your project has been configured to use [extension bundles](extension-bundles.md
 
 Extension bundles is already enabled in the *host.json* file at the root of the project, which should look like the following example:
 
-:::code language="json" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/host.json":::
+:::code language="json" source="~/functions-docs-python-v2/host.json":::
 
 Now, you can add the storage output binding to your project.
 

@@ -194,7 +194,7 @@ The following example shows a table output binding that writes multiple table en
 
 # [Model v4](#tab/nodejs-v4)
 
-<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/tableOutput1.ts" ::: --->
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/tableOutput1.ts" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -207,7 +207,7 @@ TypeScript samples are not documented for model v3.
 
 # [Model v4](#tab/nodejs-v4)
 
-<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/tableOutput1.js" ::: --->
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/tableOutput1.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 

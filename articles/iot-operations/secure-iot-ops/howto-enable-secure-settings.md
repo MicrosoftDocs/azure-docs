@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 01/21/2025
+ms.date: 06/15/2026
 
 #CustomerIntent: I deployed Azure IoT Operations with test settings, and now I want to enable secure settings to use the full feature set.
 ---

@@ -7,7 +7,7 @@ ms.service: azure-iot-operations
 ms.topic: troubleshooting-general
 ms.custom:
   - ignite-2023
-ms.date: 05/07/2025
+ms.date: 06/10/2026
 ---
 
 # Troubleshoot Azure IoT Operations
