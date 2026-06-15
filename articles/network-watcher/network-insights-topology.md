@@ -156,7 +156,7 @@ In this section, you learn how to navigate the topology view from regions to the
 
    :::image type="content" source="./media/network-insights-topology/vm-insights-diagnostics.png" alt-text="Screenshot of the virtual machine's insights and diagnostics tab." lightbox="./media/network-insights-topology/vm-insights-diagnostics.png"::: 
 
-## AKS cluster topology visualization (preview)
+## AKS cluster topology visualization
 
 Azure Kubernetes Service (AKS) clusters can be complex, with multiple interconnected Azure resources supporting containerized workloads. Topology in Network Watcher now supports AKS visualization, enabling you to view and understand the network architecture of your AKS clusters directly within the Azure portal.
 
