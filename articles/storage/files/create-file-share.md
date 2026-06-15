@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 05/06/2026
+ms.date: 06/04/2026
 ms.author: kendownie
 # Customer intent: "As an IT admin, I want to learn how to deploy an NFS file share with Microsoft.FileShares resource provider."
 ---
@@ -16,13 +16,13 @@ ms.author: kendownie
 
 :heavy_multiplication_x: **Doesn't apply to:** Classic file shares created with the Microsoft.Storage resource provider
 
-The new Microsoft.FileShares resource provider and management model allows you to deploy file shares without creating an Azure storage account. Before you create an Azure file share with the Microsoft.FileShares resource provider, review the following to decide if it's the right fit for your needs. If you need all the features that Azure Files offers, or you need to use the SMB protocol, or want HDD (standard) performance, use a [classic file share](create-classic-file-share.md) instead.
+The new Microsoft.FileShares resource provider and management model allows you to deploy file shares without creating an Azure storage account. Before you create an Azure file share with the Microsoft.FileShares resource provider, review the following to decide if it's the right fit for your needs. If you need all the features that Azure Files offers, or you need to use the SMB protocol, or want HDD (standard) performance, use a [classic file share](create-classic-file-share.md) instead. To see which features are missing from the Microsoft.FileShares resource provider, see the [comparison chart](storage-files-planning.md#comparing-resource-providers-microsoftstorage-versus-microsoftfileshares).
 
 - The Microsoft.FileShares resource provider and management model is current only available for NFS file shares, which require SSD (premium) storage. SSD media provides consistent high performance and low latency, within single-digit milliseconds for most IO operations.
 
-- The file shares only supports the [provisioned v2 billing model](understanding-billing.md#provisioned-v2-model), which allows you to specify how much storage, IOPS, and throughput your file share needs. The amount that you provision determines your total bill. When you create a new file share using the provisioned v2 model, we provide a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. Depending on your requirements, you can choose to override these recommendations with your own values.
+- The file share only supports the [provisioned v2 billing model](understanding-billing.md#provisioned-v2-model), which allows you to specify how much storage, IOPS, and throughput your file share needs. The amount that you provision determines your total bill. When you create a new file share using the provisioned v2 model, we provide a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. Depending on your requirements, you can choose to override these recommendations with your own values.
 
-- The Microsoft.FileShares only supports locally-redundant storage (LRS) and zone-redundant storage (ZRS). See [Azure Files redundancy](./files-redundancy.md) for more information.
+- The Microsoft.FileShares only supports locally redundant storage (LRS) and zone-redundant storage (ZRS). See [Azure Files redundancy](./files-redundancy.md) for more information.
 
 For more information on Azure Files management concepts, see [Plan for an Azure Files deployment](storage-files-planning.md#management-concepts).
 
@@ -109,8 +109,8 @@ The final step to create the file share is to select the **Create** button on th
 To create a file share by using PowerShell, run the following commands. Replace the variables with your values. 
 
 ```powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/0.1.0
-Install-Module -Name Az.FileShare -Repository psgallery -RequiredVersion 0.1.0
+# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
+Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
 
 # To learn more about the parameters for New-AzFileShare, use command 
 # Get-Help New-AzFileShare
@@ -126,7 +126,14 @@ $provisionedStorageGib = 1024
 $provisionedIops = 3500
 $provisionedThroughput = 200
 
-New-AzFileShare -ResourceName $shareName -ResourceGroupName $resourceGroup -Location $region -Protocol NFS -ProvisionedStorageGiB $provisionedStorageGib  #-ProvisionedIoPerSec $provisionedIops -ProvisionedThroughputMiBPerSec $provisionedThroughput
+New-AzFileShare `
+    -ResourceName $shareName `
+    -ResourceGroupName $resourceGroup `
+    -Location $region `
+    -Protocol NFS `
+    -ProvisionedStorageGiB $provisionedStorageGib
+    # -ProvisionedIoPerSec $provisionedIops `
+    # -ProvisionedThroughputMiBPerSec $provisionedThroughput
 
 ```
 
@@ -135,8 +142,11 @@ New-AzFileShare -ResourceName $shareName -ResourceGroupName $resourceGroup -Loca
 To create a file share via Azure CLI, run the following commands. Replace the variables with your values. 
 
 ```bash
-# Install the fileshares extension
-az extension add --name fileshares
+# If you previously installed the preview extension, remove it first:
+# az extension remove --name fileshares
+
+# Install the fileshare extension
+az extension add --name fileshare
 
 # Specify your values
 shareName="<your-file-share-name>"
@@ -151,7 +161,15 @@ provisionedStorageGiB=1024
 # provisionedThroughput=125
 
 # Create the file share. Redundancy supports "Local" and "Zone".
-az fileshare create --name $shareName --resource-group $resourceGroup --location $region --provisioned-storage-GiB $provisionedStorageGiB --protocol NFS --redundancy Local #--provisioned-iops $provisionedIops --provisioned-throughput-MiB $provisionedThroughput
+az fileshare create \
+    --name $shareName \
+    --resource-group $resourceGroup \
+    --location $region \
+    --provisioned-storage-gib $provisionedStorageGiB \
+    --protocol NFS \
+    --redundancy Local
+    # --provisioned-iops $provisionedIops \
+    # --provisioned-throughput-mib $provisionedThroughput
 ```
 
 ---

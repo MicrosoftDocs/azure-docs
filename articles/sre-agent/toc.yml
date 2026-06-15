@@ -32,6 +32,8 @@ items:
         href: security-overview.md
       - name: Network integration
         href: network-integration.md
+      - name: Tool access policies
+        href: tool-access-policies.md
       - name: Run modes
         href: run-modes.md
       - name: Connectors
@@ -39,8 +41,6 @@ items:
       - name: Managed connectors
         href: managed-connectors.md
       - name: MCP server
-        href: mcp-server-overview.md
-      - name: SRE Agent MCP server
         href: mcp-server.md
       - name: Incident platforms
         href: incident-platforms.md
@@ -152,8 +152,8 @@ items:
             href: favorites-mine-filter.md
       - name: Measure & govern
         items:
-          - name: Operations Hub overview
-            href: operations-hub-overview.md
+          - name: Operations Hub
+            href: operations-hub.md
           - name: Track incident value
             href: track-incident-value.md
           - name: Monitor agent usage
@@ -184,10 +184,6 @@ items:
             href: manage-permissions.md
           - name: Set up incident response
             href: tutorial-incident-response.md
-          - name: Connect to PagerDuty
-            href: connect-pagerduty.md
-          - name: Connect to ServiceNow
-            href: connect-servicenow.md
       - name: Act
         items:
           - name: Create scheduled tasks
@@ -258,12 +254,18 @@ items:
         href: supported-regions.md
       - name: Network requirements
         href: network-requirements.md
+      - name: Configure network controls
+        href: configure-network-controls.md
+      - name: Allow list Key Vault firewall
+        href: allow-list-key-vault-firewall.md
       - name: Starter prompts
         href: starter-prompts.md
       - name: Data privacy and residency
         href: data-privacy.md
       - name: Pricing and billing
         href: pricing-billing.md
+      - name: Create a support request
+        href: create-support-request.md
       - name: API reference
         href: api-reference.md
       - name: Deploy with Infrastructure as Code

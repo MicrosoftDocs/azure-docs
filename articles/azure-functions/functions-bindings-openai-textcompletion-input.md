@@ -35,11 +35,11 @@ Go support isn't currently available for this binding.
 ::: zone pivot="programming-language-csharp"  
 This example demonstrates the _templating_ pattern, where the HTTP trigger function takes a `name` parameter and embeds it into a text prompt, which is then sent to the Azure OpenAI completions API by the extension. The response to the prompt is returned in the HTTP response. 
 
-:::code language="csharp" source="~/functions-openai-extension/samples/textcompletion/csharp-ooproc/TextCompletions.cs" range="23-29"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/textcompletion/csharp-ooproc/TextCompletions.cs" range="23-29":::
 
 This example takes a prompt as input, sends it directly to the completions API, and returns the response as the output.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/textcompletion/csharp-ooproc/TextCompletions.cs" range="35-43"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/textcompletion/csharp-ooproc/TextCompletions.cs" range="35-43":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
@@ -87,7 +87,7 @@ This example demonstrates the _templating_ pattern, where the HTTP trigger funct
 
 This example takes a prompt as input, sends it directly to the completions API, and returns the response as the output.
 
-:::code language="python" source="~/functions-openai-extension/samples/textcompletion/python/function_app.py" range="19-30" ::: 
+:::code language="python" source="~/functions-openai-extension/samples/textcompletion/python/function_app.py" range="19-30" :::
 
 ::: zone-end  
 <!--- End code examples section -->  

@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 05/08/2026
+ms.date: 06/10/2026
 
 #CustomerIntent: As an operator, I want to understand how to configure source and destination endpoints so that I can create a data flow.
 ---
@@ -106,7 +106,7 @@ In this example, assume a configuration file named `data-flow.json` with the fol
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-11-01' = {
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-03-01' = {
   parent: <DEFAULT_PROFILE_RESOURCE>
   name: 'broker-to-broker'
   extendedLocation: {
@@ -209,7 +209,7 @@ In this example, assume a configuration file named `data-flow.json` with the fol
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-11-01' = {
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-03-01' = {
   parent: <DEFAULT_PROFILE_RESOURCE>
   name: 'broker-to-eh'
   extendedLocation: {

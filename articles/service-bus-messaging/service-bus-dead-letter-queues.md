@@ -25,19 +25,14 @@ There's no automatic cleanup of the DLQ. Messages remain in the DLQ until you ex
 
 ## Path to the dead-letter queue
 
-You can access the dead-letter queue by using the following syntax:
+Each queue and each subscription has its own dead-letter sub-queue. You can address it directly by using the following syntax (used by Azure CLI, REST, and tools such as Service Bus Explorer):
 
 ```
 <queue path>/$deadletterqueue
 <topic path>/Subscriptions/<subscription path>/$deadletterqueue
 ```
 
-In .NET, you can use the `FormatDeadLetterPath` method.
-
-```csharp
-QueueClient.FormatDeadLetterPath(queuePath)
-SubscriptionClient.FormatDeadLetterPath(topicPath, subscriptionName)
-```
+When you use the `Azure.Messaging.ServiceBus` .NET library, you don't construct this path yourself. Instead, set `ServiceBusReceiverOptions.SubQueue` to `SubQueue.DeadLetter` when you create the receiver. For an example, see [Receive messages from a dead-letter queue](#receive-messages-from-a-dead-letter-queue).
 
 ## DLQ message count
 
@@ -79,6 +74,43 @@ In .NET, call the [ServiceBusReceiver.DeadLetterMessageAsync method](/dotnet/api
 
 We recommend that you include the type of the exception in the `DeadLetterReason` and the stack trace of the exception in the `DeadLetterDescription` as it makes it easier to troubleshoot the cause of the problem resulting in messages being dead-lettered. It might result in some messages exceeding [the 256 KB quota limit for the Standard tier of Azure Service Bus](./service-bus-quotas.md). You can [upgrade your Service Bus namespace from the standard tier to the premium tier](service-bus-migrate-standard-premium.md) to have higher [quotas and limits](service-bus-quotas.md).
 
+## Receive messages from a dead-letter queue
+
+To receive a dead-lettered message with the `Azure.Messaging.ServiceBus` .NET library, set `ServiceBusReceiverOptions.SubQueue` to `SubQueue.DeadLetter` when you create the receiver. The library handles addressing the dead-letter sub-queue for you.
+
+```csharp
+using Azure.Identity;
+using Azure.Messaging.ServiceBus;
+
+string fullyQualifiedNamespace = "<NAMESPACE-NAME>.servicebus.windows.net";
+string queueName = "<QUEUE-NAME>";
+
+// 1. Create the top-level client. Passwordless authentication is recommended.
+await using var client = new ServiceBusClient(fullyQualifiedNamespace, new DefaultAzureCredential());
+
+// 2. Configure options to target the dead-letter sub-queue.
+var options = new ServiceBusReceiverOptions
+{
+    SubQueue = SubQueue.DeadLetter
+};
+
+// 3. Create a receiver scoped to the dead-letter queue. For a subscription's
+//    dead-letter queue, use: client.CreateReceiver(topicName, subscriptionName, options).
+ServiceBusReceiver dlqReceiver = client.CreateReceiver(queueName, options);
+
+// 4. Receive a dead-lettered message.
+ServiceBusReceivedMessage dlqMessage = await dlqReceiver.ReceiveMessageAsync();
+
+// 5. Inspect why the message was dead-lettered.
+string reason = dlqMessage.DeadLetterReason;
+string description = dlqMessage.DeadLetterErrorDescription;
+
+// 6. Complete the message to remove it from the dead-letter queue.
+await dlqReceiver.CompleteMessageAsync(dlqMessage);
+```
+
+The same pattern works for the transfer dead-letter queue by using `SubQueue.TransferDeadLetter`.
+
 ## Dead-lettering in auto forward scenarios
 
 Messages are sent to the dead-letter queue under the following conditions:
@@ -94,15 +126,7 @@ Messages are sent to the dead-letter queue under the following conditions:
 
 ## Sending dead-lettered messages to be reprocessed
 
-Once you resolve the issue that caused the message to be dead-lettered, you can resubmit it to the queue or topic to be reprocessed.
-
-In some cases, if there are many messages in the dead-letter queue that need to be moved, you can write code to move them all at once, like in this [example code from Stack Overflow](https://stackoverflow.com/a/68632602/151350). Operators often prefer having a user interface so they can troubleshoot which message types failed processing, from which source queues, and for what reasons, while still being able to resubmit batches of messages to be reprocessed.
-
-### Available tools
-
-- [Azure Service Bus Explorer](./explorer.md) enables manual moving of messages between queues and topics. It allows you to look through the list of messages and resend them to be reprocessed. It's available through the Azure portal, regardless of the SDK you're using to send messages.
-- [ServicePulse with NServiceBus](https://docs.particular.net/servicepulse/intro-failed-messages) streamlines your error handling with this centralized dashboard. Quickly visualize, group, filter, and search errors, and efficiently retry individual or grouped messages. Available for NServiceBus endpoints.
-- [ServicePulse with MassTransit](https://docs.particular.net/platform/masstransit) provides a centralized dashboard for error management. You can visualize, group, filter, and search errors using various criteria. It also enables editing and retrying individual messages, or batch retrying groups of messages. Available for MassTransit endpoints.
+Once you resolve the issue that caused a message to be dead-lettered, you can resubmit it to the queue or topic to be reprocessed. The simplest approach is to use [Service Bus Explorer in the Azure portal](./explorer.md#resend-a-message), which lets you peek messages in the dead-letter queue, edit their content or properties if needed, and resend them - individually or in batches. Operators often prefer this UI because it surfaces which message types failed, from which source entities, and why, while still allowing batch resubmission.
 
 ## Related content
 

@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 07/11/2024
+ms.date: 06/10/2026
 ms.author: cherylmc 
 ms.custom: devx-track-azurecli
 
@@ -177,7 +177,7 @@ If you want to use the Azure CLI locally (instead of using Azure CloudShell), us
      --resource-group TestRG1 \
      --vnet TestVNet1 \
      --gateway-type Vpn \
-     --sku VpnGw2 \
+     --sku VpnGw2AZ \
      --vpn-gateway-generation Generation2 \
      --no-wait
    ```
@@ -250,7 +250,7 @@ If you want to use the Azure CLI locally (instead of using Azure CloudShell), us
      -g TestRG4 \
      --vnet TestVNet4 \
      --gateway-type Vpn \
-     --sku VpnGw2 \
+     --sku VpnGw2AZ \
      --vpn-gateway-generation Generation2 \
      --no-wait
    ```
@@ -449,7 +449,7 @@ This step must be done in the context of the new subscription, Subscription 5. T
      -g TestRG5 \
      --vnet TestVNet5 \
      --gateway-type Vpn \
-     --sku VpnGw2 \
+     --sku VpnGw2AZ \
      --vpn-gateway-generation Generation2 \
      --no-wait
    ```

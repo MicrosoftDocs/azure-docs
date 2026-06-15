@@ -10,7 +10,7 @@ ms.date: 05/18/2026
 
 # customer intent: As a developer or administrator using Azure App Configuration, I want to understand how network security perimeters work so that I can manage network access to my App Configuration store alongside other PaaS resources.
 ---
-# Network security perimeter for Azure App Configuration (preview)
+# Network security perimeter for Azure App Configuration (private preview)
 
 [Azure network security perimeter (NSP)](../private-link/network-security-perimeter-concepts.md) allows you to define a logical network isolation boundary for PaaS resources, such as an App Configuration store, that are deployed outside of a virtual network. By default, a network security perimeter restricts public network access to PaaS resources within the perimeter. However, you can configure explicit access rules for inbound and outbound traffic.
 
@@ -43,11 +43,26 @@ If your App Configuration store has [monitoring](./monitor-app-configuration.md)
 
 ## Limitations
 
+- Azure App Configuration support for Network Security Perimeter is currently in private preview with access limited to a set of subscriptions. Please reach out to [AzureAppConfig@microsoft.com](mailto:AzureAppConfig@microsoft.com) to request access.
 - Certain network security perimeter features, such as subscription-based inbound access rules, don't work with [access key authentication](./howto-disable-access-key-authentication.md). Use [Microsoft Entra ID authentication](./concept-enable-rbac.md) for full NSP functionality.
 - At this time, an App Configuration store in a network security perimeter can't send events to Azure Event Grid. If an App Configuration store has an [Azure App Configuration event subscription](./concept-app-configuration-event.md) configured, you can't associate the store with a network security perimeter. Similarly, if a store is associated with a network security perimeter, you can't enable an event subscription for the store.
 - Subscription-based and IP-based inbound access rules don't apply to the original caller for data plane requests made through [deployment tools](./quickstart-deployment-overview.md) such as ARM templates, Bicep, or Terraform. Because these requests are forwarded to the App Configuration store by Azure Resource Manager, the original caller's subscription and IP address aren't passed to the perimeter for evaluation.
 
 ## Troubleshooting
+
+### Feature access errors
+
+**Azure CLI**
+
+> (BadRequest) This feature is not yet available for given subscription. 
+> Code: BadRequest
+> Message: This feature is not yet available for given subscription
+
+**Azure portal**
+
+> Failed to associate resource. This feature is not yet available for given subscription. 
+
+These errors indicate that the subscription you're using doesn't have access to the network security perimeter feature for Azure App Configuration, which is currently in private preview. To request access, please reach out to [AzureAppConfig@microsoft.com](mailto:AzureAppConfig@microsoft.com). 
 
 ### RP registration errors
 

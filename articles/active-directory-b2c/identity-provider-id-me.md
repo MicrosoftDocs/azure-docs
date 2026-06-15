@@ -6,7 +6,7 @@ description: Provide sign-up and sign-in to customers with ID.me accounts in you
 author: garrodonnell
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 09/16/2021

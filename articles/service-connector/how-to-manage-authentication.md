@@ -18,12 +18,12 @@ In this guide, learn about the different authentication options available in Ser
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An Azure App Service, Azure Container Apps or Azure Spring Apps instance.
-- This guide assumes that you already know how the basics of connecting services using Service Connector. To review our quickstarts, go to [App Service](quickstart-portal-app-service-connection.md), [Container Apps](quickstart-portal-container-apps.md) or [Azure Spring Apps](quickstart-portal-spring-cloud-connection.md).
+- An Azure App Service or Azure Spring Apps instance.
+- This guide assumes that you already know how the basics of connecting services using Service Connector. To review our quickstarts, go to [App Service](quickstart-portal-app-service-connection.md) or [Azure Spring Apps](quickstart-portal-spring-cloud-connection.md).
 
 ## Start creating a new connection
 
-1. Within your App Service, Container Apps or Azure Spring Apps instance, open Service Connector and fill out the form in the **Basics** tab with the required information about your compute and target services.
+1. Within your App Service or Azure Spring Apps instance, open Service Connector and fill out the form in the **Basics** tab with the required information about your compute and target services.
 2. Select **Next : Authentication**.
 
 ## Select an authentication option

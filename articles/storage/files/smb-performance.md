@@ -89,7 +89,7 @@ Get-SmbClientConfiguration | Select-Object -Property EnableMultichannel
 You can view the status of SMB Multichannel and enable or disable it on a storage account by using the Azure portal, Azure PowerShell, or Azure CLI.
 
 # [Portal](#tab/azure-portal)
-To view the status of SMB Multichannel, go to the storage account that contains your SSD file shares and select **File shares** under the **Data storage** heading in the storage account table of contents. You see the status of SMB Multichannel under the **File share settings** section. If you don't see it, make sure your storage account is of the FileStorage account kind.
+To view the status of SMB Multichannel, go to the storage account that contains your SSD file shares. From the service menu, under **Data storage**, select **Classic file shares**. You see the status of SMB Multichannel under the **File share settings** section. If you don't see it, make sure your storage account is of the FileStorage account kind.
 
 :::image type="content" source="media/smb-performance/smb-multichannel-enabled.png" alt-text="A screenshot of the file shares section within the storage account highlighting the SMB Multichannel setting." lightbox="media/smb-performance/smb-multichannel-enabled.png":::
 

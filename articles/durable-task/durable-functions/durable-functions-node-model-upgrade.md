@@ -908,4 +908,4 @@ For other issues, file a bug report in the [azure-functions-durable-js GitHub re
 - [Create a Durable Functions app with JavaScript](./quickstart-js-vscode.md?pivots=nodejs-model-v4)
 - [Create a Durable Functions app with TypeScript](./quickstart-ts-vscode.md?pivots=nodejs-model-v4)
 - [Durable Functions patterns and concepts](durable-functions-overview.md)
-- [`durable-functions` npm package changelog](https://github.com/Azure/azure-functions-durable-js/blob/main/CHANGELOG.md)
+- [`durable-functions` npm package changelog](https://github.com/Azure/azure-functions-durable-js/releases)

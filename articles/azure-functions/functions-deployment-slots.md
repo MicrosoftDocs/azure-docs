@@ -14,7 +14,7 @@ The number of available slots depends on your specific hosting option:
 | Hosting option | Slots (including production) |
 | ---- | ---- |
 | [Consumption plan](consumption-plan.md) | 2 |
-| [Flex Consumption plan](flex-consumption-plan.md) | Not currently supported |
+| [Flex Consumption plan](flex-consumption-plan.md) | Not currently supported. For zero-downtime deployments, see [Site update strategies in Flex Consumption](flex-consumption-site-updates.md). |
 | [Premium plan](functions-premium-plan.md) | 3 |
 | [Dedicated (App Service) plan](dedicated-plan.md) | [1-20](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits) |
 | [Container Apps](../container-apps/functions-overview.md) | Uses [Revisions](../container-apps/revisions.md) |
@@ -22,7 +22,7 @@ The number of available slots depends on your specific hosting option:
 The following descriptions reflect how functions are affected by swapping slots:
 
 - Traffic redirection is seamless; no requests are dropped because of a swap. This seamless behavior occurs because the next function trigger is routed to the swapped slot.
-- Currently executing function are terminated during the swap. To learn how to write stateless and defensive functions, see [Improve the performance and reliability of Azure Functions](performance-reliability.md#write-functions-to-be-stateless).
+- Slot swaps do not guarantee zero downtime. Currently executing functions can be terminated and degraded availability can occur on scaled apps during slot swap operations. To learn how to write stateless and defensive functions, see [Improve the performance and reliability of Azure Functions](performance-reliability.md#write-functions-to-be-stateless). If zero-downtime deployments are a requirement, consider the [Flex Consumption plan](flex-consumption-plan.md) with [rolling updates as the site update strategy](flex-consumption-site-updates.md).
 
 ## Why use slots?
 
@@ -35,7 +35,7 @@ There are many advantages to using deployment slots, including:
 
 ## Swap operations
 
-During a swap, one slot is considered the source and the other is the target. The source slot has the instance of the application that is applied to the target slot. The following steps ensure the target slot doesn't experience downtime during a swap:
+During a swap, one slot is considered the source and the other is the target. The source slot has the instance of the application that is applied to the target slot. The following steps help reduce the downtime on the target slot during a swap:
 
 1. **Apply settings:** Settings from the target slot are applied to all instances of the source slot. For example, the production settings are applied to the staging instance. The applied settings include the following categories:
 

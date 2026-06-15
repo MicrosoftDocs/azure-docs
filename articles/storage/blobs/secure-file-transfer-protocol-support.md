@@ -44,7 +44,7 @@ Different protocols are supported by the hierarchical namespace. SFTP is one of 
 ## SFTP permission model
 
 > [!TIP]
-> The ability to use Microsoft Entra ID to authorize SFTP transfers is currently now in public preview. To learn more about configuring entra-id based access, see  [Authorize SSH File Transfer Protocol (SFTP) access to blobs using Microsoft Entra ID](secure-file-transfer-protocol-support-entra-id-based-access.md).
+> You can also use Microsoft Entra ID to authorize SFTP transfers. To learn more, see [Authorize SSH File Transfer Protocol (SFTP) access to blobs using Microsoft Entra ID](secure-file-transfer-protocol-support-entra-id-based-access.md).
 
 SFTP utilizes a new form of identity management called _local users_.
 

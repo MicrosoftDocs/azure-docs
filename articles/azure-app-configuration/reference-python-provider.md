@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ms.devlang: python
 ms.custom: devx-track-python
 ms.topic: tutorial
-ms.date: 02/04/2026
+ms.date: 06/03/2026
 #Customer intent: I want to learn how to use Azure App Configuration Python client library.
 ---
 
@@ -147,6 +147,15 @@ config = load(endpoint=endpoint, credential=DefaultAzureCredential(), selects=sn
 > Snapshot support is available if you use version **2.3.0** or later of the `azure-appconfiguration-provider` package.
 > Only snapshots created with composition type `Key` can be loaded using the configuration provider.
 
+#### Snapshot reference
+
+A snapshot reference is a configuration setting that references a snapshot in the same App Configuration store. When loaded, the provider resolves it and adds all key-values from that snapshot. Using snapshot references enables switching between snapshots at runtime, unlike adding a snapshot selector, which requires code changes and/or restarts to switch to a new snapshot.
+
+For more information about creating a snapshot reference, go to [snapshot reference concept](./concept-snapshot-references.md).
+
+> [!NOTE]
+> To use snapshot references, use version **2.4.0** or later of the `azure-appconfiguration-provider` package.
+
 ### Trimming keys
 
 You can trim the prefix off of keys by providing a list of trimmed key prefixes to the `load` function, via the `trim_prefixes` parameter.
@@ -199,12 +208,43 @@ config = await load(endpoint=endpoint, credential=DefaultAzureCredential(), conf
 
 ## Configuration refresh
 
-The provider can be configured to pull the latest settings from the App Configuration store without having to restart the application. You can use the `refresh_on` parameter to enable this behavior. The `refresh_on` parameter is a `List[WatchKey]`, which specifies the one or more key/labels to watch for changes. The loaded configuration is updated when any change of selected key-values is detected on the server. By default, a refresh interval of 30 seconds is used, but you can override it with the `refresh_interval` parameter.
+The provider can be configured to pull the latest settings from the App Configuration store without having to restart the application. To refresh settings, ensure that `refresh_enabled` is set to `True` and call the `refresh` method on the `AzureAppConfigurationProvider` instance returned by the `load` method.
+
+```python
+from azure.appconfiguration.provider import load
+from azure.identity import DefaultAzureCredential
+
+config = load(
+    endpoint=endpoint,
+    credential=DefaultAzureCredential(),
+    refresh_enabled=True
+)
+
+# Later in your code, when application activity occurs
+config.refresh()
+```
+
+By default, a refresh interval of 30 seconds is used, but you can override it with the `refresh_interval` parameter. The provider monitors all loaded key-values for changes.
+
+```python
+config = load(
+    endpoint=endpoint,
+    credential=DefaultAzureCredential(),
+    refresh_enabled=True,
+    refresh_interval=60
+)
+```
+
+This design prevents unnecessary requests to App Configuration when your application is idle. You should include the `refresh` call where your application activity occurs. This process is known as **activity-driven configuration refresh**. For example, you can call `refresh` when processing an incoming request or inside an iteration where you perform a complex task.
+
+Even if the refresh call fails for any reason, your application continues to use the cached configuration. Another attempt is made when the configured refresh interval has passed and the refresh call is triggered by your application activity. Calling `refresh` is a no-op before the configured refresh interval elapses, so its performance impact is minimal even if it's called frequently.
+
+### Custom refresh callback
 
 The `on_refresh_success` callback is called only if a change is detected and no error happens. The `on_refresh_error` callback is called when a refresh fails.
 
 ```python
-from azure.appconfiguration.provider import load, WatchKey
+from azure.appconfiguration.provider import load
 from azure.identity import DefaultAzureCredential
 
 def my_callback_on_success():
@@ -218,20 +258,29 @@ def my_callback_on_fail(error):
 config = load(
     endpoint=endpoint,
     credential=DefaultAzureCredential(),
-    refresh_on=[WatchKey("Sentinel")],
-    refresh_interval=60,
+    refresh_enabled=True,
     on_refresh_success=my_callback_on_success,
     on_refresh_error=my_callback_on_fail
 )
 ```
 
-Setting up `refresh_on` alone doesn't automatically refresh the configuration. You need to call the `refresh` method on `AzureAppConfigurationProvider` instance returned by the `load` method to trigger a refresh. 
+### Refresh when specific keys are changed
+
+You can use the `refresh_on` parameter to configure the provider to monitor specific watch keys for changes instead of monitoring all loaded key-values. The `refresh_on` parameter is a `List[WatchKey]`, which specifies the one or more key/labels to watch for changes. When a change is detected in any of the watched keys, all configuration values are refreshed.
 
 ```python
-config.refresh()
+from azure.appconfiguration.provider import load, WatchKey
+from azure.identity import DefaultAzureCredential
+
+config = load(
+    endpoint=endpoint,
+    credential=DefaultAzureCredential(),
+    refresh_on=[WatchKey("Sentinel")]
+)
 ```
 
-This design prevents unnecessary requests to App Configuration when your application is idle. You should include the `refresh` call where your application activity occurs. This process is known as **activity-driven configuration refresh**. For example, you can call `refresh` when processing an incoming request or inside an iteration where you perform a complex task. If the refresh fails, an error is thrown, unless a `on_refresh_error` is provided. The `refresh` method is a no-op if the refresh interval has not elapsed. In addition, only one refresh check can happen at a time, returning as a no-op if a refresh is already in progress.
+> [!NOTE]
+> When `refresh_on` is set, `refresh_enabled` defaults to `True` automatically. You can set `refresh_enabled` to `False` to disable refresh even when `refresh_on` is configured.
 
 ## Feature flag
 
@@ -379,6 +428,23 @@ config = load(
     credential=DefaultAzureCredential(),
     keyvault_credential=DefaultAzureCredential(),
     secret_refresh_interval=7200  # 2 hours
+)
+```
+
+## Startup retry
+
+Configuration loading is a critical path operation during application startup. To ensure reliability, the Azure App Configuration provider implements a robust retry mechanism during the initial configuration load. This helps protect your application from transient network issues that might otherwise prevent successful startup.
+
+You can customize this behavior by setting the `startup_timeout` parameter, which specifies the amount of time in seconds allowed to load data from Azure App Configuration on startup. The default value is 100 seconds.
+
+```python
+from azure.appconfiguration.provider import load
+from azure.identity import DefaultAzureCredential
+
+config = load(
+    endpoint=endpoint,
+    credential=DefaultAzureCredential(),
+    startup_timeout=300
 )
 ```
 

@@ -6,7 +6,7 @@ description: Define an OAuth2 technical profile in a custom policy in Azure AD B
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 03/21/2025

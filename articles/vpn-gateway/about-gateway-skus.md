@@ -4,7 +4,7 @@ description: Learn about VPN Gateway SKUs.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 05/14/2026
+ms.date: 06/11/2026
 ms.author: cherylmc 
 
 # Customer intent: As a cloud network architect, I want to choose the appropriate VPN Gateway SKU, so that I can optimize the performance and reliability of our network connections based on workload requirements and feature support.
@@ -30,7 +30,7 @@ When you configure a virtual network gateway SKU, select the SKU that satisfies 
   
 * The Basic gateway SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic gateway SKU doesn't support RADIUS authentication.
 
-* These connection limits are separate. For example, you can have 128 SSTP connections and also 250 IKEv2 connections on a VpnGw1 SKU.
+* These connection limits are separate. For example, you can have 128 SSTP connections and also 250 IKEv2 connections on a VpnGw1AZ SKU.
 
 * If you have numerous P2S connections, it can negatively impact your S2S connections. The Aggregate Throughput Benchmarks were tested by maximizing a combination of S2S and P2S connections. A single P2S or S2S connection can have a much lower throughput.
 
