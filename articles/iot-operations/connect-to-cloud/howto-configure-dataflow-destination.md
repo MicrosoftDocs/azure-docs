@@ -223,7 +223,7 @@ destinationSettings:
 ---
 
 > [!NOTE]
-> Only the dynamic topic variables described here (`${inputTopic}`, `${inputTopic.index}`, and, for data flow graphs, `${outputTopic}`) are substituted. A path segment that uses curly braces without a leading `$`, such as `edge-ai/predict/{model_id}`, isn't a variable. It's published literally, including the braces, with no warning. You also can't template an arbitrary payload field directly into the topic. To route based on message content, use the data flow graph `${outputTopic}` approach described in the next section. The characters `$`, `{`, and `}` are valid in MQTT topic names, so a topic like `factory/$inputTopic.2` is acceptable but incorrect if you intended to use the dynamic topic variable.
+> Only the dynamic topic variables described here (`${inputTopic}`, `${inputTopic.index}`, and, for data flow graphs, `${outputTopic}`) are substituted. A path segment that uses curly braces without a leading `$`, such as `edge-ai/predict/{model_id}`, is treated as a literal string, not a variable. To set the destination topic based on a field in the message, use the data flow graph `${outputTopic}` approach described in the next section. The characters `$`, `{`, and `}` are valid in MQTT topic names, so a topic like `factory/$inputTopic.2` is acceptable but incorrect if you intended to use the dynamic topic variable.
 
 ### Data flow graphs: route by message content
 

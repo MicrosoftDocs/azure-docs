@@ -45,7 +45,7 @@ Expressions support the following operators, listed from highest to lowest prece
 The `+` operator concatenates strings when at least one operand is a string. Use parentheses to override default precedence.
 
 > [!IMPORTANT]
-> The expression language supports only the operators in the preceding table. Logical operators are the symbols `&&` (AND), `||` (OR), and `!` (NOT). The keyword forms `and`, `or`, and `not` aren't supported. An expression that uses an unsupported keyword, such as `$1 == "a" or $1 == "b"`, isn't rejected when you create the data flow. Instead, it fails at runtime: the records are dropped (fail-closed), and depending on the form, the failure might not produce a log. Use `||` instead of `or` and `&&` instead of `and`. Validate filter and map expressions against a test topic before you use them in production.
+> Use the symbolic logical operators `&&` (AND), `||` (OR), and `!` (NOT). The keyword forms `and`, `or`, and `not` aren't supported. For example, write `$1 == "a" || $1 == "b"` instead of `$1 == "a" or $1 == "b"`.
 
 Examples:
 
