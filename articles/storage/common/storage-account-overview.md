@@ -173,18 +173,18 @@ An Azure DNS zone service endpoint in Azure Storage includes:
 
 * The protocol. (We recommend HTTPS.)
 * The storage account name as the subdomain.
-* A domain that includes the name of the service and the identifier for the DNS zone. The identifier for the DNS zone always begins with `z` and can range from `z00` to `z50`.
+* A domain that includes the name of the service and the identifier for the DNS zone. The identifier for the DNS zone always begins with `z` and can range from `z1` to `z9`, or `z10` to `z50`.
 
 The following table lists the format for Azure DNS zone endpoints for each of the Azure Storage services:
 
 | Storage service | Endpoint |
 |--|--|
-| Blob Storage | `https://<storage-account>.z[00-50].blob.storage.azure.net` |
-| Static website (Blob Storage) | `https://<storage-account>.z[00-50].web.storage.azure.net` |
-| Data Lake Storage | `https://<storage-account>.z[00-50].dfs.storage.azure.net` |
-| Azure Files | `https://<storage-account>.z[00-50].file.storage.azure.net` |
-| Queue Storage | `https://<storage-account>.z[00-50].queue.storage.azure.net` |
-| Table Storage | `https://<storage-account>.z[00-50].table.storage.azure.net` |
+| Blob Storage | `https://<storage-account>.z<N>.blob.storage.azure.net` |
+| Static website (Blob Storage) | `https://<storage-account>.z<N>.web.storage.azure.net` |
+| Data Lake Storage | `https://<storage-account>.z<N>.dfs.storage.azure.net` |
+| Azure Files | `https://<storage-account>.z<N>.file.storage.azure.net` |
+| Queue Storage | `https://<storage-account>.z<N>.queue.storage.azure.net` |
+| Table Storage | `https://<storage-account>.z<N>.table.storage.azure.net` |
 
 > [!IMPORTANT]
 > You can create up to 5,000 accounts with Azure DNS zone endpoints per region per subscription. However, you might need to update your application code to query for the account endpoint at runtime. You can call the [`get properties`](/rest/api/storagerp/storage-accounts/get-properties) operation to query for the storage account endpoints.
