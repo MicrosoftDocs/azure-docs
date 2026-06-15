@@ -39,7 +39,7 @@ Go support isn't currently available for this binding.
 
 The following example shows a [C# function](dotnet-isolated-process-guide.md) that writes a message string to an event hub, using the method return value as the output:
 
-<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="20-31"::: --->
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventHubs/EventHubsFunction.cs" range="20-31":::
 
 # [In-process model](#tab/in-process)
 
@@ -92,11 +92,11 @@ public static async Task Run(
 
 The following example shows a timer triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that sends a single message to an event hub:
 
-<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventHubOutput1.ts" ::: --->
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventHubOutput1.ts" :::
 
 To output multiple messages, return an array instead of a single object. For example:
 
-<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventHubOutput2.ts" id="displayInDocs" ::: --->
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/eventHubOutput2.ts" id="displayInDocs" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -111,11 +111,11 @@ TypeScript samples are not documented for model v3.
 
 The following example shows a timer triggered [JavaScript function](functions-reference-node.md) that sends a single message to an event hub:
 
-<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventHubOutput1.js" ::: --->
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventHubOutput1.js" :::
 
 To output multiple messages, return an array instead of a single object. For example:
 
-<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventHubOutput2.js" id="displayInDocs" ::: --->
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/eventHubOutput2.js" id="displayInDocs" :::
 
 # [Model v3](#tab/nodejs-v3)
 
