@@ -58,7 +58,12 @@ For the *SNAT port utilization* metric, when you add more public IP addresses to
 
 Effectively, a given percentage of SNAT ports utilization might go down without you adding any public IP addresses, just because the service scaled out. You can directly control the number of public IP addresses available to increase the ports available on your firewall. But, you can't directly control firewall scaling.
 
-If your firewall is running into SNAT port exhaustion, you should add at least five public IP addresses. This increases the number of SNAT ports available. For more information, see [Azure Firewall features](features.md#multiple-public-ip-addresses).
+If your firewall is running into SNAT port exhaustion, you have two options to scale outbound connectivity:
+
+- **Add multiple public IP addresses** (at least five) to increase the available SNAT ports. This option is lower cost and simple to configure. For more information, see [Azure Firewall features](features.md#multiple-public-ip-addresses).
+- **Use an Azure NAT Gateway** to dynamically allocate SNAT ports for greater scale and resiliency. For more information, see [Scale SNAT ports with Azure NAT Gateway](integrate-with-nat-gateway.md).
+
+If you're cost sensitive, add public IP addresses. If you need a more scalable and robust solution, use a NAT gateway. For a side-by-side comparison, see [Best practices for Azure Firewall performance](firewall-best-practices.md#recommendations).
 
 #### AZFW Latency Probe
 
