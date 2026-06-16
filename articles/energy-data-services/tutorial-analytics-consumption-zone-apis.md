@@ -176,6 +176,7 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs" -Method Post -Header
     "storageId": "/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}",
     "basePath": "acz-output"
   },
+  "allCatalogSync": false,
   "configuration": {
     "catalogKinds": [
       "osdu:wks:master-data--Well:*",
