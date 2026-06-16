@@ -2,11 +2,11 @@
 title: How to use the 'blobfuse2 secure get' command to display the value of a parameter from an encrypted BlobFuse2 configuration file
 titleSuffix: Azure Storage
 description: Learn how to use the 'blobfuse2 secure get' command to display the value of a parameter from an encrypted BlobFuse2 configuration file
-author: akashdubey-ms
+author: normesta
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
-ms.author: akashdubey
+ms.author: normesta
 # Customer intent: As a cloud administrator, I want to use the 'blobfuse2 secure get' command to retrieve values from an encrypted configuration file, so that I can manage settings securely without exposing sensitive information.
 ---
 

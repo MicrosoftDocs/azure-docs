@@ -144,7 +144,7 @@ items:
   - name: Integration
     items:
     - name: API for FHIR
-      href: ../../healthcare-apis/fhir/fhir-service-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: ../../healthcare-apis/azure-api-for-fhir/fhir-service-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Event Grid
       href: ../../event-grid/blob-event-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Logic Apps
