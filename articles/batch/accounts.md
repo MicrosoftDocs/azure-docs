@@ -2,7 +2,7 @@
 title: Batch accounts and Azure Storage accounts
 description: Learn about Azure Batch accounts and how they're used from a development standpoint.
 ms.topic: concept-article
-ms.date: 04/02/2025
+ms.date: 06/16/2026
 
 # Customer intent: As a cloud developer, I want to understand how to create and associate Batch accounts with Azure Storage accounts, so that I can efficiently manage and store resource files for my parallel processing workloads.
 ---
@@ -12,7 +12,7 @@ An Azure Batch account is a uniquely identified entity within the Batch service.
 
 ## Batch accounts
 
-All processing and resources such as tasks, job and batch pool are associated with a Batch account. When your application makes a request against the Batch service, it authenticates the request using the Azure Batch account name and the account URL. Additionally, it can use either an access key or a Microsoft Entra token.
+All processing and resources, such as tasks, jobs, and Batch pools, are associated with a Batch account. When your application makes a request against the Batch service, it authenticates the request using the Azure Batch account name and the account URL. Additionally, it can use either an access key or a Microsoft Entra token.
 
 You can run multiple Batch workloads in a single Batch account. You can also distribute your workloads among Batch accounts that are in the same subscription but located in different Azure regions.
 
@@ -23,7 +23,7 @@ You can create a Batch account using the [Azure portal](batch-account-create-por
 
 ## Azure Storage accounts
 
-Most Batch solutions use Azure Storage for storing [resource files](resource-files.md) and output files. For example, your Batch tasks (including standard tasks, start tasks, job preparation tasks, and job release tasks) typically specify resource files that reside in a storage account. Storage accounts also stores that data that is processed and any output data that is generated.
+Most Batch solutions use Azure Storage for storing [resource files](resource-files.md) and output files. For example, your Batch tasks (including standard tasks, start tasks, job preparation tasks, and job release tasks) typically specify resource files that reside in a storage account. Storage accounts also store the data that is processed and any output data that's generated.
 
 Batch supports the following types of Azure Storage accounts:
 
