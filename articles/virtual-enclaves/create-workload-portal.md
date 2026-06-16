@@ -1,22 +1,26 @@
 ---
-title: Create a workload in Azure
-description: Create a workload in Azure
+title: Create a workload in the Azure portal
+description: Learn how to create a workload in Azure Virtual Enclaves by using the Azure portal.
 author: jadean-msft
 ms.author: jadean
-ms.topic: overview
-ms.date: 9/30/2025
+ai-usage: ai-assisted
+ms.topic: how-to
+ms.date: 06/12/2026
 ---
 
 # Create a workload in the Azure portal
 
-[Workloads](./what-workload.md) are logical groups of Azure resources that you define to create and audit connections in Azure Virtual Enclaves.
+[Workloads](./what-workload.md) are logical groups of zero or more resource groups and their underlying Azure resources in an enclave.
+
+In this how-to guide, you create a workload in an existing Azure Virtual Enclaves enclave and optionally add workload resource groups.
 
 ## Prerequisites
 - To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - All access to Azure Virtual Enclaves takes place through a community or an enclave. For this how-to article, create a [community](./create-community-portal.md) and [enclave](./create-enclave-portal.md) using the Azure portal.
 
-## Sign-in to Azure
-Sign-in to the [Azure portal](https://portal.azure.com).
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create workload
 
@@ -26,30 +30,29 @@ Sign-in to the [Azure portal](https://portal.azure.com).
 
 3. In the `Azure Virtual Enclaves` page, select `Workloads` in the left menu.
 
-[ ![Screenshot showing the Azure Virtual Enclaves portal homepage with the workloads page selected.](./media/azure-virtual-enclaves-homepage-workloads.png) ](./media/azure-virtual-enclaves-homepage-workloads.png#lightbox)
+    [ ![Screenshot showing the Azure Virtual Enclaves portal homepage with the workloads page selected.](./media/azure-virtual-enclaves-homepage-workloads.png) ](./media/azure-virtual-enclaves-homepage-workloads.png#lightbox)
 
 4. On the `Workloads` page, select `Create`.
 
-5. Enter the basic details for your workload
-   - Enclave: Select an existing Enclave. This value is automatically applied if you started the workload creation from the existing Enclave.
-   - Workload name: Name of the workload (for example `cyber-monitoring-apps`)
+5. Enter the basic details for your workload:
+   - `Enclave`: Select an existing enclave. This value is automatically applied if you started workload creation from an existing enclave.
+   - `Workload name`: Enter a workload name, for example, `cyber-monitoring-apps`.
 
-![Screenshot showing the workload creation basics page.](./media/create-workload-tab-1-basics.png)
+    ![Screenshot showing the workload creation basics page.](./media/create-workload-tab-1-basics.png)
 
 > [!NOTE]
 >
-> Organizations should choose a workload naming convention that makes sense for the organization. Learn more about [defining your naming convention](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming).
+> Choose a workload naming convention that makes sense for your organization. For more information, see [Define your naming convention](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming).
 
-## Create workload resource groups
+## Add workload resource groups
 
-6. You can also create new resource groups on this page view or later after workload creation. You can also move existing resource groups into your workload after the workload is created. To add a new resource group select `Add`, provide a name, and repeat as needed.
+1. To add a new resource group during workload creation, select `Add`, enter a resource group name, and repeat as needed. You can also create resource groups later or move existing resource groups into the workload after the workload is created.
 
-7. Select `Next` and enter any [Tags](/azure/azure-resource-manager/management/tag-resources) for your workload.
+2. Select `Next`, and then enter any [tags](/azure/azure-resource-manager/management/tag-resources) for your workload.
 
-8. Select `Review + create` and validate the details for your workload are correct, then select `Create`.
+3. Select `Review + create`, confirm that the workload details are correct, and then select `Create`.
 
-
-**References**
+## References
 - [What is a workload?](./what-workload.md)
 - [Create an Enclave](./create-enclave-portal.md)
 - [Best practices](./best-practices.md)

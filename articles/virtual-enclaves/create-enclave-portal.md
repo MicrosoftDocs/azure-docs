@@ -1,28 +1,32 @@
 ---
 title: Create an Enclave in the Azure portal
-description: Create an Enclave in the Azure portal
-author: aserfass-msft
-ms.author: aserfass
-ms.topic: overview
-ms.date: 9/30/2025
+description: Learn how to create an enclave in Azure Virtual Enclaves using the Azure portal.
+author: jadean-msft
+ms.author: jadean
 ai-usage: ai-assisted
+ms.topic: how-to
+ms.date: 06/11/2026
 ---
 
 # Create an Enclave in the Azure portal
 
-An [Enclave](./what-enclave.md) is a completely isolated Virtual Network that is part of a community in which one or more workloads are hosted. These workloads can be completely isolated from other Enclaves in the community. An enclave owner can enable other Enclaves to connect to theirs by creating an Endpoint. Endpoints are used by other Enclaves to establish Connections.
+An [enclave](./what-enclave.md) is an isolated Azure virtual network that belongs to a community and hosts one or more workloads. Workloads in an enclave are isolated from other enclaves in the same community unless you explicitly enable connectivity by creating endpoints and connections.
+
+In this how-to guide, you create an enclave in the Azure portal.
 
 ## Prerequisites
 
 - To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - Before you can create an enclave, you must [create a community](./create-community-portal.md) using the Azure portal.
-- **If you're using on-prem/custom DNS** - each Enclave _must deploy a DNS resolver_ workload in order to resolve private endpoints for Azure Storage, Key Vault, and Log Analytics. 
+- If you use on-premises or custom DNS, plan how resources in the enclave resolve private endpoints for Azure Storage, Key Vault, and Log Analytics.
 
-## Sign-in to Azure
-Sign-in to the [Azure portal](https://portal.azure.com).
+## Sign in to Azure
 
-## Create enclave
-Enclave deployments will take around 30-45 minutes to complete. Once it completes, open your enclave and verify that the Status is `succeeded`.
+Sign in to the [Azure portal](https://portal.azure.com).
+
+## Create an enclave
+
+Enclave deployments can take several minutes to complete. After deployment completes, open your enclave and verify that `Status` is `Succeeded`.
 
 1. Enter `Azure Virtual Enclaves` in the search.
 
@@ -34,45 +38,46 @@ Enclave deployments will take around 30-45 minutes to complete. Once it complete
 
 4. On the `Enclaves` page, select `Create`.
 
-5. Enter the basic details for your enclave
-   - Subscription: Select an existing Subscription
-   - Resource Group: Create a new or select an existing resource group
-   - Enclave name: Name of the enclave (for example `My-Enclave`)
-   - Region: Azure region the enclave will be created in.
-   - Select a community: Select an existing `Community`
+5. Enter the basic details for your enclave:
+   - `Subscription`: Select an existing subscription.
+   - `Resource group`: Create a new resource group or select an existing resource group.
+   - `Enclave name`: Enter a name for the enclave, for example, `My-Enclave`.
+   - `Region`: Select the Azure region where the enclave is created.
+   - `Select a community`: Select an existing community.
 
 ![Screenshot showing Enclave create basics input page.](./media/create-enclave-tab-1-basics.png)
 
-6. Select `Next` and on the `Monitoring` page select where enclave logs will be stored.
+6. Select `Next`. On the `Monitoring` page, select where enclave logs are stored.
 
 ![Screenshot showing Enclave create logging and monitoring input page.](./media/create-enclave-tab-2-monitoring.png)
 
-7. Select `Next` and on the `Networking` page select the network size, if Enclave subnet communication is allowed by default, create subnets, and enable Azure Bastion as needed. Learn more about [Azure best practices regarding Azure Virtual Networks](/azure/virtual-network/concepts-and-best-practices), and how to use [Plan Azure Virtual Networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+7. Select `Next`. On the `Networking` page, select the network size, choose whether enclave subnet communication is allowed by default, create subnets, and enable Azure Bastion as needed. For planning guidance, see [Azure Virtual Network concepts and best practices](/azure/virtual-network/concepts-and-best-practices) and [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 
 ![Screenshot showing Enclave create networking input page.](./media/create-enclave-tab-3-networking.png)
 
 > [!NOTE]
 >
-> Azure Virtual Enclaves will automatically allocate the next best fit block of network addressable space based on the existing networks allocated to the community that the enclave is targeting.
+> Azure Virtual Enclaves automatically allocates the next best-fit block of network address space based on the existing networks allocated to the target community.
 
-8. Select `Next` and on the `Maintenance Mode` page select if maintenance mode, allowing changes to managed resources critical to the security of the enclave, is turned on once the enclave is created. This makes it easier to add resources quickly since joining a resource to the network requires maintenance mode. [Learn more about Maintenance Mode](./maintenance-mode.md)
+8. Select `Next`. On the `Maintenance Mode` page, choose whether to request maintenance mode when the enclave is created. Maintenance mode allows privileged changes to managed resources that are critical to enclave security. [Learn more about maintenance mode](./maintenance-mode.md).
 
 ![Screenshot showing Enclave create maintenance mode input page.](./media/create-enclave-tab-4-maintenance-mode.png)
 
-9. Select `Next` and on the `Enclave Administration` page select users, groups that should have privileged access over the managed resource group for the enclave.
+9. Select `Next`. On the `Enclave Administration` page, select the users and groups that should have privileged access to the managed resource group for the enclave.
 
 ![Screenshot showing Enclave create Enclave Administration input page.](./media/create-enclave-tab-5-enclave-administration.png)
 
-10. Select `Next` and on the `Workload Administration` page select users, groups that should have privileged access over the workload resource groups a customer creates and deploys their resources into based on their needs.
+10. Select `Next`. On the `Workload Administration` page, select the users and groups that should have privileged access to workload resource groups that customers create for their resources.
 
 ![Screenshot showing Enclave create Workload Administration input page.](./media/create-enclave-tab-6-workload-administration.png)
 
-11. Select `Next` and create any [Tags](/azure/azure-resource-manager/management/tag-resources) for your Enclave.
+11. Select `Next`, and then create any [tags](/azure/azure-resource-manager/management/tag-resources) for your enclave.
 
-12. Select `Review + create` and validate the details for your Enclave are correct, then select `Create`.
+12. Select `Review + create`, validate that the details for your enclave are correct, and then select `Create`.
 
-**References**
-- [What is an Enclave](./what-enclave.md)
+## References
+
+- [What is an enclave?](./what-enclave.md)
 - [Create a community](./create-community-portal.md)
 - [Best practices](./best-practices.md)
 - [Azure best practices regarding Azure Virtual Networks](/azure/virtual-network/concepts-and-best-practices)
