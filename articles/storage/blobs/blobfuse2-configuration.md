@@ -2,8 +2,8 @@
 title: How to configure settings for BlobFuse
 titleSuffix: Azure Storage
 description: Learn how to configure settings for BlobFuse.
-author: akashdubey-ms
-ms.author: akashdubey
+author: normesta
+ms.author: normesta
 ms.reviewer: normesta
 
 ms.service: azure-blob-storage
