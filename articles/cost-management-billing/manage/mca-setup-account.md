@@ -280,7 +280,9 @@ When you transfer a subscription from an Enterprise Agreement to a Microsoft Cus
 
 - All other assets in the source subscription must also be able to successfully be transferred. Otherwise, the transfer fails. 
 
-- Please note Marketplace purchased through AppSource is not associated with any subscription, and cannot be transferred with this method. 
+- Please note Marketplace purchased through AppSource is not associated with any subscription, and cannot be transferred with this method.
+
+Software as a Service (SaaS) products are an exception. A SaaS subscription is billed through the Azure subscription but doesn't move with it, so you transfer SaaS billing ownership separately. For more information, see [Software as a Service (SaaS) transfer](mpa-request-ownership.md#software-as-a-service-saas-transfer). 
 
 ### Support plan
 

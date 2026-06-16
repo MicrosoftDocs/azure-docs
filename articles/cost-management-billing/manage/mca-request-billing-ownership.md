@@ -82,6 +82,8 @@ When you transfer a subscription from an Enterprise Agreement to a Microsoft Cus
 - The Marketplace purchase must pass all eligibility checks before transfer. For example, the purchase must be available for use in the target agreement.
 - All other assets in the source subscription must also be able to successfully be transferred. Otherwise, the transfer fails.
 
+Software as a Service (SaaS) products are an exception. A SaaS subscription is billed through the Azure subscription but doesn't move with it, so you transfer SaaS billing ownership separately. For more information, see [Software as a Service (SaaS) transfer](mpa-request-ownership.md#software-as-a-service-saas-transfer).
+
 
 ## Create the product transfer request
 
