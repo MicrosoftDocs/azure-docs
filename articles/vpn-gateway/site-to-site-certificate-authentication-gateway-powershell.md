@@ -232,7 +232,7 @@ Set-AzVirtualNetwork -VirtualNetwork $vnet1
 
 ## Create user-assigned managed identities
 
-This configuration requires a managed identity. VPN gateways use user-assigned managed identities to securely access certificates stored in Azure Key Vault. For more information about managed identities, see [What are managed identities for Azure resources](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview).
+This configuration requires a managed identity. VPN gateways use user-assigned managed identities to securely access certificates stored in Azure Key Vault. For more information about managed identities, see [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
 When creating the managed identity name, use something intuitive, such as gw1-s2s-kv or vpngwy-managed. You need the name for Key Vault configuration steps. The resource group doesn't have to be the same as the resource group used for your VPN gateway.
 
