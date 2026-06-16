@@ -247,7 +247,7 @@ A user assigned managed identity name doesn't need to be globally unique across 
 
 ## Create Key Vaults and configure RBAC permissions
 
-This configuration requires Azure Key Vault. Create Key Vaults to store the certificates and configure RBAC permissions for secure access. For more information about Azure Key Vault, see [About Azure Key Vault](https://learn.microsoft.com/azure/key-vault/general/overview).
+This configuration requires Azure Key Vault. Create Key Vaults to store the certificates and configure RBAC permissions for secure access. For more information about Azure Key Vault, see [About Azure Key Vault](/azure/key-vault/general/overview).
 
 > [!NOTE]
 > When using the Azure portal to create a Key Vault for certificate authentication, ensure you select **Azure role-based access control** as the Permission model on the access configuration. This is the recommended approach.
@@ -292,7 +292,7 @@ New-AzRoleAssignment -ObjectId $gw1UserIdentity.PrincipalId `
 RBAC permission changes don't take effect immediately. As a best practice, allow roughly two minutes for the updated role assignments to propagate before validating that the permissions have reached the user assigned managed identity. If RBAC hasn't yet propagated, the next steps might fail.
 
 > [!NOTE]
-> Microsoft recommends using Azure RBAC for Key Vault access control instead of the legacy Access Policy model. For more information, see [Migrate from access policy to Azure RBAC](https://learn.microsoft.com/azure/key-vault/general/rbac-guide).
+> Microsoft recommends using Azure RBAC for Key Vault access control instead of the legacy Access Policy model. For more information, see [Migrate from access policy to Azure RBAC](/azure/key-vault/general/rbac-guide).
 
 ## Import certificates to Key Vault
 
