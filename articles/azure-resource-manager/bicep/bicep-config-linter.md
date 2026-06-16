@@ -3,7 +3,7 @@ title: Linter settings for Bicep config
 description: Describes how to customize configuration values for the Bicep linter
 ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 06/03/2026
+ms.date: 06/15/2026
 ---
 
 # Add linter settings in the Bicep config file
@@ -135,6 +135,9 @@ The following example shows the rules that you can configure.
           "level": "warning"
         },
         "use-safe-access": {
+          "level": "warning"
+        },
+        "use-recognized-resource-type": {
           "level": "warning"
         },
         "use-secure-value-for-secure-inputs": {

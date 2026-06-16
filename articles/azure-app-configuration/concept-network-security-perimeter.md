@@ -43,7 +43,7 @@ If your App Configuration store has [monitoring](./monitor-app-configuration.md)
 
 ## Limitations
 
-- Azure App Configuration support for network security perimeter is currently in private preview with access limited to a set of subscriptions. Please reach out to [AzureAppConfig@microsoft.com](mailto:AzureAppConfig@microsoft.com) to request access.
+- Azure App Configuration support for network security perimeter is currently in private preview with access limited to a set of subscriptions.
 - During private preview, network security perimeter management plane operations, such as associating an App Configuration store with a perimeter or viewing the association configuration, can only be performed using ARM templates or the Azure CLI. For a tutorial on how to associate with an App Configuration store using the Azure CLI, see [Associate Azure App Configuration with a network security perimeter](./howto-set-up-network-security-perimeter.md).
 - Certain network security perimeter features, such as subscription-based inbound access rules, don't work with [access key authentication](./howto-disable-access-key-authentication.md). Use [Microsoft Entra ID authentication](./concept-enable-rbac.md) for full NSP functionality.
 - At this time, an App Configuration store in a network security perimeter can't send events to Azure Event Grid. If an App Configuration store has an [Azure App Configuration event subscription](./concept-app-configuration-event.md) configured, you can't associate the store with a network security perimeter. Similarly, if a store is associated with a network security perimeter, you can't enable an event subscription for the store.
@@ -63,7 +63,7 @@ If your App Configuration store has [monitoring](./monitor-app-configuration.md)
 
 > Failed to associate resource. This feature is not yet available for given subscription. 
 
-These errors indicate that the subscription you're using doesn't have access to the network security perimeter feature for Azure App Configuration, which is currently in private preview. To request access, please reach out to [AzureAppConfig@microsoft.com](mailto:AzureAppConfig@microsoft.com). 
+These errors indicate that the subscription you're using doesn't have access to the network security perimeter feature for Azure App Configuration, which is currently in private preview.
 
 ### RP registration errors
 
