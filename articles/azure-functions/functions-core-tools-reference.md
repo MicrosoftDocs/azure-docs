@@ -14,7 +14,7 @@ zone_pivot_groups: func-cli-versions
 
 This article provides reference documentation for the local runtime and tools that support Azure Functions. Use these tools to develop, manage, and run Azure Functions projects from your local computer. The binary name is `func` (or `func.exe` on Windows).
 
-Two versions of the CLI are available. Use the version selector to choose which version to view.
+Two local development experiences ship as `func.exe`: Azure Functions Core Tools (GA) and the Azure Functions CLI (preview). Use the selector to choose which experience to view.
 
 [!INCLUDE [functions-cli-v5-preview-note](../../includes/functions-cli-v5-preview-note.md)]
 
