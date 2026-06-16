@@ -225,7 +225,7 @@ For a workflow that starts with a function-based trigger, you might try to [set 
 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
-| `Runtime.FlowTriggerDispatchingJob.MessageProcessingConcurrencyLimit` | `1` | Sets the maximum number of messages that can be processed concurrently during workflow trigger dispatching. |
+| `Runtime.FlowTriggerDispatchingJob.MessageProcessingConcurrencyLimit` | `1` message | Sets the maximum number of messages that can be processed concurrently during workflow trigger dispatching. |
 | `Runtime.Trigger.MaximumRunConcurrency` | `100` runs | Sets the maximum number of concurrent runs that a trigger can start. This value appears in the trigger's concurrency definition. |
 | `Runtime.Trigger.MaximumWaitingRuns` | `200` runs | Sets the maximum number of runs that can wait after concurrent runs meet the maximum. This value appears in the trigger's concurrency definition. For more information, see [Change waiting runs limit](logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 
