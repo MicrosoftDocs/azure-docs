@@ -31,8 +31,10 @@ Complete the following one-time setup tasks to enable ACZ on your Azure Data Man
 > [!TIP]
 > **Planning your ACZ configuration**  
 > Before creating an ACZ, decide whether you need:
-> - **All catalog data**: Set `allCatalogSync: true` to export all catalog entity types from your partition
-> - **Specific entity types**: Use `catalogKinds` to export only selected kinds (for example, Wells, Wellbores, Fields)
+> - **All catalog data**: Set `allCatalogSync: true` (outside the configuration section) to export all catalog entity types from your partition
+> - **Specific entity types**: Use `catalogKinds` array in the configuration section to export only selected kinds (for example, Wells, Wellbores, Fields)
+>
+> Note: When `allCatalogSync` is true, the `catalogKinds` and `wellboreDDMSKinds` arrays are ignored for catalog data. Wellbore DDMS bulk file downloads only occur for kinds listed in `wellboreDDMSKinds`.
 >
 > See [Tutorial: Use Analytics Consumption Zone (ACZ) APIs](tutorial-analytics-consumption-zone-apis.md) for configuration examples.
 
@@ -436,6 +438,7 @@ curl --http1.1 --request POST \
   --header 'data-partition-id: {data_partition_id}' \
   --data '{
     "name": "my-first-acz",
+    "allCatalogSync": false,
     "sink": {
       "storageId": "/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}"
     },
@@ -457,6 +460,7 @@ curl --http1.1 --request POST \
 # Build request body
 $body = @{
     name = "my-first-acz"
+    allCatalogSync = $false
     sink = @{
         storageId = "/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}"
     }
@@ -506,6 +510,7 @@ A successful response returns HTTP status `201` with the ACZ details:
     "storageId": "/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}",
     "basePath": ""
   },
+  "allCatalogSync": false,
   "configuration": {
     "catalogKinds": [
       "osdu:wks:master-data--Well:*",
