@@ -3,12 +3,12 @@ title: Use PowerShell to manage data in Azure independent clouds
 titleSuffix: Azure Storage
 description: Managing Storage in the China Cloud, Government Cloud, and German Cloud Using Azure PowerShell.
 services: storage
-author: akashdubey-ms
+author: normesta
 
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 12/04/2019
-ms.author: akashdubey
+ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell
 # Customer intent: As an IT administrator managing Azure environments, I want to use PowerShell to connect and manage storage in independent clouds, so that I can ensure proper data governance and compliance with local regulations.
