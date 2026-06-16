@@ -154,10 +154,10 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs" -Method Post -Header
 
 > [!TIP]
 > **Export all catalog data**  
-> Set `"allCatalogSync": true` in the configuration to export all catalog kinds from your data partition without specifying individual kind patterns. This is useful when you want complete catalog data in your analytics environment. You can still specify `wellboreDDMSKinds` to selectively sync Wellbore DDMS data.
+> Set `"allCatalogSync": true` in the configuration to export all catalog kinds from your data partition without specifying individual kind patterns. This approach is useful when you want complete catalog data in your analytics environment. You can still specify `wellboreDDMSKinds` to selectively sync Wellbore DDMS data.
 
 > [!NOTE]
-> You must provide at least one of the following in the configuration:
+> You must provide at least one of the following options in the configuration:
 > - Set `"allCatalogSync": true`, OR
 > - Provide `catalogKinds` array with at least one kind pattern, OR  
 > - Provide `wellboreDDMSKinds` array with at least one kind pattern
@@ -300,7 +300,7 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs" -Method Get -Headers
 }
 ```
 
-The response lists all ACZs in any status: `ACTIVE`, `FAILED`, or `ACCESS_DENIED`. The example above shows two ACZs: one using selective catalog sync and another using `allCatalogSync: true` to export all catalog kinds.
+The response lists all ACZs in any status: `ACTIVE`, `FAILED`, or `ACCESS_DENIED`. This response shows two ACZs: one using selective catalog sync and another using `allCatalogSync: true` to export all catalog kinds.
 
 ## Get ACZ details
 
