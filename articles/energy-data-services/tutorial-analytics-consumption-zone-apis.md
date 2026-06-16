@@ -157,7 +157,7 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs" -Method Post -Header
 > Set `"allCatalogSync": true` (outside the `configuration` section) to export all catalog kinds from your data partition. When enabled, the `catalogKinds` and `wellboreDDMSKinds` arrays in configuration are ignored for catalog data. Wellbore DDMS bulk file downloads still only occur for kinds listed in `wellboreDDMSKinds`.
 
 > [!NOTE]
-> You must provide at least one of the following:
+> You must provide at least one of the following options:
 > - Set `"allCatalogSync": true` (outside configuration), OR
 > - Provide `catalogKinds` array in configuration with at least one kind pattern, OR  
 > - Provide `wellboreDDMSKinds` array in configuration with at least one kind pattern
