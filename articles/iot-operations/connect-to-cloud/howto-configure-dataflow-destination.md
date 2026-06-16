@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/26/2026
+ms.date: 06/15/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to configure the destination for a data flow or data flow graph.
@@ -223,7 +223,7 @@ destinationSettings:
 ---
 
 > [!NOTE]
-> The characters `$`, `{`, and `}` are valid in MQTT topic names, so a topic like `factory/$inputTopic.2` is acceptable but incorrect if you intended to use the dynamic topic variable.
+> Only the dynamic topic variables described here (`${inputTopic}`, `${inputTopic.index}`, and, for data flow graphs, `${outputTopic}`) are substituted. A path segment that uses curly braces without a leading `$`, such as `edge-ai/predict/{model_id}`, is treated as a literal string, not a variable. To set the destination topic based on a field in the message, use the data flow graph `${outputTopic}` approach described in the next section. The characters `$`, `{`, and `}` are valid in MQTT topic names, so a topic like `factory/$inputTopic.2` is acceptable but incorrect if you intended to use the dynamic topic variable.
 
 ### Data flow graphs: route by message content
 

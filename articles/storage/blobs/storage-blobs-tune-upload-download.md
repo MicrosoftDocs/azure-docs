@@ -133,6 +133,26 @@ Receiving multiple HTTP responses simultaneously with body contents has implicat
 
 During a download, the Storage client libraries make one download range request using `InitialTransferSize` before doing anything else. During this initial download request, the client libraries know the total size of the resource. If the initial request successfully downloaded all of the content, the operation is complete. Otherwise, the client libraries continue to make range requests up to `MaximumTransferSize` until the full download is complete.
 
+## Transfer validation with CRC64
+
+In addition to performance tuning with `StorageTransferOptions`, you can configure transfer validation to verify data integrity for uploads (`UploadTransferValidationOptions`) and downloads (`DownloadTransferValidationOptions`). While CRC64 is generally performant to compute, enabling transfer validation may have performance implications that should be considered alongside other tuning decisions.
+
+[!INCLUDE [storage-dev-guide-transfer-validation](../../../includes/storage-dev-guides/storage-dev-guide-transfer-validation.md)]
+
+Transfer validation options can be defined at the client level using [BlobClientOptions](/dotnet/api/azure.storage.blobs.blobclientoptions), which applies validation options to all methods called from a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) instance. Alternatively, you can override transfer validation options at the method level using [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions) or [BlobDownloadToOptions](/dotnet/api/azure.storage.blobs.models.blobdownloadtooptions).
+
+```csharp
+BlobClientOptions options = new BlobClientOptions
+{
+    TransferValidation =
+    {
+        Upload   = { ChecksumAlgorithm = StorageChecksumAlgorithm.StorageCrc64 },
+        Download = { ChecksumAlgorithm = StorageChecksumAlgorithm.StorageCrc64 },
+    },
+};
+BlobServiceClient serviceClient = new BlobServiceClient(new Uri($"https://{account}.blob.core.windows.net"), credential, options);
+```
+
 ## Next steps
 
 - This article is part of the Blob Storage developer guide for .NET. See the full list of developer guide articles at [Build your app](storage-blob-dotnet-get-started.md#build-your-app).
