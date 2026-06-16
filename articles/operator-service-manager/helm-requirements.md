@@ -310,9 +310,11 @@ Currently, if the `dependsOnProfile` code provided in the NFDV is invalid, the N
 ## Best practices to adopt Helm 4
 
 Helm has been the standard package manager for Kubernetes since its initial release in 2016. Its evolution has closely tracked Kubernetes itself:
-Helm v2 (2016–2019): Introduced chart-based application packaging but relied on a server-side component (Tiller), which created security and multi‑tenancy concerns.
-Helm v3 (2019–2025): Removed Tiller, shifting to a client-only model with improved security and usability. This version became the industry standard and accumulated incremental features over several years without breaking compatibility.
-After ~6 years of Helm v3, the project accumulated technical debt and limitations that could not be addressed without breaking changes. This led to the release of Helm v4 in late 2025.
+
+* Helm v2 (2016–2019): Introduced chart-based application packaging but relied on a server-side component (Tiller), which created security and multi‑tenancy concerns.
+* Helm v3 (2019–2025): Removed Tiller, shifting to a client-only model with improved security and usability. This version became the industry standard and accumulated incremental features over several years without breaking compatibility.
+
+After ~6 years of Helm v3, the project accumulated technical debt, code limitations and security flaw that could not be addressed without breaking changes. This led to the release of Helm v4 in late 2025.
 
 ### What Helm 4 Represents
 
@@ -327,33 +329,32 @@ Key shifts with Helm 4 include:
 * Improved resource tracking: Uses newer Kubernetes status mechanisms (e.g., kstatus) for more accurate deployment behavior.
 * Internal modernization: Cleans up technical debt to allow future innovation and improved performance.
 
-Importantly, Helm 4 maintains compatibility with existing Helm v3 charts, enabling gradual adoption without immediate changes to artifacts.
+Importantly, Helm 4 can maintain compatibility with existing Helm v3 charts, enabling gradual adoption without immediate changes to artifacts.
 
-### Relevance to AOSM Publisher
+### Relevance to AOSM Publishers
 
-There are two milestones we are tracking for Helm 4 support.
-
-* First, AOSM will release a NFO version with Helm 4.1.4 configured to behave in "compatibility mode." This provides full backwards compatibility to Helm 3.18, publishers do not need to make any changes to charts or other artifacts to start using Helm 4 in compatibility mode.
-* Second, AOSM will release a NFO version which removes compatibility customizations to allow for full Helm 4 support. Publisher can choose to move to this version, but will most likely need to make changes to charts and artifacts.
+AOSM team is tracking two milestones for Helm 4 support.
+* First, AOSM team will release a NFO version with Helm 4.1.4 configured to behave in "compatibility mode." This provides full backwards compatibility to Helm 3.18, publishers do not need to make any changes to charts, or other artifacts, to start using Helm 4.
+* Second, AOSM team will release a NFO version which removes compatibility customizations allowing full Helm 4 support. Publishers can choose to move to this version when ready, knowing it will most likely require changes to charts and artifacts for compatbility.
 
 Publishers will continue to have flexibility to select between these two Helm behavior modes when installing NFO onto a cluster.
 
 ### Compability model configurations
 
-The following table summarizes configuration settings the AOSM applies to emulate behavior of earlier versions of Helm when running Helm 4 in compatibility mode:
+The following chart summarizes the configuration settings applied to emulate earlier Helm version behavior, when running Helm 4 in "compatibility mode":
 
-* Stricter schema validation	H
-  * Helm v4’s new validator rejects Go typed slices such as []map[string]interface{} as invalid JSON arrays. This caused a real failure in canary when NFO injected imagePullSecrets values.
-  * Updated value injection logic to use []interface{} and audited similar code paths.
+* Stricter schema validation
+  * Helm 4’s new validator rejects Go typed slices, such as []map[string]interface{}, as invalid JSON arrays. This behavior creates failures when NFO injects imagePullSecrets values.
+  * Value injection logic is updated to use []interface{} istead, also audited similar code paths.
 * Server-side apply enabled by default
-  * Helm v4 validates rendered manifests against cluster OpenAPI schema before apply. This caused canary failures for charts with invalid field paths that Helm v3 previously tolerated. Similar failures are possible in customer charts.
-  * Disabled SSA in install and upgrade paths to preserve Helm v3 behavior.
+  * Helm 4 validates rendered manifests against cluster OpenAPI schema before apply. This causes failures for charts with invalid field paths, previously tolerated by Helm 3. 
+  * SSA is disabled during install and upgrade paths to preserve Helm 3 behavior.
 * New wait model
-  * Helm v4 defaults to event-driven waiting, which requires watch RBAC. Adopting the default would change NFO behavior and fail on clusters without the required permissions.
-  * Pinned wait behavior to LegacyStrategy to preserve Helm v3 polling semantics.
+  * Helm 4 defaults to event-driven waiting, which requires watch RBAC. Adopting the default would fail on Nexus clusters due to lack of permissions.
+  * Pinned wait behavior to LegacyStrategy to preserve Helm 3 polling semantics.
 * Recreate removed
-  * Helm v4 removes Upgrade.Recreate. Runtime risk is low for current NFO behavior, but customer-set values in the CRD would no longer have effect.
-  * Preserve the CRD field for compatibility and ignore it in Helm v4 paths.
+  * Helm 4 removes Upgrade.Recreate. Runtime risk is low, but customer-set values in the CRD would no longer have effect.
+  * Preserve the CRD field for compatibility and ignore it in Helm 4 paths.
 * Schema metaschema validation
-  * Helm v4 validates the chart's values.schema.json against the JSON Schema metaschema (Draft 2019-09). Charts with non-compliant $id fields (e.g., #/properties/global) are rejected before values are even checked. This caused canary failure for fed-otel-operator.
-  * Set SkipSchemaValidation = true on Install and Upgrade actions. NFO deploys customer-provided charts whose schemas we cannot control.
+  * Helm 4 validates the chart's values.schema.json against the JSON Schema metaschema. Charts with non-compliant fields are rejected before values are even checked. This is known to cause failures with publisher charts.
+  * Set "SkipSchemaValidation = true" on install and upgrade actions.
