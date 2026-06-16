@@ -4,6 +4,7 @@ description: Learn about Napster Companion API, an Azure Native Integration for 
 author: shijoy
 ms.author: shijoy
 ms.topic: overview
+ms.subservice: napster
 ms.date: 05/20/2026
 ms.custom:
   - ignite-2026

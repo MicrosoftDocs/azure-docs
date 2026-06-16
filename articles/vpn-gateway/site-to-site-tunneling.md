@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 06/09/2026
 ms.author: cherylmc
 # Customer intent: "As a network administrator, I want to configure forced tunneling for site-to-site VPN connections, so that I can route all Internet-bound traffic through the VPN gateway for security and compliance purposes."
 ---
@@ -109,10 +109,10 @@ In this section, you request a public IP address and create a VPN gateway that's
 
 1. Create the virtual network gateway with the gateway type "Vpn" using [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway). Creating a gateway can take 45 minutes or more, depending on the selected gateway SKU that you select.
 
-   In this example, we use the VpnGw2, Generation 2 SKU. If you see ValidateSet errors regarding the GatewaySKU value, verify that you have installed the [latest version of the PowerShell cmdlets](/powershell/azure/). The latest version contains the new validated values for the latest Gateway SKUs.
+   In this example, we use the VpnGw1AZ, Generation 2 SKU. If you see ValidateSet errors regarding the GatewaySKU value, verify that you have installed the [latest version of the PowerShell cmdlets](/powershell/azure/). The latest version contains the new validated values for the latest Gateway SKUs.
 
    ```azurepowershell-interactive
-   New-AzVirtualNetworkGateway -Name "VNet1GW" -ResourceGroupName "TestRG1" -Location "EastUS" -IpConfigurations $gwipconfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku VpnGw2 -VpnGatewayGeneration "Generation2"
+   New-AzVirtualNetworkGateway -Name "VNet1GW" -ResourceGroupName "TestRG1" -Location "EastUS" -IpConfigurations $gwipconfig -GatewayType "Vpn" -VpnType "RouteBased" -GatewaySku VpnGw1AZ -VpnGatewayGeneration "Generation2"
    ```
 
 ## Configure forced tunneling - Default Site

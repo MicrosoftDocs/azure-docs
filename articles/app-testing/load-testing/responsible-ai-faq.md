@@ -3,7 +3,7 @@ title: Responsible AI FAQ for Azure Load Testing
 description: Learn how Azure Load Testing uses data and what to expect.
 ms.date: 12/03/2025
 ms.topic: faq
-ms.service: azure-load-testing
+ms.service: azure-app-testing
 ms.author: nandinim
 author: nandinimurali
 hideEdit: true

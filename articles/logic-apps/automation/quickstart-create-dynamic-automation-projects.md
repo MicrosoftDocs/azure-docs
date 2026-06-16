@@ -1,19 +1,19 @@
 ---
 title: Create Projects for Dynamic Automation
-titleSuffix: Logic Apps Automation
-description: Create projects in Logic Apps Automation to build and organize applications for dynamic, AI-driven workflows.
+titleSuffix: Azure Logic Apps Automation
+description: Create projects in Azure Logic Apps Automation to build and organize applications for dynamic, AI-driven workflows.
 services: azure-logic-apps
-ms.reviewers: estfan, krmitta, divswa, azla
+ms.reviewer: estfan, krmitta, divswa, azla
 ms.topic: quickstart
 ai-usage: ai-assisted
 ms.update-cycle: 180-days
-ms.date: 06/02/2026
+ms.date: 06/11/2026
 ms.custom:
-- build-2026
-#Customer intent: As an automation developer, I need to create my first project in Logic Apps Automation so I can build and organize applications for my dynamically-run, AI-powered workflows.
+  - build-2026
+#Customer intent: As an automation developer, I need to create my first project in Azure Logic Apps Automation so I can build and organize applications for my dynamically-run, AI-powered workflows.
 ---
 
-# Quickstart: Create projects in Logic Apps Automation (preview)
+# Quickstart: Create projects in Azure Logic Apps Automation (preview)
 
 > [!NOTE]
 >
@@ -21,9 +21,9 @@ ms.custom:
 
 When your team builds AI-driven automations, you need a way to keep applications and their workflows, connections, and other items organized, secure, and separate so that unrelated work doesn't mix together. When you don't have clear boundaries, automation assets are harder to govern and scale as your team grows.
 
-In Logic Apps Automation, an automation *project* solves this problem by providing an isolated container with its own compute, networking, security, and governance. Before you can start building your dynamic workloads in Logic Apps Automation, you need to create a *project* to store your applications and their contents. Create one project per team, business area, or scenario so teams can independently build and manage their automations.
+In Azure Logic Apps Automation, an automation *project* solves this problem by providing an isolated container with its own compute, networking, security, and governance. Before you can start building your dynamic workloads in Azure Logic Apps Automation, you need to create a *project* to store your applications and their contents. Create one project per team, business area, or scenario so teams can independently build and manage their automations.
 
-Logic Apps Automation organizes your work at the following levels:
+Azure Logic Apps Automation organizes your work at the following levels:
 
 | Level | Contents |
 |-------|----------|
@@ -35,7 +35,7 @@ This quickstart shows how to create a project and add team members to your proje
 
 For more information, see:
 
-- [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md)
+- [What is Azure Logic Apps Automation](dynamic-workflow-automation-introduction.md)
 - [Key concepts and terminology](dynamic-workflow-automation-introduction.md#key-concepts-and-terminology)
 
 ## Prerequisites
@@ -44,7 +44,7 @@ For more information, see:
 
   > [!NOTE]
   >
-  > You need an Azure subscription to create projects. Make sure that your account can access the [Logic Apps Automation portal](https://auto.azure.com). As a builder, you only need access to the portal to create dynamic workflows - no Azure subscription necessary.
+  > You need an Azure subscription to create projects. Make sure that your account can access the [Azure Logic Apps Automation portal](https://auto.azure.com). As a builder, you only need access to the portal to create dynamic workflows - no Azure subscription necessary.
 
 - For team members who need to work in your project, make sure they have a work or school account in the same Microsoft Entra tenant where your account exists.
 
@@ -54,15 +54,50 @@ For more information, see:
 
 To create a container for your applications and control who has access, follow these steps:
 
-1. Go to the [Logic Apps Automation portal](https://auto.azure.com), and sign in with your Azure account.
+1. Go to the [Azure Logic Apps Automation portal](https://auto.azure.com), and sign in with your Azure account.
 
-1. On the home page, under **Get started**, select **Create a project**.
+   :::image type="content" source="media/quickstart-create-dynamic-automation-projects/azure-logic-apps-automation-portal.png" alt-text="Screenshot that shows the Azure Logic Apps Automation portal where to sign in." lightbox="media/quickstart-create-dynamic-automation-projects/azure-logic-apps-automation-portal.png":::
 
-   The Azure portal opens and shows the **Automation Projects** page so you can create your automation project.
+1. On the home page, on the **Projects** tab, select **Create project**.
 
-1. On the **Automation Projects** toolbar, select **+ Create**.
+   :::image type="content" source="media/quickstart-create-dynamic-automation-projects/no-projects.png" alt-text="Screenshot that shows the Azure Logic Apps Automation portal and page to create an automation project." lightbox="media/quickstart-create-dynamic-automation-projects/no-projects.png":::
 
-1. On the **Create an Automation Project** page, on the **Basics** tab, enter the following information:
+1. In the **Create automation project** box, choose an option to create your project.
+
+### [Basic](#tab/basic)
+
+1. In the **Create automation project** box, provide the following information:
+
+   | Property | Description |
+   |----------|-------------|
+   | **Subscription** | Your Azure subscription. |
+   | **Resource group** | The [Azure resource group](../../azure-resource-manager/management/overview.md#terminology) for organizing your project resources. Enter a unique name across Azure regions that uses only alphanumeric characters, hyphens (`-`), underscores (`_`), parentheses (`()`), or periods (`.`). |
+   | **Location** | The Azure region closest to your end users or the components that your workflows need to use. |
+   | **Automation project name** | Enter a unique project name across Azure regions that uses only alphanumeric characters, hyphens (`-`), underscores (`_`), parentheses (`()`), or periods (`.`). |
+
+   For example:
+
+   :::image type="content" source="media/quickstart-create-dynamic-automation-projects/create-automation-project-separate-portal.png" alt-text="Screenshot that shows the Azure Logic Apps Automation portal and project information page." lightbox="media/quickstart-create-dynamic-automation-projects/create-automation-project-separate-portal.png":::
+
+1. When you finish, select **Create**.
+
+   > [!NOTE]
+   >
+   > The creation process might take several minutes to finish.
+
+   After the creation process completes, the Azure Logic Apps Automation portal opens the automation project.
+
+1. From the **Projects** list, find and select your project.
+
+   The Azure Logic Apps Automation portal opens and shows your project's home page.
+
+### [Advanced](#tab/advanced)
+
+1. In the **Create automation project** box, select **Azure portal**.
+
+   The Azure portal opens and shows the **Create an Automation Project** page.
+
+1. On the **Basics** tab, provide the following project information:
 
    | Property | Description |
    |----------|-------------|
@@ -73,25 +108,25 @@ To create a container for your applications and control who has access, follow t
 
    For example:
 
-   :::image type="content" source="media/quickstart-create-dynamic-automation-projects/create-automation-project.png" alt-text="Screenshot that shows the Azure portal and page to create an automation project." lightbox="media/quickstart-create-dynamic-automation-projects/create-automation-project.png":::
+   :::image type="content" source="media/quickstart-create-dynamic-automation-projects/create-automation-project-azure-portal.png" alt-text="Screenshot that shows the Azure portal and page to create an automation project." lightbox="media/quickstart-create-dynamic-automation-projects/create-automation-project-azure-portal.png":::
 
-1. Select **Review + create** > **Create**.
-
-   The Azure portal sets up, creates, and deploys your automation project.
+1. When you finish, on the bottom toolbar, select **Review + create**, confirm your information, and then select **Create**.
 
    > [!NOTE]
    >
-   > This process might take several minutes to finish.
+   > The creation process might take several minutes to finish.
 
-   After this process completes, the Azure portal opens the automation project. If the project doesn't open, select **Go to resource**.
+   After the creation process completes, the Azure portal opens the automation project. If the project doesn't open, select **Go to resource**.
 
-1. On the project toolbar, select **Open in Automation Portal**, which returns you to the Logic Apps Automation portal.
+1. On the project toolbar, select **Open in Automation Portal**, which returns you to the Azure Logic Apps Automation portal.
 
-1. If you signed out, sign back in to the [Logic Apps Automation portal](https://auto.azure.com).
+1. If you signed out, sign back in to the [Azure Logic Apps Automation portal](https://auto.azure.com).
 
 1. From the **Projects** list, find and select your project.
 
-   The portal opens and shows your project's home page.
+   The Azure Logic Apps Automation portal opens and shows your project's home page.
+
+---
 
 Before you can start building workflows, you need to create an application as a deployable package that contains these workflows. For more information, see [Create dynamic automation applications](quickstart-create-dynamic-automation-applications.md).
 
@@ -112,13 +147,13 @@ By default, when you create a project, you automatically become the project owne
 
 Before others can create applications and workflows in your project, add them as project members by following these steps:
 
-1. In the [Logic Apps Automation portal](https://auto.azure.com), find and open your project.
+1. In the [Azure Logic Apps Automation portal](https://auto.azure.com), find and open your project.
 
-1. On your project home page, on the sidebar, under **Manage**, select **Settings**.
+1. On your project home page, on the sidebar, select **Settings**.
 
 1. In the **Users** section, select **Add user**.
 
-1. On the **Add role assignment** pane, in the **Select user** box, enter the email address for the person you want to add.
+1. On the **Add role assignment** pane, in the **Select user** box, enter the name or the email address for the person you want to add.
 
    The **Select user** list shows only people in the same Microsoft Entra tenant as you.
 

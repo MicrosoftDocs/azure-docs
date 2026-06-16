@@ -399,12 +399,12 @@ Data disk: Standard storage account | Supported. |
 Data disk: Premium storage account | Supported. | If a VM has disks spread across Premium and Standard storage accounts, you can select a different target storage account for each disk to ensure that you have the same storage configuration in the target region.
 Managed disk: Standard | Supported in Azure regions in which Site Recovery is supported. |
 Managed disk: Premium | Supported in Azure regions in which Site Recovery is supported. |
-Disk subscription limits | Up to 3,000 (1,200 in case of Trusted VMs) protected disks per subscription. | Ensure that the source or target subscription doesn't have more than 3,000 (1,200 in case of Trusted VMs) Site Recovery-protected disks (both data and OS).
+Disk subscription limits | Up to 3,000 (1,200 in the case of Trusted VMs) protected disks per subscription. | Ensure that the source or target subscription doesn't have more than 3,000 (1,200 in the case of Trusted VMs) Site Recovery-protected disks (both data and OS).
 Standard SSD | Supported. |
 Redundancy | Locally redundant storage (LRS), ZRS, and geo-redundant storage (GRS) are supported.
 Cool and hot storage | Not supported. | VM disks aren't supported on cool or hot storage.
 Storage Spaces | Supported. |
-NVMe storage interface (preview) | Supported | Supported for Azure-to-Azure for Windows, Linux (RHEL 9, SLES 15, Ubuntu 24) for Gen2 VMs such as Da/Ea/Fa v6-series, Ebsv5/Ebdsv5, and others that use NVMe interface. Ephemeral OS disks and local NVMe disks aren't supported. |
+NVMe storage interface (preview) | Supported | Supported for Azure-to-Azure for Windows, Linux (RHEL 9, SLES 15, Ubuntu 24) for Gen2 VMs such as Da/Ea/Fa v6-series, Ddsv6, Edsv6, Ebsv5/Ebdsv5, and others that use NVMe interface. Ephemeral OS disks and local NVMe disks aren't supported. |
 Performance Plus disk  | Supported | For VMs using Premium SSD, Standard SSD, Standard HDD disks. Ensure that you use only premium storage accounts during replication. | 
 Mixed controller VMs (SCSI + NVMe) | Not Supported | VMs SKUs such as Lsv3 aren't supported |
 Encryption at host | Not supported. | The VM is protected, but the failed-over VM doesn't have encryption at host enabled. For more information, see [Enable end-to-end encryption by using encryption at host](/Azure/virtual-machines/disks-enable-host-based-encryption-portal).

@@ -144,7 +144,7 @@ items:
   - name: Integration
     items:
     - name: API for FHIR
-      href: ../../healthcare-apis/fhir/fhir-service-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: ../../healthcare-apis/azure-api-for-fhir/fhir-service-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Event Grid
       href: ../../event-grid/blob-event-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Logic Apps
@@ -322,7 +322,7 @@ items:
     - name: Any function
       href: bicep-functions-any.md
     - name: Array functions
-      displayName: array,concat,contains,empty,first,flatten,indexOf,intersection,last,lastIndexOf,length,max,min,range,skip,take,union
+      displayName: array,concat,contains,distinct,empty,first,flatten,indexOf,intersection,last,lastIndexOf,length,max,min,range,skip,take,union
       href: bicep-functions-array.md
     - name: CIDR functions
       displayName: parseCidr,cidrSubnet,cidrHost
@@ -361,7 +361,7 @@ items:
       displayName: managementGroup,resourceGroup,subscription,tenant
       href: bicep-functions-scope.md
     - name: String functions
-      displayName: base64,base64ToJson,base64ToString,concat,contains,dataUri,dataUriToString,empty,endsWith,first,format,guid,indexOf,join,json,last,lastIndexOf,length,newGuid,padLeft,replace,skip,split,startsWith,string,substring,take,toLower,toUpper,trim,uniqueString,uri,uriComponent,uriComponentToString
+      displayName: base64,base64ToJson,base64ToString,concat,contains,dataUri,dataUriToString,empty,endsWith,first,format,guid,indexOf,join,json,last,lastIndexOf,length,like,newGuid,padLeft,replace,skip,split,startsWith,string,substring,take,toLower,toUpper,trim,uniqueString,uri,uriComponent,uriComponentToString
       href: bicep-functions-string.md
   - name: Operators
     items:
@@ -506,6 +506,9 @@ items:
       - name: No location expressions outside of parameter default values
         displayName: linter
         href: linter-rule-no-loc-expr-outside-params.md
+      - name: No module name
+        displayName: linter
+        href: linter-rule-no-module-name.md
       - name: No unnecessary dependsOn entries
         displayName: linter
         href: linter-rule-no-unnecessary-dependson.md
@@ -578,6 +581,9 @@ items:
       - name: Use stable VM image
         displayName: linter
         href: linter-rule-use-stable-vm-image.md
+      - name: Use user-defined-types for complex objects
+        displayName: linter
+        href: linter-rule-use-user-defined-types.md        
       - name: What-if short-circuiting
         displayName: linter
         href: linter-rule-what-if-short-circuiting.md

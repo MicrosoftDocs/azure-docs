@@ -4,6 +4,7 @@ description: Learn how to manage your Napster Companion API resource in the Azur
 author: shijoy
 ms.author: shijoy
 ms.topic: how-to
+ms.subservice: napster
 ms.custom:
   - ignite-2026
 ms.date: 05/20/2026

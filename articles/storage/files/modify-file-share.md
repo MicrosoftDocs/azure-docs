@@ -31,7 +31,7 @@ After creating your provisioned v2 classic file share, you can change one or all
 
 Follow these instructions to update the provisioning for your file share.
 
-1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
+1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 
 2. In the file share listing, select the file share for which you desire to change the provisioning.
 
@@ -115,7 +115,7 @@ After creating your provisioned v1 file share, you can change the provisioned st
 
 Follow these instructions to update the provisioning for your file share.
 
-1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
+1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 
 2. In the file share listing, select the file share for which you desire to change the provisioning.
 
@@ -221,27 +221,27 @@ After you've created your pay-as-you-go file share, there are two properties you
 
 Follow these instructions to update the access tier of your file share using the Azure portal.
 
-1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
+1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 
-2. In the file share listing, select the file share for which you desire to change the access tier.
+1. In the file share listing, select the file share for which you want to change the access tier.
 
-3. In the file share overview, select **Change tier**.
+1. In the file share overview, select **Change tier**.
 
-4. Select the desired **Access tier** from the provided drop-down list.
+1. Select the desired **Access tier** from the provided drop-down list.
 
-5. Select **Apply** to save the access tier change.
+1. Select **Apply** to save the access tier change.
 
-For these instructions to update the quota of your file share.
+Follow these instructions to update the quota of your file share.
 
-1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
+1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 
-2. In the file share listing, select the file share for which you desire to change the quota.
+1. In the file share listing, select the file share for which you want to change the quota.
 
-3. In the file share overview, select **Edit quota**.
+1. In the file share overview, select **Edit quota**.
 
-4. In the edit quota pop-out, enter the desired maximum size of the share or select **Set to maximum**. There is no cost implication of setting the share to the maximum size.
+1. In the edit quota pop-out, enter the desired maximum size of the share or select **Set to maximum**. There's no cost implication of setting the share to the maximum size.
 
-5. Select **OK** to save quota changes. The new quota is effective within a few minutes.
+1. Select **OK** to save quota changes. The new quota is effective within a few minutes.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -330,8 +330,8 @@ Follow these instructions to change the size and performance of a file share (Mi
 To change the size and performance of a file share (Microsoft.FileShares) using PowerShell, use the following commands. Be sure to replace the variables with your intended values.
 
 ```powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/0.1.0
-Install-Module -Name Az.FileShare -Repository psgallery -RequiredVersion 0.1.0
+# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
+Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
 
 $resourceGroup = "<resource-group>"
 $shareName = "<file-share-name>"
@@ -340,7 +340,8 @@ $shareName = "<file-share-name>"
 Update-AzFileShare `
     -ResourceName $shareName `
     -ResourceGroupName $resourceGroup `
-    -NfProtocolPropertyRootSquash RootSquash `
+    -RootSquash RootSquash `
+    -EncryptionInTransitRequired Enabled `
     -ProvisionedIoPerSec 5001 `
     -ProvisionedStorageGiB 101 `
     -ProvisionedThroughputMiBPerSec 126 `
@@ -354,8 +355,8 @@ Get-AzFileShare -ResourceGroupName $resourceGroup -ResourceName $shareName
 To change the size and performance of a file share (Microsoft.FileShares) using Azure CLI, use the following commands.
 
 ```bash
-# Install the fileshares extension
-az extension add --name fileshares
+# Install the fileshare extension
+az extension add --name fileshare
 
 # Specify your values
 shareName="<your-file-share-name>"
@@ -363,10 +364,11 @@ resourceGroup="<your-resource-group-name>"
 
 # Update the file share. Uncomment and set only the parameters you want to change.
 az fileshare update --name $shareName --resource-group $resourceGroup 
-# --provisioned-storage-GiB 2048
+# --provisioned-storage-gib 2048 \
 # --provisioned-iops 3000 \
-# --provisioned-throughput-MiB 125 \
+# --provisioned-throughput-mib 125 \
 # --root-squash RootSquash \
+# --encryption-in-transit-required Enabled \
 # --public-network-access Disabled \
 # --allowed-subnets <subnet-resource-id> \
 # --tags tag1=value1
@@ -388,7 +390,7 @@ You might want to delete unused or outdated file shares. File shares in storage 
 
 Follow these instructions to delete a classic file share using the Azure portal.
 
-1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
+1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 
 2. In the file share list, select the **...** for the file share you want to delete.
 
@@ -454,8 +456,8 @@ To delete a file share (Microsoft.FileShares) using the Azure portal, follow the
 To delete a file share (Microsoft.FileShares) using PowerShell, run the following command. Be sure to replace the variables with your intended values.
 
 ```powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/0.1.0
-Install-Module -Name Az.FileShare -Repository psgallery -RequiredVersion 0.1.0
+# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
+Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
 
 $resourceGroup = "<resource-group>"
 $shareName = "<file-share-name>"
@@ -468,8 +470,8 @@ Remove-AzFileShare -ResourceName $shareName -ResourceGroupName $resourceGroup
 To delete a file share (Microsoft.FileShares) by using Azure CLI, run the following command.
 
 ```bash
-# Install the fileshares extension
-az extension add --name fileshares
+# Install the fileshare extension
+az extension add --name fileshare
 
 # Delete the file share
 az fileshare delete --name <file-share-name> --resource-group <your-resource-group-name> -y

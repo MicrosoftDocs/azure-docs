@@ -659,7 +659,7 @@ Poison message handling can't be controlled or configured in Azure Functions. Se
 
 ## PeekLock behavior
 
-The Functions runtime receives a message in [PeekLock mode](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode).
+The Functions runtime receives a message in [PeekLock mode](../service-bus-messaging/service-bus-performance-improvements.md#service-bus-receive-modes).
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-java,programming-language-python,programming-language-powershell"
  By default, the runtime calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. You can disable automatic completion through with the [`autoCompleteMessages` property in `host.json`][host-json-autoComplete].

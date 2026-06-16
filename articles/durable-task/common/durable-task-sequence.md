@@ -121,7 +121,6 @@ The `context` object contains a `df` durable orchestration context object that l
 #### function.json
 
 If you use Visual Studio Code or the Azure portal for development, here's the content of the *function.json* file for the orchestrator function. Most orchestrator *function.json* files look almost exactly like this.
-
 [!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/function.json)]
 
 The important thing is the `orchestrationTrigger` binding type. All orchestrator functions must use this trigger type.
@@ -132,7 +131,6 @@ The important thing is the `orchestrationTrigger` binding type. All orchestrator
 #### \_\_init\_\_.py
 
 Here is the orchestrator function:
-
 [!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/\_\_init\_\_.py)]
 
 All Python orchestration functions must include the [`durable-functions` package](https://pypi.org/project/azure-functions-durable). It's a library that enables you to write Durable Functions in Python. Two key differences between an orchestrator function and other Python functions:
@@ -294,7 +292,6 @@ Activities use the `ActivityTrigger` attribute. Use `IDurableActivityContext` fo
 `E1_SayHello` formats a greeting string.
 
 Instead of binding to `IDurableActivityContext`, bind directly to the type passed into the activity function. For example:
-
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=34-38)]
 
 # [JavaScript](#tab/javascript)
@@ -339,7 +336,6 @@ Unlike the orchestration function, an activity function doesn't need special set
 #### E1_SayHello/function.json
 
 The *function.json* file for the activity function `E1_SayHello` is similar to that of `E1_HelloSequence` except that it uses an `activityTrigger` binding type instead of an `orchestrationTrigger` binding type.
-
 [!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/E1_SayHello/function.json)]
 
 > [!NOTE]
@@ -348,7 +344,6 @@ The *function.json* file for the activity function `E1_SayHello` is similar to t
 The implementation of `E1_SayHello` is a relatively trivial string formatting operation.
 
 #### E1_SayHello/\_\_init\_\_.py
-
 [!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_SayHello/\_\_init\_\_.py)]
 
 Unlike the orchestrator function, an activity function needs no special setup. The input passed to it by the orchestrator function is directly accessible as the parameter to the function.
@@ -560,13 +555,11 @@ Use `df.getClient` to get a `DurableClient` object. Use the client to start an o
 # [Python](#tab/python)
 
 #### HttpStart/function.json
-
 [!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/HttpStart/function.json)]
 
 To interact with orchestrators, the function must include a `durableClient` input binding.
 
 #### HttpStart/\_\_init\_\_.py
-
 [!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/HttpStart/\_\_init\_\_.py)]
 
 Use the `DurableOrchestrationClient` constructor to create a Durable Functions client. Use the client to start an orchestration and return an HTTP response that includes URLs to check the status of the new orchestration.

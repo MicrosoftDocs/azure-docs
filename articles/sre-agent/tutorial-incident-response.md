@@ -3,7 +3,7 @@ title: "Step 4: Set Up Incident Response in Azure SRE Agent"
 description: Connect your incident platform and create response plans so your agent automatically investigates incoming incidents.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/09/2026
+ms.date: 06/08/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -70,8 +70,7 @@ Create response plans from the **Subagent builder** canvas. You can see which tr
 
 Your trigger appears as a node connected to the subagent on the canvas.
 
-> [!TIP]
-> When you first connect an incident platform, the system might automatically create a default **quickstart** response plan. If you set up your own triggers through the Subagent builder, **delete the default plan** from **Builder** > **Incident response plans** to avoid conflicts. Two overlapping plans can cause incidents to be handled by the wrong subagent or duplicated.
+[!INCLUDE [quickstart-response-plan-warning](includes/quickstart-response-plan-warning.md)]
 
 For the full step-by-step guide with screenshots, see the [Set up an incident trigger tutorial](response-plan.md).
 

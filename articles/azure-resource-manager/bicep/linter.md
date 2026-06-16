@@ -3,7 +3,7 @@ title: Use Bicep linter
 description: Learn how to use Bicep linter.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 01/30/2026
+ms.date: 06/02/2026
 ---
 
 # Use Bicep linter
@@ -36,6 +36,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 | <a id='no-hardcoded-env-urls' />[no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md) | warning |
 | <a id='no-hardcoded-location' />[no-hardcoded-location](./linter-rule-no-hardcoded-location.md) | off |
 | <a id='no-loc-expr-outside-params' />[no-loc-expr-outside-params](./linter-rule-no-loc-expr-outside-params.md) | off |
+| <a id='no-module-name' />[no-module-name](./linter-rule-no-module-name.md) | off |
 | <a id='no-unnecessary-dependson' />[no-unnecessary-dependson](./linter-rule-no-unnecessary-dependson.md) | warning |
 | <a id='no-unused-existing-resources' />[no-unused-existing-resources](./linter-rule-no-unused-existing-resources.md) | warning |
 | <a id='no-unused-imports' />[no-unused-imports](./linter-rule-no-unused-imports.md) | warning |
@@ -60,9 +61,10 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 | <a id='use-secure-value-for-secure-inputs' />[use-secure-value-for-secure-inputs](./linter-rule-use-secure-value-for-secure-inputs.md) | warning |
 | <a id='use-stable-resource-identifiers' />[use-stable-resource-identifiers](./linter-rule-use-stable-resource-identifier.md) | warning |
 | <a id='use-stable-vm-image' />[use-stable-vm-image](./linter-rule-use-stable-vm-image.md) | warning |
+| <a id='use-user-defined-types' />[use-user-defined-types](./linter-rule-use-user-defined-types.md) | off |
 | <a id='what-if-short-circuiting' />[what-if-short-circuiting](./linter-rule-what-if-short-circuiting.md) | off |
 
-You can enable or disable all linter rules and control how they are applied using a configuration file. To override the default behavior, create a **bicepconfig.json** file with your custom settings. For more information about applying those settings, see [Add custom settings in the Bicep config file](bicep-config-linter.md).
+You can enable or disable all linter rules and control how they're applied by using a configuration file. To override the default behavior, create a **bicepconfig.json** file with your custom settings. For more information about applying those settings, see [Add custom settings in the Bicep config file](bicep-config-linter.md).
 
 ## Use in Visual Studio Code
 
@@ -70,9 +72,9 @@ The following screenshot shows the linter in Visual Studio Code:
 
 :::image type="content" source="./media/linter/bicep-linter-show-errors.png" alt-text="Bicep linter usage in Visual Studio Code.":::
 
-In the **PROBLEMS** pane, there are four errors, one warning, and one info message shown in the screenshot.  The info message shows the Bicep configuration file that is used. It only shows this piece of information when you set **verbose** to **true** in the configuration file.
+In the **PROBLEMS** pane, the screenshot shows four errors, one warning, and one info message. The info message shows the Bicep configuration file that is used. It only shows this piece of information when you set **verbose** to **true** in the configuration file.
 
-Hover your mouse cursor to one of the problem areas. Linter gives the details about the error or warning. Select the area, it also shows a blue light bulb:
+Hover your mouse cursor over one of the problem areas. The linter gives the details about the error or warning. Select the area, it also shows a blue light bulb:
 
 :::image type="content" source="./media/linter/bicep-linter-show-quickfix.png" alt-text="Bicep linter usage in Visual Studio Code - show quickfix.":::
 
@@ -88,11 +90,11 @@ The following screenshot shows the linter in the command line. The output from t
 
 :::image type="content" source="./media/linter/bicep-linter-command-line.png" alt-text="Bicep linter usage in command line.":::
 
-You can integrate these checks as a part of your CI/CD pipelines. You can use a GitHub action to attempt a bicep build. Errors will fail the pipelines.
+You can integrate these checks as a part of your CI/CD pipelines. You can use a GitHub action to attempt a bicep build. Errors fail the pipelines.
 
 ## Silencing false positives
 
-Sometimes a rule has false positives. For example, you might need to include a link to a blob storage directly without using the [environment()](./bicep-functions-deployment.md#environment) function.
+Sometimes, a rule has false positives. For example, you might need to include a link to a blob storage directly without using the [environment()](./bicep-functions-deployment.md#environment) function.
 
 You can suppress Bicep linter rules by using `disable-next-line` and `disable-diagnostics`. See [Directives](./file.md#directives). If you want to suppress a linter rule, change the level of the rule to `Off` in [bicepconfig.json](./bicep-config-linter.md). In the following example, the `no-deployments-resources` rule is suppressed:
 
