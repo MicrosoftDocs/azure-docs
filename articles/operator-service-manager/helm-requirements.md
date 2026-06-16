@@ -339,7 +339,7 @@ AOSM team is tracking two milestones for Helm 4 support.
 
 Publishers will continue to have flexibility to select between these two Helm behavior modes when installing NFO onto a cluster.
 
-### Compability model configurations
+### Compatibility mode details
 
 The following chart summarizes the configuration settings applied to emulate earlier Helm version behavior, when running Helm 4 in "compatibility mode":
 
