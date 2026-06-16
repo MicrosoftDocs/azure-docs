@@ -34,7 +34,7 @@ Complete the following one-time setup tasks to enable ACZ on your Azure Data Man
 > - **All catalog data**: Set `allCatalogSync: true` (outside the configuration section) to export all catalog entity types from your partition
 > - **Specific entity types**: Use `catalogKinds` array in the configuration section to export only selected kinds (for example, Wells, Wellbores, Fields)
 >
-> Note: When `allCatalogSync` is true, the `catalogKinds` and `wellboreDDMSKinds` arrays are ignored for catalog data. Wellbore DDMS bulk file downloads only occur for kinds listed in `wellboreDDMSKinds`.
+> Note: When `allCatalogSync` is true, the `catalogKinds` and `wellboreDDMSKinds` arrays are ignored for catalog data. Wellbore Domain Data Management Service (DDMS) bulk file downloads only occur for kinds listed in `wellboreDDMSKinds`.
 >
 > See [Tutorial: Use Analytics Consumption Zone (ACZ) APIs](tutorial-analytics-consumption-zone-apis.md) for configuration examples.
 
