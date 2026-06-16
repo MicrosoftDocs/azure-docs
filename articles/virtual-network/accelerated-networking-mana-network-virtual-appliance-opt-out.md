@@ -31,13 +31,13 @@ Your NVA VMs running on [existing VM series](./accelerated-networking-mana-exist
 You can apply the `LegacyVMNVA` tag to temporarily avoid placement on MANA‑enabled hardware. This tag prevents NVA VMs and Virtual Machine Scale Sets from landing on MANA hardware while you complete your migration. Follow the steps below to apply the tag.
 
 > [!IMPORTANT]
-> The `LegacyVMNVA` tag is only needed for workloads using Accelerated Networking that observe performance degredation on MANA-capable hardware.
+> The `LegacyVMNVA` tag is only needed for workloads using Accelerated Networking that observe performance degredation on MANA-capable hardware. If the tag is applied and enabled before May 31, 2027, the VM will not be placed on MANA-capable hardware until that date.
 > 
-> The tag is recommended to be applied and enabled before the following dates:
+> To ensure expected behavior, it is recommended to apply and enable the tag before the following dates, which align with the earliest potential placement on MANA-capable hardware:
 > - [MANA-eligible Cobalt 100 and Intel v5 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in Public cloud: May 26, 2026
 > - [MANA-eligible Intel v1-v4 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in Public cloud: August 1, 2026
 > 
-> The tag can be enabled at any time until May 31, 2027 to temporarily avoid landing on MANA-capable hardware. After May 31, 2027, the tag will no longer be honored and all MANA-eligible VM series will be placed on MANA-capable hardware.
+> After May 31, 2027, the tag will no longer be honored, and all MANA-eligible VM series may be placed on MANA-capable hardware.
 
 1. Open the `LegacyVMNVA` [Azure Policy](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe87a87f5-e6dd-4919-be21-abb0a4ea4630/version/1.0.0/scopes~/%5B%22%2Fsubscriptions%2F12015272-f077-4945-81de-a5f607d067e1%22%2C%22%2Fsubscriptions%2F0ba674a6-9fde-43b4-8370-a7e16fdf0641%22%5D/contextRender~/false).
      - Using the existing [Compliance and Remediation process](/azure/governance/policy/how-to/remediate-resources?tabs=azure-portal), the tag can be applied across your environment at scale and cover individual VM workloads and Virtual Machine Scale Set scenarios.
