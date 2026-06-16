@@ -186,7 +186,7 @@ Update the content of the _src/index.html_ file with the following code to fetch
     }
     ```
 
-# [React](#tab/react)
+# [React](#tab/react) or [React (Vite)](#tab/react-vite)
 
 Update the content of _src/App.js_ with the following code to fetch the text from the API function and display it on the screen.
 
@@ -279,6 +279,15 @@ npm install
 npm run build
 ```
 
+# [React (Vite)](#tab/react-vite)
+
+Install npm dependencies and build the app into the _dist_ folder.
+
+```bash
+npm install
+npm run build
+```
+
 # [Vue](#tab/vue)
 
 Install npm dependencies and build the app into the _dist_ folder.
@@ -319,7 +328,15 @@ Run the frontend app and API together by starting the app with the Static Web Ap
     ```bash
     swa start build --api-location api
     ```
+    
+    # [React (Vite)](#tab/react-vite)
 
+    Pass the build output folder (`dist`) and the API folder (`api`) to the CLI.
+
+    ```bash
+    swa start dist --api-location api
+    ```
+    
     # [Vue](#tab/vue)
 
     Pass the build output folder (`dist`) and the API folder (`api`) to the CLI.
