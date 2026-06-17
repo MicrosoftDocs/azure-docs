@@ -119,16 +119,6 @@ flowchart
 -->
 </pre>
 
-<script type="text/plain">
-This is a test
-
-```mermaid
-flowchart
-    ht --> hb
-    ed --- et
-```
-</script>
-
 ## Workload resource group
 When you create an Azure Virtual Enclaves workload, you create linked workload resource groups where you can organize your Azure resources. 
 
