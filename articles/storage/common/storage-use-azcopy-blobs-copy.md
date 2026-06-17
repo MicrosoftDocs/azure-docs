@@ -46,6 +46,8 @@ Apply the following guidelines to your AzCopy commands.
 
 - If the source blobs have index tags, and you want to retain those tags, you need to reapply them to the destination blobs. For information about how to set index tags, see the [Copy blobs to another storage account with index tags](#copy-between-accounts-and-add-index-tags) section of this article.
 
+- When copying blobs between storage accounts, AzCopy converts uppercase characters in metadata names to lowercase. This behavior aligns with HTTP protocol specifications.
+
 ## Copy a blob
 
 Copy a blob to another storage account by using the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command.
