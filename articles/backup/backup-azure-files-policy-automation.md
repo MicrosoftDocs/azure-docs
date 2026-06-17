@@ -3,6 +3,7 @@ title: Audit and enforce backup for Azure Files using Azure Policy
 description: Learn how to use Azure Policy to audit and enforce backups for all Azure Files instances created in a given scope.
 ms.topic: how-to
 ms.date: 06/05/2025
+ms.update-cycle: 1095-days
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
