@@ -198,12 +198,24 @@ For a Consumption workflow, an Azure Cosmos DB connection requires the following
 
 ### [Standard](#tab/standard)
 
-For a Standard workflow, an Azure Cosmos DB connection (built-in) requires the following information:
+For a Standard workflow, an Azure Cosmos DB built-in connection requires one of the following authentication methods:
+
+**Connection string authentication**
 
 | Parameter | Required | Value | Description |
 |-----------|----------|-------|-------------|
 | **Connection Name** | Yes | <*connection-name*> | The name to use for the connection. |
 | **Connection String** | Yes | <*connection-string*> | The Azure Cosmos DB connection string to use for the connection. <br><br>**Note**: To find the connection string, go to the Azure Cosmos DB account page. In the account menu, under **Settings**, select **Keys**. Copy one of the available connection string values. |
+
+**Managed identity authentication**
+
+| Parameter | Required | Value | Description |
+|-----------|----------|-------|-------------|
+| **Connection Name** | Yes | <*connection-name*> | The name to use for the connection. |
+| **Account URI** | Yes | <*account-URI*> | The Azure Cosmos DB account endpoint URI. |
+| **Managed identity** | Yes | **System-assigned managed identity** or <*user-assigned-identity-resource-ID*> | The managed identity to use. For user-assigned, provide the full resource ID. |
+
+To use managed identity authentication, make sure that your managed identity has the required Cosmos DB data plane role. For more information, see [Configure managed identity authentication](#configure-managed-identity-authentication).
 
 > [!NOTE]
 >
@@ -212,6 +224,97 @@ For a Standard workflow, an Azure Cosmos DB connection (built-in) requires the f
 > **Change connection** in the **Parameters** tab on the trigger or action information pane.
 
 ---
+
+## Configure managed identity authentication
+
+To use a managed identity with the Azure Cosmos DB connector, you must first assign the appropriate Azure Cosmos DB data plane role to your managed identity. Azure Cosmos DB uses its own role-based access control (RBAC) system for data plane operations separately from Azure RBAC.
+
+The built-in role named **Cosmos DB Built-in Data Contributor** (role definition ID: `00000000-0000-0000-0000-000000000002`) grants read and write access to Azure Cosmos DB data. For more information, see [Use data plane role-based access control with Azure Cosmos DB for NoSQL](/azure/cosmos-db/how-to-connect-role-based-access-control).
+
+### [Consumption](#tab/consumption)
+
+For Consumption workflows, when you create the Azure Cosmos DB connection, select **Logic Apps Managed Identity** as the authentication type. You don't need to provide any other property values, but make sure that you assign the Cosmos DB data plane role to your logic app's managed identity as described in the following sections.
+
+For more information about Consumption managed identities, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](/azure/logic-apps/authenticate-with-managed-identity?tabs=consumption).
+
+### [Standard](#tab/standard)
+
+For Standard workflows using the built-in connector, when you create the Azure Cosmos DB connection, select **Managed identity** as the authentication type. Provide the following information:
+
+| Parameter | Required | Value | Description |
+|-----------|----------|-------|-------------|
+| **Account URI** | Yes | <*Cosmos-DB-account-URI*> | The Azure Cosmos DB account endpoint URI, for example, `https://my-cosmos-account.documents.azure.com:443/`. |
+| **Managed identity** | Yes | **System-assigned managed identity** or <*user-assigned-managed-identity-resource-ID*> | For system-assigned identity, select **System-assigned managed identity**. For user-assigned identity, provide the full resource ID of the user-assigned managed identity, for example, `/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}`. |
+
+The following example shows the connection configuration for a user-assigned managed identity:
+
+   :::image type="content" source="media/connectors-create-api-cosmos-db/connection-managed-identity-user-assigned.png" alt-text="Screenshot shows Azure portal, Create connection dialog for Azure Cosmos DB with managed identity authentication type selected and user-assigned identity configured.":::
+
+For more information about Standard managed identities, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](/azure/logic-apps/authenticate-with-managed-identity?tabs=standard).
+
+---
+
+### Assign Cosmos DB data plane role to a system-assigned managed identity
+
+To use a system-assigned managed identity, first make sure that the identity is enabled on your logic app resource. Then, get the principal ID for the identity and assign the Azure Cosmos DB data plane role.
+
+1. In the [Azure portal](https://portal.azure.com), go to your logic app resource. On the resource sidebar, under **Settings**, select **Identity**.
+
+1. Confirm that the **System assigned** identity is set to **On**. Copy the **Object (principal) ID** value.
+
+1. In Azure CLI, assign the **Cosmos DB Built-in Data Contributor** role to the system-assigned managed identity:
+
+   ```azurecli
+   az cosmosdb sql role assignment create \
+     --resource-group "<cosmos-db-resource-group>" \
+     --account-name "<cosmos-db-account-name>" \
+     --role-definition-id "00000000-0000-0000-0000-000000000002" \
+     --principal-id "<system-assigned-identity-principal-id>" \
+     --scope "/subscriptions/<subscription-id>/resourceGroups/<cosmos-db-resource-group>/providers/Microsoft.DocumentDB/databaseAccounts/<cosmos-db-account-name>"
+   ```
+
+   > [!NOTE]
+   >
+   > The `--scope` parameter defines the access level. You can scope the role assignment to the account level, a specific database, or a specific container. For more information, see [Use data plane role-based access control with Azure Cosmos DB for NoSQL](/azure/cosmos-db/how-to-connect-role-based-access-control).
+
+### Assign Cosmos DB data plane role to a user-assigned managed identity
+
+Before you can use a user-assigned managed identity, first create the identity, add it to your logic app, and then assign the Azure Cosmos DB data plane role.
+
+1. Get the principal ID for your user-assigned managed identity. In Azure CLI, run the following command:
+
+   ```azurecli
+   az identity show \
+     --resource-group "<identity-resource-group>" \
+     --name "<identity-name>" \
+     --query principalId \
+     --output tsv
+   ```
+
+1. Assign the **Cosmos DB Built-in Data Contributor** role to the user-assigned managed identity:
+
+   ```azurecli
+   az cosmosdb sql role assignment create \
+     --resource-group "<cosmos-db-resource-group>" \
+     --account-name "<cosmos-db-account-name>" \
+     --role-definition-id "00000000-0000-0000-0000-000000000002" \
+     --principal-id "<user-assigned-identity-principal-id>" \
+     --scope "/subscriptions/<subscription-id>/resourceGroups/<cosmos-db-resource-group>/providers/Microsoft.DocumentDB/databaseAccounts/<cosmos-db-account-name>"
+   ```
+
+1. When you create the Azure Cosmos DB connection in the workflow designer, provide the full resource ID of the user-assigned managed identity as the **Managed identity** value, for example:
+
+   ```
+   /subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}
+   ```
+
+   > [!TIP]
+   >
+   > To find the full resource ID, follow these steps:
+   >
+   > 1. In the Azure portal, go to the user-assigned managed identity resource.
+   > 2. On the resource sidebar, select **Overview**.
+   > 3. On the **Overview** page, find the **Properties** section, and then copy the **Id** value.
 
 ## Best practices for Azure Cosmos DB built-in operations
 

@@ -24,8 +24,6 @@ You can configure a lab to use ARM environment templates from public or private 
 
 :::image type="content" source="./media/devtest-lab-create-environment-from-arm/devtest-labs-create-environment-with-arm.png" alt-text="Diagram that shows getting ARM templates from Git repositories and using them to deploy environments with PaaS resources." border="false" lightbox="./media/devtest-lab-create-environment-from-arm/devtest-labs-create-environment-with-arm.png":::
 
-[!INCLUDE [direct-azure-deployment-environments](includes/direct-azure-deployment-environments.md)]
-
 ## Prerequisites
 
 - To add or configure template repositories for a lab, at least **Contributor** permissions in the lab.

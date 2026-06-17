@@ -58,6 +58,49 @@ When you create an ACZ, you specify which entity types to synchronize by providi
 
 These kind patterns act as filters that determine which Azure Data Manager for Energy records ACZ exports and keeps synchronized.
 
+### Using the allCatalogSync flag
+
+The `allCatalogSync` flag is an optional boolean parameter that you can specify when creating an ACZ. When set to `true`, it synchronizes all catalog kinds from the data partition.
+
+Key behaviors:
+- `allCatalogSync` is specified **outside** the `configuration` section in the request body
+- When `allCatalogSync: true`, ACZ exports all catalog kinds automatically
+- The `catalogKinds` and `wellboreDDMSKinds` arrays in the configuration are ignored for catalog data
+- Wellbore DDMS bulk file downloads are **not affected** by this flag - files are only downloaded for kinds explicitly listed in `wellboreDDMSKinds`
+
+**Example configurations:**
+
+```json
+// Selective catalog sync - only Wells and Fields
+{
+  "allCatalogSync": false,
+  "configuration": {
+    "catalogKinds": [
+      "osdu:wks:master-data--Well:*",
+      "osdu:wks:master-data--Field:*"
+    ]
+  }
+}
+
+// Sync all catalog kinds using allCatalogSync flag
+{
+  "allCatalogSync": true,
+  "configuration": {
+    // catalogKinds is ignored when allCatalogSync is true
+  }
+}
+
+// Sync all catalog kinds, but Wellbore DDMS files only for specified kinds
+{
+  "allCatalogSync": true,
+  "configuration": {
+    "wellboreDDMSKinds": [
+      "osdu:wks:work-product-component--WellLog:*"
+    ]
+  }
+}
+```
+
 ### Version types
 
 When you create an ACZ, you choose how to handle entity versions:
@@ -168,7 +211,7 @@ The Delta table has these fields:
 
 ACZ requires:
 
-- **API access**: You must belong to the `users@{data-partition-id}.dataservices.energy` group to call ACZ APIs.
+- **API access**: You must belong to the `users@{data-partition-id}.dataservices.energy` and `users.datalake.ops@{data-partition-id}.dataservices.energy` groups to call ACZ APIs.
 - **Storage access**: The managed identity needs the Storage Blob Data Contributor role (or equivalent) on the ADLS Gen2 container. During preview, share the identity details with Microsoft to add the identity to the allow list.
 - **Azure Data Manager for Energy access**: The managed identity needs to be assigned to the Azure Data Manager for Energy resource.
 

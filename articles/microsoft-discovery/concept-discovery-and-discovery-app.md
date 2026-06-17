@@ -48,7 +48,7 @@ The following table provides a side-by-side comparison of the two experiences:
 | **Differences** | Availability | Generally available | In preview |
 | | Support & SLA | Fully supported for production use under Microsoft's enterprise support agreements | Community-based support via GitHub |
 | | Deployment & setup | Requires an Azure subscription and enterprise cloud resources for setup | Downloadable app for Windows; only requires a GitHub Copilot account for setup (any tier) |
-| | IT/Admin experience | Manage cloud resources in Azure Portal. Manage project resources in [Discovery Studio](https://learn.microsoft.com/azure/microsoft-discovery/concept-studio) | N/A |
+| | IT/Admin experience | Manage cloud resources in Azure Portal. Manage project resources in [Discovery Studio](/azure/microsoft-discovery/concept-studio) | N/A |
 | | Architecture | Runs as a cloud service in Azure | Runs locally on your machine |
 | | Compute & scale | Scalable Azure compute infrastructure including high performance CPUs, GPUs, and specialized hardware across clusters for large-scale or parallel investigations | Uses your device's compute |
 | | Collaboration & users | Built for multi-user collaboration. Share projects, agents, and data within a workspace and work together via the web portal | Single-user—runs on one machine for one user sign-in at a time |

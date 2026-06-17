@@ -35,13 +35,13 @@ Go support isn't currently available for this binding.
 ::: zone pivot="programming-language-csharp"  
 This example demonstrates the creation process, where the HTTP PUT function that creates a new assistant chat bot with the specified ID. The response to the prompt is returned in the HTTP response.  
 
-<!-- :::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantApis.cs" range="19-56"::: -->
+:::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantApis.cs" range="19-56":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
 This example demonstrates the creation process, where the HTTP PUT function that creates a new assistant chat bot with the specified ID. The response to the prompt is returned in the HTTP response.  
 
-<!-- :::code language="java" source="~/functions-openai-extension/samples/assistant/java/src/main/java/com/azfs/AssistantApis.java" range="30-77"::: -->
+:::code language="java" source="~/functions-openai-extension/samples/assistant/java/src/main/java/com/azfs/AssistantApis.java" range="30-77":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
@@ -49,12 +49,12 @@ This example demonstrates the creation process, where the HTTP PUT function that
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 
-<!-- :::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantApis.js" range="4-33" ::: -->
+:::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantApis.js" range="4-33" :::
 
 ::: zone-end 
 ::: zone pivot="programming-language-typescript"
 
-<!-- :::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="4-33" ::: -->
+:::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="4-33" :::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -62,18 +62,18 @@ This example demonstrates the creation process, where the HTTP PUT function that
 
 Here's the _function.json_ file for Create Assistant:
 
-<!-- :::code language="json" source="~/functions-openai-extension/samples/assistant/powershell/CreateAssistant/function.json" ::: -->
+:::code language="json" source="~/functions-openai-extension/samples/assistant/powershell/CreateAssistant/function.json" :::
 
 For more information about *function.json* file properties, see the [Configuration](#configuration) section.
 
 {{This comes from the example code comment}} 
-<!-- :::code language="powershell" source="~/functions-openai-extension/samples/assistant/powershell/CreateAssistant/run.ps1" ::: -->
+:::code language="powershell" source="~/functions-openai-extension/samples/assistant/powershell/CreateAssistant/run.ps1" :::
 
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
 This example demonstrates the creation process, where the HTTP PUT function that creates a new assistant chat bot with the specified ID. The response to the prompt is returned in the HTTP response.  
 
-<!-- :::code language="python" source="~/functions-openai-extension/samples/assistant/python/assistant_apis.py" range="6-31" ::: -->
+:::code language="python" source="~/functions-openai-extension/samples/assistant/python/assistant_apis.py" range="6-31" :::
 
 ::: zone-end  
 <!--- End code examples section -->    

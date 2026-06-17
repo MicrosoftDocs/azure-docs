@@ -4,7 +4,7 @@ description: Learn how to extend Windows file servers to the cloud while maintai
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: tutorial
-ms.date: 08/08/2024
+ms.date: 06/12/2026
 ms.author: kendownie
 ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator, I want to learn how to extend the storage capacity of Windows file servers with Azure File Sync, so that I can effectively manage data storage and access across local and cloud environments.
@@ -12,7 +12,7 @@ ms.custom: sfi-image-nochange
 
 # Tutorial: Extend Windows file servers with Azure File Sync
 
-The article demonstrates the basic steps for extending the storage capacity of a Windows server by using Azure File Sync. Although this tutorial features Windows Server as an Azure virtual machine (VM), you would typically do this process for your on-premises servers. You can find instructions for deploying Azure File Sync in your own environment in the [Deploy Azure File Sync](file-sync-deployment-guide.md) article.
+This article demonstrates the basic steps for extending the storage capacity of a Windows Server by using Azure File Sync. Although this tutorial features Windows Server as an Azure virtual machine (VM), you typically perform this process for your on-premises servers. For instructions on deploying Azure File Sync in your own environment, see [Deploy Azure File Sync](file-sync-deployment-guide.md).
 
 > [!div class="checklist"]
 > - Deploy the Storage Sync Service
@@ -30,7 +30,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Prepare your environment
 
-For this tutorial, you need to do the following before you can deploy Azure File Sync:
+For this tutorial, complete the following tasks before you can deploy Azure File Sync:
 
 - Create an Azure storage account and file share
 - Set up a Windows Server VM
@@ -38,46 +38,36 @@ For this tutorial, you need to do the following before you can deploy Azure File
 
 ### Create a folder and .txt file
 
-On your local computer, create a new folder named *FilesToSync* and add a text file named *mytestdoc.txt*. You'll upload that file to the file share later in this tutorial.
+On your local computer, create a new folder named *FilesToSync* and add a text file named *mytestdoc.txt*. You upload that file to the file share later in this tutorial.
 
-### Create a storage account
+### Create a storage account and classic file share
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+Create an Azure storage account and SMB classic file share, and upload a test file.
 
-### Create a file share
+1. Create a storage account and SMB classic file share by following the steps in [Create a classic file share](../files/create-classic-file-share.md). Name the file share *afsfileshare* and keep the tier set to *Transaction optimized*.
 
-After you deploy an Azure storage account, follow these steps to create a file share.
+1. Go to your storage account and select the new classic file share. On the file share location, select **Upload**.
 
-1. In the Azure portal, select **Go to resource**.
-1. From the menu at the left, select **Data storage** > **File shares**.
-1. Select **+ File Share**.
+    :::image type="content" source="media/storage-sync-files-extend-servers/create-file-share-portal5.png" alt-text="Screenshot showing where to find the Upload button for the new classic file share.":::
 
-1. Name the new file share *afsfileshare*, leave the tier set to *Transaction optimized*, and then select **Create**. You only need 5 TiB for this tutorial.
+1. Browse to the *FilesToSync* folder on your local machine where you created your .txt file, select *mytestdoc.txt*, and select **Upload**.
 
-    :::image type="content" source="media/storage-sync-files-extend-servers/create-file-share-portal.png" alt-text="Screenshot showing how to create a new file share using the Azure portal.":::
+    :::image type="content" source="media/storage-sync-files-extend-servers/create-file-share-portal6.png" alt-text="Screenshot showing how to browse and upload a file to the new classic file share using the Azure portal.":::
 
-1. Select the new file share. On the file share location, select **Upload**.
-
-    :::image type="content" source="media/storage-sync-files-extend-servers/create-file-share-portal5.png" alt-text="Screenshot showing where to find the Upload button for the new file share.":::
-
-1. Browse to the *FilesToSync* folder on your local machine where you created your .txt file, select *mytestdoc.txt* and select **Upload**.
-
-    :::image type="content" source="media/storage-sync-files-extend-servers/create-file-share-portal6.png" alt-text="Screenshot showing how to browse and upload a file to the new file share using the Azure portal.":::
-
-At this point, you've created a storage account and a file share with one file in it. Next, you'll deploy an Azure VM with Windows Server 2019 Datacenter to represent the on-premises server in this tutorial.
+At this point, you created a storage account and a file share with one file in it. Next, deploy an Azure VM with Windows Server to represent the on-premises server in this tutorial.
 
 ### Deploy a VM and attach a data disk
 
-1. Select **Home** in the Azure portal and under **Azure services**, select **+ Create a resource**.
+1. Select **Home** in the Azure portal. Under **Azure services**, select **+ Create a resource**.
 1. Under **Popular Azure services**, select **Virtual machine** > **Create**.
 1. Under **Project details**, select your subscription and the resource group you created for this tutorial.
 
     :::image type="content" source="media/storage-sync-files-extend-servers/vm-project-and-instance-details.png" alt-text="Screenshot showing how to supply project and instance details when creating a V M for this tutorial.":::
 
-1. Under **Instance details**, provide a VM name. For example, use *myVM*.
+1. Under **Instance details**, enter a VM name. For example, use *myVM*.
 1. Don't change the default settings for **Region**, **Availability options**, and **Security type**.
-1. Under **Image**, select **Windows Server 2019 Datacenter - Gen2**. Leave **Size** set to the default.
-1. Under **Administrator account**, provide a **Username** and **Password** for the VM. The username must be between 1 and 20 characters long and can't contain special characters \\/""[]:|<>+=;,?*@& or end with '.' The password must be between 12 and 123 characters long, and must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character.
+1. Under **Image**, select your preferred Windows Server version. Leave **Size** set to the default.
+1. Under **Administrator account**, enter a **Username** and **Password** for the VM. The username must be between 1 and 20 characters long and can't contain special characters \\/""[]:|<>+=;,?*@& or end with '.' The password must be between 12 and 123 characters long, and must have 3 of the following: 1 lowercase character, 1 uppercase character, 1 number, and 1 special character.
 
     :::image type="content" source="media/storage-sync-files-extend-servers/vm-username-and-password.png" alt-text="Screenshot showing how to set the username, password, and inbound port rules for the V M.":::
 
@@ -89,7 +79,7 @@ At this point, you've created a storage account and a file share with one file i
 
       :::image type="content" source="media/storage-sync-files-extend-servers/vm-add-data-disk.png" alt-text="Screenshot showing how to select the Disks tab.":::
 
-   1. On the **Disks** tab, under **Disk options**, leave the defaults.
+   1. On the **Disks** tab, under **Disk options**, don't change the default settings.
    1. Under **Data disks**, select **Create and attach a new disk**.
 
    1. Use the default settings except for **Size**, which you can change to **4 GiB** for this tutorial by selecting **Change size**.
@@ -104,11 +94,11 @@ At this point, you've created a storage account and a file share with one file i
 
 1. After your VM deployment is complete, select **Go to resource**.
 
-At this point, you've created a new virtual machine and attached a data disk. Next you connect to the VM.
+At this point, you created a new virtual machine and attached a data disk. Next, you connect to the VM.
 
 ### Connect to your VM
 
-1. In the Azure portal, select **Connect** > **RDP** on the VM properties page.
+1. In the Azure portal, select **Connect** > RDP on the VM properties page.
 
    :::image type="content" source="media/storage-sync-files-extend-servers/connect-vm.png" alt-text="Screenshot showing the Connect button on the Azure portal with R D P highlighted.":::
 
@@ -116,25 +106,25 @@ At this point, you've created a new virtual machine and attached a data disk. Ne
 
    :::image type="content" source="media/storage-sync-files-extend-servers/download-rdp.png" alt-text="Screenshot showing how to connect with R D P.":::
 
-1. Open the downloaded RDP file and select **Connect** when prompted. You might see a warning that says *The publisher of this remote connection can't be identified*. Click **Connect** anyway.
+1. Open the downloaded RDP file and select **Connect** when prompted. You might see a warning that says *The publisher of this remote connection can't be identified*. Select **Connect** anyway.
 
 1. In the **Windows Security** window that asks you to enter your credentials, select **More choices** and then **Use a different account**. Enter *localhost\username* in the **email address** field, enter the password you created for the VM, and then select **OK**.
 
    :::image type="content" source="media/storage-sync-files-extend-servers/local-host2.png" alt-text="Screenshot showing how to enter your login credentials for the V M.":::
 
-1. You might receive a certificate warning during the sign-in process saying that the identity of the remote computer cannot be verified. Select **Yes** or **Continue** to create the connection.
+1. You might receive a certificate warning during the sign-in process saying that the identity of the remote computer can't be verified. Select **Yes** or **Continue** to create the connection.
 
 ### Prepare the Windows Server VM
 
-For the Windows Server 2019 Datacenter VM, disable Internet Explorer Enhanced Security Configuration. This step is required only for initial server registration. You can re-enable it after the server has been registered.
+For the Windows Server VM, disable Internet Explorer Enhanced Security Configuration. This step is required only for initial server registration. You can re-enable it after the server is registered.
 
-In the Windows Server 2019 Datacenter VM, Server Manager opens automatically. If Server Manager doesn't open by default, search for it in Start Menu.
+In the Windows Server VM, Server Manager should open automatically. If Server Manager doesn't open by default, search for it in the Start menu.
 
 1. In **Server Manager**, select **Local Server**.
 
    :::image type="content" source="media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-1.png" alt-text="Screenshot showing how to locate Local Server on the left side of the Server Manager U I.":::
 
-1. On the **Properties** pane, find the entry for **IE Enhanced Security Configuration** and click **On**.
+1. On the **Properties** pane, find the entry for **IE Enhanced Security Configuration** and select **On**.
 
    :::image type="content" source="media/storage-sync-files-extend-servers/prepare-server-disable-ieesc-2.png" alt-text="Screenshot showing the Internet Explorer Enhanced Security Configuration pane in the Server Manager UI.":::
 
@@ -146,7 +136,7 @@ Now you can add the data disk to the VM.
 
 ### Add the data disk
 
-1. While still in the **Windows Server 2019 Datacenter** VM, select **Files and storage services** > **Volumes** > **Disks**.
+1. While still in the VM, select **File Explorer** and storage services** > **Volumes** > **Disks**.
 
    :::image type="content" source="media/storage-sync-files-extend-servers/your-disk.png" alt-text="Screenshot showing how to bring the data disk online and create a volume." lightbox="media/storage-sync-files-extend-servers/your-disk.png":::
 
@@ -155,7 +145,7 @@ Now you can add the data disk to the VM.
 1. Select **Create**.
 1. Select **Close**.
 
-   At this point, you've brought the disk online and created a volume. Open File Explorer in the Windows Server VM to confirm the presence of the recently added data disk.
+   At this point, you brought the disk online and created a volume. Open File Explorer in the Windows Server VM to confirm the presence of the recently added data disk.
 
 1. In File Explorer in the VM, expand **This PC** and open the new drive. It's the F: drive in this example.
 1. Right-click and select **New** > **Folder**. Name the folder *FilesToSync*.
@@ -168,7 +158,7 @@ Now you can add the data disk to the VM.
 
 ### Install the Azure PowerShell module
 
-Next, in the Windows Server VM, install the Azure PowerShell module on the server. The `Az` module is a rollup module for the Azure PowerShell cmdlets. Installing it downloads all the available Azure Resource Manager modules and makes their cmdlets available for use.
+Next, in the Windows Server VM, install the Azure PowerShell module on the server. The `Az` module is a rollup module for the Azure PowerShell cmdlets. When you install it, you download all the available Azure Resource Manager modules and make their cmdlets available for use.
 
 1. In the VM, open an elevated PowerShell window (run as administrator).
 1. Run the following command:
@@ -178,7 +168,7 @@ Next, in the Windows Server VM, install the Azure PowerShell module on the serve
    ```
 
    > [!NOTE]
-   > If you have a NuGet version that is older than 2.8.5.201, you're prompted to download and install the latest version of NuGet.
+   > If you have a NuGet version that's older than 2.8.5.201, you're prompted to download and install the latest version of NuGet.
 
    By default, the PowerShell gallery isn't configured as a trusted repository for PowerShellGet. The first time you use the PSGallery, you see the following prompt:
 
@@ -193,11 +183,11 @@ Next, in the Windows Server VM, install the Azure PowerShell module on the serve
 
 1. Answer **Yes** or **Yes to All** to continue with the installation.
 
-At this point, you've set up your environment for the tutorial. Close the PowerShell window. You're ready to deploy the Storage Sync Service.
+At this point, you set up your environment for the tutorial. Close the PowerShell window. You're ready to deploy the Storage Sync Service.
 
 ## Deploy the Storage Sync Service
 
-To deploy Azure File Sync, you first place a **Storage Sync Service** resource into a resource group for your selected subscription. The Storage Sync Service inherits access permissions from its subscription and resource group.
+To deploy Azure File Sync, first add a **Storage Sync Service** resource to a resource group in your selected subscription. The Storage Sync Service inherits access permissions from its subscription and resource group.
 
 1. In the Azure portal, select **Create a resource** and then search for **Azure File Sync**.
 1. In the search results, select **Azure File Sync**.
@@ -214,23 +204,23 @@ To deploy Azure File Sync, you first place a **Storage Sync Service** resource i
    | **Resource group** | The resource group that contains the Storage Sync Service.<br><br>Use *myexamplegroup* for this tutorial. |
    | **Location** | East US |
 
-1. When you're finished, select **Review + Create** and then **Create** to deploy the **Storage Sync Service**. The service will take a few minutes to deploy.
-1. When the deployment is complete, select **Go to resource**.
+1. When you finish, select **Review + Create** and then **Create** to deploy the **Storage Sync Service**. The service takes a few minutes to deploy.
+1. When the deployment finishes, select **Go to resource**.
 
 ## Install the Azure File Sync agent
 
-The Azure File Sync agent is a downloadable package that enables Windows Server to be synced with an Azure file share.
+The Azure File Sync agent is a downloadable package that enables Windows Server to sync with an Azure file share.
 
-1. In the **Windows Server 2019 Datacenter** VM, open **Internet Explorer**.
+1. In the Windows Server VM, open **Internet Explorer**.
 
    > [!IMPORTANT]
-   > You might see a warning telling you to turn on **Internet Explorer Enhanced Security Configuration**. Don't turn this back on until you've finished registering the server in the next step.
+   > You might see a warning that prompts you to turn on **Internet Explorer Enhanced Security Configuration**. Don't turn this setting back on until you finish registering the server in the next step.
 
 1. Go to the [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). Scroll down to the **Azure File Sync Agent** section and select **Download**.
 
    :::image type="content" source="media/storage-sync-files-extend-servers/sync-agent-download.png" alt-text="Screenshot showing how to download the Azure File Sync agent.":::
 
-1. Select the check box for **StorageSyncAgent_WS2019.msi** and select **Next**.
+1. Select the check box for the Storage Sync Agent .msi file for your version of Windows Server, and then select **Next**.
 
    :::image type="content" source="media/storage-sync-files-extend-servers/select-agent.png" alt-text="Screenshot showing how to select the right Azure File Sync agent download.":::
 
@@ -239,13 +229,13 @@ The Azure File Sync agent is a downloadable package that enables Windows Server 
 1. Select **Install**.
 1. Select **Finish**.
 
-You've deployed the Azure Sync Service and installed the agent on the Windows Server VM. Now you need to register the VM with the Storage Sync Service.
+You deployed the Azure Sync Service and installed the agent on the Windows Server VM. Now you need to register the VM with the Storage Sync Service.
 
 ## Register Windows Server
 
-Registering your Windows server with a Storage Sync Service establishes a trust relationship between your server (or cluster) and the Storage Sync Service. A server can only be registered to one Storage Sync Service. It can sync with other servers and Azure file shares that are associated with that Storage Sync Service.
+When you register your Windows Server with a Storage Sync Service, you create a trust relationship between your server (or cluster) and the Storage Sync Service. You can register a server to only one Storage Sync Service. The server can sync with other servers and Azure file shares that are associated with that Storage Sync Service.
 
-The Server Registration UI should open automatically after you install the Azure File Sync agent. If it doesn't, you can open it manually from its file location: `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe.`
+The Server Registration UI opens automatically after you install the Azure File Sync agent. If it doesn't, you can open it manually from its file location: `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`.
 
 1. When the Server Registration UI opens in the VM, select **Sign in**.
 
@@ -293,7 +283,7 @@ A server endpoint represents a specific location on a registered server. For exa
 
    :::image type="content" source="media/storage-sync-files-extend-servers/add-server-endpoint.png" alt-text="Screenshot showing how to add a new server endpoint in the sync group pane.":::
 
-1. On the **Add server endpoint** pane, enter the following information to create a server endpoint:
+1. On **Add server endpoint**, enter the following information to create a server endpoint:
 
    | Value | Description |
    | ----- | ----- |
@@ -310,13 +300,13 @@ Your files are now in sync across your Azure file share and Windows Server.
 
 ## Clean up resources
 
-If you'd like to clean up the resources you created in this tutorial, first remove the endpoints from the Storage Sync service. Then, unregister the server with your Storage Sync service, remove the sync groups, and delete the Storage Sync service.
+To clean up the resources you created in this tutorial, first remove the endpoints from the Storage Sync service. Then, unregister the server with your Storage Sync service, remove the sync groups, and delete the Storage Sync service.
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 
 ## Next step
 
-In this tutorial, you learned the basic steps to extend the storage capacity of a Windows server by using Azure File Sync. For a more thorough look at planning for an Azure File Sync deployment, see:
+In this tutorial, you learned the basic steps to extend the storage capacity of a Windows Server by using Azure File Sync. For a more thorough look at planning for an Azure File Sync deployment, see:
 
 > [!div class="nextstepaction"]
 > [Plan for Azure File Sync deployment](file-sync-planning.md)
