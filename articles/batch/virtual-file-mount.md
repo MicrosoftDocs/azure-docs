@@ -4,7 +4,7 @@ description: Learn how to mount different kinds of virtual file systems on Batch
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-azurepowershell, linux-related-content
-ms.date: 05/13/2025
+ms.date: 06/16/2026
 # Customer intent: As a cloud engineer, I want to mount a virtual file system on Batch pool nodes, so that I can efficiently manage shared data access for tasks running on those compute nodes.
 ---
 
