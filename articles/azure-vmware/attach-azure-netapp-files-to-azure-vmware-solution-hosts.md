@@ -154,7 +154,7 @@ To enable nConnect for Azure NetApp Files datastores in your Azure VMware Soluti
 > 
 > nConnect is configured at the ESXi host level and is applied to all the ESXi hosts within the cluster the datastore(s) are attached to.
 
-Authorized users can use the Get-NFSDatastoreNConnectValue run command to get the configured nConnect values on the datastores after nConnect is deployed.
+Authorized users can use the `Get-NFSDatastoreNConnectValue` run command to get the configured nConnect values on the datastores after nConnect is deployed.
 
 ### Considerations for Azure NetApp Files storage with cool access
 
