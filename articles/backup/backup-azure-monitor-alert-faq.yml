@@ -6,6 +6,7 @@ metadata:
   ms.topic: faq
   ms.service: azure-backup
   ms.date: 06/26/2025
+  ms.update-cycle: 1095-days
   author: AbhishekMallick-MS
   ms.author: v-mallicka
 title: Frequently asked questions - Azure Backup Monitoring and Reporting
