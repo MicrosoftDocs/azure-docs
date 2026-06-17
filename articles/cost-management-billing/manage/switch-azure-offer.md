@@ -1,9 +1,9 @@
 ---
 title: Change Azure subscription offer
 description: Learn about how to change your Azure subscription and switch to a different offer.
-author: mjeffers
-ms.author: mjeffers
-ms.reviewer: mjeffers
+author: mjeffer
+ms.author: mjeffer
+ms.reviewer: mjeffer
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
