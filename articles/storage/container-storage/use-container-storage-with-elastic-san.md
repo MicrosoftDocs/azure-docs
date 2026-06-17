@@ -174,6 +174,9 @@ parameters:
   networkEndpointType: "privateEndpoint"  
 ```
 
+> [!NOTE]
+> The network endpoint type is determined at volume group creation time and can't be changed later. If a volume group is created using the default service endpoint configuration, it can't be used with a StorageClass that requests private endpoint. Similarly, a volume group created with private endpoint can't be used with service endpoint-based StorageClasses.
+
 ### Create a storage class to provision Elastic SAN in a different subscription
 
 Azure Container Storage supports provisioning and attaching volumes from an Elastic SAN located in a different subscription than the AKS cluster. This enables scenarios where compute and storage are isolated across subscriptions for compliance, governance, or shared infrastructure models.
@@ -197,11 +200,8 @@ volumeBindingMode: Immediate
 allowVolumeExpansion: true
 parameters:
   subscriptionId: <external-subcriptionId> # Target subscription Id for which you have admin access
-  networkEndpointType: "privateEndpoint"  # Existing resource group in target subscription
+  resourceGroup: <external-rg>  # Existing resource group in target subscription
 ```
-
-> [!NOTE]
-> The network endpoint type is determined at volume group creation time and cannot be changed later. If a volume group is created using the default service endpoint configuration, it cannot be used with a StorageClass that requests private endpoint. Similarly, a volume group created with private endpoint cannot be used with service endpoint-based StorageClasses.
 
 ## Pre-provisioned Elastic SAN and volume groups
 
