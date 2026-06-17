@@ -107,6 +107,22 @@ flowchart TB
 ```
 -->
 
+<!--
+This is a test
+
+```mermaid
+    ht --> hb
+```
+-->
+
+<!--
+This is a test
+
+```powershell
+    ht --> hb
+```
+-->
+
 ## Workload resource group
 When you create an Azure Virtual Enclaves workload, you create linked workload resource groups where you can organize your Azure resources. 
 
