@@ -36,7 +36,10 @@ Batch supports the following types of Azure Storage accounts:
 
 For more information about storage accounts, see [Azure storage account overview](../storage/common/storage-account-overview.md).
 
-You can associate a storage account with your Batch account when you create the Batch account, or later. Consider your cost and performance requirements when choosing a storage account. For example, the GPv2 and blob storage account options support greater [capacity and scalability limits](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) compared with GPv1. (Contact Azure Support to request an increase in a storage limit.) These account options can improve the performance of Batch solutions that contain a large number of parallel tasks that read from or write to the storage account.
+You can associate a storage account with your Batch account when you create the Batch account, or later. Consider your cost and performance requirements when choosing a storage account. For example, the GPv2 and blob storage account options support greater [capacity and scalability limits](../storage/common/scalability-targets-standard-account.md) compared with GPv1.  (Contact Azure Support to request an increase in a storage limit.) These account options can improve the performance of Batch solutions that contain a large number of parallel tasks that read from or write to the storage account.
+
+> [!NOTE]
+> Customers should use a GPv2 storage account, because [GPv1 is being retired](../storage/common/general-purpose-version-1-account-migration-overview.md). You can easily upgrade a GPv1 or Blob Storage account to a GPv2 account with no downtime and no need to copy data. For more information, see [Upgrade to a GPv2 storage account](../storage/common/storage-account-upgrade.md).
 
 When a storage account is linked to a Batch account, it becomes the *autostorage account*. An autostorage account is necessary if you intend to use the [application packages](batch-application-packages.md) capability, as it stores the application package .zip files. It can also be used for [task resource files](resource-files.md#storage-container-name-autostorage). Linking Batch accounts to autostorage can avoid the need for shared access signature (SAS) URLs to access the resource files.
 
