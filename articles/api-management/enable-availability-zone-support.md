@@ -50,11 +50,11 @@ We recommend automatic availability zone configuration in the Premium tier, but 
 
 ### IP address changes when changing availability zone configuration
 
-Changing the availability zone configuration of an existing API Management instance changes the public virtual IP (VIP) address and, if the instance is deployed in internal virtual network mode, the private VIP address.
+Changing the availability zone configuration of an existing API Management Premium instance changes the public virtual IP (VIP) address and, if the instance is deployed in internal virtual network mode, the private VIP address.
  
 This behavior applies when you:
  
-- Add, remove, or change specific zones on an instance with manually selected availability zones.
+- Add, remove, or change specific zones on a Premium instance with manually selected availability zones.
 
 - Switch between manual and automatic availability zone configuration.
  
