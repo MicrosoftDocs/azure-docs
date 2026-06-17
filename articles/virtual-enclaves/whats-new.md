@@ -38,7 +38,7 @@ The following features are currently in gated preview. Preview features might ha
 
 | Feature | Preview type | Description | Limitations |
 |---------|--------------|-------------|-------------|
-| Approvals | Preview | Approvals add oversight for critical Azure Virtual Enclaves actions. Administrators can queue the creation of new resources or changes to existing resources, and an authorized approver must approve the request before the change is applied. | [Preview limitations](./public-preview-terms.md) |
+| Approvals | Preview | Approvals add oversight for critical Azure Virtual Enclaves actions. Administrators can queue the creation of new resources or changes to existing resources, and an authorized approver must approve the request before the change is applied. | [Preview limitations](./preview-terms.md) |
 
 ## Next steps
 
