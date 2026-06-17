@@ -13,7 +13,7 @@ ms.author: kendownie
 
 :heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
 
-:heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider 
+:heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider
 
 Azure Files provides the capability to take snapshots of SMB and NFS file shares. Share snapshots capture the share state at that point in time. This article describes the capabilities that file share snapshots provide and how you can use them to recover previous versions of files.
 
@@ -54,7 +54,7 @@ When you create a share snapshot of a file share, the files in the share's syste
 
 ## Space usage
 
-Share snapshots are incremental in nature. Only the data that has changed after your most recent share snapshot is saved. This feature minimizes the time required to create the share snapshot and saves on storage costs, because you pay only for the changed content. Any write operation to the object or property, or metadata update operation, counts toward "changed content" and is stored in the share snapshot.  
+Share snapshots are incremental. Only the data that changed after your most recent share snapshot is saved. This feature minimizes the time required to create the share snapshot and saves on storage costs, because you pay only for the changed content. Any write operation to the object or property, or metadata update operation, counts toward "changed content" and is stored in the share snapshot.  
 
 To conserve space, you can delete the share snapshot for the period when the churn was highest.
 
@@ -257,11 +257,11 @@ Just like with on-premises Volume Shadow Copy (VSS) snapshots, you can view the 
    :::image type="content" source="media/storage-snapshots-files/snapshot-windows-restore.png" alt-text="Screenshot of the Previous versions tab, the restore button in warning message is highlighted.":::
     
     > [!NOTE]
-    > If your file hasn't changed, you won't see a previous version for that file because that file is the same version as the snapshot. This behavior is consistent with how it works on a Windows file server.
+    > If your file didn't change, you won't see a previous version for that file because that file is the same version as the snapshot. This behavior is consistent with how it works on a Windows file server.
 
 ### Mount an SMB file share snapshot on Linux
 
-To mount a specific snapshot of an SMB Azure file share on Linux, you must supply the `snapshot` option as part of the `mount` command. The `snapshot` option is the time that the particular snapshot was created in a format such as @GMT-2023.01.05-00.08.20. The Linux kernel supports the `snapshot` option starting with version 4.19.
+To mount a specific snapshot of an SMB Azure file share on Linux, include the `snapshot` option in the `mount` command. The `snapshot` option is the time that the particular snapshot was created in a format such as `@GMT-2023.01.05-00.08.20`. The Linux kernel supports the `snapshot` option starting with version 4.19.
 
 After you create the file share snapshot, follow these instructions to mount it.
 
@@ -273,13 +273,13 @@ After you create the file share snapshot, follow these instructions to mount it.
    :::image type="content" source="media/storage-snapshots-files/mount-smb-snapshot-on-linux.png" alt-text="Screenshot showing how to locate a file share snapshot name and timestamp in the Azure portal." border="true" :::
 
 1. Convert the timestamp to the format expected by the `mount` command, which is **@GMT-year.month.day-hour.minutes.seconds**. In this example, convert **2023-01-05T00:08:20.0000000Z** to **@GMT-2023.01.05-00.08.20**.
-1. Run the `mount` command using the GMT time to specify the `snapshot` value. Replace `<storage-account-name>`, `<file-share-name>`, and the GMT timestamp with your values. The .cred file contains the credentials to use to mount the share.
+1. Run the `mount` command using the GMT time to specify the `snapshot` value. Replace `<storage-account-name>`, `<file-share-name>`, and the GMT timestamp with your values. The `.cred` file contains the credentials to use to mount the share.
 
    ```bash
    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<file-share-name> /media/<file-share-name>/snapshot1 -o credentials=/etc/smbcredentials/snapshottestlinux.cred,snapshot=@GMT-2023.01.05-00.08.20
    ```
 
-1. If you can browse the snapshot under the path `/media/<file-share-name>/snapshot1`, then the mount succeeded.
+1. If you can browse the snapshot under the path `/media/<file-share-name>/snapshot1`, the mount succeeded.
 
 If the mount fails, see [Troubleshoot Azure Files connectivity and access issues (SMB)](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-connectivity?toc=/azure/storage/files/toc.json).
 
@@ -482,7 +482,7 @@ To create a snapshot of an existing file share, sign in to the Azure portal and 
 
 # [Azure PowerShell](#tab/powershell)
 
-To create a snapshot of an existing file share, run the following PowerShell command. Be sure to replace variables with your own values.
+To create a snapshot of an existing file share, run the following PowerShell command. Replace the variables with your own values.
 
 ```powershell
 # To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
@@ -582,7 +582,7 @@ To list all the snapshots for an existing file share, sign in to the Azure porta
 
 # [Azure PowerShell](#tab/powershell)
 
-To list all file share snapshots, run the following PowerShell command. Be sure to replace variables with your own values.
+To list all file share snapshots, run the following PowerShell command. Replace the variables with your own values.
 
 ```powershell
 # To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0

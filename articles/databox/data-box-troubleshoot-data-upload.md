@@ -292,7 +292,6 @@ Other REST API errors might occur during data uploads. For more information, see
 **Error description:** Errors are detected due to cancelation of data ingestion jobs. When an ingestion job is interrupted or canceled while in progress, the affected files fail to upload to Azure.
 
 **Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new order, make sure that the ingestion jobs are not interrupted or canceled while in progress.
----
 
 ## Next steps
 
