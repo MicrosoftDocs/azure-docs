@@ -116,10 +116,6 @@ You can integrate an Amazon API Gateway by using the portal or the Azure CLI.
 
 Run the [az apic integration create aws](/cli/azure/apic/integration/create#az-apic-integration-create-aws) command to integrate an Amazon API Gateway to your API center. 
 
-> [!NOTE]
->
-> * This command is only available in the preview version of the APIC extension.
-> * Install the preview version before using this command.
 
 * Provide the names of the resource group, API center, and integration. 
 

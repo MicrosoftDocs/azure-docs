@@ -23,7 +23,7 @@ Each dependency identifies a *source* resource and a related *target* resource t
 * **Improve effectiveness of AI agents** by using mapped dependencies for automatic discovery of valid endpoints for tasks and validating toolchain compatibility
 
 > [!NOTE]
-> [Limits](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits) apply.
+> [Limits](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits) apply to the number of dependencies you can create.
 
 ## Prerequisites
 
