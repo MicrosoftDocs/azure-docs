@@ -18,22 +18,27 @@ The following Azure Container Storage versions are supported:
 
 | Milestone | Status |
 |-----------|--------|
+|2.2.0 - Minor Release | Supported |
 |1.4.1 - Patch Release | Supported |
 |2.1.0 - Minor Release | Supported |
 |2.0.1 - Patch Release | Supported |
 |2.0.0 - Major Release | Supported |
 |1.4.0 - Minor Release | Supported |
-|1.3.2 - Patch Release | Supported |
-|1.3.1 - Patch Release | Supported |
-|1.3.0 - Minor Release | Supported |
 
 ## Unsupported versions
 
-The following Azure Container Storage versions are no longer supported: 1.0.6-preview, 1.0.3-preview, 1.0.2-preview, 1.0.1-preview, 1.0.0-preview. See [Upgrade a preview installation to GA](#upgrade-a-preview-installation-to-ga) for upgrading guidance.
+The following Azure Container Storage versions are no longer supported: 1.0.6-preview, 1.0.3-preview, 1.0.2-preview, 1.0.1-preview, 1.0.0-preview and any versions below 1.4.0. See [Upgrade a preview installation to GA](#upgrade-a-preview-installation-to-ga) for upgrading guidance.
 
 ## Major vs. minor vs. patch releases
 
 A **major release** introduces significant changes, often including new features, architectural updates, or breaking changes; for example, moving from version 1.1.0 to 2.0.0. A **minor release** adds enhancements or new functionality that are backward-compatible, such as moving from version 1.2.0 to 1.3.0. Lastly, a **patch release** focuses on resolving critical bugs, security issues, or minor optimizations while maintaining backward compatibility, such as moving from version 1.1.1 to 1.1.2, and is intended to ensure stability and reliability without introducing new features.
+
+## Version 2.2.0
+
+### Improvements and new features
+
+- **Private endpoint support for Elastic SAN**: Enables secure connectivity to Elastic SAN volume groups over private IPs within a virtual network, improving network isolation and security.
+- **Cross-subscription Elastic SAN support**: Added support for provisioning and attaching volumes from Elastic SANs in a different subscription than the AKS cluster, enabling compute and storage isolation for compliance and shared infrastructure scenarios.
 
 ## Version 1.4.1
 
@@ -158,6 +163,7 @@ Azure Container Storage follows a transparent and predictable support lifecycle,
 
 | Release version | Release Date  | End of Life | Supported Kubernetes Versions |
 |-----------------|---------------|-------------|-------------------------------|
+|2.2.0 - Minor Release | 06/18/2026 | 06/17/2027 | 1.35, 1.34, 1.33 |
 |1.4.1 - Patch Release | 2/17/2026  | 12/15/2026 | 1.34, 1.33, 1.32 |
 |2.1.0 - Minor Release | 02/03/2026 | 02/02/2027 | 1.34, 1.33, 1.32 |
 |2.0.1 - Patch Release | 12/16/2025 | 09/09/2026 | 1.34, 1.33, 1.32 |
