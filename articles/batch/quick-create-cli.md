@@ -2,7 +2,7 @@
 title: 'Quickstart: Use the Azure CLI to create a Batch account and run a job'
 description: Follow this quickstart to use the Azure CLI to create a Batch account, a pool of compute nodes, and a job that runs basic tasks on the pool.
 ms.topic: quickstart
-ms.date: 04/06/2025
+ms.date: 06/16/2026
 ms.custom: mvc, devx-track-azurecli, mode-api, linux-related-content, innovation-engine
 author: padmalathas
 ms.author: padmalathas
@@ -93,7 +93,7 @@ az batch account create \
     --location $REGION
 ```
 
-Sign in to the new Batch account by running the [az batch account login](/cli/azure/batch/account#az-batch-account-login) command. Once you authenticate your account with Batch, subsequent `az batch` commands in this session use this account context.
+Sign in to the new Batch account by running the [az batch account login](/cli/azure/batch/account#az-batch-account-login) command. After you authenticate your account with Batch, subsequent `az batch` commands in this session use this account context.
 
 ```azurecli-interactive
 az batch account login \
@@ -168,7 +168,7 @@ Batch distributes the tasks to the compute nodes.
 
 ## View task status
 
-After you create the tasks, Batch queues them to run on the pool. Once a node is available, a task runs on the node.
+After you create the tasks, Batch queues them to run on the pool. When a node is available, a task runs on the node.
 
 Use the [az batch task show](/cli/azure/batch/task#az-batch-task-show) command to view the status of Batch tasks. The following example shows details about the status of `myTask1`:
 

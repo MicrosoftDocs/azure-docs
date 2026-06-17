@@ -314,7 +314,7 @@ Helm has been the standard package manager for Kubernetes since its initial rele
 * Helm v2 (2016–2019): Introduced chart-based application packaging but relied on a server-side component (Tiller), which created security and multi‑tenancy concerns.
 * Helm v3 (2019–2025): Removed Tiller, shifting to a client-only model with improved security and usability. This version became the industry standard and accumulated incremental features over several years without breaking compatibility.
 
-After ~6 years of Helm v3, the project accumulated technical debt, code limitations and security flaw that could not be addressed without breaking changes. This led to the release of Helm v4 in late 2025.
+After ~6 years of Helm v3, the project accumulated technical debt, code limitations and security flaws that could not be addressed without breaking changes. This led to the release of Helm v4 in late 2025.
 
 ### What Helm 4 Represents
 
@@ -335,9 +335,11 @@ Importantly, Helm 4 can maintain compatibility with existing Helm v3 charts, ena
 
 AOSM team is tracking two milestones for Helm 4 support.
 * First, AOSM team will release a NFO version with Helm 4.1.4 configured to behave in "compatibility mode." This provides full backwards compatibility to Helm 3.18, publishers do not need to make any changes to charts, or other artifacts, to start using Helm 4.
+  * Thie NFO version is available now for preview testing in the UKSouth lab.
 * Second, AOSM team will release a NFO version which removes compatibility customizations allowing full Helm 4 support. Publishers can choose to move to this version when ready, knowing it will most likely require changes to charts and artifacts for compatbility.
+  * This NFO version will be available 4Q2026 for publisher testing.  
 
-Publishers will continue to have flexibility to select between these two Helm behavior modes when installing NFO onto a cluster.
+Publishers will continue to have flexibility to select between these two Helm behavior modes when installing NFO onto a cluster. Moving forward, NFO installation will default to "compatibility mode" with an option to enable full Helm 4 support via an installation flag. This feature is cluster-scoped, meaning all deployments on a cluster can use only one mode or the other.
 
 ### Compatibility mode details
 

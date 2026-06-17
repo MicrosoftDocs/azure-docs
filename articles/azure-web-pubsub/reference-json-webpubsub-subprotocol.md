@@ -21,6 +21,7 @@ With the `json.webpubsub.azure.v1` subprotocol, you can create *PubSub WebSocket
 
 * join a group using [join requests](#join-groups).
 * publish messages directly to a group using [publish requests](#publish-messages).
+* stream messages directly to a group using [streaming requests](#start-streaming-messages).
 * route messages to different upstream event handlers using [event requests](#send-custom-events).
 
 For example, you can create a *PubSub WebSocket client* with the following JavaScript code:
@@ -46,6 +47,9 @@ Message types received by the client can be:
 * message - Messages from the group or server.
 * system - Messages from the Web PubSub service.
 * pong - The response to a `ping` message.
+* streamAck - The response that acknowledges accepted stream data and reports the next expected stream sequence ID.
+* streamNack - The response for a retriable stream error.
+* streamClosed - The response for terminal publisher-side stream closure.
 
 ### Ack response
 
@@ -140,6 +144,85 @@ If the REST API is sending a string `Hello World` using `application/json` conte
         "data": "<base64_binary>"
     }
     ```
+
+#### Streaming message response
+
+When a message belongs to a stream, the group message contains a `stream` property.
+
+```json
+{
+    "type": "message",
+    "from": "group",
+    "group": "<group_name>",
+    "dataType": "json|text|binary",
+    "data": {},
+    "fromUserId": "abc",
+    "stream": {
+        "streamId": "<stream_id>",
+        "streamSequenceId": 1,
+        "endOfStream": true,
+        "error": {
+            "name": "IdleTimeout|InternalServerError|Forbidden|Cancelled|UserError",
+            "message": "<error_detail>",
+            "userErrorCode": "<application_error_code>"
+        }
+    }
+}
+```
+
+* `stream.streamId` is the logical stream identifier.
+* `stream.streamSequenceId` is the sequence number of the message in the stream.
+* `stream.endOfStream` is optional. When set to `true`, the message is the terminal message of the stream.
+* `stream.error` is optional and is present only when the stream ends with an error. `userErrorCode` is present only for `UserError`.
+
+### Stream ack response
+
+The service sends a `streamAck` response to acknowledge accepted stream data and to report the next stream sequence ID it expects.
+
+Format:
+
+```json
+{
+    "type": "streamAck",
+    "streamId": "<stream_id>",
+    "expectedSequenceId": 2
+}
+```
+
+### Stream nack response
+
+The service sends a `streamNack` response for a retriable stream error.
+
+Format:
+
+```json
+{
+    "type": "streamNack",
+    "streamId": "<stream_id>",
+    "expectedSequenceId": 2,
+    "name": "InvalidSequenceId|TransientError",
+    "message": "<error_detail>"
+}
+```
+
+### Stream closed response
+
+The service sends a `streamClosed` response when the publisher-side stream is closed.
+
+Format:
+
+```json
+{
+    "type": "streamClosed",
+    "streamId": "<stream_id>",
+    "error": {
+        "name": "StreamNotFound|Forbidden|BadRequest|InternalServerError|IdleTimeout",
+        "message": "<error_detail>"
+    }
+}
+```
+
+The `error` property is omitted when the stream is closed normally.
 
 ### System response
 

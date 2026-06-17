@@ -3,19 +3,19 @@ author: wchigit
 description: code sample
 ms.service: service-connector
 ms.topic: include
-ms.date: 12/04/2023
-ms.author: wchi
+ms.date: 17/06/2026
+ms.reviewer: wchi
 ---
 
 
 ### [.NET](#tab/dotnet)
 
-1. Install dependency.
+1. Install the dependency.
     ```bash
     dotnet add package Gremlin.Net
     ```
 
-1. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Apache Gremlin.
+1. Get connection information from environment variables and connect to Azure Cosmos DB for Apache Gremlin:
     ```csharp
     using System;
     using Gremlin.Net.Driver;

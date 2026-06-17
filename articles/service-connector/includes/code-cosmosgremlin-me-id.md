@@ -1,10 +1,9 @@
 ---
-author: wchigit
 description: managed identity, code sample
 ms.service: service-connector
 ms.topic: include
-ms.date: 12/04/2023
-ms.author: wchi
+ms.date: 17/06/2026
+ms.reviewer: wchi
 ---
 
 ### [.NET](#tab/dotnet)
@@ -15,7 +14,7 @@ ms.author: wchi
     dotnet add package Azure.Identity
     ```
 
-1. Get an access token for the managed identity or service principal using client library [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Use the access token and `AZURE_COSMOS_LISTKEYURL` to get the password. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Apache Gremlin. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get an access token for the managed identity or service principal by using Azure.Identity. Use the access token and AZURE_COSMOS_LISTKEYURL to get the password. Then use connection information from environment variables added by Service Connector to connect to Azure Cosmos DB for Apache Gremlin. In the code below, uncomment the section for your authentication type:
 
     ```csharp
     using System;

@@ -2,7 +2,7 @@
 title: Move an Azure Batch account to another region
 description: Learn how to move an Azure Batch account to a different region using an Azure Resource Manager template in the Azure portal.
 ms.topic: how-to
-ms.date: 04/25/2025
+ms.date: 06/16/2026
 ms.custom: subject-moving-resources, devx-track-arm-template
 # Customer intent: As a cloud administrator, I want to move an Azure Batch account to a different region using an ARM template, so that I can ensure better resource alignment and disaster recovery readiness for my workloads.
 ---
@@ -122,8 +122,8 @@ Be sure to configure features in the new account as needed. You can look at how 
 
 > [!IMPORTANT]
 > New Batch accounts are entirely separate from any prior existing Batch accounts, even within the same region. These newly
-> created Batch accounts will have [default service and core quotas](batch-quota-limit.md) associated with them. For User
-> Subscription pool allocation mode Batch accounts, core quotas from the subscription will apply. You will need to ensure
+> created Batch accounts have [default service and core quotas](batch-quota-limit.md) associated with them. For User
+> Subscription pool allocation mode Batch accounts, core quotas from the subscription apply. You need to ensure
 > that these new Batch accounts have sufficient quota before migrating your workload.
 
 ## Discard or clean up

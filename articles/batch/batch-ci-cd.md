@@ -1,7 +1,7 @@
 ---
 title: Use Azure Pipelines to build and deploy an HPC solution
 description: Use Azure Pipelines CI/CD build and release pipelines to deploy Azure Resource Manager templates for an Azure Batch high performance computing (HPC) solution.
-ms.date: 04/02/2025
+ms.date: 06/16/2026
 ms.topic: how-to
 ms.custom: devx-track-arm-template
 # Customer intent: As a DevOps engineer, I want to set up CI/CD pipelines using ARM templates with Azure Pipelines so that I can automate the deployment of high-performance computing solutions efficiently on Azure Batch.
@@ -514,7 +514,7 @@ Create the tasks as follows:
 
 ## Test the environment
 
-Once the environment is set up, confirm that the following tests run successfully. Replace the placeholders with your resource group and Batch account values.
+After the environment is set up, confirm that the following tests run successfully. Replace the placeholders with your resource group and Batch account values.
 
 #### Connect to the Batch account
 

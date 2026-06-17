@@ -97,7 +97,7 @@ The following table shows connectivity locations and the service providers for e
 | Location | Address | Zone | Local Azure regions | ER Direct | Service providers |
 |--|--|--|--|--|--|
 | **Jakarta** | NeutraDC HDC | 2 | Indonesia Central | &check; | DCI Indonesia<br/>DE-CIX<br/>NTT DOCOMO BUSINESS - Flexible Interconnect (NTT Communications - Flexible Interconnect)<br/>NTT Indonesia<br/>Telin<br/>XL Axiata<br/>Zenlayer |
-| **Jakarta2** | NTT Global Data Center Indonesia | 2 | Indonesia Central | &check; | DCI Indonesia<br/>DE-CIX<br/>NTT Indonesia<br/>Telin<br/>XL Axiata<br/>Zenlayer |
+| **Jakarta2** | NTT Global Data Center Indonesia | 2 | Indonesia Central | &check; | DCI Indonesia<br/>DE-CIX<br/>Equinix<br/>NTT Indonesia<br/>Telin<br/>XL Axiata<br/>Zenlayer |
 | **Johannesburg** | [Teraco JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | South Africa North | &check; | BCX<br/>British Telecom<br/>Console Connect (PCCW Global Limited)<br/>Internet Solutions - Cloud Connect<br/>Liquid Telecom<br/>MTN Business<br/>MTN Global Connect<br/>Orange<br/>Teraco<br/>Vodacom |
 | **Kuala Lumpur** | [TIME dotCom Menara AIMS](https://www.time.com.my/for-enterprise/cloud) | 2 | Malaysia West | &check; | DE-CIX<br/>Equinix<br/>TIME dotCom<br/>Zenlayer |
 | **Kuala Lumpur2** | Telekom Malaysia Bhd | 2 | Malaysia West | &check; | TIME dotCom<br/>Zenlayer |

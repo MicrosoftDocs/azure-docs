@@ -97,6 +97,9 @@ Network Watcher Agent extension for Linux can be installed on the following Linu
 
 <sup>3</sup> [Extended life cycle (ELS) support](https://www.redhat.com/en/resources/els-datasheet) for Red Hat Enterprise Linux 6.X ended on [June 30, 2024]( https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204).
 
+> [!NOTE]
+> Internet Control Message Protocol (ICMP) monitoring is currently unsupported in the Network Watcher Agent on Oracle Linux due to known kernel-level limitations specific to the distro.
+
 ## Extension schema
 
 The following JSON shows the schema for the Network Watcher Agent extension. The extension doesn't require, or support, any user-supplied settings. The extension relies on its default configuration.

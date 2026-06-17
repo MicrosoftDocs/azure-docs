@@ -1,9 +1,8 @@
 ---
-author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 12/04/2023
-ms.author: wchi
+ms.date: 06/17/2026
+ms.reviewer: wchi
 ---
 
 ### [.NET](#tab/dotnet)
@@ -13,7 +12,7 @@ ms.author: wchi
     dotnet add package MongoDb.Driver
     ```
 
-2. Get the connection string from the environment variable added by Service Connector and connect to Azure Cosmos DB for MongoDB.
+1. Get the connection string from the environment variable added by Service Connector and connect to Azure Cosmos DB for MongoDB.
     ```csharp
     using MongoDB.Driver;
 
@@ -64,7 +63,7 @@ Refer to [Use Spring Data with Azure Cosmos DB for MongoDB API](/azure/developer
     pip install pymongo
     ```
 
-2. Get the connection string from the environment variable added by Service Connector and connect to Azure Cosmos DB for MongoDB.
+1. Get the connection string from the environment variable added by Service Connector and connect to Azure Cosmos DB for MongoDB.
     ```python
     import os
     import pymongo
@@ -78,7 +77,7 @@ Refer to [Use Spring Data with Azure Cosmos DB for MongoDB API](/azure/developer
    ```bash
    go get go.mongodb.org/mongo-driver/mongo
    ```
-2. Get the connection string from the environment variable added by Service Connector and connect to Azure Cosmos DB for MongoDB.
+1. Get the connection string from the environment variable added by Service Connector and connect to Azure Cosmos DB for MongoDB.
     ```go
     import (
     	"context"
@@ -113,7 +112,7 @@ Refer to [Use Spring Data with Azure Cosmos DB for MongoDB API](/azure/developer
     ```bash
     npm install mongodb
     ```
-2. Get the connection string from the environment variable added by Service Connector and connect to Azure Cosmos DB for MongoDB.
+1. Get the connection string from the environment variable added by Service Connector and connect to Azure Cosmos DB for MongoDB.
     ```javascript
     const { MongoClient, ObjectId } = require('mongodb');
     
