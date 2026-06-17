@@ -102,6 +102,8 @@
       href: how-to-approve-private-link-cross-subscription.md
 - name: Security
   items:
+    - name: Secure Private Link deployment
+      href: secure-private-link.md
     - name: Configure an application security group
       href: configure-asg-private-endpoint.md
     - name: Inspect private endpoint traffic with Azure Firewall
@@ -180,7 +182,7 @@
         - name: Python
           href: https://azure.microsoft.com/develop/python/
         - name: REST
-          href: https://github.com/Azure/azure-rest-api-specs/blob/main/specification/network/resource-manager/Microsoft.Network/preview/2023-07-01-preview/networkSecurityPerimeter.json
+          href: https://github.com/Azure/azure-rest-api-specs/blob/main/specification/network/resource-manager/Microsoft.Network/Network/preview/2023-07-01-preview/networkSecurityPerimeter.json
 - name: Resources
   items:
     - name: Build your skills with Microsoft Learn training

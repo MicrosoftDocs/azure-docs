@@ -5,7 +5,7 @@ description: Learn about Point-to-Site VPN.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
-ms.date: 07/09/2025
+ms.date: 06/08/2026
 ms.author: cherylmc
 ms.custom:
   - linux-related-content
@@ -98,13 +98,15 @@ For information about available Azure VPN Client versions, release dates, and wh
 
 ## <a name="gwsku"></a>Which gateway SKUs support P2S VPN?
 
-The following table shows gateway SKUs by tunnel, connection, and throughput. For more information, see  [About gateway SKUs](about-gateway-skus.md).
-
-[!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+See [About Gateway SKUs](about-gateway-skus.md) for the list of SKUs that support P2S VPN, and the number of tunnels and connections supported on each SKU.
 
 > [!NOTE]
 > The Basic SKU has limitations and does not support IKEv2, IPv6, or RADIUS authentication. For more information, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
->
+
+### <a name="certificate-migration"></a>What is P2S gateway root certificate migration?
+
+Azure periodically rotates the root certificates that VPN gateways use for point-to-site (P2S) VPN connections. Root certificate migration (also called root certificate rotation) is the scheduled process of transitioning a VPN gateway from an older root certificate to a new one. Microsoft provides advance notice before each migration. This change affects all P2S client connections, not just clients that connect via Certificate Authentication. When a gateway server certificate is migrated, the gateway continues to function as normal, but you must generate and update your VPN client profile to maintain connectivity. For more information, see [VPN Gateway certificate migration](point-to-site-about-gateway-certificate-migration.md).
+
 
 ## <a name="IKE/IPsec policies"></a>What IKE/IPsec policies are configured on VPN gateways for P2S?
 

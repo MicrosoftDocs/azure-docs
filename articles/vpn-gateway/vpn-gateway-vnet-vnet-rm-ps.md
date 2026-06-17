@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 03/26/2025
+ms.date: 06/10/2026
 ms.author: cherylmc
 # Customer intent: As a network engineer, I want to connect multiple virtual networks using a VNet-to-VNet VPN gateway connection, so that I can establish secure and efficient communication between networks across different regions and subscriptions.
 ---
@@ -167,7 +167,7 @@ For the following steps, you can either use Azure Cloud Shell, or you can run Po
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
    -Location $Location1 -IpConfigurations $gwipconf1 -GatewayType Vpn `
-   -VpnType RouteBased -GatewaySku VpnGw2 -VpnGatewayGeneration "Generation2"
+   -VpnType RouteBased -GatewaySku VpnGw2AZ -VpnGatewayGeneration "Generation2"
    ```
 
 After you finish the commands, it will take 45 minutes or more to create this gateway. If you're using Azure Cloud Shell, you can restart your Cloud Shell session by clicking in the upper left of the Cloud Shell terminal, then configure TestVNet4. You don't need to wait until the TestVNet1 gateway completes.
@@ -232,7 +232,7 @@ Create TestVNet4. Use the following steps, replacing the values with your own wh
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name $GWName4 -ResourceGroupName $RG4 `
    -Location $Location4 -IpConfigurations $gwipconf4 -GatewayType Vpn `
-   -VpnType RouteBased -GatewaySku VpnGw2 -VpnGatewayGeneration "Generation2"
+   -VpnType RouteBased -GatewaySku VpnGw2AZ -VpnGatewayGeneration "Generation2"
    ```
 
 ### Step 4: Create the connections
@@ -373,7 +373,7 @@ This step must be done in the context of the new subscription. This part might b
 
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name $GWName5 -ResourceGroupName $RG5 -Location $Location5 `
-   -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw2 -VpnGatewayGeneration "Generation2"
+   -IpConfigurations $gwipconf5 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw2AZ -VpnGatewayGeneration "Generation2"
    ```
 
 ### Step 8: Create the connections

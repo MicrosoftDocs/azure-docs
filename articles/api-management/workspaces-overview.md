@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 05/21/2026
+ms.date: 06/12/2026
 ms.author: danlep
 #customer intent: As administrator of an API Management instance, I want to learn about using workspaces to manage APIs in a decentralized way, so that I can enable my development teams to manage and productize their own APIs.
 ms.custom:
@@ -44,7 +44,7 @@ In Azure API Management, use *workspaces* to implement federated API management.
 * Each workspace team can gather and analyze gateway resource logs to monitor their own workspace APIs, while the platform team has federated access to logs across all workspaces in the API Management service, providing oversight, security, and compliance across their API ecosystem.
 
 
-:::image type="content" source="media/workspaces-overview/workspace-concept.png" alt-text="Conceptual diagram of API Management service with workspaces.":::
+:::image type="content" source="media/workspaces-overview/workspace-concept.png" alt-text="Conceptual diagram of API Management service with workspaces and optional workspace gateway.":::
 
 [!INCLUDE [api-management-workspace-intro-note](../../includes/api-management-workspace-intro-note.md)]
 

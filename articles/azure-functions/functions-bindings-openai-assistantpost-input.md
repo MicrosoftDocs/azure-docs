@@ -35,7 +35,7 @@ Go support isn't currently available for this binding.
 ::: zone pivot="programming-language-csharp"  
 This example demonstrates the creation process, where the HTTP POST function that sends user prompts to the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantApis.cs" range="58-68"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantApis.cs" range="58-68":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"

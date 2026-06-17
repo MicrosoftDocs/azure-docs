@@ -6,7 +6,7 @@ description: How to access Azure AD B2C audit logs programmatically and in the A
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 
 ms.date: 01/22/2024

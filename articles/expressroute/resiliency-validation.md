@@ -35,7 +35,8 @@ Resiliency validation is a feature that assesses the resiliency of network conne
 
 - The Resiliency Validation feature is supported only for ExpressRoute gateways connected to ExpressRoute circuits in at least two distinct peering locations.
 - The **Route List** tab can only be refreshed once per hour.
-- This feature isn't supported for Virtual WAN or ExpressRoute Metro yet.
+- This feature is in **Preview** for Virtual WAN.
+- This feature is not supported for ExpressRoute Metro yet.
 - You can't run the Resiliency Validation test if there are any ongoing tests or if any of the circuits are currently undergoing maintenance.
 
 ## Prerequisites

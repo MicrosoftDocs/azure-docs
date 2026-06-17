@@ -6,7 +6,7 @@ description: Restoring the b2c-extensions-app.
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 09/11/2024

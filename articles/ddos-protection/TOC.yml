@@ -59,6 +59,8 @@
       href: ../load-balancer/tutorial-protect-load-balancer-ddos.md?toc=/azure/ddos-protection/TOC.json
 - name: Secure
   items:
+    - name: Secure DDoS Protection deployment
+      href: secure-ddos-protection.md
     - name: DDoS Protection on Front Door
       href: ../frontdoor/front-door-ddos.md?toc=/azure/ddos-protection/TOC.json
     - name: Defend against API Management DDoS attacks

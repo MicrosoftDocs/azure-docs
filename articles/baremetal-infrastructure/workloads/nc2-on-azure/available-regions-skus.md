@@ -6,10 +6,10 @@ ms.author: jacobjaygbay
 description: Learn about the available regions and SKUs for Nutanix Cloud Clusters on Azure.
 
 ms.topic: reference
-ms.subservice: baremetal-nutanix
+ms.subservice: nutanix
 ms.custom: references_regions
 ms.date: 05/08/2026
-ms.service: azure-baremetal-infrastructure
+ms.service: baremetal-infrastructure-azure
 # Customer intent: As a cloud architect, I want to understand the available SKUs and regions for Nutanix Cloud Clusters on Azure, so that I can properly plan the deployment of my infrastructure to meet organizational needs.
 ---
 

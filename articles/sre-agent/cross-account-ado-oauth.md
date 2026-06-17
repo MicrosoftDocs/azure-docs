@@ -3,7 +3,7 @@ title: Cross-Account Azure DevOps Access in Azure SRE Agent
 description: Learn how to connect to Azure DevOps organizations across tenants in Azure SRE Agent.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 04/03/2026
+ms.date: 06/08/2026
 author: dm-chelupati
 ms.author: dchelupati
 ms.ai-usage: ai-assisted
@@ -25,14 +25,7 @@ Your incident investigation points to a code change, but the repository lives in
 
 ## How cross-account access works
 
-When you add a repository from an Azure DevOps organization in a different tenant, you sign in with the right account through a browser popup:
-
-1. **Open "Add repository"** from your agent's Knowledge sources settings.
-1. **Select Azure DevOps** as the platform and choose **Auth** as the authentication method.
-1. **Enter the organization name** of the target ADO org.
-1. **Select "Sign in to Azure DevOps"**. A confirmation dialog shows the permissions being granted.
-1. **Select "Authorize"**. A sign-in popup opens where you select or sign in with the account that has access to the target organization.
-1. **Repositories from the other org appear** in the repository picker, sorted alphabetically.
+When you add a repository from an Azure DevOps organization in a different tenant, a browser popup lets you select or sign in with the account that has access to the target organization. After you authorize, a token is stored server-side and your agent gains immediate access to repositories, wikis, and code in that organization. For step-by-step authorization instructions, see [Tutorial: Set up cross-account Azure DevOps access](cross-account-azdo-oauth-authorization.md).
 
 ## What makes this different
 

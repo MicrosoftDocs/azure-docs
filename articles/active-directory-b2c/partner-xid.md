@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Configure Azure Active Directory B2C with xID for passwordless authentication
 author: gargi-sinha
 manager: martinco
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 10/11/2024
 ms.author: gasinh

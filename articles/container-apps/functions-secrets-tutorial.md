@@ -53,8 +53,11 @@ Set the `AzureWebJobsSecretStorageType` environment variable to choose a storage
 | **Azure Blob Storage** | `blob` | Legacy apps or existing `AzureWebJobsStorage` dependency | [Configure host keys](functions-secrets-host-keys.md#configure-blob-storage) |
 | **Local file system** | `files` | **Not recommended on Container Apps** - see warning | N/A |
 
+> [!NOTE]
+> For Functions on Azure Container Apps, the platform defaults to `containerapp` (Container Apps secret store) when `AzureWebJobsSecretStorageType` isn't explicitly set. This means access keys are managed by the Container Apps platform's native secret store by default. You can override this default by setting `AzureWebJobsSecretStorageType` to `keyvault` or `blob` if your workload requires a different backend.
+
 > [!WARNING]
-> The Azure Functions host defaults to `files` (local file system) when `AzureWebJobsSecretStorageType` isn't set. On Azure Container Apps, the file system is **ephemeral**. Host keys stored with `files` are lost on every restart, scale-to-zero event, or revision deployment. Always configure one of the three production backends listed here.
+> Don't set `AzureWebJobsSecretStorageType` to `files`. On Azure Container Apps, the file system is **ephemeral**. Host keys stored with the `files` backend are lost on every restart, scale-to-zero event, or revision deployment.
 
 ## Next steps
 

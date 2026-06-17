@@ -3,7 +3,7 @@ title: Create and manage tests
 titleSuffix: Azure Load Testing
 description: 'Learn how to create and manage tests in your Azure Load Testing resource.'
 services: load-testing
-ms.service: azure-load-testing
+ms.service: azure-app-testing
 ms.author: nandinim
 author: nandinimurali
 ms.date: 05/10/2023

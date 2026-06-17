@@ -63,6 +63,7 @@ The architecture involves the following components:
 * By default, the Time-to-Live (TTL) for both positive and negative user/group authentication entries in the NFS credential cache is set to 1 hour.
 * You should contact Red Hat (IdM) Support for any IdM availability, connectivity, or directory/authentication issues observed directly on the IdM server. You should contact NetApp Support for issues relating to Azure NetApp Files integration, configuration, or access.
 * You should contact Oracle Support for any LDAP connectivity or directory data issues observed directly with Oracle Unified Directory. You should contact NetApp Support for issues relating to Azure NetApp Files integration and operations.
+* Authentication using specified Bind DN and password (simple authentication type) is not supported in government region.
 
 ## Register the feature
 

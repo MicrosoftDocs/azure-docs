@@ -43,9 +43,25 @@ To maximize the [performance](firewall-performance.md) of your Azure Firewall an
    - Azure Firewall Premium uses advanced hardware and offers a higher-performing underlying engine.
    - It's best for heavier workloads and higher traffic volumes.
    - It also includes built-in accelerated networking software, which can achieve throughput of up to 100 Gbps, unlike the Standard version.
-- **Add multiple public IP addresses to the firewall to prevent SNAT port exhaustion**
-   - To prevent SNAT port exhaustion, consider adding multiple public IP addresses (PIPs) to your firewall. Azure Firewall provides [2,496 SNAT ports per each additional PIP](../nat-gateway/tutorial-hub-spoke-nat-firewall.md).
-   - If you prefer not to add more PIPs, you can add an Azure NAT Gateway to scale SNAT port usage. This solution provides advanced SNAT port allocation capabilities.
+- **Prevent SNAT port exhaustion**
+
+   When your firewall runs low on SNAT ports, you have two options to scale outbound connectivity. Choose the option that best fits your cost and scalability needs.
+
+   - **Option 1: Add multiple public IP addresses**
+
+      Add more public IP addresses (PIPs) to your firewall. Azure Firewall provides [2,496 SNAT ports per each additional PIP](../nat-gateway/tutorial-hub-spoke-nat-firewall.md), and you can associate up to 250 PIPs. For steps, see [Deploy an Azure Firewall with multiple public IP addresses](deploy-multi-public-ip-powershell.md).
+
+      - **Advantages**: Lower cost, simple to configure, and no extra resources to manage.
+      - **Disadvantages**: Each PIP adds a fixed number of SNAT ports, so capacity scales linearly. You must also allow every PIP in any downstream IP filtering.
+
+   - **Option 2: Use a NAT gateway**
+
+      Associate an [Azure NAT Gateway](../nat-gateway/nat-overview.md) with the firewall subnet to scale SNAT ports dynamically. For steps, see [Scale SNAT ports with Azure NAT Gateway](integrate-with-nat-gateway.md).
+
+      - **Advantages**: Provides up to 64,512 SNAT ports per public IP address and dynamically allocates ports across the subnet for greater scale and resiliency.
+      - **Disadvantages**: Adds another resource to deploy and manage, and isn't supported in the secured virtual hub (vWAN) architecture.
+
+   If you're cost sensitive, use Option 1. If you need a more scalable and robust solution, use Option 2.
 - **Start with IDPS Alert mode before you enable Alert + Deny mode**
    - While the *Alert + Deny* mode offers enhanced security by blocking suspicious traffic, it can also introduce more processing overhead. If you disable this mode, you might observe performance improvement, especially in scenarios where the firewall is primarily used for routing and not deep packet inspection.
    - It's essential to remember that traffic through the firewall is denied by default until you explicitly configure *allow* rules. Therefore, even when IDPS *Alert + Deny* mode is disabled, your network remains protected, and only explicitly permitted traffic is allowed to pass through the firewall. It can be a strategic choice to disable this mode to optimize performance without compromising the core security features provided by the Azure Firewall.

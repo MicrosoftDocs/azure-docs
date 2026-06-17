@@ -2,7 +2,7 @@
 title: Azure Backup - Archive tier overview 
 description: Learn about Archive tier support for Azure Backup.
 ms.topic: overview
-ms.date: 06/24/2025
+ms.date: 12/16/2025
 ms.custom: references_regions
 ms.service: azure-backup
 author: AbhishekMallick-MS

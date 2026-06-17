@@ -76,7 +76,7 @@ You can enable Microsoft Entra Domain Services authentication over SMB only afte
 To enable Microsoft Entra Domain Services authentication over SMB by using the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. In the Azure portal, go to your existing storage account, or [create a storage account](../common/storage-account-create.md).
-1. Select **Data storage** > **File shares**.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
 1. In the **File share settings** section, select **Identity-based access: Not configured**.
 
     :::image type="content" source="media/storage-files-identity-auth-domain-services-enable/enable-entra-storage-account-identity.png" alt-text="Screenshot of the file shares pane in your storage account, identity-based access is highlighted." lightbox="media/storage-files-identity-auth-domain-services-enable/enable-entra-storage-account-identity.png":::

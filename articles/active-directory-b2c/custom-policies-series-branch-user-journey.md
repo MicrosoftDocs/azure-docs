@@ -6,7 +6,7 @@ description: Learn how to create branching in user journeys using Azure AD B2C c
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 03/21/2025

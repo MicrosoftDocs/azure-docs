@@ -57,7 +57,7 @@ Besides subscribing to Microsoft Graph API events via Event Grid, you have [othe
 
 - You're developing an event-driven solution that uses events from Microsoft Entra ID, Outlook, or Teams to react to resource changes. You need the robust event-driven model and publish-subscribe capabilities that Event Grid provides. For an overview of Event Grid, see [Event Grid concepts](concepts.md).
 - You want to use Event Grid to route events to multiple destinations using a single Graph API subscription and you want to avoid managing multiple Graph API subscriptions.
-- You need to route events to different downstream applications, webhooks, or Azure services based on some properties in the event. For example, you might want to route event types such as `Microsoft.Graph.UserCreated` and `Microsoft.Graph.UserDeleted` to a specialized application that processes users' onboarding and off-boarding. You might also want to send `Microsoft.Graph.UserUpdated` events to another application that syncs contacts information, for example. You can achieve that using a single Graph API subscription when using Event Grid as a notification destination. For more information, see [event filtering](event-filtering.md) and [event handlers](event-handlers.md).
+- You need to route events to different downstream applications, webhooks, or Azure services based on some properties in the event. For example, you might want to route event types such as `Microsoft.Graph.UserUpdated` and `Microsoft.Graph.UserDeleted` to a specialized application that processes users' onboarding and off-boarding. You might also want to send `Microsoft.Graph.UserUpdated` events to another application that syncs contacts information, for example. You can achieve that using a single Graph API subscription when using Event Grid as a notification destination. For more information, see [event filtering](event-filtering.md) and [event handlers](event-handlers.md).
 - Interoperability is important to you. You want to forward and handle events in a standard way using Cloud Native Computing Foundation (CNCF) [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md) specification standard.
 - You value the extensibility support that CloudEvents provides. For example, to trace events across compliant systems, use the CloudEvents extension [Distributed Tracing](https://github.com/cloudevents/spec/blob/v1.0.1/extensions/distributed-tracing.md). Learn more about [CloudEvents extensions](https://github.com/cloudevents/spec/blob/v1.0.1/documented-extensions.md).
 - You use proven event-driven approaches adopted by the industry.
@@ -108,7 +108,7 @@ POST https://graph.microsoft.com/v1.0/subscriptions
 Content-type: application/json
 
 {
-    "changeType": "Updated,Deleted,Created",
+    "changeType": "Updated,Deleted",
     "notificationUrl": "EventGrid:?azuresubscriptionid=8A8A8A8A-4B4B-4C4C-4D4D-12E12E12E12E&resourcegroup=yourResourceGroup&partnertopic=yourPartnerTopic&location=theNameOfAzureRegionFortheTopic",
     "lifecycleNotificationUrl": "EventGrid:?azuresubscriptionid=8A8A8A8A-4B4B-4C4C-4D4D-12E12E12E12E&resourcegroup=yourResourceGroup&partnertopic=yourPartnerTopic&location=theNameOfAzureRegionFortheTopic",
     "resource": "users",
@@ -143,7 +143,7 @@ Content-type: application/json
 
 ---
 
-- `changeType`: the kind of resource changes for which you want to receive events. Valid values: `Updated`, `Deleted`, and `Created`. You can specify one or more of these values separated by commas.
+- `changeType`: the kind of resource changes for which you want to receive events. Valid values: `Updated`, and `Deleted` (`Created` is not supported by Graph, check Graph documentation for more details). You can specify one or more of these values separated by commas.
 - `notificationUrl`: a URI used to define the partner topic to which events are sent. It must conform to the following pattern: `EventGrid:?azuresubscriptionid=<you-azure-subscription-id>&resourcegroup=<your-resource-group-name>&partnertopic=<the-name-for-your-partner-topic>&location=<the-Azure-region-name-where-you-want-the-topic-created>`. The location (also known as Azure region) `name` can be obtained by executing the **az account list-locations** command. Don't use a location display name. For example, don't use West Central US. Use `westcentralus` instead.
    ```azurecli-interactive
     az account list-locations

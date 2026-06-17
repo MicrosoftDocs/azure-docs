@@ -1,0 +1,276 @@
+---
+title: Manage approval requests in Azure Virtual Enclaves
+description: Learn how to review, approve, and reject approval requests in Azure Virtual Enclaves.
+author: aserfass-msft
+ms.author: aserfass
+ms.topic: how-to
+ms.date: 1/26/2026
+ai-usage: ai-assisted
+---
+
+# Manage approval requests in Azure Virtual Enclaves
+
+This article explains how to review, approve, and reject approval requests in Azure Virtual Enclaves. Users with the Enclave Approver role can manage approval requests to ensure proper oversight of critical infrastructure changes.
+
+> [!IMPORTANT]
+> 
+> The Approvals feature is currently in **Preview**. Access to this preview requires enrollment and approval from the Azure Virtual Enclaves team. This feature is encouraged for testing but shouldn't be used for production workloads.
+
+## Prerequisites
+
+To manage approval requests, you need:
+
+- The **Enclave Approver** role assigned at the enclave or community level
+- Access to the Azure portal or Azure CLI
+- Permissions to view the resources related to the approval request
+
+## View pending approval requests
+
+### [Portal](#tab/portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. Navigate to your Azure Virtual Enclaves enclave or community resource.
+
+3. In the left navigation menu, select `Approvals`.
+
+4. The Approvals page displays all pending, approved, and rejected requests.
+
+5. Use the filters to view specific types of requests:
+   - `Approval status`: `Pending`, `Approved`, `Rejected`
+   - `Requestor`: Filter by who submitted the request
+   - `Requested on`: Filter by submission date/time range
+   - `Parent Resource`: Filter to the enclave or community of interest
+   - `Action Type` (if shown in your portal experience): Filter by the requested operation
+
+---
+
+## Review an approval request
+
+Before approving or rejecting a request, carefully review the details:
+
+### [Portal](#tab/portal)
+
+1. In the `Approvals` list, select the request you want to review.
+
+2. The approval details page displays:
+   - `Request type`: The type of resource or operation (for example, `Enclave Connection`)
+   - `Requested by`: The user who submitted the request
+   - `Request date`: When the request was submitted
+   - `Resource details`: Information about the resource being created or modified
+   - `Justification`: The reason provided by the requester (if available)
+   - `Impact assessment`: Potential effect of approving the request
+   - `Security considerations`: Security implications of the change
+
+3. Review all information carefully before making a decision.
+
+---
+
+## Approve a request
+
+After reviewing a request, approve it to allow the change to proceed:
+
+### [Portal](#tab/portal)
+
+1. On the approval details page, select `Approve`.
+
+2. In the approval dialog:
+   - `Add comments` (optional): Provide context or conditions for the approval
+
+3. Select `Confirm` to approve the request.
+
+4. The request status changes to `Approved` and the resource change is automatically implemented.
+
+---
+
+## Reject a request
+
+If a request doesn't meet approval criteria, reject it with a clear explanation:
+
+### [Portal](#tab/portal)
+
+1. On the approval details page, select `Reject`.
+
+2. In the rejection dialog:
+   - `Reason for rejection` (required): Explain why the request is being rejected
+   - `Suggestions` (optional): Provide guidance on how to resubmit the request
+
+3. Select `Confirm` to reject the request.
+
+4. The request status changes to `Rejected` and the resource change won't be implemented.
+
+---
+
+## Common approval scenarios
+
+### Approving enclave creation
+
+When reviewing an enclave creation request:
+
+1. **Validate purpose and ownership**: Confirm the enclave has a clear business purpose and accountable owners
+2. **Check placement and scope**: Verify the enclave is being created in the correct community and scope
+3. **Review baseline security expectations**: Ensure required governance and security controls are planned
+4. **Confirm naming and lifecycle standards**: Validate alignment with naming, tagging, and lifecycle requirements
+
+**Example approval**: "Approved. New enclave supports the approved workload onboarding plan and meets ownership and governance requirements."
+
+**Example rejection**: "Rejected. Enclave purpose and ownership are incomplete. Provide accountable owners and updated deployment justification before resubmitting."
+
+### Approving a maintenance mode change
+
+When reviewing a maintenance mode request:
+
+1. **Verify maintenance window**: Confirm the change aligns to an approved maintenance window
+2. **Validate impact communication**: Ensure affected stakeholders are informed
+3. **Check rollback/readiness plans**: Confirm there is a clear rollback or completion plan
+4. **Assess operational risk**: Review service and dependency impact before approval
+
+**Example approval**: "Approved. Maintenance mode is scheduled in the approved change window with a documented rollback plan."
+
+**Example rejection**: "Rejected. Maintenance window and service impact plan are missing. Add operational readiness details and resubmit."
+
+### Approving an enclave connection
+
+When reviewing an enclave connection request:
+
+1. **Verify the source and destination**: Ensure the connection is between authorized enclaves or external endpoints
+2. **Check network rules**: Review the firewall rules and network security group configurations
+3. **Validate business justification**: Confirm there's a legitimate business need for the connection
+4. **Assess security implications**: Evaluate whether the connection poses any security risks
+5. **Review compliance requirements**: Ensure the connection meets organizational compliance standards
+
+**Example approval**: "Approved. Connection between production and logging enclave is necessary for centralized log aggregation. Security team has verified firewall rules."
+
+**Example rejection**: "Rejected. Connection to external endpoint requires more security review. Submit a detailed security assessment and obtain InfoSec approval before resubmitting."
+
+### Approving an enclave endpoint
+
+When reviewing an enclave endpoint request:
+
+1. **Review endpoint rules**: Check the network rules being added or modified
+2. **Verify allowed/denied traffic**: Ensure the endpoint controls align with security policies
+3. **Check for overly permissive rules**: Look for rules that might grant excessive access
+4. **Validate compliance**: Confirm the endpoint configuration meets compliance requirements
+
+**Example approval**: "Approved. Endpoint configuration follows least-privilege principles and has been reviewed by the network security team."
+
+**Example rejection**: "Rejected. Endpoint allows traffic from 0.0.0.0/0, which violates security policy. Restrict to specific IP ranges and resubmit."
+
+### Approving a community endpoint
+
+When reviewing a community endpoint request:
+
+1. **Assess external connectivity**: Verify the external destination is trusted and necessary
+2. **Review transit hub configuration**: If VPN or ExpressRoute is involved, ensure proper configuration
+3. **Check firewall rules**: Verify Azure Firewall rules are appropriately restrictive
+4. **Validate third-party access**: If allowing access to/from external parties, ensure proper authorization
+
+**Example approval**: "Approved. VPN connection to partner network is required for data exchange as specified in the partnership agreement. Connection is properly secured with IPsec."
+
+**Example rejection**: "Rejected. External connection requires approval from the Chief Information Security Officer (CISO). Obtain written approval and attach to the request."
+
+## Bulk approval operations
+
+For multiple related requests, you can perform bulk operations:
+
+### [Portal](#tab/portal)
+
+1. In the `Approvals` list, select the checkbox next to multiple pending requests.
+
+2. Select `Bulk Actions` > `Approve selected` or `Reject selected`.
+
+3. Provide comments or rejection reasons that apply to all selected requests.
+
+4. Select `Confirm` to process all requests.
+
+---
+
+## View approval history
+
+To maintain compliance and audit trails, you can review the history of all approval decisions:
+
+### [Portal](#tab/portal)
+
+1. Navigate to your enclave or community resource.
+
+2. Select `Approvals` in the left navigation menu.
+
+3. Select the `History` tab to view all past approvals and rejections.
+
+4. Filter by:
+   - `Date range`: View approvals within a specific timeframe
+   - `Approver`: See decisions made by specific approvers
+   - `Status`: View only approved or rejected requests
+   - `Request type`: Filter by resource type
+
+5. Select any historical request to view full details including comments and timestamps.
+
+---
+
+## Notification behavior
+
+The Approvals feature doesn't currently provide a built-in email notification option for approval requests.
+
+Use your organization's monitoring and operational processes to track and triage pending approvals.
+
+## Best practices for approval management
+
+When managing approval requests:
+
+1. **Review promptly**: Respond to approval requests in a timely manner to avoid blocking legitimate operations
+
+2. **Provide clear feedback**: When rejecting requests, explain the reason and provide guidance for resubmission
+
+3. **Document decisions**: Add comments to approvals explaining the reasoning, especially for complex decisions
+
+4. **Use consistent criteria**: Apply the same approval standards across similar requests to ensure fairness
+
+5. **Escalate when needed**: If uncertain about a request, escalate to senior leadership or security teams
+
+6. **Regular audits**: Periodically review approval history to identify patterns or potential issues
+
+7. **Update policies**: Based on approval patterns, update governance policies to improve the process
+
+8. **Communicate with requesters**: For complex requests, consider discussing with the requester before making a decision
+
+## Delegate approval authority
+
+In some cases, you may need to temporarily delegate approval authority:
+
+1. Navigate to `Access control (IAM)` for the enclave or community.
+
+2. Assign the **Enclave Approver** role to the delegate.
+
+3. Set an expiration date for temporary delegations.
+
+4. For permanent delegation, consider using Azure PIM with appropriate approval workflows.
+
+[Learn more about role assignments](./role-based-access-controls.md)
+
+## Troubleshooting
+
+### Can't see pending approval requests
+
+**Cause**: You don't have the Enclave Approver role or the role is assigned at the wrong scope.
+
+**Solution**: Verify with your administrator that you have the Enclave Approver role assigned at the appropriate level (enclave or community).
+
+### Approved request isn't being implemented
+
+**Cause**: The resource may have conflicts or insufficient permissions to complete the deployment.
+
+**Solution**: Check Azure Activity Logs for errors. Ensure the system has the necessary permissions to implement the approved change.
+
+### Unable to approve or reject
+
+**Cause**: The request may have been already processed by another approver, or there's a permission issue.
+
+**Solution**: Refresh the page to see the current status. If the issue persists, verify your role assignment.
+
+## Next steps
+
+- [Configure Approvals](./configure-approvals.md)
+- [Learn about the Approvals feature](./what-approvals.md)
+- [Understand Azure Virtual Enclaves RBAC](./built-in-rbac-roles.md)
+- [Configure Just-in-Time Access](./just-in-time-access.md)
+- [Create an enclave connection](./create-enclave-connection-portal.md)

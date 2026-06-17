@@ -3,14 +3,14 @@ title: Create portal forms for template spec
 description: Learn how to create forms that are displayed in the Azure portal forms. Use the form to deploy a template spec.
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 10/29/2025
+ms.date: 05/29/2026
 ---
 
 # Tutorial: Create Azure portal forms for a template spec
 
-You can create a form that appears in the Azure portal to assist users in deploying a [template spec](template-specs.md). The form allows users to enter values that are passed as parameters to the template spec.
+You can create a *Form view* that appears in the Azure portal to assist users in deploying a [template spec](template-specs.md). A Form view is described in JSON; the Azure portal renders the form at runtime from that JSON. For a conceptual introduction to Form view independent of template specs, see [Form view overview](form-view-overview.md).
 
-When you create the template spec, you package the form and Azure Resource Manager template (ARM template) together. Deploying the template spec through the portal automatically launches the form.
+When you create the template spec, you package the Form view and Azure Resource Manager template (ARM template) together. Deploying the template spec through the portal automatically launches the form.
 
 The following screenshot shows a form opened in the Azure portal.
 
@@ -411,4 +411,6 @@ Notice that your permission fields are now drop-downs that allow multiple values
 
 ## Next steps
 
-To learn about deploying a template spec as a linked template, see [Tutorial: Deploy a template spec as a linked template](template-specs-deploy-linked-template.md).
+- For a conceptual introduction to Form view, see [Form view overview](form-view-overview.md).
+- For the full list of supported controls, see [Form view elements](form-view-elements.md).
+- To learn about deploying a template spec as a linked template, see [Tutorial: Deploy a template spec as a linked template](template-specs-deploy-linked-template.md).

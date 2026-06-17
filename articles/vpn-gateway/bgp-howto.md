@@ -5,7 +5,7 @@ description: Learn how to configure BGP for Azure VPN Gateway using the Azure po
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 10/16/2024
+ms.date: 06/09/2026
 ms.author: cherylmc 
 
 # Customer intent: As a network administrator, I want to configure BGP for my VPN gateway, so that I can enable dynamic routing and enhance connectivity between my on-premises networks and Azure resources.
@@ -66,7 +66,7 @@ In this step, you create a VPN gateway with the corresponding BGP parameters.
      * Region: EastUS
      * Gateway type: VPN
      * VPN type: Route-based
-     * SKU: VpnGW1 or higher
+     * SKU: VpnGw1AZ or higher
      * Generation: select a generation
      * Virtual network: TestVNet1
 

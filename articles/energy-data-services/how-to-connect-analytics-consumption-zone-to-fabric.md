@@ -59,11 +59,7 @@ The approach for connecting ACZ data depends on whether your Fabric workspace is
 
 ### For schema-enabled workspaces
 
-Schema-enabled workspaces require that data follows a structured schema → tables organization. Choose one of the following options:
-
-#### Option 1: Create a table shortcut at the schema level
-
-This approach creates a shortcut directly to the `osducatalog` table within your lakehouse schema:
+Schema-enabled workspaces require that data follows a structured schema → tables organization. Create a table shortcut at the schema level:
 
 1. Open your lakehouse.
 2. In the **Explorer** pane, expand the schema (for example, **dbo**).
@@ -84,28 +80,6 @@ This approach creates a shortcut directly to the `osducatalog` table within your
 10. Select **Next** to review your selections, then select **Create**.
 
 After you create the shortcut, the `osducatalog` table appears in your schema and can be queried directly.
-
-#### Option 2: Load to table from Files
-
-This approach creates a shortcut in the Files section, then loads it as a table:
-
-1. Open your lakehouse.
-2. In the **Explorer** pane, right-click on **Files** in OneLake.
-3. Select **New shortcut**.
-4. Under **External sources**, select **Azure Data Lake Storage Gen2**.
-5. Enter the connection settings as described in Option 1.
-6. Select **Next**.
-7. Browse to the container and select the base folder that contains your ACZ data (the folder containing the `<aczId>` subfolder).
-8. Select **Next** to review your selections, then select **Create**.
-9. After the shortcut is created, expand the shortcut in the **Files** pane to navigate to the `osducatalog` folder.
-10. Right-click on **osducatalog** and select **Load to Table** > **New table**.
-11. In the dialog:
-    - Select the target schema (for example, **dbo**).
-    - Enter a table name (for example, `osducatalog`).
-    - Set the file type to **Parquet**.
-12. Select **Load**.
-
-The ACZ data now appears as a table in your schema's Tables section.
 
 ### For non-schema-enabled workspaces
 

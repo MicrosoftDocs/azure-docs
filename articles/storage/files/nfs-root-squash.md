@@ -57,7 +57,7 @@ For Azure classic file shares that use the Microsoft.Storage resource provider, 
 
 1. Sign in to the Azure portal and navigate to the FileStorage storage account containing the NFS Azure file share.
 
-1. In the service menu, under **Data storage**, select **File shares**.
+1. In the service menu, under **Data storage**, select **Classic file shares**.
 
 1. Select the file share for which you want to modify the root squash setting.
 
@@ -183,16 +183,16 @@ For Azure file shares that use the Microsoft.FileShares resource provider, you c
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-To change the root squash setting on a file share (Microsoft.FileShares) using PowerShell, run the following commands. Replace the variables with your intended values. Allowed values for `-NfProtocolPropertyRootSquash` are `AllSquash`, `NoRootSquash`, and `RootSquash`.
+To change the root squash setting on a file share (Microsoft.FileShares) using PowerShell, run the following commands. Replace the variables with your intended values. Allowed values for `-RootSquash` are `AllSquash`, `NoRootSquash`, and `RootSquash`.
 
 ```powershell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/0.1.0
-Install-Module -Name Az.FileShare -Repository psgallery -RequiredVersion 0.1.0
+# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
+Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
 
 $resourceGroup = "<your-resource-group-name>"
 $shareName = "<your-file-share-name>"
 
-Update-AzFileShare -ResourceName $shareName -ResourceGroupName $resourceGroup -NfProtocolPropertyRootSquash RootSquash
+Update-AzFileShare -ResourceName $shareName -ResourceGroupName $resourceGroup -RootSquash RootSquash
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -200,8 +200,8 @@ Update-AzFileShare -ResourceName $shareName -ResourceGroupName $resourceGroup -N
 To change the root squash setting on a file share (Microsoft.FileShares) using Azure CLI, run the following commands. Allowed values for `--root-squash` are `AllSquash`, `NoRootSquash`, and `RootSquash`.
 
 ```bash
-# Install the fileshares extension
-az extension add --name fileshares
+# Install the fileshare extension
+az extension add --name fileshare
 
 # Specify your values
 shareName="<your-file-share-name>"

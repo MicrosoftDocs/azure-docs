@@ -28,7 +28,7 @@ First, verify the identity source that's currently enabled on your storage accou
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and select the storage account.
 
-1. From the service menu, under **Data storage**, select **File shares**.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
 
 1. Next to **Identity-based access**, check the configuration status. If it shows **Configured**, proceed to the next step. If it shows **Not configured**, then no identity source is enabled on the storage account and you can proceed to [Enable a new identity source](#step-3-enable-a-new-identity-source).
 

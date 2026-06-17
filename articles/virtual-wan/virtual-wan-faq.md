@@ -248,7 +248,7 @@ All virtual WAN APIs are OpenAPI. You can go over the documentation [Virtual WAN
 
 ### How is Virtual WAN supporting SD-WAN devices?
 
-Virtual WAN partners automate IPsec connectivity to Azure VPN end points. If the Virtual WAN partner is a SD-WAN provider, then it's implied that the SD-WAN controller manages automation and IPsec connectivity to Azure VPN end points. If the SD-WAN device requires its own end point instead of Azure VPN for any proprietary SD-WAN functionality, you can deploy the SD-WAN end point in an Azure virtual network and coexist with Azure Virtual WAN.
+Virtual WAN partners automate IPsec connectivity to Azure VPN end points. If the Virtual WAN partner is an SD-WAN provider, then it's implied that the SD-WAN controller manages automation and IPsec connectivity to Azure VPN end points. If the SD-WAN device requires its own end point instead of Azure VPN for any proprietary SD-WAN functionality, you can deploy the SD-WAN end point in an Azure virtual network and coexist with Azure Virtual WAN.
 
 Virtual WAN supports [BGP Peering](create-bgp-peering-hub-portal.md) and also has the ability to [deploy NVAs into a virtual WAN hub](how-to-nva-hub.md).
 
@@ -262,7 +262,7 @@ A connection from a branch or VPN device into Azure Virtual WAN is a VPN connect
 
 ### What happens if the on-premises VPN device only has 1 tunnel to an Azure Virtual WAN VPN gateway?
 
-An Azure Virtual WAN connection is composed of 2 tunnels. A Virtual WAN VPN gateway is deployed in a virtual hub in active-active mode, which implies that there are separate tunnels from on-premises devices terminating on separate instances. This is the recommendation for all users. However, if the user chooses to only have 1 tunnel to one of the Virtual WAN VPN gateway instances, if for any reason (maintenance, patches, etc.) the gateway instance is taken offline, the tunnel is moved to the secondary active instance and the user might experience a reconnect. BGP sessions don't move across instances.
+An Azure Virtual WAN connection is composed of 2 tunnels. A Virtual WAN VPN gateway is deployed in a virtual hub in active-active mode, which implies that there are separate tunnels from on-premises devices terminating on separate instances. This is the recommendation for all users. However, if the user chooses to only have 1 tunnel to one of the Virtual WAN VPN gateway instances, if for any reason (maintenance, patches, etc.) the gateway instance is taken offline, the tunnel is moved to the secondary active instance and the user might experience a re-connect. BGP sessions don't move across instances.
 
 ### What happens during a gateway reset in a Virtual WAN VPN gateway?
 
@@ -299,7 +299,7 @@ No. The spoke VNet can't have a Route Server if it's connected to the virtual WA
 
 ### Is there support for BGP in VPN connectivity?
 
-Yes, BGP is supported. When you create a VPN site, you can provide the BGP parameters in it. This implies that any connections created in Azure for that site is enabled for BGP.
+Yes, BGP is supported. When you create a VPN site, you can provide the BGP parameters in it. This implies that all connections created in Azure for that site is configured to use BGP.
 
 ### Is there any licensing or pricing information for Virtual WAN?
 
@@ -377,7 +377,7 @@ For information, see the  [Virtual hub routing preference](about-virtual-hub-rou
 
 ### Does the Virtual WAN hub allow connectivity between ExpressRoute circuits?
 
-Transit between ER-to-ER is available via Global reach. Virtual hub gateways are deployed in DC or Azure regions. When two ExpressRoute circuits connect via Global reach, there's no need for the traffic to come all the way from the edge routers to the virtual hub DC.
+Transit between ER-to-ER is available via Global reach. Virtual hub gateways are deployed in DC or Azure regions. When two ExpressRoute circuits connect via Global reach, traffic is not routed to the Virtual Hub DC and is instead routed directly between the circuits.
 
 Routing Intent can also be used with private traffic routing policies to enable ExpressRoute transit connectivity via a security appliance deployed in the virtual hub.
 
@@ -537,6 +537,12 @@ For more information on the limit and sample scripts to determine the number of 
 Yes but there are limitations. See the [Azure Bastion FAQ](../bastion/bastion-faq.md#vwan) for more details.
 
 ## <a name="vwan-customer-controlled-maintenance"></a>Virtual WAN customer-controlled gateway maintenance
+
+### How does maintenance impact traffic transiting the Virtual WAN Hub router?
+
+Virtual Network to Virtual Network traffic and inter-hub traffic flows are routed via the Virtual WAN Hub router. During maintenance events on the Virtual WAN Hub router, active traffic flows are interrupted. To minimize the impact of such events, tune the TCP timeout value of any applications. A smaller TCP timeout value allows application traffic to recover more quickly from maintenance events. Alternatively, test different application timeout values to determine a suitable timeout based on your requirements. 
+
+For Private Link and Private Endpoint traffic, see [Private Link in Virtual WAN](howto-private-link.md#routing-considerations-with-private-link-in-virtual-wan) for more information.
 
 ### Which services are included in the Maintenance Configuration scope of Network Gateways? 
 

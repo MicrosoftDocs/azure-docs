@@ -39,6 +39,9 @@ items:
           - name: Role assignments
             href: concept-role-assignments.md
             displayName: Microsoft Discovery, RBAC, role assignments, permissions, access control
+          - name: Assign persona roles with a PowerShell script
+            href: how-to-assign-persona-roles.md
+            displayName: Microsoft Discovery, RBAC, persona, Platform Administrator, Scientist, PowerShell, Set-DiscoveryRoleAssignments, onboarding
           - name: Resource Naming
             href: concept-resource-naming.md
             displayName: Microsoft Discovery, resource naming conventions, best practices, organization
@@ -133,6 +136,9 @@ items:
     items:
       - name: Identity & Access
         items:
+          - name: Assign persona roles with a PowerShell script
+            href: how-to-assign-persona-roles.md
+            displayName: Microsoft Discovery, RBAC, persona, Platform Administrator, Scientist, PowerShell, Set-DiscoveryRoleAssignments, onboarding
           - name: Configure managed identities
             href: how-to-configure-managed-identity.md
             displayName: Microsoft Discovery, managed identity, UAMI, role assignments, authentication

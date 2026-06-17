@@ -185,3 +185,5 @@ Console.WriteLine(result.ToString());
 - [ActionMock Class Definition](action-mock-class-definition.md)
 - [TriggerMock Class Definition](trigger-mock-class-definition.md)
 - [TestWorkflowRun Class Definition](test-workflow-run-class-definition.md)
+- [LiquidDataMapTestExecutor class](liquid-data-map-test-executor-class-definition.md)
+- [TestLiquidTransformKind enum](test-liquid-transform-kind-enum-definition.md)

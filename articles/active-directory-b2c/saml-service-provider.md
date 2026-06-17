@@ -6,7 +6,7 @@ description: Learn how to configure Azure Active Directory B2C to provide SAML p
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 02/19/2025
