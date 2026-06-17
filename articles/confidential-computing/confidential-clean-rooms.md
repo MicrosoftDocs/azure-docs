@@ -15,7 +15,7 @@ Azure Confidential Clean Rooms offers a protected environment, called a *clean r
 
 Typical scenarios include multi-party big-data analytics on combined datasets, machine learning (ML) training and fine-tuning where the training data and model come from different parties and multi-party ML inferencing on sensitive inputs.
 
-## Azure Confidential Clean Rooms for Analytics (Preview)
+## Multiparty analytics with Azure Confidential Clean Rooms (Preview)
 
 Azure Confidential Clean Rooms for Analytics is a **fully managed** service that allows customers and their partners to securely analyze privacy-sensitive datasets. It uses **confidential compute enabled Apache Spark-based big-data analytics (Spark SQL)** which helps protect their raw data from other collaborators and from the Azure operator by performing computations in a Trusted Execution Environment (TEE).
 
