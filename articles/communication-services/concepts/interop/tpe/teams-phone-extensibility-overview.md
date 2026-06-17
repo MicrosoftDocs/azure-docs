@@ -5,7 +5,7 @@ description: This article describes features of Teams Phone extensibility (TPE).
 author: henikaraa
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.date: 05/20/2025
+ms.date: 06/11/2026
 ms.topic: overview
 ms.author: henikaraa
 ms.custom: general_availability
@@ -61,6 +61,7 @@ To provision the Teams environment for these extensions, you must enable the fol
 
 ## Conversational AI integration
 
+### Overview
 Conversational AI enables you to automate customer interactions through natural language processing (NLP) and machine learning (ML). Conversational AI can understand and respond to customer queries, providing a seamless and efficient user experience.
 
 Some conversational AI features include:
@@ -84,6 +85,28 @@ The following diagram shows how conversational AI integrates into your call flow
 :::image type="content" source="./media/teams-phone-extensibility-conversational-ai.png" alt-text="Diagram shows how conversational AI integrates into your call flow."  lightbox="./media/teams-phone-extensibility-conversational-ai.png":::
 
 For more information, see [how to connect Azure Communication Services with Azure AI](../../call-automation/azure-communication-services-azure-cognitive-services-integration.md) and [how to get real-time transcription](../../call-automation/real-time-transcription.md).
+
+### Third-party Voice Agents integration with Teams Auto Attendant and Call Queue
+
+Teams Phone extensibility enables third-party Interactive Voice Response (IVR) bots to integrate with both Teams **Auto Attendants** and Teams **Call Queues**. An automated virtual agent (IVR bot) answers inbound customer calls, provides menu-based or conversational assistance, and then transfers the call to the appropriate human agent or department through Azure Communication Services (ACS) Call Automation.
+Two Teams Phone entry points are supported as first-class scenarios:
+- **Auto Attendant → IVR.** A Teams Auto Attendant transfers the call to a resource account associated with the IVR. This pattern is typical when the IVR replaces or augments an Auto Attendant menu with conversational, AI-driven self-service.
+- **Call Queue → IVR (Teams Phone Queues).** A Teams Call Queue transfers the call to the IVR. This pattern unlocks queue-specific behaviors that an Auto Attendant alone cannot express: **overflow**, **timeout**, and **no-agent-available** routing, plus **multi-hop transfer chains** (Call Queue → IVR → another Call Queue, user, voicemail, or PSTN target). Conversation context propagates across these hops so the agent who eventually picks up sees the full handoff history.
+Both scenarios use the same ACS Call Automation APIs and the same custom context schema. The remainder of this section walks through the Auto Attendant variant in detail; the Call Queue variant follows the same call-flow pattern, with the queue's overflow/timeout policies determining where the call lands when no agent is available.
+
+When a caller dials a phone number that is handled by a Teams Auto Attendant, the call can be routed from the Auto Attendant to an ACS-powered IVR bot. The high-level call flow is as follows:
+1. Incoming Call to Auto Attendant: A customer calls a Teams Phone number associated with an Auto Attendant. They navigate the Auto Attendant’s menu (for example, “For Support press 1. For Sales press 2”).
+2. Call Routed to IVR Bot (ACS Application): The Auto Attendant transfers the call to a Teams resource account associated with an Azure Communication Services resource. This triggers an IncomingCall event via Event Grid to the IVR application's webhook endpoint.
+3. Call Notification and Answer: The transfer to the IVR bot triggers an Incoming Call event via Azure Communication Services. The IVR application answers the call using ACS Call Automation APIs. The IVR can play a custom greeting or prompt. It may also establish a media streaming connection if the bot uses an AI service for speech recognition or dialogue.
+4. IVR Self-Service Interaction: The IVR bot engages with the caller to gather information or assist the customer. This could be via DTMF input (key presses) or speech recognition. The IVR can provide information or perform backend lookups based on the caller’s responses.
+5. Call Routing / Handoff to Agent: If the IVR determines that the caller needs to speak with a human or reach a specific department, it can automatically transfer or add a participant to the call using ACS Call Automation.
+6. Agent Conversation: The call reaches the appropriate agent who receives the call along with relevant context (if provided by the IVR), and continues assisting the customer. The IVR’s job is complete at this point, and it can terminate its part in the call.
+
+> [!NOTE]
+> If you are an ISV building an IVR or contact center solution for Teams, consider the Microsoft Teams Phone Unify integration model for Third Party Voice Agents.<!-- TODO: link to the Teams Phone Unify certification program for Third Party Voice Agents once the public URL is available --> Certification ensures your solution meets Microsoft’s quality and compatibility standards for Teams integration. Participating in the certification program can increase customer trust and may be required for listing your solution as a certified Teams contact center/IVR integration.
+
+For more information, see [how to connect Teams Auto Attendant to a third-party IVR](/microsoftteams/aa-cq-plan-third-party-voice-agents).
+
 
 ## Call Routing
 

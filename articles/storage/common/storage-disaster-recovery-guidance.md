@@ -215,10 +215,10 @@ The following table can be used to reference feature support.
 |----------------------------------|-----------------------|-----------------------|
 | **Azure Data Lake Storage**      | Supported             | Supported             |
 | **Change Feed**                  | Unsupported           | Supported             |
-| **Object Replication**           | Unsupported           | Unsupported           |
+| **Object Replication**           | Unsupported           |Supported|
 | **SFTP**                         | Supported             | Supported             |
 | **NFSv3**                        | GRS is unsupported    | GRS is unsupported    |
-| **Storage Actions**              | Supported<sup>1</sup> | Supported<sup>1</sup> | 
+| **Storage Actions**              | Supported<sup>1</sup> | Supported<sup>1</sup> |
 | **Point-in-time restore (PITR)** | Unsupported           | Supported             |
 
 <sup>1</sup> If you initiate a customer-managed planned or unplanned failover, storage tasks can't operate on the account until it fails back to the original primary region. [Learn more](/azure/reliability/reliability-storage-actions#cross-region-disaster-recovery-and-business-continuity).

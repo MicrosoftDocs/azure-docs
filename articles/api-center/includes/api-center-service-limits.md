@@ -7,7 +7,7 @@ services: api-center
 
 ms.service: azure-api-center
 ms.topic: include
-ms.date: 08/22/2025
+ms.date: 06/16/2026
 
 ms.custom: Include file
 ---
@@ -23,10 +23,15 @@ ms.custom: Include file
 | Custom metadata properties per entity<sup>3</sup> | 10 | 20 |
 | Child properties in custom metadata property of type "object" | 10 |10 | 
 | Requests per minute (data plane) | 3,000 | 6,000  |
-| API definitions [analyzed](../enable-managed-api-analysis-linting.md) | 10 | 2,000<sup>4</sup>  |
+| API definitions [analyzed](../enable-managed-api-analysis-linting.md) per 24 hours | 10 | 2,000<sup>4</sup>  |
 | Analysis profiles | 1 | 3 |
+| AI asset assessments per 24 hours | N/A | 2,000  |
 | Linked (integrated) API sources<sup>5</sup> | 1  |  5 |
-| APIs synchronized from a linked API source | 200 | 10,000<sup>4</sup>  |
+| APIs synchronized from a linked API source  | 200 | 10,000<sup>4</sup>  |
+| Assets synchronized from a linked Git source | 100 | 10,000<sup>4</sup>  |
+| Files per asset from a linked Git source | 5 | 15|
+| Files from a linked Git source | 500 | 10,000|
+| File size limit (per file) from a linked Git source | 100 KB | 2 MB |
 | Dependencies | 200 | 200 |
 | Semantic search in API Center portal | No | Yes |
 

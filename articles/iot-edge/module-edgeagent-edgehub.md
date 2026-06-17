@@ -3,7 +3,7 @@ title: Properties of the Azure IoT Edge agent and hub module twins
 description: Review the specific properties and their values for the edgeAgent and edgeHub module twins
 author: sethmanheim
 ms.author: sethm
-ms.date: 05/13/2026
+ms.date: 06/16/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -116,6 +116,15 @@ The module twin for an IoT Edge hub is called **$edgeHub**. It coordinates commu
 | `schemaVersion` | Either 1.0 or 1.1. Version 1.1 was introduced with IoT Edge version 1.0.10, and is recommended. | Yes |
 | `routes.{routeName}` | A string representing an IoT Edge hub route. For more information, see [Declare routes](module-composition.md#declare-routes). | The `routes` element can be present but empty. |
 | `storeAndForwardConfiguration.timeToLiveSecs` | The device time in seconds that IoT Edge hub keeps messages if disconnected from routing endpoints, whether IoT Hub or a local module. This time persists over any power offs or restarts. For more information, see [Offline capabilities](offline-capabilities.md#time-to-live). | Yes |
+
+### EdgeHub environment variables
+
+You can tune some IoT Edge hub behaviors by setting environment variables on the `$edgeHub` module in the deployment manifest. The following variables control how the IoT Edge hub refreshes its device scope cache, which it uses to authenticate downstream devices and modules locally.
+
+| Environment variable | Description |
+| -------------------- | ----------- |
+| `DeviceScopeCacheRefreshRateSecs` | How often, in seconds, the IoT Edge hub refreshes its cache of the devices and modules in its scope by enumerating them from IoT Hub. The default is `3600` (one hour). On a hub with many IoT Edge devices, the combined scope refresh operations from all devices can contribute significantly to the hub's identity operation usage. Increasing this value reduces that load proportionally. For more information, see [IoT Hub identity operation quota is exceeded on a large fleet](troubleshoot-common-errors.md#iot-hub-identity-operation-quota-is-exceeded-on-a-large-fleet). |
+| `DeviceScopeCacheRefreshDelaySecs` | The minimum time, in seconds, that the IoT Edge hub waits before refreshing a single identity again on demand. The default is `120`. This setting limits how often the same identity is refreshed in rapid succession when clients connect. |
 
 ## EdgeHub reported properties
 
