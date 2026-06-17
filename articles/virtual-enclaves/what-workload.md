@@ -111,8 +111,8 @@ flowchart TB
 This is a test
 
 ```mermaid
-    ht --> hb
-    ed --> et
+    ht --- hb
+    ed --- et
 ```
 -->
 
