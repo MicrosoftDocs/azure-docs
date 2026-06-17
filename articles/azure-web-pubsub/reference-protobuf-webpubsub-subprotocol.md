@@ -49,12 +49,21 @@ message UpstreamMessage {
         LeaveGroupMessage leave_group_message = 7;
         SequenceAckMessage sequence_ack_message = 8;
         PingMessage ping_message = 9;
+        StreamDataMessage stream_data_message = 13;
+        StreamEndMessage stream_end_message = 14;
     }
 
     message SendToGroupMessage {
         string group = 1;
         optional uint64 ack_id = 2;
         MessageData data = 3;
+        optional bool no_echo = 4;
+        StreamStartInfo stream = 7;
+    }
+
+    message StreamStartInfo {
+        string stream_id = 1;
+        optional uint32 idle_timeout_ms = 2;
     }
 
     message EventMessage {
@@ -73,7 +82,27 @@ message UpstreamMessage {
         optional uint64 ack_id = 2;
     }
 
+    message SequenceAckMessage {
+        uint64 sequence_id = 1;
+    }
+
     message PingMessage {
+    }
+
+    message StreamDataMessage {
+        string stream_id = 1;
+        optional uint64 stream_sequence_id = 2;
+        MessageData data = 3;
+    }
+
+    message StreamEndMessage {
+        string stream_id = 1;
+        optional StreamEndError error = 2;
+
+        message StreamEndError {
+            optional string message = 1;
+            optional string user_error_code = 2;
+        }
     }
 }
 
@@ -99,6 +128,9 @@ message DownstreamMessage {
         DataMessage data_message = 2;
         SystemMessage system_message = 3;
         PongMessage pong_message = 4;
+        StreamAckMessage stream_ack_message = 6;
+        StreamNackMessage stream_nack_message = 7;
+        StreamClosedMessage stream_closed_message = 8;
     }
     
     message AckMessage {
@@ -116,6 +148,7 @@ message DownstreamMessage {
         string from = 1;
         optional string group = 2;
         MessageData data = 3;
+        StreamInfo stream = 6;
     }
 
     message SystemMessage {
@@ -136,10 +169,45 @@ message DownstreamMessage {
 
     message PongMessage {
     }
+
+    message StreamAckMessage {
+        string stream_id = 1;
+        uint64 expected_sequence_id = 2;
+    }
+
+    message StreamNackMessage {
+        string stream_id = 1;
+        string name = 2;
+        string message = 3;
+        uint64 expected_sequence_id = 4;
+    }
+
+    message StreamClosedMessage {
+        string stream_id = 1;
+        optional StreamClosedError error = 2;
+
+        message StreamClosedError {
+            string name = 1;
+            string message = 2;
+        }
+    }
+}
+
+message StreamInfo {
+    string stream_id = 1;
+    uint64 stream_sequence_id = 2;
+    optional bool end_of_stream = 3;
+    optional StreamError error = 4;
+
+    message StreamError {
+        string name = 1;
+        string message = 2;
+        string user_error_code = 3;
+    }
 }
 ```
 
-Messages received by the client can be in any of three types: `ack`, `message`, `system` or `pong`. 
+Messages received by the client can be `ack`, `message`, `system`, `pong`, `streamAck`, `streamNack`, or `streamClosed`.
 
 ### Ack response
 
@@ -163,6 +231,38 @@ The sender's `dataType` will cause one of the following messages to be sent:
 * If `dataType` is `binary`, use `message_response_message.data.binary_data`. 
 * If `dataType` is `protobuf`, use `message_response_message.data.protobuf_data`. 
 * If `dataType` is `json`, use `message_response_message.data.text_data`, and the content is a serialized JSON string.
+
+When a group message belongs to a stream, `DownstreamMessage.DataMessage.stream` is set.
+
+* `stream.stream_id` is the logical stream identifier.
+* `stream.stream_sequence_id` is the sequence number of the message in the stream.
+* `stream.end_of_stream` is optional. When set to `true`, the message is the terminal message of the stream.
+* `stream.error` is optional and is present only when the stream ends with an error. `user_error_code` is present only for `UserError`.
+
+### Stream ack response
+
+The service sends `DownstreamMessage.StreamAckMessage` to acknowledge accepted stream data and to report the next stream sequence ID it expects.
+
+* `stream_id` is the logical stream identifier.
+* `expected_sequence_id` is the next stream sequence ID the service expects.
+
+### Stream nack response
+
+The service sends `DownstreamMessage.StreamNackMessage` for a retriable stream error.
+
+* `stream_id` is the logical stream identifier.
+* `expected_sequence_id` is the next stream sequence ID the service expects.
+* `name` can be `InvalidSequenceId` or `TransientError`.
+* `message` contains error details.
+
+### Stream closed response
+
+The service sends `DownstreamMessage.StreamClosedMessage` when the publisher-side stream is closed.
+
+* `stream_id` is the logical stream identifier.
+* `error` is omitted when the stream is closed normally.
+* `error.name` can be `StreamNotFound`, `Forbidden`, `BadRequest`, `InternalServerError`, or `IdleTimeout`.
+* `error.message` contains error details.
 
 ### System response
 
