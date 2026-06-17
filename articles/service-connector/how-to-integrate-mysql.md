@@ -20,7 +20,6 @@ This article covers supported authentication methods, clients, and sample code y
 Service Connector can be used to connect the following compute services to Azure Database for MySQL:
 
 - Azure App Service
-- Azure Container Apps
 - Azure Functions
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps

@@ -1,13 +1,13 @@
 ---
 title: How to use the 'blobfuse2 unmount' command to unmount an existing mount point
 titleSuffix: Azure Storage
-description: How to use the 'blobfuse2 unmount' command to unmount an existing mount point.
-author: akashdubey-ms
+description: Learn how to use the 'blobfuse2 unmount' command to unmount an existing mount point.
+author: normesta
 ms.service: azure-blob-storage
 ms.custom:
 ms.topic: how-to
 ms.date: 12/02/2022
-ms.author: akashdubey
+ms.author: normesta
 # Customer intent: As a systems administrator, I want to unmount existing BlobFuse2 mount points using the command line, so that I can manage my mounted storage efficiently and ensure proper resource allocation.
 ---
 
@@ -17,7 +17,7 @@ Use the `blobfuse2 unmount` command to unmount one or more existing BlobFuse2 mo
 
 ## Syntax
 
-The `blobfuse2 unmount` command has 2 formats:
+The `blobfuse2 unmount` command has two formats:
 
 `blobfuse2 unmount [mount path] [flags]`
 
@@ -46,7 +46,7 @@ The following flags were inherited from the parent (the BlobFuse2 command):
 | disable-version-check |    | boolean | false | --disable-version-check=true | Enables or disables automatic version checking of the BlobFuse2 binaries |
 | help                  | -h | n/a     |       | -h or --help                 | Help info for the blobfuse2 command and subcommands                      |
 
-There are no flags only supported by the unmount command.
+No flags apply only to the unmount command.
 
 ## Examples
 

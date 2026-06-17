@@ -10,7 +10,7 @@ ai-usage: ai-assisted
 # Quota and region availability in Azure Virtual Enclaves
 
 All Azure services set default limits and quotas for resources and features, such as usage restrictions for certain virtual machine (VM) SKUs.
-Example: [DS_v5 series](/azure/virtual-machines/dv5-dsv5-series#dsv5-series) VMs (see the table showing resource limitations)
+Example: [DS_v5 series](/azure/virtual-machines/dv5-dsv5-series#dsv5-series) VMs (see the table showing resource limitations) 
 
 This article details the default resource limits for Azure Virtual Enclaves (AVE) resources and the availability of AVE in Azure regions.
 
@@ -18,16 +18,16 @@ This article details the default resource limits for Azure Virtual Enclaves (AVE
 
 | Product Feature | Limit |
 |--|--|
-| Enclaves in a community | 200[2] |
-| Workloads in an enclave | 800[3] |
-| Workloads in a community | 160,000[1] |
-| Endpoints (either type) | 800[3] |
+| Enclaves in a community | 200<sup>1</sup> |
+| Workloads in an enclave | 800<sup>2</sup> |
+| Workloads in a community | 160,000<sup>3</sup> |
+| Endpoints (either type) | 800<sup>2</sup> |
 
-[1]: Theoretically the number of workloads in a community can reach 200 * 800 = **160,000** with zero workload resource groups added to the workload (the `resourceGroupCollection` property is an empty list). Practically, you're likely to add at least one workload resource group to each workload so the maximum workloads in a community are limited by the number of resource groups per subscription which is 980.
+[1]: The number of enclaves that can be deployed into a subscription is limited by the number of Private DNS zones, which is 1,000 per subscription. Assuming each enclave requires five Private DNS zones you could deploy up to 200 enclaves before reaching the Private DNS zone limit in one subscription. You can create more than one subscription and spread your enclaves between each subscription. Each Private DNS Zone you add for your workloads will count for the 1,000 per subscription limit.
 
-[2]: The number of enclaves that can be deployed into a subscription is limited by the number of Private DNS zones, which is 1,000 per subscription. Assuming each enclave requires five Private DNS zones you could deploy up to 200 enclaves before reaching the Private DNS zone limit in one subscription. You can create more than one subscription and spread your enclaves between each subscription. Each Private DNS Zone you add for your workloads will count for the 1,000 per subscription limit.
+[2]: This is a child resource, so it must be deployed in the same resource group as the parent resource. Therefore, the number of child resources is limited by the Azure limit of 800 resources per resource group, per resource type.
 
-[3]: This is a child resource, so it must be deployed in the same resource group as the parent resource. Therefore, the number of child resources is limited by the Azure limit of 800 resources per resource group, per resource type.
+[3]: Theoretically the number of workloads in a community can reach 200 * 800 = **160,000** with zero workload resource groups added to the workload (the `resourceGroupCollection` property is an empty list). Practically, you're likely to add at least one workload resource group to each workload so the maximum workloads in a community are limited by the number of resource groups per subscription which is 980.
 
 ## Service quotas and limits
 
@@ -35,9 +35,9 @@ This article details the default resource limits for Azure Virtual Enclaves (AVE
 
 | Resource | Limit |
 |--|--|
-| Community | 978[4] |
-| Enclave | 200[2] |
-| Workloads per enclave | 800[3] |
+| Community | 978<sup>4</sup> |
+| Enclave | 200<sup>1</sup> |
+| Workloads per enclave | 800<sup>2</sup> |
 
 [4]: The maximum is limited by the number of resource groups allowed in a subscription given that a community deploys a community managed resource group. Among these resource groups, two of these must be reserved for deploying communities since each resource group can only have a maximum of 800 resource, per resource type.
 
@@ -45,12 +45,12 @@ This article details the default resource limits for Azure Virtual Enclaves (AVE
 
 | Resource | Limit |
 |--|--|
-| Community endpoint per community | 800[3] |
-| Community endpoint Rule | Unlimited[5] |
-| Enclave endpoint per Enclave | 800[3] |
-| Enclave endpoint rule | 993[6] |
-| Transit hub | 499[7] |
-| Enclave connection | 993[8] |
+| Community endpoint per community | 800<sup>2</sup> |
+| Community endpoint Rule | Unlimited<sup>5</sup> |
+| Enclave endpoint per Enclave | 800<sup>2</sup> |
+| Enclave endpoint rule | 993<sup>6</sup> |
+| Transit hub | 499<sup>7</sup> |
+| Enclave connection | 993<sup>8</sup> |
 
 [5]: Each community endpoint rule deploys only metadata.
 

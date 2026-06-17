@@ -304,8 +304,8 @@ dnsRecordName=$storageAccountName
 **For file shares created with the Microsoft.FileShares resource provider**, get a reference to the file share:
 
 ```bash
-# Install the fileshares extension
-az extension add --name fileshares
+# Install the fileshare extension
+az extension add --name fileshare
 
 fileShareResourceGroupName="<resource-group-name>"
 fileShareName="<file-share-name>"
@@ -648,8 +648,8 @@ $storageAccount | Update-AzStorageAccountNetworkRuleSet `
 **For file shares created with the Microsoft.FileShares resource provider**, set `-PublicNetworkAccess` to `Disabled` on the file share.
 
 ```PowerShell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/0.1.0
-Install-Module -Name Az.FileShare -Repository psgallery -RequiredVersion 0.1.0
+# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
+Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
 
 $fileShareResourceGroupName = "<resource-group-name>"
 $fileShareName = "<file-share-name>"
@@ -678,8 +678,8 @@ az storage account update \
 **For file shares created with the Microsoft.FileShares resource provider**, set `--public-network-access` to `Disabled` on the file share.
 
 ```bash
-# Install the fileshares extension
-az extension add --name fileshares
+# Install the fileshare extension
+az extension add --name fileshare
 
 fileShareResourceGroupName="<resource-group-name>"
 fileShareName="<file-share-name>"
@@ -787,11 +787,11 @@ $storageAccount | Update-AzStorageAccountNetworkRuleSet `
     Out-Null
 ```
 
-**For file shares created with the Microsoft.FileShares resource provider**, you can pass the allowed subnet resource IDs directly to `Update-AzFileShare` using `-PublicAccessPropertyAllowedSubnet`. There's no separate service endpoint or network rule configuration required on the storage account.
+**For file shares created with the Microsoft.FileShares resource provider**, you can pass the allowed subnet resource IDs directly to `Update-AzFileShare` using `-AllowedSubnet`. There's no separate service endpoint or network rule configuration required on the storage account.
 
 ```PowerShell
-# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/0.1.0
-Install-Module -Name Az.FileShare -Repository psgallery -RequiredVersion 0.1.0
+# To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
+Install-Module -Name Az.FileShare -Repository PSGallery -RequiredVersion 1.0.0
 
 $fileShareResourceGroupName = "<resource-group-name>"
 $fileShareName = "<file-share-name>"
@@ -808,7 +808,7 @@ $subnet = Get-AzVirtualNetwork `
 Update-AzFileShare `
         -ResourceGroupName $fileShareResourceGroupName `
         -ResourceName $fileShareName `
-        -PublicAccessPropertyAllowedSubnet @($subnet.Id)
+        -AllowedSubnet @($subnet.Id)
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -897,8 +897,8 @@ az storage account update \
 **For file shares created with the Microsoft.FileShares resource provider**, pass the allowed subnet resource IDs directly to `az fileshare update` using `--allowed-subnets`. No separate service endpoint or network rule configuration is required on the storage account.
 
 ```bash
-# Install the fileshares extension
-az extension add --name fileshares
+# Install the fileshare extension
+az extension add --name fileshare
 
 fileShareResourceGroupName="<resource-group-name>"
 fileShareName="<file-share-name>"

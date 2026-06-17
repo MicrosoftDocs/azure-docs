@@ -208,7 +208,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[SingTel](https://www.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |&check; |&check; | Hong Kong2<br/>Singapore<br/>Singapore2 |
 | **[SK Telecom](http://b2b.tworld.co.kr/bizts/solution/solutionTemplate.bs?solutionId=0085)** | &check; | &check; | Seoul |
 | **SKT** | &check; | &check; | Seoul |
-| **[Softbank](https://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |&check; |&check; | Osaka<br/>Tokyo<br/>Tokyo2 |
+| **[Softbank](https://global.tm.softbank.jp/en/)** |&check; |&check; | Osaka<br/>Tokyo<br/>Tokyo2 |
 | **[Sohonet](https://www.sohonet.com/product/fastlane/)** | &check; | &check; | Los Angeles<br/>London2 |
 | **[Spark NZ](https://www.sparkdigital.co.nz/solutions/connectivity/cloud-connect/)** | &check; | &check; | Auckland<br/>Sydney |
 | **[Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center/microsoft-cloud-services/microsoft-azure-von-swisscom.html)** | &check; | &check; | Geneva<br/>Zurich<br/>Zurich2 |
@@ -405,7 +405,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Digital Realty](https://www.digitalrealty.com/platform-digital/connectivity)** | IX Reach<br/>Megaport PacketFabric |
 | **[EdgeConnex](https://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport<br/>PacketFabric |
 | **[Flexential](https://www.flexential.com/connectivity/cloud-connect-microsoft-azure-expressroute)** | IX Reach<br/>Megaport<br/>PacketFabric |
-| **[QTS Data Centers](https://www.qtsdatacenters.com/hybrid-solutions/connectivity/azure-cloud)** | Megaport<br/>PacketFabric |
+| **[QTS Data Centers](https://q.com/connectivity/)** | Megaport<br/>PacketFabric |
 | **[Stream Data Centers](https://www.streamdatacenters.com/solutions/)** | Megaport |
 | **RagingWire Data Centers** | IX Reach<br/>Megaport<br/>PacketFabric |
 | **[T5 Datacenters](https://t5datacenters.com/)** | IX Reach |

@@ -17,13 +17,10 @@ ms.custom:
 
 Next, we use Azure App Service as an example to create a connection using managed identity.
 
-If you use:
-
-* Azure Spring Apps: use `az spring connection create` instead. For more examples, see [Connect Azure Spring Apps to the Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app#connect-azure-spring-apps-to-the-azure-database).
-* Azure Container Apps: use `az containerapp connection create` instead. For more examples, see [Create and connect a PostgreSQL database with identity connectivity](../../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md?tabs=flexible#5-create-and-connect-a-postgresql-database-with-identity-connectivity).
+If you use Azure Spring Apps, run `az spring connection create` instead. For more examples, see [Connect Azure Spring Apps to the Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app#connect-azure-spring-apps-to-the-azure-database).
 
 > [!NOTE]
-> If you use the Azure portal, go to the **Service Connector** blade of [Azure App Service](../quickstart-portal-app-service-connection.md), [Azure Spring Apps](../quickstart-portal-spring-cloud-connection.md), or [Azure Container Apps](../quickstart-portal-container-apps.md), and select **Create** to create a connection. The Azure portal will automatically compose the command for you and trigger the command execution on Cloud Shell.
+> If you prefer the Azure portal, open the **Service Connector** blade in [Azure App Service](../quickstart-portal-app-service-connection.md) or [Azure Spring Apps](../quickstart-portal-spring-cloud-connection.md), and then select **Create**. The portal automatically composes the command and runs it in Cloud Shell.
 
 ::: zone pivot="postgresql"
 
@@ -224,14 +221,12 @@ az webapp connection create fabricsql \
 
 This Service Connector command completes the following tasks in the background:
 
-* Enable system-assigned managed identity, or assign a user identity for the app `$APPSERVICE_NAME` hosted by Azure App Service/Azure Spring Apps/Azure Container Apps.
 * Enable Microsoft Entra Authentication for the database server if it's not enabled before.
 * Set the Microsoft Entra admin to the current signed-in user.
 * Add a database user for the system-assigned managed identity, user-assigned managed identity, or service principal. Grant all privileges of the database `$DATABASE_NAME` to this user. The username can be found in the connection string in preceding command output.
 * Set configurations named `AZURE_MYSQL_CONNECTIONSTRING`, `AZURE_POSTGRESQL_CONNECTIONSTRING`, `AZURE_SQL_CONNECTIONSTRING`, or `FABRIC_SQL_CONNECTIONSTRING` to the Azure resource based on the database type.
   * For App Service, the configurations are set in the **App Settings** blade.
   * For Spring Apps, the configurations are set when the application is launched.
-  * For Container Apps, the configurations are set to the environment variables. You can get all configurations and their values in the **Service Connector** blade in the Azure portal.
  
 
 Service Connector will assign the following privileges to the user, you can revoke them and adjust the privileges based on your requirements.

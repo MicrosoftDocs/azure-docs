@@ -196,15 +196,15 @@ ms.author: wchi
 1. Get the Azure SQL Database connection configurations from the environment variables added by Service Connector.
     ```php
     <?php
-    $server = getenv("AZURE_SQL_SERVERNAME");
+    $serverName = getenv("AZURE_SQL_SERVERNAME");
     $database = getenv("AZURE_SQL_DATABASE");
     $user = getenv("AZURE_SQL_UID");
     $password = getenv("AZURE_SQL_PASSWORD");
     
     $connectionOptions = array(
-        "Database" => database,
-        "Uid" => user,
-        "PWD" => password
+        "Database" => $database,
+        "Uid" => $user,
+        "PWD" => $password
     );
 
     $conn = sqlsrv_connect($serverName, $connectionOptions);

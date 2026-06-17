@@ -34,6 +34,10 @@ Each route includes an address prefix and next hop type. Azure uses the route wi
 |Default|172.16.0.0/12                                           |None           |
 |Default|192.168.0.0/16                                          |None           |
 |Default|100.64.0.0/10                                           |None           |
+|Default|157.59.0.0/16                                           |None           |
+|Default|127.0.0.0/8                                             |None           |
+|Default|104.147.0.0/16                                          |None           |
+|Default|104.146.0.0/17                                          |None           |
 
 The next hop types listed in the previous table represent how Azure routes traffic destined for the address prefix listed. Here are explanations for the next hop types:
 
@@ -44,7 +48,7 @@ The next hop types listed in the previous table represent how Azure routes traff
     * **10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16**: Reserved for private use in RFC 1918.
     * **100.64.0.0/10**: Reserved in RFC 6598.
 
-    If you assign any of the previous address ranges within the address space of a virtual network, Azure automatically changes the next hop type for the route from **None** to **Virtual network**. If you assign an address range to the address space of a virtual network that includes, but isn't the same as, one of the four reserved address prefixes, Azure removes the route for the prefix and adds a route for the address prefix you added, with **Virtual network** as the next hop type.
+    If you assign any of the previous address ranges within the address space of a virtual network, Azure automatically changes the next hop type for the route from **None** to **Virtual network**. If you assign an address range to the address space of a virtual network that includes, but isn't the same as, one of the four reserved address prefixes, Azure removes the route for the prefix and adds a route for the address prefix you added, with **Virtual network** as the next hop type. Default Route (0.0.0.0/0) with Next Hop Type = Virtual Network Gateway will cause these Default System Routes with Next Hop Type = None to be removed. 
 
 ### Optional default routes
 

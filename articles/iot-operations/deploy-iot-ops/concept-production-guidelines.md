@@ -4,7 +4,7 @@ description: Learn about the recommendations and guidelines for preparing Azure 
 author: dominicbetts
 ms.author: dobett
 ms.topic: concept-article
-ms.date: 03/13/2025
+ms.date: 06/10/2026
 ms.service: azure-iot-operations
 ai-usage: ai-assisted
 

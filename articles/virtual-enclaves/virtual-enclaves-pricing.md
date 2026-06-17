@@ -1,37 +1,57 @@
 ---
 title: Azure Virtual Enclaves Pricing
-description: Description of Azure Virtual Enclaves pricing.
+description: Learn how pricing works for Azure Virtual Enclaves, including enclave charges, platform-managed resources, and workload resources.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: concept-article
-ms.date: 9/30/2025
+ms.date: 06/08/2026
 ---
 
-# Azure Virtual Enclaves (AVE) pricing
-A description of Azure Virtual Enclaves pricing.
+# Azure Virtual Enclaves pricing
+
+Azure Virtual Enclaves (AVE) uses Azure resources to create and operate community and enclave boundaries. You also pay for any workload resources that you deploy inside your enclaves.
 
 > [!IMPORTANT]
-> The pricing information in this article is intended to be used for example purposes only.
->
->   * Pricing can change at any point. For current pricing information, see the Virtual Enclaves pricing page.
->
+> Pricing information in this article is for planning guidance only. Pricing can change and you can review the [latest pricing](https://azure.microsoft.com/pricing/). For an estimate, use the [Azure Virtual Enclaves pricing calculator](https://aka.ms/ave/calc).
 
-## General
-Azure Virtual Enclaves offers customers the flexibility of an hourly pay-as-you-go rate. This service enables efficient organization, acceleration, and management of secure, isolated, and compliant cloud environments tailored for sensitive missions and workloads across both commercial and air-gapped settings. So, clients can concentrate on their critical workloads.
+## How billing works
 
 Customers pay for:
-- Each enclave on an hourly basis. An enclave deployed during an hour is charged for that hour.
--	The usage for any resources managed by Azure Virtual Enclaves to create the community or enclave boundaries
--	Any workloads the customer deploys within their enclaves. These workloads include the Azure resource you deploy like Virtual Machines, Azure Kubernetes Service, or Azure App Service web apps.
 
-Managed resources for the community include:
-  - Azure Firewall required for the community
-  - Virtual WAN required for the community
-Managed resources for the enclaves include:
-  - Virtual Network required for the enclave
-  - Network Security Group (NSG) for each subnet
-  - Log Analytics user selectable for community, enclave, or both.
+- Azure Virtual Enclaves billable meters, such as enclave usage. Verify current meters and rates on the Azure pricing page or with your billing owner.
+- Azure resources managed by Azure Virtual Enclaves to create and operate community and enclave boundaries.
+- Workload resources that you deploy inside enclaves, such as virtual machines, Azure Kubernetes Service, Azure App Service web apps, storage accounts, databases, or other Azure services.
 
-Visit the Azure Virtual Enclaves [community](./what-community.md) and [enclave](./what-enclave.md) documentation for a complete list of managed resources.
+## Platform-managed resources
 
-The cost of the Enclave includes the community, community endpoints, enclave endpoints, enclave connections, and transit hub.
+AVE deploys and manages resources that support community and enclave boundaries.
+
+Community managed resources can include:
+
+- Managed resource group
+- Managed identity
+- [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about)
+- Firewall policy and rule collections
+- [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview)
+
+Enclave managed resources can include:
+
+- Managed resource group
+- [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview)
+- Subnets
+- [Network security groups](/azure/virtual-network/network-security-groups-overview)
+- Managed identity
+- [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview)
+- Optional resources such as [Azure Bastion](/azure/bastion/bastion-overview)
+
+For more information about managed resources, see [What is a community?](./what-community.md), [What is an enclave?](./what-enclave.md), and [What gets deployed](./what-azure-virtual-enclaves.md#what-gets-deployed).
+
+## AVE resource types
+
+AVE resource types help create and connect secure boundaries, including communities, enclaves, community endpoints, enclave endpoints, enclave connections, and transit hubs. Azure infrastructure resources deployed or used by those AVE resource types can incur separate Azure resource charges.
+
+## Workload resource charges
+
+Resources that you deploy into workload resource groups are billed according to the pricing model for each Azure service. For example, virtual machines, Azure Kubernetes Service, App Service, databases, storage, and monitoring resources each have their own pricing.
+
+For more information about workload resource groups, see [Understand resource groups](./virtual-enclaves-resource-groups.md).

@@ -31,6 +31,10 @@ No. The OpenVPN and strongSwan open-source clients don't support Microsoft Entra
 
 If you require Microsoft Entra ID authentication for Linux users, you'll need to evaluate alternative approaches such as certificate-based authentication or connecting via a Windows/macOS client that supports Microsoft Entra ID.
 
+### Does Azure VPN Client for Linux support User groups and IP address pools for point-to-site configurations?
+
+No. User groups and IP address pools for point-to-site configurations are not supported on the Linux VPN client.
+
 ### Do I need to change my VPN gateway configuration?
 
 It depends on your current tunnel type setting and authentication method. If your gateway is configured for OpenVPN only with certificates, you can switch to the open-source OpenVPN client with no gateway changes.  

@@ -55,6 +55,8 @@ landingContent:
             url: what-service-catalog.md
           - text: List of service catalog templates
             url: list-service-catalog-templates.md
+          - text: "What are approvals?"
+            url: what-approvals.md
       - linkListType: concept
         links:
           - text: Best practices
@@ -217,6 +219,17 @@ landingContent:
             url: built-in-rbac-roles.md
           - text: Disaster recovery planning
             url: disaster-recovery-planning.md
+  # Card
+  - title: Approvals
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Understand approvals
+            url: understand-approvals.md
+          - text: Configure approvals
+            url: configure-approvals.md
+          - text: Manage approvals
+            url: manage-approvals.md
   # Card
   - title: Troubleshoot
     linkLists:

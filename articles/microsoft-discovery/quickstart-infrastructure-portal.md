@@ -53,6 +53,9 @@ Before proceeding with the deployment of Microsoft Discovery infrastructure comp
 
 ### a. Assign roles to administrators
 
+> [!TIP]
+> Instead of assigning the roles listed below one-by-one through the Azure portal, you can assign the full **Platform Administrator** persona role set in a single, idempotent command using the open-source `Set-DiscoveryRoleAssignments.ps1` PowerShell script. See [Assign Microsoft Discovery persona roles with a PowerShell script](how-to-assign-persona-roles.md). This is the recommended path for onboarding multiple users.
+
 Assign the following built-in roles to users at the desired scope (subscription or resource group):
 
 - Microsoft Discovery Platform Administrator (Preview)

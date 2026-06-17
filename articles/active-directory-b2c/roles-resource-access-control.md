@@ -6,7 +6,7 @@ description: Learn how to use roles to control resource access.
 author: garrodonnell
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: concept-article
 ms.date: 02/24/2023

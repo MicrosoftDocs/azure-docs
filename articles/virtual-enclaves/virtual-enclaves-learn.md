@@ -77,8 +77,6 @@ flowchart LR
   VNET1 --- VM1
   VNET1 --- SA1
   VNET2 --- AKS1
-
-
   
 %% Styling
   linkStyle default stroke-width:4px,stroke:Black;

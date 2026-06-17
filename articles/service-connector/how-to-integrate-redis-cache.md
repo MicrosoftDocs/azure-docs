@@ -17,7 +17,6 @@ This article covers supported authentication methods, clients, and sample code y
 You can use Service Connector to connect the following compute services to Azure Cache for Redis:
 
 - Azure App Service
-- Azure Container Apps
 - Azure Functions
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps

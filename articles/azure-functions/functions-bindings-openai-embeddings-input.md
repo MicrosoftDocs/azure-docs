@@ -35,11 +35,11 @@ Go support isn't currently available for this binding.
 ::: zone pivot="programming-language-csharp"  
 This example shows how to generate embeddings for a raw text string.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="25-57"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="25-57":::
 
 This example shows how to retrieve embeddings stored at a specified file that is accessible to the function.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="63-78"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/embeddings/csharp-ooproc/Embeddings/EmbeddingsGenerator.cs" range="63-78":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"

@@ -6,7 +6,7 @@ description: Learn how to configure a sign-up and sign-in flow for a local accou
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 03/21/2025

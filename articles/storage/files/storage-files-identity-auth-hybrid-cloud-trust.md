@@ -62,7 +62,7 @@ You can enable Microsoft Entra Kerberos authentication on Azure Files for hybrid
 To enable Microsoft Entra Kerberos authentication by using the [Azure portal](https://portal.azure.com), follow these steps.
 
 1. Sign in to the Azure portal and select the storage account you want to enable Microsoft Entra Kerberos authentication for.
-1. Under **Data storage**, select **File shares**.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
 1. Next to **Identity-based access**, select the configuration status, such as **Not configured**.
  
    :::image type="content" source="media/storage-files-identity-auth-hybrid-identities-enable/configure-identity-based-access.png" alt-text="Screenshot of the Azure portal showing file share settings for a storage account." lightbox="media/storage-files-identity-auth-hybrid-identities-enable/configure-identity-based-access.png" border="true":::

@@ -64,7 +64,7 @@ To start a container app job, you need to have the appropriate permissions. Ensu
 - microsoft.app/jobs/read
 - microsoft.app/jobs/execution/read
 
-For more information about assigning roles and permissions, see [Azure role-based access control](/azure/role-based-access-control/overview).
+When you start a job, you get access to all the secrets configured for the job. For more information about assigning roles and permissions, see [Azure role-based access control](/azure/role-based-access-control/overview).
 
 ## Job trigger types
 

@@ -45,7 +45,7 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
     - `Storage File`, `Storage Queue`, `Storage Blob`, and `Storage Table` are required when making a Storage Account from this template or the more customizable [Storage Account template](./deploy-storage-account-service-catalog.md).
     - `privatelink.azurewebsites.net` under `Additional Private DNS Zone names` which is required to access Function Apps privately.
 3. A Key Vault, Customer Managed Key (CMK), and Managed Identity are required for this template. Create a Key Vault, CMK, and Managed Identity in the [Common Dependencies service catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own.
-    - These resources should be created inside a [workload resource group](./create-workload-portal.md#create-workload-resource-groups)
+    - These resources should be created inside a [workload resource group](./create-workload-portal.md#add-workload-resource-groups).
     - After creating the User Managed Identity, ensure it has access to the CMK key
         - Assign the `Key Vault Crypto Service Encryption User` RBAC role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This allows you to then assign the managed identity to another resource, like a Virtual Machine, and that Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault following least privilege.
 

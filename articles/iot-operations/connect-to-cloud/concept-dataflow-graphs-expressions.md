@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: reference
-ms.date: 03/26/2026
+ms.date: 06/15/2026
 ai-usage: ai-assisted
 
 ---
@@ -43,6 +43,9 @@ Expressions support the following operators, listed from highest to lowest prece
 | 8 | `\|\|` | Logical OR |
 
 The `+` operator concatenates strings when at least one operand is a string. Use parentheses to override default precedence.
+
+> [!IMPORTANT]
+> Use the symbolic logical operators `&&` (AND), `||` (OR), and `!` (NOT). The keyword forms `and`, `or`, and `not` aren't supported. For example, write `$1 == "a" || $1 == "b"` instead of `$1 == "a" or $1 == "b"`.
 
 Examples:
 

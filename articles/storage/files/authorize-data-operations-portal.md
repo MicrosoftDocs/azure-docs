@@ -75,7 +75,7 @@ You can change the authentication method for individual file shares. By default,
 
 1. In the Azure portal, go to your storage account.
 
-1. On the service menu, under **Data storage**, select **File shares**.
+1. On the service menu, under **Data storage**, select **Classic file shares**.
 
 1. Select a file share.
 

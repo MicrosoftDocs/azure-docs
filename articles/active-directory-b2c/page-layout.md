@@ -6,7 +6,7 @@ description: Page layout version history for UI customization in custom policies
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 07/09/2025

@@ -35,7 +35,7 @@ The VM series listed below are eligible to land on MANA-capable hardware and may
 | G-family | G*, Gs* |
 | L-family | Ls* |
 
-*These VM series are [announced for retirement](https://learn.microsoft.com/azure/virtual-machines/sizes/retirement/retired-sizes-list). If you’re currently using one of these VM series, view the [migration guide](https://learn.microsoft.com/azure/virtual-machines/migration/sizes/d-ds-dv2-dsv2-ls-series-migration-guide) to switch to a replacement series as soon as possible to avoid service interruption, capacity limitations, and forced deallocation as the series approaches retirement.
+*These VM series are [announced for retirement](/azure/virtual-machines/sizes/retirement/retired-sizes-list). If you’re currently using one of these VM series, view the [migration guide](/azure/virtual-machines/migration/sizes/d-ds-dv2-dsv2-ls-series-migration-guide) to switch to a replacement series as soon as possible to avoid service interruption, capacity limitations, and forced deallocation as the series approaches retirement.
 
 ## Compatibility
 Use the following steps to verify that your workload is compatible with the Microsoft Azure Network Adapter (MANA). If you are running a Network Virtual Appliance (NVA) or DPDK-based workload, see [NVA guidance](./accelerated-networking-mana-network-virtual-appliance-opt-out.md) or [DPDK guidance](./setup-dpdk-mana.md) for more information.

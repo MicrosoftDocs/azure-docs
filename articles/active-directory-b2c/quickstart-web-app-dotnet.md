@@ -5,7 +5,7 @@ description: In this Quickstart, run a sample ASP.NET web app that uses Azure Ac
 
 author: garrodonnell
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: quickstart
 ms.date: 01/24/2023
 ms.author: godonnell

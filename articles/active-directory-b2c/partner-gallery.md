@@ -6,7 +6,7 @@ description: Learn how to integrate with our ISV partners to tailor your end-use
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 01/11/2024

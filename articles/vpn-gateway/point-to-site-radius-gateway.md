@@ -5,7 +5,7 @@ description: Learn how to configure VPN Gateway server settings for point-to-sit
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 12/06/2024
+ms.date: 06/08/2026
 ms.author: cherylmc
 # Customer intent: As a network administrator, I want to configure RADIUS authentication for point-to-site VPN connections, so that remote users can securely connect to the virtual network using their organizational credentials.
 ---

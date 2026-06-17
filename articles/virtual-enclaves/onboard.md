@@ -100,8 +100,9 @@ az provider register --namespace Microsoft.Compute
 2. Open the `Resource Providers` on the left side under `Settings`.
 3. The [listed resource providers](#option-1-powershell-fastest) must be registered in the subscription. The [PowerShell](#option-1-powershell-fastest) script to enable these resource providers is the fastest option and includes the authoritative source of resource providers. These images are provided as an example of the view you should see in the end.
 
-   ![Screenshot showing the first set of resource providers required by Azure Virtual Enclaves.](./media/onboard-providers-1.png)
-   ![Screenshot showing the second set of resource providers required by Azure Virtual Enclaves.](./media/onboard-providers-2.png)
+:::image type="content" source="./media/onboard-providers-1.png" alt-text="Screenshot showing the first set of resource providers required by Azure Virtual Enclaves." border="true" lightbox="./media/onboard-providers-1.png":::
+
+:::image type="content" source="./media/onboard-providers-2.png" alt-text="Screenshot showing the second set of resource providers required by Azure Virtual Enclaves." border="true" lightbox="./media/onboard-providers-2.png":::
 
 4. Search for and select `Microsoft.Mission` and select `Register`.
 

@@ -18,7 +18,6 @@ This page shows supported authentication methods and clients. It provides sample
 Service Connector can be used to connect the following compute services to Azure Service Bus:
 
 - Azure App Service
-- Azure Container Apps
 - Azure Functions
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps

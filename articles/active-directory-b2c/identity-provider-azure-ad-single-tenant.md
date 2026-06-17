@@ -6,7 +6,7 @@ description: Set up sign-in for a specific Microsoft Entra organization in Azure
 author: garrodonnell
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 01/27/2025

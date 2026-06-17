@@ -35,7 +35,7 @@ Go support isn't currently available for this binding.
 ::: zone pivot="programming-language-csharp"  
 This example demonstrates the creation process, where the HTTP GET function that queries the conversation history of the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantApis.cs" range="70-80"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantApis.cs" range="70-80":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
@@ -52,7 +52,7 @@ This example demonstrates the creation process, where the HTTP GET function that
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 
-:::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantApis.js" range="4-5,63-79":::  
+:::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantApis.js" range="4-5,63-79":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"

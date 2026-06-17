@@ -28,7 +28,7 @@ This article describes how the version 2 capabilities of private endpoints for A
 
 - Although both Azure Backup and Azure Site Recovery use a Recovery Services vault, this article discusses use of private endpoints for Azure Backup only.
 
-- Customer-managed keys (CMKs) with a network-restricted key vault aren't supported with a vault that's enabled for private endpoints.
+- Customer-managed keys (CMKs) with a network-restricted key vault are now supported with a vault that's enabled for private endpoints.
 
 - You can create private endpoints for new Recovery Services vaults only, if no items are registered to the vault. However, private endpoints are currently not supported for Backup vaults.
 

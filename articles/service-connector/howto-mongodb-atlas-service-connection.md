@@ -19,7 +19,7 @@ In this guide, you learn how to connect your app to a database within a MongoDB 
 
 Service Connector is an Azure service designed to simplify the process of connecting Azure resources together. Service Connector manages your connection's network and authentication settings to simplify the operation.
 
-This guide shows step by step instructions to connect an app deployed to Azure App Service to a MongoDB Atlas resource. You can apply a similar method to create a connection from apps deployed to [Azure Container Apps](/azure/container-apps/quickstart-portal) or [Azure Kubernetes Services (AKS)](/azure/aks/learn/quick-kubernetes-deploy-portal).
+This guide shows step by step instructions to connect an app deployed to Azure App Service to a MongoDB Atlas resource. You can apply a similar method to create a connection from apps deployed to [Azure Kubernetes Services (AKS)](/azure/aks/learn/quick-kubernetes-deploy-portal).
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ This guide shows step by step instructions to connect an app deployed to Azure A
 
 Follow these steps to connect an app to MongoDB Atlas:
 
-1. Open the App Service, Container Apps, or AKS resource where your app is deployed.
+1. Open the App Service or AKS resource where your app is deployed.
 
 1. Open **Settings** > **Service Connector** from the left menu and select **Create**.
 

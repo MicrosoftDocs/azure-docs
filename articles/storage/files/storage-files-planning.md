@@ -26,13 +26,13 @@ In Azure, a *resource* is a manageable item that you create and configure within
 
 - **Storage accounts**, offered by the `Microsoft.Storage` resource provider. Storage accounts are top-level resources that represent a shared pool of storage, IOPS, and throughput in which you can deploy **classic file shares** or other storage resources, depending on the storage account kind. All storage resources that are deployed into a storage account share the limits that apply to that storage account. Classic file shares support both the SMB and NFS file sharing protocols.
 
-- **File shares**, offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource that simplify the deployment of Azure Files by eliminating the need for a storage account. Unlike classic file shares, which you must deploy into a storage account, you deploy file shares directly into the resource group like storage accounts themselves, or other Azure resources like virtual machines, disks, or virtual networks. Currently, `Microsoft.FileShares` only supports the NFS file sharing protocol. If you require SMB, choose classic file shares.
+- **File shares**, offered by the `Microsoft.FileShares` resource provider. File shares are a new top-level resource that simplifies the deployment of Azure Files by eliminating the need for a storage account. Unlike classic file shares, which you must deploy into a storage account, you deploy file shares directly into the resource group like storage accounts themselves, or other Azure resources like virtual machines, disks, or virtual networks. Currently, `Microsoft.FileShares` only supports the NFS file sharing protocol. If you require SMB, choose classic file shares.
 
 ![Image comparing file shares and classic Azure file shares](./media/storage-files-planning/file-share-comparison.png)
 
 This video provides a comprehensive overview of the differences between the storage account and file share management models:
 
-> [!VIDEO https://www.youtube-nocookie.com/embed/T5eKHDwZe3M]
+> [!VIDEO https://www.youtube.com/embed/GLVbQ1k5RmE?si=bkBqdTUJflY9CTPY]
 
 
 ### Classic file shares (Microsoft.Storage)
@@ -43,7 +43,7 @@ Classic file shares, or file shares deployed in storage accounts, are the tradit
 
 - **Shared settings**: Many important settings, such as network and security rules, are applied at the storage account level. As a result, placing classic file shares in the same storage account requires careful consideration. You should consider the storage account to be a trust boundary and only place classic file shares in the same storage account if you're ok with them having the same security settings.
 
-- **Scaling complexity**: Large scale Azure Files deployments can require managing many Azure subscriptions due the constraints on storage accounts from the `Microsoft.Storage` resource provider. See [storage account limits](./storage-files-scale-targets.md#storage-account-data-plane-limits) for more information.
+- **Scaling complexity**: Large scale Azure Files deployments can require managing many Azure subscriptions due to the constraints on storage accounts from the `Microsoft.Storage` resource provider. See [storage account limits](./storage-files-scale-targets.md#storage-account-data-plane-limits) for more information.
 
 [!INCLUDE [storage-files-file-share-management-concepts](../../../includes/storage-files-file-share-management-concepts.md)]
 

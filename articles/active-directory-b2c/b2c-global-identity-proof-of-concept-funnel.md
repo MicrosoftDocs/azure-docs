@@ -5,7 +5,7 @@ description: Learn how to create a proof of concept for funnel-based approach fo
 author: gargi-sinha
 manager: martinco
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: concept-article
 ms.date: 01/26/2024

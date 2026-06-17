@@ -6,7 +6,7 @@ description: How to configure complexity requirements for passwords supplied by 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 02/17/2025

@@ -25,14 +25,14 @@ To quickly migrate your on-premises or public cloud servers to Azure using lift 
 
 ## Prerequisites 
 
-Before you start creating assessments, ensure you have discovered the inventory of your on-premises servers, and you can view all the servers in the **Infrastructure** tab. For more information about prerequisites, see [Prerequisites for assessments](assessment-prerequisites.md). 
+Before you start creating assessments, ensure you've discovered the inventory of your on-premises servers, and you can view all the servers in the **Infrastructure** tab. For more information about prerequisites, see [Prerequisites for assessments](assessment-prerequisites.md). 
 
 You can discover your on-premises servers using either of the following: 
 
 - [Discover servers using the Azure Migrate appliance](tutorial-discover-hyper-v.md)
 - [Discover the servers using an import](tutorial-discover-import.md) 
 
-Once you have discovered your servers, identify if you want to create an As-is on-premises assessment or Performance-based assessment. Check [Performance vs. As-is on-premises assessments](target-right-sizing.md) for more details.  
+After you discover your servers, identify if you want to create an As-is on-premises assessment or Performance-based assessment. Check [Performance vs. As-is on-premises assessments](target-right-sizing.md) for more details.  
 
 ## Create an assessment 
 
@@ -40,8 +40,8 @@ To create an assessment, follow these steps:
 
 1. Go to **Infrastructure** tab and select all the VMs you want to assess.
 1. You can apply column based or custom tags-based filters to identify and add VMs to the scope of your assessment. 
-    After you have selected all the servers, select **Create assessment**.  
-1. Provide a friendly name for the assessment. You see a query that you used to select the servers on the previous screen. Review the number of servers added and the query used before moving ahead. If you want to add more servers to the assessment, select **Add workloads**. Once you have added all the servers to the assessment scope, select **Next**. 
+    After you select all the servers, select **Create assessment**.  
+1. Provide a friendly name for the assessment. You see a query that you used to select the servers on the previous screen. Review the number of servers added and the query used before moving ahead. If you want to add more servers to the assessment, select **Add workloads**. After you add all the servers to the assessment scope, select **Next**. 
     You can customize the assessment properties to fit your requirements. Specify the general properties for **Target region**, **Default environment**, **Pricing options**, **Saving options**, and **Sizing criteria**. [Learn more](assessment-report.md). 
 1. Select **Next** to navigate to the Azure VM specific assessment properties.  
 1. Select **Edit defaults**:

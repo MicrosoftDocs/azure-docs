@@ -4,7 +4,7 @@ description: Deploy Azure Kubernetes Service from the service catalog into a wor
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: how-to
-ms.date: 9/30/2025
+ms.date: 6/16/2025
 ---
 
 # Deploy Azure Kubernetes Service (AKS) from the service catalog into a workload
@@ -57,7 +57,7 @@ There are guardrail policies on the enclaves to ensure enclave resources are usi
     > You must create or use a Key Vault for your AKS cluster. If using Key Vault for secret management, it needs to be configured for Role Base Access Control (RBAC) by enabling the `RBAC Access Policy`. The RBAC roles for the AKS identity need to be set to `Key Vault Admin` and the disk encryption set you created needs the `Key Vault Crypto Service Encryption User` role.
 
 4. A Key Vault, Customer Managed Key (CMK), Managed Identity, and Disk Encryption Set are required for this template. Create a Key Vault, CMK, Managed Identity, and Disk Encryption Set in the [Common Dependencies service catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own.
-    - These resources should be created inside a [workload resource group](./create-workload-portal.md#create-workload-resource-groups)
+    - These resources should be created inside a [workload resource group](./create-workload-portal.md#add-workload-resource-groups).
     - After creating the User Managed Identity, ensure it has access to the CMK key
         - Assign the `Key Vault Crypto Service Encryption User` RBAC role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This assignment allows you to then assign the managed identity to another resource, like a Virtual Machine. That Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault (a least privilege best practice).
         - Assign `Virtual Machine Contributor` access on the enclave managed resource group containing the Virtual Network 

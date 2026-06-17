@@ -4,6 +4,7 @@ description: Learn how to create a Napster Companion API resource in the Azure p
 author: shijoy
 ms.author: shijoy
 ms.topic: quickstart
+ms.subservice: napster
 ms.date: 05/20/2026
 ms.custom:
   - references_regions

@@ -5,7 +5,7 @@ description: Discover MCP tools for Azure Managed Grafana. Query Application Ins
 author: weng5e
 ms.author: wuweng
 ms.reviewer: malev
-ms.date: 05/12/2026
+ms.date: 05/28/2026
 ms.topic: concept-article
 ms.service: azure-managed-grafana
 ---
@@ -90,7 +90,7 @@ Use a Grafana service account token for authentication. Start by creating a toke
 
 Use a Microsoft Entra ID token for authentication. This approach is useful when you're using managed identities or service principals.
 
-- Use the Azure CLI to obtain a Microsoft Entra ID token that's associated with the Azure Managed Grafana resource ID:
+- Use the Azure CLI to obtain a Microsoft Entra ID token for the Azure Managed Grafana audience `6f2d169c-08f3-4a4c-a982-bcaf2d038c45`:
 
     ```bash
     az account get-access-token --resource 6f2d169c-08f3-4a4c-a982-bcaf2d038c45 --query accessToken -o tsv
@@ -235,5 +235,6 @@ If you encounter any problems, open an issue in the [Azure Managed Grafana GitHu
 
 ## Related content
 
+- [Authenticate to Azure Managed Grafana data plane APIs with Microsoft Entra ID](./how-to-authenticate-data-plane-api.md)
 - [Configure MCP for AI Foundry agents](./how-to-configure-mcp-for-ai-foundry.md)
 - [Enable zone redundancy](./how-to-enable-zone-redundancy.md)

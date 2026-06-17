@@ -283,6 +283,36 @@ There are several ways to set colors to the shapes. The following table shows th
 >
 > The data-bound reference layer appears on the map as long as the data column contains unique identifiers that match properties in the spatial file, but to ensure correct results, your data column must include valid geographic information.
 
+## Map US ZIP Codes
+
+Public spatial files, such as the US Census ZIP Code Tabulation Areas (ZCTAs), can serve as a reference layer to visualize data by ZIP Code. These files are often large and detailed, so you typically need to reduce their size and complexity before you use them in the Azure Maps Power BI visual. The following workflow shows how to prepare a nationwide ZIP Code boundary file.
+
+### Download and prepare the source data
+
+1. Download the ZIP Code Tabulation Area shapefiles from the US Census Bureau [Cartographic Boundary Files] page.
+1. Unzip each downloaded archive to extract the shapefile components.
+1. Convert each shapefile to GeoJSON, then minify the resulting JSON to reduce file size. Save each file with a `_zip_codes_geo.min.json` suffix so the merge step can find it.
+
+### Merge and simplify the data
+
+The raw shapefiles total around 1.2 GB and provide sub-meter accuracy, which is far more detail than a Power BI map needs. Use the [mapshaper] command-line tool to merge the individual files into a single GeoJSON file while reducing its size. The following command combines every file, simplifies the geometry, removes unnecessary fields, and rounds coordinates:
+
+```bash
+mapshaper -i *_zip_codes_geo.min.json combine-files -merge-layers -simplify visvalingam 5% -filter-fields ZCTA5CE10 -o format=geojson precision=0.0001 us_zip_codes_simplified.json
+```
+
+This command applies the following optimizations:
+
+- `combine-files -merge-layers` combines the individual state files into a single layer.
+- `-simplify visvalingam 5%` retains 5% of the original points by using the Visvalingam algorithm, which significantly reduces file size while preserving the overall shape of each boundary.
+- `-filter-fields ZCTA5CE10` keeps only the `ZCTA5CE10` field, which holds the five-digit ZIP Code used to bind your data, and removes all other attributes.
+- `precision=0.0001` rounds coordinates to about 10 meters of accuracy, which is sufficient for ZIP Code visualizations.
+
+The resulting `us_zip_codes_simplified.json` file is small enough to upload as a reference layer. To bind your data to the boundaries, drag the column that contains five-digit ZIP Codes to the **Location** field, and Azure Maps matches the values against the `ZCTA5CE10` property. For more information, see [Data-bound reference layer](#data-bound-reference-layer).
+
+> [!NOTE]
+> The Azure Maps Power BI visual renders only the first 30,000 features from a reference layer. If your file contains more shapes than this limit, any features beyond the first 30,000 don't display on the map.
+
 ## Next steps
 
 Add more context to the map:
@@ -304,3 +334,5 @@ Add more context to the map:
 [Show real-time traffic]: power-bi-visual-show-real-time-traffic.md
 [DAX]: /dax/
 [Expression-based titles in Power BI Desktop]: /power-bi/create-reports/desktop-conditional-format-visual-titles
+[Cartographic Boundary Files]: https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html
+[mapshaper]: https://github.com/mbloch/mapshaper

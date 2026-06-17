@@ -34,7 +34,7 @@
       href: create-transit-hub-portal.md
 #     - name: Easy Button Deployments
 #       href: easy-button-deployments.md
-  - name: Concepts
+  - name: Azure Enclave resources
     items:
     - name: "What is a community?"
       href: what-community.md
@@ -50,10 +50,14 @@
       href: what-enclave-connection.md
     - name: "What is a transit hub?"
       href: what-transit-hub.md
+  - name: Azure Enclave Concepts
+    items:
     - name: "What is the service catalog?"
       href: what-service-catalog.md
     - name: List of service catalog Templates
       href: list-service-catalog-templates.md
+    - name: "What are approvals?"
+      href: what-approvals.md
     - name: Best practices
       href: best-practices.md
     - name: Understand resource groups
@@ -126,6 +130,14 @@
 #       href: security-best-practices.md
   - name: Configure community governance
     href: configure-community-governance.md
+- name: Approvals
+  items:
+  - name: Understand approvals
+    href: understand-approvals.md
+  - name: Configure approvals
+    href: configure-approvals.md
+  - name: Manage approvals
+    href: manage-approvals.md
 - name: Service catalog
   items:
   - name: Deploy Common Dependencies from the service catalog

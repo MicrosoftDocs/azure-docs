@@ -4,6 +4,7 @@ description: Explore developer tools for Napster Companion API in Azure, includi
 author: shijoy
 ms.author: shijoy
 ms.topic: overview
+ms.subservice: napster
 ms.date: 05/20/2026
 #customer intent: As a developer building with Napster Companion API, I want to know about the available resources and tools so I can create, deploy, and monitor persistent multimodal AI agents (Omniagents).
 ---
