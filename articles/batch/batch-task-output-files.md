@@ -2,7 +2,7 @@
 title: Persist output data to Azure Storage with Batch service API
 description: Learn how to use the Batch service API to persist Batch task and job output data to Azure Storage.
 ms.topic: how-to
-ms.date: 07/01/2025
+ms.date: 06/16/2026
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 # Customer intent: "As a developer using the Batch service API, I want to persist task output data to Azure Storage, so that I can easily manage and access the results of my batch processing tasks without altering the application code."
@@ -17,7 +17,7 @@ The Batch service API supports persisting output data to Azure Storage for tasks
 When using the Batch service API to persist task output, you don't need to modify the application that the task is running. Instead, with a few modifications to your client application, you can persist the task's output from within the same code that creates the task.
 
 > [!IMPORTANT]
-> Persisting task data to Azure Storage with the Batch service API does not work with pools created before [February 1, 2018](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md#1204).
+> Persisting task data to Azure Storage with the Batch service API doesn't work with pools created before [February 1, 2018](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md#1204).
 
 ## When do I use the Batch service API to persist task output?
 
