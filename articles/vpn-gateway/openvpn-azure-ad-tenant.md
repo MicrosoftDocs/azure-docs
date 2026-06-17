@@ -16,13 +16,13 @@ ms.custom: sfi-image-nochange
 
 # Configure P2S VPN gateway for Microsoft Entra ID authentication – manually registered app
 
-This article helps you configure a point-to-site (P2S) VPN gateway for Microsoft Entra ID authentication and manually register the Azure VPN client. This type of configuration is supported only for OpenVPN protocol connections. While the steps and Audience values in this article do result in a working configuration, we recommend that you use the [Configure P2S VPN Gateway for Microsoft Entra ID authentication](point-to-site-entra-gateway-update.md) article instead.
+This article helps you configure a point-to-site (P2S) VPN gateway for Microsoft Entra ID authentication and manually register the Azure VPN client. This type of configuration is supported only for OpenVPN protocol connections. While the steps and Audience values in this article do result in a working configuration, we recommend that you use the [Configure P2S VPN Gateway for Microsoft Entra ID authentication](point-to-site-entra-gateway.md) article instead.
 
 > [!IMPORTANT]
 >Manually registered Azure VPN Clients used for Point-to-Site (P2S) connections with Microsoft Entra ID authentication will retire on March 31, 2028 in Azure Public Cloud, and on March 31, 2029 in Azure Government and Microsoft Azure operated by 21Vianet clouds.
 >After these dates, manually registered clients will no longer function, and only Microsoft-registered VPN clients will be supported after the retirement dates.
 >
->To avoid any service disruption, [migrate manually registered VPN clients] (point-to-site-entra-gateway-update.md) to a Microsoft-registered VPN client for point-to-site connections with Microsoft Entra ID authentication before the applicable retirement dates.
+>To avoid any service disruption, [migrate manually registered VPN clients](point-to-site-entra-gateway-update.md) to a Microsoft-registered VPN client for point-to-site connections with Microsoft Entra ID authentication before the applicable retirement dates.
 
 ## Prerequisites
 
