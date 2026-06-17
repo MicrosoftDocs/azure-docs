@@ -28,29 +28,219 @@ Before configuring Approvals, make sure you have:
 - At least one community created in your environment
 - Users or groups designated as approvers
 
-## Enable Approvals for a community in the Azure portal
+## Approval scopes
+
+Approval settings can be configured at different scopes:
+
+| Scope | Applies to |
+|-------|------------|
+| Community | Community-level resources, such as community endpoints and transit hubs. |
+| Enclave | Enclave-level resources, such as enclave endpoints and enclave connections. |
+
+Approval settings for community resources are configured when you create or update a community. Approval settings for enclave resources can be configured at community creation and enclave creation. When both scopes define requirements for the same enclave resource type, Azure Virtual Enclaves applies the higher-level enforced requirement. You can configure different approval requirements based on the type of resource or operation.
+
+Community owners can also choose not to define a community-level approval setting for a resource type. When the community-level configuration is left blank, enclave-level approval settings can be used without inheriting a community-level requirement for that resource type.
+
+## Minimum approvers and required approvers
+
+Approval configuration includes two related concepts:
+
+- `Minimum approvers`: The number of approvers that must approve a request before Azure Virtual Enclaves can apply the change.
+- `Required approvers`: The users or groups that are allowed or required to review requests for a resource type.
+
+For example, a resource type might require at least two approvals and require one approval from a specific security operations group. In that case, configure `Minimum approvers` for the count and configure `Required approvers` for the approver identities or group.
+
+> [!TIP]
+> 
+> If you add required approvers, you should select a security group so an individual leaving your organization doesn't block resource deployments.
+
+## Community approvals settings flow down
+
+:::image type="content" source="./media/mermaid-community-approvals.png" alt-text="Diagram showing how the community approvals settings affect the creation of enclaves, updates to community endpoints, and changing community maintenance mode." border="True" lightbox="./media/mermaid-community-approvals.png":::
+
+<!--
+This is the mermaid definition for the above diagram. Use this to edit and regenerate the PNG image.
+
+```mermaid
+---
+title: Azure Enclave - Community Approvals
+config:
+  theme: base
+  themeVariables:
+    # Primary Colors
+    primaryColor: '#0078d4'        # Azure Blue
+    primaryBorderColor: '#005a9e'  # Azure Dark Blue
+    lineColor: '#50e6ff'           # Azure Light Blue
+  
+    # Accent Colors
+    accentColor: '#ff8c00'         # Orange
+    tertiaryColor: '#2e7d32'       # Green
+    secondaryColor: '#008272'      # Teal
+    tertiaryBorderColor: '#5c2d91' # Purple
+    noteBkgColor: '#e81123'        # Red
+  
+    # Text & Styling
+    primaryTextColor: '#ffffff'
+    textColor: '#000000'       # Black text on light background (title)
+    fontFamily: 'Segoe UI'
+    fontSize: '15px'
+---
+flowchart TB
+
+    subgraph Community["Approval Settings"]
+        C_EP["Approvals: Community Endpoint Updates"]
+        C_ENC["Approvals: Enclave Create"]
+        C_MM["Approvals: Community Maintenance Mode"]
+    end
+
+    subgraph Enforcement[" "]
+        EP_OUT["Community Endpoint Updates"]
+        ENC_OUT["Enclave Creation"]
+        MM_OUT["Community Maintenance Mode"]
+    end
+
+    C_EP --- EP_OUT
+    C_ENC --- ENC_OUT
+    C_MM --- MM_OUT
+
+    classDef classC fill:#005a9e;
+
+    class C_EP,C_ENC,C_MM classC;
+```
+-->
+
+The approvals settings at the community level are the only approvals settings that affect enclave creation, community endpoint updates, or changes to maintenance mode. When each approval type is enabled, the number of minimum approvers and list of required approvers must be satisfied before those resource changes can occur.
+
+## Enclave approvals settings flow down
+
+:::image type="content" source="./media/mermaid-enclave-approvals.png" alt-text="Diagram showing how the community and enclave approvals settings effect enclave connection creation or updates, enclave connection update, or changes to maintenance mode." border="True" lightbox="./media/mermaid-enclave-approvals.png":::
+
+<!--
+This is the mermaid definition for the above diagram. Use this to edit and regenerate the PNG image.
+
+```mermaid
+---
+title: Azure Enclave - Enclave Approvals
+config:
+  theme: base
+  themeVariables:
+    # Primary Colors
+    primaryColor: '#0078d4'        # Azure Blue
+    primaryBorderColor: '#005a9e'  # Azure Dark Blue
+    lineColor: '#50e6ff'           # Azure Light Blue
+  
+    # Accent Colors
+    accentColor: '#ff8c00'         # Orange
+    tertiaryColor: '#2e7d32'       # Green
+    secondaryColor: '#008272'      # Teal
+    tertiaryBorderColor: '#5c2d91' # Purple
+    noteBkgColor: '#e81123'        # Red
+  
+    # Text & Styling
+    primaryTextColor: '#ffffff'
+    textColor: '#000000'       # Black text on light background (title)
+    fontFamily: 'Segoe UI'
+    fontSize: '15px'
+---
+flowchart TB
+
+    %% Top Layer
+    subgraph Community["Community Approval Settings"]
+        C_CC["Enclave Connection Create"]
+        C_CU["Enclave Connection Update"]
+        C_EP["Enclave Endpoint Updates"]
+        C_MM["Enclave Maintenance Mode"]
+    end
+
+    %% Middle Layer
+    subgraph Enclave["Enclave Approval Settings"]
+        E_CC["Enclave Connection Create"]
+        E_CU["Enclave Connection Update"]
+        E_EP["Enclave Endpoint Updates"]
+        E_MM["Enclave Maintenance Mode"]
+    end
+
+    %% Bottom Layer
+    subgraph Resources["Enforced Resources"]
+        R_CC["Enclave Connection Create"]
+        R_CU["Enclave Connection Update"]
+        R_EP["Enclave Endpoint Updates"]
+        R_MM["Enclave Maintenance Mode"]
+    end
+
+    %% Flows
+    C_EP --- E_EP
+    E_EP --- R_EP
+
+    C_CC --- E_CC
+    E_CC --- R_CC
+
+    C_CU --- E_CU
+    E_CU --- R_CU
+
+    C_MM --- E_MM
+    E_MM --- R_MM
+
+    classDef classC fill:#005a9e;
+    classDef classE fill:#005a9e;
+
+    class C_EP,C_CC,C_CU,C_MM classC;
+    class E_EP,E_CC,E_CU,E_MM classE;
+```
+-->
+
+The approvals settings at the community and enclave levels effect enclave connection creation or updates, enclave connection update, or changes to maintenance mode. When each approval type is enabled, the number of minimum approvers and list of required approvers must be satisfied before those resource changes can occur.
+
+## Configure approvals for a community
 
 Approvals are configured at the community level. You decide what resource actions require approvals and then those settings apply to all resources of that type within the community.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+To configure approval settings when you create a community:
 
-2. Navigate to your Azure Virtual Enclaves community resource.
+1. In the Azure portal, start the community creation workflow.
+2. Go to the `Approvals` configuration tab.
+3. For each supported community or enclave resource type, configure whether approvals are required.
+  - `Community endpoint updates`: Require approval when modifying community endpoints.
+  - `Enclave endpoint updates`: Require approval when modifying enclave endpoints.
+  - `Enclave creation`: Require approval before a new enclave is created.
+  - `Enclave connection creation`: Require approval when creating enclave connections.
+  - `Enclave connection updates`: Require approval when modifying enclave connections.
+  - `Maintenance mode changes`: Require approval before maintenance mode is changed on an enclave, including toggling it on or off.
+  
+4. Set the `Minimum approvers` value.
+5. Select the users or groups for `Required approvers`.
+6. Review the configuration and create the community.
 
-3. In the left navigation menu, under `Settings`, select `Configuration` or `Governance`.
+Community-level approval settings are used for community resources. They can also provide inherited requirements for enclave resource types, unless the community-level configuration leaves that resource type blank.
 
-4. In the Approvals section, toggle the `Enable Approvals` setting to `On`.
+## Configure approvals for an enclave
 
-5. Configure the approval settings for the resource actions you want to govern:
+To configure approval settings when you create an enclave:
 
-  - `Require approval for enclave creation`: Require approval before a new enclave is created.
-  - `Require approval for maintenance mode changes`: Require approval before maintenance mode is changed on an enclave, including toggling it on or off.
-  - `Require approval for enclave connections`: Require approval when creating or modifying enclave connections.
-  - `Require approval for enclave endpoints`: Require approval when modifying enclave endpoints.
-  - `Require approval for community endpoints`: Require approval when modifying community endpoints.
+1. In the Azure portal, start the enclave creation workflow.
+2. Go to the `Approvals` configuration tab.
+3. Review any approval requirements inherited from the community.
+4. For each supported enclave resource type, configure whether approvals are required.
+  - `Enclave endpoint updates`: Require approval when modifying enclave endpoints.
+  - `Enclave connection creation`: Require approval when creating enclave connections.
+  - `Enclave connection updates`: Require approval when modifying enclave connections.
+  - `Maintenance mode changes`: Require approval before maintenance mode is changed on an enclave, including toggling it on or off.
+5. Set the `Minimum approvers` value.
+6. Select the users or groups for `Required approvers`.
+7. Review the configuration and create the enclave.
 
-6. Select `Save` to apply the configuration.
+If both the community and enclave define requirements for an enclave resource type, the maximum of `Minimum approvers` is used and the `Required approvers` from both community and enclave are combined into a set of `Required approvers`.
 
----
+## Update approval settings
+
+Community owners can update approval settings after resources are created. Use the Azure portal or CLI support available in your environment to update approval settings for community or enclave resource types.
+
+Before changing approval settings, review:
+
+- Which resource types are affected and look for any pending approvals of that resource type.
+- Whether the setting is defined at the community scope, enclave scope, or both.
+- Whether the change adds or removes inherited requirements.
+- Which users or groups are listed as required approvers.
 
 ## Assign Enclave Approver role
 
@@ -64,7 +254,7 @@ After enabling Approvals, assign the Enclave Approver role to users or groups wh
 
 3. Select `+ Add` > `Add role assignment`.
 
-4. On the `Role` tab, search for and select `Enclave Approver`.
+4. On the `Role` tab, search for and select `Enclave Approver Role`.
 
 5. Select `Next`.
 
@@ -114,39 +304,17 @@ New-AzRoleAssignment `
   -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Mission/communities/<community-name>"
 ```
 
----
-
 ## Notification behavior
 
-The Approvals feature doesn't currently provide a built-in email notification option for approval requests.
+If you need notifications of approval requests, create your own monitoring workflow by using Azure Activity Logs and your organization's alerting tools.
 
-If you need notifications, create your own monitoring workflow by using Azure Activity Logs and your organization's alerting tools.
+## Integration with Microsoft Entra Privileged Identity Management (PIM)
 
-## Configure approval requirements per resource type
-
-You can configure different approval requirements based on the type of resource or operation.
-
-### Configure connection approval requirements
-
-When creating an enclave endpoint, you can specify whether connections to that endpoint require approval:
-
-1. Navigate to `Enclave Endpoints` in your enclave.
-
-2. Select `+ Create` to create a new endpoint.
-
-3. In the `Approval settings` section:
-   - Select `Yes` under `Require approval for connections` to require approval for any connection using this endpoint.
-   - Select `No` to allow connections without approval.
-
-4. Complete the endpoint configuration and select `Create`.
-
-## Integration with Azure Privileged Identity Management
-
-For enhanced security, combine Approvals with Azure PIM to grant approver permissions on a time-limited basis.
+For enhanced security, combine Approvals with PIM to grant approver permissions on a time-limited basis.
 
 ### Configure PIM for Enclave Approver role
 
-1. Navigate to `Microsoft Entra Privileged Identity Management (PIM)` in the Azure portal.
+1. Navigate to `Microsoft Entra Privileged Identity Management` in the Azure portal.
 
 2. Select `Azure resources` > `Discover resources`.
 
@@ -166,7 +334,7 @@ For enhanced security, combine Approvals with Azure PIM to grant approver permis
 
 8. Assign users as **eligible** for the Enclave Approver role rather than assigning it permanently.
 
-[Learn more about Azure PIM integration](./just-in-time-access.md)
+[Learn more about Microsoft Entra PIM integration](./just-in-time-access.md)
 
 ## Best practices for approval configuration
 

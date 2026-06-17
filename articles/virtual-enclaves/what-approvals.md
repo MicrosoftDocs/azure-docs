@@ -30,7 +30,7 @@ The following diagram illustrates how enclave creation differs when approvals ar
 :::image type="content" source="./media/approvals-state-comparison.png" alt-text="Diagram showing the process for an enclave being created with approvals and without approvals." border="True" lightbox="./media/approvals-state-comparison.png":::
 
 <!--
-This is the mermaid definition for the above graph. Use this to edit and regenerate the PNG image.
+This is the mermaid definition for the above diagram. Use this to edit and regenerate the PNG image.
 
 To edit this diagram saved in Andy Serfass's account (because sharing is a premium feature):
 

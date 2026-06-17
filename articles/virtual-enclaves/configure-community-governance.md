@@ -5,7 +5,7 @@ description: Configure community governance.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
-ms.date: 9/30/2025
+ms.date: 06/12/2026
 ---
 
 # Configure community governance
@@ -34,3 +34,9 @@ Go to community creation and customize your governance settings.
 > [!NOTE]
 > 
 > These governance options are applied to all of the workloads that are part of the community, overriding the default governance configuration for workloads.
+
+## Configure approval settings
+
+Community owners can configure approval requirements for resource types that support Azure Virtual Enclaves approvals. Approval settings can be configured by resource type and scope so different resources can require different approver groups or approval counts.
+
+For more information, see [Configure approval settings](./configure-approvals.md).

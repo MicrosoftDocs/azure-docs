@@ -19,15 +19,15 @@ To access Azure Virtual Enclaves, you need an Azure subscription. If you don't a
 ## Create community
 
 1. Enter `Azure Virtual Enclaves` in the search.
-2. Under `Services`, select `Azure Virtual Enclaves`. You are directed to the Azure Virtual Enclaves homepage.
+2. Under `Services`, select `Azure Virtual Enclaves`. You're directed to the Azure Virtual Enclaves homepage.
 
     [ ![Screenshot showing the Azure portal homepage for Azure Virtual Enclaves with the Create a community button.](./media/azure-virtual-enclaves-homepage.png) ](./media/azure-virtual-enclaves-homepage.png#lightbox)
 
 3. Select the `Create a community` button. The community deployment can take several minutes to complete.
-4. Enter the basic details for your community:
+4. Enter details for your community on the `Basics` tab:
    - `Subscription`: Select an Azure subscription.
    - `Resource group`: Create a new resource group or select an existing one.
-   - `Community`: Enter a community name, such as `My-Community`.
+   - `Community name`: Enter a community name, such as `My-Community`.
    - `Region`: Select the Azure region where the community is created.
    - `Community address space`: Enter the community IP address space, such as `10.0.0.0/16`.
 
@@ -36,9 +36,15 @@ To access Azure Virtual Enclaves, you need an Azure subscription. If you don't a
 
     ![Screenshot showing community creation basics inputs page.](./media/create-community-tab-1-basics.png)
 
-5. Select `Next` and customize your Policy Management settings as needed.
+5. Select `Next`. On the `Azure firewall` tab, decide if you want to use a different firewall type for your community Virtual WAN secure hubs.
 
-    ![Screenshot of Policy Management page where a user can manage policies on a selection of Azure services.](./media/create-community-tab-2-policy-management.png)
+6. Select `Next`. On the `Dedicated hubs` tab, create any dedicated hubs you need.
+
+7. Select `Next`. On the `Approvals` tab, decide which [approval settings](./configure-approvals.md) to apply to your community and enclaves.
+
+8. Select `Next`. On the `Policy management` tab, and customize your settings as needed.
+
+    ![Screenshot of policy management page where a user can manage policies on a selection of Azure services.](./media/create-community-tab-2-policy-management.png)
     
     > [!NOTE]
     > For community governance, you can configure the following settings for each service:
@@ -50,18 +56,19 @@ To access Azure Virtual Enclaves, you need an Azure subscription. If you don't a
     >   - `Deny`: The service isn't allowed.
     >   - `ExceptionOnly`: The service isn't allowed by default, but manual [policy exemptions](/azure/governance/policy/concepts/exemption-structure) can be made.
 
-7. Select `Next`, and on the `Community Administration` page, select the users and groups that should receive Azure role assignments on the community managed resource group.
+9. Select `Next`. On the `Monitoring` tab, and configure monitoring for your community.
 
-    ![Screenshot showing Community Administration input page during community creation.](./media/create-community-tab-3-community-administration.png)
+10. Select `Next`. On the `Community administration` tab, select the users and groups that should receive Azure role assignments on the community managed resource group.
 
-8. Select `Next`, and on the `Maintenance Mode` page, choose whether maintenance mode is turned on after the community is created. Community maintenance mode allows changes to managed resources that are critical to the security of the community, making it easier to modify community resources quickly after community creation. [Learn more about maintenance mode](./maintenance-mode.md).
+    ![Screenshot showing community administration input tab during community creation.](./media/create-community-tab-3-community-administration.png)
+
+11. Select `Next`. On the `Maintenance mode` tab, choose whether maintenance mode is turned on after the community is created. Community maintenance mode allows changes to managed resources that are critical to the security of the community, making it easier to modify community resources quickly after community creation. [Learn more about maintenance mode](./maintenance-mode.md).
 
     ![Screenshot showing community create maintenance mode input page.](./media/create-community-tab-4-maintenance-mode.png)
 
-9. Select `Next`, and then enter any [tags](/azure/azure-resource-manager/management/tag-resources) for your community.
-10. Select `Next`.
-11. Select `Review + create`.
-12. Validate the details for your community, and then select `Create`.
+12. Select `Next`, and then enter any [tags](/azure/azure-resource-manager/management/tag-resources) for your community.
+
+13. Select `Next` and then `Review + create`, validate that the details for your enclave are correct, and then select `Create`.
 
     ![Screenshot showing created community on its overview page.](./media/tutorial-step-one-community-overview-page.png)
 

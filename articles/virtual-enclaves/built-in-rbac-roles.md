@@ -19,7 +19,7 @@ Azure Virtual Enclaves provides built-in RBAC roles to control access at the **C
 - **Enclave owner** - Creates, deletes, and manages workloads, endpoints, and connection resources for one or more enclaves
 - **Enclave contributor** - Creates, and manages workloads, endpoints, and connection resources for one or more enclaves
 - **Enclave reader** - Read-only access to one or more enclave resources and underlying workloads, endpoints, and connections.
-- **Enclave approver** - Read-only access to all AVE resource types and explicit permissions to approve actions that require approval.
+- **Enclave approver role** - Read-only access to all AVE resource types and explicit permissions to approve actions that require approval. For more information, see [Manage approval requests](./manage-approvals.md).
 
 |Built in Role          |Community              |Community Endpoint     |Transit hub        |Enclave            |Workload           |Enclave Endpoint       |Enclave connection |Approvals      |
 |--|--|--|--|--|--|--|--|--|
@@ -28,7 +28,7 @@ Azure Virtual Enclaves provides built-in RBAC roles to control access at the **C
 |Community Reader       |Read-only              |Read-only              |Read-only          |Read-only          |Read-only          |Read-only              |Read-only          |Read-only     |
 |Enclave owner          |Read-only              |Read Only              |Read-only          |Read/Write/Delete  |Read/Write/Delete  |Read/Write/Delete      |Read/Write/Delete  |Read-only     |
 |Enclave Contributor    |Read-only              |Read-only              |Read-only          |Read/Write         |Read/Write         |Read/Write             |Read/Write         |Read-only     |
-|Enclave Approver       |Read-only              |Read-only              |Read-only          |Read-only          |Read-only          |Read-only              |Read-only          |Approve/Reject |
+|Enclave Approver role      |Read-only              |Read-only              |Read-only          |Read-only          |Read-only          |Read-only              |Read-only          |Approve/Reject |
 |Enclave  Reader        |X                      |X                      |Read-only          |Read-only          |Read-only          |Read-only              |Read-only          |Read-only     |
 
 These built-in RBAC roles can be assigned at [different scopes](/azure/role-based-access-control/scope-overview) depending on the scenario. 
@@ -46,7 +46,7 @@ Each workload deployed using Azure Virtual Enclaves comes with a managed resourc
 Privileged access to Virtual enclave resources can be further controlled/enforced by using Azure Privileged Identity management to grant "eligibilities" as opposed to persistent access.
 
 ### Time-Based Access Control
-Azure Privileged Identity Management can be used with built-in roles to grant users "eligibility" for specific role assignments and scopes over community, enclave, and workload resources, granting users the exact privileges they need for a limited amount of time. 
+Microsoft Entra Privileged Identity Management can be used with built-in roles to grant users "eligibility" for specific role assignments. You can specify the assignment scopes over community, enclave, and workload resources, granting users the exact privileges they need for a limited amount of time. 
 
 ### Require approvals for Privileged Access
 Azure Privileged Identity Management can also be used to be Activating an eligibility can also require a second person to approve the request before permissions are granted.

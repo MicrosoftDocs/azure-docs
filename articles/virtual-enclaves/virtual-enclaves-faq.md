@@ -5,6 +5,7 @@ author: aserfass-msft
 ms.author: aserfass
 ms.topic: concept-article
 ms.date: 9/30/2025
+ai-usage: ai-assisted
 ---
 
 # Azure Virtual Enclaves frequently asked questions (FAQ)

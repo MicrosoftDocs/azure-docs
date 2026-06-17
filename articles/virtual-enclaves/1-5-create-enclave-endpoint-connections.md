@@ -4,7 +4,7 @@ description: Create enclave or community endpoint resources in Azure Virtual Enc
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
-ms.date: 9/30/2025
+ms.date: 06/12/2026
 ---
 
 # Tutorial 1-5: Create enclave or community endpoint resources in Azure Virtual Enclaves
@@ -109,7 +109,7 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 ![Screenshot showing the pending connection approval.](./media/tutorial-step-five-fabrikam-connection-approval-pending.png)
 
-8. Approve the pending approvals and the connection state will automatically update to the `connected` state.
+8. Approve the pending approvals and the connection state will automatically update to the `connected` state. For more information about reviewing approval requests, see [Manage approval requests](./manage-approvals.md). For resource-type approval settings, see [Configure approval settings](./configure-approvals.md).
 
 ## Next steps
 In this tutorial, you deployed community and enclave endpoints using Azure portal. You also learned how to:
