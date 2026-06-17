@@ -198,7 +198,7 @@ All resources from the subscriptions like VMs, disks, and websites transfer. Whe
 
 ### Azure Marketplace products transfer
 
-Azure Marketplace products, which are available for subscriptions that are managed by Cloud Solution Providers (CSPs) are transferred along with their respective subscriptions. Subscriptions that have Azure Marketplace products that aren't enabled for CSPs can't be transferred. Software as a Service (SaaS) products are a type of Azure Marketplace product, but they don't move with the Azure subscription and transfer differently. For more information, see [Software as a Service (SaaS) transfer](#software-as-a-service-saas-transfer). For the criteria that determine whether a Marketplace product can transfer, see [Transfer eligibility](/marketplace/transfer-eligibility).
+Azure Marketplace products, which are available for subscriptions that are managed by Cloud Solution Providers (CSPs), are transferred along with their respective subscriptions. Subscriptions that have Azure Marketplace products that aren't enabled for CSPs can't be transferred. While software as a service (SaaS) products are a type of Azure Marketplace product, they don't move with the Azure subscription. You must transfer SaaS products separately. For more information, see [Software as a Service (SaaS) transfer](#software-as-a-service-saas-transfer). For the criteria that determine whether a Marketplace product can transfer, see [Transfer eligibility](/marketplace/transfer-eligibility).
 
 ### Access to Azure services
 
@@ -228,7 +228,7 @@ You can cancel the transfer request until the request is approved or declined. T
 
 ### Software as a Service (SaaS) transfer
 
-SaaS products are sold as SaaS subscriptions that are associated with, and billed through, an Azure subscription. A SaaS subscription doesn't move with its associated Azure subscription when billing ownership transfers, so you transfer it separately. Ask the user to [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to transfer billing ownership of SaaS subscriptions. Along with the billing ownership, the user can also transfer resource ownership. Resource ownership lets you do management operations like deleting and viewing the details of the product. User must be a resource owner on the SaaS product to transfer resource ownership. For the criteria that determine whether a SaaS product can transfer, see [Transfer eligibility](/marketplace/transfer-eligibility).
+SaaS products are sold as SaaS subscriptions that are associated with, and billed through, an Azure subscription. A SaaS subscription doesn't move with its associated Azure subscription when billing ownership transfers, so you transfer it separately. Ask the user to [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to transfer billing ownership of SaaS subscriptions. Along with the billing ownership, the user can also transfer resource ownership. Resource ownership lets you do management operations like deleting and viewing the details of the product. The user must be a resource owner on the SaaS product to transfer resource ownership. For the criteria that determine whether a SaaS product can transfer, see [Transfer eligibility](/marketplace/transfer-eligibility).
 
 ### Additional approval for certain customers
 
