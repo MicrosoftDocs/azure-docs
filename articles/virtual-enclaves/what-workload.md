@@ -112,6 +112,7 @@ This is a test
 
 ```mermaid
     ht --> hb
+    ed --> et
 ```
 -->
 
@@ -120,6 +121,7 @@ This is a test
 
 ```powershell
     ht --> hb
+    ed --> et
 ```
 -->
 
