@@ -29,7 +29,7 @@ Complete [Tutorial 1-1: Deploy a community](./1-1-create-community.md) before yo
 - Permissions to create Azure Enclave resources in the target subscription and resource group.
 - Access to the Azure portal.
 
-For more information about enclave settings, see [What is an enclave?](./what-enclave.md) and [Create an enclave in the Azure portal](./create-enclave-portal.md).
+For more information about enclave settings, see [Create an enclave in the Azure portal](./create-enclave-portal.md) and [What is an enclave?](./what-enclave.md).
 
 ## Create enclaves using Azure Enclave
 
