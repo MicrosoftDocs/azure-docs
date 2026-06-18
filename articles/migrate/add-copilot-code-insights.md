@@ -54,27 +54,44 @@ For detailed installation steps, see Modernize CLI [instructions](/azure/develop
     - On Azure Migrate **Overview** page, under **Explore inventory**, select **Web apps**.
     - On Azure Migrate **Overview** page, under **Decide and Plan**, select **Assessments**. Choose the relevant Application assessment or Web app assessment.
 2. Select the Applications or Web apps for which you want to add code insights. Select **Add code insights**, and then choose **GitHub Copilot modernization** from the dropdown.
+
+    :::image type="content" source="./media/add-copilot-code-insights/github-copilot-modernization.png" alt-text="The screenshot shows selection of Github copilot modernization option." lightbox="./media/add-copilot-code-insights/github-copilot-modernization.png":::
+
 3. By default, **At scale code assessment with automatic report upload** is selected to add code changes using GitHub Copilot Modernize CLI.
 4. Review the list of web apps. You can remove the web apps for which code insights are not required.
 5. Select **Download configuration file** to generate a JSON file containing details of all the web apps to be assessed and placeholders to add repository information. It might take few seconds for download to complete.
 
+    :::image type="content" source="./media/add-copilot-code-insights/download-configuration.png" alt-text="The screenshot shows the download configuration option. modernization option." lightbox="./media/add-copilot-code-insights/download-configuration.png":::
+
 **Run configuration file in Modernize CLI**
+
 1. Before running the configuration file in Modernize CLI, you must update the file with code repository name and path for each web app. There are two sections in the file - one for `apps` and other for `repos`.
-2. In `apps` section, review the Web app name, hosting server, parent Application and Framework version.
-3. In `apps` section, in `repos` property, replace `<sample-git-repo>` and `<sample-local-repo>` with name of repository associated with that web app. You can mention names of multiple GitHub repositories and local paths.
-4. In `repos` section, update the same repository names as described in the previous step. Then replace `<https://github.com/<sample-org>/<sample-repo>.git>` with the path to GitHub repository. The branch field is optional. If the repository is stored locally, replace `</absolute/path/to/project>` with path details.
-5. Repeat the above steps for all web apps in the configuration file.
-6. Launch GitHub Copilot Modernize CLI, authenticate to GitHub Copilot and Azure using `gh auth login` and `az login`. Ensure that the user running Modernize CLI has the Decide and Plan expert role assigned for the Azure Migrate project.
-7. Run `modernize assess --source <local path to configuration file>`. It might take few minutes for code assessment to complete.  
-8. After a successful code assessment, reports are automatically pushed to Azure Migrate. This is indicated through the message `Distribution complete: m/n app(s) distributed`.
-9. Code changes are automatically updated for the selected Applications and Webapps in Azure Migrate.
+
+    :::image type="content" source="./media/add-copilot-code-insights/code-repository.png" alt-text="The screenshot shows how to update the file with code repository name and path for each web app." lightbox="./media/add-copilot-code-insights/code-repository.png":::
+    
+1. In `apps` section, review the Web app name, hosting server, parent Application and Framework version.
+1. In `apps` section, in `repos` property, replace `<sample-git-repo>` and `<sample-local-repo>` with name of repository associated with that web app. You can mention names of multiple GitHub repositories and local paths.
+1. In `repos` section, update the same repository names as described in the previous step. Then replace `<https://github.com/<sample-org>/<sample-repo>.git>` with the path to GitHub repository. The branch field is optional. If the repository is stored locally, replace `</absolute/path/to/project>` with path details.
+1. Repeat the above steps for all web apps in the configuration file.
+1. Launch GitHub Copilot Modernize CLI, authenticate to GitHub Copilot and Azure using `gh auth login` and `az login`. Ensure that the user running Modernize CLI has the Decide and Plan expert role assigned for the Azure Migrate project.
+1. Run `modernize assess --source <local path to configuration file>`. It might take few minutes for code assessment to complete.  
+1. After a successful code assessment, reports are automatically pushed to Azure Migrate. This is indicated through the message `Distribution complete: m/n app(s) distributed`.
+1. Code changes are automatically updated for the selected Applications and Webapps in Azure Migrate.
 
 ## View code insights
-1. To view code insights for Applications, go to **Explore Applications** > **Applications** page and select **Available** under code changes column.
-2. To view code insights for Web apps, go to **Explore inventory** > **Webapps** page and select **Available** under code changes column.
+
+1. To view code insights for Applications, go to **Explore Applications** > **Applications** page and select **Available** under **Code changes** column.
+    
+    :::image type="content" source="./media/add-copilot-code-insights/code-changes.png" alt-text="The screenshot shows how to select code changes options from applications page." lightbox="./media/add-copilot-code-insights/code-changes.png":::
+
+2. To view code insights for Web apps, go to **Explore inventory** > **Webapps** page and select **Available** under **Code changes** column.
 3. If assessment is already created for the Applications or Web apps for which code insights have been added, it will get outdated. Recalculate assessment to view code insights. You can find code changes under **View details** for each assessment.
 4. Review the code changes by selecting the relevant tab: **Issues, Warnings**, or **Information**. These tabs provide a summarized view of code changes across the web apps in the assessment.
-5. If assessment is already created, code changes would be presented only for the recommended target, and readiness and migration strategy might change. If the required code changes are significant, readiness might change from **Ready** to **Ready with conditions**. 
+5. It provides actionable remediation guidance and estimated effort for code fixes. GitHub Copilot effort is estimated at approximately 40% of the manual effort required.
+    
+    :::image type="content" source="./media/add-copilot-code-insights/code-scan-details.png" alt-text="The screenshot shows the summarized view of code changes across the web apps in assessment." lightbox="./media/add-copilot-code-insights/code-scan-details.png":::
+
+6. If assessment is already created, code changes would be presented only for the recommended target, and readiness and migration strategy might change. If the required code changes are significant, readiness might change from **Ready** to **Ready with conditions**. 
 
 ##  Manually upload code scan reports using a ZIP File
 
@@ -113,29 +130,27 @@ You can generate code assessment report using GitHub Copilot app Modernization e
     - On the Azure Migrate **Overview** page, under **Explore inventory**, select **Web apps**.
     - On the Azure Migrate **Overview** page, under **Explore Applications**, select **Applications**.
     - On the Azure Migrate **Overview** page, under **Decide and Plan**, select **Assessments**. Choose the Application assessment or Web app assessment. 
-2. In **Add code insights** dropdown, select **GitHub Copilot assessment**. 
+2. Select the Application or Web apps for which you want to add code insights. Then select **Add code insights** and select **GitHub Copilot modernization** from the dropdown menu.
+3. Select **Single code assessment with manual report upload**.
 
-:::image type="content" source="./media/add-copilot-code-insights/using-github-copilot-assessment.png" alt-text="The screenshot shows how to select using GitHub copilot assessment." lightbox="./media/add-copilot-code-insights/using-github-copilot-assessment.png":::
+    :::image type="content" source="./media/add-copilot-code-insights/single-code-assessment.png" alt-text="The screenshot shows selecting single code assessment with manual report upload." lightbox="./media/add-copilot-code-insights/single-code-assessment.png":::
 
-3. In the Add Code Insights page, select **Upload a ZIP file**.  
+4. In the **Add Code Insights** page, select **Upload a ZIP file**.  
+5. Select **Browse**. Select the location of the ZIP file that contains the reports to import, and then select **Upload**. Wait for the upload and validation to complete.
 
-:::image type="content" source="./media/add-copilot-code-insights/upload-ZIP-file.png" alt-text="The screenshot shows how to upload a ZIP file." lightbox="./media/add-copilot-code-insights/upload-ZIP-file.png":::
+:::image type="content" source="./media/add-copilot-code-insights/upload-github-copilot-assessment.png" alt-text="The screenshot shows how to upload the zip file that contains the reports to import." lightbox="./media/add-copilot-code-insights/upload-github-copilot-assessment.png":::
 
-4. Select **Browse**. Select the location of the ZIP file that contains the reports to import, and then select **Upload**. Wait for the upload and validation to complete.
+6. In the Web app list, under the **Code Insights** report dropdown, view the uploaded reports under **Uploaded from ZIP file**. 
 
-:::image type="content" source="./media/add-copilot-code-insights/add-code-insights.png" alt-text="The screenshot shows how to add code insights." lightbox="./media/add-copilot-code-insights/add-code-insights.png":::
+:::image type="content" source="./media/add-copilot-code-insights/code-insights-reports.png" alt-text="The screenshot shows how to upload code insights report." lightbox="./media/add-copilot-code-insights/code-insights-reports.png":::
 
-5. In the Web app list, under the **GitHub Copilot assessment** report dropdown, view the uploaded reports under **Uploaded from ZIP file**. 
+7. Select the appropriate report to map to the corresponding web app. Repeat these steps for all required web app.  
+8. After mapping, select **Add** and wait for the process to complete. Code insights reports are automatically mapped to all Azure targets.  
+    
+    :::image type="content" source="./media/add-copilot-code-insights/code-insights.png" alt-text="The screenshot shows how code insights reports are automatically mapped to all Azure targets." lightbox="./media/add-copilot-code-insights/code-insights.png":::
 
-:::image type="content" source="./media/add-copilot-code-insights/upload-from-ZIP-file.png" alt-text="The screenshot shows how to upload from the ZIP file." lightbox="./media/add-copilot-code-insights/upload-from-ZIP-file.png":::
-
-6. Select the appropriate report to map to the corresponding web app. Repeat these steps for all required web app.  
-7. After mapping, select **Add** and wait for the process to complete.
-
-:::image type="content" source="./media/add-copilot-code-insights/add.png" alt-text="The screenshot shows how to add web app." lightbox="./media/add-copilot-code-insights/add.png":::
- 
-8. After mapping is complete, Code changes column in Applications and Web apps pages shows **Available**. All assessments for the selected web apps or application are marked as outdated. Select **Recalculate** to initiate recalculation.
-9. Select **Available** on the Applications or Web apps page to view code insights. If code changes are included, the number of changes for the recommended Azure target are displayed.
+9. After mapping is complete, Code changes column in Applications and Web apps pages shows **Available**. All assessments for the selected web apps or application are marked as outdated. Select **Recalculate** to initiate recalculation.
+1. Select **Available** on the Applications or Web apps page to view code insights. If code changes are included, the number of changes for the recommended Azure target are displayed.
 
 ## Request report via GitHub
 
@@ -195,7 +210,7 @@ Create a new **GitHub App** by following these steps:
 
 Follow these steps to install GitHub App on your repository:
 
-1. Navigate to the **GitHub App** you created. 
+1. Go to **GitHub App** you created. 
 2. Select **Install App** 
 3. Select an account to install the app, and then select **Install**. Use the account that contains the repository for creating issues and uploading code scan reports. 
 
