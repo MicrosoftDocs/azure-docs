@@ -310,6 +310,8 @@ items:
           href: container-console.md
         - name: Container debug console
           href: container-debug-console.md
+        - name: Deployment error guidance
+          href: deployment-errors.md
     - name: Monitor production workloads
       items:
         - name: Application logging

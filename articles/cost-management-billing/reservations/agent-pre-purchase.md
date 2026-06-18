@@ -60,6 +60,9 @@ Consider a hypothetical scenario where your organization plans to use:
 
 This example demonstrates how the prepurchase plan can provide cost savings for organizations with predictable AI workload usage patterns.
 
+> [!NOTE]
+> Pre-purchase plan discounts don't combine with other discounts you might have. If you have additional discounts, the pre-purchase plan discount is applied independently, which may result in a lower effective discount rate than the listed tier percentage. Factor in your existing discounts when estimating savings.
+
 ## Purchase Microsoft Agent Prepurchase Plan commit units
 
 Purchase Microsoft Agent Prepurchase Plans in the [Azure portal reservations](https://portal.azure.com/#view/Microsoft_Azure_Reservations/ReservationsBrowseBlade/productType/Reservations). 
