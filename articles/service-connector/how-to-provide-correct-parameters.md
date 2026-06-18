@@ -1,10 +1,9 @@
 ---
 title: Provide correct parameters to Service Connector
 description: Learn how to pass correct parameters to Service Connector to generate service connections between your Cloud resources.
-author: houk-ms
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 05/12/2025
+ms.date: 06/18/2026
 ms.author: honc
 ms.custom:
   - build-2025
