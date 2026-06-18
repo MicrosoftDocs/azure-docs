@@ -1,6 +1,6 @@
 ---
-title: "Tutorial 1-3: Create workloads in an enclave on Azure Virtual Enclaves"
-description: Create frontend and backend workloads in an Azure Virtual Enclaves enclave by using the Azure portal.
+title: "Tutorial 1-3: Create workloads in an enclave on Azure Enclave"
+description: Create frontend and backend workloads in an Azure Enclave enclave by using the Azure portal.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
@@ -8,9 +8,9 @@ ms.date: 06/02/2026
 ai-usage: ai-assisted
 ---
 
-# Tutorial 1-3: Create workloads in an enclave on Azure Virtual Enclaves
+# Tutorial 1-3: Create workloads in an enclave on Azure Enclave
 
-Workloads are logical groupings that help you organize Azure resources inside an Azure Virtual Enclaves (AVE) enclave. Each workload is associated with one or more workload resource groups where you deploy resources in later tutorials.
+Workloads are logical groupings that help you organize Azure resources inside an Azure Enclave (AVE) enclave. Each workload is associated with one or more workload resource groups where you deploy resources in later tutorials.
 
 In this tutorial, part three of eight, you create workloads inside an enclave. You learn how to:
 
@@ -27,14 +27,14 @@ Complete [Tutorial 1-2: Create enclaves in a community](./1-2-create-enclaves-in
 - An enclave named `Enclave-WebApp`.
 - Permissions to create AVE workload resources and resource groups in the subscription.
 
-## Create workloads using Azure Virtual Enclaves
+## Create workloads using Azure Enclave
 
-Before creating Azure resources in an enclave, create the AVE workload resources and associate them with workload resource groups. Azure Virtual Enclaves applies enclave policy, guardrail, deny-assignment, and RBAC configuration to workload resource groups during creation.
+Before creating Azure resources in an enclave, create the AVE workload resources and associate them with workload resource groups. Azure Enclave applies enclave policy, guardrail, deny-assignment, and RBAC configuration to workload resource groups during creation.
 
 > [!Important]
 > This tutorial uses sample names such as `wl-webapp-frontend`, `wl-webapp-backend`, `rg-webapp-frontend`, and `rg-webapp-backend`. If you use different names, update the later tutorials to match your environment.
 
-1. In the Azure portal, go to `Azure Virtual Enclaves`.
+1. In the Azure portal, go to `Azure Enclave`.
 
 2. In the left menu, select `Enclaves`.
 
