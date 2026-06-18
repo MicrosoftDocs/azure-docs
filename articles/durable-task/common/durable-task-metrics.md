@@ -4,8 +4,9 @@ description: Learn about the action metrics emitted by the Durable Task Schedule
 ms.service: durable-task
 ms.topic: conceptual
 ms.date: 06/03/2026
-ms.author: hannahhunter
-author: hhunter-ms
+ms.author: kaibocai
+author: kaibocai
+ms.reviewer: hhunter-ms
 ---
 
 # Monitor action metrics for Durable Task Scheduler
@@ -17,18 +18,18 @@ The Durable Task Scheduler emits a set of **action metrics** for every task hub.
 
 ## What is an action?
 
-An action is a message the Durable Task Scheduler dispatches to your application to run
-an orchestrator, activity, or entity function. Common actions include:
-- Starting an orchestration or activity
-- Completing a timer
-- Raising an external event
-- Running an entity operation
-- Processing any of the previous results
+An *action* is a message the Durable Task Scheduler dispatches to your application to trigger the execution of an orchestrator, activity, or entity function. The total number of actions is what you're billed on for the Consumption SKU. For a full definition, examples, and billing details, see [What is an action?](../scheduler/durable-task-scheduler-billing.md#what-is-an-action) in the billing guide.
 
-The **total number of actions is what you are billed on**.
+## View metrics in the Azure portal
 
-For background on what an action is and how billing works, see
-[Durable Task Scheduler billing](../scheduler/durable-task-scheduler-billing.md#what-is-an-action).
+You can view these metrics in the Azure portal:
+
+1. Navigate to your Durable Task Scheduler resource in the [Azure portal](https://portal.azure.com).
+1. In the left menu, select **Monitoring** > **Metrics**.
+1. Select the task hub scope and the metric you want to view (for example, `TotalActions`).
+1. Use the **Add filter** option to filter by `TaskHubName` if you have multiple task hubs.
+
+You can also pin charts to your dashboard or configure diagnostic settings to route metrics to a Log Analytics workspace for custom queries.
 
 ## Available metrics
 
@@ -58,15 +59,11 @@ by scheduler and task hub:
 ## How to use these metrics
 
 - **Track billing:** Watch `TotalActions` over time to understand and forecast your
-  action-based costs.
+  action-based costs for the Consumption SKU.
 - **Understand cost drivers:** Compare `OrchestrationActions`, `ActivityActions`,
   `TimerActions`, and `EntityActions` to see which workload type contributes most to
   your total. For example, a high `ActivityActions` value indicates activity-heavy
   orchestrations.
-- **Plan capacity:** Convert actions per second into the capacity units (Dedicated SKU)
-  or expected charges (Consumption SKU) you need. See the
-  [billing guide](../scheduler/durable-task-scheduler-billing.md)
-  for capacity-planning examples.
 
 ## Next steps
 
