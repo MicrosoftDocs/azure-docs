@@ -17,7 +17,7 @@ title: |
   Export API definition from API Center to Copilot Studio as a connector
 
 introduction: |
-  You can export an API definition from your Azure API center as a [connector in Microsoft Copilot Studio](/connectors/overview) (preview). Copilot Studio is a graphical, low-code tool for building agents and agent flows and is part of the Microsoft Power Platform family.
+  You can export an API definition from your Azure API center as a [connector in Microsoft Copilot Studio](/connectors/overview). Copilot Studio is a graphical, low-code tool for building agents and agent flows and is part of the Microsoft Power Platform family.
   
   In Microsoft Copilot Studio, citizen developers can use the exported connector as a custom connector to [extend the capabilities of AI agents](/microsoft-copilot-studio/copilot-connectors-in-copilot-studio).
 
@@ -42,7 +42,7 @@ procedureSection:
       - |
         Navigate to your API center in the Azure portal.
       - |
-        In the left menu, select **Copilot Studio (preview)**.
+        In the left menu, select **Copilot Studio**.
       - |
         Select **Create a connector**. The **Create a connector** window opens.
       - |
