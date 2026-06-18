@@ -10,7 +10,7 @@ ai-usage: ai-assisted
 
 # Tutorial 1-3: Create workloads in an enclave on Azure Enclave
 
-Workloads are logical groupings that help you organize Azure resources inside an Azure Enclave (AVE) enclave. Each workload is associated with one or more workload resource groups where you deploy resources in later tutorials.
+Workloads are logical groupings that help you organize Azure resources inside an Azure Enclave (AE) enclave. Each workload is associated with one or more workload resource groups where you deploy resources in later tutorials.
 
 In this tutorial, part three of eight, you create workloads inside an enclave. You learn how to:
 

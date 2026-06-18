@@ -168,7 +168,7 @@ Communities provide multiple security layers:
 
 The following diagram shows an example Azure Enclave environment that starts with a community and adds enclaves and workloads in later tutorials:
 
-[ ![Diagram showing two example workloads linked to both the other Virtual Enclaves resources and their workload resource groups.](./media/mermaid-workloads-example.png) ](./media/mermaid-workloads-example.png#lightbox)
+[ ![Diagram showing two example workloads linked to both the other Azure Enclave resources and their workload resource groups.](./media/mermaid-workloads-example.png) ](./media/mermaid-workloads-example.png#lightbox)
 
 <!--
 The mermaid definition for the above graph is in the what-workload.md file
