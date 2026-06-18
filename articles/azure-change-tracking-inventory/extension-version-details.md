@@ -2,7 +2,7 @@
 title: Azure Change Tracking Extension Version Details and Known Issues
 description: This article describes the Change Tracking extension version details and the known issues.
 #customer intent: As a customer, I want to learn about the fixed vulnerabilities in recent extension updates so that I can maintain a secure environment.
-ms.date: 12/03/2025
+ms.date: 06/18/2026
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
 ms.author: v-rochak2
@@ -16,6 +16,13 @@ author: RochakSingh-blr
 This article provides the release notes for Azure Change Tracking and Inventory extensions.
 
 ## Release notes for extensions
+
+### Extension version 2.38.0.0
+
+| OS | Notes |
+| --- | --- |
+| Windows | Removed some security vulnerabilities. |
+| Linux | Removed some security vulnerabilities. |
 
 ### Extension version 2.35.0.0
 
