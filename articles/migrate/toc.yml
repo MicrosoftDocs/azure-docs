@@ -173,6 +173,8 @@ items:
         href: review-application-assessment.md
       - name: Code level insights
         items:
+        - name: Enhance web app assessment by adding code scan report
+          href: add-copilot-code-insights.md
         - name: Integrate with CAST highlights
           href: cast-highlights-integration.md
     - name: Workload specific assessments
@@ -225,8 +227,6 @@ items:
           href: create-web-app-assessment.md
         - name: Review assessment report
           href: review-web-app-assessment.md
-        - name: Enhance web app assessment by adding code scan report
-          href: add-copilot-code-insights.md
       - name: File share assessment
         items:
         - name: Create a file share assessment
