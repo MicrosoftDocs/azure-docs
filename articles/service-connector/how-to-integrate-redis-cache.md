@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 07/23/2025
+ms.date: 06/18/2026
 ---
 
 # Integrate Azure Cache for Redis with Service Connector
@@ -101,7 +101,7 @@ The following steps and code show you how to use a user-assigned managed identit
 
 | Default environment variable name | Description                | Example value                                                              |
 |-----------------------------------|----------------------------|----------------------------------------------------------------------------|
-| `AZURE_REDIS_CONNECTIONSTRING`      | `redis-py` connection string | `rediss://:<redis-key>@<redis-server-name>.redis.cache.windows.net:6380/0` |
+| `AZURE_REDIS_CONNECTIONSTRING`      | `go-redis` connection string | `rediss://:<redis-key>@<redis-server-name>.redis.cache.windows.net:6380/0` |
 
 #### [Node.js](#tab/nodejs)
 

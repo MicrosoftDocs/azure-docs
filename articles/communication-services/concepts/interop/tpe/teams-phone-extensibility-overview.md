@@ -103,7 +103,7 @@ When a caller dials a phone number that is handled by a Teams Auto Attendant, th
 6. Agent Conversation: The call reaches the appropriate agent who receives the call along with relevant context (if provided by the IVR), and continues assisting the customer. The IVR’s job is complete at this point, and it can terminate its part in the call.
 
 > [!NOTE]
-> If you are an ISV building an IVR or contact center solution for Teams, consider the Microsoft Teams Phone Unify integration model for Third Party Voice Agents.<!-- TODO: link to the Teams Phone Unify certification program for Third Party Voice Agents once the public URL is available --> Certification ensures your solution meets Microsoft’s quality and compatibility standards for Teams integration. Participating in the certification program can increase customer trust and may be required for listing your solution as a certified Teams contact center/IVR integration.
+> If you are an ISV building an IVR or contact center solution for Teams, consider the Microsoft [Teams Phone Unify integration model for Third Party Voice Agents certification](/microsoftteams/teams-voice-agents). It ensures your solution meets Microsoft’s quality and compatibility standards for Teams integration. Participating in the certification program can increase customer trust and may be required for listing your solution as a certified Teams contact center/IVR integration.
 
 For more information, see [how to connect Teams Auto Attendant to a third-party IVR](/microsoftteams/aa-cq-plan-third-party-voice-agents).
 

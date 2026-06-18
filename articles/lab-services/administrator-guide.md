@@ -213,7 +213,7 @@ If your school needs to do content filtering, contact us by using the [Azure Lab
 
 ## Endpoint management
 
-Many endpoint management tools, such as [Microsoft Configuration Manager](https://techcommunity.microsoft.com/t5/azure-lab-services/configuration-manager-azure-lab-services/ba-p/1754407), require Windows VMs to have unique machine security identifiers (SIDs). Using SysPrep to create a *generalized* image typically ensures that each Windows machine has a new, unique machine SID generated when the VM boots from the image.
+Many endpoint management tools require Windows VMs to have unique machine security identifiers (SIDs). Using SysPrep to create a *generalized* image typically ensures that each Windows machine has a new, unique machine SID generated when the VM boots from the image.
 
 With Lab Services, if you create a lab with a template, the lab VMs have the same SID. Even if you use a *generalized* image to create a lab, the template VM and lab user VMs all have the same machine SID. The VMs have the same SID because the template VM's image is in a *specialized* state when you publish it to create the student VMs.
 

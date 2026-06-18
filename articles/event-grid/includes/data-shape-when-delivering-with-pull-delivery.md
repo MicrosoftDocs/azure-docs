@@ -12,7 +12,7 @@ ms.custom: include file, ignite-2023, build-2024
 
 ### Data shape when receiving events using pull delivery
 
-When **delivering events using pull delivery**, Event Grid includes an array of objects that in turn includes the *event* and *brokerProperties* objects. The value of the *event* property is the CloudEvent delivered in structured content mode. The *brokerProperties* object contains the lock token associated to the CloudEvent delivered. The following json object is a sample response from a *receive* operation that returns two events:
+When you deliver events by using pull delivery, Event Grid includes an array of objects that in turn includes the *event* and *brokerProperties* objects. The value of the *event* property is the CloudEvent delivered in structured content mode. The *brokerProperties* object contains the lock token associated with the CloudEvent delivered. The following JSON object is a sample response from a *receive* operation that returns two events:
 
 ```json
 {

@@ -1,10 +1,8 @@
 ---
-author: xfz11
 description: Code example
 ms.service: service-connector
 ms.topic: include
-ms.date: 07/23/2025
-ms.author: xiaofanzhou
+ms.date: 06/18/2026
 ---
 
 #### [.NET](#tab/dotnet)

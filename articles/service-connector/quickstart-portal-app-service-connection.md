@@ -6,14 +6,14 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: quickstart
 zone_pivot_groups: interaction-type
-ms.date: 7/22/2025
+ms.date: 06/18/2026
 keywords: azure app service, service connector, database connection, managed identity, azure storage, authentication
 #Customer intent: As an app developer, I want to connect my Azure App Service application to databases, storage accounts, and other Azure services using managed identities and other authentication types.
 ---
 
 # Quickstart: Connect Azure App Service to databases and services with Service Connector
 
-Get started with Service Connector to connect your Azure App Service to databases, storage accounts, and other Azure services. Service Connector simplifies authentication and configuration, enabling you to connect to resources using managed identities other authentication methods.
+Get started with Service Connector to connect your Azure App Service to databases, storage accounts, and other Azure services. Service Connector simplifies authentication and configuration, enabling you to connect to resources by using managed identities or other authentication methods.
 
 This article provides step-by-step instructions for both the Azure portal and Azure CLI. Choose your preferred method using the tabs above.
 
@@ -29,7 +29,7 @@ This article provides step-by-step instructions for both the Azure portal and Az
 ::: zone pivot="azure-cli"
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An application deployed to App Service in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create and deploy an app to App Service](../app-service/quickstart-dotnetcore.md).
-- The following [necessary permissions](./concept-permission.md).
+- The [necessary permissions](./concept-permission.md) to create and manage service connections.
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 - This quickstart requires version 2.30.0 or higher of the Azure CLI. To upgrade to the latest version, run `az upgrade`. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -44,7 +44,7 @@ This article provides step-by-step instructions for both the Azure portal and Az
    > [!TIP]
    > You can check if the resource provider has already been registered by running the command  `az provider show -n "Microsoft.ServiceLinker" --query registrationState`. If the output is `Registered`, Service Connector is already registered.
 
-2. Optionally, use the Azure CLI [az webapp connection list-support-types](/cli/azure/webapp/connection#az-webapp-connection-list-support-types) command to get a list of supported target services for App Service.
+1. Optionally, use the Azure CLI [az webapp connection list-support-types](/cli/azure/webapp/connection#az-webapp-connection-list-support-types) command to get a list of supported target services for App Service.
 
    ```azurecli
    az webapp connection list-support-types --output table

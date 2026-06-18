@@ -4,6 +4,7 @@ description: Learn how to restore Azure Blobs to any point-in-time using Azure C
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 06/17/2025
+ms.update-cycle: 1095-days
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to restore Azure Blobs using Azure CLI so that I can recover data efficiently to a specific point-in-time when it was last consistent."

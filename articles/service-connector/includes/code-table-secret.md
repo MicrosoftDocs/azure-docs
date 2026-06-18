@@ -1,9 +1,8 @@
 ---
-author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 07/28/2025
-ms.author: wchi
+ms.date: 06/17/2026
+ms.reviewer: wchi
 ---
 
 ### [.NET](#tab/dotnet)
@@ -35,7 +34,7 @@ ms.author: wchi
     </dependency>
     ```
 
-1. Get the Azure Table Storage connection string from the environment variable added by service connector.
+1. Get the Azure Table Storage connection string from the environment variable added by Service Connector.
 
     ```java
     String connectionStr = System.getenv("AZURE_STORAGETABLE_CONNECTIONSTRING");
@@ -58,10 +57,10 @@ ms.author: wchi
     import os
     
     conn_str = os.getenv("AZURE_STORAGETABLE_CONNECTIONSTRING")
-    table_service = TableServiceClient.from_connection_string(self.conn_str)
+    table_service = TableServiceClient.from_connection_string(conn_str)
     ```
 
-### [NodeJS](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 1. Install dependencies.
 
     ```bash

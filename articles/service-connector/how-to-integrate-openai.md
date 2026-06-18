@@ -2,14 +2,13 @@
 title: Connect Azure OpenAI in Foundry Models to Other Azure Services
 titleSuffix: Service Connector
 description: Learn how to integrate Azure OpenAI in Foundry Models into your application with Service Connector by using supported authentication methods and clients.
-author: wchigit
-ms.author: wchi
+ms.reviewer: wchi
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 02/03/2026
+ms.date: 06/17/2026
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
-#customer intent: As a cloud developer, I want to connect my compute services toAzure OpenAI in Foundry Models using Service Connector.
+#customer intent: As a cloud developer, I want to connect my compute services to Azure OpenAI in Foundry Models using Service Connector.
 ---
 
 # Connect to Azure OpenAI in Foundry Models using Service Connector

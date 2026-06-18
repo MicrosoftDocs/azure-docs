@@ -5,12 +5,12 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 02/27/2025
+ms.date: 06/18/2026
 ---
 
 # Integrate SQL database in Microsoft Fabric with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect your apps to SQL database in Microsoft Fabric using Service Connector. This page also shows default environment variable names and values you get when you create the service connection.
+This article covers supported authentication methods and clients, and provides sample code for connecting cloud services to SQL database in Microsoft Fabric by using Service Connector. It also lists default environment variable names and values that you receive when you create the service connection.
 
 ## Supported compute services
 
@@ -61,7 +61,7 @@ Refer to the connection details and sample code presented in the following tabs 
 |-----------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 | `FABRIC_SQL_CONNECTIONSTRING`     | Azure SQL Database connection string   | `jdbc:sqlserver://<Fabric-SQL-Identifier>.msit-database.fabric.microsoft.com,1433;databaseName=<SQL-DB-name>-<Fabric-DB-Identifier>;authentication=ActiveDirectoryMSI;` |
 
-#### [SpringBoot](#tab/fabric-sql-me-id-springboot)
+#### [Spring Boot](#tab/fabric-sql-me-id-springboot)
 
 | Default environment variable name | Description                            | Sample value                                                                                                       |
 |-----------------------------------|----------------------------------------|--------------------------------------------------------------------------------------------------------------------|
@@ -105,7 +105,7 @@ Outlined below are the steps and code snippets to connect to SQL database in Fab
 |-----------------------------------|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 | `FABRIC_SQL_CONNECTIONSTRING`     | Azure SQL Database connection string   | `jdbc:sqlserver://<Fabric-SQL-Identifier>.msit-database.fabric.microsoft.com,1433;databaseName=<SQL-DB-name>-<Fabric-DB-Identifier>;msiClientId=<msiClientId>;authentication=ActiveDirectoryMSI;` |
 
-#### [SpringBoot](#tab/fabric-sql-me-id-springboot)
+#### [Spring Boot](#tab/fabric-sql-me-id-springboot)
 
 | Default environment variable name | Description                            | Sample value                                                                                                       |
 |-----------------------------------|----------------------------------------|--------------------------------------------------------------------------------------------------------------------|

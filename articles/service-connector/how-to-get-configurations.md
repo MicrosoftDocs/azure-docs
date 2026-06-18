@@ -5,19 +5,20 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 08/20/2025
+ms.date: 06/18/2026
 ---
 
 # Get connection configurations added by Service Connector
 
-Service Connector configures connection information, such as Database connection string, while creating or updating service connections. After service connections are created, you might want to write code to consume these connection configurations in code. This page shows how to get connection configurations added by Service Connector. 
+Service Connector configures connection information, such as database connection strings, when creating or updating service connections. After service connections are created, you can write code to consume these connection configurations. This article shows how to get connection configurations added by Service Connector.
 
-There are multiple ways to get connection configurations of a service connection.
+There are multiple ways to get the connection configurations for a service connection.
 
-You can get configuration names for specific target service type from the following articles [Integrate Azure Database for PostgreSQL with Service Connector](./how-to-integrate-postgres.md), or you can get connection configurations programmatically by running the following commands.
+You can get configuration names for specific target service types from articles such as [Integrate Azure Database for PostgreSQL with Service Connector](./how-to-integrate-postgres.md). You can also get connection configurations programmatically by running the following commands.
 
 ## [Azure CLI](#tab/azure-cli)
-You can run the following commands in Azure CLI(/cli/azure) to list configurations of a service connection.
+You can run the following commands in [Azure CLI](/cli/azure) to list configurations of a service connection.
+
 ```azurecli
 # for Azure Web App
 az webapp connection list-configuration -g <myResourceGroupName> -n <myWebAppName> --connection <myConnectionName>

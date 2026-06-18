@@ -1,9 +1,7 @@
 ---
-author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 07/24/2025
-ms.author: wchi
+ms.date: 06/18/2026
 ---
 
 ### [.NET](#tab/dotnet)
@@ -66,7 +64,7 @@ ms.author: wchi
     app_config_client = AzureAppConfigurationClient.from_connection_string(connection_string)
     ```
 
-### [NodeJS](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 1. Install dependencies.
 

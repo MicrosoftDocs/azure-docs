@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 07/24/2025
+ms.date: 06/18/2026
 #customer intent: As a cloud developer, I want to connect my cloud services to Azure Key Vault by using Service Connector.
 ---
 
@@ -14,7 +14,7 @@ ms.date: 07/24/2025
 > [!NOTE]
 > When you use Service Connector to connect your Key Vault or manage Key Vault connections, Service Connector uses your token to perform the corresponding operations.
 
-This page shows supported authentication methods and clients. It provides sample code you can use to connect Azure Key Vault to other cloud services using Service Connector. You might be able to connect to Azure Key Vault in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
+This article covers supported authentication methods and clients, and provides sample code for connecting cloud services to Azure Key Vault by using Service Connector. It also lists default environment variable names, values, and Spring Boot configuration properties created with the service connection.
 
 ## Supported compute services
 
@@ -64,7 +64,7 @@ Use the following connection details to connect compute services to Azure Key Va
 
 #### Sample code
 
-To connect to Azure Key Vault using a system-assigned managed identity, refer to the following steps and code.
+To connect to Azure Key Vault using a system-assigned managed identity:
 [!INCLUDE [code sample for key vault](./includes/code-keyvault-me-id.md)]
 
 ### User-assigned managed identity
@@ -90,7 +90,7 @@ To connect to Azure Key Vault using a system-assigned managed identity, refer to
 
 #### Sample code
 
-To connect to Azure Key Vault using a system-assigned managed identity, refer to the following steps and code.
+To connect to Azure Key Vault using a user-assigned managed identity:
 [!INCLUDE [code sample for key vault](./includes/code-keyvault-me-id.md)]
 
 ### Service principal
@@ -121,7 +121,7 @@ To connect to Azure Key Vault using a system-assigned managed identity, refer to
 
 #### Sample code
 
-To connect to Azure Key Vault using a system-assigned managed identity, refer to the following steps and code.
+To connect to Azure Key Vault using a service principal:
 [!INCLUDE [code sample for key vault](./includes/code-keyvault-me-id.md)]
 
 ## Next step

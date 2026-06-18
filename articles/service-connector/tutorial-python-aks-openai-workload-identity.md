@@ -11,7 +11,7 @@ keywords: "azure openai aks, kubernetes openai, service connector, workload iden
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ms.topic: tutorial
-ms.date: 02/04/2026
+ms.date: 06/17/2026
 ---
 
 # Tutorial: Connect AKS to Azure OpenAI
