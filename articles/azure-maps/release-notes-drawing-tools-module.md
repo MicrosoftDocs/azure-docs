@@ -14,6 +14,16 @@ ms.subservice: web-sdk
 
 This document contains information about new features and other changes to the Azure Maps Drawing Tools Module.
 
+## [2.1.0] (CDN: June 23, 2026, npm: TBD)
+
+### Other changes
+
+- Added support for `azure-maps-control@^4.0.0-preview.1`, in addition to the existing v2 and v3 ranges.
+
+### Security fixes
+
+- Updated vulnerable transitive development dependencies, including `brace-expansion`, `serialize-javascript`, and `lodash`.
+
 ## [2.0.0] (CDN: December 15, 2025, npm: December 17, 2025)
 
 ### Breaking Changes

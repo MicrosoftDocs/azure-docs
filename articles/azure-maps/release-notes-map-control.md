@@ -16,6 +16,14 @@ This document contains information about new features and other changes to the M
 
 ## v4 (next)
 
+### [4.0.0-preview.2] (CDN: June 23, 2026, npm: TBD)
+
+#### Changes
+* Changed the default `language` to `auto`, which resolves to the browser's configured language instead of `NGT` when no language is set.
+
+#### Security fixes
+* Updated vulnerable transitive development dependencies, including `brace-expansion`, `serialize-javascript`, and `lodash`.
+
 ### [4.0.0-preview.1] (CDN: May 4, 2026, npm: May 6, 2026)
 
 #### Security fixes
