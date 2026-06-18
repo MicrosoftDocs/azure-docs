@@ -31,7 +31,7 @@ The following diagram illustrates how enclave creation differs when approvals ar
 
 <pre>
 <!--
-This is the mermaid definition for the above graph. Use this to edit and regenerate the PNG image.
+This is the mermaid definition for the above diagram. Use this to edit and regenerate the PNG image.
 
 ```mermaid
 ---

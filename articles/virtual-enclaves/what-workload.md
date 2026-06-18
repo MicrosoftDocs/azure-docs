@@ -32,7 +32,7 @@ This diagram shows two example workloads. The `Shared Workload` is linked to thr
 
 <pre>
 <!--
-This is the mermaid definition for the above graph. Use this to edit and regenerate the PNG image.
+This is the mermaid definition for the above diagram. Use this to edit and regenerate the PNG image.
 
 ```mermaid
 ---

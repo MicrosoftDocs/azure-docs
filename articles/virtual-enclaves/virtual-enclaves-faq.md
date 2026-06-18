@@ -4,7 +4,8 @@ description: See answers to frequently asked questions about Azure Virtual Encla
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: concept-article
-ms.date: 06/05/2026
+ms.date: 9/30/2025
+ai-usage: ai-assisted
 ---
 
 # Azure Virtual Enclaves frequently asked questions

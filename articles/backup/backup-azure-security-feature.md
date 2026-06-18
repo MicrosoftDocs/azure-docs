@@ -4,6 +4,7 @@ description: Learn how to use security features in Azure Backup to make backups 
 ms.reviewer: utraghuv
 ms.topic: how-to
 ms.date: 06/20/2025
+ms.update-cycle: 1095-days
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka

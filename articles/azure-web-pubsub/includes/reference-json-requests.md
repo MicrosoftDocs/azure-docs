@@ -137,6 +137,90 @@ Format:
 
 * The simple WebSocket clients in `<group_name>` receive the **binary** data in the binary frame.
 
+### Start streaming messages
+
+To start a group stream, send a `sendToGroup` request with the `stream` property. A stream start request doesn't contain `data`, `dataType`, or `ackId`.
+
+Format:
+
+```json
+{
+    "type": "sendToGroup",
+    "group": "<group_name>",
+    "noEcho": true|false,
+    "stream": {
+        "streamId": "<stream_id>",
+        "idleTimeoutMs": 300000
+    }
+}
+```
+
+* `stream.streamId` is the identifier of the logical stream. It must be a non-empty string and must be unique among active streams on the same client connection. Client libraries are recommended to generate a globally unique value, such as a GUID or UUID.
+* `stream.idleTimeoutMs` is optional. If specified, it must be greater than `0`. If omitted, the service default is `300000` milliseconds. The value is an idle timeout, not a total stream lifetime. Send stream data, send a stream keepalive, or end the stream before this timeout elapses when the application needs to keep the stream open.
+* `noEcho` is optional. If set to true, stream messages aren't echoed back to the same connection. If not set, the default value is false.
+
+When the stream is accepted, the client receives a [stream ack response](#stream-ack-response) with `expectedSequenceId` set to `1`.
+
+### Send streaming data
+
+To send stream data, send a `streamData` request with `streamId`, `streamSequenceId`, `dataType`, and `data`.
+
+Format:
+
+```json
+{
+    "type": "streamData",
+    "streamId": "<stream_id>",
+    "streamSequenceId": 1,
+    "dataType" : "json|text|binary",
+    "data": {}
+}
+```
+
+* `streamId` identifies an active stream on the same client connection.
+* `streamSequenceId` is a positive uint64 number. The first data fragment in a stream uses `1`, and each following data fragment for the same `streamId` increases by exactly `1`.
+* `dataType` can be set to `json`, `text`, or `binary`, with the same data encoding rules as [publish messages](#publish-messages).
+
+To keep a stream active without delivering data to subscribers, send a `streamData` request with only `type` and `streamId`.
+
+```json
+{
+    "type": "streamData",
+    "streamId": "<stream_id>"
+}
+```
+
+### End streaming messages
+
+To end a stream, send a `streamEnd` request.
+
+Format:
+
+```json
+{
+    "type": "streamEnd",
+    "streamId": "<stream_id>"
+}
+```
+
+To end a stream with an application-defined error, include the optional `error` property.
+
+```json
+{
+    "type": "streamEnd",
+    "streamId": "<stream_id>",
+    "error": {
+        "message": "<error_detail>",
+        "userErrorCode": "<application_error_code>"
+    }
+}
+```
+
+* `error.message` is an optional human-readable error message.
+* `error.userErrorCode` is an optional application-defined error code.
+
+When the stream is closed, the publisher receives a [stream closed response](#stream-closed-response).
+
 ### Send custom events
 
 Format:

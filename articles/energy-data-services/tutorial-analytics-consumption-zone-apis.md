@@ -86,6 +86,7 @@ curl --request POST \
     "name": "{acz-name}",
     "aczType": "{acz-type}",
     "targetFormat": "DELTA_PARQUET",
+    "allCatalogSync": false,
     "sink": {
       "storageType": "microsoft.storage/storageaccounts",
       "storageId": "{storage-resource-id}",
@@ -112,6 +113,7 @@ $body = @{
     name = "{acz-name}"
     aczType = "{acz-type}"
     targetFormat = "DELTA_PARQUET"
+    allCatalogSync = $false
     sink = @{
         storageType = "microsoft.storage/storageaccounts"
         storageId = "{storage-resource-id}"
@@ -146,11 +148,19 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs" -Method Post -Header
 | `{acz-type}` | Optional: `LATEST_VERSION` (default) exports only the latest version, `ALL_VERSIONS` exports all versions |
 | `{storage-resource-id}` | Azure resource ID of the destination ADLS Gen2 storage account (for example, `/subscriptions/xxx.../storageAccounts/mystorageacct`) |
 | `{base-path}` | Optional: Base path within the storage account for ACZ data output (for example, `acz-output`) |
-| `{catalog-kinds}` | Optional: OSDU® catalog kind strings to sync (for example, `["osdu:wks:master-data--Well:*"]`) |
-| `{wellbore-ddms-kinds}` | Optional: Wellbore Domain Data Management Service (DDMS) kind strings to sync (for example, `["osdu:wks:work-product-component--WellLog:*"]`) |
+| `allCatalogSync` | Optional (default: `false`). When set to `true`, exports all catalog kinds from the partition. Specified **outside** the `configuration` section. When `true`, `catalogKinds` and `wellboreDDMSKinds` in configuration are ignored for catalog data. |
+| `{catalog-kinds}` | Optional: OSDU® catalog kind strings to sync (for example, `["osdu:wks:master-data--Well:*"]`). Ignored if `allCatalogSync` is `true`. |
+| `{wellbore-ddms-kinds}` | Optional: Wellbore Domain Data Management Service (DDMS) kind strings to sync (for example, `["osdu:wks:work-product-component--WellLog:*"]`). File downloads only occur for kinds listed here. |
+
+> [!TIP]
+> **Export all catalog data**  
+> Set `"allCatalogSync": true` (outside the `configuration` section) to export all catalog kinds from your data partition. When enabled, the `catalogKinds` and `wellboreDDMSKinds` arrays in configuration are ignored for catalog data. Wellbore DDMS bulk file downloads still only occur for kinds listed in `wellboreDDMSKinds`.
 
 > [!NOTE]
-> You must provide at least one of `{catalog-kinds}` or `{wellbore-ddms-kinds}` in the configuration.
+> You must provide at least one of the following options:
+> - Set `"allCatalogSync": true` (outside configuration), OR
+> - Provide `catalogKinds` array in configuration with at least one kind pattern, OR  
+> - Provide `wellboreDDMSKinds` array in configuration with at least one kind pattern
 
 **Sample response (201 Created):**
 
@@ -166,6 +176,7 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs" -Method Post -Header
     "storageId": "/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}",
     "basePath": "acz-output"
   },
+  "allCatalogSync": false,
   "configuration": {
     "catalogKinds": [
       "osdu:wks:master-data--Well:*",
@@ -252,26 +263,45 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs" -Method Get -Headers
         "storageId": "/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}",
         "basePath": "acz-output"
       },
+      "allCatalogSync": false,
       "configuration": {
         "catalogKinds": [
-          "osdu:wks:master-data--Well:*",
-          "osdu:wks:reference-data--UnitOfMeasure:*"
-        ],
+          "osdu:wks:master-data--Well:*"
+        ]
+      },
+      "historicalSnapshotStatus": "PROCESSING",
+      "createdTs": "2026-03-31T10:00:00Z",
+      "updatedTs": "2026-03-31T10:00:00Z",
+      "createdBy": "user@contoso.com"
+    },
+    {
+      "aczId": "acz-xyz789ghi012",
+      "name": "all-catalog-sync-example",
+      "status": "ACTIVE",
+      "aczType": "LATEST_VERSION",
+      "targetFormat": "DELTA_PARQUET",
+      "sink": {
+        "storageType": "microsoft.storage/storageaccounts",
+        "storageId": "/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}",
+        "basePath": "acz-output"
+      },
+      "allCatalogSync": true,
+      "configuration": {
         "wellboreDDMSKinds": [
           "osdu:wks:work-product-component--WellLog:*"
         ]
       },
       "historicalSnapshotStatus": "COMPLETED",
-      "createdTs": "2026-03-31T10:00:00Z",
-      "updatedTs": "2026-03-31T10:30:00Z",
+      "createdTs": "2026-03-31T09:00:00Z",
+      "updatedTs": "2026-03-31T09:45:00Z",
       "createdBy": "user@contoso.com"
     }
   ],
-  "count": 1
+  "count": 2
 }
 ```
 
-The response lists all ACZs in any status: `ACTIVE`, `FAILED`, or `ACCESS_DENIED`.
+The response lists all ACZs in any status: `ACTIVE`, `FAILED`, or `ACCESS_DENIED`. This response shows two ACZs: one using selective catalog sync (`allCatalogSync: false` with specific kinds) and another using `allCatalogSync: true` to export all catalog kinds.
 
 ## Get ACZ details
 
@@ -340,6 +370,7 @@ Invoke-RestMethod -Uri "https://{base-url}/api/acz/v1/aczs/{acz-id}" -Method Get
     "storageId": "/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.Storage/storageAccounts/{account}",
     "basePath": "acz-output"
   },
+  "allCatalogSync": false,
   "configuration": {
     "catalogKinds": [
       "osdu:wks:master-data--Well:*",

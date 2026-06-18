@@ -3,7 +3,7 @@ title: Use compute-intensive Azure VMs with Batch
 description: How to take advantage of HPC and GPU virtual machine sizes in Azure Batch pools. Learn about OS dependencies and see several scenario examples.
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 02/04/2025
+ms.date: 06/16/2026
 # Customer intent: "As a cloud administrator, I want to configure HPC and GPU instances in Azure Batch pools, so that I can effectively manage and accelerate compute-intensive workloads using high-performance virtual machines."
 ---
 # Use RDMA or GPU instances in Batch pools
@@ -39,7 +39,7 @@ The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported o
 <sup>*</sup>RDMA-capable N-series sizes also include NVIDIA Tesla GPUs
 
 > [!Important]
-> This document references a release version of Linux that is nearing or at, End of Life(EOL). Please consider updating to a more current version.
+> This document references a release version of Linux that is nearing or at End of Life (EOL). Consider updating to a more current version.
 
 
 ### Windows pools - Virtual Machine Configuration
@@ -55,7 +55,7 @@ The RDMA or GPU capabilities of compute-intensive sizes in Batch are supported o
 ### Windows pools - Cloud Services Configuration
 
 > [!WARNING]
-> Cloud Services Configuration pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Please use Virtual Machine Configuration pools instead.
+> Cloud Services Configuration pools are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Use Virtual Machine Configuration pools instead.
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | ------- | -------- | -------- | ----- |
@@ -83,7 +83,7 @@ To configure a specialized VM size for your Batch pool, you have several options
 * Create a Batch [application package](batch-application-packages.md) from a zipped driver or application installer. Then, configure Batch to deploy this package to pool nodes and install once when each node is created. For example, if the application package is an installer, create a [start task](jobs-and-tasks.md#start-task) command line to silently install the app on all pool nodes. Consider using an application package and a pool start task if your workload depends on a particular driver version.
 
   > [!NOTE]
-  > The start task must run with elevated (admin) permissions, and it must wait for success. Long-running tasks will increase the time to provision a Batch pool.
+  > The start task must run with elevated (admin) permissions, and it must wait for success. Long-running tasks increase the time to provision a Batch pool.
   >
 
 ## Example: NVIDIA GPU drivers on Windows NC VM pool

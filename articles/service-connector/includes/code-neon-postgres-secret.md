@@ -1,9 +1,8 @@
 ---
-author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 02/21/2025
-ms.author: wchi
+ms.date: 06/17/2026
+ms.reviewer: wchi
 ---
 
 ### [.NET](#tab/dotnet)
@@ -40,7 +39,7 @@ ms.author: wchi
     }
    ```
 
-### [SpringBoot](#tab/springBoot)
+### [Spring Boot](#tab/springBoot)
 
 1. Install the Spring Cloud Azure Starter JDBC PostgreSQL module by adding the following dependencies to your `pom.xml` file. Find the version of Spring Cloud Azure [here](https://github.com/Azure/azure-sdk-for-java/wiki/Spring-Versions-Mapping#which-version-of-spring-cloud-azure-should-i-use).
     ```xml
@@ -171,7 +170,7 @@ ms.author: wchi
    ```bash
    gem install pg
    ```
-2. In code, get the PostgreSQL connection information from environment variables added by Service Connector.
+1. In code, get the PostgreSQL connection information from environment variables added by Service Connector.
     ```ruby
     require 'pg'
     require 'dotenv/load'

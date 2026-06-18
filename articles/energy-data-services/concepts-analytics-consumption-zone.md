@@ -58,6 +58,49 @@ When you create an ACZ, you specify which entity types to synchronize by providi
 
 These kind patterns act as filters that determine which Azure Data Manager for Energy records ACZ exports and keeps synchronized.
 
+### Using the allCatalogSync flag
+
+The `allCatalogSync` flag is an optional boolean parameter that you can specify when creating an ACZ. When set to `true`, it synchronizes all catalog kinds from the data partition.
+
+Key behaviors:
+- `allCatalogSync` is specified **outside** the `configuration` section in the request body
+- When `allCatalogSync: true`, ACZ exports all catalog kinds automatically
+- The `catalogKinds` and `wellboreDDMSKinds` arrays in the configuration are ignored for catalog data
+- Wellbore DDMS bulk file downloads are **not affected** by this flag - files are only downloaded for kinds explicitly listed in `wellboreDDMSKinds`
+
+**Example configurations:**
+
+```json
+// Selective catalog sync - only Wells and Fields
+{
+  "allCatalogSync": false,
+  "configuration": {
+    "catalogKinds": [
+      "osdu:wks:master-data--Well:*",
+      "osdu:wks:master-data--Field:*"
+    ]
+  }
+}
+
+// Sync all catalog kinds using allCatalogSync flag
+{
+  "allCatalogSync": true,
+  "configuration": {
+    // catalogKinds is ignored when allCatalogSync is true
+  }
+}
+
+// Sync all catalog kinds, but Wellbore DDMS files only for specified kinds
+{
+  "allCatalogSync": true,
+  "configuration": {
+    "wellboreDDMSKinds": [
+      "osdu:wks:work-product-component--WellLog:*"
+    ]
+  }
+}
+```
+
 ### Version types
 
 When you create an ACZ, you choose how to handle entity versions:

@@ -37,7 +37,7 @@ The following diagram shows the architecture tutorials 2-1 through 2-4. The arch
 [ ![Diagram showing the complete architecture for AVD and AKS workloads in Azure Virtual Enclaves.](./media/mermaid-tutorial-architecture.png) ](./media/mermaid-tutorial-architecture.png#lightbox)
 
 <!--
-This is the mermaid definition for the above graph. Use this to edit and regenerate the PNG image.
+This is the mermaid definition for the above diagram. Use this to edit and regenerate the PNG image.
 
 ```mermaid
 ---

@@ -3,7 +3,7 @@ title: Release notes for Azure Operator Service Manager
 description: Official tracking of Azure Operator Service Manager available releases and regions.
 author: msftadam
 ms.author: adamdor
-ms.date: 10/10/2025
+ms.date: 6/16/2026
 ms.topic: release-notes
 ms.service: azure-operator-service-manager
 ---
@@ -38,8 +38,8 @@ This 2605.02 Azure Operator Service Manager release bundles together changes acr
 ### Release details
 * Release Date: May 31, 2026
 * R2D Approvals: 203931, 226891
-* NFO Release Version: 3.0.3432.245
-* RP Release Version: 1.0.03406.567 or later
+* NFO Release Version: 3.0.3432-245
+* RP Release Version: 1.0.3406-567 or later
 * CLI Extension Release Version: [2.0.0b6](https://github.com/Azure/azure-cli-extensions/blob/main/src/aosm/HISTORY.rst)
 * Is NFO update required: YES, Update only
 * Dependency Versions: Go/1.24.11 - Helm/3.18.4 - Azure Linux 3.0.20260517
@@ -52,7 +52,7 @@ The following bug fixes, defect resolutions, or usability improvements are deliv
 * NFO - [495515] Add ./github/unit-test-instructions.md for unit tests
 * NFO - [479538] Add .github/copilot-instructions.md for Copilot context
 * RP  - [2498814] Fix for unable to delete unused NFDV after NF is updated.
-* RP  - [2279740] Return a Better Error Message when an Operation Fails Due to Hitting the RBAC Limit.
+* RP  - [2279740] Return a better error message when an operation fails due to RBAC limits.
 * RP  - [2754792] Enhanced observability for Network Function component lifecycle.
 
 ### Release updates to improve security

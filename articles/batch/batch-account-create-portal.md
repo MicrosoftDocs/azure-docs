@@ -2,7 +2,7 @@
 title: Create a Batch account in the Azure portal
 description: Learn how to use the Azure portal to create and manage an Azure Batch account for running large-scale parallel workloads in the cloud.
 ms.topic: how-to
-ms.date: 04/02/2025
+ms.date: 06/16/2026
 ms.custom: subject-rbac-steps, linux-related-content
 # Customer intent: "As a cloud engineer, I want to create and configure a Batch account in the Azure portal, so that I can efficiently manage large-scale parallel workloads in the cloud."
 ---
@@ -54,7 +54,6 @@ To create a Batch account in the default Batch service mode:
 ## View Batch account properties
 
 Once the account is created, select **Go to resource** to access its settings and properties. Or search for and select *batch accounts* in the portal Search box, and select your account from the list on the **Batch accounts** page.
-
 :::image type="content" source="media/batch-account-create-portal/batch-blade.png" alt-text="Screenshot of the Batch account page in the Azure portal.":::
 
 On your Batch account page, you can access all account settings and properties from the left navigation menu.
@@ -99,7 +98,7 @@ Get-AzMarketplaceTerms -Publisher 'microsoft-azure-batch' -Product 'ubuntu-serve
 <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>
 ### Allow Batch to access the subscription
 
-When you create the first user subscription mode Batch account in an Azure subscription, you must register your subscription with Batch resource provider, and assign **Azure Batch Service Orchestration Role** to Microsoft Azure Batch service principal. You need to do this configuration only once per subscription.
+When you create the first user subscription mode Batch account in an Azure subscription, you must register your subscription with the Batch resource provider, and assign the **Azure Batch Service Orchestration Role** to the Microsoft Azure Batch service principal. You need to do this configuration only once per subscription.
 
 > [!IMPORTANT]
 > You need **Owner** permissions in the subscription to take this action.
@@ -155,7 +154,7 @@ To create a Batch account with authentication mode settings:
 > For enhanced security, it is advised to confine the authentication mode of the Batch account solely to **Microsoft Entra ID**. This measure mitigates the risk of shared key exposure and introduces additional RBAC controls. For more details, see [Batch security best practices](./security-best-practices.md#batch-account-authentication).
 
 > [!WARNING]
-> The **Task Authentication Token** will retire on September 30, 2024. Should you require this feature, it is recommended to use [User assigned managed identity](./managed-identity-pools.md) in the Batch pool as an alternative. 
+> The **Task Authentication Token** retired on September 30, 2024. If you require this feature, use [user-assigned managed identity](./managed-identity-pools.md) in the Batch pool as an alternative.
 
 ### Grant access to the key vault manually
 

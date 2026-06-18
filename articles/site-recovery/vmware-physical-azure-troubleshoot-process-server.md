@@ -76,13 +76,7 @@ For all services except the Microsoft Azure Recovery Services Agent (obengine), 
 
 ## Step 3: Check the process server heartbeat
 
-If there's no heartbeat from the process server (error code 806), do the following:
-
-1. Verify that the process server VM is up and running.
-2. Check these logs for errors.
-
-    C:\ProgramData\ASR\home\svsystems\eventmanager*.log
-    C\ProgramData\ASR\home\svsystems\monitor_protection*.log
+If there's no heartbeat from the process server (error code 806), verify that the process server VM is up and running.
 
 ## Check connectivity and replication
 

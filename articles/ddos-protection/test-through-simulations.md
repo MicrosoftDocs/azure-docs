@@ -36,7 +36,6 @@ Simulations help you:
 ## Azure DDoS simulation testing policy
 
 You can only simulate attacks using our approved testing partners:
-- [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud): a self-service traffic generator where your customers can generate traffic against DDoS Protection-enabled public endpoints for simulations.
 - [MazeBolt](https://mazebolt.com): The RADAR™ platform continuously identifies and enables the elimination of DDoS vulnerabilities – proactively and with zero disruption to business operations.
 - [Red Button](https://www.red-button.net/): work with a dedicated team of experts to simulate real-world DDoS attack scenarios in a controlled environment.
 - [RedWolf](https://www.redwolfsecurity.com/services/#cloud-ddos): a self-service or guided DDoS testing provider with real-time control.
@@ -45,7 +44,7 @@ You can only simulate attacks using our approved testing partners:
 Our testing partners' simulation environments are built within Azure. You can only simulate against Azure-hosted public IP addresses that belong to an Azure subscription of your own, which will be validated by our partners before testing. Additionally, these target public IP addresses must be protected under Azure DDoS Protection. Simulation testing allows you to assess your current state of readiness, identify gaps in your incident response procedures, and guide you in developing a proper [DDoS response strategy](ddos-response-strategy.md). 
 
 > [!NOTE]
-> BreakingPoint Cloud and Red Button are only available for the Public cloud.
+> Red Button is only available for the Public cloud.
 
 ## Prerequisites
 
@@ -155,37 +154,6 @@ In this tutorial, we'll configure DDoS Protection metrics and alerts to monitor 
 1. Select **Review + create** and then select **Create** after validation passes.
 
 ## Configure a DDoS attack simulation
-
-### BreakingPoint Cloud
-
-BreakingPoint Cloud is a self-service traffic generator where you can generate traffic against DDoS Protection-enabled public endpoints for simulations. 
-
-BreakingPoint Cloud offers:
-
-- A simplified user interface and an “out-of-the-box” experience.
-- Pay-per-use model.
-- Predefined DDoS test sizing and test duration profiles enable safer validations by eliminating the potential of configuration errors.
-- A free trial account. 
-
-> [!NOTE]
-> For BreakingPoint Cloud, you must first [create a BreakingPoint Cloud account](https://www.ixiacom.com/products/breakingpoint-cloud).  
-
-Example attack values:
-
-:::image type="content" source="./media/ddos-attack-simulation/ddos-attack-simulation-example-1.png" alt-text="DDoS Attack Simulation Example: BreakingPoint Cloud."::: 
-
-|Setting        |Value                                              |
-|---------      |---------                                          |
-|Target IP address           | Enter one of your public IP address you want to test.                     |
-|Port Number   | Enter _443_.                       |
-|DDoS Profile | Possible values include `DNS Flood`, `NTPv2 Flood`, `SSDP Flood`, `TCP SYN Flood`, `UDP 64B Flood`, `UDP 128B Flood`, `UDP 256B Flood`, `UDP 512B Flood`, `UDP 1024B Flood`, `UDP 1514B Flood`, `UDP Fragmentation`, `UDP Memcached`.|
-|Test Size       | Possible values include `100K pps, 50 Mbps and 4 source IPs`, `200K pps, 100 Mbps and 8 source IPs`, `400K pps, 200Mbps and 16 source IPs`, `800K pps, 400 Mbps and 32 source IPs`.                                  |
-|Test Duration | Possible values include `10 Minutes`, `15 Minutes`, `20 Minutes`, `25 Minutes`, `30 Minutes`.|
-
-> [!NOTE]
-> - For more information on using BreakingPoint Cloud with your Azure environment, see this [BreakingPoint Cloud blog](https://www.keysight.com/blogs/tech/nwvs/2020/11/17/six-simple-steps-to-understand-how-microsoft-azure-ddos-protection-works).
-> - For a video demonstration of utilizing BreakingPoint Cloud, see [DDoS Attack Simulation](https://www.youtube.com/watch?v=xFJS7RnX-Sw).
-
 
 ### Red Button
 

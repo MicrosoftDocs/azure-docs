@@ -2,12 +2,11 @@
 title: 'Deploy an Azure Batch account and two pools with a start task - Terraform'
 description: In this article, you deploy an Azure Batch account and two pools with a start task using Terraform.
 ms.topic: quickstart
-ms.date: 10/24/2024
+ms.date: 06/16/2026
 ms.custom: devx-track-terraform
 ms.service: azure-batch
 author: Padmalathas
 ms.author: padmalathas
-#customer intent: As a Terraform user, I want to see how to create an Azure resource group, Storage account, Batch account, and two Batch pools with different scaling configurations.
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

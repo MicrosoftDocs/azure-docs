@@ -5,6 +5,7 @@ author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
 ms.date: 9/30/2025
+ai-usage: ai-assisted
 ---
 
 # Learn about Azure Virtual Enclaves
@@ -22,7 +23,7 @@ This diagram shows networking connections within Azure Virtual Enclaves. The dia
 [ ![Diagram showing an example community with two regions, three enclaves, and 4 workloads.](./media/mermaid-virtual-enclaves-network-links.png) ](./media/mermaid-virtual-enclaves-network-links.png#lightbox)
 
 <!--
-This is the mermaid definition for the above graph. Use this to edit and regenerate the PNG image.
+This is the mermaid definition for the above diagram. Use this to edit and regenerate the PNG image.
 
 ```mermaid
 ---
