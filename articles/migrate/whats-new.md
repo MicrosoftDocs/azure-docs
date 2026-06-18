@@ -18,7 +18,7 @@ ms.custom: mvc, engagement-fy25
 
 ## Update (June 2026)
 
-- Public preview: Azure Migrate now integrates with GitHub Copilot modernization CLI (public preview) to deliver at scale code insights. This capability brings together Azure Migrate’s portfolio-level discovery and assessment with GitHub Copilot’s context-aware code analysis. The shared workflow helps migration admins and app developers collaborate more effectively while adhering to organizational security guidelines. Teams can assess multiple applications at once, evaluate Azure compatibility, and make informed refactor-versus-replatform decisions. They can also act on code-fix recommendations and effort estimates to plan modernization with greater confidence and predictability. [Learn more](/azure/migrate/add-copilot-code-insights)
+- Public preview: Azure Migrate now **integrates with GitHub Copilot modernization CLI** (public preview) to deliver **at scale code insights**. This capability brings together Azure Migrate’s portfolio-level discovery and assessment with GitHub Copilot’s context-aware code analysis. The shared workflow helps migration admins and app developers collaborate more effectively while adhering to organizational security guidelines. Teams can assess multiple applications at once, evaluate Azure compatibility, and make informed refactor-versus-replatform decisions. They can also act on code-fix recommendations and effort estimates to plan modernization with greater confidence and predictability. [Learn more](/azure/migrate/add-copilot-code-insights)
 
 
 ## Update (May 2026)
