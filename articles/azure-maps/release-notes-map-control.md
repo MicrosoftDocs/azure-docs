@@ -18,7 +18,7 @@ This document contains information about new features and other changes to the M
 
 ### [4.0.0-preview.2] (CDN: June 23, 2026, npm: TBD)
 
-#### Changes
+#### Breaking changes
 * Changed the default `language` to `auto`, which resolves to the browser's configured language instead of `NGT` when no language is set.
 
 #### Security fixes
