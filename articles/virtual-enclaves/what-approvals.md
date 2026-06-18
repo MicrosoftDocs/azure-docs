@@ -29,15 +29,80 @@ The following diagram illustrates how enclave creation differs when approvals ar
 
 :::image type="content" source="./media/approvals-state-comparison.png" alt-text="Diagram showing the process for an enclave being created with approvals and without approvals." border="True" lightbox="./media/approvals-state-comparison.png":::
 
+<pre>
 <!--
 This is the mermaid definition for the above diagram. Use this to edit and regenerate the PNG image.
 
-To edit this diagram saved in Andy Serfass's account (because sharing is a premium feature):
+```mermaid
+---
+title: Azure Virtual Enclaves - Approvals Process
+config:
+  theme: base
+  themeVariables:
+    primaryColor: '#0078D4'
+    primaryTextColor: '#000000'
+    primaryBorderColor: '#005A9E'
+    lineColor: '#505050'
+    secondaryColor: '#E6F2FB'
+    tertiaryColor: '#F3F2F1'
+    fontFamily: 'Segoe UI, sans-serif'
+    fontSize: '14px'
+---
+stateDiagram-v2
+  direction TB
+    
+  State "Without Approvals" as without {
+    RequestSubmitted: 📝 Request Submitted
+    Provisioning: ⚙️ Provisioning
+    Active: ✅ Active
 
-1. Open the [diagram link](https://mermaid.ai/app/projects/238539a2-4d72-4f60-9feb-3daac2592fd8/diagrams/8626d546-72fc-4972-ac45-09db985f1201/share/invite/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudElEIjoiODYyNmQ1NDYtNzJmYy00OTcyLWFjNDUtMDlkYjk4NWYxMjAxIiwiYWNjZXNzIjoiVmlldyIsImlhdCI6MTc4MTMyNDA4N30.eyif64VidjP_qLRmD1tnaujOYfyufyjblkdQwQnnUdo?entryPoint=share-modal) in Mermaid Live in your browser.
-2. Make the necessary changes.
-3. Export the updated diagram and replace the existing image file.
+    [*] --> RequestSubmitted: User selects Create
+    RequestSubmitted --> Provisioning: Immediate processing
+    Provisioning --> Active: Deployment completes
+    Active --> [*]
+  }
+  
+  State "With Approvals" as with {
+    RequestSubmittedTwo: 📝 Request Submitted
+    PendingApproval: ⏳ Pending Approval
+    Approved: ✅ Approved
+    Rejected: ❌ Rejected
+    Provisioning2: ⚙️ Provisioning
+    Active2: ✅ Active
+
+    [*] --> RequestSubmittedTwo: User selects Create
+    RequestSubmittedTwo --> PendingApproval: Queued for review
+    PendingApproval --> Approved: Approver approves
+    PendingApproval --> Rejected: Approver rejects
+    Approved --> Provisioning2: Processing begins
+    Provisioning2 --> Active2: Deployment completes
+    Active2 --> [*]
+    Rejected --> [*]: No change
+  }
+  
+  classDef azurePrimary fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+  classDef azurePrimaryTwo fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+  classDef azureSecondary fill:#50E6FF,stroke:#0078D4,stroke-width:2px,color:#000000
+  classDef success1 fill:#107C10,stroke:#094509,stroke-width:2px,color:#FFFFFF
+  classDef success2 fill:#107C10,stroke:#094509,stroke-width:2px,color:#FFFFFF
+  classDef success3 fill:#107C10,stroke:#094509,stroke-width:2px,color:#FFFFFF
+  classDef warning fill:#FFB900,stroke:#8A6914,stroke-width:2px,color:#000000
+  classDef error fill:#D13438,stroke:#8B0000,stroke-width:2px,color:#FFFFFF
+  classDef neutral1 fill:#F3F2F1,stroke:#8A8886,stroke-width:2px,color:#323130
+  classDef neutral2 fill:#F3F2F1,stroke:#8A8886,stroke-width:2px,color:#323130
+  
+  Class RequestSubmitted azurePrimary
+  Class RequestSubmittedTwo azurePrimaryTwo
+  Class PendingApproval azureSecondary
+  Class Approved success1
+  Class Active success2
+  Class Active2 success3
+  Class Rejected error
+  Class Provisioning neutral1
+  Class Provisioning2 neutral2
+```
 -->
+</pre>
 
 | Flow | Description |
 |------|-------------|

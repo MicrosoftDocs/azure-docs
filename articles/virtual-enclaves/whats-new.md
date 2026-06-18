@@ -36,9 +36,9 @@ The following Azure Virtual Enclaves networking features are available.
 
 The following features are currently in preview. Preview features might have limited availability, constrained capabilities, or support requirements that differ from released features.
 
-| Type of preview | Feature | Description | Limitations |
-|-----------------|---------|-------------|-------------|
-| Preview | Approvals | Approvals require more oversight on critical Azure Virtual Enclaves actions. Approvals enable administrators to queue the creation of new resources or change existing resources while requiring oversight and approval before the change can be made. | [Configure approval settings](./configure-approvals.md) |
+| Feature | Preview type | Description | Limitations |
+|---------|--------------|-------------|-------------|
+| Approvals | Preview | Approvals add oversight for critical Azure Virtual Enclaves actions. Administrators can queue the creation of new resources or changes to existing resources, and an authorized approver must approve the request before the change is applied. | [Configure approval settings](./configure-approvals.md) |
 
 ## Next steps
 

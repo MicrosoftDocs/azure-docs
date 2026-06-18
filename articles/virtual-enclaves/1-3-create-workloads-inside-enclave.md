@@ -5,6 +5,7 @@ author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
 ms.date: 06/02/2026
+ai-usage: ai-assisted
 ---
 
 # Tutorial 1-3: Create workloads in an enclave on Azure Virtual Enclaves
