@@ -27,14 +27,14 @@ Enclaves come with the following platform-managed resources:
 - **Private Link integration**: [Private Endpoints](/azure/private-link/private-endpoint-overview) and [Private DNS Zones](/azure/dns/private-dns-privatednszone) ensure all platform resources communicate privately within your network boundary.
 
 **Monitoring and Access**
-- **Log Analytics Workspace**: Provides [diagnostic logging](/azure/azure-monitor/essentials/diagnostic-settings) and monitoring for enclave resources. AVE and user-deployed resources can send logs here, with routing configurable via diagnostic settings.
+- **Log Analytics Workspace**: Provides [diagnostic logging](/azure/azure-monitor/essentials/diagnostic-settings) and monitoring for enclave resources. AE and user-deployed resources can send logs here, with routing configurable via diagnostic settings.
 - **Azure Bastion**: Provides secure RDP/SSH admin access to resources within the enclave.
 
 [ ![Diagram showing the managed resources deployed with an enclave and the resources deployed by the customer.](./media/communities-virtual-enclaves-enclave.svg) ](./media/communities-virtual-enclaves-enclave.svg#lightbox)
 
 ## Enclave managed resource group 
 
-When you create an enclave, the Azure Virtual Enclaves resource provider creates a managed resource group to hold all platform-managed resources. A [deny assignment](/azure/role-based-access-control/deny-assignments) prevents unauthorized modifications to this resource group, protecting enclave isolation and security boundaries from accidental or malicious changes. This mechanism ensures platform-managed resources remain in a secure, consistent state.
+When you create an enclave, the Azure Enclave resource provider creates a managed resource group to hold all platform-managed resources. A [deny assignment](/azure/role-based-access-control/deny-assignments) prevents unauthorized modifications to this resource group, protecting enclave isolation and security boundaries from accidental or malicious changes. This mechanism ensures platform-managed resources remain in a secure, consistent state.
 
 ### Maintenance mode
 

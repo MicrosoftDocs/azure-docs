@@ -1,6 +1,6 @@
 ---
 title: Application Installation on RemoteApp Virtual Machine
-titleSuffix: Azure Virtual Enclaves
+titleSuffix: Azure Enclave
 description: Application Installation on RemoteApp Virtual Machine.
 author: aserfass-msft
 ms.author: aserfass

@@ -23,11 +23,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create endpoint
 
-1. Enter `Azure Virtual Enclaves` in the search.
+1. Enter `Azure Enclave` in the search.
 
-2. Under `Services`, select `Azure Virtual Enclaves`.
+2. Under `Services`, select `Azure Enclave`.
 
-3. In the `Azure Virtual Enclaves` page, select `Enclaves` in the left menu.
+3. In the `Azure Enclave` page, select `Enclaves` in the left menu.
 
 4. On the `Enclaves` page, select your Enclave's name to open the enclave resource.
 

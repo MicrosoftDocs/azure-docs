@@ -1,26 +1,26 @@
 ---
-title: What's new in Azure Virtual Enclaves?
-description: Learn what's new with Azure Virtual Enclaves such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
+title: What's new in Azure Enclave?
+description: Learn what's new with Azure Enclave such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: concept-article
 ms.date: 06/12/2026
 ---
 
-# What's new in Azure Virtual Enclaves?
+# What's new in Azure Enclave?
 
-Azure Virtual Enclaves is updated regularly. Use this article to track recent feature updates, preview capabilities, known limitations, and related documentation.
+Azure Enclave is updated regularly. Use this article to track recent feature updates, preview capabilities, known limitations, and related documentation.
 
 This article includes:
 
 * [Recently released features](#recently-released)
 * [Preview features](#preview)
 
-You can also find Azure Virtual Enclaves updates and subscribe to the [Azure updates RSS feed](https://azure.microsoft.com/updates?filters=%5B%22Virtual+Enclaves%22%5D).
+You can also find Azure Enclave updates and subscribe to the [Azure updates RSS feed](https://azure.microsoft.com/updates?filters=%5B%22Virtual+Enclaves%22%5D).
 
 ## Recently released
 
-The following Azure Virtual Enclaves networking features are available.
+The following Azure Enclave networking features are available.
 
 ### March 2026
 
@@ -36,12 +36,12 @@ The following Azure Virtual Enclaves networking features are available.
 
 The following features are currently in preview. Preview features might have limited availability, constrained capabilities, or support requirements that differ from released features.
 
-| Feature | Preview type | Description | Limitations |
-|---------|--------------|-------------|-------------|
-| Approvals | Preview | Approvals add oversight for critical Azure Virtual Enclaves actions. Administrators can queue the creation of new resources or changes to existing resources, and an authorized approver must approve the request before the change is applied. | [Configure approval settings](./configure-approvals.md) |
+| Type of preview | Feature | Description | Limitations |
+|-----------------|---------|-------------|-------------|
+| Preview | Approvals | Approvals require more oversight on critical Azure Enclave actions. Approvals enable administrators to queue the creation of new resources or change existing resources while requiring oversight and approval before the change can be made. | [Configure approval settings](./configure-approvals.md) |
 
 ## Next steps
 
-For more information about Azure Virtual Enclaves, see:
-  * [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)
+For more information about Azure Enclave, see:
+  * [What is Azure Enclave?](./what-azure-virtual-enclaves.md)
   * [Frequently asked questions - FAQ](./virtual-enclaves-faq.md).

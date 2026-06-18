@@ -1,6 +1,6 @@
 ---
 title: Create a workload in the Azure portal
-description: Learn how to create a workload in Azure Virtual Enclaves by using the Azure portal.
+description: Learn how to create a workload in Azure Enclave by using the Azure portal.
 author: jadean-msft
 ms.author: jadean
 ai-usage: ai-assisted
@@ -12,11 +12,11 @@ ms.date: 06/12/2026
 
 [Workloads](./what-workload.md) are logical groups of zero or more resource groups and their underlying Azure resources in an enclave.
 
-In this how-to guide, you create a workload in an existing Azure Virtual Enclaves enclave and optionally add workload resource groups.
+In this how-to guide, you create a workload in an existing Azure Enclave enclave and optionally add workload resource groups.
 
 ## Prerequisites
-- To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-- All access to Azure Virtual Enclaves takes place through a community or an enclave. For this how-to article, create a [community](./create-community-portal.md) and [enclave](./create-enclave-portal.md) using the Azure portal.
+- To access Azure Enclave, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- All access to Azure Enclave takes place through a community or an enclave. For this how-to article, create a [community](./create-community-portal.md) and [enclave](./create-enclave-portal.md) using the Azure portal.
 
 ## Sign in to Azure
 
@@ -24,13 +24,13 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create workload
 
-1. Enter `Azure Virtual Enclaves` in the search.
+1. Enter `Azure Enclave` in the search.
 
-2. Under `Services`, select `Azure Virtual Enclaves`.
+2. Under `Services`, select `Azure Enclave`.
 
-3. In the `Azure Virtual Enclaves` page, select `Workloads` in the left menu.
+3. In the `Azure Enclave` page, select `Workloads` in the left menu.
 
-    [ ![Screenshot showing the Azure Virtual Enclaves portal homepage with the workloads page selected.](./media/azure-virtual-enclaves-homepage-workloads.png) ](./media/azure-virtual-enclaves-homepage-workloads.png#lightbox)
+    [ ![Screenshot showing the Azure Enclave portal homepage with the workloads page selected.](./media/azure-virtual-enclaves-homepage-workloads.png) ](./media/azure-virtual-enclaves-homepage-workloads.png#lightbox)
 
 4. On the `Workloads` page, select `Create`.
 

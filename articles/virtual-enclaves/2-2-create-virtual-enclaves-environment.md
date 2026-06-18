@@ -1,6 +1,6 @@
 ---
 title: Create Azure Virtual Enclave environment for workloads
-description: Set up the Azure Virtual Enclaves environment for complex workloads.
+description: Set up the Azure Enclave environment for complex workloads.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
@@ -10,7 +10,7 @@ ms.custom: references_region
 
 # Tutorial 2-2: Create Azure Virtual Enclave environment for workloads
 
-This tutorial guides you through creating the Azure Virtual Enclaves environment for Azure Virtual Desktop (AVD) and Azure Kubernetes Service (AKS) workloads. You set up common dependencies, create separate enclaves with properly sized subnets, deploy private DNS zones, and configure community and enclave endpoints for network connectivity.
+This tutorial guides you through creating the Azure Enclave environment for Azure Virtual Desktop (AVD) and Azure Kubernetes Service (AKS) workloads. You set up common dependencies, create separate enclaves with properly sized subnets, deploy private DNS zones, and configure community and enclave endpoints for network connectivity.
 
 In this tutorial, you learn how to:
   - Set up common dependencies (managed identity, Key Vault, encryption)
@@ -44,7 +44,7 @@ Both AVD and AKS workloads require common dependencies for encryption and securi
 
 First, create a workload in your existing enclave (or create a new enclave) to host shared services.
 
-1. In the Azure portal, navigate to your **Azure Virtual Enclaves** service.
+1. In the Azure portal, navigate to your **Azure Enclave** service.
 2. Select **Communities** and open your community (for example, `fabrikam`).
 3. Select an existing enclave or create a new shared services enclave:
    - **Enclave name**: `shared-services`
@@ -374,7 +374,7 @@ Verify that your environment configuration:
 
 ## Next steps
 
-With your AVE environment configured correctly, you're ready to deploy workloads. The next tutorial guides you through deploying Azure Virtual Desktop.
+With your AE environment configured correctly, you're ready to deploy workloads. The next tutorial guides you through deploying Azure Virtual Desktop.
 
 > [Tutorial 2-3: Deploy Azure Virtual Desktop (AVD) workload](./2-3-deploy-virtual-desktop-workload.md)
 

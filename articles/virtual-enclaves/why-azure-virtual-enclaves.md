@@ -1,6 +1,6 @@
 ---
-title: Why use Azure Virtual Enclaves?
-description: Learn why organizations use Azure Virtual Enclaves to create secure, isolated, and governed Azure environments for sensitive workloads.
+title: Why Azure Enclave?
+description: Learn why organizations use Azure Enclave to create secure, isolated, and governed Azure environments for sensitive workloads.
 author: mitchellly-msft
 ms.author: mitchellly
 ms.topic: overview
@@ -8,16 +8,16 @@ ms.date: 06/04/2026
 ai-usage: ai-assisted
 ---
 
-# Why use Azure Virtual Enclaves?
+# Why use Azure Enclave?
 
-Azure Virtual Enclaves (AVE) helps organizations accelerate the deployment and management of secure, isolated, and governed Azure environments for sensitive workloads. AVE combines managed networking, policy guardrails, logging, and governance controls so teams can focus on mission and application outcomes instead of repeatedly building secure environment foundations from scratch.
+Azure Enclave (AE) helps organizations accelerate the deployment and management of secure, isolated, and governed Azure environments for sensitive workloads. AE combines managed networking, policy guardrails, logging, and governance controls so teams can focus on mission and application outcomes instead of repeatedly building secure environment foundations from scratch.
 
 > [!IMPORTANT]
-> Azure Virtual Enclaves is currently in Preview and is provided without a service-level agreement. At this time, Azure Virtual Enclaves shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. For more information, see [Azure Virtual Enclaves Terms](./preview-terms.md).
+> Azure Enclave is currently in Preview and is provided without a service-level agreement. At this time, Azure Enclave shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. For more information, see [Azure Enclave Terms](./preview-terms.md).
 
 ## The value of AVE
 
-Azure Virtual Enclaves provides value in several ways:
+Azure Enclave provides value in several ways:
 
 - **Simplify secure workload connectivity** - Create and manage secure workloads, enclave connectivity, and controlled access to trusted endpoints, destinations, and mission partners.
 
@@ -29,23 +29,22 @@ Azure Virtual Enclaves provides value in several ways:
 
 ## Common use cases
 
-Azure Virtual Enclaves is useful when teams need repeatable secure environments with consistent governance and isolation.
+Azure Enclave is useful when teams need repeatable secure environments with consistent governance and isolation.
 
 ### Sensitive research and development
 
-Use AVE to create isolated environments for sensitive research and development projects. These environments help protect data, enforce policy controls, and support collaboration with approved internal or external partners.
+Use AE to create isolated environments for sensitive research and development projects. These environments help protect data, enforce policy controls, and support collaboration with approved internal or external partners.
 
 ### Regulated collaboration
 
-Use AVE to bring multiple teams or organizations together in a governed environment. Communities, enclaves, endpoints, and connections help standardize how workloads communicate with trusted destinations.
+Use AE to bring multiple teams or organizations together in a governed environment. Communities, enclaves, endpoints, and connections help standardize how workloads communicate with trusted destinations.
 
 ### Compliance-driven workloads
 
-Use AVE when workloads require strong isolation, controlled connectivity, auditability, and policy enforcement. AVE helps reduce the operational burden of creating governed Azure environments by providing a managed foundation for secure deployment.
+Use AE when workloads require strong isolation, controlled connectivity, auditability, and policy enforcement. AE helps reduce the operational burden of creating governed Azure environments by providing a managed foundation for secure deployment.
 
 ## Key capabilities
-
-Azure Virtual Enclaves includes capabilities that help teams create and manage secure workload environments:
+Azure Enclave provides capabilities to help you quickly create and manage the secure resources you need for your critical workloads:
 
 - **Communities** provide a central hub for networking, governance, and monitoring across one or more enclaves. For more information, see [What is a community?](./what-community.md).
 
@@ -53,15 +52,15 @@ Azure Virtual Enclaves includes capabilities that help teams create and manage s
 
 - **Workloads** organize customer-deployed resources within an enclave boundary. For more information, see [What is a workload?](./what-workload.md).
 
-- **Community endpoints, enclave endpoints, and enclave connections** define and manage allowed network connectivity. For more information, see [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md#virtual-connection-management).
+- **Community endpoints, enclave endpoints, and enclave connections** define and manage allowed network connectivity. For more information, see [What is Azure Enclave?](./what-azure-virtual-enclaves.md#virtual-connection-management).
 
-- **Policy guardrails and observability** help teams maintain governance, security, and monitoring across AVE resources.
+- **Policy guardrails and observability** help teams maintain governance, security, and monitoring across AE resources.
 
 ## Next steps
 
-To learn more about Azure Virtual Enclaves, see:
+To learn more about Azure Enclave, see:
 
-- [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)
-- [Azure Virtual Enclaves FAQ](./virtual-enclaves-faq.md)
-- [Get started with Azure Virtual Enclaves](./onboard.md)
+- [What is Azure Enclave?](./what-azure-virtual-enclaves.md)
+- [Azure Enclave FAQ](./virtual-enclaves-faq.md)
+- [Get started with Azure Enclave](./onboard.md)
 - [Create a community](./create-community-portal.md)

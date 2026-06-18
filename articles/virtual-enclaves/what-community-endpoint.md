@@ -11,7 +11,7 @@ ms.date: 3/23/2026
 
 A **community endpoint** is a collection of trusted destinations or transit hub connections to private networks outside of the community boundary.
 
-Enclave connections associated with a community endpoint allow the **source enclave** to connect to destinations defined within the community endpoint. These endpoints provide a controlled mechanism for enclaves to communicate with external services while maintaining the network isolation boundaries of Azure Virtual Enclaves (AVE).
+Enclave connections associated with a community endpoint allow the **source enclave** to connect to destinations defined within the community endpoint. These endpoints provide a controlled mechanism for enclaves to communicate with external services while maintaining the network isolation boundaries of Azure Enclave (AE).
 
 Community endpoints are enforced through **Azure Firewall network rules**, ensuring outbound connectivity from enclaves is explicitly defined and governed.
 
@@ -60,7 +60,7 @@ Community endpoints support several rule types that define how enclaves can conn
 
 ## Community endpoints for common services
 
-Azure Virtual Enclaves provides **pre-configured community endpoints for common services** that many organizations require. These built-in endpoints simplify the process of enabling connectivity to frequently used Azure and Microsoft services without requiring manual rule configuration.
+Azure Enclave provides **pre-configured community endpoints for common services** that many organizations require. These built-in endpoints simplify the process of enabling connectivity to frequently used Azure and Microsoft services without requiring manual rule configuration.
 
 Common service endpoints include connectivity to:
 
@@ -90,7 +90,7 @@ Using FQDN-based rules provides several advantages:
 - Simplifies firewall rule management by using domain names instead of IP addresses
 - Supports services with **dynamic or frequently changing IP ranges**
 - Enables easier connectivity to **SaaS platforms and Azure platform services**
-- Improves scalability for large AVE deployments
+- Improves scalability for large AE deployments
 
 Because rule evaluation relies on Azure Firewall behavior, community endpoint connectivity follows standard Azure Firewall rule processing and filtering logic.
 

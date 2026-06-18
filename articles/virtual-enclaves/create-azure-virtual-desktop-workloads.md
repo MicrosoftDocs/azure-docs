@@ -1,6 +1,6 @@
 ---
 title: Create Azure Virtual Desktop workloads
-description: Create Azure Virtual Desktop workloads within Azure Virtual Enclaves.
+description: Create Azure Virtual Desktop workloads within Azure Enclave.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
@@ -13,13 +13,13 @@ By default, all enclaves are created with [Admin Workstation Virtual Machines](.
 
 For certain enclave owners, the default access pattern surrounding the Admin Workstation might not satisfy their requirements for various reasons. For example, enclave owners might have requirements that disallow the Azure Bastion service. 
 
-Currently, [Azure Bastion](https://aka.ms/bastion) is the Azure Cloud's first-party service for secure remote connections using private IP addresses. This is expected behavior for Azure Virtual Enclaves. However, should enclave owners require an alternative connection method, they can manually deploy a fleet of Virtual Machines (called Session Hosts in [Azure Virtual Desktop](https://aka.ms/avd)) to access their Enclave. This can be done using native Azure cloud networking resources and Azure Virtual Enclaves.
+Currently, [Azure Bastion](https://aka.ms/bastion) is the Azure Cloud's first-party service for secure remote connections using private IP addresses. This is expected behavior for Azure Enclave. However, should enclave owners require an alternative connection method, they can manually deploy a fleet of Virtual Machines (called Session Hosts in [Azure Virtual Desktop](https://aka.ms/avd)) to access their Enclave. This can be done using native Azure cloud networking resources and Azure Enclave.
 
 ## Prerequisites
 
 Create a [community](./what-community.md) and [Enclave](./what-enclave.md).
 
-### Create AVD through Azure portal into an AVE workload
+### Create AVD through Azure portal into an AE workload
 1. [Create a workload](./create-workload-portal.md) with any specified name (for example, `wl-avd-mgmt-pool`).
 2. [Deploy AVD resources](/azure/virtual-desktop/deploy-azure-virtual-desktop) to the workload resource group (for example, `wl-avd-mgmt-pool`).
    - Create the AVD resources using the [Virtual Machine template in the service catalog](./deploy-virtual-machine-service-catalog.md).

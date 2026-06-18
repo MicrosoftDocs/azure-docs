@@ -1,15 +1,15 @@
 ---
-title: Create Azure resources from the service catalog in an AVE workload
-description: Create Azure resources from the service catalog in an AVE workload.
+title: Create Azure resources from the service catalog in an AE workload
+description: Create Azure resources from the service catalog in an AE workload.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: overview
 ms.date: 9/30/2025
 ---
 
-# Tutorial 1-4: Create Azure resources from the service catalog in an AVE workload
+# Tutorial 1-4: Create Azure resources from the service catalog in an AE workload
 
-The service catalog enables you to deploy Azure services and streaming applications into AVE quickly while being compliant with Policy Guardrails and enclave isolation requirements.
+The service catalog enables you to deploy Azure services and streaming applications into AE quickly while being compliant with Policy Guardrails and enclave isolation requirements.
 
 In this tutorial, part four of eight, you create Azure resources using service catalog in workloads. You learn how to:
 
@@ -21,7 +21,7 @@ In this tutorial, part four of eight, you create Azure resources using service c
 
 ## Before you begin
 
-- This tutorial assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Best practices of Azure Virtual Enclaves](./best-practices.md).
+- This tutorial assumes a basic understanding of networking and Azure Enclave concepts. For more information, see [Best practices for Azure Enclave](./best-practices.md).
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 - You need a [community](./what-community.md), [enclave](./what-enclave.md), [workload](./what-workload.md), and at least one [workload resource group](./what-workload.md#workload-resource-group) and permissions to create resources inside the workload resource group.
 - Complete the [prerequisites](./deploy-app-service-web-app-service-catalog.md#prerequisites) for an App Service Web App. Including subnet delegation for the

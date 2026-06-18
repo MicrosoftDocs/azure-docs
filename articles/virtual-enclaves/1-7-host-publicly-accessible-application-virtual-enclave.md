@@ -11,11 +11,11 @@ ms.date: 9/30/2025
 
 Web applications can be hosted inside of an enclave and made publicly accessible by routing traffic through a separate Demilitarized Zone (DMZ) enclave with a Web Application Gateway, Web Application Firewall, and a Public IP address, creating an **Enclave Endpoint** for the Web App, and establishing an **enclave connection** between the Web App and DMZ enclaves.
 
-## Public Web Applications in Azure Virtual Enclaves
+## Public Web Applications in Azure Enclave
 
-![Diagram showing the architecture for securely hosting an application in Azure Virtual Enclaves.](./media/secure-webapp-architecture-ave.png)
+![Diagram showing the architecture for securely hosting an application in Azure Enclave.](./media/secure-webapp-architecture-ave.png)
 
-### Steps to make your web app accessible from the internet in Azure Virtual Enclaves
+### Steps to make your web app accessible from the internet in Azure Enclave
 
 1. Deploy an enclave to host the public Web Application (`Enclave-WebApp`).
 

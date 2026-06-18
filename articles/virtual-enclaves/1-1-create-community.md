@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 1-1: Deploy a community on Azure Enclave"
+title: "Tutorial 1-1: Deploy an Azure Enclave community"
 description: Learn how to plan, deploy, validate, and clean up an Azure Enclave community in the Azure portal.
 author: aserfass-msft
 ms.author: aserfass
@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.date: 06/01/2026
 ---
 
-# Tutorial 1-1: Deploy a community on Azure Enclave
+# Tutorial 1-1: Deploy an Azure Enclave community
 
 ## Overview
 
@@ -447,7 +447,7 @@ Ensure proper RBAC assignments before starting deployment
 
 If you continue experiencing issues:
 
-1. **Check the AVE troubleshooting guide**: [Troubleshooting guide](./troubleshoot.md)
+1. **Check the AE troubleshooting guide**: [Troubleshooting guide](./troubleshoot.md)
 2. **Review logs**: Check Activity Log for error messages
 3. **Azure documentation**: Review the [Azure Enclave documentation](./index.yml) and [Azure Enclave FAQs](./virtual-enclaves-faq.md)
 4. **Contact support**: Create a support ticket with:

@@ -1,6 +1,6 @@
 ---
 title: Deploy Community and Enclaves from a quickstart template
-titlesuffix: Azure Virtual Enclaves
+titlesuffix: Azure Enclave
 description: Deploy Community and Enclaves from a quickstart template.
 author: aserfass-msft
 ms.author: aserfass
@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 9/30/2025
 ---
 
-# Quickstart: Deploy an Azure Virtual Enclaves (AVE) Community with Enclaves using an ARM template
+# Quickstart: Deploy an Azure Enclave (AE) Community with Enclaves using an ARM template
 
-[Azure Virtual Enclaves](./what-azure-virtual-enclaves.md) accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments for the most sensitive missions and workloads across commercial and air-gapped environments. In this quickstart, you:
+[Azure Enclave](./what-azure-virtual-enclaves.md) accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments for the most sensitive missions and workloads across commercial and air-gapped environments. In this quickstart, you:
 
-- Deploy one AVE [community](./what-community.md) with two [enclaves](./what-enclave.md) using an Azure Resource Manager (ARM) template.
+- Deploy one AE [community](./what-community.md) with two [enclaves](./what-enclave.md) using an Azure Resource Manager (ARM) template.
 - Deploy [workloads](./what-workload.md), [enclave endpoints](./what-enclave-endpoint.md), [transit hubs](./what-transit-hub.md) and [community endpoints](./what-community-endpoint.md), and [enclave connections](./what-enclave-connection.md) across your community using an ARM template.
 
 > [!NOTE]
@@ -20,7 +20,7 @@ ms.date: 9/30/2025
 > This sample deployment is just for demo purposes and doesn't represent all the best practices for network, systems, or applications administration.
 
 ## Before you begin
-- This quickstart assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Concepts and best practices of Azure Virtual Enclaves](./best-practices.md).
+- This quickstart assumes a basic understanding of networking and Azure Enclave concepts. For more information, see [Concepts and best practices of Azure Enclave](./best-practices.md).
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 

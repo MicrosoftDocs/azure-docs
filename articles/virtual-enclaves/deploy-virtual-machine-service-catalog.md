@@ -25,7 +25,7 @@ The Virtual Machine template can be deployed in multiple configurations:
 3. Virtual Machine domain-joined and published as a RemoteApp (~20 min)
 
 ## Before you begin
-- This quickstart assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Concepts and best practices of Azure Virtual Enclaves](./best-practices.md).
+- This quickstart assumes a basic understanding of networking and Azure Enclave concepts. For more information, see [Concepts and best practices of Azure Enclave](./best-practices.md).
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 

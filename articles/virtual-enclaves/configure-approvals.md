@@ -1,19 +1,19 @@
 ---
-title: Configure Approvals in Azure Virtual Enclaves
-description: Learn how to configure the Approvals feature in Azure Virtual Enclaves to enforce governance and oversight for critical infrastructure changes.
+title: Configure Approvals in Azure Enclave
+description: Learn how to configure the Approvals feature in Azure Enclave to enforce governance and oversight for critical infrastructure changes.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: how-to
 ms.date: 1/26/2026
 ---
 
-# Configure Approvals in Azure Virtual Enclaves
+# Configure Approvals in Azure Enclave
 
-This article explains how to configure the Approvals feature in Azure Virtual Enclaves to enforce governance and oversight for critical infrastructure operations.
+This article explains how to configure the Approvals feature in Azure Enclave to enforce governance and oversight for critical infrastructure operations.
 
 > [!IMPORTANT]
 > 
-> The Approvals feature is currently in **Preview**. Access to this preview requires enrollment and approval from the Azure Virtual Enclaves team. This feature is encouraged for testing but shouldn't be used for production workloads.
+> The Approvals feature is currently in **Preview**. Access to this preview requires enrollment and approval from the Azure Enclave team. This feature is encouraged for testing but shouldn't be used for production workloads.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ Approval settings can be configured at different scopes:
 | Community | Community-level resources, such as community endpoints and transit hubs. |
 | Enclave | Enclave-level resources, such as enclave endpoints and enclave connections. |
 
-Approval settings for community resources are configured when you create or update a community. Approval settings for enclave resources can be configured at community creation and enclave creation. When both scopes define requirements for the same enclave resource type, Azure Virtual Enclaves applies the higher-level enforced requirement. You can configure different approval requirements based on the type of resource or operation.
+Approval settings for community resources are configured when you create or update a community. Approval settings for enclave resources can be configured at community creation and enclave creation. When both scopes define requirements for the same enclave resource type, Azure Enclave applies the higher-level enforced requirement. You can configure different approval requirements based on the type of resource or operation.
 
 Community owners can also choose not to define a community-level approval setting for a resource type. When the community-level configuration is left blank, enclave-level approval settings can be used without inheriting a community-level requirement for that resource type.
 
@@ -45,7 +45,7 @@ Community owners can also choose not to define a community-level approval settin
 
 Approval configuration includes two related concepts:
 
-- `Minimum approvers`: The number of approvers that must approve a request before Azure Virtual Enclaves can apply the change.
+- `Minimum approvers`: The number of approvers that must approve a request before Azure Enclave can apply the change.
 - `Required approvers`: The users or groups that are allowed or required to review requests for a resource type.
 
 For example, a resource type might require at least two approvals and require one approval from a specific security operations group. In that case, configure `Minimum approvers` for the count and configure `Required approvers` for the approver identities or group.
@@ -58,6 +58,7 @@ For example, a resource type might require at least two approvals and require on
 
 :::image type="content" source="./media/mermaid-community-approvals.png" alt-text="Diagram showing how the community approvals settings affect the creation of enclaves, updates to community endpoints, and changing community maintenance mode." border="True" lightbox="./media/mermaid-community-approvals.png":::
 
+<pre>
 <!--
 This is the mermaid definition for the above diagram. Use this to edit and regenerate the PNG image.
 
@@ -87,27 +88,25 @@ config:
 ---
 flowchart TB
 
-    subgraph Community["Approval Settings"]
+    subgraph Community["Community Approval Settings"]
         C_EP["Approvals: Community Endpoint Updates"]
         C_ENC["Approvals: Enclave Create"]
-        C_MM["Approvals: Community Maintenance Mode"]
     end
 
-    subgraph Enforcement[" "]
+    subgraph Enforcement["Enforced Resources"]
         EP_OUT["Community Endpoint Updates"]
         ENC_OUT["Enclave Creation"]
-        MM_OUT["Community Maintenance Mode"]
     end
 
-    C_EP --- EP_OUT
-    C_ENC --- ENC_OUT
-    C_MM --- MM_OUT
+    C_EP --> EP_OUT
+    C_ENC --> ENC_OUT
 
     classDef classC fill:#005a9e;
 
     class C_EP,C_ENC,C_MM classC;
 ```
 -->
+</pre>
 
 The approvals settings at the community level are the only approvals settings that affect enclave creation, community endpoint updates, or changes to maintenance mode. When each approval type is enabled, the number of minimum approvers and list of required approvers must be satisfied before those resource changes can occur.
 
@@ -115,6 +114,7 @@ The approvals settings at the community level are the only approvals settings th
 
 :::image type="content" source="./media/mermaid-enclave-approvals.png" alt-text="Diagram showing how the community and enclave approvals settings effect enclave connection creation or updates, enclave connection update, or changes to maintenance mode." border="True" lightbox="./media/mermaid-enclave-approvals.png":::
 
+<pre>
 <!--
 This is the mermaid definition for the above diagram. Use this to edit and regenerate the PNG image.
 
@@ -169,17 +169,17 @@ flowchart TB
     end
 
     %% Flows
-    C_EP --- E_EP
-    E_EP --- R_EP
+    C_EP --> E_EP
+    E_EP --> R_EP
 
-    C_CC --- E_CC
-    E_CC --- R_CC
+    C_CC --> E_CC
+    E_CC --> R_CC
 
-    C_CU --- E_CU
-    E_CU --- R_CU
+    C_CU --> E_CU
+    E_CU --> R_CU
 
-    C_MM --- E_MM
-    E_MM --- R_MM
+    C_MM --> E_MM
+    E_MM --> R_MM
 
     classDef classC fill:#005a9e;
     classDef classE fill:#005a9e;
@@ -188,6 +188,7 @@ flowchart TB
     class E_EP,E_CC,E_CU,E_MM classE;
 ```
 -->
+</pre>
 
 The approvals settings at the community and enclave levels effect enclave connection creation or updates, enclave connection update, or changes to maintenance mode. When each approval type is enabled, the number of minimum approvers and list of required approvers must be satisfied before those resource changes can occur.
 
@@ -402,5 +403,5 @@ If you need to disable the Approvals feature:
 - [Manage approval requests](./manage-approvals.md)
 - [Learn about the Approvals feature](./what-approvals.md)
 - [Configure Just-in-Time Access with PIM](./just-in-time-access.md)
-- [Understand Azure Virtual Enclaves access control](./built-in-rbac-roles.md)
+- [Understand Azure Enclave access control](./built-in-rbac-roles.md)
 - [Create an enclave connection](./create-enclave-connection-portal.md)

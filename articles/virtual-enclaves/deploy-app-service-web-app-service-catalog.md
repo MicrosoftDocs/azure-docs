@@ -9,7 +9,7 @@ ms.date: 6/16/2025
 
 # Deploy an App Service Web App from the service catalog into a workload
 
-Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this article, you:
+Azure Enclave (AE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this article, you:
 
 - Deploy a service catalog App Service Web App template into an existing workload from the Azure portal.
 - Review an architecture example for a [basic web application](/azure/architecture/web-apps/app-service/architectures/basic-web-app)
@@ -19,7 +19,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 > This sample deployment is just for demonstration purposes and doesn't represent all the best practices for network, systems, or applications administration.
 
 ## Before you begin
-- This article assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Best practices of Azure Virtual Enclaves](./best-practices.md).
+- This article assumes a basic understanding of networking and Azure Enclave concepts. For more information, see [Best practices of Azure Enclave](./best-practices.md).
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 

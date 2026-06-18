@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Kubernetes Service (AKS) workload in Azure Virtual Enclaves
-description: Deploy a private AKS cluster with encryption, monitoring, and network integration in Azure Virtual Enclaves using the service catalog.
+title: Deploy Azure Kubernetes Service (AKS) workload in Azure Enclave
+description: Deploy a private AKS cluster with encryption, monitoring, and network integration in Azure Enclave using the service catalog.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
@@ -8,9 +8,9 @@ ms.date: 12/18/2024
 ms.custom: references_region
 ---
 
-# Tutorial 2-4: Deploy Azure Kubernetes Service (AKS) workload in Azure Virtual Enclaves
+# Tutorial 2-4: Deploy Azure Kubernetes Service (AKS) workload in Azure Enclave
 
-This tutorial guides you through deploying a private Azure Kubernetes Service (AKS) cluster in Azure Virtual Enclaves. You create a fully private AKS cluster with customer-managed encryption, network integration, and secure access patterns.
+This tutorial guides you through deploying a private Azure Kubernetes Service (AKS) cluster in Azure Enclave. You create a fully private AKS cluster with customer-managed encryption, network integration, and secure access patterns.
 
 In this tutorial, you learn how to:
   - Enable required Azure features for private AKS
@@ -32,9 +32,9 @@ In this tutorial, you learn how to:
 
 ## Before you begin
 
-### Understanding AKS in Azure Virtual Enclaves
+### Understanding AKS in Azure Enclave
 
-AKS in AVE provides:
+AKS in AE provides:
 - **Fully private cluster**: API server accessible only through private endpoint
 - **Network isolation**: All traffic stays within enclave boundaries
 - **Customer-managed encryption**: Both control plane and data plane encrypted with CMK
@@ -50,7 +50,7 @@ This tutorial uses example names. Use your organization's naming convention:
 
 ## Enable required Azure features
 
-AKS in AVE requires specific Azure features to be enabled on your subscription.
+AKS in AE requires specific Azure features to be enabled on your subscription.
 
 ### Enable EncryptionAtHost feature
 
@@ -322,7 +322,7 @@ AKS creates a managed resource group (MRG) for cluster infrastructure. Associate
 
 ### Using Azure portal
 
-1. Navigate to your **Azure Virtual Enclaves** service in the Azure portal.
+1. Navigate to your **Azure Enclave** service in the Azure portal.
 2. Select your **Community** (for example, `fabrikam`).
 3. Select **Enclaves** and open your **AKS enclave** (for example, `aks-enclave`).
 4. Select **Workloads** and open your **AKS workload** (for example, `aks-workload`).
@@ -604,7 +604,7 @@ az group delete --name rg-aks-infrastructure --yes --no-wait
 
 ## Next steps
 
-You completed the tutorial series for deploying AVD and AKS workloads in Azure Virtual Enclaves!
+You completed the tutorial series for deploying AVD and AKS workloads in Azure Enclave!
 
 ### Recommended next steps
 

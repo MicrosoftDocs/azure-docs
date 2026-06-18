@@ -14,14 +14,14 @@ ms.date: 06/10/2026
 
 ## Prerequisites
 
-To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have one, create a [free account](https://azure.microsoft.com/free/), and then sign in to the [Azure portal](https://portal.azure.com).
+To access Azure Enclave, you need an Azure subscription. If you don't already have one, create a [free account](https://azure.microsoft.com/free/), and then sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create community
 
-1. Enter `Azure Virtual Enclaves` in the search.
-2. Under `Services`, select `Azure Virtual Enclaves`. You're directed to the Azure Virtual Enclaves homepage.
+1. Enter `Azure Enclave` in the search.
+2. Under `Services`, select `Azure Enclave`. You're directed to the Azure Enclave homepage.
 
-    [ ![Screenshot showing the Azure portal homepage for Azure Virtual Enclaves with the Create a community button.](./media/azure-virtual-enclaves-homepage.png) ](./media/azure-virtual-enclaves-homepage.png#lightbox)
+    [ ![Screenshot showing the Azure portal homepage for Azure Enclave with the Create a community button.](./media/azure-virtual-enclaves-homepage.png) ](./media/azure-virtual-enclaves-homepage.png#lightbox)
 
 3. Select the `Create a community` button. The community deployment can take several minutes to complete.
 4. Enter details for your community on the `Basics` tab:

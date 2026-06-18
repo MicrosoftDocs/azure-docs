@@ -1,6 +1,6 @@
 ---
-title: What are Approvals in Azure Virtual Enclaves?
-description: Learn about the Approvals feature in Azure Virtual Enclaves that provides oversight and governance for critical infrastructure changes.
+title: What are Approvals in Azure Enclave?
+description: Learn about the Approvals feature in Azure Enclave that provides oversight and governance for critical infrastructure changes.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: overview
@@ -8,9 +8,9 @@ ms.date: 6/12/2026
 ai-usage: ai-assisted
 ---
 
-# What are Approvals in Azure Virtual Enclaves?
+# What are Approvals in Azure Enclave?
 
-Approvals in Azure Virtual Enclaves provide another layer of governance and oversight for critical infrastructure operations. This feature enables administrators to queue requests to create new resources or modify existing resources, while requiring explicit approval before changes are implemented.
+Approvals in Azure Enclave provide another layer of governance and oversight for critical infrastructure operations. This feature enables administrators to queue requests to create new resources or modify existing resources, while requiring explicit approval before changes are implemented.
 
 Consider these Approvals scenarios:
 
@@ -20,7 +20,7 @@ Consider these Approvals scenarios:
 
 > [!IMPORTANT]
 > 
-> The Approvals feature is currently in **Preview**. Access to this preview requires enrollment and approval from the Azure Virtual Enclaves team. This feature is encouraged for testing but shouldn't be used for production workloads.
+> The Approvals feature is currently in **Preview**. Access to this preview requires enrollment and approval from the Azure Enclave team. This feature is encouraged for testing but shouldn't be used for production workloads.
 
 
 ## Enclave creation flow comparison
@@ -35,7 +35,7 @@ This is the mermaid definition for the above diagram. Use this to edit and regen
 
 ```mermaid
 ---
-title: Azure Virtual Enclaves - Approvals Process
+title: Azure Enclave - Approvals Process
 config:
   theme: base
   themeVariables:
@@ -106,8 +106,12 @@ stateDiagram-v2
 
 | Flow | Description |
 |------|-------------|
-| **Without Approvals** | Enclave creation proceeds immediately upon request submission. Resources are provisioned by users with permissions to create enclaves without more oversight. |
+| **Without Approvals** | Enclave creation proceeds immediately upon request submission. A user with creation permissions creates an enclave without more oversight. |
 | **With Approvals** | Enclave creation enters a pending state, requiring explicit approval before provisioning begins. Rejected requests are recorded without resource creation. |
+
+> [!NOTE]
+>
+> This example assumes the user has permissions to create the resource since that check is part of the typical flow in Azure. The approvals feature adds another layer of governance when a user already has permissions to create a resource.
 
 ## Why use Approvals?
 
@@ -122,7 +126,7 @@ Approvals help organizations maintain strict governance and security standards f
 
 ## How Approvals work
 
-The Approvals workflow in Azure Virtual Enclaves follows these key steps:
+The Approvals workflow in Azure Enclave follows these key steps:
 
 1. **Request submission**: A user with appropriate permissions initiates an action that requires approval, such as creating an enclave connection or modifying an endpoint
 2. **Pending state**: The requested change enters a pending state and is queued for review
@@ -144,13 +148,13 @@ The specific operations requiring approval can be configured in the community co
 
 ## Roles and permissions
 
-The Approvals feature integrates with Azure Virtual Enclaves' role-based access control (RBAC):
+The Approvals feature integrates with Azure Enclave' role-based access control (RBAC):
 
 ### Enclave Approver role
 
 The **Enclave Approver** role is designed for managing approval requests:
 
-- **Read-only access** to all Azure Virtual Enclaves resource types
+- **Read-only access** to all Azure Enclave resource types
 - **Explicit permissions** to approve or reject pending approval requests
 - **Cannot initiate changes**: This role is strictly for oversight and approval
 - **Audit visibility**: Can view the full history of approval requests and decisions
@@ -161,7 +165,7 @@ The **Enclave Approver** role is designed for managing approval requests:
 - **Community Owner/Contributor**: Can submit community-level requests requiring approval
 - **Enclave Reader**: Can view pending approvals but can't approve or reject them
 
-[Learn more about Azure Virtual Enclaves RBAC roles](./built-in-rbac-roles.md)
+[Learn more about Azure Enclave RBAC roles](./built-in-rbac-roles.md)
 
 ## Integration with Azure Privileged Identity Management
 
@@ -170,13 +174,13 @@ Approvals can be combined with Azure Privileged Identity Management (PIM) for en
 - **Just-in-time approver access**: Approver permissions can be granted on a time-limited basis
 - **Multi-factor authentication**: Require MFA for approval actions
 - **Approval for approvers**: Require a secondary approval before granting approver permissions
-- **Comprehensive audit logs**: Track all approval activities across both AVE and PIM
+- **Comprehensive audit logs**: Track all approval activities across both AE and PIM
 
 [Learn more about Just-in-Time Access](./just-in-time-access.md)
 
 ## Best practices
 
-When implementing Approvals in your Azure Virtual Enclaves environment:
+When implementing Approvals in your Azure Enclave environment:
 
 1. **Assign dedicated approvers**: Designate specific individuals or teams as approvers to maintain separation of duties
 2. **Define approval policies**: Clearly document which changes require approval and the approval criteria
@@ -208,8 +212,8 @@ Resources subject to approval can exist in the following states:
 
 ## Next steps
 
-- [Configure Approvals in Azure Virtual Enclaves](./configure-approvals.md)
+- [Configure Approvals in Azure Enclave](./configure-approvals.md)
 - [Manage approval requests](./manage-approvals.md)
 - [Learn about Just-in-Time Access](./just-in-time-access.md)
-- [Understand Azure Virtual Enclaves RBAC](./built-in-rbac-roles.md)
+- [Understand Azure Enclave RBAC](./built-in-rbac-roles.md)
 - [Create an enclave connection with approvals](./create-enclave-connection-portal.md)

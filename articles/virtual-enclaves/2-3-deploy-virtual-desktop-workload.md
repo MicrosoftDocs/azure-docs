@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Virtual Desktop (AVD) workload in Azure Virtual Enclaves
-description: Deploy Azure Virtual Desktop with session hosts, host pools, and FSLogix storage in Azure Virtual Enclaves using the service catalog.
+title: Deploy Azure Virtual Desktop (AVD) workload in Azure Enclave
+description: Deploy Azure Virtual Desktop with session hosts, host pools, and FSLogix storage in Azure Enclave using the service catalog.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
@@ -8,9 +8,9 @@ ms.date: 12/18/2024
 ms.custom: references_region
 ---
 
-# Tutorial 2-3: Deploy Azure Virtual Desktop (AVD) workload in Azure Virtual Enclaves
+# Tutorial 2-3: Deploy Azure Virtual Desktop (AVD) workload in Azure Enclave
 
-This tutorial guides you through deploying Azure Virtual Desktop (AVD) in Azure Virtual Enclaves. You create AVD infrastructure including host pools, session hosts, application groups, and FSLogix storage, all secured within your enclave boundary.
+This tutorial guides you through deploying Azure Virtual Desktop (AVD) in Azure Enclave. You create AVD infrastructure including host pools, session hosts, application groups, and FSLogix storage, all secured within your enclave boundary.
 
 In this tutorial, you learn how to:
   - Deploy AVD community endpoint for external connectivity
@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Completion of [Tutorial 2-2: Create Azure Virtual Enclaves Environment](./2-2-create-virtual-enclaves-environment.md)
+- Completion of [Tutorial 2-2: Create Azure Enclave Environment](./2-2-create-virtual-enclaves-environment.md)
 - AVD enclave with management and session hosts subnets
 - Common dependencies (Key Vault, managed identity, disk encryption set) from Tutorial 2-2
 - Private DNS zones for AVD deployed

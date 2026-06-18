@@ -1,17 +1,17 @@
 ---
 title: Defense in depth
-description: Azure Virtual Enclaves Defense in depth.
+description: Azure Enclave Defense in depth.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
 ms.date: 9/30/2025
 ---
 
-# Azure Virtual Enclaves Defense in depth
+# Azure Enclave Defense in depth
 
-Azure Virtual Enclaves provides defense-in-depth through multiple layers of boundary protections and guardrails to protect and safeguard customer data. 
+Azure Enclave provides defense-in-depth through multiple layers of boundary protections and guardrails to protect and safeguard customer data. 
 
-![Diagram showing the layers of Defense-in-depth for Azure Virtual Enclaves.png](./media/defense-depth-architecture.svg)
+![Diagram showing the layers of Defense-in-depth for Azure Enclave.png](./media/defense-depth-architecture.svg)
 
 1. [**Role-based access control (RBAC)**](https://aka.ms/azure-rbac) - Standard access management system for all Azure resources. Security principals are sourced in Microsoft Entra ID (for example community owner or enclave owner).  ​
 2. [**Azure Policy**](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring) - Policy engine to enforce organizational standards and to assess compliance at-scale. Azure Policy evaluates Azure Resource Manager (ARM) requests and resources against business rules known as policy definitions. Policies are assigned at the workload resource group and enclave managed resource group scopes. They are also used to control which Azure Services can be deployed and which enclave Virtual Network a workload can be deployed.
@@ -26,7 +26,7 @@ Azure Virtual Enclaves provides defense-in-depth through multiple layers of boun
 8. **Secrets, Logging, and Monitoring** - Enclave-specific secret store (Key Vault) and Log Analytics Workspace. Although these services are platform services, they are only accessible from within the enclave virtual network (firewall + private endpoint).​ All platform-managed and customer workload resources automatically log [diagnostics settings](/azure/azure-monitor/essentials/diagnostic-settings) data and [Azure Activity](https://aka.ms/activity-log) logging. When a community owner creates a new enclave, they can choose a destination for this logging data (enclave Log Analytics Workspace, community Log Analytics Workspace, or both).
 
 ## Layered Security
-Multi-layer protections provided by Azure Virtual Enclaves include:
+Multi-layer protections provided by Azure Enclave include:
 
 - **Physical security**: Microsoft enforces strict security measures to ensure the Azure data centers are protected and secured. This is true both for Air-Gapped and Commercial cloud environments.
 
@@ -36,6 +36,6 @@ Multi-layer protections provided by Azure Virtual Enclaves include:
 
 - **Azure Policy Enforcement**: Ensure your environments remain secure through build-in policies at the community, Enclave, and workload levels to audit and/or enforce consistency and compliance across your environment.
 
-- **Mandatory Access Control** - Access to AVE resources is controlled through built-in RBAC roles that can be assigned at any scope from subscription, resource group, down to individual resources
+- **Mandatory Access Control** - Access to AE resources is controlled through built-in RBAC roles that can be assigned at any scope from subscription, resource group, down to individual resources
 
-- **Mandatory Observability**: The Azure Virtual Enclaves service consolidates the full power of Azure's built-in logging, alerting, and auditing features through integration with Microsoft Sentinel, Defender, and other network monitoring and security tools to ensure that your data remains secure.
+- **Mandatory Observability**: The Azure Enclave service consolidates the full power of Azure's built-in logging, alerting, and auditing features through integration with Microsoft Sentinel, Defender, and other network monitoring and security tools to ensure that your data remains secure.

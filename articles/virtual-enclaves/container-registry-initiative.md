@@ -1,6 +1,6 @@
 ---
 title: Container Registry Initiative
-titleSuffix: Azure Virtual Enclaves
+titleSuffix: Azure Enclave
 description: Container Registry Initiative.
 author: jadean-msft
 ms.author: jadean

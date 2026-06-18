@@ -1,6 +1,6 @@
 ---
 title: Create an Enclave in the Azure portal
-description: Learn how to create an enclave in Azure Virtual Enclaves using the Azure portal.
+description: Learn how to create an enclave in Azure Enclave using the Azure portal.
 author: jadean-msft
 ms.author: jadean
 ai-usage: ai-assisted
@@ -16,7 +16,7 @@ In this how-to guide, you create an enclave in the Azure portal.
 
 ## Prerequisites
 
-- To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- To access Azure Enclave, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - Before you can create an enclave, you must [create a community](./create-community-portal.md) using the Azure portal.
 - If you use on-premises or custom DNS, plan how resources in the enclave resolve private endpoints for Azure Storage, Key Vault, and Log Analytics.
 
@@ -28,13 +28,13 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 Enclave deployments can take several minutes to complete. After deployment completes, open your enclave and verify that `Status` is `Succeeded`.
 
-1. Enter `Azure Virtual Enclaves` in the search.
+1. Enter `Azure Enclave` in the search.
 
-2. Under `Services`, select `Azure Virtual Enclaves`.
+2. Under `Services`, select `Azure Enclave`.
 
-3. In the `Azure Virtual Enclaves` page, select `Enclaves` in the left menu.
+3. In the `Azure Enclave` page, select `Enclaves` in the left menu.
 
-   ![Screenshot showing the Azure Virtual Enclaves portal page with the Enclaves list selected.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-list.png)
+   ![Screenshot showing the Azure Enclave portal page with the Enclaves list selected.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-list.png)
 
 4. On the `Enclaves` page, select `Create`.
 
@@ -54,7 +54,7 @@ Enclave deployments can take several minutes to complete. After deployment compl
 
    > [!NOTE]
    >
-   > Azure Virtual Enclaves automatically allocates the next best-fit block of network address space based on the existing networks allocated to the target community.
+   > Azure Enclave automatically allocates the next best-fit block of network address space based on the existing networks allocated to the target community.
 
 7. Select `Next`. On the `Maintenance mode` tab, choose whether to request maintenance mode when the enclave is created. Maintenance mode allows privileged changes to managed resources that are critical to enclave security. [Learn more about maintenance mode](./maintenance-mode.md).
 

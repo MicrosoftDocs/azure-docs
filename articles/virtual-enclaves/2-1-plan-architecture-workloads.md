@@ -1,6 +1,6 @@
 ---
-title: Plan your architecture for AVD and AKS workloads in Azure Virtual Enclaves
-description: Plan and design your Azure Virtual Enclaves architecture for deploying Azure Virtual Desktop and Azure Kubernetes Service workloads.
+title: Plan your architecture for AVD and AKS workloads in Azure Enclave
+description: Plan and design your Azure Enclave architecture for deploying Azure Virtual Desktop and Azure Kubernetes Service workloads.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
@@ -8,9 +8,9 @@ ms.date: 12/18/2024
 ms.custom: references_region
 ---
 
-# Tutorial 2-1: Plan your architecture for AVD and AKS workloads in Azure Virtual Enclaves
+# Tutorial 2-1: Plan your architecture for AVD and AKS workloads in Azure Enclave
 
-This tutorial helps you plan your Azure Virtual Enclaves (AVE) architecture for deploying Azure Virtual Desktop (AVD) and Azure Kubernetes Service (AKS) workloads. Proper planning ensures optimal security, network isolation, and resource organization.
+This tutorial helps you plan your Azure Enclave (AE) architecture for deploying Azure Virtual Desktop (AVD) and Azure Kubernetes Service (AKS) workloads. Proper planning ensures optimal security, network isolation, and resource organization.
 
 In this tutorial, you learn how to:
   - Plan your enclave topology for workload isolation
@@ -34,14 +34,15 @@ This tutorial assumes understanding of these concepts:
 
 The following diagram shows the architecture tutorials 2-1 through 2-4. The architecture includes a community hub with firewall, separate enclaves for AVD and AKS workloads, and the necessary endpoints and connections.
 
-[ ![Diagram showing the complete architecture for AVD and AKS workloads in Azure Virtual Enclaves.](./media/mermaid-tutorial-architecture.png) ](./media/mermaid-tutorial-architecture.png#lightbox)
+[ ![Diagram showing the complete architecture for AVD and AKS workloads in Azure Enclave.](./media/mermaid-tutorial-architecture.png) ](./media/mermaid-tutorial-architecture.png#lightbox)
 
+<pre>
 <!--
 This is the mermaid definition for the above diagram. Use this to edit and regenerate the PNG image.
 
 ```mermaid
 ---
-title: Azure Virtual Enclaves - AVD and AKS Workload Architecture
+title: Azure Enclave - AVD and AKS Workload Architecture
 config:
   theme: base
 ---
@@ -128,6 +129,7 @@ flowchart TB
   class AVD_EnclaveEndpoints,AKS_EnclaveEndpoints,CE_AVD,CE_AKS,EE_AVD_Mgmt,EE_AKS_Mgmt endpoint;
 ```
 -->
+</pre>
 
 ## Key planning decisions
 
@@ -290,7 +292,7 @@ Both AVD and AKS require these common dependencies:
 
 ## Next steps
 
-Now that you planned your architecture, the next tutorial guides you through creating the AVE environment for your workloads.
+Now that you planned your architecture, the next tutorial guides you through creating the AE environment for your workloads.
 
 > [!div class="nextstepaction"]
 > [Tutorial 2-2: Create Azure Virtual Enclave environment for workloads](./2-2-create-virtual-enclaves-environment.md)
@@ -299,6 +301,6 @@ Now that you planned your architecture, the next tutorial guides you through cre
 
 - [Azure Virtual Desktop architecture](/azure/architecture/example-scenario/wvd/windows-virtual-desktop)
 - [AKS baseline architecture](/azure/architecture/reference-architectures/containers/aks/baseline-aks)
-- [Best practices for Azure Virtual Enclaves](./best-practices.md)
+- [Best practices for Azure Enclave](./best-practices.md)
 - [What is an enclave?](./what-enclave.md)
 - [What is a workload?](./what-workload.md)

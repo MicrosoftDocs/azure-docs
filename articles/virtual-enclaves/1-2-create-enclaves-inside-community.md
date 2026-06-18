@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 1-2: Create enclaves in a community on Azure Enclave"
+title: "Tutorial 1-2: Create enclaves in an Azure Enclave community"
 description: Create two isolated enclaves in an Azure Enclave community by using the Azure portal.
 author: aserfass-msft
 ms.author: aserfass
@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.date: 06/02/2026
 ---
 
-# Tutorial 1-2: Create enclaves in a community on Azure Enclave
+# Tutorial 1-2: Create enclaves in an Azure Enclave community
 
 An enclave is an isolated Azure Virtual Network that's part of a community and hosts one or more workloads.
 

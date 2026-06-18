@@ -1,6 +1,6 @@
 ---
 title: Configure community governance
-titleSuffix: Azure Virtual Enclaves
+titleSuffix: Azure Enclave
 description: Configure community governance.
 author: jadean-msft
 ms.author: jadean
@@ -14,7 +14,7 @@ These governance options are applied to all of the workloads that are part of ei
 
 ## Prerequisites
 
-- To access Azure Virtual Enclaves, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- To access Azure Enclave, you need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - Before you can create an enclave, you must [create a community](./create-community-portal.md) using the Azure portal.
 - **If you are using on-prem/custom DNS** - each enclave _must deploy a DNS resolver_ workload in order to resolve private endpoints for Azure Storage, Key Vault, and Log Analytics. 
 
@@ -37,6 +37,6 @@ Go to community creation and customize your governance settings.
 
 ## Configure approval settings
 
-Community owners can configure approval requirements for resource types that support Azure Virtual Enclaves approvals. Approval settings can be configured by resource type and scope so different resources can require different approver groups or approval counts.
+Community owners can configure approval requirements for resource types that support Azure Enclave approvals. Approval settings can be configured by resource type and scope so different resources can require different approver groups or approval counts.
 
 For more information, see [Configure approval settings](./configure-approvals.md).

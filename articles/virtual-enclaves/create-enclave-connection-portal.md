@@ -10,7 +10,7 @@ ms.date: 06/16/2026
 
 # Create an enclave connection from the Azure portal
 
-Enclave connections enable network traffic to flow into, out of, and between Azure Virtual Enclaves communities and enclaves. In this how-to guide, you create an enclave connection in the Azure portal.
+Enclave connections enable network traffic to flow into, out of, and between Azure Enclave communities and enclaves. In this how-to guide, you create an enclave connection in the Azure portal.
 
 ## Prerequisites
 
@@ -24,11 +24,11 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create an enclave connection
 
-1. Enter `Azure Virtual Enclaves` in the search.
+1. Enter `Azure Enclave` in the search.
 
-2. Under `Services`, select `Azure Virtual Enclaves`.
+2. Under `Services`, select `Azure Enclave`.
 
-3. In the `Azure Virtual Enclaves` page, select `Enclaves` in the left menu.
+3. In the `Azure Enclave` page, select `Enclaves` in the left menu.
 
 4. On the `Enclaves` page, select your Enclave's name to open the enclave resource.
 

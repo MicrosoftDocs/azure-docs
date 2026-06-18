@@ -7,11 +7,11 @@ ms.topic: overview
 ms.date: 11/21/2024
 ---
 
-# Mandatory Access Control for Azure Virtual Enclaves 
-Access to Azure Virtual Enclaves resources is primarily controlled using built-in Role Based Access Control (RBAC) role assignments. This built-in RBAC functionality can be further expanded by using Azure Privileged Identity Management to grant just-in-time access to Virtual enclave resources. 
+# Mandatory Access Control for Azure Enclave 
+Access to Azure Enclave resources is primarily controlled using built-in Role Based Access Control (RBAC) role assignments. This built-in RBAC functionality can be further expanded by using Azure Privileged Identity Management to grant just-in-time access to Virtual enclave resources. 
 
 ## RBAC for community and Enclaves 
-Azure Virtual Enclaves provides built-in RBAC roles to control access at the **Community and Enclave** levels.
+Azure Enclave provides built-in RBAC roles to control access at the **Community and Enclave** levels.
 
 - **Community owner** - Create and delete communities, enclaves, community endpoints, and transit hub resources. Read-only access to workloads, enclave connections, and enclave endpoints.
 - **Community contributor** - Same as Community Owner except Community Contributors can't delete.
@@ -19,7 +19,7 @@ Azure Virtual Enclaves provides built-in RBAC roles to control access at the **C
 - **Enclave owner** - Creates, deletes, and manages workloads, endpoints, and connection resources for one or more enclaves
 - **Enclave contributor** - Creates, and manages workloads, endpoints, and connection resources for one or more enclaves
 - **Enclave reader** - Read-only access to one or more enclave resources and underlying workloads, endpoints, and connections.
-- **Enclave approver role** - Read-only access to all AVE resource types and explicit permissions to approve actions that require approval. For more information, see [Manage approval requests](./manage-approvals.md).
+- **Enclave approver role** - Read-only access to all AE resource types and explicit permissions to approve actions that require approval. For more information, see [Manage approval requests](./manage-approvals.md).
 
 |Built in Role          |Community              |Community Endpoint     |Transit hub        |Enclave            |Workload           |Enclave Endpoint       |Enclave connection |Approvals      |
 |--|--|--|--|--|--|--|--|--|
@@ -38,7 +38,7 @@ For instance, an individual given a community owner RBAC assignment at the subsc
 [Learn more on RBAC Assignment Scopes ](/azure/role-based-access-control/scope-overview)
 
 ## RBAC for workloads
-Each workload deployed using Azure Virtual Enclaves comes with a managed resource group. The enclaves service has ownership over the resource group and access control is managed just as other resource groups within Azure are managed today. 
+Each workload deployed using Azure Enclave comes with a managed resource group. The enclaves service has ownership over the resource group and access control is managed just as other resource groups within Azure are managed today. 
 
 [Learn more about Azure RBAC](/azure/role-based-access-control/overview)
 

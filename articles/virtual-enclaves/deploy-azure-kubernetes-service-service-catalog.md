@@ -9,7 +9,7 @@ ms.date: 6/16/2025
 
 # Deploy Azure Kubernetes Service (AKS) from the service catalog into a workload
 
-Azure Virtual Enclaves (AVE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
+Azure Enclave (AE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
 - Deploy a service catalog template for Azure Kubernetes Service (AKS) into an existing workload from the Portal.
 
@@ -18,7 +18,7 @@ Azure Virtual Enclaves (AVE) is a cloud networking service that provides organiz
 > This sample deployment is just for demo purposes and doesn't represent all the best practices for network, systems, or applications administration.
 
 ## Before you begin
-- This quickstart assumes a basic understanding of networking and Azure Virtual Enclaves concepts. For more information, see [Best practices of Azure Virtual Enclaves](./best-practices.md).
+- This quickstart assumes a basic understanding of networking and Azure Enclave concepts. For more information, see [Best practices of Azure Enclave](./best-practices.md).
 
 - You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/).
 
@@ -121,7 +121,7 @@ It can take up to 30 minutes to finish all resource creation. Wait for the deplo
 
 ### (Optional) Associating AKS resource groups to workload
 
-The AVE workload resource, as of API version `2024-06-01-preview`, now supports multiple resource groups. This feature means that an AVE workload can now apply AVE policies to multiple resource groups.
+The AE workload resource, as of API version `2024-06-01-preview`, now supports multiple resource groups. This feature means that an AE workload can now apply AE policies to multiple resource groups.
 
 Once the AKS deployment succeeds, the AKS deployment's User RG and MRG can be brought to a workload by running an API PUT request for the workload resource. An example of a request body for an API PUT request for a workload resource:
 

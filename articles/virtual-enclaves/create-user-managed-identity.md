@@ -1,6 +1,6 @@
 ---
 title: Create a User Managed Identity
-titleSuffix: Azure Virtual Enclaves
+titleSuffix: Azure Enclave
 description: Create a User Managed Identity.
 author: aserfass-msft
 ms.author: aserfass
