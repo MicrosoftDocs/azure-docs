@@ -1,9 +1,7 @@
 ---
-author: xfz11
 ms.service: service-connector
 ms.topic: include
-ms.date: 11/28/2023
-ms.author: xiaofanzhou
+ms.date: 06/18/2026
 ---
 
 
@@ -72,7 +70,7 @@ ms.author: xiaofanzhou
     ```
     For more information, see [Connect to Azure databases from App Service without secrets using a managed identity](/azure/app-service/tutorial-connect-msi-azure-database?tabs=sqldatabase%2Csystemassigned%2Cjava%2Cwindowsclient#3-modify-your-code).
 
-### [SpringBoot](#tab/sql-me-id-springBoot)
+### [Spring Boot](#tab/sql-me-id-springBoot)
 
 For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector sets the properties `spring.datasource.url` with value format `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;authentication=ActiveDirectoryMSI;` to Azure Spring Apps.
 
@@ -85,7 +83,7 @@ Update your application following the tutorial [Migrate a Java application to us
     python -m pip install mssql-python python-dotenv
     ```
 
-1. Get the Azure SQL Database connection configurations from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get the Azure SQL Database connection configurations from the environment variable added by Service Connector. In the code below, uncomment the section for your authentication type.
 
     ```python
     import os
@@ -111,13 +109,13 @@ Update your application following the tutorial [Migrate a Java application to us
     conn = connect(connection_string)
     ```
 
-### [NodeJS](#tab/sql-me-id-nodejs)
+### [Node.js](#tab/sql-me-id-nodejs)
 
 1. Install dependencies.
     ```bash
     npm install mssql
     ```
-1. Get the Azure SQL Database connection configurations from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get the Azure SQL Database connection configurations from the environment variables added by Service Connector. In the code below, uncomment the section for your authentication type.
     ```javascript
     import sql from 'mssql';
     
