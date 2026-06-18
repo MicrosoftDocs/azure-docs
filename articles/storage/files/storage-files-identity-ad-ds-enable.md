@@ -225,10 +225,7 @@ Set-ADUser -Identity <domain-object-identity> -Server <domain-name> -KerberosEnc
 > Run the following command, replacing the placeholder values with your own:
 >
 > ```powershell
-> Set-ADUser `
->     -Identity <domain-object-identity> `
->     -Server <domain-name> `
->     -UserPrincipalName cifs/<storage-account-name>.file.core.windows.net@<domain-dns-root>
+> Set-ADUser -Identity $UserSamAccountName -UserPrincipalName cifs/.file.core.windows.net@
 > ```
 
 After you run the preceding cmdlet, replace `<domain-object-identity>` in the following script with your value, then run the script to refresh your domain object password:
