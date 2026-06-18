@@ -65,7 +65,7 @@ In this step, you create a basic Node.js application and ensure it runs on your 
 > [!TIP]
 > If you already completed the [Node.js tutorial](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial), you can skip ahead to [Deploy to Azure](#deploy-to-azure).
 
-1. Create a Node.js application by using the [express application generator](https://expressjs.com/starter/generator.html), which is installed by default with Node.js and npm. 
+1. Create a Node.js application by using the [express application generator](https://expressjs.com/en/starter/generator), which is installed by default with Node.js and npm. 
 
     ```bash
     npx express-generator myExpressApp --view ejs

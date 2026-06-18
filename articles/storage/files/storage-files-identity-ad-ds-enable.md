@@ -220,6 +220,13 @@ To enable AES-256 encryption on a **service logon account**, run the following c
 ```powershell
 Set-ADUser -Identity <domain-object-identity> -Server <domain-name> -KerberosEncryptionType "AES256"
 ```
+> [!IMPORTANT]
+> If the domain object that represents the storage account is a user account (`ActiveDirectoryAccountType` = `User`), make sure the user principal name (UPN) is set before you refresh the domain object password. In some older manual configurations, the SPN was set but the UPN was left blank. After enabling AES-256, this can cause SMB authentication failures such as `1396 The target account name is incorrect` and `KRB_AP_ERR_MODIFIED`.
+> Run the following command, replacing the placeholder values with your own:
+>
+> ```powershell
+> Set-ADUser -Identity $UserSamAccountName -UserPrincipalName cifs/<StorageAccountName>.file.core.windows.net@<DNSRoot>
+> ```
 
 After you run the preceding cmdlet, replace `<domain-object-identity>` in the following script with your value, then run the script to refresh your domain object password:
 
@@ -234,6 +241,7 @@ Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $Ne
 
 > [!IMPORTANT]
 > If you previously used RC4 encryption and updated the storage account to use AES-256 (recommended), run `klist purge` on the client and then remount the file share to get new Kerberos tickets with AES-256.
+
 
 ## Confirm the feature is enabled
 
@@ -288,7 +296,7 @@ If you disable this identity source, the file shares in your storage account won
 To disable AD DS authentication on your storage account by using the Azure portal, follow these steps.
 
 1. Sign in to the Azure portal and select the storage account you want to disable AD DS authentication for.
-1. Under **Data storage**, select **File shares**.
+1. Under **Data storage**, select **Classic file shares**.
 1. Next to **Identity-based access**, select the configuration status, which should be **Configured**.
 1. Under **Active Directory Domain Services (AD DS)**, select **Configure**.
 1. Check the **Disable Active Directory for this storage account** checkbox.

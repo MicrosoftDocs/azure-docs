@@ -6,7 +6,7 @@ description: Learn how to validate user inputs using Azure AD B2C custom policie
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 03/21/2025

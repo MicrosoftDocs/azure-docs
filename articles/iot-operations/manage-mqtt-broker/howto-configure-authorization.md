@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 05/21/2026
+ms.date: 06/02/2026
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ms.service: azure-iot-operations
@@ -1074,7 +1074,7 @@ To reduce authorization overhead on high-throughput topics, enable in-memory cac
 
 # [Azure CLI](#tab/cli)
 
-Use the [az iot ops broker listener port add](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-port-add) command to disable authorization for a port. To disable authentication, don't include the `--authz-ref` parameter.
+Use the [az iot ops broker listener port add](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-port-add) command to disable authorization for a port. To disable authorization, don't include the `--authz-ref` parameter.
 
 ```azurecli
 az iot ops broker listener port add --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --listener <ListenerName> --port <ListenerServicePort>

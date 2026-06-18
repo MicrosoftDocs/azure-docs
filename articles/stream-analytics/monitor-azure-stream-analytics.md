@@ -47,7 +47,7 @@ For a detailed walkthrough of how to troubleshoot Azure Stream Analytics job fai
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
-For a detailed walkthrough of how to troubleshoot Azure Stream Analytics job failures by using the activity log, see [Debugging using activity logs](stream-analytics-job-diagnostic-logs.md#debugging-using-activity-logs).
+For a detailed walkthrough of how to troubleshoot Azure Stream Analytics job failures by using the activity log, see [Debug Stream Analytics jobs by using activity logs](stream-analytics-job-diagnostic-logs.md#debug-stream-analytics-jobs-by-using-activity-logs).
 
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 

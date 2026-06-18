@@ -5,19 +5,18 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 03/14/2025
+ms.date: 06/17/2026
 ---
 
 # Integrate Azure Cosmos DB for Cassandra with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Cosmos DB for Apache Cassandra to other cloud services using Service Connector. You might still be able to connect to the Azure Cosmos DB for Cassandra in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection. 
+This article shows supported authentication methods and clients, and provides sample code for connecting Azure Cosmos DB for Apache Cassandra to cloud services using Service Connector. You can also connect using other programming languages without Service Connector. The article includes default environment variable names and values you receive when creating a service connection. 
 
 ## Supported compute services
 
 Service Connector can be used to connect the following compute services to Azure Cosmos DB for Apache Cassandra:
 
 - Azure App Service
-- Azure Container Apps
 - Azure Functions
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps
@@ -59,7 +58,7 @@ Reference the connection details and sample code in the following tables, accord
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Cosmos DB for Cassandra using a system-assigned managed identity.
+Connect to Azure Cosmos DB for Cassandra using a system-assigned managed identity.
 
 Since Cosmos DB doesn't natively support authentication via managed identity, in the following code sample, we use the managed identity to retrieve the connection string, and the connection is then established using that connection string.
 
@@ -80,7 +79,7 @@ Since Cosmos DB doesn't natively support authentication via managed identity, in
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Cosmos DB for Cassandra using a user-assigned managed identity.
+Connect to Azure Cosmos DB for Cassandra using a user-assigned managed identity.
 
 Since Cosmos DB doesn't natively support authentication via managed identity, in the following code sample, we use the managed identity to retrieve the connection string, and the connection is then established using that connection string.
 
@@ -115,8 +114,8 @@ Since Cosmos DB doesn't natively support authentication via managed identity, in
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Cosmos DB for Cassandra using a connection string.
-[!INCLUDE [code sample for blob](./includes/code-cosmoscassandra-secret.md)]
+To connect using a connection string:
+[!INCLUDE [code sample for cassandra](./includes/code-cosmoscassandra-secret.md)]
 
 #### Service principal
 
@@ -135,7 +134,7 @@ Refer to the steps and code below to connect to Azure Cosmos DB for Cassandra us
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Cosmos DB for Cassandra using a service principal.
+To connect using a service principal:
 [!INCLUDE [code sample for cassandra](./includes/code-cosmoscassandra-me-id.md)]
 
 ## Next steps

@@ -78,21 +78,57 @@ Microsoft Entra Kerberos support for hybrid identities is available for all regi
 
 Azure RBAC support for specific users and groups for cloud-only identities with Microsoft Entra Kerberos is currently available only for the following subset of regions in the Azure Public cloud.
 
-- Australia Central (SSD/premium only)
-- Australia Central 2 (SSD/premium only)
+- Asia East
+- Australia Central
+- Australia Central 2
+- Australia East (SSD/premium only)
+- Australia Southeast
+- Austria East
+- Belgium Central
 - Brazil Southeast (SSD/premium only)
+- Canada Central (SSD/premium only)
 - Canada East (SSD/premium only)
-- France South (SSD/premium only)
-- Germany North (SSD/premium only)
+- Chile Central (HDD/standard only)
+- Denmark East (SSD/premium only)
+- East Asia (SSD/premium only)
+- France Central (SSD/premium only)
+- France South
+- Germany North
+- Germany West Central
+- India Central
+- India South (SSD/premium only)
+- India South Central (SSD/premium only)
+- India West
+- Indonesia Central
+- Italy North (SSD/premium only)
+- Japan East
+- Japan West
 - Jio India Central
 - Jio India West
+- Korea Central
+- Korea South
+- Malaysia South (HDD/standard only)
+- Malaysia West (SSD/premium only)
+- Mexico Central
+- New Zealand North
+- North Europe (SSD/premium only)
+- Norway East
 - Norway West
+- Poland Central (SSD/premium only)
+- Qatar Central
+- South Africa North (SSD/premium only)
 - South Africa West (SSD/premium only)
-- South India (SSD/premium only)
+- Spain Central
+- Sweden Central (SSD/premium only)
 - Sweden South (HDD/standard only)
-- Switzerland West (SSD/premium only)
-- UAE Central (SSD/premium only)
-- West India (SSD/premium only)
+- Switzerland North
+- Switzerland West
+- Taiwan North
+- UAE Central
+- UAE North
+- UK South (SSD/premium only)
+- UK West (SSD/premium only)
+- US West Central (SSD/premium only)
 
 <a name='enable-azure-ad-kerberos-authentication'></a>
 
@@ -105,7 +141,7 @@ You can enable Microsoft Entra Kerberos authentication on Azure Files by using t
 To enable Microsoft Entra Kerberos authentication by using the [Azure portal](https://portal.azure.com), follow these steps.
 
 1. Sign in to the Azure portal and select the storage account you want to enable Microsoft Entra Kerberos authentication for.
-1. Under **Data storage**, select **File shares**.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
 1. Next to **Identity-based access**, select the configuration status, such as **Not configured**.
  
    :::image type="content" source="media/storage-files-identity-auth-hybrid-identities-enable/configure-identity-based-access.png" alt-text="Screenshot of the Azure portal showing file share settings for a storage account." lightbox="media/storage-files-identity-auth-hybrid-identities-enable/configure-identity-based-access.png" border="true":::
@@ -361,7 +397,7 @@ If you want to use another authentication method, you can disable Microsoft Entr
 To disable Microsoft Entra Kerberos authentication on your storage account by using the Azure portal, follow these steps.
 
 1. Sign in to the Azure portal and select the storage account you want to disable Microsoft Entra Kerberos authentication for.
-1. Under **Data storage**, select **File shares**.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
 1. Next to **Identity-based access**, select the configuration status.
 1. Under **Microsoft Entra Kerberos**, select **Configure**.
 1. Uncheck the **Microsoft Entra Kerberos** checkbox.

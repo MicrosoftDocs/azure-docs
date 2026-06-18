@@ -6,7 +6,7 @@ description: Learn how to add single-page sign-in using the OAuth 2.0 implicit f
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: concept-article
 ms.date: 10/11/2024
