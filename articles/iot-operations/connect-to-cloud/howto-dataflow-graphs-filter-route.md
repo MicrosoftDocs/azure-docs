@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 04/16/2026
+ms.date: 06/17/2026
 ai-usage: ai-assisted
 
 ---
@@ -60,6 +60,21 @@ In the filter transform configuration, add a rule:
 | **Input** | `temperature` |
 | **Expression** | `$1 > 100` |
 
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+"filter": [
+  {
+    "inputs": [
+      "temperature"
+    ],
+    "expression": "$1 > 100"
+  }
+]
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -97,6 +112,29 @@ Add two rules:
 |-------|-----------|-------------|
 | `temperature` | `$1 > 100` | Drop high temperature |
 | `humidity` | `$1 > 95` | Drop high humidity |
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+"filter": [
+  {
+    "inputs": [
+      "temperature"
+    ],
+    "expression": "$1 > 100",
+    "description": "Drop high temperature"
+  },
+  {
+    "inputs": [
+      "humidity"
+    ],
+    "expression": "$1 > 95",
+    "description": "Drop high humidity"
+  }
+]
+```
 
 # [Bicep](#tab/bicep)
 
@@ -150,6 +188,23 @@ Reference multiple fields in a single rule and combine them with logical operato
 
 Add a rule with inputs `temperature` and `humidity`, and expression `$1 > 30 && $2 < 60`.
 
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+"filter": [
+  {
+    "inputs": [
+      "temperature",
+      "humidity"
+    ],
+    "expression": "$1 > 30 && $2 < 60",
+    "description": "Drop hot and dry readings"
+  }
+]
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -187,6 +242,46 @@ To enable schema validation, set `validateSchema` to `true` in the filter config
 # [Operations experience](#tab/portal)
 
 The filter transform configuration includes a **Validate schema** checkbox. However, the Operations experience doesn't currently support configuring or viewing the `schemaRef` on node connections. To use schema validation, configure the node connection's `schemaRef` through Bicep or Kubernetes manifests.
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply). In the `graph.json` file, each transform's rules are stored in the `value` field as an escaped JSON string. For the readable form of each transform's rules, see the how-to for that transform type.
+
+```json
+"nodes": [
+  {
+    "nodeType": "Graph",
+    "name": "schema-filter",
+    "graphSettings": {
+      "registryEndpointRef": "default",
+      "artifact": "azureiotoperations/graph-dataflow-filter:1.0.0",
+      "configuration": [
+        {
+          "key": "rules",
+          "value": "{\"version\":\"1.0.0\",\"validateSchema\":true,\"filter\":[]}"
+        }
+      ]
+    }
+  }
+],
+"nodeConnections": [
+  {
+    "from": {
+      "name": "sensors",
+      "schema": {
+        "schemaRef": "aio-sr://my-namespace/sensor-schema:1",
+        "serializationFormat": "Json"
+      }
+    },
+    "to": {
+      "name": "schema-filter"
+    }
+  }
+]
+```
+
+> [!TIP]
+> To generate the escaped string, save the rules to a file like `rules.json`, then run `jq -c . rules.json` and paste the single-line output into the `value` field.
 
 # [Bicep](#tab/bicep)
 
@@ -274,6 +369,47 @@ Filter rules support datasets, which let you compare values against data from an
 
 In the filter transform configuration, add one or more rules with inputs and boolean expressions. Optionally enable schema validation and configure datasets for enrichment lookups.
 
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the transform node's `configuration` in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply).
+
+The rules are a JSON object:
+
+```json
+{
+  "datasets": [
+    {
+      "key": "device_limits as limits",
+      "inputs": ["$source.deviceId", "$context.deviceId"],
+      "expression": "$1 == $2"
+    }
+  ],
+  "filter": [
+    {
+      "inputs": ["temperature"],
+      "expression": "$1 > 100",
+      "description": "Drop high temperature readings"
+    },
+    {
+      "inputs": ["rawValue", "$context(limits).maxValue"],
+      "expression": "$1 > $2",
+      "description": "Drop readings above device-specific limit"
+    }
+  ]
+}
+```
+
+These rules go in the `value` field as an escaped string:
+
+```json
+"configuration": [
+  {
+    "key": "rules",
+    "value": "{\"datasets\":[{\"key\":\"device_limits as limits\",\"inputs\":[\"$source.deviceId\",\"$context.deviceId\"],\"expression\":\"$1 == $2\"}],\"filter\":[{\"inputs\":[\"temperature\"],\"expression\":\"$1 > 100\",\"description\":\"Drop high temperature readings\"},{\"inputs\":[\"rawValue\",\"$context(limits).maxValue\"],\"expression\":\"$1 > $2\",\"description\":\"Drop readings above device-specific limit\"}]}"
+  }
+]
+```
+
 # [Bicep](#tab/bicep)
 
 The filter rules JSON is passed as the `value` for the `rules` key:
@@ -353,6 +489,33 @@ In the branch transform configuration, set:
 | **Input** | `severity` |
 | **Expression** | `$1 > 5` |
 
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the transform node's `configuration` in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply).
+
+The rules are a JSON object:
+
+```json
+{
+  "branch": {
+    "inputs": ["severity"],
+    "expression": "$1 > 5",
+    "description": "Route high-severity messages"
+  }
+}
+```
+
+These rules go in the `value` field as an escaped string:
+
+```json
+"configuration": [
+  {
+    "key": "rules",
+    "value": "{\"branch\":{\"inputs\":[\"severity\"],\"expression\":\"$1 > 5\",\"description\":\"Route high-severity messages\"}}"
+  }
+]
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -390,6 +553,39 @@ In the pipeline configuration, use the node name followed by `.output.true` or `
 
 In the data flow graph editor, drag connections from the branch transform's true and false outputs to the appropriate downstream transforms.
 
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+"nodeConnections": [
+  {
+    "from": {
+      "name": "sensors"
+    },
+    "to": {
+      "name": "severity-check"
+    }
+  },
+  {
+    "from": {
+      "name": "severity-check.output.true"
+    },
+    "to": {
+      "name": "alert-transform"
+    }
+  },
+  {
+    "from": {
+      "name": "severity-check.output.false"
+    },
+    "to": {
+      "name": "normal-transform"
+    }
+  }
+]
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -423,6 +619,21 @@ All branch paths must converge before reaching a destination. A concatenate tran
 # [Operations experience](#tab/portal)
 
 Add a concatenate transform to the canvas and connect both branch paths to it, then connect the concatenate to the destination.
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "nodeType": "Graph",
+  "name": "merge",
+  "graphSettings": {
+    "registryEndpointRef": "default",
+    "artifact": "azureiotoperations/graph-dataflow-concatenate:1.0.0"
+  }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -469,6 +680,168 @@ To build this pipeline in the Operations experience:
 1. Add a **concatenate** transform to merge both paths.
 1. Add a **destination** that sends to `telemetry/processed`.
 1. Connect the elements: source → filter → branch → (true path: alert map, false path: normal map) → concatenate → destination.
+
+# [Azure CLI](#tab/cli)
+
+The Azure CLI applies a data flow graph from a single JSON config file. Create a `graph.json` file with the graph properties. In the `graph.json` file, each transform's rules are stored in the `value` field as an escaped JSON string. For the readable form of each transform's rules, see the how-to for that transform type.
+
+```json
+{
+  "mode": "Enabled",
+  "nodes": [
+    {
+      "nodeType": "Source",
+      "name": "sensors",
+      "sourceSettings": {
+        "endpointRef": "default",
+        "dataSources": [
+          "telemetry/sensors"
+        ]
+      }
+    },
+    {
+      "nodeType": "Graph",
+      "name": "remove-bad-data",
+      "graphSettings": {
+        "registryEndpointRef": "default",
+        "artifact": "azureiotoperations/graph-dataflow-filter:1.0.0",
+        "configuration": [
+          {
+            "key": "rules",
+            "value": "{\"filter\":[{\"inputs\":[\"temperature\"],\"expression\":\"$1 > 1000\",\"description\":\"Drop impossible temperature readings\"}]}"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "Graph",
+      "name": "severity-check",
+      "graphSettings": {
+        "registryEndpointRef": "default",
+        "artifact": "azureiotoperations/graph-dataflow-branch:1.0.0",
+        "configuration": [
+          {
+            "key": "rules",
+            "value": "{\"branch\":{\"inputs\":[\"severity\"],\"expression\":\"$1 > 5\",\"description\":\"Route high-severity messages\"}}"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "Graph",
+      "name": "alert-transform",
+      "graphSettings": {
+        "registryEndpointRef": "default",
+        "artifact": "azureiotoperations/graph-dataflow-map:1.0.0",
+        "configuration": [
+          {
+            "key": "rules",
+            "value": "{\"map\":[{\"inputs\":[\"deviceId\"],\"output\":\"id\"},{\"inputs\":[\"temperature\"],\"output\":\"temp\"},{\"inputs\":[],\"output\":\"alert\",\"expression\":\"true\"}]}"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "Graph",
+      "name": "normal-transform",
+      "graphSettings": {
+        "registryEndpointRef": "default",
+        "artifact": "azureiotoperations/graph-dataflow-map:1.0.0",
+        "configuration": [
+          {
+            "key": "rules",
+            "value": "{\"map\":[{\"inputs\":[\"deviceId\"],\"output\":\"id\"},{\"inputs\":[\"temperature\"],\"output\":\"temp\"}]}"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "Graph",
+      "name": "merge",
+      "graphSettings": {
+        "registryEndpointRef": "default",
+        "artifact": "azureiotoperations/graph-dataflow-concatenate:1.0.0"
+      }
+    },
+    {
+      "nodeType": "Destination",
+      "name": "output",
+      "destinationSettings": {
+        "endpointRef": "default",
+        "dataDestination": "telemetry/processed"
+      }
+    }
+  ],
+  "nodeConnections": [
+    {
+      "from": {
+        "name": "sensors"
+      },
+      "to": {
+        "name": "remove-bad-data"
+      }
+    },
+    {
+      "from": {
+        "name": "remove-bad-data"
+      },
+      "to": {
+        "name": "severity-check"
+      }
+    },
+    {
+      "from": {
+        "name": "severity-check.output.true"
+      },
+      "to": {
+        "name": "alert-transform"
+      }
+    },
+    {
+      "from": {
+        "name": "severity-check.output.false"
+      },
+      "to": {
+        "name": "normal-transform"
+      }
+    },
+    {
+      "from": {
+        "name": "alert-transform"
+      },
+      "to": {
+        "name": "merge"
+      }
+    },
+    {
+      "from": {
+        "name": "normal-transform"
+      },
+      "to": {
+        "name": "merge"
+      }
+    },
+    {
+      "from": {
+        "name": "merge"
+      },
+      "to": {
+        "name": "output"
+      }
+    }
+  ]
+}
+```
+
+Apply the config file. The `extendedLocation` is added automatically from the instance and resource group, so don't include it in the file.
+
+```azurecli
+az iot ops dataflowgraph apply \
+  --name alert-routing \
+  --instance <INSTANCE_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --config-file graph.json
+```
 
 # [Bicep](#tab/bicep)
 
