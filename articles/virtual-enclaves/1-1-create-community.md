@@ -1,21 +1,21 @@
 ---
-title: "Tutorial 1-1: Deploy a community on Azure Virtual Enclaves"
-description: Learn how to plan, deploy, validate, and clean up an Azure Virtual Enclaves community in the Azure portal.
+title: "Tutorial 1-1: Deploy a community on Azure Enclave"
+description: Learn how to plan, deploy, validate, and clean up an Azure Enclave community in the Azure portal.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
 ms.date: 06/01/2026
 ---
 
-# Tutorial 1-1: Deploy a community on Azure Virtual Enclaves
+# Tutorial 1-1: Deploy a community on Azure Enclave
 
 ## Overview
 
-Azure Virtual Enclaves is an Azure service that accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments for the most sensitive mission workloads.
+Azure Enclave is an Azure service that accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments for the most sensitive mission workloads.
 
 Communities provide the isolated hub network foundation that securely and logically group enclaves together for governance, management, connectivity, and monitoring. A community owner can enable connectivity to other communities or on-premises networks through community endpoints and transit hubs.
 
-In this tutorial, part one of eight, you create an Azure Virtual Enclaves community in the Azure portal. Later tutorials in this series create [enclaves](./what-enclave.md), [enclave endpoints](./what-enclave-endpoint.md), and [enclave connections](./what-enclave-connection.md).
+In this tutorial, part one of eight, you create an Azure Enclave community in the Azure portal. Later tutorials in this series create [enclaves](./what-enclave.md), [enclave endpoints](./what-enclave-endpoint.md), and [enclave connections](./what-enclave-connection.md).
 
 In this tutorial, you:
 
@@ -93,7 +93,7 @@ Choose the Azure region based on:
 - Industry-specific regulations
 
 **Service availability:**
-- Verify Azure Virtual Enclaves availability in region
+- Verify Azure Enclave availability in region
 - Check required Azure services are available
 - Consider preview vs. GA features
 
@@ -166,15 +166,15 @@ Communities provide multiple security layers:
 
 ### Architecture diagram
 
-The following diagram shows an example Azure Virtual Enclaves environment that starts with a community and adds enclaves and workloads in later tutorials:
+The following diagram shows an example Azure Enclave environment that starts with a community and adds enclaves and workloads in later tutorials:
 
-[ ![Diagram showing two example workloads linked to both the other Virtual Enclaves resources and their workload resource groups.](./media/mermaid-workloads-example.png) ](./media/mermaid-workloads-example.png#lightbox)
+[ ![Diagram showing two example workloads linked to both the other Azure Enclave resources and their workload resource groups.](./media/mermaid-workloads-example.png) ](./media/mermaid-workloads-example.png#lightbox)
 
 <!--
 The mermaid definition for the above graph is in the what-workload.md file
 -->
 
-## Create a community in Azure Virtual Enclaves
+## Create a community in Azure Enclave
 
 ### Prepare resource group
 
@@ -191,19 +191,19 @@ Before creating a community, you need a resource group. An Azure resource group 
 
 ### Deploy the community
 
-Community deployments take approximately **30-45 minutes** to complete. Azure Virtual Enclaves creates the community resource and supporting managed resources for connectivity, firewall policy, and monitoring.
+Community deployments take approximately **30-45 minutes** to complete. Azure Enclave creates the community resource and supporting managed resources for connectivity, firewall policy, and monitoring.
 
-#### Step 1: Navigate to Azure Virtual Enclaves
+#### Step 1: Navigate to Azure Enclave
 
-In the `Azure Virtual Enclaves` page, select `Communities` in the left menu.
+In the `Azure Enclave` page, select `Communities` in the left menu.
 
-[ ![Screenshot showing the Azure portal homepage for Azure Virtual Enclaves with the Create a Community button.](./media/azure-virtual-enclaves-homepage.png) ](./media/azure-virtual-enclaves-homepage.png#lightbox)
+[ ![Screenshot showing the Azure portal homepage for Azure Enclave with the Create a Community button.](./media/azure-virtual-enclaves-homepage.png) ](./media/azure-virtual-enclaves-homepage.png#lightbox)
 
 #### Step 2: Start community creation
 
 On the `Communities` page, select `Create`.
 
-[ ![Screenshot showing the Azure Virtual Enclaves portal page with the communities list selected.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list.png) ](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list.png#lightbox)
+[ ![Screenshot showing the Azure Enclave portal page with the communities list selected.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list.png) ](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list.png#lightbox)
 
 #### Step 3: Configure community settings
 
@@ -318,8 +318,8 @@ After the community deployment completes, perform these validation steps to ensu
 
 **Expected roles:**
 - Your user account should have appropriate permissions
-- Azure Virtual Enclaves service principal might have assignments
 - Review inherited permissions from subscription/resource group
+- Review assignments you made for community administration permissions
 
 ### Validation checklist
 
@@ -349,14 +349,14 @@ If you need to delete your community after completing this tutorial:
 
 **To delete a community:**
 
-1. Navigate to Azure Virtual Enclaves in Azure portal
+1. Navigate to Azure Enclave in the Azure portal
 2. Select `Communities` from the left menu
 3. Select the community to delete (for example, `fabrikam`)
 4. Select `Delete` from the top menu
 5. Type the community name to confirm deletion
 6. Select `Delete`
 
-![Screenshot showing the completed community in the Azure Virtual Enclaves portal page communities list.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list-deployed.png)
+![Screenshot showing the completed community in the Azure Enclave portal page communities list.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list-deployed.png)
 
 **Alternative deletion via Azure CLI:**
 ```azurecli
@@ -449,7 +449,7 @@ If you continue experiencing issues:
 
 1. **Check the AVE troubleshooting guide**: [Troubleshooting guide](./troubleshoot.md)
 2. **Review logs**: Check Activity Log for error messages
-3. **Azure documentation**: Review the [Azure Virtual Enclaves documentation](./index.yml) and [Azure Virtual Enclaves FAQs](./virtual-enclaves-faq.md)
+3. **Azure documentation**: Review the [Azure Enclave documentation](./index.yml) and [Azure Enclave FAQs](./virtual-enclaves-faq.md)
 4. **Contact support**: Create a support ticket with:
    - Subscription ID
    - Community resource ID
@@ -469,7 +469,7 @@ Create an Azure Calculator estimate for your [community](https://aka.ms/ave/calc
 
 ## Next steps
 
-Congratulations! You successfully deployed an Azure Virtual Enclaves community.
+Congratulations! You successfully deployed an Azure Enclave community.
 
 In the next tutorial, you'll learn how to create isolated enclaves within your community to host workloads.
 
@@ -479,7 +479,7 @@ In the next tutorial, you'll learn how to create isolated enclaves within your c
 
 - [What is a community?](./what-community.md)
 - [What is an enclave?](./what-enclave.md)
-- [Best practices for Azure Virtual Enclaves](./best-practices.md)
-- [Azure Virtual Enclaves FAQs](./virtual-enclaves-faq.md)
+- [Best practices for Azure Enclave](./best-practices.md)
+- [Azure Enclave FAQs](./virtual-enclaves-faq.md)
 - [Naming rules and restrictions](./name-rules-restrictions-azure-virtual-enclaves-resources.md)
 - [Quotas and region availability](./quotas-region-availability.md)
