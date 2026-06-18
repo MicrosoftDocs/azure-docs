@@ -17,6 +17,13 @@ This article provides the release notes for Azure Change Tracking and Inventory 
 
 ## Release notes for extensions
 
+### Extension version 2.38.0.0
+
+| OS | Notes |
+| --- | --- |
+| Windows | Removed some security vulnerabilities. |
+| Linux | Removed some security vulnerabilities. |
+
 ### Extension version 2.35.0.0
 
 | OS | Notes |
