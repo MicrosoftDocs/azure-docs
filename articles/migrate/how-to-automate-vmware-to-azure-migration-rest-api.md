@@ -1,5 +1,5 @@
 ﻿---
-title: Automate VMware to Azure migration using Azure Site Recovery REST API
+title: Automate VMware/Physical servers to Azure migration using Azure Site Recovery REST API
 description: Learn how to automate VMware virtual machine migration to Azure using Azure Site Recovery REST API with the InMageRcm replication provider.
 author: prsadhu-ms-idc
 ms.author: prsadhu
@@ -11,7 +11,7 @@ ms.update-cycle: 365-days
 # Customer intent: As a migration owner, I want to automate the migration of my VMware virtual machines to Azure using Azure Site Recovery REST API, so that I can efficiently manage large-scale migrations with custom automation solutions.
 ---
 
-# Automate VMware to Azure agent-based migration using Azure Site Recovery REST API
+#  Automate VMware/Physical to Azure agent-based migration using Azure Site Recovery REST API
 
 This article describes how to automate **simplified** agent-based virtual machine migration to Azure using the Azure Site Recovery REST API. You can use these APIs to build custom automation solutions for large-scale migrations using the **InMageRcm** replication provider.
 Use this article if you want to:
