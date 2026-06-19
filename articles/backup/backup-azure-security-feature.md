@@ -101,7 +101,7 @@ To receive this PIN:
 3. Under **Security PIN**, select **Generate**. This opens a pane that contains the PIN to be entered in the Azure Recovery Services agent user interface.
     This PIN is valid for only five minutes, and it gets generated automatically after that period.
 
-## Save and manage MARS agent passphrase in Azure Key Vault
+### Save and manage MARS agent passphrase in Azure Key Vault
 
 Azure Backup provides the option to save and manage the MARS agent passphrase in Azure Key Vault by using Azure portal, PowerShell, and CLI. This feature allows secure storage of the encryption passphrase used for backup and restore operations, eliminating the need to maintain it in external locations while enabling controlled access through Key Vault permissions. [Learn how to configure the Recovery Services vault to save the MARS agent passphrase in Azure Key Vault and manage it for backup and restore operations](save-backup-passphrase-securely-in-azure-key-vault.md).
 
