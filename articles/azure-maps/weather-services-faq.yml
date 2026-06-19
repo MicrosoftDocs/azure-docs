@@ -16,6 +16,7 @@ summary: |
   * Data sources and data models
   * Weather service coverage and availability
   * Data update frequency
+  * Timestamps and time zones
   * Developing with Azure Maps SDKs
   * Options to visualize weather data, including Microsoft Power BI integration
   
