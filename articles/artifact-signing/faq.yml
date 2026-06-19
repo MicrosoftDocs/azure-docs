@@ -47,7 +47,7 @@ sections:
     questions:
       - question: What if I need to create another identity validation for the same organization with a different primary email address?
         answer: For cases where identity validation exists with a primary email address and another identity validation request is required, contact support to continue onboarding.
-      - question: What if my country/region isn't listed in country/region drop down on the Identity Validation page?
+      - question: What if my country/region isn't listed in country/region drop-down list on the Identity validation page?
         answer: | 
           For Public Trust certificates, Artifact Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation isn't applicable to Private Trust certificates.
       - question: What if my Artifact Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
@@ -69,7 +69,7 @@ sections:
           - In cases where extra documents were required, you have exhausted all three attempts. Therefore, we can't proceed further with the onboarding.
       - question: What if I did not receive the email with the verification link?
         answer: | 
-          If you do not receive the identity validation email:
+          If you don't receive the identity validation email:
 
           - Check your Junk or Spam folder.
           - Verify that the email address provided can receive messages from external senders and that emails containing links are not being filtered.
@@ -78,8 +78,8 @@ sections:
       - question: What if I need assistance with identity validation?
         answer: | 
           - For questions about identity validation in Artifact Signing, contact us via Azure Support or by using Microsoft Q&A (use the tag **artifact-signing**).
-          - Note: creating more identity validation requests for the same entity that is in progress doesn't help. Identity Validation requests can't be expedited.
-      - question: What if email validation link has expired?
+          - Note: creating more identity validation requests for the same entity that is in progress doesn't help. Identity validation requests can't be expedited.
+      - question: What if the email validation link has expired?
         answer: | 
           If you missed clicking on the email verification within seven days, you need to start a new identity validation request. A new link can't be resent on the same request.
       - question: What if email validation says "Failed" and you think you never received the email validation link?
@@ -87,7 +87,7 @@ sections:
           Create another identity validation request. Ensure that the email address used isn't a distribution list and the email address can receive links from external email addresses.
       - question: Where can I find Identity Validation ID? 
         answer: |
-          On Identity Validation page, select on the Identity Validation you intend to use. The Identity Validation Id is shown as "Id" in the details pane that opens.
+          On Identity validation page, select on the Identity validation you intend to use. The Identity validation ID is shown as "Id" in the details pane that opens.
              :::image type="content" source="media/artifact-signing-identity-validation-id-faq.png" alt-text="Screenshot that shows copying the identity validation ID for an identity validation." lightbox="media/artifact-signing-identity-validation-id-faq.png":::
       - question: What if I already have a Verified ID? 
         answer: |  
@@ -150,9 +150,9 @@ sections:
       - question: How do we get the Authenticode certificate?  
         answer: |
           The Authenticode certificate that's used for signing with the profile is never given to you. All certificates are securely stored within the service and are accessible only at the time of signing. The public certificate is always included in any binary that the service signs. 
-      - question: How do I check whether the time stamp service is healthy? 
+      - question: How do I check whether the timestamp service is healthy? 
         answer: |
-          Run the following command: `curl http://timestamp.acs.microsoft.com`. If status code 200 is returned, the time stamp service is healthy and running. 
+          Run the following command: `curl http://timestamp.acs.microsoft.com`. If the command returns status code 200, the timestamp service is healthy. 
       - question: I get errors when I do Private Trust signing. What should I do? 
         answer: |
           If you get an internal error, check that the CN name that you used matches the certificate name. Verify the package name, and copy the complete value for the subject from the Azure portal to the manifest file during signing. 
