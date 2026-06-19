@@ -27,6 +27,7 @@ For guidance on upgrading Basic SKU public IP addresses for other networking ser
 The gateway migration experience allows you to deploy a second virtual network gateway in the same GatewaySubnet, with Azure [automatically assigning a new public IP-](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip) eliminating the need for manual IP creation—while configurations are migrated from the old gateway to the new one; both gateways run simultaneously to minimize disruption, though brief connectivity interruptions may still occur.
 
 After migration, the old gateway and its connections are deleted, and the new gateway is tagged with **CreatedBy: GatewaySKUMigration** to identify it as a migrated resource and shouldn’t be deleted.
+
 ## Supported Migration Scenarios
 
 The guided ExpressRoute gateway migration experience enables customers to move from their current SKU to any equal or higher SKU. Migrating to a lower SKU (downgrades) isn't supported.
@@ -37,6 +38,12 @@ Learn how to [migrate using the Azure portal](expressroute-howto-gateway-migrati
 Learn how to [migrate using PowerShell](expressroute-howto-gateway-migration-powershell.md).
 
 For enhanced reliability and high availability, we recommend migrating to an Az-enabled SKU.
+
+## Microsoft-initated gateway migration
+
+Microsoft-initiated migration is a managed process that upgrades eligible ExpressRoute gateways on your behalf to support the retirement of Basic Public IP addresses. During the migration, your gateway is transitioned to a Standard Public IP while preserving your existing ExpressRoute configuration. This approach allows customers to meet the Standard Public IP requirement without needing to perform the migration themselves.
+
+For more information on Microsoft-Initiated gateway migration, see the associated [Azure blog post](https://techcommunity.microsoft.com/blog/azurenetworkingblog/expressroute-gateway-microsoft-initiated-migration/4497689).
 
 ### Migrate to ErGwScale (Scalable Gateway)
 The ExpressRoute Scalable Gateway (ErGwScale) is a new virtual network gateway SKU that provides flexible, high-bandwidth connectivity for your Azure virtual networks.
