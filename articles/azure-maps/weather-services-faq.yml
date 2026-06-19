@@ -42,12 +42,12 @@ sections:
           
           Tens of thousands of surface observations, along with other data, are incorporated to create and influence the current conditions made available to users. These surface observations include not only freely available standard datasets, but also unique observations obtained from meteorological services in many countries/regions, such as India, Brazil, Canada, and other proprietary inputs. These unique datasets increase the spatial and temporal resolution of current condition data for our users.
           
-          These datasets are reviewed in real time for accuracy for the Digital Forecast System, which uses AccuWeather’s proprietary artificial intelligence algorithms to continuously modify the forecasts, ensuring they always incorporate the latest data and, in that way, maximize their continual accuracy.
+          These datasets are reviewed in real time for accuracy for the Digital Forecast System, which uses AccuWeather's proprietary artificial intelligence algorithms to continuously modify the forecasts, ensuring they always incorporate the latest data and, in that way, maximize their continual accuracy.
           
       - question: |
           What models create weather forecast data? 
         answer: |
-          Many weather forecast guidance systems are used to formulate global forecasts. Over 150 numerical forecast models are used each day, both external and internal datasets. These models include government models such as the European Centre ECMWF and the U.S. Global Forecast System (GFS). Also, AccuWeather incorporates proprietary high-resolution models that downscale forecasts to specific locations and strategic regional domains to predict weather with further accuracy. AccuWeather’s unique blending and weighting algorithms   have been developed over the last several decades. These algorithms optimally apply the many forecast inputs to provide highly accurate forecasts.
+          Many weather forecast guidance systems are used to formulate global forecasts. Over 150 numerical forecast models are used each day, both external and internal datasets. These models include government models such as the European Centre ECMWF and the U.S. Global Forecast System (GFS). Also, AccuWeather incorporates proprietary high-resolution models that downscale forecasts to specific locations and strategic regional domains to predict weather with further accuracy. AccuWeather's unique blending and weighting algorithms   have been developed over the last several decades. These algorithms optimally apply the many forecast inputs to provide highly accurate forecasts.
 
   - name: Weather service coverage and availability
     questions:
@@ -72,6 +72,20 @@ sections:
           
           Azure Maps Forecast APIs are cached for up to 30 mins. To see when the cached response expires and avoid displaying outdated data, you can look at the Expires Header information in the HTTP header of the Azure Maps API response. We recommend updating as necessary based on a specific product use case and UI (user interface).
           
+  - name: Timestamps and time zones
+    questions:
+      - question: |
+          During the Daylight Saving Time spring-forward transition, the Current Conditions API returned an observation for the 2:00–3:00 AM hour, even though that hour is skipped. Is this expected?
+        answer: |
+          Yes, this is expected behavior. The Current Conditions API returns the most recent cached observation for a location — it is not a time-series archive. During the spring-forward transition, the API may briefly serve a cached observation with a timestamp that falls within the skipped hour. This occurs because the cache can hold an observation for up to 10 minutes, and the timestamp reflects the local wall clock time at the time the observation was recorded, before the transition took effect. Once the cache refreshes with a new post-transition observation, the returned timestamp will correctly reflect the new DST offset.
+
+      - question: |
+          During the Daylight Saving Time fall-back transition, will the Current Conditions API return two distinct records for the repeated hour?
+        answer: |
+          No. The Current Conditions API returns the most recent observation for a location and is not a time-series archive. It will not return two separate records for the repeated hour. Instead, the response reflects whichever cached observation is being served at the time of the API call. Around the transition window, the timestamp may appear to repeat or move backward as the cache refreshes with the post-rollback observation within the 10-minute cache window. This is expected behavior.
+
+          The correct way to distinguish which side of the transition an observation belongs to is by examining the UTC offset included in the `LocalObservationDateTime` field. This field is returned in ISO 8601 format and includes the UTC offset. Before the fall-back, the offset reflects the summer/DST offset (for example, UTC-4 for Eastern Daylight Time). After the transition and once the cached response refreshes, the offset reflects the standard time offset (for example, UTC-5 for Eastern Standard Time).
+
   - name: Developing with Azure Maps SDKs
     questions:
       - question: |
@@ -110,7 +124,7 @@ additionalContent: |
 
   ## Next steps
   
-  If this FAQ doesn’t answer your question, you can contact us through the following channels (in escalating order):
+  If this FAQ doesn't answer your question, you can contact us through the following channels (in escalating order):
 
   * The comments section of this article.
   * [MSFT Q&A page for Azure Maps](/answers/topics/azure-maps.html).
