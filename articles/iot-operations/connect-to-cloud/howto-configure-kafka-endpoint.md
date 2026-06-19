@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/10/2026
+ms.date: 06/18/2026
 ai-usage: ai-assisted
 ms.custom:
   - sfi-image-nochange
@@ -1244,7 +1244,6 @@ This setting takes effect only if the endpoint is used as a destination (that is
 
 | Value | Description |
 | ----- | ----------- |
-| `None` | The data flow doesn't wait for any acknowledgments from the Kafka broker. This setting is the fastest but least durable option. |
 | `All` | The data flow waits for the message to be written to the leader partition and all follower partitions. This setting is the slowest but most durable option. This setting is also the default option|
 | `One` | The data flow waits for the message to be written to the leader partition and at least one follower partition. |
 | `Zero` | The data flow waits for the message to be written to the leader partition but doesn't wait for any acknowledgments from the followers. This is faster than `One` but less durable. |
@@ -1263,7 +1262,7 @@ In the operations experience data flow endpoint settings page, select the **Adva
 {
     "endpointType": "Kafka",
     "kafkaSettings": {
-        "kafkaAcks": "All" // Or None, One, Zero
+        "kafkaAcks": "All" // Or One, Zero
     }
 }
 ```
@@ -1272,7 +1271,7 @@ In the operations experience data flow endpoint settings page, select the **Adva
 
 ```bicep
 kafkaSettings: {
-  kafkaAcks: 'All' // Or None, One, Zero
+  kafkaAcks: 'All' // Or One, Zero
 }
 ```
 
@@ -1282,7 +1281,7 @@ kafkaSettings: {
 
 ```yaml
 kafkaSettings:
-  kafkaAcks: All # Or None, One, Zero
+  kafkaAcks: All # Or One, Zero
 ```
 
 ---
