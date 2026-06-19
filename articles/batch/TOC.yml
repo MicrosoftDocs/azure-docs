@@ -106,6 +106,9 @@
     href: best-practices.md
   - name: Quotas and limits
     href: batch-quota-limit.md
+  - name: Capacity planning
+    displayName: capacity, quota planning, allocation, sizing, autoscale, headroom
+    href: batch-capacity-planning.md
   - name: Supported VM sizes
     href: batch-pool-vm-sizes.md
   - name: Reliability in Azure Batch
