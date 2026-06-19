@@ -8,7 +8,7 @@ metadata:
   ms.topic: landing-page
   author: whhender
   ms.author: whhender
-  ms.date: 04/17/2025
+  ms.date: 06/17/2026
 landingContent:
   - title: What's New in Azure Data Factory
     linkLists:
@@ -18,8 +18,8 @@ landingContent:
             url: ./whats-new.md
           - text: Change data capture
             url: ./concepts-change-data-capture.md
-          - text: Workflow Orchestration Manager
-            url: ./concepts-workflow-orchestration-manager.md
+          - text: Connector overview
+            url: ./connector-overview.md
   - title: About Azure Data Factory
     linkLists:
       - linkListType: overview
