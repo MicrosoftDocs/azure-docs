@@ -39,69 +39,80 @@ sections:
           No. Artifact Signing doesn't support free, trial, or sponsored Azure subscriptions. To create an Artifact Signing account and certificate profiles, you must have a paid Azure subscription. If you attempt to create an Artifact Signing account or certificate profile with an unsupported subscription type, the Azure portal displays an error. To get started, upgrade your subscription to a pay-as-you-go or enterprise agreement, then retry creating your Artifact Signing resources.
       - question: What is the cost of using Artifact Signing?
         answer: | 
-          - For pricing information, see [Artifact Signing pricing](https://azure.microsoft.com/pricing/details/artifact-signing/).
+          For pricing information, see [Artifact Signing pricing](https://azure.microsoft.com/pricing/details/artifact-signing/).
       - question: What are my support options when I set up Artifact Signing?
         answer: | 
-          - You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on Microsoft Q&A (use the tag **Artifact Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).  
+          You can create a support ticket in the Azure portal to get Azure support. Also, you can post a question or search for related questions on Microsoft Q&A (use the tag **Artifact Signing**) or [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).  
   - name: Identity validation
     questions:
       - question: What if I need to create another identity validation for the same organization with a different primary email address?
         answer: For cases where identity validation exists with a primary email address and another identity validation request is required, contact support to continue onboarding.
       - question: What if my country/region isn't listed in country/region drop down on the Identity Validation page?
         answer: | 
-          - For Public Trust certificates, Artifact Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation isn't applicable to Private Trust certificates.
+          For Public Trust certificates, Artifact Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation isn't applicable to Private Trust certificates.
       - question: What if my Artifact Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
         answer: |
-          - For Windows app MSIX packages, follow the guidance in [MSIX persistent identity](/windows/msix/package/persistent-identity).
+          For Windows app MSIX packages, follow the guidance in [MSIX persistent identity](/windows/msix/package/persistent-identity).
       - question: Can I use a custom CN or a custom O with Artifact Signing? 
         answer: |
-          - No, you can't use a custom Common Name (CN) or a custom Organization (O) with Artifact Signing. Currently, the Artifact Signing service doesn't support customization. Also, keep in mind that per the Certification Authority Browser Forum (CA/Browser Forum) in the Code Signing Baseline Requirements (CSBRs) for publicly trusted code signing certificates, CN values must always be the legal entity's validated name (for example, `Contoso Corporation`).
+          No, you can't use a custom Common Name (CN) or a custom Organization (O) with Artifact Signing. Currently, the Artifact Signing service doesn't support customization. Also, keep in mind that per the Certification Authority Browser Forum (CA/Browser Forum) in the Code Signing Baseline Requirements (CSBRs) for publicly trusted code signing certificates, CN values must always be the legal entity's validated name (for example, `Contoso Corporation`).
       - question: What if the "New identity validation" button in the Azure portal is inactive?
         answer: |
-          - If the **New identity validation** button in the Azure portal is inactive and you can't select it, you don't have the Artifact Signing Identity Verifier role assigned to your account. To assign yourself the role, complete the steps in [Assign roles in Artifact Signing](tutorial-assign-roles.md). 
+          If the **New identity validation** button in the Azure portal is inactive and you can't select it, you don't have the Artifact Signing Identity Verifier role assigned to your account. To assign yourself the role, complete the steps in [Assign roles in Artifact Signing](tutorial-assign-roles.md). 
       - question: What if my identity validation expires?
         answer: |
-          - If you don't renew identity validation before the expiration date, certificate renewal stops. All signing processes that are associated with those specific certificate profiles stops. To continue signing by using the Artifact Signing service, create another identity validation and associate it with the relevant certificate profiles. We send multiple reminders starting at 60 days before an identity validation's expiration date to help you begin the process of renewing your identity validation. 
+          If you don't renew identity validation before the expiration date, certificate renewal stops. All signing processes that are associated with those specific certificate profiles stops. To continue signing by using the Artifact Signing service, create another identity validation and associate it with the relevant certificate profiles. We send multiple reminders starting at 60 days before an identity validation's expiration date to help you begin the process of renewing your identity validation. 
       - question: What if Organization identity validation fails?
         answer: | 
           - Ensure that you didn't miss an email verification link that was sent to the primary email address you entered when you created your identity validation request. The link expires after seven days. If you overlooked the email or if you didn't select the link in the email within seven days, create a new identity validation request.   
           - If identity validation fails, but not because of a missed email verification, the Microsoft validation team wasn't able to make a determination about your request based on the information that you provided. Even if you provide more documentations when we request it, if we can't validate the information, we can't onboard you to Artifact Signing. In this scenario, we recommend that you delete your Artifact Signing account so that you aren't billed for unused resources.
           - In cases where extra documents were required, you have exhausted all three attempts. Therefore, we can't proceed further with the onboarding.
+      - question: What if I did not receive the email with the verification link?
+        answer: | 
+          If you do not receive the identity validation email:
+
+          - Check your Junk or Spam folder.
+          - Verify that the email address provided can receive messages from external senders and that emails containing links are not being filtered.
+          - Contact your email administrator to confirm that firewall, security, or email filtering policies are not blocking the message.
+          - If the email still cannot be located, delete the current identity validation request and submit a new one.
       - question: What if I need assistance with identity validation?
         answer: | 
           - For questions about identity validation in Artifact Signing, contact us via Azure Support or by using Microsoft Q&A (use the tag **artifact-signing**).
           - Note: creating more identity validation requests for the same entity that is in progress doesn't help. Identity Validation requests can't be expedited.
       - question: What if email validation link has expired?
         answer: | 
-          - If you missed clicking on the email verification within seven days, you need to start a new identity validation request. A new link can't be resent on the same request.
+          If you missed clicking on the email verification within seven days, you need to start a new identity validation request. A new link can't be resent on the same request.
       - question: What if email validation says "Failed" and you think you never received the email validation link?
         answer: | 
-          - Create another identity validation request. Ensure that the email address used isn't a distribution list and the email address can receive links from external email addresses.
+          Create another identity validation request. Ensure that the email address used isn't a distribution list and the email address can receive links from external email addresses.
       - question: Where can I find Identity Validation ID? 
         answer: |
-          -  On Identity Validation page, select on the Identity Validation you intend to use. The Identity Validation Id is shown as "Id" in the details pane that opens.
+          On Identity Validation page, select on the Identity Validation you intend to use. The Identity Validation Id is shown as "Id" in the details pane that opens.
              :::image type="content" source="media/artifact-signing-identity-validation-id-faq.png" alt-text="Screenshot that shows copying the identity validation ID for an identity validation." lightbox="media/artifact-signing-identity-validation-id-faq.png":::
       - question: What if I already have a Verified ID? 
         answer: |  
-          - Follow the steps to present your existing valid (not an expired) VID for Artifact Signing.
+          Follow the steps to present your existing valid (not an expired) VID for Artifact Signing.
       - question: For Individual identity validation, what if I don’t have an address on a bank statement or utility bill? 
         answer: |  
-          - Be sure to use a government-issued ID with an address on it, to successfully go through the process. 
+          Be sure to use a government-issued ID with an address on it, to successfully go through the process. 
       - question: For Individual identity validation, I see an error - "You don't have permission to access this page". 
         answer: |  
-          - If you see the error, it's because the email address entered in the individual identity validation request is different from the one being used to sign in to access the identity validation link. Make sure both the email addresses match.   
+          If you see the error, it's because the email address entered in the individual identity validation request is different from the one being used to sign in to access the identity validation link. Make sure both the email addresses match.   
           :::image type="content" source="media/artifact-signing-indie-validation-email-mismatch.png" alt-text="Screenshot of email mismatch when access link to verify individual developer." lightbox="media/artifact-signing-indie-validation-email-mismatch.png"::: 
+      - question: For Individual identity validation, I see an error: address did not match, first name last name not matched or FaceCheck fail.
+        answer: |  
+          If you encounter one of these errors, delete the existing identity validation request and remove the associated Verified ID from the Microsoft Authenticator app. Then submit a new identity validation request and create a new Verified ID, ensuring that all information is accurate and that the verification environment has adequate lighting.
   - name: Certificate profiles
     questions:
       - question: What if my Artifact Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
         answer: |
-          - For Windows app MSIX packages, follow the guidance in [MSIX persistent identity](/windows/msix/package/persistent-identity).
+          For Windows app MSIX packages, follow the guidance in [MSIX persistent identity](/windows/msix/package/persistent-identity).
       - question: Does deleting a certificate profile revoke the certificates? 
         answer: |
-          - Deleting a certificate profile doesn't revoke any previously issued certificates or invalidate their signatures; they remain valid.
+          Deleting a certificate profile doesn't revoke any previously issued certificates or invalidate their signatures; they remain valid.
       - question: Can I add OU field to Public Trust or Public Trust Test or VBS enclave certificate profile? 
         answer: |
-          - No. OU is only available for Private Trust and Private Trust CI Policy certificates.
+          No. OU is only available for Private Trust and Private Trust CI Policy certificates.
   - name: Signing
     questions:
       - question: Why does double-clicking the Artifact Signing .vsix fail with "InvalidSignature" or a NullReferenceException?
