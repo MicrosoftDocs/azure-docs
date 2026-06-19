@@ -193,14 +193,6 @@ Kerchunk can improve performance for multidimensional access patterns, but it do
 
 Some Zarr datasets may also fail during index processing with errors such as `Index must be monotonic increasing or decreasing`.
 
-##### Roadmap and future support
-
-Current and planned support is:
-
-* Zarr v2: supported today
-* Zarr v3: not supported yet, planned for future support
-* Multi-time Zarr visualization and temporal handling: partial today, with continued improvements planned
-
 #### Time slider for data cube visualization
 
 If your data cube assets have a temporal component, you can use the time slider in the Explorer to visualize changes over time. The time slider will appear automatically if your STAC Items contains assets with a `time` dimension with an `extent` and `step` field.
