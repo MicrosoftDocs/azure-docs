@@ -421,7 +421,6 @@ Azure Migrate supports deployments in Microsoft Azure Government:
 - You can migrate VMware VMs, Hyper-V VMs, and physical servers to Azure.
 - For VMware migration, you can use agentless or agent-based migration. [Learn more](server-migrate-overview.md).
 - You can [review supported geographies and regions](supported-geographies.md#azure-government) for Azure Government.
-- [Agent-based dependency analysis](concepts-dependency-visualization.md#agent-based-analysis) isn't supported in Azure Government.
 - Features in preview are supported in Azure Government, [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), and [application discovery](how-to-discover-applications.md).
 
 ## Update (March 2020)

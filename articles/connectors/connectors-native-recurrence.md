@@ -132,7 +132,7 @@ Based on whether your workflow is [Consumption or Standard](../logic-apps/logic-
 
 1. Review the following considerations when you use the **Recurrence** trigger:
 
-   * For Standard logic app workflows, if you stop the logic app resource (website), and enough time passes to skip one or more recurrence intervals without the website processing any data, restarting the logic app resource causes the **Recurrence** trigger to immediately fire and resume as expected.
+   * If you stop a Standard logic app resource (website), and enough time passes to skip one or more recurrence intervals without processing any data, restarting the logic app within 7 days causes the **Recurrence** trigger to immediately fire and resume as expected.
 
    * Unless you specify a specific [start date and time](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time), the first recurrence immediately runs when you save the workflow or deploy the logic app resource, despite your trigger's recurrence setup. To avoid this behavior, provide a start date and time for when you want the first recurrence to run.
 

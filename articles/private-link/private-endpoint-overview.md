@@ -98,6 +98,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Databricks | Microsoft.Databricks/workspaces | databricks_ui_api, browser_authentication |
 | Azure Device Provisioning Service | Microsoft.Devices/provisioningServices | iotDps |
 | Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | API |
+| Azure Durable Task Scheduler | Microsoft.DurableTask/schedulers | scheduler |
 | Azure Event Grid | Microsoft.EventGrid/domains | domain |
 | Azure Event Grid | Microsoft.EventGrid/topics  | topic |
 | Azure Event Hub | Microsoft.EventHub/namespaces | namespace |

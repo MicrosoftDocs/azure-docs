@@ -23,7 +23,7 @@ items:
     href: quickstart-evaluate-readiness-savings-for-arc-resources.md
   - name: Create a business case using imported inventory
     href: how-to-build-a-business-case.md
-- name: Key Concepts
+- name: Key concepts
   items:
   - name: Supported Geographies
     href: supported-geographies.md
@@ -141,7 +141,7 @@ items:
     href: how-to-build-a-business-case.md
   - name: Review business case
     href: how-to-view-a-business-case.md
-- name: Create Reports
+- name: Create reports
   items:
   - name: Overview reports
     href: reports-overview.md
@@ -171,9 +171,9 @@ items:
         href: assessment-properties.md
       - name: Review assessment report
         href: review-application-assessment.md
-      - name: Code level insights
+      - name: Code insights
         items:
-        - name: Enhance web app assessment by adding code scan report
+        - name: Add code insights using GitHub Copilot modernization
           href: add-copilot-code-insights.md
         - name: Integrate with CAST highlights
           href: cast-highlights-integration.md
@@ -397,7 +397,7 @@ items:
     href: how-to-plan-analyze-migration-with-agent.md
 - name: Troubleshoot
   items:
-  - name: Azure Migrate Project
+  - name: Azure Migrate project
     items:
     - name: Troubleshoot Azure Migrate projects
       href: troubleshoot-project.md

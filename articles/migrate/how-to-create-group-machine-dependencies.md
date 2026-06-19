@@ -19,7 +19,7 @@ This article describes how to set up agent-based dependency analysis in Azure Mi
 ## Before you start
 
 - Review the support and deployment requirements for agent-based dependency analysis for:
-  - [Servers in VMware environment](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based)
+  - [Servers in VMware environment](migrate-support-matrix-vmware.md)
   - [Physical servers](migrate-support-matrix-physical.md#agent-based-dependency-analysis-requirements)
   - [Servers in Hyper-V environment](migrate-support-matrix-hyper-v.md#agent-based-dependency-analysis-requirements)
 - Make sure you:
@@ -68,42 +68,14 @@ On each server you want to analyze, install the agents.
     :::image type="content" source="./media/how-to-create-group-machine-dependencies/columns-inline.png" alt-text="Screenshot showing the result after selecting columns." lightbox="./media/how-to-create-group-machine-dependencies/columns-expanded.png":::
 
 1. For each server you want to analyze with dependency visualization, in the **Dependencies** column, select **Requires agent installation**.
-1. In the **Dependencies** page, download the MMA and Dependency agent for Windows or Linux.
-1. Under **Configure MMA agent**, copy the workspace ID and key. You need these when you install the MMA agent.
+1. In the **Dependencies** page, download the AMA and Dependency agent for Windows or Linux.
 
-    ![Install the agents](./media/how-to-create-group-machine-dependencies/dependencies-install.png)
+## Install the AMA
 
-
-## Install the MMA
-
-Install the MMA on each Windows or Linux server you want to analyze.
-
-### Install MMA on a Windows server
-
-To install the agent on a Windows server:
-
-1. Double-click the downloaded agent.
-2. On the **Welcome** page, select **Next**. On the **License Terms** page, select **I Agree** to accept the license.
-3. In **Destination Folder**, keep or modify the default installation folder > **Next**.
-4. In **Agent Setup Options**, select **Azure Log Analytics** > **Next**.
-5. Select **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Select **Next**.
-
-You can install the agent from the command line or using an automated method such as Configuration Manager or Intigua.
-- [Learn more](/azure/azure-monitor/agents/log-analytics-agent#installation-options) about using these methods to install the MMA agent.
-- The MMA agent can also be installed using this [script](https://github.com/brianbar-MSFT/Install-MMA).
-- [Learn more](/azure/azure-monitor/agents/agents-overview#supported-operating-systems) about the Windows operating systems supported by MMA.
-
-### Install MMA on a Linux server
-
-To install the MMA on a Linux server:
-
-1. Transfer the appropriate bundle (x86 or x64) to your Linux computer using scp/sftp.
-
-2. Install the bundle by using the --install argument.
-
-   `sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>`
-
-[Learn more](/azure/azure-monitor/agents/agents-overview#supported-operating-systems) about the list of Linux operating systems support by MMA. 
+1. **Step 1**: To deploy the AMA agent, we recommend to first clean up the existing Service Map to avoid duplicates. [Learn more](/azure/azure-monitor/vm/vminsights-migrate-from-service-map#remove-the-service-map-solution-from-the-workspace). 
+1. **Step 2**: To deploy the AMA agent, on the on-premises guest servers, you must first Arc-enable these servers by installing the Arc agent on the required guest servers.
+1. **Step 3**: Download and run the script on the host server. To deploy both the AMA and the Dependency agent on the guest machine, you need to create the Data collection rule (DCR) that maps to a particular LA workspace ID.
+1. **Step 4**: In a transition scenario, the Log Analytics workspace should be the same one previously configured for the Service Map agent. The DCR allows you to enable the collection of processes and dependencies, which is disabled by default.
 
 ## Install the Dependency agent
 
@@ -165,6 +137,16 @@ Run a query for dependency data as follows:
 3. In **OMS Workspace**, select the workspace name.
 3. On the Log Analytics workspace page > **General**, select **Logs**.
 4. Write your query, and select **Run**.
+
+> [!NOTE]
+> Accessing Log Analytics workspaces after Classic View deprecation:</br></br>
+> If you need to view any **Log Analytics workspace** (LA) associated with an **Azure Migrate 
+> project** after Classic View is retired:
+> 1. Sign in to the **[Azure portal](https://portal.azure.com)**.
+> 1. Search for **Log Analytics workspaces** and open the workspace by name. 
+> 1. Use **Logs**, **Tables**, and other workspace features to view migration and discovery data as needed.</br></br>
+> The deprecation of Classic View **doesn't** remove or restrict access to the associated Log Analytics > workspace. You can continue to access the workspace directly through the Azure portal using the > steps above. </br></br>
+> Agent-based dependency analysis is supported only in the classic view and isn't available in the new experience. The classic view is scheduled for deprecation by the end of 2026. Until then, you can continue to access Log Analytics workspaces for servers where agent-based dependency analysis is already enabled. However, you can't onboard new servers for agent-based dependency analysis.
 
 ### Sample queries
 

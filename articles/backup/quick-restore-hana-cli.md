@@ -4,6 +4,7 @@ description: In this quickstart, learn how to restore SAP HANA System Replicatio
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/12/2025
+ms.update-cycle: 1095-days
 ms.custom: mvc, devx-track-azurecli, mode-api, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
