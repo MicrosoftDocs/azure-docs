@@ -5,7 +5,7 @@ services: firewall
 author: erjosito
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 09/29/2025
+ms.date: 06/19/2026
 ms.author: jomore
 # Customer intent: "As a network architect, I want to implement Azure Firewall in a multi hub and spoke topology, so that I can efficiently route and secure traffic between various virtual networks while simplifying network management."
 ---
@@ -21,13 +21,13 @@ You can implement hub-and-spoke architectures in two ways:
 
 This article focuses on self-managed hub-and-spoke topologies where you have full visibility and control over the hub virtual network and Azure Firewall deployment.
 
-You can reduce the administration overhead of a self-managed hub-and-spoke implementation by using [Azure Virtual Network Manager (AVNM)][avnm]. AVNM can automate the configuration of Azure Route Tables, but the overall design and techniques don't change compared to the manual approach. The contents of this article apply whether you use AVNM or manually configure your self-managed hub-and-spoke topology.
+You can reduce the administration overhead of a self-managed hub-and-spoke implementation by using [Azure Virtual Network Manager (AVNM)][avnm]. AVNM can automate the configuration of route tables, but the overall design and techniques don't change compared to the manual approach. The contents of this article apply whether you use AVNM or manually configure your self-managed hub-and-spoke topology.
 
-An alternative to Azure Route Tables in the spoke virtual networks is injecting routes into subnets with Azure Route Server, as documented in [Default route injection in spoke virtual networks][ars]. However, this pattern isn't commonly used due to the complexity that can arise from the interaction between Azure Route Server and VPN or ExpressRoute virtual network gateways.
+An alternative to route tables in the spoke virtual networks is injecting routes into subnets with Azure Route Server, as documented in [Default route injection in spoke virtual networks][ars]. However, this pattern isn't commonly used because of the complexity that can arise from interactions between Azure Route Server and VPN or ExpressRoute virtual network gateways.
 
 In a self-managed hub-and-spoke setup:
 
-- **Hub**: A virtual network that serves as the central connectivity point to your on-premises network through VPN, ExpressRoute, or Software-Defined Wide Area Network (SD-WAN). Network security devices like firewalls are deployed in the hub virtual network.
+- **Hub**: A virtual network that serves as the central connectivity point to your on-premises network through VPN, ExpressRoute, or Software-Defined Wide Area Network (SD-WAN). You deploy network security devices, such as firewalls, in the hub virtual network.
 - **Spokes**: Virtual networks that peer with the hub and host your workloads.
 
 For workloads spread across multiple regions, you typically deploy one hub per region to aggregate traffic from the spokes in that region. The following diagram shows a two-region self-managed hub-and-spoke architecture with two spoke virtual networks in each region:
@@ -47,16 +47,16 @@ Consider the routing requirements for each potential traffic flow in the single-
 - **Internet-to-spoke traffic**: Traffic from the internet to the spoke usually goes through Azure Firewall first. Azure Firewall has Destination Network Address Translation (DNAT) rules configured, which also translates the source IP address (Source Network Address Translation or SNAT). The spoke workloads see traffic as coming from the Azure Firewall subnet. Virtual network peering creates system routes to the hub (`10.1.0.0/24`), so the spokes know how to route return traffic.
 - **On-premises-to-spoke and spoke-to-on-premises traffic**: Consider each direction separately:
   - **On-premises-to-spoke traffic**: Traffic arrives from the on-premises network to the VPN or ExpressRoute gateways. With default routing in Azure, a system route is created in the GatewaySubnet (and other subnets in the hub virtual network) for each spoke. You must override these system routes and set the next hop to the Azure Firewall's private IP address. In this example, you need two routes in a route table associated with the gateway subnet, one for each spoke (`10.1.1.0/24` and `10.1.2.0/24`). Using a summary such as `10.1.0.0/16` that encompasses all spoke virtual networks doesn't work because the system routes injected by the virtual network peerings in the gateway subnet are more specific (`/24` compared to the `/16` summary). This route table must have the **Propagate gateway routes** toggle enabled (set to *Yes*), otherwise gateway routing can become unpredictable.
-  - **Spoke-to-on-premises traffic**: The virtual network peerings between the hub and spokes must have **Allow Gateway Transit** enabled on the hub side and **Use Remote Gateways** enabled on the spoke side. These settings are required so that the VPN and ExpressRoute gateways advertise the spoke prefixes over Border Gateway Protocol (BGP) to on-premises networks. These settings also cause the spokes to learn the prefixes advertised from on-premises to Azure by default. Since on-premises prefixes are more specific than the user-defined route `0.0.0.0/0` in the spoke route table, traffic from spokes to on-premises would bypass the firewall by default. To prevent this situation, set the **Propagate Gateway Routes** toggle to *No* in the spoke route table so that on-premises prefixes aren't learned and the `0.0.0.0/0` route is used for traffic to on-premises.
+  - **Spoke-to-on-premises traffic**: The virtual network peerings between the hub and spokes must have **Allow Gateway Transit** enabled on the hub side and **Use Remote Gateways** enabled on the spoke side. These settings are required so that the VPN and ExpressRoute gateways advertise the spoke prefixes over Border Gateway Protocol (BGP) to on-premises networks. These settings also cause the spokes to learn the prefixes advertised from on-premises to Azure by default. Because on-premises prefixes are more specific than the user-defined route `0.0.0.0/0` in the spoke route table, traffic from spokes to on-premises bypasses the firewall by default. To prevent this situation, set the **Propagate gateway routes** toggle to *No* in the spoke route table so that on-premises prefixes aren't learned and the `0.0.0.0/0` route is used for traffic to on-premises.
 
 > [!NOTE]
 > Use the exact spoke virtual network IP prefixes in the route table associated with the gateway subnet instead of a network summary. The system routes introduced by the virtual network peerings with the spokes override your user-defined route because they're more specific.
 
-You can manage both the route table associated with the spoke subnets and the route table associated with the gateway subnet using Azure Virtual Network Manager to reduce administrative overhead. For more information, see [Use Azure Firewall as the next hop][avnm-azfw].
+You can manage both the route table associated with the spoke subnets and the route table associated with the gateway subnet by using Azure Virtual Network Manager to reduce administrative overhead. For more information, see [Use Azure Firewall as the next hop][avnm-azfw].
 
 ## Hub virtual network workloads
 
-If you deploy workloads in the hub virtual network (such as Active Directory domain controllers, DNS servers, or other shared infrastructure), this increases the complexity of the hub-and-spoke design. We recommend that you avoid placing workloads in the hub and instead deploy them in a dedicated spoke for shared services.
+Deploying workloads in the hub virtual network, such as Active Directory domain controllers, DNS servers, or other shared infrastructure, increases the complexity of the hub-and-spoke design. We recommend that you avoid placing workloads in the hub and instead deploy them in a dedicated spoke for shared services.
 
 This section describes the configuration required for hub workloads so you can evaluate whether this complexity is acceptable for your requirements. We also describe a common mistake that can cause asymmetric traffic and packet drops.
 
@@ -74,7 +74,7 @@ The critical detail is that the user-defined routes configured in both the gatew
 
 ## Inter-subnet traffic inspection
 
-In the current setup, traffic between spokes is sent to the firewall, but intra-spoke traffic stays within the spoke virtual network and is controlled using [Network Security Groups][nsg]. This design considers virtual networks as a security boundary: the firewall only inspects traffic that exits or enters a virtual network.
+In the current setup, traffic between spokes is sent to the firewall, but intra-spoke traffic stays within the spoke virtual network, where you control it by using [network security groups][nsg]. This design considers virtual networks as a security boundary: the firewall only inspects traffic that exits or enters a virtual network.
 
 To inspect traffic between subnets in the same spoke virtual network, modify the route table associated with the spoke subnets as shown in the following diagram:
 
@@ -93,7 +93,7 @@ If you use SD-WAN Network Virtual Appliances (NVAs) instead of VPN or ExpressRou
 
 :::image type="content" source="media/firewall-multi-hub-spoke/multi-hub-spoke-sd-wan-1.png" alt-text="Low-level routing design for a two-region self-managed hub-and-spoke architecture with SD-WAN NVAs." lightbox="media/firewall-multi-hub-spoke/multi-hub-spoke-sd-wan-1.png":::
 
-There are different ways to integrate SD-WAN NVAs in Azure. For more information, see [SD-WAN integration with Azure hub-and-spoke network topologies][sdwan]. This article shows integration using Azure Route Server, one of the most common methods for routing traffic to SD-WAN networks. The SD-WAN NVAs advertise the on-premises prefixes to Azure Route Server via BGP. Azure Route Server injects these prefixes in the Azure Firewall subnet so that Azure Firewall has routing information for on-premises networks. The spokes don't learn the on-premises prefixes because the "Propagate gateway routes" option is disabled in the spoke route table.
+You can integrate SD-WAN NVAs in Azure in different ways. For more information, see [SD-WAN integration with Azure hub-and-spoke network topologies][sdwan]. This article shows integration that uses Azure Route Server, one of the most common methods for routing traffic to SD-WAN networks. The SD-WAN NVAs advertise the on-premises prefixes to Azure Route Server through BGP. Azure Route Server injects these prefixes in the Azure Firewall subnet so that Azure Firewall has routing information for on-premises networks. The spokes don't learn the on-premises prefixes because the "Propagate gateway routes" option is disabled in the spoke route table.
 
 If you don't want to configure each spoke virtual network's prefix in the route table associated with the NVA subnet, you can place the SD-WAN NVAs in their dedicated virtual network. The NVA virtual network doesn't learn the spoke prefixes because they aren't directly peered, and a summary route is possible as shown in the following diagram: 
 
