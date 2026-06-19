@@ -71,7 +71,7 @@ The price of each type appears in the [Azure Blob Storage pricing](https://azure
 | PutBlob                     | [Put Blob](/rest/api/storageservices/put-blob)                                            | Write                     | Write                       | Write                       |
 | PutBlockFromURL             | [Put Block from URL](/rest/api/storageservices/put-block-from-url)                        | Write                     | Write                       | Write                       |
 | PutBlockList                | [Put Block List](/rest/api/storageservices/put-block-list)                                | Write                     | Write                       | Write                       |
-| PutBlock                    | [Put Block](/rest/api/storageservices/put-block-list)                                     | Write                     | Write                       | Write                       |
+| PutBlock                    | [Put Block](/rest/api/storageservices/put-block)                                     | Write                     | Write                       | Write                       |
 | QueryBlobContents           | [Query Blob Contents](/rest/api/storageservices/query-blob-contents)                      | Read<sup>1</sup>          | Read<sup>1</sup>            | N/A                         |
 | RestoreContainer            | [Restore Container](/rest/api/storageservices/restore-container)                          | List and create container | List and create container   | List and create container   |
 | SetBlobExpiry               | [Set Blob Expiry](/rest/api/storageservices/set-blob-expiry)                              | Other                     | Other                       | Write                       |
@@ -99,7 +99,7 @@ The following table maps each Data Lake Storage REST operation to an operation t
 
 The price of each type appears in the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page.
 
-| Logged Operation              | REST API                                                                                             | Premium block blob | Standard general purpose v2 |
+| Logged operation              | REST API                                                                                             | Premium block blob | Standard general purpose v2 |
 |-------------------------------|------------------------------------------------------------------------------------------------------|--------------------|-----------------------------|
 | CreateFilesystem              | [Filesystem  Create](/rest/api/storageservices/datalakestoragegen2/filesystem/create)                | Write              | Write                       |
 | DeleteFilesystem              | [Filesystem  Delete](/rest/api/storageservices/datalakestoragegen2/filesystem/delete)                | Free               | Free                        |
