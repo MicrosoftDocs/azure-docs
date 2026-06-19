@@ -78,14 +78,22 @@ sections:
       - question: |
           During the Daylight Saving Time spring-forward transition, the Current Conditions API returned an observation for the 2:00–3:00 AM hour, even though that hour is skipped. Is this expected?
         answer: |
-          Yes, this is expected behavior. The Current Conditions API returns the most recent cached observation for a location — it is not a time-series archive. During the spring-forward transition, the API may briefly serve a cached observation with a timestamp that falls within the skipped hour. This occurs because the cache can hold an observation for up to 10 minutes, and the timestamp reflects the local wall clock time at the time the observation was recorded, before the transition took effect. Once the cache refreshes with a new post-transition observation, the returned timestamp will correctly reflect the new DST offset.
+          Yes, this is expected behavior. The Current Conditions API returns the most recent cached observation for a location — it is not a time-series archive.
+
+          During the spring-forward transition, the API may temporarily return a cached observation whose timestamp falls within the skipped hour. This occurs because responses can be cached for up to 10 minutes, and the `LocalObservationDateTime` reflects the time the observation was recorded, not the time of the API request.
+
+          As the cache refreshes with newer observations after the transition, the returned timestamp will reflect the updated time and DST offset.
 
       - question: |
           During the Daylight Saving Time fall-back transition, will the Current Conditions API return two distinct records for the repeated hour?
         answer: |
-          No. The Current Conditions API returns the most recent observation for a location and is not a time-series archive. It will not return two separate records for the repeated hour. Instead, the response reflects whichever cached observation is being served at the time of the API call. Around the transition window, the timestamp may appear to repeat or move backward as the cache refreshes with the post-rollback observation within the 10-minute cache window. This is expected behavior.
+          No. The Current Conditions API returns the most recent observation for a location and is not a time-series archive. It will not return two separate records for the repeated hour.
 
-          The correct way to distinguish which side of the transition an observation belongs to is by examining the UTC offset included in the `LocalObservationDateTime` field. This field is returned in ISO 8601 format and includes the UTC offset. Before the fall-back, the offset reflects the summer/DST offset (for example, UTC-4 for Eastern Daylight Time). After the transition and once the cached response refreshes, the offset reflects the standard time offset (for example, UTC-5 for Eastern Standard Time).
+          Instead, the response reflects whichever cached observation is being served at the time of the API call. Around the transition window, the timestamp may appear to repeat or move backward as the cache refreshes within the 10-minute cache window. This is expected behavior.
+
+          To determine which side of the transition an observation belongs to, examine the UTC offset included in the `LocalObservationDateTime` field. This field is returned in ISO 8601 format and includes the offset from UTC.
+
+          Before the fall-back, the offset reflects the daylight saving time (for example, UTC-4 for Eastern Daylight Time). After the transition and once the cache refreshes, the offset reflects the standard time offset (for example, UTC-5 for Eastern Standard Time).
 
   - name: Developing with Azure Maps SDKs
     questions:
