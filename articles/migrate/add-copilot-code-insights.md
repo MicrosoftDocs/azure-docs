@@ -1,6 +1,6 @@
 ---
-title: Add code insights using GitHub Copilot modernization
-description: Learn how to add code insights using GitHub Copilot modernization and get more accurate modernization strategy
+title: Add Code Insights using GitHub Copilot Modernization
+description: Learn how to add Code Insights using GitHub Copilot Modernization and get more accurate modernization strategy
 ms.topic: how-to
 author: sudesai
 ms.author: sudesai
@@ -12,7 +12,7 @@ ms.custom: engagement-fy24
 ---
 
 
-#  Add code insights using GitHub Copilot Modernization (preview)
+#  Add code insights using GitHub Copilot modernization (preview)
 
 This article describes how to add code insights using GitHub Copilot modernization when migrating applications to Azure services. Adding code insights helps you better assess migration readiness and get recommendations for migration strategies based on the code changes identified during the scan. Code insights for web apps provide changes required to modernize them to Azure Kubernetes Service (AKS) and Azure App Service.  Code changes for an application are aggregate of code changes for its child web apps.
 
@@ -55,7 +55,7 @@ For detailed installation steps, see Modernize CLI [instructions](/azure/develop
     - On Azure Migrate **Overview** page, under **Decide and Plan**, select **Assessments**. Choose the relevant Application assessment or Web app assessment.
 2. Select the Applications or Web apps for which you want to add code insights. Select **Add code insights**, and then choose **GitHub Copilot modernization** from the dropdown.
 
-    :::image type="content" source="./media/add-copilot-code-insights/github-copilot-modernization.png" alt-text="The screenshot shows selection of Github copilot modernization option." lightbox="./media/add-copilot-code-insights/github-copilot-modernization.png":::
+    :::image type="content" source="./media/add-copilot-code-insights/github-copilot-modernization.png" alt-text="The screenshot shows selection of GitHub Copilot modernization option from the dropdown." lightbox="./media/add-copilot-code-insights/github-copilot-modernization.png":::
 
 3. By default, **At scale code assessment with automatic report upload** is selected to add code changes using GitHub Copilot Modernize CLI.
 4. Review the list of web apps. You can remove the web apps for which code insights are not required.
