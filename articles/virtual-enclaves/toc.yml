@@ -3,20 +3,20 @@
 - name: Overview
   expanded: true
   items:
-  - name: "What is Azure Virtual Enclaves?"
+  - name: "What is Azure Enclave?"
     href: what-azure-virtual-enclaves.md
-  - name: "Why use Azure Virtual Enclaves?"
+  - name: "Why use Azure Enclave?"
     href: why-azure-virtual-enclaves.md
-  - name: Azure Virtual Enclaves FAQs
+  - name: Azure Enclave FAQs
     href: virtual-enclaves-faq.md
-  - name: Azure Virtual Enclaves Pricing
+  - name: Azure Enclave Pricing
     href: virtual-enclaves-pricing.md
   - name: "What's new?"
     href: whats-new.md
   - name: Quickstarts
     expanded: true
     items:
-    - name: Get started with Azure Virtual Enclaves
+    - name: Get started with Azure Enclave
       href: onboard.md
     - name: Create a community
       href: create-community-portal.md
@@ -70,7 +70,7 @@
       href: understand-admin-vm.md
     - name: Understand Domain Name Service
       href: understand-domain-name-service.md
-- name: Tutorial - Deploy Azure Virtual Enclaves
+- name: Tutorial - Deploy Azure Enclave
   items:
   - name: Learn Virtual Enclaves
     href: virtual-enclaves-learn.md
@@ -122,8 +122,6 @@
     href: policy-compliance-exemptions.md
   - name: Configure customer managed key encryption
     href: configure-customer-managed-key-encryption-within-enclave.md
-  - name: Install BannerApp for RemoteApps
-    href: install-bannerapp-remoteapps.md
 #     - name: Regulatory compliance guidelines
 #       href: regulatory-compliance-guidelines.md
 #     - name: Security best practices
@@ -192,7 +190,7 @@
   items:
   - name: Troubleshoot guide
     href: troubleshoot.md
-  - name: Migrate Azure resources into Azure Virtual Enclaves
+  - name: Migrate Azure resources into Azure Enclave
     href: migrate-azure-resources-azure-virtual-enclaves.md
 #     - name: Connectivity troubleshooting
 #       href: connectivity-troubleshooting.md
@@ -208,9 +206,9 @@
 #       href: compliance-validation.md
 - name: Resources
   items:
-    - name: Azure Virtual Enclaves templates
+    - name: Azure Enclave templates
       href: virtual-enclaves-templates.md
-    - name: Migrate Azure resources into Azure Virtual Enclaves
+    - name: Migrate Azure resources into Azure Enclave
       href: migrate-azure-resources-azure-virtual-enclaves.md
     # - name: Videos
     #   href: videos.md

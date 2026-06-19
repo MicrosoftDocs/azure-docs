@@ -78,7 +78,7 @@ AVE makes the following overall recommendations:
 
 #### Community network design considerations
 
-AVE advises customers to follow, wherever possible, underlying Azure service best practices documentation when planning their community networks. Including these best practices:
+You should follow, wherever possible, underlying Azure service best practices documentation when planning their community networks. Including these best practices:
 
 - [Azure Firewall best practices](/azure/firewall/firewall-best-practices)
 - [Azure Firewall multi-hub-and-spoke](/azure/firewall/firewall-multi-hub-spoke)
@@ -88,7 +88,7 @@ AVE advises customers to follow, wherever possible, underlying Azure service bes
 
 #### Enclave network design considerations
 
-AVE advises customers to follow, wherever possible, underlying Azure service best practices documentation when planning their enclave networks. Including these best practices:
+You should follow, wherever possible, underlying Azure service best practices documentation when planning their enclave networks. Including these best practices:
 
 - [Azure Virtual Network concepts and best practices](/azure/virtual-network/concepts-and-best-practices)
 - [Network security groups overview](/azure/virtual-network/network-security-groups-overview)
@@ -111,9 +111,9 @@ AVE employs a defense-in-depth approach when it comes to cybersecurity. When you
 
 ### Shared security responsibilities
 
-As a service on Azure, AE also is committed to upholding the [shared responsibility model](/azure/security/fundamentals/shared-responsibility) in the cloud. For AE specifically, [workloads](./what-workload.md) are the customer's responsibility. Platform shared responsibility is inherited in workloads if the customer deployed PaaS services into their workloads.
+As a service on Azure, AE also is committed to upholding the [shared responsibility model](/azure/security/fundamentals/shared-responsibility) in the cloud. For AE specifically, [workloads](./what-workload.md) are your responsibility. Platform shared responsibility is inherited in workloads if you deployed PaaS services into their workloads.
 
-Customer instances of [communities](./what-community.md) and [enclaves](./what-enclave.md) represent a shared responsibility. Communities and enclaves use a shared responsibility model where the AE Resource Provider creates a secured, preconfigured hub-and-spoke network environment for the customer. This network environment is managed by the customer by creating [enclave endpoints](./create-enclave-endpoint-portal.md), [community endpoints](./create-community-endpoint-portal.md), [transit hubs](./create-transit-hub-portal.md), or [enclave connections](./create-enclave-connection-portal.md). Certain preview versions of AE also allow the customer to manually make changes to the network through underlying controls provided by [Azure VWAN](/azure/virtual-wan/virtual-wan-about), [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview), and other underlying Azure networking services.
+Your [communities](./what-community.md) and [enclaves](./what-enclave.md) represent a shared responsibility. Communities and enclaves use a shared responsibility model where the AE Resource Provider creates your secured, preconfigured hub-and-spoke network environment. You manage this network environment by creating [enclave endpoints](./create-enclave-endpoint-portal.md), [community endpoints](./create-community-endpoint-portal.md), [transit hubs](./create-transit-hub-portal.md), or [enclave connections](./create-enclave-connection-portal.md). Certain preview versions of AE also allow you to manually make changes to the network through underlying controls provided by [Azure VWAN](/azure/virtual-wan/virtual-wan-about), [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview), and other underlying Azure networking services.
 
 AVE [governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring) is also a shared responsibility. The AE Resource Provider creates a secured, preconfigured list of [Azure Policy initiatives](./aks-initiative.md) per [workload](./what-workload.md) deployment. However, [communities](./what-community.md) now have the capability to configure their own list of Azure Policy Initiatives, which overrides the preconfigured list for the workload. Despite the policy requirements, customers retain the ability to make manual [exemptions](./policy-compliance-exemptions.md) to these Azure Policy Initiative assignments depending on their compliance or governance requirements.
 

@@ -68,11 +68,11 @@ Azure Enclave uses hierarchical IAM settings to define roles and permissions at 
 - Access is automatically revoked after the defined period.
 
 
-Azure Enclave' identity and access control model ensures robust security, dynamic adaptability, and precise governance across isolated, zero-trust environments. Integrate with Azure-first identity solutions so AE can provide administrators with the tools needed to meet even the most stringent security and compliance requirements.
+The Azure Enclave identity and access control model ensures robust security, dynamic adaptability, and precise governance across isolated, zero-trust environments. Integrate with Azure-first identity solutions so AE can provide administrators with the tools needed to meet even the most stringent security and compliance requirements.
 
 ## Built in RBAC roles for Azure Enclave
 
-Azure Enclave includes a set of built-in **Role-Based Access Control (RBAC)** roles designed to manage AVE-specific resource types. These roles provide granular permissions to manage AE objects like communities and enclaves, without granting permissions to underlying Azure networking resources such as Virtual WAN (vWAN) or Azure Firewall. 
+Azure Enclave includes a set of built-in **Role-Based Access Control (RBAC)** roles designed to manage AVE-specific resource types. These roles provide granular permissions to manage AE objects like communities and enclaves, without granting permissions to underlying Azure networking resources such as Virtual WAN (VWAN) or Azure Firewall. 
 
 ### AE Built in roles
 
@@ -80,7 +80,7 @@ The built-in roles are scoped specifically for AE and don't overlap with permiss
 
 #### Community-Level roles
 **Community owner**  
-  Grants full control over the AE community resource. This role allows the user to configure community-level settings and manage associated enclaves but doesn't permit direct modification of the underlying Azure networking resources (for example, vWAN or firewall).  
+  Grants full control over the AE community resource. This role allows the user to configure community-level settings and manage associated enclaves but doesn't permit direct modification of the underlying Azure networking resources (for example, VWAN or firewall).  
   **Example Permissions**:  
   - Create, delete, or update an AE community.  
   - Configure endpoints and transit hub connections for the community.  

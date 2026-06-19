@@ -13,7 +13,7 @@ This article explains how to configure the Approvals feature in Azure Enclave to
 
 > [!IMPORTANT]
 > 
-> The Approvals feature is currently in **Preview**. Access to this preview requires enrollment and approval from the Azure Enclave team. This feature is encouraged for testing but shouldn't be used for production workloads.
+> The Approvals feature is currently in **Preview**. This feature is encouraged for testing but shouldn't be used for production workloads while in preview.
 
 ## Prerequisites
 

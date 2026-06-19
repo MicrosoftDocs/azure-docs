@@ -1,13 +1,13 @@
 ---
-title: Migrate Azure Resources into Azure Virtual Enclaves
-description: Migrate Azure Resources into Azure Virtual Enclaves.
+title: Migrate Azure Resources into Azure Enclave
+description: Migrate Azure Resources into Azure Enclave.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
 ms.date: 9/30/2025
 ---
 
-# Migrate Azure Resources into Azure Virtual Enclaves
+# Migrate Azure Resources into Azure Enclave
 
 Moving Azure resources into an enclave is similar to [moving resources to a new resource group or subscription](/azure/azure-resource-manager/management/move-resource-group-and-subscription). When you move resources, the target resource group would be a [workload](./what-workload.md) resource group. [Learn more about Azure tools, scripts, templates, or commands to automate resource group moving or migration](/azure/azure-resource-manager/management/move-resource-group-and-subscription).
 
@@ -41,7 +41,7 @@ For a more exhaustive and detailed checklist, see [Checklist before moving resou
 - Moving resources into a workload resource group means that those resources will be governed by AVE [Policy Assignments](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring). Moving resources into an enclave may require changing configurations to those resources to be [compliant](/azure/governance/policy/concepts/compliance-states) with AVE policy governance.
 
 ## Existing Preview Customers
-Certain AVE customers deployed enclaves with early preview or beta builds of AVE or predecessor systems (for example, "mission enclaves"). If you deployed your system into a traditional mission enclave (or similar landing zone architecture), here are some things to consider as you plan your migration into Azure Virtual Enclaves:
+Certain AVE customers deployed enclaves with early preview or beta builds of AVE or predecessor systems (for example, "mission enclaves"). If you deployed your system into a traditional mission enclave (or similar landing zone architecture), here are some things to consider as you plan your migration into Azure Enclave:
 
 - You can't move a mission enclave network into a [community](./what-community.md) or an [Enclave](./what-enclave.md).
 - Migrating secrets from a mission enclave Key Vault to an AVE Key Vault may require using Azure PowerShell modules to do the following:
@@ -58,7 +58,7 @@ Certain AVE customers deployed enclaves with early preview or beta builds of AVE
   - If you have requirements to connect to an existing instance of DNS elsewhere, you would provide the private IP addresses of the DNS server as the DNS servers list field for your community and Enclaves.
 
 ## References
-- [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)
+- [What is Azure Enclave?](./what-azure-virtual-enclaves.md)
 - [Move resources to a new resource group or subscription](/azure/azure-resource-manager/management/move-resource-group-and-subscription)
 - [Move Azure Networking resources to new subscription or resource group](/azure/azure-resource-manager/management/move-limitations/networking-move-limitations)
 - [AVE governance/Governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring)
@@ -66,4 +66,4 @@ Certain AVE customers deployed enclaves with early preview or beta builds of AVE
 - [What is an Enclave?](./what-enclave.md)
 - [What is a workload?](./what-workload.md)
 - [Shared responsibility model in the cloud](/azure/security/fundamentals/shared-responsibility)
-- [Best practices of Azure Virtual Enclaves](./best-practices.md)
+- [Best practices of Azure Enclave](./best-practices.md)

@@ -1,23 +1,23 @@
 ---
 title: Disaster Recovery Planning
-titlesuffix: Azure Virtual Enclaves
-description: Disaster Recovery Planning within Azure Virtual Enclaves.
+titlesuffix: Azure Enclave
+description: Disaster Recovery Planning within Azure Enclave.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: how-to
 ms.date: 9/30/2025
 ---
 
-# Disaster Recovery Planning within Azure Virtual Enclaves
+# Disaster Recovery Planning within Azure Enclave
 
-Disaster recovery is an essential aspect of managing Azure Virtual Enclaves. It ensures that cloud services remain available even if one of the cloud regions fails. This document provides a comprehensive guide on creating a client-side disaster recovery plan using Azure's built-in products and multi-region support to enhance resilience and availability.
+Disaster recovery is an essential aspect of managing Azure Enclave. It ensures that cloud services remain available even if one of the cloud regions fails. This document provides a comprehensive guide on creating a client-side disaster recovery plan using Azure's built-in products and multi-region support to enhance resilience and availability.
 
 ## Client-Side Disaster Recovery Plan
 You should create a disaster recovery plan for your critical workloads.
 
 ### Creating multiple replicas of the services (workloads)
 
-You should create multiple Azure Virtual Enclaves instances with identical configurations and workloads in at least two Azure regions: one designated as the primary region and the other as the secondary region. Depending on the services and workloads hosted inside the Azure Virtual Enclaves, an appropriate load balancer can then distribute and/or redirect network traffic. Depending on the customer's deployment scenario, review the recommended load balancing options available on the Azure Architecture Center page. For more information, please visit: [Load-balancing options - Azure Architecture Center](/azure/architecture/guide/technology-choices/load-balancing-overview). The following example explains the use of Azure Front Door as a load
+You should create multiple Azure Enclave instances with identical configurations and workloads in at least two Azure regions: one designated as the primary region and the other as the secondary region. Depending on the services and workloads hosted inside the Azure Enclave, an appropriate load balancer can then distribute and/or redirect network traffic. Depending on your deployment scenario, review the recommended load balancing options available on the Azure Architecture Center page. For more information, please visit: [Load-balancing options - Azure Architecture Center](/azure/architecture/guide/technology-choices/load-balancing-overview). The following example explains the use of Azure Front Door as a load
 balancer for Azure App Services. [Tutorial: Create a multi-region app - Azure App Service](/azure/app-service/tutorial-multi-region-app).
 
 - Primary Region: The region where the main resource resides and operates under normal conditions. (for example, East US)
@@ -26,7 +26,7 @@ balancer for Azure App Services. [Tutorial: Create a multi-region app - Azure Ap
 
 ### Synchronization of Data
 
-Similar to any other resource deployment in Azure, geo-replicated services in Azure Virtual Enclaves can also be deployed via ARM/Bicep templates or via Azure portal. Ensure that the data between the primary and secondary regions remains synchronized.
+Similar to any other resource deployment in Azure, geo-replicated services in Azure Enclave can also be deployed via ARM/Bicep templates or via Azure portal. Ensure that the data between the primary and secondary regions remains synchronized.
 
 Geo-replicated services can be achieved through automated replication processes provided by Azure including:
 - [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) to keep apps and workloads online
@@ -58,20 +58,20 @@ In the following example, we explore how to use Application Gateway and Traffic 
 
 [ ![Diagram showing multiple regions deployed and configured for disaster recovery.](./media/disaster-recovery-planning-multi-region.png) ](./media/disaster-recovery-planning-multi-region.png#lightbox)
 
-To utilize an app service within Azure Virtual Enclaves while maintaining secure and efficient communication, you can use the Application Gateway to act as a bridge between the web application and a demilitarized zone (DMZ) enclave. All incoming traffic is routed through the Web Application Firewall (WAF) by deploying an Application Gateway which inspects and filters requests based on predefined security policies. This helps ensure that only legitimate traffic reaches the application and effectively mitigates potential threats and enhances the security posture of the infrastructure.
+To utilize an app service within Azure Enclave while maintaining secure and efficient communication, you can use the Application Gateway to act as a bridge between the web application and a demilitarized zone (DMZ) enclave. All incoming traffic is routed through the Web Application Firewall (WAF) by deploying an Application Gateway which inspects and filters requests based on predefined security policies. This helps ensure that only legitimate traffic reaches the application and effectively mitigates potential threats and enhances the security posture of the infrastructure.
 
 Furthermore, the integration of Azure Traffic Manager with the Application Gateway adds a robust layer to disaster recovery planning. The Traffic Manager operates as a DNS-based load balancer, directing traffic to the Public IP address associated with the Application
 Gateway. If a regional failure occurs, the Traffic Manager can seamlessly fail over to a secondary region, ensuring that users
 experience minimal disruption. This failover mechanism uses health probes to continuously monitor the availability of endpoints,
 automatically rerouting traffic to the most responsive or geographically optimal endpoint.
 
-This combination of Application Gateway, WAF, and Traffic Manager not only fortifies security but also guarantees high availability and operational continuity for app services deployed in Azure Virtual Enclaves. To complement these failover and load balancing strategies, you should also consider using data persistence services like SQL databases and Azure Storage Accounts. These services come with inherent capabilities to replicate data across regions, ensuring durability and high availability of critical information. By utilizing these features, businesses can maintain consistent access to their data, even if a regional failure occurs. However, it's imperative for you to evaluate their specific requirements and configure these services appropriately to achieve the desired level of data resiliency and accessibility.
+This combination of Application Gateway, WAF, and Traffic Manager not only fortifies security but also guarantees high availability and operational continuity for app services deployed in Azure Enclave. To complement these failover and load balancing strategies, you should also consider using data persistence services like SQL databases and Azure Storage Accounts. These services come with inherent capabilities to replicate data across regions, ensuring durability and high availability of critical information. By utilizing these features, businesses can maintain consistent access to their data, even if a regional failure occurs. However, it's imperative for you to evaluate their specific requirements and configure these services appropriately to achieve the desired level of data resiliency and accessibility.
 
 ## Conclusion
 
-Implementing a comprehensive disaster recovery plan for Azure Virtual Enclaves involves creating multiple resources with synchronized configurations across primary and secondary regions. Utilizing a load balancer for traffic management and failover routing further enhances the resilience and availability of services deployed within Azure Virtual Enclaves. Regular testing and monitoring are essential to ensure the effectiveness of the disaster recovery plan and provide uninterrupted service to users.
+Implementing a comprehensive disaster recovery plan for Azure Enclave involves creating multiple resources with synchronized configurations across primary and secondary regions. Utilizing a load balancer for traffic management and failover routing further enhances the resilience and availability of services deployed within Azure Enclave. Regular testing and monitoring are essential to ensure the effectiveness of the disaster recovery plan and provide uninterrupted service to users.
 
-By following these guidelines, you can achieve robust disaster recovery and ensure high availability for their services hosted in Azure Virtual Enclaves, even in the face of regional failures.
+By following these guidelines, you can achieve robust disaster recovery and ensure high availability for their services hosted in Azure Enclave, even in the face of regional failures.
 
 ## Resources
 

@@ -1,16 +1,16 @@
 ---
 title: Policy compliance exemptions
-titleSuffix: Azure Virtual Enclaves
-description: Policy compliance exemptions within Azure Virtual Enclaves.
+titleSuffix: Azure Enclave
+description: Policy compliance exemptions within Azure Enclave.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
 ms.date: 9/30/2025
 ---
 
-# Azure Virtual Enclaves Policy exemptions
+# Azure Enclave Policy exemptions
 
-By default, all enclave [workloads](./what-workload.md) are governed following AVE platform-managed Azure Policy Initiatives detailed in [AVE governance/Governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring). This means that all user workloads are governed by a set of Azure Policy Initiative assignments deployed by AVE.
+By default, all enclave [workloads](./what-workload.md) are governed following AVE platform-managed Azure Policy Initiatives detailed in [AVE governance/Governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring). This means that all user workloads are governed by a set of Azure Policy Initiative assignments deployed by Azure Enclave.
 
 For certain enclave owners, this level of governance might be too protective or not protective enough for various reasons. For example, some enclave owners might have regulatory requirements for their workloads to have Public IP addresses, but AVE governance/Governance policies would block the creation of Public IP addresses for security or compliance reasons.
 
@@ -30,7 +30,7 @@ In this image, a Policy initiative assignment within the `contoso4-aadconnect` w
 Should further troubleshooting be required to investigate Azure Policy exemptions, contact [Azure Support](https://azure.microsoft.com/support/).
 
 ## References
-- [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)
+- [What is Azure Enclave?](./what-azure-virtual-enclaves.md)
 - [Best Practices](./best-practices.md)
 - [What is an Enclave?](./what-enclave.md)
 - [What is a workload?](./what-workload.md)

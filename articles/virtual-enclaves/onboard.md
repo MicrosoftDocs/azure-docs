@@ -1,16 +1,15 @@
 ---
-title: Get started with Azure Virtual Enclaves
-description: Get started with Azure Virtual Enclaves
+title: Get started with Azure Enclave
+description: Get started with Azure Enclave
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: how-to
 ms.date: 9/30/2025
 ---
 
-# Get started with Azure Virtual Enclaves
+# Get started with Azure Enclave
 
-This guide provides the steps to onboard to Azure Virtual Enclaves (AVE) by enabling the resource provider and granting permissions over your Azure subscription. If you experience any issues with onboarding your subscription to Azure Virtual Enclaves, submit a bug to the product group using this link:
-- [Submit a Bug](https://aka.ms/ave/newbug)
+This guide provides the steps to onboard to Azure Enclave (AE) by enabling the resource provider and granting permissions over your Azure subscription.
 
 ## Prerequisites
 
@@ -21,7 +20,7 @@ This guide provides the steps to onboard to Azure Virtual Enclaves (AVE) by enab
 
 ### Option 1: PowerShell (Fastest)
 
-You can run the following code to quickly register all required resource providers to begin using AVE.
+You can run the following code to quickly register all required resource providers to begin using AE.
 1. Sign-in to your Azure tenant and open the subscription resource
 2. In the Azure portal, select the `Cloud Shell` icon at the top of the window here
 
@@ -31,7 +30,7 @@ You can run the following code to quickly register all required resource provide
 4. Copy and paste this code into the Cloud Shell and press enter.
 
 ```
-# Register the Azure Virtual Enclaves Resource Provider and grant permissions to the Resource Provider application
+# Register the Azure Enclave Resource Provider and grant permissions to the Resource Provider application
 
 $resourceProviders = @(
    "Microsoft.Advisor",
@@ -100,9 +99,9 @@ az provider register --namespace Microsoft.Compute
 2. Open the `Resource Providers` on the left side under `Settings`.
 3. The [listed resource providers](#option-1-powershell-fastest) must be registered in the subscription. The [PowerShell](#option-1-powershell-fastest) script to enable these resource providers is the fastest option and includes the authoritative source of resource providers. These images are provided as an example of the view you should see in the end.
 
-:::image type="content" source="./media/onboard-providers-1.png" alt-text="Screenshot showing the first set of resource providers required by Azure Virtual Enclaves." border="true" lightbox="./media/onboard-providers-1.png":::
+:::image type="content" source="./media/onboard-providers-1.png" alt-text="Screenshot showing the first set of resource providers required by Azure Enclave." border="true" lightbox="./media/onboard-providers-1.png":::
 
-:::image type="content" source="./media/onboard-providers-2.png" alt-text="Screenshot showing the second set of resource providers required by Azure Virtual Enclaves." border="true" lightbox="./media/onboard-providers-2.png":::
+:::image type="content" source="./media/onboard-providers-2.png" alt-text="Screenshot showing the second set of resource providers required by Azure Enclave." border="true" lightbox="./media/onboard-providers-2.png":::
 
 4. Search for and select `Microsoft.Mission` and select `Register`.
 
@@ -114,7 +113,7 @@ For reference, you can also review the generic instructions for enabling a [prev
 
 ## Transition steps for preview customers
 
-Customers who used Azure Virtual Enclaves before November 2025 need to re-register the Azure Virtual Enclaves resource provider so your subscriptions can use the latest API with the latest features and improvements.
+Customers who used Azure Enclave before November 2025 need to re-register the Azure Enclave resource provider so your subscriptions can use the latest API with the latest features and improvements.
 
 Complete these steps to use the latest Virtual Enclaves API:
 1. In the Azure portal, navigate to your subscription.
@@ -124,7 +123,7 @@ Complete these steps to use the latest Virtual Enclaves API:
 
 ## Next Steps
 
-Now the Azure Virtual Enclaves resource provider can begin deploying Azure Virtual Enclaves resources into your subscription on your behalf.
+Now the Azure Enclave resource provider can begin deploying Azure Enclave resources into your subscription on your behalf.
 
   - Start building your Virtual Enclaves Community:
 

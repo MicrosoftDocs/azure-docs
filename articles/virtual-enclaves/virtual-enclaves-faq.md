@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Enclaves FAQ
-description: See answers to frequently asked questions about Azure Virtual Enclaves.
+title: Azure Enclave FAQ
+description: See answers to frequently asked questions about Azure Enclave.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: concept-article
@@ -8,35 +8,35 @@ ms.date: 9/30/2025
 ai-usage: ai-assisted
 ---
 
-# Azure Virtual Enclaves frequently asked questions
+# Azure Enclave frequently asked questions
 
-This article answers common questions about Azure Virtual Enclaves, including planning, usage, billing, configuration, and connections.
+This article answers common questions about Azure Enclave, including planning, usage, billing, configuration, and connections.
 
-### What is Azure Virtual Enclaves?
+### What is Azure Enclave?
 
-Azure Virtual Enclaves is a hub-and-spoke network architecture with built-in network isolation and policy enforcement. For more information, see [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md).
+Azure Enclave is a hub-and-spoke network architecture with built-in network isolation and policy enforcement. For more information, see [What is Azure Enclave?](./what-azure-virtual-enclaves.md).
 
-### Why should I use Azure Virtual Enclaves?
+### Why should I use Azure Enclave?
 
-Azure Virtual Enclaves creates a secure foundation in a known configuration so you can pursue compliance approval faster and deploy workloads with platform-managed boundaries. For more information, see [Why use Azure Virtual Enclaves?](./why-azure-virtual-enclaves.md).
+Azure Enclave creates a secure foundation in a known configuration so you can pursue compliance approval faster and deploy workloads with platform-managed boundaries. For more information, see [Why use Azure Enclave?](./why-azure-virtual-enclaves.md).
 
 ## Customer planning
 
-### Is Azure Virtual Enclaves in Preview?
+### Is Azure Enclave in Preview?
 
-Yes. Azure Virtual Enclaves is currently in Preview and is provided without a service-level agreement. Azure Virtual Enclaves shouldn't be used for production workloads during Preview. For more information, see [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md).
+Yes. Azure Enclave is currently in Preview and is provided without a service-level agreement. Azure Enclave shouldn't be used for production workloads during Preview. For more information, see [What is Azure Enclave?](./what-azure-virtual-enclaves.md).
 
-### Where can I find a quickstart for Azure Virtual Enclaves?
+### Where can I find a quickstart for Azure Enclave?
 
-You can deploy customized individual components from the Azure portal. Azure Virtual Enclaves also provides quickstart reference architectures. For more information, see [Azure Virtual Enclaves templates](./virtual-enclaves-templates.md).
+You can deploy customized individual components from the Azure portal. Azure Enclave also provides quickstart reference architectures. For more information, see [Azure Enclave templates](./virtual-enclaves-templates.md).
 
-### Can Azure Virtual Enclaves resources scale across multiple subscriptions?
+### Can Azure Enclave resources scale across multiple subscriptions?
 
 Yes, communities and enclaves can exist in one subscription or in separate subscriptions within the same tenant. Separate subscriptions allow different organizations to pay for the resources associated with each enclave if that fits your use case. For more information, see [Multi-subscription deployment architecture](./virtual-enclaves-resource-groups.md#multi-subscription-deployment-architecture).
 
-### Which regions are Azure Virtual Enclaves available in today?
+### Which regions is Azure Enclave available in today?
 
-For current regional availability, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table) and [Quotas and region availability in Azure Virtual Enclaves](./quotas-region-availability.md).
+For current regional availability, see [Products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table) and [Quotas and region availability in Azure Enclave](./quotas-region-availability.md).
 
 You can also query the current regions allowed for communities with the Azure CLI.
 
@@ -44,11 +44,11 @@ You can also query the current regions allowed for communities with the Azure CL
 az provider show --namespace Microsoft.Mission --query "resourceTypes[?resourceType=='communities'].locations"
 ```
 
-### What roles are used to manage permissions for Azure Virtual Enclaves resources?
+### What roles are used to manage permissions for Azure Enclave resources?
 
-Azure Virtual Enclaves includes roles to help you manage your environments with least privilege. Verified role names include Community Owner, Community Contributor, Community Reader, Virtual Enclave Owner, Virtual Enclave Contributor, Virtual Enclave Reader, and Enclave Approver. For more information, see [Role-based access controls](./role-based-access-controls.md).
+Azure Enclave includes roles to help you manage your environments with least privilege. Verified role names include Community Owner, Community Contributor, Community Reader, Virtual Enclave Owner, Virtual Enclave Contributor, Virtual Enclave Reader, and Enclave Approver. For more information, see [Role-based access controls](./role-based-access-controls.md).
 
-## Using Azure Virtual Enclaves
+## Using Azure Enclave
 
 ### How do I create a resource that isn't in the Azure service allow list?
 
@@ -62,11 +62,11 @@ If you're deploying an Azure service into a workload resource group and see the 
 
 After the exemption update finishes, redeploy the service that was previously denied. For more information, see [Policy compliance exemptions](./policy-compliance-exemptions.md).
 
-### How do I prevent the creation of new Azure Virtual Enclaves resource types?
+### How do I prevent the creation of new Azure Enclave resource types?
 
 If you're a cloud engineer and want to restrict the creation of new Communities in your subscription, you can use Azure Policy to prevent deployment of specific resource types.
 
-Currently, Azure Virtual Enclaves recommends following the [Tutorial: Disallow resource types in your cloud environment](/azure/governance/policy/tutorials/disallowed-resources) and defining the business logic your organization desires. The `Not allowed resource types` and `Allowed resource types` policies are linked in the tutorial.
+Currently, Azure Enclave recommends following the [Tutorial: Disallow resource types in your cloud environment](/azure/governance/policy/tutorials/disallowed-resources) and defining the business logic your organization desires. The `Not allowed resource types` and `Allowed resource types` policies are linked in the tutorial.
 
 As an example, to prevent deploying communities to a subscription, assign the `Not allowed resource type` [policy definition](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6c112d4e-5bc7-47ae-a041-ea2d9dccd749) while including `Microsoft.Mission/communities` in the parameter list of not allowed resource types.
 
@@ -86,15 +86,15 @@ For example, if you need to quickly block or remove access from a resource like 
 
 ## Billing
 
-### How does billing work for Azure Virtual Enclaves?
+### How does billing work for Azure Enclave?
 
 You pay for:
 
 1. Each enclave on an hourly basis.
-2. Resources managed by Azure Virtual Enclaves to create community and enclave boundaries.
+2. Resources managed by Azure Enclave to create community and enclave boundaries.
 3. Workloads that you deploy within your enclaves.
 
-Managed resources for Azure Virtual Enclaves include:
+Managed resources for Azure Enclave include:
 
 - [Virtual WAN](/azure/virtual-wan/virtual-wan-about) for the community.
 - [Azure Firewall](/azure/firewall/overview) for the community.
@@ -102,7 +102,7 @@ Managed resources for Azure Virtual Enclaves include:
 - Network security groups for enclave subnets.
 - [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview), if selected for the community, enclave, or both.
 
-For more information, see [Azure Virtual Enclaves pricing](./virtual-enclaves-pricing.md).
+For more information, see [Azure Enclave pricing](./virtual-enclaves-pricing.md).
 
 The cost of the Enclave includes the community, community endpoints, enclave endpoints, enclave connections, and transit hub.
 
@@ -113,17 +113,17 @@ Enclaves deployed during part of an hour are charged for the full hour.
 
 ### Can I add a firewall to my enclave virtual network, in addition to the community firewall?
 
-Adding a virtual network firewall isn't a recommended pattern. Azure Virtual Enclaves manages network traffic through community and enclave networking resources.
+Adding a virtual network firewall isn't a recommended pattern. Azure Enclave manages network traffic through community and enclave networking resources.
 
 ## Connections
 
 ### What access is allowed by default?
 
-Azure Virtual Enclaves configures required platform egress for managed resources. For communities using a non-Basic firewall SKU, a default outbound firewall policy rule is created for Key Management Service (KMS) over TCP port 1688.
+Azure Enclave configures required platform egress for managed resources. For communities using a non-Basic firewall SKU, a default outbound firewall policy rule is created for Key Management Service (KMS) over TCP port 1688.
 
 ### How can I make deployments faster?
 
-When you create templates to create Azure Virtual Enclaves, you can make use of the enclaves connection batching by sending connections at the same time. Batching allows a larger batch of enclave connections to be created at the same time, which is faster than creating the connections one at a time. In your templates, you can configure a batch of enclave connections to deploy only once all enclave endpoints and community endpoints are created. Enclave connections to a transit hub can be batched separately once the transit hub is created.
+When you create templates to create Azure Enclave resources, you can make use of the enclaves connection batching by sending connections at the same time. Batching allows a larger batch of enclave connections to be created at the same time, which is faster than creating the connections one at a time. In your templates, you can configure a batch of enclave connections to deploy only once all enclave endpoints and community endpoints are created. Enclave connections to a transit hub can be batched separately once the transit hub is created.
 
 In Bicep, you can batch enclave connections intentionally by adding a `dependsOn` section to each enclave connection resource. The `dependsOn` array should include all community and enclave endpoints for which you want to create connections in the same batch.
 

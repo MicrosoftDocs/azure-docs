@@ -15,7 +15,7 @@ Install an application via Virtual Machine service catalog template.
 The application installation scripting supports the following scenarios:
 
   - The most common use case for the RemoteApp app installation is to deploy remote applications that can be accessed from an Azure Virtual Destop.
-  - Install customer prerequisites such as cyber security and monitoring agents.
+  - Install your prerequisites such as cyber security and monitoring agents.
   - Script configuration changes for compliance or application setup.
 
   > [!NOTE] 

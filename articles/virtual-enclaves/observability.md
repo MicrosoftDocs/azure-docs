@@ -1,6 +1,6 @@
 ---
-title: Observability in Azure Virtual Enclaves
-description: Understand how observability works using Log Analytics and storage accounts in Azure Virtual Enclaves.
+title: Observability in Azure Enclave
+description: Understand how observability works using Log Analytics and storage accounts in Azure Enclave.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
@@ -8,11 +8,11 @@ ms.date: 9/30/2025
 ms.custom: references_region
 ---
 
-# Observability in Azure Virtual Enclaves
+# Observability in Azure Enclave
 
-Azure Virtual Enclaves provides built-in observability features to support secure, scalable, and centralized monitoring of mission-critical environments. These capabilities help Community Managers and Enclave Owners enforce compliance, investigate anomalies, and ensure operational health across isolated workloads.
+Azure Enclave provides built-in observability features to support secure, scalable, and centralized monitoring of mission-critical environments. These capabilities help Community Managers and Enclave Owners enforce compliance, investigate anomalies, and ensure operational health across isolated workloads.
 
-The following are enabled by default for Azure Virtual Enclaves resources:
+The following are enabled by default for Azure Enclave resources:
 - Log Analytics Workspace is deployed into the Community Managed Resource Group by default
 - (Optional) Log Analytics Workspace is deployed into the Enclave Managed Resource Group
 - Storage Account is deployed into Enclave Managed Resource Group
@@ -21,11 +21,11 @@ The following are enabled by default for Azure Virtual Enclaves resources:
 
 ## Centralized and isolated observability
 
-Observability in Azure Virtual Enclaves is built on a dual-tier logging model that supports both centralized and enclave-isolated diagnostic logging using Azure Monitor, Log Analytics, and Storage Accounts.
+Observability in Azure Enclave is built on a dual-tier logging model that supports both centralized and enclave-isolated diagnostic logging using Azure Monitor, Log Analytics, and Storage Accounts.
 
 ### Community-level observability
 
-Every **Community** created in Azure Virtual Enclaves includes a **centralized Log Analytics workspace**. This workspace is designed to:
+Every **Community** created in Azure Enclave includes a **centralized Log Analytics workspace**. This workspace is designed to:
 
 - Aggregate diagnostics and metrics from all enclaves within the community.
 - Provide a single pane of glass for monitoring and querying diagnostics and flow logs.
@@ -48,7 +48,7 @@ Administrators can choose to keep enclave diagnostics private by sending logs on
 
 ## Configurable logging destinations
 
-Azure Virtual Enclaves supports flexible logging configurations that allow resource owners to choose between:
+Azure Enclave supports flexible logging configurations that allow resource owners to choose between:
 
 | Logging Destination                   | Purpose                                                    | Default Use |
 |---------------------------------------|------------------------------------------------------------|-------------|

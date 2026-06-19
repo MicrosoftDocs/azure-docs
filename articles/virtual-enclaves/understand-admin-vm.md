@@ -1,13 +1,13 @@
 ---
-title: Understanding Admin VMs in Azure Virtual Enclaves
-description: Understanding Admin VMs in Azure Virtual Enclaves.
+title: Understanding Admin VMs in Azure Enclave
+description: Understanding Admin VMs in Azure Enclave.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: overview
 ms.date: 9/30/2025
 ---
 
-# Understanding Admin VMs in Azure Virtual Enclaves (AVE)
+# Understanding Admin VMs in Azure Enclave (AE)
 
 A Virtual Machine (VM) created to securely access enclave resources for administrative purposes and can be remotely accessed through [Azure Bastion](https://aka.ms/bastion). These VMs are meant to be temporarily lived resources for break-glass system administration of an enclave and the enclave resources
 
@@ -66,7 +66,7 @@ You can adjust the VM size for AVE Admin VMs based on the number of users you ex
 Community and enclave owners might also have concerns regarding the default VM image used for these VMs. Currently, AVE uses Azure Marketplace's Windows Server Datacenter image for Admin VMs. You can select a custom image of your own by providing the resource ID in the [Admin VM](./deploy-admin-vm-service-catalog.md) template advanced tab.
 
 ## References
-- [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)
+- [What is Azure Enclave?](./what-azure-virtual-enclaves.md)
 - [Best Practices](./best-practices.md)
 - [What is an Enclave?](./what-enclave.md)
 - [What is a workload?](./what-workload.md)

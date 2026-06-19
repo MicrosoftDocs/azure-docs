@@ -459,7 +459,7 @@ If you continue experiencing issues:
 
 ## Understanding community costs
 
-Create an Azure Calculator estimate for your [community](https://aka.ms/ave/calc).
+Create an Azure Calculator estimate for your [community](https://aka.ms/ae/calc).
 
 **Cost optimization tips:**
 - Use Standard tier firewall for dev/test

@@ -20,7 +20,7 @@ The following are the key features of Maintenance Mode:
 
 ## Maintenance mode options
 
-- `Off` - Deny assignments created by Azure Virtual Enclaves is in-place to protect underlying [managed resource groups](./virtual-enclaves-resource-groups.md) for an enclave or community.
+- `Off` - Deny assignments created by Azure Enclave is in-place to protect underlying [managed resource groups](./virtual-enclaves-resource-groups.md) for an enclave or community.
 - `General` - The `Allow Dataplane Actions` deny assignment created by Azure allows privileged users to modify certain existing resources only in the underlying managed resources. For an enclave, these operations include resources joining the enclave virtual network and creating Private DNS Zone records. For a community, these operations include making changes to the Virtual WAN resources. By default, communities and enclaves are deployed in `Off` mode, but choose `General` mode during creation and provide appropriate Microsoft Entra ID identities to allow changes to the protected resources.
 - `Advanced` - The deny assignment created by Azure is temporarily removed to allow privileged users to make elevated changes on the underlying managed resources.
 

@@ -1,6 +1,6 @@
 ---
 title: Transfer or move data into my enclave
-titleSuffix: Azure Virtual Enclaves
+titleSuffix: Azure Enclave
 description: Transfer or move data into my enclave
 author: jadean-msft
 ms.author: jadean
@@ -10,7 +10,7 @@ ms.date: 9/30/2025
 
 # Transferring data into an Enclave
 
-By default, all network traffic within an [enclave](./what-enclave.md) is permitted by Azure Virtual Enclaves (AVE) product design. This means that all resources and hosts within an enclave can reach, discover, and communicate with each other. However, this poses a potential issue for community and enclave owners when first creating their AVE-related resources on how to initially migrate or bring their data into their enclaves.
+By default, all network traffic within an [enclave](./what-enclave.md) is permitted by Azure Enclave (AE) product design. This means that all resources and hosts within an enclave can reach, discover, and communicate with each other. However, this poses a potential issue for community and enclave owners when first creating their AVE-related resources on how to initially migrate or bring their data into their enclaves.
 
 ## Overview
 If the data that needs to be moved into an enclave resides in an Azure Storage Account, you'll need to create a connection to the data source, optionally download an application to help download/copy/move, and then perform the download/copy/move operation. Follow these detailed steps:
@@ -41,7 +41,7 @@ To download tools from Azure Toolbox into an enclave, AVE recommends that either
 Should further troubleshooting be required to investigate making Connections, see [Create a Connection from the Azure portal](./create-enclave-connection-portal.md) or contact [Azure Support](https://azure.microsoft.com/support/).
 
 ## References
-- [What is Azure Virtual Enclaves?](./what-azure-virtual-enclaves.md)
+- [What is Azure Enclave?](./what-azure-virtual-enclaves.md)
 - [Best Practices](./best-practices.md)
 - [What is an Enclave?](./what-enclave.md)
 - [Understanding Admin Workstation](./understand-admin-vm.md)

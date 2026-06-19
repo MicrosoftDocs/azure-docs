@@ -314,9 +314,6 @@ Community endpoints allow traffic from your enclaves to external Azure services 
 
 4. Select `Review + create` and then `Create`.
 
-> [!NOTE]
-> Service tags aren't currently available in AVE. You must use specific Fully Qualified Domain Names (FQDNs) for AKS endpoints.
-
 ## Create enclave endpoints and connections
 
 Enclave endpoints and connections enable communication between enclaves for accessing shared services.

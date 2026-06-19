@@ -1,15 +1,15 @@
 ---
-title: Understanding Domain Name Service in Azure Virtual Enclaves
-description: Understanding DNS in AVE.
+title: Understanding Domain Name Service in Azure Enclave
+description: Understanding DNS in Azure Enclave.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
 ms.date: 9/30/2025
 ---
 
-# Understanding DNS in Azure Virtual Enclaves
+# Understanding DNS in Azure Enclave
 
-When creating a [community](./what-community.md) using Azure Virtual Enclaves, you also specify a list of DNS servers. This list of DNS servers is then passed down to all [enclaves](./what-enclave.md) created within the community. 
+When creating a [community](./what-community.md) using Azure Enclave, you also specify a list of DNS servers. This list of DNS servers is then passed down to all [enclaves](./what-enclave.md) created within the community. 
 
 Workloads and resources created in enclaves follow existing [name resolution for resources in Azure virtual networks](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances).
 

@@ -1,6 +1,6 @@
 ---
-title: Learn Azure Virtual Enclaves
-description: Understand Azure Virtual Enclaves core concepts.
+title: Learn Azure Enclave
+description: Understand Azure Enclave core concepts.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
@@ -8,26 +8,27 @@ ms.date: 9/30/2025
 ai-usage: ai-assisted
 ---
 
-# Learn about Azure Virtual Enclaves
+# Learn about Azure Enclave
 
-If you're new to Azure Virtual Enclaves (AVE), this article helps introduce core concepts to understand, communicate, and plan AVE environments.
+If you're new to Azure Enclave (AE), this article helps introduce core concepts to understand, communicate, and plan AVE environments.
 
-## Visualize Azure Virtual Enclaves
+## Visualize Azure Enclave
 
 You can think of a Virtual Enclaves environment as a connection of network resources or as an organization of resource groups. Both are correct and can be helpful when visualizing a Virtual Enclaves environment depending on your role and goals.
 
 ### Network diagram
 
-This diagram shows networking connections within Azure Virtual Enclaves. The diagram should look similar to a typical hub and spoke network. The community Virtual WAN is the hub and each enclave is a spoke off of that hub. 
+This diagram shows networking connections within Azure Enclave. The diagram should look similar to a typical hub and spoke network. The community Virtual WAN is the hub and each enclave is a spoke off of that hub. 
 
 [ ![Diagram showing an example community with two regions, three enclaves, and 4 workloads.](./media/mermaid-virtual-enclaves-network-links.png) ](./media/mermaid-virtual-enclaves-network-links.png#lightbox)
 
+<pre>
 <!--
 This is the mermaid definition for the above diagram. Use this to edit and regenerate the PNG image.
 
 ```mermaid
 ---
-title: Azure Virtual Enclaves - Network Overview
+title: Azure Enclave - Network Overview
 config:
   theme: base
 ---
@@ -105,3 +106,4 @@ flowchart LR
   class OnPremises,Internet external;
 ```
 -->
+</pre>

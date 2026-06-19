@@ -150,7 +150,7 @@ First, deploy the network infrastructure that prepares your enclave for AKS.
    - **Enable PE Subnet Delegation**: **No**
    
    > [!IMPORTANT]
-   > Don't delegate subnets for private AKS clusters in AVE.
+   > Don't delegate subnets for private AKS clusters in Azure Enclave.
    
    **Network security:**
    - **Create Network Security Groups**: **Yes** (if not already created)
@@ -312,9 +312,6 @@ Add outbound security rules to your NSG to allow AKS traffic.
    - **Action**: `Allow`
    - **Priority**: `1000`
    - **Name**: `Allow_HTTPS_Outbound`
-
-> [!NOTE]
-> Service tags aren't currently available in AVE. You must use specific FQDNs and IP ranges.
 
 ## Associate AKS resource groups to workload
 

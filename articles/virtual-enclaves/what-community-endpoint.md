@@ -33,7 +33,7 @@ This model ensures that all outbound traffic from enclaves is evaluated through 
 Community endpoints support several rule types that define how enclaves can connect to external resources.
 
 - **IP Address**  
-  Enable traffic from an enclave to a specific IP address outside of the community vWAN.
+  Enable traffic from an enclave to a specific IP address outside of the community VWAN.
 
 - **Fully Qualified Domain Name (FQDN)**  
   Enable traffic from an enclave to a trusted domain name (for example `portal.azure.com`).  

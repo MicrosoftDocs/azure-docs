@@ -40,14 +40,14 @@ Documentation:
 ## Common Dependencies
 [How to create the common Azure service dependencies you need to create the other resources from the service catalog](./deploy-common-dependencies-service-catalog.md)
 
-Description: This template creates the resources needed to secure the other resources you can deploy from the service catalog and remain compliant with the Azure Virtual Enclaves policies. These resources include the key vault and Customer Managed Keys (CMK) needed to encrypt the resources in your enclave.
+Description: This template creates the resources needed to secure the other resources you can deploy from the service catalog and remain compliant with the Azure Enclave policies. These resources include the key vault and Customer Managed Keys (CMK) needed to encrypt the resources in your enclave.
 
 Documentation:
   - [Key Vault](/azure/key-vault/general/overview)
   - [Customer Managed Key (CMK)](/azure/storage/common/customer-managed-keys-overview) for encryption
   - [Disk Encryption Set (DES)](/azure/virtual-machines/disk-encryption#full-control-of-your-keys) for disk encryption
   - [Storage Account](/azure/storage/common/storage-account-overview) quickstart. See the separate Storage Account service catalog template for more deployment customization
-  - [Managed Identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to securely access your resources within Azure Virtual Enclaves
+  - [Managed Identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) to securely access your resources within Azure Enclave
 
 ## Private DNS Zones
 [How to create the Private DNS Zones you need for your other resources from the service catalog](./deploy-private-dns-zones-service-catalog.md)
@@ -114,6 +114,3 @@ Description: Azure Cosmos DB simplifies and expedites your application developme
 [How to create an AVE compliant Service Bus](./deploy-service-bus-service-catalog.md)
 
 Description: Azure Service Bus is a fully managed enterprise message broker with message [queues](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#queues) and [topics and subscriptions](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#topics-and-subscriptions). Service Bus is used to decouple applications and services from each other. [Learn more](/azure/service-bus-messaging/service-bus-messaging-overview)
-
-## Request new service
-Submit a feature request using [this form](https://aka.ms/ave/scask)

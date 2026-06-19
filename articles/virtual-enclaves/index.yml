@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Virtual Enclaves Documentation
-summary: Learn how to use Azure Virtual Enclaves. Get started with quickstarts, tutorials, and best practices for deploying, securing, and managing enclave environments in Azure.
+summary: Learn how to use Azure Enclave. Get started with quickstarts, tutorials, and best practices for deploying, securing, and managing enclave environments in Azure.
 
 metadata:
-  title: Azure Virtual Enclaves Documentation - Tutorials, Quickstarts, API References
-  description: Learn how to use Azure Virtual Enclaves. Quickstarts, tutorials, samples, and best practices for deploying, securing, and managing enclaves.
+  title: Azure Enclave Documentation - Tutorials, Quickstarts, API References
+  description: Learn how to use Azure Enclave. Quickstarts, tutorials, samples, and best practices for deploying, securing, and managing enclaves.
   ms.topic: landing-page
   author: aserfass-msft
   ms.author: aserfass
@@ -17,17 +17,17 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Virtual Enclaves (AVE)
+  - title: About Azure Enclave (AE)
     linkLists:
       - linkListType: overview
         links:
-        - text: What is Azure Virtual Enclaves?
+        - text: What is Azure Enclave?
           url: what-azure-virtual-enclaves.md
-        - text: Why use Azure Virtual Enclaves?
+        - text: Why use Azure Enclave?
           url: why-azure-virtual-enclaves.md
-        - text: Azure Virtual Enclaves FAQs
+        - text: Azure Enclave FAQs
           url: virtual-enclaves-faq.md
-        - text: Azure Virtual Enclaves Pricing
+        - text: Azure Enclave Pricing
           url: virtual-enclaves-pricing.md
       # - linkListType: learn
       #   links:
@@ -76,8 +76,6 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          # - text: Onboard to AVE
-          #   url: Onboard-to-AVE.md
           - text: Create a community
             url: create-community-portal.md
           - text: Create a community endpoint
@@ -118,7 +116,7 @@ landingContent:
         links:
           - text: Plan Architecture for Workload
             url: 2-1-plan-architecture-workloads.md
-          - text: Create Azure Virtual Enclaves Environment
+          - text: Create Azure Enclave Environment
             url: 2-2-create-virtual-enclaves-environment.md
           - text: Deploy Azure Virtual Desktop Workload
             url: 2-3-deploy-virtual-desktop-workload.md
@@ -149,8 +147,6 @@ landingContent:
             url: policy-compliance-exemptions.md
           - text: Configure customer managed key encryption
             url: configure-customer-managed-key-encryption-within-enclave.md
-          - text: Install BannerApp for RemoteApps
-            url: install-bannerapp-remoteapps.md
 #           - text: Regulatory compliance guidelines
 #             url: regulatory-compliance-guidelines.md
 #           - text: Security best practices
@@ -239,14 +235,14 @@ landingContent:
             url: troubleshoot.md
           - text: Policy compliance exemptions
             url: policy-compliance-exemptions.md
-          - text: Migrate Azure Resources into Azure Virtual Enclaves
+          - text: Migrate Azure Resources into Azure Enclave
             url: migrate-azure-resources-azure-virtual-enclaves.md
   # Card
   - title: Resources
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure Virtual Enclaves templates
+          - text: Azure Enclave templates
             url: virtual-enclaves-templates.md
-          - text: Migrate Azure resources into Azure Virtual Enclaves
+          - text: Migrate Azure resources into Azure Enclave
             url: migrate-azure-resources-azure-virtual-enclaves.md

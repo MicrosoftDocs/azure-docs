@@ -30,7 +30,7 @@ Multi-layer protections provided by Azure Enclave include:
 
 - **Physical security**: Microsoft enforces strict security measures to ensure the Azure data centers are protected and secured. This is true both for Air-Gapped and Commercial cloud environments.
 
-- **Virtual Network Isolation**: Next-level zero-trust networking that leverages and combines the power of Azure vWAN, Firewall, Policy, Role Based Access Controls (RBAC), Network Watcher, Monitor, Microsoft Sentinel, Defender, and others to ensure that you know where your data is and who is accessing it at all times.
+- **Virtual Network Isolation**: Next-level zero-trust networking that leverages and combines the power of Azure VWAN, Firewall, Policy, Role Based Access Controls (RBAC), Network Watcher, Monitor, Microsoft Sentinel, Defender, and others to ensure that you know where your data is and who is accessing it at all times.
 
 - **Virtual Connection Management**: All connections, internal or external, are governed by strict, user-defined rules to prevent unwarranted access.
 

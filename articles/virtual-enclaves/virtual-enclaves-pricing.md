@@ -1,25 +1,25 @@
 ---
-title: Azure Virtual Enclaves Pricing
-description: Learn how pricing works for Azure Virtual Enclaves, including enclave charges, platform-managed resources, and workload resources.
+title: Azure Enclave Pricing
+description: Learn how pricing works for Azure Enclave, including enclave charges, platform-managed resources, and workload resources.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: concept-article
 ms.date: 06/08/2026
 ---
 
-# Azure Virtual Enclaves pricing
+# Azure Enclave pricing
 
-Azure Virtual Enclaves (AVE) uses Azure resources to create and operate community and enclave boundaries. You also pay for any workload resources that you deploy inside your enclaves.
+Azure Enclave (AE) uses Azure resources to create and operate community and enclave boundaries. You also pay for any workload resources that you deploy inside your enclaves.
 
 > [!IMPORTANT]
-> Pricing information in this article is for planning guidance only. Pricing can change and you can review the [latest pricing](https://azure.microsoft.com/pricing/). For an estimate, use the [Azure Virtual Enclaves pricing calculator](https://aka.ms/ave/calc).
+> Pricing information in this article is for planning guidance only. Pricing can change and you can review the [latest pricing](https://azure.microsoft.com/pricing/). For an estimate, use the [Azure Enclave pricing calculator](https://aka.ms/ae/calc).
 
 ## How billing works
 
 Customers pay for:
 
-- Azure Virtual Enclaves billable meters, such as enclave usage. Verify current meters and rates on the Azure pricing page or with your billing owner.
-- Azure resources managed by Azure Virtual Enclaves to create and operate community and enclave boundaries.
+- Azure Enclave billable meters, such as enclave usage. Verify current meters and rates on the Azure pricing page or with your billing owner.
+- Azure resources managed by Azure Enclave to create and operate community and enclave boundaries.
 - Workload resources that you deploy inside enclaves, such as virtual machines, Azure Kubernetes Service, Azure App Service web apps, storage accounts, databases, or other Azure services.
 
 ## Platform-managed resources

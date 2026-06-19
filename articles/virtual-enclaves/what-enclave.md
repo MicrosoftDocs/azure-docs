@@ -30,7 +30,7 @@ Enclaves come with the following platform-managed resources:
 - **Log Analytics Workspace**: Provides [diagnostic logging](/azure/azure-monitor/essentials/diagnostic-settings) and monitoring for enclave resources. AE and user-deployed resources can send logs here, with routing configurable via diagnostic settings.
 - **Azure Bastion**: Provides secure RDP/SSH admin access to resources within the enclave.
 
-[ ![Diagram showing the managed resources deployed with an enclave and the resources deployed by the customer.](./media/communities-virtual-enclaves-enclave.svg) ](./media/communities-virtual-enclaves-enclave.svg#lightbox)
+[ ![Diagram showing the managed resources deployed with an enclave and your deployed resources.](./media/communities-virtual-enclaves-enclave.svg) ](./media/communities-virtual-enclaves-enclave.svg#lightbox)
 
 ## Enclave managed resource group 
 

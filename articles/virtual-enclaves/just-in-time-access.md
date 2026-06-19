@@ -1,6 +1,6 @@
 ---
 title: Just-in-time Access
-titleSuffix: Azure Virtual Enclaves
+titleSuffix: Azure Enclave
 description: Just-in-time Access.
 author: jadean-msft
 ms.author: jadean
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 9/30/2025
 ---
 
-# Configuring just-in-time access in Azure Virtual Enclaves using Privileged Identity Management
+# Configuring just-in-time access in Azure Enclave using Privileged Identity Management
 
-Azure Virtual Enclaves (AVE) use **Privileged Identity Management (PIM)** to enable **just-in-time (JIT)** access for sensitive resources within enclaves and workloads. PIM allows users to request temporary, time-bound permissions to perform specific tasks, minimizing the risk of overprovisioning and unauthorized actions. This guide explains how to configure JIT access in AVE using PIM.
+Azure Enclave (AE) uses **Privileged Identity Management (PIM)** to enable **just-in-time (JIT)** access for sensitive resources within enclaves and workloads. PIM allows users to request temporary, time-bound permissions to perform specific tasks, minimizing the risk of overprovisioning and unauthorized actions. This article explains how to configure JIT access in AVE using PIM.
 
 
-[Azure Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) is an Azure service that helps you manage, control, and monitor access within your Azure environment. By combining Azure PIM with Azure Virtual Enclave, you can enforce a controlled and secure workflow for approving actions that are taken within Azure Virtual Enclave. This can help prevent unauthorized or accidental changes that could change your organization's security posture.
+[Azure Privileged Identity Management (PIM)](/entra/id-governance/privileged-identity-management/pim-configure) is an Azure service that helps you manage, control, and monitor access within your Azure environment. By combining Azure PIM with Azure Virtual Enclave, you can enforce a controlled and secure workflow for approving actions that are taken within Azure Virtual Enclave. You can prevent unauthorized or accidental changes that could change your organization's security posture.
 
 Here's how you can use Azure PIM to approve actions within Azure Virtual Enclave:
 
@@ -21,23 +21,23 @@ Here's how you can use Azure PIM to approve actions within Azure Virtual Enclave
    Before you can use Azure PIM, you need to enable it for your Azure subscription. You can do this through the Azure portal. Navigate to the "Microsoft Entra ID Privileged Identity Management" service and follow the steps to set up PIM for your subscription.
 
 2. **Assign roles with approval**:
-   In Azure PIM, you can define custom roles or use built-in roles with approval workflows. These roles are designed to grant access to Azure Virtual Enclaves resource's actions, such as creating, modifying, and deleting community, endpoints, enclaves, etc. - including establishing internal connections. When you assign these roles to users, you can configure them to require approval before the role's permissions are activated.
+   In Azure PIM, you can define custom roles or use built-in roles with approval workflows. These roles are designed to grant access to Azure Enclave resource's actions, such as creating, modifying, and deleting community, endpoints, enclaves, etc. - including establishing internal connections. When you assign these roles to users, you can configure them to require approval before the role's permissions are activated.
 
 3. **Approve Access Requests**:
-   When a user needs to perform an action within Azure Virtual Enclaves that requires privileged access, they initiate a request through Azure PIM. This request is then sent to the appropriate approver for review. The approver can be a community owner, enclave owner, or an individual with the necessary permissions to evaluate and approve the request.
+   When a user needs to perform an action within Azure Enclave that requires privileged access, they initiate a request through Azure PIM. This request is then sent to the appropriate approver for review. The approver can be a community owner, enclave owner, or an individual with the necessary permissions to evaluate and approve the request.
 
 4. **Review and Approve**:
-   The designated approver receives a notification that a user requested access. The approver can review the details of the request, including the specific actions the user intends to perform within Azure Virtual Enclave. The approver can approve or deny the request based on the information provided. This process ensures only authorized and legitimate actions are taken within Azure Virtual Enclaves.
+   The designated approver receives a notification that a user requested access. The approver can review the details of the request, including the specific actions the user intends to perform within Azure Virtual Enclave. The approver can approve or deny the request based on the information provided. This process ensures only authorized and legitimate actions are taken within Azure Enclave.
 
 5. **Time-bound Access**:
    Azure PIM allows you to grant time-bound access to users. This means that users are only granted the specified permissions for a limited period. This is especially useful for situations where temporary access is required. Once the approved time period expires, the user's permissions are automatically revoked, reducing the risk of prolonged privileged access.
 
 6. **Audit and Monitoring**:
-   Azure PIM provides comprehensive audit logs and reporting capabilities. This allows you to track and monitor all access requests, approvals, denials, and actions taken within Azure Virtual Enclaves. Auditing helps you maintain visibility into who is accessing sensitive resources, their actions, and whether they were approved and legitimate.
+   Azure PIM provides comprehensive audit logs and reporting capabilities. This allows you to track and monitor all access requests, approvals, denials, and actions taken within Azure Enclave. Auditing helps you maintain visibility into who is accessing sensitive resources, their actions, and whether they were approved and legitimate.
 
 By integrating Azure PIM's access approval workflows with Azure Virtual Enclave's security actions, you can establish a robust security posture that prevents unauthorized changes and minimizes the risks associated with privileged access. This approach aligns with the principle of least privilege and helps organizations maintain a strong security foundation in their Azure environment.
 
-## Steps to Configure JIT Access with PIM in Azure Virtual Enclaves
+## Steps to Configure JIT Access with PIM in Azure Enclave
 
 ### Step 1: Enable Privileged Identity Management
 1. Navigate to the **Azure portal**.
@@ -47,7 +47,7 @@ By integrating Azure PIM's access approval workflows with Azure Virtual Enclave'
 
 ### Step 2: Assign Roles for Enclave Resources
 1. In the PIM dashboard, select **Azure Resources**.
-2. Choose the subscription or resource group containing your Azure Virtual Enclaves.
+2. Choose the subscription or resource group containing your Azure Enclave.
 3. Assign the desired roles to users or groups. Common roles include:
    - **Owner**: Full access to manage enclave and workload resources.
    - **Contributor**: Permissions to manage resources but not access security-related settings.
@@ -78,7 +78,7 @@ By integrating Azure PIM's access approval workflows with Azure Virtual Enclave'
 4. Verify that permissions are granted and automatically revoked after the specified duration.
 
 
-## Benefits of JIT Access in Azure Virtual Enclaves
+## Benefits of JIT Access in Azure Enclave
 
 - **Enhanced Security**:
    - Time-bound access minimizes exposure to sensitive resources.
@@ -97,9 +97,9 @@ By integrating Azure PIM's access approval workflows with Azure Virtual Enclave'
 
 - [Privileged Identity Management Overview](/azure/active-directory/privileged-identity-management/pim-configure)
 - [Azure Conditional Access Policies](/azure/active-directory/conditional-access/overview)
-- [Azure Virtual Enclaves Documentation](./what-azure-virtual-enclaves.md)
+- [Azure Enclave Documentation](./what-azure-virtual-enclaves.md)
 - [Azure Monitor for Logging and Diagnostics](/azure/azure-monitor/fundamentals/overview)
 - [Microsoft Sentinel Integration](/azure/sentinel/overview)
 
 
-Configure just-in-time access with Privileged Identity Management and Azure Virtual Enclaves to provide a secure, scalable framework for managing temporary permissions. This approach supports operational flexibility while maintaining a robust security posture and compliance with organizational standards.
+Configure just-in-time access with Privileged Identity Management and Azure Enclave to provide a secure, scalable framework for managing temporary permissions. This approach supports operational flexibility while maintaining a robust security posture and compliance with organizational standards.

@@ -1,18 +1,18 @@
 ---
-title: Troubleshoot Azure Virtual Enclaves
-description: Troubleshoot steps for Azure Virtual Enclaves.
+title: Troubleshoot Azure Enclave
+description: Troubleshoot steps for Azure Enclave.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
 ms.date: 9/30/2025
 ---
 
-# Troubleshoot Azure Virtual Enclaves
+# Troubleshoot Azure Enclave
 
 The following are examples of errors that might be encountered and their solution.
 
 ## General troubleshooting
-The general troubleshooting steps that aren't specific to an Azure Virtual Enclaves resource.
+The general troubleshooting steps that aren't specific to an Azure Enclave resource.
 
 ### Portal Links don't work in the Air Gapped Azure environments
 AVE portal links (for example "Learn More") don't work in the Azure Air Gapped environments during Preview.
@@ -20,7 +20,7 @@ AVE portal links (for example "Learn More") don't work in the Azure Air Gapped e
 Solution: Those documentation links work on the low side so you can navigate to the same URL from a computer with access to github.io.
 
 ## Community Troubleshooting
-The community troubleshooting steps that are specific to the Azure Virtual Enclaves community resource.
+The community troubleshooting steps that are specific to the Azure Enclave community resource.
 
 ### API error when creating first community (Preview)
 

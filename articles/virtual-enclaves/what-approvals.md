@@ -20,7 +20,7 @@ Consider these Approvals scenarios:
 
 > [!IMPORTANT]
 > 
-> The Approvals feature is currently in **Preview**. Access to this preview requires enrollment and approval from the Azure Enclave team. This feature is encouraged for testing but shouldn't be used for production workloads.
+> The Approvals feature is currently in **Preview**. This feature is encouraged for testing but shouldn't be used for production workloads while in preview.
 
 
 ## Enclave creation flow comparison
@@ -148,7 +148,7 @@ The specific operations requiring approval can be configured in the community co
 
 ## Roles and permissions
 
-The Approvals feature integrates with Azure Enclave' role-based access control (RBAC):
+The Approvals feature integrates with the Azure Enclave role-based access control (RBAC):
 
 ### Enclave Approver role
 

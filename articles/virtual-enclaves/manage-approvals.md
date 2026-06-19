@@ -1,6 +1,6 @@
 ---
-title: Manage approval requests in Azure Virtual Enclaves
-description: Learn how to review, approve, and reject approval requests in Azure Virtual Enclaves.
+title: Manage approval requests in Azure Enclave
+description: Learn how to review, approve, and reject approval requests in Azure Enclave.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: how-to
@@ -8,13 +8,13 @@ ms.date: 1/26/2026
 ai-usage: ai-assisted
 ---
 
-# Manage approval requests in Azure Virtual Enclaves
+# Manage approval requests in Azure Enclave
 
-This article explains how to review, approve, and reject approval requests in Azure Virtual Enclaves. Users with the Enclave Approver role can manage approval requests to ensure proper oversight of critical infrastructure changes.
+This article explains how to review, approve, and reject approval requests in Azure Enclave. Users with the Enclave Approver role can manage approval requests to ensure proper oversight of critical infrastructure changes.
 
 > [!IMPORTANT]
 > 
-> The Approvals feature is currently in **Preview**. Access to this preview requires enrollment and approval from the Azure Virtual Enclaves team. This feature is encouraged for testing but shouldn't be used for production workloads.
+> The Approvals feature is currently in **Preview**. This feature is encouraged for testing but shouldn't be used for production workloads while in preview.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ To manage approval requests, you need:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Navigate to your Azure Virtual Enclaves enclave or community resource.
+2. Navigate to your Azure Enclave enclave or community resource.
 
 3. In the left navigation menu, select `Approvals`.
 
@@ -79,7 +79,7 @@ After reviewing a request, approve it to allow the change to proceed:
 
 3. Select `Confirm` to approve the request.
 
-4. The request status changes to `Approved` and the resource change is automatically implemented.
+4. The request status is now `Approved` and the resource change is automatically implemented.
 
 ---
 
@@ -122,12 +122,12 @@ When reviewing a maintenance mode request:
 
 1. **Verify maintenance window**: Confirm the change aligns to an approved maintenance window
 2. **Validate impact communication**: Ensure affected stakeholders are informed
-3. **Check rollback/readiness plans**: Confirm there is a clear rollback or completion plan
-4. **Assess operational risk**: Review service and dependency impact before approval
+3. **Check rollback/readiness plans**: Confirm there's a clear rollback or completion plan
+4. **Assess operational risk**: Review service and dependency effect before approval
 
 **Example approval**: "Approved. Maintenance mode is scheduled in the approved change window with a documented rollback plan."
 
-**Example rejection**: "Rejected. Maintenance window and service impact plan are missing. Add operational readiness details and resubmit."
+**Example rejection**: "Rejected. Maintenance window and service effect plan are missing. Add operational readiness details and resubmit."
 
 ### Approving an enclave connection
 
@@ -139,7 +139,7 @@ When reviewing an enclave connection request:
 4. **Assess security implications**: Evaluate whether the connection poses any security risks
 5. **Review compliance requirements**: Ensure the connection meets organizational compliance standards
 
-**Example approval**: "Approved. Connection between production and logging enclave is necessary for centralized log aggregation. Security team has verified firewall rules."
+**Example approval**: "Approved. Connection between production and logging enclave is necessary for centralized log aggregation. Security team verified firewall rules."
 
 **Example rejection**: "Rejected. Connection to external endpoint requires more security review. Submit a detailed security assessment and obtain InfoSec approval before resubmitting."
 
@@ -152,7 +152,7 @@ When reviewing an enclave endpoint request:
 3. **Check for overly permissive rules**: Look for rules that might grant excessive access
 4. **Validate compliance**: Confirm the endpoint configuration meets compliance requirements
 
-**Example approval**: "Approved. Endpoint configuration follows least-privilege principles and has been reviewed by the network security team."
+**Example approval**: "Approved. Endpoint configuration follows least-privilege principles and the network security team reviewed this request."
 
 **Example rejection**: "Rejected. Endpoint allows traffic from 0.0.0.0/0, which violates security policy. Restrict to specific IP ranges and resubmit."
 
@@ -235,7 +235,7 @@ When managing approval requests:
 
 ## Delegate approval authority
 
-In some cases, you may need to temporarily delegate approval authority:
+In some cases, you might need to temporarily delegate approval authority:
 
 1. Navigate to `Access control (IAM)` for the enclave or community.
 
@@ -257,13 +257,13 @@ In some cases, you may need to temporarily delegate approval authority:
 
 ### Approved request isn't being implemented
 
-**Cause**: The resource may have conflicts or insufficient permissions to complete the deployment.
+**Cause**: The resource might have conflicts or insufficient permissions to complete the deployment.
 
 **Solution**: Check Azure Activity Logs for errors. Ensure the system has the necessary permissions to implement the approved change.
 
 ### Unable to approve or reject
 
-**Cause**: The request may have been already processed by another approver, or there's a permission issue.
+**Cause**: Check if another approver processed the request already or if there's a permission issue.
 
 **Solution**: Refresh the page to see the current status. If the issue persists, verify your role assignment.
 
@@ -271,6 +271,6 @@ In some cases, you may need to temporarily delegate approval authority:
 
 - [Configure Approvals](./configure-approvals.md)
 - [Learn about the Approvals feature](./what-approvals.md)
-- [Understand Azure Virtual Enclaves RBAC](./built-in-rbac-roles.md)
+- [Understand Azure Enclave RBAC](./built-in-rbac-roles.md)
 - [Configure Just-in-Time Access](./just-in-time-access.md)
 - [Create an enclave connection](./create-enclave-connection-portal.md)

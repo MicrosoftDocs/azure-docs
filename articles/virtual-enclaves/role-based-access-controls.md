@@ -1,15 +1,15 @@
 ---
-title: Azure Virtual Enclaves Role-based Access Controls
-description: Learn how to use built-in roles in Azure Virtual Enclaves to isolate and delegate access across communities, enclaves, and workloads.
+title: Azure Enclave Role-based Access Controls
+description: Learn how to use built-in roles in Azure Enclave to isolate and delegate access across communities, enclaves, and workloads.
 author: jadean-msft
 ms.author: jadean
 ms.topic: how-to
 ms.date: 9/30/2025
 ---
 
-# Role-based access control (RBAC) in Azure Virtual Enclaves
+# Role-based access control (RBAC) in Azure Enclave
 
-Azure Virtual Enclaves (AVE) supports granular delegation of permissions using Azure's native [role-based access control (RBAC)](https://learn.microsoft.com/azure/role-based-access-control/overview). Delegation ensures that customers can isolate responsibilities across community, enclave, and workload boundaries without compromising the security or operational integrity of their environments.
+Azure Enclave (AE) supports granular delegation of permissions using Azure's native [role-based access control (RBAC)](https://learn.microsoft.com/azure/role-based-access-control/overview). Delegation ensures that customers can isolate responsibilities across community, enclave, and workload boundaries without compromising the security or operational integrity of their environments.
 
 This article explains how AVE implements RBAC and introduces the built-in roles that help customers manage access across the AVE hierarchy.
 
@@ -23,7 +23,7 @@ AVE organizes resources into three logical layers:
 
 Each layer exposes distinct management operations, and AVE provides purpose-built roles to isolate access across them.
 
-## RBAC in Azure Virtual Enclaves
+## RBAC in Azure Enclave
 
 RBAC in AVE is enforced using Azure’s standard role assignment model. You assign roles to users, groups, or service principals at the scope of a community, enclave, or workload resource.
 
@@ -80,6 +80,6 @@ To implement secure and effective access control in AVE:
 
 ## Next steps
 
-- [Deploy a community in Azure Virtual Enclaves](https://learn.microsoft.com/azure/virtual-enclaves/deploy-community)
+- [Deploy a community in Azure Enclave](https://learn.microsoft.com/azure/virtual-enclaves/deploy-community)
 - [Monitor enclave activity using Log Analytics](https://learn.microsoft.com/azure/virtual-enclaves/observability)
 - [Create custom roles in Azure](https://learn.microsoft.com/azure/role-based-access-control/custom-roles)

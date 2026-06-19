@@ -1,6 +1,6 @@
 ---
 title: Migrate Resources into or within AVE
-description: Migrate Resources into or within AVE.
+description: Migrate Resources into or within Azure Enclave.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
@@ -18,4 +18,4 @@ Ensure your resources are included in this [moveable resources](/azure/azure-res
 Resources for an enclave are split between the enclave managed resource group (MRG) and the workload resource group. Following [this example scenario](/azure/azure-resource-manager/management/move-resource-group-and-subscription#scenario-for-moving-across-subscriptions) the resources to be moved should be put in one resource group. Connections outside of the enclave should also be removed.
 
 ## More information
-Read [this article](./migrate-azure-resources-azure-virtual-enclaves.md) for more information on moving Azure resources into AVE.
+Read [this article](./migrate-azure-resources-azure-virtual-enclaves.md) for more information on moving Azure resources into Azure Enclave.

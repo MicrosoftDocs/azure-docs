@@ -1,18 +1,18 @@
 ---
-title: Quota and region availability in Azure Virtual Enclaves
-description: Quota and region availability in Azure Virtual Enclaves
+title: Quota and region availability in Azure Enclave
+description: Quota and region availability in Azure Enclave
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
 ms.date: 3/26/2026
 ai-usage: ai-assisted
 ---
-# Quota and region availability in Azure Virtual Enclaves
+# Quota and region availability in Azure Enclave
 
 All Azure services set default limits and quotas for resources and features, such as usage restrictions for certain virtual machine (VM) SKUs.
 Example: [DS_v5 series](/azure/virtual-machines/dv5-dsv5-series#dsv5-series) VMs (see the table showing resource limitations) 
 
-This article details the default resource limits for Azure Virtual Enclaves (AVE) resources and the availability of AVE in Azure regions.
+This article details the default resource limits for Azure Enclave (AE) resources and the availability of AVE in Azure regions.
 
 ## Product Limitation Summary
 
