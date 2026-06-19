@@ -189,6 +189,25 @@ STORAGE_ACCOUNT_KEY=$(az storage account keys list \
 sudo mount -t cifs $SMB_PATH $MNT_PATH -o credentials=$SMB_CREDENTIAL_FILE,serverino,nosharesock,actimeo=30,mfsymlinks
 ```
 
+> [!NOTE]
+> The Linux SMB client uses a performance optimization called *deferred close*
+> (handle caching). When an application closes a file, the client can delay
+> sending the SMB CLOSE to the server (by default, up to one second) in case the
+> file is reopened quickly. Azure Files updates a file's Last-Modified time (LMT),
+> and therefore its ETag, when it receives the CLOSE that follows a write.
+>
+> If you access the same file share over both SMB and the File REST API
+> (dual-protocol access), this delay can cause a race condition. After an SMB
+> client finishes writing and closes a file, a REST client that reads the file's
+> ETag and starts a conditional operation can fail with a
+> "File has been modified concurrently" (HTTP 412 Precondition Failed) error when
+> the deferred CLOSE arrives and updates the LMT/ETag.
+>
+> For workloads that hand off files between an SMB writer and a REST-based reader,
+> disable deferred close by adding the `closetimeo=0` mount option. This forces
+> the client to send the SMB CLOSE (and finalize the LMT/ETag) immediately,
+> eliminating the race at a small cost in open/close performance.
+
 # [SMB 3.0](#tab/smb30)
 
 ```azurecli
@@ -434,7 +453,7 @@ You can use the following mount options when mounting SMB Azure file shares on L
 | `remount` | n/a | Remounts the file share and changes mount options if specified. Use with the `password2` option in cases where you want to specify an alternative password to fix an expired password after the original mount. |
 | `nobrl` | n/a | Recommended in single-client scenarios when advisory locks are required. Azure Files doesn't support advisory locks, and this setting prevents sending byte range lock requests to the server. |
 | `snapshot=` | time | Mount a specific snapshot of the file share. Time must be a positive integer identifying the snapshot requested (in 100-nanosecond units that have elapsed since January 1, 1601, or alternatively it can be specified in GMT format e.g. @GMT-2024.03.27-20.52.19). |
-| `closetimeo=` | 1 | Configures deferred close timeout (handle cache) in seconds, or disables it by setting to 0. Default is 1 seconds. |
+| `closetimeo=` | 1 | Configures the deferred close (handle cache) timeout in seconds; set to 0 to disable deferred close. Default is 1 second. Set `closetimeo=0` for dual-protocol workloads where a file is written over SMB and then read over the File REST API using ETag-based conditional requests. Deferred close can delay the SMB CLOSE that finalizes the file's Last-Modified time (LMT) and ETag, which can cause REST conditional operations to fail with a "File has been modified concurrently" error. |
 | `nostrictsync` | n/a | Don't ask the server to flush on fsync(). Some servers perform non-buffered writes by default, in which case flushing is redundant. This option can improve performance for workloads where a client is performing a lot of small write + fsync combinations and where network latency is much higher than the server latency. |
 | `multiuser` | n/a | Map user accesses to individual credentials when accessing the server. By default, CIFS mounts only use a single set of user credentials (the mount credentials) when accessing a share. With this option, the client instead creates a new session with the server using the user's credentials whenever a new user accesses the mount. Further accesses by that user also use those credentials. Because the kernel can't prompt for passwords, multiuser mounts are limited to mounts using `sec=` options that don't require passwords. |
 | `cifsacl` | n/a | This option is used to map CIFS/NTFS ACLs to/from Linux permission bits, map SIDs to/from UIDs and GIDs, and get and set Security Descriptors. Only supported for NTLMv2 authentication. |
