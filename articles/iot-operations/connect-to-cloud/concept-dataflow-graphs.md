@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 04/02/2026
+ms.date: 06/19/2026
 ai-usage: ai-assisted
 
 ---
@@ -38,13 +38,7 @@ For new projects that use supported endpoint types, we recommend data flow graph
 
 Each transform is a pre-built processing step that you configure with rules and chain with other transforms inside a `DataflowGraph` resource.
 
-| Transform | What it does | Learn more |
-|-----------|-------------|------------|
-| **Map** | Rename, restructure, compute, and copy fields | [Transform data with map](howto-dataflow-graphs-map.md) |
-| **Filter** | Drop messages that match a condition | [Filter and route data](howto-dataflow-graphs-filter-route.md) |
-| **Branch** | Route each message to a `true` or `false` path based on a condition | [Filter and route data](howto-dataflow-graphs-filter-route.md#branch-transform) |
-| **Concatenate** | Merge two or more paths back into one | [Filter and route data](howto-dataflow-graphs-filter-route.md#merge-paths-with-concatenate) |
-| **Window** | Collect messages over a time interval, then aggregate | [Aggregate data over time](howto-dataflow-graphs-window.md) |
+[!INCLUDE [dataflow-graphs-built-in-transforms](../includes/dataflow-graphs-built-in-transforms.md)]
 
 All transforms share an [expression language](concept-dataflow-graphs-expressions.md) for operators, functions, and field references. You can also [enrich](howto-dataflow-graphs-enrich.md) messages with external data from a state store in map, filter, and branch transforms.
 
