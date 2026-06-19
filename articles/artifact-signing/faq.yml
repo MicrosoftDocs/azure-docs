@@ -85,10 +85,6 @@ sections:
       - question: What if email validation says "Failed" and you think you never received the email validation link?
         answer: | 
           Create another identity validation request. Ensure that the email address used isn't a distribution list and the email address can receive links from external email addresses.
-      - question: Where can I find Identity Validation ID? 
-        answer: |
-          On Identity validation page, select on the Identity validation you intend to use. The Identity validation ID is shown as "Id" in the details pane that opens.
-             :::image type="content" source="media/artifact-signing-identity-validation-id-faq.png" alt-text="Screenshot that shows copying the identity validation ID for an identity validation." lightbox="media/artifact-signing-identity-validation-id-faq.png":::
       - question: What if I already have a Verified ID? 
         answer: |  
           Follow the steps to present your existing valid (not an expired) VID for Artifact Signing.
@@ -99,14 +95,11 @@ sections:
         answer: |  
           If you see the error, it's because the email address entered in the individual identity validation request is different from the one being used to sign in to access the identity validation link. Make sure both the email addresses match.   
           :::image type="content" source="media/artifact-signing-indie-validation-email-mismatch.png" alt-text="Screenshot of email mismatch when access link to verify individual developer." lightbox="media/artifact-signing-indie-validation-email-mismatch.png"::: 
-      - question: For Individual identity validation, I see an error: address did not match, first name last name not matched or FaceCheck fail.
+      - question: For Individual identity validation, I see an error - address does not match, first name last name not matched or FaceCheck fail.
         answer: |  
           If you encounter one of these errors, delete the existing identity validation request and remove the associated Verified ID from the Microsoft Authenticator app. Then submit a new identity validation request and create a new Verified ID, ensuring that all information is accurate and that the verification environment has adequate lighting.
   - name: Certificate profiles
     questions:
-      - question: What if my Artifact Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
-        answer: |
-          For Windows app MSIX packages, follow the guidance in [MSIX persistent identity](/windows/msix/package/persistent-identity).
       - question: Does deleting a certificate profile revoke the certificates? 
         answer: |
           Deleting a certificate profile doesn't revoke any previously issued certificates or invalidate their signatures; they remain valid.
@@ -123,7 +116,7 @@ sections:
           - **Without Azure Pipelines** (workstation, self-hosted agent, another CI system): use [SignTool, PowerShell, GitHub Actions, or the Artifact Signing SDK](how-to-signing-integrations.md).
       - question: What can I expect when I see SmartScreen prompts for signed files?
         answer: |
-          SmartScreen reputation builds up automatically. The prompt stops appearing once the file hash has sufficient download history. For more information, see the: [SmartScreen reputation for Windows app developers](https://learn.microsoft.com/en-us/windows/apps/package-and-deploy/smartscreen-reputation) documentation. If you continue to encounter SmartScreen prompts for your application, please consider submitting the signed file through [Microsoft Security Intelligence](https://www.microsoft.com/en-us/wdsi) for further review.
+          SmartScreen reputation builds up automatically. The prompt stops appearing once the file hash has sufficient download history. For more information, see the: [SmartScreen reputation for Windows app developers](https://learn.microsoft.com/windows/apps/package-and-deploy/smartscreen-reputation) documentation. If you continue to encounter SmartScreen prompts for your application, please consider submitting the signed file through [Microsoft Security Intelligence](https://www.microsoft.com/wdsi) for further review.
       - question: What types of files can we sign by using Artifact Signing?
         answer: |
           You can sign [all file types that SignTool supports](https://learn.microsoft.com/windows/win32/seccrypto/cryptography-tools).
@@ -161,7 +154,7 @@ sections:
           If the signature doesn't appear in the digital signature property, run this command: `.\signtool.exe verify /v /debug /pa fileName`. Not all file types include the **Signature** tab in **Properties**.
       - question: How do I fix pop-up credentials in an Azure virtual machine when I run the SignTool + dlib command?
         answer: |
-          1. Create a [user-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). 
+          1. Create a [user-assigned managed identity](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview). 
           2. Add the user-assigned managed identity to the VM:
              1. Select the VM.
              2. On the left menu, select **Identity**, and then select **User assigned**.
@@ -169,12 +162,12 @@ sections:
           3. In the resource group (or subscription) that has the Artifact Signing Certificate Profile Signer role, add the user-assigned managed identity to the role. To assign the correct role, go to **Access control (IAM)** > **Role assignments**.
       - question: How do I fix pop-up credentials when I use Google Cloud Platform?
         answer: |
-          - Because Google Cloud Platform (GCP) doesn't have an Azure managed identity resource by default, set up an [environment credential](https://docs.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). Use the [EnvironmentCredential class](https://docs.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet) to set up the credential. We recommend that you use these variables:
+          - Because Google Cloud Platform (GCP) doesn't have an Azure managed identity resource by default, set up an [environment credential](https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). Use the [EnvironmentCredential class](https://learn.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet) to set up the credential. We recommend that you use these variables:
 
              - **AZURE_TENANT_ID** for the Microsoft Entra tenant (directory) ID.
              - **AZURE_CLIENT_ID** for the client (application) ID of an app registration in the tenant. 
              - **AZURE_CLIENT_SECRET** for a client secret that was generated for the app registration. 
-          - To create a client ID and secret, follow the guidance in [Create a service principal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+          - To create a client ID and secret, follow the guidance in [Create a service principal](https://learn.microsoft.com/entra/identity-platform/howto-create-service-principal-portal).
           - After you create the client ID and secret, go to the resource group (or subscription) that has the Artifact Signing Certificate Profile Signer role, and add this app to the role. 
       - question: What if my Artifact Signing account is suspended?
         answer: |
@@ -202,7 +195,7 @@ sections:
           | Error code (-2147467259/0x80004005)            |  If you use Service Principal + certificate based authentication, check your Environment Variables listed under the table for ["Service principal with certificate"](https://learn.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet).|
           | No error codes, SignTool silently fails          |  Ensure that the relevant .NET runtime version is installed. |
           | `Azure.Identity.CredentialUnavailableException`      |  You might see this error in [environments outside Azure](https://github.com/Azure/azure-sdk-for-net/issues/29471). If you're working outside of Azure, we recommend that you add "exclude ManagedIdentity" to your manifest file. |
-          | 403          |  - Check the status of your Azure subscription should be "Registered".  <br>  - Check the identity trying to sign the file has Artifact Signing Certificate Profile Signer role.  <br>  - Check the Artifact Signing account name and the Artifact Signing certificate profile name in your *metadata.json* file. <br> - Check the dlib and dlib path. <br>  - Install C++ Redistributables from https://docs.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170. <br>  - Check your .NET version, dlib version, and Windows SDK version. <br>  - Check if the corresponding identity validation has a status of **Completed**.<br> - Check the status of the Certificate Profile must be active.  <br> - Verify whether you access the Artifact Signing endpoint from this virtual machine or computer. Try executing the action on a different virtual machine or computer. The error might indicate a network issue. <br> - For Private Trust scenarios 403: The user object ID that does the signing is different from the user object ID that calls  `Get-azCodeSigningRootCert`. The appropriate object ID must have the role Artifact Signing Certificate Profile Signer.|
+          | 403          |  - Check the status of your Azure subscription should be "Registered".  <br>  - Check the identity trying to sign the file has Artifact Signing Certificate Profile Signer role.  <br>  - Check the Artifact Signing account name and the Artifact Signing certificate profile name in your *metadata.json* file. <br> - Check the dlib and dlib path. <br>  - Install C++ Redistributables from https://learn.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170. <br>  - Check your .NET version, dlib version, and Windows SDK version. <br>  - Check if the corresponding identity validation has a status of **Completed**.<br> - Check the status of the Certificate Profile must be active.  <br> - Verify whether you access the Artifact Signing endpoint from this virtual machine or computer. Try executing the action on a different virtual machine or computer. The error might indicate a network issue. <br> - For Private Trust scenarios 403: The user object ID that does the signing is different from the user object ID that calls  `Get-azCodeSigningRootCert`. The appropriate object ID must have the role Artifact Signing Certificate Profile Signer.|
   - name: Cost management and billing
     questions:  
        - question: How do I view usage costs and billing information for Artifact Signing resources?
@@ -228,7 +221,7 @@ sections:
     questions:  
        - question: How can someone external report to Microsoft the suspected misuse and abuse of Artifact Signing certificates?
          answer: |
-          Please reach out here: https://www.microsoft.com/en-us/wdsi/filesubmission.
+          Please reach out here: https://www.microsoft.com/wdsi/filesubmission.
        - question: What happens when misuse and abuse of Artifact Signing certificate is confirmed?
          answer: |
           Artifact Signing may revoke certificate(s) and suspend access to Artifact Signing service if misuse or abuse is confirmed.
