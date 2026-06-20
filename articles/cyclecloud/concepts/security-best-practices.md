@@ -1,8 +1,9 @@
 ---
 title: Security Best Practices
-description: Learn about Azure CycleCloud Security Best Practices
+description: Learn security best practices and useful tips for deploying and operating Azure CycleCloud more securely.
 author: prkannap
-ms.date: 08/02/2021
+ms.date: 06/19/2026
+ms.topic: concept-article
 ms.update-cycle: 3650-days
 ms.author: aevdokimova
 ---
