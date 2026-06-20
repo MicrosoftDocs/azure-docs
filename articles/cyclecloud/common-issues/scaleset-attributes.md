@@ -1,8 +1,9 @@
 ---
 title: Common Issues - Scaleset Attribute| Microsoft Docs
-description: Azure CycleCloud common issue - Scaleset Attribute
+description: Troubleshoot 'node does not match existing scale set attributes' errors in Azure CycleCloud.
 author: adriankjohnson
-ms.date: 06/30/2025
+ms.date: 06/19/2026
+ms.topic: troubleshooting-problem-resolution
 ms.author: adjohnso
 ---
 # Common issues: Scale set attributes

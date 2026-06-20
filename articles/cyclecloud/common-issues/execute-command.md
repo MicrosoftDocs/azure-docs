@@ -1,8 +1,9 @@
 ---
 title: Common Issues - Software Configuration
-description: Azure CycleCloud common issue - Software Configuration
+description: Troubleshoot 'Unable to execute command' software configuration errors in Azure CycleCloud.
 author: adriankjohnson
-ms.date: 06/30/2025
+ms.date: 06/19/2026
+ms.topic: troubleshooting-problem-resolution
 ms.author: adjohnso
 ---
 # Common issues: Software configuration - unable to execute command
