@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2026
+ms.date: 06/20/2026
 ms.custom: generated
 ---
 
@@ -1103,7 +1103,7 @@ Provide permission to the Azure Virtual Desktop Resource Provider to start and s
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/restart/action | Restarts the virtual machine |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/start/action | Starts the virtual machine |
-> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesCancelOperations/action | VirtualMachinesCancelOperations: Cancel a previously submitted (start/deallocate/hibernate) request |
+> | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesCancelOperations/action | virtualMachinesCancelOperations: cancelOperations for a virtual machine |
 > | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesExecuteDeallocate/action | VirtualMachinesExecuteDeallocate: Execute deallocate operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
 > | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesExecuteHibernate/action | VirtualMachinesExecuteHibernate: Execute hibernate operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
 > | [Microsoft.ComputeSchedule](../permissions/compute.md#microsoftcomputeschedule)/locations/virtualMachinesExecuteStart/action | VirtualMachinesExecuteStart: Execute start operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
@@ -1938,7 +1938,7 @@ View Virtual Machines in the portal and login as administrator
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/*/read |  |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/*/read |  |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listCredentials/action | List the endpoint access credentials to the resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listCredentials/action | Gets the endpoint access credentials to the resource. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2026,7 +2026,7 @@ Create and manage virtual machines, manage disks, install and run software, rese
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/read | Returns object details of the Protected Item |
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupFabrics/protectionContainers/protectedItems/write | Create a backup Protected Item |
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupPolicies/read | Returns all Protection Policies |
-> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupPolicies/write | Creates Protection Policy |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/backupPolicies/write | Creates or Updates Protection Policy |
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/read | The Get Vault operation gets an object representing the Azure resource of type 'vault' |
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/Vaults/write | Create Vault operation creates an Azure resource of type 'vault' |
@@ -2192,7 +2192,7 @@ View Virtual Machines in the portal and login as a local user configured on the 
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/*/read |  |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listCredentials/action | List the endpoint access credentials to the resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listCredentials/action | Gets the endpoint access credentials to the resource. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2240,7 +2240,7 @@ View Virtual Machines in the portal and login as a regular user.
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkInterfaces/read | Gets a network interface definition.  |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/*/read |  |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/*/read |  |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listCredentials/action | List the endpoint access credentials to the resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listCredentials/action | Gets the endpoint access credentials to the resource. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -2549,11 +2549,11 @@ Let's you manage the OS of your resource via Windows Admin Center as an administ
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkWatchers/securityGroupView/action | View the configured and effective network security group rules applied on a VM. |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/securityRules/read | Gets a security rule definition |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/networkSecurityGroups/securityRules/write | Creates a security rule or updates an existing security rule |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/write | Create or update the endpoint to the target resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/read | Get or list of endpoints to the target resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/write | Create or update the serviceConfigurations to the endpoints resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/read | Get or list of serviceConfigurations to the endpoints resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listManagedProxyDetails/action | List the managed proxy details to the resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/write | Update the endpoint to the target resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/read | Gets the endpoint to the resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/write | Update the service details in the service configurations of the target resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/read | Gets the details about the service to the resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/listManagedProxyDetails/action | Fetches the managed proxy details  |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/read | Get the properties of a virtual machine |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/patchAssessmentResults/latest/read | Retrieves the summary of the latest patch assessment operation |
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/patchAssessmentResults/latest/softwarePatches/read | Retrieves list of patches assessed during the last patch assessment operation |
