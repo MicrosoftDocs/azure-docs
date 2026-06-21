@@ -12,7 +12,7 @@ ms.date: 08/22/2024
 
 # Overview of WebSocket support in Application Gateway
 
-Application Gateway provides native support for WebSocket across all gateway sizes. There is no user-configurable setting to selectively enable or disable WebSocket support. 
+Application Gateway provides native support for WebSocket across all gateway sizes. There's no user-configurable setting to selectively enable or disable WebSocket support. 
 
 WebSocket protocol standardized in [RFC6455](https://tools.ietf.org/html/rfc6455) enables a full duplex communication between a server and a client over a long running TCP connection. This feature allows for a more interactive communication between the web server and the client, which can be bidirectional without the need for polling as required in HTTP-based implementations. WebSocket has low overhead unlike HTTP and can reuse the same TCP connection for multiple request/responses resulting in a more efficient utilization of resources. WebSocket protocols are designed to work over traditional HTTP ports of 80 and 443. Application Gateway supports up to 30,000 concurrent WS connections and 13,500 WSS connections per instance.
 
@@ -27,13 +27,13 @@ To establish a WebSocket connection, a specific HTTP-based handshake is exchange
 ![Diagram compares a client interacting with a web server, connecting twice to get two replies, with a WebSocket interaction, where a client connects to a server once to get multiple replies.](./media/application-gateway-websocket/websocket.png)
 
 > [!NOTE]
-> After a connection is upgraded to WebSocket, as an intermediary/terminating proxy, Application Gateway will simply send the data received from the frontend to the backend and vice-versa, without any inspection or manipulation capability.
-> Therefore, the Web Application Firewall (WAF) cannot parse any content and doesn't perform any inspections on such data. Similarly, any manipulations like Header Rewrites, URL Rewrites, or Overriding Hostname in the Backend Settings will not apply after establishing a WebSocket connection.
+> After a connection is upgraded to WebSocket, as an intermediary/terminating proxy, Application Gateway simply sends the data received from the frontend to the backend and vice-versa, without any inspection or manipulation capability.
+> Therefore, the Web Application Firewall (WAF) can't parse any content and doesn't perform any inspections on such data. Similarly, any manipulations like Header Rewrites, URL Rewrites, or Overriding Hostname in the Backend Settings don't apply after establishing a WebSocket connection.
 
 
 ### Listener configuration element
 
-An existing HTTP listener can be used to support WebSocket traffic. The following is a snippet of an httpListeners element from a sample template file. You would need both HTTP and HTTPS listeners to support WebSocket and secure WebSocket traffic. Similarly you can use the portal or Azure PowerShell to create an application gateway with listeners on port 80/443 to support WebSocket traffic.
+An existing HTTP listener can be used to support WebSocket traffic. The following snippet shows an `httpListeners` element from a sample template file. You need both HTTP and HTTPS listeners to support WebSocket and secure WebSocket traffic. Similarly, you can use the portal or Azure PowerShell to create an application gateway with listeners on port 80 and 443 to support WebSocket traffic.
 
 ```json
 "httpListeners": [
@@ -69,7 +69,7 @@ An existing HTTP listener can be used to support WebSocket traffic. The followin
 
 ## BackendAddressPool, BackendHttpSetting, and Routing rule configuration
 
-A BackendAddressPool is used to define a backend pool with WebSocket enabled servers. The backendHttpSetting is defined with a backend port 80 and 443. The request timeout value in HTTP Settings also applies to the WebSocket session. There is no change required in the routing rule, which is used to tie the appropriate listener to the corresponding backend address pool. 
+Use a BackendAddressPool to define a backend pool with WebSocket-enabled servers. Define the backendHttpSetting with backend ports 80 and 443. The request timeout value in HTTP Settings also applies to the WebSocket session. You don't need to change the routing rule, which ties the appropriate listener to the corresponding backend address pool. 
 
 ```json
 "requestRoutingRules": [{
@@ -106,11 +106,11 @@ A BackendAddressPool is used to define a backend pool with WebSocket enabled ser
 ```
 
 > [!NOTE]
-> Ensure that your **timeout value** is greater than your server-defined ping/pong interval to avoid experiencing timeout errors before a ping is sent from the client. A typical value for a WebSocket is 20 seconds, so, for example, a timeout value of 40 seconds will ensure that the gateway does not send a timeout error before the client sends a ping; otherwise, this would throw a 1006 error on the client side.
+> Ensure that your **timeout value** is greater than your server-defined ping/pong interval to avoid experiencing timeout errors before a ping is sent from the client. A typical value for a WebSocket is 20 seconds, so, for example, a timeout value of 40 seconds ensures that the gateway doesn't send a timeout error before the client sends a ping. Otherwise, this condition throws a 1006 error on the client side.
 
-## WebSocket enabled backend
+## WebSocket-enabled backend
 
-Your backend must have a HTTP/HTTPS web server running on the configured port (usually 80/443) for WebSocket to work. This requirement is because WebSocket protocol requires the initial handshake to be HTTP with upgrade to WebSocket protocol as a header field. The following is an example of a header:
+Your backend must have an HTTP/HTTPS web server running on the configured port (usually 80 or 443) for WebSocket to work. This requirement exists because the WebSocket protocol requires the initial handshake to be HTTP with an upgrade to the WebSocket protocol as a header field. The following example shows a header:
 
 ```
     GET /chat HTTP/1.1
@@ -123,8 +123,8 @@ Your backend must have a HTTP/HTTPS web server running on the configured port (u
     Sec-WebSocket-Version: 13
 ```
 
-Another reason for this is that application gateway backend health probe supports HTTP and HTTPS protocols only. If the backend server doesn't respond to HTTP or HTTPS probes, it is taken out of backend pool.
+Another reason for this requirement is that application gateway backend health probe supports HTTP and HTTPS protocols only. If the backend server doesn't respond to HTTP or HTTPS probes, the gateway removes it from the backend pool.
 
 ## Next steps
 
-After learning about WebSocket support, go to [create an application gateway](quick-create-powershell.md) to get started with a WebSocket enabled web application.
+After learning about WebSocket support, go to [create an application gateway](quick-create-powershell.md) to get started with a WebSocket-enabled web application.
