@@ -6,7 +6,7 @@ author: raviverm
 manager: daysha-carter
 services: azure-communication-services
 ms.author: raviverm
-ms.date: 03/10/2026
+ms.date: 06/09/2026
 ms.topic: how-to
 ms.service: azure-communication-services
 ---
@@ -62,7 +62,9 @@ Usage Information
 2. Specify the expected volume of emails you plan to send:  
 	- What is the maximum rate of messages per minute that you require? 
 	- What is the maximum rate of messages per hour that you require? 
-	- What is the maximum rate of messages per day that you require? 
+	- What is the maximum rate of messages per day that you require?
+3. What is the maximum attachment size (in MB) that you require?
+4. What is the maximum recipient count per email that you require? (Default: 50) 
 
 Additional Information 
 What is the source of the email addresses that you use for sending your messages?
