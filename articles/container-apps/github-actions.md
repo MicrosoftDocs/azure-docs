@@ -45,7 +45,7 @@ The following snippet shows how to build a container image from source code and 
 steps:
 
   - name: Log in to Azure
-    uses: azure/login@v1
+    uses: azure/login@v2
     with:
       creds: ${{ secrets.AZURE_CREDENTIALS }}
 
@@ -68,7 +68,7 @@ The following snippet shows how to deploy an existing container image to Contain
 steps:
 
   - name: Log in to Azure
-    uses: azure/login@v1
+    uses: azure/login@v2
     with:
       creds: ${{ secrets.AZURE_CREDENTIALS }}
 
@@ -254,10 +254,10 @@ The GitHub workflow requires a secret named `AZURE_CREDENTIALS` to authenticate 
         runs-on: ubuntu-latest
 
         steps:
-          - uses: actions/checkout@v3
+          - uses: actions/checkout@v4
 
           - name: Log in to Azure
-            uses: azure/login@v1
+            uses: azure/login@v2
             with:
               creds: ${{ secrets.AZURE_CREDENTIALS }}
 
