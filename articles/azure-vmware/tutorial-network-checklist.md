@@ -116,7 +116,7 @@ For more information, see the [full list of VMware HCX port requirements](https:
 
 ## Designated IP ranges for Arc-enabled AVS
 
-If you plan to [Arc-enable your Azure VMware Solution environment](deploy-arc-for-azure-vmware-solution.md), your SDDC and management CIDRs must not overlap with the IP ranges reserved by the Arc resource bridge. Once your SDDC is deployed, its CIDR can't be changed, so confirm there's no overlap before deployment. For the reserved IP ranges, see [Designated IP ranges for Arc resource bridge](/azure/azure-arc/resource-bridge/network-requirements#designated-ip-ranges-for-arc-resource-bridge).
+If you plan to [Arc-enable your Azure VMware Solution environment](deploy-arc-for-azure-vmware-solution.md), your SDDC and management CIDRs must not overlap with the IP ranges reserved by the Arc resource bridge. Once you deploy your SDDC, you can't change its CIDR, so confirm there's no overlap before deployment. For the reserved IP ranges, see [Designated IP ranges for Arc resource bridge](/azure/azure-arc/resource-bridge/network-requirements#designated-ip-ranges-for-arc-resource-bridge).
 
 
 
