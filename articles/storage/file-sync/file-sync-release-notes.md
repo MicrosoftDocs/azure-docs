@@ -127,7 +127,7 @@ The following items don't sync, but the rest of the system continues to operate 
 > When creating the cloud endpoint, the storage sync service and storage account must be in the same Microsoft Entra ID tenant. After you create the cloud endpoint, you can move the storage sync service and storage account to different Microsoft Entra ID tenants.
 
 ### Cloud tiering
-- If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
+- If you use Robocopy to copy a tiered file to another location, the resulting file isn't tiered. Robocopy might incorrectly include the offline attribute in copy operations.
 - When copying files using Robocopy, use the /MIR option to preserve file timestamps. This will ensure older files are tiered sooner than recently accessed files.
 
 
