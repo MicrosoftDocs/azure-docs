@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: tutorial
-ms.date: 07/11/2025
+ms.date: 06/22/2026
 ms.custom:
   - FY23 content-maintenance
   - engagement-FY24
