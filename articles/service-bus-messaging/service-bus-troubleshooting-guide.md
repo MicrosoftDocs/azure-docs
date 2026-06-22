@@ -122,6 +122,11 @@ You can use a regular [ServiceBusReceiver][ServiceBusReceiver] to peek across al
 ### NotSupportedException thrown when accessing message body
 This issue occurs most often in interop scenarios when receiving a message sent from a different library that uses a different AMQP message body format. If you're interacting with these types of messages, see the [AMQP message body sample][MessageBody] to learn how to access the message body. 
 
+### Server busy errors when many receivers are open
+If you open a large number of receivers on the same queue, topic, or subscription and keep them active at the same time, you might see a `ServiceBusException` with a `Reason` of `ServiceBusy`. Service Bus allows up to 5,000 concurrent receive requests on a single entity, combined across all subscriptions of a topic. Each open receiver issues credit and continually polls for messages - even when the entity is empty - so a large number of idle receivers can push the combined receive requests past this limit, and additional requests are rejected.
+
+The Service Bus SDKs automatically retry server busy responses using exponential backoff, so transient occurrences are handled for you. To avoid reaching the limit, keep the number of concurrent receivers on a single entity well below 5,000, close receivers you no longer need instead of leaving them idle, and scale out across multiple entities if you need a very large number of consumers. For more information, see [Throttling operations on Azure Service Bus][ServiceBusThrottling].
+
 ## Troubleshoot processor issues
 
 ### Autolock renewal isn't working
@@ -317,3 +322,4 @@ See the following articles:
 [Transactions]: /azure/service-bus-messaging/service-bus-transactions
 [TransactionOperations]: /azure/service-bus-messaging/service-bus-transactions#operations-within-a-transaction-scope
 [ServiceBusQuotas]: /azure/service-bus-messaging/service-bus-quotas
+[ServiceBusThrottling]: /azure/service-bus-messaging/service-bus-throttling#throttling-when-concurrent-receive-requests-exceed-the-limit

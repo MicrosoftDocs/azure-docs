@@ -1,19 +1,20 @@
 ---
 title: Da Vinci Plan Net for the FHIR service in Azure Health Data Services
-description: Learn to set up Da Vinci PDex tests for the FHIR service in Azure Health Data Services with this tutorial on defining search parameters, loading profiles, and running touchstone tests.
+description: Set up Da Vinci Plan Net tests for the FHIR service in Azure Health Data Services by defining search parameters and loading profiles.
 services: healthcare-apis
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 10/01/2025
+ms.date: 06/19/2026
 ms.custom: sfi-image-nochange
+ai-usage: ai-assisted
 ---
 
 # Da Vinci Plan Net
 
-In this tutorial, you set up the FHIR&reg; service in Azure Health Data Services to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the Da Vinci PDex Payer Network (Plan-Net) Implementation Guide.
+In this tutorial, you set up the FHIR&reg; service in Azure Health Data Services to pass the [Touchstone](https://touchstone.aegis.net/touchstone/) tests for the [Da Vinci PDex Payer Network (Plan-Net) Implementation Guide](https://build.fhir.org/ig/HL7/davinci-pdex-plan-net/).
 
 ## Touchstone capability statement
 
@@ -37,7 +38,7 @@ The rest of the search parameters needed for the Da Vinci Plan Net Implementatio
 
 ## Store profiles
 
-After defining search parameters, load the [required profiles and extensions](./store-profiles-in-fhir.md#accessing-profiles-and-storing-profiles) to pass this test. There are nine profiles used in the Da Vinci Plan-Net Implementation Guide:
+After defining search parameters, load the [required profiles and extensions](./store-profiles-in-fhir.md#accessing-profiles-and-storing-profiles) to pass this test. The Da Vinci Plan-Net Implementation Guide uses nine profiles:
 
 - [Plan-Net Endpoint](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/StructureDefinition-plannet-Endpoint.html)
 - [Plan-Net Healthcare Service](http://hl7.org/fhir/us/davinci-pdex-plan-net/STU1/StructureDefinition-plannet-HealthcareService.html)
@@ -51,21 +52,21 @@ After defining search parameters, load the [required profiles and extensions](./
 
 ## Sample REST file
 
-To assist with creation of the search parameters and profiles, there's a sample HTTP file on the open-source site that includes all the steps described in this article in a single file. After you upload the necessary profiles and search parameters, run the capability statement test in Touchstone.
+To help you create the search parameters and profiles, there's a sample HTTP file on the open-source site that includes all the steps described in this article in a single file. After you upload the necessary profiles and search parameters, run the capability statement test in Touchstone.
 
-:::image type="content" source="media/davinci-plan-net/davinci-plan-net-test-script-execution-passed.png" alt-text="Screenshot showing Da Vinci Plan Net sample REST test execution script passed." lightbox="media/davinci-plan-net/davinci-plan-net-test-script-execution-passed.png":::
+:::image type="content" source="media/davinci-plan-net/davinci-plan-net-test-script-execution-passed.png" alt-text="Screenshot of a passed Da Vinci Plan Net sample REST test script execution." lightbox="media/davinci-plan-net/davinci-plan-net-test-script-execution-passed.png":::
 
 ## Touchstone error handling test
 
-The second test evaluates [error handling](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PlanNet/01-Error-Codes&activeOnly=false&contentEntry=TEST_SCRIPTS). The only step you need to do is delete a `HealthcareService` resource from your database and use the ID of the deleted HealthcareService resource in the test. The sample [DaVinci_PlanNet.http](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciPlanNet/DaVinci_PlanNet.http) file on the open-source site provides an example `HealthcareService` to post and delete for this step.
+The second test evaluates [error handling](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PlanNet/01-Error-Codes&activeOnly=false&contentEntry=TEST_SCRIPTS). To complete this test, delete a `HealthcareService` resource from your database and use the ID of the deleted HealthcareService resource in the test. The sample [DaVinci_PlanNet.http](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciPlanNet/DaVinci_PlanNet.http) file on the open-source site provides an example `HealthcareService` to post and delete for this step.
 
-:::image type="content" source="media/davinci-plan-net/davinci-test-script-execution-passed.png" alt-text="Screenshot showing Da Vinci Plan Net touchstone error test execution script passed." lightbox="media/davinci-plan-net/davinci-test-script-execution-passed.png":::
+:::image type="content" source="media/davinci-plan-net/davinci-test-script-execution-passed.png" alt-text="Screenshot of a passed Da Vinci Plan Net Touchstone error test script execution." lightbox="media/davinci-plan-net/davinci-test-script-execution-passed.png":::
 
 ## Touchstone query test
 
-The next test is the [query capabilities test](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PlanNet/03-Query&activeOnly=false&contentEntry=TEST_SCRIPTS). This test checks conformance against the profiles you loaded in the first test. You need to load resources that conform to the profiles. The best path is to test against resources already in your database. However, there's also the [DaVinci_PlanNet_Sample_Resources.http](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciPlanNet/DaVinci_PlanNet_Sample_Resources.http) file with sample resources pulled from the examples in the Implementation Guide, which you can use to create the resources and test against.  
+The next test is the [query capabilities test](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/DaVinci/FHIR4-0-1-Test/PDEX/PlanNet/03-Query&activeOnly=false&contentEntry=TEST_SCRIPTS). This test checks conformance against the profiles you loaded in the first test. You need to load resources that conform to the profiles. The best path is to test against resources already in your database. However, you can also use the [DaVinci_PlanNet_Sample_Resources.http](https://github.com/microsoft/fhir-server/blob/main/docs/rest/DaVinciPlanNet/DaVinci_PlanNet_Sample_Resources.http) file with sample resources pulled from the examples in the Implementation Guide to create the resources and test against.  
 
 
-:::image type="content" source="media/davinci-plan-net/touchstone-query-test-execution.png" alt-text="Screenshot showing Da Vinci Plan Net query test result." lightbox="media/davinci-plan-net/touchstone-query-test-execution.png":::
+:::image type="content" source="media/davinci-plan-net/touchstone-query-test-execution.png" alt-text="Screenshot of Da Vinci Plan Net query test results in Touchstone." lightbox="media/davinci-plan-net/touchstone-query-test-execution.png":::
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
