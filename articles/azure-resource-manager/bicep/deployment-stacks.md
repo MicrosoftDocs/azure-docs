@@ -3,7 +3,7 @@ title: Create and deploy Azure deployment stacks in Bicep
 description: Understand how to create deployment stacks in Bicep.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 12/22/2025
+ms.date: 06/18/2026
 ---
 
 # Create and deploy Azure deployment stacks in Bicep
@@ -707,6 +707,22 @@ The Azure CLI includes these parameters to customize the deny-assignment:
 This feature isn't implemented at this time.
 
 ---
+
+### Exclude principals from deny settings
+
+Use the excluded principals setting (`DenySettingsExcludedPrincipal` in Azure PowerShell, `deny-settings-excluded-principals` in Azure CLI) to exempt specific identities from the deny setting. The setting accepts the [Microsoft Entra object ID](/azure/role-based-access-control/deny-assignments#deny-assignment-properties) of any principal type, including:
+
+- Users
+- **Microsoft Entra groups** (for example, security groups)
+- Service principals
+- Managed identities
+
+When you exclude a group, the deny setting doesn't apply to the principals in that group. Managing exclusions through group membership is the recommended approach, because you can change who's excluded by updating the group rather than updating the deployment stack. Identities that are commonly excluded include CI/CD service connections and workload identities, platform team or break-glass administrator groups, and policy remediation identities.
+
+> [!IMPORTANT]
+> You can exclude a maximum of **five** principals. Specifying more than five principals doesn't return an error, so confirm that the list contains no more than five entries. To exclude more identities than the limit allows, consolidate them into one or more Microsoft Entra **groups** and exclude the groups instead of the individual principals.
+
+When you exclude a group, the deny setting is evaluated against that group's membership. If you use nested groups, test the configuration to confirm that the principals you intend to exclude are exempted before you rely on the deny setting.
 
 To apply deny settings at the resource group scope:
 
