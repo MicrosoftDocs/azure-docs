@@ -193,6 +193,9 @@ One at a time, run each Azure CLI command on the **Automation** tab in a termina
 
 1. Assign a user-assigned managed identity to the deployed Azure IoT Operations instance. Copy and run the provided [az iot ops identity assign](/cli/azure/iot/ops/identity#az-iot-ops-identity-assign) command. This command creates a federated identity credential using the OIDC issuer of the indicated connected cluster and the Azure IoT Operations service account.
 
+   > [!IMPORTANT]
+   > The default version of this command assigns an identity for data flows. If you plan to use data flow graphs, include the `--usage` parameter with the value `wasm-graph`.
+
 1. Restart the schema registry pods to apply the new identity. 
 
    ```azurecli

@@ -40,6 +40,8 @@ Retrieve the [Kafka-compatible connection details for the custom endpoint](/fabr
 
 This method uses a managed identity to authenticate with the eventstream. Use either system-assigned managed identity or user-assigned managed identity when you configure the data flow endpoint.
 
+[!INCLUDE [data-flow-graph-uami-usage](../includes/data-flow-graph-uami-usage.md)]
+
 1. Go to the connection details in the Fabric portal under the **Sources** section of your eventstream.
 1. In the **Details** pane for the custom endpoint, select the **Kafka** protocol.
 1. Select the **Entra ID Authentication** section to view the connection details.
