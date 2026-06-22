@@ -39,6 +39,7 @@ A **major release** introduces significant changes, often including new features
 
 - **Private endpoint support for Elastic SAN**: Enables secure connectivity to Elastic SAN volume groups over private IPs within a virtual network, improving network isolation and security.
 - **Cross-subscription Elastic SAN support**: Added support for provisioning and attaching volumes from Elastic SANs in a different subscription than the AKS cluster, enabling compute and storage isolation for compliance and shared infrastructure scenarios.
+- **Restrict pod tolerations for correct node placement**: Fixed an issue where overly permissive tolerations allowed cluster-manager and Geneva pods to schedule on unintended tainted nodes, by restricting them to control-plane and CriticalAddonsOnly node pools for correct and predictable placement.
 
 ## Version 1.4.1
 
