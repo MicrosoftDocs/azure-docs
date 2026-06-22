@@ -244,12 +244,7 @@ The following authentication methods are available for Real-Time Intelligence da
 
 Before you configure the data flow endpoint, give the Azure IoT Operations managed identity access to the Fabric workspace that contains your eventstream. Custom endpoints for the Fabric eventstream authorize managed identities through Fabric workspace access, not through the Azure portal identity and access management (IAM) on an Azure resource.
 
-1. In the Azure portal, go to your Azure IoT Operations instance and select **Overview**.
-1. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, copy **azure-iot-operations-xxxx7**.
-1. In Fabric, go to the workspace that contains your eventstream.
-1. Select **Manage access** > **Add people or groups**.
-1. Search for the Azure IoT Operations Azure Arc extension identity that you copied. An example is **azure-iot-operations-xxxx7**.
-1. Assign workspace permission of Contributor or higher to the identity.
+[!INCLUDE [fabric-workspace-access-system-assigned-managed-identity](../includes/fabric-workspace-access-system-assigned-managed-identity.md)]
 
 For more information, see [Assign Fabric workspace permissions](/fabric/real-time-intelligence/event-streams/connect-using-managed-identity#step-2-assign-fabric-workspace-permissions).
 
@@ -318,16 +313,9 @@ kafkaSettings:
 
 ### User-assigned managed identity
 
-To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../secure-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../secure-iot-ops/howto-enable-secure-settings.md).
+[!INCLUDE [fabric-workspace-access-user-assigned-managed-identity](../includes/fabric-workspace-access-user-assigned-managed-identity.md)]
 
-Before you configure the data flow endpoint, give the user-assigned managed identity access to the Fabric workspace that contains your eventstream. Custom endpoints for the Fabric eventstream authorize managed identities through Fabric workspace access, not through the Azure portal IAM on an Azure resource.
-
-1. In Fabric, go to the workspace that contains your eventstream.
-1. Select **Manage access** > **Add people or groups**.
-1. Search for your user-assigned managed identity.
-1. Assign workspace permission of Contributor or higher to the identity.
-
-For more information, see [Assign Fabric workspace permissions](/fabric/real-time-intelligence/event-streams/connect-using-managed-identity#step-2-assign-fabric-workspace-permissions).
+Custom endpoints for the Fabric eventstream authorize managed identities through Fabric workspace access, not through the Azure portal IAM on an Azure resource. For more information, see [Assign Fabric workspace permissions](/fabric/real-time-intelligence/event-streams/connect-using-managed-identity#step-2-assign-fabric-workspace-permissions).
 
 Configure the data flow endpoint with user-assigned managed identity settings.
 
