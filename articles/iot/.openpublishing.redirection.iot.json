@@ -184,6 +184,21 @@
       "source_path_from_root": "/articles/iot/concepts-iot-device-development.md",
       "redirect_url": "/azure/iot-hub/iot-hub-devguide-sdks",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/tutorial-iot-industrial-solution-architecture.md",
+      "redirect_url": "/azure/architecture/solution-ideas/articles/iot-industrial-solution-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/howto-connect-on-premises-sap-to-azure.md",
+      "redirect_url": "/azure/architecture/guide/iot/howto-connect-on-premises-sap-to-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot/howto-iot-industrial-dataspaces.md",
+      "redirect_url": "/azure/architecture/guide/iot/howto-iot-industrial-dataspaces",
+      "redirect_document_id": false
     }
   ]
 }

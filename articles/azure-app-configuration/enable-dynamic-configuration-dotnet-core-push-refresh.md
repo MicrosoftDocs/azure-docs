@@ -8,7 +8,7 @@ manager: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 08/07/2025
+ms.date: 06/22/2026
 ms.author: malev
 ms.custom:
   - devx-track-dotnet

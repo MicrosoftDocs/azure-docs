@@ -2,7 +2,8 @@
 title: Data Usage Policy
 description: Read about data usage policy. See how telemetry data is collected and used within Azure CycleCloud. 
 author: KimliW
-ms.date: 06/10/2025
+ms.date: 06/19/2026
+ms.topic: concept-article
 ms.author: adjohnso
 ---
 

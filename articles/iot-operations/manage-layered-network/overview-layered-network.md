@@ -38,4 +38,4 @@ For more information, see [Simplify network configuration requirements with Azur
 
 Azure Firewall Explicit Proxy allows you to direct Azure Arc and IoT Operations traffic through a managed firewall, providing enhanced security and monitoring. This is useful for organizations that require all outbound traffic to be inspected or logged, and helps meet compliance requirements by controlling and auditing network flows to Azure.
 
-For more information, see [Access Azure services over Azure Firewall Explicit Proxy (Public Preview)](/azure/azure-arc/azure-firewall-explicit-proxy).
+For more information, see [Access Azure services over Azure Firewall Explicit Proxy (Preview)](/azure/azure-arc/azure-firewall-explicit-proxy).

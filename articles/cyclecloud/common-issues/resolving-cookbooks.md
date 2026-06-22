@@ -1,8 +1,9 @@
 ---
 title: Common Issues - Resolving Cookbooks
-description: Azure CycleCloud common issue - Resolving Cookbooks
+description: Troubleshoot Chef cookbook resolution errors (RecipeNotFound) in Azure CycleCloud and how to resolve them.
 author: adriankjohnson
-ms.date: 06/30/2025
+ms.date: 06/19/2026
+ms.topic: troubleshooting-problem-resolution
 ms.author: adjohnso
 ---
 # Common issues: Error resolving Chef cookbooks or Chef::Exceptions:RecipeNotFound

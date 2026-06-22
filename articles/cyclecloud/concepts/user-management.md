@@ -2,7 +2,8 @@
 title: User Management
 description: Learn about user management in Azure CycleCloud. Add new users, edit users, assign user roles, manage groups of users, and more.
 author: jermth
-ms.date: 04/15/2019
+ms.date: 06/19/2026
+ms.topic: concept-article
 ms.update-cycle: 1095-days
 ms.author: jechia
 ---

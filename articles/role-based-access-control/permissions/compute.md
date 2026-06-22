@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2026
+ms.date: 06/20/2026
 ms.custom: generated
 ---
 
@@ -32,10 +32,16 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | `Microsoft.App/agentspaces/write` | Create or Update a SRE AgentSpace |
 > | `Microsoft.App/agentspaces/delete` | Delete a SRE AgentSpace |
 > | `Microsoft.App/agentspaces/join/action` | Allow to create a SRE Agent in a SRE AgentSpace |
+> | `microsoft.app/artifactapps/write` | Create or update an artifact app |
+> | `microsoft.app/artifactapps/delete` | Delete an artifact app |
+> | `microsoft.app/artifactapps/read` | Get an artifact app |
 > | `Microsoft.App/artifactApps/write` | Create or update an artifact app resource |
 > | `Microsoft.App/artifactApps/read` | Get an artifact app resource |
 > | `Microsoft.App/artifactApps/delete` | Delete an artifact app resource |
 > | `Microsoft.App/artifactApps/replicas/read` | List replicas of an artifact app |
+> | `microsoft.app/artifacts/write` | Create or update an artifact |
+> | `microsoft.app/artifacts/delete` | Delete an artifact |
+> | `microsoft.app/artifacts/read` | Get an artifact |
 > | `Microsoft.App/artifacts/write` | Create or update an artifact resource |
 > | `Microsoft.App/artifacts/read` | Get an artifact resource |
 > | `Microsoft.App/artifacts/delete` | Delete an artifact resource |
@@ -210,6 +216,10 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | `microsoft.app/managedenvironments/usages/read` | Get Quota Usages in a Managed Environment |
 > | `microsoft.app/managedenvironments/workloadprofilestates/read` | Get Current Workload Profile States |
 > | `microsoft.app/operations/read` | Get a list of supported container app operations |
+> | `Microsoft.App/quotaPolicy/write` | Request a quota increase for a subscription |
+> | `microsoft.app/sandboxgroups/write` | Create or update a sandbox group |
+> | `microsoft.app/sandboxgroups/delete` | Delete a sandbox group |
+> | `microsoft.app/sandboxgroups/read` | Get a sandbox group |
 > | `Microsoft.App/sandboxGroups/write` | Create or update a sandbox group resource |
 > | `Microsoft.App/sandboxGroups/read` | Get a sandbox group resource |
 > | `Microsoft.App/sandboxGroups/delete` | Delete a sandbox group resource |
@@ -243,6 +253,8 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | `Microsoft.App/agents/threads/approve/action` | Approve action executions in conversation threads |
 > | `Microsoft.App/artifactApps/stop/action` | Stop a running artifact app |
 > | `Microsoft.App/artifactApps/start/action` | Resume a stopped artifact app |
+> | `Microsoft.App/artifactApps/listSecrets/action` | List the resolved secrets of an artifact app |
+> | `Microsoft.App/artifacts/listSecrets/action` | List the resolved secrets of an artifact |
 > | `microsoft.app/containerApps/logstream/action` | View log stream of a container app |
 > | `microsoft.app/containerApps/exec/action` | Connect to console of a container app |
 > | `microsoft.app/containerApps/debug/action` | Connect to debug console of a container app |
@@ -263,7 +275,6 @@ Azure service: [Azure Container Apps](/azure/container-apps/)
 > | `Microsoft.App/sandboxGroups/egressPolicies/read` | List named egress policies in a sandbox group |
 > | `Microsoft.App/sandboxGroups/egressPolicies/write` | Create or update a named egress policy in a sandbox group |
 > | `Microsoft.App/sandboxGroups/egressPolicies/delete` | Delete a named egress policy in a sandbox group |
-> | `Microsoft.App/sandboxGroups/metrics/read` | Get aggregated vCPU and memory usage metrics for a sandbox group |
 > | `Microsoft.App/sandboxGroups/sandboxes/read` | List sandboxes in a sandbox group |
 > | `Microsoft.App/sandboxGroups/sandboxes/write` | Create a new sandbox in a sandbox group |
 > | `Microsoft.App/sandboxGroups/sandboxes/delete` | Delete a sandbox from a sandbox group |
@@ -1053,7 +1064,7 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/overview)
 > | `Microsoft.ComputeSchedule/autoActions/occurrences/listResources/action` | A synchronous resource action. |
 > | `Microsoft.ComputeSchedule/autoActions/occurrences/read` | List OccurrenceOld resources by AutoAction |
 > | `Microsoft.ComputeSchedule/autoActions/occurrences/read` | Get a OccurrenceOld |
-> | `Microsoft.ComputeSchedule/locations/virtualMachinesCancelOperations/action` | VirtualMachinesCancelOperations: Cancel a previously submitted (start/deallocate/hibernate) request |
+> | `Microsoft.ComputeSchedule/locations/virtualMachinesCancelOperations/action` | virtualMachinesCancelOperations: cancelOperations for a virtual machine |
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesExecuteDeallocate/action` | VirtualMachinesExecuteDeallocate: Execute deallocate operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesExecuteHibernate/action` | VirtualMachinesExecuteHibernate: Execute hibernate operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesExecuteStart/action` | VirtualMachinesExecuteStart: Execute start operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
@@ -1063,6 +1074,7 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/overview)
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesSubmitStart/action` | VirtualMachinesSubmitStart: Schedule start operation for a batch of virtual machines at datetime in future. |
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesGetOperationErrors/action` | VirtualMachinesGetOperationErrors: Get error details on operation errors (like transient errors encountered, additional logs) if they exist. |
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesExecuteCreateFlex/action` | VirtualMachinesExecuteCreateFlex: Execute create operation for a batch of virtual machines with flex properties, this operation is triggered as soon as Computeschedule receives it. |
+> | `Microsoft.ComputeSchedule/locations/virtualMachinesExecuteDeallocateWithCapacityCheck/action` | virtualMachinesExecuteDeallocateWithCapacityCheck: deallocate VMs only if capacity predictions indicate sufficient capacity at the desired restart time. VMs that fail the capacity check are returned with a VmNoCapacity error. |
 > | `Microsoft.ComputeSchedule/locations/OperationStatuses/read` | read OperationStatuses |
 > | `Microsoft.ComputeSchedule/locations/OperationStatuses/write` | write OperationStatuses |
 > | `Microsoft.ComputeSchedule/Operations/read` | read Operations |

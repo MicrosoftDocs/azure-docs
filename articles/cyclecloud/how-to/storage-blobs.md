@@ -3,7 +3,8 @@ title: Storage - Blobs and Lockers
 description: In this article, learn how to use project blobs and user blobs for storage within Azure CycleCloud. Also learn about blob downloading and lockers.
 author: dougclayton
 ms.author: doclayto
-ms.date: 09/23/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ---
 
 # Blobs and Lockers

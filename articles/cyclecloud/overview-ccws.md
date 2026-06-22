@@ -2,7 +2,8 @@
 title: Overview of Azure CycleCloud Workspace for Slurm
 description: In this overview, learn about Azure CycleCloud Workspace for Slurm, a solution to quickly create a ready to use Slurm based AI/HPC cluster.
 author: xpillons
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: overview
 ms.author: padmalathas
 ---
 

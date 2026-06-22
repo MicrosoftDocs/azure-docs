@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2026
+ms.date: 06/20/2026
 ms.custom: generated
 ---
 
@@ -302,6 +302,7 @@ Can approve private endpoint connections to Azure AI common dependency resources
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privatelinkscopes/privateEndpointConnectionsApproval/action | Approve or reject a connection to a Private Endpoint resource of Microsoft.Network provider |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privatelinkscopes/privateEndpointConnections/read | Read a private endpoint connection |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privatelinkscopes/privateEndpointConnections/write | Create or update a private endpoint connection |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privatelinkscopes/privateEndpointConnections/operationResults/read |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privatelinkscopes/privateLinkResources/read | Read a private link resource |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privatelinkscopes/read | Read a private link scope |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateLinkServices/privateEndpointConnectionsApproval/action | Approve or reject PrivateEndpoint connection on PrivateLinkService |
@@ -409,6 +410,7 @@ Can approve private endpoint connections to Azure AI common dependency resources
         "Microsoft.Insights/privatelinkscopes/privateEndpointConnectionsApproval/action",
         "Microsoft.Insights/privatelinkscopes/privateEndpointConnections/read",
         "Microsoft.Insights/privatelinkscopes/privateEndpointConnections/write",
+        "Microsoft.Insights/privatelinkscopes/privateEndpointConnections/operationResults/read",
         "Microsoft.Insights/privatelinkscopes/privateLinkResources/read",
         "Microsoft.Insights/privatelinkscopes/read",
         "Microsoft.Network/privateLinkServices/privateEndpointConnectionsApproval/action",
@@ -2235,7 +2237,7 @@ Grants full access to manage AI projects and accounts. Includes an ABAC conditio
 > | **NotDataActions** |  |
 > | *none* |  |
 > | **Condition** |  |
-> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d})) | Add or remove role assignments for the following roles:<br/>Foundry User |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d,3bc748fc-213d-45c1-8d91-9da5725539b9,2a1e307c-b015-4ebd-883e-5b7698a07328,73c42c96-874c-492b-b04d-ab87d138a893})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d,3bc748fc-213d-45c1-8d91-9da5725539b9,2a1e307c-b015-4ebd-883e-5b7698a07328,73c42c96-874c-492b-b04d-ab87d138a893})) | Add or remove role assignments for the following roles:<br/>Foundry User<br/>Container Registry Contributor and Data Access Configuration Administrator<br/>Container Registry Repository Writer<br/>Log Analytics Reader |
 
 ```json
 {
@@ -2273,7 +2275,7 @@ Grants full access to manage AI projects and accounts. Includes an ABAC conditio
       "dataActions": [],
       "notDataActions": [],
       "conditionVersion": "2.0",
-      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d}))"
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d,3bc748fc-213d-45c1-8d91-9da5725539b9,2a1e307c-b015-4ebd-883e-5b7698a07328,73c42c96-874c-492b-b04d-ab87d138a893})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d,3bc748fc-213d-45c1-8d91-9da5725539b9,2a1e307c-b015-4ebd-883e-5b7698a07328,73c42c96-874c-492b-b04d-ab87d138a893}))"
     }
   ],
   "roleName": "Foundry Account Owner",
@@ -2297,6 +2299,8 @@ Grants full to manage AI project and accounts. Grants reader access to AI projec
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/prometheusRuleGroups/* |  |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/smartDetectorAlertRules/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/delete | Delete a role assignment at the specified scope. |
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/activityLogAlerts/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metricalerts/* |  |
@@ -2315,6 +2319,8 @@ Grants full to manage AI project and accounts. Grants reader access to AI projec
 > | [Microsoft.CognitiveServices](../permissions/ai-machine-learning.md#microsoftcognitiveservices)/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
+> | **Condition** |  |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d,3bc748fc-213d-45c1-8d91-9da5725539b9,2a1e307c-b015-4ebd-883e-5b7698a07328,73c42c96-874c-492b-b04d-ab87d138a893})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d,3bc748fc-213d-45c1-8d91-9da5725539b9,2a1e307c-b015-4ebd-883e-5b7698a07328,73c42c96-874c-492b-b04d-ab87d138a893})) | Add or remove role assignments for the following roles:<br/>Foundry User<br/>Container Registry Contributor and Data Access Configuration Administrator<br/>Container Registry Repository Writer<br/>Log Analytics Reader |
 
 ```json
 {
@@ -2333,6 +2339,8 @@ Grants full to manage AI project and accounts. Grants reader access to AI projec
         "Microsoft.AlertsManagement/prometheusRuleGroups/*",
         "Microsoft.AlertsManagement/smartDetectorAlertRules/*",
         "Microsoft.Authorization/*/read",
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete",
         "Microsoft.CognitiveServices/*",
         "Microsoft.Insights/activityLogAlerts/*",
         "Microsoft.Insights/metricalerts/*",
@@ -2350,7 +2358,9 @@ Grants full to manage AI project and accounts. Grants reader access to AI projec
       "dataActions": [
         "Microsoft.CognitiveServices/*"
       ],
-      "notDataActions": []
+      "notDataActions": [],
+      "conditionVersion": "2.0",
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d,3bc748fc-213d-45c1-8d91-9da5725539b9,2a1e307c-b015-4ebd-883e-5b7698a07328,73c42c96-874c-492b-b04d-ab87d138a893})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{53ca6127-db72-4b80-b1b0-d745d6d5456d,3bc748fc-213d-45c1-8d91-9da5725539b9,2a1e307c-b015-4ebd-883e-5b7698a07328,73c42c96-874c-492b-b04d-ab87d138a893}))"
     }
   ],
   "roleName": "Foundry Owner",

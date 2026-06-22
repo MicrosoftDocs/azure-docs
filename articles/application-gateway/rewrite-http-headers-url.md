@@ -66,9 +66,6 @@ You can use rewrite conditions to evaluate the content of HTTP(S) requests and r
   * Response header's value - To use a captured response header's value from the preceding condition, specify the syntax as `{http_resp_headerName}`. The Rewrite Action block also supports the "Header Value Matcher" field for Set-Cookie header. This optional field lets you match and capture the value of a specific header when multiple Set-Cookie headers with the same name exist. To manipulate that specific cookie's captured value, you can then use `{capt_header_value_matcher}`. Learn more about [capture under Action set](#syntax-for-capturing).
   * Server variable - To use a server variable, specify the syntax as `{var_serverVariable}`. [List of supported Server variables](#server-variables).
 
-> [!NOTE]
-> The use of Header Value Matcher field {capt_header_value_matcher} isn't currently supported through the portal. Therefore, you need to use a non-portal method for any PUT operations if you use this field.  
-
   When you use an action to rewrite a URL, the following operations are supported:
   * URL path: The new value to set as the path.
   * URL Query String: The new value to which the query string must be rewritten.

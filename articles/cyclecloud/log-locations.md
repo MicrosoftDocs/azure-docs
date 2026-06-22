@@ -3,7 +3,8 @@ title: Cyclecloud Log Locations
 description: The location of the different logs associated with CycleCloud
 author: dougclayton
 ms.author: doclayto
-ms.date: 09/23/2025
+ms.date: 06/19/2026
+ms.topic: reference
 ---
 
 # Common logs

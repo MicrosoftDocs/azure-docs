@@ -1,8 +1,9 @@
 ---
 title: Error Messages
-description: List of common CycleCloud error messages.
+description: Reference of common Azure CycleCloud error messages, what they mean, and how to resolve them.
 author: adriankjohnson
-ms.date: 06/10/2025
+ms.date: 06/19/2026
+ms.topic: reference
 ms.author: adjohnso
 ---
 

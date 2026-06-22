@@ -2,7 +2,8 @@
 title: Quickstart - Deploy Azure CycleCloud Workspace for Slurm
 description: Learn how to get CycleCloud Workspace for Slurm running using Azure Marketplace.
 author: xpillons
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: quickstart
 ms.author: padmalathas
 ---
 

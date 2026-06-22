@@ -1,8 +1,9 @@
 ---
 title: Move Resource Group For a Cluster
-description: How to move Azure resources to another resource group.
+description: Learn how to move Azure resources in an Azure CycleCloud cluster to another resource group, and the requirements for doing so.
 author: adriankjohnson
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: adjohnso
 ---
 
