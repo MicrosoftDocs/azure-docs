@@ -135,7 +135,6 @@ The following table shows the language versions supported for Python function ap
 | Python 3.10 | GA | October 2026 |
 
 
-
 > [!NOTE]
 > Python 3.12 is the last Python version supported for Linux Consumption plan apps. Newer Python versions aren't added to Linux Consumption. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md).
 
