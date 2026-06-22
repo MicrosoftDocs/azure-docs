@@ -128,7 +128,7 @@ The following items don't sync, but the rest of the system continues to operate 
 
 ### Cloud tiering
 - If you use Robocopy to copy a tiered file to another location, the resulting file isn't tiered. Robocopy might incorrectly include the offline attribute in copy operations.
-- When copying files using Robocopy, use the /MIR option to preserve file timestamps. This will ensure older files are tiered sooner than recently accessed files.
+- When you use Robocopy to copy files, use the `/MIR` option to preserve file timestamps. This option ensures that older files are tiered sooner than recently accessed files.
 
 
 ## Version 22.3.0.0
