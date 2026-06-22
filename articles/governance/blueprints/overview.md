@@ -143,7 +143,7 @@ publishing, assigning, updating, and deleting blueprints always require the perm
 article.
 
 > [!IMPORTANT]
-> Because blueprint definitions can be read by any authenticated principal in the tenant, don't store
+> Because any authenticated principal in the tenant can read blueprint definitions, don't store
 > secrets or other sensitive information directly in a blueprint definition or in its parameter
 > `defaultValue`s. For secrets, use `secureString` or `secureObject` parameters backed by [Azure Key Vault
 > references](./concepts/parameters.md#using-securestring-and-secureobject-parameters), which keep the secret
