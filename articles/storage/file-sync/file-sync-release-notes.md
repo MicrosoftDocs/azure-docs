@@ -115,7 +115,7 @@ The following items don't sync, but the rest of the system continues to operate 
 ### Server endpoint
 - A server endpoint can be created only on an NTFS volume. Azure File Sync doesn't currently support ReFS, FAT, or FAT32.
 - Cloud tiering isn't supported on the system volume. To create a server endpoint on the system volume, disable cloud tiering when creating the server endpoint.
-- Failover Clustering is supported only with clustered disks, but not with Cluster Shared Volumes (CSVs).
+- Failover Clustering supports only clustered disks, but not Cluster Shared Volumes (CSVs).
 - A server endpoint can't be nested. It can coexist on the same volume in parallel with another endpoint.
 - Don't store an OS or application paging file within a server endpoint location.
 
