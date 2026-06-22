@@ -106,7 +106,7 @@ You've triggered the event, and Event Grid sent the message to the endpoint you 
 ```json
 [{
   "id": "00000000-0000-0000-0000-000000000000",
-  "topic": "/subscriptions/<SubscriptionId>/resourceGroups/eventDemoGroup/providers/microsoft.appconfiguration/configurationstores/{appconfig-name}",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/eventDemoGroup/providers/microsoft.appconfiguration/configurationstores/{appconfig-name}",
   "subject": "https://{appconfig-name}.azconfig.io/kv/Foo",
   "data": {
     "key": "Foo",

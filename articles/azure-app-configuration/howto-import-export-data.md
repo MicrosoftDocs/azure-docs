@@ -232,7 +232,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
     | `--name`               | Enter the name of the App Configuration store you want to import data to.                                                                        | `my-app-config-store`                                                                                                  |
     | `--source`             | Enter `appservice` to indicate that you're importing app configuration data from Azure App Service.                                              | `appservice`                                                                                                           |
-    | `--appservice-account` | Enter the App Service's ARM ID or use the name of the App Service, if it's in the same subscription and resource group as the App Configuration. | `/subscriptions/<SubscriptionId>/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/my-app-service` or `my-app-service` |
+    | `--appservice-account` | Enter the App Service's ARM ID or use the name of the App Service, if it's in the same subscription and resource group as the App Configuration. | `/subscriptions/123/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/my-app-service` or `my-app-service` |
 
 1. Optionally also add the following parameters:
 
@@ -247,7 +247,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     Example: import all application settings from your App Service as key-values with the label "prod", to your App Configuration store, and add a "TestApp:" prefix.
 
     ```azurecli
-    az appconfig kv import --name my-app-config-store --source appservice --appservice-account /subscriptions/<SubscriptionId>/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/my-app-service --label prod --prefix TestApp:
+    az appconfig kv import --name my-app-config-store --source appservice --appservice-account /subscriptions/123/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/my-app-service --label prod --prefix TestApp:
     ```
 
 1. The command line displays a list of the coming changes. Confirm the import by selecting `y`.
@@ -278,7 +278,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
     | `--name`               | Enter the name of the App Configuration store you want to import data to.                                                                        | `my-app-config-store`                                                                                                  |
     | `--source`             | Enter `aks` to indicate that you're importing app configuration data from Azure Kubernetes Service.                                              | `aks`                                                                                                                  |
-    | `--aks-cluster`        | Enter the Azure Kubernetes Service's ARM ID or use the name of the Azure Kubernetes Service, if it's in the same subscription and resource group as the App Configuration. | `/subscriptions/<SubscriptionId>/resourceGroups/my-resource-group/providers/Microsoft.ContainerService/managedClusters/my-aks-cluster` or `my-aks-cluster` |
+    | `--aks-cluster`        | Enter the Azure Kubernetes Service's ARM ID or use the name of the Azure Kubernetes Service, if it's in the same subscription and resource group as the App Configuration. | `/subscriptions/123/resourceGroups/my-resource-group/providers/Microsoft.ContainerService/managedClusters/my-aks-cluster` or `my-aks-cluster` |
     | `--configmap-namespace`| Enter the namespace of the ConfigMap you want to import.                                                                                          | `default`                                                                                                              |
     | `--configmap-name`     | Enter the name of the ConfigMap you want to import.                                                                                               | `my-configmap`                                                                                                         |
 
@@ -298,7 +298,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     Example: import all settings from your AKS Configmap as key-values with the label "test", to your App Configuration store, and add a "TestApp:" prefix.
 
     ```azurecli
-    az appconfig kv import --name my-app-config-store --source aks --aks-cluster /subscriptions/<SubscriptionId>/resourceGroups/my-resource-group/providers/Microsoft.ContainerService/managedClusters/my-aks-cluster --configmap-namespace default --configmap-name my-configmap --label test --prefix TestApp:
+    az appconfig kv import --name my-app-config-store --source aks --aks-cluster /subscriptions/123/resourceGroups/my-resource-group/providers/Microsoft.ContainerService/managedClusters/my-aks-cluster --configmap-namespace default --configmap-name my-configmap --label test --prefix TestApp:
     ```
 
 1. The command line displays a list of the coming changes. Confirm the import by selecting `y`.
@@ -542,7 +542,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     |------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
     | `--name`               | Enter the name of the App Configuration store that contains the key-values you want to export.                                                                     | `my-app-config-store`                                                                                                     |
     | `--destination`        | Enter `appservice` to indicate that you're exporting data to App Service.                                                                                          | `appservice`                                                                                                              |
-    | `--appservice-account` | Enter the App Service's ARM ID or use the name of the App Service, if it's in the same subscription and resource group as the App Configuration.                   | `/subscriptions/<SubscriptionId>/resourceGroups/my-as-resource-group/providers/Microsoft.Web/sites/my-app-service` or `my-app-service` |
+    | `--appservice-account` | Enter the App Service's ARM ID or use the name of the App Service, if it's in the same subscription and resource group as the App Configuration.                   | `/subscriptions/123/resourceGroups/my-as-resource-group/providers/Microsoft.Web/sites/my-app-service` or `my-app-service` |
     | `--label`              | Optional. Enter a label to export key-values and feature flags with this label. If you don't specify a label, by default, you'll only export key-values and feature flags with no label. | `prod`                                                                                                                    |
 
     To get the value for `--appservice-account`, use the command `az webapp show --resource-group <resource-group> --name <resource-name>`.
@@ -556,7 +556,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     Example: export all key-values with the label "prod" to an App Service application and trim the prefix "TestApp".
 
     ```azurecli
-    az appconfig kv export --name my-app-config-store --destination appservice --appservice-account /subscriptions/<SubscriptionId>/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/my-app-service/config/web --label prod --prefix TestApp:
+    az appconfig kv export --name my-app-config-store --destination appservice --appservice-account /subscriptions/123/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/my-app-service/config/web --label prod --prefix TestApp:
     ```
 
     The command line displays a list of key-values getting exported to an App Service resource. Confirm the export by selecting `y`.
@@ -574,7 +574,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     Example: export all key-values with the label "prod" as app configuration references to an App Service application.
 
     ```azurecli
-    az appconfig kv export --name my-app-config-store --destination appservice --appservice-account "/subscriptions/<SubscriptionId>/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/my-app-service" --label prod --export-as-reference
+    az appconfig kv export --name my-app-config-store --destination appservice --appservice-account "/subscriptions/123/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/my-app-service" --label prod --export-as-reference
     ```
 
     The command line displays a list of key-values getting exported as app configuration references to an App Service resource. Confirm the export by selecting `y`.

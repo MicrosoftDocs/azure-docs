@@ -88,7 +88,7 @@ Resource Logs (including audit logs and HTTP request logs) aren't collected and 
 1. If your identity is associated with more than one subscription, then set your active subscription to the subscription of the App Configuration store that you want to enable logs for.
 
     ```Azure CLI
-    az account set --subscription <SubscriptionId>
+    az account set --subscription <your-subscription-id>
     ```
 
 1. Enable logs by using the az monitor [diagnostic-settings create command](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
@@ -108,7 +108,7 @@ Resource Logs (including audit logs and HTTP request logs) aren't collected and 
 1. Set your active subscription to the subscription of the App Configuration account that you want to enable logging for.
 
     ```PowerShell
-    Set-AzContext -SubscriptionId <SubscriptionId>
+    Set-AzContext -SubscriptionId <subscription-id>
     ```
     
 1. To enable logs for a Log Analytics Workspace, use the [Set-AzDiagnosticSetting PowerShell](/previous-versions/azure/mt631625(v=azure.100)?redirectedfrom=MSDN) cmdlet. 
