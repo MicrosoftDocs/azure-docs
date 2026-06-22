@@ -84,7 +84,7 @@ Besides the resource-based and credit-based throttling described earlier, Servic
 
 This situation typically occurs when an application opens a large number of receivers (AMQP receive links) on the same entity and keeps them all active at the same time. Each open receiver gives credit to the service and continually polls for messages, even when the entity is empty. With enough concurrent receivers, the combined receive requests exceed the limit and the entity starts returning server busy errors.
 
-The Service Bus SDKs handle the server busy response with the built-in [retry policy](/azure/architecture/best-practices/retry-service-specific#service-bus), which uses exponential backoff so that the retries don't add further load. To avoid reaching this limit in the first place, we recommend that you:
+The Service Bus SDKs handle the server busy response by using the built-in [retry policy](/azure/architecture/best-practices/retry-service-specific#service-bus), which uses exponential backoff so that the retries don't add further load. To avoid reaching this limit in the first place, follow these recommendations:
 
 - Keep the number of concurrent receivers on a single entity well below the limit. A few receivers per consumer instance are usually enough to achieve high throughput. Opening thousands of receivers on one entity is an anti-pattern that increases the chance of being throttled without improving throughput.
 - Close receivers that you no longer need, instead of leaving idle receivers open and polling.
