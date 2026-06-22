@@ -66,7 +66,7 @@ The following release notes are for Azure File Sync version 22.4.0.0 (released J
 ### Improvements and issues that are fixed
 
 **Server registration workflow hardening**
-Hardened the steps in the Azure File Sync server registration workflow. This does not impact servers that are already registered and customer action is not required.
+Hardened the steps in the Azure File Sync server registration workflow. This change doesn't impact servers that are already registered and doesn't require customer action.
 
 **Auto upgrade reliability fixes**
 
