@@ -146,10 +146,11 @@ A JSON-defined object that, when triggered, corrects resources violating policie
 
 ## Resource selectors
 
-The optional `resourceSelectors` property is used for policy assignments or policy exemptions.
+The optional `resourceSelectors` property is used for policy assignments, policy exemptions, or policy enrollments.
 
 - [Policy assignments](./concepts/assignment-structure.md#resource-selectors): Allows you to do a gradual rollout of a policy assignment.
 - [Policy exemptions](./concepts/exemption-structure.md#resource-selectors): Allows you to do a gradual rollout or rollback of an exemption.
+- [Policy enrollments](./concepts/enrollment-structure.md#resource-selectors): Allows you to do a gradual rollout or rollback of an enrollment.
 
 ## Scope
 

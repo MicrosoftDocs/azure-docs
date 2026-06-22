@@ -274,6 +274,9 @@
   - name: Exemption structure
     displayName: waiver, mitigated, compliance
     href: ./concepts/exemption-structure.md
+  - name: Enrollment structure
+    displayName: enroll, enrollment, enforcementmode
+    href: ./concepts/enrollment-structure.md
   - name: Applicability
     displayName: policy, applicability, scope
     href: ./concepts/policy-applicability.md

@@ -1,7 +1,7 @@
 ---
 title: Safe deployment of Azure Policy assignments
 description: Learn how to apply the safe deployment practices (SDP) framework to your Azure Policy assignments.
-ms.date: 03/04/2025
+ms.date: 06/22/2026
 ms.topic: how-to
 ---
 
@@ -12,6 +12,11 @@ As your environment expands, so does the demand for a controlled continuous depl
 The high-level approach of implementing SDP with Azure Policy is to gradually rollout policy assignments by tiers to detect policy changes that affect the environment in early stages before it affects the critical cloud infrastructure.
 
 Deployment tiers can be organized in diverse ways. In this how-to tutorial, tiers are divided by different Azure regions with _Tier 5_ representing non-critical, low traffic locations, and _Tier 0_ denoting the most critical, highest traffic locations.
+
+You can implement safe deployment with Azure Policy in two ways:
+
+- Use `resourceSelectors` on the policy assignment to gradually expand the resources evaluated by the assignment.
+- Use an assignment with `enforcementMode` set to `Enroll` and create [policy enrollments](../concepts/enrollment-structure.md) to gradually expand where the assignment effect is enforced. This method keeps compliance visibility for the full assignment scope while limiting enforcement to enrolled scopes or resources.
 
 ## Steps for safe deployment of Azure Policy assignments with deny or append effects
 
@@ -233,9 +238,78 @@ locations and validating the expected compliance results and application health.
 }
 ```
 
+## Steps for safe deployment with policy enrollments
+
+Policy enrollments provide another SDP method for assignments that use `enforcementMode` set to `Enroll`. With this method, you create the assignment at the target scope to produce compliance results, and then create or update enrollment resources to turn on enforcement for selected deployment tiers.
+
+1. Create the policy assignment at the highest-level scope inclusive of all deployment tiers and set `enforcementMode` to `Enroll`.
+
+    ```json
+    {
+      "properties": {
+        "policyDefinitionId": "/subscriptions/{subId}/providers/Microsoft.Authorization/policyDefinitions/ResourceLimit",
+        "enforcementMode": "Enroll"
+      }
+    }
+    ```
+
+1. Once the assignment is deployed and the initial compliance scan has completed, validate that the compliance result is as expected across the assignment scope.
+
+1. Create a policy enrollment for the least critical tier. You can use `resourceSelectors` on the enrollment to narrow enforcement to a location, resource type, or resources without a location.
+
+    ```json
+    {
+      "properties": {
+        "policyAssignmentId": "/subscriptions/{subId}/providers/Microsoft.Authorization/policyAssignments/ResourceLimit",
+        "resourceSelectors": [
+          {
+            "name": "SDPRegions",
+            "selectors": [
+              {
+                "kind": "resourceLocation",
+                "in": [
+                  "eastus"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+    ```
+
+1. Validate that enforcement is taking place as expected for enrolled resources and that application health remains stable.
+
+1. Repeat by expanding the enrollment resource selector values to include the next tier's locations, or by creating additional enrollments for other scopes.
+
+    ```json
+    {
+      "properties": {
+        "policyAssignmentId": "/subscriptions/{subId}/providers/Microsoft.Authorization/policyAssignments/ResourceLimit",
+        "resourceSelectors": [
+          {
+            "name": "SDPRegions",
+            "selectors": [
+              {
+                "kind": "resourceLocation",
+                "in": [
+                  "eastus",
+                  "westus"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+    ```
+
+1. Repeat this process for all production tiers.
+
 ## Next steps
 
 - Learn how to [programmatically create policies](./programmatically-create.md).
+- Review [Azure Policy enrollment structure](../concepts/enrollment-structure.md).
 - Review [Azure Policy as code workflows](../concepts/policy-as-code.md).
 - Study Microsoft's guidance concerning [safe deployment practices](/devops/operate/safe-deployment-practices).
 - Review [Remediate non-compliant resources with Azure Policy](./remediate-resources.md).

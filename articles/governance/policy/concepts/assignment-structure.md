@@ -1,7 +1,7 @@
 ---
 title: Details of the policy assignment structure
 description: Describes the policy assignment definition used by Azure Policy to relate policy definitions and parameters to resources for evaluation.
-ms.date: 03/04/2025
+ms.date: 06/22/2026
 ms.topic: reference
 ---
 
@@ -130,7 +130,7 @@ The optional `metadata` property stores information about the policy assignment.
 
 ## Resource selectors
 
-The optional `resourceSelectors` property facilitates safe deployment practices (SDP) by enabling you to gradually roll out policy assignments based on factors like resource location, resource type, or whether a resource has a location. When resource selectors are used, Azure Policy only evaluates resources that are applicable to the specifications made in the resource selectors. Resource selectors can also be used to narrow down the scope of [exemptions](exemption-structure.md) in the same way.
+The optional `resourceSelectors` property facilitates safe deployment practices (SDP) by enabling you to gradually roll out policy assignments based on factors like resource location, resource type, or whether a resource has a location. When resource selectors are used, Azure Policy only evaluates resources that are applicable to the specifications made in the resource selectors. Resource selectors can also be used to narrow down the scope of [exemptions](exemption-structure.md) and [enrollments](enrollment-structure.md) in the same way.
 
 In the following example scenario, the new policy assignment is evaluated only if the resource's location is either **East US** or **West US**.
 
@@ -287,8 +287,9 @@ This property has the following values:
 |-|-|-|-|-|-|
 |Enabled |Default |string |Yes |Yes |The policy effect is enforced during resource creation or update. |
 |Disabled |DoNotEnforce |string |Yes |No | The policy effect isn't enforced during resource creation or update. |
+|Enroll |Enroll |string |Yes |Yes for enrolled resources |The policy effect is enforced during resource creation or update only for resources that are enrolled in the assignment. |
 
-If `enforcementMode` isn't specified in a policy or initiative definition, the value _Default_ is used. [Remediation tasks](../how-to/remediate-resources.md) can be started for [deployIfNotExists](./effect-deploy-if-not-exists.md) policies, even when `enforcementMode` is set to _DoNotEnforce_.
+If `enforcementMode` isn't specified in a policy or initiative definition, the value _Default_ is used. [Remediation tasks](../how-to/remediate-resources.md) can be started for [deployIfNotExists](./effect-deploy-if-not-exists.md) policies, even when `enforcementMode` is set to _DoNotEnforce_. For more information about Enroll mode, see [Azure Policy enrollment structure](./enrollment-structure.md).
 
 ## Excluded scopes
 
