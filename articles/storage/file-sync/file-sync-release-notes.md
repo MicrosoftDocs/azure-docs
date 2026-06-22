@@ -72,7 +72,7 @@ Hardened the steps in the Azure File Sync server registration workflow. This cha
 
 
 ### Evaluation tool
-Before deploying Azure File Sync, you should evaluate whether it's compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported OS version. For installation and usage instructions, see [Evaluation Tool](file-sync-planning.md#evaluation-cmdlet) section in the planning guide.
+Before deploying Azure File Sync, evaluate whether it's compatible with your system by using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential problems with your file system and dataset, such as unsupported OS version. For installation and usage instructions, see the [Evaluation Tool](file-sync-planning.md#evaluation-cmdlet) section in the planning guide.
 
 ### Agent installation and server configuration
 For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
