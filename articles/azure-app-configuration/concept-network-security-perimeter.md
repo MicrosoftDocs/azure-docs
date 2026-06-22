@@ -69,7 +69,7 @@ These errors indicate that the subscription you're using doesn't have access to 
 
 If you associate an App Configuration store with a network security perimeter in a different subscription than the store, you must ensure that the network security perimeter's subscription has the `Microsoft.AppConfiguration` resource provider registered. If the resource provider isn't registered, you receive the following error when performing the association:
 
-> The network security perimeter's subscription 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e' is not registered to use resource provider 'Microsoft.AppConfiguration'. See https://aka.ms/registerrp for instructions on registering a resource provider.
+> The operation cannot be completed because the network security perimeter's subscription 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e' is not registered to use resource provider 'Microsoft.AppConfiguration'. See https://aka.ms/appconfig/NSPTroubleshooting for instructions on registering a resource provider.
 
 To resolve this error, take the following steps:
 1. Register the `Microsoft.AppConfiguration` resource provider in the network security perimeter's subscription.
