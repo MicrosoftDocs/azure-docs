@@ -63,7 +63,7 @@ The following Azure File Sync agent versions have expired and are no longer supp
 ## Version 22.4.0.0
 The following release notes are for Azure File Sync version 22.4.0.0 (released June 22, 2026). This release contains improvements for the Azure File Sync service and agent. 
 
-### Improvements and issues that are fixed
+### Improvements and fixed issues
 
 **Server registration workflow hardening**
 Hardened the steps in the Azure File Sync server registration workflow. This change doesn't impact servers that are already registered and doesn't require customer action.
