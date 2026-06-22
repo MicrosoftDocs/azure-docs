@@ -72,7 +72,7 @@ To use customer-managed key encryption, take the steps in the following sections
 
     The output of this command lists the resource ID, `id`, of the key vault. Note its value, which has the following format:
 
-    `/subscriptions/<subscription-ID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<vault-name>`
+    `/subscriptions/<SubscriptionId>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<vault-name>`
 
 1. Use the Azure CLI to assign yourself the access to your key vault that you need to create a key. The command you use depends on the authorization system that your key vault uses. Two models are available:
 

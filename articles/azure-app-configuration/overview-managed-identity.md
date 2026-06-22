@@ -92,7 +92,7 @@ The following steps walk you through creating a user-assigned identity and an Ap
 1. Run the [az appconfig identity assign] command to assign the new user-assigned identity to this configuration store. Use the value of the `id` property that you noted in the previous step.
 
     ```azurecli-interactive
-    az appconfig identity assign --name myTestAppConfigStore --resource-group myResourceGroup --identities /subscriptions/[subscription id]/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity
+    az appconfig identity assign --name myTestAppConfigStore --resource-group myResourceGroup --identities /subscriptions/<SubscriptionId>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity
     ```
 
 ## Removing an identity

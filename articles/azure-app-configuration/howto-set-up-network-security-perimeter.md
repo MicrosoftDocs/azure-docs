@@ -46,7 +46,7 @@ Use the Azure CLI to create an association between your App Configuration store 
     az appconfig show --name <app-config-store-name> --resource-group <resource-group> --query id --output tsv
     ```
 
-    Note down the resource ID from the output. For example: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/MyAppConfigStore`.
+    Note down the resource ID from the output. For example: `/subscriptions/<SubscriptionId>/resourceGroups/MyResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/MyAppConfigStore`.
 
 1. Run the following command to associate your App Configuration store with the network security perimeter. Replace the placeholder values with your own information.
 
