@@ -38,7 +38,7 @@ The following limitations apply to Azure Container Apps on Azure Arc enabled Kub
 
 | Limitation | Details |
 |---|---|
-| Supported Azure regions | Australia East，Central US, East Asia, East US, North Central US, Southeast Asia, Sweden Central, UK South, West Europe, West US|
+| Supported Azure regions | Australia East, East Asia, East US, North Central US, Southeast Asia, Sweden Central, UK South, West Europe, West US|
 | Cluster networking requirement | Must support [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) service type |
 | Node OS requirement | **Linux** only. | 
 | Feature: Managed identities | [Not available](#are-managed-identities-supported) |
