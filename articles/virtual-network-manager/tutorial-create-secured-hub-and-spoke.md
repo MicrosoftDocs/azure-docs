@@ -27,7 +27,7 @@ In this tutorial, you learn to:
 
 :::image type="content" source="media/tutorial-create-secured-hub-and-spoke/create-secure-hub-spoke-network.png" alt-text="Diagram of secure hub-and-spoke topology components." lightbox="media/tutorial-create-secured-hub-and-spoke/create-secure-hub-spoke-network.png":::
 
-## Prerequisite
+## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Before you can complete steps in this tutorial, you must first [create an Azure Virtual Network Manager](create-virtual-network-manager-portal.md) instance. The instance needs to include the **Connectivity** and **Security admin** features. This tutorial uses an Azure Virtual Network Manager instance named **vnm-learn-eastus-001**.
@@ -45,7 +45,7 @@ This procedure walks you through creating three virtual networks to be connected
     | Setting | Value |
     | ------- | ----- |
     | Subscription | Select the subscription you want to deploy this virtual network into. |
-    | Resource group | Select or create a new resource group to store the virtual network. This quickstart uses a resource group named **rg-learn-eastus-001**. |
+    | Resource group | Select or create a new resource group to store the virtual network. This tutorial uses a resource group named **rg-learn-eastus-001**. |
     | Name | Enter **vnet-learn-prod-eastus-001** for the virtual network name. |
     | Region | Select the **East US** region. |
 
@@ -69,8 +69,8 @@ This procedure walks you through creating three virtual networks to be connected
     | Resource group | Select the **rg-learn-eastus-001**. |
     | Name | Enter **vnet-learn-prod-eastus-002** and **vnet-learn-hub-eastus-001** for the two virtual networks. |
     | Region | Select **(US) East US** |
-    | vnet-learn-prod-eastus-002 IP addresses | IPv4 address space: 10.1.0.0/16 </br> Subnet name: default </br> Subnet address space: 10.1.0.0/24|
-    | vnet-learn-hub-eastus-001 IP addresses | IPv4 address space: 10.2.0.0/16 </br> Subnet name: default </br> Subnet address space: 10.2.0.0/24|
+    | vnet-learn-prod-eastus-002 IP addresses | IPv4 address space: 10.1.0.0/16 <br> Subnet name: default <br> Subnet address space: 10.1.0.0/24|
+    | vnet-learn-hub-eastus-001 IP addresses | IPv4 address space: 10.2.0.0/16 <br> Subnet name: default <br> Subnet address space: 10.2.0.0/24|
 
 ## Create a virtual network gateway subnet
 
@@ -117,7 +117,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
 ## Create a network group
 
 > [!NOTE]
-> This how-to guide assumes you created an Azure Virtual Network Manager instance using the [quickstart](create-virtual-network-manager-portal.md) guide. The network group in this tutorial is called **ng-learn-prod-eastus-001**.
+> This tutorial assumes you created an Azure Virtual Network Manager instance using the [quickstart](create-virtual-network-manager-portal.md) guide. The network group in this tutorial is called **ng-learn-prod-eastus-001**.
 
 [!INCLUDE [virtual-network-manager-create-network-group](../networking/includes/azure-virtual-network-manager/virtual-network-manager-create-network-group.md)]
 
@@ -183,7 +183,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
 
 Make sure the virtual network gateway has been successfully deployed before deploying the connectivity configuration. If you deploy a hub-and-spoke configuration with **Use the hub as a gateway** enabled and there's no gateway, the deployment fails. For more information, see [use hub as a gateway](concept-connectivity-configuration.md#use-hub-as-a-gateway).
 
-1. Select **Deployments** under *Settings*, then select **Deploy configuration**.
+1. Select **Deployments** under *Settings*, then select **Deploy configurations**.
 
 1. Select the following settings:
 
@@ -202,7 +202,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
 ## Create a security admin configuration
 
-1. Select **Configuration** under *Settings* again, then select **+ Create**, and select **Security admin configuration** from the menu to begin creating a security admin configuration.
+1. Select **Configurations** under *Settings* again, then select **+ Create**, and select **Security admin configuration** from the menu to begin creating a security admin configuration.
 
 1. Enter the name **sac-learn-prod-eastus-001** for the configuration, then select **Next: Rule collections**.
 
