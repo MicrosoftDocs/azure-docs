@@ -43,7 +43,7 @@ Before proceeding, make sure local authentication is enabled on your Event Hubs 
 
 Start by navigating to the [Real-Time hub in Microsoft Fabric](https://app.fabric.microsoft.com/workloads/oneriver/hub?experience=fabric-developer).
 
-Add your event hub as a data source for a new eventstream. For detailed instructions, see [Add a data source to an eventstream](/fabric/real-time-intelligence/add-data-source-eventstream#add-a-data-source-to-an-eventstream). When you add the data source, follow the instructions under [Use the Azure tab to connect to an event hub (recommended)](/fabric/real-time-intelligence/add-data-source-eventstream#use-the-azure-tab-to-connect-to-an-event-hub-recommended) and keep the following notes in mind:
+Add your event hub as a data source for a new eventstream. For detailed instructions, see [Get events from Azure Event Hubs into Real-Time hub](/fabric/real-time-hub/add-source-azure-event-hubs). When you add the data source, follow the instructions under [Use the Azure tab to connect to an event hub (recommended)](/fabric/real-time-hub/add-source-azure-event-hubs#use-the-azure-tab-to-connect-to-an-event-hub-recommended) and keep the following notes in mind when you configure the connection settings:
 
 * Select *destinationeh* from the drop-down for your event hub resource.
 * Select *RootManageSharedAccessKey* from the drop-down for the event hub key.
