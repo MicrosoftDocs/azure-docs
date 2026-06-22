@@ -31,7 +31,7 @@ This sample script shows how to:
 ```azurecli-interactive
 #!/bin/bash
 
-appConfigName=myTestAppConfigStore
+appConfigName=<AppConfigurationStoreName>
 newKey="TestKey"
 refKey="KeyVaultReferenceTestKey"
 uri="[URL to value stored in Key Vault]"

@@ -132,27 +132,27 @@ If you already have an AKS application that reads configuration from a file, you
 
 ### Push the image to Container Registry
 
-1. To sign in to your container registry, run the [az acr login](/cli/azure/acr#az-acr-login) command. The following code signs in to a registry named `myregistry`. Replace that registry name with the name of your registry.
+1. To sign in to your container registry, run the [az acr login](/cli/azure/acr#az-acr-login) command. The following code signs in to a registry named `<ContainerRegistryName>`. Replace that registry name with the name of your registry.
 
     ```azurecli
-    az acr login --name myregistry
+    az acr login --name <ContainerRegistryName>
     ```
 
     The command returns `Login Succeeded` if you successfully sign in.
 
-1. To create a tag called `myregistry.azurecr.io/aspnetapp:v1` for the `aspnetapp` image, use the [docker tag](https://docs.docker.com/reference/cli/docker/image/tag/) command. Replace `myregistry` with the name of your registry.
+1. To create a tag called `<ContainerRegistryName>.azurecr.io/aspnetapp:v1` for the `aspnetapp` image, use the [docker tag](https://docs.docker.com/reference/cli/docker/image/tag/) command. Replace `<ContainerRegistryName>` with the name of your registry.
 
     ```docker
-    docker tag aspnetapp myregistry.azurecr.io/aspnetapp:v1
+    docker tag aspnetapp <ContainerRegistryName>.azurecr.io/aspnetapp:v1
     ```
 
     > [!TIP]
-    > To review the list of your existing Docker images and tags, run `docker image ls`. In this scenario, the output should list at least two images: `aspnetapp` and `myregistry.azurecr.io/aspnetapp`.
+    > To review the list of your existing Docker images and tags, run `docker image ls`. In this scenario, the output should list at least two images: `aspnetapp` and `<ContainerRegistryName>.azurecr.io/aspnetapp`.
 
-1. To upload the image to the container registry, use the [docker push](https://docs.docker.com/reference/cli/docker/image/push/) command. For example, the following command pushes the image to a repository named `aspnetapp` with tag `v1` under the registry `myregistry`:
+1. To upload the image to the container registry, use the [docker push](https://docs.docker.com/reference/cli/docker/image/push/) command. For example, the following command pushes the image to a repository named `aspnetapp` with tag `v1` under the registry `<ContainerRegistryName>`:
 
     ```docker
-    docker push myregistry.azurecr.io/aspnetapp:v1
+    docker push <ContainerRegistryName>.azurecr.io/aspnetapp:v1
     ```
 
 ### Deploy the application
@@ -180,7 +180,7 @@ If you already have an AKS application that reads configuration from a file, you
         spec:
           containers:
           - name: aspnetapp
-            image: myregistry.azurecr.io/aspnetapp:v1
+            image: <ContainerRegistryName>.azurecr.io/aspnetapp:v1
             ports:
             - containerPort: 80
     ```
@@ -203,7 +203,7 @@ If you already have an AKS application that reads configuration from a file, you
 1. To make it possible for kubectl to connect to your AKS cluster, run the following command. It downloads the credentials for your AKS cluster and merges them into the context for your cluster.
 
     ```console
-    az aks get-credentials --name <your-AKS-instance-name> --resource-group <your-AKS-resource-group>
+    az aks get-credentials --name <AksClusterName> --resource-group <AksResourceGroupName>
     ```
 
 1. To deploy the application to the AKS cluster and create the resources, run the following commands:
@@ -258,8 +258,8 @@ Add the following keys and values to the App Configuration store. For each one, 
 
     ```azurecli
     az k8s-extension create --cluster-type managedClusters \
-        --cluster-name <your-AKS-instance-name> \
-        --resource-group <your-AKS-resource-group> \
+        --cluster-name <AksClusterName> \
+        --resource-group <AksResourceGroupName> \
         --name appconfigurationkubernetesprovider \
         --extension-type Microsoft.AppConfiguration
     ```
@@ -271,7 +271,7 @@ Add the following keys and values to the App Configuration store. For each one, 
     Run the following command to obtain access credentials for your AKS cluster. Replace the `name` and `resource-group` parameter values with the corresponding values from your AKS instance.
    
     ```azurecli
-    az aks get-credentials --name <your-AKS-instance-name> --resource-group <your-AKS-resource-group>
+    az aks get-credentials --name <AksClusterName> --resource-group <AksResourceGroupName>
     ```
 
     Install the Helm chart.
@@ -293,7 +293,7 @@ Add the following keys and values to the App Configuration store. For each one, 
     metadata:
       name: appconfigurationprovider-sample
     spec:
-      endpoint: <your-app-configuration-store-endpoint>
+      endpoint: <AppConfigurationEndpoint>
       target:
         configMapName: configmap-created-by-appconfig-provider
         configMapData: 
@@ -301,7 +301,7 @@ Add the following keys and values to the App Configuration store. For each one, 
           key: mysettings.json
       auth:
         workloadIdentity:
-          serviceAccountName: <your-service-account-name>
+          serviceAccountName: <ServiceAccountName>
     ```
 
     Replace the value of the `endpoint` field with the endpoint of your Azure App Configuration store. Proceed to the next step to update the `auth` section with your authentication information.
@@ -336,7 +336,7 @@ Add the following keys and values to the App Configuration store. For each one, 
         spec:
           containers:
           - name: aspnetapp
-            image: myregistry.azurecr.io/aspnetapp:v1
+            image: <ContainerRegistryName>.azurecr.io/aspnetapp:v1
             ports:
             - containerPort: 80
             volumeMounts:
@@ -431,8 +431,8 @@ If you want to uninstall Azure App Configuration Kubernetes Provider but keep yo
 
 ```azurecli
 az k8s-extension delete --cluster-type managedClusters \
-    --cluster-name <your-AKS-instance-name> \
-    --resource-group <your-AKS-resource-group> \
+    --cluster-name <AksClusterName> \
+    --resource-group <AksResourceGroupName> \
     --name appconfigurationkubernetesprovider
 ```
 

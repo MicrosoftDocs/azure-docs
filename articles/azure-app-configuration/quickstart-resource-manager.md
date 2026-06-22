@@ -70,7 +70,7 @@ Two Azure resources are defined in the template:
 > App Configuration allows key-value data access over a [private link](concept-private-endpoint.md) from your virtual network. By default, when the feature is enabled, all requests for your App Configuration data over the public network are denied. Because the ARM template runs outside your virtual network, data access from an ARM template isn't allowed. To allow data access from an ARM template when a private link is used, you can enable public network access by using the following Azure CLI command. It's important to consider the security implications of enabling public network access in this scenario.
 >
 > ```azurecli-interactive
-> az appconfig update -g MyResourceGroup -n MyAppConfiguration --enable-public-network true
+> az appconfig update -g <ResourceGroupName> -n <AppConfigurationStoreName> --enable-public-network true
 > ```
 
 ## Deploy the template

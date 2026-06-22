@@ -148,10 +148,10 @@ spring:
       appconfiguration:
         stores:
          -
-           endpoint: <your-endpoint>
+           endpoint: <AppConfigurationEndpoint>
            selects:
              -
-              snapshot-name: <name-of-your-snapshot>
+              snapshot-name: <SnapshotName>
            trim-key-prefix: 
              - <prefix-to-trim>
 ```

@@ -25,7 +25,7 @@ Open a PowerShell window with admin rights and run `Install-Module -Name Az` to 
 
 ```powershell
 # Delete an App Configuration store
-Remove-AzAppConfigurationStore -Name <store-name> -ResourceGroupName <resource-group-name>
+Remove-AzAppConfigurationStore -Name <AppConfigurationStoreName> -ResourceGroupName <ResourceGroupName>
 ```
 
 ## Script explanation

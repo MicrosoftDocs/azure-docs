@@ -128,19 +128,19 @@ In the previous code, you're manually saving an instance of `IConfigurationRefre
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx Endpoint "<endpoint-of-your-app-configuration-store>"
+    setx Endpoint "<AppConfigurationEndpoint>"
     ```
 
     If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:Endpoint = "<endpoint-of-your-app-configuration-store>"
+    $Env:Endpoint = "<AppConfigurationEndpoint>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export Endpoint='<endpoint-of-your-app-configuration-store>'
+    export Endpoint='<AppConfigurationEndpoint>'
     ```
 
 1. Run the following command to build the console app:
@@ -197,14 +197,14 @@ Logs are output upon configuration refresh and contain detailed information on k
 - The logging category is `Microsoft-Extensions-Configuration-AzureAppConfiguration-Refresh`, which appears before each log. Here are some example logs at each event level: 
     ```console
     [Verbose] Microsoft-Extensions-Configuration-AzureAppConfiguration-Refresh:
-    Key-value read from App Configuration. Change:'Modified' Key:'ExampleKey' Label:'ExampleLabel' Endpoint:'https://examplestore.azconfig.io'
+    Key-value read from App Configuration. Change:'Modified' Key:'ExampleKey' Label:'ExampleLabel' Endpoint:'https://<AppConfigurationStoreName>.azconfig.io'
 
     [Informational] Microsoft-Extensions-Configuration-AzureAppConfiguration-Refresh:
     Setting updated. Key:'ExampleKey'
 
     [Warning] Microsoft-Extensions-Configuration-AzureAppConfiguration-Refresh:
     A refresh operation failed while resolving a Key Vault reference.
-    Key vault error. ErrorCode:'SecretNotFound' Key:'ExampleKey' Label:'ExampleLabel' Etag:'6LaqgBQM9C_Do2XyZa2gAIfj_ArpT52-xWwDSLb2hDo' SecretIdentifier:'https://examplevault.vault.azure.net/secrets/ExampleSecret'
+    Key vault error. ErrorCode:'SecretNotFound' Key:'ExampleKey' Label:'ExampleLabel' Etag:'6LaqgBQM9C_Do2XyZa2gAIfj_ArpT52-xWwDSLb2hDo' SecretIdentifier:'https://<KeyVaultName>.vault.azure.net/secrets/ExampleSecret'
     ```
 
 > [!NOTE]

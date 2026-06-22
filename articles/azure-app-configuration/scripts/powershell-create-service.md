@@ -25,13 +25,13 @@ Open a PowerShell window with admin rights and run `Install-Module -Name Az` to 
 
 ```powershell
 # Create a resource group 
-New-AzResourceGroup -Name <resource-group-name> -Location <location>
+New-AzResourceGroup -Name <ResourceGroupName> -Location <Location>
 
 # Create an App Configuration store
-New-AzAppConfigurationStore -Name <store-name> -ResourceGroupName <resource-group-name> -Location <location> -Sku <sku>
+New-AzAppConfigurationStore -Name <AppConfigurationStoreName> -ResourceGroupName <ResourceGroupName> -Location <Location> -Sku <Sku>
 
 # Get the App Configuration connection string 
-Get-AzAppConfigurationStoreKey -Name <store-name> -ResourceGroupName <resource-group-name>
+Get-AzAppConfigurationStoreKey -Name <AppConfigurationStoreName> -ResourceGroupName <ResourceGroupName>
 ```
 
 ## Clean up resources
@@ -39,7 +39,7 @@ Get-AzAppConfigurationStoreKey -Name <store-name> -ResourceGroupName <resource-g
 Clean up the resources you deployed by deleting the resource group.
 
 ```powershell
-Remove-AzResourceGroup -Name <resource-group-name> 
+Remove-AzResourceGroup -Name <ResourceGroupName> 
 ```
 
 ## Script explanation

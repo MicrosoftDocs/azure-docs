@@ -41,14 +41,14 @@ The following steps walk you through creating an App Configuration store and ass
 1. Create an App Configuration store using the CLI. For more examples of how to use the CLI with Azure App Configuration, see [App Configuration CLI samples](scripts/cli-create-service.md):
 
     ```azurecli-interactive
-    az group create --name myResourceGroup --location eastus
-    az appconfig create --name myTestAppConfigStore --location eastus --resource-group myResourceGroup --sku Free
+    az group create --name <ResourceGroupName> --location eastus
+    az appconfig create --name <AppConfigurationStoreName> --location eastus --resource-group <ResourceGroupName> --sku Free
     ```
 
 1. Run the [az appconfig identity assign] command to create the system-assigned identity for this configuration store:
 
     ```azurecli-interactive
-    az appconfig identity assign --name myTestAppConfigStore --resource-group myResourceGroup
+    az appconfig identity assign --name <AppConfigurationStoreName> --resource-group <ResourceGroupName>
     ```
 
 ## Adding a user-assigned identity
@@ -77,14 +77,14 @@ The following steps walk you through creating a user-assigned identity and an Ap
 1. Create an App Configuration store using the CLI. For more examples of how to use the CLI with Azure App Configuration, see [App Configuration CLI samples](scripts/cli-create-service.md):
 
     ```azurecli-interactive
-    az group create --name myResourceGroup --location eastus
-    az appconfig create --name myTestAppConfigStore --location eastus --resource-group myResourceGroup --sku Free
+    az group create --name <ResourceGroupName> --location eastus
+    az appconfig create --name <AppConfigurationStoreName> --location eastus --resource-group <ResourceGroupName> --sku Free
     ```
 
-1. Create a user-assigned identity called `myUserAssignedIdentity` using the CLI.
+1. Create a user-assigned identity called `<UserAssignedIdentityName>` using the CLI.
 
     ```azurecli-interactive
-    az identity create --resource-group myResourceGroup --name myUserAssignedIdentity
+    az identity create --resource-group <ResourceGroupName> --name <UserAssignedIdentityName>
     ```
 
     In the output of this command, note the value of the `id` property.
@@ -92,7 +92,7 @@ The following steps walk you through creating a user-assigned identity and an Ap
 1. Run the [az appconfig identity assign] command to assign the new user-assigned identity to this configuration store. Use the value of the `id` property that you noted in the previous step.
 
     ```azurecli-interactive
-    az appconfig identity assign --name myTestAppConfigStore --resource-group myResourceGroup --identities /subscriptions/[subscription id]/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity
+    az appconfig identity assign --name <AppConfigurationStoreName> --resource-group <ResourceGroupName> --identities /subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<UserAssignedIdentityName>
     ```
 
 ## Removing an identity

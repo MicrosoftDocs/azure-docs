@@ -29,7 +29,7 @@ This sample script creates a new instance of Azure App Configuration using the A
 ```azurecli-interactive
 #!/bin/bash
 
-appConfigName=myTestAppConfigStore
+appConfigName=<AppConfigurationStoreName>
 #resource name must be lowercase
 myAppConfigStoreName=${appConfigName,,}
 myResourceGroupName=$appConfigName"Group"

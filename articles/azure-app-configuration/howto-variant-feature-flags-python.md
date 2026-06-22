@@ -473,13 +473,13 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AzureAppConfigurationEndpoint "<endpoint-of-your-app-configuration-store>"
+    setx AzureAppConfigurationEndpoint "<AppConfigurationEndpoint>"
     ```
 
     If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:AzureAppConfigurationEndpoint = "<endpoint-of-your-app-configuration-store>"
+    $Env:AzureAppConfigurationEndpoint = "<AppConfigurationEndpoint>"
     ```
 
     If you use macOS or Linux, run the following command:

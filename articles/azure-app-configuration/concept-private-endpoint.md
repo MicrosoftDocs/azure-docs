@@ -68,7 +68,7 @@ Azure relies on DNS resolution to route connections from the virtual network to 
 > By default, when you add a private endpoint to your App Configuration store, all requests for your App Configuration data over the public network are denied. You can enable public network access by using the following Azure CLI command. It's important to consider the security implications of enabling public network access in this scenario.
 >
 > ```azurecli-interactive
-> az appconfig update --resource-group <resource-group-name> --name <App-Configuration-store-name> --enable-public-network true
+> az appconfig update --resource-group <ResourceGroupName> --name <AppConfigurationStoreName> --enable-public-network true
 > ```
 
 ## DNS changes for private endpoints
@@ -79,8 +79,8 @@ When you resolve the endpoint URL from within the virtual network that hosts the
 
 If you use a custom DNS server on your network, you need to configure it to delegate your `privatelink` subdomain to the private DNS zone for the virtual network. Alternatively, you can configure the A records for your store's private link URLs. Those A records use the following formats:
 
-- `<App-Configuration-store-name>.privatelink.azconfig.io` for your origin store.
-- `<App-Configuration-store-name>-<replica-name>.privatelink.azconfig.io` for each replica if geo-replication is enabled. Each private endpoint has a unique private IP address.
+- `<AppConfigurationStoreName>.privatelink.azconfig.io` for your origin store.
+- `<AppConfigurationStoreName>-<ReplicaName>.privatelink.azconfig.io` for each replica if geo-replication is enabled. Each private endpoint has a unique private IP address.
 
 ## Pricing
 

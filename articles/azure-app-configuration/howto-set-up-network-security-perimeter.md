@@ -40,28 +40,28 @@ Use the Azure CLI to create an association between your App Configuration store 
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Run the following command to get the resource ID of your App Configuration store. Replace `<app-config-store-name>` and `<resource-group>` with the name of your store and resource group.
+1. Run the following command to get the resource ID of your App Configuration store. Replace `<AppConfigurationStoreName>` and `<ResourceGroupName>` with the name of your store and resource group.
 
     ```azurecli-interactive
-    az appconfig show --name <app-config-store-name> --resource-group <resource-group> --query id --output tsv
+    az appconfig show --name <AppConfigurationStoreName> --resource-group <ResourceGroupName> --query id --output tsv
     ```
 
-    Note down the resource ID from the output. For example: `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MyResourceGroup/providers/Microsoft.AppConfiguration/configurationStores/MyAppConfigStore`.
+    Note down the resource ID from the output. For example: `/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.AppConfiguration/configurationStores/<AppConfigurationStoreName>`.
 
 1. Run the following command to associate your App Configuration store with the network security perimeter. Replace the placeholder values with your own information.
 
     ```azurecli-interactive
-    az network perimeter association create --name <association-name> --perimeter-name <nsp-name> -g <nsp-resource-group> --access-mode Enforced --private-link-resource "{id:<app-config-resource-id>}" --profile "{id:<nsp-profile-resource-id>}"
+    az network perimeter association create --name <AssociationName> --perimeter-name <NspName> -g <NspResourceGroupName> --access-mode Enforced --private-link-resource "{id:<AppConfigurationResourceId>}" --profile "{id:<NspProfileResourceId>}"
     ```
 
     > [!div class="mx-tdBreakAll"]
     > | Placeholder | Description | Example |
     > |---|---|---|
-    > | `<association-name>` | A name for the new association resource. | `app-config-association` |
-    > | `<nsp-name>` | The name of your network security perimeter. | `MyNSP` |
-    > | `<nsp-resource-group>` | The resource group of your network security perimeter. | `MyNSPResourceGroup` |
-    > | `<app-config-resource-id>` | The resource ID of your App Configuration store from the previous step. | `/subscriptions/.../MyAppConfigStore` |
-    > | `<nsp-profile-resource-id>` | The resource ID of the network security perimeter profile to associate with. | `/subscriptions/.../profiles/defaultProfile` |
+    > | `<AssociationName>` | A name for the new association resource. | `app-config-association` |
+    > | `<NspName>` | The name of your network security perimeter. | `MyNSP` |
+    > | `<NspResourceGroupName>` | The resource group of your network security perimeter. | `MyNSPResourceGroup` |
+    > | `<AppConfigurationResourceId>` | The resource ID of your App Configuration store from the previous step. | `/subscriptions/.../MyAppConfigStore` |
+    > | `<NspProfileResourceId>` | The resource ID of the network security perimeter profile to associate with. | `/subscriptions/.../profiles/defaultProfile` |
 
     > [!TIP]
     > The `--access-mode` parameter can be set to `Learning` (called **Transition** mode in the Azure portal and elsewhere in this documentation) or `Enforced`. Start in Transition (`Learning`) mode to validate your access rules before switching to `Enforced` mode. For more information, see [Transitioning to a network security perimeter](./concept-network-security-perimeter.md#transitioning-to-a-network-security-perimeter).
@@ -82,7 +82,7 @@ After associating the App Configuration store with the network security perimete
 Run the following command to view the network security perimeter configuration for your App Configuration store.
 
 ```azurecli-interactive
-az appconfig network-security-perimeter-configuration list --name <app-config-store-name> --resource-group <resource-group>
+az appconfig network-security-perimeter-configuration list --name <AppConfigurationStoreName> --resource-group <ResourceGroupName>
 ```
 
 ---
@@ -96,15 +96,15 @@ Use the Azure CLI to remove an existing association between your App Configurati
 - Run the following command to dissociate your App Configuration store from the network security perimeter. Replace the placeholder values with your own information.
 
     ```azurecli-interactive
-    az network perimeter association delete --name <association-name> --perimeter-name <nsp-name> --resource-group <nsp-resource-group>
+    az network perimeter association delete --name <AssociationName> --perimeter-name <NspName> --resource-group <NspResourceGroupName>
     ```
 
     > [!div class="mx-tdBreakAll"]
     > | Placeholder | Description | Example |
     > |---|---|---|
-    > | `<association-name>` | The name of the association resource to delete. | `my-association-name` |
-    > | `<nsp-name>` | The name of your network security perimeter. | `my-nsp` |
-    > | `<nsp-resource-group>` | The resource group of your network security perimeter. | `my-resource-group` |
+    > | `<AssociationName>` | The name of the association resource to delete. | `my-association-name` |
+    > | `<NspName>` | The name of your network security perimeter. | `my-nsp` |
+    > | `<NspResourceGroupName>` | The resource group of your network security perimeter. | `my-resource-group` |
 
 ---
 

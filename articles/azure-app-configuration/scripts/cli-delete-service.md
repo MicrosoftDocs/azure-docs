@@ -28,8 +28,8 @@ This sample script deletes an instance of Azure App Configuration using the Azur
 ```azurecli-interactive
 #/bin/bash
 
-# Delete an App Configuration store named myTestAppConfigStore from the Resource Group myResourceGroup
-az appconfig delete --name myTestAppConfigStore --resource-group myResourceGroup
+# Delete an App Configuration store named <AppConfigurationStoreName> from the Resource Group <ResourceGroupName>
+az appconfig delete --name <AppConfigurationStoreName> --resource-group <ResourceGroupName>
 ```
 
 [!INCLUDE [cli-script-cleanup](../../../includes/cli-script-clean-up.md)]

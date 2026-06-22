@@ -94,7 +94,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     Example: import all key-values and feature flags from a JSON file, apply the label "prod", and append the prefix "TestApp". Add the "application/json" content type.
 
     ```azurecli
-    az appconfig kv import --name my-app-config-store --source file --path D:/abc.json --format json --separator ; --prefix TestApp: --label prod --content-type application/json
+    az appconfig kv import --name <AppConfigurationStoreName> --source file --path D:/abc.json --format json --separator ; --prefix TestApp: --label prod --content-type application/json
     ```
 
 1. The command line displays a list of the coming changes. Confirm the import by selecting `y`.
@@ -171,7 +171,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     Example: import key-values and feature flags with the label "prod" from another App Configuration, and assign them the label "new". Add the "application/json" content type.
 
     ```azurecli
-    az appconfig kv import --name my-app-config-store --source appconfig --src-name my-source-app-config --src-label prod --label new --content-type application/json
+    az appconfig kv import --name <AppConfigurationStoreName> --source appconfig --src-name <SourceAppConfigurationStoreName> --src-label prod --label new --content-type application/json
     ```
 
 1. The command line displays a list of the coming changes. Confirm the import by selecting `y`.
@@ -242,12 +242,12 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     | `--label`        | Optional. Enter a label that will be assigned to your imported key-values. If you don't specify a label, the null label will be assigned to your key-values.                                      | `prod`                    |
     | `--content-type` | Optional. Enter appconfig/kvset or application/json to state that the imported content consists of a Key Vault reference or a JSON file.                                                   | `application/json` |
 
-    To get the value for `--appservice-account`, use the command `az webapp show --resource-group <resource-group> --name <resource-name>`.
+    To get the value for `--appservice-account`, use the command `az webapp show --resource-group <ResourceGroupName> --name <AppServiceName>`.
 
     Example: import all application settings from your App Service as key-values with the label "prod", to your App Configuration store, and add a "TestApp:" prefix.
 
     ```azurecli
-    az appconfig kv import --name my-app-config-store --source appservice --appservice-account /subscriptions/123/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/my-app-service --label prod --prefix TestApp:
+    az appconfig kv import --name <AppConfigurationStoreName> --source appservice --appservice-account /subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Web/sites/<AppServiceName> --label prod --prefix TestApp:
     ```
 
 1. The command line displays a list of the coming changes. Confirm the import by selecting `y`.
@@ -293,12 +293,12 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     | `--separator`    | Optional. The separator is the delimiter for flattening the key-values. It's required for exporting hierarchical structure and will be ignored for property files and feature flags. Select one of the following options: `.`, `,`, `:`, `;`, `/`, `-`, `_`, `—`. | `;`              |
 
 
-    To get the value for `--aks-cluster`, use the command `az aks show --resource-group <resource-group> --name <aks-cluster-name>`.
+    To get the value for `--aks-cluster`, use the command `az aks show --resource-group <ResourceGroupName> --name <AksClusterName>`.
 
     Example: import all settings from your AKS Configmap as key-values with the label "test", to your App Configuration store, and add a "TestApp:" prefix.
 
     ```azurecli
-    az appconfig kv import --name my-app-config-store --source aks --aks-cluster /subscriptions/123/resourceGroups/my-resource-group/providers/Microsoft.ContainerService/managedClusters/my-aks-cluster --configmap-namespace default --configmap-name my-configmap --label test --prefix TestApp:
+    az appconfig kv import --name <AppConfigurationStoreName> --source aks --aks-cluster /subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.ContainerService/managedClusters/<AksClusterName> --configmap-namespace default --configmap-name <ConfigMapName> --label test --prefix TestApp:
     ```
 
 1. The command line displays a list of the coming changes. Confirm the import by selecting `y`.
@@ -381,7 +381,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     Example: export all key-values and feature flags with label "prod" to a JSON file.
 
     ```azurecli
-    az appconfig kv export --name my-app-config-store --label prod --destination file --path D:/abc.json --format json --separator ; --prefix TestApp:
+    az appconfig kv export --name <AppConfigurationStoreName> --label prod --destination file --path D:/abc.json --format json --separator ; --prefix TestApp:
     ```
 
 1. The command line displays a list of key-values getting exported to the file. Confirm the export by selecting `y`.
@@ -468,7 +468,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     Example: export key-values and feature flags with the label "prod" to another App Configuration store and add the destination label "new".
 
     ```azurecli
-    az appconfig kv export --name my-app-config-store --destination appconfig --dest-name my-other-app-config-store --dest-label new --label prod
+    az appconfig kv export --name <AppConfigurationStoreName> --destination appconfig --dest-name <TargetAppConfigurationStoreName> --dest-label new --label prod
     ```
 
 1. The command line displays a list of key-values getting exported to the files. Confirm the export by selecting `y`.
@@ -545,7 +545,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     | `--appservice-account` | Enter the App Service's ARM ID or use the name of the App Service, if it's in the same subscription and resource group as the App Configuration.                   | `/subscriptions/123/resourceGroups/my-as-resource-group/providers/Microsoft.Web/sites/my-app-service` or `my-app-service` |
     | `--label`              | Optional. Enter a label to export key-values and feature flags with this label. If you don't specify a label, by default, you'll only export key-values and feature flags with no label. | `prod`                                                                                                                    |
 
-    To get the value for `--appservice-account`, use the command `az webapp show --resource-group <resource-group> --name <resource-name>`.
+    To get the value for `--appservice-account`, use the command `az webapp show --resource-group <ResourceGroupName> --name <AppServiceName>`.
 
 1. Optionally also add a prefix:
 
@@ -556,7 +556,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     Example: export all key-values with the label "prod" to an App Service application and trim the prefix "TestApp".
 
     ```azurecli
-    az appconfig kv export --name my-app-config-store --destination appservice --appservice-account /subscriptions/123/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/my-app-service/config/web --label prod --prefix TestApp:
+    az appconfig kv export --name <AppConfigurationStoreName> --destination appservice --appservice-account /subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Web/sites/<AppServiceName>/config/web --label prod --prefix TestApp:
     ```
 
     The command line displays a list of key-values getting exported to an App Service resource. Confirm the export by selecting `y`.
@@ -574,7 +574,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
     Example: export all key-values with the label "prod" as app configuration references to an App Service application.
 
     ```azurecli
-    az appconfig kv export --name my-app-config-store --destination appservice --appservice-account "/subscriptions/123/resourceGroups/my-resource-group/providers/Microsoft.Web/sites/my-app-service" --label prod --export-as-reference
+    az appconfig kv export --name <AppConfigurationStoreName> --destination appservice --appservice-account "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Web/sites/<AppServiceName>" --label prod --export-as-reference
     ```
 
     The command line displays a list of key-values getting exported as app configuration references to an App Service resource. Confirm the export by selecting `y`.

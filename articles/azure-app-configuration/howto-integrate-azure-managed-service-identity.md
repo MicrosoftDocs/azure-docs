@@ -121,11 +121,11 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
 1. Find the endpoint to your App Configuration store. This URL is listed on the **Access keys** tab for the store in the Azure portal.
 
-1. Open the *appsettings.json* file and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your App Configuration store.
+1. Open the *appsettings.json* file and add the following script. Replace *\<AppConfigurationEndpoint>*, including the brackets, with the URL to your App Configuration store.
 
     ```json
     "AppConfig": {
-        "Endpoint": "<service_endpoint>"
+        "Endpoint": "<AppConfigurationEndpoint>"
     }
     ```
 
@@ -149,7 +149,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
     > [!NOTE]
     > If you want to use a **user-assigned managed identity**, be sure to specify the `clientId` when creating the [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential).
     >```csharp
-    >new ManagedIdentityCredential("<your_clientId>")
+    >new ManagedIdentityCredential("<ClientId>")
     >```
     >As explained in the [Managed Identities for Azure resources FAQs](../active-directory/managed-identities-azure-resources/known-issues.md), there is a default way to resolve which managed identity is used. In this case, the Azure Identity library enforces you to specify the desired identity to avoid possible runtime issues in the future. For instance, if a new user-assigned managed identity is added or if the system-assigned managed identity is enabled. So, you will need to specify the `clientId` even if only one user-assigned managed identity is defined, and there is no system-assigned managed identity.
 
@@ -162,15 +162,15 @@ The following steps describe how to assign the App Configuration Data Reader rol
 1. Open `application.properties`, remove the connection-string property and replace it with endpoint for System Assigned Identity:
 
 ```properties
-spring.cloud.azure.appconfiguration.stores[0].endpoint=<service_endpoint>
+spring.cloud.azure.appconfiguration.stores[0].endpoint=<AppConfigurationEndpoint>
 ```
 
 For User Assigned Identity:
 
 ```properties
-spring.cloud.azure.appconfiguration.stores[0].endpoint=<service_endpoint>
+spring.cloud.azure.appconfiguration.stores[0].endpoint=<AppConfigurationEndpoint>
 spring.cloud.azure.credential.managed-identity-enabled= true
-spring.cloud.azure.credential.client-id= <client_id>
+spring.cloud.azure.credential.client-id= <ClientId>
 ```
 
 > [!NOTE]
