@@ -137,7 +137,7 @@ control (Azure RBAC)](../../role-based-access-control/overview.md).
 You don't need a dedicated Azure RBAC permission to read or view a blueprint definition. Blueprint
 definitions are intended to be discoverable by the principals they govern, so any authenticated principal in
 the tenant can list and read management group-scoped blueprint definitions, their versions, and their
-artifacts—including through the REST API—even without a role assignment on that management group. Reading a
+artifacts - including through the REST API - even without a role assignment on that management group. Reading a
 blueprint definition that's stored at a subscription requires read access to that subscription. Creating,
 publishing, assigning, updating, and deleting blueprints always require the permissions described in this
 article.
