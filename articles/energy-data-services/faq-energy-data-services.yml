@@ -8,7 +8,7 @@ metadata:
   ms.author: bselvaraj
   author: bharathim
   manager: priyabratp
-  ms.reviewer: ppadhi  
+  ms.reviewer: ppadhi
 title: Common questions about Azure Data Manager for Energy
 summary: This article answers commonly asked questions about Azure Data Manager for Energy.
 sections:
@@ -16,7 +16,7 @@ sections:
       questions:
         - question: What is Azure Data Manager for Energy?
           answer: >
-            Azure Data Manager for Energy is a fully managed, cloud-based data platform solution for the energy industry. It's an enterprise-grade service that's based on the OSDU&reg; Data Platform. It brings together the security and trust of the Microsoft Azure cloud platform and the domain expertise of SLB.
+            Azure Data Manager for Energy is a fully managed, cloud-based data platform solution for the energy industry. This enterprise-grade service is based on the OSDU&reg; Data Platform. It brings together the security and trust of the Microsoft Azure cloud platform and the domain expertise of SLB.
 
     - name: Access
       questions:
@@ -24,29 +24,29 @@ sections:
           answer: >
             Azure Data Manager for Energy is available to all customers and partners who have a valid Azure subscription. You can create an instance by going to Azure Marketplace and searching for **Azure Data Manager for Energy**.
 
-    - name: Legal Tags
+    - name: Legal tags
       questions:
-        - question: Why cannot the Country Of Origin (COO) specific configuration be updated by the customer? 
+        - question: Why can't customers update the specific configuration for country of origin? 
           answer: >
-            The OSDU&reg; platform does not offer APIs for making country/region specific configuration changes. These configuration settings are stored in .json files within the legal service container, and any changes require a service restart to take effect. Additionally, the Azure Data Manager for Energy service architecture does not expose the underlying infrastructure to customers, preventing them from making these changes directly.
+            The OSDU&reg; platform doesn't offer APIs for making country/region-specific configuration changes. These configuration settings are stored in .json files within the legal service container, and any changes require a service restart to take effect. The Azure Data Manager for Energy service architecture also doesn't expose the underlying infrastructure to customers, which prevents them from making these changes directly.
 
-    - name: External Data Services 
+    - name: External Data Services
       questions:
-        - question:  What is the impact of data sharing across tenancy boundaries on security, privacy, and compliance?
+        - question:  What's the effect of data sharing across tenancy boundaries on security, privacy, and compliance?
           answer: >
-            Any data transferred across tenancy boundaries by the data provider and data consumer is the responsibility of the data provider and the data consumer. Microsoft will not store or process customer data outside the customer-specified Geo without your authorization. The data provider and consumer can use Customer Managed Encryption Keys (CMEK) and Private Links to secure data at rest and during transit.
-        - question: How are the network bandwidth/data transfer charges handled with EDS usage?
+            Any data transferred across tenancy boundaries by the data provider and data consumer is the responsibility of the data provider and the data consumer. Microsoft doesn't store or process customer data outside the customer-specified geography without your authorization. The data provider and consumer can use customer-managed encryption keys and private links to secure data at rest and during transit.
+        - question: How are the network bandwidth/data transfer charges handled with External Data Services usage?
           answer: >
-            The deployment topology decided by the data provider and data consumer will determine the network bandwidth/data transfer costs.
-        - question: Would data integrity be maintained when data provider deletes source data?
+            The deployment topology decided by the data provider and data consumer determines the network bandwidth/data transfer costs.
+        - question: Would data integrity be maintained when the data provider deletes source data?
           answer: > 
-            Currently, EDS does not support reconciling deleted data therefore deleting data at the data provider’s level may result in inconsistent records at the data consumer’s level.
-        - question: What is the impact of secret key rotation at the data consumer’s end?
+            Currently, External Data Services doesn't support reconciling deleted data, so deleting data at the data provider's level might result in inconsistent records at the data consumer's level.
+        - question: What's the effect of secret key rotation at the data consumer's end?
           answer: > 
-            Key rotation is fully supported therefore it will not have any impact on EDS functionality.
-        - question: When will EDS be generally available on Azure Data Manager for Energy?
+            Key rotation is fully supported, so it doesn't have an effect on External Data Services functionality.
+        - question: When will External Data Services be generally available on Azure Data Manager for Energy?
           answer: >
-            EDS is a preview feature in Azure Data Manager for Energy. We wish to learn from customer implementation of the EDS preview feature to ensure the functionality, performance, and scalability needs are met, before we make the feature generally available.
+            External Data Services is a preview feature in Azure Data Manager for Energy. We want to learn from customer implementation of the External Data Services preview feature to ensure that functionality, performance, and scalability needs are met before the feature is generally available.
 
 
     - name: Data residency
@@ -57,7 +57,7 @@ sections:
             
     - name: Pricing and billing
       questions:
-        - question: Where can I learn about the pricing for Azure Data Manager for Energy?
+        - question: Where can I learn about pricing for Azure Data Manager for Energy?
           answer: >
             Go to the [Azure Data Manager for Energy pricing page](https://aka.ms/adme-pricing). 
           
@@ -67,7 +67,7 @@ sections:
 
         - question: Does Azure Data Manager for Energy charge even if the instance is idle and not being used?
           answer: >
-            Yes. The fixed instance fee for Azure Data Manager for Energy is applicable for all active instances. It's charged even if the instance is idle or running with no usage. 
+            Yes. The fixed instance fee for Azure Data Manager for Energy applies to all active instances. The fee is charged even if the instance is idle or running with no usage. 
 
         - question: Are there any charges for data storage?
           answer: >
@@ -79,75 +79,83 @@ sections:
            
         - question: Will I be charged for Azure Data Manager for Energy separately from the applications that I use on top of the platform?
           answer: >
-            Pricing for Azure Data Manager for Energy is separate from other applications that you build or use on the platform.  
+            Pricing for Azure Data Manager for Energy is separate from other applications that you build or use on the platform.
                   
         - question: Do prices differ regionally?
           answer: >
-            Pricing for Azure Data Manager for Energy does vary by region. To understand regional differences, select a region and currency by using the pricing filters in the pricing calculator.  
+            Pricing for Azure Data Manager for Energy varies by region. To understand regional differences, select a region and currency by using the pricing filters in the pricing calculator.
 
     - name: Support policies
       questions:
         - question: How do I raise a support request for Azure Data Manager for Energy?
           answer: > 
-            In the Azure portal, search for **Support.** Select **Help + Support** > **Create a support request**. You can select **Azure Data Manager for Energy** in the service option to raise a bug with Azure Data Manager for Energy.
+            In the Azure portal, search for **Support**. Select **Help + Support** > **Create a support request**. You can select **Azure Data Manager for Energy** in the service option to raise a bug with Azure Data Manager for Energy.
 
     - name: Service updates
       questions:
         - question: How do I get the latest updates on Azure Data Manager for Energy?
           answer: > 
-            Azure Data Manager for Energy is a fully managed service that's based on the OSDU&reg; Data Platform. Microsoft fully manages the underlying infrastructure, security updates, new features, and upgrades to new OSDU™ versions.
+            Azure Data Manager for Energy is a fully managed service that's based on the OSDU&reg; Data Platform. Microsoft fully manages the underlying infrastructure, security updates, new features, and upgrades to new OSDU&reg versions.
             
         - question: Can I move an Azure Data Manager for Energy resource from one subscription or resource group to another? 
           answer: > 
             Currently, you can't move an Azure Data Manager for Energy resource from one subscription or resource group to another. Instead, you can delete the existing Azure Data Manager for Energy instance in the current resource group or subscription, and then create a new Azure Data Manager for Energy instance in the target resource group or subscription. Then, reingest the data into the new instance.
 
-    - name: Analytics Consumption Zone (ACZ)
+    - name: Analytics Consumption Zone
       questions:
-        - question: How do I get access to ACZ during the preview?
+        - question: How do I get access to Analytics Consumption Zone (ACZ) during the preview?
           answer: >
-            ACZ access requires allowlisting during the preview. Follow the step-by-step guidance in [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md) and contact your Microsoft representative to get ACZ enabled on your Azure Data Manager for Energy resource.
+            ACZ access requires the use of allow lists during the preview. Follow the step-by-step guidance in [Enable Analytics Consumption Zone](how-to-enable-analytics-consumption-zone.md), and contact your Microsoft representative to get ACZ enabled on your Azure Data Manager for Energy resource.
 
-        - question: Is there a portal experience to create ACZ and how many can I create?
+        - question: Is there a portal experience to create ACZ instances, and how many can I create?
           answer: >
-            No. During preview, you can't create or manage ACZ in the Azure portal. Use the REST APIs instead. You can create up to three ACZs per data partition. See [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md) for details.
+            No. During preview, you can't create or manage ACZ instances in the Azure portal. Use the REST APIs instead. You can create up to three ACZ instances per data partition. For more information, see [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md).
 
-        - question: Can I change the entity types in an ACZ after creation?
+        - question: Can I change the entity types in an ACZ instance after creation?
           answer: >
-            No. You can't modify the entity type configuration of an existing ACZ. To change the catalog kinds or Wellbore DDMS kinds, delete the existing ACZ and create a new one with the updated configuration.
+            No. You can't modify the entity type configuration of an existing ACZ instance. To change the catalog kinds or Wellbore Domain Data Management Service (DDMS) kinds, delete the existing ACZ instance and create a new one with the updated configuration.
 
-        - question: Can I modify the ACZ data directly in ADLS Gen2?
+        - question: Can I modify the ACZ data directly in Azure Data Lake Storage Gen2?
           answer: >
-            No. ACZ is a one-way, read-only sync from Azure Data Manager for Energy to ADLS Gen2. Do not modify, delete, or add files directly in the ACZ folders in ADLS Gen2. Manual changes to ACZ data corrupt the sync and cause data inconsistencies because ACZ manages all Delta Lake operations including transaction logs, checkpoints, and compaction. For analytics and reporting, treat the exported data as read-only. All data modifications must occur in Azure Data Manager for Energy.
+            No. ACZ is a one-way, read-only sync from Azure Data Manager for Energy to Data Lake Storage Gen2. Don't modify, delete, or add files directly in the ACZ folders in Data Lake Storage Gen2. Manual changes to ACZ data corrupt the sync and cause data inconsistencies because ACZ manages all Delta Lake operations, including transaction logs, checkpoints, and compaction. For analytics and reporting, treat the exported data as read-only. All data modifications must occur in Azure Data Manager for Energy.
 
-        - question: What happens to the data in ADLS if I delete an ACZ?
+        - question: What happens to the data in Data Lake Storage Gen2 if I delete an ACZ instance?
           answer: >
-            When you delete an ACZ, the sync stops and ACZ removes the configuration. Data already in your ADLS Gen2 storage account stays intact. You keep full ownership and control of the exported data.
+            When you delete an ACZ instance, the sync stops and ACZ removes the configuration. Data already in your Data Lake Storage Gen2 storage account stays intact. You keep full ownership and control of the exported data.
 
         - question: Can ACZ sync data from Reservoir DDMS, Seismic Store DDMS, or Rock and Fluid Samples DDMS?
           answer: >
-            No. During preview, ACZ supports only catalog kinds and Wellbore DDMS kinds. Catalog kinds include master data and reference data from the Storage service. ACZ doesn't yet support Reservoir DDMS, Seismic Store DDMS, or RAFS DDMS.
+            No. During preview, ACZ supports only catalog kinds and Wellbore DDMS kinds. ACZ doesn't yet support Reservoir DDMS, Seismic Store DDMS, or Rock and Fluid Samples DDMS.
 
-        - question: Are ADME entitlements carried over to the ADLS Gen2 storage account?
+        - question: Are Azure Data Manager for Energy entitlements carried over to the Data Lake Storage Gen2 storage account?
           answer: >
-            No. ACZ doesn't carry over ADME entitlements to ADLS Gen2. ACZ exports all records that match your entity filters. Per-record entitlements don't apply. Use Azure role-based access control and ADLS Gen2 permissions to secure the exported data.
+            No. ACZ doesn't carry over Azure Data Manager for Energy entitlements to Data Lake Storage Gen2. ACZ exports all records that match your entity filters. Per-record entitlements don't apply. Use Azure role-based access control and Data Lake Storage Gen2 permissions to secure the exported data.
 
-        - question: What telemetry and monitoring capabilities are available during the ACZ Preview?
+        - question: What telemetry and monitoring capabilities are available during the ACZ preview?
           answer: >
-            During the ACZ Preview, the following status indicators are available through the ACZ API: **ACZ Status** indicates the overall state of the Analytics Consumption Zone (for example, `ACTIVE`). **Historical Snapshot Status** indicates the progress of the initial data sync (for example, `PROCESSING`, `COMPLETED`). More detailed telemetry and monitoring capabilities, such as sync progress metrics, error diagnostics, and integration with Azure Monitor, are planned for General Availability (GA).
+            During the ACZ preview, the following status indicators are available through the ACZ API:
 
-        - question: What are the known issues in the ACZ Preview release?
+            * **ACZ status**: Indicates the overall state of the ACZ instance (for example, `ACTIVE`).</br>
+
+            * **Historical snapshot status**: Indicates the progress of the initial data sync (for example, `PROCESSING` or `COMPLETED`). 
+            
+            More detailed telemetry and monitoring capabilities, such as sync progress metrics, error diagnostics, and integration with Azure Monitor, are planned for general availability.
+
+        - question: What are the known issues in the ACZ preview release?
           answer: >
-            - During preview, you can't create a new ACZ in the same data partition while another ACZ has a historical snapshot in `PROCESSING` state. Wait for the in-progress snapshot to complete before you create another ACZ in that data partition.
+            During preview:
+            
+            * ACZ prohibits you from creating a new ACZ instance in the same data partition while another ACZ instance has a historical snapshot in the `PROCESSING` state. Wait for the in-progress snapshot to finish before you create another ACZ in that data partition.</br>
+            
+            * ACZ delete is allowed when a historical snapshot is in the `PROCESSING` state. This action might lead to data inconsistencies in ACZ data.</br>
 
-            - During preview, ACZ delete is allowed when historical snapshot is in `PROCESSING` state. This action may lead to data inconsistencies in ACZ data.
+            * ACZ supports a maximum of 100 kinds.</br>
 
-            - During preview, ACZ supports max 100 kinds.
+            * ACZ is available only on Developer tier instances. Standard tier instances aren't supported.
 
-            - During preview, ACZ is only available on Developer Tier instances. Standard Tier instances are not supported.
-
-        - question: How does ACZ differ from the Geospatial Consumption Zone (GCZ)?
+        - question: How does ACZ differ from Geospatial Consumption Zone (GCZ)?
           answer: >
-            ACZ exports ADME entity data to ADLS Gen2 in Delta Parquet format for analytics and reporting. GCZ provides geospatial map services (GIS) for ADME data by using a transformer and provider setup on Azure Kubernetes Service (AKS). Both make ADME data available outside the core platform, but they serve different use cases.
+            ACZ exports Azure Data Manager for Energy entity data to Data Lake Storage Gen2 in Delta Parquet format for analytics and reporting. GCZ provides geospatial map services (GIS) for Azure Data Manager for Energy data by using a transformer and provider setup on Azure Kubernetes Service. Both make Azure Data Manager for Energy data available outside the core platform, but they serve different use cases.
 
         - question: When is ACZ generally available on Azure Data Manager for Energy?
           answer: >
