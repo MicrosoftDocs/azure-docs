@@ -80,7 +80,7 @@ As the Service Bus premium namespace already has dedicated resources, you can re
 
 ## Throttling when concurrent receive requests exceed the limit
 
-Apart from the resource-based and credit-based throttling described earlier, Service Bus also limits the number of *concurrent receive requests* on an individual entity. A queue, topic, or subscription allows up to **5,000 concurrent receive requests**. For a topic, this limit applies to the combined number of concurrent receive operations across all of its subscriptions. When the number of in-flight receive requests on an entity exceeds this limit, additional receive requests are rejected with a server busy error until the number of outstanding requests drops below the limit.
+Besides the resource-based and credit-based throttling described earlier, Service Bus also limits the number of *concurrent receive requests* on an individual entity. A queue, topic, or subscription allows up to **5,000 concurrent receive requests**. For a topic, this limit applies to the combined number of concurrent receive operations across all of its subscriptions. When the number of in-flight receive requests on an entity exceeds this limit, the system rejects extra receive requests with a server busy error until the number of outstanding requests drops below the limit.
 
 This situation typically occurs when an application opens a large number of receivers (AMQP receive links) on the same entity and keeps them all active at the same time. Each open receiver issues credit to the service and continually polls for messages, even when the entity is empty. With enough concurrent receivers, the combined receive requests exceed the limit and the entity starts returning server busy errors.
 
