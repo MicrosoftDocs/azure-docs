@@ -146,7 +146,7 @@ For rules on escaping dots and special characters in field paths, see [Dot notat
 Wildcards use the asterisk (`*`) to match multiple fields at once, which simplifies mappings when the output closely resembles the input. For full wildcard syntax, placement rules, multi-input wildcards, and specialization behavior, see [Wildcards](concept-dataflow-graphs-expressions.md#wildcards) in the expressions reference.
 
 > [!IMPORTANT]
-> When the destination is a storage endpoint with Parquet or Delta serialization, mappings have extra requirements. Map each output leaf that the schema declares rather than mapping a whole object to a parent path, and make sure the output schema declares every field that a wildcard expands to. Otherwise records can be dropped. For more information, see [Storage serialization behavior](concept-schema-registry.md#storage-serialization-behavior).
+> When the destination is a storage endpoint with Parquet or Delta serialization, mappings have extra requirements. Map each output leaf that the schema declares rather than mapping a whole object to a parent path, and make sure the output schema declares every field that a wildcard expands to. Otherwise, records can be dropped. For more information, see [Storage serialization behavior](concept-schema-registry.md#storage-serialization-behavior).
 
 ## Last known value
 
