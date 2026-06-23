@@ -432,7 +432,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     pip install featuremanagement[AzureMonitor]
     ```
 
-1. Open the `app.py` file, add the following code near the end of the file, immediately before the main function. It connects to App Configuration and sets up feature management.
+1. Open the `app.py` file. Add the following code near the end of the file, immediately before the main function. It connects to App Configuration and sets up feature management.
 
    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
