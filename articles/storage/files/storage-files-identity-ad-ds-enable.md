@@ -167,7 +167,7 @@ The cmdlets return the key value. Once you have the kerb1 key, create either a [
    > **Setting the UPN is required for `User` account types.** If the UPN doesn't match the `cifs/<StorageAccountName>.file.core.windows.net` SPN, Kerberos authentication to the Azure file share fails with **error 1396 "The target account name is incorrect"** and **`KRB_AP_ERR_MODIFIED`**. This is especially common after you enable **AES-256 Kerberos encryption**, which requires the UPN to align with the SPN. The AzFilesHybrid module (Option one) sets this automatically, so it's easy to miss when performing the manual steps.
    >```powershell
    >Set-ADUser -Identity $UserSamAccountName -Server <domain-name> -UserPrincipalName cifs/<StorageAccountName>.file.core.windows.net@<UPN-suffix>
-   > ```
+>
 
    > [!IMPORTANT]
    > **Don't sync users with invalid userPrincipalName (UPN) values**. UPNs must not contain special characters such as `/`, spaces, or other unsupported symbols.
