@@ -38,10 +38,9 @@ You've added a custom feature filter named **Random** with a **Percentage** para
     class RandomFilter(FeatureFilter):
     
         def evaluate(self, context, **kwargs):
-            value = context.get("parameters", {}).get("Value", 0)
-            if value < random.randint(0, 100):
-                return True
-            return False
+            percentage = context.get("parameters", {}).get("Percentage", 0)
+            print("getting percentage from context: " + str(percentage))
+            return random.randint(0, 100) < percentage
     ```
 
     You added a `RandomFilter` class that implements the `FeatureFilter` abstract class from the `FeatureManagement` library. The `FeatureFilter` class has a single method named `evaluate`, which is called whenever a feature flag is evaluated. In `evaluate`, a feature filter enables a feature flag by returning `true`.

@@ -56,9 +56,18 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     from flask_sqlalchemy import SQLAlchemy
     from flask_login import LoginManager
     from flask import Flask
+    from pathlib import Path
+    import secrets
     
-    app = Flask(__name__, template_folder="../templates", static_folder="../static")
+    app = Flask(__name__, template_folder="templates", static_folder="static")
     bcrypt = Bcrypt(app)
+    app.config["SECRET_KEY"] = os.environ.get("FLASK_SECRET_KEY") or secrets.token_hex(32)
+    
+    # Configure local SQLite DB before SQLAlchemy initialization.
+    db_path = Path(app.instance_path) / "quote_of_the_day.db"
+    db_path.parent.mkdir(parents=True, exist_ok=True)
+    app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{db_path.as_posix()}"
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     
     db = SQLAlchemy()
     db.init_app(app)
@@ -66,7 +75,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     login_manager = LoginManager()
     login_manager.init_app(app)
     
-    from .model import Users
+    from model import Users
     
     @login_manager.user_loader
     def loader_user(user_id):
@@ -78,7 +87,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     if __name__ == "__main__":
         app.run(debug=True)
     
-    from . import routes
+    import routes
     app.register_blueprint(routes.bp)
     ```
 
@@ -87,8 +96,8 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     ```python
     from dataclasses import dataclass
     from flask_login import UserMixin
-    from . import db
-
+    from app import db
+    
     @dataclass
     class Quote:
         message: str
@@ -113,8 +122,8 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     
     from flask import Blueprint, render_template, request, flash, redirect, url_for
     from flask_login import current_user, login_user, logout_user
-    from . import db, bcrypt
-    from .model import Quote, Users
+    from app import db, bcrypt
+    from model import Quote, Users
     
     bp = Blueprint("pages", __name__)
     
@@ -423,7 +432,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     pip install featuremanagement[AzureMonitor]
     ```
 
-1. Open the `app.py` file and add the following code to the end of the file. It connects to App Configuration and sets up feature management.
+1. Open the `app.py` file, add the following code near the end of the file, immediately before the main function. It connects to App Configuration and sets up feature management.
 
    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
@@ -457,7 +466,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
 1. Open `routes.py` and update the following code for `greeting_message` to get the feature variant.
 
     ```python
-    from . import feature_manager
+    from app import feature_manager
 
     # Update greeting_message to variant
     greeting = feature_manager.get_variant("Greeting", user)

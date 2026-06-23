@@ -77,6 +77,7 @@ This article shows you how to add and configure a targeting filter for a feature
    - [ASP.NET Core](./howto-targetingfilter-aspnet-core.md)
    - [Node.js](./howto-targetingfilter-javascript.md)
    - [Go Gin](./howto-targetingfilter-go.md)
+   - [Python](./how-to-targeting-filter-python.md)
 
 ## Next steps
 
