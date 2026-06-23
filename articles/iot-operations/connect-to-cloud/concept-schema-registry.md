@@ -4,7 +4,7 @@ description: Learn how the schema registry stores and manages message schemas fo
 author: dominicbetts
 ms.author: dobett
 ms.topic: concept-article
-ms.date: 03/19/2026
+ms.date: 06/23/2026
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 
@@ -61,13 +61,15 @@ Both formats require `type: "object"` and a `properties` field that defines the 
   "properties": {
     "type": "struct",
     "fields": [
-      { "name": "asset_id", "type": "string", "nullable": false, "metadata": {} },
-      { "name": "temperature", "type": "double", "nullable": false, "metadata": {} },
-      { "name": "timestamp", "type": "string", "nullable": false, "metadata": {} }
+      { "name": "asset_id", "type": "string", "nullable": true, "metadata": {} },
+      { "name": "temperature", "type": "double", "nullable": true, "metadata": {} },
+      { "name": "timestamp", "type": "string", "nullable": true, "metadata": {} }
     ]
   }
 }
 ```
+
+This example marks every field `nullable: true`. Mark a field `nullable: false` only when your mapping always produces a value for it. With Parquet and Delta, a field that is `nullable: false` but missing from a record causes the whole batch to fail and be dropped. For more information, see [Storage serialization behavior](#storage-serialization-behavior).
 
 ### Generate a schema
 
@@ -92,6 +94,20 @@ Output schemas control how data is serialized before it reaches the destination.
 In the operations experience, when you select a storage destination, the UI applies any transformations to the source schema and generates a Delta schema automatically. The generated schema is stored in the schema registry and referenced by the data flow.
 
 For Bicep or Kubernetes deployments, specify the schema and serialization format in the transformation settings. For more information, see [Configure a data flow destination](howto-configure-dataflow-destination.md#serialize-the-output-with-a-schema).
+
+### Storage serialization behavior
+
+When a data flow writes to a storage endpoint (ADLS Gen2, Fabric OneLake, Azure Data Explorer, or local storage) with Parquet or Delta serialization, the output schema controls how records are written. The following behaviors can cause records to be dropped or written with unexpected values. Review them before you design a schema or a mapping.
+
+**Non-nullable fields can drop a whole batch.** At write time, the encoder checks every field in the output schema. If a field is `nullable: false` and a record doesn't have a value for it (because the field wasn't mapped, was misspelled, or was missing from the source), the commit fails and the data flow drops the entire pending batch, not just the one record. The runtime logs an error similar to `ParquetEncoding found missing property that is not Nullable: <field>` followed by `failed to commit record into a batch, dropping it`. The data flow keeps running, so the loss is silent unless you check the logs. To avoid this, mark a field `nullable: false` only when your mapping always produces a value for it. Otherwise, use `nullable: true`. An explicit `null` value mapped into a `nullable: false` field fails the same way, with the error `Cannot set null value. Reason: field '<field>' is not nullable.`
+
+**Map to each leaf field, not to a whole object.** For Parquet and Delta, you can set a value only on a leaf field declared in the schema. Mapping a whole struct or object to a parent path doesn't write the nested values and drops the record with an error similar to `ParquetEncoding could not set a field <path>, it does not exist by the schema`. Map each output leaf that the schema declares.
+
+**Wildcards require the schema to declare every expanded field.** A `* -> *` mapping (or any wildcard, including flatten and restructure patterns) expands to every leaf in the runtime payload. For Parquet and Delta, the output schema must declare every one of those leaves. If the payload contains a leaf that the schema doesn't declare, the record is dropped. Generate the schema from representative sample data so it includes every field the data flow produces.
+
+**A schema alone doesn't populate values.** A schema describes the output shape, but it doesn't move data. Without a mapping, the data flow writes records of all nulls (for nullable fields) or drops them (for non-nullable fields). To populate values, add a mapping, commonly `* -> *`, and make sure fields are `nullable: true` when a value might be absent.
+
+**Numeric conversions are silent and can lose precision.** When a mapped value's type doesn't match the schema column type, Parquet and Delta coerce it without an error. Float-to-integer conversions truncate the fractional part, and narrowing conversions can lose precision or wrap. If you need rounding, round explicitly in the mapping. For the available functions, see [Scaling and rounding functions](concept-dataflow-graphs-expressions.md#scaling-and-rounding-functions).
 
 ## Upload a schema
 
@@ -140,7 +156,7 @@ var schemaContent = '''
     "fields": [
       { "name": "temperature", "type": "double", "nullable": true, "metadata": {} },
       { "name": "humidity", "type": "double", "nullable": true, "metadata": {} },
-      { "name": "deviceId", "type": "string", "nullable": false, "metadata": {} }
+      { "name": "deviceId", "type": "string", "nullable": true, "metadata": {} }
     ]
   }
 }
