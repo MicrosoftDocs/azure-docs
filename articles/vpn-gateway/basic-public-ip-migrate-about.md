@@ -178,7 +178,7 @@ Basic SKU VPN gateways that currently show as using a Basic SKU public IP addres
 
 For steps to remove the Basic SKU public IP reference, see [Remove the Basic SKU public IP reference from a Basic SKU VPN gateway](basic-sku-public-ip-remove.md). Your gateway continues to use the same public IP address. Only the reference to the Basic SKU public IP resource is removed from your gateway.
 
-### Backend Migration
+### Backend migration
 
 #### When will Microsoft perform the backend migration of my VPN Gateway?
 
