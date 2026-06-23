@@ -69,7 +69,7 @@ Both formats require `type: "object"` and a `properties` field that defines the 
 }
 ```
 
-This example marks every field `nullable: true`. Mark a field `nullable: false` only when your mapping always produces a value for it. With Parquet and Delta, a field that is `nullable: false` but missing from a record causes the whole batch to fail and be dropped. For more information, see [Storage serialization behavior](#storage-serialization-behavior).
+This example marks every field as `nullable: true`. Mark a field as `nullable: false` only when your mapping always produces a value for it. With Parquet and Delta, if a field is `nullable: false` but missing from a record, the whole batch fails and is dropped. For more information, see [Storage serialization behavior](#storage-serialization-behavior).
 
 ### Generate a schema
 
@@ -79,11 +79,11 @@ For a tutorial that uses the schema generator, see [Tutorial: Send data from an 
 
 ## Configure a source schema
 
-Each data flow source can optionally specify a message schema. Currently, data flows don't perform runtime payload validation on source schemas. The schema is used by the operations experience to display available fields when you build transformations.
+Each data flow source can optionally specify a message schema. Currently, data flows don't perform runtime payload validation on source schemas. The operations experience uses the schema to display available fields when you build transformations.
 
 Two related behaviors are easy to miss:
 
-- **A schema reference on the message can gate the record.** If a source message carries a schema reference (the MQTT `dataschema` property) and the source is configured with schema information, the data flow compares the two. When they conflict, the message is acknowledged and dropped without output, and the runtime logs `conflicting schema`. This check is separate from payload validation: the message content isn't validated against the schema, but a mismatched reference still stops the record.
+- **A schema reference on the message can gate the record.** If a source message carries a schema reference (the MQTT `dataschema` property) and you configure the source with schema information, the data flow compares the two. When they conflict, the message is acknowledged and dropped without output, and the runtime logs `conflicting schema`. This check is separate from payload validation: the message content isn't validated against the schema, but a mismatched reference still stops the record.
 - **Configured JSON schemas aren't runtime validators.** For JSON output, a configured schema isn't enforced during serialization. The data flow serializes the runtime value shape directly with inferred types. Use JSON schemas as design-time documentation, not as a guarantee that output conforms to the schema.
 
 Asset sources have a predefined schema created by the connector for OPC UA. For message broker sources, you can upload a JSON schema in the operations experience or reference one in your configuration.
