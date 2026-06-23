@@ -184,7 +184,7 @@ A StandardV2 NAT gateway can process up to 10 million packets per second. A Stan
   
   To upgrade a public IP address from Basic to Standard, see [Upgrade a Basic public IP address to Standard](../virtual-network/ip-services/public-ip-basic-upgrade-guidance.md).
 
-* > Azure StandardV2 NAT Gateway supports outbound ICMP Echo Request and Echo Reply traffic (ping) for IPv4 and IPv6 scenarios. Other ICMP message types are not supported.
+* Azure StandardV2 NAT Gateway supports outbound ICMP Echo Request and Echo Reply traffic (ping) for IPv4 and IPv6 scenarios. Other ICMP message types are not supported.
 
 * IP fragmentation isn't available for Azure NAT Gateway.
 
