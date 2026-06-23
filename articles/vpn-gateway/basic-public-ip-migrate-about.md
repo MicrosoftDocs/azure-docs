@@ -184,7 +184,7 @@ For steps to remove the Basic SKU public IP reference, see [Remove the Basic SKU
 
 Starting in August 2026, Microsoft automatically migrates eligible VPN gateways that aren't already migrated through self-service. Because this operation is Microsoft-managed, you won't receive a per-gateway migration notification before the migration occurs. Microsoft performs the migration during off-business hours based on the gateway's regional local time to help minimize customer impact.
 
-#### Will my VPN Gateway Public IP address change during migration?
+#### Will my VPN gateway public IP address change during migration?
 
 No. The migration upgrades the Public IP resource from Basic SKU to Standard SKU, but the existing Public IP address is expected to be retained. No customer action is required for the Public IP upgrade itself
 
