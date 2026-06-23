@@ -4,7 +4,7 @@ description: Learn how confidential compute in Azure Container Apps helps protec
 services: container-apps
 author: jefmarti
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/29/2026
 ms.author: jefmarti
 ---
