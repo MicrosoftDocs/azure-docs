@@ -1,11 +1,10 @@
 ---
-title: 'Link a virtual network to an ExpressRoute circuit - Azure PowerShell'
+title: 'Connect a virtual network to an ExpressRoute circuit - Azure PowerShell'
 description: This article provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and Azure PowerShell.
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 04/20/2026
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 ---
@@ -18,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 >
 
-This article helps you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and PowerShell. Virtual networks can either be in the same subscription or part of another subscription. This tutorial also shows you how to update a virtual network link.
+This article helps you link virtual networks (VNets) to Azure ExpressRoute circuits by using the Resource Manager deployment model and PowerShell. Virtual networks can either be in the same subscription or part of another subscription. This article also shows you how to update a virtual network link.
 
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing a virtual network linked to an ExpressRoute circuit." lightbox="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png":::
 
@@ -38,7 +37,7 @@ This article helps you link virtual networks (VNets) to Azure ExpressRoute circu
 
 * If you enable the ExpressRoute premium add-on, you can link virtual networks outside of the geopolitical region of the ExpressRoute circuit. The premium add-on allows you to connect more than 10 virtual networks to your ExpressRoute circuit depending on the bandwidth chosen. Check the [FAQ](expressroute-faqs.md) for more details on the premium add-on.
 
-* In order to create the connection from the ExpressRoute circuit to the target ExpressRoute virtual network gateway, the number of address spaces advertised from the local or peered virtual networks needs to be equal to or less than **200**. Once the connection has been successfully created, you can add more address spaces, up to 1,000, to the local or peered virtual networks.
+* To create the connection from the ExpressRoute circuit to the target ExpressRoute virtual network gateway, the number of address spaces advertised from the local or peered virtual networks needs to be equal to or less than **200**. Once the connection has been successfully created, you can add more address spaces, up to 1,000, to the local or peered virtual networks.
 
 * Review guidance for [connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
 
@@ -68,23 +67,23 @@ CD azure-docs-powershell-samples/expressroute/
 Run the **New-AzHighAvailabilityVirtualNetworkGatewayConnections.ps1** script to create high availability connections. The following example shows how to create two new connections to two ExpressRoute circuits.
 
 ```azurepowershell-interactive
-$SubscriptionId = Get-AzureSubscription -SubscriptionName "<SubscriptionName>"
+$SubscriptionId = (Get-AzSubscription -SubscriptionName "<SubscriptionName>").Id
 $circuit1 = Get-AzExpressRouteCircuit -Name "MyCircuit1" -ResourceGroupName "MyRG"
 $circuit2 = Get-AzExpressRouteCircuit -Name "MyCircuit2" -ResourceGroupName "MyRG"
 $gw = Get-AzVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
 
-highAvailabilitySetup/New-AzHighAvailabilityVirtualNetworkGatewayConnections.ps1 -SubscriptionId $SubscriptionId -ResourceGroupName "MyRG" -Location "West EU" -Name1 "ERConnection1" -Name2 "ERConnection2" -Peer1 $circuit1.Peerings[0] -Peer2 $circuit2.Peerings[0] -RoutingWeight1 10 -RoutingWeight2 10 -VirtualNetworkGateway1 $gw
+highAvailabilitySetup/New-AzHighAvailabilityVirtualNetworkGatewayConnections.ps1 -SubscriptionId $SubscriptionId -ResourceGroupName "MyRG" -Location "West Europe" -Name1 "ERConnection1" -Name2 "ERConnection2" -Peer1 $circuit1.Peerings[0] -Peer2 $circuit2.Peerings[0] -RoutingWeight1 10 -RoutingWeight2 10 -VirtualNetworkGateway1 $gw
 ```
 
 If you want to create a new connection and use an existing one, you can use the following example. This example creates a new connection to a second ExpressRoute circuit and uses an existing connection to the first ExpressRoute circuit.
 
 ```azurepowershell-interactive
-$SubscriptionId = Get-AzureSubscription -SubscriptionName "<SubscriptionName>"
+$SubscriptionId = (Get-AzSubscription -SubscriptionName "<SubscriptionName>").Id
 $circuit1 = Get-AzExpressRouteCircuit -Name "MyCircuit1" -ResourceGroupName "MyRG"
 $gw = Get-AzVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
 $connection = Get-AzVirtualNetworkGatewayConnection -Name "ERConnection1" -ResourceGroupName "MyRG"
 
-highAvailabilitySetup/New-AzHighAvailabilityVirtualNetworkGatewayConnections.ps1 -SubscriptionId $SubscriptionId -ResourceGroupName "MyRG" -Location "West EU" -Name2 "ERConnection2" -Peer2 $circuit1.Peerings[0] -RoutingWeight2 10 -VirtualNetworkGateway1 $gw -ExistingVirtualNetworkGatewayConnection $connection
+highAvailabilitySetup/New-AzHighAvailabilityVirtualNetworkGatewayConnections.ps1 -SubscriptionId $SubscriptionId -ResourceGroupName "MyRG" -Location "West Europe" -Name2 "ERConnection2" -Peer2 $circuit1.Peerings[0] -RoutingWeight2 10 -VirtualNetworkGateway1 $gw -ExistingVirtualNetworkGatewayConnection $connection
 ```
 
 # [**Standard/High Resiliency**](#tab/standard)
@@ -104,10 +103,10 @@ $connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -Resour
 ---
 
 ## Connect a virtual network in a different subscription to a circuit
-You can share an ExpressRoute circuit across multiple subscriptions. The following figure shows a simple schematic of how sharing works for ExpressRoute circuits across multiple subscriptions.
+You can share an ExpressRoute circuit across multiple subscriptions. The following figure shows a schematic of how sharing works for ExpressRoute circuits across multiple subscriptions.
 
 > [!NOTE]
-> Connecting virtual networks between Azure sovereign clouds and global Azure cloud is not supported. You can only link virtual networks from different subscriptions in the same cloud.
+> Connecting virtual networks between Azure sovereign clouds and global Azure cloud isn't supported. You can only link virtual networks from different subscriptions in the same cloud.
 
 Each of the smaller clouds within the large cloud is used to represent subscriptions that belong to different departments within an organization. Each of the departments within the organization uses their own subscription for deploying their services--but they can share a single ExpressRoute circuit to connect back to your on-premises network. A single department (in this example: IT) can own the ExpressRoute circuit. Other subscriptions within the organization may use the ExpressRoute circuit.
 
@@ -124,7 +123,7 @@ The 'circuit owner' is an authorized Power User of the ExpressRoute circuit reso
 The circuit owner has the power to modify and revoke authorizations at any time. Revoking an authorization results in all link connections being deleted from the subscription whose access was revoked.
 
   > [!NOTE]
-  > Circuit owner is not a built-in RBAC role or defined on the ExpressRoute resource.
+  > Circuit owner isn't a built-in RBAC role or defined on the ExpressRoute resource.
   > The definition of the circuit owner is any role with the following access:
   > - Microsoft.Network/expressRouteCircuits/authorizations/write
   > - Microsoft.Network/expressRouteCircuits/authorizations/read
@@ -184,7 +183,7 @@ $authorizations = Get-AzExpressRouteCircuitAuthorization -ExpressRouteCircuit $c
 
 **To delete authorizations**
 
-The circuit owner can revoke/delete authorizations to the user by running the following cmdlet:
+The circuit owner can revoke or delete authorizations to the user by running the following cmdlet:
 
 ```azurepowershell-interactive
 Remove-AzExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
@@ -248,12 +247,12 @@ $connection = New-AzVirtualNetworkGatewayConnection -Name "MyConnection" -Resour
 
 ```azurepowershell-interactive 
 $connection = Get-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" 
-$connection.ExpressRouteGatewayBypass = $True
+$connection.ExpressRouteGatewayBypass = $true
 Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
-``` 
-### FastPath Virtual Network Peering, User-Defined-Routes (UDRs) and Private Link support for ExpressRoute Direct Connections
+```
+### FastPath virtual network peering, user-defined routes (UDRs) and Private Link support for ExpressRoute Direct connections
 
-With Virtual Network Peering and UDR support, FastPath will send traffic directly to VMs deployed in "spoke" Virtual Networks (connected via Virtual Network Peering) and honor any UDRs configured on the GatewaySubnet. This capability is now generally available (GA). For customers that wish to enable these GA features on an existing connection, please disable and then re-enable FastPath on the connection.
+With Virtual Network Peering and UDR support, FastPath will send traffic directly to VMs deployed in "spoke" Virtual Networks (connected via Virtual Network Peering) and honor any UDRs configured on the GatewaySubnet. This capability is now generally available (GA). For customers that wish to enable these GA features on an existing connection, disable and then re-enable FastPath on the connection.
 
 With FastPath and Private Link, Private Link traffic sent over ExpressRoute bypasses the ExpressRoute virtual network gateway in the data path. With both of these features enabled, FastPath will directly send traffic to a Private Endpoint deployed in a "spoke" Virtual Network.
 
@@ -293,9 +292,9 @@ Remove-AzVirtualNetworkGatewayConnection "MyConnection" -ResourceGroupName "MyRG
 
 ## Next steps
 
-In this tutorial, you learned how to connect a virtual network to a circuit in the same subscription and in a different subscription. For more information about ExpressRoute gateways, see: [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
+In this article, you learned how to connect a virtual network to a circuit in the same subscription and in a different subscription. For more information about ExpressRoute gateways, see: [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
 
-To learn how to configure, route filters for Microsoft peering using PowerShell, advance to the next tutorial.
+To learn how to configure route filters for Microsoft peering using PowerShell, advance to the next article.
 
 > [!div class="nextstepaction"]
 > [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md)

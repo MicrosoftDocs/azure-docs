@@ -188,6 +188,8 @@
         href: ./samples/guest-configuration-baseline-cis-linux.md
       - name: CIS Security Benchmarks - AlmaLinux
         href: ./samples/cis-linux/alma-ado.md
+      - name: CIS Security Benchmarks - Azure Linux
+        href: ./samples/cis-linux/azure-linux-ado.md
       - name: CIS Security Benchmarks - Debian Linux
         href: ./samples/cis-linux/debian-ado.md
       - name: CIS Security Benchmarks - Oracle Linux

@@ -295,6 +295,8 @@
         href: control-plane-security.md
       - name: Understand data encryption in Azure NetApp Files
         href: understand-data-encryption.md
+      - name: Understand advanced encryption standard in Azure NetApp Files
+        href: understand-advanced-encryption-standard.md  
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-netapp-files-security-baseline?toc=/azure/azure-netapp-files/TOC.json
   - name: Solutions and benefits
@@ -619,6 +621,8 @@
     href: faq-security.md
   - name: Integration FAQs
     href: faq-integration.md
+  - name: Advanced Encryption Standard FAQs
+    href: faq-advanced-encryption-standard.md  
 - name: Reference
   items:
   - name: REST

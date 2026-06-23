@@ -72,7 +72,7 @@ For a detailed list of services supported over ExpressRoute, visit the [ExpressR
 
 You can connect to Microsoft from one of our [peering locations](expressroute-locations.md) and access regions within the same geopolitical region.
 
-For example, if you connect to Microsoft in Amsterdam through ExpressRoute. You have access to all of  Microsoft cloud services hosted in North and West Europe. For an overview of the geopolitical regions, the associated Microsoft cloud regions, and corresponding ExpressRoute peering locations, see the [ExpressRoute partners and peering locations](expressroute-locations.md) article.
+For example, if you connect to Microsoft in Amsterdam through ExpressRoute, you have access to all of Microsoft cloud services hosted in North and West Europe. For an overview of the geopolitical regions, the associated Microsoft cloud regions, and corresponding ExpressRoute peering locations, see the [ExpressRoute partners and peering locations](expressroute-locations.md) article.
 
 ### Global connectivity with ExpressRoute Premium
 
@@ -105,7 +105,7 @@ ExpressRoute Direct provides customers the opportunity to connect directly into 
 Key features that ExpressRoute Direct provides include, but aren't limited to:
 
 * Massive data ingestion into services like Azure Storage and Azure Cosmos DB.
-* Physical isolation for industries that are regulated and require dedicated and isolated connectivity. For example: banks, governments, and retails.
+* Physical isolation for industries that are regulated and require dedicated and isolated connectivity. For example: banks, governments, and retailers.
 * Granular control of circuit distribution based on business unit.
 
 For more information, see [About ExpressRoute Direct](./expressroute-erdirect-about.md).

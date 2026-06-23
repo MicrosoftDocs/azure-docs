@@ -101,7 +101,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         ![Create subnet](./media/shared/azure-netapp-files-create-subnet.png)
 
     * **Network features**  
-        In supported regions, you can specify whether you want to use **Basic** or **Standard** network features for the volume. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
+        As of June 2026, you can only select Standard network features for new Azure NetApp Files volumes. See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.
 
     * **Availability zone**   
         This option lets you deploy the new volume in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).

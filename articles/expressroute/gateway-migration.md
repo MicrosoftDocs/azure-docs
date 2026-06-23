@@ -39,11 +39,11 @@ Learn how to [migrate using PowerShell](expressroute-howto-gateway-migration-pow
 
 For enhanced reliability and high availability, we recommend migrating to an Az-enabled SKU.
 
-## Microsoft-initated gateway migration
+## Microsoft-initiated gateway migration
 
 Microsoft-initiated migration is a managed process that upgrades eligible ExpressRoute gateways on your behalf to support the retirement of Basic Public IP addresses. During the migration, your gateway is transitioned to a Standard Public IP while preserving your existing ExpressRoute configuration. This approach allows customers to meet the Standard Public IP requirement without needing to perform the migration themselves.
 
-For more information on Microsoft-Initiated gateway migration, see the associated [Azure blog post](https://techcommunity.microsoft.com/blog/azurenetworkingblog/expressroute-gateway-microsoft-initiated-migration/4497689).
+For more information on Microsoft-initiated gateway migration, see the associated [Azure blog post](https://techcommunity.microsoft.com/blog/azurenetworkingblog/expressroute-gateway-microsoft-initiated-migration/4497689).
 
 ### Migrate to ErGwScale (Scalable Gateway)
 The ExpressRoute Scalable Gateway (ErGwScale) is a new virtual network gateway SKU that provides flexible, high-bandwidth connectivity for your Azure virtual networks.

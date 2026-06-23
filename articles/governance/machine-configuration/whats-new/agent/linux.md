@@ -2,7 +2,7 @@
 title: Azure machine configuration Linux agent release notes
 description: >-
   Details guest configuration agent for Linux release notes, issues, and frequently asked questions.
-ms.date:  04/13/2024
+ms.date:  06/22/2024
 ms.topic: release-notes
 ---
 
@@ -27,6 +27,28 @@ For information on release notes for the connected machine agent, see
 
 The following sections of this article detail the notes for each release of the agent. The heading
 for each section includes the specific version for that release and the date for the release.
+
+## Version 1.26.111.0 - June 2026
+
+<a id="1.26.111.0"></a>
+<a id="2026-06"></a>
+
+### New features
+
+- Added support for Azure Linux 4.0.
+
+### Updated
+
+- Strengthened TLS certificate validation to address CVE-2026-47632.
+- Updated bundled PowerShell version from 7.4.14 to 7.4.15.
+- Improved network efficiency by avoiding repeated downloads of unchanged policy assignments.
+
+### Fixed
+
+- Improved reliability of baseline customization compliance reporting for configurations with
+  parameter values longer than `1024` characters.
+- Fixed a crash related to a heap memory corruption error that could occur on service shut down.
+- Unsupported Linux distributions are now reported as non-compliant for CIS baseline assignments.
 
 ## Version 1.26.109.0 - April 2026
 

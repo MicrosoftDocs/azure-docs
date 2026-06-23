@@ -23,9 +23,9 @@ This section shows how to use a Windows or Linux client to monitor the volume ca
 
 ### Windows (SMB) clients
 
-You can use Windows clients to check the used and available capacity of a volume through the network mapped drive properties. You can use one of the following two methods: 
+You can use Windows clients to check the used and available capacity of a volume through the network mapped drive properties. Use one of the following two methods: 
 
-* Navigate to File Explorer, right-click the mapped drive, then select **Properties** to display capacity.  
+* Go to File Explorer, right-click the mapped drive, and then select **Properties** to display capacity.  
 
     [ ![Screenshot that shows Explorer drive properties and volume properties.](./media/monitor-volume-capacity/monitor-explorer-drive-properties.png) ](./media/monitor-volume-capacity/monitor-explorer-drive-properties.png#lightbox)
 
@@ -33,20 +33,20 @@ You can use Windows clients to check the used and available capacity of a volume
 
     ![Screenshot that shows using the dir command to display capacity.](./media/monitor-volume-capacity/monitor-volume-properties-dir-command.png) 
 
-The *available space* is accurate using File Explorer or the `dir` command. However, the *consumed/used space* will be an estimate when snapshots are generated on the volume. The [consumed snapshot capacity](azure-netapp-files-cost-model.md#capacity-consumption-of-snapshots) counts towards the total consumed space on the volume. To get the absolute volume consumption, including the capacity used by snapshots, use the [Azure NetApp Metrics](azure-netapp-files-metrics.md#volumes) in the Azure portal. 
+The *available space* is accurate when you use File Explorer or the `dir` command. However, the *consumed or used space* is an estimate when snapshots exist on the volume. The consumed snapshot capacity counts towards the total consumed space on the volume. To get the absolute volume consumption, including the capacity used by snapshots, use the [Azure NetApp Metrics](azure-netapp-files-metrics.md#volumes) in the Azure portal.
 
 ### Linux (NFS) clients 
 
-Linux clients can check the used and available capacity of a volume using the [`df -h`](https://linux.die.net/man/1/df). Using the `h` option displays the size, including used and available space in human readable format (using M, G and T unit sizes).
+Linux clients can check the used and available capacity of a volume by using the [`df -h`](https://linux.die.net/man/1/df) command. The `h` option displays the size, including used and available space, in a human-readable format (using M, G, and T unit sizes).
 
 The following snapshot shows volume capacity reporting in Linux:
 
 ![Screenshot that shows volume capacity reporting in Linux.](./media/monitor-volume-capacity/monitor-volume-properties-linux-command.png) 
 
-The *available space* is accurate using the `df` command. However, the *consumed/used space* will be an estimate when snapshots are generated on the volume. The [consumed snapshot capacity](azure-netapp-files-cost-model.md#capacity-consumption-of-snapshots) counts towards the total consumed space on the volume. To get the absolute volume consumption, including the capacity used by snapshots, use the [Azure NetApp Metrics](azure-netapp-files-metrics.md#volumes) in the Azure portal. 
+The `df` command provides an accurate *available space*. However, the *consumed or used space* is an estimate when snapshots are generated on the volume. The consumed snapshot capacity counts towards the total consumed space on the volume. To get the absolute volume consumption, including the capacity used by snapshots, use the [Azure NetApp Metrics](azure-netapp-files-metrics.md#volumes) in the Azure portal.
 
 > [!NOTE]
-> The `du` command doesn’t account for the space used by snapshots generated in the volume. As such, it’s not recommended for determining the available capacity in a volume.
+> The `du` command doesn't account for the space used by snapshots generated in the volume. As such, don't use it for determining the available capacity in a volume.
 
 ## Using Azure portal
 Azure NetApp Files leverages the standard [Azure Monitor](/azure/azure-monitor/overview) functionality. As such, you can use Azure Monitor to monitor Azure NetApp Files volumes.  

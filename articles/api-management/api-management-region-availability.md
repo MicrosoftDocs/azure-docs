@@ -39,7 +39,7 @@ Information in the following table is updated regularly. Capacity availability i
 | Canada Central  | ✅ | ✅ | ✅ |  |
 | Canada East  | ✅ | ✅ | |  |
 | Central India  | ✅ | ✅ | |  |
-| Central US  | ✅ | ✅ | ✅ |  |
+| Central US  | ✅ | ✅ | |  |
 | East Asia | ✅ | ✅ | | ✅ |
 | East US  | ✅ | ✅ |  |  |
 | East US 2 | ✅ | ✅ | ✅ ¹ | ✅ |

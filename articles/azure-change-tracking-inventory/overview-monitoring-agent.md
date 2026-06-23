@@ -2,7 +2,7 @@
 title: Azure Change Tracking and Inventory Overview by Using Azure Monitor Agent
 description: Learn about the Change Tracking and Inventory feature by using the Azure Monitor Agent, which helps you identify software and Microsoft service changes in your environment.
 #customer intent: As a customer, I want to evaluate the compatibility of Azure Change Tracking and Inventory with my existing infrastructure so that I can ensure seamless integration.
-ms.date: 12/03/2025
+ms.date: 06/15/2025
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
 ms.author: v-rochak2
@@ -34,6 +34,9 @@ Change tracking metadata gets ingested into the `ConfigurationChange` table in t
 - Collects and maintains an updated list of installed software, operating system details, and other server configurations in linked Log Analytics workspaces. </br>
 - Helps create an overview of system assets, which is useful for compliance, audits, and proactive maintenance.</br>
 - Ingests inventory metadata into the `ConfigurationData` table in the connected Log Analytics workspace. For more information, see [ConfigurationData](/azure/azure-monitor/reference/tables/configurationdata).
+
+For more information about the enhanced discovery and onboarding experience in Change Tracking and Inventory for managing in-guest actions, see the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azuregovernanceandmanagementblog/change-tracking--inventory-enhanced-discovery--onboarding-to-manage-in-guest-act/4400398?afd_azwaf_tok=eyJraWQiOiIxNkY3M0JFMkNDMjZDOUM1ODBGMzM4NjAzN0I1ODRCQTc4REQ1ODcwQUFFRkJGNEZDRUJFOUZEQkNGMENGMTNEIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJ0ZWNoY29tbXVuaXR5Lm1pY3Jvc29mdC5jb20iLCJleHAiOjE3ODEyNTY0ODIsImlhdCI6MTc4MTI1NjQ3MiwiaXNzIjoidGllcjEtN2Y2ZDk4ODg5Yy12cTR3NSIsInN1YiI6IjQuMjEzLjIzMi4xNiIsImRhdGEiOnsidHlwZSI6Imlzc3VlZCIsInJlZiI6IjIwMjYwNjEyVDA5Mjc1MlotMTdmNmQ5ODg4OWN2cTR3NWhDMUJPTTE0dzQwMDAwMDAwYmNnMDAwMDAwMDBzcG12IiwiYiI6IlQxNi1POWY0T2hIcWkxMmdlRlJXZHVlME9hZmdIS2Y5a1VFY2p2UG1uSm8iLCJoIjoieWZ4T3F1bkVTZmpMMy1uaXh0UnRoc1QtWnBTSk5pZUpZOWhtVE9zSnZIMCJ9fQ.r58TJ3flNBtc-txyHBqGEjLnbOVHVu6uHR_HZrrr1clQyImLughwerkewNedGjDirQPuspDsRH-aEkiVnF6cGRoNXpCQqFBfoSYxAyRQgpLIf8bZhmRI2CjkJG79tpv0dZiXs_TXvInlOi0zkywYZbpIg8OjLBcu_ef5cVQOPTVRpV7eZugTnXnR1MkLlG6eOXW7s3g1wW8lMs0GyyYf6RF6D1s6HQoUwtmX63sqqg7yAhhXjgX2mrDbQSd-AkDzBghqv6n1mK605JOQizh__QfA0SRJ7GCH5xG3ZzaR1R4OaC-AABriqBBhj-tKe0DmO5x40AH6_3AbjhSy8U_FlQ.WF3obl2IDtqgvMFRqVdYkD5s)
+
 
 ## Key benefits of Azure Change Tracking and Inventory
 

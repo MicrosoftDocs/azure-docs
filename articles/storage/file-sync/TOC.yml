@@ -195,6 +195,8 @@
     href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json
   - name: Troubleshoot managed identities
     href: /troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-managed-identities?toc=/azure/storage/file-sync/toc.json
+  - name: Troubleshoot server cloning and duplicate identity issues
+    href: /troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-server-cloning?toc=/azure/storage/file-sync/toc.json    
 - name: Training
   items:
   - name: Configure Azure Files and Azure File Sync
