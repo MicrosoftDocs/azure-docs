@@ -204,7 +204,7 @@ Additionally, customers should review and remediate any known impacted configura
 Customer-initiated migration ended on June 30, 2026. You were expected to complete migration by this date.
 If you remain on the legacy platform after June 30, 2026, the VPN Gateway service SLA no longer covers you until migration is completed.
 Extension requests through July 31, 2026 are automatically approved and don't require individual review.
-Beginning in August 2026, Microsoft plans to migrate remaining eligible VPN Gateways that have not completed migration. Backend migrations will be performed regionally during off-business hours and may result in a brief connectivity interruption similar to the customer-initiated migration experience.
+Starting in August 2026, Microsoft plans to migrate remaining eligible VPN gateways that aren't migrated. Microsoft performs backend migrations regionally during off-business hours and they might result in a brief connectivity interruption similar to the customer-initiated migration experience.
 
 
 ## Next steps
