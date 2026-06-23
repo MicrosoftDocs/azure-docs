@@ -1,5 +1,5 @@
 ---
-title: Write effective prompts for agents in Microsoft Discovery
+title: Write Effective Prompts for Agents in Microsoft Discovery
 description: Learn how to write agent instructions and user prompts for Microsoft Discovery agents to get accurate, well-structured responses for scientific research tasks.
 author: leijgao
 ms.author: leijiagao
@@ -17,22 +17,25 @@ Prompt engineering is the practice of writing clear instructions that guide a la
 This article covers techniques for both instruction authoring and user prompt construction. All examples focus on scientific research scenarios relevant to Discovery workflows.
 
 > [!NOTE]
-> The prompt engineering guidance in this article applies to both **Microsoft Discovery** and **Discovery app**. Whether you're authoring prompt agents in Discovery Studio or creating custom agents in Discovery app using GitHub Copilot skills, the same principles for writing effective instructions, structuring outputs, and crafting user prompts apply. The techniques are model-agnostic and work across all supported model providers.
+> The prompt engineering guidance in this article applies to both Microsoft Discovery and the Discovery app. (The Discovery app is a local experience built on GitHub Copilot.) Whether you're authoring prompt agents in Discovery Studio or creating custom agents in the Discovery app by using GitHub Copilot skills, the same principles for writing effective instructions, structuring outputs, and crafting user prompts apply. The techniques are model-agnostic and work across all supported model providers.
 
 ## Prerequisites
 
 - An active [Azure subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+
 - A deployed Microsoft Discovery workspace with at least one project. For setup instructions, see [Get started with Microsoft Discovery infrastructure](quickstart-infrastructure-portal.md).
+
 - At least one prompt agent created in your project. For details, see [Create agents in Microsoft Discovery](how-to-agent-creation.md).
-- Familiarity with [agent types in Microsoft Discovery](concept-discovery-agent-types.md).
+
+- A familiarity with [agent types in Microsoft Discovery](concept-discovery-agent-types.md).
 
 ## Understand the two prompt surfaces
 
 Discovery agents use two prompt surfaces that work together.
 
-**Agent instructions** define the agent's role, behavior, and constraints. You write them when you create or edit a prompt agent in Discovery Studio. Instructions act as the persistent system-level guidance for every conversation.
+*Agent instructions* define the agent's role, behavior, and constraints. You write them when you create or edit a prompt agent in Discovery Studio. Instructions act as the persistent system-level guidance for every conversation.
 
-**User prompts** are the messages you type during an investigation. They provide the specific task, data, or question for a given turn. The agent combines its instructions with your user prompt to generate a response.
+*User prompts* are the messages you type during an investigation. They provide the specific task, data, or question for a particular turn. The agent combines its instructions with your user prompt to generate a response.
 
 Effective prompt engineering requires attention to both surfaces. Good instructions without clear user prompts produce generic responses. Clear user prompts with vague instructions produce inconsistent behavior.
 
@@ -44,13 +47,13 @@ Agent instructions are the most important factor in your agent's behavior. They 
 
 Start your instructions with a clear identity statement. Specify the agent's domain, purpose, and boundaries. A well-scoped role reduces inaccurate outputs and off-topic responses.
 
-**Weak instruction:**
+Here's an example of a weak instruction:
 
 ```
 You are a helpful assistant.
 ```
 
-**Strong instruction:**
+Here's an example of a strong instruction:
 
 ```
 You are a computational chemistry research assistant specializing in
@@ -64,7 +67,7 @@ The strong instruction tells the model exactly what domain to operate in, what t
 
 ### Use structured formatting
 
-Organize instructions into clearly labeled sections using Markdown headers or XML tags. Structured instructions reduce drift and improve consistency, especially with GPT-5.x models.
+Organize instructions into clearly labeled sections by using Markdown headers or XML tags. Structured instructions reduce drift and improve consistency, especially with GPT-5.x models.
 
 ```
 # Identity
@@ -107,7 +110,7 @@ This technique prevents verbose or unpredictable output shapes. It's especially 
 
 ### Provide few-shot examples
 
-Include one or more input-output examples in your instructions. Few-shot examples are the most reliable way to show the model your expected behavior. They work better than lengthy descriptions of the desired format.
+Include one or more input-output examples (*few-shot examples*) in your instructions. Few-shot examples are the most reliable way to show the model your expected behavior. They work better than lengthy descriptions of the desired format.
 
 ```
 # Examples
@@ -136,7 +139,7 @@ Use diverse examples that cover edge cases. If your agent handles both positive 
 
 GPT-5.2 and GPT-5.4 models support reasoning effort settings that trade off speed and depth. Match your verbosity and reasoning controls to the agent's purpose.
 
-**For analytical agents** that handle complex reasoning:
+For analytical agents that handle complex reasoning:
 
 ```
 <reasoning_controls>
@@ -147,7 +150,7 @@ GPT-5.2 and GPT-5.4 models support reasoning effort settings that trade off spee
 </reasoning_controls>
 ```
 
-**For routing or classification agents** that need fast, deterministic output:
+For routing or classification agents that need fast, deterministic output:
 
 ```
 <reasoning_controls>
@@ -184,13 +187,13 @@ User prompts drive each individual interaction. Even with well-configured agent 
 
 Vague prompts produce vague answers. State exactly what you need, including the scope, format, and any constraints.
 
-**Weak prompt:**
+Here's an example of a weak prompt:
 
 ```
 Tell me about protein folding.
 ```
 
-**Strong prompt:**
+Here's an example of a strong prompt:
 
 ```
 Summarize the three main computational approaches to protein
@@ -200,7 +203,7 @@ strengths, limitations, and one representative tool. Format
 the output as a Markdown table.
 ```
 
-The strong prompt specifies the scope (three approaches), the dimensions to cover (strengths, limitations, tool), and the output format (table).
+The strong prompt specifies the scope (three approaches), the dimensions to cover (strengths, limitations, and tool), and the output format (table).
 
 ### Provide context and data
 
@@ -226,16 +229,16 @@ Providing structured data as tables is more token-efficient than JSON or verbose
 
 ### Break complex tasks into steps
 
-Large, multi-part requests often produce incomplete or shallow responses. Break complex tasks into sequential steps.
+Large, multipart requests often produce incomplete or shallow responses. Break complex tasks into sequential steps.
 
-**Instead of this:**
+Instead of this:
 
 ```
 Analyze the RNA-seq dataset, find differentially expressed genes,
 run pathway enrichment, and write a summary for the methods section.
 ```
 
-**Use this sequential approach:**
+Use this sequential approach:
 
 ```
 Step 1: From the attached gene expression matrix, identify
@@ -256,13 +259,13 @@ Each step builds on the previous one. This approach gives the model a clear exec
 
 A cue is a short prefix that steers the model toward the output format you want. Add a cue at the end of your prompt to guide the first tokens of the response.
 
-**Without cue:**
+Without a cue:
 
 ```
 What are the key findings from this crystallography dataset?
 ```
 
-**With cue:**
+With a cue:
 
 ```
 What are the key findings from this crystallography dataset?
@@ -291,13 +294,13 @@ Requiring inline citations forces the model to ground each statement. Claims wit
 
 Supporting context helps the model tailor its response to your specific situation. Include relevant constraints like the experimental system, organism, or analysis pipeline.
 
-**Without context:**
+Without context:
 
 ```
 How should I normalize this gene expression data?
 ```
 
-**With supporting context:**
+With supporting context:
 
 ```
 I'm analyzing bulk RNA-seq data from mouse liver samples
@@ -315,19 +318,23 @@ GPT-5.2 and GPT-5.4 models have specific characteristics that affect prompt desi
 
 ### GPT-5.2 best practices
 
-GPT-5.2 excels at structured reasoning, tool grounding, and multi-step execution. It's more concise by default and follows instructions closely.
+GPT-5.2 excels at structured reasoning, tool grounding, and multistep execution. It's more concise by default and follows instructions closely.
 
-- **Set explicit verbosity constraints.** GPT-5.2 respects length limits well. Specify output length in sentences, bullets, or word count.
-- **Use structured output schemas.** GPT-5.2 performs well with JSON schemas and structured extraction. Provide the exact schema in your instructions.
-- **Control scope drift.** Add explicit boundaries like "Don't expand beyond the requested analysis" to prevent the model from adding unrequested content.
+- **Set explicit verbosity constraints**. GPT-5.2 respects length limits well. Specify output length in sentences, bullets, or word count.
+
+- **Use structured output schemas**. GPT-5.2 performs well with JSON schemas and structured extraction. Provide the exact schema in your instructions.
+
+- **Control scope drift**. Add explicit boundaries like "Don't expand beyond the requested analysis" to prevent the model from adding unrequested content.
 
 ### GPT-5.4 best practices
 
 GPT-5.4 offers a 1,050,000 token context window and stronger performance on long-horizon tasks. It maintains consistency over extended conversations.
 
-- **Use re-grounding for long contexts.** For documents longer than 10,000 tokens, instruct the agent to summarize key sections before answering. This reduces recall errors.
-- **Add verification loops.** For multi-step analyses, add a verification instruction: "Before presenting results, check that all requested items are covered and all calculations are consistent."
-- **Define completion criteria.** Tell the model what "done" looks like: "The analysis is complete when all five compounds have predicted binding affinities and confidence scores."
+- **Use re-grounding for long contexts**. For documents longer than 10,000 tokens, instruct the agent to summarize key sections before answering. This approach reduces recall errors.
+
+- **Add verification loops**. For multistep analyses, add a verification instruction: "Before presenting results, check that all requested items are covered and all calculations are consistent."
+
+- **Define completion criteria**. Tell the model what "done" looks like: "The analysis is finished when all five compounds have predicted binding affinities and confidence scores."
 
 ### Adjust temperature and Top-P for your use case
 
@@ -425,7 +432,7 @@ research.
 
 Prompt engineering is iterative. Use the following workflow to improve your prompts over time.
 
-1. Write an initial prompt and test it in Discovery Studio chat using `@AgentName`.
+1. Write an initial prompt and test it in Discovery Studio chat by using `@AgentName`.
 
 1. Review the response for accuracy, completeness, and format compliance.
 
@@ -438,7 +445,7 @@ Prompt engineering is iterative. Use the following workflow to improve your prom
 
 1. Make one change at a time and retest. Changing multiple prompt elements simultaneously makes it harder to identify what improved or degraded performance.
 
-1. Save the updated agent. Each save creates a new immutable version with full history.
+1. Save the updated agent. Each save creates a new, immutable version with full history.
 
 ## Related content
 

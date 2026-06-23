@@ -3,7 +3,7 @@ title: What's new in firmware analysis
 author: karengu0
 ms.author: karenguo
 description: Learn about the latest updates for firmware analysis.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/26/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis

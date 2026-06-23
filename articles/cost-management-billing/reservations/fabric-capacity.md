@@ -5,7 +5,7 @@ author: dekadays
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/9/2026
 ms.author: liuyizhu
 ms.custom: ignite-2023

@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual WAN
 description: Learn how to migrate from the Azure VPN Client for Linux to a supported client for Azure Virtual WAN P2S connections.
 author: flapinski
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/27/2026
 ms.author: cherylmc
 # Customer intent: As a Linux user, I want to migrate from the Azure VPN Client for Linux to a supported client so that I can securely connect to my organization's virtual network.

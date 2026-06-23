@@ -277,7 +277,7 @@ For more information about redundancy, see [Azure Files data redundancy](files-r
 
 ### Availability of zone redundant SSD file shares
 
-Zone redundant SSD file shares are available for a [subset of Azure regions](redundancy-premium-file-shares.md#zrs-support-for-ssd-azure-file-shares).
+Zone redundant SSD file shares are available for a [subset of Azure regions](redundancy-premium-file-shares.md#zrs-support-for-ssd-classic-file-shares).
 
 ## Disaster recovery and failover
 

@@ -3,7 +3,7 @@ title: Compare Automation Services
 titleSuffix: Azure Logic Apps Automation
 description: Learn the differences between Azure Logic Apps Automation, Azure Logic Apps Standard and Consumption, Microsoft Copilot Studio, and non-Microsoft automation platforms. Choose the best option to automate your business processes and workloads.
 ms.reviewer: estfan, krmitta, divswa, azla
-ms.topic: conceptual
+ms.topic: concept-article
 ai-usage: ai-assisted
 ms.update-cycle: 180-days
 ms.date: 06/02/2026

@@ -34,6 +34,8 @@ procedureSection:
       ## Other subscription transfers to a CSP partner
 
       For Azure subscriptions that aren't eligible for billing transfer to MPA, as outlined in the [Azure subscription transfer hub](subscription-transfer.md#product-transfer-support) article, the subscriber must transfer resources from these source subscriptions to CSP subscriptions. Use the following guidance to move resources between subscriptions.
+
+      Azure Marketplace products may transfer differently than the Azure subscription. In particular, software as a service (SaaS) subscriptions are billed through an Azure subscription but don't move with it, so they transfer separately. For more information, see [Get billing ownership of Azure subscriptions for your MPA account](mpa-request-ownership.md#software-as-a-service-saas-transfer).
     steps: 
       - |
         Establish a [reseller relationship](/partner-center/request-a-relationship-with-a-customer) with the customer. Review the [CSP Regional Authorization Overview](/partner-center/regional-authorization-overview) to ensure both customer and Partner tenant are within the same authorized regions.
