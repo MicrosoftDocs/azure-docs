@@ -3,10 +3,12 @@ title: Migrate blueprints to deployment stacks
 description: Learn how to migrate blueprints to deployment stacks.
 ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 07/25/2025
+ms.date: 06/26/2026
 ---
 
 # Migrate blueprints to deployment stacks
+
+[!INCLUDE [Azure Blueprints retirement note](../../../includes/blueprints-deprecation-note.md)]
 
 This article explains how to convert your Blueprint definitions and assignments into deployment stacks. Deployment stacks are new tools within the `Microsoft.Resources` namespace, bringing Azure Blueprint features into this area.
 
@@ -70,4 +72,17 @@ module vnet 'templates/bicep/vnet.bicep' = if (rgName == 'myTestRg') {
   params: { location: rgLocation }
 }
 ```
+
+## Migrate to template specs
+
+If you want to store and version your converted templates in Azure rather than deploy them
+directly, publish them as [template specs](./template-specs.md) and deploy the template spec with a
+deployment stack. Template specs replace the artifact storage and versioning role that blueprint
+definitions provided. For step-by-step instructions, see
+[Migrate Azure Blueprints to template specs](../../governance/blueprints/migrate-to-template-specs.md).
+
+## Next steps
+
+- [Azure Blueprints retirement](../../governance/blueprints/blueprint-retirement.md)
+- [Migrate Azure Blueprints to template specs](../../governance/blueprints/migrate-to-template-specs.md)
 
