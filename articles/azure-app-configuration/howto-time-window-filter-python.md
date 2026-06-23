@@ -24,7 +24,7 @@ The example used is based on the Python application introduced in the feature ma
 
 ## Use the time window filter
 
-You've added a time window filter for your *Beta* feature flag in the prerequisites. Next, you'll use the feature flag with the time window filter in your Python application. 
+You added a time window filter for your *Beta* feature flag in the prerequisites. Next, use the feature flag with the time window filter in your Python application. 
 
 Note: If you have already created a beta feature flag for testing conditional features, we recommend creating a separate feature flag for the Time Window feature. Sharing the same feature flag between these features may result in conflicts.
 
