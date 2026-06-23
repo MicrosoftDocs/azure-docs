@@ -58,9 +58,8 @@ For example, a resource type might require at least two approvals and require on
 
 :::image type="content" source="./media/mermaid-community-approvals.png" alt-text="Diagram showing how the community approvals settings affect the creation of enclaves, updates to community endpoints, and changing community maintenance mode." border="True" lightbox="./media/mermaid-community-approvals.png":::
 
-<pre>
 <!--
-This is the mermaid definition for the above diagram. Use this to edit and regenerate the PNG image.
+This is the mermaid definition for the above diagram. Use this to edit and regenerate the image.
 
 ```mermaid
 ---
@@ -98,15 +97,14 @@ flowchart TB
         ENC_OUT["Enclave Creation"]
     end
 
-    C_EP --> EP_OUT
-    C_ENC --> ENC_OUT
+    C_EP ==> EP_OUT
+    C_ENC ==> ENC_OUT
 
     classDef classC fill:#005a9e;
 
     class C_EP,C_ENC,C_MM classC;
 ```
 -->
-</pre>
 
 The approvals settings at the community level are the only approvals settings that affect enclave creation, community endpoint updates, or changes to maintenance mode. When each approval type is enabled, the number of minimum approvers and list of required approvers must be satisfied before those resource changes can occur.
 
@@ -114,9 +112,8 @@ The approvals settings at the community level are the only approvals settings th
 
 :::image type="content" source="./media/mermaid-enclave-approvals.png" alt-text="Diagram showing how the community and enclave approvals settings effect enclave connection creation or updates, enclave connection update, or changes to maintenance mode." border="True" lightbox="./media/mermaid-enclave-approvals.png":::
 
-<pre>
 <!--
-This is the mermaid definition for the above diagram. Use this to edit and regenerate the PNG image.
+This is the mermaid definition for the above diagram. Use this to edit and regenerate the image.
 
 ```mermaid
 ---
@@ -156,7 +153,7 @@ flowchart TB
     subgraph Enclave["Enclave Approval Settings"]
         E_CC["Enclave Connection Create"]
         E_CU["Enclave Connection Update"]
-        E_EP["Enclave Endpoint Updates"]
+        E_EP["Enclave Endpoint Update"]
         E_MM["Enclave Maintenance Mode"]
     end
 
@@ -164,22 +161,22 @@ flowchart TB
     subgraph Resources["Enforced Resources"]
         R_CC["Enclave Connection Create"]
         R_CU["Enclave Connection Update"]
-        R_EP["Enclave Endpoint Updates"]
+        R_EP["Enclave Endpoint Update"]
         R_MM["Enclave Maintenance Mode"]
     end
 
     %% Flows
-    C_EP --> E_EP
-    E_EP --> R_EP
+    C_EP ==> E_EP
+    E_EP ==> R_EP
 
-    C_CC --> E_CC
-    E_CC --> R_CC
+    C_CC ==> E_CC
+    E_CC ==> R_CC
 
-    C_CU --> E_CU
-    E_CU --> R_CU
+    C_CU ==> E_CU
+    E_CU ==> R_CU
 
-    C_MM --> E_MM
-    E_MM --> R_MM
+    C_MM ==> E_MM
+    E_MM ==> R_MM
 
     classDef classC fill:#005a9e;
     classDef classE fill:#005a9e;
@@ -188,7 +185,6 @@ flowchart TB
     class E_EP,E_CC,E_CU,E_MM classE;
 ```
 -->
-</pre>
 
 The approvals settings at the community and enclave levels effect enclave connection creation or updates, enclave connection update, or changes to maintenance mode. When each approval type is enabled, the number of minimum approvers and list of required approvers must be satisfied before those resource changes can occur.
 
@@ -243,9 +239,9 @@ Before changing approval settings, review:
 - Whether the change adds or removes inherited requirements.
 - Which users or groups are listed as required approvers.
 
-## Assign Enclave Approver role
+## Assign Enclave Approver Role
 
-After enabling Approvals, assign the Enclave Approver role to users or groups who will review and approve requests.
+After enabling Approvals, assign the Enclave Approver Role to users or groups who will review and approve requests.
 
 ### [Portal](#tab/portal)
 
@@ -267,7 +263,7 @@ After enabling Approvals, assign the Enclave Approver role to users or groups wh
 
 ### [Azure CLI](#tab/cli)
 
-Assign the Enclave Approver role at the enclave scope:
+Assign the Enclave Approver Role at the enclave scope:
 
 ```azurecli
 az role assignment create \
@@ -276,7 +272,7 @@ az role assignment create \
   --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Mission/enclaves/<enclave-name>"
 ```
 
-Assign the Enclave Approver role at the community scope:
+Assign the Enclave Approver Role at the community scope:
 
 ```azurecli
 az role assignment create \
@@ -287,7 +283,7 @@ az role assignment create \
 
 ### [PowerShell](#tab/powershell)
 
-Assign the Enclave Approver role at enclave scope:
+Assign the Enclave Approver Role at enclave scope:
 
 ```azurepowershell
 New-AzRoleAssignment `
@@ -296,7 +292,7 @@ New-AzRoleAssignment `
   -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Mission/enclaves/<enclave-name>"
 ```
 
-Assign the Enclave Approver role at community scope:
+Assign the Enclave Approver Role at community scope:
 
 ```azurepowershell
 New-AzRoleAssignment `
@@ -304,6 +300,7 @@ New-AzRoleAssignment `
   -RoleDefinitionName "Enclave Approver" `
   -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Mission/communities/<community-name>"
 ```
+---
 
 ## Notification behavior
 
@@ -313,7 +310,7 @@ If you need notifications of approval requests, create your own monitoring workf
 
 For enhanced security, combine Approvals with PIM to grant approver permissions on a time-limited basis.
 
-### Configure PIM for Enclave Approver role
+### Configure PIM for Enclave Approver Role
 
 1. Navigate to `Microsoft Entra Privileged Identity Management` in the Azure portal.
 
@@ -321,7 +318,7 @@ For enhanced security, combine Approvals with PIM to grant approver permissions 
 
 3. Select your subscription or resource group containing the community.
 
-4. Navigate to **Roles** and search for **Enclave Approver**.
+4. Navigate to **Roles** and search for **Enclave Approver Role**.
 
 5. Select `Enclave Approver` > `Role settings` > `Edit`.
 
@@ -333,7 +330,7 @@ For enhanced security, combine Approvals with PIM to grant approver permissions 
 
 7. Select `Update` to save the settings.
 
-8. Assign users as **eligible** for the Enclave Approver role rather than assigning it permanently.
+8. Assign users as **eligible** for the Enclave Approver Role rather than assigning it permanently.
 
 [Learn more about Microsoft Entra PIM integration](./just-in-time-access.md)
 
@@ -345,7 +342,7 @@ When configuring Approvals in your environment:
 
 2. **Define clear approval policies**: Document which operations require approval and the criteria for approval decisions
 
-3. **Assign multiple approvers**: Ensure at least two users have the Enclave Approver role to prevent delays when an approver is unavailable
+3. **Assign multiple approvers**: Ensure at least two users have the Enclave Approver Role to prevent delays when an approver is unavailable
 
 4. **Use Azure PIM for approver access**: Grant approver permissions on a just-in-time basis for sensitive environments
 
@@ -388,9 +385,9 @@ If you need to disable the Approvals feature:
 
 ### Approvers can't see pending requests
 
-**Cause**: The user doesn't have the Enclave Approver role or the role is assigned at the wrong scope.
+**Cause**: The user doesn't have the Enclave Approver Role or the role is assigned at the wrong scope.
 
-**Solution**: Verify that the user has the Enclave Approver role assigned at the enclave or community level.
+**Solution**: Verify that the user has the Enclave Approver Role assigned at the enclave or community level.
 
 ### Approved requests aren't being implemented
 

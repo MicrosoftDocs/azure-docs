@@ -10,11 +10,11 @@ ai-usage: ai-assisted
 
 # Understand Approvals in Azure Enclave
 
-Approvals add oversight to critical Azure Enclave actions. With approvals enabled, Azure Enclave queues requests to create new resources or change existing resources until a user with the **Enclave Approver** role approves or denies the request.
+Approvals add oversight to critical Azure Enclave actions. With approvals enabled, Azure Enclave queues requests to create new resources or change existing resources until a user with the **Enclave Approver Role** approves or denies the request.
 
 ## Introduction to approvals
 
-Approvals in Azure Enclave (AE) provide a governance layer for resource creation and modification. They help organizations reduce the risk of unauthorized changes, prevent accidental misconfigurations, and keep an audit trail for sensitive operations. Approval workflows use Azure role-based access control (RBAC) so that only designated approvers can approve or deny requests.
+Approvals in Azure Enclave provide a governance layer for resource creation and modification. They help organizations reduce the risk of unauthorized changes, prevent accidental misconfigurations, and keep an audit trail for sensitive operations. Approval workflows use Azure role-based access control (RBAC) so that only designated approvers can approve or deny requests.
 
 ## Which resource actions can require approval
 
@@ -32,13 +32,13 @@ Approval settings can be set for eligible resources at the community level. The 
 
 [ ![Screenshot showing the community creation page for selecting approval requirements.](./media/approvals-community-create-settings.png) ](./media/approvals-community-create-settings.png#lightbox)
 
-## Who can approve requests in AVE
+## Who can approve requests in Azure Enclave
 
 Approval workflows in Azure Enclave use Azure RBAC so that only authorized individuals or groups can approve requests. Approvers are explicitly assigned based on their responsibilities and your organization's approval requirements.
 
 Typical approvers include administrators, tenant owners, designated security or cyber personnel, business unit stakeholders, custom approver groups, or authorizing officials.
 
-You have the flexibility to define approvers based on your requirements. You can ensure only those with the right authority and context can validate requests, maintaining strict controls over deployments and configurations in AE. 
+You have the flexibility to define approvers based on your requirements. You can ensure only those with the right authority and context can validate requests, maintaining strict controls over deployments and configurations in Azure Enclave. 
 
 ### How to designate someone as an approver
 
@@ -56,7 +56,7 @@ These are some of the frequently asked questions (FAQs) about Approvals.
 
 The approvals view is available under **Monitoring** from three places:
 
-- AVE home page
+- Azure Enclave home page
 
 [ ![Screenshot showing the Azure Enclave service view of all approvals you have access to review.](./media/approvals-service-view.png) ](./media/approvals-service-view.png#lightbox)
 
@@ -119,6 +119,6 @@ For example, consider a community with approval settings that require one approv
 
 ## References
 
-- [What is Azure Enclave?](./what-azure-virtual-enclaves.md)
+- [What is Azure Enclave?](./what-azure-enclave.md)
 - [Concepts and best practices](./best-practices.md)
 - [What is an Enclave?](./what-enclave.md)

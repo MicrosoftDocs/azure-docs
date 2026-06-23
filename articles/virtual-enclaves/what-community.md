@@ -25,17 +25,17 @@ Communities come with the following primary platform-managed and platform-deploy
 
 Community managers can add one or more address spaces (prefixes between /8 and /16) to an existing community, which is treated as metadata-only updates at the community layer. This action doesn't require the community to be in maintenance mode. Address spaces can't be fully removed if they're already in use—however, an existing range can be replaced by adding a broader address space that fully contains it, preserving allocation continuity and avoiding breaking changes.
 
-When you create new enclaves, AE uses an IP address management strategy that always allocates the smallest available community address space that can accommodate the requested enclave size. This approach minimizes fragmentation and preserves larger address ranges for future needs, such as large enclave deployments. For example, allocating a smaller enclave into a smaller fitting address space avoids blocking future allocations that would require a larger contiguous range.
+When you create new enclaves, Azure Enclave uses an IP address management strategy that always allocates the smallest available community address space that can accommodate the requested enclave size. This approach minimizes fragmentation and preserves larger address ranges for future needs, such as large enclave deployments. For example, allocating a smaller enclave into a smaller fitting address space avoids blocking future allocations that would require a larger contiguous range.
 
 > [!NOTE]
 > 
 > `192.168.0.0/16` is reserved for the platform to manage enclaves deployed within a community. Users shouldn't create communities with any of these address spaces as that would create overlapping conflicts with the platform-managed enclave management IP ranges.
 
 ## Community managed resource group
-When you create a community, the Azure Enclave resource provider also creates and manages a separate resource group called the community managed resource group. For more details regarding the community managed resource group, learn more about [Best practices for Azure Enclave](./best-practices.md).
+When you create a community, the Azure Enclave resource provider also creates and manages a separate resource group called the community managed resource group. For more details regarding the community managed resource group, learn more about [Best practices for Azure Enclave](./best-practices.md). 
 
 ## Template
-See [template documentation](./virtual-enclaves-templates.md#community-template)
+See [template documentation](./azure-enclave-templates.md#resource-modules)
 
 ## Managed Resources
 - [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about)
@@ -43,7 +43,7 @@ See [template documentation](./virtual-enclaves-templates.md#community-template)
 - [Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-overview)
 
 ## Next Steps
-- [What is Azure Enclave?](./what-azure-virtual-enclaves.md)
+- [What is Azure Enclave?](./what-azure-enclave.md)
 - [What is an Enclave?](./what-enclave.md)
 - [Best practices for Azure Enclave](./best-practices.md)
 - [Tutorial: Create a community](./1-1-create-community.md)

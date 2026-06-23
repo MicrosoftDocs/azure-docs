@@ -9,7 +9,7 @@ ms.date: 5/5/2026
 
 # What is a workload?
 
-Workloads are logical groups of Azure resources that you define inside an Azure Virtual Enclave. You can link an Azure resource group to a workload resource to bring that resource group into the security and control boundary of the enclave (see the [diagram](#architecture-of-a-workload)). Community and enclave owners can create isolated [mission-critical](/azure/well-architected/mission-critical/mission-critical-overview) workloads then allow specific access as needed. When enclave owners deploy Azure resources and services into workloads, each workload automatically inherits the enclave's security posture and policies. Customers create their own Azure services in their workload resource groups and maintain those resources under the [shared responsibility model](/azure/security/fundamentals/shared-responsibility) in the cloud. By default, workloads can also use community services that are reachable from their enclave.
+Workloads are logical groups of Azure resources that you define inside an Azure Enclave. You can link an Azure resource group to a workload resource to bring that resource group into the security and control boundary of the enclave (see the [diagram](#architecture-of-a-workload)). Community and enclave owners can create isolated [mission-critical](/azure/well-architected/mission-critical/mission-critical-overview) workloads then allow specific access as needed. When enclave owners deploy Azure resources and services into workloads, each workload automatically inherits the enclave's security posture and policies. You create your own Azure services in your workload resource groups and maintain those resources under the [shared responsibility model](/azure/security/fundamentals/shared-responsibility) in the cloud. By default, workloads can also use community services that are reachable from their enclave.
 
 ## Why use a workload?
 Workloads are a logical way to organize your Azure resource groups and create a link to your Azure Enclave environment. With Workloads, you can separate groups of policies and exceptions scoped and applied to a workload and the resources in the linked workload resource groups. Workload resource groups have some restrictions, which are described in the [Best Practices](./best-practices.md#workload-resource-group).
@@ -21,18 +21,17 @@ The alternative is to deploy an Azure resource group through the portal that isn
 ## Architecture of a workload
 Workloads are linked as a child resource to [enclaves](./what-enclave.md) and are linked as the parent resource to [workload resource groups](#workload-resource-group).
 
-- [Azure Enclave governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring)
+- [Azure Enclave governance](./what-azure-enclave.md#multi-layered-governance-security-and-monitoring)
 - [Enclave services and properties](./what-enclave.md)
 - [Well-Architected Framework Workload guidance](/azure/well-architected/workloads)
 - [Well-Architected Framework Service Guides](/azure/well-architected/service-guides/?product=popular)
 
 This diagram shows two example workloads. The `Shared Workload` is linked to three workload resource groups and the `AKS Workload` is linked to one workload resource group. Resource groups are highlighted in green and Azure resources are highlighted in dark blue.
 
-[ ![Diagram showing two example workloads linked to both the other Azure Enclave resources and their workload resource groups.](./media/mermaid-workloads-example.png) ](./media/mermaid-workloads-example.png#lightbox)
+[ ![Diagram showing two example workloads linked to both the other Azure Enclave resources and their workload resource groups.](./media/mermaid-workloads-example.svg) ](./media/mermaid-workloads-example.svg#lightbox)
 
-<pre>
 <!--
-This is the mermaid definition for the above diagram. Use this to edit and regenerate the PNG image.
+This is the mermaid definition for the above diagram. Use this to edit and regenerate the image.
 
 ```mermaid
 ---
@@ -42,17 +41,17 @@ config:
 ---
 flowchart TB
   subgraph Subscription ["Single Azure Subscription"]
-    subgraph ave-resource-groups [AVE Resources
+    subgraph ave-resource-groups [Azure Enclave Resources
                                   Resource Group]
       Community["Community
-                (AVE Resource)"]
+                (Azure Enclave Resource)"]
       Enclave2["Enclave A
-               (AVE Resource)"]
+               (Azure Enclave Resource)"]
       subgraph Workload1 ["Shared Workload
-                          (AVE Resource)"]
+                          (Azure Enclave Resource)"]
       end
       subgraph Workload2 ["AKS Workload
-                          (AVE Resource)"]
+                          (Azure Enclave Resource)"]
       end
     end
 
@@ -107,7 +106,6 @@ flowchart TB
   class Workload1,Workload2 workload;
 ```
 -->
-</pre>
 
 ## Workload resource group
 When you create an Azure Enclave workload, you create linked workload resource groups where you can organize your Azure resources. 
@@ -120,7 +118,7 @@ The workload resource groups function like an Azure resource group and you can d
 ## Next Steps
 - [Tutorial: Workloads in Azure Enclave](./2-1-plan-architecture-workloads.md)
 - [What is the service catalog?](./what-service-catalog.md)
-- [What is Azure Enclave?](./what-azure-virtual-enclaves.md)
+- [What is Azure Enclave?](./what-azure-enclave.md)
 - [What is a community?](./what-community.md)
 - [What is an Enclave?](./what-enclave.md)
 - [Shared responsibility model in the cloud](/azure/security/fundamentals/shared-responsibility)

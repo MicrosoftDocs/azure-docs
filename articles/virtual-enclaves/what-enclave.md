@@ -27,10 +27,10 @@ Enclaves come with the following platform-managed resources:
 - **Private Link integration**: [Private Endpoints](/azure/private-link/private-endpoint-overview) and [Private DNS Zones](/azure/dns/private-dns-privatednszone) ensure all platform resources communicate privately within your network boundary.
 
 **Monitoring and Access**
-- **Log Analytics Workspace**: Provides [diagnostic logging](/azure/azure-monitor/essentials/diagnostic-settings) and monitoring for enclave resources. AE and user-deployed resources can send logs here, with routing configurable via diagnostic settings.
+- **Log Analytics Workspace**: Provides [diagnostic logging](/azure/azure-monitor/essentials/diagnostic-settings) and monitoring for enclave resources. Azure Enclave and user-deployed resources can send logs here, with routing configurable via diagnostic settings.
 - **Azure Bastion**: Provides secure RDP/SSH admin access to resources within the enclave.
 
-[ ![Diagram showing the managed resources deployed with an enclave and your deployed resources.](./media/communities-virtual-enclaves-enclave.svg) ](./media/communities-virtual-enclaves-enclave.svg#lightbox)
+[ ![Diagram showing the managed resources deployed with an enclave and your deployed resources.](./media/communities-azure-enclave-enclave-view.svg) ](./media/communities-azure-enclave-enclave-view.svg#lightbox)
 
 ## Enclave managed resource group 
 
@@ -46,7 +46,7 @@ Maintenance mode allows enclave owners to temporarily bypass the deny assignment
 [Learn more about maintenance mode](./maintenance-mode.md).
 
 ## Template
-See [template documentation](./virtual-enclaves-templates.md#enclave-template)
+See [template documentation](./azure-enclave-templates.md#resource-modules)
 
 ## Managed Resources
 The following resources types are deployed into the enclave managed resource group:

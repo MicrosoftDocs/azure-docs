@@ -9,7 +9,7 @@ ms.date: 6/16/2025
 
 # Deploy Azure Kubernetes Service (AKS) from the service catalog into a workload
 
-Azure Enclave (AE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
+Azure Enclave is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
 - Deploy a service catalog template for Azure Kubernetes Service (AKS) into an existing workload from the Portal.
 
@@ -72,7 +72,7 @@ There are guardrail policies on the enclaves to ensure enclave resources are usi
 > This command might take several minutes, to check on the status of this registration run:
 `Get-AzProviderFeature -FeatureName "EncryptionAtHost" -ProviderNamespace "Microsoft.Compute"`
 
-6. In order to deploy AKS within a virtual enclave, you must deploy to a subscription that allows `EnableAPIServerVnetIntegrationPreview`. First set your azContext to ensure you're using the correct subscription, and then execute: `Register-AzProviderFeature -FeatureName EnableAPIServerVnetIntegrationPreview -ProviderNamespace Microsoft.ContainerService`.
+6. In order to deploy AKS within an Azure Enclave, you must deploy to a subscription that allows `EnableAPIServerVnetIntegrationPreview`. First set your azContext to ensure you're using the correct subscription, and then execute: `Register-AzProviderFeature -FeatureName EnableAPIServerVnetIntegrationPreview -ProviderNamespace Microsoft.ContainerService`.
 
 > [!NOTE]
 > 
@@ -117,11 +117,11 @@ It can take up to 30 minutes to finish all resource creation. Wait for the deplo
 
 > [!IMPORTANT]
 >
-> If you're deploying an AKS cluster within a virtual enclave, you need to make sure that the user assigned managed identity has sufficient permissions to perform operations within an enclave. Add the managed identity to the enclave's [Maintenance Mode](./maintenance-mode.md) principals configuration. This permission ensures that the user assigned managed identity doesn't get blocked by any enclave deny assignments.
+> If you're deploying an AKS cluster within an Azure Enclave, you need to make sure that the user assigned managed identity has sufficient permissions to perform operations within an enclave. Add the managed identity to the enclave's [Maintenance Mode](./maintenance-mode.md) principals configuration. This permission ensures that the user assigned managed identity doesn't get blocked by any enclave deny assignments.
 
 ### (Optional) Associating AKS resource groups to workload
 
-The AE workload resource, as of API version `2024-06-01-preview`, now supports multiple resource groups. This feature means that an AE workload can now apply AE policies to multiple resource groups.
+The Azure Enclave workload resource, as of API version `2024-06-01-preview`, now supports multiple resource groups. This feature means that an Azure Enclave workload can now apply Azure Enclave policies to multiple resource groups.
 
 Once the AKS deployment succeeds, the AKS deployment's User RG and MRG can be brought to a workload by running an API PUT request for the workload resource. An example of a request body for an API PUT request for a workload resource:
 

@@ -1,7 +1,7 @@
 ---
 title: Create a Domain Name Service Forwarder
 titleSuffix: Azure Enclave
-description: Create a Domain Name Service forwarder within an Azure Virtual Enclave.
+description: Create a Domain Name Service forwarder within an Azure Enclave.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview

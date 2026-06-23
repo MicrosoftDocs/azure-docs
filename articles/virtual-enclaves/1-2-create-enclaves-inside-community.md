@@ -43,7 +43,7 @@ Enclave deployments can take around 30-45 minutes to complete. After deployment 
 
 1. In the `Azure Enclave` page, select `Enclaves` in the left menu.
 
-![Screenshot showing the Azure Enclave portal page with the enclaves list selected.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-list.png)
+[ ![Screenshot showing the Azure Enclave portal page with the enclaves list selected.](./media/tutorial-step-two-azure-enclave-page-enclaves-list.png) ](./media/tutorial-step-two-azure-enclave-page-enclaves-list.png#lightbox)
 
 2. On the `Enclaves` page, select `Create`.
 
@@ -54,7 +54,7 @@ Enclave deployments can take around 30-45 minutes to complete. After deployment 
    - `Region`: `East US`
    - `Community`: Select the `fabrikam` community that you created in [Tutorial 1-1: Deploy a community](./1-1-create-community.md).
 
-![Screenshot showing the create WebApp enclave screen with the basics inputs for the tutorial environment.](./media/tutorial-step-two-create-webapp-enclave-screen-basics-input.png)
+[ ![Screenshot showing the create WebApp enclave screen with the basics inputs for the tutorial environment.](./media/tutorial-step-two-create-webapp-enclave-screen-basics-input.png) ](./media/tutorial-step-two-create-webapp-enclave-screen-basics-input.png#lightbox)
 
 4. Select `Review + create`, verify the settings, and then select `Create`.
 
@@ -65,7 +65,7 @@ Enclave deployments can take around 30-45 minutes to complete. After deployment 
    - `Region`: `East US`
    - `Community`: Select the `fabrikam` community that you created in [Tutorial 1-1: Deploy a community](./1-1-create-community.md).
 
-![Screenshot showing the create DMZ enclave screen with the basics inputs for the tutorial environment.](./media/tutorial-step-two-create-dmz-enclave-screen-basics-input.png)
+[ ![Screenshot showing the create DMZ enclave screen with the basics inputs for the tutorial environment.](./media/tutorial-step-two-create-dmz-enclave-screen-basics-input.png) ](./media/tutorial-step-two-create-dmz-enclave-screen-basics-input.png#lightbox)
 
 6. Select `Review + create`, verify the settings, and then select `Create`.
 
@@ -73,7 +73,7 @@ Enclave deployments can take around 30-45 minutes to complete. After deployment 
 
 After the enclave resources are created, you can view them in the Azure portal from the `fabrikam` community.
 
-![Screenshot showing created enclaves on listed on enclaves page.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-list-both-deployed.png)
+[ ![Screenshot showing created enclaves on listed on enclaves page.](./media/tutorial-step-two-azure-enclave-page-enclaves-list-both-deployed.png) ](./media/tutorial-step-two-azure-enclave-page-enclaves-list-both-deployed.png#lightbox)
 
 Confirm that:
 
@@ -83,7 +83,7 @@ Confirm that:
 
 Select an enclave name to view and manage the enclave.
 
-![Screenshot showing created WebApp enclave on its overview page.](./media/tutorial-step-two-webapp-enclave-overview-page.png)
+[ ![Screenshot showing created WebApp enclave on its overview page.](./media/tutorial-step-two-webapp-enclave-overview-page.png) ](./media/tutorial-step-two-webapp-enclave-overview-page.png#lightbox)
 
 ## Clean up resources
 
@@ -91,7 +91,7 @@ If you're continuing to the next tutorial, keep both enclaves. The next tutorial
 
 If you don't need the resources from this tutorial, delete `Enclave-WebApp` and `Enclave-DMZ` from the Azure portal.
 
-![Screenshot showing the completed enclave in the Azure Enclave portal page.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-list-both-deployed.png)
+[ ![Screenshot showing the completed enclave in the Azure Enclave portal page.](./media/tutorial-step-two-azure-enclave-page-enclaves-list-both-deployed.png) ](./media/tutorial-step-two-azure-enclave-page-enclaves-list-both-deployed.png#lightbox)
 
 ## Next steps
 

@@ -1,15 +1,15 @@
 ---
-title: Create Azure resources from the service catalog in an AE workload
-description: Create Azure resources from the service catalog in an AE workload.
+title: Create Azure resources from the service catalog in an Azure Enclave workload
+description: Create Azure resources from the service catalog in an Azure Enclave workload.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: overview
 ms.date: 9/30/2025
 ---
 
-# Tutorial 1-4: Create Azure resources from the service catalog in an AE workload
+# Tutorial 1-4: Create Azure resources from the service catalog in an Azure Enclave workload
 
-The service catalog enables you to deploy Azure services and streaming applications into AE quickly while being compliant with Policy Guardrails and enclave isolation requirements.
+The service catalog enables you to deploy Azure services and streaming applications into Azure Enclave quickly while being compliant with Policy Guardrails and enclave isolation requirements.
 
 In this tutorial, part four of eight, you create Azure resources using service catalog in workloads. You learn how to:
 

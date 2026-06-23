@@ -10,7 +10,7 @@ ai-usage: ai-assisted
 
 # Tutorial 1-3: Create workloads in an enclave on Azure Enclave
 
-Workloads are logical groupings that help you organize Azure resources inside an Azure Enclave (AE) enclave. Each workload is associated with one or more workload resource groups where you deploy resources in later tutorials.
+Workloads are logical groupings that help you organize Azure resources inside an Azure Enclave enclave. Each workload is associated with one or more workload resource groups where you deploy resources in later tutorials.
 
 In this tutorial, part three of eight, you create workloads inside an enclave. You learn how to:
 
@@ -23,13 +23,13 @@ In this tutorial, part three of eight, you create workloads inside an enclave. Y
 Complete [Tutorial 1-2: Create enclaves in a community](./1-2-create-enclaves-inside-community.md). This tutorial assumes that you have:
 
 - An Azure account with an active subscription.
-- An AE community named `fabrikam`.
+- An Azure Enclave community named `fabrikam`.
 - An enclave named `Enclave-WebApp`.
-- Permissions to create AE workload resources and resource groups in the subscription.
+- Permissions to create Azure Enclave workload resources and resource groups in the subscription.
 
 ## Create workloads using Azure Enclave
 
-Before creating Azure resources in an enclave, create the AE workload resources and associate them with workload resource groups. Azure Enclave applies enclave policy, guardrail, deny-assignment, and RBAC configuration to workload resource groups during creation.
+Before creating Azure resources in an enclave, create the Azure Enclave workload resources and associate them with workload resource groups. Azure Enclave applies enclave policy, guardrail, deny-assignment, and RBAC configuration to workload resource groups during creation.
 
 > [!Important]
 > This tutorial uses sample names such as `wl-webapp-frontend`, `wl-webapp-backend`, `rg-webapp-frontend`, and `rg-webapp-backend`. If you use different names, update the later tutorials to match your environment.

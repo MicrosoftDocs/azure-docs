@@ -8,7 +8,7 @@ ms.date: 11/21/2024
 ---
 
 # Mandatory Access Control for Azure Enclave 
-Access to Azure Enclave resources is primarily controlled using built-in Role Based Access Control (RBAC) role assignments. This built-in RBAC functionality can be further expanded by using Azure Privileged Identity Management to grant just-in-time access to Virtual enclave resources. 
+Access to Azure Enclave resources is primarily controlled using built-in Role Based Access Control (RBAC) role assignments. This built-in RBAC functionality can be further expanded by using Azure Privileged Identity Management to grant just-in-time access to Azure Enclave resources. 
 
 ## RBAC for community and Enclaves 
 Azure Enclave provides built-in RBAC roles to control access at the **Community and Enclave** levels.
@@ -19,7 +19,7 @@ Azure Enclave provides built-in RBAC roles to control access at the **Community 
 - **Enclave owner** - Creates, deletes, and manages workloads, endpoints, and connection resources for one or more enclaves
 - **Enclave contributor** - Creates, and manages workloads, endpoints, and connection resources for one or more enclaves
 - **Enclave reader** - Read-only access to one or more enclave resources and underlying workloads, endpoints, and connections.
-- **Enclave approver role** - Read-only access to all AE resource types and explicit permissions to approve actions that require approval. For more information, see [Manage approval requests](./manage-approvals.md).
+- **Enclave Approver Role** - Read-only access to all Azure Enclave resource types and explicit permissions to approve actions that require approval. For more information, see [Manage approval requests](./manage-approvals.md).
 
 |Built in Role          |Community              |Community Endpoint     |Transit hub        |Enclave            |Workload           |Enclave Endpoint       |Enclave connection |Approvals      |
 |--|--|--|--|--|--|--|--|--|
@@ -28,7 +28,7 @@ Azure Enclave provides built-in RBAC roles to control access at the **Community 
 |Community Reader       |Read-only              |Read-only              |Read-only          |Read-only          |Read-only          |Read-only              |Read-only          |Read-only     |
 |Enclave owner          |Read-only              |Read Only              |Read-only          |Read/Write/Delete  |Read/Write/Delete  |Read/Write/Delete      |Read/Write/Delete  |Read-only     |
 |Enclave Contributor    |Read-only              |Read-only              |Read-only          |Read/Write         |Read/Write         |Read/Write             |Read/Write         |Read-only     |
-|Enclave Approver role      |Read-only              |Read-only              |Read-only          |Read-only          |Read-only          |Read-only              |Read-only          |Approve/Reject |
+|Enclave Approver Role      |Read-only              |Read-only              |Read-only          |Read-only          |Read-only          |Read-only              |Read-only          |Approve/Reject |
 |Enclave  Reader        |X                      |X                      |Read-only          |Read-only          |Read-only          |Read-only              |Read-only          |Read-only     |
 
 These built-in RBAC roles can be assigned at [different scopes](/azure/role-based-access-control/scope-overview) depending on the scenario. 
@@ -43,7 +43,7 @@ Each workload deployed using Azure Enclave comes with a managed resource group. 
 [Learn more about Azure RBAC](/azure/role-based-access-control/overview)
 
 ## Privileged Identity Management (PIM) Integration
-Privileged access to Virtual enclave resources can be further controlled/enforced by using Azure Privileged Identity management to grant "eligibilities" as opposed to persistent access.
+Privileged access to Azure Enclave resources can be further controlled/enforced by using Azure Privileged Identity management to grant "eligibilities" as opposed to persistent access.
 
 ### Time-Based Access Control
 Microsoft Entra Privileged Identity Management can be used with built-in roles to grant users "eligibility" for specific role assignments. You can specify the assignment scopes over community, enclave, and workload resources, granting users the exact privileges they need for a limited amount of time. 

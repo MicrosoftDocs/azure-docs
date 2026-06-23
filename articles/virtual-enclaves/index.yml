@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Virtual Enclaves Documentation
+title: Azure Enclave documentation
 summary: Learn how to use Azure Enclave. Get started with quickstarts, tutorials, and best practices for deploying, securing, and managing enclave environments in Azure.
 
 metadata:
@@ -14,21 +14,20 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
-# Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Azure Enclave (AE)
+  - title: About Azure Enclave
     linkLists:
       - linkListType: overview
         links:
         - text: What is Azure Enclave?
-          url: what-azure-virtual-enclaves.md
+          url: what-azure-enclave.md
         - text: Why use Azure Enclave?
-          url: why-azure-virtual-enclaves.md
+          url: why-azure-enclave.md
         - text: Azure Enclave FAQs
-          url: virtual-enclaves-faq.md
-        - text: Azure Enclave Pricing
-          url: virtual-enclaves-pricing.md
+          url: azure-enclave-faq.md
+        - text: Azure Enclave pricing
+          url: azure-enclave-pricing.md
       # - linkListType: learn
       #   links:
       #     - text: Understanding Enclave Networking
@@ -62,7 +61,7 @@ landingContent:
           - text: Best practices
             url: best-practices.md
           - text: Understand resource groups
-            url: virtual-enclaves-resource-groups.md
+            url: azure-enclave-resource-groups.md
           - text: Understand Admin Virtual Machines
             url: understand-admin-vm.md
           - text: Understand Domain Name Service
@@ -94,8 +93,8 @@ landingContent:
 #             url: Easy-Button-Deployments.md
       - linkListType: tutorial
         links:
-          - text: Learn Virtual Enclaves
-            url: virtual-enclaves-learn.md
+          - text: Learn Azure Enclave
+            url: azure-enclave-learn.md
           - text: Create a community
             url: 1-1-create-community.md
           - text: Create enclaves inside a community
@@ -109,7 +108,7 @@ landingContent:
           - text: Monitor your enclaves
             url: 1-6-monitor-your-enclaves.md
           - text: Host a publicly accessible application in an enclave
-            url: 1-7-host-publicly-accessible-application-virtual-enclave.md
+            url: 1-7-host-publicly-accessible-application-azure-enclave.md
           - text: Migrate workload resources
             url: 1-8-migrate-workload-resources.md
       - linkListType: tutorial
@@ -117,7 +116,7 @@ landingContent:
           - text: Plan Architecture for Workload
             url: 2-1-plan-architecture-workloads.md
           - text: Create Azure Enclave Environment
-            url: 2-2-create-virtual-enclaves-environment.md
+            url: 2-2-create-azure-enclave-environment.md
           - text: Deploy Azure Virtual Desktop Workload
             url: 2-3-deploy-virtual-desktop-workload.md
           - text: Deploy Azure Kubernetes Service Workload
@@ -200,7 +199,7 @@ landingContent:
 #           - text: IP Allocation Management
 #             url: ip-allocation-management.md
           - text: Naming rules and restrictions
-            url: name-rules-restrictions-azure-virtual-enclaves-resources.md
+            url: name-rules-restrictions-azure-enclave-resources.md
           - text: Move data inside an enclave
             url: move-data-inside-enclave.md
           - text: Quotas and region availability
@@ -227,22 +226,24 @@ landingContent:
           - text: Manage approvals
             url: manage-approvals.md
   # Card
-  - title: Troubleshoot
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Troubleshooting guide
-            url: troubleshoot.md
-          - text: Policy compliance exemptions
-            url: policy-compliance-exemptions.md
-          - text: Migrate Azure Resources into Azure Enclave
-            url: migrate-azure-resources-azure-virtual-enclaves.md
+  # - title: Troubleshoot
+  #   linkLists:
+  #     - linkListType: how-to-guide
+  #       links:
+  #         - text: Troubleshooting guide
+  #           url: troubleshoot.md
+  #         - text: Policy compliance exemptions
+  #           url: policy-compliance-exemptions.md
+  #         - text: Migrate Azure Resources into Azure Enclave
+  #           url: migrate-azure-resources-azure-enclave.md
   # Card
   - title: Resources
     linkLists:
       - linkListType: reference
         links:
           - text: Azure Enclave templates
-            url: virtual-enclaves-templates.md
+            url: azure-enclave-templates.md
+          - text: Troubleshooting guide
+            url: troubleshoot.md
           - text: Migrate Azure resources into Azure Enclave
-            url: migrate-azure-resources-azure-virtual-enclaves.md
+            url: migrate-azure-resources-azure-enclave.md

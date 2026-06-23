@@ -10,7 +10,7 @@ ai-usage: ai-assisted
 
 # Manage approval requests in Azure Enclave
 
-This article explains how to review, approve, and reject approval requests in Azure Enclave. Users with the Enclave Approver role can manage approval requests to ensure proper oversight of critical infrastructure changes.
+This article explains how to review, approve, and reject approval requests in Azure Enclave. Users with the Enclave Approver Role can manage approval requests to ensure proper oversight of critical infrastructure changes.
 
 > [!IMPORTANT]
 > 
@@ -20,13 +20,11 @@ This article explains how to review, approve, and reject approval requests in Az
 
 To manage approval requests, you need:
 
-- The **Enclave Approver** role assigned at the enclave or community level
+- The **Enclave Approver Role** assigned at the enclave or community level
 - Access to the Azure portal or Azure CLI
 - Permissions to view the resources related to the approval request
 
 ## View pending approval requests
-
-### [Portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -43,13 +41,9 @@ To manage approval requests, you need:
    - `Parent Resource`: Filter to the enclave or community of interest
    - `Action Type` (if shown in your portal experience): Filter by the requested operation
 
----
-
 ## Review an approval request
 
 Before approving or rejecting a request, carefully review the details:
-
-### [Portal](#tab/portal)
 
 1. In the `Approvals` list, select the request you want to review.
 
@@ -64,13 +58,9 @@ Before approving or rejecting a request, carefully review the details:
 
 3. Review all information carefully before making a decision.
 
----
-
 ## Approve a request
 
 After reviewing a request, approve it to allow the change to proceed:
-
-### [Portal](#tab/portal)
 
 1. On the approval details page, select `Approve`.
 
@@ -81,13 +71,9 @@ After reviewing a request, approve it to allow the change to proceed:
 
 4. The request status is now `Approved` and the resource change is automatically implemented.
 
----
-
 ## Reject a request
 
 If a request doesn't meet approval criteria, reject it with a clear explanation:
-
-### [Portal](#tab/portal)
 
 1. On the approval details page, select `Reject`.
 
@@ -98,8 +84,6 @@ If a request doesn't meet approval criteria, reject it with a clear explanation:
 3. Select `Confirm` to reject the request.
 
 4. The request status changes to `Rejected` and the resource change won't be implemented.
-
----
 
 ## Common approval scenarios
 
@@ -239,7 +223,7 @@ In some cases, you might need to temporarily delegate approval authority:
 
 1. Navigate to `Access control (IAM)` for the enclave or community.
 
-2. Assign the **Enclave Approver** role to the delegate.
+2. Assign the **Enclave Approver Role** to the delegate.
 
 3. Set an expiration date for temporary delegations.
 
@@ -251,9 +235,9 @@ In some cases, you might need to temporarily delegate approval authority:
 
 ### Can't see pending approval requests
 
-**Cause**: You don't have the Enclave Approver role or the role is assigned at the wrong scope.
+**Cause**: You don't have the Enclave Approver Role or the role is assigned at the wrong scope.
 
-**Solution**: Verify with your administrator that you have the Enclave Approver role assigned at the appropriate level (enclave or community).
+**Solution**: Verify with your administrator that you have the Enclave Approver Role assigned at the appropriate level (enclave or community).
 
 ### Approved request isn't being implemented
 

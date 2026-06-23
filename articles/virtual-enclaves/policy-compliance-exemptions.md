@@ -10,9 +10,9 @@ ms.date: 9/30/2025
 
 # Azure Enclave Policy exemptions
 
-By default, all enclave [workloads](./what-workload.md) are governed following AVE platform-managed Azure Policy Initiatives detailed in [AVE governance/Governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring). This means that all user workloads are governed by a set of Azure Policy Initiative assignments deployed by Azure Enclave.
+By default, all enclave [workloads](./what-workload.md) are governed following Azure Enclave platform-managed Azure Policy Initiatives detailed in [Azure Enclave governance/Governance](./what-azure-enclave.md#multi-layered-governance-security-and-monitoring). This means that all user workloads are governed by a set of Azure Policy Initiative assignments deployed by Azure Enclave.
 
-For certain enclave owners, this level of governance might be too protective or not protective enough for various reasons. For example, some enclave owners might have regulatory requirements for their workloads to have Public IP addresses, but AVE governance/Governance policies would block the creation of Public IP addresses for security or compliance reasons.
+For certain enclave owners, this level of governance might be too protective or not protective enough for various reasons. For example, some enclave owners might have regulatory requirements for their workloads to have Public IP addresses, but Azure Enclave governance/Governance policies would block the creation of Public IP addresses for security or compliance reasons.
 
 Currently, this example would be expected behavior for governance on a workload. However, should enclave owners require greater flexibility or granularity over their enclave governance, they can manually exempt the platform-managed Azure Policies. This can be done using native Azure Policy capabilities called Policy exemptions, though it would require enclave owners to specifically modify platform-designed governance behavior on workloads within their enclave.
 
@@ -30,7 +30,7 @@ In this image, a Policy initiative assignment within the `contoso4-aadconnect` w
 Should further troubleshooting be required to investigate Azure Policy exemptions, contact [Azure Support](https://azure.microsoft.com/support/).
 
 ## References
-- [What is Azure Enclave?](./what-azure-virtual-enclaves.md)
+- [What is Azure Enclave?](./what-azure-enclave.md)
 - [Best Practices](./best-practices.md)
 - [What is an Enclave?](./what-enclave.md)
 - [What is a workload?](./what-workload.md)

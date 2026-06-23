@@ -9,7 +9,7 @@ ms.date: 9/30/2025
 
 # Get started with Azure Enclave
 
-This guide provides the steps to onboard to Azure Enclave (AE) by enabling the resource provider and granting permissions over your Azure subscription.
+This guide provides the steps to onboard to Azure Enclave by enabling the resource provider and granting permissions over your Azure subscription.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ This guide provides the steps to onboard to Azure Enclave (AE) by enabling the r
 
 ### Option 1: PowerShell (Fastest)
 
-You can run the following code to quickly register all required resource providers to begin using AE.
+You can run the following code to quickly register all required resource providers to begin using Azure Enclave.
 1. Sign-in to your Azure tenant and open the subscription resource
 2. In the Azure portal, select the `Cloud Shell` icon at the top of the window here
 
@@ -115,7 +115,7 @@ For reference, you can also review the generic instructions for enabling a [prev
 
 Customers who used Azure Enclave before November 2025 need to re-register the Azure Enclave resource provider so your subscriptions can use the latest API with the latest features and improvements.
 
-Complete these steps to use the latest Virtual Enclaves API:
+Complete these steps to use the latest Azure Enclave API:
 1. In the Azure portal, navigate to your subscription.
 2. Open the `Resource Providers` on the left side under `Settings`.
 3. Search for and select `Microsoft.Mission` and select `Re-register`.
@@ -125,7 +125,7 @@ Complete these steps to use the latest Virtual Enclaves API:
 
 Now the Azure Enclave resource provider can begin deploying Azure Enclave resources into your subscription on your behalf.
 
-  - Start building your Virtual Enclaves Community:
+  - Start building your Azure Enclave Community:
 
     - [Create a community](./create-community-portal.md)
     - [Create an enclave](./create-enclave-portal.md)

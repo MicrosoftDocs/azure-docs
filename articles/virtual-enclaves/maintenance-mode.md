@@ -3,7 +3,7 @@ title: Maintenance mode
 description: Maintenance mode explanation.
 author: jadean-msft
 ms.author: jadean
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 9/30/2025
 ---
 
@@ -20,7 +20,7 @@ The following are the key features of Maintenance Mode:
 
 ## Maintenance mode options
 
-- `Off` - Deny assignments created by Azure Enclave is in-place to protect underlying [managed resource groups](./virtual-enclaves-resource-groups.md) for an enclave or community.
+- `Off` - Deny assignments created by Azure Enclave are in-place to protect underlying [managed resource groups](./azure-enclave-resource-groups.md) for an enclave or community.
 - `General` - The `Allow Dataplane Actions` deny assignment created by Azure allows privileged users to modify certain existing resources only in the underlying managed resources. For an enclave, these operations include resources joining the enclave virtual network and creating Private DNS Zone records. For a community, these operations include making changes to the Virtual WAN resources. By default, communities and enclaves are deployed in `Off` mode, but choose `General` mode during creation and provide appropriate Microsoft Entra ID identities to allow changes to the protected resources.
 - `Advanced` - The deny assignment created by Azure is temporarily removed to allow privileged users to make elevated changes on the underlying managed resources.
 
@@ -68,7 +68,7 @@ The following are the key features of Maintenance Mode:
 The following permissions are managed by maintenance mode and users are blocked from performing these actions unless they're listed as a principal in the maintenance mode configuration for the community or enclave and maintenance mode is enabled.
 
 ### Maintenance mode "Off"
-When maintenance mode is disabled or `Off`, all principals (for example, users or groups) are prevented from performing actions unless the deny assignments allow it for all users for the community or enclave managed resource group. A user may still be limited by their assigned roles.
+When maintenance mode is disabled or `Off`, all principals (for example, users or groups) are prevented from performing actions unless the deny assignments allow that action for all users in the community or enclave managed resource groups. A user may still be limited by their assigned roles.
 
 Deny Assignment: `Deny All` (the same for both communities and enclaves)
 

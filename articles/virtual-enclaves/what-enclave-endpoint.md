@@ -28,4 +28,4 @@ Enclave Endpoints support two types of connections:
 - Inbound from a transit hub
 
 ## Template
-See [template documentation](./virtual-enclaves-templates.md#endpoints-template)
+See [template documentation](./azure-enclave-templates.md#resource-modules)

@@ -9,7 +9,7 @@ ms.date: 6/16/2025
 
 # Deploy Azure Container Registry (ACR) from the service catalog into a workload
 
-Azure Enclave (AE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
+Azure Enclave is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this quickstart, you:
 
 - Deploy a service catalog template for an Azure Container Registry into an existing workload from the Portal.
 

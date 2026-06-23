@@ -1,5 +1,5 @@
 ---
-title: Plan your architecture for AVD and AKS workloads in Azure Enclave
+title: Plan your architecture for Azure Virtual Desktop and AKS workloads in Azure Enclave
 description: Plan and design your Azure Enclave architecture for deploying Azure Virtual Desktop and Azure Kubernetes Service workloads.
 author: aserfass-msft
 ms.author: aserfass
@@ -8,13 +8,13 @@ ms.date: 12/18/2024
 ms.custom: references_region
 ---
 
-# Tutorial 2-1: Plan your architecture for AVD and AKS workloads in Azure Enclave
+# Tutorial 2-1: Plan your architecture for Azure Virtual Desktop and AKS workloads in Azure Enclave
 
-This tutorial helps you plan your Azure Enclave (AE) architecture for deploying Azure Virtual Desktop (AVD) and Azure Kubernetes Service (AKS) workloads. Proper planning ensures optimal security, network isolation, and resource organization.
+This tutorial helps you plan your Azure Enclave architecture for deploying Azure Virtual Desktop and Azure Kubernetes Service (AKS) workloads. Proper planning ensures optimal security, network isolation, and resource organization.
 
 In this tutorial, you learn how to:
   - Plan your enclave topology for workload isolation
-  - Calculate subnet sizing requirements for AVD and AKS
+  - Calculate subnet sizing requirements for Azure Virtual Desktop and AKS
   - Identify required network endpoints and connectivity
   - Design enclave connections for inter-enclave communication
   - Organize workload resource groups effectively
@@ -32,17 +32,16 @@ This tutorial assumes understanding of these concepts:
 
 ## Architecture overview
 
-The following diagram shows the architecture tutorials 2-1 through 2-4. The architecture includes a community hub with firewall, separate enclaves for AVD and AKS workloads, and the necessary endpoints and connections.
+The following diagram shows the architecture tutorials 2-1 through 2-4. The architecture includes a community hub with firewall, separate enclaves for Azure Virtual Desktop and AKS workloads, and the necessary endpoints and connections.
 
-[ ![Diagram showing the complete architecture for AVD and AKS workloads in Azure Enclave.](./media/mermaid-tutorial-architecture.png) ](./media/mermaid-tutorial-architecture.png#lightbox)
+[ ![Diagram showing the complete architecture for Azure Virtual Desktop and AKS workloads in Azure Enclave.](./media/mermaid-tutorial-architecture.svg) ](./media/mermaid-tutorial-architecture.svg#lightbox)
 
-<pre>
 <!--
-This is the mermaid definition for the above diagram. Use this to edit and regenerate the PNG image.
+This is the mermaid definition for the above diagram. Use this to edit and regenerate the image.
 
 ```mermaid
 ---
-title: Azure Enclave - AVD and AKS Workload Architecture
+title: Azure Enclave - Desktops and AKS Workload Architecture
 config:
   theme: base
 ---
@@ -53,8 +52,8 @@ flowchart TB
 
   subgraph Community [ ]
     Firewall["Community
-            Azure VWAN with Firewall"]
-    CE_AVD["AVD Community Endpoints
+            Azure Virtual WAN with Firewall"]
+    CE_AVD["Desktops Community Endpoints
           (privatelink.wvd.microsoft.com,
           etc)"]
     CE_AKS["AKS Community Endpoints
@@ -62,14 +61,14 @@ flowchart TB
           etc)"]
   end
 
-  subgraph Enclave_AVD ["AVD Enclave"]
+  subgraph Enclave_AVD ["Desktops Enclave"]
     subgraph AVD_Subnets ["Subnets"]
       AVD_Mgmt["Management Subnet
                (/24)"]
       AVD_Hosts["Session Hosts Subnet
                 (/24)"]
     end
-    subgraph AVD_Workloads ["AVD Workloads"]
+    subgraph AVD_Workloads ["Desktops Workloads"]
       subgraph AVD_Resources ["Resources"]
         HostPool["Host Pool"]
         Storage["FSLogix Storage"]
@@ -98,8 +97,8 @@ flowchart TB
   ExtUsers ---|RDP HTTPS| Firewall
   Firewall --- CE_AVD
   Firewall --- CE_AKS
-  CE_AVD ---|Allow AVD URLs| AVD_Hosts
-  CE_AVD ---|Allow AVD URLs| AVD_Mgmt
+  CE_AVD ---|Allow Desktop URLs| AVD_Hosts
+  CE_AVD ---|Allow Desktop URLs| AVD_Mgmt
   CE_AKS ---|Allow AKS URLs| AKS_Nodes
   AVD_Hosts --- SessionHosts
   AVD_Mgmt --- HostPool
@@ -129,13 +128,12 @@ flowchart TB
   class AVD_EnclaveEndpoints,AKS_EnclaveEndpoints,CE_AVD,CE_AKS,EE_AVD_Mgmt,EE_AKS_Mgmt endpoint;
 ```
 -->
-</pre>
 
 ## Key planning decisions
 
 ### Enclave topology
 
-You need to decide whether to deploy AVD and AKS in separate enclaves or a shared enclave.
+You need to decide whether to deploy Azure Virtual Desktop and AKS in separate enclaves or a shared enclave.
 
 | Option | Benefits | Considerations |
 |--------|----------|----------------|
@@ -143,16 +141,16 @@ You need to decide whether to deploy AVD and AKS in separate enclaves or a share
 | **Shared Enclave** | • Simplified networking<br>• Shared common services<br>• Fewer enclave connections needed<br>• Lower management overhead | • Less isolation between workloads<br>• Shared network policies<br>• Potential for resource contention |
 | **Hybrid with Shared Services Enclave** | • Isolate workloads while sharing common resources<br>• Centralized services like Key Vault, Domain Name System (DNS)<br>• Best of both approaches | • Most complex to set up initially<br>• Requires careful planning of enclave connections |
 
-**Recommendation**: For production environments with strict security requirements, use separate enclaves for AVD and AKS and a third enclave for shared services and common resources. This tutorial series uses this approach.
+**Recommendation**: For production environments with strict security requirements, use separate enclaves for Azure Virtual Desktop and AKS and a third enclave for shared services and common resources. This tutorial series uses this approach.
 
-### Subnet sizing for AVD
+### Subnet sizing for Azure Virtual Desktop
 
-AVD requires at least two subnets in the enclave:
+Azure Virtual Desktop requires at least two subnets in the enclave:
 
 | Subnet | Purpose | Recommended Size | Calculation |
 |--------|---------|------------------|-------------|
 | **Management Subnet** | Host pool, workspace, application groups, private endpoints | /26 (64 IPs) | Five reserved Azure IPs + management resources + growth |
-| **Session Hosts Subnet** | AVD session host virtual machines (VMs) | Depends on VM count | `(Number of VMs + 5 reserved) + 20% growth` |
+| **Session Hosts Subnet** | Azure Virtual Desktop session host virtual machines (VMs) | Depends on VM count | `(Number of VMs + 5 reserved) + 20% growth` |
 
 **Example calculation for Session Hosts Subnet**:
 - 50 session hosts planned
@@ -181,20 +179,20 @@ AKS requires at least three subnets in the enclave:
 
 ## Network requirements
 
-### AVD required endpoints
+### Azure Virtual Desktop required endpoints
 
-AVD requires connectivity to the following endpoints via community endpoints:
+Azure Virtual Desktop requires connectivity to the following endpoints via community endpoints:
 
 | Purpose | Endpoint Name | Ports | Protocol |
 |---------|-------|-------|----------|
-| **AVD Control Plane** | `*.wvd.microsoft.com`<br>`*.prod.warm.ingest.monitor.core.windows.net` | 443 | HTTPS |
+| **Azure Virtual Desktop Control Plane** | `*.wvd.microsoft.com`<br>`*.prod.warm.ingest.monitor.core.windows.net` | 443 | HTTPS |
 | **Authentication** | `login.microsoftonline.com`<br>`login.windows.net` | 443 | HTTPS |
 | **Azure Resource Manager** | `management.azure.com` | 443 | HTTPS |
 | **Agent Updates** | `mrsglobalstb2prod.blob.core.windows.net`<br>`gcs.prod.monitoring.core.windows.net` | 443 | HTTPS |
 | **Guest Configuration** | `*.guestconfiguration.azure.com` | 443 | HTTPS |
 | **Windows Update** | `*.prod.do.dsp.mp.microsoft.com`<br>`www.msftconnecttest.com` | 443/80 | HTTPS/HTTP |
 
-Reference: [AVD required URLs](/azure/virtual-desktop/required-fqdn-endpoint)
+Reference: [Azure Virtual Desktop required URLs](/azure/virtual-desktop/required-fqdn-endpoint)
 
 ### AKS required endpoints
 
@@ -208,9 +206,6 @@ AKS requires connectivity to the following endpoints via community endpoints:
 | **Authentication** | `login.microsoftonline.com` | 443 | HTTPS |
 | **Package Repository** | `packages.microsoft.com`<br>`acs-mirror.azureedge.net` | 443 | HTTPS |
 
-> [!NOTE]
-> Service tags aren't yet available in AVE, so specific endpoint names must be used. Other outbound NSG rules might be required for internet access on port 443.
-
 Reference: [AKS required outbound network rules](/azure/aks/outbound-rules-control-egress)
 
 ### Inter-enclave communication
@@ -219,9 +214,9 @@ If using separate enclaves, you need enclave endpoints and connections for:
 
 | Source | Destination | Purpose | Ports |
 |--------|-------------|---------|-------|
-| AVD Enclave | Shared Services Enclave | Key Vault, DNS, monitoring | 443, 53 |
+| Azure Virtual Desktop Enclave | Shared Services Enclave | Key Vault, DNS, monitoring | 443, 53 |
 | AKS Enclave | Shared Services Enclave | Key Vault, DNS, monitoring | 443, 53 |
-| AVD Enclave | AKS Enclave | Optional: Direct communication | Depends on requirements |
+| Azure Virtual Desktop Enclave | AKS Enclave | Optional: Direct communication | Depends on requirements |
 
 ## Resource organization
 
@@ -229,7 +224,7 @@ If using separate enclaves, you need enclave endpoints and connections for:
 
 Each workload should have one or more resource groups. Consider this organization:
 
-**AVD Workload Resource Groups**:
+**Azure Virtual Desktop Workload Resource Groups**:
 - `rg-avd-controlplane` - Host pools, workspaces, application groups
 - `rg-avd-sessionhosts` - Session host VMs and related resources
 - `rg-avd-storage` - FSLogix storage accounts
@@ -247,7 +242,7 @@ Each workload should have one or more resource groups. Consider this organizatio
 
 ## Common dependencies planning
 
-Both AVD and AKS require these common dependencies:
+Both Azure Virtual Desktop and AKS require these common dependencies:
 
 | Resource | Purpose | Shared or Per-Workload |
 |----------|---------|----------------------|
@@ -286,16 +281,16 @@ Both AVD and AKS require these common dependencies:
 ### Monitoring
 
 - Enable diagnostic settings on all resources
-- Configure AVD Insights for session host monitoring
+- Configure Azure Virtual Desktop Insights for session host monitoring
 - Configure Container Insights for AKS monitoring
 - Send all logs to a centralized Log Analytics workspace
 
 ## Next steps
 
-Now that you planned your architecture, the next tutorial guides you through creating the AE environment for your workloads.
+Now that you planned your architecture, the next tutorial guides you through creating the Azure Enclave environment for your workloads.
 
 > [!div class="nextstepaction"]
-> [Tutorial 2-2: Create Azure Virtual Enclave environment for workloads](./2-2-create-virtual-enclaves-environment.md)
+> [Tutorial 2-2: Create Azure Enclave environment for workloads](./2-2-create-azure-enclave-environment.md)
 
 ## Related content
 

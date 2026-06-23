@@ -9,9 +9,9 @@ ms.date: 9/30/2025
 
 # What is the service catalog?
 
-The service catalog enables you to quickly deploy tailored Azure Resource Manager (ARM) templates of Azure services into Azure Enclave (AE) while being compliant with Policy Guardrails and enclave isolation requirements. The service catalog helps customers accelerate the creation of their workloads within the secure boundary of AE without getting blocked by the security they want.
+The service catalog enables you to quickly deploy tailored Azure Resource Manager (ARM) templates of Azure services into Azure Enclave while being compliant with Policy Guardrails and enclave isolation requirements. The service catalog helps you accelerate the creation of your workloads within the secure boundary of Azure Enclave without getting blocked by the security you want.
 
-![Diagram showing how service catalog templates deploy resources into customer workloads.](./media/service-catalog-process-overview.png)
+![Diagram showing how service catalog templates deploy resources into your workloads.](./media/service-catalog-process-overview.png)
 
 Diagram Description: The user/admin accesses the service catalog through the portal. Once the user selects the service catalog template they want to deploy, they can customize the resource creation, and then create those resources.
 
@@ -42,5 +42,5 @@ You can update the destination for other Clouds using the values in [this articl
 
 - [Service Catalog List: How-To Guides and tips for each template](./list-service-catalog-templates.md)
 - [Service Catalog Storage Account deployment Quickstart](./deploy-storage-account-service-catalog.md)
-- [What is Azure Enclave?](./what-azure-virtual-enclaves.md)
+- [What is Azure Enclave?](./what-azure-enclave.md)
 - [Tutorial: Create resources from the service catalog](./1-4-use-service-catalog-create-azure-resources-workloads.md)

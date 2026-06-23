@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 ### Understanding AKS in Azure Enclave
 
-AKS in AE provides:
+AKS in Azure Enclave provides:
 - **Fully private cluster**: API server accessible only through private endpoint
 - **Network isolation**: All traffic stays within enclave boundaries
 - **Customer-managed encryption**: Both control plane and data plane encrypted with CMK
@@ -50,7 +50,7 @@ This tutorial uses example names. Use your organization's naming convention:
 
 ## Enable required Azure features
 
-AKS in AE requires specific Azure features to be enabled on your subscription.
+AKS in Azure Enclave requires specific Azure features to be enabled on your subscription.
 
 ### Enable EncryptionAtHost feature
 
@@ -244,7 +244,7 @@ Now deploy the AKS cluster with full encryption and monitoring.
 
 - **Environment**: `Production`
 - **Workload**: `AKS`
-- **ManagedBy**: `AVE`
+- **ManagedBy**: `Azure Enclave`
 
 4. Select **Review + Add**.
 5. Review all settings carefully.
@@ -601,7 +601,7 @@ az group delete --name rg-aks-infrastructure --yes --no-wait
 
 ## Next steps
 
-You completed the tutorial series for deploying AVD and AKS workloads in Azure Enclave!
+You completed the tutorial series for deploying Azure Virtual Desktop and AKS workloads in Azure Enclave!
 
 ### Recommended next steps
 

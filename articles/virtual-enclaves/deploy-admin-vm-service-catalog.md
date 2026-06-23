@@ -7,8 +7,8 @@ ms.topic: how-to
 ms.date: 6/16/2025
 ---
 
-# Deploy Admin Virtual Machine (Admin VM) from the service catalog into a workload
-The Admin VM template allows customers to install an application they want to publish to one or more users without installing that application on each users' desktop.
+# Deploy Admin Virtual Machine (VM) from the service catalog into a workload
+The Admin VM template creates a VM on the management subnet so you can access the enclave resources securely. This type of VM is also called a jumpbox because it allows you to jump into the isolated network.
 
 In this article, you:
 
@@ -42,13 +42,13 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 3. A Key Vault, Customer Managed Key (CMK), and Managed Identity are required for this template. Create a Key Vault, CMK, and Managed Identity in the [Common Dependencies service catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own.
     - These resources should be created inside a [workload resource group](./create-workload-portal.md#add-workload-resource-groups).
     - After creating the User Managed Identity, ensure it has access to the CMK key
-        - Assign the `Key Vault Crypto Service Encryption User` RBAC role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This role allows you to then assign the managed identity to another resource, like a Virtual Machine, and that Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault following least privilege.
+        - Assign the `Key Vault Crypto Service Encryption User` RBAC role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This role allows you to then assign the managed identity to another resource, like a Virtual Machine, and that Virtual Machine can encrypt the operating system disk with the CMK in the key vault with least privilege.
 4. (optional) An existing domain to join if the Admin VM will be domain joined.
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
 2. Select `+Add an Azure Service` button.
-3. Select the `Admin VM` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
+3. Select the `Admin VM` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown. Confirm the version you need (default: `latest`) and then select `Next`.
 
 ![Screenshot showing the service catalog Admin VM selected from the list.](./media/service-catalog-list-admin-vm.png)
 

@@ -10,7 +10,7 @@ ms.date: 9/30/2025
 
 # Identity and access controls for Azure Enclave
 
-Azure Enclave (AE) provides robust identity and access management (IAM) controls to safeguard your environments while ensuring operational flexibility. This document outlines how enclave and Workload Administration settings are configured, as well as how enclaves integrate with Azure-first identity solutions like Microsoft Entra ID, on-premises Active Directory, Privileged Identity Management (PIM), and the Personnel Portal.
+Azure Enclave provides robust identity and access management (IAM) controls to safeguard your environments while ensuring operational flexibility. This document outlines how enclave and Workload Administration settings are configured, as well as how enclaves integrate with Azure-first identity solutions like Microsoft Entra ID, on-premises Active Directory, Privileged Identity Management (PIM), and the Personnel Portal.
 
 ## Enclave administration and workload administration settings
 
@@ -20,7 +20,7 @@ Azure Enclave uses hierarchical IAM settings to define roles and permissions at 
 - **Purpose**: Control administrative access to the resources that form the enclave's managed infrastructure.  
 - **Scope**: Applies to the enclave managed resource group.  
 - **Configuration**:  
-  `Enclave Administration` settings define **who can manage and configure enclave-level resources**. AE users specify these permissions during enclave creation or modification.  
+  `Enclave Administration` settings define **who can manage and configure enclave-level resources**. Azure Enclave users specify these permissions during enclave creation or modification.  
   Common roles assigned include:
   - **Enclave Admin**: Full access to enclave managed resource group.
   - **Enclave Operator**: Limited permissions for operational tasks such as monitoring logs or restarting services.
@@ -68,21 +68,21 @@ Azure Enclave uses hierarchical IAM settings to define roles and permissions at 
 - Access is automatically revoked after the defined period.
 
 
-The Azure Enclave identity and access control model ensures robust security, dynamic adaptability, and precise governance across isolated, zero-trust environments. Integrate with Azure-first identity solutions so AE can provide administrators with the tools needed to meet even the most stringent security and compliance requirements.
+The Azure Enclave identity and access control model ensures robust security, dynamic adaptability, and precise governance across isolated, zero-trust environments. Integrate with Azure-first identity solutions so Azure Enclave can provide administrators with the tools needed to meet even the most stringent security and compliance requirements.
 
 ## Built in RBAC roles for Azure Enclave
 
-Azure Enclave includes a set of built-in **Role-Based Access Control (RBAC)** roles designed to manage AVE-specific resource types. These roles provide granular permissions to manage AE objects like communities and enclaves, without granting permissions to underlying Azure networking resources such as Virtual WAN (VWAN) or Azure Firewall. 
+Azure Enclave includes a set of built-in **Role-Based Access Control (RBAC)** roles designed to manage Azure Enclave-specific resource types. These roles provide granular permissions to manage Azure Enclave objects like communities and enclaves, without granting permissions to underlying Azure networking resources such as Virtual WAN or Azure Firewall. 
 
-### AE Built in roles
+### Azure Enclave Built in roles
 
-The built-in roles are scoped specifically for AE and don't overlap with permissions for Azure networking, firewall, or virtual WAN components. The key AE RBAC roles and their descriptions:
+The built-in roles are scoped specifically for Azure Enclave and don't overlap with permissions for Azure networking, firewall, or virtual WAN components. The key Azure Enclave RBAC roles and their descriptions:
 
 #### Community-Level roles
 **Community owner**  
-  Grants full control over the AE community resource. This role allows the user to configure community-level settings and manage associated enclaves but doesn't permit direct modification of the underlying Azure networking resources (for example, VWAN or firewall).  
+  Grants full control over the Azure Enclave community resource. This role allows the user to configure community-level settings and manage associated enclaves but doesn't permit direct modification of the underlying Azure networking resources (for example, Virtual WAN or firewall).  
   **Example Permissions**:  
-  - Create, delete, or update an AE community.  
+  - Create, delete, or update an Azure Enclave community.  
   - Configure endpoints and transit hub connections for the community.  
 
 **Community contributor**  
@@ -91,11 +91,11 @@ The built-in roles are scoped specifically for AE and don't overlap with permiss
   - Modify existing endpoint rules or transit hub configurations.  
 
 **Community reader**  
-  Grants read-only access to view the AE community and its settings, such as networking endpoints and diagnostics configurations.  
+  Grants read-only access to view the Azure Enclave community and its settings, such as networking endpoints and diagnostics configurations.  
 
 #### Enclave-Level roles
 **Enclave owner**  
-  Grants full control over the AE enclave resource. Users can manage the enclave’s configuration, including endpoints and workload associations, but can't modify the underlying infrastructure (for example, virtual network or NSGs).  
+  Grants full control over the Azure Enclave enclave resource. Users can manage the enclave’s configuration, including endpoints and workload associations, but can't modify the underlying infrastructure (for example, virtual network or NSGs).  
   **Example Permissions**:  
   - Create, update, or delete an enclave.  
   - Associate workloads and manage enclave connection rules.  
@@ -111,7 +111,7 @@ The built-in roles are scoped specifically for AE and don't overlap with permiss
 
 ### Example scenario
 
-Consider a scenario where an organization is managing an AE environment. Azure RBAC is managed at four levels - Management Group, Subscription, resource group, and Individual Resource. RBAC Role Assignments can be made at any of these levels.
+Consider a scenario where an organization is managing an Azure Enclave environment. Azure RBAC is managed at four levels - Management Group, Subscription, resource group, and Individual Resource. RBAC Role Assignments can be made at any of these levels.
 
 Environment Structure:
 
@@ -131,7 +131,7 @@ Environment Structure:
   - **Community Viewer** role assignment is created at the community-level Security Auditor to view/analyze endpoints and connections within the community.
   - **Azure Firewall Contributor** role assignment is created at the Security Administrator for configuring firewall policies.
 
-**Enclave Administration** - AE Built-in role assignments set the:  
+**Enclave Administration** - Azure Enclave Built-in role assignments set the:  
   - **Enclave owner** Mission/Network Owners that need to deploy workloads, endpoints, and connections for one or more enclaves.
   - **Enclave Viewer** Security Auditor to view and analyze endpoints and connections within the enclave.
   - **Network Contributor** Network Engineer for updating underlying NSG rules within the enclave’s virtual network in a break-glass scenario.
@@ -144,4 +144,4 @@ Environment Structure:
 **Workload Administration**
   - **User Access Administrator** role to manage user access to Azure resources.
 
-AVEs built-in RBAC roles streamline permissions for managing AVE-specific resources while Azure’s existing roles provide the necessary access for the underlying infrastructure. This separation ensures clear boundaries and simplifies role assignments across your organization.
+Azure Enclave built-in RBAC roles streamline permissions for managing Azure Enclave-specific resources while Azure’s existing roles provide the necessary access for the underlying infrastructure. This separation ensures clear boundaries and simplifies role assignments across your organization.

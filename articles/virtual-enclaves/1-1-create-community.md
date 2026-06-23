@@ -168,7 +168,7 @@ Communities provide multiple security layers:
 
 The following diagram shows an example Azure Enclave environment that starts with a community and adds enclaves and workloads in later tutorials:
 
-[ ![Diagram showing two example workloads linked to both the other Azure Enclave resources and their workload resource groups.](./media/mermaid-workloads-example.png) ](./media/mermaid-workloads-example.png#lightbox)
+[ ![Diagram showing two example workloads linked to both the other Azure Enclave resources and your workload resource groups.](./media/mermaid-workloads-example.svg) ](./media/mermaid-workloads-example.svg#lightbox)
 
 <!--
 The mermaid definition for the above graph is in the what-workload.md file
@@ -197,13 +197,13 @@ Community deployments take approximately **30-45 minutes** to complete. Azure En
 
 In the `Azure Enclave` page, select `Communities` in the left menu.
 
-[ ![Screenshot showing the Azure portal homepage for Azure Enclave with the Create a Community button.](./media/azure-virtual-enclaves-homepage.png) ](./media/azure-virtual-enclaves-homepage.png#lightbox)
+[ ![Screenshot showing the Azure portal homepage for Azure Enclave with the Create a Community button.](./media/azure-enclave-homepage.png) ](./media/azure-enclave-homepage.png#lightbox)
 
 #### Step 2: Start community creation
 
 On the `Communities` page, select `Create`.
 
-[ ![Screenshot showing the Azure Enclave portal page with the communities list selected.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list.png) ](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list.png#lightbox)
+[ ![Screenshot showing the Azure Enclave portal page with the communities list selected.](./media/tutorial-step-one-azure-enclave-page-communities-list.png) ](./media/tutorial-step-one-azure-enclave-page-communities-list.png#lightbox)
 
 #### Step 3: Configure community settings
 
@@ -285,7 +285,7 @@ After the community deployment completes, perform these validation steps to ensu
 2. Verify `Status` shows `Succeeded`
 3. Review the `Overview` page for basic information
 
-![Screenshot showing created community on its overview page.](./media/tutorial-step-one-community-overview-page.png)
+[ ![Screenshot showing created community on its overview page.](./media/tutorial-step-one-community-overview-page.png) ](./media/tutorial-step-one-community-overview-page.png#lightbox)
 
 **Key information to verify:**
 - **Provisioning State**: Should be "Succeeded"
@@ -356,7 +356,7 @@ If you need to delete your community after completing this tutorial:
 5. Type the community name to confirm deletion
 6. Select `Delete`
 
-![Screenshot showing the completed community in the Azure Enclave portal page communities list.](./media/tutorial-step-one-azure-virtual-enclaves-page-communities-list-deployed.png)
+![Screenshot showing the completed community in the Azure Enclave portal page communities list.](./media/tutorial-step-one-azure-enclave-page-communities-list-deployed.png)
 
 **Alternative deletion via Azure CLI:**
 ```azurecli
@@ -378,7 +378,7 @@ az resource delete \
 
 **What is retained:**
 - Resource group (if containing other resources)
-- Any resources not managed by AVE
+- Any resources not managed by Azure Enclave
 - Log Analytics data (based on retention settings)
 
 ## Troubleshooting
@@ -447,9 +447,9 @@ Ensure proper RBAC assignments before starting deployment
 
 If you continue experiencing issues:
 
-1. **Check the AE troubleshooting guide**: [Troubleshooting guide](./troubleshoot.md)
+1. **Check the Azure Enclave troubleshooting guide**: [Troubleshooting guide](./troubleshoot.md)
 2. **Review logs**: Check Activity Log for error messages
-3. **Azure documentation**: Review the [Azure Enclave documentation](./index.yml) and [Azure Enclave FAQs](./virtual-enclaves-faq.md)
+3. **Azure documentation**: Review the [Azure Enclave documentation](./index.yml) and [Azure Enclave FAQs](./azure-enclave-faq.md)
 4. **Contact support**: Create a support ticket with:
    - Subscription ID
    - Community resource ID
@@ -480,6 +480,6 @@ In the next tutorial, you'll learn how to create isolated enclaves within your c
 - [What is a community?](./what-community.md)
 - [What is an enclave?](./what-enclave.md)
 - [Best practices for Azure Enclave](./best-practices.md)
-- [Azure Enclave FAQs](./virtual-enclaves-faq.md)
-- [Naming rules and restrictions](./name-rules-restrictions-azure-virtual-enclaves-resources.md)
+- [Azure Enclave FAQs](./azure-enclave-faq.md)
+- [Naming rules and restrictions](./name-rules-restrictions-azure-enclave-resources.md)
 - [Quotas and region availability](./quotas-region-availability.md)

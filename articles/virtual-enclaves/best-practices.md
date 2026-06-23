@@ -11,15 +11,15 @@ ms.date: 9/30/2025
 
 This article describes key concepts and best practices for Azure Enclave.
 
-Azure Enclave (AE) accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments. These environments are designed to handle the most sensitive missions and workloads across Commercial and air-gapped environments.
+Azure Enclave accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments. These environments are designed to handle the most sensitive missions and workloads across Commercial and air-gapped environments.
 
-Building and running workloads successfully in AE requires understanding and implementation of some key concepts, including:
+Building and running workloads successfully in Azure Enclave requires understanding and implementation of some key concepts, including:
 
 - [Networking and organizational design patterns](#networking-and-organizational-design-patterns-for-azure-enclave)
 - [Security design patterns](#security-design-patterns-for-azure-enclave)
 - [Managed resource groups](#managed-resource-groups-in-azure-enclave)
 
-The AE product group, engineering teams, and field teams developed the following best practices and conceptual articles. The articles were created to help community and enclave owners and developers better understand important concepts and implement the appropriate features.
+The Azure Enclave product group, engineering teams, and field teams developed the following best practices and conceptual articles. The articles were created to help community and enclave owners and developers better understand important concepts and implement the appropriate features.
 
 ## Azure setup
 
@@ -29,7 +29,7 @@ Read through these setup steps to determine if these configuration steps fit you
 
 In order to avoid potential issues with [Virtual Network Flow Log](/azure/network-watcher/vnet-flow-logs-overview) creation later on, we recommend you either set up the `NetworkWatcherRG` resource group manually in advance and assign the `Mission Enclave` app `Owner` on the resource group, or verify that the setup occurred automatically and that permissions were automatically assigned before creating your first enclave in the subscription.
 
-To mitigate this potential issue, for each subscription, manually create the NetworkWatcher resource group called `NetworkWatcherRG` in new subscriptions, and then grant the `Mission Enclave` AE App `Owner` on the NetworkWatcherRG:
+To mitigate this potential issue, for each subscription, manually create the NetworkWatcher resource group called `NetworkWatcherRG` in new subscriptions, and then grant the `Mission Enclave` Azure Enclave App `Owner` on the NetworkWatcherRG:
 1. Select the `NetworkWatcherRG` resource group, select `Access control (IAM)`, then select `Add` and `Add role assignment`.
 
 ![Screenshot showing resource group add role selection in the portal.](./media/onboard-network-watcher-add-role.png)
@@ -61,34 +61,34 @@ When a Community or Enclave is created, Azure Enclave attempts the following ste
 
 ### Networking design
 
-AVE brings together the capabilities and flexibility of several Azure networking products in a simplified user interface including:
+Azure Enclave brings together the capabilities and flexibility of several Azure networking products in a simplified user interface including:
 - Azure Virtual WAN
 - Azure Firewall
 - Azure Virtual Network
 - Network Security Groups
 
-AVE makes the following overall recommendations:
+Azure Enclave makes the following overall recommendations:
 
 - [Communities](./what-community.md) should be deployed when you have networking requirements to provide an [Azure Firewall](https://aka.ms/azurefirewall), which is Azure's intelligent firewall security Platform-as-a-Service.
-- Communities should be deployed when you have organizational or data sensitivity requirements to separate a hub-and-spoke virtual wide-area-network (VWAN) from another hub-and-spoke VWAN.
+- Communities should be deployed when you have organizational or data sensitivity requirements to separate a hub-and-spoke Virtual WAN from another hub-and-spoke Virtual WAN.
 - Communities should be deployed when you have networking requirements to support systems spanning [multiple Azure regions](/azure/cloud-adoption-framework/ready/azure-setup-guide/regions), in which each region requires its own Azure Firewall. [Learn more about multi-hub Azure Firewall use-cases](/azure/firewall/firewall-multi-hub-spoke).
-- Communities should be deployed when you have networking requirements to support a large number of systems on a distributed, hub-and-spoke wide area network. Learn more about [Azure VWAN](/azure/virtual-wan/virtual-wan-faq).
+- Communities should be deployed when you have networking requirements to support a large number of systems on a distributed, hub-and-spoke wide area network. Learn more about [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-faq).
 - [Enclaves](./what-enclave.md) should be deployed when you have networking requirements to deploy similar workloads as part of the same private network.
-- Enclaves should be deployed when you have workload requirements that need a virtual network and is within the same VWAN as an existing community.
+- Enclaves should be deployed when you have workload requirements that need a virtual network and is within the same Virtual WAN as an existing community.
 
 #### Community network design considerations
 
-You should follow, wherever possible, underlying Azure service best practices documentation when planning their community networks. Including these best practices:
+You should follow, wherever possible, underlying Azure service best practices documentation when planning your community networks. Including these best practices:
 
 - [Azure Firewall best practices](/azure/firewall/firewall-best-practices)
 - [Azure Firewall multi-hub-and-spoke](/azure/firewall/firewall-multi-hub-spoke)
-- [Hub-and-spoke Azure VWAN Architecture](/azure/architecture/networking/hub-spoke-vwan-architecture)
-- [Azure VWAN Network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology)
-- [Azure VWAN FAQ](/azure/virtual-wan/virtual-wan-faq)
+- [Hub-and-spoke Azure Virtual WAN Architecture](/azure/architecture/networking/hub-spoke-vwan-architecture)
+- [Azure Virtual WAN Network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/virtual-wan-network-topology)
+- [Azure Virtual WAN FAQ](/azure/virtual-wan/virtual-wan-faq)
 
 #### Enclave network design considerations
 
-You should follow, wherever possible, underlying Azure service best practices documentation when planning their enclave networks. Including these best practices:
+You should follow, wherever possible, underlying Azure service best practices documentation when planning your enclave networks. Including these best practices:
 
 - [Azure Virtual Network concepts and best practices](/azure/virtual-network/concepts-and-best-practices)
 - [Network security groups overview](/azure/virtual-network/network-security-groups-overview)
@@ -98,8 +98,8 @@ Learn more about overall [Azure networking best practices](/azure/security/funda
 ### Workload deployment
 
 - Workloads are linked to a managed resource group where enclave contributors can deploy Azure resources.
-- By default, all AE workloads are [governed](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring) through built-in Azure Policy initiatives
-- Workloads associated with a [community](./what-community.md) that has a custom governance setup, use this unique configuration instead of the default AE governance configuration.
+- By default, all Azure Enclave workloads are [governed](./what-azure-enclave.md#multi-layered-governance-security-and-monitoring) through built-in Azure Policy initiatives
+- Workloads associated with a [community](./what-community.md) that has a custom governance setup, use this unique configuration instead of the default Azure Enclave governance configuration.
 - [Considerations for naming Azure resources](/azure/azure-government/documentation-government-concept-naming-resources)
 
 ## Security design patterns for Azure Enclave
@@ -107,21 +107,21 @@ Consider these security design patterns when designing your Azure Enclave enviro
 
 ### Security boundaries
 
-AVE employs a defense-in-depth approach when it comes to cybersecurity. When you deploy a community and enclaves, AE establishes several layers of network isolation, security, access controls, and logging and monitoring.
+Azure Enclave employs a defense-in-depth approach when it comes to cybersecurity. When you deploy a community and enclaves, Azure Enclave establishes several layers of network isolation, security, access controls, and logging and monitoring.
 
 ### Shared security responsibilities
 
-As a service on Azure, AE also is committed to upholding the [shared responsibility model](/azure/security/fundamentals/shared-responsibility) in the cloud. For AE specifically, [workloads](./what-workload.md) are your responsibility. Platform shared responsibility is inherited in workloads if you deployed PaaS services into their workloads.
+As a service on Azure, Azure Enclave also is committed to upholding the [shared responsibility model](/azure/security/fundamentals/shared-responsibility) in the cloud. For Azure Enclave specifically, [workloads](./what-workload.md) are your responsibility. Azure shared responsibility is inherited in workloads if you deployed PaaS services into your workloads.
 
-Your [communities](./what-community.md) and [enclaves](./what-enclave.md) represent a shared responsibility. Communities and enclaves use a shared responsibility model where the AE Resource Provider creates your secured, preconfigured hub-and-spoke network environment. You manage this network environment by creating [enclave endpoints](./create-enclave-endpoint-portal.md), [community endpoints](./create-community-endpoint-portal.md), [transit hubs](./create-transit-hub-portal.md), or [enclave connections](./create-enclave-connection-portal.md). Certain preview versions of AE also allow you to manually make changes to the network through underlying controls provided by [Azure VWAN](/azure/virtual-wan/virtual-wan-about), [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview), and other underlying Azure networking services.
+Your [communities](./what-community.md) and [enclaves](./what-enclave.md) represent a shared responsibility. Communities and enclaves use a shared responsibility model where the Azure Enclave Resource Provider creates your secured, preconfigured hub-and-spoke network environment. You manage this network environment by creating [enclave endpoints](./create-enclave-endpoint-portal.md), [community endpoints](./create-community-endpoint-portal.md), [transit hubs](./create-transit-hub-portal.md), or [enclave connections](./create-enclave-connection-portal.md). Certain preview versions of Azure Enclave also allow you to manually make changes to the network through underlying controls provided by [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about), [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview), and other underlying Azure networking services.
 
-AVE [governance](./what-azure-virtual-enclaves.md#multi-layered-governance-security-and-monitoring) is also a shared responsibility. The AE Resource Provider creates a secured, preconfigured list of [Azure Policy initiatives](./aks-initiative.md) per [workload](./what-workload.md) deployment. However, [communities](./what-community.md) now have the capability to configure their own list of Azure Policy Initiatives, which overrides the preconfigured list for the workload. Despite the policy requirements, customers retain the ability to make manual [exemptions](./policy-compliance-exemptions.md) to these Azure Policy Initiative assignments depending on their compliance or governance requirements.
+Azure Enclave [governance](./what-azure-enclave.md#multi-layered-governance-security-and-monitoring) is also a shared responsibility. The Azure Enclave Resource Provider creates a secured, preconfigured list of [Azure Policy initiatives](./aks-initiative.md) per [workload](./what-workload.md) deployment. However, [communities](./what-community.md) now have the capability to customize the community Azure Policy Initiatives, which overrides the preconfigured list for the workload. Despite the policy requirements, you retain the ability to make manual [exemptions](./policy-compliance-exemptions.md) to these Azure Policy Initiative assignments depending on their compliance or governance requirements.
 
 ### Azure Security best practices
 
-AVE recommends following [Microsoft Azure Security best practices and patterns](/azure/security/fundamentals/best-practices-and-patterns) for deploying Azure resources and implementing workloads.
+Azure Enclave recommends following [Microsoft Azure Security best practices and patterns](/azure/security/fundamentals/best-practices-and-patterns) for deploying Azure resources and implementing workloads.
 
-Customers are also recommended to follow the [Azure security best practices - Cloud Adoption Framework](/azure/cloud-adoption-framework/secure/security-top-10) for organizing their systems, cloud infrastructure, IT personnel and teaming structures, and corporate cybersecurity awareness trainings.
+You should follow the [Azure security best practices - Cloud Adoption Framework](/azure/cloud-adoption-framework/secure/security-top-10) for organizing your systems, cloud infrastructure, IT personnel and teaming structures, and corporate cybersecurity awareness trainings.
 
 ### Data exfiltration via Domain Name System
 
@@ -137,7 +137,7 @@ Azure DNS Security Policy addresses DNS data exfiltration through several key me
 
 The implementation of Azure DNS Security Policy creates multiple layers of defense against DNS data exfiltration. Traffic rules can be configured with different priority levels, allowing for complex security policies that balance security with operational requirements. The service supports real-time blocking of malicious queries while providing detailed logs for forensic analysis and threat hunting. Additionally, virtual network links ensure that DNS security policies are consistently applied across all resources within protected network segments, creating a comprehensive security perimeter that's difficult for attackers to bypass.
 
-For Azure Enclave deployments, Azure DNS Security Policy should be integrated as part of the overall security architecture. Organizations should configure DNS security policies to monitor and control DNS traffic from enclave workloads, ensuring that sensitive data remains protected even if individual workloads become compromised. Regular review and updating of DNS domain lists, combined with continuous monitoring of DNS logs, provides ongoing protection against evolving DNS-based threats and helps maintain the security integrity of the virtual enclave environment.
+For Azure Enclave deployments, Azure DNS Security Policy should be integrated as part of the overall security architecture. Organizations should configure DNS security policies to monitor and control DNS traffic from enclave workloads, ensuring that sensitive data remains protected even if individual workloads become compromised. Regular review and updating of DNS domain lists, combined with continuous monitoring of DNS logs, provides ongoing protection against evolving DNS-based threats and helps maintain the security integrity of the Azure Enclave environment.
 
 More information is available at the [DNS Security Policy documentation](/azure/dns/dns-security-policy).
 
@@ -230,7 +230,7 @@ The community managed resource group has the following limitations:
 
 If you modify or delete Azure-created tags, resources, and other resource properties in the community managed resource group, you could see unexpected results. As Azure Enclave manages the lifecycle of infrastructure in the community managed resource group, any changes could potentially move your enclave into an unsupported state.
 
-A common scenario where customers want to modify resources is through tags. Azure Enclave allows you to create and modify tags that are propagated to resources in the community managed resource group. You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can also be achieved by creating Azure Policies with a scope on the community managed resource group.
+A common scenario where you want to modify resources is through tags. Azure Enclave allows you to create and modify tags that are propagated to resources in the community managed resource group. You might want to create or modify custom tags, for example, to assign a business unit or cost center. This can also be achieved by creating Azure Policies with a scope on the community managed resource group.
 
 > [!NOTE]
 >
@@ -254,7 +254,7 @@ The enclave managed resource group has the following limitations:
 
 If you modify or delete Azure-created tags, resources, and other resource properties in the enclave managed resource group, you could get unexpected results, such as network, access, and monitoring errors. As Azure Enclave manages the lifecycle of infrastructure in the enclave managed resource group, any changes could potentially move your enclave into an unsupported state.
 
-A common scenario where customers want to modify resources is through tags. Azure Enclave allows you to create and modify tags that are propagated to resources in the enclave managed resource group. You might want to create or modify custom tags, for example, to assign a business unit or cost center. Resource tagging can also be achieved by creating Azure Policies with a scope on the enclave managed resource group.
+A common scenario where you want to modify resources is through tags. Azure Enclave allows you to create and modify tags that are propagated to resources in the enclave managed resource group. You might want to create or modify custom tags, for example, to assign a business unit or cost center. Resource tagging can also be achieved by creating Azure Policies with a scope on the enclave managed resource group.
 
 > [!WARNING]
 >
@@ -269,7 +269,7 @@ The workload is linked to one or more resource groups where you can create and o
 Adding a new resource group normally requires the user to have permissions to create a new resource group. Subscription `Owner` or `Contributor` roles have this permission but the person creating the workload resource group might not have or need this privileged permission. Azure Enclave attempts three ways to create the new resource group ranging from the highest to lowest user permission requirements, offering flexibility for the user:
 
 - Option 1: Requires the most privileged permissions for the individual creating or updating the workload, providing full control but necessitating elevated access.
-- Option 2: Involves manual setup by the user to [grant our `Mission Enclave` application ownership at the subscription level](./onboard.md), which might not align with all customers’ preferences.
+- Option 2: Involves manual setup by the user to [grant our `Mission Enclave` application ownership at the subscription level](./onboard.md), which might not align with your preferences.
 - Option 3: Requires no permissions for either the user or the `Mission Enclave` application, making it the easiest method but imposing a strict 1:1 relationship between the resource group and workload.
 
 Each option has benefits and limitations, balancing control, convenience, and flexibility to fit varying needs. These options are each evaluated starting with option 1 and the first option to succeed is used to create the new resource group.
@@ -286,7 +286,7 @@ Add a resource group to your enclave:
 
 #### How is a workload resource group different from other Azure resource groups?
 
-A workload resource group is a critical component of the Azure Enclave security and compliance because that's where important customer resources are created. Since these workload resource groups are linked to a workload, and the workload is linked to an enclave, Azure Enclave manages the [deletion of workload managed resource groups](#workload-deletion).
+A workload resource group is a critical component of the Azure Enclave security and compliance because that's where your important resources are created. Since these workload resource groups are linked to a workload, and the workload is linked to an enclave, Azure Enclave manages the [deletion of workload managed resource groups](#workload-deletion).
 
 Additionally, policy is applied to the workload resource groups. Similar to how the community policies flow down to the enclave, the enclave policies flow down to the [workload](./what-workload.md) resources and [workload resource groups](./what-workload.md#workload-resource-group). When you create a new workload resource group, the roles are set at the enclave level and inherited from the subscription. Some of these policies are inherited from the community and you can also create policies on the enclave that flow down to workloads and workload resource groups.
 
@@ -310,7 +310,7 @@ The workload managed resource group has the following limitations:
 - You can't change the workload managed resource group name after the workload is created.
 - You can't modify or delete Azure-created tags of managed resources within the workload managed resource group.
 
-A common scenario where customers want to modify resources is through tags. Azure Enclave allows you to create and modify tags that are propagated to resources in the workload managed resource group. You might want to create or modify custom tags, for example, to assign a business unit or cost center. Tagging can also be achieved by creating Azure Policies with a scope on the workload managed resource group.
+A common scenario where you want to modify resources is through tags. Azure Enclave allows you to create and modify tags that are propagated to resources in the workload managed resource group. You might want to create or modify custom tags, for example, to assign a business unit or cost center. Tagging can also be achieved by creating Azure Policies with a scope on the workload managed resource group.
 
 ## Other Azure best practices
 

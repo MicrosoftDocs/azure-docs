@@ -11,7 +11,7 @@ ms.date: 3/23/2026
 
 A **community endpoint** is a collection of trusted destinations or transit hub connections to private networks outside of the community boundary.
 
-Enclave connections associated with a community endpoint allow the **source enclave** to connect to destinations defined within the community endpoint. These endpoints provide a controlled mechanism for enclaves to communicate with external services while maintaining the network isolation boundaries of Azure Enclave (AE).
+Enclave connections associated with a community endpoint allow the **source enclave** to connect to destinations defined within the community endpoint. These endpoints provide a controlled mechanism for enclaves to communicate with external services while maintaining the network isolation boundaries of Azure Enclave.
 
 Community endpoints are enforced through **Azure Firewall network rules**, ensuring outbound connectivity from enclaves is explicitly defined and governed.
 
@@ -33,7 +33,7 @@ This model ensures that all outbound traffic from enclaves is evaluated through 
 Community endpoints support several rule types that define how enclaves can connect to external resources.
 
 - **IP Address**  
-  Enable traffic from an enclave to a specific IP address outside of the community VWAN.
+  Enable traffic from an enclave to a specific IP address outside of the community Virtual WAN.
 
 - **Fully Qualified Domain Name (FQDN)**  
   Enable traffic from an enclave to a trusted domain name (for example `portal.azure.com`).  
@@ -53,7 +53,7 @@ Community endpoints support several rule types that define how enclaves can conn
   - `AzureMonitor` - Azure Monitor service IP addresses
   - `Sql` - Azure SQL Database service IP addresses
 
-  For a complete list of available Service Tags, see [Virtual network service tags](/azure/virtual-network/service-tags-overview).
+  For a complete list of available Service Tags, see [Virtual Network service tags](/azure/virtual-network/service-tags-overview).
 
 - **Private Network**  
   Enable traffic from enclaves to an external private network through an existing **transit hub** connection. The transit hub must exist before a private network rule can be created.
@@ -90,7 +90,7 @@ Using FQDN-based rules provides several advantages:
 - Simplifies firewall rule management by using domain names instead of IP addresses
 - Supports services with **dynamic or frequently changing IP ranges**
 - Enables easier connectivity to **SaaS platforms and Azure platform services**
-- Improves scalability for large AE deployments
+- Improves scalability for large Azure Enclave deployments
 
 Because rule evaluation relies on Azure Firewall behavior, community endpoint connectivity follows standard Azure Firewall rule processing and filtering logic.
 

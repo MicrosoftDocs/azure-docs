@@ -8,7 +8,7 @@ ms.date: 6/16/2025
 ---
 
 # Deploy Virtual Machine from the service catalog into a workload
-The Virtual Machine (VM) template allows customers to install an application they want to publish to one or more users without installing that application on each users' desktop.
+The Virtual Machine (VM) template creates a Virtual Machine which helps with multiple workload scenarios. The Virtual Machine template also allows you to publish an application as an Azure Virtual Desktop RemoteApp so you can host a managed app and stream it to individual users.
 
 In this article, you:
 
@@ -85,10 +85,10 @@ If you publish your application, all of the following fields on this tab must be
 
 ![Screenshot showing the inputs needed to publish an app on the Virtual Machine.](./media/service-catalog-remote-app-vm-publish-inputs.png)
 
-- **Use default naming convention for your publish parameters**: Keeping the default to `True` will ignore the parameter values for `host pool`, `workspace`, and `Application Group` and instead will create resources in this format `<vmName>-<resourceName>` (for example "vm01-hostpool"). You can still add the friendly names to improve the names that customers will see.
+- **Use default naming convention for your publish parameters**: Keeping the default to `True` will ignore the parameter values for `host pool`, `workspace`, and `Application Group` and instead will create resources in this format `<vmName>-<resourceName>` (for example "vm01-hostpool"). You can still add the friendly names to improve the names that you will see.
 - **Application file path**: Provide the file path on the VM app for the application (for example, `C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe` with no "quotes")
 - **Application icon file path**: Provide the file path on the VM for the icon (for example, `C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe` with no "quotes")
-- **AVD modules URL**: Provide the URL for AVD modules for your cloud. The Azure Commercial URL is provided by default. As an example, if you are deploying to the Azure Government Cloud the URL is `https://wvdportalstorageblob.blob.core.usgovcloudapi.net/galleryartifacts/Configuration_01-20-2022.zip`.
+- **Azure Virtual Desktop modules URL**: Provide the URL for Azure Virtual Desktop modules for your cloud. The Azure Commercial URL is provided by default. As an example, if you are deploying to the Azure Government Cloud the URL is `https://wvdportalstorageblob.blob.core.usgovcloudapi.net/galleryartifacts/Configuration_01-20-2022.zip`.
 
 It can take 20+ minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 

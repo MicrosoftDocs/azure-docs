@@ -9,7 +9,7 @@ ms.date: 6/16/2025
 
 # Deploy an App Service Web App from the service catalog into a workload
 
-Azure Enclave (AE) is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this article, you:
+Azure Enclave is a cloud networking service that provides organizations with highly sensitive data the ability to quickly deploy and manage workloads across Commercial and air-gapped Azure clouds at scale. In this article, you:
 
 - Deploy a service catalog App Service Web App template into an existing workload from the Azure portal.
 - Review an architecture example for a [basic web application](/azure/architecture/web-apps/app-service/architectures/basic-web-app)

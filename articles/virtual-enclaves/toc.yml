@@ -1,16 +1,16 @@
-- name: Virtual Enclaves Documentation
+- name: Azure Enclave documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
   - name: "What is Azure Enclave?"
-    href: what-azure-virtual-enclaves.md
+    href: what-azure-enclave.md
   - name: "Why use Azure Enclave?"
-    href: why-azure-virtual-enclaves.md
+    href: why-azure-enclave.md
   - name: Azure Enclave FAQs
-    href: virtual-enclaves-faq.md
+    href: azure-enclave-faq.md
   - name: Azure Enclave Pricing
-    href: virtual-enclaves-pricing.md
+    href: azure-enclave-pricing.md
   - name: "What's new?"
     href: whats-new.md
   - name: Quickstarts
@@ -61,7 +61,7 @@
     - name: Best practices
       href: best-practices.md
     - name: Understand resource groups
-      href: virtual-enclaves-resource-groups.md
+      href: azure-enclave-resource-groups.md
 #     - name: Understanding Enclave Networking
 #       href: networking.md
 #     - name: Designing intra-enclave network isolation
@@ -72,8 +72,8 @@
       href: understand-domain-name-service.md
 - name: Tutorial - Deploy Azure Enclave
   items:
-  - name: Learn Virtual Enclaves
-    href: virtual-enclaves-learn.md
+  - name: Learn Azure Enclave
+    href: azure-enclave-learn.md
   - name: Create a community
     href: 1-1-create-community.md
   - name: Create enclaves inside a community
@@ -86,17 +86,17 @@
     href: 1-5-create-enclave-endpoint-connections.md
   - name: Monitor your enclaves
     href: 1-6-monitor-your-enclaves.md
-  - name: Host a publicly accessible application in a virtual enclave
-    href: 1-7-host-publicly-accessible-application-virtual-enclave.md
+  - name: Host a publicly accessible application in an Azure Enclave
+    href: 1-7-host-publicly-accessible-application-azure-enclave.md
   - name: Migrate workload resources
     href: 1-8-migrate-workload-resources.md
 - name: Tutorial - Create a complex workload architecture
   items:
-  - name: Plan your architecture for AVD and AKS workloads
+  - name: Plan your architecture for Azure Virtual Desktop and AKS workloads
     href: 2-1-plan-architecture-workloads.md
-  - name: Create Azure Virtual Enclave environment for workloads
-    href: 2-2-create-virtual-enclaves-environment.md
-  - name: Deploy Azure Virtual Desktop (AVD) workload
+  - name: Create Azure Enclave environment for workloads
+    href: 2-2-create-azure-enclave-environment.md
+  - name: Deploy Azure Virtual Desktop workload
     href: 2-3-deploy-virtual-desktop-workload.md
   - name: Deploy Azure Kubernetes Service (AKS) workload
     href: 2-4-deploy-kubernetes-workload.md
@@ -177,7 +177,7 @@
   # - name: IP Allocation Management
   #   href: ip-allocation-management.md
   - name: Naming rules and restrictions
-    href: name-rules-restrictions-azure-virtual-enclaves-resources.md
+    href: name-rules-restrictions-azure-enclave-resources.md
   # - name: Manage Key Vault SKUs
   #   href: upgrade-enclave-key-vault-sku.md
   - name: Move data inside an enclave
@@ -186,12 +186,12 @@
     href: quotas-region-availability.md
   - name: Disaster recovery planning
     href: disaster-recovery-planning.md
-- name: Troubleshoot
-  items:
-  - name: Troubleshoot guide
-    href: troubleshoot.md
-  - name: Migrate Azure resources into Azure Enclave
-    href: migrate-azure-resources-azure-virtual-enclaves.md
+# - name: Troubleshoot
+#   items:
+#   - name: Troubleshoot guide
+#     href: troubleshoot.md
+#   - name: Migrate Azure resources into Azure Enclave
+#     href: migrate-azure-resources-azure-enclave.md
 #     - name: Connectivity troubleshooting
 #       href: connectivity-troubleshooting.md
 #     - name: Firewall and security troubleshooting
@@ -207,9 +207,11 @@
 - name: Resources
   items:
     - name: Azure Enclave templates
-      href: virtual-enclaves-templates.md
+      href: azure-enclave-templates.md
+    - name: Troubleshoot guide
+      href: troubleshoot.md
     - name: Migrate Azure resources into Azure Enclave
-      href: migrate-azure-resources-azure-virtual-enclaves.md
+      href: migrate-azure-resources-azure-enclave.md
     # - name: Videos
     #   href: videos.md
 - name: Guardrail Initiatives

@@ -9,32 +9,32 @@ ms.date: 9/30/2025
 
 # Role-based access control (RBAC) in Azure Enclave
 
-Azure Enclave (AE) supports granular delegation of permissions using Azure's native [role-based access control (RBAC)](https://learn.microsoft.com/azure/role-based-access-control/overview). Delegation ensures that customers can isolate responsibilities across community, enclave, and workload boundaries without compromising the security or operational integrity of their environments.
+Azure Enclave supports granular delegation of permissions using Azure's native [role-based access control (RBAC)](/azure/role-based-access-control/overview). Delegation ensures that you can isolate responsibilities across community, enclave, and workload boundaries without compromising the security or operational integrity of your environments.
 
-This article explains how AVE implements RBAC and introduces the built-in roles that help customers manage access across the AVE hierarchy.
+This article explains how Azure Enclave implements RBAC and introduces the built-in roles that help you manage access across the Azure Enclave hierarchy.
 
-## Overview of AVE resource hierarchy
+## Overview of Azure Enclave resource hierarchy
 
-AVE organizes resources into three logical layers:
+Azure Enclave organizes resources into three logical layers:
 
 - **Communities** – The root governance boundary for your isolated environments.
 - **Enclaves** – Secure, virtual network-isolated landing zones that are created within a community.
 - **Workloads** – Applications and services deployed into enclave resource groups.
 
-Each layer exposes distinct management operations, and AVE provides purpose-built roles to isolate access across them.
+Each layer exposes distinct management operations, and Azure Enclave provides purpose-built roles to isolate access across them.
 
 ## RBAC in Azure Enclave
 
-RBAC in AVE is enforced using Azure’s standard role assignment model. You assign roles to users, groups, or service principals at the scope of a community, enclave, or workload resource.
+RBAC in Azure Enclave is enforced using Azure’s standard role assignment model. You assign roles to users, groups, or service principals at the scope of a community, enclave, or workload resource.
 
 Key RBAC concepts:
 - **Scope**: Defines the boundary at which a role applies (subscription, resource group, or resource).
 - **Role**: A collection of permissions (actions) that define what operations are allowed.
 - **Principal**: The user, group, or application being granted the role.
 
-## Built-in roles for AVE
+## Built-in roles for Azure Enclave
 
-The following roles are built into the AVE resource provider to align with common operational patterns. These roles allow customers to follow the principle of least privilege by assigning access only to what is needed.
+The following roles are built into the Azure Enclave resource provider to align with common operational patterns. These roles allow you to follow the principle of least privilege by assigning access only to what is needed.
 
 ### Community roles
 Roles applicable at the community level.
@@ -53,14 +53,14 @@ Roles applicable at the enclave level.
 | **Enclave Owner**        | Full control of an Enclave, including networking, endpoint configuration, and workload creation. |
 | **Enclave Contributor**  | Can modify enclave settings and deploy workloads but can't assign RBAC roles.                    |
 | **Enclave Reader**       | View-only access to enclave metadata, endpoints, and associated workloads.                       |
-| **Enclave Approver**     | Can view enclave details and approve deployment or update requests within gated workflows.       |
+| **Enclave Approver Role**     | Can view enclave details and approve deployment or update requests within gated workflows.       |
 
 ### Workload access
-AVE doesn't introduce new workload-specific roles. Instead, customers use standard Azure RBAC roles (for example, Contributor, Reader, Owner) at the workload resource group level to control access to deployed applications and services.
+Azure Enclave doesn't introduce new workload-specific roles. Instead, you use standard Azure RBAC roles (for example, Contributor, Reader, Owner) at the workload resource group level to control access to deployed applications and services.
 
-## Isolating access within AVE
+## Isolating access within Azure Enclave
 
-RBAC in AVE is intentionally layered to allow you to assign discrete teams or personas to different scopes:
+RBAC in Azure Enclave is intentionally layered to allow you to assign discrete teams or personas to different scopes:
 
 - **Platform Team** assigned **Community Owner** to set up the governance boundary.
 - **Cloud Network Engineers** receive **Enclave Owner** access to manage enclave-level resources.
@@ -71,15 +71,15 @@ This model ensures strict separation of concerns and minimizes negative conseque
 
 ## Role assignment best practices
 
-To implement secure and effective access control in AVE:
+To implement secure and effective access control in Azure Enclave:
 
 - Use **least privilege** principles: assign the most restrictive role that allows users to perform their job.
 - Assign roles at the **lowest scope possible** (resource group instead of subscription when appropriate).
 - Monitor role assignments regularly using Azure Policy and audit logs.
-- Consider pairing AVE roles with Azure PIM (Privileged Identity Management) for just-in-time access.
+- Consider pairing Azure Enclave roles with Azure PIM (Privileged Identity Management) for just-in-time access.
 
 ## Next steps
 
-- [Deploy a community in Azure Enclave](https://learn.microsoft.com/azure/virtual-enclaves/deploy-community)
-- [Monitor enclave activity using Log Analytics](https://learn.microsoft.com/azure/virtual-enclaves/observability)
-- [Create custom roles in Azure](https://learn.microsoft.com/azure/role-based-access-control/custom-roles)
+- [Deploy a community in Azure Enclave](./1-1-create-community.md)
+- [Monitor enclave activity using Log Analytics](./observability.md)
+- [Create custom roles in Azure](/azure/role-based-access-control/custom-roles)

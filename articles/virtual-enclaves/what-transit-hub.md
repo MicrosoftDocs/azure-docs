@@ -9,7 +9,7 @@ ms.date: 3/23/2026
 
 # What is a Transit hub?
 
-A Transit hub establishes a virtual hub within a community VWAN that serves as a secure tunnel between the community and an external private network. A transit hub can be associated with a Private Network rule within a community endpoint to enable enclaves to connect to trusted private networks outside of the community boundary.
+A Transit hub establishes a virtual hub within a community Virtual WAN that serves as a secure tunnel between the community and an external private network. A transit hub can be associated with a Private Network rule within a community endpoint to enable enclaves to connect to trusted private networks outside of the community boundary.
 
 ## Architecture of a transit hub
 
@@ -31,7 +31,7 @@ Transit hubs now provide **simplified site-to-site (S2S) VPN connectivity** for 
 
 - **Reduced configuration steps** - Simplified wizard-based setup for common connectivity scenarios
 - **Pre-configured security settings** - Default security policies aligned with Azure best practices
-- **Automated routing** - Automatic route propagation between the community VWAN and connected networks
+- **Automated routing** - Automatic route propagation between the community Virtual WAN and connected networks
 - **Azure Local integration** - Native support for Azure Local deployments with optimized connectivity patterns
 
 ### Supported scenarios
@@ -71,8 +71,8 @@ Transit hubs within the same community can be connected to enable traffic flow b
 
 When two transit hubs are interconnected:
 
-1. Traffic from one external network can route through its transit hub to the community VWAN
-2. The VWAN routes traffic to the destination transit hub
+1. Traffic from one external network can route through its transit hub to the community Virtual WAN
+2. The Virtual WAN routes traffic to the destination transit hub
 3. Traffic exits through the second transit hub to the target external network
 
 This architecture leverages Azure Virtual WAN's native routing capabilities to provide:

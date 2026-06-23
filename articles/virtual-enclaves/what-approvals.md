@@ -27,11 +27,10 @@ Consider these Approvals scenarios:
 
 The following diagram illustrates how enclave creation differs when approvals are disabled versus enabled:
 
-:::image type="content" source="./media/approvals-state-comparison.png" alt-text="Diagram showing the process for an enclave being created with approvals and without approvals." border="True" lightbox="./media/approvals-state-comparison.png":::
+[ ![Diagram showing the process for an enclave being created with approvals and without approvals.](./media/mermaid-approvals-state-comparison.svg) ](./media/mermaid-approvals-state-comparison.svg#lightbox)
 
-<pre>
 <!--
-This is the mermaid definition for the above diagram. Use this to edit and regenerate the PNG image.
+This is the mermaid definition for the above diagram. Use this to edit and regenerate the image.
 
 ```mermaid
 ---
@@ -48,61 +47,65 @@ config:
     fontFamily: 'Segoe UI, sans-serif'
     fontSize: '14px'
 ---
-stateDiagram-v2
-  direction TB
-    
-  State "Without Approvals" as without {
-    RequestSubmitted: 📝 Request Submitted
-    Provisioning: ⚙️ Provisioning
-    Active: ✅ Active
+flowchart
 
-    [*] --> RequestSubmitted: User selects Create
-    RequestSubmitted --> Provisioning: Immediate processing
-    Provisioning --> Active: Deployment completes
-    Active --> [*]
-  }
-  
-  State "With Approvals" as with {
-    RequestSubmittedTwo: 📝 Request Submitted
-    PendingApproval: ⏳ Pending Approval
-    Approved: ✅ Approved
-    Rejected: ❌ Rejected
-    Provisioning2: ⚙️ Provisioning
-    Active2: ✅ Active
+%% =====================
+%% With Approvals
+%% =====================
+subgraph with["With Approvals"]
+    direction TB
+    start2((Start))
+    RequestSubmittedTwo["📝 Request Submitted"]
+    PendingApproval["⏳ Pending Approval"]
+    Approved["✅ Approved"]
+    Rejected["❌ Rejected"]
+    Provisioning2["⚙️ Provisioning"]
+    Active2["✅ Active"]
+    end2((End))
 
-    [*] --> RequestSubmittedTwo: User selects Create
-    RequestSubmittedTwo --> PendingApproval: Queued for review
-    PendingApproval --> Approved: Approver approves
-    PendingApproval --> Rejected: Approver rejects
-    Approved --> Provisioning2: Processing begins
-    Provisioning2 --> Active2: Deployment completes
-    Active2 --> [*]
-    Rejected --> [*]: No change
-  }
-  
-  classDef azurePrimary fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
-  classDef azurePrimaryTwo fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
-  classDef azureSecondary fill:#50E6FF,stroke:#0078D4,stroke-width:2px,color:#000000
-  classDef success1 fill:#107C10,stroke:#094509,stroke-width:2px,color:#FFFFFF
-  classDef success2 fill:#107C10,stroke:#094509,stroke-width:2px,color:#FFFFFF
-  classDef success3 fill:#107C10,stroke:#094509,stroke-width:2px,color:#FFFFFF
-  classDef warning fill:#FFB900,stroke:#8A6914,stroke-width:2px,color:#000000
-  classDef error fill:#D13438,stroke:#8B0000,stroke-width:2px,color:#FFFFFF
-  classDef neutral1 fill:#F3F2F1,stroke:#8A8886,stroke-width:2px,color:#323130
-  classDef neutral2 fill:#F3F2F1,stroke:#8A8886,stroke-width:2px,color:#323130
-  
-  Class RequestSubmitted azurePrimary
-  Class RequestSubmittedTwo azurePrimaryTwo
-  Class PendingApproval azureSecondary
-  Class Approved success1
-  Class Active success2
-  Class Active2 success3
-  Class Rejected error
-  Class Provisioning neutral1
-  Class Provisioning2 neutral2
+    start2 ==>|User selects Create| RequestSubmittedTwo
+    RequestSubmittedTwo ==>|Queued for review| PendingApproval
+    PendingApproval ==>|Approver approves| Approved
+    PendingApproval ==>|Approver rejects| Rejected
+    Approved ==>|Processing begins| Provisioning2
+    Provisioning2 ==>|Deployment completes| Active2
+    Active2 ==> end2
+    Rejected ==>|No change| end2
+end
+
+%% =====================
+%% Without Approvals
+%% =====================
+subgraph without["Without Approvals"]
+    direction TB
+    start1((Start))
+    RequestSubmitted["📝 Request Submitted"]
+    Provisioning["⚙️ Provisioning"]
+    Active["✅ Active"]
+    end1((End))
+
+    start1 ==>|User selects Create| RequestSubmitted
+    RequestSubmitted ==>|Immediate processing| Provisioning
+    Provisioning ==>|Deployment completes| Active
+    Active ==> end1
+end
+
+%% =====================
+%% Styling
+%% =====================
+classDef azurePrimary fill:#0078D4,stroke:#005A9E,stroke-width:2px,color:#FFFFFF
+classDef azureSecondary fill:#50E6FF,stroke:#0078D4,stroke-width:2px,color:#000000
+classDef success fill:#107C10,stroke:#094509,stroke-width:2px,color:#FFFFFF
+classDef error fill:#D13438,stroke:#8B0000,stroke-width:2px,color:#FFFFFF
+classDef neutral fill:#F3F2F1,stroke:#8A8886,stroke-width:2px,color:#323130
+
+class RequestSubmitted,RequestSubmittedTwo azurePrimary
+class PendingApproval azureSecondary
+class Approved,Active,Active2 success
+class Rejected error
+class Provisioning,Provisioning2 neutral
 ```
 -->
-</pre>
 
 | Flow | Description |
 |------|-------------|
@@ -130,7 +133,7 @@ The Approvals workflow in Azure Enclave follows these key steps:
 
 1. **Request submission**: A user with appropriate permissions initiates an action that requires approval, such as creating an enclave connection or modifying an endpoint
 2. **Pending state**: The requested change enters a pending state and is queued for review
-3. **Approval review**: Users with the **Enclave Approver** role can review pending approval requests
+3. **Approval review**: Users with the **Enclave Approver Role** can review pending approval requests
 4. **Decision**: An approver either approves or rejects the request with optional comments
 5. **Implementation**: If approved, the change is automatically implemented; if rejected, the request is discarded
 
@@ -150,9 +153,9 @@ The specific operations requiring approval can be configured in the community co
 
 The Approvals feature integrates with the Azure Enclave role-based access control (RBAC):
 
-### Enclave Approver role
+### Enclave Approver Role
 
-The **Enclave Approver** role is designed for managing approval requests:
+The **Enclave Approver Role** is designed for managing approval requests:
 
 - **Read-only access** to all Azure Enclave resource types
 - **Explicit permissions** to approve or reject pending approval requests
@@ -174,7 +177,7 @@ Approvals can be combined with Azure Privileged Identity Management (PIM) for en
 - **Just-in-time approver access**: Approver permissions can be granted on a time-limited basis
 - **Multi-factor authentication**: Require MFA for approval actions
 - **Approval for approvers**: Require a secondary approval before granting approver permissions
-- **Comprehensive audit logs**: Track all approval activities across both AE and PIM
+- **Comprehensive audit logs**: Track all approval activities across both Azure Enclave and PIM
 
 [Learn more about Just-in-Time Access](./just-in-time-access.md)
 

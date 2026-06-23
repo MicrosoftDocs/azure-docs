@@ -44,7 +44,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
    For example, to allow traffic to an HTTPS server hosted on an Azure virtual machine (VM) in a [workload](./what-workload.md), enter the VM private IP address or subnet IP range, such as `10.0.2.5` or `10.0.2.0/26`, select `TCP`, and enter `443`.
 
-![Screenshot showing the enclave endpoint creation screen with endpoint rule dialog open as well.](./media/create-enclave-endpoint-tab-1-basics.png)
+[ ![Screenshot showing the enclave endpoint creation screen with endpoint rule dialog open as well.](./media/create-enclave-endpoint-tab-1-basics.png) ](./media/create-enclave-endpoint-tab-1-basics.png#lightbox)
 
 > [!NOTE]
 >

@@ -52,7 +52,7 @@ Documentation:
 ## Private DNS Zones
 [How to create the Private DNS Zones you need for your other resources from the service catalog](./deploy-private-dns-zones-service-catalog.md)
 
-Description: This template makes it easier to create the [Private DNS Zones](/azure/dns/private-dns-privatednszone) needed for customers to access their Azure resources or create custom Private DNS Zones to access their custom zones. The records contained in a private DNS zone aren't resolvable from the Internet. DNS resolution against a private DNS zone works only from virtual networks that are linked to it. Private DNS zones linked to a virtual network are queried first when using the default DNS settings of a virtual network.
+Description: This template makes it easier to create the [Private DNS Zones](/azure/dns/private-dns-privatednszone) needed for you to access your Azure resources or create custom Private DNS Zones to access your custom zones. The records contained in a private DNS zone aren't resolvable from the Internet. DNS resolution against a private DNS zone works only from virtual networks that are linked to it. Private DNS zones linked to a virtual network are queried first when using the default DNS settings of a virtual network.
 
 ## Virtual Machine
 [How to create a Virtual Machine](./deploy-virtual-machine-service-catalog.md)
@@ -65,9 +65,9 @@ Documentation:
 [How-to deploy a Streaming App (RemoteApp)](./deploy-virtual-machine-service-catalog.md)
 
 ## Storage Account
-[How to create an AVE compliant Storage Account](./deploy-storage-account-service-catalog.md)
+[How to create an Azure Enclave compliant Storage Account](./deploy-storage-account-service-catalog.md)
 
-Description: This template deploys an Azure storage account available from the virtual network inside the Azure virtual enclave. The template deploys the storage account with customer managed keys and other policies required to operate inside an Azure virtual enclave. [Learn more](/azure/storage/common/storage-account-overview)
+Description: This template deploys an Azure storage account available from the virtual network inside the Azure Enclave. The template deploys the storage account with customer managed keys and other policies required to operate inside an Azure Enclave. [Learn more](/azure/storage/common/storage-account-overview)
 
 ## Key Vault
 Description: Azure Key Vault is one of several key management solutions in Azure, and helps solve the following problems:
@@ -81,36 +81,36 @@ Documentation:
 [Azure Key Vault basic concepts](/azure/key-vault/general/basic-concepts)
 
 ## App Service Web App
-[How to create an AVE compliant App Service Web App](./deploy-app-service-web-app-service-catalog.md)
+[How to create an Azure Enclave compliant App Service Web App](./deploy-app-service-web-app-service-catalog.md)
 
 Description: Azure Web Apps provides a fully managed platform for building and hosting web applications using popular programming languages such as .NET, Java, Node.js, Python, and PHP. [Learn more](/azure/app-service/overview)
 
 ## App Service Function App
-[How to create an AVE compliant App Service Function](./deploy-app-service-function-app-service-catalog.md)
+[How to create an Azure Enclave compliant App Service Function](./deploy-app-service-function-app-service-catalog.md)
 
 Description: Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs. Instead of worrying about deploying and maintaining servers, the cloud infrastructure provides all the up-to-date resources needed to keep your applications running. [Learn more](/azure/azure-functions/functions-overview)
 
 ## Azure SQL
-[How to create an AVE compliant Azure SQL](./deploy-azure-sql-service-catalog.md)
+[How to create an Azure Enclave compliant Azure SQL](./deploy-azure-sql-service-catalog.md)
 
 Description: Azure SQL Database, a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. [Learn more](/azure/azure-sql/database/sql-database-paas-overview)
 
 ## Azure Kubernetes Service (AKS)
-[How to create an AVE compliant AKS](./deploy-azure-kubernetes-service-service-catalog.md)
+[How to create an Azure Enclave compliant AKS](./deploy-azure-kubernetes-service-service-catalog.md)
 
 Description: Azure Kubernetes Service (AKS) is a managed Kubernetes service that you can use to deploy and manage containerized applications. You need minimal container orchestration expertise to use AKS. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure. [Learn more](/azure/aks/what-is-aks)
 
 ## Azure Container Registry (ACR)
-[How to create an AVE compliant ACR](./deploy-azure-container-registry-service-catalog.md)
+[How to create an Azure Enclave compliant ACR](./deploy-azure-container-registry-service-catalog.md)
 
 Description: Azure Container Registry allows you to build, store, and manage container images and artifacts in a private registry for all types of container deployments. Use Azure container registries with your existing container development and deployment pipelines. Use Azure Container Registry Tasks to build container images in Azure on-demand, or automate builds triggered by source code updates, updates to a container's base image, or timers. [Learn more](/azure/container-registry/container-registry-intro)
 
 ## Azure Cosmos DB
-[How to create an AVE compliant Cosmos DB](./deploy-azure-cosmos-db-service-catalog.md)
+[How to create an Azure Enclave compliant Cosmos DB](./deploy-azure-cosmos-db-service-catalog.md)
 
 Description: Azure Cosmos DB simplifies and expedites your application development by being the single database for your operational data needs, from geo-replicated distributed caching to back up to vector indexing and search. It provides the data infrastructure for modern applications like AI agent, digital commerce, Internet of Things, and booking management. It can accommodate all your operational data models, including relational, document, vector, key-value, graph, and table. [Learn more](/azure/cosmos-db/introduction)
 
 ## Service Bus
-[How to create an AVE compliant Service Bus](./deploy-service-bus-service-catalog.md)
+[How to create an Azure Enclave compliant Service Bus](./deploy-service-bus-service-catalog.md)
 
 Description: Azure Service Bus is a fully managed enterprise message broker with message [queues](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#queues) and [topics and subscriptions](/azure/service-bus-messaging/service-bus-queues-topics-subscriptions#topics-and-subscriptions). Service Bus is used to decouple applications and services from each other. [Learn more](/azure/service-bus-messaging/service-bus-messaging-overview)

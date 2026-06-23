@@ -35,10 +35,10 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 Before you add the rule, choose the destination type that matches the endpoint you need to allow.
 
-- `IPAddress`: Enable traffic from an enclave to an IP address outside of the community VWAN.
+- `IPAddress`: Enable traffic from an enclave to an IP address outside of the community Virtual WAN.
 - `FQDN`: Enable traffic from an enclave to a trusted fully qualified domain name (FQDN), such as `*.portal.azure.com`. FQDN rules support `HTTP`, `HTTPS`, `TCP`, or `UDP`; use only one protocol and one port per rule.
 - `FQDNTag`: Enable traffic from enclaves to known Microsoft Azure services through FQDN tags, such as `AzurePortal`.
-- `ServiceTag`: Enable traffic from enclaves to Azure services by using Azure service tags. Service tags represent groups of IP address prefixes for specific Azure services, such as `Storage`, `AzureKeyVault`, and `Sql`. For a complete list of available service tags, see [Virtual network service tags](/azure/virtual-network/service-tags-overview).
+- `ServiceTag`: Enable traffic from enclaves to Azure services by using Azure service tags. Service tags represent groups of IP address prefixes for specific Azure services, such as `Storage`, `AzureKeyVault`, and `Sql`. For a complete list of available service tags, see [Virtual Network service tags](/azure/virtual-network/service-tags-overview).
 - `PrivateNetwork`: Enable traffic from enclaves to an external private network through a [transit hub](./create-transit-hub-portal.md) connection.
 
 Enter the rule name, destination type, destination, port, and protocol, and then select `Add`.

@@ -22,7 +22,8 @@ These governance options are applied to all of the workloads that are part of ei
 Go to community creation and customize your governance settings.
 
  In the context of governance for communities, the following settings can be specified for each service:
- [ ![Screenshot showing the policy management options when creating a community.](./media/create-community-tab-2-policy-management.png) ](./media/create-community-tab-2-policy-management.png#lightbox)
+
+ :::image type="content" source="./media/create-community-tab-5-policy-management.png" alt-text="Screenshot showing the community policy management settings page during community creation in the portal." border="True" lightbox="./media/create-community-tab-5-policy-management.png":::
 
  - Enforcement: This setting determines whether the rules defined for a service are actively enforced. When enforcement is enabled, any action that violates the rules are blocked or flagged.
  - Audit Mode: This option allows for the monitoring of services without actively enforcing the rules. It's useful for understanding the effect of potential governance policies by logging all actions that would violate the rules if enforcement were > enabled.

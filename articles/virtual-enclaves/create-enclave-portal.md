@@ -34,7 +34,7 @@ Enclave deployments can take several minutes to complete. After deployment compl
 
 3. In the `Azure Enclave` page, select `Enclaves` in the left menu.
 
-   ![Screenshot showing the Azure Enclave portal page with the Enclaves list selected.](./media/tutorial-step-two-azure-virtual-enclaves-page-enclaves-list.png)
+   :::image type="content" source="./media/tutorial-step-two-azure-enclave-page-enclaves-list.png" alt-text="Screenshot showing the Azure Enclave portal page with the Enclaves list selected." border="True" lightbox="./media/tutorial-step-two-azure-enclave-page-enclaves-list.png":::
 
 4. On the `Enclaves` page, select `Create`.
 
@@ -46,11 +46,11 @@ Enclave deployments can take several minutes to complete. After deployment compl
    - `Select a community`: Select an existing community.
    - `Dedicated hub`: Select the dedicated hub to use for this enclave.
 
-   ![Screenshot showing Enclave create basics input tab.](./media/create-enclave-tab-1-basics.png)
+    :::image type="content" source="./media/create-enclave-tab-1-basics.png" alt-text="Screenshot showing the enclave basics settings page during enclave creation in the portal." border="True" lightbox="./media/create-enclave-tab-1-basics.png":::
 
 6. Select `Next`. On the `Network` tab, select the network size, choose whether enclave subnet communication is allowed by default, create subnets, and enable Azure Bastion as needed. For planning guidance, see [Azure Virtual Network concepts and best practices](/azure/virtual-network/concepts-and-best-practices) and [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 
-   ![Screenshot showing Enclave create networking input tab.](./media/create-enclave-tab-3-networking.png)
+    :::image type="content" source="./media/create-enclave-tab-2-network.png" alt-text="Screenshot showing the enclave networking settings page during enclave creation in the portal." border="True" lightbox="./media/create-enclave-tab-2-network.png":::
 
    > [!NOTE]
    >
@@ -58,23 +58,28 @@ Enclave deployments can take several minutes to complete. After deployment compl
 
 7. Select `Next`. On the `Maintenance mode` tab, choose whether to request maintenance mode when the enclave is created. Maintenance mode allows privileged changes to managed resources that are critical to enclave security. [Learn more about maintenance mode](./maintenance-mode.md).
 
-   ![Screenshot showing enclave create maintenance mode input tab.](./media/create-enclave-tab-4-maintenance-mode.png)
+    :::image type="content" source="./media/create-enclave-tab-3-maintenance-mode.png" alt-text="Screenshot showing the enclave maintenance mode settings page during enclave creation in the portal." border="True" lightbox="./media/create-enclave-tab-3-maintenance-mode.png":::
 
 8. Select `Next` and on the `Approvals` tab, decide which [approval settings](./configure-approvals.md) to apply to your enclave.
 
+    :::image type="content" source="./media/create-enclave-tab-4-approvals.png" alt-text="Screenshot showing the enclave approvals settings page during enclave creation in the portal." border="True" lightbox="./media/create-enclave-tab-4-approvals.png":::
+
 9. Select `Next` and on the `Policy management` tab and customize your settings as needed.
+
+    :::image type="content" source="./media/create-enclave-tab-5-policy-management.png" alt-text="Screenshot showing the enclave policy management settings page during enclave creation in the portal." border="True" lightbox="./media/create-enclave-tab-5-policy-management.png":::
 
 10. Select `Next`. On the `Monitoring` tab, select where enclave logs are stored.
 
-   ![Screenshot showing Enclave create logging and monitoring input tab.](./media/create-enclave-tab-2-monitoring.png)
+    :::image type="content" source="./media/create-enclave-tab-6-monitoring.png" alt-text="Screenshot showing the enclave monitoring settings page during enclave creation in the portal." border="True" lightbox="./media/create-enclave-tab-6-monitoring.png":::
    
 11. Select `Next`. On the `Enclave administration` tab, select the users and groups that should have privileged access to the managed resource group for the enclave.
 
-   ![Screenshot showing enclave create enclave administration input tab.](./media/create-enclave-tab-5-enclave-administration.png)
+    :::image type="content" source="./media/create-enclave-tab-7-enclave-administration.png" alt-text="Screenshot showing the enclave administration settings page during enclave creation in the portal." border="True" lightbox="./media/create-enclave-tab-7-enclave-administration.png":::
 
-12. Select `Next`. On the `Workload permissions` tab, select the users and groups that should have privileged access to workload resource groups that customers create for their resources.
+12. Select `Next`. On the `Workload permissions` tab, select the users and groups that should have privileged access to workload resource groups that you create for their resources.
 
-   ![Screenshot showing enclave create workload permissions input tab.](./media/create-enclave-tab-6-workload-administration.png)
+    :::image type="content" source="./media/create-enclave-tab-8-workload-permissions.png" alt-text="Screenshot showing the enclave workload permissions settings page during enclave creation in the portal." border="True" lightbox="./media/create-enclave-tab-8-workload-permissions.png":::
+
 
 13. Select `Next`, and then create any [tags](/azure/azure-resource-manager/management/tag-resources) for your enclave.
 

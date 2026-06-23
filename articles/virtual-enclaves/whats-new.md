@@ -43,5 +43,5 @@ The following features are currently in preview. Preview features might have lim
 ## Next steps
 
 For more information about Azure Enclave, see:
-  * [What is Azure Enclave?](./what-azure-virtual-enclaves.md)
-  * [Frequently asked questions - FAQ](./virtual-enclaves-faq.md).
+  * [What is Azure Enclave?](./what-azure-enclave.md)
+  * [Frequently asked questions - FAQ](./azure-enclave-faq.md).

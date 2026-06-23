@@ -12,7 +12,7 @@ ai-usage: ai-assisted
 All Azure services set default limits and quotas for resources and features, such as usage restrictions for certain virtual machine (VM) SKUs.
 Example: [DS_v5 series](/azure/virtual-machines/dv5-dsv5-series#dsv5-series) VMs (see the table showing resource limitations) 
 
-This article details the default resource limits for Azure Enclave (AE) resources and the availability of AVE in Azure regions.
+This article details the default resource limits for Azure Enclave resources and the availability of Azure Enclave in Azure regions.
 
 ## Product Limitation Summary
 

@@ -1,5 +1,5 @@
 ---
-title: Understand creation and deletion in Azure Enclave
+title: Understand creation and deletion
 titleSuffix: Azure Enclave
 description: Understand creation and deletion in Azure Enclave.
 author: jadean-msft
@@ -10,7 +10,7 @@ ms.date: 9/30/2025
 
 # Understand creation and deletion in Azure Enclave
 
-As an administrator, you can [delete Azure Enclave (AE) resources and resource groups that hold AE resources](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-powershell). However, similar to other special Azure resources, AE resources have protections and conditions surrounding create and delete operations. These outlined conditions must be met before creating or deleting AE resources.
+As an administrator, you can [delete Azure Enclave resources and resource groups that hold Azure Enclave resources](/azure/azure-resource-manager/management/delete-resource-group?tabs=azure-powershell). However, similar to other special Azure resources, Azure Enclave resources have protections and conditions surrounding create and delete operations. These outlined conditions must be met before creating or deleting Azure Enclave resources.
 
 ## Create conditions
 
@@ -23,7 +23,7 @@ As an administrator, you can [delete Azure Enclave (AE) resources and resource g
 
 ## Delete conditions
 
-Attempting to delete AE resources while AE resources are locked can lead to unexpected results. Some operations, which don't seem to modify a resource, require blocked actions. Locks prevent the POST method from sending data to the Azure Resource Manager (ARM) API.
+Attempting to delete Azure Enclave resources while Azure Enclave resources are locked can lead to unexpected results. Some operations, which don't seem to modify a resource, require blocked actions. Locks prevent the POST method from sending data to the Azure Resource Manager (ARM) API.
 
 - A community can't be deleted if there are enclaves in the community.
 - A community can't be deleted if there are any existing transit hub in the community.
