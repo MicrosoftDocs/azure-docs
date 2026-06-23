@@ -190,14 +190,14 @@ No. The migration upgrades the public IP resource from Basic SKU to Standard SKU
 
 #### Will the migration cause downtime or traffic disruption?
 
-Yes. The migration will result in a brief connectivity interruption of up to 10 minutes while the gateway is transitioned to the new backend infrastructure. However, certain gateway configurations (such as custom traffic selectors, Active-Active P2S, CloudApp-based P2S, Remote RADIUS, and other identified edge cases) may require customer action and could experience connectivity impact if not remediated beforehand. 
+Yes. The migration causes a brief connectivity interruption of up to 10 minutes while the gateway transitions to the new backend infrastructure. However, certain gateway configurations, such as custom traffic selectors, Active-Active P2S, CloudApp-based P2S, Remote RADIUS, and other identified edge cases, might require customer action and could experience connectivity impact if not remediated beforehand. 
 
 #### Do I need to take any action before the backend migration?
 
-Yes. Microsoft recommends completing the self-service (customer-triggered) migration before the backend migration begins. This allows you to validate your specific traffic patterns, applications, and network topology, which Microsoft cannot fully test on your behalf.
-If you do not perform the self-service migration, Microsoft may automatically migrate eligible gateways during the backend migration. This migration is not reversible.
-Microsoft may also perform scream tests on some gateways. Gateways determined to be inactive may be deleted as part of the retirement process.
-Additionally, customers should review and remediate any known impacted configurations (such as custom traffic selectors, Active-Active P2S, CloudApp-based P2S, and Remote RADIUS) before migration to avoid potential connectivity issues.
+Yes. Complete the self-service (customer-triggered) migration before the backend migration begins. This process helps you validate your specific traffic patterns, applications, and network topology, which Microsoft can't fully test on your behalf.
+If you don't perform the self-service migration, Microsoft might automatically migrate eligible gateways during the backend migration. This migration isn't reversible.
+Microsoft might also perform scream tests on some gateways. Gateways determined to be inactive might be deleted as part of the retirement process.
+Additionally, review and remediate any known impacted configurations, such as custom traffic selectors, Active-Active P2S, CloudApp-based P2S, and Remote RADIUS, before migration to avoid potential connectivity issues.
 
 #### What happens if I don't complete migration by June 30, 2026?
 
