@@ -1,15 +1,16 @@
 ---
-title: Azure Enclave Best Practices
-description: Azure Enclave Best Practices.
+title: Azure Virtual Enclaves best practices
+description: Learn best practices for designing, securing, and operating Azure Virtual Enclaves environments.
 author: jadean-msft
 ms.author: jadean
+ai-usage: ai-assisted
 ms.topic: overview
-ms.date: 9/30/2025
+ms.date: 06/21/2026
 ---
 
-# Azure Enclave Best Practices
+# Azure Virtual Enclaves best practices
 
-This article describes key concepts and best practices for Azure Enclave.
+This article describes key concepts and best practices for Azure Virtual Enclaves.
 
 Azure Enclave accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments. These environments are designed to handle the most sensitive missions and workloads across Commercial and air-gapped environments.
 
@@ -23,11 +24,11 @@ The Azure Enclave product group, engineering teams, and field teams developed th
 
 ## Azure setup
 
-Read through these setup steps to determine if these configuration steps fit your use cases for Azure Enclave. 
+Read through these setup steps to determine whether these configuration steps fit your Azure Virtual Enclaves use cases.
 
 ### Configure Network Watcher resource groups
 
-In order to avoid potential issues with [Virtual Network Flow Log](/azure/network-watcher/vnet-flow-logs-overview) creation later on, we recommend you either set up the `NetworkWatcherRG` resource group manually in advance and assign the `Mission Enclave` app `Owner` on the resource group, or verify that the setup occurred automatically and that permissions were automatically assigned before creating your first enclave in the subscription.
+To avoid potential issues with [virtual network flow log](/azure/network-watcher/vnet-flow-logs-overview) creation, set up the `NetworkWatcherRG` resource group manually in advance and assign the `Mission Enclave` app the `Owner` role on that resource group, or verify that setup and role assignment happened automatically before creating your first enclave in the subscription.
 
 To mitigate this potential issue, for each subscription, manually create the NetworkWatcher resource group called `NetworkWatcherRG` in new subscriptions, and then grant the `Mission Enclave` Azure Enclave App `Owner` on the NetworkWatcherRG:
 1. Select the `NetworkWatcherRG` resource group, select `Access control (IAM)`, then select `Add` and `Add role assignment`.
@@ -42,16 +43,16 @@ To mitigate this potential issue, for each subscription, manually create the Net
 
 ![Screenshot showing how to select the Mission Enclave app in the portal.](./media/onboard-select-mission-enclave-app.png)
 
-4. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`, then select `Review + Assign`.
+4. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`, then select `Review + assign`.
 
 ![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
 
 5. Once the update is complete, you can start deploying Azure Enclave resources.
 
-When a Community or Enclave is created, Azure Enclave attempts the following steps:
+When a community or enclave is created, Azure Enclave attempts the following steps:
 1. Check if the `NetworkWatcherRG` exists. If not, attempt to create that resource group.
 2. Check if the `Mission Enclave` App has a permanent `Owner` assignment on `NetworkWatcherRG`. If not, attempt to assign the `Mission Enclave` App as a permanent `Owner` assignment on `NetworkWatcherRG`. Even if an inherited `Owner` permission exists, a permanent `Owner` assignment creation is attempted.
-3. If any step fails, or if any errors occur, enclave deployments might fail when attempting to create virtual network Flow Logs.
+3. If any step fails, enclave deployments might fail when attempting to create virtual network flow logs.
 
 ## Networking and Organizational Design Patterns for Azure Enclave
 
@@ -216,7 +217,7 @@ The resource groups that contain resources managed by Azure Enclave.
 
 The _Community managed resource group_ contains the infrastructure resources described in [What is a community?](./what-community.md).
 
-The community managed resource group name follow this naming convention `myCommunityName-HostedResources-<GUID>`. Every community deployment creates this resource group and creates the community infrastructure inside. When you delete your community, the Azure Enclave resource provider automatically deletes the community managed resource group.
+The community managed resource group name follows this naming convention: `myCommunityName-HostedResources-<GUID>`. Every community deployment creates this resource group and places community infrastructure inside it. When you delete your community, the Azure Enclave resource provider automatically deletes the community managed resource group.
 
 ![Screenshot showing an example of the community resources managed by Azure Enclave.](./media/fabrikam-hosted-resources.png)
 
@@ -240,7 +241,7 @@ A common scenario where you want to modify resources is through tags. Azure Encl
 
 The _Enclave managed resource group_ contains the infrastructure resources described in [What is an Enclave?](./what-enclave.md).
 
-The enclave managed resource group name follow this naming convention `myEnclaveName-HostedResources-<GUID>`. Every enclave deployment creates this resource group and creates the enclave infrastructure inside. When you delete your enclave, the Azure Enclave resource provider automatically deletes the enclave managed resource group.
+The enclave managed resource group name follows this naming convention: `myEnclaveName-HostedResources-<GUID>`. Every enclave deployment creates this resource group and places enclave infrastructure inside it. When you delete your enclave, the Azure Enclave resource provider automatically deletes the enclave managed resource group.
 
 ![Screenshot showing an example of the enclave resources managed by Azure Enclave.](./media/enclave-webapp-hosted-resources.png)
 
@@ -274,15 +275,15 @@ Adding a new resource group normally requires the user to have permissions to cr
 
 Each option has benefits and limitations, balancing control, convenience, and flexibility to fit varying needs. These options are each evaluated starting with option 1 and the first option to succeed is used to create the new resource group.
 
-After you create on workload resource group using option 3, you'll see a warning that option 3 can't be used for the next workload resource groups on this workload. You can also create a new workload and then create a new workload resource group using option 3 again.
+After you create one workload resource group by using option 3, you see a warning that option 3 can't be used for the next workload resource groups on that workload. You can also create a new workload and then create a new workload resource group by using option 3 again.
 
 Add a resource group to your enclave:
 
-1. Open the Azure portal page for the Workload
-2. Select `Manage` and then `Resource Groups`
-3. Select `Add a resource group`
-4. In the side window that opens, select `Create new` to provide the name of the new, empty resource group or select the `Resource Group` drop-down to select an existing resource group.
-5. Select `Ok` and then `Save`
+1. Open the Azure portal page for the workload.
+2. Select `Manage` and then `Resource Groups`.
+3. Select `Add a resource group`.
+4. In the side window that opens, select `Create new` to provide the name of the new empty resource group, or select the `Resource Group` drop-down to choose an existing resource group.
+5. Select `OK` and then `Save`.
 
 #### How is a workload resource group different from other Azure resource groups?
 
@@ -299,9 +300,9 @@ If you wanted to split your resources into two resource groups, you can choose e
 
 #### Workload deletion
 
-When a workload deletion is requested, the workload resource groups are checked to make sure they're empty. If the workload resource groups contain resources, the requested workload deletion with fail and show an error. If you want to delete the workload and workload resource groups, the workload resource groups need to be empty. Empty workload resource groups help to avoid deleting important resources by accident.
+When a workload deletion is requested, the workload resource groups are checked to make sure they're empty. If workload resource groups contain resources, the requested workload deletion fails and shows an error. To delete the workload and workload resource groups, first empty the workload resource groups. Empty workload resource groups help avoid accidental deletion of important resources.
 
-Deletion of a resource that is linked to the workload also follows this same behavior. For example: if a Community deletion is requested but all of the workload resource groups aren't empty, the operation shows an error. Empty the workload resource groups and try again.
+Deletion of a resource linked to the workload follows the same behavior. For example, if a community deletion is requested but all workload resource groups aren't empty, the operation shows an error. Empty the workload resource groups and try again.
 
 The workload managed resource group has the following limitations:
 

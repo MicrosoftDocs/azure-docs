@@ -4,7 +4,7 @@ description: See answers to frequently asked questions about Azure Enclave.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: concept-article
-ms.date: 9/30/2025
+ms.date: 6/23/2026
 ai-usage: ai-assisted
 ---
 
@@ -19,6 +19,22 @@ Azure Enclave is a hub-and-spoke network architecture with built-in network isol
 ### Why should I use Azure Enclave?
 
 Azure Enclave creates a secure foundation in a known configuration so you can pursue compliance approval faster and deploy workloads with platform-managed boundaries. For more information, see [Why use Azure Enclave?](./why-azure-enclave.md).
+
+### How does Azure Enclave work?
+
+Azure Enclave uses a managed community-and-enclave model. A community provides shared network controls, and each enclave provides isolated workload boundaries. You connect approved endpoints with enclave connections, and Azure Enclave applies policy and routing controls across those paths. For architecture details, see [What is Azure Enclave?](./what-azure-enclave.md).
+
+### What is the pricing for Azure Enclave?
+
+Azure Enclave pricing includes an hourly charge per enclave plus charges for the managed resources. The managed resources create the layers of secure enclave isolation and include Virtual WAN, Azure Firewall, virtual networks, and optional Log Analytics based on your deployment. For current rates, see [Azure Enclave pricing](./azure-enclave-pricing.md).
+
+### What are the benefits of using Azure Enclave?
+
+Azure Enclave helps you deploy secure-by-design network boundaries, enforce policy consistently, and separate workloads with controlled connectivity. It can reduce setup effort for regulated environments by using a known architecture and managed platform components. For more information, see [Why use Azure Enclave?](./why-azure-enclave.md).
+
+### Where can I learn to use Azure Enclave?
+
+Start with [What is Azure Enclave?](./what-azure-enclave.md), review the [learn Azure Enclave article](./azure-enclave-learn.md), then create resources in a [tutorial](./1-1-create-community.md) or [sample templates](./azure-enclave-templates.md) to deploy reference architectures. Review the [best practices](./best-practices.md) article when you're ready to start planning a production design. For service limits, see [quotas and region availability](./quotas-region-availability.md).
 
 ## Customer planning
 
@@ -119,7 +135,7 @@ Adding a virtual network firewall isn't a recommended pattern. Azure Enclave man
 
 ### What access is allowed by default?
 
-Azure Enclave configures required platform egress for managed resources. For communities using a non-Basic firewall SKU, a default outbound firewall policy rule is created for Key Management Service (KMS) over TCP port 1688.
+Azure Enclave configures required platform egress for managed resources. For communities using a non-Basic firewall, a default outbound firewall policy rule is created for Key Management Service (KMS) over TCP port 1688.
 
 ### How can I make deployments faster?
 

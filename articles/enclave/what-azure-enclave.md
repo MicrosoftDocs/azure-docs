@@ -113,3 +113,4 @@ Here are some other articles to learn about the new Azure Enclave resources:
 - [What is a community?](./what-community.md)
 - [What is an enclave?](./what-enclave.md)
 - [What is a workload?](./what-workload.md)
+- [Azure Enclave tutorials](./1-1-create-community.md)

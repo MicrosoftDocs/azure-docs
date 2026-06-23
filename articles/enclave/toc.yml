@@ -192,18 +192,18 @@
 #     href: troubleshoot.md
 #   - name: Migrate Azure resources into Azure Enclave
 #     href: migrate-azure-resources-azure-enclave.md
-#     - name: Connectivity troubleshooting
-#       href: connectivity-troubleshooting.md
-#     - name: Firewall and security troubleshooting
-#       href: firewall-and-security-troubleshooting.md
-#     - name: Performance troubleshooting
-#       href: performance-troubleshooting.md
-#     - name: Resource allocation issues
-#       href: resource-allocation-issues.md
-#     - name: Deployment errors
-#       href: deployment-errors.md
-#     - name: Compliance validation
-#       href: compliance-validation.md
+#   - name: Connectivity troubleshooting
+#     href: connectivity-troubleshooting.md
+#   - name: Firewall and security troubleshooting
+#     href: firewall-and-security-troubleshooting.md
+#   - name: Performance troubleshooting
+#     href: performance-troubleshooting.md
+#   - name: Resource allocation issues
+#     href: resource-allocation-issues.md
+#   - name: Deployment errors
+#     href: deployment-errors.md
+#   - name: Compliance validation
+#     href: compliance-validation.md
 - name: Resources
   items:
     - name: Azure Enclave templates

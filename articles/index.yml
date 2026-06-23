@@ -1187,12 +1187,12 @@ productDirectory:
         - networking
       url: virtual-wan/index.yml
     # Card
-    - title: Virtual Enclaves
+    - title: Azure Enclave
       summary: Quickly deploy secure and compliant virtual networking environments 
-      imageSrc: ./media/index/virtual-enclaves.svg
+      imageSrc: ./media/index/enclave.svg
       azureCategories:
         - networking
-      url: virtual-enclaves/index.yml
+      url: enclave/index.yml
     # Card
     - title: VPN Gateway
       summary: Establish secure, cross-premises connectivity
