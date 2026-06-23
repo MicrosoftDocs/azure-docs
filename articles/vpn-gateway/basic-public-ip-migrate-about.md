@@ -186,7 +186,7 @@ Starting in August 2026, Microsoft automatically migrates eligible VPN gateways 
 
 #### Will my VPN gateway public IP address change during migration?
 
-No. The migration upgrades the Public IP resource from Basic SKU to Standard SKU, but the existing Public IP address is expected to be retained. No customer action is required for the Public IP upgrade itself
+No. The migration upgrades the public IP resource from Basic SKU to Standard SKU, but the existing public IP address is retained. You don't need to take any action for the public IP upgrade.
 
 #### Will the migration cause downtime or traffic disruption?
 
