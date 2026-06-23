@@ -126,7 +126,7 @@ Once deployment is complete, you'll get a notification that your endpoint has be
     az appconfig show --name <AppConfigurationStoreName>
     ```
 
-    This command generates an output with information about your App Configuration store. Note down the *id* value. For instance: */subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.AppConfiguration/configurationStores/<AppConfigurationStoreName>*.
+    This command generates an output with information about your App Configuration store. Note down the *id* value. For instance: `/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.AppConfiguration/configurationStores/<AppConfigurationStoreName>`.
 
 1. Run the command [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create a private endpoint for your App Configuration store. Replace the placeholder texts `<ResourceGroupName>`, `<PrivateEndpointName>`, `<VNetName>`, `<PrivateConnectionResourceId>`, `<ConnectionName>`, and `<Location>` with your own information.
 
