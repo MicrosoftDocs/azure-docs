@@ -63,7 +63,7 @@ ms.custom: include file
 | Maximum bandwidth <sup>1</sup> | 75 Gbps | 75 Gbps |
 | Maximum requests per second per profile <sup>1,</sup> <sup>2</sup> | 100,000 | 100,000 |
 | Maximum concurrent WebSocket connections per profile <sup>3</sup> | 3,000 | 3,000 |
-| Path patterns to match for a routing rule | 25 | 50 |
+| Path patterns to match for a routing rule | 100 | 100 |
 | URLs in a single cache purge call | 100 | 100 |
 | Maximum security policy per profile | 100 | 200 |
 | Maximum associations per security policy | 110 | 225 |
