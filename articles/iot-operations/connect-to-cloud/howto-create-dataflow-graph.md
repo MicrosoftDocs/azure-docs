@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 04/02/2026
+ms.date: 06/19/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to create a data flow graph to process data with transforms like map, filter, and window.
@@ -59,7 +59,7 @@ A data flow graph contains three types of elements: **sources** that bring data 
 
        :::image type="content" source="media/howto-create-dataflow-graph/transform-selection.png" alt-text="Screenshot of the operations experience transform selection menu showing available transform types." lightbox="media/howto-create-dataflow-graph/transform-selection.png":::
 
-       :::image type="content" source="media/howto-create-dataflow-graph/branch-transform-example.png" alt-text="Screenshot of the operations experience showing a branch transform configuration example.Screenshot of the operations experience showing a branch transform configuration example." lightbox="media/howto-create-dataflow-graph/branch-transform-example.png":::
+       :::image type="content" source="media/howto-create-dataflow-graph/branch-transform-example.png" alt-text="Screenshot of the operations experience showing a branch transform configuration example." lightbox="media/howto-create-dataflow-graph/branch-transform-example.png":::
 
     1. **Add a destination**: Select the destination endpoint and configure the topic or path to send processed data to.
 
@@ -70,6 +70,82 @@ A data flow graph contains three types of elements: **sources** that bring data 
     :::image type="content" source="media/howto-create-dataflow-graph/connected-pipeline.png" alt-text="Screenshot of the operations experience canvas showing a connected source, transform, and destination pipeline." lightbox="media/howto-create-dataflow-graph/connected-pipeline.png":::
 
 1. Select **Save** to deploy the data flow graph.
+
+# [Azure CLI](#tab/cli)
+
+The Azure CLI applies a data flow graph from a single JSON config file that contains all nodes and connections. Use [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply) to create or replace the graph. The example below reads temperature data, converts it to Fahrenheit, and sends it to a destination topic.
+
+Create a `graph.json` file with the data flow graph properties. In the `graph.json` file, each transform's rules are stored in the `value` field as an escaped JSON string. For the readable form of each transform's rules, see the how-to for that transform type.
+
+```json
+{
+  "mode": "Enabled",
+  "nodes": [
+    {
+      "nodeType": "Source",
+      "name": "sensors",
+      "sourceSettings": {
+        "endpointRef": "default",
+        "dataSources": [
+          "telemetry/temperature"
+        ]
+      }
+    },
+    {
+      "nodeType": "Graph",
+      "name": "convert",
+      "graphSettings": {
+        "registryEndpointRef": "default",
+        "artifact": "azureiotoperations/graph-dataflow-map:1.0.0",
+        "configuration": [
+          {
+            "key": "rules",
+            "value": "{\"map\":[{\"inputs\":[\"*\"],\"output\":\"*\"},{\"inputs\":[\"temperature\"],\"output\":\"temperature_f\",\"expression\":\"cToF($1)\"}]}"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "Destination",
+      "name": "output",
+      "destinationSettings": {
+        "endpointRef": "default",
+        "dataDestination": "telemetry/converted"
+      }
+    }
+  ],
+  "nodeConnections": [
+    {
+      "from": {
+        "name": "sensors"
+      },
+      "to": {
+        "name": "convert"
+      }
+    },
+    {
+      "from": {
+        "name": "convert"
+      },
+      "to": {
+        "name": "output"
+      }
+    }
+  ]
+}
+```
+
+Apply the config file. The `extendedLocation` is added automatically from the instance and resource group, so don't include it in the file.
+
+```azurecli
+az iot ops dataflowgraph apply \
+  --name temperature-processing \
+  --instance <INSTANCE_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --config-file graph.json
+```
+
+The graph is associated with the `default` data flow profile. To use a different profile, add `--profile <PROFILE_NAME>`.
 
 # [Bicep](#tab/bicep)
 
@@ -238,6 +314,24 @@ In the data flow graph editor, select the source element and configure:
 | **Endpoint** | The data flow endpoint to use. Select *default* for the local MQTT broker. |
 | **Topics** | One or more topics to subscribe to for incoming messages. |
 
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph at once, so configure the source as a `Source` node in your `graph.json` config file, then run [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "nodeType": "Source",
+  "name": "sensors",
+  "sourceSettings": {
+    "endpointRef": "default",
+    "dataSources": [
+      "telemetry/temperature",
+      "telemetry/humidity"
+    ]
+  }
+}
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -276,24 +370,52 @@ Transforms process data between the source and destination. Each transform refer
 
 The available built-in transforms are:
 
-| Transform | Artifact | Description |
-|-----------|----------|-------------|
-| Map | `azureiotoperations/graph-dataflow-map:1.0.0` | Rename, restructure, compute, and copy fields |
-| Filter | `azureiotoperations/graph-dataflow-filter:1.0.0` | Drop messages that match a condition |
-| Branch | `azureiotoperations/graph-dataflow-branch:1.0.0` | Route messages to a `true` or `false` path |
-| Concatenate | `azureiotoperations/graph-dataflow-concatenate:1.0.0` | Merge branched paths back together |
-| Window | `azureiotoperations/graph-dataflow-window:1.0.0` | Aggregate data over a time interval |
+[!INCLUDE [dataflow-graphs-built-in-transforms](../includes/dataflow-graphs-built-in-transforms.md)]
 
-For detailed configuration of each transform type, see:
-
-- [Transform data with map](howto-dataflow-graphs-map.md)
-- [Filter and route data](howto-dataflow-graphs-filter-route.md)
-- [Aggregate data over time](howto-dataflow-graphs-window.md)
-- [Enrich with external data](howto-dataflow-graphs-enrich.md)
+For more information on enriching messages with external data, see [Enrich with external data](howto-dataflow-graphs-enrich.md).
 
 # [Operations experience](#tab/portal)
 
 In the data flow graph editor, select **Add transform** and choose the transform type. Configure the rules in the visual editor.
+
+# [Azure CLI](#tab/cli)
+
+Each transform is a node with `nodeType` set to `Graph` in your `graph.json` config file. The transform's rules are a JSON object, like this map that converts temperature to Fahrenheit:
+
+```json
+{
+  "map": [
+    {
+      "inputs": ["temperature"],
+      "output": "temperature_f",
+      "expression": "cToF($1)"
+    }
+  ]
+}
+```
+
+The `configuration` property takes these rules as a string, so the rules JSON is escaped and placed in the `value` field. Apply the full graph with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "nodeType": "Graph",
+  "name": "convert",
+  "graphSettings": {
+    "registryEndpointRef": "default",
+    "artifact": "azureiotoperations/graph-dataflow-map:1.0.0",
+    "configuration": [
+      {
+        "key": "rules",
+        "value": "{\"map\":[{\"inputs\":[\"temperature\"],\"output\":\"temperature_f\",\"expression\":\"cToF($1)\"}]}"
+      }
+    ]
+  }
+}
+```
+
+> [!TIP]
+> To generate the escaped string, save the rules to a file like `rules.json`, then run `jq -c . rules.json` and paste the single-line output into the `value` field.
+
 
 # [Bicep](#tab/bicep)
 
@@ -352,6 +474,39 @@ You can chain any number of transforms. Connect them in the `nodeConnections` se
 
 Drag connections between transforms on the canvas to define the processing order.
 
+# [Azure CLI](#tab/cli)
+
+Define the processing order in the `nodeConnections` section of your `graph.json` config file:
+
+```json
+"nodeConnections": [
+  {
+    "from": {
+      "name": "sensors"
+    },
+    "to": {
+      "name": "remove-bad-data"
+    }
+  },
+  {
+    "from": {
+      "name": "remove-bad-data"
+    },
+    "to": {
+      "name": "convert"
+    }
+  },
+  {
+    "from": {
+      "name": "convert"
+    },
+    "to": {
+      "name": "output"
+    }
+  }
+]
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -391,6 +546,21 @@ Select the destination element and configure:
 | **Endpoint** | The data flow endpoint to send data to. |
 | **Topic** | The topic or path to publish processed data to. |
 
+# [Azure CLI](#tab/cli)
+
+Configure the destination as a `Destination` node in your `graph.json` config file, then apply the full graph with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "nodeType": "Destination",
+  "name": "output",
+  "destinationSettings": {
+    "endpointRef": "default",
+    "dataDestination": "telemetry/processed"
+  }
+}
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -427,6 +597,25 @@ After you deploy a data flow graph, verify it's running:
 # [Operations experience](#tab/portal)
 
 In the Operations experience, select your data flow graph to view its status. A healthy graph shows a **Running** state.
+
+# [Azure CLI](#tab/cli)
+
+Use [`az iot ops dataflowgraph show`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-show) to view a graph's details:
+
+```azurecli
+az iot ops dataflowgraph show \
+  --name temperature-processing \
+  --instance <INSTANCE_NAME> \
+  --resource-group <RESOURCE_GROUP>
+```
+
+To list all data flow graphs associated with a profile, use [`az iot ops dataflowgraph list`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-list):
+
+```azurecli
+az iot ops dataflowgraph list \
+  --instance <INSTANCE_NAME> \
+  --resource-group <RESOURCE_GROUP>
+```
 
 # [Bicep](#tab/bicep)
 

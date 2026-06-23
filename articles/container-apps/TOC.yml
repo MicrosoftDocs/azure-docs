@@ -310,6 +310,8 @@ items:
           href: container-console.md
         - name: Container debug console
           href: container-debug-console.md
+        - name: Deployment error guidance
+          href: deployment-errors.md
     - name: Monitor production workloads
       items:
         - name: Application logging
@@ -575,16 +577,6 @@ items:
             - name: Artifacts (preview)
               href: java-get-started.md
               displayName: java
-        - name: Artificial intelligence
-          items:
-            - name: PetClinic AI
-              items:
-                - name: Overview
-                  href: java-petclinic-ai-overview.md
-                  displayName: java
-                - name: Deploy the PetClinic AI sample
-                  href: java-petclinic-ai-tutorial.md
-                  displayName: java
         - name: Java components
           items:
             - name: Launch Java microservice apps

@@ -4,6 +4,7 @@ description: Learn how to manage and monitor Microsoft Azure Recovery Services (
 ms.reviewer: srinathv
 ms.topic: how-to
 ms.date: 06/20/2025
+ms.update-cycle: 1095-days
 ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS

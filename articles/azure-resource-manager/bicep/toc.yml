@@ -290,6 +290,9 @@ items:
   - name: Child resources (parent)
     displayName: parent,parent resource,sub,nested
     href: child-resource-name-type.md
+  - name: Extendable parameter file (extends/base)
+    displayName: extends,base
+    href: bicep-extend.md
   - name: Extension resources (scope)
     href: scope-extension-resources.md
   - name: Dependencies (dependsOn)

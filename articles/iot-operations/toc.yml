@@ -147,6 +147,9 @@ items:
           - name: Understand assets and devices
             href: discover-manage-assets/concept-assets-devices.md
             displayName: data points, events, operations, experience, southbound, namespace assets, namespace
+          - name: Build a unified namespace
+            href: discover-manage-assets/howto-build-unified-namespace.md
+            displayName: UNS, unified namespace, ISA-95, Purdue, topic hierarchy, MQTT topics, asset definitions, data flow
           - name: Understand Akri services
             href: discover-manage-assets/overview-akri.md
             displayName: OPC UA, discover, detect, device, registry, southbound

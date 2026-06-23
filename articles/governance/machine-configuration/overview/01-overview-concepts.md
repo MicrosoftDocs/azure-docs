@@ -43,7 +43,7 @@ evaluated resource" link on the ["Compliance details" page][07].
 
 ## Enforcement Modes for Custom Policies
 
-In order to provide greater flexibility in the enforcement and monitoring of server settings, applications, and workloads, Machine Configuration offers three main enforcement modes for each policy assignment as described in the following table.
+In order to provide greater flexibility in the enforcement and auditing of server settings, applications, and workloads, Machine Configuration offers three main enforcement modes for each policy assignment as described in the following table.
 
 | Mode                  | Description                                                                                  |
 |:----------------------|:---------------------------------------------------------------------------------------------|

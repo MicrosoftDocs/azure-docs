@@ -5,21 +5,21 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: concept-article
-ms.date: 06/04/2025
+ms.date: 06/22/2026
 ---
 
 # Geo-replication overview
 
 For application developers and IT engineers, a common goal is to build and run resilient applications. Resiliency is defined as the ability of your application to react to failure and still remain functional. To achieve resilience in the face of regional failures in the cloud, the first step is to build in redundancy to avoid a single point of failure. This redundancy can be achieved with geo-replication.
 
-The App Configuration geo-replication feature allows you to replicate your configuration store at-will to the regions of your choice. Each new **replica** will be in a different region and creates a new endpoint for your applications to send requests to. The original endpoint of your configuration store is called the **Origin**. The origin can't be removed, but otherwise behaves like any replica. 
+The App Configuration geo-replication feature allows you to replicate your configuration store to the regions of your choice at will. Each new **replica** will be in a different region and will create a new endpoint for your applications to send requests to. The original endpoint of your configuration store is called the **Origin**. The origin can't be removed, but otherwise behaves like any replica. 
 
 Changing or updating your key-values can be done in any replica. These changes will be synchronized with all other replicas following an eventual consistency model. 
 
 Replicating your configuration store adds the following benefits:
-- **Added resiliency for Azure outages:** In the event of a regional outage, replicas are individually affected. If one region has an outage, all replicas located in unaffected regions will still be accessible and continuously synchronize. Once the outage has been mitigated, all affected replicas will be synced to the most recent state. Note that geo-replication only offers automatic failover functionalities through App Configuration's configuration providers. Otherwise, you can also build your own custom failover mechanisms in your application's configuration to switch between different replica endpoints to mitigate the impact of an Azure outage. 
-- **Redistribution of Request Limits:**  You can customize in code which replica endpoint your application uses letting you distribute your request load to avoid exhausting request limits. For example, if your applications run in multiple regions and only send requests to one region, you may begin exhausting App Configuration request limits. You can help redistribute this load by creating replicas in the regions your applications are running in. Each replica has isolated request limits, equal in size to the request limits of the origin. Exhausting the request limits in one replica has no impact on the request limits in another replica. 
-- **Regional Compartmentalization:** Accessing multiple regions can improve latency between your application and configuration store, leading to faster request responses and better performance if an application sends requests to its closest replica. Specifying replica access also allows you to limit data storage and flow between different regions based on your preferences. 
+- **Added resiliency for Azure outages:** In the event of a regional outage, replicas are individually affected. If one region has an outage, all replicas located in unaffected regions will still be accessible and continuously synchronize. Once the outage has been mitigated, all affected replicas will be synced to the most recent state. Geo-replication provides automatic failover support through App Configuration's configuration providers. You can also build custom failover mechanisms in your application to switch between different replica endpoints if needed. 
+- **Redistribution of request limits:**  You can customize in code which replica endpoint your application uses letting you distribute your request load to avoid exhausting request limits. For example, if your applications run in multiple regions and only send requests to one region, you may begin exhausting App Configuration request limits. You can help redistribute this load by creating replicas in the regions your applications are running in. Each replica has isolated request limits, equal in size to the request limits of the origin. Exhausting the request limits in one replica has no impact on the request limits in another replica. 
+- **Regional compartmentalization:** Accessing multiple regions can improve latency between your application and configuration store, leading to faster request responses and better performance if an application sends requests to its closest replica. Specifying replica access also allows you to limit data storage and flow between different regions based on your preferences. 
 
 To enable this feature in your store, reference the [how-to to enable geo-replication document](./howto-geo-replication.md).
 
@@ -52,6 +52,6 @@ For more information on the replication latency metric and other App Configurati
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to enable Geo replication](./howto-geo-replication.md)  
+> [Enable geo-replication](./howto-geo-replication.md)  
 
-> [Resiliency and Disaster Recovery](./concept-disaster-recovery.md)
+> [Resiliency and disaster recovery](./concept-disaster-recovery.md)
