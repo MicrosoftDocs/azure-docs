@@ -116,7 +116,7 @@ In this section, you create a web application that uses the [_Beta_ feature flag
 
 ### Use the feature flag
 
-Add the following code to the _app.py_ file before the main function to create a route handler for the Flask application. The application will serve different contents based on whether the **Beta** feature flag is enabled.
+Add the following code to the _app.py_ file before the main function to create a route handler for the Flask application. The application serves different content based on whether the **Beta** feature flag is enabled.
 
 ```python
 @app.route("/")
