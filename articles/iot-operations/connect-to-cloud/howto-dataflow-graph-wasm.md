@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/16/2026
+ms.date: 06/22/2026
 ai-usage: ai-assisted
 
 ---
@@ -1193,7 +1193,7 @@ The CLI applies the whole graph from one config file, so add this destination no
     "dataDestination": "processed-data/temperature",
     "outputSchemaSettings": {
       "serializationFormat": "Parquet",
-      "schemaRef": "temperature-output-schema:1"
+      "schemaRef": "aio-sr://temperature-output-schema:1"
     }
   }
 }
@@ -1210,7 +1210,7 @@ The CLI applies the whole graph from one config file, so add this destination no
     dataDestination: 'processed-data/temperature'
     outputSchemaSettings: {
       serializationFormat: 'Parquet'
-      schemaRef: 'temperature-output-schema:1'
+      schemaRef: 'aio-sr://temperature-output-schema:1'
     }
   }
 }
@@ -1226,7 +1226,7 @@ The CLI applies the whole graph from one config file, so add this destination no
     dataDestination: processed-data/temperature
     outputSchemaSettings:
       serializationFormat: Parquet
-      schemaRef: temperature-output-schema:1
+      schemaRef: aio-sr://temperature-output-schema:1
 ```
 
 ---
@@ -1249,7 +1249,7 @@ The CLI applies the whole graph from one config file, so add this to the `nodeCo
     "from": {
       "name": "sensor-data-source",
       "schema": {
-        "schemaRef": "sensor-input-schema:1",
+        "schemaRef": "aio-sr://sensor-input-schema:1",
         "serializationFormat": "Json"
       }
     },
@@ -1276,7 +1276,7 @@ nodeConnections: [
     from: {
       name: 'sensor-data-source'
       schema: {
-        schemaRef: 'sensor-input-schema:1'
+        schemaRef: 'aio-sr://sensor-input-schema:1'
         serializationFormat: 'Json'
       }
     }
@@ -1302,7 +1302,7 @@ nodeConnections:
   - from:
       name: sensor-data-source
       schema:
-        schemaRef: sensor-input-schema:1
+        schemaRef: aio-sr://sensor-input-schema:1
         serializationFormat: Json
     to:
       name: temperature-processor
