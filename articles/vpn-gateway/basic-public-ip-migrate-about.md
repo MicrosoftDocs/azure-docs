@@ -180,7 +180,7 @@ For steps to remove the Basic SKU public IP reference, see [Remove the Basic SKU
 
 ### Backend migration
 
-#### When will Microsoft perform the backend migration of my VPN Gateway?
+#### When will Microsoft perform the backend migration of my VPN gateway?
 
 Starting in August 2026, Microsoft will begin automatically migrating eligible VPN Gateways that have not already completed the self-service migration. Because this is a Microsoft-managed backend operation, customers will not receive a per-gateway migration notification before the migration occurs. Microsoft will perform the migration during off-business hours based on the gateway's regional local time to help minimize customer impact.
 
