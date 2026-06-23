@@ -448,7 +448,7 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
    | **logProcessor.appLogs.destination** | No | The destination to use for application logs. The value is either **log-analytics** or **none**, which disables logging. |
    | **logProcessor.appLogs.logAnalyticsConfig.customerId** | Yes, but only when **logProcessor.appLogs.destination** is set to **log-analytics**. | The base64-encoded ID for your Log Analytics workspace. Make sure to configure this parameter as a protected setting. |
    | **logProcessor.appLogs.logAnalyticsConfig.sharedKey** | Yes, but only when **logProcessor.appLogs.destination** is set to **log-analytics**. | The base64-encoded shared key for your Log Analytics workspace. Make sure to configure this parameter as a protected setting. |
-   | **loadBalancerIp** | Yes, but only when using On-premises Kubernetes cluster. | Configure a load balancer for the cluster and provide the ip address of the load balancer.|
+   | **loadBalancerIp** | Yes, but only when using an on-premises AKS cluster. | Configure a load balancer for the cluster and provide the IP address for the load balancer. |
 
    For more information, see the following resources:
 
