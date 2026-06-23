@@ -199,7 +199,7 @@ If you do not perform the self-service migration, Microsoft may automatically mi
 Microsoft may also perform scream tests on some gateways. Gateways determined to be inactive may be deleted as part of the retirement process.
 Additionally, customers should review and remediate any known impacted configurations (such as custom traffic selectors, Active-Active P2S, CloudApp-based P2S, and Remote RADIUS) before migration to avoid potential connectivity issues.
 
-#### What happens if I do not complete migration by June 30, 2026?
+#### What happens if I don't complete migration by June 30, 2026?
 
 Customer-initiated migration ended on June 30, 2026. Customers were expected to complete migration by this date.
 Customers that remain on the legacy platform after June 30, 2026 are no longer covered by the VPN Gateway service SLA until migration is completed.
