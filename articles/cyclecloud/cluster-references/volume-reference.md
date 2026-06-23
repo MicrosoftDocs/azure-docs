@@ -2,7 +2,7 @@
 title: Cluster Template Reference - Volumes
 description: Read reference material for including volumes in cluster templates to be used with Azure CycleCloud. A volume represents an Azure Disk.
 author: adriankjohnson
-ms.date: 06/30/2025
+ms.date: 06/19/2026
 ms.update-cycle: 1095-days
 ms.author: adjohnso
 ms.topic: reference

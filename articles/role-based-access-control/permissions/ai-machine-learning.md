@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2026
+ms.date: 06/20/2026
 ms.custom: generated
 ---
 
@@ -648,8 +648,10 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | `Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/projects/models/read` | Gets a specific trained model of a project. Gets the trained models of a project.* |
 > | `Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/projects/train/jobs/read` | Get training jobs result details for a project. Get training job status and result details.* |
 > | `Microsoft.CognitiveServices/accounts/ConversationalLanguageUnderstanding/projects/validation/read` | Get the validation result of a certain training model name. |
+> | `Microsoft.CognitiveServices/accounts/CustomAvatar/projects/action` | Authorize copy to project. |
 > | `Microsoft.CognitiveServices/accounts/CustomAvatar/data/action` | Validate custom avatar training data. |
 > | `Microsoft.CognitiveServices/accounts/CustomAvatar/models/action` | Deploys models. |
+> | `Microsoft.CognitiveServices/accounts/CustomAvatar/photoavatars/action` | Copies photo avatars. |
 > | `Microsoft.CognitiveServices/accounts/CustomAvatar/consents/read` | Read avatar talent consents. |
 > | `Microsoft.CognitiveServices/accounts/CustomAvatar/consents/delete` | Delete avatar talent consents. |
 > | `Microsoft.CognitiveServices/accounts/CustomAvatar/consents/write` | Create avatar talent consents. |
@@ -663,6 +665,9 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | `Microsoft.CognitiveServices/accounts/CustomAvatar/models/delete` | Deletes models. |
 > | `Microsoft.CognitiveServices/accounts/CustomAvatar/models/write` | Creates custom avatar models. |
 > | `Microsoft.CognitiveServices/accounts/CustomAvatar/operations/read` | Gets detail of operations |
+> | `Microsoft.CognitiveServices/accounts/CustomAvatar/photoavatars/read` | Gets one or more photo avatars. |
+> | `Microsoft.CognitiveServices/accounts/CustomAvatar/photoavatars/write` | Creates photo avatars. |
+> | `Microsoft.CognitiveServices/accounts/CustomAvatar/photoavatars/delete` | Deletes photo avatars. |
 > | `Microsoft.CognitiveServices/accounts/CustomAvatar/projects/read` | Gets one or more custom avatar projects. |
 > | `Microsoft.CognitiveServices/accounts/CustomAvatar/projects/write` | Creates custom avatar projects. |
 > | `Microsoft.CognitiveServices/accounts/CustomAvatar/projects/delete` | Deletes custom avatar projects. |

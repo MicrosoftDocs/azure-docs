@@ -290,6 +290,9 @@ items:
   - name: Child resources (parent)
     displayName: parent,parent resource,sub,nested
     href: child-resource-name-type.md
+  - name: Extendable parameter file (extends/base)
+    displayName: extends,base
+    href: bicep-extend.md
   - name: Extension resources (scope)
     href: scope-extension-resources.md
   - name: Dependencies (dependsOn)
@@ -563,6 +566,9 @@ items:
       - name: Use recent module versions
         displayName: linter
         href: linter-rule-use-recent-module-versions.md
+      - name: Use recognized resource types
+        displayName: linter
+        href: linter-rule-use-recognized-resource-type.md
       - name: Use resource ID functions
         displayName: linter
         href: linter-rule-use-resource-id-functions.md

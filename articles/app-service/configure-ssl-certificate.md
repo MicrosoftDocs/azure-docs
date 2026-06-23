@@ -51,9 +51,6 @@ If you want to help secure a custom domain in a TLS binding, the certificate mus
 * Contain an [extended key usage](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Extensions_informing_a_specific_usage_of_a_certificate) for server authentication (OID = 1.3.6.1.5.5.7.3.1).
 * Be signed by a trusted certificate authority.
 
-> [!NOTE]
-> **Elliptic Curve Cryptography (ECC) certificates** work with App Service when uploaded as a PFX, but currently can't be imported from Key Vault. They aren't covered by this article. For the exact steps to create ECC certificates, work with your certificate authority.
-
 After you add a private certificate to an app, the certificate is stored in a deployment unit that's bound to the App Service plan's resource group, region, and operating system (OS) combination. Internally, it's called a *webspace*. That way, the certificate is accessible to other apps in the same resource group, region, and OS combination. Private certificates uploaded or imported to App Service are shared with app services in the same deployment unit.
 
 You can add up to 1,000 private certificates per webspace.

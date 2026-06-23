@@ -2,12 +2,12 @@
 title: Jobs and tasks in Azure Batch
 description: Learn about jobs and tasks and how they're used in an Azure Batch workflow from a development standpoint.
 ms.topic: concept-article
-ms.date: 03/21/2025
+ms.date: 06/16/2026
 # Customer intent: "As a developer working with cloud-based batch processing, I want to understand how jobs and tasks are structured in a batch workflow, so that I can efficiently manage computational workloads and optimize task execution."
 ---
 # Jobs and tasks in Azure Batch
 
-In Azure Batch, a *task* represents a unit of computation. A *job* is a collection of these tasks. More about jobs and tasks, and how they're used in an Azure Batch workflow, is described below.
+In Azure Batch, a *task* represents a unit of computation. A *job* is a collection of these tasks. This article describes jobs and tasks, and how they're used in an Azure Batch workflow.
 
 ## Jobs
 
@@ -34,11 +34,11 @@ You can use job constraints to specify certain limits for your jobs:
 
 ### Job manager tasks and automatic termination
 
-Your client application can add tasks to a job, or you can specify a [job manager task](#job-manager-task). A job manager task contains the information that is necessary to create the required tasks for a job, with the job manager task being run on one of the compute nodes in the pool. The job manager task is handled specifically by Batch; it is queued as soon as the job is created and is restarted if it fails. A job manager task is required for jobs that are created by a [job schedule](#scheduled-jobs), because it is the only way to define the tasks before the job is instantiated.
+Your client application can add tasks to a job, or you can specify a [job manager task](#job-manager-task). A job manager task contains the information that is necessary to create the required tasks for a job, with the job manager task being run on one of the compute nodes in the pool. The job manager task is handled specifically by Batch; it's queued as soon as the job is created and is restarted if it fails. A job manager task is required for jobs that are created by a [job schedule](#scheduled-jobs), because it is the only way to define the tasks before the job is instantiated.
 
-By default, jobs remain in the active state when all tasks within the job are complete. You can change this behavior so that the job is automatically terminated when all tasks in the job are complete. Set the job's **onAllTasksComplete** property ([OnAllTasksComplete](/dotnet/api/azure.compute.batch.batchjob) in Azure.Compute.Batch) to `terminatejob`*` to automatically terminate the job when all of its tasks are in the completed state.
+By default, jobs remain in the active state when all tasks within the job are complete. You can change this behavior so that the job is automatically terminated when all tasks in the job are complete. Set the job's **onAllTasksComplete** property ([OnAllTasksComplete](/dotnet/api/azure.compute.batch.batchjob) in Azure.Compute.Batch) to `terminatejob` to automatically terminate the job when all of its tasks are in the completed state.
 
-The Batch service considers a job with *no* tasks to have all of its tasks completed. Therefore, this option is most commonly used with a [job manager task](#job-manager-task). If you want to use automatic job termination without a job manager, you should initially set a new job's **onAllTasksComplete** property to `noaction`, then set it to `terminatejob`*` only after you've finished adding tasks to the job.
+The Batch service considers a job with *no* tasks to have all of its tasks completed. Therefore, this option is most commonly used with a [job manager task](#job-manager-task). If you want to use automatic job termination without a job manager, you should initially set a new job's **onAllTasksComplete** property to `noaction`, then set it to `terminatejob` only after you've finished adding tasks to the job.
 
 ### Scheduled jobs
 
