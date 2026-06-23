@@ -1,7 +1,7 @@
 ---
 title: About Azure confidential VMs
 description: Learn about Azure confidential virtual machines. These series are for tenants with high security and confidentiality requirements.
-author: cynthn
+author: iamwilliew
 ms.author: mmcrey
 ms.reviewer: mattmcinnes
 ms.service: azure-confidential-computing
