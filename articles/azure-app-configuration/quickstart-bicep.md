@@ -70,9 +70,6 @@ With this Bicep file, we create one key with two different values, one of which 
 
     ---
 
-    > [!NOTE]
-    > Replace _`<AppConfigurationStoreName>`_ with the name of the App Configuration store.
-
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Review deployed resources
