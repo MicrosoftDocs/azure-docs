@@ -4,7 +4,7 @@ description: This article explains the concept of an immutable vault for Azure B
 ms.topic: overview
 ms.service: azure-backup
 ms.custom: references_regions, engagement-fy24, ignite-2024
-ms.date: 06/19/2025
+ms.date: 06/24/2026
 ms.update-cycle: 1095-days
 author: AbhishekMallick-MS
 ms.author: v-mallicka
