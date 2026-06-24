@@ -37,6 +37,8 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 
 - To prevent accidental deletions, make sure to enable the [soft delete](../blobs/soft-delete-blob-overview.md) feature before you use the `--delete-destination=prompt|true` flag.
 
+- When copying blobs between storage accounts, AzCopy converts uppercase characters in metadata names to lowercase. This behavior aligns with HTTP protocol specifications.
+
 ## Update a container with changes to a local file system
 
 In this case, the container is the destination, and the local file system is the source.

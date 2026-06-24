@@ -178,6 +178,35 @@ Basic SKU VPN gateways that currently show as using a Basic SKU public IP addres
 
 For steps to remove the Basic SKU public IP reference, see [Remove the Basic SKU public IP reference from a Basic SKU VPN gateway](basic-sku-public-ip-remove.md). Your gateway continues to use the same public IP address. Only the reference to the Basic SKU public IP resource is removed from your gateway.
 
+### Backend migration
+
+#### When will Microsoft perform the backend migration of my VPN gateway?
+
+Starting in August 2026, Microsoft automatically migrates eligible VPN gateways that aren't already migrated through self-service. Because this operation is Microsoft-managed, you won't receive a per-gateway migration notification before the migration occurs. Microsoft performs the migration during off-business hours based on the gateway's regional local time to help minimize customer impact.
+
+#### Will my VPN gateway public IP address change during migration?
+
+No. The migration upgrades the public IP resource from Basic SKU to Standard SKU, but the existing public IP address is retained. You don't need to take any action for the public IP upgrade.
+
+#### Will the migration cause downtime or traffic disruption?
+
+Yes. The migration causes a brief connectivity interruption of up to 10 minutes while the gateway transitions to the new backend infrastructure. However, certain gateway configurations, such as custom traffic selectors, Active-Active P2S, CloudApp-based P2S, Remote RADIUS, and other identified edge cases, might require customer action and could experience connectivity impact if not remediated beforehand. 
+
+#### Do I need to take any action before the backend migration?
+
+Yes. Complete the self-service (customer-triggered) migration before the backend migration begins. This process helps you validate your specific traffic patterns, applications, and network topology, which Microsoft can't fully test on your behalf.
+If you don't perform the self-service migration, Microsoft might automatically migrate eligible gateways during the backend migration. This migration isn't reversible.
+Microsoft might also perform scream tests on some gateways. Gateways determined to be inactive might be deleted as part of the retirement process.
+Additionally, review and remediate any known impacted configurations, such as custom traffic selectors, Active-Active P2S, CloudApp-based P2S, and Remote RADIUS, before migration to avoid potential connectivity issues.
+
+#### What happens if I don't complete migration by June 30, 2026?
+
+Customer-initiated migration ended on June 30, 2026. You were expected to complete migration by this date.
+If you remain on the legacy platform after June 30, 2026, the VPN Gateway service SLA no longer covers you until migration is completed.
+Extension requests through July 31, 2026 are automatically approved and don't require individual review.
+Starting in August 2026, Microsoft plans to migrate remaining eligible VPN gateways that aren't migrated. Microsoft performs backend migrations regionally during off-business hours and they might result in a brief connectivity interruption similar to the customer-initiated migration experience.
+
+
 ## Next steps
 
 * For more information, see the [announcement](https://azure.microsoft.com/updates?id=upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired).

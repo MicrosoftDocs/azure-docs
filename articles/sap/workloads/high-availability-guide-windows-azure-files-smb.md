@@ -1,6 +1,6 @@
 ---
 title: Install high-availability SAP NetWeaver with Azure Files SMB
-description: Install high-availability SAP NetWeaver on Azure VMs on Windows with Azure Files premium SMB for SAP applications.
+description: Install high-availability SAP NetWeaver on Azure VMs on Windows with Azure Files SSD SMB for SAP applications.
 author: stmuelle
 ms.author: stmuelle
 ms.date: 04/07/2026
@@ -8,21 +8,21 @@ ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.custom: sfi-image-nochange
-# Customer intent: As an SAP system administrator, I want to install high availability for SAP NetWeaver using Azure Files premium SMB, so that I can ensure reliable and efficient access to necessary file shares and meet the required configurations for optimal performance.
+# Customer intent: As an SAP system administrator, I want to install high availability for SAP NetWeaver using Azure Files SSD SMB, so that I can ensure reliable and efficient access to necessary file shares and meet the required configurations for optimal performance.
 ---
 
 # Install high-availability SAP NetWeaver with Azure Files SMB
 
-This article walks you through installing a high-availability (HA) SAP NetWeaver system on Windows-based Azure virtual machines (VMs) by using Azure Files premium Server Message Block (SMB) file shares for shared storage. Azure Files premium SMB is a managed platform as a service (PaaS) option for hosting the *sapmnt*, *transport*, and *interface* directories that SAP requires.
+This article shows you how to install a high-availability (HA) SAP NetWeaver system on Windows-based Azure virtual machines (VMs) by using Azure Files SSD Server Message Block (SMB) file shares for shared storage. Azure Files SSD SMB is a managed platform as a service (PaaS) option for hosting the *sapmnt*, *transport*, and *interface* directories that SAP requires.
 
-When you deploy SAP in an HA configuration, the system needs highly available shared file storage to avoid a single point of failure. Azure Files premium SMB eliminates the need to maintain a dedicated file-server infrastructure while supporting availability-zone and disaster-recovery (DR) deployments.
+When you deploy SAP in an HA configuration, the system needs highly available shared file storage to avoid a single point of failure. Azure file shares eliminate the need to maintain a dedicated file-server infrastructure while supporting availability-zone and disaster-recovery (DR) deployments.
 
-This article guides you through sizing Azure Files premium SMB shares, preparing the Azure and Active Directory (AD) infrastructure, and installing the SAP NetWeaver HA system.
+This article guides you through sizing the Azure file shares, preparing the Azure and Active Directory (AD) infrastructure, and installing the SAP NetWeaver HA system.
 
 ## Prerequisites
 
 > [!IMPORTANT]
-> The installation of SAP HA systems on Azure Files premium SMB with AD integration requires cross-team collaboration. We recommend that the following teams work together to achieve tasks:
+> Installing SAP HA systems on SMB file shares with AD integration requires cross-team collaboration. Have the following teams work together to achieve tasks:
 >
 > * Azure team: Set up and configure storage accounts, script execution, and AD synchronization.
 > * AD team: Create user accounts and groups.
@@ -37,13 +37,13 @@ This article guides you through sizing Azure Files premium SMB shares, preparing
 - An up-to-date release of PowerShell installed on the Windows Server instance where you run the script.
 - Clustering SAP ASCS/SCS instances by using a file share is supported for SAP systems with SAP Kernel 7.22 (and later). For details, see SAP Note [2698948](https://launchpad.support.sap.com/#/notes/2698948).
 
-## Size and distribute Azure Files premium SMB shares
+## Size and distribute Azure Files SSD SMB shares
 
-Evaluate the following points when you're planning the deployment of Azure Files premium SMB:
+Evaluate the following points when planning the deployment of the Azure file shares:
 
 * You can create the *sapmnt* file share name once per storage account. You can also create extra security IDs (SIDs) as directories on the same */sapmnt* share, such as */sapmnt/\<SID1\>* and */sapmnt/\<SID2\>*.
-* Choose an appropriate size, IOPS, and throughput. A suggested size for the share is 256 GB per SID. The maximum size for a share is 5,120 GB.
-* Azure Files premium SMB might not perform as desired with extra large *sapmnt* shares with more than 1 million files per storage account. Customers who have millions of batch jobs that create millions of job log files should regularly reorganize them, as described in SAP Note [16083][16083]. If needed, you can move or archive old job logs to another Azure Files premium SMB file share. If you expect *sapmnt* to be extra large, consider other options (such as Azure NetApp Files).
+* Choose an appropriate size, IOPS, and throughput. A suggested starting size for the share is 256 GiB per SID. For the maximum supported share size and the corresponding IOPS and throughput limits, see [Azure file share scale targets](../../storage/files/storage-files-scale-targets.md).
+* Azure file shares might not perform as desired with extra large *sapmnt* shares with more than 1 million files per storage account. Customers who have millions of batch jobs that create millions of job log files should regularly reorganize them, as described in SAP Note [16083][16083]. If needed, you can move or archive old job logs to another Azure file share. If you expect *sapmnt* to be extra large, consider other options (such as Azure NetApp Files).
 * We recommend that you use a private network endpoint.
 * Avoid putting too many SIDs in a single storage account and its file share.
 * As general guidance, don't combine more than four nonproduction SIDs.
@@ -96,7 +96,7 @@ The Azure administrator should complete the following tasks:
 
       ![Screenshot of DNS Manager that shows private endpoint DNS definition.](media/virtual-machines-shared-sap-high-availability-guide/pe-dns-1.png)
 
-1. Create the *sapmnt* file share with an appropriate size. The suggested size is 256 GB, which delivers 650 IOPS, 75-MB/sec egress, and 50-MB/sec ingress.
+1. Create the *sapmnt* file share with an appropriate size, such as 256 GiB. Size the share to meet your IOPS and throughput requirements. For details on provisioning storage, IOPS, and throughput, see [the provisioned v2 model in Understand Azure Files billing](../../storage/files/understanding-billing.md#provisioned-v2-model).
 
    ![Screenshot of the Azure portal that shows SMB share definition.](media/virtual-machines-shared-sap-high-availability-guide/create-sa-5.png)
 
@@ -120,7 +120,7 @@ The Azure administrator should complete the following tasks:
 
    After the script runs successfully, go to **Storage** > **File Shares** and verify that **Active Directory: Configured** appears.
 
-1. Assign SAP users *\<sid>adm* and *SAPService\<SID>*, and the *SAP_\<SAPSID>_GlobalAdmin* group, to the Azure Files premium SMB file share. Select the role **Storage File Data SMB Share Elevated Contributor** in the Azure portal.
+1. Assign SAP users *\<sid>adm* and *SAPService\<SID>*, and the *SAP_\<SAPSID>_GlobalAdmin* group, to the SMB file share. Select the role **Storage File Data SMB Share Elevated Contributor** in the Azure portal.
 
 1. Check the ACL on the *sapmnt* file share after the installation. Then add the *DOMAIN\CLUSTER_NAME$* account, *DOMAIN\\\<sid>adm* account, *DOMAIN\SAPService\<SID>* account, and *SAP_\<SID>_GlobalAdmin* group. These accounts and group should have full control of the *sapmnt* directory.
 
@@ -154,7 +154,7 @@ An SAP Basis administrator should complete these tasks:
 
 1. [Install the Windows cluster on ASCS/ERS nodes and add the cloud witness](sap-high-availability-infrastructure-wsfc-shared-disk.md#install-and-configure-windows-failover-cluster).
 
-1. The first cluster node installation asks for the Azure Files SMB storage account name. Enter the FQDN `<storage_account_name>.file.core.windows.net`. If SAPinst doesn't accept more than 13 characters, the SWPM version is too old.
+1. The first cluster node installation asks for the storage account name. Enter the FQDN `<storage_account_name>.file.core.windows.net`. If SAPinst doesn't accept more than 13 characters, the SWPM version is too old.
 
 1. [Modify the SAP profile of the ASCS/SCS instance](sap-high-availability-installation-wsfc-shared-disk.md#add-a-probe-port).
 
@@ -170,9 +170,9 @@ An SAP Basis administrator should complete these tasks:
 
 ## Set up disaster recovery
 
-Azure Files premium SMB supports disaster recovery scenarios and cross-region replication scenarios. All data in Azure Files premium SMB directories can be continuously synchronized to a DR region's storage account. For more information, see the procedure for synchronizing files in [Transfer data with AzCopy and file storage](../../storage/common/storage-use-azcopy-files.md#synchronize-files).
+Azure file shares support disaster recovery scenarios and cross-region replication scenarios. All data in the Azure file share directories can be continuously synchronized to a DR region's storage account. For more information, see the procedure for synchronizing files in [Transfer data with AzCopy and file storage](../../storage/common/storage-use-azcopy-files.md#synchronize-files).
 
-After a DR event and failover of the ASCS instance to the DR region, change the `SAPGLOBALHOST` profile parameter to point to Azure Files SMB in the DR region. Perform the same preparation steps on the DR storage account to join the storage account to AD and assign RBAC roles for SAP users and groups.
+After a DR event and failover of the ASCS instance to the DR region, change the `SAPGLOBALHOST` profile parameter to point to the Azure file share in the DR region. Perform the same preparation steps on the DR storage account to join the storage account to AD and assign RBAC roles for SAP users and groups.
 
 ## Troubleshoot the configuration
 
@@ -199,7 +199,7 @@ This configuration can be either local SAP application servers on an SAP ASCS/SC
 > [!IMPORTANT]
 > Installing a local SAP application server on a SQL Server Always On node isn't supported.
 
-Both SAP ASCS/SCS and the Microsoft SQL Server database are single points of failure (SPOFs). Using Azure Files SMB helps protect these SPOFs in a Windows environment.
+Both SAP ASCS/SCS and the Microsoft SQL Server database are single points of failure (SPOFs). Using Azure file shares helps protect these SPOFs in a Windows environment.
 
 Although the resource consumption of the SAP ASCS/SCS is fairly small, we recommend reducing the memory configuration by 2 GB for either SQL Server or the SAP application server.
 
@@ -214,10 +214,10 @@ The following diagram shows SAP application servers locally installed.
 
 ### SAP ASCS/SCS on SQL Server Always-on nodes using Azure Files SMB
 
-The following diagram shows Azure Files SMB with local SQL Server setup.
+The following diagram shows the Azure file share with local SQL Server setup.
 
 > [!IMPORTANT]
-> Using Azure Files SMB for any SQL Server volume isn't supported.
+> Using Azure file shares for any SQL Server volume isn't supported.
 
 ![Diagram of SAP ASCS/SCS on SQL Server Always On nodes using Azure.](media/virtual-machines-shared-sap-high-availability-guide/ha-sql-ascs-azure-files-smb.png)
 

@@ -121,14 +121,14 @@ The next sections describe the steps to deploy NFS. Select only _one_ of the opt
 
 ### Deploy an Azure Files storage account and NFS shares
 
-NFS on Azure Files runs on top of [Azure Files premium storage][afs-azure-doc]. Before you set up NFS on Azure Files, see [How to create an NFS share](../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal).
+NFS on Azure Files runs on top of [Azure Files SSD][afs-azure-doc]. Before you set up NFS on Azure Files, see [How to create an NFS share](../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal).
 
 There are two options for redundancy within an Azure region:
 
 - [Locally redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage) offers local, in-zone synchronous data replication.
 - [Zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your data synchronously across the three [availability zones](/azure/reliability/availability-zones-overview) in the region.
 
-Check if your selected Azure region offers NFSv4.1 on Azure Files with the appropriate redundancy. Review the [availability of Azure Files by Azure region][afs-avail-matrix] for **Premium Files Storage**. If your scenario benefits from ZRS, [verify that premium file shares with ZRS are supported in your Azure region](../../storage/common/storage-redundancy.md#zone-redundant-storage).
+Check if your selected Azure region offers NFSv4.1 on Azure Files with the appropriate redundancy. Review the [availability of Azure Files by Azure region][afs-avail-matrix]. If your scenario benefits from ZRS, [verify that SSD file shares with ZRS are supported in your Azure region](../../storage/files/redundancy-premium-file-shares.md).
 
 We recommend that you access your Azure storage account through an [Azure private endpoint](../../storage/files/storage-files-networking-endpoints.md?tabs=azure-portal). Be sure to deploy the Azure Files storage account endpoint, and the VMs where you need to mount the NFS shares, in the same Azure virtual network or in peered Azure virtual networks.
 
@@ -216,7 +216,7 @@ The SAP file systems that don't need to be shared can also be deployed on [Azure
 
 When you're considering Azure NetApp Files for the SAP NetWeaver high-availability architecture, be aware of the following important considerations:
 
-- The minimum capacity pool is 4 tebibytes (TiB). You can increase the size of the capacity pool in 1-TiB increments.
+- The minimum capacity pool is 4 TiB. You can increase the size of the capacity pool in 1 TiB increments.
 - The minimum volume is 100 GiB.
 - Azure NetApp Files, and all virtual machines where Azure NetApp Files volumes are mounted, must be in the same Azure virtual network. If they're not in the same virtual network, they must be in [peered virtual networks](../../virtual-network/virtual-network-peering-overview.md) in the same region. Azure NetApp Files access over virtual network peering in the same region is supported. Azure NetApp Files access over global peering isn't yet supported.
 - The selected virtual network must have a delegated subnet to Azure NetApp Files.
