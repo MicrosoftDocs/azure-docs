@@ -62,7 +62,8 @@ Azure API Center is offered in a Free plan and Standard plan, which are designed
 | **Upgrade path** | Upgradable to Standard | N/A |
 | **Time constraints** | None | None |
 
-> [!IMPORTANT] Microsoft support isn't available for the Azure API Center Free plan. Support cases submitted by Free plan customers cannot be investigated are closed. To receive Microsoft support, upgrade to the Standard plan.
+> [!IMPORTANT]
+> Microsoft support isn't available for the Azure API Center Free plan. Support cases submitted by Free plan customers cannot be investigated are closed. To receive Microsoft support, upgrade to the Standard plan.
 
 <sup>1</sup> For details, see [Azure API Center limits](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits).
 
