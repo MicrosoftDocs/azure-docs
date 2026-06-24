@@ -103,7 +103,7 @@ The job run is a snapshot of the job definition. The migration runtime executes 
 
 A job run has a state, progress information, and copy result information. You find the most critical information about your job run as properties on the job run resource itself. Agent-based and agentless workloads both emit job run telemetry through the service.
 
-Additional information and migration results are emitted through the Azure Monitor service:
+The Azure Monitor service emits additional information and migration results:
 - **Metrics** are numerical values, recorded over time. They can be plotted using the Azure Monitor service. Some selected metrics are also directly available when managing the job definition / job runs in the portal.
 - **Copy logs** are optional. If enabled, every job run has its own copy log. A log entry is generated for each namespace item the agent encounters in the source that can't be copied.
 
