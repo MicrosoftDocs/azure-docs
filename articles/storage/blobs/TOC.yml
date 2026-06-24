@@ -351,6 +351,8 @@ items:
                             href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
                           - name: Configure customer-managed keys for an existing account
                             href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                      - name: Encryption account changes involving CMK
+                        href: ../common/encryption-account-changes-with-cmk.md
                   - name: Configure customer-managed keys in a managed HSM
                     href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
               - name: Customer-provided keys

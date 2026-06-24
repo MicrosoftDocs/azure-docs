@@ -1,6 +1,18 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-cache-purge-cli.md",
+            "redirect_url": "/azure/frontdoor/cache-purge",
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-cache-purge-powershell.md",
+            "redirect_url": "/azure/frontdoor/cache-purge",
+        },
+        {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/how-to-cache-purge.md",
+            "redirect_url": "/azure/frontdoor/cache-purge",
+        },
+        {
             "source_path_from_root": "/articles/frontdoor/troubleshoot-issues.md",
             "redirect_url": "/troubleshoot/azure/front-door/troubleshoot-issues",
         },

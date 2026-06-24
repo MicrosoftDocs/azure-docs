@@ -155,7 +155,7 @@ Configure the query string behavior on the Front Door route.
 
 ::: zone pivot="front-door-standard-premium"
 
-See [Cache purging in Azure Front Door](standard-premium/how-to-cache-purge.md) to learn how to configure cache purge.
+To learn how to configure cache purge, see [Purge cache in Azure Front Door](cache-purge.md).
 
 ::: zone-end
 
