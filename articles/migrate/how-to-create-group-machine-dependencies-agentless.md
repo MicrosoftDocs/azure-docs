@@ -580,11 +580,7 @@ In the following example, dependency analysis is being enabled on the list of se
 
 ## Visualize network connections in Power BI
 
-<<<<<<< HEAD
 Azure Migrate offers a Power BI template that you can use to visualize network connections of many servers at once, and filter by process and server. To visualize, load the Power BI with dependency data as per the below instructions.
-=======
-Azure Migrate offers a [Power BI template](https://download.microsoft.com/download/1469a653-9b21-4a10-b0a4-152629377889/Azure%20Migrate%20-%20Network%20Connections.pbit) that you can use to visualize network connections of many servers at once, and filter by process and server. To visualize, load the Power BI with dependency data as per the following instructions.
->>>>>>> bd8c85fd82d2af24580bb12d098a805b1d833364
 
 ### Log in to Azure
 
