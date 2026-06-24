@@ -58,7 +58,7 @@ If jobs fail, resolve active alerts first, rerun the job, and verify that a new 
 
 To learn how to restore a SharePoint item from a disk with DPM, see [Restore SharePoint data](/system-center/dpm/back-up-sharepoint#restore-sharepoint-data).
 
-For fast recovery from local storage, use disk recovery points when possible. Use Azure recovery points when you need long-term retention or when local recovery points are unavailable.
+For fast recovery from local storage, use disk recovery points when possible. Use Azure recovery points when you need long-term retention or when local recovery points aren't available.
 
 ## Restore a SharePoint database from Azure using DPM
 
