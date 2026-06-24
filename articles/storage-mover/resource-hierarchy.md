@@ -126,7 +126,7 @@ Endpoints are parented to the top-level storage mover resource and can be reused
 
 ## Next steps
 
-After understanding the resources involved in an Azure Storage Mover deployment, it's a good idea to start a proof-of-concept deployment. These articles are good next reads:
+After you understand the resources involved in an Azure Storage Mover deployment, start a proof-of-concept deployment. These articles are good next reads:
 
 - [Deploy a storage mover resource in your subscription.](storage-mover-create.md)
 - [Review supported sources and targets for agent-based and agentless workloads.](service-overview.md#supported-sources-and-targets)
