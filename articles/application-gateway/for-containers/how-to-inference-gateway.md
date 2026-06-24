@@ -5,7 +5,7 @@ services: application-gateway
 author: jackstromberg
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 05/06/2026
+ms.date: 06/24/2026
 ms.author: jstrom
 # Customer intent: As a platform engineer, I want to configure Application Gateway for Containers inference gateway, so that I can route traffic to self-hosted AI model servers on Kubernetes.
 ---
@@ -18,7 +18,7 @@ In this guide, you deploy:
 
 - A GPU-backed vLLM model server that serves an OpenAI-compatible API
 - Gateway API Inference Extension resources
-- A [Gateway](https://gateway-api.sigs.k8s.io/api-types/gateway/)
+- A [Gateway](https://gateway-api.sigs.k8s.io/reference/api-types/gateway/)
 - An EPP deployment, service, and `InferencePool`
 - An `HTTPRoute` that sends `/v1` traffic to the `InferencePool`
 
