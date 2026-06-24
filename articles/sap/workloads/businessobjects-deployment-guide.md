@@ -65,7 +65,7 @@ The following diagram illustrates the architecture of a large-scale deployment o
 
   File Repository Server contains all reports and other BI documents that are created. In multi-instance deployment, BI platform servers run on multiple VMs, and each VM must have access to these reports and other BI documents. A file system needs to be shared across all BI platform servers.
 
-  In Azure, you can use either [Azure Premium Files](../../storage/files/storage-files-introduction.md) or [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) for File Repository Server. Both of these Azure services have built-in redundancy.
+  In Azure, you can use either [Azure Files SSD](../../storage/files/storage-files-introduction.md) or [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) for File Repository Server. Both of these Azure services have built-in redundancy.
 
 - **CMS and audit database**
 
@@ -135,7 +135,7 @@ Azure supports two DBaaS offerings for the SAP BOBI platform data tier: [Azure S
 > [!TIP]
 > For quick sizing reference, consider 800 SAPS = 1 vCPU while mapping the SAPS result of SAP BOBI Platform database tier to Azure Database-as-a-Service (Azure SQL Database or Azure Database for MySQL).
 
-### Sizing models for Azure SQL database
+### Sizing models for Azure SQL Database
 
 Azure SQL Database offers the following three purchasing models:
 
@@ -244,9 +244,9 @@ Azure Storage has different storage types available. For more information, see t
 
   In the following example, Premium SSDs are used for the BOBI platform installation directory. For a database installed on a VM, you can use managed disks for data and log volumes per the guidelines. CMS and Audit databases are typically small and don't have the same storage performance requirements as other SAP OLTP/OLAP databases.
 
-- Azure Premium Files or Azure NetApp Files
+- Azure Files SSD or Azure NetApp Files
 
-  In SAP BOBI platform, File Repository Server (FRS) refers to the disk directories where content, such as reports, universes, and connections, is stored. This content is used by all application servers of that system. [Azure Premium Files](../../storage/files/storage-files-introduction.md) or [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) storage can be used as a shared file system for SAP BOBI application FRS. Because these storage offerings aren't available in all regions, see the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) site for up-to-date information.
+  In SAP BOBI platform, File Repository Server (FRS) refers to the disk directories where content, such as reports, universes, and connections, is stored. This content is used by all application servers of that system. [Azure Files SSD](../../storage/files/storage-files-introduction.md) or [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) storage can be used as a shared file system for SAP BOBI application FRS. Because these storage offerings aren't available in all regions, see the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) site for up-to-date information.
 
   If the service is unavailable in your region, you can create an NFS server from which you can share the file system to SAP BOBI application. However, you also need to consider its high availability.
 
