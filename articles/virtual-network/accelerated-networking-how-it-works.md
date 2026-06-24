@@ -32,7 +32,7 @@ FreeBSD provides the same support for Accelerated Networking as Linux when it's 
 
 The synthetic network interface and VF interface are automatically paired and act as a single interface in most aspects used by applications. The netvsc driver does the bonding. Depending on the Linux distribution, udev rules and scripts might help in naming the VF interface and in configuring the network.
 
-If the VM is configured with multiple virtual NICs, the Azure host provides a unique serial number for each one. This serial number allows Linux to properly pair the synthetic and VF interfaces for each virtual NIC.
+If you configure the VM with multiple virtual NICs, the Azure host provides a unique serial number for each one. This serial number allows Linux to properly pair the synthetic and VF interfaces for each virtual NIC.
 
 The synthetic and VF interfaces have the same MAC address. Together, they constitute a single NIC from the standpoint of other network entities that exchange packets with the virtual NIC in the VM. Other entities don't take any special action because of the existence of both the synthetic interface and the VF interface.
 
