@@ -51,6 +51,8 @@ AzCopy uses the [Put Block From URL](/rest/api/storageservices/put-block-from-ur
 
  These examples also work with accounts that have a hierarchical namespace. [Multi-protocol access on Data Lake Storage](../blobs/data-lake-storage-multi-protocol-access.md) enables you to use the same URL syntax (`blob.core.windows.net`) on those accounts.
 
+When copying blobs between storage accounts, AzCopy converts uppercase characters in metadata names to lowercase. This behavior aligns with HTTP protocol specifications.
+
 ### Copy an object
 
 Use the same URL syntax (`blob.core.windows.net`) for accounts that have a hierarchical namespace.
