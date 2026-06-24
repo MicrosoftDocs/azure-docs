@@ -174,7 +174,6 @@ helm install \
   --version v1.19.3 \
   --namespace cert-manager \
   --create-namespace \
-  --set config.enableGatewayAPI=true \
   --set crds.enabled=true
 ```
 
