@@ -86,7 +86,7 @@ U1804:~# ethtool -S eth0 | grep ' vf_'
  vf_tx_dropped: 0
 ```
 
-If these counters are incrementing on successive executions of the `ethtool` command, network traffic is flowing over the VF interface.
+If these counters increment on successive executions of the `ethtool` command, network traffic flows over the VF interface.
 
 You can verify the existence of the VF interface as a PCI device by using the `lspci` command. For example, on the Generation 1 VM, you might get output similar to the following. (Generation 2 VMs don't have the legacy PCI devices.)
 
