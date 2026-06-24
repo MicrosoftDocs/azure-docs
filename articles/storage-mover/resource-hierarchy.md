@@ -66,7 +66,7 @@ Your agents appear in your storage mover after they're registered. Registration 
 
 ## Migration project
 
-A project allows you to organize your large-scale cloud migrations into smaller, more manageable units that make sense for your situation.
+Use a project to organize your large-scale cloud migrations into smaller, more manageable units that make sense for your situation.
 
 The smallest unit of a migration can be defined as the contents of one source moving into one target, but data center migrations are rarely that simple. Often multiple sources support one workload and must be migrated together for timely failover of the workload to the new cloud storage locations in Azure.
 
