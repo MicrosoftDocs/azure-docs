@@ -1,8 +1,9 @@
 ---
 title: Install CycleCloud using ARM template
-description: How to install CycleCloud using an ARM template
+description: Learn how to install Azure CycleCloud by using an Azure Resource Manager (ARM) template that provisions the required Azure resources.
 author: adriankjohnson
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: adjohnso
 ---
 
