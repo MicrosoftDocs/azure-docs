@@ -99,7 +99,7 @@ When you start a job definition, a new resource is implicitly created: a job run
 The job run is a snapshot of the job definition. The migration runtime executes the job run for the selected workload type. For agent-based workloads, the selected migration agent performs execution. For agentless workloads, the service orchestrates execution.
 
 > [!IMPORTANT]
-> A change to migration settings won't affect a running migration job. At the time of starting a job run, a snapshot of the job definition is taken and executed by the selected migration runtime. You can't change a job run, your only option is to cancel it.
+> A change to migration settings doesn't affect a running migration job. At the time of starting a job run, the selected migration runtime takes and executes a snapshot of the job definition. You can't change a job run. Your only option is to cancel it.
 
 A job run has a state, progress information, and copy result information. You find the most critical information about your job run as properties on the job run resource itself. Agent-based and agentless workloads both emit job run telemetry through the service.
 
