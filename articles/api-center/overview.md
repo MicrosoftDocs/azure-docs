@@ -63,7 +63,7 @@ Azure API Center is offered in a Free plan and Standard plan, which are designed
 | **Time constraints** | None | None |
 
 > [!IMPORTANT]
-> Microsoft support isn't available for the Azure API Center Free plan. Support cases submitted by Free plan customers cannot be investigated are closed. To receive Microsoft support, upgrade to the Standard plan.
+> Microsoft support isn't available for the Azure API Center Free plan. Support cases submitted by Free plan customers can't be investigated and are closed. To receive Microsoft support, upgrade to the Standard plan.
 
 <sup>1</sup> For details, see [Azure API Center limits](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits).
 
@@ -95,9 +95,9 @@ Azure API Center is currently available in the following Azure regions:
 
 Azure API Center can serve a key role in an organization's API ecosystem. Consider the hypothetical Contoso organization, which adopts an API-first strategy, emphasizing the importance of APIs in their software development and integration. 
 
-Contoso's API developers, app developers, API program managers, and API managers collaborate through Azure API Center to develop and use the organization's API inventory. The following diagram and explanation demonstrates this scenario:
+Contoso's API developers, app developers, API program managers, and API managers collaborate through Azure API Center to develop and use the organization's API inventory. The following diagram and explanation demonstrate this scenario:
 
-:::image type="content" source="media/overview/api-ecosystem-example.png" border="false" alt-text="Diagram showing Azure API Center in an example API ecosystem." lightbox="media/overview/api-ecosystem-example.png ":::
+:::image type="content" source="media/overview/api-ecosystem-example.png" border="false" alt-text="Diagram showing Azure API Center in an example API ecosystem." lightbox="media/overview/api-ecosystem-example.png":::
 
 Contoso's API ecosystem includes the following features:
 
