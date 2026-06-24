@@ -23,11 +23,11 @@ By using an API center, stakeholders throughout your organization, including API
 
 Azure API Center offers the following benefits:
 
-- **Create and maintain an organizational inventory**: Build a **complete inventory of APIs** available in your organization. Register APIs managed in all your API management solutions, including Azure API Management and platforms from other providers. Also include your unmanaged APIs and APIs under development. Foster communication and let API program managers and developers collaborate for increased API reuse, quality, security, compliance, and developer productivity.​
+- **Create and maintain an organizational inventory**: Build a **complete inventory of APIs** available in your organization. Register APIs managed in all your API management solutions, including Azure API Management and platforms from other providers. Also include your unmanaged APIs and APIs under development. Foster communication and let API program managers and developers collaborate for increased API reuse, quality, security, compliance, and developer productivity.
 
-- **Govern your organization's APIs**: Access more complete visibility into the APIs being developed and used within your organization. API program managers and IT administrators can govern this inventory to ensure it meets organizational standards by **defining custom metadata** and **analyzing API definitions** to enforce conformance to API style guidelines.​
+- **Govern your organization's APIs**: Access more complete visibility into the APIs being developed and used within your organization. API program managers and IT administrators can govern this inventory to ensure it meets organizational standards by **defining custom metadata** and **analyzing API definitions** to enforce conformance to API style guidelines.
 
-- **Easy API discovery**: Promote API reuse to maximize developer productivity and ensure developers are using the right APIs. Azure API Center helps program managers and developers discover the API inventory and filter by using built-in and custom metadata. ​
+- **Easy API discovery**: Promote API reuse to maximize developer productivity and ensure developers are using the right APIs. Azure API Center helps program managers and developers discover the API inventory and filter by using built-in and custom metadata. 
 
 - **Accelerate API consumption**: Maximize developer productivity when consuming APIs and ensure they're consumed in a secure manner consistent with organizational standards.
 
@@ -61,6 +61,8 @@ Azure API Center is offered in a Free plan and Standard plan, which are designed
 | **Inventory and governance features** | Limited<sup>1</sup> | Expanded for enterprise use cases |
 | **Upgrade path** | Upgradable to Standard | N/A |
 | **Time constraints** | None | None |
+
+> [!IMPORTANT] Microsoft support isn't available for the Azure API Center Free plan. Support cases submitted by Free plan customers cannot be investigated are closed. To receive Microsoft support, upgrade to the Standard plan.
 
 <sup>1</sup> For details, see [Azure API Center limits](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits).
 
