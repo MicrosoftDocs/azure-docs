@@ -2,7 +2,8 @@
 title: Health Checks Services
 description: Learn about the HealthCheck service in Azure CycleCloud. HealthCheck can be used to terminate VMs that are in an unhealthy state.
 author: aevdokimova
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: adjohnso
 ---
 

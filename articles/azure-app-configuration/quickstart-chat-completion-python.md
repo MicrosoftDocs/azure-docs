@@ -24,7 +24,7 @@ The full sample source code is available in the [Azure App Configuration GitHub 
 ## Prerequisites
 
 - Complete the tutorial to [Create a chat completion configuration](./howto-chat-completion-config.md#create-a-chat-completion-configuration).
-- Python 3.9 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/).
+- Python 3.10 or later - for information about setting up Python on Windows, see the [Python on Windows documentation](/windows/python/).
 
 ## Create a console app
 

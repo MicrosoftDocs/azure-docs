@@ -1,6 +1,6 @@
 ---
-title: Advanced Encryption Standard FAQs for Azure NetApp Files
-description: Answers frequently asked questions (FAQs) about Azure NetApp Files Advanced Encryption Standard.
+title: AES FAQs for Azure NetApp Files
+description: Answers frequently asked questions (FAQs) about Azure NetApp Files AES.
 ms.service: azure-netapp-files
 ms.topic: concept-article
 author: netapp-manishc
@@ -8,7 +8,7 @@ ms.author: anfdocs
 ms.date: 06/15/2026
 # Customer intent: As an IT administrator using Azure NetApp Files, I want to understand AES encryption for Active Directory connections, so that I can securely transition my environment to AES.
 ---
-# Advanced Encryption Standard FAQs for Azure NetApp Files
+# AES FAQs for Azure NetApp Files
 
 This article answers frequently asked questions (FAQs) about Azure NetApp Files Advanced Encryption Standard (AES).
 

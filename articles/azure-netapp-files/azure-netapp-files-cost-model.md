@@ -271,7 +271,7 @@ Effective price reflects discounts and capability-driven capacity gains applied 
 
 ## Cost modeling examples
 
-Pricing in the examples uses representative rates and is region dependent. Consult the [Azure NetApp Files pricing page](https://azure.microsoft.com/pricing/details/netapp-files/) for current rates in your region.
+Pricing in the examples uses representative rates and is region dependent. Consult the Azure NetApp Files pricing page for current rates in your region.
 
 ### Example 1: Dynamic capacity resizing
 
@@ -425,8 +425,8 @@ This example shows how the cost levers compound rather than compete: storage wit
 
 The Azure NetApp Files cost model is based on three key properties:
 
-* * **Provisioning drives billing.** Cost reflects the provisioned capacity (and, for the Flexible service level, the provisioned throughput) - not the data stored.
-* * **Metering is hourly.** Dynamic resizing, dynamic service-level changes, and dynamic Flexible throughput adjustments take effect within an hour and flow into the monthly invoice.
+* **Provisioning drives billing.** Cost reflects the provisioned capacity (and, for the Flexible service level, the provisioned throughput) - not the data stored.
+* **Metering is hourly.** Dynamic resizing, dynamic service-level changes, and dynamic Flexible throughput adjustments take effect within an hour and flow into the monthly invoice.
 * **Capabilities compound.** Cool access, reserved capacity, snapshots, short-term clones, and the Flexible service level address different parts of the cost equation and can be combined.
 
 Sizing pools and volumes to actual demand, choosing the service level that matches the capacity-to-throughput ratio of the workload, and layering the built-in optimization capabilities together produces the lowest effective price for a given functional requirement.

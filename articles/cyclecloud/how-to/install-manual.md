@@ -2,7 +2,8 @@
 title: CycleCloud Manual Installation
 description: Review instructions on installing CycleCloud manually. Get information about system requirements, SSH keys, installation, configuration, and updating.
 author: adriankjohnson
-ms.date: 05/28/2026
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: adjohnso
 ---
 

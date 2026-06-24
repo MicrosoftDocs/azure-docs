@@ -23,13 +23,13 @@ The SAP system deploys:
 
 ## Application tier
 
-The application tier deploys a customer-defined number of VMs. The default VM size is **Standard_D4s_v3**, with a 30-GB operating system (OS) disk and a 512-GB data disk.
+The application tier deploys a customer-defined number of VMs. The default VM size is **Standard_D4s_v3**, with a 30 GB operating system (OS) disk and a 512 GB data disk.
 
 To set the application server count, define the parameter `application_server_count` for this tier in your parameter file. For example, use `application_server_count=3`.
 
 ## Central services tier
 
-The SAP central services (SCS) tier deploys a customer-defined number of VMs. The default VM size is **Standard_D4s_v3**, with a 30-GB OS disk and a 512-GB data disk. This tier also deploys a [Standard instance of Azure Load Balancer](../../load-balancer/load-balancer-overview.md).
+The SAP central services (SCS) tier deploys a customer-defined number of VMs. The default VM size is **Standard_D4s_v3**, with a 30 GB OS disk and a 512 GB data disk. This tier also deploys a [Standard instance of Azure Load Balancer](../../load-balancer/load-balancer-overview.md).
 
 To set the SCS server count, define the parameter `scs_server_count` for this tier in your parameter file. For example, use `scs_server_count=1`.
 

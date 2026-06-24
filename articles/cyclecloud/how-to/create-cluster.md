@@ -1,8 +1,9 @@
 ---
 title: Create a Cluster
-description: Different ways of creating a cluster in cyclecloud
+description: Learn the different ways to create a cluster in Azure CycleCloud, using the CLI or a web browser from a cluster template.
 author: dpwatrous
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: dawatrou
 ---
 

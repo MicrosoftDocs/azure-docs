@@ -2,7 +2,8 @@
 title: HB/HC Cluster Best Practices
 description: Best practices for using Azure CycleCloud with HB and HC series Virtual Machines.
 author: anhoward
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: anhoward
 ---
 

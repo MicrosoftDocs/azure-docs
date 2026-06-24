@@ -20,7 +20,7 @@ ms.custom: references_regions, template-concept, engagement-fy23
 The tables in this article provide information on ExpressRoute geographical coverage and locations, ExpressRoute connectivity providers, and ExpressRoute System Integrators (SIs).
 
 > [!NOTE]
-> Azure regions and ExpressRoute locations are two distinct and different concepts, understanding the difference between the two is critical to exploring Azure hybrid networking connectivity. 
+> Azure regions and ExpressRoute locations are two distinct concepts. Understanding the difference between the two is critical to exploring Azure hybrid networking connectivity. 
 >
 
 ## Azure regions
@@ -29,7 +29,7 @@ Azure regions are global datacenters where Azure compute, networking, and storag
 
 ## ExpressRoute locations
 
-ExpressRoute locations, also known as peering locations or meet-me locations, are co-location facilities where Microsoft Enterprise Edge (MSEE) devices are situated. These locations serve as the entry points to Microsoft's network and are globally distributed, offering the ability to connect to Microsoft's network worldwide. ExpressRoute partners and ExpressRoute Direct user establish cross connections to Microsoft's network at these locations. Generally, the ExpressRoute location doesn't need to correspond with the Azure region. For instance, you can create an ExpressRoute circuit with the resource location in *East US* for the *Seattle* peering location.
+ExpressRoute locations, also known as peering locations or meet-me locations, are co-location facilities where Microsoft Enterprise Edge (MSEE) devices are situated. These locations serve as the entry points to Microsoft's network and are globally distributed, offering the ability to connect to Microsoft's network worldwide. ExpressRoute partners and ExpressRoute Direct users establish cross connections to Microsoft's network at these locations. Generally, the ExpressRoute location doesn't need to correspond with the Azure region. For instance, you can create an ExpressRoute circuit with the resource location in *East US* for the *Seattle* peering location.
 
 You have access to Azure services across all regions within a geopolitical region if you're connecting to at least one ExpressRoute location within the geopolitical region.
 
@@ -455,7 +455,7 @@ Enabling private connectivity to meet your needs can be challenging, depending o
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | South America |
 | **Vigilant.IT** | Australia |
 
-## Next steps
+## Related content
 
 * For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
 * Ensure that all prerequisites are met. For more information, see [ExpressRoute prerequisites](expressroute-prerequisites.md).

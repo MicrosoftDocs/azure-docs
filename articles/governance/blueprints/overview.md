@@ -214,6 +214,19 @@ on Channel 9.
 
 > [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]
 
+## Azure Blueprints retirement
+
+Azure Blueprints (Preview) is being retired on **January 31, 2027**, with a phased retirement
+beginning July 31, 2026. Migrate your blueprint definitions and assignments to
+[Azure Deployment Stacks](../../azure-resource-manager/bicep/deployment-stacks.md) (recommended) and
+[template specs](../../azure-resource-manager/bicep/template-specs.md) before the retirement date.
+For the phased timeline, impact, and migration guidance, see:
+
+- [Azure Blueprints retirement](./blueprint-retirement.md)
+- [Azure Blueprints retirement FAQ](./blueprint-retirement-faq.md)
+- [Migrate Azure Blueprints to template specs](./migrate-to-template-specs.md)
+- [Migrate to deployment stacks](../../azure-resource-manager/bicep/migrate-blueprint.md)
+
 ## Next steps
 
 - [Create a blueprint - Portal](./create-blueprint-portal.md).

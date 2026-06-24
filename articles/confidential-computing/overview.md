@@ -2,11 +2,11 @@
 title: Azure Confidential Computing Overview
 description: This article presents an overview of Azure confidential computing.
 services: virtual-machines
-author: cynthn
+author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: overview
 ms.date: 06/09/2023
-ms.author: cynthn #ananyagarg #sgallagher #michamcr
+ms.author: wwilliams #ananyagarg #sgallagher #michamcr
 ms.custom: inspire-july-2022
 # Customer intent: "As a data security manager, I want to implement confidential computing in my cloud infrastructure, so that I can ensure the protection of sensitive data in use and minimize the risk of unauthorized access."
 ---

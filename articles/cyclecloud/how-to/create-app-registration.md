@@ -1,8 +1,9 @@
 ---
 title: Create Entra App Registration for use with Azure CycleCloud 
-description: Configure Entra ID App Registration to use with CycleCloud
+description: Learn how to create a Microsoft Entra application registration to use with Azure CycleCloud and CycleCloud Workspace for Slurm.
 author: abatallas
-ms.date: 01/13/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: padmalathas
 ---
 

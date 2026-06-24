@@ -155,9 +155,9 @@ The following operating system (OS) software versions are compatible with these 
 
 1. Under **SAP Transport Directory**, enter how you want to set up the transport directory on this SID (applicable for Distributed with HA and Distributed deployments only).
 
-   1. For **SAP Transport Options**, you can choose to **Create a new SAP transport Directory** or **Use an existing SAP transport Directory** or completely skip the creation of transport directory by choosing **Don't include SAP transport directory** option. Currently, only NFS on AFS storage account fileshares is supported.
+   1. For **SAP Transport Options**, choose **Create a new SAP transport Directory** or **Use an existing SAP transport Directory**. To skip the creation of a transport directory, select **Don't include SAP transport directory**. Currently, only NFS on classic file shares (file shares inside of a storage account) is supported.
 
-   1. If you choose to **Create a new SAP transport Directory**, this option creates and mounts a new transport fileshare on the SID. By default, this option creates an NFS on AFS storage account and a transport fileshare in the resource group where an SAP system is deployed. However, you can choose to create this storage account in a different resource group by providing the resource group name in **Transport Resource Group**.
+   1. If you choose **Create a new SAP transport Directory**, this option creates and mounts a new transport file share on the SID. By default, this option creates a storage account and an NFS transport file share in the resource group where an SAP system is deployed. However, you can choose to create this storage account in a different resource group by providing the resource group name in **Transport Resource Group**.
 
       You can also provide a custom name for the storage account to be created under **Storage account name** section. Leaving the **Storage account name** creates the storage account with the service default name `<SID><NFS><alphanumeric text>` in the chosen transport resource group. Creating a new transport directory creates a ZRS based replication for zonal deployments and LRS based replication for nonzonal deployments.
 

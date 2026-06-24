@@ -16,7 +16,7 @@ ms.custom:
 # Customer intent: As an SAP administrator, I want to deploy a highly available SAP HANA scale-out system with standby nodes using Azure NetApp Files on Red Hat Enterprise Linux, so that I can ensure seamless operations and automated failover capabilities for critical applications.
 ---
 
-# Deploy a SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on Red Hat Enterprise Linux 
+# Deploy an SAP HANA scale-out system with standby node on Azure VMs by using Azure NetApp Files on Red Hat Enterprise Linux 
 
 [dbms-guide]:dbms-guide-general.md
 [deployment-guide]:deployment-guide.md
@@ -133,7 +133,7 @@ While designing the infrastructure for SAP HANA on Azure with Azure NetApp Files
 The configuration in this article is presented with simple Azure NetApp Files Volumes.   
 
 > [!IMPORTANT]
-> For production systems, where performance is a key, we recommend to evaluate and consider using [Azure NetApp Files application volume group for SAP HANA](hana-vm-operations-netapp.md#deployment-through-azure-netapp-files-application-volume-group-for-sap-hana-avg).   
+> For production systems, where performance is a key, we recommend that you evaluate and consider using [Azure NetApp Files application volume group for SAP HANA](hana-vm-operations-netapp.md#deployment-through-azure-netapp-files-application-volume-group-for-sap-hana-avg).   
 
 ### Deploy Azure NetApp Files resources  
 
@@ -268,7 +268,7 @@ Configure and prepare your OS by doing the following steps:
 
 3. **[A]** Add a network route, so that the communication to the Azure NetApp Files goes via the storage network interface.  
 
-   In this example will use `Networkmanager` to configure the additional network route. The following instructions assume that the storage network interface is `eth1`.  
+   This example uses `Networkmanager` to configure the additional network route. The following instructions assume that the storage network interface is `eth1`.  
    First, determine the connection name for device `eth1`. In this example the connection name for device `eth1` is `Wired connection 1`.  
 
     <pre><code>
@@ -418,7 +418,7 @@ Configure and prepare your OS by doing the following steps:
     sudo mount -a 
     </code></pre>
 
-   For workloads, that require higher throughput, consider using the `nconnect` mount option, as described in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#nconnect-mount-option). Check if `nconnect` is [supported by Azure NetApp Files](../../azure-netapp-files/performance-linux-mount-options.md#nconnect) on your Linux release.  
+   For workloads that require higher throughput, consider using the `nconnect` mount option, as described in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#nconnect-mount-option). Check if `nconnect` is [supported by Azure NetApp Files](../../azure-netapp-files/performance-linux-mount-options.md#nconnect) on your Linux release.  
 
 7. **[1]** Mount the node-specific volumes on **hanadb1**.  
 
@@ -638,10 +638,10 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
    
    For SAP HANA 1.0 systems versions SPS12 and earlier, these parameters can be set during the installation, as described in SAP Note [2267798](https://launchpad.support.sap.com/#/notes/2267798).  
 
-7. The storage that's used by Azure NetApp Files has a file size limitation of 16 terabytes (TB). SAP HANA is not implicitly aware of the storage limitation, and it won't automatically create a new data file when the file size limit of 16 TB is reached. As SAP HANA attempts to grow the file beyond 16 TB, that attempt will result in errors and, eventually, in an index server crash. 
+7. The storage that Azure NetApp Files uses has a file size limitation of 16 TB. SAP HANA isn't implicitly aware of the storage limitation, and it doesn't automatically create a new data file when the file size limit of 16 TB is reached. As SAP HANA attempts to grow the file beyond 16 TB, that attempt results in errors and, eventually, in an index server crash. 
 
    > [!IMPORTANT]
-   > To prevent SAP HANA from trying to grow data files beyond the [16-TB limit](../../azure-netapp-files/azure-netapp-files-resource-limits.md) of the storage subsystem, set the following parameters in `global.ini`.  
+   > To prevent SAP HANA from trying to grow data files beyond the [16 TB limit](../../azure-netapp-files/azure-netapp-files-resource-limits.md) of the storage subsystem, set the following parameters in `global.ini`.  
    > - datavolume_striping = true
    > - datavolume_striping_size_gb = 15000
    > For more information, see SAP Note [2400005](https://launchpad.support.sap.com/#/notes/2400005).

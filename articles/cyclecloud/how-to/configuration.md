@@ -2,7 +2,8 @@
 title: Azure Configuration
 description: Understand how to prepare your Azure subscription for Azure CycleCloud. Configure a virtual network, a subnet, and a network security group.
 author: bwatrous
-ms.date: 06/30/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: bewatrou
 ---
 

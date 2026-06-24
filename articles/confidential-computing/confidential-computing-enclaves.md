@@ -1,11 +1,11 @@
 ---
 title: Build with SGX enclaves - Azure Virtual Machines
 description: Learn about Intel SGX hardware to enable your confidential computing workloads.
-author: cynthn
+author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 11/01/2021
-ms.author: cynthn
+ms.author: wwilliams
 # Customer intent: As a cloud developer, I want to utilize Intel SGX enclaves for my applications, so that I can ensure my sensitive data remains secure and protected from unauthorized access during processing.
 ---
 

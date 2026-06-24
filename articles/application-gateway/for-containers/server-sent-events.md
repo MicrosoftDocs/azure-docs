@@ -42,7 +42,32 @@ Server-sent events are processed by Application Gateway for Containers. However,
 
 # [Gateway API](#tab/server-sent-events-gateway-api)
 
-In Gateway API, a `RoutePolicy` resource should be defined with a `routeTimeout` value of `0s`.
+We recommend using Gateway API primitives. In Gateway API, define a `timeouts.request` value of `0s` on the `HTTPRouteRule`.
+
+```yaml
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: query-param-matching
+  namespace: test-sse
+spec:
+  parentRefs:
+  - name: gateway-01
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /
+    timeouts:
+      request: "0s"
+    backendRefs:
+    - name: backend
+      port: 80
+```
+
+# [RoutePolicy](#tab/server-sent-events-route-policy)
+
+If you aren't using Gateway API HTTPRoute timeouts, define a `RoutePolicy` resource with a `routeTimeout` value of `0s`.
 
 ```yaml
 apiVersion: alb.networking.azure.io/v1 
@@ -60,11 +85,11 @@ spec:
       routeTimeout: 0s 
 ```
 
-# [Ingress API](#tab/session-affinity-ingress-api)
-
-Server-sent events aren't supported using Ingress API.
-
 ---
+
+>[!NOTE]
+>If a Gateway API HTTPRoute timeout (`timeouts.request` or `timeouts.backendRequest`) is defined on the `HTTPRouteRule`, it's preferred over the `RoutePolicy` timeout. The `RoutePolicy` `routeTimeout` is used when no Gateway API HTTPRoute timeout is defined, followed by the default timeout values.
+
 
 >[!NOTE]
 >The idle timeout for Application Gateway for Containers is currently set to 5 minutes. If your application doesn't send or receive data within this period, consider sending a keep-alive request to prevent the connection from closing. You can implement this by prefixing a message with a colon `:` to act as a comment. For example, you may send the following message as a keep alive: `: keep-alive\n\n`

@@ -1,8 +1,9 @@
 ---
 title: How to use Cloud-Init with CycleCloud
-description: How to customize a cluster using cloud-init
+description: Learn how to use cloud-init to customize Azure CycleCloud virtual machines on first boot, before other CycleCloud configuration runs.
 author: staer
-ms.date: 06/30/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: danharri
 monikerRange: '>= cyclecloud-8'
 ---

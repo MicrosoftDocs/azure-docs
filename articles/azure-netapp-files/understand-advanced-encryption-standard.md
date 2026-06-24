@@ -1,5 +1,5 @@
 ---
-title: Understand Advanced Encryption Standard in Azure NetApp Files
+title: Understand AES in Azure NetApp Files
 description: Learn how AES encryption works in Azure NetApp Files and how to safely transition Active Directory environments and volumes to AES.
 ms.service: azure-netapp-files
 ms.topic: concept-article
@@ -8,7 +8,7 @@ ms.author: anfdocs
 ms.date: 06/15/2026
 # Customer intent: As an IT administrator using Azure NetApp Files, I want to understand how AES encryption works and how to transition my environment to AES, so that I can secure Kerberos authentication for my volumes.
 ---
-# Understand Advanced Encryption Standard in Azure NetApp Files
+# Understand AES in Azure NetApp Files
 
 Azure NetApp Files provides cloud storage through a volume-as-a-service offering, using NAS protocols as the delivery mechanism to end users. When an Azure NetApp Files volume joins an Active Directory domain, Kerberos is used to authenticate SMB, dual-protocol, and NFSv4.1 connections. The Advanced Encryption Standard (AES) provides the strongest Kerberos encryption types available in Azure NetApp Files and is the recommended target state for any production environment.
 

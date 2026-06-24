@@ -56,6 +56,13 @@ After your SAP data is replicated to the mirroring database, you need to run pip
 1. `bps_om_b2s_orchestration_pipeline`: This pipeline copies the data from your mirrored database to the Silver lakehouse. After this pipeline is finished, you can see data in your Silver lakehouse.
 1. `bps_orchestration_pipeline_full_processing`: This pipeline processes and copies data from the Silver lakehouse to the Gold lakehouse. After this pipeline is finished, refresh your semantic model so that you can view data in your Power BI reports.
 
+### SAP S/4 HANA data processing with SAP Datasphere
+
+After you replicate your SAP data to the lakehouse by using shortcuts, run pipelines to process the data. Because Business Process Solutions uses a medallion architecture, the data flows from Bronze to Silver to Gold layers. Run the pipelines in the following order:
+
+1. `bps_datasphere_b2s_orchestration_pipeline`: This pipeline copies the data from your bronze lakehouse to the Silver lakehouse. When this pipeline finishes, you can see data in your Silver lakehouse.
+1. `bps_orchestration_pipeline_full_processing`: This pipeline processes and copies data from the Silver lakehouse to the Gold lakehouse. When this pipeline finishes, refresh your semantic model so that you can view data in your Power BI reports.
+
 ### SAP ECC data processing with open mirroring
 
 After your ECC data is replicated to the mirroring database, you need to run pipelines to process the data. Because you have a medallion architecture in Business Process Solutions, the data flows from Bronze to Silver to Gold layers. Run the pipelines in the following order:
