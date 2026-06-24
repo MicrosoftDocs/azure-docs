@@ -99,7 +99,7 @@ If you've more than one front-end web server, and want to switch the server that
 
 Use this checklist for common restore and cataloging issues:
 
-1. **Re-catalog is unavailable or fails**: Verify connectivity between DPM and Azure, then retry cataloging from the same recovery point.
+1. **Re-catalog is unavailable or fails**: Verify connectivity between DPM and Azure, and then retry cataloging from the same recovery point.
 1. **SharePoint catalog data is missing**: Run **Re-catalog** again and wait for completion before selecting database items for recovery.
 1. **Recovery job fails with access errors**: Verify that DPM and SharePoint service accounts still have required farm and SQL permissions.
 1. **Recovery points are older than expected**: Review protection group schedules and retention settings for both disk and Azure copies.
