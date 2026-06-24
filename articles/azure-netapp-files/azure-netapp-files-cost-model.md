@@ -271,7 +271,7 @@ Effective price reflects discounts and capability-driven capacity gains applied 
 
 ## Cost modeling examples
 
-Pricing in the examples uses representative rates and is region dependent. Consult the [Azure NetApp Files pricing page](https://azure.microsoft.com/pricing/details/netapp-files/) for current rates in your region.
+Pricing in the examples uses representative rates and is region dependent. Consult the Azure NetApp Files pricing page for current rates in your region.
 
 ### Example 1: Dynamic capacity resizing
 
