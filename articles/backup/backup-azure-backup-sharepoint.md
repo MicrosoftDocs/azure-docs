@@ -13,7 +13,7 @@ ms.author: v-mallicka
 # Back up and restore a SharePoint farm to Azure by using Data Protection Manager
 
 
-This article describes how to back up and restore SharePoint data by using System Center Data Protection Manager (DPM). The process for backing up SharePoint to Azure with DPM is similar to backing up SharePoint to a local DPM server.
+This article describes how to back up and restore SharePoint data by using System Center Data Protection Manager (DPM). The process for backing up SharePoint to Azure by using DPM is similar to backing up SharePoint to a local DPM server.
 
 System Center Data Protection Manager (DPM) enables you to back up a SharePoint farm to Microsoft Azure. Azure Backup lets you schedule daily, weekly, monthly, or yearly recovery points and configure separate retention settings for each backup frequency. DPM stores local disk copies for quick recovery time objectives (RTOs) and stores Azure copies for long-term retention.
 
