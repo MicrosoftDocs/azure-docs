@@ -186,6 +186,8 @@ settings:
 
 First, download the configuration from App Configuration to a *myConfig.yaml* file. Use a key filter to only download those keys that start with **settings.**. If in your case the key filter is not sufficient to exclude keys of Key Vault references, you may use the argument **--skip-keyvault** to exclude them.
 
+In the following examples, replace the placeholder text _`<AppConfigurationStoreName>`_ with the name of your App Configuration store.
+
 > [!TIP]
 > Learn more about the [export command](/cli/azure/appconfig/kv#az-appconfig-kv-export).
 
@@ -194,8 +196,6 @@ az appconfig kv export -n <AppConfigurationStoreName> -d file --path myConfig.ya
 ```
 
 Next, download secrets to a file called *mySecrets.yaml*. The command-line argument **--resolve-keyvault** resolves the Key Vault references by retrieving the actual values in Key Vault. You'll need to run this command with credentials that have access permissions to the corresponding Key Vault.
-
-In the following examples, replace the placeholder text _`<AppConfigurationStoreName>`_ with the name of your App Configuration store.
 
 > [!WARNING]
 > As this file contains sensitive information, keep the file with care and clean up when it's not needed anymore.

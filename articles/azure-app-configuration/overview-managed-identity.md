@@ -30,7 +30,7 @@ To set up a managed identity using the Azure CLI, use the [az appconfig identity
 - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block below.
 - [Install the latest version of Azure CLI](/cli/azure/install-azure-cli) (2.1 or later) if you prefer to use a local CLI console.
 
-The following steps walk you through creating an App Configuration store and assigning it an identity using the CLI:
+The following steps walk you through creating an App Configuration store and assigning it an identity using the CLI. In the following examples, replace the placeholder text _`<ResourceGroupName>`_ and _`<AppConfigurationStoreName>`_ with the name of your resource group and a unique name for your App Configuration store.
 
 1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login]. Use an account that is associated with your Azure subscription:
 
@@ -66,7 +66,7 @@ To set up a managed identity using the Azure CLI, use the [az appconfig identity
 - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block below.
 - [Install the latest version of Azure CLI](/cli/azure/install-azure-cli) (2.0.31 or later) if you prefer to use a local CLI console.
 
-The following steps walk you through creating a user-assigned identity and an App Configuration store, then assigning the identity to the store using the CLI:
+The following steps walk you through creating a user-assigned identity and an App Configuration store, then assigning the identity to the store using the CLI. In the following examples, replace the placeholder text _`<ResourceGroupName>`_, _`<AppConfigurationStoreName>`_, _`<UserAssignedIdentityName>`_, and _`<SubscriptionId>`_ with your own values.
 
 1. If you're using the Azure CLI in a local console, first sign in to Azure using [az login]. Use an account that is associated with your Azure subscription:
 

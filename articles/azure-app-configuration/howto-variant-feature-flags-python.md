@@ -485,7 +485,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export AzureAppConfigurationEndpoint='<endpoint-of-your-app-configuration-store'
+    export AzureAppConfigurationEndpoint='<AppConfigurationEndpoint>'
     ```
 
 1. In the command prompt, in the *QuoteOfTheDay* folder, run: `flask run`.

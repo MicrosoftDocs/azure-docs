@@ -46,7 +46,7 @@ Follow these steps to export your configuration to the target store using the Az
 
 ### [Azure CLI](#tab/azcli)
 
-Follow these steps to export your configuration to the target store using the Azure:
+Follow these steps to export your configuration to the target store using the Azure CLI. In the following examples, replace the placeholder text _`<SourceAppConfigurationStoreName>`_ and _`<TargetAppConfigurationStoreName>`_ with the names of your source and target App Configuration stores.
 
 1. In the Azure CLI, enter the following command that will export all of the values from your source configuration store to your target configuration store.
 
@@ -80,12 +80,12 @@ After a few moments, the source configuration store will have been deleted.
 
 ### [Azure CLI](#tab/azcli)
 
-Follow these steps to delete your source configuration store in the Azure CLI:
+Follow these steps to delete your source configuration store in the Azure CLI. In the following examples, replace the placeholder text _`<ResourceGroupName>`_ and _`<AppConfigurationStoreName>`_ with the resource group and the name of your source App Configuration store.
 
 1. In the Azure CLI, run the following command:
 
     ```azurecli
-    az appconfig delete -g <ResourceGroupName> -n <SourceAppConfigurationStoreName>
+    az appconfig delete -g <ResourceGroupName> -n <AppConfigurationStoreName>
     ```
 
     Note that the **Resource Group** is the one associated with your source Configuration store.

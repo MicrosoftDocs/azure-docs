@@ -53,9 +53,7 @@ To create an App Configuration store, start by creating a resource group for you
 
 ### Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group in the Central US region. Replace _`<resource-group-name>`_ with a name for your resource group.
-
-```bash
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group in the Central US region. Replace _`<ResourceGroupName>`_ with a name for your resource group.
 
 ```azurecli
 az group create --name <ResourceGroupName> --location centralus

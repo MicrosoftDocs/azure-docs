@@ -79,7 +79,7 @@ The following table shows all the imported data in your App Configuration store:
 |---------|---------|---------|---------|
 | .appconfig.featureflag/Beta | {"id":"Beta","description":"","enabled": false,"conditions":{"client_filters":[]}} | dev | application/vnd.microsoft.appconfig.ff+json;charset=utf-8 |
 | Logging:LogLevel:Default | Warning | dev |  |
-| Database:ConnectionString | {\"uri\":\"https://\<Key-Vault-name\>.vault.azure.net/secrets/db-secret\"} | test | application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 |
+| Database:ConnectionString | {\"uri\":\"https://\<KeyVaultName\>.vault.azure.net/secrets/db-secret\"} | test | application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 |
 
 ## File content profile: KVSet
 
@@ -149,7 +149,7 @@ The following table shows all the imported data in your App Configuration store:
 |---------|---------|---------|---------|
 | .appconfig.featureflag/Beta | {"id":"Beta","description":"Beta feature","enabled":**true**,"conditions":{"client_filters":[]}} | dev | application/vnd.microsoft.appconfig.ff+json;charset=utf-8 |
 | Logging:LogLevel:Default | **Debug** | dev |  |
-| Database:ConnectionString | {\"uri\":\"https://\<Key-Vault-name\>.vault.azure.net/secrets/db-secret\"} | test | application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 |
+| Database:ConnectionString | {\"uri\":\"https://\<KeyVaultName\>.vault.azure.net/secrets/db-secret\"} | test | application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 |
 
 ## Next steps
 

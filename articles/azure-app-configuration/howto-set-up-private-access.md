@@ -120,7 +120,7 @@ Once deployment is complete, you'll get a notification that your endpoint has be
     > | `<SubnetName>`  | Enter a name for your new subnet. A subnet is a network inside a network. This is where the private IP address is assigned.                           | `MySubnet`        |
     > | `<Location>`| Enter an Azure region. Your virtual network must be in the same region as your private endpoint.                                                      | `centralus`       |
 
-1. Run the command [az appconfig show](/cli/azure/appconfig/#az-appconfig-show) to retrieve the properties of the App Configuration store, for which you want to set up private access. Replace the placeholder `name` with the name or the App Configuration store.
+1. Run the command [az appconfig show](/cli/azure/appconfig/#az-appconfig-show) to retrieve the properties of the App Configuration store, for which you want to set up private access. Replace the placeholder `<AppConfigurationStoreName>` with the name of the App Configuration store.
 
     ```azurecli-interactive
     az appconfig show --name <AppConfigurationStoreName>
@@ -164,13 +164,13 @@ Go to **Networking** > **Private Access** in your App Configuration store to acc
 
 #### Review private endpoint connection details
 
-Run the  [az network private-endpoint-connection list](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-list) command to review all private endpoint connections linked to your App Configuration store and check their connection state. Replace the placeholder texts `resource-group` and `<AppConfigurationStoreName>` with the name of the resource group and the name of the store.
+Run the  [az network private-endpoint-connection list](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-list) command to review all private endpoint connections linked to your App Configuration store and check their connection state. Replace the placeholder text `<ResourceGroupName>` and `<AppConfigurationStoreName>` with the name of the resource group and the name of the store.
 
 ```azurecli-interactive
 az network private-endpoint-connection list --resource-group <ResourceGroupName> --name <AppConfigurationStoreName> --type Microsoft.AppConfiguration/configurationStores
 ```
 
-Optionally, to get the details of a specific private endpoint, use the [az network private-endpoint-connection show](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-show) command. Replace the placeholder texts `resource-group` and `app-config-store-name` with the name of the resource group and the name of the store.
+Optionally, to get the details of a specific private endpoint, use the [az network private-endpoint-connection show](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-show) command. Replace the placeholder text `<ResourceGroupName>` and `<AppConfigurationStoreName>` with the name of the resource group and the name of the store.
 
 ```azurecli-interactive
 az network private-endpoint-connection show --resource-group <ResourceGroupName> --name <AppConfigurationStoreName> --type Microsoft.AppConfiguration/configurationStores
@@ -180,7 +180,7 @@ az network private-endpoint-connection show --resource-group <ResourceGroupName>
 
 When you create a private endpoint, the connection must be approved. If the resource for which you're creating a private endpoint is in your directory and you have [sufficient permissions](../private-link/rbac-permissions.md), the connection request will be auto-approved. Otherwise, you must wait for the owner of that resource to approve your connection request.
 
-To approve a private endpoint connection, use the [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve) command. Replace the placeholder texts `resource-group`, `private-endpoint`, and `<AppConfigurationStoreName>` with the name of the resource group, the name of the private endpoint and the name of the store.
+To approve a private endpoint connection, use the [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve) command. Replace the placeholder text `<ResourceGroupName>`, `<PrivateEndpointName>`, and `<AppConfigurationStoreName>` with the name of the resource group, the name of the private endpoint and the name of the store.
 
 ```azurecli-interactive
 az network private-endpoint-connection approve --resource-group <ResourceGroupName> --name <PrivateEndpointName> --type Microsoft.AppConfiguration/configurationStores --resource-name <AppConfigurationStoreName>
@@ -190,7 +190,7 @@ For more information about the connection approval models, go to [Manage Azure P
 
 #### Delete a private endpoint connection
 
-To delete a private endpoint connection, use the [az network private-endpoint-connection delete](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-delete) command. Replace the placeholder texts `resource-group` and `private-endpoint` with the name of the resource group and the name of the private endpoint.
+To delete a private endpoint connection, use the [az network private-endpoint-connection delete](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-delete) command. Replace the placeholder text `<ResourceGroupName>` and `<PrivateEndpointName>` with the name of the resource group and the name of the private endpoint.
 
 ```azurecli-interactive
 az network private-endpoint-connection delete --resource-group <ResourceGroupName> --name <PrivateEndpointName>
