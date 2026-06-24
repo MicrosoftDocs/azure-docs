@@ -238,7 +238,7 @@ In this context, Azure host servicing might include updating the components of t
 
 The automatic switching between the VF interface and the synthetic interface ensures that servicing events don't disturb workloads if applications interact only with the synthetic interface. Latencies and CPU load might be higher during these periods because of the use of the synthetic interface. The duration of such periods is typically about 30 seconds but sometimes might be as long as a few minutes.
 
-The removal and re-addition of the VF interface during a servicing event is visible in the `dmesg` output in the VM. Here's typical output:
+The `dmesg` output in the VM shows the removal and re-addition of the VF interface during a servicing event. Here's typical output:
 
 ```output
 [   8160.911509] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: Data path switched from VF: enP53091s1np0
