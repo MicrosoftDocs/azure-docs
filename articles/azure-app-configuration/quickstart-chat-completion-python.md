@@ -104,7 +104,7 @@ The full sample source code is available in the [Azure App Configuration GitHub 
 
 1. Create the main function that configures the chat client and runs the chat loop.
 
-    Create an instance of the `ChatCompletionsClient` to connect to Azure AI Foundry. You use `DefaultAzureCredential` to authenticate. Assign the **Cognitive Services OpenAI User** role to the identity represented by `DefaultAzureCredential`. For detailed steps, refer to the [Role-based access control for Azure OpenAI service](/azure/ai-services/openai/how-to/role-based-access-control) guide. Be sure to allow sufficient time for the permission to propagate before running your application.
+    Create an instance of the `ChatCompletionsClient` to connect to Azure AI Foundry. Use `DefaultAzureCredential` to authenticate and assign the **Cognitive Services OpenAI User** role to the identity represented by `DefaultAzureCredential`. For detailed steps, refer to the [Role-based access control for Azure OpenAI service](/azure/ai-services/openai/how-to/role-based-access-control) guide. Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```python
     def main():
