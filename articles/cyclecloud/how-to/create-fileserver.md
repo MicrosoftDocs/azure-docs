@@ -2,7 +2,8 @@
 title: Create a simple NFS and file share
 description: How to create a simple network file server that can be used in CycleCloud
 author: mvrequa
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: adjohnso
 ---
 
