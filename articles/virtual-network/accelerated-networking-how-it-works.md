@@ -106,7 +106,7 @@ The `ethtool -l` or `ethtool -L` command (to get and set the number of transmit 
 
 ## Linux `rp_filter` setting when using Accelerated Networking
 
-When Accelerated Networking is enabled, traffic can be received on the VF interface while Linux routing state and IP configuration are associated with the synthetic interface. During normal operation and host servicing events (when traffic can switch between VF and synthetic paths), this behavior can appear asymmetric to reverse path filtering.
+When you enable Accelerated Networking, the VM can receive traffic on the VF interface while Linux routing state and IP configuration are associated with the synthetic interface. During normal operation and host servicing events (when traffic can switch between VF and synthetic paths), this behavior can appear asymmetric to reverse path filtering.
 
 If `rp_filter` is set to strict mode (`1`), Linux might drop legitimate packets if the incoming interface isn't the interface Linux considers the best reverse path. To reduce unexpected packet drops while retaining source validation, set `rp_filter` to loose mode (`2`).
 
