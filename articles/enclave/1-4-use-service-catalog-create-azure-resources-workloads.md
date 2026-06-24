@@ -30,9 +30,13 @@ In this tutorial, part four of eight, you create Azure resources using service c
 
 ## Enable enclave maintenance mode
 
-1. Navigate to the `Enclave-WebApp` enclave and select `Maintenance Mode`
+> [!TIP]
+> 
+> Skip this step if enclave maintenance mode is still turned on since you completed [Tutorial 1-2](./1-2-create-enclaves-inside-community.md).
 
-2. Enter the information needed to enable maintenance mode
+1. Navigate to the `ve-Enclave-WebApp` enclave and select `Maintenance Mode`.
+
+2. Enter the information needed to enable maintenance mode:
    - **Maintenance Mode:** Select `General`
    - **Principals:** Select `Choose Microsoft Entra principal` and enter your username
    - **Justification:** Select `Networking`
@@ -40,34 +44,51 @@ In this tutorial, part four of eight, you create Azure resources using service c
 
    [ ![Screenshot showing the maintenance mode screen.](./media/service-catalog-app-service-maintenance-mode-input.png) ](./media/service-catalog-app-service-maintenance-mode-input.png#lightbox)
 
-3. Select `Confirm` and allow a few minutes for the enclave to return to `Succeeded` state
+3. Select `Confirm` and allow a few minutes for the enclave to return to `Succeeded` state.
 
    ![Screenshow showing the popup confirmation box for maintenance mode confirmation.](./media/service-catalog-app-service-maintenance-mode-confirm.png)
 
+## Create App Service required resources
+
+1. Navigate to the `wl-webapp-frontend` workload to create an Azure App Service for your webapp.
+2. Select `Add an Azure service` button on the overview page.
+3. Select `Private DNS Zones` from the service catalog dropdown list and select `Next`.
+
+   [ ![Screenshot showing the service catalog with the private DNS zones template selected.](./media/service-catalog-app-service-private-link-catalog.png) ](./media/service-catalog-app-service-private-link-catalog.png#lightbox)
+
+4. Create the private DNS zone:
+    
+    1. For `Resource groups`, select `wl-webapp-frontend`.
+    2. For `Additional Private DNS Zone Names`, enter the private DNS zone name for App Service `["privatelink.azurewebsites.net"]`. You might need to use a different value depending on the Azure cloud you're using.
+    3. Select `Review + Create` then `Create`.
+ 
 ## Create Azure web app resources from the service catalog
 
 1. Navigate to the `wl-webapp-frontend` workload to create an Azure App Service for your webapp.
 2. Select `Add an Azure service` button on the overview page.
 3. Select `App Service` from the service catalog dropdown list and select `Next`.
+    [ ![Screenshot showing the App Service template selected in the workload portal view.](./media/service-catalog-app-service-catalog-page.png) ](./media/service-catalog-app-service-catalog-page.png#lightbox)
 4. Enter all the required parameters on each tab.
-   - **Web App Site Name:** Enter `webapp-frontend`
+   - **Web App Site Name:** Enter `webapp-frontend-fabrikam`
    - **App Service Sku Name:** Select an option from the dropdown, `P1v2`, or the lowest option for this tutorial. See this table for a full list of options: https://azure.microsoft.com/pricing/details/app-service/linux/#pricing
    - **App Service Sku Tier:** Enter `PremiumV2`.
    - **Number of Worker Instances:** Enter `2`.
 
-   ![Screenshot showing the basics input screen for an App Service web app.](./media/service-catalog-app-service-basics.png)
+   [ ![Screenshot showing the basics input screen for an App Service web app.](./media/service-catalog-app-service-basics.png) ](./media/service-catalog-app-service-basics.png#lightbox)
 
-5. Select `Next` to confirm the networking information prepopulated by the service catalog. Ensure the App Service subnet has a delegation to 'Microsoft.Web/serverfarms' and the private link subnet doesn't.
-   - **Dedicated App Service Subnet Name:** Enter `WorkloadSubnet` for the subnet delegated in the previous step.
-   - **Private Link Subnet Name:** Enter `mySubnet` for the subnet containing the private endpoints.
+5. Select `Next` then enter the networking information. Ensure the App Service subnet has a delegation to 'Microsoft.Web/serverfarms' and the private link subnet doesn't.
+   - `Dedicated App Service Subnet Name`: Enter `webapp-Subnet` for the subnet delegated in the previous step.
+   - `Private Link Subnet Name`: Enter `common-subnet` for the subnet containing the private endpoints.
+   - `Private Dns Zone Resource Group Name`: Enter `rg-webapp-frontend`.
+   - `Private Dns Zone Name`: Enter `privatelink.azurewebsites.net` for App Service.
 
    ![Screenshot showing the networking input screen for an App Service web app.](./media/service-catalog-app-service-networking.png)
 
 6. Select `Review + Create` and then `Create`.
 
-It can take up to 30 minutes to finish all resource creation. Wait for the deployment to complete successfully before you take any actions within your deployed resources.
+   Wait for the deployment to complete successfully before you take any actions within your deployed resources.
 
-   ![Screenshot showing the deployed App Service resources.](./media/service-catalog-app-service-deployed.png)
+   [ ![Screenshot showing the deployed App Service resources.](./media/service-catalog-app-service-deployed.png) ](./media/service-catalog-app-service-deployed.png#lightbox)
 
 ## Validate the deployment
 
@@ -80,12 +101,6 @@ Azure App Service has quickstarts for many languages such as the [python quickst
 
 If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted or all App Service resources can be selected and deleted.
 
-## Next steps
-
-In this tutorial, you created Azure resources with service catalog using Azure portal.
-
-In the [next tutorial](./1-5-create-enclave-endpoint-connections.md), you'll learn how to create Azure resources in your enclave.
-
 ## Recommendations
 
 - Review an architecture example for a [basic web application](/azure/architecture/web-apps/app-service/architectures/basic-web-app)
@@ -96,3 +111,9 @@ In the [next tutorial](./1-5-create-enclave-endpoint-connections.md), you'll lea
   - Service Catalog Name: `Virtual Machine`
   - Service Catalog Version: `version you deployed`
 - Consider adding an [Azure Policy to enforce and inherit tags](/azure/azure-resource-manager/management/tag-policies)
+
+## Next steps
+
+In this tutorial, you created Azure resources with service catalog using Azure portal.
+
+In the [next tutorial](./1-5-create-enclave-endpoint-connections.md), you'll learn how to create Azure resources in your enclave.

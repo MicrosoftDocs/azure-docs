@@ -50,24 +50,75 @@ Enclave deployments can take around 30-45 minutes to complete. After deployment 
 3. Enter the basic details for your first enclave:
    - `Subscription`: Select an existing subscription
    - `Resource Group`: `myResourceGroup`
-   - `Enclave name`: `Enclave-WebApp`
+   - `Enclave name`: `ve-Enclave-WebApp`
    - `Region`: `East US`
    - `Community`: Select the `fabrikam` community that you created in [Tutorial 1-1: Deploy a community](./1-1-create-community.md).
+   - `Dedicated hub`: Select `Create new`
+       - `Hub name`: Enter `dh-fabrikam-eastus` and then select `Save`
 
-[ ![Screenshot showing the create WebApp enclave screen with the basics inputs for the tutorial environment.](./media/tutorial-step-two-create-webapp-enclave-screen-basics-input.png) ](./media/tutorial-step-two-create-webapp-enclave-screen-basics-input.png#lightbox)
+    [ ![Screenshot showing the create WebApp enclave screen with the basics inputs for the tutorial environment.](./media/tutorial-step-two-create-webapp-enclave-screen-basics-input.png) ](./media/tutorial-step-two-create-webapp-enclave-screen-basics-input.png#lightbox)
 
-4. Select `Review + create`, verify the settings, and then select `Create`.
+4. Create the enclave subnets:
+    1. Select `Next` and select `+ Subnet`.
 
-5. To deploy the second enclave, repeat steps 1 and 2. On the `Create enclave` page, enter these basic details:
+    2. Create a subnet delegated to App Service:
+        - `Name`: `common-subnet`
+        - `Size`: `/26`
+        - `Delegate subnet to a service`: Select `Microsoft.Web/serverFarms`
+        
+        [ ![Screenshot showing the inputs for the web app subnet.](./media/tutorial-step-two-create-webapp-enclave-webapp-subnet.png) ](./media/tutorial-step-two-create-webapp-enclave-webapp-subnet.png#lightbox)
+
+    3. Select `Save`.
+
+    4. Create a second subnet for other resources:
+        - `Name`: `common-subnet`
+        - `Size`: `/26`
+
+    5. Select `Save`.
+
+        [ ![Screenshot showing the inputs for the common subnet.](./media/tutorial-step-two-create-webapp-enclave-common-subnet.png) ](./media/tutorial-step-two-create-webapp-enclave-common-subnet.png#lightbox)
+
+5. Select `Next`.
+
+    Enter the maintenance mode details for your first enclave:
+    - `Maintenance mode`: Select `General`
+    - `Principals`: Select your name
+    - `Justification`: Select `Networking`
+
+    [ ![Screenshot showing the enclave maintenance mode inputs.](./media/tutorial-step-two-create-webapp-enclave-maintenance-mode.png) ](./media/tutorial-step-two-create-webapp-enclave-maintenance-mode.png#lightbox)
+
+    In this tutorial, you don't change the approvals settings at the enclave review. For more options, see [configure approvals article](./configure-approvals.md).
+
+    The policy management tab also shows the options as unavailable because at the community you didn't allow the enclave owners to override policy.
+
+6. Select the `Enclave administration` tab.
+
+    1. Select `+`.
+    2. For `Role`, select `Contributor`.
+    3. For `Principals`, select `Choose Microsoft Entra principal` and select your name.
+
+    [ ![Screenshot showing the enclave adminstration inputs.](./media/tutorial-step-two-create-webapp-enclave-administration.png) ](./media/tutorial-step-two-create-webapp-enclave-administration.png#lightbox)
+
+    If you select the `Workload permissions` tab, you see that workload permissions are inherited so you're `contributor` on the enclave and that permission is inherited on the workloads too.
+
+    [ ![Screenshot showing the enclave workload permissions inputs.](./media/tutorial-step-two-create-webapp-enclave-workload-permissions.png) ](./media/tutorial-step-two-create-webapp-enclave-workload-permissions.png#lightbox)
+
+7. Select `Review + create`, verify the settings, and then select `Create`.
+
+8. To deploy the second enclave, repeat steps 1 and 2. On the `Create enclave` page, enter these basic details:
    - `Subscription`: Select an existing subscription
    - `Resource Group`: `myResourceGroup`
-   - `Enclave name`: `Enclave-DMZ`
+   - `Enclave name`: `ve-Enclave-DMZ`.
    - `Region`: `East US`
-   - `Community`: Select the `fabrikam` community that you created in [Tutorial 1-1: Deploy a community](./1-1-create-community.md).
+   - `Community`: Select the `cmt-fabrikam` community that you created in [Tutorial 1-1: Deploy a community](./1-1-create-community.md).
+   - `Dedicated hub`: Select the hub you already created named `dh-fabrikam-eastus` and then select `Save`.
+   
+    > [!NOTE]
+    > If the dedicated hub doesn't appear in the list, make sure the first enclave was created since that step creates the dedicated hub.
+   
+    Keep the other settings as their defaults for this tutorial.
 
-[ ![Screenshot showing the create DMZ enclave screen with the basics inputs for the tutorial environment.](./media/tutorial-step-two-create-dmz-enclave-screen-basics-input.png) ](./media/tutorial-step-two-create-dmz-enclave-screen-basics-input.png#lightbox)
-
-6. Select `Review + create`, verify the settings, and then select `Create`.
+9. Select `Review + create`, verify the settings, and then select `Create`.
 
 ## Validate the deployment
 

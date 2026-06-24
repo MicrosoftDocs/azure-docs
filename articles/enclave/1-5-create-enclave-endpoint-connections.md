@@ -20,8 +20,6 @@ In this tutorial, part six of eight, you create community and enclave endpoint r
 ## Before you begin
 In the previous tutorials, you created a [community](./1-1-create-community.md) and an [enclave](./1-2-create-enclaves-inside-community.md) using the Azure portal.
 
-If you haven't created those resources yet, return to those earlier tutorials.
-
 ## Create an enclave endpoint
 
 1. Navigate to an enclave hosting a service you want to make available to other enclaves in the community
@@ -30,18 +28,19 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
     [ ![Screenshot showing the highlighted create button for enclave endpoints.](./media/tutorial-step-five-enclave-webapp-endpoint-list-create.png) ](./media/tutorial-step-five-enclave-webapp-endpoint-list-create.png#lightbox)
 
-3. Enter the details for your app/service and then select `Save`
-   - Enclave: Select the existing enclave `Enclave-WebApp`.
-   - Enclave endpoint name: Name of the enclave endpoint `endpoint-MyService`
-   - Select `Add` to add Endpoint Rules that represent how to access your app/service
-      - Name: `WebAppEndpointRules`
-      - Destination: `<See the information box that gives your enclave subnet range (for example 10.0.2.0/26)>`
+3. Enter your enclave endpoint name and then select `Next`:
+   - Enclave endpoint name: Name of the enclave endpoint `ee-MyService`
+
+4. Enter the endpoint rules for your app:
+   - Select `+ Add` to add Endpoint Rules that represent how to access your app
+      - Rule Name: `WebAppEndpointRules`
+      - Destination IP/CIDR range: `<See the information box that gives your enclave webapp-subnet range (for example 10.0.2.0/26) and make sure there are no commas at the end>`
       - Protocol: `ANY`
       - Port: `443`
 
     [ ![Screenshot showing the enclave endpoint creation screen with endpoint rule dialog open as well.](./media/tutorial-step-five-enclave-webapp-endpoint-rule.png) ](./media/tutorial-step-five-enclave-webapp-endpoint-rule.png#lightbox)
 
-4. Select `Yes`, select `Review + Create`, and select `Create`
+4. Select `Save`, select `Review + Create`, and select `Create`
 
 5. Once the endpoint resource is created, you can view them in Azure portal from the Enclave-WebApp `Enclave Endpoints`.
 
@@ -49,67 +48,61 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 ## Create a community endpoint
 
-1. Navigate to the `fabrikam` community, select `Community Endpoints`
+1. Go to the `fabrikam` community and select `Community Endpoints`, and then select `Create`.
 
     [ ![Screenshot showing no existing community endpoints.](./media/tutorial-step-five-fabrikam-endpoint-list.png) ](./media/tutorial-step-five-fabrikam-endpoint-list.png#lightbox)
 
-2. Select `Create`
+2. Enter the community endpoint name and then select `Next`:
+   - Community endpoint name: `ce-fabrikam-website`
 
-    [ ![Screenshot showing the community endpoint create button highlighted.](./media/tutorial-step-five-fabrikam-endpoint-create.png) ](./media/tutorial-step-five-fabrikam-endpoint-create.png#lightbox)
-
-3. Enter the details for your app/service
-   - Community endpoint name: Name of the community endpoint `fabrikam-endpoint-website`
-   - Select `Add` to add Endpoint Rules that represent how to access your app/service
-      - Name: 'Website-Rule'
-      - Destination Type: FQDN
-      - Destination: *microsoft.com
-      - Protocol: HTTPS
-      - Port: 443
+3. Enter the endpoint rules for your app:
+   - Select `+ Add` to add Endpoint Rules that represent how to access your app
+      - Rule Name: `Website-Rule`
+      - Destination Type: `FQDN`
+      - Destination: `*microsoft.com`
+      - Protocol: `HTTPS`
+      - Port: `443`
 
     [ ![Screenshot showing the creation page for the community endpoint with the required inputs.](./media/tutorial-step-five-fabrikam-endpoint-rules.png) ](./media/tutorial-step-five-fabrikam-endpoint-rules.png#lightbox)
 
-4. Select `Save`
+4. Select `Save`, select `Review + Create`, and select `Create`.
 
-5. Select `Yes`, select `Review + Create`, and select `Create`
-
-    [ ![Screenshot showing community endpoint creation page ready for deployment.](./media/tutorial-step-five-fabrikam-endpoint-review-create.png) ](./media/tutorial-step-five-fabrikam-endpoint-review-create.png#lightbox)
-
-6. Once the endpoint resource is created, you can view them in Azure portal from the Enclave-WebApp enclave endpoint page.
+5. Once the endpoint resource is created, you can view them in Azure portal from the Enclave-WebApp enclave endpoint page.
 
     [ ![Screenshot showing the completed community endpoint.](./media/tutorial-step-five-fabrikam-endpoint-deployed.png) ](./media/tutorial-step-five-fabrikam-endpoint-deployed.png#lightbox)
 
-## Create an enclave  associated to an Endpoint
+## Create an enclave connection
+Create an enclave connection from the web app enclave to the community endpoint so the app can reach required site outside the community.
 
-1. From the `fabrikam` community, select  `Enclave Connections`
+1. From the `cmt-fabrikam` community, select  `Enclave Connections`, then select `Create`.
 
-    [ ![Screenshot showing no existing enclave connections.](./media/tutorial-step-five-fabrikam-connection-list.png) ](./media/tutorial-step-five-fabrikam-connection-list.png#lightbox)
+   [ ![Screenshot showing no existing enclave connections.](./media/tutorial-step-five-fabrikam-connection-list.png) ](./media/tutorial-step-five-fabrikam-connection-list.png#lightbox)
 
-2. Select `Create`
-
-    [ ![Screenshot showing the enclave connection create button highlighted.](./media/tutorial-step-five-fabrikam-connection-create.png) ](./media/tutorial-step-five-fabrikam-connection-create.png#lightbox)
-
-3. Enter the details for your app/service
-   - Enclave connection name: Name of the connection `fabrikam-external-connection`
-   - community: Select `fabrikam` from the dropdown
+2. Enter the details for your app/service
+   - Resource Group: `myResourceGroup`
+   - Enclave connection name: Name of the connection `ec-fabrikam-external-connection`
+   - Community: Select `cmt-fabrikam` from the dropdown
    - Source Type: Select `Enclave`
-   - Source enclave: Select `Enclave-WebApp` from the dropdown
-   - Source IP addresses/CIDR range(s): `<See the information box that gives your enclave subnet range (for example 10.0.2.0/26)>`
+   - Source enclave: Select `ve-Enclave-WebApp` from the dropdown
+   - Source IP addresses/CIDR range(s): `<See the information box that gives your enclave subnet range (for example 10.0.2.0/26) and make sure there are no commas at the end>`
    - Destination Endpoint Type: Select `Community Endpoint`
-   - Destination endpoint: Select `fabrikam-endpoint-website` from the dropdown
+   - Destination endpoint: Select `ce-fabrikam-website` from the dropdown
 
-    [ ![Screenshot showing the required information entered into the enclave connection page.](./media/tutorial-step-five-fabrikam-connection-input.png) ](./media/tutorial-step-five-fabrikam-connection-input.png#lightbox)
+   [ ![Screenshot showing the required information entered into the enclave connection page.](./media/tutorial-step-five-fabrikam-connection-input.png) ](./media/tutorial-step-five-fabrikam-connection-input.png#lightbox)
 
-4. Select `Review + Create` and then `Create`
+3. Select `Review + Create` and then `Create`
 
-5. Once the endpoint resource is created, you can view them in Azure portal from the `fabrikam` `Enclave Connections`. However, it's in a disconnected state because we selected `Yes` to requiring approvals on connections for this endpoint. 
+   [ ![Screenshot showing the deployment finished and the connection is waiting for an approval.](./media/tutorial-step-five-fabrikam-connection-approval-pending.png) ](./media/tutorial-step-five-fabrikam-connection-approval-pending.png#lightbox)
 
-    [ ![Screenshot showing the enclave connection created but in a disconnected state while pending approval.](./media/tutorial-step-five-fabrikam-connection-deployed-disconnected.png) ](./media/tutorial-step-five-fabrikam-connection-deployed-disconnected.png#lightbox)
+4. Once the endpoint resource is created, you can view them in Azure portal from the `cmt-fabrikam` `Enclave Connections`. However, it's in a disconnected state because the community requires approvals on all new enclave connections and updates to those connections. 
 
-6. Review the pending approvals in `Approvals` on the left for the enclave.
+   [ ![Screenshot showing the enclave connection created but in a disconnected state while pending approval.](./media/tutorial-step-five-fabrikam-connection-deployed-disconnected.png) ](./media/tutorial-step-five-fabrikam-connection-deployed-disconnected.png#lightbox)
 
-    [ ![Screenshot showing the pending connection approval.](./media/tutorial-step-five-fabrikam-connection-approval-pending.png) ](./media/tutorial-step-five-fabrikam-connection-approval-pending.png#lightbox)
+5. Review the pending approvals in `Approvals` on the left for the enclave.
 
-7. Approve the pending approvals and the connection state will automatically update to the `connected` state. For more information about reviewing approval requests, see [Manage approval requests](./manage-approvals.md). For resource-type approval settings, see [Configure approval settings](./configure-approvals.md).
+   [ ![Screenshot showing the pending connection approval.](./media/tutorial-step-five-fabrikam-connection-approval-review.png) ](./media/tutorial-step-five-fabrikam-connection-approval-review.png#lightbox)
+
+6. Approve the pending approvals and the connection state is automatically updated to the `connected` state. For more information about reviewing approval requests, see [Manage approval requests](./manage-approvals.md). For resource-type approval settings, see [Configure approval settings](./configure-approvals.md).
 
 ## Next steps
 In this tutorial, you deployed community and enclave endpoints using Azure portal. You also learned how to:

@@ -38,38 +38,36 @@ Before creating Azure resources in an enclave, create the Azure Enclave workload
 
 2. In the left menu, select `Enclaves`.
 
-3. On the `Enclaves` page for the `fabrikam` community, select the `Enclave-WebApp` enclave that you created in [Tutorial 1-2: Create enclaves in a community](./1-2-create-enclaves-inside-community.md).
+3. On the `Enclaves` page for the `cmt-fabrikam` community, select the `ve-Enclave-WebApp` enclave that you created in [Tutorial 1-2: Create enclaves in a community](./1-2-create-enclaves-inside-community.md).
 
-[ ![Screenshot showing the WebApp enclave overview.](./media/tutorial-step-two-webapp-enclave-overview-page.png) ](./media/tutorial-step-two-webapp-enclave-overview-page.png#lightbox)
+    [ ![Screenshot showing the WebApp enclave overview.](./media/tutorial-step-two-webapp-enclave-overview-page.png) ](./media/tutorial-step-two-webapp-enclave-overview-page.png#lightbox)
 
 4. Under `Manage`, select `Workloads`.
 
 5. On the `Workloads` page, select `Create`.
 
-[ ![Screenshot showing the WebApp enclave workloads list with the create button highlighted.](./media/tutorial-step-three-webapp-enclave-workload-list-create.png) ](./media/tutorial-step-three-webapp-enclave-workload-list-create.png#lightbox)
+    [ ![Screenshot showing the WebApp enclave workloads list with the create button highlighted.](./media/tutorial-step-three-webapp-enclave-workload-list-create.png) ](./media/tutorial-step-three-webapp-enclave-workload-list-create.png#lightbox)
 
 6. On the `Basics` tab, enter the following values for the frontend workload:
 
-   - `Enclave`: Confirm that `Enclave-WebApp` is selected.
+   - `Enclave`: Confirm that `ve-Enclave-WebApp` is selected.
    - `Workload name`: Enter `wl-webapp-frontend`.
    - `Resource groups`: Select `Add`.
    - `Create new`: Enter `rg-webapp-frontend`, and then select `OK`.
 
-> [!Note]
-> Choose workload and resource group names that match your organization's naming convention. For guidance, see [Define your naming convention](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming).
-
-![Screenshot showing the frontend workload creation screen with the tutorial inputs entered.](./media/tutorial-step-three-create-frontend-workload-screen-basics-input.png)
+    > [!NOTE]
+    > Choose workload and resource group names that match your organization's naming convention. For guidance, see [Define your naming convention](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming).
+    
+    ![Screenshot showing the frontend workload creation screen with the tutorial inputs entered.](./media/tutorial-step-three-create-frontend-workload-screen-basics-input.png)
 
 7. Select `Review + create`, confirm the workload details, and then select `Create`.
 
 8. To create the backend workload, repeat the previous steps with these values:
 
-   - `Enclave`: Confirm that `Enclave-WebApp` is selected.
+   - `Enclave`: Confirm that `ve-Enclave-WebApp` is selected.
    - `Workload name`: Enter `wl-webapp-backend`.
    - `Resource groups`: Select `Add`.
    - `Create new`: Enter `rg-webapp-backend`, and then select `OK`.
-
-![Screenshot showing the backend workload creation screen with the tutorial inputs entered.](./media/tutorial-step-three-create-backend-workload-screen-basics-input.png)
 
 9. Select `Review + create`, confirm the workload details, and then select `Create`.
 
@@ -93,7 +91,7 @@ If you need to remove the workloads created in this tutorial, first delete any r
 
 After the workload resource groups are empty, delete the `wl-webapp-frontend` and `wl-webapp-backend` workload resources from the Azure portal.
 
-[ ![Screenshot showing both workloads deployed successfully and selected for deletion.](./media/tutorial-step-three-workloads-deployed.png) ](./media/tutorial-step-three-workloads-deployed.png#lightbox)
+[ ![Screenshot showing both workloads deployed successfully with option to select delete button.](./media/tutorial-step-three-workloads-deployed.png) ](./media/tutorial-step-three-workloads-deployed.png#lightbox)
 
 ## Next steps
 

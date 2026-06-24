@@ -34,8 +34,6 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 5. Select `Enclave Connections` on the left navigation and then select `Create`.
 
-    ![Screenshot showing the highlighted create button for enclave connections.](./media/tutorial-step-five-fabrikam-connection-create.png)
-
 6. Enter the following information:
    - `Enclave connection name`: Enter a name for the enclave connection.
    - `Community`: Select the existing community from the list.

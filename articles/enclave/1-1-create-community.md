@@ -212,7 +212,7 @@ Enter the basic details for your community:
 **Basic configuration:**
 - `Subscription`: Select your Azure subscription
 - `Resource Group`: `myResourceGroup` (or create new)
-- `Community name`: `fabrikam` (or use your naming convention)
+- `Community name`: `cmt-fabrikam` (or use your naming convention)
 - `Region`: `East US` (choose based on your requirements)
 - `Community address space`: `10.0.0.0/16`
 
@@ -244,13 +244,28 @@ You can look through the other tabs but for this tutorial you keep the defaults:
 
 - keep the default firewall selected
 - don't create any dedicated hubs for your enclaves
-- don't enable approvals for this community
 - keep the default policy management
 - keep the default monitoring and logging settings
 - don't add others to the community administration
 - keep maintenance mode `Off`
 
-#### Step 4: Review and create
+Select the `Approvals` tab next.
+
+#### Step 4: Approvals
+For this tutorial, you only need approvals for enclave connection creation and update. Enter the basic details for your community:
+
+**Approvals configuration:**
+
+- `Connection creation`: Select `Required` and enter `1` for `Minimum number of approvers`
+- `Connection updates`: Select `Required` and enter `1` for `Minimum number of approvers`
+
+![Screenshot showing the community approvals setting page for the tutorial environment.](./media/tutorial-step-one-create-community-screen-approvals-input.png)
+
+> [!NOTE]
+> 
+> These approvals selections are just to demonstrate how approvals work on the last resource you create. This configuration doesn't represent a production configuration.
+
+#### Step 5: Review and create
 
 Select `Review + create` and validate the details for your community are correct.
 
@@ -261,7 +276,7 @@ Select `Review + create` and validate the details for your community are correct
 - Check address space is appropriate size and doesn't overlap
 - Review any validation warnings or errors
 
-#### Step 5: Create
+#### Step 6: Create
 
 Select `Create` to begin deployment.
 
@@ -363,7 +378,7 @@ If you need to delete your community after completing this tutorial:
 5. Type the community name to confirm deletion
 6. Select `Delete`
 
-   ![Screenshot showing the completed community in the Azure Enclave portal page communities list.](./media/tutorial-step-one-azure-enclave-page-communities-list-deployed.png)
+   [ ![Screenshot showing the completed community in the Azure Enclave portal page communities list.](./media/tutorial-step-one-azure-enclave-page-communities-list-deployed.png) ](./media/tutorial-step-one-azure-enclave-page-communities-list-deployed.png#lightbox)
 
 **Alternative deletion via Azure CLI:**
 ```azurecli

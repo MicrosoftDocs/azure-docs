@@ -27,7 +27,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to an existing community in your Azure subscription.
 2. In the left menu, select `Community Endpoints`, and then select `Create`.
 
-    ![Screenshot showing the community endpoint create button highlighted.](./media/tutorial-step-five-fabrikam-endpoint-create.png)
+    ![Screenshot showing the community endpoint list.](./media/tutorial-step-five-fabrikam-endpoint-list.png)
 
 3. Enter a name for the community endpoint, and then select `Add` to create a community endpoint rule.
 
@@ -58,8 +58,6 @@ When you create a `ServiceTag` rule:
     > Use service tags when you need to connect to Azure services that have dynamic IP address ranges. Service tags reduce the need to track and update IP addresses manually.
 
 5. Select `Review + create`, and then select `Create`.
-
-    ![Screenshot showing community endpoint creation page ready for deployment.](./media/tutorial-step-five-fabrikam-endpoint-review-create.png)
 
 ## Related content
 
