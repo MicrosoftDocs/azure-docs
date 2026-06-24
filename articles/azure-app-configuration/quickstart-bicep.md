@@ -52,7 +52,7 @@ With this Bicep file, we create one key with two different values, one of which 
 1. Save the Bicep file as **main.bicep** to your local computer.
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
-    In the following examples, replace _`<ResourceGroupName>`_ with a unique name for your resource group, and _`<AppConfigurationStoreName>`_ with a unique name for your configuration store. The configuration store name must be unique because it is used as a DNS name.
+    In the following examples, replace _`<ResourceGroupName>`_ with a name for your resource group, and _`<AppConfigurationStoreName>`_ with a unique name for your configuration store.
 
     # [CLI](#tab/CLI)
 
