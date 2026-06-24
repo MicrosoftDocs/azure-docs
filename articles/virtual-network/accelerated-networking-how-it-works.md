@@ -32,7 +32,7 @@ FreeBSD provides the same support for Accelerated Networking as Linux when it's 
 
 The synthetic network interface and VF interface are automatically paired and act as a single interface in most aspects used by applications. The netvsc driver does the bonding. Depending on the Linux distribution, udev rules and scripts might help in naming the VF interface and in configuring the network.
 
-If the VM is configured with multiple virtual NICs, the Azure host provides a unique serial number for each one. It allows Linux to do the proper pairing of synthetic and VF interfaces for each virtual NIC.
+If the VM is configured with multiple virtual NICs, the Azure host provides a unique serial number for each one. This serial number allows Linux to properly pair the synthetic and VF interfaces for each virtual NIC.
 
 The synthetic and VF interfaces have the same MAC address. Together, they constitute a single NIC from the standpoint of other network entities that exchange packets with the virtual NIC in the VM. Other entities don't take any special action because of the existence of both the synthetic interface and the VF interface.
 
@@ -59,7 +59,7 @@ TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
 The synthetic interface always has a name in the form `eth\<n\>`. Depending on the Linux distribution, the VF interface might have a name in the form `eth\<n\>`. Or it might have a different name in the form of `enP\<n\>` because of a udev rule that does renaming.
 
-You can determine whether a particular interface is the synthetic interface or the VF interface by using the shell command line that shows the device driver that the interface uses:
+You can determine whether a particular interface is synthetic or VF by using a shell command that shows which device driver the interface uses:
 
 ```output
 $ ethtool -i <interface name> | grep driver
@@ -86,9 +86,9 @@ U1804:~# ethtool -S eth0 | grep ' vf_'
  vf_tx_dropped: 0
 ```
 
-If these counters are incrementing on successive execution of the `ethtool` command, network traffic is flowing over the VF interface.
+If these counters are incrementing on successive executions of the `ethtool` command, network traffic is flowing over the VF interface.
 
-You can verify the existence of the VF interface as a PCI device by using the `lspci` command. For example, on the Generation 1 VM, you might get output similar to the following output. (Generation 2 VMs don't have the legacy PCI devices.)
+You can verify the existence of the VF interface as a PCI device by using the `lspci` command. For example, on the Generation 1 VM, you might get output similar to the following. (Generation 2 VMs don't have the legacy PCI devices.)
 
 ```output
 U1804:~# lspci
@@ -104,11 +104,58 @@ In this example, the last line of output identifies a VF from the Mellanox Conne
 
 The `ethtool -l` or `ethtool -L` command (to get and set the number of transmit and receive queues) is an exception to the guidance to interact with the `eth<n>` interface. You can use this command directly against the VF interface to control the number of queues for the VF interface. The number of queues for the VF interface is independent of the number of queues for the synthetic interface.
 
+## Linux `rp_filter` setting when using Accelerated Networking
+
+When Accelerated Networking is enabled, traffic can be received on the VF interface while Linux routing state and IP configuration are associated with the synthetic interface. During normal operation and host servicing events (when traffic can switch between VF and synthetic paths), this behavior can appear asymmetric to reverse path filtering.
+
+If `rp_filter` is set to strict mode (`1`), Linux might drop legitimate packets if the incoming interface isn't the interface Linux considers the best reverse path. To reduce unexpected packet drops while retaining source validation, set `rp_filter` to loose mode (`2`).
+
+In Linux, `rp_filter` values are:
+
+* `0`: Disabled
+* `1`: Strict mode
+* `2`: Loose mode
+
+To check current values:
+
+```output
+$ sysctl net.ipv4.conf.all.rp_filter
+$ sysctl net.ipv4.conf.default.rp_filter
+$ sysctl net.ipv4.conf.eth0.rp_filter
+```
+
+Replace `eth0` with your synthetic interface name if your VM uses a different naming scheme.
+
+To set loose mode immediately:
+
+```output
+$ sudo sysctl -w net.ipv4.conf.all.rp_filter=2
+$ sudo sysctl -w net.ipv4.conf.default.rp_filter=2
+```
+
+To persist the setting across reboots, add this content to a sysctl configuration file (for example, `/etc/sysctl.d/99-azure-an-rpfilter.conf`):
+
+```output
+net.ipv4.conf.all.rp_filter=2
+net.ipv4.conf.default.rp_filter=2
+```
+
+Then apply the persisted settings:
+
+```output
+$ sudo sysctl --system
+```
+
+For detailed `rp_filter` semantics, see:
+
+* Linux kernel IP sysctl reference (`rp_filter`): [https://docs.kernel.org/networking/ip-sysctl.html](https://docs.kernel.org/networking/ip-sysctl.html)
+* RFC 3704 (Strict and Loose Reverse Path Forwarding): [https://www.rfc-editor.org/rfc/rfc3704](https://www.rfc-editor.org/rfc/rfc3704)
+
 ## Interpreting startup messages
 
 During startup, Linux shows many messages related to the initialization and configuration of the VF interface. It also shows information about the bonding with the synthetic interface. Understanding these messages can be helpful in identifying any problems in the process.
 
-Here's example output from the `dmesg` command, trimmed to just the lines that are relevant to the VF interface. Depending on the Linux kernel version and distribution in your VM, the messages might vary slightly, but the overall flow is the same.
+Here's an example output from the `dmesg` command, trimmed to just the lines that are relevant to the VF interface. Depending on the Linux kernel version and distribution in your VM, the messages might vary slightly, but the overall flow is the same.
 
 ```output
 [    2.327663] hv_vmbus: registering driver hv_netvsc
@@ -191,7 +238,7 @@ In this context, Azure host servicing might include updating the components of t
 
 The automatic switching between the VF interface and the synthetic interface ensures that servicing events don't disturb workloads if applications interact only with the synthetic interface. Latencies and CPU load might be higher during these periods because of the use of the synthetic interface. The duration of such periods is typically about 30 seconds but sometimes might be as long as a few minutes.
 
-The removal and readd of the VF interface during a servicing event is visible in the `dmesg` output in the VM.  Here's typical output:
+The removal and re-addition of the VF interface during a servicing event is visible in the `dmesg` output in the VM. Here's typical output:
 
 ```output
 [   8160.911509] hv_netvsc 000d3af5-76bd-000d-3af5-76bd000d3af5 eth0: Data path switched from VF: enP53091s1np0
@@ -213,7 +260,7 @@ The data path has been switched away from the VF interface, and the VF interface
 [   8225.667978] pci cf63:00:02.0: BAR 0: assigned [mem 0xfe0000000-0xfe00fffff 64bit pref]
 ```
 
-When the VF interface is re-added after servicing is complete, a new PCI device with the specified GUID is detected. It's assigned the same PCI domain ID (0xcf63) as before. The handling of the readd VF interface is like the handling during the initial startup.
+When the VF interface is re-added after servicing is complete, a new PCI device with the specified GUID is detected. It's assigned the same PCI domain ID (0xcf63) as before. The handling of the re-added VF interface is similar to handling during the initial startup.
 
 ```output
 [   8225.679672] mlx5_core cf63:00:02.0: firmware version: 14.25.8362
