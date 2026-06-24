@@ -68,7 +68,7 @@ The following table summarizes the supported and unsupported scenarios for snaps
 
 | **Scenarios** | **Supported** | **Unsupported** |
 |----|----|----|
-| Supported Regions | Australia Central, Australia Central 2, Australia east, Canada Central, Canada East, Central US, East US2, East US, North Central US, North Europe, South Central US, UK South, West Central US, West US, West US2, West Europe, Newzealand North. |  |
+| Supported Regions | Australia Central, Australia Central 2, Australia east, Canada Central, Canada East, Central US, East US2, East US, North Central US, North Europe, South Central US, UK South, West Central US, West US, West US2, West Europe, Newzealand North. | All other regions and clouds |
 | SQL Server versions | SQL Server 2016 (and higher) running on Windows Server 2016 (and higher). |  |
 | Backup types for snapshot | Snapshot Full (with or without Log backup), Snapshot-copy-only-full (Adhoc backups at database level) |  |
 | Backup configuration | Standalone instance and Always on AG |  |
