@@ -260,7 +260,7 @@ The data path has been switched away from the VF interface, and the VF interface
 [   8225.667978] pci cf63:00:02.0: BAR 0: assigned [mem 0xfe0000000-0xfe00fffff 64bit pref]
 ```
 
-When the VF interface is re-added after servicing is complete, a new PCI device with the specified GUID is detected. It's assigned the same PCI domain ID (0xcf63) as before. The handling of the re-added VF interface is similar to handling during the initial startup.
+When the process re-adds the VF interface after servicing is complete, it detects a new PCI device with the specified GUID. It assigns the same PCI domain ID (0xcf63) as before. The handling of the re-added VF interface is similar to handling during the initial startup.
 
 ```output
 [   8225.679672] mlx5_core cf63:00:02.0: firmware version: 14.25.8362
