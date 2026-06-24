@@ -1,6 +1,6 @@
 ---
-title: Built-in RBAC roles in Azure Virtual Enclaves
-description: Learn how built-in role-based access control (RBAC) roles in Azure Virtual Enclaves control access across communities, enclaves, and workloads.
+title: Built-in RBAC roles in Azure Enclave
+description: Learn how built-in role-based access control (RBAC) roles in Azure Enclave control access across communities, enclaves, and workloads.
 author: jadean-msft
 ms.author: jadean
 ai-usage: ai-assisted
@@ -12,7 +12,7 @@ ms.date: 06/20/2026
 Access to Azure Enclave resources is controlled by built-in Azure role-based access control (RBAC) role assignments. You can further reduce standing access by using Microsoft Entra Privileged Identity Management (PIM) for just-in-time access.
 
 ## RBAC roles for communities and enclaves
-Azure Virtual Enclaves provides built-in RBAC roles to control access at community and enclave scopes.
+Azure Enclave provides built-in RBAC roles to control access at community and enclave scopes.
 - **Community owner** - Create and delete communities, enclaves, community endpoints, and transit hub resources. Read-only access to workloads, enclave connections, and enclave endpoints.
 - **Community contributor** - Same as Community Owner except Community Contributors can't delete.
 - **Community reader** - Read-only access to communities, Enclaves, community endpoints, and transit hub.
@@ -37,13 +37,13 @@ For example, a user with a community owner assignment at subscription scope can 
 
 ## RBAC for workloads
 
-Each workload deployed in Azure Virtual Enclaves uses a managed resource group. The enclaves service owns that resource group, and workload access control is managed by using standard Azure RBAC.
+Each workload deployed in Azure Enclave uses a managed resource group. The enclaves service owns that resource group, and you manage workload access control by using standard Azure RBAC.
 
 [Learn more about Azure RBAC](/azure/role-based-access-control/overview)
 
 ## Privileged Identity Management (PIM) integration
 
-Privileged access to Azure Virtual Enclaves resources can be controlled by using Microsoft Entra Privileged Identity Management (PIM) to grant eligibility instead of persistent access.
+You can control privileged access to Azure Enclave resources by using Microsoft Entra Privileged Identity Management (PIM) to grant eligibility instead of persistent access.
 
 ### Time-based access control
 

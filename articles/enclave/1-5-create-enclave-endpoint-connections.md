@@ -82,11 +82,11 @@ If you haven't created those resources yet, return to those earlier tutorials.
 
 1. From the `fabrikam` community, select  `Enclave Connections`
 
-    [ ![Screenshot showing no existing enclave s.](./media/tutorial-step-five-fabrikam-connection-list.png) ](./media/tutorial-step-five-fabrikam-connection-list.png#lightbox)
+    [ ![Screenshot showing no existing enclave connections.](./media/tutorial-step-five-fabrikam-connection-list.png) ](./media/tutorial-step-five-fabrikam-connection-list.png#lightbox)
 
 2. Select `Create`
 
-    [ ![Screenshot showing the enclave create button highlighted.](./media/tutorial-step-five-fabrikam-connection-create.png) ](./media/tutorial-step-five-fabrikam-connection-create.png#lightbox)
+    [ ![Screenshot showing the enclave connection create button highlighted.](./media/tutorial-step-five-fabrikam-connection-create.png) ](./media/tutorial-step-five-fabrikam-connection-create.png#lightbox)
 
 3. Enter the details for your app/service
    - Enclave connection name: Name of the connection `fabrikam-external-connection`
@@ -97,13 +97,13 @@ If you haven't created those resources yet, return to those earlier tutorials.
    - Destination Endpoint Type: Select `Community Endpoint`
    - Destination endpoint: Select `fabrikam-endpoint-website` from the dropdown
 
-    [ ![Screenshot showing the required information entered into the enclave page.](./media/tutorial-step-five-fabrikam-connection-input.png) ](./media/tutorial-step-five-fabrikam-connection-input.png#lightbox)
+    [ ![Screenshot showing the required information entered into the enclave connection page.](./media/tutorial-step-five-fabrikam-connection-input.png) ](./media/tutorial-step-five-fabrikam-connection-input.png#lightbox)
 
 4. Select `Review + Create` and then `Create`
 
 5. Once the endpoint resource is created, you can view them in Azure portal from the `fabrikam` `Enclave Connections`. However, it's in a disconnected state because we selected `Yes` to requiring approvals on connections for this endpoint. 
 
-    [ ![Screenshot showing the enclave created but in a disconnected state while pending approval.](./media/tutorial-step-five-fabrikam-connection-deployed-disconnected.png) ](./media/tutorial-step-five-fabrikam-connection-deployed-disconnected.png#lightbox)
+    [ ![Screenshot showing the enclave connection created but in a disconnected state while pending approval.](./media/tutorial-step-five-fabrikam-connection-deployed-disconnected.png) ](./media/tutorial-step-five-fabrikam-connection-deployed-disconnected.png#lightbox)
 
 6. Review the pending approvals in `Approvals` on the left for the enclave.
 

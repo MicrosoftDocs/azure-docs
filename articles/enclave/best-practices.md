@@ -1,6 +1,6 @@
 ---
-title: Azure Virtual Enclaves best practices
-description: Learn best practices for designing, securing, and operating Azure Virtual Enclaves environments.
+title: Azure Enclave best practices
+description: Learn best practices for designing, securing, and operating Azure Enclave environments.
 author: jadean-msft
 ms.author: jadean
 ai-usage: ai-assisted
@@ -8,9 +8,9 @@ ms.topic: overview
 ms.date: 06/21/2026
 ---
 
-# Azure Virtual Enclaves best practices
+# Azure Enclave best practices
 
-This article describes key concepts and best practices for Azure Virtual Enclaves.
+This article describes key concepts and best practices for Azure Enclave.
 
 Azure Enclave accelerates and streamlines the deployment and management of secure, isolated, and compliant cloud environments. These environments are designed to handle the most sensitive missions and workloads across Commercial and air-gapped environments.
 
@@ -24,7 +24,7 @@ The Azure Enclave product group, engineering teams, and field teams developed th
 
 ## Azure setup
 
-Read through these setup steps to determine whether these configuration steps fit your Azure Virtual Enclaves use cases.
+Read through these setup steps to determine whether these configuration steps fit your Azure Enclave use cases.
 
 ### Configure Network Watcher resource groups
 

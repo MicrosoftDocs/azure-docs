@@ -238,10 +238,17 @@ Private IP address ranges (RFC 1918):
 - Sufficient for 3-5 enclaves with moderate-sized subnets
 - Consider larger CIDR (for example, /14 or /12) for production to allow growth
 
-> [!CAUTION]
-> The community address space **cannot be changed** after deployment. Plan carefully and allocate sufficient space for future growth.
-
 ![Screenshot showing the create community screen with the basics inputs for the tutorial environment.](./media/tutorial-step-one-create-community-screen-basics-input.png)
+
+You can look through the other tabs but for this tutorial you keep the defaults:
+
+- keep the default firewall selected
+- don't create any dedicated hubs for your enclaves
+- don't enable approvals for this community
+- keep the default policy management
+- keep the default monitoring and logging settings
+- don't add others to the community administration
+- keep maintenance mode `Off`
 
 #### Step 4: Review and create
 
@@ -285,7 +292,7 @@ After the community deployment completes, perform these validation steps to ensu
 2. Verify `Status` shows `Succeeded`
 3. Review the `Overview` page for basic information
 
-[ ![Screenshot showing created community on its overview page.](./media/tutorial-step-one-community-overview-page.png) ](./media/tutorial-step-one-community-overview-page.png#lightbox)
+   [ ![Screenshot showing created community on its overview page.](./media/tutorial-step-one-community-overview-page.png) ](./media/tutorial-step-one-community-overview-page.png#lightbox)
 
 **Key information to verify:**
 - **Provisioning State**: Should be "Succeeded"
@@ -356,7 +363,7 @@ If you need to delete your community after completing this tutorial:
 5. Type the community name to confirm deletion
 6. Select `Delete`
 
-![Screenshot showing the completed community in the Azure Enclave portal page communities list.](./media/tutorial-step-one-azure-enclave-page-communities-list-deployed.png)
+   ![Screenshot showing the completed community in the Azure Enclave portal page communities list.](./media/tutorial-step-one-azure-enclave-page-communities-list-deployed.png)
 
 **Alternative deletion via Azure CLI:**
 ```azurecli

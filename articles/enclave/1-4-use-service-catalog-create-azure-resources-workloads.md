@@ -38,11 +38,11 @@ In this tutorial, part four of eight, you create Azure resources using service c
    - **Justification:** Select `Networking`
    - Select `Save`
 
-[ ![Screenshot showing the maintenance mode screen.](./media/service-catalog-app-service-maintenance-mode-input.png) ](./media/service-catalog-app-service-maintenance-mode-input.png#lightbox)
+   [ ![Screenshot showing the maintenance mode screen.](./media/service-catalog-app-service-maintenance-mode-input.png) ](./media/service-catalog-app-service-maintenance-mode-input.png#lightbox)
 
 3. Select `Confirm` and allow a few minutes for the enclave to return to `Succeeded` state
 
-![Screenshow showing the popup confirmation box for maintenance mode confirmation.](./media/service-catalog-app-service-maintenance-mode-confirm.png)
+   ![Screenshow showing the popup confirmation box for maintenance mode confirmation.](./media/service-catalog-app-service-maintenance-mode-confirm.png)
 
 ## Create Azure web app resources from the service catalog
 
@@ -55,19 +55,19 @@ In this tutorial, part four of eight, you create Azure resources using service c
    - **App Service Sku Tier:** Enter `PremiumV2`.
    - **Number of Worker Instances:** Enter `2`.
 
-![Screenshot showing the basics input screen for an App Service web app.](./media/service-catalog-app-service-basics.png)
+   ![Screenshot showing the basics input screen for an App Service web app.](./media/service-catalog-app-service-basics.png)
 
 5. Select `Next` to confirm the networking information prepopulated by the service catalog. Ensure the App Service subnet has a delegation to 'Microsoft.Web/serverfarms' and the private link subnet doesn't.
    - **Dedicated App Service Subnet Name:** Enter `WorkloadSubnet` for the subnet delegated in the previous step.
    - **Private Link Subnet Name:** Enter `mySubnet` for the subnet containing the private endpoints.
 
-![Screenshot showing the networking input screen for an App Service web app.](./media/service-catalog-app-service-networking.png)
+   ![Screenshot showing the networking input screen for an App Service web app.](./media/service-catalog-app-service-networking.png)
 
 6. Select `Review + Create` and then `Create`.
 
 It can take up to 30 minutes to finish all resource creation. Wait for the deployment to complete successfully before you take any actions within your deployed resources.
 
-![Screenshot showing the deployed App Service resources.](./media/service-catalog-app-service-deployed.png)
+   ![Screenshot showing the deployed App Service resources.](./media/service-catalog-app-service-deployed.png)
 
 ## Validate the deployment
 
