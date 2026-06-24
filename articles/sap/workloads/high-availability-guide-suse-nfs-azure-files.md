@@ -68,7 +68,7 @@ For new implementations on SLES for SAP Applications 15, we recommended deployin
 * [Azure Virtual Machines deployment for SAP on Linux][deployment-guide].
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide].
 * [SUSE SAP HA Best Practice Guides][suse-ha-guide].
-  The guides contain all required information to setup Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
+  The guides contain all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
 * [SUSE High Availability Extension Release Notes][suse-relnotes].
 
 ## Overview
@@ -125,18 +125,18 @@ While setting up the VM, you can either create a new load balancer or choose an 
 > [!IMPORTANT]
 >
 > * Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps cause the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
-> * To prevent Saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update Saptune version to 3.1.1 or higher. For more information, see [Saptune 3.1.1 � Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/)
+> * To prevent Saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update Saptune version to 3.1.1 or higher. For more information, see [Saptune 3.1.1 - Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/)
 
 ### Deploy Azure Files storage account and NFS shares
 
-NFS on Azure Files, runs on top of [Azure Files Premium storage][afs-azure-doc]. Before setting up NFS on Azure Files, see [How to create an NFS share](../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal).
+NFS on Azure Files runs on top of [Azure Files SSD][afs-azure-doc]. Before setting up NFS on Azure Files, see [How to create an NFS share](../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal).
 
 There are two options for redundancy within an Azure region:
 
 * [Locally redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage), which offers local, in-zone synchronous data replication.
 * [Zone redundant storage (ZRS)](../../storage/common/storage-redundancy.md#zone-redundant-storage), which replicates your data synchronously across the three [availability zones](/azure/reliability/availability-zones-overview) in the region.
 
-Check if your selected Azure region offers NFS 4.1 on Azure Files with the appropriate redundancy. Review the [availability of Azure Files by Azure region][afs-avail-matrix] under **Premium Files Storage**. If your scenario benefits from ZRS,  [verify that Premium File shares with ZRS are supported in your Azure region](../../storage/common/storage-redundancy.md#zone-redundant-storage).
+Check if your selected Azure region offers NFS 4.1 on Azure Files with the appropriate redundancy. Review the [availability of Azure Files by Azure region][afs-avail-matrix]. If your scenario benefits from ZRS,  [verify that SSD file shares with ZRS are supported in your Azure region](../../storage/files/redundancy-premium-file-shares.md).
 
 Use an [Azure Private Endpoint](../../storage/files/storage-files-networking-endpoints.md?tabs=azure-portal) to access your Azure Storage account. Make sure to deploy the Azure Files storage account endpoint and the VMs, where you need to mount the NFS shares, in the same Azure VNet or peered Azure VNets.
 
@@ -172,12 +172,12 @@ Next, deploy the NFS shares in the storage account you created. In this example,
 4. On the resource menu for **sapafsnfs**, select **File shares** under **Data storage**.
 5. On the **File shares** page, select **File share**.
    1. For **Name**, enter `sapnw1`, `saptrans`.
-   2. Select an appropriate share size. For example, **128 GB**. Consider the size of the data stored on the share, IOPs and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md).
+   1. Select an appropriate share size. For example, **128 GiB**. Consider the size of the data stored on the share, IOPS, and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md).
    3. Select **NFS** as the protocol.
    4. Select **No root Squash**. Otherwise, when you mount the shares on your VMs, you can't see the file owner or group.
 
    > [!IMPORTANT]
-   > The share size shown is only an example. Size your shares based on how much data they store and what�s needed for IOPS and throughput. For details see [Azure file share targets](../../storage/files/storage-files-scale-targets.md).  
+   > The share size shown is only an example. Size your shares based on how much data they store and what's needed for IOPS and throughput. For details see [Azure file share targets](../../storage/files/storage-files-scale-targets.md).  
 
    The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](/azure/virtual-machines/disks-types#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage.
 
