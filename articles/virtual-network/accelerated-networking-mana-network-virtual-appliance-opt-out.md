@@ -58,11 +58,11 @@ You can apply the `LegacyVMNVA` tag to temporarily avoid placement on MANA‑ena
 
 4. Enable **Automatically enroll in minor version changes** to ensure minor revisions are applied automatically. Alternatively, assign the policy using version `1.*.*`.
 
-1. All new deployments within the Azure Policy’s assigned scope automatically have the tag enabled. To activate the tag on existing deployments, reapply the operation on the affected resources. The Accelerated Networking status of a VM doesn't impact whether the policy is applied.
+5. All new deployments within the Azure Policy’s assigned scope automatically have the tag enabled. Existing deployments must add the `LegacyVMNVA` tag via a remediation task and run a reapply operation on the affected resources to enable the tag. The Accelerated Networking status of a VM doesn't impact whether the policy is applied.
 
    Use Azure CLI based on your deployment type:
 
-   - **Standalone VM or VMSS Flex:**
+   - **Standalone VM or VMSS Flex VM Instance:**
      ```bash
      az vm reapply --resource-group <resource-group-name> --name <vm-name>
      ```
