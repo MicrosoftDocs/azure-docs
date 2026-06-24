@@ -98,13 +98,9 @@ At this point, you created a new virtual machine and attached a data disk. Next,
 
 ### Connect to your VM
 
-1. In the Azure portal, select **Connect** > RDP on the VM properties page.
+1. In the Azure portal, go to your VM. Select **Connect** > Connect.
 
-   :::image type="content" source="media/storage-sync-files-extend-servers/connect-vm.png" alt-text="Screenshot showing the Connect button on the Azure portal with R D P highlighted.":::
-
-1. On the **Connect** page, keep the default options to connect by **Public IP address** over port 3389. Select **Download RDP file**.
-
-   :::image type="content" source="media/storage-sync-files-extend-servers/download-rdp.png" alt-text="Screenshot showing how to connect with R D P.":::
+1. On the **Connect** page, under **Native RDP**, select **Download RDP file**.
 
 1. Open the downloaded RDP file and select **Connect** when prompted. You might see a warning that says *The publisher of this remote connection can't be identified*. Select **Connect** anyway.
 
