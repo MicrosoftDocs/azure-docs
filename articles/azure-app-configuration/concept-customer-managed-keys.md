@@ -64,7 +64,7 @@ To use customer-managed key encryption, take the steps in the following sections
 
 1. Create an App Configuration store in the Standard or Premium tier if you don't have one. For instructions, see [Quickstart: Create an Azure App Configuration store](./quickstart-azure-app-configuration-create.md).
 
-1. Run the following Azure CLI command to create an instance of Key Vault that has purge protection enabled. Soft delete is enabled by default. Replace `<KeyVaultName>` and `<ResourceGroupName>` with your own unique values.
+1. Run the following Azure CLI command to create an instance of Key Vault that has purge protection enabled. Soft delete is enabled by default. Replace _`<KeyVaultName>`_ and _`<ResourceGroupName>`_ with your own unique values.
 
     ```azurecli
     az keyvault create --name <KeyVaultName> --resource-group <ResourceGroupName> --enable-purge-protection
@@ -81,7 +81,7 @@ To use customer-managed key encryption, take the steps in the following sections
 
     For both models, you need your user object ID to run the command. You can find your user object ID by using one of the following methods:
 
-    * Use the `az ad user show --id <UserPrincipalName>` command in the Azure CLI, where `<UserPrincipalName>` is your user principal name (UPN).
+    * Use the `az ad user show --id <UserPrincipalName>` command in the Azure CLI, where _`<UserPrincipalName>`_ is your user principal name (UPN).
 
     * Use the [Azure portal](https://portal.azure.com):
       1. Select **Microsoft Entra ID**, and then select **Manage** > **Users**.
@@ -94,9 +94,9 @@ To use customer-managed key encryption, take the steps in the following sections
 
     Replace the placeholders with the following values:
 
-    * For `<UserObjectId>`, use the object ID you just found.
-    * For `<role>`, use a role such as **Key Vault Crypto Officer** that gives you the access you need to create a key. Enclose the role in quotation marks.
-    * For `<KeyVaultResourceId>`, use the key vault resource ID from the previous step.
+    * For _`<UserObjectId>`_, use the object ID you just found.
+    * For _`<role>`_, use a role such as **Key Vault Crypto Officer** that gives you the access you need to create a key. Enclose the role in quotation marks.
+    * For _`<KeyVaultResourceId>`_, use the key vault resource ID from the previous step.
 
     ```azurecli
     az role assignment create --assignee <UserObjectId> --role <role> --scope <KeyVaultResourceId>
@@ -106,8 +106,8 @@ To use customer-managed key encryption, take the steps in the following sections
 
     Replace the placeholders with the following values:
 
-    * For `<KeyVaultName>`, use the name of the key vault from step 2.
-    * For `<UserObjectId>`, use the object ID you just found.
+    * For _`<KeyVaultName>`_, use the name of the key vault from step 2.
+    * For _`<UserObjectId>`_, use the object ID you just found.
 
     ```azurecli
     az keyvault set-policy -n <KeyVaultName> --object-id <UserObjectId> --key-permissions create
@@ -117,11 +117,11 @@ To use customer-managed key encryption, take the steps in the following sections
 
 1. Create a Key Vault key by running the following command. Replace the placeholders with the following values:
 
-    * For `<KeyName>`, use your own unique value.
-    * For `<KeyType>`:
+    * For _`<KeyName>`_, use your own unique value.
+    * For _`<KeyType>`_:
       * Use `RSA` for RSA encryption.
       * Use `RSA-HSM` for RSA-HSM encryption. RSA-HSM encryption is only available in the Premium tier.
-    * For `<KeyVaultName>`, use the name of the key vault from step 2.
+    * For _`<KeyVaultName>`_, use the name of the key vault from step 2.
 
     ```azurecli
     az keyvault key create --name <KeyName> --kty <KeyType> --vault-name <KeyVaultName>
@@ -134,16 +134,16 @@ To use customer-managed key encryption, take the steps in the following sections
     The key ID contains the following components:
     
     * The key vault URI: `https://<KeyVaultName>.vault.azure.net`
-    * The key vault key name: `<KeyName>`
-    * The key vault key version: `<KeyVersion>`
+    * The key vault key name: _`<KeyName>`_
+    * The key vault key version: _`<KeyVersion>`_
 
 1. Create a managed identity for your App Configuration store by using one of the following options:
 
     * To create a user-assigned managed identity, follow the steps in [Adding a user-assigned identity](./overview-managed-identity.md#adding-a-user-assigned-identity). Note the values of the `clientId` and `principalId` properties of the identity.
 
     * To create a system-assigned managed identity, use the following Azure CLI command. Replace the placeholders with the following values:
-      * For `<AppConfigurationStoreName>`, use the name of the App Configuration store from step 1.
-      * For `<ResourceGroupName>`, use the name of the resource group that contains your App Configuration store.
+      * For _`<AppConfigurationStoreName>`_, use the name of the App Configuration store from step 1.
+      * For _`<ResourceGroupName>`_, use the name of the resource group that contains your App Configuration store.
 
     ```azurecli
     az appconfig identity assign --name <AppConfigurationStoreName> --resource-group <ResourceGroupName> --identities [system]
@@ -167,11 +167,11 @@ The managed identity of your App Configuration store needs access to the key to 
 * For key vaults that use Azure RBAC, you can grant these permissions by assigning the **Key Vault Crypto Service Encryption User** role to the managed identity.
 * For key vaults that use access policy authorization, you can set a policy for these key permissions.
 
-1. Grant the managed identity access to the managed key by using the command that's appropriate for the authorization system of your key vault. For both systems, replace `<ManagedIdentityPrincipalId>` with the principal ID from the previous step.
+1. Grant the managed identity access to the managed key by using the command that's appropriate for the authorization system of your key vault. For both systems, replace _`<ManagedIdentityPrincipalId>`_ with the principal ID from the previous step.
 
     ### [Azure RBAC](#tab/azurerbac)
 
-    Replace `<KeyVaultResourceId>` with the resource ID of the key vault from step 2 of [Create resources](#create-resources).
+    Replace _`<KeyVaultResourceId>`_ with the resource ID of the key vault from step 2 of [Create resources](#create-resources).
 
     ```azurecli
     az role assignment create --assignee <ManagedIdentityPrincipalId> --role "Key Vault Crypto Service Encryption User" --scope <KeyVaultResourceId>
@@ -179,7 +179,7 @@ The managed identity of your App Configuration store needs access to the key to 
 
     ### [Access policy](#tab/accesspolicy)
 
-    Replace `<KeyVaultName>` with the name of the key vault from step 2 of [Create resources](#create-resources).
+    Replace _`<KeyVaultName>`_ with the name of the key vault from step 2 of [Create resources](#create-resources).
 
     ```azurecli
     az keyvault set-policy -n <KeyVaultName> --object-id <ManagedIdentityPrincipalId> --key-permissions get wrapKey unwrapKey
@@ -189,9 +189,9 @@ The managed identity of your App Configuration store needs access to the key to 
 
 1. Enable the customer-managed key capability in the service by running one of the following Azure CLI commands. Replace the placeholders with the following values:
 
-    * For `<ResourceGroupName>`, use the name of the resource group that contains your App Configuration store.
-    * For `<AppConfigurationStoreName>`, use the name of your App Configuration store.
-    * For `<KeyName>` and `<KeyVaultUri>`, use the values from step 4 of [Create resources](#create-resources).
+    * For _`<ResourceGroupName>`_, use the name of the resource group that contains your App Configuration store.
+    * For _`<AppConfigurationStoreName>`_, use the name of your App Configuration store.
+    * For _`<KeyName>`_ and _`<KeyVaultUri>`_, use the values from step 4 of [Create resources](#create-resources).
 
     By default, the command uses a system-assigned managed identity to authenticate with the key vault.
 
@@ -201,7 +201,7 @@ The managed identity of your App Configuration store needs access to the key to 
       az appconfig update -g <ResourceGroupName> -n <AppConfigurationStoreName> --encryption-key-name <KeyName> --encryption-key-vault <KeyVaultUri>
       ```
 
-    * If you use a user-assigned managed identity to access the customer-managed key, run the following command, which specifies the client ID explicitly. Replace `<ManagedIdentityClientId>` with the `clientId` value from step 5 of [Create resources](#create-resources).
+    * If you use a user-assigned managed identity to access the customer-managed key, run the following command, which specifies the client ID explicitly. Replace _`<ManagedIdentityClientId>`_ with the `clientId` value from step 5 of [Create resources](#create-resources).
 
       ```azurecli
       az appconfig update -g <ResourceGroupName> -n <AppConfigurationStoreName> --encryption-key-name <KeyName> --encryption-key-vault <KeyVaultUri> --identity-client-id <ManagedIdentityClientId>
@@ -218,7 +218,7 @@ When you disable customer-managed key encryption, your App Configuration store r
 
 1. Ensure the current customer-managed key is valid and operational.
 
-1. Use the following Azure CLI command to update your App Configuration store by removing the customer-managed key configuration. Replace `<ResourceGroupName>` and `<AppConfigurationStoreName>` with the values in your environment.
+1. Use the following Azure CLI command to update your App Configuration store by removing the customer-managed key configuration. Replace _`<ResourceGroupName>`_ and _`<AppConfigurationStoreName>`_ with the values in your environment.
 
     ```azurecli
     az appconfig update -g <ResourceGroupName> -n <AppConfigurationStoreName> --encryption-key-name ""

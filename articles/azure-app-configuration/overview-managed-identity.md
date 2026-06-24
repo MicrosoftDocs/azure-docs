@@ -81,7 +81,7 @@ The following steps walk you through creating a user-assigned identity and an Ap
     az appconfig create --name <AppConfigurationStoreName> --location eastus --resource-group <ResourceGroupName> --sku Free
     ```
 
-1. Create a user-assigned identity called `<UserAssignedIdentityName>` using the CLI.
+1. Create a user-assigned identity called _`<UserAssignedIdentityName>`_ using the CLI.
 
     ```azurecli-interactive
     az identity create --resource-group <ResourceGroupName> --name <UserAssignedIdentityName>

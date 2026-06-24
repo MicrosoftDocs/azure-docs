@@ -214,7 +214,7 @@ For example, consider a queue-triggered Function app. Instead of specifying the 
 
    | Key                          | Value                                        |
    |------------------------------|----------------------------------------------|
-   | *TestApp:Storage:QueueName*  | *\<StorageQueueName>*  |
+   | *TestApp:Storage:QueueName*  | _`<StorageQueueName>`_  |
 
 1. In your Function app, select **Settings** -> **Environment variables** -> **App settings** in the Azure portal, and create an application setting that references the App Configuration key:
 

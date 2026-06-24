@@ -121,7 +121,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
 1. Find the endpoint to your App Configuration store. This URL is listed on the **Access keys** tab for the store in the Azure portal.
 
-1. Open the *appsettings.json* file and add the following script. Replace *\<AppConfigurationEndpoint>*, including the brackets, with the URL to your App Configuration store.
+1. Open the *appsettings.json* file and add the following script. Replace _`<AppConfigurationEndpoint>`_, including the brackets, with the URL to your App Configuration store.
 
     ```json
     "AppConfig": {

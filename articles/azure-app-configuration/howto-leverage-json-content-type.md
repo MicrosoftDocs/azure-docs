@@ -87,7 +87,7 @@ Add the following key-values to the App Configuration store. Leave **Label** wit
 
 ### Create JSON key-values using Azure CLI
 
-The following commands will create JSON key-values in your App Configuration store. Replace `<AppConfigurationStoreName>` with the name of your App Configuration store.
+The following commands will create JSON key-values in your App Configuration store. Replace _`<AppConfigurationStoreName>`_ with the name of your App Configuration store.
 
 ```azurecli-interactive
 appConfigName=<AppConfigurationStoreName>

@@ -68,7 +68,7 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
 
     ### [Microsoft Entra ID (recommended)](#tab/entra-id)
         
-    The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `Endpoints:AppConfiguration`, which stores the endpoint for your App Configuration store. Replace the `<AppConfigurationEndpoint>` placeholder with your App Configuration store's endpoint. You can find the endpoint in your App Configuration store's **Overview** blade in the Azure portal.
+    The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `Endpoints:AppConfiguration`, which stores the endpoint for your App Configuration store. Replace the _`<AppConfigurationEndpoint>`_ placeholder with your App Configuration store's endpoint. You can find the endpoint in your App Configuration store's **Overview** blade in the Azure portal.
     
     ```dotnetcli
     dotnet user-secrets init
@@ -77,7 +77,7 @@ Connect to your App Configuration store using Microsoft Entra ID (recommended), 
     
     ### [Connection string](#tab/connection-string)
 
-    The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `ConnectionStrings:AppConfiguration`, which stores the connection string for your App Configuration store. Replace the `<AppConfigurationConnectionString>` placeholder with your App Configuration store's read-only connection string. You can find the connection string in your App Configuration store's **Access settings** in the Azure portal.
+    The command uses [Secret Manager](/aspnet/core/security/app-secrets) to store a secret named `ConnectionStrings:AppConfiguration`, which stores the connection string for your App Configuration store. Replace the _`<AppConfigurationConnectionString>`_ placeholder with your App Configuration store's read-only connection string. You can find the connection string in your App Configuration store's **Access settings** in the Azure portal.
 
     ```dotnetcli
     dotnet user-secrets init

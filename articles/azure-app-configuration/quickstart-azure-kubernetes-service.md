@@ -140,7 +140,7 @@ If you already have an AKS application that reads configuration from a file, you
 
     The command returns `Login Succeeded` if you successfully sign in.
 
-1. To create a tag called `<ContainerRegistryName>.azurecr.io/aspnetapp:v1` for the `aspnetapp` image, use the [docker tag](https://docs.docker.com/reference/cli/docker/image/tag/) command. Replace `<ContainerRegistryName>` with the name of your registry.
+1. To create a tag called `<ContainerRegistryName>.azurecr.io/aspnetapp:v1` for the `aspnetapp` image, use the [docker tag](https://docs.docker.com/reference/cli/docker/image/tag/) command. Replace _`<ContainerRegistryName>`_ with the name of your registry.
 
     ```docker
     docker tag aspnetapp <ContainerRegistryName>.azurecr.io/aspnetapp:v1
@@ -149,7 +149,7 @@ If you already have an AKS application that reads configuration from a file, you
     > [!TIP]
     > To review the list of your existing Docker images and tags, run `docker image ls`. In this scenario, the output should list at least two images: `aspnetapp` and `<ContainerRegistryName>.azurecr.io/aspnetapp`.
 
-1. To upload the image to the container registry, use the [docker push](https://docs.docker.com/reference/cli/docker/image/push/) command. For example, the following command pushes the image to a repository named `aspnetapp` with tag `v1` under the registry `<ContainerRegistryName>`:
+1. To upload the image to the container registry, use the [docker push](https://docs.docker.com/reference/cli/docker/image/push/) command. For example, the following command pushes the image to a repository named `aspnetapp` with tag `v1` under the registry _`<ContainerRegistryName>`_:
 
     ```docker
     docker push <ContainerRegistryName>.azurecr.io/aspnetapp:v1

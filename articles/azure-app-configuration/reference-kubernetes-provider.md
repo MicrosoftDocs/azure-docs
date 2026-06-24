@@ -269,7 +269,7 @@ The software may collect information about you and your use of the software and 
 
 1. [Grant the user-assigned managed identity **App Configuration Data Reader** role](/azure/azure-app-configuration/concept-enable-rbac#assign-azure-roles-for-access-rights) in Azure App Configuration.
    
-1. Create a service account by adding a YAML file (e.g., *serviceAccount.yaml*) with the following content to the directory containing your AKS deployment files. The service account will be created when you apply all your deployment changes to your AKS cluster (e.g., using `kubectl apply`). Replace `<ManagedIdentityClientId>` with the client ID and `<ManagedIdentityTenantId>` with the tenant ID of the user-assigned managed identity that has just been created. Replace `<ServiceAccountName>` with your preferred name.
+1. Create a service account by adding a YAML file (e.g., *serviceAccount.yaml*) with the following content to the directory containing your AKS deployment files. The service account will be created when you apply all your deployment changes to your AKS cluster (e.g., using `kubectl apply`). Replace _`<ManagedIdentityClientId>`_ with the client ID and _`<ManagedIdentityTenantId>`_ with the tenant ID of the user-assigned managed identity that has just been created. Replace _`<ServiceAccountName>`_ with your preferred name.
 
     ``` yaml
     apiVersion: v1
@@ -281,7 +281,7 @@ The software may collect information about you and your use of the software and 
         azure.workload.identity/tenant-id: <ManagedIdentityTenantId>
     ```
 
-1. Create a federated identity credential for the user-assigned managed identity using the Azure CLI. Replace `<UserAssignedIdentityName>` with the name and `<ResourceGroupName>` with the resource group of the newly created user-assigned managed identity. Replace `<AksOidcIssuer>` with the OIDC issuer URL of the AKS cluster. Replace `<ServiceAccountName>` with the name of the newly created service account. Replace `<FederatedIdentityCredentialName>` with your preferred name for the federated identity credential.
+1. Create a federated identity credential for the user-assigned managed identity using the Azure CLI. Replace _`<UserAssignedIdentityName>`_ with the name and _`<ResourceGroupName>`_ with the resource group of the newly created user-assigned managed identity. Replace _`<AksOidcIssuer>`_ with the OIDC issuer URL of the AKS cluster. Replace _`<ServiceAccountName>`_ with the name of the newly created service account. Replace _`<FederatedIdentityCredentialName>`_ with your preferred name for the federated identity credential.
 
     ``` azurecli
     az identity federated-credential create --name "<FederatedIdentityCredentialName>" --identity-name "<UserAssignedIdentityName>" --resource-group "<ResourceGroupName>" --issuer "<AksOidcIssuer>" --subject system:serviceaccount:default:<ServiceAccountName> --audience api://AzureADTokenExchange

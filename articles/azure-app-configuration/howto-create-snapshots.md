@@ -153,7 +153,7 @@ spring:
              -
               snapshot-name: <SnapshotName>
            trim-key-prefix: 
-             - <prefix-to-trim>
+             - <PrefixToTrim>
 ```
 
 > [!NOTE]

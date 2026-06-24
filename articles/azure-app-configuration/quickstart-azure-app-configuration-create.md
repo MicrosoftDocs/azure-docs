@@ -93,7 +93,7 @@ If you're following another tutorial to use the App Configuration store, you can
 
 ### [Azure CLI](#tab/azure-cli)
 
-Add a key-value to the App Configuration store using the [az appconfig kv set](/cli/azure/appconfig/#az-appconfig-kv-set) command. Replace the placeholder `<AppConfigurationStoreName>` with the name of the App Configuration store:
+Add a key-value to the App Configuration store using the [az appconfig kv set](/cli/azure/appconfig/#az-appconfig-kv-set) command. Replace the placeholder _`<AppConfigurationStoreName>`_ with the name of the App Configuration store:
 
 ```azurecli
 az appconfig kv set --name <AppConfigurationStoreName> --key TestApp:Settings:TextAlign --value center
@@ -121,7 +121,7 @@ When no longer needed, delete the resource group. Deleting a resource group also
 
 ### [Azure CLI](#tab/azure-cli)
 
-Replace the placeholder `<ResourceGroupName>` with the name of the resource group that contains the App Configuration store:
+Replace the placeholder _`<ResourceGroupName>`_ with the name of the resource group that contains the App Configuration store:
 
 ```azurecli
 az group delete --name <ResourceGroupName>

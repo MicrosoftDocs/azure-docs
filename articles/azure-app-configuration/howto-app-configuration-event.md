@@ -34,7 +34,7 @@ Event Grid topics are Azure resources, and must be placed in an Azure resource g
 
 Create a resource group with the [az group create](/cli/azure/group) command. 
 
-The following example creates a resource group named `<ResourceGroupName>` in the *westus* location.  Replace `<ResourceGroupName>` with a unique name for your resource group.
+The following example creates a resource group named _`<ResourceGroupName>`_ in the *westus* location.  Replace _`<ResourceGroupName>`_ with a unique name for your resource group.
 
 ```azurecli-interactive
 az group create --name <ResourceGroupName> --location westus
@@ -42,7 +42,7 @@ az group create --name <ResourceGroupName> --location westus
 
 ## Create an App Configuration store
 
-Replace `<AppConfigurationStoreName>` with a unique name for your configuration store, and `<ResourceGroupName>` with the resource group you created earlier. The name must be unique because it is used as a DNS name.
+Replace _`<AppConfigurationStoreName>`_ with a unique name for your configuration store, and _`<ResourceGroupName>`_ with the resource group you created earlier. The name must be unique because it is used as a DNS name.
 
 ```azurecli-interactive
 az appconfig create \
@@ -56,7 +56,7 @@ az appconfig create \
 
 Before subscribing to the topic, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
-Replace `<SiteName>` with a unique name for your web app. The web app name must be unique because it's part of the DNS entry.
+Replace _`<SiteName>`_ with a unique name for your web app. The web app name must be unique because it's part of the DNS entry.
 
 ```azurecli-interactive
 $sitename=<SiteName>
@@ -75,7 +75,7 @@ You should see the site with no messages currently displayed.
 
 ## Subscribe to your App Configuration store
 
-You subscribe to a topic to tell Event Grid which events you want to track and where to send those events. The following example subscribes to the App Configuration you created, and passes the URL from your web app as the endpoint for event notification. Replace `<EventSubscriptionName>` with a name for your event subscription. For `<ResourceGroupName>` and `<AppConfigurationStoreName>`, use the values you created earlier.
+You subscribe to a topic to tell Event Grid which events you want to track and where to send those events. The following example subscribes to the App Configuration you created, and passes the URL from your web app as the endpoint for event notification. Replace _`<EventSubscriptionName>`_ with a name for your event subscription. For _`<ResourceGroupName>`_ and _`<AppConfigurationStoreName>`_, use the values you created earlier.
 
 The endpoint for your web app must include the suffix `/api/updates/`.
 
@@ -95,7 +95,7 @@ View your web app again, and notice that a subscription validation event has bee
 
 ## Trigger an App Configuration event
 
-Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. Create a key-value using the `<AppConfigurationStoreName>` from earlier.
+Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. Create a key-value using the _`<AppConfigurationStoreName>`_ from earlier.
 
 ```azurecli-interactive
 az appconfig kv set --name <AppConfigurationStoreName> --key Foo --value Bar --yes
@@ -123,7 +123,7 @@ You've triggered the event, and Event Grid sent the message to the endpoint you 
 ## Clean up resources
 If you plan to continue working with this App Configuration and event subscription, do not clean up the resources created in this article. If you do not plan to continue, use the following command to delete the resources you created in this article.
 
-Replace `<ResourceGroupName>` with the resource group you created above.
+Replace _`<ResourceGroupName>`_ with the resource group you created above.
 
 ```azurecli-interactive
 az group delete --name <ResourceGroupName>

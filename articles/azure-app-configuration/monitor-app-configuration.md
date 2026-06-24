@@ -94,7 +94,7 @@ Resource Logs (including audit logs and HTTP request logs) aren't collected and 
 1. Enable logs by using the az monitor [diagnostic-settings create command](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
     ```Azure CLI
-    az monitor diagnostic-settings create --name <DiagnosticSettingName> --workspace <LogAnalyticsWorkspaceResourceId> --resource <AppConfigurationResourceId> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
+    az monitor diagnostic-settings create --name <DiagnosticSettingName> --workspace <LogAnalyticsWorkspaceResourceId> --resource <AppConfigurationResourceId> --logs '[{"category": "<CategoryName>", "enabled": true, "retentionPolicy": {"days": <RetentionDays>, "enabled": <RetentionEnabled>}}]'
     ```
 
  ### [PowerShell](#tab/PowerShell)
