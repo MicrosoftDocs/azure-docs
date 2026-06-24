@@ -132,7 +132,7 @@ If you already have an AKS application that reads configuration from a file, you
 
 ### Push the image to Container Registry
 
-1. To sign in to your container registry, run the [az acr login](/cli/azure/acr#az-acr-login) command. The following code signs in to a registry named `<ContainerRegistryName>`. Replace that registry name with the name of your registry.
+1. To sign in to your container registry, run the [az acr login](/cli/azure/acr#az-acr-login) command. In the following examples, replace _`<ContainerRegistryName>`_ with the name of your container registry.
 
     ```azurecli
     az acr login --name <ContainerRegistryName>

@@ -195,6 +195,8 @@ az appconfig kv export -n <AppConfigurationStoreName> -d file --path myConfig.ya
 
 Next, download secrets to a file called *mySecrets.yaml*. The command-line argument **--resolve-keyvault** resolves the Key Vault references by retrieving the actual values in Key Vault. You'll need to run this command with credentials that have access permissions to the corresponding Key Vault.
 
+In the following examples, replace the placeholder text _`<AppConfigurationStoreName>`_ with the name of your App Configuration store.
+
 > [!WARNING]
 > As this file contains sensitive information, keep the file with care and clean up when it's not needed anymore.
 

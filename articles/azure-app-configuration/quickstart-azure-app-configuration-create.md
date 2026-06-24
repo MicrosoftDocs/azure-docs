@@ -53,7 +53,9 @@ To create an App Configuration store, start by creating a resource group for you
 
 ### Create a resource group
 
-Create a resource group named `<ResourceGroupName>` in the Central US location with the [az group create](/cli/azure/group#az-group-create) command:
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group in the Central US region. Replace _`<resource-group-name>`_ with a name for your resource group.
+
+```bash
 
 ```azurecli
 az group create --name <ResourceGroupName> --location centralus
@@ -61,7 +63,7 @@ az group create --name <ResourceGroupName> --location centralus
 
 ### Create an App Configuration store
 
-Create a new store with the [az appconfig create](/cli/azure/appconfig/#az-appconfig-create) command and replace the placeholder `<AppConfigurationStoreName>` with a unique resource name for your App Configuration store.
+Create a new store with the [az appconfig create](/cli/azure/appconfig/#az-appconfig-create) command and replace the placeholder _`<AppConfigurationStoreName>`_ with a unique resource name for your App Configuration store.
 
 ```azurecli
 az appconfig create --location centralus --name <AppConfigurationStoreName> --resource-group <ResourceGroupName>
@@ -115,7 +117,7 @@ When no longer needed, delete the resource group. Deleting a resource group also
 
 1. In the Azure portal, search for and select **Resource groups**.
 
-1. Select your resource group, for instance `<ResourceGroupName>`, and then select **Delete resource group**.
+1. Select the resource group you would like to delete and then select **Delete resource group**.
 
 1. Type the resource group name to verify, and then select **Delete**.
 

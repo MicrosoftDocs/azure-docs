@@ -25,10 +25,12 @@ This sample script deletes an instance of Azure App Configuration using the Azur
 
 ## Sample script
 
+In the following example, replace the placeholder text _`<AppConfigurationStoreName>`_  and _`<ResourceGroupName>`_ with the name of the App Configuration store and the name of the resource group it belongs to.
+
 ```azurecli-interactive
 #/bin/bash
 
-# Delete an App Configuration store named <AppConfigurationStoreName> from the Resource Group <ResourceGroupName>
+# Delete an App Configuration store
 az appconfig delete --name <AppConfigurationStoreName> --resource-group <ResourceGroupName>
 ```
 

@@ -24,6 +24,8 @@ This sample script imports key-value settings to an Azure App Configuration stor
 
 ## Sample script
 
+In the following example, replace the placeholder text _`<AppConfigurationStoreName>`_ with the name of your App Configuration store.
+
 ```azurecli-interactive
 #!/bin/bash
 

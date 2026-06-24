@@ -28,6 +28,8 @@ This sample script shows how to:
  - This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 ## Sample script
 
+In the following example, replace the placeholder text _`<AppConfigurationStoreName>`_ with the name of your App Configuration store.
+
 ```azurecli-interactive
 #!/bin/bash
 

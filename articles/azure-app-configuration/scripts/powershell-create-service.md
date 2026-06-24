@@ -23,6 +23,8 @@ Open a PowerShell window with admin rights and run `Install-Module -Name Az` to 
 
 ## Sample script
 
+In the following example, replace the placeholder text _`<ResourceGroupName>`_ and  _`<AppConfigurationStoreName>`_ with your desired resource group and App Configuration store name.
+
 ```powershell
 # Create a resource group 
 New-AzResourceGroup -Name <ResourceGroupName> -Location <Location>

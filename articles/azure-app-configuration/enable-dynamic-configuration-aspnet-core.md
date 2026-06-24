@@ -159,7 +159,7 @@ Logs are output upon configuration refresh and contain detailed information on k
         }
     }
     ```
-- The logging category is `Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh`, which appears before each log. Here are some example logs at each log level:
+- The logging category is `Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh`, which appears before each log. Here are some example logs at each log level. Note that `/<AppConfigurationStoreName>` and `<KeyVaultName>` are placeholders for your App Configuration store name and Key Vault name.
     ```console
     dbug: Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh[0]
         Key-value read from App Configuration. Change:'Modified' Key:'ExampleKey' Label:'ExampleLabel' Endpoint:'https://<AppConfigurationStoreName>.azconfig.io'
