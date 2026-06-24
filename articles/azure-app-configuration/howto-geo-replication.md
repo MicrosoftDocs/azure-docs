@@ -46,13 +46,13 @@ To create a replica of your configuration store in the portal, follow the steps 
 
 <!-- ### [Azure CLI](#tab/azure-cli)
 
-1. In the CLI, run the following code to create a replica of your configuration store. 
+1. In the CLI, run the following code to create a replica of your configuration store. Replace the placeholder text _`<AppConfigurationStoreName>`_, _`<ReplicaName>`_, and _`<Location>`_ with the name of your App Configuration store, a name for the replica, and the replica's location. 
 
     ```azurecli-interactive
     az appconfig replica create --store-name <AppConfigurationStoreName> --name <ReplicaName> --location <Location>
     ```
 
-1. Verify that the replica was created successfully by listing all replicas of your configuration store. 
+1. Verify that the replica was created successfully by listing all replicas of your configuration store. Replace the placeholder text _`<AppConfigurationStoreName>`_ with the name of your App Configuration store. 
 
     ```azurecli-interactive
       az appconfig replica list --store-name <AppConfigurationStoreName> 
@@ -75,12 +75,12 @@ To delete a replica in the portal, follow the steps below.
 
 <!-- ### [Azure CLI](#tab/azure-cli)
 
-1. In the CLI, run the following code. 
+1. In the CLI, run the following code. Replace the placeholder text _`<AppConfigurationStoreName>`_ and _`<ReplicaName>`_ with the name of your App Configuration store and the name of the replica to delete. 
 
     ```azurecli-interactive
     az appconfig replica delete --store-name <AppConfigurationStoreName> --name <ReplicaName> 
     ```
-1. Verify that the replica was deleted successfully by listing all replicas of your configuration store. 
+1. Verify that the replica was deleted successfully by listing all replicas of your configuration store. Replace the placeholder text _`<AppConfigurationStoreName>`_ with the name of your App Configuration store. 
 
     ```azurecli-interactive
     az appconfig replica list --store-name <AppConfigurationStoreName> 

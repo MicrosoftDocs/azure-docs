@@ -484,9 +484,9 @@ Assuming an App Configuration store has these Key Vault references:
 
 |key|value|tags|
 |---|---|---|
-|app1-secret1|<Key Vault reference 1>|`{}`|
-|app1-secret2|<Key Vault reference 2>|`{}`|
-|app1-certificate|<Key Vault reference 3>|`{".kubernetes.secret.type": "kubernetes.io/tls"}`|
+|app1-secret1|`<Key Vault reference 1>`|`{}`|
+|app1-secret2|`<Key Vault reference 2>`|`{}`|
+|app1-certificate|`<Key Vault reference 3>`|`{".kubernetes.secret.type": "kubernetes.io/tls"}`|
 
 The following sample generates Secrets of both Opaque and TLS types.
 
