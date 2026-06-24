@@ -96,7 +96,7 @@ The job definition also keeps a historic record of past copy runs and their resu
 
 When you start a job definition, a new resource is implicitly created: a job run resource. The job definition contains all the information the storage mover service needs to start a copy. In a typical migration, you might copy from source to target several times. Each time you start a job definition, it's recorded in a job run.
 
-The job run is a snapshot of the job definition and is executed by the migration runtime for the selected workload type. For agent-based workloads, execution is performed by the selected migration agent. For agentless workloads, execution is orchestrated by the service.
+The job run is a snapshot of the job definition. The migration runtime executes the job run for the selected workload type. For agent-based workloads, the selected migration agent performs execution. For agentless workloads, the service orchestrates execution.
 
 > [!IMPORTANT]
 > A change to migration settings won't affect a running migration job. At the time of starting a job run, a snapshot of the job definition is taken and executed by the selected migration runtime. You can't change a job run, your only option is to cancel it.
