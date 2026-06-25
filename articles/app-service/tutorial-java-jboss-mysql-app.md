@@ -731,7 +731,7 @@ This error is most likely because you didn't add the passwordless authentication
 
 #### I see a "Table 'Task' already exists" error in the diagnostic logs.
 
-You can ignore this Hibernate error because it indicates that the application code is connected to the MySQL database. The application is configured to create the necessary tables when it starts, as in *src/main/resources/META-INF/persistence.xml*. When the application starts the first time, it should create the tables successfully, but on subsequent restarts, you would see this error because the tables already exist. This error is also a positive signal that the managed-identity (passwordless) connection succeeded, because Hibernate connected and ran DDL.
+You can ignore this Hibernate error because it indicates that the application code is connected to the MySQL database. The application is configured to create the necessary tables when it starts, as in *src/main/resources/META-INF/persistence.xml*. When the application starts the first time, it should create the tables successfully, but on subsequent restarts, you see this error because the tables already exist. This error is also a positive signal that the managed-identity (passwordless) connection succeeded, because Hibernate connected and ran DDL.
 
 ## Frequently asked questions
 
