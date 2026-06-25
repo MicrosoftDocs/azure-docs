@@ -20,6 +20,12 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 ## June 2026
 ### FHIR service
 
+**Bug fix for chained searches with birthdates**: A previous improvement for birthdate search performance introduced a bug in chained searches with birthdates. This issue has been fixed.
+
+**`$expand` operation returns HTTP 404 for missing ValueSet**: The `$expand` operation now correctly returns HTTP 404 (instead of HTTP 200) when the requested ValueSet isn't found, aligning with FHIR spec requirements.
+
+**Rework of search parameter concurrency handling**: Major rework of search parameter concurrency handling, implementing the approach documented in [ADR-2603](https://github.com/microsoft/fhir-server/blob/main/docs/arch/adr-2603-search-params-concurrency.md). It uses `max(LastUpdated)` to detect concurrent modifications, replacing the previous concurrency manager. Non-bundle and sequential bundle search parameter API calls are now automatically retried on concurrency conflicts, significantly reducing conflict errors returned to clients for parallel operations. This update also addresses multiple bugs related to search parameter lifecycle handling. 
+
 **Transaction bundle conflict handling**: Transaction bundle conflict handling has been improved. When concurrent transaction bundles encounter conflicts, the service now returns HTTP 409 Conflict instead of HTTP 500 Internal Server Error, allowing clients to retry appropriately.
 
 **Improved error handling for malformed continuation tokens**: Malformed continuation tokens now return HTTP 400 Bad Request instead of HTTP 500 Internal Server Error, improving error classification for invalid client requests.
