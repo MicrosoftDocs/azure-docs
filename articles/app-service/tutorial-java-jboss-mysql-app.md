@@ -5,7 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 03/25/2026
+ms.date: 06/25/2026
 ms.update-cycle: 180-days
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
@@ -153,7 +153,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
     :::column span="2":::
         **Step 2:** In the **Create Web App** page, fill out the form as follows.
         1. *Name*: **msdocs-jboss-mysql**. The process creates a resource group named **msdocs-jboss-mysql_group** for you.
-        1. *Runtime stack*: **Java 17**.
+        1. *Runtime stack*: **Java 21**.
         1. *Java web server stack*: **Red Hat JBoss EAP 8**.
         1. *Operating system*: **Linux**.
         1. *Region*: Any Azure region near you.
@@ -207,6 +207,10 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-4.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-app-mysql-4.png":::
     :::column-end:::
 :::row-end:::
+
+        
+> [!NOTE]
+> Azure Database for MySQL Flexible Server isn't available in every region. If the deployment fails on the MySQL server, choose a different region and try again. For more information, see [the Conflict status troubleshooting entry](#the-portal-deployment-view-for-azure-database-for-mysql-flexible-server-shows-a-conflict-status).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -283,12 +287,24 @@ In this step, you generate a managed identity based service connection, which yo
         :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-create-passwordless-connection-4.png" alt-text="A screenshot showing how to change the value of the MySQL environment variable in Azure." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-create-passwordless-connection-4.png":::
     :::column-end:::
 :::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 5: Enable JBoss data-source auto-configuration.**
+        1. From the left menu, select **Environment variables**.
+        1. Select **Add**.
+        1. Set **Name** to `WEBSITE_AUTOCONFIGURE_DATABASE` and **Value** to `true`.
+        1. Select **Apply**.
+        1. Select **Apply**, then **Confirm**.
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 4. Confirm JNDI data source
 
-If you add an app setting that contains a valid JDBC connection string for Oracle, SQL Server, PostgreSQL, or MySQL, App Service adds a Java Naming and Directory Interface (JNDI) data source for it in the JBoss server. In this step, you use the SSH connection to the app container to verify the JNDI data source. In the process, you learn how to access the SSH shell and run the JBoss CLI.
+If your app settings contain a valid JDBC connection string for Oracle, SQL Server, PostgreSQL, or MySQL, *and* the app setting `WEBSITE_AUTOCONFIGURE_DATABASE` is set to `true`, App Service automatically adds a Java Naming and Directory Interface (JNDI) data source for it in the JBoss server, named `<app-setting-name>_DS`. In this step, you use the SSH connection to the app container to verify the JNDI data source. In the process, you learn how to access the SSH shell and run the JBoss CLI.
 
 :::row:::
     :::column span="2":::
@@ -356,6 +372,10 @@ Like the JBoss convention, if you want to deploy to the root context of JBoss, n
         :::image type="content" source="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-2.png" alt-text="A screenshot showing a GitHub codespace and the ContextListener.java file opened." lightbox="./media/tutorial-java-jboss-mysql-app/azure-portal-deploy-sample-code-2.png":::
     :::column-end:::
 :::row-end:::
+
+> [!TIP]
+> **To keep local development working:** The WildFly Maven plugin in *pom.xml* creates a local data source for `mvn wildfly:run`. If you want to run the app locally after this change, update that command's `--jndi-name` to `java:jboss/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` to match *persistence.xml*. This step isn't required for running in App Service.
+
 :::row:::
     :::column span="2":::
         **Step 3:**
@@ -481,13 +501,14 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
 1. From the repository root, run `azd init`.
 
     ```bash
-    azd init --template jboss-app-service-mysql-infra
+    azd init --template jboss-app-service-mysql-infra .
     ```
 
 1. When prompted, give the following answers:
     
     |Question  |Answer  |
     |---------|---------|
+    |Would you like to check your Azure development tools?| **n** |
     |Continue initializing an app in '`<your-directory>`'?     | **Y**        |
     |What would you like to do with these files?     | **Keep my existing files unchanged**        |
     |Enter a new environment name     | Type a unique name. The AZD template uses this name as part of the DNS name of your web app in Azure (`<app-name>-<hash>.azurewebsites.net`). Alphanumeric characters and hyphens are allowed.          |
@@ -504,7 +525,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     azd up
     ```  
 
-    The `azd up` command takes about 15 minutes to complete. The Redis cache takes the most time. The command also compiles and deploys your application code. You modify your code later to work with App Service. While it runs, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deployed application.
+    The `azd up` command takes about 10 minutes to complete. The command also compiles and deploys your application code. You modify your code later to work with App Service. While it runs, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deployed application.
 
     This AZD template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
@@ -513,7 +534,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **App Service**: Represents your app and runs in the App Service plan.
     - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
     - **Azure Database for MySQL Flexible Server**: Accessible only from the virtual network. A database is created for you on the server.
-    - **Azure Cache for Redis**: Accessible only from within the virtual network.
+    - **Azure Managed Redis**: Accessible only from within the virtual network.
     - **Private endpoints**: Access endpoints for the key vault and the Redis cache in the virtual network.
     - **Private DNS zones**: Enable DNS resolution of the key vault, the database server, and the Redis cache in the virtual network.
     - **Log Analytics workspace**: Acts as the target container for your app to ship its logs, where you can also query the logs.
@@ -542,7 +563,7 @@ The AZD template you use generated the connectivity variables for you already as
 
 1. For your convenience, the AZD template shows you the direct link to the app's app settings page. Find the link and open it in a new browser tab.
 
-    If you add an app setting that contains a valid Oracle, SQL Server, PostgreSQL, or MySQL connection string, App Service adds it as a Java Naming and Directory Interface (JNDI) data source in the JBoss server's *context.xml* file.
+    If your app settings contain a valid Oracle, SQL Server, PostgreSQL, or MySQL connection string *and* the app setting `WEBSITE_AUTOCONFIGURE_DATABASE` is set to `true`, App Service automatically adds it as a Java Naming and Directory Interface (JNDI) data source in the JBoss server, named `<app-setting-name>_DS`.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -610,6 +631,9 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 -----
 
 > [!TIP]
+> **To keep local development working:** The WildFly Maven plugin in *pom.xml* creates a local data source for `mvn wildfly:run`. If you want to run the app locally after this change, update that command's `--jndi-name` to `java:jboss/env/jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` to match *persistence.xml*. This step isn't required for running in App Service.
+
+> [!TIP]
 > You can also just use `azd up` always, which does all of `azd package`, `azd provision`, and `azd deploy`.
 >
 > To find out how the *.war* file is packaged, you can run `azd package --debug` by itself.
@@ -668,6 +692,7 @@ azd down
 - [I see the error 'not entitled to use the Bring Your Own License feature' in the creation wizard.](#i-see-the-error-not-entitled-to-use-the-bring-your-own-license-feature-in-the-creation-wizard)
 - [The portal deployment view for Azure Database for MySQL Flexible Server shows a Conflict status.](#the-portal-deployment-view-for-azure-database-for-mysql-flexible-server-shows-a-conflict-status)
 - [The Create connection dialog shows a Create On Cloud Shell button but it's not enabled.](#the-create-connection-dialog-shows-a-create-on-cloud-shell-button-but-its-not-enabled)
+- [The AZURE_MYSQL_CONNECTIONSTRING_DS data source doesn't appear in JBoss CLI.](#the-azure_mysql_connectionstring_ds-data-source-doesnt-appear-in-jboss-cli)
 - [My app failed to start, and I see 'Access denied for user... (using password: NO)' in the logs.](#my-app-failed-to-start-and-i-see-access-denied-for-user-using-password-no-in-the-logs)
 - [The deployed sample app doesn't show the tasks list app.](#the-deployed-sample-app-doesnt-show-the-tasks-list-app)
 - [I see a "Table 'Task' already exists" error in the diagnostic logs.](#i-see-a-table-task-already-exists-error-in-the-diagnostic-logs)
@@ -682,7 +707,7 @@ Depending on your subscription and the region you select, you might see the depl
 
 `InternalServerError: An unexpected error occurred while processing the request.`
 
-This error is most likely caused by a limit on your subscription for the region you select. Try choosing a different region for your deployment.
+This error most likely means there's a limit on your subscription for the region you select. Azure Database for MySQL Flexible Server isn't offered in every region for every subscription type. This restriction is especially common with Visual Studio Enterprise (MSDN) and other dev/test or credit-based subscriptions, which can create the server in only a limited set of regions. Try choosing a different region for your deployment. To check which regions are available for your subscription, run `az mysql flexible-server list-skus --location <region>` for candidate regions (an unsupported region returns an error), or see [Azure Database for MySQL Flexible Server supported regions](/azure/mysql/flexible-server/overview#azure-regions).
 
 #### The Create connection dialog shows a Create On Cloud Shell button but it's not enabled.
 
@@ -691,6 +716,10 @@ You might also see an error message in the dialog: `The database server is in Vi
 The service connector automation needs network access to the MySQL server. Look in the networking settings of your MySQL server resource and make sure **Allow public access to this resource through the internet using a public IP address** is selected at a minimum. Service Connector can take it from there. 
 
 If you don't see this checkbox, you might have created the deployment using the [Web App + Database wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) instead, and the deployment locks down all public network access to the MySQL server. There's no way to modify the configuration. Since app's Linux container can access MySQL through the virtual network integration, you could install Azure CLI in the app's SSH session and run the supplied Cloud Shell commands there. 
+
+#### The AZURE_MYSQL_CONNECTIONSTRING_DS data source doesn't appear in JBoss CLI.
+
+When you run `ls subsystem=datasources/data-source` and don't see `AZURE_MYSQL_CONNECTIONSTRING_DS`, App Service didn't auto-create the data source. App Service only auto-creates the data source when the app setting `WEBSITE_AUTOCONFIGURE_DATABASE` is set to `true`. In **Environment variables**, add it with the value `true`, restart the app, and check again.
 
 #### The deployed sample app doesn't show the tasks list app.
 
@@ -702,7 +731,7 @@ This error is most likely because you didn't add the passwordless authentication
 
 #### I see a "Table 'Task' already exists" error in the diagnostic logs.
 
-You can ignore this Hibernate error because it indicates that the application code is connected to the MySQL database. The application is configured to create the necessary tables when it starts, as in *src/main/resources/META-INF/persistence.xml*. When the application starts the first time, it should create the tables successfully, but on subsequent restarts, you would see this error because the tables already exist.
+You can ignore this Hibernate error because it indicates that the application code is connected to the MySQL database. The application is configured to create the necessary tables when it starts, as in *src/main/resources/META-INF/persistence.xml*. When the application starts the first time, it should create the tables successfully, but on subsequent restarts, you see this error because the tables already exist. This error is also a positive signal that the managed-identity (passwordless) connection succeeded, because Hibernate connected and ran DDL.
 
 ## Frequently asked questions
 
@@ -719,7 +748,7 @@ Pricing for the created resources is as follows:
 
 - The App Service plan is created in **P0v3** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
 - The MySQL flexible server is created in **D2ds** tier and can be scaled up or down. See [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/).
-- The Azure Cache for Redis is created in **Basic** tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
+- The Azure Managed Redis is created in **Balanced B0** tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Managed Redis pricing](https://azure.microsoft.com/pricing/details/managed-redis/).
 - The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/).
 

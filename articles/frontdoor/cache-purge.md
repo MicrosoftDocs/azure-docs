@@ -1,5 +1,5 @@
 ---
-title: Purge cache for Azure Front Door
+title: Purge Cache for Azure Front Door
 description: Learn how to purge cache on an Azure Front Door Standard or Premium profile by using the Azure portal, Azure PowerShell, or Azure CLI.
 author: halkazwini
 ms.author: halkazwini

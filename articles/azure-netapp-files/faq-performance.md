@@ -89,3 +89,4 @@ Jumbo frames aren't supported with Azure virtual machines.
 - [Azure NetApp Files backup FAQs](faq-backup.md)
 - [Application resilience FAQs](faq-application-resilience.md)
 - [Integration FAQs](faq-integration.md)
+- [Troubleshoot Windows Search performance](/troubleshoot/windows-client/shell-experience/windows-search-performance-issues)

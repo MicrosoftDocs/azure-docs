@@ -299,6 +299,8 @@
     href: troubleshoot/desired-state-configuration.md
   - name: Data to Collect when Opening a Case for Microsoft Azure Automation
     href: troubleshoot/collect-data-microsoft-azure-automation-case.md
+- name: Retirements
+  href: automation-runtime-retirement-policy.md
 - name: Reference
   items:
   - name: Azure CLI

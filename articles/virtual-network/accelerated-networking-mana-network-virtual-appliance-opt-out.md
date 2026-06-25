@@ -39,7 +39,7 @@ You can apply the `LegacyVMNVA` tag to temporarily avoid placement on MANA‑ena
 > 
 > After May 31, 2027, the tag will no longer be honored, and all MANA-eligible VM series may be placed on MANA-capable hardware.
 
-1. Open the `LegacyVMNVA` [Azure Policy](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe87a87f5-e6dd-4919-be21-abb0a4ea4630/version/1.0.0/scopes~/%5B%22%2Fsubscriptions%2F12015272-f077-4945-81de-a5f607d067e1%22%2C%22%2Fsubscriptions%2F0ba674a6-9fde-43b4-8370-a7e16fdf0641%22%5D/contextRender~/false).
+1. Open the `LegacyVMNVA` [Azure Policy](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe87a87f5-e6dd-4919-be21-abb0a4ea4630/version/1.3.0/scopes~/%5B%22%2Fsubscriptions%2F52a442a2-31e9-42f9-8e3e-4b27dbf82673%22%2C%22%2Fsubscriptions%2Feb87f285-893a-4f0f-8c55-7b4f67b1d097%22%5D/contextRender~/false).
      - Using the existing [Compliance and Remediation process](/azure/governance/policy/how-to/remediate-resources?tabs=azure-portal), the tag can be applied across your environment at scale and cover individual VM workloads and Virtual Machine Scale Set scenarios.
      - It will scope tag application to specific NVA publishers and associated product IDs available in the Azure Marketplace.
      - Applying this policy has no cost implications for your subscription.
@@ -58,7 +58,19 @@ You can apply the `LegacyVMNVA` tag to temporarily avoid placement on MANA‑ena
 
 4. Enable **Automatically enroll in minor version changes** to ensure minor revisions are applied automatically. Alternatively, assign the policy using version `1.*.*`.
 
-5. Activate the tag by performing a "reapply" operation on the affected resources. The Accelerated Networking enablement status of a VM doesn't affect whether the policy is applied.
+1. All new deployments within the Azure Policy’s assigned scope automatically have the tag enabled. For existing deployments, add the `LegacyVMNVA` tag through a remediation task and run a reapply operation on the affected resources to enable the tag. The Accelerated Networking status of a VM doesn't impact whether the policy is applied.
+
+   Use Azure CLI based on your deployment type:
+
+   - **Standalone VM or VMSS Flex VM Instance:**
+     ```bash
+     az vm reapply --resource-group <resource-group-name> --name <vm-name>
+     ```
+
+   - **VMSS Uniform:**
+     ```bash
+     az rest --method post --url "https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachineScaleSets/<vmss-name>/reapply?api-version=2025-11-01"
+     ```
 
 ## Network performance for incompatible VMs
 If a VM is placed on MANA-capable hardware but the OS doesn't support MANA, networking automatically falls back to the NetVSC network adapter. In this scenario:

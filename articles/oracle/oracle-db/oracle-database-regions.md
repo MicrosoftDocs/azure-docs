@@ -26,7 +26,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | Azure region   | OCI region   | Oracle Exadata Database Service on Dedicated Infrastructure | Oracle Autonomous AI Database on Dedicated Exadata Infrastructure | Oracle AI Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure | Exadata Database Service on Exascale Infrastructure@Azure | Oracle Base Database Service | Oracle GoldenGate | Regional Availability |
 | -------------- | ----------------------- | ------------|----------------- | -------------------------------- | -------- |---------|---------|---------|-----|
 | Australia East | Australia East (Sydney) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |  Dual   |
-| Australia Southeast | Australia Southeast (Melbourne) | ✓ | ✓ | ✓ | ✓ | ✓ |  | ✓ |   Dual   |
+| Australia Southeast | Australia Southeast (Melbourne) | ✓ | ✓ | ✓ | ✓ | ✓ | ✓  | ✓ |   Dual   |
 | Central India | India West (Mumbai) | ✓  | ✓| ✓ | ✓ | ✓ | ✓ | ✓ |   Dual   |
 | Japan East | Japan East (Tokyo) | ✓  | ✓| ✓  | ✓ | ✓ | ✓ | ✓ |   Dual   |
 | Japan West | Japan Central (Osaka) | ✓  | ✓| ✓ | ✓ | ✓ | ✓ | ✓ |   Single   |
@@ -40,7 +40,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | Azure region | OCI region                 | Oracle Exadata Database Service on Dedicated Infrastructure | Oracle Autonomous AI Database on Dedicated Exadata Infrastructure | Oracle AI Autonomous Database@Azure | Oracle Database Autonomous Recovery Service@Azure | Exadata Database Service on Exascale Infrastructure@Azure | Oracle Base Database Service | Oracle GoldenGate | Regional Availability |
 | ------------ | -------------------------- | -------------------------|---- | -------------------------------- | ------------------------------------------------- | --------------------------------------------------------- | ------ | --------------------- |-------|
 | Brazil South | Brazil Southeast (Vinhedo) | ✓   | ✓ | ✓      | ✓   | ✓     | ✓  | ✓   | Dual   |
-| Brazil Southeast | Brazil East (Rio de Janeiro) | ✓   | ✓ |   ✓    | ✓   |      | ✓  |  ✓  | Single   |
+| Brazil Southeast | Brazil East (Rio de Janeiro) | ✓   | ✓ |   ✓    | ✓   |   ✓   | ✓  |  ✓  | Single   |
 
 ## Europe, Middle East, Africa (EMEA)
 
@@ -72,7 +72,7 @@ The list below mentions the Azure and corresponding OCI regions with the regiona
 | East US          | US East (Ashburn)  | ✓  | ✓| ✓   | ✓  | ✓    | ✓ | ✓ | Dual|
 | East US 2        | US East (Ashburn)  | ✓  | ✓  | ✓  | ✓  |  ✓   | ✓  | ✓ | Dual     |
 | North Central US | US Midwest (Chicago) | ✓ | ✓ |  ✓ |  ✓ | ✓  | ✓  | ✓ | Single   |
-| South Central US | US South (Dallas)| ✓ | ✓ |  ✓  | ✓ | ✓ |   | ✓ | Dual |
+| South Central US | US South (Dallas)| ✓ | ✓ |  ✓  | ✓ | ✓ | ✓  | ✓ | Dual |
 | West US          | US West (San Jose) | ✓  | ✓  | ✓  | ✓  |  ✓   |  ✓  | ✓ | Single   |
 | West US 2        | US West (Quincy) | ✓ | ✓ | ✓ |  ✓ |  ✓ | ✓  | ✓ | Dual |
 | West US 3        | US West (Phoenix) | ✓ | ✓ | ✓  |  ✓ | ✓  | ✓  | ✓ | Dual   |

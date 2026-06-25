@@ -19,8 +19,10 @@
   items:
   - name: Application Gateway for Containers components
     href: application-gateway-for-containers-components.md
-  - name: Inference gateway for AI workloads
-    href: inference-gateway.md
+  - name: AI gateway
+    items:
+    - name: Inference gateway for AI workloads
+      href: inference-gateway.md
   - name: Migrate from AGIC to Application Gateway for Containers
     href: migrate-from-agic-to-agc.md
   - name: Container networking
