@@ -1,4 +1,4 @@
----
+﻿---
 title: Billing roles for Microsoft Customer Agreements - Azure
 description: Learn about billing roles for billing accounts in Azure for Microsoft Customer Agreements.
 author: jkinma39
@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/10/2026
+ms.date: 06/25/2026
 ms.author: jkinma
 ms.custom: sfi-ga-nochange
 service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
