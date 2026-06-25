@@ -3,12 +3,10 @@ title: Securely Access Products and APIs - Microsoft Entra Applications - Azure 
 titleSuffix: Azure API Management
 description: Configure OAuth 2.0 access to product APIs in Azure API Management with Microsoft Entra ID applications.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 07/11/2025
-ms.author: danlep
 ms.custom:
   - build-2025
 ---

@@ -1,11 +1,9 @@
 ---
 title: Configure API Management settings for service updates
 description: Learn how to configure settings for applying service updates to your Azure API Management instance. Settings include the upgrade group and the maintenance window.
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 04/13/2026
-ms.author: danlep
 ---
 
 # Configure service update settings for your API Management instances 

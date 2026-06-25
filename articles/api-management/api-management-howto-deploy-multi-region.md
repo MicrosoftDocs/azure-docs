@@ -2,11 +2,9 @@
 title: Deploy an Azure API Management Instance to Multiple Azure Regions
 titleSuffix: Azure API Management
 description: Learn how to deploy a Premium tier Azure API Management instance to multiple Azure regions to improve API gateway availability.
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 09/19/2025
-ms.author: danlep
 ms.custom: sfi-image-nochange
 ---
 

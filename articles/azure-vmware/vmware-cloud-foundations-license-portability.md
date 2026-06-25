@@ -1,10 +1,10 @@
 ---
 title: Use Portable VMware Cloud Foundation (VCF) on Azure VMware Solution
-ms.author: saloniyadav
+ms.author: sieunkim
 description: Learn how to bring your own VMware Cloud Foundation (VCF) subscription to Azure VMware Solution by using the Azure portal.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 11/04/2025
+ms.date: 06/24/2026
 # Customer intent: As a cloud administrator, I want to register and integrate my portable VMware Cloud Foundation subscription with Azure VMware Solution, so that I can use my existing licenses and optimize costs while modernizing my VMware workloads in a fully managed environment.
 ---
 
@@ -14,9 +14,7 @@ This article helps you navigate the changes related to Broadcom's new VMware lic
 
 If you have an active reserved instance purchased for VCF-included hosts, you can continue using the VCF-included solution until the end of your reserved instance's term. After that, you're required to bring your own VCF subscription (also called *bring your own license*, or BYOL). At any point, if your usage exceeds the active VCF-included reserved instance that you purchased, you must bring your own VCF subscription for that surplus usage.
 
-Azure VMware Solution already supports the VCF portability (BYOL) option, which enables you to bring your own VCF subscription to Azure VMware Solution. However, until now, the VCF portability option was supported at an Azure subscription level through support-based registration.
-
-Now, you can enable VCF portability directly through the Azure portal when you're creating or managing an Azure VMware Solution private cloud. This self-service model also enables you to continue using your existing VCF-included deployments and add your own portable VCF subscription only for the new hosts that are *not* covered under the VCF-included offering.
+Azure VMware Solution already supports the VCF portability (BYOL) option, which enables you to bring your own VCF subscription to Azure VMware Solution. Previously, support-based registration at the Azure subscription level enabled this option. Now, you can enable VCF portability directly through the Azure portal when you create or manage an Azure VMware Solution private cloud. This self-service model also enables you to continue using your existing VCF-included deployments and add your own portable VCF subscription only for the new hosts that are *not* covered under the VCF-included offering.
 
 ## New scope
 
@@ -58,16 +56,17 @@ You have two options:
 
 When you create a new Azure VMware Solution private cloud via the Azure portal, you get a **Portable VCF (BYOL)** option to provide VCF license information.
 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-create-new-private-cloud-with-vcf-byol.png" alt-text="Screenshot of the option to register VCF portable subscription entitlements with Microsoft while creating an Azure VMware Solution private cloud." border="true":::
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/new-portable-vcf-create-new-private-cloud-with-vcf-byol.png" alt-text="Screenshot of the option to register VCF portable subscription entitlements with Microsoft while creating an Azure VMware Solution private cloud." border="true":::
 
 Select **Configure** and provide all the required details:
 
 * VCF license/subscription key (the 25-character [key from Broadcom](https://knowledge.broadcom.com/external/article/145804/download-license-keys-for-broadcom-ca-sy.html)).
 * Broadcom site ID associated with your contract.
+* Broadcom serial number associated with your VCF subscription. You can find the serial number in the Entitlement section of the Broadcom portal.
 * License expiration date (the end date of your VCF subscription purchased from Broadcom).
-* Number of cores that you want to bring to this Azure VMware Solution private cloud. This number can't exceed the number of cores that you purchased under the provided VCF key from Broadcom.
-
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/portable-vcf-create-new-private-cloud-with-vcf-byol-side-pane.png" alt-text="Screenshot of the form to register a VCF portable subscription." border="true":::
+* Number of cores deployed on this specific private cloud. The number of registered BYOL cores **must exactly match the number of deployed BYOL cores**. Do not enter the total number of cores purchased under your Broadcom entitlement unless all of those cores are deployed on that private cloud.
+  
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/new-portable-vcf-create-new-private-cloud-with-vcf-byol-side-pane.png" alt-text="Screenshot of the form to register a VCF portable subscription." border="true":::
 
 To use the VMware vDefend Firewall add-on on an Azure VMware Solution private cloud, you must pre-purchase it from Broadcom. You can also update your vDefend Firewall add-on license key after your Azure VMware Solution private cloud is created. Continue reading for more information.
 
@@ -81,9 +80,10 @@ Under **VCF license details**, select **Configure** and provide all the required
 
 * VCF license/subscription key (the 25-character [key from Broadcom](https://knowledge.broadcom.com/external/article/145804/download-license-keys-for-broadcom-ca-sy.html)).
 * Broadcom site ID associated with your contract.
+* Broadcom serial number associated with your VCF subscription. You can find the serial number in the Entitlement section of the Broadcom portal.
 * License expiration date (the end date of your VCF subscription purchased from Broadcom).
-* Number of cores that you want to bring to this Azure VMware Solution private cloud. This number can't exceed the number of cores that you purchased under the provided VCF key from Broadcom.
-
+* Number of cores deployed on this specific private cloud. The number of registered BYOL cores **must exactly match the number of deployed BYOL cores**. Do not enter the total number of cores purchased under your Broadcom entitlement unless all of those cores are deployed on that private cloud.
+  
 After you save the details, your existing hosts switch to the portable VCF (BYOL) pricing.
 
 > [!NOTE]

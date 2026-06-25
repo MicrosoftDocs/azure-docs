@@ -253,6 +253,21 @@ items:
           href: playwright-workspaces/troubleshoot-test-run-failures.md
         - name: Troubleshoot Playwright Workspaces reporting
           href: playwright-workspaces/troubleshoot-playwright-workspaces-reporting.md
+    - name: Reference
+      items:
+        - name: .NET
+          href: /dotnet/api/overview/azure/playwright
+        - name: Java
+          href: /java/api/overview/azure/playwright
+        - name: Node.js
+          href: /javascript/api/overview/azure/playwright-readme
+        - name: Python
+          href: /python/api/overview/azure/playwright
+        - name: REST API
+          href: /rest/api/apptesting/playwright
+        - name: Resource Manager template
+          displayName: ARM
+          href: /azure/templates/microsoft.loadtestservice/playwrightworkspaces
     - name: Resources
       items: 
         - name: Azure roadmap

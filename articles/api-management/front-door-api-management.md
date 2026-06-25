@@ -2,13 +2,11 @@
 title: Configure Azure Front Door in front of Azure API Management
 description: Learn how to front your API Management instance with Azure Front Door for global HTTPS load balancing, TLS offloading, dynamic request acceleration, and more.
 services: api-management
-author: dlepow
 
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/30/2025
-ms.author: danlep
 ms.custom: sfi-image-nochange
 ---
 # Configure Front Door Standard/Premium in front of Azure API Management

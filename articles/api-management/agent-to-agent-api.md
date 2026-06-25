@@ -2,8 +2,6 @@
 title: Import an A2A Agent API - Azure API Management
 description: Import and manage A2A agent APIs in Azure API Management. Follow detailed steps to configure, secure, and test your AI agent APIs.
 ms.service: azure-api-management
-author: dlepow
-ms.author: danlep
 ms.topic: how-to
 ms.date: 05/06/2026
 ms.update-cycle: 180-days

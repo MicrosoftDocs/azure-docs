@@ -3,11 +3,9 @@ title: Import an Azure Function App as an API
 titleSuffix: Azure API Management
 description: Learn how to import an Azure function app into Azure API Management as an API.
 services: api-management
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 03/12/2026
-ms.author: danlep
 ms.custom: sfi-image-nochange
 
 #customer intent: As an API developer, I want to import an Azure function app as an API in API Management. 

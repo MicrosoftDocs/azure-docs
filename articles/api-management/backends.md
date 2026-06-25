@@ -2,11 +2,9 @@
 title: Azure API Management Backends | Microsoft Docs
 description: Learn about backends in Azure API Management. Backend entities encapsulate information about backend services, promoting reusability across APIs and governance.
 services: api-management
-author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 05/20/2026
-ms.author: danlep
 ms.custom:
   - build-2024
   - build-2025

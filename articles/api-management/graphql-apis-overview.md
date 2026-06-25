@@ -2,12 +2,10 @@
 title: Support for GraphQL APIs - Azure API Management
 description: Learn about GraphQL and how Azure API Management helps you manage GraphQL APIs.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 09/26/2025
-ms.author: danlep
 ---
 
 # Overview of GraphQL APIs in Azure API Management

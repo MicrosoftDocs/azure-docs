@@ -2,11 +2,9 @@
 title: Azure API Management workspaces preview - breaking changes (March 2025)
 description: Azure API Management is removing support for preview workspaces. If your service uses preview workspaces, migrate your workspaces to the generally available version.
 services: api-management 
-author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 08/19/2025
-ms.author: danlep
 ---
 
 # Workspaces breaking changes, part 2 (March 2025)

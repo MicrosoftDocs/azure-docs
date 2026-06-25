@@ -2,12 +2,10 @@
 title: IP Addresses of API Management | Microsoft Docs
 description: Learn how to retrieve the IP addresses of Azure API Management. Also learn about when IP addresses can change.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 05/13/2025
-ms.author: danlep
 ms.custom:
   - fasttrack-edit
   - sfi-image-nochange

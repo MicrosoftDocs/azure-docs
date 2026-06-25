@@ -2,12 +2,10 @@
 title: Deploy Azure API Management Instance to External Virtual Network
 description: Learn how to deploy (inject) your Azure API instance to a virtual network in external mode and access API backends through it.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 01/08/2026
-ms.author: danlep
 ---
 # Deploy your Azure API Management instance to a virtual network - external mode
 

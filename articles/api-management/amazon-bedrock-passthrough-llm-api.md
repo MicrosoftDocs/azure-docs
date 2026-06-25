@@ -2,8 +2,6 @@
 title: Import Amazon Bedrock Passthrough API - Azure API Management
 description: How to import an Amazon Bedrock language model API as a REST API in Azure API Management.
 ms.service: azure-api-management
-author: dlepow
-ms.author: danlep
 ms.topic: how-to
 ms.date: 02/26/2026
 ms.update-cycle: 180-days

@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - cache-store | Microsoft Docs
 description: Reference for the cache-store policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 11/24/2025
-ms.author: danlep
 ---
 
 # Store to cache

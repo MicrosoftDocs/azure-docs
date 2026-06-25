@@ -2,8 +2,6 @@
 title: Azure API Management - Trusted service connectivity retirement (March 2026)
 description: Azure API Management is retiring trusted service connectivity by the gateway to supported Azure services as of March 2026. Use alternative networking options for secure connectivity.
 #customer intent: As an Azure admin, I want to determine if my API Management service is affected by the trusted service connectivity retirement so that I can plan necessary changes.
-author: dlepow
-ms.author: danlep
 ms.date: 01/15/2026
 ms.topic: reference
 ms.service: azure-api-management
