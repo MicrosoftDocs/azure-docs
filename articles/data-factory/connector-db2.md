@@ -18,6 +18,10 @@ ms.custom:
 
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a DB2 database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric IBM DB2 connector documentation](/fabric/data-factory/connector-ibm-db2-database-overview).
+
+
 ## Supported capabilities
 
 This DB2 connector is supported for the following capabilities:
