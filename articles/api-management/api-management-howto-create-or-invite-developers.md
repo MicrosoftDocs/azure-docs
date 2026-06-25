@@ -2,11 +2,9 @@
 title: How to manage user accounts in Azure API Management
 description: Learn how to create or invite users and manage developer accounts in Azure API Management. View other resources to use after creating a developer account.
 services: api-management
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 01/30/2026
-ms.author: danlep
 ms.custom: sfi-image-nochange
 #customer intent: As the manager of an API, I need to know how to let developers access that API using Azure API Management.
 ---

@@ -1,11 +1,9 @@
 ---
 title: Enable Availability Zones for Azure API Management Instances
 description: Learn how to enable and configure availability zone support on your Premium tier Azure API Management instances to help ensure reliability.
-author: dlepow 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 06/16/2026
-ms.author: danlep
 ms.custom: references_regions, subject-reliability
 #Customer intent: As an engineer responsible for business continuity, I want to learn how to enable zone redundancy for my Azure API Management instances. 
 ---

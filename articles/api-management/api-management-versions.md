@@ -2,12 +2,10 @@
 title: Versions in Azure API Management | Microsoft Docs
 description: Learn about versions in Azure API Management. Versions allow you to present groups of related APIs to your developers.
 services: api-management
-author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 05/12/2025
-ms.author: danlep
 
 #Customer intent: As an API developer, I want to use versions in API Management so that I can safely handle breaking changes in my API.
 ---
