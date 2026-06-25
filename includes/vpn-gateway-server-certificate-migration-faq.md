@@ -30,7 +30,7 @@ If end users don't have the new profile installed, they won't be able to connect
 
 #### Why does my VPN gateway have both the old and new root certificates?
 
-During gateway certificate migration, Azure VPN Gateway temporarily supports both the old and new root certificates. This transition period gives administrators time to download and redistribute updated P2S VPN client profiles to users and devices. After the migration deadline end of January'2027, only the new certificate is valid.
+During gateway certificate migration, Azure VPN Gateway temporarily supports both the old and new root certificates. This transition period gives administrators time to download and redistribute updated P2S VPN client profiles to users and devices. After the migration deadline at the end of January 2027, only the new certificate is valid.
 
 ### Prerequisites and permissions
 
