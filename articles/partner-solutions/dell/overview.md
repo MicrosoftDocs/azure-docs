@@ -35,7 +35,7 @@ The following features distinguish Dell PowerScale:
 
 ## Subscribe to Dell PowerScale
 
-[!INCLUDE [subscribe](../includes/subscribe.md)] **Dell PowerScale**.
+[!INCLUDE [subscribe](../includes/subscribe.md)] **Dell PowerScale for Azure - Dell managed**.
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
