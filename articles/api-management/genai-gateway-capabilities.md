@@ -2,13 +2,11 @@
 title: AI gateway capabilities in Azure API Management
 description: Learn about Azure API Management's policies and features to manage, secure, scale, monitor, and govern LLM deployments, AI APIs, and MCP servers accessed by your AI apps and agents.
 services: api-management
-author: dlepow
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.topic: concept-article
 ms.date: 05/29/2026
 ms.update-cycle: 180-days
-ms.author: danlep
 ms.custom:
   - build-2025
 ---
