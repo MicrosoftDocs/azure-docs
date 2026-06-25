@@ -2,12 +2,10 @@
 title: Tutorial - Monitor APIs in Azure API Management | Microsoft Docs
 description: Learn how to use metrics, alerts, activity logs, and resource logs to monitor your APIs in Azure API Management.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: tutorial
 ms.date: 07/09/2025
-ms.author: danlep
 ms.custom:
   - engagement-fy23
   - devdivchpfy22

@@ -3,12 +3,10 @@ title: Configure Notifications and Email Templates
 titleSuffix: Azure API Management
 description: Learn how to configure notifications and email templates for events in Azure API Management.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 09/30/2025
-ms.author: danlep
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange

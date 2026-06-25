@@ -2,12 +2,10 @@
 title: API Authentication and Authorization - Overview
 titleSuffix: Azure API Management
 description: Learn about authentication and authorization features in Azure API Management to secure access to APIs, including options for OAuth 2.0 authorization.
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 09/25/2025
-ms.author: danlep
 ---
 
 # Authentication and authorization to APIs in Azure API Management
