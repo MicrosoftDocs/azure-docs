@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: quickstart
-ms.date: 06/22/2026
+ms.date: 06/19/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -15,21 +15,17 @@ ms.custom:
 
 # Quickstart: Get insights from your processed data
 
-In this quickstart, you populate a [real-time dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to capture insights from the OPC UA data that you sent to Event Hubs in the previous quickstart. Using Microsoft Fabric Real-Time Intelligence, you bring your data from Event Hubs into Microsoft Fabric, and map it into a KQL database that can be a source for real-time dashboards. Then, you build a dashboard to display that data in visual tiles that capture insights and show the values over time.
-
-These operations are the last steps in the sample end-to-end quickstart experience, which goes from deploying Azure IoT Operations at the edge through getting insights from that device data in the cloud.
+[!INCLUDE [get-insights-intro](../includes/get-insights-intro.md)]
 
 ## Prerequisites
 
 Before you begin this quickstart, complete the previous Azure IoT Operations quickstarts.
 
-You also need to have the following Fabric resources:
-* A Microsoft Fabric subscription. In your subscription, you need access to a workspace with **Contributor** or above permissions.
-* A Fabric tenant that allows the creation of real-time dashboards. Your tenant administrator can enable this setting. For more information, see [Enable tenant settings in the admin portal](/fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
+[!INCLUDE [get-insights-fabric-prerequisites](../includes/get-insights-fabric-prerequisites.md)]
 
 ## What problem will we solve?
 
-When your OPC UA data arrives in the cloud, there's a lot of information available to analyze. You might want to organize that data and create reports containing graphs and visualizations to derive insights from the data. The steps in this quickstart illustrate how to connect that data to Real-Time Intelligence and create a real-time dashboard.
+[!INCLUDE [get-insights-problem](../includes/get-insights-problem.md)]
 
 ## Ingest data into Real-Time Intelligence
 
