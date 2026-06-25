@@ -33,7 +33,7 @@ Besides the on-premises Active Directory, Azure offers a managed Active Director
 The above doesn't affect the usage of Microsoft Entra accounts for single-sign-on (SSO) scenarios with SAP applications. 
 
 ## 2-Tier configuration
-An SAP 2-Tier configuration is considered to be built up out of a combined layer of the SAP DBMS and application layer that run on the same server or VM unit. The second tier is considered to be the user interface layer. For a 2-Tier configuration, the DBMS, and SAP application layer share the resources of the Azure VM. As a result, you need to configure the different components in a way that these components don't compete for resources. You also need to be careful to not oversubscribe the resources of the VM. Such a configuration doesn't provide any high availability, beyond the [Azure Service Level agreements](https://azure.microsoft.com/support/legal/sla/) of the different Azure components involved.
+An SAP 2-Tier configuration is considered to be built up out of a combined layer of the SAP DBMS and application layer that run on the same server or VM unit. The second tier is considered to be the user interface layer. For a 2-Tier configuration, the DBMS and SAP application layers share the resources of the Azure VM. As a result, you need to configure the different components in a way that these components don't compete for resources. You also need to be careful to not oversubscribe the resources of the VM. Such a configuration doesn't provide any high availability, beyond the [Azure Service Level agreements](https://azure.microsoft.com/support/legal/sla/) of the different Azure components involved.
 
 A graphical representation of such a configuration can look like:
 
@@ -82,7 +82,7 @@ In order to have support for such a configuration for Azure VMs, it's expected t
 
 
 ## Multiple SAP Dialog instances in one VM
-In many cases, multiple dialog instances got deployed on bare metal servers or even in VMs running in private clouds. Reason for such configurations was to tailor certain SAP dialog instances to certain workload, business functionality, or workload types. Reason for not isolating those instances into separate VMs was the effort of operating system maintenance and operations. Or in numerous cases the costs in case the hoster or operator of the VM is asking for a monthly fee per VM operated and administrated. In Azure, a scenario of hosting multiple SAP dialog instances within a single VM us supported for production and non-production purposes on the operating systems of Windows, Red Hat, SUSE, and Oracle Linux. The SAP kernel parameter PHYS_MEMSIZE,  available on Windows and modern Linux kernels, should be set if multiple SAP Application Server instances are running on a single VM. it's also advised limiting the expansion of SAP Extended Memory on operating systems, like Windows where automatic growth of the SAP extended Memory is implemented. This can be done with the SAP profile parameter `em/max_size_MB`.
+In many cases, multiple dialog instances got deployed on bare metal servers or even in VMs running in private clouds. Reason for such configurations was to tailor certain SAP dialog instances to certain workload, business functionality, or workload types. Reason for not isolating those instances into separate VMs was the effort of operating system maintenance and operations. Or in numerous cases the costs in case the hoster or operator of the VM is asking for a monthly fee per VM operated and administrated. In Azure, a scenario of hosting multiple SAP dialog instances within a single VM us supported for production and non-production purposes on the operating systems of Windows, Red Hat, SUSE, and Oracle Linux. The SAP kernel parameter PHYS_MEMSIZE,  available on Windows and modern Linux kernels, should be set if multiple SAP Application Server instances are running on a single VM. It's also advised to limit the expansion of SAP Extended Memory on operating systems, like Windows where automatic growth of the SAP extended Memory is implemented. This can be done with the SAP profile parameter `em/max_size_MB`.
 
 At 3-Tier configuration where multiple SAP dialog instances are run within Azure VMs can look like:
 
@@ -142,7 +142,7 @@ Other high availability frameworks are known to exist and are known to run on Mi
 - Support of the architecture
 
 > [!IMPORTANT]
-> Microsoft Azure Marketplace offers a variety of soft appliances that provide storage solutions on top of Azure native storage. These soft appliances can be used to create NFS shares as well that theoretically could be used in the SAP HANA scale-out deployments where a standby node is required. Due to various reasons, none of these storage soft appliances is supported for any of the DBMS deployments by Microsoft and SAP on Azure. Deployments of DBMS on SMB shares isn't supported at all at this point in time. Deployments of DBMS on NFS shares is limited to NFS 4.1 shares on [Azure NetApp Files](https://azure.microsoft.com/services/netapp/).
+> Microsoft Azure Marketplace offers a variety of soft appliances that provide storage solutions on top of Azure native storage. These soft appliances can be used to create NFS shares as well that theoretically could be used in the SAP HANA scale-out deployments where a standby node is required. Due to various reasons, none of these storage soft appliances is supported for any of the DBMS deployments by Microsoft and SAP on Azure. Deployment of DBMS on SMB shares isn't supported at all at this point in time. Deployment of DBMS on NFS shares is limited to NFS 4.1 shares on [Azure NetApp Files](https://azure.microsoft.com/services/netapp/).
 
 
 ## High Availability for SAP Central Service
@@ -182,13 +182,12 @@ In the list shown, There's no mentioning of the Oracle Linux operating system. O
 ### Supported storage with the SAP Central Services scenarios listed above
 Since only a subset of Azure storage types is providing highly available NFS or SMB shares that quality for the usage in our SAP Central Services cluster scenarios a list of supported storage types
 
-- Windows Failover Cluster Server with Windows Scale-out File Server can be deployed on all native Azure storage types, except Azure NetApp Files. However, recommendation is to use Premium Storage due to superior service level agreements in throughput and IOPS.
-- Windows Failover Cluster Server with SMB on Azure NetApp Files is supported on Azure NetApp Files. SMB shares hosted on Azure Premium File services are supported for this scenario as well. Azure Standard Files isn't supported
-- Windows Failover Cluster Server with windows shared disk based on SIOS `Datakeeper` can be deployed on all native Azure storage types, except Azure NetApp Files. However, recommendation is to use Premium Storage due to superior service level agreements in throughput and IOPS.
-- SUSE or Red Hat Pacemaker using NFS shares on Azure NetApp Files is supported.
-- SUSE or Red Hat Pacemaker using NFS shares on Azure Premium Files using LRS or ZRS s supported. Azure Standard Files isn't supported
-- SUSE Pacemaker using a `drdb` configuration between two VMs is supported using native Azure storage types, except Azure NetApp Files. However, we recommend using one of the first party services with Azure Premium Files or Azure NetApp Files.
-- Red Hat Pacemaker using `glusterfs` for providing NFS share is supported using native Azure storage types, except Azure NetApp Files. However, we recommend using one of the first party services with Azure Premium Files or Azure NetApp Files.
+- Windows Failover Cluster Server with Windows Scale-out File Server can be deployed on Azure managed disks. We recommend Premium SSD for its superior service-level agreements in throughput and IOPS.
+- Windows Failover Cluster Server using an SMB file share is supported when the share is hosted on Azure Files SSD or Azure NetApp Files. Azure Files HDD isn't supported.
+- Windows Failover Cluster Server with a Windows shared disk based on SIOS `Datakeeper` can be deployed on Azure managed disks. We recommend Premium SSD for its superior service-level agreements in throughput and IOPS.
+- SUSE or Red Hat Pacemaker using NFS shares is supported when the share is hosted on Azure Files SSD (LRS or ZRS) or Azure NetApp Files. Azure Files HDD isn't supported.
+- SUSE Pacemaker using a `drdb` configuration between two VMs is supported on Azure managed disks. However, we recommend using one of the first-party services, Azure Files SSD or Azure NetApp Files, instead.
+- Red Hat Pacemaker using `glusterfs` for providing NFS share is supported on Azure managed disks. However, we recommend using one of the first-party services, Azure Files SSD or Azure NetApp Files, instead.
 
 > [!IMPORTANT]
 > Microsoft Azure Marketplace offers a variety of soft appliances that provide storage solutions on top of Azure native storage. These storage soft appliances can be used to create NFS or SMB shares as well that theoretically could be used in the failover clustered SAP Central Services as well. These solutions aren't directly supported for SAP workload by Microsoft. If you decide to use such a solution to create your NFS or SMB share, support for the SAP Central Service configuration needs to be provided by the third-party owning the software in the storage soft appliance.
@@ -237,9 +236,9 @@ For further information on exact storage configurations with or without standby 
 There's a variety of disaster recovery scenarios that are supported. We define Disaster architectures as architectures, which should compensate for a complete Azure region going off the grid. This means we need the disaster recovery target to be a different Azure region as target to run your SAP landscape. We separate methods and configurations in DBMS layer and non-DBMS layer.
 
 ### DBMS layer
-For the DBMS layer, configurations using the DBMS native replication mechanisms, like Always On, Oracle Data Guard, Db2 HADR, SAP ASE Always-On, or HANA System Replication are supported. it's mandatory that the replication stream in such cases is asynchronous, instead of synchronous as in typical high availability scenarios that are deployed within a single Azure region. A typical example of such a supported DBMS disaster recovery configuration is described in the article [SAP HANA availability across Azure regions](./sap-hana-availability-across-regions.md#combine-availability-within-one-region-and-across-regions). The second graphic in that section describes a scenario with HANA as an example. The main databases supported for SAP applications are all able to be deployed in such a scenario.
+For the DBMS layer, configurations using the DBMS native replication mechanisms, like Always On, Oracle Data Guard, Db2 HADR, SAP ASE Always-On, or HANA System Replication are supported. It's mandatory that the replication stream in such cases is asynchronous, instead of synchronous as in typical high availability scenarios that are deployed within a single Azure region. A typical example of such a supported DBMS disaster recovery configuration is described in the article [SAP HANA availability across Azure regions](./sap-hana-availability-across-regions.md#combine-availability-within-one-region-and-across-regions). The second graphic in that section describes a scenario with HANA as an example. The main databases supported for SAP applications are all able to be deployed in such a scenario.
 
-it's supported to use a smaller VM as target instance in the disaster recovery region since that VM doesn't experience the full workload traffic. Doing so, you need to keep the following considerations in mind:
+It's supported to use a smaller VM as target instance in the disaster recovery region since that VM doesn't experience the full workload traffic. Doing so, you need to keep the following considerations in mind:
 
 - Smaller VM types don't allow that many disks attached than smaller VMs
 - Smaller VMs have less network and storage throughput
@@ -251,7 +250,7 @@ More details on limitations of different VM sizes can be found on the [VM sizes]
 Another supported method of deploying a DR target is to have a second DBMS instance installed on a VM that runs a non-production DBMS instance of a non-production SAP instance. This can be a bit more challenging since you need to figure out what on memory, CPU resources, network bandwidth, and storage bandwidth is needed for the particular target instances that should function as main instance in the DR scenario. Especially in HANA it's highly recommended that you're configuring the instance that functions as DR target on a shared host so that the data isn't pre-loaded into the DR target instance.
 
 > [!NOTE]
-> Usage of [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) has not been tested for DBMS deployments under SAP workload. As a result it's not supported for the DBMS layer of SAP systems at this point in time. Other methods of replications by Microsoft and SAP that aren't listed aren't supported. Using third party software for replicating the DBMS layer of SAP systems between different Azure Regions, needs to be supported by the vendor of the software and will not be supported through Microsoft and SAP support channels.
+> Usage of [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) has not been tested for DBMS deployments under SAP workload. As a result it's not supported for the DBMS layer of SAP systems at this point in time. Other methods of replications by Microsoft and SAP that aren't listed aren't supported. Using third party software for replicating the DBMS layer of SAP systems between different Azure Regions needs to be supported by the vendor of the software and will not be supported through Microsoft and SAP support channels.
 
 ## Non-DBMS layer
 For the SAP application layer and eventual shares or storage locations that are needed, the two major scenarios are used by customers:
@@ -282,7 +281,7 @@ Other scenarios, which aren't supported are scenarios like:
 	- Deploying the two layers with two different cloud vendors. For example, deploying the DBMS tier in Oracle Cloud Infrastructure and the application tier in Azure
 - Multi-Instance HANA Pacemaker cluster configurations
 - Windows Cluster configurations with shared disks through SOFS or SMB on ANF for SAP databases supported on Windows. Instead we recommend the usage of native high availability replication of the particular databases and use separate storage stacks
-- Deployment of SAP databases supported on Linux with database files that are located in NFS shares on top of ANF except for SAP HANA, Oracle on Oracle Linux, and Db2 on Suse and Red Hat
+- Deployment of SAP databases supported on Linux with database files that are located in NFS shares on top of ANF except for SAP HANA, Oracle on Oracle Linux, and Db2 on SUSE and Red Hat
 - Deployment of Oracle DBMS on any other guest OS than Windows and Oracle Linux. See also [SAP support note #2039619](https://launchpad.support.sap.com/#/notes/2039619)
 
 Scenario(s) that we didn't test and therefore have no experience with list like:

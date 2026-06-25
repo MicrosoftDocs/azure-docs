@@ -5,7 +5,7 @@ description: Learn how to troubleshoot connector issues in Azure Data Factory an
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 06/10/2025
+ms.date: 06/17/2026
 ms.author: jianleishen
 ai-usage: ai-assisted
 ms.custom:
@@ -18,7 +18,7 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes how to troubleshoot connectors in Azure Data Factory and Azure Synapse Analytics. If you do not see your specific error message listed here, you can follow these steps:
+This article describes how to troubleshoot connectors in Azure Data Factory and Azure Synapse Analytics. If you don't see your specific error message listed here, you can follow these steps:
 
 1. Check the full error message. Some error messages provide guidance to resolve the issue.
 1. Check [your connector's troubleshooting page](#connector-specific-problems) for more details.
@@ -51,18 +51,18 @@ You can refer to the troubleshooting pages for each connector to see problems sp
 
 The following errors are general to the copy activity and could occur with any connector.
 
-#### <a name="error-code-usererrorodbcoperationfailed"></a> Error code: 2200 - UserErrorOdbcOperationFailed
+#### <a id="error-code-usererrorodbcoperationfailed"></a> Error code: 2200 - UserErrorOdbcOperationFailed
 
 - **Message**: `The underlying connection was closed: An unexpected error occurred on a send.`
 
 - **Cause**: This typically indicates an authentication failure during data transfer operations. This can occur when the remote party closes the transport stream.
 
 - **Recommendation**:
-  - Verify the source connection and test it to ensure it is functioning correctly.
+  - Verify the source connection and test it to ensure it's functioning correctly.
   - Check the authentication method used for the connection.
   - Review firewall configuration settings for Azure Cosmos DB to ensure they allow the necessary traffic.
 
-#### <a name="error-code-jrenotfound"></a> Error code: 20000 - JreNotFound
+#### <a id="error-code-jrenotfound"></a> Error code: 20000 - JreNotFound
 
 - **Message**: `Java Runtime Environment cannot be found on the Self-hosted Integration Runtime machine. It is required for parsing or writing to Parquet/ORC files. Make sure Java Runtime Environment has been installed on the Self-hosted Integration Runtime machine.`
 
@@ -70,7 +70,7 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Recommendation**:  Check your integration runtime environment, see [Use Self-hosted Integration Runtime](./format-parquet.md#using-self-hosted-integration-runtime).
 
-#### <a name="error-code-jniexception"></a> Error code: 20002 - JniException
+#### <a id="error-code-jniexception"></a> Error code: 20002 - JniException
 
 - **Message**: `An error occurred when invoking Java Native Interface.`
 
@@ -78,7 +78,7 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Recommendation**: Sign in to the machine that hosts *each node* of your self-hosted integration runtime. Check to ensure that the system variable is set correctly, as follows: `_JAVA_OPTIONS "-Xms256m -Xmx16g" with memory bigger than 8G`. Restart all the integration runtime nodes, and then rerun the pipeline.
 
-#### <a name="error-code-wildcardpathsinknotsupported"></a> Error code: 20020 - WildcardPathSinkNotSupported
+#### <a id="error-code-wildcardpathsinknotsupported"></a> Error code: 20020 - WildcardPathSinkNotSupported
 
 - **Message**: `Wildcard in path is not supported in sink dataset. Fix the path: '%setting;'.`
 
@@ -107,7 +107,7 @@ The following errors are general to the copy activity and could occur with any c
 
     If you use an on-premises data gateway instead of a self-hosted IR, see [FIPS issue](/fabric/data-factory/connector-troubleshoot-overview#fips-issue) for gateway-specific steps.
 
-#### <a name="error-code-getoauth2accesstokenerrorresponse"></a> Error code: 20150 - GetOAuth2AccessTokenErrorResponse
+#### <a id="error-code-getoauth2accesstokenerrorresponse"></a> Error code: 20150 - GetOAuth2AccessTokenErrorResponse
 
 - **Message**: `Failed to get access token from your token endpoint. Error returned from your authorization server: %errorResponse;.`
 
@@ -115,7 +115,7 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Recommendation**: Correct all OAuth2 client credential flow settings of your authorization server.
 
-#### <a name="error-code-failedtogetoauth2accesstoken"></a> Error code: 20151 - FailedToGetOAuth2AccessToken
+#### <a id="error-code-failedtogetoauth2accesstoken"></a> Error code: 20151 - FailedToGetOAuth2AccessToken
 
 - **Message**: `Failed to get access token from your token endpoint. Error message: %errorMessage;.`
 
@@ -123,7 +123,7 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Recommendation**: Correct all OAuth2 client credential flow settings of your authorization server.
 
-#### <a name="error-code-oauth2accesstokentypenotsupported"></a> Error code: 20152 - OAuth2AccessTokenTypeNotSupported
+#### <a id="error-code-oauth2accesstokentypenotsupported"></a> Error code: 20152 - OAuth2AccessTokenTypeNotSupported
 
 - **Message**: `The token type '%tokenType;' from your authorization server is not supported, supported types: '%tokenTypes;'.`
 
@@ -131,7 +131,7 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Recommendation**: Use an authorization server that can return tokens with supported token types.
 
-#### <a name="error-code-oauth2clientidcolonnotallowed"></a> Error code: 20153 - OAuth2ClientIdColonNotAllowed
+#### <a id="error-code-oauth2clientidcolonnotallowed"></a> Error code: 20153 - OAuth2ClientIdColonNotAllowed
 
 - **Message**: `The character colon(:) is not allowed in clientId for OAuth2ClientCredential authentication.`
 
@@ -139,13 +139,13 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Recommendation**: Use a valid client ID.
 
-#### <a name="error-code-managedidentitycredentialobjectnotsupported"></a> Error code: 20523 - ManagedIdentityCredentialObjectNotSupported
+#### <a id="error-code-managedidentitycredentialobjectnotsupported"></a> Error code: 20523 - ManagedIdentityCredentialObjectNotSupported
 
 - **Message**: `Managed identity credential is not supported in this version ('%version;') of Self Hosted Integration Runtime.`
 
 - **Recommendation**: Check the supported version and upgrade the integration runtime to a higher version.
 
-#### <a name="error-code-querymissingformatsettingsindataset"></a> Error code: 20551 - QueryMissingFormatSettingsInDataset
+#### <a id="error-code-querymissingformatsettingsindataset"></a> Error code: 20551 - QueryMissingFormatSettingsInDataset
 
 - **Message**: `The format settings are missing in dataset %dataSetName;.`
 
@@ -157,25 +157,25 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Recommendation**: Deselect the "Binary copy" in the dataset, and set correct format settings.
 
-#### <a name="error-code-queryunsupportedcommandbehavior"></a> Error code: 20552 - QueryUnsupportedCommandBehavior
+#### <a id="error-code-queryunsupportedcommandbehavior"></a> Error code: 20552 - QueryUnsupportedCommandBehavior
 
 - **Message**: `The command behavior "%behavior;" is not supported.`
 
 - **Recommendation**: Don't add the command behavior as a parameter for preview or GetSchema API request URL.
 
-#### <a name="error-code-dataconsistencyfailedtogetsourcefilemetadata"></a> Error code: 20701 - DataConsistencyFailedToGetSourceFileMetadata
+#### <a id="error-code-dataconsistencyfailedtogetsourcefilemetadata"></a> Error code: 20701 - DataConsistencyFailedToGetSourceFileMetadata
 
 - **Message**: `Failed to retrieve source file ('%name;') metadata to validate data consistency.`
 
 - **Cause**: There's a transient issue on the sink data store, or retrieving metadata from the sink data store isn't allowed.
 
-#### <a name="error-code-dataconsistencyfailedtogetsinkfilemetadata"></a> Error code: 20703 - DataConsistencyFailedToGetSinkFileMetadata
+#### <a id="error-code-dataconsistencyfailedtogetsinkfilemetadata"></a> Error code: 20703 - DataConsistencyFailedToGetSinkFileMetadata
 
 - **Message**: `Failed to retrieve sink file ('%name;') metadata to validate data consistency.`
 
 - **Cause**: There's a transient issue on the sink data store, or retrieving metadata from the sink data store isn't allowed.
 
-#### <a name="error-code-dataconsistencyvalidationnotsupportedfornondirectbinarycopy"></a> Error code: 20704 - DataConsistencyValidationNotSupportedForNonDirectBinaryCopy
+#### <a id="error-code-dataconsistencyvalidationnotsupportedfornondirectbinarycopy"></a> Error code: 20704 - DataConsistencyValidationNotSupportedForNonDirectBinaryCopy
 
 - **Message**: `Data consistency validation is not supported in current copy activity settings.`
 
@@ -183,73 +183,73 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Recommendation**: Remove the 'validateDataConsistency' property in the copy activity payload.
 
-#### <a name="error-code-dataconsistencyvalidationnotsupportedforlowversionselfhostedintegrationruntime"></a> Error code: 20705 - DataConsistencyValidationNotSupportedForLowVersionSelfHostedIntegrationRuntime
+#### <a id="error-code-dataconsistencyvalidationnotsupportedforlowversionselfhostedintegrationruntime"></a> Error code: 20705 - DataConsistencyValidationNotSupportedForLowVersionSelfHostedIntegrationRuntime
 
 - **Message**: `'validateDataConsistency' is not supported in this version ('%version;') of Self Hosted Integration Runtime.`
 
 - **Recommendation**: Check the supported integration runtime version and upgrade it to a higher version, or remove the 'validateDataConsistency' property from copy activities.
 
-#### <a name="error-code-skipmissingfilenotsupportedfornondirectbinarycopy"></a> Error code: 20741 - SkipMissingFileNotSupportedForNonDirectBinaryCopy
+#### <a id="error-code-skipmissingfilenotsupportedfornondirectbinarycopy"></a> Error code: 20741 - SkipMissingFileNotSupportedForNonDirectBinaryCopy
 
 - **Message**: `Skip missing file is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
 
 - **Recommendation**: Remove 'fileMissing' of the skipErrorFile setting in the copy activity payload.
 
-#### <a name="error-code-skipinconsistencydatanotsupportedfornondirectbinarycopy"></a> Error code: 20742 - SkipInconsistencyDataNotSupportedForNonDirectBinaryCopy
+#### <a id="error-code-skipinconsistencydatanotsupportedfornondirectbinarycopy"></a> Error code: 20742 - SkipInconsistencyDataNotSupportedForNonDirectBinaryCopy
 
 - **Message**: `Skip inconsistency is not supported in current copy activity settings, it's only supported with direct binary copy when validateDataConsistency is true.`
 
 - **Recommendation**: Remove 'dataInconsistency' of the skipErrorFile setting in the copy activity payload.
 
-#### <a name="error-code-skipforbiddenfilenotsupportedfornondirectbinarycopy"></a> Error code: 20743 - SkipForbiddenFileNotSupportedForNonDirectBinaryCopy
+#### <a id="error-code-skipforbiddenfilenotsupportedfornondirectbinarycopy"></a> Error code: 20743 - SkipForbiddenFileNotSupportedForNonDirectBinaryCopy
 
 - **Message**: `Skip forbidden file is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
 
 - **Recommendation**: Remove 'fileForbidden' of the skipErrorFile setting in the copy activity payload.
 
-#### <a name="error-code-skipforbiddenfilenotsupportedforthisconnector"></a> Error code: 20744 - SkipForbiddenFileNotSupportedForThisConnector
+#### <a id="error-code-skipforbiddenfilenotsupportedforthisconnector"></a> Error code: 20744 - SkipForbiddenFileNotSupportedForThisConnector
 
 - **Message**: `Skip forbidden file is not supported for this connector: ('%connectorName;').`
 
 - **Recommendation**: Remove 'fileForbidden' of the skipErrorFile setting in the copy activity payload.
 
-#### <a name="error-code-skipinvalidfilenamenotsupportedfornondirectbinarycopy"></a> Error code: 20745 - SkipInvalidFileNameNotSupportedForNonDirectBinaryCopy
+#### <a id="error-code-skipinvalidfilenamenotsupportedfornondirectbinarycopy"></a> Error code: 20745 - SkipInvalidFileNameNotSupportedForNonDirectBinaryCopy
 
 - **Message**: `Skip invalid file name is not supported in current copy activity settings, it's only supported with direct binary copy with folder.`
 
 - **Recommendation**: Remove 'invalidFileName' of the skipErrorFile setting in the copy activity payload.
 
-#### <a name="error-code-skipinvalidfilenamenotsupportedforsource"></a> Error code: 20746 - SkipInvalidFileNameNotSupportedForSource
+#### <a id="error-code-skipinvalidfilenamenotsupportedforsource"></a> Error code: 20746 - SkipInvalidFileNameNotSupportedForSource
 
 - **Message**: `Skip invalid file name is not supported for '%connectorName;' source.`
 
 - **Recommendation**: Remove 'invalidFileName' of the skipErrorFile setting in the copy activity payload.
 
-#### <a name="error-code-skipinvalidfilenamenotsupportedforsink"></a> Error code: 20747 - SkipInvalidFileNameNotSupportedForSink
+#### <a id="error-code-skipinvalidfilenamenotsupportedforsink"></a> Error code: 20747 - SkipInvalidFileNameNotSupportedForSink
 
 - **Message**: `Skip invalid file name is not supported for '%connectorName;' sink.`
 
 - **Recommendation**: Remove 'invalidFileName' of the skipErrorFile setting in the copy activity payload.
 
-#### <a name="error-code-skipallerrorfilenotsupportedfornonbinarycopy"></a> Error code: 20748 - SkipAllErrorFileNotSupportedForNonBinaryCopy
+#### <a id="error-code-skipallerrorfilenotsupportedfornonbinarycopy"></a> Error code: 20748 - SkipAllErrorFileNotSupportedForNonBinaryCopy
 
 - **Message**: `Skip all error file is not supported in current copy activity settings, it's only supported with binary copy with folder.`
 
 - **Recommendation**: Remove 'allErrorFile' in the skipErrorFile setting in the copy activity payload.
 
-#### <a name="error-code-deletefilesaftercompletionnotsupportedfornondirectbinarycopy"></a> Error code: 20771 - DeleteFilesAfterCompletionNotSupportedForNonDirectBinaryCopy
+#### <a id="error-code-deletefilesaftercompletionnotsupportedfornondirectbinarycopy"></a> Error code: 20771 - DeleteFilesAfterCompletionNotSupportedForNonDirectBinaryCopy
 
 - **Message**: `'deleteFilesAfterCompletion' is not support in current copy activity settings, it's only supported with direct binary copy.`
 
 - **Recommendation**: Remove the 'deleteFilesAfterCompletion' setting or use direct binary copy.
 
-#### <a name="error-code-deletefilesaftercompletionnotsupportedforthisconnector"></a> Error code: 20772 - DeleteFilesAfterCompletionNotSupportedForThisConnector
+#### <a id="error-code-deletefilesaftercompletionnotsupportedforthisconnector"></a> Error code: 20772 - DeleteFilesAfterCompletionNotSupportedForThisConnector
 
 - **Message**: `'deleteFilesAfterCompletion' is not supported for this connector: ('%connectorName;').`
 
 - **Recommendation**: Remove the 'deleteFilesAfterCompletion' setting in the copy activity payload.
 
-#### <a name="error-code-failedtodownloadcustomplugins"></a> Error code: 27002 - FailedToDownloadCustomPlugins
+#### <a id="error-code-failedtodownloadcustomplugins"></a> Error code: 27002 - FailedToDownloadCustomPlugins
 
 - **Message**: `Failed to download custom plugins.`
 
@@ -259,7 +259,7 @@ The following errors are general to the copy activity and could occur with any c
 
 ## General connector errors
 
-#### <a name="error-code-usererrorodbcinvalidquerystring"></a> Error code: 9611 - UserErrorOdbcInvalidQueryString
+#### <a id="error-code-usererrorodbcinvalidquerystring"></a> Error code: 9611 - UserErrorOdbcInvalidQueryString
 
 - **Message**: `The following ODBC Query is not valid: '%'.`
  
@@ -277,7 +277,7 @@ The following errors are general to the copy activity and could occur with any c
 
 ## My error isn't here
 
-If you do not see your specific error message listed here, it could be a connector-specific error, so follow these steps:
+If you don't see your specific error message listed here, it could be a connector-specific error, so follow these steps:
 
 1. Check the full error message. Some error messages provide guidance to resolve the issue.
 1. Check [your connector's troubleshooting page](#connector-specific-problems) for more details.

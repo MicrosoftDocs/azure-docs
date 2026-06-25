@@ -1,8 +1,9 @@
 ---
 title: Install Jetpack
-description: How to Install Jetpack on a VM.
+description: Learn how to manually install Jetpack on an Azure CycleCloud-managed virtual machine when automatic installation isn't used.
 author: mvrequa
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: mirequa
 ---
 

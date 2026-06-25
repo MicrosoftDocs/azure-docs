@@ -1,6 +1,6 @@
-﻿---
-title: How to enable the Analytics Consumption Zone (ACZ) in Azure Data Manager for Energy
-description: Learn how to enable the Analytics Consumption Zone (ACZ) capability on your Azure Data Manager for Energy instance. Configure user-assigned managed identity, storage, and permissions for ACZ.
+---
+title: Enable Analytics Consumption Zone in Azure Data Manager for Energy
+description: Learn how to enable the Analytics Consumption Zone (ACZ) capability on your Azure Data Manager for Energy instance. Configure user-assigned managed identity, storage, and permissions for ACZ instances.
 ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 05/17/2026
@@ -8,94 +8,93 @@ ms.author: nsannala
 author: NSannala
 ms.reviewer: 
 
-#customer intent: As a data engineer, I want to enable the Analytics Consumption Zone so that I can export Azure Data Manager for Energy data to ADLS Gen2.
+#customer intent: As a data engineer, I want to enable the Analytics Consumption Zone capability so that I can export Azure Data Manager for Energy data to Azure Data Lake Storage Gen2.
 
 ---
 
-# How to enable the Analytics Consumption Zone (ACZ)
+# Enable Analytics Consumption Zone
 
-This article explains how to enable the Analytics Consumption Zone (ACZ) capability on your Azure Data Manager for Energy resource. Enablement is a one-time setup process that configures your Azure Data Manager for Energy resource, user-assigned managed identity, and storage account. After enablement, you can create multiple ACZs to sync different Azure Data Manager for Energy data sets to your Azure Data Lake Storage (ADLS) Gen2 account.
+This article explains how to enable the Analytics Consumption Zone (ACZ) capability on your Azure Data Manager for Energy resource. Enablement is a one-time setup process that configures your Azure Data Manager for Energy resource, user-assigned managed identity, and storage account. After enablement, you can create multiple ACZ instances to sync different Azure Data Manager for Energy datasets to your Azure Data Lake Storage Gen2 account.
 
 > [!IMPORTANT]
-> Analytics Consumption Zone is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Analytics Consumption Zone is currently in preview. For legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-> [!NOTE]
-> During the preview, ACZ is only available on Developer Tier instances and requires allowlisting. To enable ACZ on your Azure Data Manager for Energy resource, complete the steps in this article and contact your Microsoft representative.
+During the preview, ACZ is available only on Developer tier instances and requires the use of allow lists. To enable ACZ on your Azure Data Manager for Energy resource, follow the steps in this article and contact your Microsoft representative.
 
 ## Setup overview
 
-The setup configures a managed identity that enables ACZ to access Azure Data Manager for Energy data and write to ADLS Gen2.
+The setup configures a managed identity that enables ACZ to access Azure Data Manager for Energy data and write to Data Lake Storage Gen2.
 
-Complete the following one-time setup tasks to enable ACZ on your Azure Data Manager for Energy resource. After enablement, you can create multiple ACZs using the APIs.
+Finish the following one-time setup tasks to enable ACZ on your Azure Data Manager for Energy resource. After enablement, you can create multiple ACZ instances by using the APIs.
 
 > [!TIP]
-> **Planning your ACZ configuration**  
-> Before creating an ACZ, decide whether you need:
-> - **All catalog data**: Set `allCatalogSync: true` (outside the configuration section) to export all catalog entity types from your partition
-> - **Specific entity types**: Use `catalogKinds` array in the configuration section to export only selected kinds (for example, Wells, Wellbores, Fields)
+> **Plan your ACZ configuration:** Before you create an ACZ instance, decide whether you need:
 >
-> Note: When `allCatalogSync` is true, the `catalogKinds` and `wellboreDDMSKinds` arrays are ignored for catalog data. Wellbore Domain Data Management Service (DDMS) bulk file downloads only occur for kinds listed in `wellboreDDMSKinds`.
+> - **All catalog data**: Set `allCatalogSync: true` (outside the configuration section) to export all catalog entity types from your partition.
+> - **Specific entity types**: Use the `catalogKinds` array in the configuration section to export only selected kinds (for example, Wells, Wellbores, or Fields).
 >
-> See [Tutorial: Use Analytics Consumption Zone (ACZ) APIs](tutorial-analytics-consumption-zone-apis.md) for configuration examples.
+> When `allCatalogSync` is `true`, the `catalogKinds` and `wellboreDDMSKinds` arrays are ignored for catalog data. Wellbore Domain Data Management Service (DDMS) bulk file downloads occur only for kinds listed in `wellboreDDMSKinds`.
+>
+> For configuration examples, see [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md).
 
 | Step | Task |
 |------|------|
-| 1 | Create or use existing ADLS Gen2 storage account |
-| 2 | Create user-assigned managed identity for ACZ |
-| 3 | Assign user-assigned managed identity to Azure Data Manager for Energy resource |
-| 4 | Verify user has entitlement group access |
-| 5 | Grant user-assigned managed identity storage permissions |
-| 6 | Share user-assigned managed identity and Azure Data Manager for Energy instance details with Microsoft |
+| 1 | Create or use an existing Data Lake Storage Gen2 storage account. |
+| 2 | Create a user-assigned managed identity for ACZ. |
+| 3 | Assign a user-assigned managed identity to Azure Data Manager for Energy resource. |
+| 4 | Verify that the user has entitlement group access. |
+| 5 | Grant user-assigned managed identity storage permissions. |
+| 6 | Share user-assigned managed identity and Azure Data Manager for Energy instance details with Microsoft. |
 
 ## Prerequisites
 
 - An active Azure subscription. [Create a subscription for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure Data Manager for Energy instance (Developer Tier) with at least one data partition. [Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
+- An Azure Data Manager for Energy instance (Developer tier) with at least one data partition. [Create an Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md).
 - The [Azure CLI](/cli/azure/install-azure-cli) installed on your machine, or access to [Azure Cloud Shell](../cloud-shell/overview.md).
 
-## Step 1: Create or use an existing ADLS Gen2 storage account
+## Step 1: Create or use an existing Data Lake Storage Gen2 storage account
 
-ACZ requires an Azure Data Lake Storage Gen2 storage account with hierarchical namespace enabled to store the synchronized data. If you don't already have one, create it:
+ACZ requires an Azure Data Lake Storage Gen2 storage account with hierarchical namespace enabled to store the synchronized data. If you don't already have one, create it.
 
 1. In the [Azure portal](https://portal.azure.com/), select **Create a resource** > **Storage account**.
-2. On the **Basics** tab, select your subscription and resource group.
-3. Enter a storage account name and select your preferred region.
-4. On the **Advanced** tab, select **Enable hierarchical namespace**.
-5. Select **Review + create**, then select **Create**.
+1. On the **Basics** tab, select your subscription and resource group.
+1. Enter a storage account name and select your preferred region.
+1. On the **Advanced** tab, select **Enable hierarchical namespace**.
+1. Select **Review + create**, and then select **Create**.
 
-> [!IMPORTANT]
-> You're responsible for selecting an in-geo destination storage account if you have data residency requirements. ACZ exports data to the ADLS Gen2 storage account you specify, regardless of location.
+You're responsible for selecting an in-geo destination storage account if you have data residency requirements. ACZ exports data to the Data Lake Storage Gen2 storage account that you specify, regardless of location.
 
 ## Step 2: Create a user-assigned managed identity for ACZ
 
-ACZ uses a user-assigned managed identity to write data to ADLS Gen2. Create a dedicated identity for ACZ:
+ACZ uses a user-assigned managed identity to write data to Data Lake Storage Gen2, so you need to create a dedicated identity for ACZ.
 
 > [!IMPORTANT]
-> Microsoft recommends creating a dedicated user-assigned managed identity for ACZ rather than reusing identities from other services like Customer-Managed Encryption Keys (CMEK) or External Data Sources (EDS). A dedicated identity provides:
-> - **Clear audit trails**: Separate identity makes it easier to track ACZ-specific operations in audit logs
-> - **Independent lifecycle management**: You can rotate, update, or remove ACZ identity without affecting other services
-> - **Granular access control**: ACZ identity gets only the permissions it needs (Storage Blob Data Contributor) without inheriting unnecessary permissions
-> - **Simplified troubleshooting**: Issues with ACZ permissions don't affect CMEK, EDS, or other services
+> Microsoft recommends that you create a dedicated user-assigned managed identity for ACZ rather than reusing identities from other services like customer-managed encryption keys (CMEKs) or external data sources (EDS). A dedicated identity provides:
+>
+> - **Clear audit trails**: Separate identity makes it easier to track ACZ-specific operations in audit logs.
+> - **Independent lifecycle management**: Independent control lets you rotate, update, or remove ACZ identity without affecting other services.
+> - **Granular access control**: ACZ identity gets only the permissions it needs (Storage Blob Data Contributor) without inheriting unnecessary permissions.
+> - **Simplified troubleshooting**: Issues with ACZ permissions don't affect CMEKs, EDS, or other services.
 
 To create a user-assigned managed identity:
 
 1. In the [Azure portal](https://portal.azure.com/), search for **Managed Identities** and select it.
-2. Select **+ Create**.
-3. Select your subscription, resource group, region, and provide a name for the identity.
-4. Select **Review + create**, then select **Create**.
+1. Select **+ Create**.
+1. Select your subscription, resource group, and region, and provide a name for the identity.
+1. Select **Review + create**, and then select **Create**.
 
 ## Step 3: Assign the user-assigned managed identity to your Azure Data Manager for Energy resource
 
-Assign the user-assigned managed identity you created in Step 2 to your Azure Data Manager for Energy resource.
+Assign the user-assigned managed identity that you created in Step 2 to your Azure Data Manager for Energy resource.
 
 > [!IMPORTANT]
-> This step uses Azure Resource Manager PUT operations, which **replace the entire resource configuration**. You must include ALL existing properties (CORS, encryption, network settings, tags, and identities) in your PUT request—omitting properties deletes them from your instance.
+> This step uses Azure Resource Manager `PUT` operations, which *replace the entire resource configuration*. You must include *all* existing properties (CORS, encryption, network settings, tags, and identities) in your `PUT` request. Omitting properties deletes them from your instance.
 
-Follow these three substeps to safely attach the managed identity:
+Follow these three substeps to safely attach the managed identity.
 
 ### Step 3.1: Get current configuration
 
-First, retrieve your complete Azure Data Manager for Energy instance configuration.
+Retrieve your complete Azure Data Manager for Energy instance configuration.
 
 #### [Bash](#tab/bash)
 
@@ -143,18 +142,17 @@ Get-Content adme-config.json
 
 ---
 
-**Replace the placeholders:**
+#### Replace the placeholders
 
 | Placeholder | Description |
 |---|---|
-| `{subscription-id}` | Subscription ID where Azure Data Manager for Energy resides |
-| `{resource-group}` | The resource group containing your Azure Data Manager for Energy resource |
-| `{adme-instance-name}` | Your Azure Data Manager for Energy resource name |
+| `{subscription-id}` | The subscription ID where Azure Data Manager for Energy resides. |
+| `{resource-group}` | The resource group that contains your Azure Data Manager for Energy resource. |
+| `{adme-instance-name}` | Your Azure Data Manager for Energy resource name. |
 
-> [!TIP]
-> The command displays the full JSON configuration without truncation. Review the `adme-config.json` file content carefully, as you need to copy specific values from it for Step 3.2.
+The command displays the full JSON configuration without truncation. Review the `adme-config.json` file content carefully. You need to copy specific values from it for Step 3.2.
 
-### Step 3.2: Update configuration with managed identity
+### Step 3.2: Update the configuration with managed identity
 
 Update the configuration by adding your managed identity while preserving all existing properties.
 
@@ -232,25 +230,25 @@ Invoke-RestMethod -Uri $uri -Method Put `
 
 ---
 
-**Replace the placeholders:**
+#### Replace the placeholders
 
 | Placeholder | Description |
 |---|---|
-| `{subscription-id}` | Subscription ID where Azure Data Manager for Energy resides |
-| `{resource-group}` | The resource group containing your Azure Data Manager for Energy resource |
-| `{adme-instance-name}` | Your Azure Data Manager for Energy resource name |
-| `{managed-identity-resource-id}` | Full resource ID of the user-assigned managed identity from Step 2 (for example, `/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}`) |
-| `{use-location-from-GET}` | The `location` value from the response in Step 3.1 |
-| `{paste-entire-properties-block-from-GET}` | The complete `properties` object from the response in Step 3.1 (copy the entire JSON block) |
-| `{paste-all-existing-identities-from-GET}` | All entries from `identity.userAssignedIdentities` in the response (for example, `"/subscriptions/.../identities/existing-mi": {},`) |
-| `{paste-tags-from-GET}` | The complete `tags` object from the response in Step 3.1, or `{}` if no tags exist |
+| `{subscription-id}` | The subscription ID where Azure Data Manager for Energy resides. |
+| `{resource-group}` | The resource group that contains your Azure Data Manager for Energy resource. |
+| `{adme-instance-name}` | Your Azure Data Manager for Energy resource name. |
+| `{managed-identity-resource-id}` | The full resource ID of the user-assigned managed identity from Step 2 (for example, `/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}`). |
+| `{use-location-from-GET}` | The `location` value from the response in Step 3.1. |
+| `{paste-entire-properties-block-from-GET}` | The complete `properties` object from the response in Step 3.1. (Copy the entire JSON block.) |
+| `{paste-all-existing-identities-from-GET}` | All entries from `identity.userAssignedIdentities` in the response (for example, `"/subscriptions/.../identities/existing-mi": {},`). |
+| `{paste-tags-from-GET}` | The complete `tags` object from the response in Step 3.1, or `{}` if no tags exist. |
 
 ### Step 3.3: Verify managed identity attachment
 
 > [!IMPORTANT]
-> This verification should be performed only after the Azure Data Manager for Energy instance provisioning state is marked as **Succeeded**. The PUT operation in Step 3.2 may take several minutes to complete. Wait for the instance to finish updating before running this verification step.
+> This verification should be performed only after the Azure Data Manager for Energy instance provisioning state is marked as **Succeeded**. The `PUT` operation in Step 3.2 might take several minutes to complete. Wait for the instance to finish updating before you run this verification step.
 
-Confirm the managed identity was successfully attached to your Azure Data Manager for Energy instance.
+Confirm that the managed identity was successfully attached to your Azure Data Manager for Energy instance.
 
 #### [Bash](#tab/bash)
 
@@ -293,18 +291,17 @@ $config.identity.userAssignedIdentities.PSObject.Properties.Name
 
 ---
 
-**Replace the placeholders:**
+#### Replace the placeholders
 
 | Placeholder | Description |
 |---|---|
-| `{subscription-id}` | Subscription ID where Azure Data Manager for Energy resides (same as Step 3.1) |
-| `{resource-group}` | The resource group containing your Azure Data Manager for Energy resource (same as Step 3.1) |
-| `{adme-instance-name}` | Your Azure Data Manager for Energy resource name (same as Step 3.1) |
+| `{subscription-id}` | The subscription ID where Azure Data Manager for Energy resides (same as Step 3.1). |
+| `{resource-group}` | The resource group that contains your Azure Data Manager for Energy resource (same as Step 3.1). |
+| `{adme-instance-name}` | Your Azure Data Manager for Energy resource name (same as Step 3.1). |
 
-> [!NOTE]
-> If you're running all substeps in the same terminal session, the variables are already set from Step 3.1 and Step 3.2.
+If you run all substeps in the same terminal session, the variables are already set from Step 3.1 and Step 3.2.
 
-**Sample output:**
+#### Sample output
 
 ```json
 [
@@ -314,18 +311,18 @@ $config.identity.userAssignedIdentities.PSObject.Properties.Name
 
 The output should include your managed identity's resource ID. If you have other identities (CMEK, EDS) attached, they also appear in the list.
 
-## Step 4: Verify user has entitlement group access
+## Step 4: Verify that the user has entitlement group access
 
 To call ACZ APIs, you (the user) must be a member of the following entitlement groups:
+
 - `users@{data-partition-id}.dataservices.energy`
 - `users.datalake.ops@{data-partition-id}.dataservices.energy`
 
-> [!IMPORTANT]
-> This step verifies that YOU (the user calling ACZ APIs) have access, not the user-assigned managed identity. The user-assigned managed identity created in Step 2 is only used by the ACZ service to write data to storage—it doesn't need entitlement group membership.
+This step verifies that *you* (the user calling ACZ APIs) have access, not the user-assigned managed identity. The user-assigned managed identity created in Step 2 is used only by ACZ to write data to storage. It doesn't need entitlement group membership.
 
-If you're not already a member of these entitlement groups, have an Azure Data Manager for Energy administrator add your user account. See [How to manage users](how-to-manage-users.md) for detailed instructions.
+If you're not already a member of these entitlement groups, have an Azure Data Manager for Energy administrator add your user account. For detailed instructions, see [Manage users in Azure Data Manager for Energy](how-to-manage-users.md).
 
-**To verify you have access**, use the Entitlements Service API to check your membership in both groups:
+To verify that you have access, use the Entitlements Service API to check your membership in both groups.
 
 ### [Bash](#tab/bash)
 
@@ -361,15 +358,15 @@ Invoke-RestMethod -Uri "https://{base_url}/api/entitlements/v2/groups/users.data
 
 ---
 
-**Replace the placeholders:**
+#### Replace the placeholders
 
 | Placeholder | Description |
 |---|---|
-| `{base_url}` | Your Azure Data Manager for Energy resource URL (for example, `myinstance.energy.azure.com`) |
-| `{access_token}` | Your personal access token for Azure Data Manager for Energy APIs. See [How to generate auth token](how-to-generate-auth-token.md) |
-| `{data-partition-id}` | Your data partition ID (for example, `dp1`) |
+| `{base_url}` | Your Azure Data Manager for Energy resource URL (for example, `myinstance.energy.azure.com`). |
+| `{access_token}` | Your personal access token for Azure Data Manager for Energy APIs. See [Generate an auth token](how-to-generate-auth-token.md). |
+| `{data-partition-id}` | Your data partition ID (for example, `dp1`). |
 
-**Sample response:**
+#### Sample response
 
 ```json
 {
@@ -392,41 +389,40 @@ Invoke-RestMethod -Uri "https://{base_url}/api/entitlements/v2/groups/users.data
 
 Both responses should include your user account in the `members` array. If you're not listed in either group, contact your Azure Data Manager for Energy administrator to add you to both required groups.
 
-## Step 5: Grant the user-assigned managed identity permissions on the ADLS Gen2 container
+## Step 5: Grant the user-assigned managed identity permissions on the Data Lake Storage Gen2 container
 
-Grant the user-assigned managed identity write access to the ADLS Gen2 storage account. The ACZ identity needs Storage Blob Data Contributor permissions to write Delta Parquet files.
+Grant the user-assigned managed identity write access to the Data Lake Storage Gen2 storage account. The ACZ identity needs Storage Blob Data Contributor permissions to write Delta Parquet files.
 
-1. Navigate to your ADLS Gen2 storage account in the [Azure portal](https://portal.azure.com/).
-2. Select **Access control (IAM)** from the left menu.
-3. Select **+ Add** > **Add role assignment**.
-4. On the **Role** tab, search for **Storage Blob Data Contributor**, select it, then select **Next**.
-5. On the **Members** tab, select **Managed identity** for **Assign access to**.
-6. Select **+ Select members**.
-7. In the **Managed identity** dropdown, select **User-assigned managed identity**.
-8. Select the user-assigned managed identity you created in Step 2 (or your existing CMEK/EDS identity), then select **Select**.
-9. Select **Review + assign** to complete the role assignment.
+1. Go to your Data Lake Storage Gen2 storage account in the [Azure portal](https://portal.azure.com/).
+1. Select **Access control (IAM)** from the left menu.
+1. Select **+ Add** > **Add role assignment**.
+1. On the **Role** tab, search for **Storage Blob Data Contributor**, select it, and then select **Next**.
+1. On the **Members** tab, for **Assign access to**, select **Managed identity**.
+1. Choose **+ Select members**.
+1. In the **Managed identity** dropdown list, select **User-assigned managed identity**.
+1. Select the user-assigned managed identity that you created in Step 2 (or your existing CMEK/EDS identity), and then choose **Select**.
+1. Select **Review + assign** to finish the role assignment.
 
-## Step 6: Share user-assigned managed identity and Azure Data Manager for Energy instance details with Microsoft (Preview requirement)
+## Step 6: Share user-assigned managed identity and Azure Data Manager for Energy instance details with Microsoft (preview requirement)
 
-> [!IMPORTANT]
-> During the preview, ACZ access requires allowlisting. Microsoft must enable the ACZ capability on your Azure Data Manager for Energy instance and configure it with your user-assigned managed identity. Share the following details with your Microsoft contact to complete the ACZ enablement.
+During the preview, ACZ access requires the use of allow lists. Microsoft must enable the ACZ capability on your Azure Data Manager for Energy instance and configure it with your user-assigned managed identity. Share the following details with your Microsoft contact to finish the ACZ enablement.
 
-Provide the following information to your Microsoft representative:
+Provide the following information to your Microsoft representative.
 
 | Information | Description |
 |---|---|
-| **Azure Data Manager for Energy resource name** | Your Azure Data Manager for Energy resource name (for example, `my-adme-instance`). |
-| **User-assigned managed identity Resource ID** | The full Azure Resource ID of the user-assigned managed identity. In the Azure portal, go to your user-assigned managed identity and select **Settings** > **Properties** to find the **Resource ID** (for example, `/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}`). |
+| Azure Data Manager for Energy resource name | Your Azure Data Manager for Energy resource name (for example, `my-adme-instance`). |
+| User-assigned managed identity resource ID | The full Azure resource ID of the user-assigned managed identity. In the Azure portal, go to your user-assigned managed identity and select **Settings** > **Properties** to find the resource ID (for example, `/subscriptions/{sub-id}/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identity-name}`). |
 
 After Microsoft adds your user-assigned managed identity to the allow list, ACZ is enabled on your Azure Data Manager for Energy resource.
 
-## Create an Analytics Consumption Zone
+## Create an ACZ instance
 
-After completing the enablement steps, you can create one or more ACZs to sync your Azure Data Manager for Energy data to ADLS Gen2. Each ACZ can be configured to sync different data types.
+After you finish the enablement steps, you can create one or more ACZ instances to sync your Azure Data Manager for Energy data to Data Lake Storage Gen2. You can configure each ACZ instance to sync different data types.
 
 ### Call the ACZ Create API
 
-Use the ACZ Create API to create an Analytics Consumption Zone. For a full walkthrough, see [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md).
+Use the ACZ Create API to create an ACZ instance. For a full walkthrough, see [Tutorial: Use ACZ APIs](tutorial-analytics-consumption-zone-apis.md).
 
 ### [Bash](#tab/bash)
 
@@ -485,16 +481,16 @@ Invoke-RestMethod -Uri "https://{base_url}/api/acz/v1/aczs" -Method Post -Header
 
 ---
 
-**Replace the placeholders:**
+#### Replace the placeholders
 
 | Placeholder | Description |
 |---|---|
-| `{base_url}` | Your Azure Data Manager for Energy resource URL (for example, `myinstance.energy.azure.com`) |
-| `{access_token}` | Access token for Azure Data Manager for Energy APIs. See [How to generate auth token](how-to-generate-auth-token.md) |
-| `{data_partition_id}` | Your data partition ID (for example, `dp1`) |
-| `{sub-id}` | Subscription ID where the ADLS Gen2 storage account resides |
-| `{rg}` | Resource group where the ADLS Gen2 storage account resides |
-| `{account}` | Name of the ADLS Gen2 storage account |
+| `{base_url}` | Your Azure Data Manager for Energy resource URL (for example, `myinstance.energy.azure.com`). |
+| `{access_token}` | The access token for Azure Data Manager for Energy APIs. See [Generate an auth token](how-to-generate-auth-token.md). |
+| `{data_partition_id}` | Your data partition ID (for example, `dp1`). |
+| `{sub-id}` | The subscription ID where the Data Lake Storage Gen2 storage account resides. |
+| `{rg}` | The resource group where the Data Lake Storage Gen2 storage account resides. |
+| `{account}` | The name of the Data Lake Storage Gen2 storage account. |
 
 A successful response returns HTTP status `201` with the ACZ details:
 
@@ -527,9 +523,10 @@ A successful response returns HTTP status `201` with the ACZ details:
 }
 ```
 
-Note the `aczId` value (format: `acz-<identifier>`). You need this ACZ identifier to:
-- Manage and query the ACZ using APIs
-- Locate your data in ADLS Gen2 storage at `<container>/<aczId>/` or `<container>/<basePath>/<aczId>/` if you specified a base path
+Make a note of the `aczId` value (format: `acz-<identifier>`). You need this ACZ identifier to:
+
+- Manage and query the ACZ instance by using APIs.
+- Locate your data in Data Lake Storage Gen2 storage at `<container>/<aczId>/` or `<container>/<basePath>/<aczId>/` if you specified a base path.
 
 ## Related content
 
@@ -537,4 +534,3 @@ Note the `aczId` value (format: `acz-<identifier>`). You need this ACZ identifie
 - [Connect ACZ data to Microsoft Fabric](how-to-connect-analytics-consumption-zone-to-fabric.md)
 - [Connect ACZ data to Azure Databricks](how-to-connect-analytics-consumption-zone-to-databricks.md)
 - [Analytics Consumption Zone concepts](concepts-analytics-consumption-zone.md)
-

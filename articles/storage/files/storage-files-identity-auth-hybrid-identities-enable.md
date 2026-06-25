@@ -78,15 +78,16 @@ Microsoft Entra Kerberos support for hybrid identities is available for all regi
 
 Azure RBAC support for specific users and groups for cloud-only identities with Microsoft Entra Kerberos is currently available only for the following subset of regions in the Azure Public cloud.
 
+- Asia East
 - Australia Central
 - Australia Central 2
+- Australia East (SSD/premium only)
 - Australia Southeast
 - Austria East
 - Belgium Central
 - Brazil Southeast (SSD/premium only)
 - Canada Central (SSD/premium only)
 - Canada East (SSD/premium only)
-- Central India (SSD/premium only)
 - Chile Central (HDD/standard only)
 - Denmark East (SSD/premium only)
 - East Asia (SSD/premium only)
@@ -94,37 +95,40 @@ Azure RBAC support for specific users and groups for cloud-only identities with 
 - France South
 - Germany North
 - Germany West Central
+- India Central
+- India South (SSD/premium only)
+- India South Central (SSD/premium only)
+- India West
 - Indonesia Central
 - Italy North (SSD/premium only)
-- Japan East (SSD/premium only)
+- Japan East
 - Japan West
 - Jio India Central
 - Jio India West
-- Korea Central (HDD/standard only)
+- Korea Central
 - Korea South
+- Malaysia South (HDD/standard only)
 - Malaysia West (SSD/premium only)
 - Mexico Central
 - New Zealand North
 - North Europe (SSD/premium only)
-- Norway East (SSD/premium only)
+- Norway East
 - Norway West
 - Poland Central (SSD/premium only)
 - Qatar Central
 - South Africa North (SSD/premium only)
 - South Africa West (SSD/premium only)
-- South India (SSD/premium only)
 - Spain Central
 - Sweden Central (SSD/premium only)
 - Sweden South (HDD/standard only)
-- Switzerland North (SSD/premium only)
-- Switzerland West (SSD/premium only)
+- Switzerland North
+- Switzerland West
 - Taiwan North
 - UAE Central
 - UAE North
 - UK South (SSD/premium only)
 - UK West (SSD/premium only)
-- West Central US (SSD/premium only)
-- West India
+- US West Central (SSD/premium only)
 
 <a name='enable-azure-ad-kerberos-authentication'></a>
 

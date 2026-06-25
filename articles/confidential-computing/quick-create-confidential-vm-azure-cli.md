@@ -103,6 +103,23 @@ For this step you need to be a Global Admin or you need to have the User Access 
   ```azurecli-interactive
   az keyvault key create --name mykey --vault-name keyVaultName --default-cvm-policy --exportable --kty RSA-HSM
   ```
+
+  > [!NOTE]
+  > In regions with new buildouts, MAA (Microsoft Azure Attestation) endpoints might not be available when using the `--default-cvm-policy` flag. As a workaround, you can use the following PowerShell script to retrieve the regional MAA endpoint URL:
+  >
+  > ```powershell
+  > $sub = "<subscription-id>"
+  > az account set --subscription $sub
+  > $token = Get-AzAccessToken
+  > $region = "<region-name>"
+  > $url = "https://management.azure.com/subscriptions/$sub/providers/Microsoft.Attestation/Locations/$region/defaultProvider?api-version=2021-06-01"
+  > $r = Invoke-WebRequest -Uri $url -Method Get -Headers @{'Authorization' = 'Bearer ' + $token.Token}
+  > $d = $r.content | ConvertFrom-Json
+  > $d.properties.attestUri
+  > ```
+  >
+  > Replace `<subscription-id>` with your Azure subscription ID and `<region-name>` with the target deployment region.
+
 5. Create the disk encryption set using [az disk-encryption-set create](/cli/azure/disk-encryption-set). Set the encryption type to `ConfidentialVmEncryptedWithCustomerKey`.
   ```Powershell
 $keyVaultKeyUrl=(az keyvault key show --vault-name keyVaultName --name mykey--query [key.kid] -o tsv)

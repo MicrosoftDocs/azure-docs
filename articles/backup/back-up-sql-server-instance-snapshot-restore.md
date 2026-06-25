@@ -69,7 +69,7 @@ To restore the entire SQL instance, follow these steps:
 
    :::image type="content" source="media/back-up-sql-server-instance-snapshot-restore/select-target-server-instance.png" alt-text="Screenshot that shows the selection of the target server and instance for the restore operation." lightbox="media/back-up-sql-server-instance-snapshot-restore/select-target-server-instance.png":::
 
-1. For **Managed Identities**, select the required managed identity for Azure Backup to do the restore operation, and select **Validate**.
+1. Enter the target volume to mount. This value should be a new drive letter that doesn't already exist on the VM. Hierarchical mount points like (Z:\SQLdata) aren't currently supported. For **Managed Identities**, select the required managed identity for Azure Backup to perform the restore operation, and select **Validate**.
 
    :::image type="content" source="media/back-up-sql-server-instance-snapshot-restore/select-managed-identity.png" alt-text="Screenshot that shows the selection of a managed identity for the restore operation." lightbox="media/back-up-sql-server-instance-snapshot-restore/select-managed-identity.png":::
 

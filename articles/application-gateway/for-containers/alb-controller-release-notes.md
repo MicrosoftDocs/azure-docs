@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: release-notes
-ms.date: 5/18/2026
+ms.date: 6/24/2026
 ms.author: mbender
 # Customer intent: As a Kubernetes operator, I want to access the release notes for the ALB Controller, so that I can understand the latest updates and changes to optimize my configuration and deployments of Application Gateway for Containers.
 ---
@@ -29,12 +29,13 @@ If using the AKS add-on, updates are automatically applied to the cluster.
 
 | ALB Controller Version | Gateway API Version | Minimum Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
-| 1.10.28 | v1.2.1 | v1.27 | Security updates |
+| 1.11.1 | v1.5.1 | v1.27 | Implement Gateway API v1.5.1,  Gateway API Inference Extension support, ALB Controller on Arm64 node support, support for CORS, Gateway API HTTPRoute timeouts (succeed RoutePolicy timeouts), HTTP redirect 307/308 support, helm subcharts fix [GitHub Issue: #5475](https://github.com/Azure/AKS/issues/5475), Helm logging enum fix [GitHub Issue: #5480](https://github.com/Azure/AKS/issues/5480) |
 
 ## Release history
 
 | ALB Controller Version | Gateway API Version | Minimum Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
+| 1.10.28 | v1.2.1 | v1.27 | Security updates |
 | 1.10.27 | v1.2.1 | v1.27 | Hotfix for pod crash [GitHub issue 5758](https://github.com/Azure/AKS/issues/5758) |
 | 1.10.26 | v1.2.1 | v1.27 | Istio service mesh integration fix, security patches |
 | 1.10.21 | v1.2.1 | v1.27 | Load Aware Routing, fixes for AGC + AKS Istio add-on, fix [readiness probe for ingress](https://github.com/Azure/AKS/issues/5644), security patches |

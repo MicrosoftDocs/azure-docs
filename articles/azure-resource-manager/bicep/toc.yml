@@ -290,6 +290,9 @@ items:
   - name: Child resources (parent)
     displayName: parent,parent resource,sub,nested
     href: child-resource-name-type.md
+  - name: Extendable parameter file (extends/base)
+    displayName: extends,base
+    href: bicep-extend.md
   - name: Extension resources (scope)
     href: scope-extension-resources.md
   - name: Dependencies (dependsOn)
@@ -411,9 +414,19 @@ items:
         displayName: deployment script
         href: deployment-script-bicep-configure-dev.md
     - name: Template specs
-      href: template-specs.md
+      items:
+      - name: Overview
+        href: template-specs.md
+      - name: Known issues
+        displayName: limitations, troubleshoot, TemplateSpecTooLarge, bicepparam
+        href: template-specs-known-issues.md
     - name: Deployment stacks
-      href: deployment-stacks.md
+      items:
+      - name: Overview
+        href: deployment-stacks.md
+      - name: Known issues
+        displayName: limitations, troubleshoot, deny assignment, stack out of sync
+        href: deployment-stacks-known-issues.md
     - name: Bicep extensions
       items:
       - name: Kubernetes extension

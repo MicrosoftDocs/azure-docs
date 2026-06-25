@@ -5,7 +5,7 @@ author: lilyjma
 ms.author: jiayma
 ms.reviewer: glenga
 ms.date: 06/02/2026
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-logic-apps
 ms.custom: ai-assisted
 # Customer intent: As a developer, I want to understand hosted MCP servers in Connector Namespace so that I can choose the right approach for exposing tools to AI agents.
