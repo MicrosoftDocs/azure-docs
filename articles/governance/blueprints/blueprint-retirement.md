@@ -4,7 +4,7 @@ description: Learn when Azure Blueprints is retired, the phased retirement timel
 author: mumian
 ms.author: jgao
 ms.service: azure-blueprints
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/26/2026
 ---
 

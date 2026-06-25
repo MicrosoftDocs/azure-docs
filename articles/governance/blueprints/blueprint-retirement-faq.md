@@ -4,7 +4,7 @@ description: Frequently asked questions about the Azure Blueprints retirement, i
 author: mumian
 ms.author: jgao
 ms.service: azure-blueprints
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 06/26/2026
 ---
 
