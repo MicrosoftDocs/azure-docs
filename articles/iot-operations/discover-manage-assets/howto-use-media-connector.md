@@ -416,7 +416,7 @@ In this section, you add a stream to the asset that saves video clips from the m
 To use the Azure CLI, run the following command to add a new stream called `clipstream` to the asset:
 
 ```azurecli
-az iot ops ns asset media stream add --asset my-media-source-cli --instance {your instance name}  -g {your resource group name} --name clipstream --task-type clip-to-fs --format mkv --duration 30 --path /data/ingestSubDir/clipstest
+az iot ops ns asset media stream add --asset my-media-source-cli --instance {your instance name}  -g {your resource group name} --name clipstream --task-type clip-to-fs --format mkv --duration 30 --dest path=/data/ingestSubDir/clips --disable-autostart false
 ```
 
 ### Bicep
