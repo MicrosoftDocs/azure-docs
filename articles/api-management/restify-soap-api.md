@@ -2,12 +2,10 @@
 title: Import a SOAP API into API Management and Convert it to REST
 description: Learn how to import a SOAP API into Azure API Management as a WSDL specification and convert it to a REST API.
 services: api-management
-author: dlepow
 ms.custom: devdivchpfy22
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 03/13/2026
-ms.author: danlep
 
 #customer intent: As a developer, I want to import a SOAP API into API Management and convert it to REST.
 
