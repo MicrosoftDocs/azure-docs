@@ -707,7 +707,7 @@ Depending on your subscription and the region you select, you might see the depl
 
 `InternalServerError: An unexpected error occurred while processing the request.`
 
-This error is most likely caused by a limit on your subscription for the region you select. Azure Database for MySQL Flexible Server isn't offered in every region for every subscription type, and this restriction is especially common with Visual Studio Enterprise (MSDN) and other dev/test or credit-based subscriptions, which can create the server in only a limited set of regions. Try choosing a different region for your deployment. To check which regions are available for your subscription, run `az mysql flexible-server list-skus --location <region>` for candidate regions (an unsupported region returns an error), or see [Azure Database for MySQL Flexible Server supported regions](/azure/mysql/flexible-server/overview#azure-regions).
+This error most likely means there's a limit on your subscription for the region you select. Azure Database for MySQL Flexible Server isn't offered in every region for every subscription type. This restriction is especially common with Visual Studio Enterprise (MSDN) and other dev/test or credit-based subscriptions, which can create the server in only a limited set of regions. Try choosing a different region for your deployment. To check which regions are available for your subscription, run `az mysql flexible-server list-skus --location <region>` for candidate regions (an unsupported region returns an error), or see [Azure Database for MySQL Flexible Server supported regions](/azure/mysql/flexible-server/overview#azure-regions).
 
 #### The Create connection dialog shows a Create On Cloud Shell button but it's not enabled.
 
