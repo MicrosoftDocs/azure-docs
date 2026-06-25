@@ -5,7 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 04/17/2025
+ms.date: 06/25/2026
 ms.update-cycle: 180-days
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
@@ -149,8 +149,8 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Resource Group*: Select **Create new** and use a name of **msdocs-tomcat-mysql-tutorial**.
         1. *Region*: Any Azure region near you.
         1. *Name*: **msdocs-tomcat-mysql-XYZ**, where *XYZ* is any three random characters.
-        1. *Runtime stack*: **Java 17**.
-        1. *Java web server stack*: **Apache Tomcat 10.1**.
+        1. *Runtime stack*: **Java 25**.
+        1. *Java web server stack*: **Apache Tomcat 11.0**.
         1. *Engine*: **MySQL - Flexible Server** is selected for you by default as the database engine. If not, select it. Azure Database for MySQL - Flexible Server is a fully managed MySQL database as a service on Azure, compatible with the latest community editions.
         1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
         1. Select **Review + create**.
@@ -532,7 +532,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     azd up
     ```  
 
-    The `azd up` command takes about 15 minutes to complete (the Redis cache takes the most time). It also compiles and deploys your application code, but you modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+    The `azd up` command takes about 10 minutes to complete. It also compiles and deploys your application code, but you modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
 
     This AZD template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
@@ -541,9 +541,9 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **App Service**: Represents your app and runs in the App Service plan.
     - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
     - **Azure Database for MySQL Flexible Server**: Accessible only from the virtual network through the DNS zone integration. A database is created for you on the server.
-    - **Azure Cache for Redis**: Accessible only from within the virtual network.
-    - **Private endpoints**: Access endpoints for the key vault and the Redis cache in the virtual network.
-    - **Private DNS zones**: Enable DNS resolution of the key vault, the database server, and the Redis cache in the virtual network.
+    - **Azure Managed Redis**: Accessible only from within the virtual network.
+    - **Private endpoints**: Access endpoints for the key vault and the Managed Redis instance in the virtual network.
+    - **Private DNS zones**: Enable DNS resolution of the key vault, the database server, and the Managed Redis instance in the virtual network.
     - **Log Analytics workspace**: Acts as the target container for your app to ship its logs, where you can also query the logs.
     - **Key vault**: Used to keep your database password the same when you redeploy with AZD.
 
@@ -583,7 +583,7 @@ In this step, you use the SSH connection to the app container to verify the JNDI
     Open SSH session to App Service container at: &lt;URL>
     </pre>
 
-1. In the SSH terminal, run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` was added. You use this data source later.
+1. In the SSH terminal, run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` was added. You use this data source later. App Service automatically creates this data source because the AZD template sets the app setting `WEBSITE_AUTOCONFIGURE_DATABASE` to `true`.
 
     :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output.":::
 
@@ -732,7 +732,7 @@ Pricing for the created resources is as follows:
 
 - The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
 - The MySQL flexible server is created in **B1ms** tier and can be scaled up or down. With an Azure free account, **B1ms** tier is free for 12 months, up to the monthly limits. See [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/).
-- The Azure Cache for Redis is created in **Basic** tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
+- The Azure Managed Redis instance is created in the **Balanced B0** tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Managed Redis pricing](https://azure.microsoft.com/pricing/details/managed-redis/).
 - The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
 
