@@ -39,6 +39,13 @@ The following features distinguish Dell PowerScale:
 
 [!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
+## Additional information
+
+For more information about Dell PowerScale and its capabilities, see:
+
+- [Dell PowerScale for Microsoft Azure (solution brief)](https://www.delltechnologies.com/asset/en-us/products/storage/briefs-summaries/dell-powerscale-for-azure-dell-managed-solution-brief.pdf)
+- [Dell PowerScale for Public Cloud](https://www.dell.com/en-us/shop/data-storage/file-storage/sl/dell-powerscale-for-public-cloud)
+
 ## Next step
 
 > [!div class="nextstepaction"]
