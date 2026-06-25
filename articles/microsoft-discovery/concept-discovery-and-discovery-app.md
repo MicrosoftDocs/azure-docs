@@ -14,7 +14,14 @@ Microsoft Discovery is available in two complementary experiences: the enterpris
 
 The Microsoft Discovery platform is a cloud-based, production-grade platform deployed in Azure. It provides enterprise-scale capabilities, robust governance, and multi-user collaboration for mission-critical R&D projects. The Microsoft Discovery app is free to download and provides a local experience, enabling individuals to start using Discovery's core features with just a GitHub Copilot account.
 
-### Single platform strategy
+## ⬇️ Download the Discovery app
+
+| :::image type="icon" source="media/concept-discovery-and-discovery-app/windows.svg" border="false" alt-text="Windows logo" lightbox="media/concept-discovery-and-discovery-app/windows.svg"::: |
+|:---:|
+| [&#11015;&nbsp; Windows](https://aka.ms/discovery/download/current) |
+| Windows 11 &middot; x64 |
+
+## Single platform strategy
 Microsoft Discovery and the Discovery app share core concepts and features such as an agentic framework, the ability to invoke models and tools, a Bookshelf for indexing and reasoning over knowledge, and a Discovery Engine for orchestration. As a lightweight on-ramp to agentic R&D, the Discovery app enables rapid, bottom-up experimentation and exploration, while the Discovery platform enables enterprise-grade scale.
 
 ## Positioning at a glance
