@@ -8,9 +8,9 @@ ms.date: 03/24/2026
 ai-usage: ai-assisted
 ---
 
-# What is Dell PowerScale?
+# What is Dell PowerScale for Azure?
 
-Dell PowerScale is a file storage solution designed for demanding, scale-out workloads. It brings the Dell PowerScale OneFS Operating System to Azure, and provides a storage layer that supports data movement between on-premises PowerScale clusters and Azure.
+Dell PowerScale for Azure - Dell Managed is a file storage solution designed for demanding, scale-out workloads. It brings the Dell PowerScale OneFS Operating System to Azure, and provides a storage layer that supports data movement between on-premises PowerScale clusters and Azure.
 
 Dell PowerScale is jointly developed and managed by Microsoft and Dell as an [Azure Native Integration](../overview.md). [!INCLUDE [what-is](../includes/what-is.md)]
 
@@ -28,7 +28,7 @@ Typical use cases include:
 
 The following features distinguish Dell PowerScale:
 
-- Scale-out storage for sudden spikes in compute or storage demand.
+- Scale-out storage for cloud expansion and growing compute or storage demands.
 - High-throughput, low-latency file access for high-performance workloads.
 - Global permission structure shared across users and protocols (NFS, SMB, S3).
 - Asynchronous replication for data migration or disaster recovery.
