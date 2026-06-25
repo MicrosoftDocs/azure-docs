@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2026
+ms.date: 06/20/2026
 ms.custom: generated
 ---
 
@@ -336,6 +336,13 @@ Azure service: [Device Update for IoT Hub](/azure/iot-hub-device-update/)
 > | `Microsoft.DeviceUpdate/accounts/privateEndpointConnections/write` | Creates or updates a Device Update Private Endpoint Connection |
 > | `Microsoft.DeviceUpdate/accounts/privateEndpointConnections/delete` | Deletes a Device Update Private Endpoint Connection |
 > | `Microsoft.DeviceUpdate/accounts/privateLinkResources/read` | Returns the list of Device Update Private Link Resources |
+> | `Microsoft.DeviceUpdate/linkedAccounts/read` | Returns the list of Linked Accounts |
+> | `Microsoft.DeviceUpdate/linkedAccounts/write` | Creates or updates a Linked Account |
+> | `Microsoft.DeviceUpdate/linkedAccounts/delete` | Deletes a Linked Account |
+> | `Microsoft.DeviceUpdate/linkedAccounts/linkInitiate/action` | Initiate account linking. Validates and persists binding, sets linkingState to InProgress |
+> | `Microsoft.DeviceUpdate/linkedAccounts/linkNotify/action` | Notify linking state change (commit, fail, or namespaceDeleted) |
+> | `Microsoft.DeviceUpdate/linkedAccounts/linkPreflight/action` | Preflight check for account linking readiness. No state change |
+> | `Microsoft.DeviceUpdate/linkedAccounts/linkUpdate/action` | Update linking properties (e.g., identity rotation) |
 > | `Microsoft.DeviceUpdate/locations/operationStatuses/read` | Gets an Operation Status |
 > | `Microsoft.DeviceUpdate/locations/operationStatuses/write` | Updates an Operation Status |
 > | `Microsoft.DeviceUpdate/operations/read` | Lists Device Update Operations |

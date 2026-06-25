@@ -91,6 +91,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/sre-agent/connect-pagerduty.md",
+            "redirect_url": "/azure/sre-agent/set-up-pagerduty-indexing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/connect-servicenow.md",
+            "redirect_url": "/azure/sre-agent/setup-servicenow-indexing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/mcp-server-overview.md",
+            "redirect_url": "/azure/sre-agent/mcp-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sre-agent/operations-hub-overview.md",
+            "redirect_url": "/azure/sre-agent/operations-hub",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/sre-agent/automate-actions.md",
             "redirect_url": "/azure/sre-agent/automate-workflows",
             "redirect_document_id": false

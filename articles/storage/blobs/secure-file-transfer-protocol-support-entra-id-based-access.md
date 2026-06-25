@@ -130,42 +130,6 @@ New-AzSftpCertificate -PublicKeyFile "$HOME\.ssh\id_rsa.pub" -CertificatePath "$
 
 Learn more about the PowerShell module [here](/powershell/module/az.sftp/).
 
-#### [Azure portal](#tab/portal)
-
-You can also use the Azure portal to generate OpenSSH certificates and keys. To do so, complete the following steps:
-
-1. In the Azure portal, navigate to your storage account and select **SFTP** under **Settings**.
-
-   :::image type="content" source="./media/secure-file-transfer-protocol-support/sftp-settings-pane.png" alt-text="Screenshot of the SFTP tab under storage account settings.":::
-
-1. Select **Generate SSH Certificate**.
-
-   :::image type="content" source="./media/secure-file-transfer-protocol-support/generate-ssh-button.png" alt-text="Screenshot of the Generate SSH Certificate button.":::
-
-1. In the pane that appears, choose one of the following three methods to generate a certificate:
-
-    1. **Generate new key pair** - Generates both the certificate and a new SSH key pair.
-
-       :::image type="content" source="./media/secure-file-transfer-protocol-support/generate-new-key-pair.png" alt-text="Screenshot of the generate new key pair option.":::
-
-    1. **Use existing public key** - Uses a public key that you provide.
-
-       :::image type="content" source="./media/secure-file-transfer-protocol-support/generate-using-existing-keys.png" alt-text="Screenshot of the use existing public key option.":::
-
-    1. **Use Azure Key Vault** - Uses a public key stored in Azure Key Vault.
-
-       :::image type="content" source="./media/secure-file-transfer-protocol-support/generate-from-key-vault.png" alt-text="Screenshot of the use Azure Key Vault key option.":::
-
-1. After the certificate is generated, download the OpenSSH certificate and private key from the dialog.
-
-   :::image type="content" source="./media/secure-file-transfer-protocol-support/download-cert-button.png" alt-text="Screenshot of the download OpenSSH certificate dialog.":::
-
-   :::image type="content" source="./media/secure-file-transfer-protocol-support/download-private-key.png" alt-text="Screenshot of the download private key dialog.":::
-
-> [!NOTE]
-> The Azure portal supports generating certificates for user principals only. Service principal certificates are not supported in the portal. To generate certificates for service principals, use Azure CLI or Azure PowerShell instead.
-
-
 #### [.NET](#tab/dotnet)
 
 ```csharp

@@ -31,6 +31,9 @@ To get started, estimate your expected Copilot Credit usage. This helps you dete
 
 For example, suppose you expect to consume 1,500,000 Copilot Credit with custom agents created in Microsoft Copilot Studio. Assuming the pay-as-you-go rate for Copilot Credit to be $0.01, then at the pay-as-you-go rate, this will cost $15,000. By purchasing Tier 2 (15,000 CU) pre-purchase plan, let's say the cost of that tier is $14,100, it will give a 6% saving compared to the pay-as-you-go rate for the same usage.
 
+> [!NOTE]
+> Pre-purchase plan discounts don't combine with other discounts you might have. If you have additional discounts, the pre-purchase plan discount is applied independently, which may result in a lower effective discount rate than the listed tier percentage. Factor in your existing discounts when estimating savings.
+
 ## Purchase Copilot Credit commit units
 
 Purchase Copilot Credit pre-purchase plans in the [Azure portal reservations](https://portal.azure.com/#view/Microsoft_Azure_Reservations/ReservationsBrowseBlade/productType/Reservations). 

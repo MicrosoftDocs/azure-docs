@@ -2,7 +2,7 @@
 title: Job preparation and release tasks on Batch compute nodes
 description: Use job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion.
 ms.topic: how-to
-ms.date: 07/01/2025
+ms.date: 06/16/2026
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 # Customer intent: As a cloud solutions architect, I want to implement job preparation and release tasks for my Batch jobs, so that I can efficiently manage data transfer and cleanup operations on compute nodes, optimizing resource usage and ensuring compliance with data retention policies.
@@ -53,7 +53,7 @@ The job preparation task runs only on nodes that are scheduled to run a task. Th
 
 ## Job release task
 
-Once you mark a job as completed, the job release task runs on each node in the pool that ran a job preparation task. You mark a job as completed by issuing a terminate request. This request sets the job state to *terminating*, terminates any active or running tasks associated with the job, and runs the job release task. The job then moves to the *completed* state.
+After you mark a job as completed, the job release task runs on each node in the pool that ran a job preparation task. You mark a job as completed by issuing a terminate request. This request sets the job state to *terminating*, terminates any active or running tasks associated with the job, and runs the job release task. The job then moves to the *completed* state.
 
 > [!NOTE]
 > Deleting a job also executes the job release task. However, if a job is already terminated, the release task doesn't run a second time if the job is later deleted.

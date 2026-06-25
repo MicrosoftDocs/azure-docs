@@ -7,7 +7,7 @@ ms.reviewer: malev
 ms.service: service-connector
 ms.topic: quickstart
 zone_pivot_groups: interaction-type
-ms.date: 7/22/2025
+ms.date: 06/18/2026
 keywords: azure kubernetes service, aks, service connector, database connection, managed identity, workload identity, azure storage, authentication
 #Customer intent: As an app developer, I want to connect my Azure Kubernetes Service cluster to databases, storage accounts, and other Azure services using a workload identity or other authentication types.
 ---
@@ -144,7 +144,7 @@ Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/crea
   ```
 
 > [!TIP]
-> If you don't have a Blob Storage account, run `az aks connection create storage-blob --new --workload-identity` to create one and connect it to your App Service using a workload identity.
+> If you don't have a Blob Storage account, run `az aks connection create storage-blob --new --workload-identity` to create one and connect it to your AKS cluster using a workload identity.
 
 ### [Using a connection string](#tab/using-connection-string)
 
@@ -169,7 +169,7 @@ Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/crea
   ```
 
 > [!TIP]
-> If you don't have a Blob Storage account, run `az aks connection create storage-blob --new --secret` to create one and connect it to your App Service using a connection string.
+> If you don't have a Blob Storage account, run `az aks connection create storage-blob --new --secret` to create one and connect it to your AKS cluster using a connection string.
 
 ---
 
@@ -185,7 +185,7 @@ Run the [`az aks connection create storage-blob`](/cli/azure/aks/connection/crea
 ::: zone-end
 
 ::: zone pivot="azure-cli"
-Run `az aks connection list` command to list all of your Azure Spring Apps' provisioned connections.
+Run `az aks connection list` to list all provisioned connections for your AKS cluster.
 
 Replace the placeholders `<cluster-resource-group>`, and `<cluster-name>`, from the command below with your own information. You can also remove the `--output table` option to view more information about your connections.
 

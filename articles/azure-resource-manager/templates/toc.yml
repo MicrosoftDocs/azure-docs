@@ -444,6 +444,9 @@ items:
       href: template-specs.md
     - name: Convert portal template gallery
       href: template-spec-convert.md
+    - name: Create portal forms
+      displayName: UI,form,blade,uiFormDefinition
+      href: template-specs-create-portal-forms.md
   - name: CI/CD
     items:
     - name: ARM templates with pipelines
@@ -463,6 +466,29 @@ items:
   items:
   - name: Template reference
     href: /azure/templates/
+  - name: Form view
+    items:
+    - name: Overview
+      displayName: uiFormDefinition,form view
+      href: form-view-overview.md
+    - name: Elements
+      href: form-view-elements.md
+    - name: BladeInvokeControl
+      href: form-view-microsoft-solutions-bladeinvokecontrol.md
+    - name: Grid
+      href: form-view-microsoft-common-grid.md
+    - name: LocationSelector
+      href: form-view-microsoft-common-locationselector.md
+    - name: ManagementGroupSelector
+      href: form-view-microsoft-common-managementgroupselector.md
+    - name: ResourceGroupSelector
+      href: form-view-microsoft-common-resourcegroupselector.md
+    - name: ResourceScope
+      href: form-view-microsoft-common-resourcescope.md
+    - name: SubscriptionSelector
+      href: form-view-microsoft-common-subscriptionselector.md
+    - name: TenantSelector
+      href: form-view-microsoft-common-tenantselector.md
   - name: Template functions
     items:
     - name: All functions

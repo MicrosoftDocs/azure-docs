@@ -10,15 +10,15 @@ ms.date: 03/19/2026
 ms.author: primittal
 ---
 
-# How reservation discounts apply to Azure App Service
+# How reservation discounts apply to Azure App Service Plan
 
 This article helps you understand how discounts apply to Azure App Service Premium v3 and Isolated v2 instances. To use Isolated v2 you must have an App Service Environment.
 
 ## How reservation discounts apply to instances
 
-After you buy an Azure App Service Premium v3 or Isolated v2 Reserved Instance, the reservation discount is automatically applied to App Service instances that match the attributes and quantity of the reservation. A reservation covers the cost of your instances.
+After you buy an Azure App Service Premium v3 or Isolated v2 Reserved Instance, the reservation discount is automatically applied to App Service Plan instances that match the attributes and quantity of the reservation. A reservation covers the cost of your instances.
 
-### How the discount is applied to Azure App Service
+### How the discount is applied to Azure App Service Plan
 
 A reservation discount is *use-it-or-lose-it*. So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
 

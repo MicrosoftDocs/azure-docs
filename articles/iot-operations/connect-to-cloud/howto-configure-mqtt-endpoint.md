@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 05/26/2026
+ms.date: 06/10/2026
 ai-usage: ai-assisted
 ms.custom: sfi-image-nochange
 
@@ -98,13 +98,13 @@ To edit the default endpoint, create a Bicep `.bicep` file with the following co
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource defaultMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' = {
+resource defaultMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' = {
   parent: aioInstance
   name: 'default'
   extendedLocation: {
@@ -236,13 +236,13 @@ param mqttBrokerHostname string = '<HOSTNAME>:<PORT>'
 param trustedCA string = '<TRUST_BUNDLE>'
 param serviceAccountAudience string = '<SA_AUDIENCE>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' = {
+resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' = {
   parent: aioInstance
   name: endpointName
   extendedLocation: {
@@ -319,6 +319,8 @@ To quickly get started and for testing, you can create a topic space with the wi
 ### Assign permission to managed identity
 
 To configure a data flow endpoint for Event Grid MQTT broker, we recommend using either a user-assigned or system-assigned managed identity. This approach is secure and eliminates the need for managing credentials manually.
+
+[!INCLUDE [data-flow-graph-uami-usage](../includes/data-flow-graph-uami-usage.md)]
 
 After the topic space is created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to send or receive messages to the Event Grid MQTT broker.
 
@@ -419,13 +421,13 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param endpointName string = '<ENDPOINT_NAME>'
 param eventGridHostName string = '<NAMESPACE>.<REGION>-1.ts.eventgrid.azure.net:8883'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' = {
+resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' = {
   parent: aioInstance
   name: endpointName
   extendedLocation: {

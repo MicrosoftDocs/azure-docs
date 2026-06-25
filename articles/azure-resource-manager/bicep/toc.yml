@@ -144,7 +144,7 @@ items:
   - name: Integration
     items:
     - name: API for FHIR
-      href: ../../healthcare-apis/fhir/fhir-service-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: ../../healthcare-apis/azure-api-for-fhir/fhir-service-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Event Grid
       href: ../../event-grid/blob-event-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Logic Apps
@@ -290,6 +290,9 @@ items:
   - name: Child resources (parent)
     displayName: parent,parent resource,sub,nested
     href: child-resource-name-type.md
+  - name: Extendable parameter file (extends/base)
+    displayName: extends,base
+    href: bicep-extend.md
   - name: Extension resources (scope)
     href: scope-extension-resources.md
   - name: Dependencies (dependsOn)
@@ -411,9 +414,19 @@ items:
         displayName: deployment script
         href: deployment-script-bicep-configure-dev.md
     - name: Template specs
-      href: template-specs.md
+      items:
+      - name: Overview
+        href: template-specs.md
+      - name: Known issues
+        displayName: limitations, troubleshoot, TemplateSpecTooLarge, bicepparam
+        href: template-specs-known-issues.md
     - name: Deployment stacks
-      href: deployment-stacks.md
+      items:
+      - name: Overview
+        href: deployment-stacks.md
+      - name: Known issues
+        displayName: limitations, troubleshoot, deny assignment, stack out of sync
+        href: deployment-stacks-known-issues.md
     - name: Bicep extensions
       items:
       - name: Kubernetes extension
@@ -506,6 +519,9 @@ items:
       - name: No location expressions outside of parameter default values
         displayName: linter
         href: linter-rule-no-loc-expr-outside-params.md
+      - name: No module name
+        displayName: linter
+        href: linter-rule-no-module-name.md
       - name: No unnecessary dependsOn entries
         displayName: linter
         href: linter-rule-no-unnecessary-dependson.md
@@ -560,6 +576,9 @@ items:
       - name: Use recent module versions
         displayName: linter
         href: linter-rule-use-recent-module-versions.md
+      - name: Use recognized resource types
+        displayName: linter
+        href: linter-rule-use-recognized-resource-type.md
       - name: Use resource ID functions
         displayName: linter
         href: linter-rule-use-resource-id-functions.md

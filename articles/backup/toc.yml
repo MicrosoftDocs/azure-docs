@@ -105,6 +105,8 @@
     href: security-overview.md
   - name: FAQ-Protection against Ransomware
     href: protect-backups-from-ransomware-faq.yml
+  - name: Best practices for backup data protection
+    href: azure-backup-data-protection-best-practices.md
   - name: Azure role-based access control
     href: backup-rbac-rs-vault.md
   - name: Multi-user authorization
@@ -887,7 +889,7 @@
     href: restore-azure-backup-server-vmware.md
   - name: Back up the MABS server
     href: backup-the-mabs-server.md
-  - name: Stop protection for datasource
+  - name: Stop protection in Azure Backup Server
     href: backup-server-stop-protection.md  
 - name: Azure Backup Server on Azure Stack
   items:

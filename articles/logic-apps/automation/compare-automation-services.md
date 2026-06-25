@@ -1,29 +1,28 @@
 ---
 title: Compare Automation Services
-titleSuffix: Logic Apps Automation
-description: Learn the differences between Logic Apps Automation, Azure Logic Apps, Microsoft Copilot Studio, and non-Microsoft automation platforms. Choose the best option to automate your business processes and workloads.
-services: logic-apps
-ms.reviewers: estfan, krmitta, divswa, azla
-ms.topic: conceptual
+titleSuffix: Azure Logic Apps Automation
+description: Learn the differences between Azure Logic Apps Automation, Azure Logic Apps Standard and Consumption, Microsoft Copilot Studio, and non-Microsoft automation platforms. Choose the best option to automate your business processes and workloads.
+ms.reviewer: estfan, krmitta, divswa, azla
+ms.topic: concept-article
 ai-usage: ai-assisted
 ms.update-cycle: 180-days
 ms.date: 06/02/2026
 ms.custom:
   - build-2026
-#Customer intent: As an automation developer, I want to understand the differences between Logic Apps Automation, Azure Logic Apps, Microsoft Copilot Studio, and other automation platforms. I want to choose the best option for my business requirements, scenarios, workloads, and processes.
+#Customer intent: As an automation developer, I want to understand the differences between Azure Logic Apps Automation, Azure Logic Apps Standard and Consumption, Microsoft Copilot Studio, and other automation platforms. I want to choose the best option for my business requirements, scenarios, workloads, and processes.
 ---
 
-# Compare Logic Apps Automation, Azure Logic Apps, Microsoft Copilot Studio, and other automation platforms (preview)
+# Compare Azure Logic Apps Automation, Azure Logic Apps Standard and Consumption, Microsoft Copilot Studio, and other automation platforms (preview)
 
 > [!NOTE]
 >
 > This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Logic Apps Automation helps you build dynamic, unpredictable, AI-driven workflows that adapt at runtime, rather than follow fixed paths or branches. This article compares Logic Apps Automation with Azure Logic Apps, Microsoft Copilot Studio, and other automation platforms so you can choose the best option for your business needs.
+Azure Logic Apps Automation helps you build dynamic, unpredictable, AI-driven workflows that adapt at runtime, rather than follow fixed paths or branches. This article compares Azure Logic Apps Automation with Azure Logic Apps, Microsoft Copilot Studio, and other automation platforms so you can choose the best option for your business needs.
 
-## What makes Logic Apps Automation different
+## How Azure Logic Apps Automation differs
 
-The following table describes the key capabilities in Logic Apps Automation:
+The following table describes the key capabilities in Azure Logic Apps Automation:
 
 | Capability | What this means for you |
 |------------|-------------------------|
@@ -34,7 +33,7 @@ The following table describes the key capabilities in Logic Apps Automation:
 | Dedicated compute that scales to zero | Pay only when workflows run. No always-on infrastructure to manage. |
 | Enterprise isolation and control | Use virtual networks, private endpoints, and local development in Visual Studio Code. Control permissions, policies, and hosting. |
 
-For more information, see [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md).
+For more information, see [What is Azure Logic Apps Automation](dynamic-workflow-automation-introduction.md).
 
 ## Choose an automation platform based on your scenario
 
@@ -42,14 +41,14 @@ To quickly identify which platform fits your workload, review the following tabl
 
 | Scenario | Recommended platform |
 |----------|----------------------|
-| Variable, decision-heavy processes where the path changes each time | Logic Apps Automation |
-| Stable, repeatable processes with known steps and predictable rules | Azure Logic Apps (Standard or Consumption) |
+| Variable, decision-heavy processes where the path changes each time | Azure Logic Apps Automation |
+| Stable, repeatable processes with known steps and predictable rules | Azure Logic Apps Standard or Consumption |
 | Conversational agents distributed through Microsoft 365 | Microsoft Copilot Studio |
 | General-purpose task automation with simple triggers and actions | Other platforms |
 
-## Compare Logic Apps Automation with Azure Logic Apps
+## Compare Azure Logic Apps Automation with Azure Logic Apps
 
-Logic Apps Automation and Azure Logic Apps (Standard) use the same runtime, connectors, and management tools, but each service optimizes for different types of work. This comparison also includes Azure Logic Apps (Consumption), which uses pay-as-you-go billing with a different runtime and hosting.
+Azure Logic Apps Automation and Azure Logic Apps (Standard) use the same runtime, connectors, and management tools, but each service optimizes for different types of work. This comparison also includes Azure Logic Apps (Consumption), which uses pay-as-you-go billing with a different runtime and hosting.
 
 | Capability | Automation | Standard | Consumption |
 |------------|------------|----------|-------------|
@@ -66,11 +65,11 @@ Logic Apps Automation and Azure Logic Apps (Standard) use the same runtime, conn
 | **Learning curve** | Faster for intent-driven, agentic-patterned automation. | Faster for explicit process automation. | Faster for explicit process automation. |
 | **Best for** | AI-heavy, code-rich, long-running, and in-product workflows at enterprise scale. | Enterprise integrations, structured business processes, and scheduled jobs. | Lightweight integrations, proof-of-concept projects, and event-driven workflows. |
 
-## Compare Logic Apps Automation with Microsoft Copilot Studio
+## Compare Azure Logic Apps Automation with Microsoft Copilot Studio
 
-Logic Apps Automation and Microsoft Copilot Studio both connect to 1,400+ services and systems, but they target different audiences and workload types.
+Azure Logic Apps Automation and Microsoft Copilot Studio both connect to 1,400+ services and systems, but they target different audiences and workload types.
 
-| Capability | Logic Apps Automation | Microsoft Copilot Studio |
+| Capability | Azure Logic Apps Automation | Microsoft Copilot Studio |
 |------------|-----------------------|--------------------------|
 | **Primary platform** | Workflow-first and agent-aware. | Agent-first and trigger-aware. |
 | **Target audience** | Professional developers and AI builders comfortable with code who want flexibility without infrastructure overhead. | Business users and low-code developers who prefer a visual canvas and natural-language authoring. |
@@ -81,11 +80,11 @@ Logic Apps Automation and Microsoft Copilot Studio both connect to 1,400+ servic
 | **Hosting control** | Full control over infrastructure, permissions, and policies from the Azure platform. | SaaS with built-in management. Limited infrastructure control. |
 | **Best for** | AI-heavy, code-rich, long-running, and in-product workflows at enterprise scale. | Conversational agents, generative answers, and Microsoft 365-distributed bots that react to events. |
 
-## Compare Logic Apps Automation with non-Microsoft platforms
+## Compare Azure Logic Apps Automation with non-Microsoft platforms
 
-If you currently use other automation services or platforms, the following table summarizes how Logic Apps Automation compares:
+If you currently use other automation services or platforms, the following table summarizes how Azure Logic Apps Automation compares:
 
-| Capability | Logic Apps Automation | Typical non-Microsoft platforms |
+| Capability | Azure Logic Apps Automation | Typical non-Microsoft platforms |
 |------------|-----------------------|---------------------------------|
 | **Design approach** | Visual designer and chat prompts. Describe your goal and the workflow figures out the steps. | Usually trigger-action chains with visual editors. |
 | **Orchestration** | Dynamic: <br>Start with your business intent or goal. The workflow reasons about each request and chooses the next step at runtime. | Typically deterministic: <br>Define every step in advance. Some platforms offer basic AI features. |
@@ -103,7 +102,7 @@ If you currently use other automation services or platforms, the following table
 
 ## Related content
 
-- [What is Logic Apps Automation](dynamic-workflow-automation-introduction.md)
+- [What is Azure Logic Apps Automation](dynamic-workflow-automation-introduction.md)
 - [Create dynamic automation projects](quickstart-create-dynamic-automation-projects.md)
 - [Create dynamic automation applications](quickstart-create-dynamic-automation-applications.md)
 - [Create dynamic automation workflows](quickstart-create-dynamic-automation-workflows.md)

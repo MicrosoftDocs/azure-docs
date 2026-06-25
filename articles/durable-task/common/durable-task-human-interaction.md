@@ -95,9 +95,9 @@ The Durable Task SDKs simplify this scenario with:
 ### E4_SmsPhoneVerification orchestrator function
 
 # [C#](#tab/csharp)
-<!--
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=17-70)]
--->
+
 > [!NOTE]
 > It might not be obvious at first, but this orchestrator doesn't violate the [deterministic orchestration constraint](durable-task-code-constraints.md). It's deterministic because the `CurrentUtcDateTime` property calculates the timer expiration time, and it returns the same value on every replay at this point in the orchestrator code. This behavior ensures that `winner` is the same for every repeated call to `Task.WhenAny`.
 
@@ -107,13 +107,13 @@ The Durable Task SDKs simplify this scenario with:
 <summary><b>V3 programming model</b></summary>
 
 The **E4_SmsPhoneVerification** function uses the standard *function.json* for orchestrator functions.
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E4_SmsPhoneVerification/function.json":::
--->
+
 Here's the code that implements the function:
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E4_SmsPhoneVerification/index.js":::
--->
+
 > [!NOTE]
 > It might not be obvious at first, but this orchestrator doesn't violate the [deterministic orchestration constraint](durable-task-code-constraints.md). It's deterministic because the `currentUtcDateTime` property calculates the timer expiration time, and it returns the same value on every replay at this point in the orchestrator code. This behavior ensures that `winner` is the same for every repeated call to `context.df.Task.any`.
 
@@ -125,21 +125,21 @@ Here's the code that implements the function:
 <summary><b>V4 programming model</b></summary>
 
 Here's the code that implements the `smsPhoneVerification` orchestration function:
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/smsPhoneVerification.js" range="2-43":::
--->
+
 </details>
 
 # [Python](#tab/python)
 
 The **E4_SmsPhoneVerification** function uses the standard *function.json* for orchestrator functions.
-<!--
+
 [!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SmsPhoneVerification/function.json)]
--->
+
 Here's the code that implements the function:
-<!--
+
 [!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SmsPhoneVerification/\_\_init\_\_.py)]
--->
+
 > [!NOTE]
 > It may not be obvious at first, but this orchestrator does not violate the [deterministic orchestration constraint](durable-task-code-constraints.md). It is deterministic because the `currentUtcDateTime` property is used to calculate the timer expiration time, and it returns the same value on every replay at this point in the orchestrator code. This behavior is important to ensure that the same `winner` results from every repeated call to `context.df.Task.any`.
 
@@ -435,9 +435,9 @@ This orchestrator performs the following actions:
 The **E4_SendSmsChallenge** function uses the Twilio binding to send an SMS message that includes a four-digit code to the user.
 
 # [C#](#tab/csharp)
-<!--
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=72-89)]
--->
+
 > [!NOTE]
 > To run the sample, install the `Microsoft.Azure.WebJobs.Extensions.Twilio` NuGet package. Don't install the main [Twilio NuGet package](https://www.nuget.org/packages/Twilio/) because it can cause version conflicts and build errors.
 
@@ -447,13 +447,13 @@ The **E4_SendSmsChallenge** function uses the Twilio binding to send an SMS mess
 <summary><b>V3 programming model</b></summary>
 
 The *function.json* file is defined like this:
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E4_SendSmsChallenge/function.json":::
--->
+
 This code generates the four-digit challenge code and sends the SMS message:
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E4_SendSmsChallenge/index.js":::
--->
+
 </details>
 
 <br>
@@ -462,21 +462,21 @@ This code generates the four-digit challenge code and sends the SMS message:
 <summary><b>V4 programming model</b></summary>
 
 Here's the code that generates the four-digit challenge code and sends the SMS message:
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js-v3/samples-js/functions/smsPhoneVerification.js" range="1-2,4-6,45-67":::
--->
+
 </details>
 
 # [Python](#tab/python)
 
 The *function.json* file is defined like this:
-<!--
+
 [!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/function.json)]
--->
+
 This code generates the four-digit challenge code and sends the SMS message:
-<!--
+
 [!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/\_\_init\_\_.py)]
--->
+
 # [PowerShell](#tab/powershell)
 
 PowerShell sample coming soon.

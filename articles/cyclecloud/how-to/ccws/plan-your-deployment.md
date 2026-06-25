@@ -2,7 +2,8 @@
 title: Plan your CycleCloud Workspace for Slurm Deployment
 description: A checklist to help plan for your CycleCloud Workspace for Slurm deployment
 author: abatallas
-ms.date: 01/13/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: padmalathas
 ---
 

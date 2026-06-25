@@ -65,10 +65,12 @@ To send SMS, you must have a sender ID—this can be a phone number or an alphan
 \* For detailed formatting requirements, see [Alphanumeric sender ID FAQ](./sms-faq.md#alphanumeric-sender-id) .
 
 ## Sender Type Availability by Country/Region
+> [!IMPORTANT]
+> Effective July 1, 2026, Microsoft will no longer provide alphanumeric sender IDs for SMS to Australian phone numbers. To keep sending to Australian numbers, provision a compatible number type (such as a dedicated long code, short code, or toll-free number) by following the instructions found [here](../../quickstarts/telephony/get-phone-number.md)
 
 > [!IMPORTANT]
 > **Sender geographic scope**
->
+> 
 > SMS senders are **country/region-scoped**. A sender can deliver messages only within the country/region (or countries/regions) for which it was provisioned, enabled, or approved.
 >
 > - **Short Codes:**  

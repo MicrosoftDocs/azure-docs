@@ -1,8 +1,9 @@
 ---
 title: Add a Node Array
-description: How to add node arrays to a cluster
+description: Learn how to add node arrays to an Azure CycleCloud cluster to define how nodes of a given type are created, scaled, and deleted.
 author: dpwatrous
-ms.date: 06/30/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.update-cycle: 3650-days
 ms.author: dawatrou
 ms.custom: compute-evergreen

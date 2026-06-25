@@ -41,8 +41,6 @@ items:
       - name: Managed connectors
         href: managed-connectors.md
       - name: MCP server
-        href: mcp-server-overview.md
-      - name: SRE Agent MCP server
         href: mcp-server.md
       - name: Incident platforms
         href: incident-platforms.md
@@ -154,8 +152,6 @@ items:
             href: favorites-mine-filter.md
       - name: Measure & govern
         items:
-          - name: Operations Hub overview
-            href: operations-hub-overview.md
           - name: Operations Hub
             href: operations-hub.md
           - name: Track incident value
@@ -188,10 +184,6 @@ items:
             href: manage-permissions.md
           - name: Set up incident response
             href: tutorial-incident-response.md
-          - name: Connect to PagerDuty
-            href: connect-pagerduty.md
-          - name: Connect to ServiceNow
-            href: connect-servicenow.md
       - name: Act
         items:
           - name: Create scheduled tasks

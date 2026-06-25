@@ -5,20 +5,19 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 07/24/2025
+ms.date: 06/18/2026
 #customer intent: As a cloud developer, I want to connect my cloud services to Azure App Configuration by using Service Connector.
 ---
 
 # Integrate Azure App Configuration with Service Connector
 
-This page shows supported authentication methods and clients. It provides sample code you can use to connect Azure App Configuration to other cloud services using Service Connector. You might be able to connect to App Configuration using other methods. This page also shows default environment variable names and values you get when you create the service connection. 
+This article covers supported authentication methods and clients, and provides sample code for connecting cloud services to App Configuration by using Service Connector. It also lists default environment variable names and values that you receive when you create the service connection.
 
 ## Supported compute services
 
 Service Connector can be used to connect the following compute services to Azure App Configuration:
 
 - Azure App Service
-- Azure Container Apps
 - Azure Functions
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps
@@ -50,7 +49,7 @@ Use the following connection details to connect compute services to Azure App Co
 
 #### Sample code
 
-To connect to Azure App Configuration using a system-assigned managed identity, refer to the following steps and code.
+To connect to Azure App Configuration using a system-assigned managed identity:
 [!INCLUDE [code sample for app config](./includes/code-appconfig-me-id.md)]
 
 ### User-assigned managed identity
@@ -62,7 +61,7 @@ To connect to Azure App Configuration using a system-assigned managed identity, 
 
 #### Sample code
 
-To connect to Azure App Configuration using a user-assigned managed identity, refer to the following steps and code.
+To connect to Azure App Configuration using a user-assigned managed identity:
 [!INCLUDE [code sample for app config](./includes/code-appconfig-me-id.md)]
 
 ### Connection string
@@ -77,7 +76,7 @@ To connect to Azure App Configuration using a user-assigned managed identity, re
 
 #### Sample Code
 
-To connect to Azure App Configuration using a connection string, refer to the following steps and code.
+To connect to Azure App Configuration using a connection string:
 [!INCLUDE [code sample for app config](./includes/code-appconfig-secret.md)]
 
 
@@ -92,7 +91,7 @@ To connect to Azure App Configuration using a connection string, refer to the fo
 
 #### Sample code
 
-To connect to Azure App Configuration using a service principal, refer to the following steps and code.
+To connect to Azure App Configuration using a service principal:
 [!INCLUDE [code sample for app config](./includes/code-appconfig-me-id.md)]
 
 ## Next step

@@ -75,12 +75,12 @@ Alternatively, you can use Windows Storage Pools available in Windows Server 201
 
 For Azure M-Series VM, you can reduce by factors the latency writing into the transaction logs, compared to Azure Premium storage performance, when using Azure Write Accelerator. Therefore, you should deploy Azure Write Accelerator for one or more VHDs that form the volume for the Db2 transaction logs. Details can be read in the document [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator).
 
-IBM Db2 LUW 11.5 released support for 4-KB sector size. Though you need to enable the usage of 4-KB sector size with 11.5 by the configurations setting of db2set `DB2_4K_DEVICE_SUPPORT=ON` as documented in:
+IBM Db2 LUW 11.5 released support for 4 KB sector size. Though you need to enable the usage of 4 KB sector size with 11.5 by the configurations setting of db2set `DB2_4K_DEVICE_SUPPORT=ON` as documented in:
 
 * [Db1 11.5 performance variable](https://www.ibm.com/docs/en/db2/11.5?topic=variables-performance)
 * [Db2 registry and environment variables](https://www.ibm.com/docs/en/db2/11.5?topic=variables-registry-environment)
 
-For older Db2 versions, a 512-byte sector size must be used. Premium SSDs are 4-KB native and have 512-byte emulation. Ultra Disk uses 4-KB sector size by default. You can enable 512-byte sector size during creation of Ultra Disk. Details are available [Using Azure Ultra Disks](/azure/virtual-machines/disks-enable-ultra-ssd#deploy-an-ultra-disk---512-byte-sector-size). This 512-byte sector size is a prerequisite for IBM Db2 LUW versions lower than 11.5.
+For older Db2 versions, a 512-byte sector size must be used. Premium SSDs are 4 KB native and have 512-byte emulation. Ultra Disk uses 4 KB sector size by default. You can enable 512-byte sector size during creation of Ultra Disk. Details are available [Using Azure Ultra Disks](/azure/virtual-machines/disks-enable-ultra-ssd#deploy-an-ultra-disk---512-byte-sector-size). This 512-byte sector size is a prerequisite for IBM Db2 LUW versions lower than 11.5.
 
 On Windows using Storage pools for Db2 storage paths for `log_dir`, `sapdata` and `saptmp` directories, you must specify a physical disk sector size of 512 bytes. When using Windows Storage Pools, you must create the storage pools manually via command line interface using the parameter `-LogicalSectorSizeDefault`. For more information, see [New-StoragePool](/powershell/module/storage/new-storagepool).
 

@@ -7,7 +7,7 @@ ms.service: azure-iot-operations
 ms.topic: troubleshooting-general
 ms.custom:
   - ignite-2023
-ms.date: 05/07/2025
+ms.date: 06/10/2026
 ---
 
 # Troubleshoot Azure IoT Operations
@@ -208,6 +208,37 @@ To create a suitable Microsoft Entra ID account in your Azure tenant:
 1. Select **Review and assign** to complete setting up the new user.
 
 You can now use the new user account to sign in to the [operations experience](https://iotoperations.azure.com) web UI.
+
+## Troubleshoot the operations experience and private endpoints
+
+When you use the operations experience web UI, it may need to access Azure resources on your behalf such as:
+
+- Azure Key Vault to manage secrets
+- Azure storage to access the schema registry
+- Azure Container Storage endpoints to access custom connectors and data flow graphs
+
+If you configure these resources to use a private endpoint on a virtual network, the operations experience might not be able to access them. This configuration can cause errors when you try to use the operations experience web UI to manage secrets, connectors, or data flows.
+
+To allow the operations experience to access these resources on your behalf, configure an allow list for the IP addresses used by the operations experience in the resource's firewall. For example, if you restrict access to your Azure Key Vault by using a private endpoint and firewall, add the following IP addresses to the allow list in the firewall:
+
+```azurecli
+# Operations experience location eastus:
+az keyvault network-rule add --resource-group <your-resource-group> --name <your key vault> --ip-address 48.211.120.64
+
+# Operations experience location northeurope:
+az keyvault network-rule add --resource-group <your-resource-group> --name <your key vault> --ip-address 72.145.25.40
+
+# Operations experience location westcentralus:
+az keyvault network-rule add --resource-group <your-resource-group> --name <your key vault> --ip-address 128.24.193.24
+
+# Operations experience location westeurope:
+az keyvault network-rule add --resource-group <your-resource-group> --name <your key vault> --ip-address 72.145.132.248
+
+# Operations experience location westus3:
+az keyvault network-rule add --resource-group <your-resource-group> --name <your key vault> --ip-address 57.154.126.80
+```
+
+An operations experience request typically comes from the same region as the customer, but it could come from any region. Microsoft recommends that you allow all of the IP addresses for any Azure service that the operations experience uses.
 
 ## Troubleshoot data flows
 

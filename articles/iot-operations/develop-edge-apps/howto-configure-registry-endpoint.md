@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/02/2026
+ms.date: 06/16/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure registry endpoints in Azure IoT Operations so that I can pull custom connectors, WASM modules, and graph definitions from container registries for use in data flow graphs and connectors.
@@ -56,6 +56,24 @@ A registry endpoint defines the connection to your container registry. Data flow
 
 1. Select **Create**.
 
+# [Azure CLI](#tab/cli)
+
+The [az iot ops registry](/cli/azure/iot/ops/registry) commands require the `azure-iot-ops` Azure CLI extension. The extension installs automatically the first time you run an `az iot ops registry` command.
+
+The following example creates a registry endpoint that uses system-assigned managed identity authentication with ACR:
+
+```azurecli
+az iot ops registry create \
+  --name <REGISTRY_ENDPOINT_NAME> \
+  --instance <AIO_INSTANCE_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --host <YOUR_ACR_NAME>.azurecr.io \
+  --auth-type SystemAssignedManagedIdentity \
+  --audience https://management.azure.com/
+```
+
+For other authentication methods, see [Authentication methods](#authentication-methods). To use a public registry like ghcr.io, see [Use a public registry](#use-a-public-registry).
+
 # [Bicep](#tab/bicep)
 
 Create a Bicep `.bicep` file with the following content. This example uses system-assigned managed identity authentication with ACR:
@@ -74,7 +92,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-10-01-preview' = {
+resource registryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-03-01' = {
   parent: aioInstance
   name: registryEndpointName
   extendedLocation: {
@@ -97,24 +115,6 @@ Deploy the Bicep file by using Azure CLI:
 
 ```azurecli
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
-```
-
-For other authentication methods, see [Authentication methods](#authentication-methods). To use a public registry like ghcr.io, see [Use a public registry](#use-a-public-registry).
-
-# [Azure CLI](#tab/cli)
-
-The [az iot ops registry](/cli/azure/iot/ops/registry) commands require the `azure-iot-ops` Azure CLI extension. The extension installs automatically the first time you run an `az iot ops registry` command.
-
-The following example creates a registry endpoint that uses system-assigned managed identity authentication with ACR:
-
-```azurecli
-az iot ops registry create \
-  --name <REGISTRY_ENDPOINT_NAME> \
-  --instance <AIO_INSTANCE_NAME> \
-  --resource-group <RESOURCE_GROUP> \
-  --host <YOUR_ACR_NAME>.azurecr.io \
-  --auth-type SystemAssignedManagedIdentity \
-  --audience https://management.azure.com/
 ```
 
 For other authentication methods, see [Authentication methods](#authentication-methods). To use a public registry like ghcr.io, see [Use a public registry](#use-a-public-registry).
@@ -176,17 +176,6 @@ In the Azure portal, select **System managed identity** as the authentication me
 
 :::image type="content" source="media/howto-configure-registry-endpoint/system-managed-identity.png" alt-text="Screenshot of the completed system managed identity authentication configuration for registry endpoint." lightbox="media/howto-configure-registry-endpoint/system-managed-identity.png":::
 
-# [Bicep](#tab/bicep)
-
-```bicep
-authentication: {
-  method: 'SystemAssignedManagedIdentity'
-  systemAssignedManagedIdentitySettings: {
-    audience: 'https://management.azure.com/'
-  }
-}
-```
-
 # [Azure CLI](#tab/cli)
 
 ```azurecli
@@ -197,6 +186,17 @@ az iot ops registry create \
   --host <YOUR_ACR_NAME>.azurecr.io \
   --auth-type SystemAssignedManagedIdentity \
   --audience https://management.azure.com/
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+authentication: {
+  method: 'SystemAssignedManagedIdentity'
+  systemAssignedManagedIdentitySettings: {
+    audience: 'https://management.azure.com/'
+  }
+}
 ```
 
 ---
@@ -222,18 +222,6 @@ In the Azure portal, select **User managed identity** as the authentication meth
 
 :::image type="content" source="media/howto-configure-registry-endpoint/user-managed-identity.png" alt-text="Screenshot of the completed user managed identity authentication configuration for registry endpoint." lightbox="media/howto-configure-registry-endpoint/user-managed-identity.png":::
 
-# [Bicep](#tab/bicep)
-
-```bicep
-authentication: {
-  method: 'UserAssignedManagedIdentity'
-  userAssignedManagedIdentitySettings: {
-    clientId: '<CLIENT_ID>'
-    tenantId: '<TENANT_ID>'
-  }
-}
-```
-
 # [Azure CLI](#tab/cli)
 
 ```azurecli
@@ -245,6 +233,18 @@ az iot ops registry create \
   --auth-type UserAssignedManagedIdentity \
   --client-id <CLIENT_ID> \
   --tenant-id <TENANT_ID>
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+authentication: {
+  method: 'UserAssignedManagedIdentity'
+  userAssignedManagedIdentitySettings: {
+    clientId: '<CLIENT_ID>'
+    tenantId: '<TENANT_ID>'
+  }
+}
 ```
 
 ---
@@ -281,17 +281,6 @@ To create new secrets and store them in Azure Key Vault:
 
 :::image type="content" source="media/howto-configure-registry-endpoint/secret-form.png" alt-text="Screenshot of the create new secret form in Azure Key Vault for artifact secrets." lightbox="media/howto-configure-registry-endpoint/secret-form.png":::
 
-# [Bicep](#tab/bicep)
-
-```bicep
-authentication: {
-  method: 'ArtifactPullSecret'
-  artifactPullSecretSettings: {
-    secretRef: 'my-registry-secret'
-  }
-}
-```
-
 # [Azure CLI](#tab/cli)
 
 ```azurecli
@@ -302,6 +291,17 @@ az iot ops registry create \
   --host <YOUR_REGISTRY_HOST> \
   --auth-type ArtifactPullSecret \
   --secret-ref my-registry-secret
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+authentication: {
+  method: 'ArtifactPullSecret'
+  artifactPullSecretSettings: {
+    secretRef: 'my-registry-secret'
+  }
+}
 ```
 
 ---
@@ -316,15 +316,6 @@ In the Azure portal, select **Anonymous** as the authentication method.
 
 :::image type="content" source="media/howto-configure-registry-endpoint/authentication-anonymous.png" alt-text="Screenshot of the completed anonymous authentication configuration for registry endpoint." lightbox="media/howto-configure-registry-endpoint/authentication-anonymous.png":::
 
-# [Bicep](#tab/bicep)
-
-```bicep
-authentication: {
-  method: 'Anonymous'
-  anonymousSettings: {}
-}
-```
-
 # [Azure CLI](#tab/cli)
 
 ```azurecli
@@ -334,6 +325,15 @@ az iot ops registry create \
   --resource-group <RESOURCE_GROUP> \
   --host <YOUR_REGISTRY_HOST> \
   --no-auth
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+authentication: {
+  method: 'Anonymous'
+  anonymousSettings: {}
+}
 ```
 
 ---
@@ -361,10 +361,21 @@ For example, the Azure IoT Operations sample WASM modules and graph definitions 
 
 The Azure portal doesn't currently support creating registry endpoints for public registries other than MCR. Use Bicep or Azure CLI instead.
 
+# [Azure CLI](#tab/cli)
+
+```azurecli
+az iot ops registry create \
+  --name public-ghcr \
+  --instance <AIO_INSTANCE_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --host ghcr.io \
+  --no-auth
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-10-01-preview' = {
+resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-03-01' = {
   parent: aioInstance
   name: 'public-ghcr'
   extendedLocation: {
@@ -381,17 +392,6 @@ resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpo
 }
 ```
 
-# [Azure CLI](#tab/cli)
-
-```azurecli
-az iot ops registry create \
-  --name public-ghcr \
-  --instance <AIO_INSTANCE_NAME> \
-  --resource-group <RESOURCE_GROUP> \
-  --host ghcr.io/azure-samples/explore-iot-operations \
-  --no-auth
-```
-
 ---
 
 After you create this registry endpoint, you can reference it in your data flow graph as `registryEndpointRef: public-ghcr`. No ORAS pull/push steps are needed because the runtime pulls the artifacts directly from the public registry.
@@ -406,28 +406,6 @@ When you deploy Azure IoT Operations, a registry endpoint named `default` is aut
 # [Azure portal](#tab/portal)
 
 You can view the default registry endpoint in the Azure portal under **Components** > **Registry endpoints**. The `default` endpoint is read-only and can't be deleted.
-
-# [Bicep](#tab/bicep)
-
-The default endpoint is equivalent to the following configuration:
-
-```bicep
-resource defaultRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-10-01-preview' = {
-  parent: aioInstance
-  name: 'default'
-  extendedLocation: {
-    name: customLocation.id
-    type: 'CustomLocation'
-  }
-  properties: {
-    host: 'mcr.microsoft.com'
-    authentication: {
-      method: 'Anonymous'
-      anonymousSettings: {}
-    }
-  }
-}
-```
 
 # [Azure CLI](#tab/cli)
 
@@ -446,6 +424,28 @@ List all registry endpoints for the instance with [az iot ops registry list](/cl
 az iot ops registry list \
   --instance <AIO_INSTANCE_NAME> \
   --resource-group <RESOURCE_GROUP>
+```
+
+# [Bicep](#tab/bicep)
+
+The default endpoint is equivalent to the following configuration:
+
+```bicep
+resource defaultRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-03-01' = {
+  parent: aioInstance
+  name: 'default'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    host: 'mcr.microsoft.com'
+    authentication: {
+      method: 'Anonymous'
+      anonymousSettings: {}
+    }
+  }
+}
 ```
 
 ---
