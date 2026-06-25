@@ -192,6 +192,7 @@ This section shows the configurable runtime settings for each supported language
 | `WILDFLY_VERSION` | Read-only. For JBoss Enterprise Application Platform (EAP) Linux apps, the WildFly version. |
 | `TOMCAT_VERSION` | Read-only. For Linux Tomcat apps, the Tomcat version. |
 | `JBOSS_HOME` | Read-only. For JBoss EAP (Linux) apps, the path of the WildFly installation. |
+| `WEBSITE_AUTOCONFIGURE_DATABASE` | For JBoss EAP (Linux) apps, set to `true` to have App Service automatically create a JNDI data source in the JBoss server for each app setting that contains a valid JDBC connection string for an Oracle, SQL Server, PostgreSQL, or MySQL database. The data source is named after the app setting, with the suffix `_DS`. For more information, see [Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service](configure-language-java-data-sources.md?pivots=java-jboss). |
 | `AZURE_JETTY9_CMDLINE` | Read-only. For native Windows apps, the command-line arguments for starting Jetty 9. |
 | `AZURE_JETTY9_HOME` | Read-only. For native Windows apps, the path to the Jetty 9 installation. |
 | `AZURE_JETTY93_CMDLINE` | Read-only. For native Windows apps, specifies the command-line arguments for starting Jetty 9.3. |
