@@ -3,11 +3,9 @@ title: Set up Basic Authentication to the Developer Portal
 titleSuffix: Azure API Management
 description: Learn how to set up user accounts with username and password authentication to the developer portal in Azure API Management.
 
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 03/06/2026
-ms.author: danlep
 ms.custom: sfi-image-nochange
 ---
 

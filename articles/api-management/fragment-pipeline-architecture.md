@@ -3,12 +3,10 @@ title: Architecture for Building Advanced Execution Pipelines with Policy Fragme
 titleSuffix: Azure API Management
 description: Foundational patterns for designing modular, scalable policy fragment architectures in Azure API Management with clear separation of concerns.
 services: api-management
-author: nicolela
 
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 02/10/2026
-ms.author: nicolela 
 ---
 
 # Architecture for building advanced execution pipelines with policy fragments

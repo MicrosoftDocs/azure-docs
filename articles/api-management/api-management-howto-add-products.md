@@ -5,8 +5,6 @@ ms.topic: tutorial
 ms.date: 08/19/2025
 ms.custom: devdivchpfy22, devx-track-azurecli 
 ms.service: azure-api-management
-author: dlepow
-ms.author: danlep
 ms.devlang: azurecli
 zone_pivot_groups: api-management-howto-add-products
 ---
