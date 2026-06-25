@@ -281,6 +281,7 @@ The following table outlines the support scope of flow logs.
 | Azure Application Gateway | Not supported | Supported |
 | Azure Virtual Network Manager | Not supported | Supported |
 | ExpressRoute gateway | Not supported | Supported |
+| ExpressRoute Direct | Not supported | Not supported |
 | Virtual machine scale sets | Supported | Supported |
 | VPN gateway | Not supported | Supported |
 
