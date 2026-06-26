@@ -2,8 +2,6 @@
 title: Include file
 description: Include file
 services: api-center
-author: dlepow
-ms.author: danlep
 ms.service: azure-api-center
 ms.topic: include
 ms.date: 03/04/2026

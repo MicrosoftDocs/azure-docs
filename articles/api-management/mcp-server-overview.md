@@ -1,11 +1,9 @@
 ---
 title: Overview of MCP servers in Azure API Management
 description: Learn how Azure API Management enables secure, scalable access to remote MCP servers for AI agents, including architecture and management features.
-author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 11/13/2025
-ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ms.custom: ignite-2025

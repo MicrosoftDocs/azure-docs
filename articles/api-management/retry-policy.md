@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - retry | Microsoft Docs
 description: Reference for the retry policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 09/11/2025
-ms.author: danlep
 ---
 
 # Retry

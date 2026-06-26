@@ -2,8 +2,6 @@
 title: Import Language Model API - Azure API Management
 description: How to import an OpenAI-compatible language model or a non-OpenAI-compatible AI model as a REST API in Azure API Management.
 ms.service: azure-api-management
-author: dlepow
-ms.author: danlep
 ms.topic: how-to
 ms.date: 02/26/2026
 ms.update-cycle: 180-days

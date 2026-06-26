@@ -2,8 +2,6 @@
 title: "Tutorial: Use VS Code to Import and Manage APIs in Azure API Management"
 description: Learn how to use the Azure API Management extension for Visual Studio Code to import, test, and manage APIs.
 ms.service: azure-api-management
-author: dlepow
-ms.author: danlep
 ms.topic: tutorial
 ms.date: 03/16/2026
 ms.custom:

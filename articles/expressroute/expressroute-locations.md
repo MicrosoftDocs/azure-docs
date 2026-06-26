@@ -208,7 +208,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[SingTel](https://www.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |&check; |&check; | Hong Kong2<br/>Singapore<br/>Singapore2 |
 | **[SK Telecom](http://b2b.tworld.co.kr/bizts/solution/solutionTemplate.bs?solutionId=0085)** | &check; | &check; | Seoul |
 | **SKT** | &check; | &check; | Seoul |
-| **[Softbank](https://global.tm.softbank.jp/en/)** |&check; |&check; | Osaka<br/>Tokyo<br/>Tokyo2 |
+| **[Softbank](https://www.softbank.jp/business/service/network/direct-access-azure/)** |&check; |&check; | Osaka<br/>Tokyo<br/>Tokyo2 |
 | **[Sohonet](https://www.sohonet.com/product/fastlane/)** | &check; | &check; | Los Angeles<br/>London2 |
 | **[Spark NZ](https://www.sparkdigital.co.nz/solutions/connectivity/cloud-connect/)** | &check; | &check; | Auckland<br/>Sydney |
 | **[Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center/microsoft-cloud-services/microsoft-azure-von-swisscom.html)** | &check; | &check; | Geneva<br/>Zurich<br/>Zurich2 |

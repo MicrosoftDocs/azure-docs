@@ -1,8 +1,8 @@
 ---
 title: Collect logs and metrics with Azure Log Analytics
 description: This article shows how to collect and ingest Apache Spark diagnostics to Azure Log Analytics by using the Log Ingestion API in Azure Synapse Analytics.
-author: eric-urban
-ms.author: eur
+author: Jejiang
+ms.author: jejiang
 ms.reviewer: jejiang
 ms.topic: how-to
 ms.date: 03/18/2026

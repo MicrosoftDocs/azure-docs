@@ -2,12 +2,10 @@
 title: Set or Edit Azure API Management Policies
 description: Configure policies at different scopes in Azure API Management by using the policy editor in the Azure portal.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 03/13/2026
-ms.author: danlep
 ms.custom: sfi-image-nochange
 ---
 

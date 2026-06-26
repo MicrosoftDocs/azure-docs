@@ -2,8 +2,6 @@
 title: Import a WebSocket API to Azure API Management
 description: Learn how API Management supports WebSocket, add a WebSocket API, and WebSocket limitations.
 ms.service: azure-api-management
-author: dlepow
-ms.author: danlep
 ms.topic: how-to
 ms.date: 03/16/2026
 ms.custom:

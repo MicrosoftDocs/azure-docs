@@ -26,6 +26,10 @@ With Azure NetApp Files' migration assistant, you can peer and migrate volumes f
 * You should complete migrations from a single source cluster using one Azure subscription before migrating volumes destined for another subscription. Cluster peering fails when using a second Azure subscription and the same external source clusters.
 * If you use Azure RBAC to separate the role of Azure NetApp Files storage management with the intention of separating volume management tasks where volumes reside on the same network sibling set, be aware that externally connected ONTAP systems peered to that sibling set don't adhere to these Azure-defined roles. The external storage administrator might have limited visibility to all volumes in the sibling set showing storage level metadata details.
 * When creating each migration volume, the Azure NetApp Files volume placement algorithm attempts to reuse the same Azure NetApp Files storage system as any previously created volumes in the subscription to reduce the number of network interface cards (NICs) or IPs consumed in the delegated subnet. If this isn't possible, an additional seven NICs are consumed.
+* Migration assistant migrates volume data including directory and file level access control lists (ACLs). Any share-level permissions aren't migrated and need to be recreated manually.
+* If your on-premises volume has multiple shares (for example, a root share and sub-shares pointing to subdirectories), only the primary share is created on the Azure NetApp Files volume. To verify what shares exist on your on-premises volumes, use the vserver command:
+    * `vserver cifs share show`
+    * `vserver cifs share access-control show`
 * On-premises FlexGroup volumes can't be migrated to Azure NetApp Files large volumes. Exclude FlexGroup volumes from your migration.
 * When the migration is in progress, don't enable features such as backup. Only enable features once the migration has completed.
 

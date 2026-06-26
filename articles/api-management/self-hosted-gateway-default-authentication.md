@@ -2,12 +2,10 @@
 title: Azure API Management Self-Hosted Gateway - Access Token Authentication
 description: Enable the Azure API Management self-hosted gateway to authenticate with its associated cloud-based API Management instance using the default token-based authentication method.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 02/19/2026
-ms.author: danlep
 ai-usage: ai-assisted
 ---
 
