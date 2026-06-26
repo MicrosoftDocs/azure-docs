@@ -2,12 +2,10 @@
 title: Self-Hosted Gateway Overview | Azure API Management
 description: Learn how the self-hosted gateway feature of Azure API Management can help you manage APIs in hybrid and multicloud environments.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 09/30/2025
-ms.author: danlep
 #customer intent: As an API admin, I want learn about how the self-hosted gateway feature can help me manage APIs.
 ---
 

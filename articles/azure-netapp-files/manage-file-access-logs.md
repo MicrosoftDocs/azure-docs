@@ -108,6 +108,7 @@ Availability for file access log is limited to the following regions:
 - North Europe
 - Norway East
 - Norway West
+- Qatar Central
 - South Africa North
 - South Central US
 - Southeast Asia

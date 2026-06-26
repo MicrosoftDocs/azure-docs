@@ -1,11 +1,9 @@
 ---
 title: Understanding Azure API Management Service Limits
 description: Learn about service limits in Azure API Management, including their purpose, how they're enforced, and guidelines for managing your service.
-author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 02/17/2026
-ms.author: danlep
 ai-usage: ai-assisted
 ---
 
