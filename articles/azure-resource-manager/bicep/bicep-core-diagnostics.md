@@ -422,7 +422,7 @@ You can suppress Bicep diagnostic codes by using `disable-next-line` and `disabl
 | <a id='BCP446' />BCP446 | Error | Restore from registry "{registryHostname}" is blocked because it isn't in the trusted registries list. See [https://aka.ms/bicep/registry-trust](https://aka.ms/bicep/registry-trust) for details. |
 | <a id='BCP448' />BCP448 | Error | The OCI artifact module alias "{aliasName}" has a "mapToFilePath" property which is only supported for modules, not extensions. |
 | <a id='BCP449' />BCP449 | Error | The 'brfs' module reference scheme is for internal use only. Use a 'br/:' reference with a configured 'mapToFilePath' alias instead. |
-| <a id='BCP450' />BCP450 | Error | Configuration file is not found. Feature "{featureName}" requires a configuration file. |
+| <a id='BCP450' />BCP450 | Error | Configuration file isn't found. Feature "{featureName}" requires a configuration file. |
 | <a id='BCP451' />BCP451 | Error | The OCI artifact module alias "{aliasName}" has an invalid "mapToFilePath" path "{path}": {reason} |
 
 ## Next steps
