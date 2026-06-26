@@ -5,7 +5,7 @@ ms.topic: reference
 ms.custom:
   - devx-track-bicep
   - build-2025
-ms.date: 04/17/2026
+ms.date: 06/26/2026
 ---
 
 # Resource functions for Bicep
@@ -13,6 +13,60 @@ ms.date: 04/17/2026
 This article describes the Bicep functions for getting resource values.
 
 To get values from the current deployment, see [Deployment value functions](./bicep-functions-deployment.md).
+
+## The `this` namespace
+
+The `this` namespace provides functions for runtime resource state discovery within a resource definition. These functions allow your template to adapt its configuration based on whether a resource already exists in the environment.
+
+- [`this.exists()`](#exists): Returns a bool value indicating whether the resource currently exists.
+- [`this.existingResource()`](#existingresource): Returns the object representation of the resource if it exists, or null if it does not.
+
+## exists
+
+`this.exists()`
+
+Returns a bool value indicating whether the resource currently exists in Azure. This function is evaluated during deployment and is intended for use within resource property assignments to handle conditional logic without requiring separate existing resource declarations.
+
+Namespace: [this](#the-this-namespace)
+
+### Example
+
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2026-04-01' = {
+  name: 'mystorageaccount'
+  location: 'eastus'
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind:  'StorageV2'
+  properties:{
+    accessTier: this.exists() ? this.existingResource()!.properties.accessTier : 'Cold'
+  }
+}
+```
+
+## existingResource
+
+`this.existingResource()`
+
+Returns the object representation of the resource if it exists, or `null` if it doesn't. This function pairs with [`this.exists()`](#exists). While `exists()` returns a simple boolean, `existingResource()` returns the actual resource object. You can safely access nested properties by using the [null-forgiving operator (!)](./operator-null-forgiving.md) or the [safe navigation operator(.?)](./operator-safe-dereference.md).
+
+Namespace: [this](#the-this-namespace)
+
+### Example
+
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2026-04-01' = {
+  name: 'mystorageaccount'
+  location: 'eastus'
+  sku: {
+    name: 'Standard_LRS'  }
+  kind:  'StorageV2'
+  properties:{
+    accessTier: this.existingResource().?properties.accessTier ?? 'Cold'
+  }
+}
+```
 
 ## extensionResourceId
 
