@@ -66,7 +66,7 @@ To use Entra Kerberos authentication for cloud-only identities, use one of the f
 
 To use Entra Kerberos authentication for hybrid identities, use one of the following operating systems:
 
-  - **Windows 11 Enterprise/Pro single or multi-session**. For the best experience, we recommend at least:
+  - **Windows 11 Enterprise/Pro single or multi-session**. For the best experience, use at least:
     - Windows 11 version 26H1 or newer, with at least [KB5079489](https://support.microsoft.com/en-us/topic/march-26-2026-kb5079489-os-build-28000-1764-preview-cd374a56-9657-43fb-9ebe-40cb693d8d10) (OS build 28000.1764 or later)
     - Windows 11 version 25H2 with at least [KB5079391](https://support.microsoft.com/en-us/topic/march-26-2026-kb5079391-os-builds-26200-8116-and-26100-8116-preview-7c9e2275-b9ba-4068-aeb0-23da42b81d3b) (OS build 26200.8116 or later)
     - Windows 11 version 24H2 with at least [KB5079391](https://support.microsoft.com/en-us/topic/march-26-2026-kb5079391-os-builds-26200-8116-and-26100-8116-preview-7c9e2275-b9ba-4068-aeb0-23da42b81d3b) (OS build 26100.8116 or later)
