@@ -8,7 +8,7 @@ author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
 ms.custom: mode-other, devx-track-python
-ms.date: 07/09/2025
+ms.date: 06/25/2026
 ---
 
 # Enable features on a schedule in a Python application
@@ -24,14 +24,25 @@ The example used is based on the Python application introduced in the feature ma
 
 ## Use the time window filter
 
-You've added a time window filter for your *Beta* feature flag in the prerequisites. Next, you'll use the feature flag with the time window filter in your Python application.
+You added a time window filter for your *Beta* feature flag in the prerequisites. Next, use the feature flag with the time window filter in your Python application.
 
 When you create a feature manager, the built-in feature filters are automatically added to its feature filter collection.
 
 ``` python
 from featuremanagement import FeatureManager
+from azure.appconfiguration.provider import load
+from azure.identity import DefaultAzureCredential
 
-fm = FeatureManager(provider)
+endpoint = os.environ.get("APPCONFIGURATION_ENDPOINT_STRING")
+
+# Connect to Azure App Configuration using and Endpoint and Azure Entra ID
+# feature_flag_enabled makes it so that the provider will load feature flags from Azure App Configuration
+# from Azure App Configuration, when the refresh operation is triggered
+config = load(endpoint=endpoint, credential=DefaultAzureCredential(), feature_flag_enabled=True)
+
+feature_manager = FeatureManager(config)
+
+print("Beta is", feature_manager.is_enabled("Beta"))
 ```
 
 ## Time window filter in action
