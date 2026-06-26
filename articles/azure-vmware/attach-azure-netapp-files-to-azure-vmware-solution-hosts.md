@@ -144,7 +144,7 @@ Azure NetApp Files supports nconnect to enhance the performance of NFS datastore
 
 By distributing NFS traffic across multiple connections, nconnect helps reduce bottlenecks associated with single-session limits and improves overall efficiency for applications such as databases, analytics, and large-scale virtualized environments. Increasing the number of connections per datastore allows workloads to achieve higher levels of concurrent I/O operations, which can significantly improve throughput and reduce latency in environments with high concurrency requirements.
 
-To enable nconnect for Azure NetApp Files datastores in your Azure VMware Solution, submit a support request with following information in the **Add additional details** section:
+To enable nconnect for Azure NetApp Files datastores in your Azure VMware Solution, submit a support request with the following information in the **Add additional details** section:
 
 1. Resource group name
 
