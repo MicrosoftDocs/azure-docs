@@ -56,8 +56,6 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     from flask_sqlalchemy import SQLAlchemy
     from flask_login import LoginManager
     from flask import Flask
-    from pathlib import Path
-    import secrets
     
     app = Flask(__name__, template_folder="templates", static_folder="static")
     bcrypt = Bcrypt(app)
