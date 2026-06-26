@@ -1,7 +1,7 @@
 ---
 title: Deploy VM extensions with template
 description: Learn how to deploy virtual machine extensions with Azure Resource Manager templates (ARM templates).
-ms.date: 10/29/2025
+ms.date: 06/26/2026
 ms.topic: tutorial
 ms.custom:
   - devx-track-arm-template

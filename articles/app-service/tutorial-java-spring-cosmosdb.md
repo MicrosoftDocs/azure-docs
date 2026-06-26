@@ -6,7 +6,7 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 04/17/2025
+ms.date: 06/26/2026
 ms.update-cycle: 180-days
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
@@ -135,49 +135,40 @@ First, you create the Azure resources. The steps used in this tutorial create a 
 
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
 
-:::row:::
-    :::column span="2":::
-        **Step 1:** In the Azure portal:
-        1. Enter "web app database" in the search bar at the top of the Azure portal.
-        1. Select the item labeled **Web App + Database** under the **Marketplace** heading.
-        You can also navigate to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) directly.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-create-app-cosmosdb-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App + Database creation wizard." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-create-app-cosmosdb-1.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2:** In the **Create Web App + Database** page, fill out the form as follows.
-        1. *Resource Group*: Select **Create new** and use a name of **msdocs-spring-cosmosdb-tutorial**.
-        1. *Region*: Any Azure region near you.
-        1. *Name*: **msdocs-spring-cosmosdb-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
-        1. *Runtime stack*: **Java 21**.
-        1. *Java web server stack*: **Java SE (Embedded Web Server)**.
-        1. *Engine*: **Cosmos DB API for MongoDB**. Cosmos DB is a fully managed NoSQL, relational, and vector database as a service on Azure.
-        1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
-        1. Select **Review + create**.
-        1. After validation completes, select **Create**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-create-app-cosmosdb-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App + Database wizard." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-create-app-cosmosdb-2.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 3:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
-        - **Resource group**: The container for all the created resources.
-        - **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
-        - **App Service**: Represents your app and runs in the App Service plan.
-        - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
-        - **Azure Cosmos DB**: Accessible only from behind its private endpoint. A database is created for you on the database account.
-        - **Private endpoints**: Access endpoints for the database server and the Redis cache in the virtual network.
-        - **Private DNS zones**: Enable DNS resolution of the database server and the Redis cache in the virtual network.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-create-app-cosmosdb-3.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-create-app-cosmosdb-3.png":::
-    :::column-end:::
-:::row-end:::
+1. In the Azure portal:
+    * In the search bar at the top, enter *app service*.
+    * Under the **Services** heading, select **App Service**.
+    * Select **Create** > **Web App**.
+
+    You can also go directly to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.WebSite).
+
+1. In the **Create Web App** page, on the **Basics** tab, fill out the form as follows:
+    * *Resource Group*: Select **Create new** and use a name of **msdocs-spring-cosmosdb-tutorial**.
+    * *Name*: **msdocs-spring-cosmosdb-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
+    * *Runtime stack*: **Java 25**.
+    * *Java web server stack*: **Java SE (Embedded Web Server)**.
+    * *Operating System*: **Linux**.
+    * *Region*: Any Azure region near you.
+    * *Pricing plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
+
+1. Select the **Database** tab and configure the database:
+    * Select **Create a Database**.
+    * In **Engine**, select **Cosmos DB API for MongoDB**. Cosmos DB is a fully managed NoSQL, relational, and vector database as a service on Azure.
+    * Don't select **Create an Azure Cache for Redis**.
+
+1. Select **Review + create**. After validation completes, select **Create**.
+
+1. When deployment finishes, select the **Go to resource** button. You're taken directly to the App Service app. 
+
+The following resources are created:
+
+* **Resource group**: The container for all the created resources.
+* **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
+* **App Service**: Represents your app and runs in the App Service plan.
+* **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
+* **Azure Cosmos DB**: Accessible only from behind its private endpoint. A database is created for you on the database account.
+* **Private endpoints**: Access endpoints for the database server in the virtual network.
+* **Private DNS zones**: Enable DNS resolution of the database server in the virtual network.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -315,7 +306,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         **Step 3:** 
         1. Select the **Logs** tab. See that a new deployment already ran, but the status is **Failed**.
         1. Select **Build/Deploy Logs**.
-        A browser tab opens to the **Actions** tab of your forked repository in GitHub. In **Annotations**, you see the error `The string 'java21' is not valid SeVer notation for a Java version`. If you want, select the failed **build** step in the page to get more information.
+        A browser tab opens to the **Actions** tab of your forked repository in GitHub. In **Annotations**, you see the error `The string 'java25' is not valid SemVer notation for a Java version`. If you want, select the failed **build** step in the page to get more information.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing an error in the deployment center's Logs page." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-deploy-sample-code-3.png":::
@@ -334,7 +325,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column span="2":::
         **Step 5 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
-        1. Ask, "*@workspace Why do I get the error in GitHub actions: The string 'java21' is not valid SemVer notation for a Java version.*" Copilot might give you an explanation and even give you the link to the workflow file that you need to fix.
+        1. Ask, "*@workspace Why do I get the error in GitHub actions: The string 'java25' is not valid SemVer notation for a Java version.*" Copilot might give you an explanation and even give you the link to the workflow file that you need to fix.
         1. Open *.github/workflows/starter-no-infra_msdocs-spring-cosmosdb-123.yaml* in the explorer and make the suggested fix.
         GitHub Copilot doesn't give you the same response every time, you might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
@@ -346,7 +337,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column span="2":::
         **Step 5 (Option 2: without GitHub Copilot):**  
         1. Open *.github/workflows/starter-no-infra_msdocs-spring-cosmosdb-123.yaml* in the explorer and find the `setup-java@v4` action.
-        1. Change the value of `java-version` to `'21'`.
+        1. Change the value of `java-version` to `'25'`.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-deploy-sample-code-5.png" alt-text="A screenshot showing a GitHub codespace and the autogenerated workflow file opened." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-deploy-sample-code-5.png":::
@@ -487,7 +478,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
 1. From the repository root, run `azd init`.
 
     ```bash
-    azd init --template javase-app-service-cosmos-redis-infra
+    azd init --template javase-app-service-cosmos-redis-infra .
     ```
 
 1. When prompted, give the following answers:
@@ -510,7 +501,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     azd up
     ```  
 
-    The `azd up` command takes about 15 minutes to complete (the Redis cache takes the most time). It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+    The `azd up` command takes about 15 minutes to complete. It also compiles and deploys your application code, but you need to modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deployed application.
 
     This AZD template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
@@ -519,10 +510,10 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **App Service**: Represents your app and runs in the App Service plan.
     - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
     - **Azure Cosmos DB account with MongoDB API**: Accessible only from behind its private endpoint. A database is created for you on the server.
-    - **Azure Cache for Redis**: Accessible only from within the virtual network.
+    - **Azure Managed Redis**: Accessible only from within the virtual network.
     - **Key vault**: Accessible only from behind its private endpoint. Used to manage secrets for the App Service app.
-    - **Private endpoints**: Access endpoints for the key vault, the database server, and the Redis cache in the virtual network.
-    - **Private DNS zones**: Enable DNS resolution of the Cosmos DB database, the Redis cache, and the key vault in the virtual network.
+    - **Private endpoints**: Access endpoints for the key vault, the database server, and Azure Managed Redis in the virtual network.
+    - **Private DNS zones**: Enable DNS resolution of the Cosmos DB database, Azure Managed Redis, and the key vault in the virtual network.
     - **Log Analytics workspace**: Acts as the target container for your app to ship its logs, where you can also query the logs.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
@@ -616,7 +607,7 @@ Depending on your subscription and the region you select, you might see the depl
 
 `Sorry, we are currently experiencing high demand in <region> region, and cannot fulfill your request at this time.`
 
-The error is most likely caused by a limit on your subscription for the region you select. Try choosing a different region for your deployment.
+This error most likely occurs because of a limit on your subscription for the region you select. Try choosing a different region for your deployment. Capacity for the other resources in the deployment can also vary by region and subscription, so make sure the region you choose has capacity for the App Service plan and the Azure Managed Redis (`Balanced_B0`) instance as well.
 
 #### The deployed sample app doesn't show the tasks list app
 
@@ -635,7 +626,7 @@ Pricing for the created resources is as follows:
 
 - The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
 - The Azure Cosmos DB account is created in **Serverless** tier and there's a small cost associated with this tier. See [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/serverless/).
-- The Azure Cache for Redis is created in **Basic** tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
+- The Azure Managed Redis instance is created in the **Balanced B0** (`Balanced_B0`) tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Managed Redis pricing](https://azure.microsoft.com/pricing/details/managed-redis/).
 - The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
 
