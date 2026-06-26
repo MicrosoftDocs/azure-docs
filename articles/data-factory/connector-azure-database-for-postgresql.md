@@ -618,9 +618,6 @@ Best practices to load data with partition option:
 
 When transforming data in mapping data flow, you can read and write to tables from Azure Database for PostgreSQL. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows. You can choose to use an Azure Database for PostgreSQL dataset or an [inline dataset](data-flow-source.md#inline-datasets) as source and sink type.
 
-> [!NOTE]
-> Currently, only basic authentication is supported for both V1 and V2 versions of the Azure Database for PostgreSQL connector in Mapping Data Flows.
-
 ### Source transformation
 
 The below table lists the properties supported by Azure Database for PostgreSQL source. You can edit these properties in the **Source options** tab.
