@@ -42,7 +42,7 @@ Before you enable Microsoft Entra Domain Services over SMB for Azure file shares
     It typically takes about 15 minutes for a Microsoft Entra Domain Services deployment to complete. Verify that the health status of Microsoft Entra Domain Services shows **Running**, with password hash synchronization enabled, before proceeding to the next step.
 
       > [!NOTE]
-    > Remember to check the health of Entra Domain Services after deployment and resolve any critical/warning alerts in the health dashboard [Check the health of a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/check-health).
+    > Remember to check the health of Entra Domain Services after deployment and resolve any critical or warning alerts in the health dashboard [Check the health of a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/check-health).
 
 
 1.  **Domain-join a VM with Microsoft Entra Domain Services.**
