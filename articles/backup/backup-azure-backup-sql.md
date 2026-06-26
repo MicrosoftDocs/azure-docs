@@ -1,8 +1,9 @@
 ---
-title: Back up SQL Server to Azure as a DPM workload
-description: An introduction to backing up SQL Server databases by using the Azure Backup service
+title: Back up and restore SQL Server databases to Azure with DPM
+description: Learn how to use Data Protection Manager (DPM) with Azure Backup to create SQL Server backup policies, run on-demand backups, and restore databases from Azure recovery points.
+keywords: SQL Server backup, Azure Backup, DPM, Data Protection Manager, SQL Server restore, Always On, failover cluster instance, backup policy, recovery point
 ms.topic: how-to
-ms.date: 07/15/2025
+ms.date: 06/26/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -10,11 +11,17 @@ ms.custom: engagement-fy24
 # Customer intent: "As a database administrator, I want to back up SQL Server databases to Azure using a defined backup policy, so that I can ensure data protection and facilitate efficient recovery processes for my organization's SQL Server workloads."
 ---
 
-# Back up SQL Server to Azure as a DPM workload
+# Back up and restore SQL Server databases to Azure with DPM
 
-This article describes how to back up and restore the SQL Server databases using Azure Backup.
+This article describes how to back up and restore SQL Server databases by using Azure Backup with Data Protection Manager (DPM).
 
 Azure Backup helps you to back up SQL Server databases to Azure via an Azure account. If you don't have one, you can create a free account in just a few minutes. For more information, see [Create your Azure free account](https://azure.microsoft.com/pricing/free-trial/).
+
+## In this article
+
+- Create a backup policy to protect SQL Server databases in Azure.
+- Create on-demand backup copies in Azure.
+- Recover a SQL Server database from Azure.
 
 [!INCLUDE [The functionality of Azure Backup trim process.](../../includes/backup-trim-process-notification.md)]
 
@@ -204,3 +211,5 @@ For more information, see [Azure Backup FAQ](backup-azure-backup-faq.yml).
 ## Related content
 
 [Manage backup to Azure for DPM servers via PowerShell](backup-dpm-automation.md).
+[Get started with DPM and Azure Backup](backup-azure-dpm-introduction.md).
+[Use Azure Backup to replace your tape infrastructure](backup-azure-backup-cloud-as-tape.md).
