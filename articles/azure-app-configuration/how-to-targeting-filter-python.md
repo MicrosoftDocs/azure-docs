@@ -7,7 +7,7 @@ ms.devlang: python
 author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
-ms.date: 10/07/2025
+ms.date: 06/25/2026
 ---
 
 # Roll out features to targeted audiences in a Python application

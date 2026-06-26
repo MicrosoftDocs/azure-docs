@@ -8,7 +8,7 @@ ms.author: mametcal
 ms.service: azure-app-configuration
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 05/06/2025
+ms.date: 06/25/2026
 ---
 
 # Tutorial: Use variant feature flags in a Python application
@@ -49,7 +49,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
 
 ## Create the Quote of the Day app
 
-1. Create a new file named `app.py` in the `QuoteOfTheDay` folder with the following content. It sets up a basic Flask web application with user authentication.
+1. Create a new file named *app.py* in the *QuoteOfTheDay* folder with the following content. It sets up a basic Flask web application with user authentication.
 
     ```python
     from flask_bcrypt import Bcrypt
@@ -61,13 +61,6 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     
     app = Flask(__name__, template_folder="templates", static_folder="static")
     bcrypt = Bcrypt(app)
-    app.config["SECRET_KEY"] = os.environ.get("FLASK_SECRET_KEY") or secrets.token_hex(32)
-    
-    # Configure local SQLite DB before SQLAlchemy initialization.
-    db_path = Path(app.instance_path) / "quote_of_the_day.db"
-    db_path.parent.mkdir(parents=True, exist_ok=True)
-    app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{db_path.as_posix()}"
-    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     
     db = SQLAlchemy()
     db.init_app(app)
@@ -432,7 +425,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     pip install featuremanagement[AzureMonitor]
     ```
 
-1. Open the `app.py` file. Add the following code near the end of the file, immediately before the main function. It connects to App Configuration and sets up feature management.
+1. Open the *app.py* file. Add the following code between `bcrypt = Bcrypt(app)` and `db = SQLAlchemy()`. It connects to App Configuration and sets up feature management.
 
    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
@@ -463,7 +456,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     feature_manager = FeatureManager(azure_app_config)
     ```
 
-1. Open `routes.py` and update the following code for `greeting_message` to get the feature variant.
+1. Open *routes.py* and update the following code for `greeting_message` to get the feature variant.
 
     ```python
     from app import feature_manager
@@ -474,6 +467,15 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     if greeting:
         greeting_message = greeting.configuration
     ```
+
+1. In the Azure portal, navigate to the App Configuration store you created earlier and add the following key-values.  [Create a key-value](./quickstart-azure-app-configuration-create.md)
+
+| Key | Value | Description |
+|---|---|---|
+| "SQLALCHEMY_DATABASE_URI" | "sqlite:///db.sqlite" | Used by Flask-SQLAlchemy to know which database to connect to |
+| "SECRET_KEY" | "fake-secret-key" | Used by Flask to sign session cookies (integrity protection) for login/logout functionality |
+
+In *app.py*, the `load(...)` function retrieves configuration data from Azure App Configuration and stores it in `azure_app_config`. The `app.config.update(azure_app_config)` call then applies the retrieved configuration settings to the Flask application.
 
 ## Build and run the app
 

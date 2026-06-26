@@ -8,7 +8,7 @@ author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
 ms.custom: mode-other, devx-track-python
-ms.date: 07/09/2025
+ms.date: 06/25/2026
 ---
 
 # Enable features on a schedule in a Python application
@@ -25,8 +25,6 @@ The example used is based on the Python application introduced in the feature ma
 ## Use the time window filter
 
 You added a time window filter for your *Beta* feature flag in the prerequisites. Next, use the feature flag with the time window filter in your Python application. 
-
-Note: If you have already created a beta feature flag for testing conditional features, we recommend creating a separate feature flag for the Time Window feature. Sharing the same feature flag between these features may result in conflicts.
 
 When you create a feature manager, the built-in feature filters are automatically added to its feature filter collection.
 

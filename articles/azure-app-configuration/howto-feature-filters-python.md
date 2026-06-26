@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
-ms.date: 06/05/2024
+ms.date: 06/25/2026
 ---
 
 # Enable conditional features with a custom filter in a Python application
@@ -39,7 +39,6 @@ You've added a custom feature filter named **Random** with a **Percentage** para
     
         def evaluate(self, context, **kwargs):
             percentage = context.get("parameters", {}).get("Percentage", 0)
-            print("getting percentage from context: " + str(percentage))
             return random.randint(0, 100) < percentage
     ```
 

@@ -7,7 +7,7 @@ ms.devlang: csharp
 author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.topic: how-to
-ms.date: 08/13/2025
+ms.date: 06/25/2026
 # customer intent: As a developer, I want to find out how to use a targeting filter in an Azure App Configuration feature flag so that I can roll out features in stages to targeted audiences.
 ---
 
