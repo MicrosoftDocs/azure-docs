@@ -468,12 +468,12 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
         greeting_message = greeting.configuration
     ```
 
-1. In the Azure portal, navigate to the App Configuration store you created earlier and add the following key-values.  [Create a key-value](./quickstart-azure-app-configuration-create.md)
+1. In the Azure portal, go to the App Configuration store you created earlier and add the following key-values.  [Create a key-value](./quickstart-azure-app-configuration-create.md)
 
 | Key | Value | Description |
 |---|---|---|
 | "SQLALCHEMY_DATABASE_URI" | "sqlite:///db.sqlite" | Used by Flask-SQLAlchemy to know which database to connect to |
-| "SECRET_KEY" | "fake-secret-key" | Used by Flask to sign session cookies (integrity protection) for login/logout functionality |
+| "SECRET_KEY" | "fake-secret-key" | Used by Flask to sign session cookies (integrity protection) for authentication functionality |
 
 In *app.py*, the `load(...)` function retrieves configuration data from Azure App Configuration and stores it in `azure_app_config`. The `app.config.update(azure_app_config)` call then applies the retrieved configuration settings to the Flask application.
 
