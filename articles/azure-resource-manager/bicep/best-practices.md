@@ -1,9 +1,9 @@
-﻿---
+---
 title: Learn best practices when developing Bicep files
 description: Describes practices to follow when creating your Bicep files so they work well and are easy to maintain.
 ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 12/10/2025
+ms.date: 06/26/2026
 ---
 # Best practices for Bicep
 
