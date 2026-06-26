@@ -1,9 +1,9 @@
-﻿---
+---
 title: Outputs in templates
 description: Describes how to define output values in an Azure Resource Manager template (ARM template).
 ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 08/05/2025
+ms.date: 06/26/2026
 ---
 
 # Outputs in ARM templates
