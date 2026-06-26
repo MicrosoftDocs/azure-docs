@@ -13,13 +13,13 @@ ai-usage: ai-assisted
 Azure Enclave helps teams deploy and manage secure Azure environments for sensitive workloads without rebuilding the same foundations each time. Azure Enclave combines managed networking, Azure Policy guardrails, logging and diagnostics, and governance controls so teams can focus on application delivery.
 
 > [!IMPORTANT]
-> Azure Enclave is in preview, has no SLA, and isn't recommended for production workloads. Some features may be unavailable in certain Azure regions or have limited capabilities. For more information, see [Azure Enclave Terms](./preview-terms.md).
+> Azure Enclave is currently in Preview and is provided without a service-level agreement. At this time, Azure Enclave shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. For more information, see [Azure Enclave Terms](./preview-terms.md).
 
 ## The value of Azure Enclave
 
 Azure Enclave provides value in several ways:
 
-- **Simplify secure workload connectivity** - Create and manage secure workloads, enclave connectivity, and controlled access to trusted endpoints, destinations, and transit hubs.
+- **Simplify secure workload connectivity** - Create and manage secure workloads, enclave connectivity, and controlled access to trusted endpoints, destinations, and mission partners.
 
 - **Deploy secure environments faster** - Use platform-managed creation of secure environments, boundary isolation, enclave management, and governance controls to reduce setup time.
 
