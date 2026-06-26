@@ -88,7 +88,6 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     from dataclasses import dataclass
     from flask_login import UserMixin
     from app import db
-    
     @dataclass
     class Quote:
         message: str

@@ -24,7 +24,7 @@ The example used is based on the Python application introduced in the feature ma
 
 ## Use the time window filter
 
-You added a time window filter for your *Beta* feature flag in the prerequisites. Next, use the feature flag with the time window filter in your Python application. 
+You added a time window filter for your *Beta* feature flag in the prerequisites. Next, use the feature flag with the time window filter in your Python application.
 
 When you create a feature manager, the built-in feature filters are automatically added to its feature filter collection.
 
