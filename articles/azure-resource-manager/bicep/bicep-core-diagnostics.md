@@ -419,7 +419,7 @@ You can suppress Bicep diagnostic codes by using `disable-next-line` and `disabl
 | <a id='BCP443' />BCP443 | Error | The `using` statement requires a `with` clause when the **DeployCommands** experimental feature is enabled. |
 | <a id='BCP444' />BCP444 | Error | This expression is used as a default value for an extension configuration property and must be calculated at the start of the deployment. |
 | BCP445 | Error | The "@nullIfNotFound()" decorator can only be used on existing resources. |
-| BCP446 | Error | Restore from registry "{registryHostname}" is blocked because it is not in the trusted registries list. See [https://aka.ms/bicep/registry-trust](https://aka.ms/bicep/registry-trust) for details. |
+| BCP446 | Error | Restore from registry "{registryHostname}" is blocked because it isn't in the trusted registries list. See [https://aka.ms/bicep/registry-trust](https://aka.ms/bicep/registry-trust) for details. |
 | BCP448 | Error | The OCI artifact module alias "{aliasName}" has a "mapToFilePath" property which is only supported for modules, not extensions. |
 | BCP449 | Error | The 'brfs' module reference scheme is for internal use only. Use a 'br/:' reference with a configured 'mapToFilePath' alias instead. |
 | BCP450 | Error | Configuration file is not found. Feature "{featureName}" requires a configuration file. |
