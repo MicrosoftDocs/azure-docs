@@ -143,7 +143,7 @@ Once you configure service endpoints to a specific service, validate that the se
   - Indicates that a more direct connection to the service is in effect compared to any forced-tunneling routes
 
 > [!NOTE]
-> Service endpoint routes override any BGP or user-defined routes (UDRs) for the address prefix match of an Azure service. For more information, see [troubleshooting with effective routes](diagnose-network-routing-problem.md).
+> If there is BGP ot UDR to the matching public IP prefix or UDR route to the [service tag](https://learn.microsoft.com/en-us/azure/virtual-network/service-tags-overview) of the Azure service then the service endpoint routes will not be preferred. For more information, see [troubleshooting with effective routes](diagnose-network-routing-problem.md).
 
 ## Provisioning
 
