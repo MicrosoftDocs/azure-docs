@@ -9,9 +9,9 @@ author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a system administrator, I want to update the VM backup policy using CLI commands, so that I can modify retention settings and ensure my virtual machines are backed up according to the latest requirements.
 ---
-# Modify VM backup policy using Azure CLI
+# Modify VM backup policy by using Azure CLI
 
-This article describes how to modify an existing VM backup policy using Azure CLI to adjust retention rules, backup schedules, and other policy settings. To modify the policy, export the policy to a JSON file, make the required updates in the file, and then use Azure CLI to apply the changes. You can also [modify the policy using the Azure portal](backup-azure-manage-vms.md#modify-backup-policy).
+This article describes how to modify an existing VM backup policy by using Azure CLI to adjust retention rules, backup schedules, and other policy settings. To modify the policy, export the policy to a JSON file, make the required updates in the file, and then use Azure CLI to apply the changes. You can also [modify the policy by using the Azure portal](backup-azure-manage-vms.md#modify-backup-policy).
 
 ## Modify an existing policy
 
