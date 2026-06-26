@@ -137,7 +137,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
     * Under the **Services** heading, select **App Service**.
     * Select **Create** > **Web App**.
 
-    You can also navigate to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.WebSite) directly.
+    You can also go directly to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.WebSite).
 
 1. In the **Create Web App** page, on the **Basics** tab, fill out the form as follows:
     * *Resource Group*: Select **Create new** and use a name of **msdocs-tomcat-mysql-tutorial**.
