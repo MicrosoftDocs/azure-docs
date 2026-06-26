@@ -15,14 +15,14 @@ zone_pivot_groups: azure-maps-search
 
 :::zone pivot="search-previous"
 
-Azure Maps [Search service][Search service v1] includes API that offers various capabilities to help developers to search addresses, places, business listings by name or category, and other geographic information. For example, [Search Fuzzy] allows users to search for an address or Point of Interest (POI).
+Azure Maps [Search service][Search service v1] includes an API that offers various capabilities to help developers search addresses, places, business listings by name or category, and other geographic information. For example, [Search Fuzzy] allows users to search for an address or Point of Interest (POI).
 
-This article explains how to apply sound practices when you call data from Azure Maps Search service. Learn how to:
+This article explains how to apply best practices when you call data from Azure Maps Search service. Learn how to:
 > [!div class="checklist"]
 >
 > * Build queries to return relevant matches
 > * Limit search results
-> * Learn the differences between result types
+> * Understand the differences between result types
 > * Read the address search-response structure
 
 ## Prerequisites
@@ -30,17 +30,17 @@ This article explains how to apply sound practices when you call data from Azure
 * An [Azure Maps account]
 * A [subscription key]
 
-You can use any API development environment such as [Bruno] to run the HTTP request samples shown in this article or to build REST calls.
+You can use any API development environment, such as [Bruno], to run the HTTP request samples shown in this article or to build REST calls.
 
 ## Best practices to geocode addresses
 
 When you search for a full or partial address by using Azure Maps Search service, the API reads keywords from your search query. Then it returns the longitude and latitude coordinates of the address. This process is called *geocoding*.
 
-The ability to geocode in a country/region depends on the availability of road data and the precision of the geocoding service. For more information about Azure Maps geocoding capabilities by country/region, see [Geocoding coverage].
+The ability to geocode in a country or region depends on the availability of road data and the precision of the geocoding service. For more information about Azure Maps geocoding capabilities by country or region, see [Geocoding coverage].
 
 ### Limit search results
 
- Azure Maps Search API can help you limit search results appropriately. You limit results so that you can display relevant data to your users.
+ Azure Maps Search API can help you limit search results appropriately. Limit results so that you can display relevant data to your users.
 
 > [!NOTE]
 > The search APIs support more parameters than just the ones that this article discusses.
@@ -49,21 +49,21 @@ The ability to geocode in a country/region depends on the availability of road d
 
 To geobias results to the relevant area for your user, always add as many location details as possible. You might want to restrict the search results by specifying some input types:
 
-* Set the `countrySet` parameter. You can set it to `US,FR`, for example. By default, the API searches the entire world, so it can return unnecessary results. If your query has no `countrySet` parameter, then the search might return inaccurate results. For example, a search for a city named *Bellevue* returns results from the USA and France because both countries/regions contain a city named *Bellevue*.
+* Set the `countrySet` parameter. You can set it to `US,FR`, for example. By default, the API searches the entire world, so it can return unnecessary results. If your query has no `countrySet` parameter, the search might return inaccurate results. For example, a search for a city named *Bellevue* returns results from the USA and France because both countries/regions contain a city named *Bellevue*.
 
-* You can use the `btmRight` and `topleft` parameters to set the bounding box. These parameters restrict the search to a specific area on the map.
+* Use the `btmRight` and `topleft` parameters to set the bounding box. These parameters restrict the search to a specific area on the map.
 
 * To influence the area of relevance for the results, define the `lat` and `lon` coordinate parameters. Use the `radius` parameter to set the radius of the search area.
 
 #### Fuzzy search parameters
 
-We recommend that you use [Search Fuzzy] when you don't know your user inputs for a search query. For example, input from the user could be an address or the type of Point of Interest (POI), like *shopping mall*. The API combines POI searching and geocoding into a canonical *single-line search*:
+Use [Search Fuzzy] when you don't know your user inputs for a search query. For example, input from the user could be an address or the type of Point of Interest (POI), like *shopping mall*. The API combines POI searching and geocoding into a canonical *single-line search*:
 
 * The `minFuzzyLevel` and `maxFuzzyLevel` parameters help return relevant matches even when query parameters don't exactly match the information that the user wants. To maximize performance and reduce unusual results, set search queries to defaults of `minFuzzyLevel=1` and `maxFuzzyLevel=2`.
 
     For example, when the `maxFuzzyLevel` parameter is set to 2, the search term *restrant* is matched to *restaurant*. You can override the default fuzzy levels when you need to.
 
-* Use the `idxSet` parameter to prioritize the exact set of result types. To prioritize an exact set of results, you can submit a comma-separated list of indexes. In your list, the item order doesn't matter. Azure Maps supports the following indexes:
+* Use the `idxSet` parameter to prioritize the exact set of result types. To prioritize an exact set of results, submit a comma-separated list of indexes. In your list, the item order doesn't matter. Azure Maps supports the following indexes:
 
 * `Addr` - **Address ranges**: Address points that are interpolated from the beginning and end of the street. These points are represented as address ranges.
 * `Geo` - **Geographies**: Administrative divisions of land. A geography can be a country/region, state, or city, for example.
@@ -80,9 +80,9 @@ We recommend that you use [Search Fuzzy] when you don't know your user inputs fo
 
 ### Reverse-geocode and filter for a geography entity type
 
-When you do a reverse-geocode search using [Search Address Reverse], the service can return polygons for administrative areas. For example, you might want to fetch the area polygon for a city. To narrow the search to specific geography entity types, include the `entityType` parameter in your requests.
+When you reverse geocode by using [Search Address Reverse], the service can return polygons for administrative areas. For example, you might want to fetch the area polygon for a city. To narrow the search to specific geography entity types, include the `entityType` parameter in your requests.
 
-The resulting response contains the geography ID and the entity type that was matched. If you provide more than one entity, then the endpoint returns the *smallest entity available*. You can use the returned geometry ID to get the geography's geometry through the [Search Polygon service].
+The resulting response contains the geography ID and the entity type that was matched. If you provide more than one entity, the endpoint returns the *smallest entity available*. You can use the returned geometry ID to get the geography's geometry through the [Search Polygon service].
 
 #### Sample request
 
@@ -125,15 +125,15 @@ https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscrip
 
 ### Set the results language
 
-Use the `language` parameter to set the language for the returned search results. If the request doesn't set the language, then by default Search service uses the most common language in the country/region. When no data is available in the specified language, the default language is used.
+Use the `language` parameter to set the language for the returned search results. If the request doesn't set the language, the Search service uses the most common language in the country or region by default. When no data is available in the specified language, the default language is used.
 
 For more information, see [Azure Maps supported languages].
 
 ### Use predictive mode (automatic suggestions)
 
-To find more matches for partial queries, set the `typeahead` parameter to `true`. This query is interpreted as a partial input, and the search enters predictive mode. If you don't set the `typeahead` parameter to `true`, then the service assumes that all relevant information was passed in.
+To find more matches for partial queries, set the `typeahead` parameter to `true`. This query is interpreted as a partial input, and the search enters predictive mode. If you don't set the `typeahead` parameter to `true`, the service assumes that all relevant information was passed in.
 
-In the following sample query, the Search Address service is queried for *Microsoft*. Here, the `typeahead` parameter set to `true`. The response shows that the search service interpreted the query as partial query. The response contains results for an automatically suggested query.
+In the following sample query, the Search Address service is queried for *Microsoft*. Here, the `typeahead` parameter is set to `true`. The response shows that the search service interpreted the query as partial query. The response contains results for an automatically suggested query.
 
 #### Sample query
 
@@ -400,9 +400,9 @@ https://atlas.microsoft.com/search/address/json?subscription-key={Your-Azure-Map
 
 ### Encode a URI to handle special characters
 
-To find cross street addresses, you must encode the URI to handle special characters in the address. Consider this address example: *1st Avenue & Union Street, Seattle*. Here, encode the ampersand character (`&`) before you send the request.
+To find cross street addresses, encode the URI to handle special characters in the address. Consider this address example: *1st Avenue & Union Street, Seattle*. Here, encode the ampersand character (`&`) before you send the request.
 
-We recommend that you encode character data in a URI. In a URI, you encode all characters by using a percentage sign (`%`) and a two-character hexadecimal value that corresponds to the characters' UTF-8 code.
+Encode character data in a URI. In a URI, encode all characters by using a percentage sign (`%`) and a two-character hexadecimal value that corresponds to the characters' UTF-8 code.
 
 #### Usage examples
 
@@ -481,15 +481,15 @@ url.QueryEscape(query)
 
 In a POI search, you can request POI results by name. For example, you can search for a business by name.
 
-We strongly recommend that you use the `countrySet` parameter to specify countries/regions where your application needs coverage. The default behavior is to search the entire world. This broad search might return unnecessary results, and the search might take a long time.
+Use the `countrySet` parameter to specify countries or regions where your application needs coverage. The default behavior is to search the entire world. This broad search might return unnecessary results, and the search might take a long time.
 
 ### Brand search
 
-To improve the relevance of the results and the information in the response, a POI search response includes brand information. You can use this information to further to parse the response.
+To improve the relevance of the results and the information in the response, a POI search response includes brand information. You can use this information to further parse the response.
 
 In a request, you can submit a comma-separated list of brand names. Use the list to restrict the results to specific brands by setting the `brandSet` parameter. In your list, item order doesn't matter. When you provide multiple brand lists, the results that are returned must belong to at least one of your lists.
 
-To explore brand searching, let's make a [POI category search] request. In the following example, we look for gas stations near the Microsoft campus in Redmond, Washington. The response shows brand information for each POI that was returned.
+To explore brand searching, make a [POI category search] request. In the following example, you look for gas stations near the Microsoft campus in Redmond, Washington. The response shows brand information for each POI that was returned.
 
 #### Sample query
 
@@ -749,13 +749,13 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={Your-Azure-Maps-Su
 
 ### Nearby search
 
-To retrieve POI results around a specific location, you can try using [Search Nearby]. The endpoint returns only POI results. It doesn't take in a search query parameter.
+To get POI results around a specific location, use [Search Nearby]. The endpoint returns only POI results. It doesn't accept a search query parameter.
 
-To limit the results, we recommend that you set the radius.
+Set the radius to limit the results.
 
 ## Understanding the responses
 
-Let's find an address in Seattle by making an address-search request to the Azure Maps Search service. In the following request URL, we set the `countrySet` parameter to `US` to search for the address in the USA.
+To find an address in Seattle, make an address-search request to the Azure Maps Search service. In the following request URL, set the `countrySet` parameter to `US` to search for the address in the USA.
 
 ### Sample query
 
@@ -769,11 +769,11 @@ https://atlas.microsoft.com/search/address/json?subscription-key={Your-Azure-Map
 
 * **Address Range**: The range of address points that are interpolated from the beginning and end of the street.
 
-* **Geography**: Areas on a map that represent administrative divisions of a land, for example, country/region, state, or city.
+* **Geography**: Areas on a map that represent administrative divisions of a land, such as country/region, state, or city.
 
 * **POI**: Points on a map that are worth attention and that might be interesting.
 
-* **Street**: Streets on the map. Addresses are resolved to the latitude and longitude coordinates of the street that contains the address. The house number might not be processed.
+* **Street**: Streets on the map. Addresses resolve to the latitude and longitude coordinates of the street that contains the address. The house number might not be processed.
 
 * **Cross Street**: Intersections. Cross streets represent junctions where two streets intersect.
 
@@ -965,7 +965,7 @@ Responses for [Search Address] or the [Search Fuzzy] can include the geometry ID
 
 ## Next steps
 
-To learn more, please see:
+To learn more, see:
 
 > [!div class="nextstepaction"]
 > [How to build Azure Maps Search service requests](./how-to-search-for-address.md)
@@ -977,14 +977,14 @@ To learn more, please see:
 
 :::zone pivot="search-latest"
 
-The Azure Maps [Search service] provides REST APIs for forward geocoding, reverse geocoding, autocomplete, batch processing, and administrative boundary retrieval. Beginning with API version 2026‑01‑01, Search is organized around task‑specific operations rather than the monolithic Search v1 endpoints. This article explains core concepts and best practices when building applications with the latest Search API.
+The Azure Maps [Search service] provides REST APIs for forward geocoding, reverse geocoding, autocomplete, batch processing, and administrative boundary retrieval. Starting with API version 2026‑01‑01, Search is organized around task‑specific operations rather than the monolithic Search v1 endpoints. This article explains core concepts and best practices when building applications with the latest Search API.
 
 ## Prerequisites
 
 * An [Azure Maps account]
 * A [subscription key]
 
-You can use any API development environment such as [Bruno] to run the HTTP request samples shown in this article or to build REST calls.
+You can use any API development environment, such as [Bruno], to run the HTTP request samples shown in this article or to build REST calls.
 
 ## Core Search concepts
 
@@ -1094,7 +1094,7 @@ When the service can't find a match at the specificity implied by the query, it 
 
 ### Use geocoding as a data enrichment step
 
-Many organizations collect customer records through free‑form data entry, often without address validation. As a result, these datasets frequently contain non‑deliverable or low‑quality addresses. When geocoding large, unvalidated address sets, it is expected that some records will return weak matches or no results at all. This behavior is normal and does not indicate a service failure.
+Many organizations collect customer records through free-form data entry, often without address validation. As a result, these datasets frequently contain non-deliverable or low-quality addresses. When you geocode large, unvalidated address sets, some records return weak matches or no results at all. This behavior is normal and doesn't indicate a service failure.
 
 Common causes include:
 
@@ -1105,10 +1105,10 @@ Common causes include:
 Treat geocoding as a data enrichment process rather than a strict validation step:
 
 * Submit addresses for geocoding.
-* Accept high‑confidence matches and flag unresolved or low‑confidence results.
+* Accept high-confidence matches and flag unresolved or low-confidence results.
 * Reprocess flagged records only after cleaning or normalizing the source data.
 
-Avoid attempting to force matches for low‑quality input, as this can introduce incorrect or misleading location data into downstream systems.
+Avoid attempting to force matches for low-quality input, as this action can introduce incorrect or misleading location data into downstream systems.
 
 ### Understand empty geocoding results
 
@@ -1224,7 +1224,7 @@ Use [Get Polygon] to retrieve administrative boundary geometry.
 
 Recommendations:
 
-* Use only when boundary geometry is required.
+* Use this method only when you need boundary geometry.
 * Choose a geometry resolution that matches your application's needs. Use `resolution=small` to return a more manageable polygon size, and avoid `resolution=huge` unless you explicitly require highly detailed geometry, as it can produce very large responses.
 
 ### Administrative boundaries example request
