@@ -4,32 +4,32 @@ description: Learn why organizations use Azure Enclave to create secure, isolate
 author: mitchellly-msft
 ms.author: mitchellly
 ms.topic: overview
-ms.date: 06/04/2026
+ms.date: 06/26/2026
 ai-usage: ai-assisted
 ---
 
 # Why use Azure Enclave?
 
-Azure Enclave helps organizations accelerate the deployment and management of secure, isolated, and governed Azure environments for sensitive workloads. Azure Enclave combines managed networking, policy guardrails, logging, and governance controls so teams can focus on mission and application outcomes instead of repeatedly building secure environment foundations from scratch.
+Azure Enclave helps teams deploy and manage secure Azure environments for sensitive workloads without rebuilding the same foundations each time. Azure Enclave combines managed networking, Azure Policy guardrails, logging and diagnostics, and governance controls so teams can focus on application delivery.
 
 > [!IMPORTANT]
-> Azure Enclave is currently in Preview and is provided without a service-level agreement. At this time, Azure Enclave shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. For more information, see [Azure Enclave Terms](./preview-terms.md).
+> Azure Enclave is in preview, has no SLA, and isn't recommended for production workloads. Some features may be unavailable in certain Azure regions or have limited capabilities. For more information, see [Azure Enclave Terms](./preview-terms.md).
 
 ## The value of Azure Enclave
 
 Azure Enclave provides value in several ways:
 
-- **Simplify secure workload connectivity** - Create and manage secure workloads, enclave connectivity, and controlled access to trusted endpoints, destinations, and mission partners.
+- **Simplify secure workload connectivity** - Create and manage secure workloads, enclave connectivity, and controlled access to trusted endpoints, destinations, and transit hubs.
 
 - **Deploy secure environments faster** - Use platform-managed creation of secure environments, boundary isolation, enclave management, and governance controls to reduce setup time.
 
-- **Support compliance readiness** - Use built-in policy guardrails, managed logging, and compliance telemetry to help maintain a known security posture.
+- **Support compliance readiness** - Use Azure Policy guardrails, logging and diagnostics, and compliance reporting to help maintain a known security posture.
 
-- **Improve operational visibility** - Centralize or isolate logs and monitoring data so teams can review activity and help detect configuration drift.
+- **Improve operational visibility** - Centralize or isolate logs and monitoring data so teams can review activity and monitor changes.
 
 ## Common use cases
 
-Azure Enclave is useful when teams need repeatable secure environments with consistent governance and isolation.
+Use Azure Enclave when you need a repeatable foundation for workloads that require isolation, governed connectivity, and shared access across trusted teams or partners.
 
 ### Sensitive research and development
 
@@ -52,7 +52,7 @@ Azure Enclave provides capabilities to help you quickly create and manage the se
 
 - **Workloads** organize customer-deployed resources within an enclave boundary. For more information, see [What is a workload?](./what-workload.md).
 
-- **Community endpoints, enclave endpoints, and enclave connections** define and manage allowed network connectivity. For more information, see [What is Azure Enclave?](./what-azure-enclave.md#virtual-connection-management).
+- **Community endpoints, enclave endpoints, and enclave connections** define and manage allowed network connectivity. For more information, see [Community endpoints](./what-community-endpoint.md), [enclave endpoints](./what-enclave-endpoint.md), and [enclave connections](./what-enclave-connection.md).
 
 - **Policy guardrails and observability** help teams maintain governance, security, and monitoring across Azure Enclave resources.
 
