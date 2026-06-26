@@ -1,11 +1,9 @@
 ---
 title: Mitigate OWASP API security top 10 in Azure API Management
 description: Learn how to protect against common API-based vulnerabilities, as identified by the OWASP API Security Top 10 threats, using Azure API Management. 
-author: mikebudzynski
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 05/30/2025
-ms.author: mibudz
 ms.custom: sfi-ropc-nochange
 ---
 

@@ -2,12 +2,10 @@
 title: VNet configuration settings | Azure API Management
 description: Reference for network configuration settings when deploying Azure API Management to a virtual network
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 04/30/2026
-ms.author: danlep
 ms.custom: references_regions
 ---
 # Virtual network configuration reference: API Management

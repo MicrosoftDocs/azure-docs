@@ -2,12 +2,10 @@
 title: Azure API Management Self-Hosted Gateway - Microsoft Entra Authentication
 description: Enable the Azure API Management self-hosted gateway to authenticate with its associated cloud-based API Management instance using Microsoft Entra authentication. 
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 02/19/2026
-ms.author: danlep
 ---
 
 # Use Microsoft Entra authentication for the self-hosted gateway
