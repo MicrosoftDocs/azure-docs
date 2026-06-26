@@ -286,13 +286,16 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 If your app settings contain a valid JDBC connection string for Oracle, SQL Server, PostgreSQL, or MySQL, *and* the app setting `WEBSITE_AUTOCONFIGURE_DATABASE` is set to `true`, App Service adds a Java Naming and Directory Interface (JNDI) data source for it in the Tomcat server's *context.xml* file. In this step, you add this app setting, then use the SSH connection to the app container to verify the JNDI data source. In the process, you learn how to access the SSH shell for the Tomcat container.
 
-**Step 1: Enable data-source autoconfiguration.**
-
-1. In the left menu of the App Service page, select **Settings** > **Environment variables**.
-1. Select **Add**.
-1. Set **Name** to `WEBSITE_AUTOCONFIGURE_DATABASE` and **Value** to `true`.
-1. Select **Apply**, then **Apply** again to save and restart the app.
-
+:::row:::
+    :::column span="2":::
+        **Step 1:** You're still on the **Environment variables** page from the previous section. Add an app setting to enable data-source autoconfiguration:
+        1. Select **Add**.
+        1. Set **Name** to `WEBSITE_AUTOCONFIGURE_DATABASE` and **Value** to `true`.
+        1. Select **Apply**, then **Apply** again to save and restart the app.
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
 :::row:::
     :::column span="2":::
         **Step 2:** Back in the App Service page:
