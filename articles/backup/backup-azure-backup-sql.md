@@ -17,12 +17,6 @@ This article describes how to back up and restore SQL Server databases by using 
 
 Azure Backup helps you to back up SQL Server databases to Azure via an Azure account. If you don't have one, you can create a free account in just a few minutes. For more information, see [Create your Azure free account](https://azure.microsoft.com/pricing/free-trial/).
 
-## In this article
-
-- Create a backup policy to protect SQL Server databases in Azure.
-- Create on-demand backup copies in Azure.
-- Recover a SQL Server database from Azure.
-
 [!INCLUDE [The functionality of Azure Backup trim process.](../../includes/backup-trim-process-notification.md)]
 
 ## Backup flow for SQL Server database
