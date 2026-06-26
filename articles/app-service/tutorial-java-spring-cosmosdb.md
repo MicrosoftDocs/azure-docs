@@ -162,13 +162,13 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 The following resources are created:
 
-    * **Resource group**: The container for all the created resources.
-    * **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
-    * **App Service**: Represents your app and runs in the App Service plan.
-    * **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
-    * **Azure Cosmos DB**: Accessible only from behind its private endpoint. A database is created for you on the database account.
-    * **Private endpoints**: Access endpoints for the database server in the virtual network.
-    * **Private DNS zones**: Enable DNS resolution of the database server in the virtual network.
+* **Resource group**: The container for all the created resources.
+* **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
+* **App Service**: Represents your app and runs in the App Service plan.
+* **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
+* **Azure Cosmos DB**: Accessible only from behind its private endpoint. A database is created for you on the database account.
+* **Private endpoints**: Access endpoints for the database server in the virtual network.
+* **Private DNS zones**: Enable DNS resolution of the database server in the virtual network.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 

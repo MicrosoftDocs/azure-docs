@@ -159,13 +159,13 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 The following resources are created:
 
-    * **Resource group**: The container for all the created resources.
-    * **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
-    * **App Service**: Represents your app and runs in the App Service plan.
-    * **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
-    * **Azure Database for MySQL Flexible Server**: Accessible only from the virtual network. A database and a user are created for you on the server.
-    * **Private DNS zones**: Enable DNS resolution of the database server in the virtual network.
-    <!-- Author note: Azure Database for MySQL's networking is not the same as other databases. It integrates with a private DNS zone, not with a private endpoint. -->
+* **Resource group**: The container for all the created resources.
+* **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
+* **App Service**: Represents your app and runs in the App Service plan.
+* **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
+* **Azure Database for MySQL Flexible Server**: Accessible only from the virtual network. A database and a user are created for you on the server.
+* **Private DNS zones**: Enable DNS resolution of the database server in the virtual network.
+<!-- Author note: Azure Database for MySQL's networking is not the same as other databases. It integrates with a private DNS zone, not with a private endpoint. -->
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
