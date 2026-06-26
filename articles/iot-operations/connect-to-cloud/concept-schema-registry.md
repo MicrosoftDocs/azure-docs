@@ -4,7 +4,7 @@ description: Learn how the schema registry stores and manages message schemas fo
 author: dominicbetts
 ms.author: dobett
 ms.topic: concept-article
-ms.date: 03/19/2026
+ms.date: 06/23/2026
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 
@@ -61,13 +61,15 @@ Both formats require `type: "object"` and a `properties` field that defines the 
   "properties": {
     "type": "struct",
     "fields": [
-      { "name": "asset_id", "type": "string", "nullable": false, "metadata": {} },
-      { "name": "temperature", "type": "double", "nullable": false, "metadata": {} },
-      { "name": "timestamp", "type": "string", "nullable": false, "metadata": {} }
+      { "name": "asset_id", "type": "string", "nullable": true, "metadata": {} },
+      { "name": "temperature", "type": "double", "nullable": true, "metadata": {} },
+      { "name": "timestamp", "type": "string", "nullable": true, "metadata": {} }
     ]
   }
 }
 ```
+
+This example marks every field as `nullable: true`. Mark a field as `nullable: false` only when your mapping always produces a value for it. With Parquet and Delta, if a field is `nullable: false` but missing from a record, the whole batch fails and is dropped. For more information, see [Storage serialization behavior](#storage-serialization-behavior).
 
 ### Generate a schema
 
@@ -77,7 +79,12 @@ For a tutorial that uses the schema generator, see [Tutorial: Send data from an 
 
 ## Configure a source schema
 
-Each data flow source can optionally specify a message schema. Currently, data flows don't perform runtime validation on source schemas. The schema is used by the operations experience to display available fields when you build transformations.
+Each data flow source can optionally specify a message schema. Currently, data flows don't perform runtime payload validation on source schemas. The operations experience uses the schema to display available fields when you build transformations.
+
+Two related behaviors are easy to miss:
+
+- **A schema reference on the message can gate the record.** If a source message carries a schema reference (the MQTT `dataschema` property) and you configure the source with schema information, the data flow compares the two. When they conflict, the message is acknowledged and dropped without output, and the runtime logs `conflicting schema`. This check is separate from payload validation: the message content isn't validated against the schema, but a mismatched reference still stops the record.
+- **Configured JSON schemas aren't runtime validators.** For JSON output, a configured schema isn't enforced during serialization. The data flow serializes the runtime value shape directly with inferred types. Use JSON schemas as design-time documentation, not as a guarantee that output conforms to the schema.
 
 Asset sources have a predefined schema created by the connector for OPC UA. For message broker sources, you can upload a JSON schema in the operations experience or reference one in your configuration.
 
@@ -92,6 +99,30 @@ Output schemas control how data is serialized before it reaches the destination.
 In the operations experience, when you select a storage destination, the UI applies any transformations to the source schema and generates a Delta schema automatically. The generated schema is stored in the schema registry and referenced by the data flow.
 
 For Bicep or Kubernetes deployments, specify the schema and serialization format in the transformation settings. For more information, see [Configure a data flow destination](howto-configure-dataflow-destination.md#serialize-the-output-with-a-schema).
+
+### Storage serialization behavior
+
+When a data flow writes to a storage endpoint (ADLS Gen2, Fabric OneLake, Azure Data Explorer, or local storage) by using Parquet or Delta serialization, the output schema controls how records are written. The following behaviors can cause records to be dropped or written with unexpected values. Review them before you design a schema or a mapping.
+
+**Non-nullable fields can drop a whole batch.** At write time, the encoder checks every field in the output schema. If a field is `nullable: false` and a record doesn't have a value for it (because the field wasn't mapped, was misspelled, or was missing from the source), the commit fails and the data flow drops the entire pending batch, not just the one record. The runtime logs an error similar to `ParquetEncoding found missing property that is not Nullable: <field>` followed by `failed to commit record into a batch, dropping it`. The data flow keeps running, so the loss is silent unless you check the logs. To avoid this problem, mark a field `nullable: false` only when your mapping always produces a value for it. Otherwise, use `nullable: true`. An explicit `null` value mapped into a `nullable: false` field fails the same way, with the error `Cannot set null value. Reason: field '<field>' is not nullable.`
+
+**Map to each leaf field, not to a whole object.** For Parquet and Delta, you can set a value only on a leaf field declared in the schema. Mapping a whole struct or object to a parent path doesn't write the nested values and drops the record with an error similar to `ParquetEncoding could not set a field <path>, it does not exist by the schema`. Map each output leaf that the schema declares.
+
+**Wildcards require the schema to declare every expanded field.** A `* -> *` mapping (or any wildcard, including flatten and restructure patterns) expands to every leaf in the runtime payload. For Parquet and Delta, the output schema must declare every one of those leaves. If the payload contains a leaf that the schema doesn't declare, the record is dropped. Generate the schema from representative sample data so it includes every field the data flow produces.
+
+**A schema alone doesn't populate values.** A schema describes the output shape, but it doesn't move data. Without a mapping, the data flow writes records of all nulls (for nullable fields) or drops them (for non-nullable fields). To populate values, add a mapping, commonly `* -> *`, and make sure fields are `nullable: true` when a value might be absent.
+
+**Numeric conversions are silent and can lose precision.** When a mapped value's type doesn't match the schema column type, Parquet and Delta coerce it without an error. Float-to-integer conversions truncate the fractional part, and narrowing conversions can lose precision or wrap. If you need rounding, round explicitly in the mapping. For the available functions, see [Scaling and rounding functions](concept-dataflow-graphs-expressions.md#scaling-and-rounding-functions).
+
+**Missing and null aren't the same.** A field that's absent from a record (missing) is skipped during serialization, while a field that's explicitly set to `null` is written when the format allows it. For Parquet and Delta, a missing value in a `nullable: true` field is written as null, a missing value in a `nullable: false` field drops the batch, and an explicit null in a `nullable: false` field also fails. Design your mappings and nullability with this difference in mind.
+
+**Complex types are converted differently by each format.** Objects, maps, byte values, and arrays don't serialize the same way across formats:
+
+- **Maps (objects with non-string keys):** Parquet and Delta reject maps with the error `Currently maps are not supported`. JSON supports maps only when the keys are strings. Avro converts map keys to strings, and if two keys collide after conversion, the last value wins.
+- **Byte values:** JSON encodes bytes as a base64 string. Parquet and Delta can write bytes as binary, a base64 string, or a list, depending on the schema column type.
+- **Arrays:** Parquet and Delta write arrays as a list or as binary, depending on the column type. A fixed-size binary column fails if the array length doesn't match.
+
+If you need a predictable shape for a complex value, map its individual leaf fields explicitly rather than relying on whole-object passthrough.
 
 ## Upload a schema
 
@@ -140,7 +171,7 @@ var schemaContent = '''
     "fields": [
       { "name": "temperature", "type": "double", "nullable": true, "metadata": {} },
       { "name": "humidity", "type": "double", "nullable": true, "metadata": {} },
-      { "name": "deviceId", "type": "string", "nullable": false, "metadata": {} }
+      { "name": "deviceId", "type": "string", "nullable": true, "metadata": {} }
     ]
   }
 }

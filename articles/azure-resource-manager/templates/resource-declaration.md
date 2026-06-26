@@ -3,7 +3,7 @@ title: Declare resources in templates
 description: Describes how to declare resources to deploy in an Azure Resource Manager template (ARM template).
 ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 04/28/2025
+ms.date: 06/26/2026
 ---
 
 # Resource declaration in ARM templates

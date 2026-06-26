@@ -1,8 +1,8 @@
-﻿---
+---
 title: Use Azure Key Vault to Pass a Secret as a Parameter During Bicep Deployment
 description: Learn how to pass a secret from a key vault as a parameter during Bicep deployment.
 ms.topic: article
-ms.date: 12/10/2025
+ms.date: 06/26/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ---
 

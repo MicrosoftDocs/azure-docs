@@ -132,49 +132,40 @@ First, you create the Azure resources. The steps used in this tutorial create a 
 
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
 
-:::row:::
-    :::column span="2":::
-        **Step 1:** In the Azure portal:
-        1. Enter "web app database" in the search bar at the top of the Azure portal.
-        1. Select the item labeled **Web App + Database** under the **Marketplace** heading.
-        You can also navigate to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) directly.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-create-app-mysql-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App + Database creation wizard." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-create-app-mysql-1.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2:** In the **Create Web App + Database** page, fill out the form as follows.
-        1. *Resource Group*: Select **Create new** and use a name of **msdocs-tomcat-mysql-tutorial**.
-        1. *Region*: Any Azure region near you.
-        1. *Name*: **msdocs-tomcat-mysql-XYZ**, where *XYZ* is any three random characters.
-        1. *Runtime stack*: **Java 25**.
-        1. *Java web server stack*: **Apache Tomcat 11.0**.
-        1. *Engine*: **MySQL - Flexible Server** is selected for you by default as the database engine. If not, select it. Azure Database for MySQL - Flexible Server is a fully managed MySQL database as a service on Azure, compatible with the latest community editions.
-        1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
-        1. Select **Review + create**.
-        1. After validation completes, select **Create**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-create-app-mysql-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App + Database wizard." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-create-app-mysql-2.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 3:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
-        - **Resource group**: The container for all the created resources.
-        - **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
-        - **App Service**: Represents your app and runs in the App Service plan.
-        - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
-        - **Azure Database for MySQL Flexible Server**: Accessible only from the virtual network. A database and a user are created for you on the server.
-        - **Private DNS zones**: Enable DNS resolution of the database server in the virtual network.
-        <!-- Author note: Azure Database for MySQL's networking is not the same as other databases. It integrates with a private DNS zone, not with a private endpoint. -->
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-create-app-mysql-3.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-create-app-mysql-3.png":::
-    :::column-end:::
-:::row-end:::
+1. In the Azure portal:
+    * In the search bar at the top, enter *app service*.
+    * Under the **Services** heading, select **App Service**.
+    * Select **Create** > **Web App**.
+
+    You can also go directly to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.WebSite).
+
+1. In the **Create Web App** page, on the **Basics** tab, fill out the form as follows:
+    * *Resource Group*: Select **Create new** and use a name of **msdocs-tomcat-mysql-tutorial**.
+    * *Name*: **msdocs-tomcat-mysql-XYZ**, where *XYZ* is any three random characters.
+    * *Runtime stack*: **Java 25**.
+    * *Java web server stack*: **Apache Tomcat 11.0**.
+    * *Operating System*: **Linux**.
+    * *Region*: Any Azure region near you.
+    * *Pricing plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
+
+1. Select the **Database** tab and configure the database:
+    * Select **Create a Database**.
+    * In **Engine**, select **MySQL - Flexible Server**. Azure Database for MySQL - Flexible Server is a fully managed MySQL database as a service on Azure, compatible with the latest community editions.
+    * Don't select **Create an Azure Cache for Redis**.
+
+1. Select **Review + create**. After validation completes, select **Create**.
+
+1. When deployment finishes, select the **Go to resource** button. You're taken directly to the App Service app. 
+
+The following resources are created:
+
+* **Resource group**: The container for all the created resources.
+* **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
+* **App Service**: Represents your app and runs in the App Service plan.
+* **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
+* **Azure Database for MySQL Flexible Server**: Accessible only from the virtual network. A database and a user are created for you on the server.
+* **Private DNS zones**: Enable DNS resolution of the database server in the virtual network.
+<!-- Author note: Azure Database for MySQL's networking is not the same as other databases. It integrates with a private DNS zone, not with a private endpoint. -->
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 

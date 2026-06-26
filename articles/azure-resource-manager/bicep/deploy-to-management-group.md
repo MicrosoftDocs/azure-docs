@@ -3,7 +3,7 @@ title: Use Bicep to deploy resources to management group
 description: Describes how to create a Bicep file that deploys resources at the management group scope.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 12/10/2025
+ms.date: 06/26/2026
 ---
 
 # Management group deployments with Bicep files
