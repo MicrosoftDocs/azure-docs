@@ -155,7 +155,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 1. Select **Review + create**. After validation completes, select **Create**.
 
-1. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app. 
+1. When deployment finishes, select the **Go to resource** button. You're taken directly to the App Service app. 
 
 The following resources are created:
 
