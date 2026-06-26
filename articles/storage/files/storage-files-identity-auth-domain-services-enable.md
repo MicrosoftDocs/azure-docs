@@ -41,6 +41,10 @@ Before you enable Microsoft Entra Domain Services over SMB for Azure file shares
 
     It typically takes about 15 minutes for a Microsoft Entra Domain Services deployment to complete. Verify that the health status of Microsoft Entra Domain Services shows **Running**, with password hash synchronization enabled, before proceeding to the next step.
 
+      > [!NOTE]
+    > Remember to check the health of Entra Domain Services after deployment and resolve any critical or warning alerts in the health dashboard [Check the health of a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/check-health).
+
+
 1.  **Domain-join a VM with Microsoft Entra Domain Services.**
 
     To access an Azure file share by using Entra credentials from a VM, your VM must be domain-joined to Microsoft Entra Domain Services. For more information, see [Join a Windows Server virtual machine to a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/join-windows-vm). Microsoft Entra Domain Services authentication over SMB with Azure file shares is supported only on Windows VMs running OS versions later than Windows 7 or Windows Server 2008 R2, or on [Linux VMs](storage-files-identity-auth-linux-kerberos-enable.md) running Ubuntu 18.04+ or an equivalent RHEL or SLES VM.
