@@ -607,7 +607,7 @@ Depending on your subscription and the region you select, you might see the depl
 
 `Sorry, we are currently experiencing high demand in <region> region, and cannot fulfill your request at this time.`
 
-The error is most likely caused by a limit on your subscription for the region you select. Try choosing a different region for your deployment. Capacity for the other resources in the deployment can also vary by region and subscription, so make sure the region you choose has capacity for the App Service plan and the Azure Managed Redis (`Balanced_B0`) instance as well.
+This error most likely occurs because of a limit on your subscription for the region you select. Try choosing a different region for your deployment. Capacity for the other resources in the deployment can also vary by region and subscription, so make sure the region you choose has capacity for the App Service plan and the Azure Managed Redis (`Balanced_B0`) instance as well.
 
 #### The deployed sample app doesn't show the tasks list app
 
