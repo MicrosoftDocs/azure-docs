@@ -1,8 +1,9 @@
 ---
 title: OpenPBS Integration
-description: OpenPBS scheduler configuration in Azure CycleCloud.
+description: Learn how to configure and integrate the OpenPBS scheduler with Azure CycleCloud to schedule HPC workloads.
 author: adriankjohnson
-ms.date: 09/05/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: adjohnso
 ---
 

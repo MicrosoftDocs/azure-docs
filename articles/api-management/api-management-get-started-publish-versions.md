@@ -1,13 +1,11 @@
 ---
 title: "Tutorial: Publish Multiple Versions of your API" 
 description: Learn how to publish multiple API versions in API Management.
-author: dlepow
 
 ms.service: azure-api-management
 ms.custom: mvc, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 03/04/2026
-ms.author: danlep
 
 #customer intent: As a developer, I want to publish multiple versions of an API so that all callers to the API don't need to use the same version.
 ---

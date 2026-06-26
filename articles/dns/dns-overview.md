@@ -4,7 +4,7 @@ description: Learn how Azure DNS provides public and private DNS hosting, resolu
 author: asudbring
 ms.service: azure-dns
 ms.topic: overview
-ms.date: 12/16/2025
+ms.date: 06/22/2026
 ms.author: allensu
 #Customer intent: As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
 # Customer intent: As an IT administrator, I want to assess Azure DNS services, so that I can decide if it meets my organization's DNS hosting and management needs better than our current solution.

@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: quickstart
-ms.date: 06/03/2026
+ms.date: 06/19/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -15,21 +15,17 @@ ms.custom:
 
 # Quickstart: Get insights from your processed data
 
-In this quickstart, you populate a [real-time dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to capture insights from the OPC UA data that you sent to Event Hubs in the previous quickstart. Using Microsoft Fabric Real-Time Intelligence, you bring your data from Event Hubs into Microsoft Fabric, and map it into a KQL database that can be a source for real-time dashboards. Then, you build a dashboard to display that data in visual tiles that capture insights and show the values over time.
-
-These operations are the last steps in the sample end-to-end quickstart experience, which goes from deploying Azure IoT Operations at the edge through getting insights from that device data in the cloud.
+[!INCLUDE [get-insights-intro](../includes/get-insights-intro.md)]
 
 ## Prerequisites
 
 Before you begin this quickstart, complete the previous Azure IoT Operations quickstarts.
 
-You also need to have the following Fabric resources:
-* A Microsoft Fabric subscription. In your subscription, you need access to a workspace with **Contributor** or above permissions.
-* A Fabric tenant that allows the creation of real-time dashboards. Your tenant administrator can enable this setting. For more information, see [Enable tenant settings in the admin portal](/fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
+[!INCLUDE [get-insights-fabric-prerequisites](../includes/get-insights-fabric-prerequisites.md)]
 
 ## What problem will we solve?
 
-When your OPC UA data arrives in the cloud, there's a lot of information available to analyze. You might want to organize that data and create reports containing graphs and visualizations to derive insights from the data. The steps in this quickstart illustrate how to connect that data to Real-Time Intelligence and create a real-time dashboard.
+[!INCLUDE [get-insights-problem](../includes/get-insights-problem.md)]
 
 ## Ingest data into Real-Time Intelligence
 
@@ -41,30 +37,19 @@ In this section, you create an eventstream to bring your data from Event Hubs in
 
 Before proceeding, make sure local authentication is enabled on your Event Hubs namespace. You can set this authentication from the namespace's **Overview** page in the Azure portal.
 
-1. Navigate to the [Real-Time hub in Microsoft Fabric](https://app.fabric.microsoft.com/workloads/oneriver/hub?experience=fabric-developer).
+Start by navigating to the [Real-Time hub in Microsoft Fabric](https://app.fabric.microsoft.com/workloads/oneriver/hub?experience=fabric-developer).
 
-1. Add your event hub as a data source for a new eventstream.
+Add your event hub as a data source for a new eventstream. For detailed instructions, see [Get events from Azure Event Hubs into Real-Time hub](/fabric/real-time-hub/add-source-azure-event-hubs). When you add the data source, follow the instructions under [Use the Azure tab to connect to an event hub (recommended)](/fabric/real-time-hub/add-source-azure-event-hubs#use-the-azure-tab-to-connect-to-an-event-hub-recommended) to select your Event Hubs namespace. Then keep the following notes in mind when you configure the connection settings:
 
-    1. Make sure that **Fabric** is selected at the bottom of the left-hand navigation pane, and then select **Real-Time**.
-    1. Under **Streaming data** on the **Real-Time hub** pane, select **Add data**.
-    1. When the **Add data** pane opens, select  the **Azure** tab at the top.
-    1. In the list of sources, hover over your Event Hubs namespace and select the **Connect data source** icon to open **Configure connection settings**.
+* Select *destinationeh* from the drop-down for your event hub resource.
+* Select *RootManageSharedAccessKey* from the drop-down for the event hub key.
+* Edit the **Eventstream name** to something friendly in the **Stream details** pane.
+* For **Consumer group**, use the default selection (*$Default*).
+* For **Data format**, use the default selection (*Json*).
 
-    :::image type="content" source="media/quickstart-get-insights/add-event-hub-data-source.png" alt-text="Screenshot of how to select an event hub namespace to connect to an eventstream.":::
+After connecting the eventstream, use the **Open Eventstream** button to see it in the authoring canvas. The stream from your Azure event hub is visible as an eventstream source.
 
-1. On **Configure connection settings**, fill in the following details to connect your event hub as a data source for your eventstream.  When you're finished, select **Review and connect** and then **Connect** to connect your event hub as a source for your eventstream.
-
-    * Select *destinationeh* from the drop-down for your event hub resource.
-    * Select *RootManageSharedAccessKey* from the drop-down for the event hub key.
-    * Edit the **Eventstream name** to something friendly in the **Stream details** pane.
-    * For **Consumer group**, use the default selection (*$Default*).
-    * For **Data format**, use the default selection (*Json*).
-
-    :::image type="content" source="media/quickstart-get-insights/configure-data-source-connection.png" alt-text="Screenshot of Configure connection settings.":::
-
-1. After connecting the eventstream, use the **Open Eventstream** button to see it in the authoring canvas. The stream from your Azure event hub is visible as an eventstream source.
-
-    :::image type="content" source="media/quickstart-get-insights/source-added.png" alt-text="Screenshot of the eventstream with an AzureEventHub source.":::
+:::image type="content" source="media/quickstart-get-insights/source-added.png" alt-text="Screenshot of the eventstream with an AzureEventHub source.":::
 
 #### Verify data flow
 

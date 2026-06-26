@@ -25,27 +25,12 @@ This article answers common questions about discovery and dependency analysis in
 
 The Dependency Analysis feature in Azure Migrate helps customers visualize inter-server network dependencies, enabling them to build high-confidence migration plans. By grouping dependent servers together, it ensures that no critical dependency is overlooked during migration. [Learn more](concepts-dependency-visualization.md)
 
-Azure Migrate supports two approaches for dependency analysis: agentless and agent-based. Agentless dependency analysis gathers TCP connection data from servers without installing any agents on the guest operating systems. The gathered dependencies can be visualized either at the project level (across all servers) or at the individual server level.
+Agentless dependency analysis gathers TCP connection data from servers without installing any agents on the guest operating systems. The gathered dependencies can be visualized either at the project level (across all servers) or at the individual server level.
 
-Agent-based dependency analysis requires the installation of the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) and the Dependency agent on each guest server to gather dependency data. This data can then be visualized in a Log Analytics workspace associated with the Azure Migrate project.
+Agent-based dependency analysis requires the installation of the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) and the Dependency agent on each guest server to gather dependency data. This data can then be visualized in a Log Analytics workspace associated with the Azure Migrate project. 
 
 > [!NOTE]
-> Agent-based dependency analysis isn't available in Azure Government. It is currently supported only in the classic Azure Migrate experience.
-
-## What's the difference between agent-based and agentless?
-
-The differences between agentless visualization and agent-based visualization are summarized in the table.
-
-**Requirement** | **Agentless** | **Agent-based**
---- | --- | ---
-Support | Generally available for VMware VMs, Hyper-V VMs, bare-metal servers, and servers running on other public clouds like AWS, GCP etc. | In General Availability (GA).
-Agent | No need to install agents on machines you want to cross-check. | Agents to be installed on each on-premises machine that you want to analyze: The [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/azure-monitor-agent-overview), and the [Dependency agent](/azure/azure-monitor/vm/vminsights-dependency-agent-maintenance). 
-Prerequisites | [Review](concepts-dependency-visualization.md#agentless-analysis) the prerequisites and deployment requirements. | [Review](concepts-dependency-visualization.md#agent-based-analysis) the prerequisites and deployment requirements.
-Log Analytics | Not required. | Azure Migrate uses the [VM Insights](/azure/azure-monitor/vm/vminsights-migrate-from-service-map) solution in [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview) for dependency visualization. [Learn more](concepts-dependency-visualization.md#agent-based-analysis).
-How it works | Captures TCP connection data on machines enabled for dependency visualization. After discovery, it gathers data at intervals of five minutes. | Service Map agents installed on a machine gather data about TCP processes and inbound/outbound connections for each process.
-Data | Source machine server name, process, application name.<br/><br/> Destination machine server name, process, application name, and port. | Source machine server name, process, application name.<br/><br/> Destination machine server name, process, application name, and port.<br/><br/> Number of connections, latency, and data transfer information are gathered and available for Log Analytics queries. 
-Visualization | Dependency map of single server can be viewed over a duration of one hour to 30 days. | Dependency map of a single server.<br/><br/> Map can be viewed over an hour only.<br/><br/> Dependency map of a group of servers.<br/><br/> Add and remove servers in a group from the map view.
-Data export | Last 30 days data can be downloaded in a CSV format. | Data can be queried with Log Analytics.
+> Agent-based dependency analysis is supported only in the classic view and isn't available in the new experience. The classic view is scheduled for deprecation by the end of 2026. Until then, you can continue to access Log Analytics workspaces for servers where agent-based dependency analysis is already enabled. However, you can't onboard new servers for agent-based dependency analysis.
 
 ## Do I need to deploy the appliance for agentless dependency analysis?
 
@@ -53,7 +38,7 @@ Yes, the [Azure Migrate appliance](migrate-appliance.md) must be deployed.
 
 ## Do I pay for dependency visualization?
 
-No. Learn more about [Azure Migrate pricing](https://azure.microsoft.com/pricing/details/azure-migrate/).
+Agent-based dependency analysis incurs standard Log Analytics charges. To avoid these charges, use agentless dependency analysis. We recommend moving to agentless dependency analysis for a seamless experience. For more information, see [Azure Migrate Pricing](https://azure.microsoft.com/pricing/details/azure-migrate/).
 
 ## What are the new capabilities offered by agentless dependency analysis?
 
@@ -64,11 +49,11 @@ The new agentless dependency experience was released on Sep 30,2025. You need to
 3. In the new visualization, after identifying key dependencies, you can **group servers into an application** by tagging them inline.
 4. Go to Explore Application menu, and then select Dependency Analysis to view dependencies gathered across all enabled servers discovered in the project.
 
-## I am an existing user who had enabled agentless dependency analysis in Classic experience but in the new experience, why do I see a higher count for servers enabled?
-- In the new experience if you have upgraded to the new dependency capability for an appliance, Azure Migrate will automatically enable dependency analysis for servers where pre-validations have passed. 
-- The total number of servers enabled cannot exceed the limit of 1,000 per appliance. Therefore, the count of automatically enabled servers will be 1,000 minus the number of servers you had previously enabled manually.
+## I'm an existing user who had enabled agentless dependency analysis in Classic experience but in the new experience, why do I see a higher count for servers enabled?
+- In the new experience if you've upgraded to the new dependency capability for an appliance, Azure Migrate will automatically enable dependency analysis for servers where pre-validations have passed. 
+- The total number of servers enabled can't exceed the limit of 1,000 per appliance. Therefore, the count of automatically enabled servers are 1,000 minus the number of servers you had previously enabled manually.
 - We recommend using the new experiences in Azure Migrate to view the dependency visualization for enabled servers.
-- You switch to the old experience only if you have gathered dependency data over a long period and want to export it.
+- You switch to the old experience only if you've gathered dependency data over a long period and want to export it.
 
 ## As an existing user of the classic experience, how can I upgrade to the new dependency visualization?
 
@@ -87,25 +72,27 @@ For more information, see on how to [switch to the new enhanced visualization](/
 
 ## As an existing user of the classic experience, will I always land on the new experience and only see the dependencies gathered after I upgrade the capability?
 
-- If you are an existing user who has not upgraded to the new dependency capability, you can still switch to the old dependency visualization from the new experience. 
-- After upgrading to the new dependency capability, you will be directed to the new visualization by default. However, you can switch to the old visualization at any time from the new experience. To export previously collected data, you can switch to the classic experience and download it from there.
+- If you're an existing user who hasn't upgraded to the new dependency capability, you can still switch to the old dependency visualization from the new experience. 
+- After upgrading to the new dependency capability, you'll be directed to the new visualization by default. However, you can switch to the old visualization at any time from the new experience. To export previously collected data, you can switch to the classic experience and download it from there.
 
 ## How to use the new Dependency view showing all dependencies across servers discovered in my project?
 For more information, see, [how to review the dependency view across enabled servers, discovered in the project](/azure/migrate/how-to-create-group-machine-dependencies-agentless#visualize-dependencies).
 
 ## As an existing user of agent-based dependency analysis, can I continue using the capability after the release of the new experience?
-- Agent-based dependency analysis is **not supported in the new Azure Migrate experience**. You can go to the Classic experience through a footer note on the **Overview** page of the project, where you can continue using the agent-based dependency analysis using the associated Log Analytics workspace.
+- Agent-based dependency analysis is **not supported in the new Azure Migrate experience**. You can go to the Classic experience through a footer note on the **Overview** page of the project. 
+- Agent-based dependency analysis is supported only in the classic view and isn't available in the new experience. The classic view is scheduled for deprecation by the end of 2026. Until then, you can continue to access Log Analytics workspaces for servers where agent-based dependency analysis is already enabled. However, you can't onboard new servers for agent-based dependency analysis.
 
 ## After the deprecation of MMA agent, how can I continue to use agent-based dependency analysis for Azure Migrate discovered servers?
-- The Log Analytics MMA agent was retired on August 31st 2024. To gather dependencies, you still need a separate Dependency Agent. 
+- The Log Analytics MMA agent was retired on August 31, 2024. To gather dependencies, you still need a separate Dependency Agent. 
 - The Dependency agent requires the new Azure Monitor Agent (AMA) to be deployed on guest servers to gather dependency data.
 - After switching to AMA, the Dependency agent will push the dependency data to the same Log Analytics workspace (ID) that was previously associated with the Azure Migrate project for agent-based dependency analysis.
 
 ## After the deprecation of MMA agent, how can I transition to the new AMA agent to continue gathering the dependency data?
-- Step1: To deploy the AMA agent, we recommend to first clean up the existing Service Map to avoid duplicates. [Learn more](/azure/azure-monitor/vm/vminsights-migrate-from-service-map#remove-the-service-map-solution-from-the-workspace) 
-- Step 2: To deploy the AMA agent, on the on-premises guest servers, you must first Arc-enable these servers by installing the Arc agent on the required guest servers.
-- Step 3: Download and run the script on the host server. o deploy both the AMA and the Dependency agent on the guest machine, you need to create the Data collection rule (DCR) that maps to a particular LA workspace ID.
-- Step 4: In a transition scenario, the Log Analytics workspace should be the same one previously configured for the Service Map agent. The DCR allows you to enable the collection of processes and dependencies, which is disabled by default.
+
+1. **Step 1**: To deploy the AMA agent, we recommend to first clean up the existing Service Map to avoid duplicates. [Learn more](/azure/azure-monitor/vm/vminsights-migrate-from-service-map#remove-the-service-map-solution-from-the-workspace).
+1. **Step 2**: To deploy the AMA agent, on the on-premises guest servers, you must first Arc-enable these servers by installing the Arc agent on the required guest servers.
+1. **Step 3**: Download and run the script on the host server. To deploy both the AMA and the Dependency agent on the guest machine, you need to create the Data collection rule (DCR) that maps to a particular LA workspace ID.
+1. **Step 4**: In a transition scenario, the Log Analytics workspace should be the same one previously configured for the Service Map agent. The DCR allows you to enable the collection of processes and dependencies, which is disabled by default.
   
 ## What do I install for agent-based dependency visualization?
 
@@ -132,11 +119,6 @@ For agent-based dependency visualization:
 - Use a [script to install the Dependency agent](/azure/azure-monitor/vm/vminsights-dependency-agent-maintenance#install-or-upgrade-dependency-agent).
 - For AMA, [use the command line or automation](/azure/azure-monitor/agents/log-analytics-agent#installation-options), or use a [script](https://www.powershellgallery.com/).
 - In addition to scripts, you can use deployment tools like Microsoft Configuration Manager and Intigua to deploy the agents.
-
-## What operating systems does MMA support?
-
-- View the list of [Windows operating systems that AMA supports](/azure/azure-monitor/agents/log-analytics-agent#installation-options).
-- View the list of [Linux operating systems that AMA supports](/azure/azure-monitor/agents/log-analytics-agent#installation-options).
 
 ## Can I visualize dependencies for more than one hour?
 

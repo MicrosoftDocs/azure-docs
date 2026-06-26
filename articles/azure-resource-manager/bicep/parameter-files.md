@@ -3,7 +3,7 @@ title: Create a parameters file for bicep deployment
 description: Learn how to create Bicep parameters files instead of passing parameters as inline values in your script.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 05/27/2026
+ms.date: 06/17/2026
 ---
 
 # Create a parameters file for Bicep deployment
@@ -51,10 +51,13 @@ A parameters file uses the following format:
 
 ```bicep
 using '<path>/<file-name>.bicep' | using none
+extends '<path>/<file-name>.bicepparam' 
 
 type <user-defined-data-type-name> = <type-expression>
 
 var <variable-name> <data-type> = <variable-value>
+
+import {<symbol_name> [as <alias_name>], ...} from '<bicep_file_name>'
 
 param <first-parameter-name> = <first-value>
 param <second-parameter-name> = <second-value>
@@ -111,6 +114,8 @@ The `using` statement links the Bicep parameters file to a Bicep file. You can a
 Use [`using none`](./bicep-using.md#the-using-none-statement) if you don't want to link the parameter file to a particular Bicep file. [Bicep CLI version 0.31.0](https://github.com/Azure/bicep/releases/tag/v0.31.92) or later supports the `using none` feature.
 
 For more information, see [Using statement](./bicep-using.md).
+
+The `extends` statement inherits parameters from a base `.bicepparam` file, allowing parameter values to be reused and selectively overridden in the current parameter file. For more information, see [Extendable parameter files](./bicep-extend.md).
 
 When you type the keyword `param` in Visual Studio Code, it prompts you with the available parameters and their descriptions from the linked Bicep file.
 
@@ -320,6 +325,8 @@ var tagsExample TagValues = {
 param tags = tagsExample
 ```
 
+You can also import variables, user-defined data types, and user-define functions from a Bicep file. For more information, see [Import](./bicep-import.md).
+
 ## [JSON parameters file](#tab/JSON)
 
 ```json
@@ -353,6 +360,10 @@ param tags = tagsExample
 ```
 
 ---
+
+## Extendable parameters file
+
+For details, see [Extend parameters file](./bicep-extend.md).
 
 ## Generate and build parameters file
 

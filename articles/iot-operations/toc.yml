@@ -147,6 +147,9 @@ items:
           - name: Understand assets and devices
             href: discover-manage-assets/concept-assets-devices.md
             displayName: data points, events, operations, experience, southbound, namespace assets, namespace
+          - name: Build a unified namespace
+            href: discover-manage-assets/howto-build-unified-namespace.md
+            displayName: UNS, unified namespace, ISA-95, Purdue, topic hierarchy, MQTT topics, asset definitions, data flow
           - name: Understand Akri services
             href: discover-manage-assets/overview-akri.md
             displayName: OPC UA, discover, detect, device, registry, southbound
@@ -388,6 +391,9 @@ items:
                 displayName: tutorial, e2e, end-to-end, asset, device, OPC UA, connector, MQTT
               - name: Get insights from your data
                 href: end-to-end-tutorials/tutorial-get-insights.md
+          - name: Capture and store media from media devices
+            href: end-to-end-tutorials/tutorial-onvif-media-blob-storage.md
+            displayName: tutorial, media, ONVIF, connector, blob storage, ACSA, Azure Container Storage enabled by Azure Arc
           - name: Bi-directional messaging with Event Grid
             href: connect-to-cloud/tutorial-mqtt-bridge.md
             displayName: tutorial, MQTT, bridge

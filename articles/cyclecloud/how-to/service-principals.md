@@ -1,8 +1,9 @@
 ---
 title: Using a Service Principal
-description: How to use a Service Principal with Azure CycleCloud.
+description: Learn how to use a Microsoft Entra service principal to grant Azure CycleCloud permission to manage clusters in your subscription.
 author: rokeptne
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: rokeptne
 ---
 

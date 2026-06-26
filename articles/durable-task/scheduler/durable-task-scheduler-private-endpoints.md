@@ -3,11 +3,11 @@ author: berndverst
 ms.author: beverst
 title: Private endpoints for Durable Task Scheduler
 titleSuffix: Durable Task
-description: Learn how to use private endpoints to secure connectivity between your apps and Durable Task Scheduler.
+description: Learn how to use private endpoints to secure connectivity between your apps and Durable Task Scheduler, and how to configure them using the Azure portal, CLI, or Bicep.
 ms.topic: concept-article
 ms.service: azure-functions
 ms.subservice: durable-task-scheduler
-ms.date: 03/24/2026
+ms.date: 06/12/2026
 
 #customer intent: As a developer or cloud architect, I want to understand how private endpoints work with Durable Task Scheduler so that I can secure my orchestration traffic within a virtual network.
 ---
@@ -71,6 +71,73 @@ Keep the following considerations in mind when using private endpoints with Dura
 - **Identity and RBAC**: Private endpoints secure the *network path* to the scheduler. You still need to configure [identity-based access control](./durable-task-scheduler-identity.md) to authenticate and authorize your apps.
 - **Task hubs**: A private endpoint connection on the scheduler applies to all task hubs within that scheduler. You can't create private endpoint connections for individual task hubs.
 - **Emulator**: The [Durable Task Scheduler emulator](./develop-with-durable-task-scheduler.md#durable-task-scheduler-emulator) runs locally and doesn't support private endpoints. Private endpoints apply only to scheduler resources deployed in Azure.
+
+## Configure a private endpoint
+
+To create a private endpoint for your Durable Task Scheduler resource, follow the general private endpoint creation steps for your preferred method. Regardless of the method you choose, use the following Durable Task Scheduler-specific values when configuring the private endpoint:
+
+| Setting | Value |
+|---|---|
+| **Resource type** | `Microsoft.DurableTask/schedulers` |
+| **Target sub-resource** | `scheduler` |
+
+# [Azure portal](#tab/portal)
+
+1. Follow the steps in [Create a private endpoint using the Azure portal](/azure/private-link/create-private-endpoint-portal#create-a-private-endpoint).
+1. On the **Resource** tab, select the resource type and target sub-resource values from the preceding table.
+1. For all other settings, including virtual network, DNS, and tags configuration, follow the same process described in the portal documentation.
+
+# [Azure CLI](#tab/cli)
+
+1. Follow the steps in [Create a private endpoint using the Azure CLI](/azure/private-link/create-private-endpoint-cli).
+1. Run the `az network private-endpoint create` command, with `--private-connection-resource-id` set to the full resource ID of your Durable Task Scheduler resource.
+1. Set `--group-id` to `scheduler`.
+
+For example:
+
+```azurecli
+az network private-endpoint create \
+    --name <private-endpoint-name> \
+    --resource-group <resource-group> \
+    --vnet-name <vnet-name> \
+    --subnet <subnet-name> \
+    --private-connection-resource-id /subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.DurableTask/schedulers/<scheduler-name> \
+    --group-id scheduler \
+    --connection-name <connection-name>
+```
+
+# [Bicep](#tab/bicep)
+
+1. Follow the steps in [Create a private endpoint using Bicep](/azure/private-link/create-private-endpoint-bicep).
+1. In your Bicep template, set the `privateLinkServiceConnections` to reference your Durable Task Scheduler resource.
+1. Use `scheduler` as the group ID.
+
+For example:
+
+```bicep
+resource privateEndpoint 'Microsoft.Network/privateEndpoints@2024-05-01' = {
+  name: privateEndpointName
+  location: location
+  properties: {
+    subnet: {
+      id: subnetId
+    }
+    privateLinkServiceConnections: [
+      {
+        name: connectionName
+        properties: {
+          privateLinkServiceId: schedulerResourceId
+          groupIds: [
+            'scheduler'
+          ]
+        }
+      }
+    ]
+  }
+}
+```
+
+---
 
 ## Next steps
 

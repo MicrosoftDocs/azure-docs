@@ -1,11 +1,9 @@
 ---
 title: Connect and Govern Existing MCP server - Azure API Management 
 description: Learn how to expose and govern an existing Model Context Protocol (MCP) server in Azure API Management.
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 04/28/2026
-ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ms.custom:

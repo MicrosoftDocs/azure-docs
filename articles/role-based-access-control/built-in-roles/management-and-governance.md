@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2026
+ms.date: 06/20/2026
 ms.custom: generated
 ---
 
@@ -28,6 +28,7 @@ View assessment recommendations, accepted review recommendations, and manage the
 > | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/recommendations/read | Reads recommendations |
 > | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/recommendations/write | Writes recommendations |
 > | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/recommendations/available/action | New recommendation is available in Microsoft Advisor |
+> | [Microsoft.Advisor](../permissions/management-and-governance.md#microsoftadvisor)/conversations/* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -48,7 +49,8 @@ View assessment recommendations, accepted review recommendations, and manage the
       "actions": [
         "Microsoft.Advisor/recommendations/read",
         "Microsoft.Advisor/recommendations/write",
-        "Microsoft.Advisor/recommendations/available/action"
+        "Microsoft.Advisor/recommendations/available/action",
+        "Microsoft.Advisor/conversations/*"
       ],
       "notActions": [],
       "dataActions": [],
@@ -1000,10 +1002,10 @@ Custom role for Azure Local resource provider (Microsoft.AzureStackHCI Resource 
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/write | Installs or Updates an Azure Arc licenseProfiles |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/UpgradeExtensions/action | Upgrades Extensions on Azure Arc machines |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/write | Writes an Azure Arc machines |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/read | Get or list of endpoints to the target resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/read | Get or list of serviceConfigurations to the endpoints resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/write | Create or update the serviceConfigurations to the endpoints resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/write | Create or update the endpoint to the target resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/read | Gets the endpoint to the resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/read | Gets the details about the service to the resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/write | Update the service details in the service configurations of the target resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/write | Update the endpoint to the target resource. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.EdgeMarketplace](../permissions/internet-of-things.md#microsoftedgemarketplace)/locations/operationStatuses/read | read operationStatuses |
 > | [Microsoft.EdgeMarketPlace](../permissions/internet-of-things.md#microsoftedgemarketplace)/offers/getAccessToken/action | get access token. |
@@ -2825,7 +2827,7 @@ Full control of the agent—manage chats, incident response plans, and agent run
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/read | Read a classic metric alert |
 > | [Microsoft.App](../permissions/compute.md#microsoftapp)/agents/read | Read SRE Agent properties |
 > | [Microsoft.App](../permissions/compute.md#microsoftapp)/agents/*/read |  |
 > | [Microsoft.App](../permissions/compute.md#microsoftapp)/agents/write | Create or Update a SRE Agent |
@@ -2852,7 +2854,7 @@ Full control of the agent—manage chats, incident response plans, and agent run
     {
       "actions": [
         "Microsoft.Authorization/*/read",
-        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/alertRules/read",
         "Microsoft.App/agents/read",
         "Microsoft.App/agents/*/read",
         "Microsoft.App/agents/write",
@@ -2937,7 +2939,7 @@ Grants access to interact with the SRE Agent to triage incidents and run diagnos
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/read | Read a classic metric alert |
 > | [Microsoft.App](../permissions/compute.md#microsoftapp)/agents/read | Read SRE Agent properties |
 > | **NotActions** |  |
 > | *none* |  |
@@ -2967,7 +2969,7 @@ Grants access to interact with the SRE Agent to triage incidents and run diagnos
     {
       "actions": [
         "Microsoft.Authorization/*/read",
-        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Insights/alertRules/read",
         "Microsoft.App/agents/read"
       ],
       "notActions": [],

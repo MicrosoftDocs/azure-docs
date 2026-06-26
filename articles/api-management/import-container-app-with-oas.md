@@ -2,12 +2,10 @@
 title: Import an Azure Container App to Azure API Management
 description: Learn how to use Azure API Management to import a web API hosted in Azure Container Apps.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 03/11/2026
-ms.author: danlep
 
 #customer intent: As an API developer, I want to import a web API that's hosted in Azure Container Apps. 
 

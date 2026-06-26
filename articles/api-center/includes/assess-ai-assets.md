@@ -4,19 +4,17 @@ description: Learn how to enable AI skill assessments in Azure API Center to eva
 ms.service: azure-api-center
 ms.topic: include
 ms.date: 06/01/2026
-ms.author: danlep
-author: dlepow
 ms.collection: ce-skilling-ai-copilot
 ---
 
-## Assess AI assets (preview)
+## Assess AI assets
 
 API Center can assess the quality of AI assets such as skills and agents registered in your API center. API Center comes with default assessment criteria out of the box, assessing assets across predefined dimensions. Enterprise platform administrators can further extend these defaults by defining custom assessment criteria tailored to their organization's specific standards, compliance requirements, and governance policies. 
 
 To enable automated assessments of AI assets in your inventory:
 
 1. In the [Azure portal](https://portal.azure.com), go to your API center.
-1. In the sidebar menu. go to **Governance** > **AI Assessment (preview)**.
+1. In the sidebar menu. go to **Governance** > **AI Assessment**.
 1. Select the **Skills** tab to configure assessments for skills, or select the **Agents** tab to configure assessments for agents.
 1. In **Assessment status**, select **Enabled**.
 1. Enter a **Description** for the assessment.

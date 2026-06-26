@@ -5,7 +5,7 @@ author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: whats-new
-ms.date: 05/25/2026
+ms.date: 06/20/2026
 ms.author: rolyon
 
 ---
@@ -18,6 +18,7 @@ This article provides information about new features and documentation improveme
 
 | Date | Area | Description |
 | --- | --- | --- |
+| June 2026 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). |
 | May 2026 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). Removed Microsoft.ClassicNetwork and Microsoft.ClassicStorage permissions. |
 | May 2026 | Roles | Added [Semantic Reranker User](./built-in-roles/databases.md#semantic-reranker-user) role. |
 | May 2026 | Roles | Updated Microsoft Foundry roles.<br/>[Foundry Account Owner](./built-in-roles/ai-machine-learning.md#foundry-account-owner)<br/>[Foundry Owner](./built-in-roles/ai-machine-learning.md#foundry-owner)<br/>[Foundry Project Manager](./built-in-roles/ai-machine-learning.md#foundry-project-manager)<br/>[Foundry User](./built-in-roles/ai-machine-learning.md#foundry-user) |

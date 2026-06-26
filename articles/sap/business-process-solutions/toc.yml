@@ -15,6 +15,8 @@ items:
         href: configure-source-system-with-data-factory.md
       - name: Configure SAP source system with Open Mirroring
         href: configure-source-system-with-open-mirroring.md
+      - name: Configure SAP source system with SAP Datasphere
+        href: configure-source-system-with-datasphere.md
       - name: Configure Salesforce source system
         href: configure-salesforce-source-system.md
     - name: Configure insights
@@ -31,10 +33,10 @@ items:
         href: monitor-fabric-data-extraction-processing.md
     - name: Post processing
       href: post-processing.md
-    - name: Performance optimization
-      href: performance-optimization.md
     - name: Manage datasets
       href: manage-datasets.md
+  - name: Performance optimization
+    href: performance-optimization.md
   - name: Troubleshooting common issues
     href: troubleshooting.md
   - name: Update artifacts

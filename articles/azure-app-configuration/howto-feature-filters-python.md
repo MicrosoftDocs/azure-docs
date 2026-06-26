@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
-ms.date: 06/05/2024
+ms.date: 06/25/2026
 ---
 
 # Enable conditional features with a custom filter in a Python application
@@ -38,10 +38,8 @@ You've added a custom feature filter named **Random** with a **Percentage** para
     class RandomFilter(FeatureFilter):
     
         def evaluate(self, context, **kwargs):
-            value = context.get("parameters", {}).get("Value", 0)
-            if value < random.randint(0, 100):
-                return True
-            return False
+            percentage = context.get("parameters", {}).get("Percentage", 0)
+            return random.randint(0, 100) < percentage
     ```
 
     You added a `RandomFilter` class that implements the `FeatureFilter` abstract class from the `FeatureManagement` library. The `FeatureFilter` class has a single method named `evaluate`, which is called whenever a feature flag is evaluated. In `evaluate`, a feature filter enables a feature flag by returning `true`.
