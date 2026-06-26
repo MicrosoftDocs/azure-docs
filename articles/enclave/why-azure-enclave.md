@@ -23,7 +23,7 @@ Azure Enclave provides value in several ways:
 
 - **Deploy secure environments faster** - Use platform-managed creation of secure environments, boundary isolation, enclave management, and governance controls to reduce setup time.
 
-- **Support compliance readiness** - Use Azure Policy guardrails, logging and diagnostics, and compliance reporting helping maintain a known security posture.
+- **Support compliance readiness** - Use Azure Policy guardrails, logging and diagnostics, and compliance reporting to help maintain a known security posture.
 
 - **Improve operational visibility** - Centralize or isolate logs and monitoring data so teams can review activity and monitor changes.
 
