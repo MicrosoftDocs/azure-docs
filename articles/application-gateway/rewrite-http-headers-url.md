@@ -149,7 +149,7 @@ Application Gateway supports the following server variables for mutual authentic
 | client_certificate_serial | The serial number of the client certificate for an established SSL connection.  |
 | client_certificate_start_date| The start date of the client certificate. |
 | client_certificate_subject| The "subject DN" string of the client certificate for an established SSL connection. |
-| client_certificate_verification| The result of the client certificate verification. For mTLS passthrough mode: *PASSTHROUGH* if certificate presented, else *NONE*. For mTLS strict mode: *SUCCESS* for valid certificate, else empty. | 
+| client_certificate_verification| The result of the client certificate verification. For mTLS passthrough mode: *PASSTHROUGH* if a certificate is presented, otherwise *NONE*. For mTLS strict mode: *SUCCESS* if a valid certificate is presented, otherwise an empty string. | 
 
 
 ## Common scenarios for header rewrite
