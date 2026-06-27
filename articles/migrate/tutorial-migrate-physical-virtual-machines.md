@@ -263,7 +263,7 @@ You can install the Mobility service using the Mobility service agent software. 
 1. In **Guest credentials**, select the friendly name of the credentials you created previously during the replication appliance setup. Select the VMs you want to replicate and then select **Next**.
 9. In **Target settings**, select the subscription and target region to which you want to migrate, and specify the resource group where the Azure VMs will reside after migration. Complete the following settings:
 
-  - **Storage account**: Keep the default option to use the cache storage account that is automatically created for the project. To use a different storage account for replication, select it from the drop-down list.
+  - **Storage account**: Keep the default option to use the cache storage account that the portal automatically creates for the project. To use a different storage account for replication, select it from the drop-down list.
     
    > [!NOTE]
    > - If you use private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault)
