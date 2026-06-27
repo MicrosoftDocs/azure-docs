@@ -119,7 +119,7 @@ This section describes how to download & use the PowerShell installer script to 
    
 2. On the Specify intent page, under **What do you want to migrate**, select Servers or virtual machines (VMs). Under **Where do you want to migrate to**, select Azure VM.
    
-3. In **How will you select workloads**, Select **From replication appliance** from the drop-down menu (choose Physical or others). If you don't have the replication appliance set up, use the link shown in the page to set up the same.
+1. In **How will you select workloads**, select **From replication appliance** from the drop-down menu (choose Physical or others). If you don't have the replication appliance set up, use the link shown in the page to set up the same.
 4. The virtualization type is prepopulated and unavailable for editing, based on the Azure Migrate appliance used for discovery.
 5. In **Target region**, select the Azure region to which you want to migrate the machines.
 6. Select **Confirm that the target region for migration is ``region-name``.
