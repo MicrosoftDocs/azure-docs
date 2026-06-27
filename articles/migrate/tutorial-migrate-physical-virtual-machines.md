@@ -256,7 +256,7 @@ You can install the Mobility service using the Mobility service agent software. 
     - **From an assessment** to use an existing assessment
    - If you don't have an existing Azure Migrate appliance (required for assessments, wave planning, and other planning capabilities) and want to directly execute agent-based migrations, select **From a replication appliance (Physical or others)** and select **Continue** to proceed to step 6.
 
-5. In **Discovery method**, select the appliance that matches your source environment (Physical) and then select Next.
+1. In **Discovery method**, select the appliance that matches your source environment (Physical) and then select **Next**.
 
 6. In **Workloads**, select the machines you want to replicate and migrate and select the **Target VM security type**. Azure Migrate supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost. You can also migrate eligible machines to Confidential virtual machines. [Learn more](../confidential-computing/confidential-vm-overview.md).
 7. Select the replication appliance you have set up from the drop-down menu or set up a new replication appliance by referring the steps provided in previous section.
