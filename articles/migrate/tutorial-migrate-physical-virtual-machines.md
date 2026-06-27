@@ -338,7 +338,7 @@ You can install the Mobility service using the Mobility service agent software. 
       -  **Testing**: Servers move to the Testing stage after initial replication completes and while delta replication is in progress. In this stage, you can run test migrations on a test virtual network before starting the actual
            migration (recommended). You can also skip the Testing stage and start migration directly by selecting the appropriate action in the Completion stage.
 
-      - **Completion**: Servers move to the Completion stage after test migrations complete or are skipped. In this stage, you can start the final migration (cutover). After migration completes, select Complete migration to clean up
+      - **Completion**: Servers move to the Completion stage after test migrations complete or are skipped. In this stage, you can start the final migration (cutover). After migration completes, select **Complete migration** to clean up
           migration resources from the actions available in the server drill-down list.
 
 ## Run a test migration
