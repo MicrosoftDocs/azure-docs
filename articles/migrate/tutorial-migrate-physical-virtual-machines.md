@@ -333,7 +333,7 @@ You can install the Mobility service using the Mobility service agent software. 
       - **Execution status**: In progress, In error, Action pending, or Completed.
   
 4. Execution progress is tracked across three stages:
-      - **Preparation**: Servers enabled for replication remain in the Preparation stage while initial replication (data replication) is in progress. During this stage, you can peform Stop, Start replication from the actions available                 in the server drill-down blade. After initial replication completes, the servers move to the Testing stage.
+      - **Preparation**: Servers enabled for replication remain in the Preparation stage while initial replication (data replication) is in progress. During this stage, you can perform **Stop** and **Start replication** from the actions available in the server drill-down blade. After initial replication completes, the servers move to the Testing stage.
         
       -  **Testing**: Servers move to the Testing stage after initial replication completes and while delta replication is in progress. In this stage, you can run test migrations on a test virtual network before starting the actual
            migration (recommended). You can also skip the Testing stage and start migration directly by selecting the appropriate action in the Completion stage.
