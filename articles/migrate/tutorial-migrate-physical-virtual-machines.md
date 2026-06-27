@@ -122,7 +122,7 @@ This section describes how to download & use the PowerShell installer script to 
 1. In **How will you select workloads**, select **From replication appliance** from the drop-down menu (choose Physical or others). If you don't have the replication appliance set up, use the link shown in the page to set up the same.
 4. The virtualization type is prepopulated and unavailable for editing, based on the Azure Migrate appliance used for discovery.
 5. In **Target region**, select the Azure region to which you want to migrate the machines.
-6. Select **Confirm that the target region for migration is ``region-name``.
+1. Select **Confirm that the target region for migration is ``region-name``.
 7. Select **Create resources**. This creates an Azure Site Recovery vault in the background.
     > [!NOTE]
     > You can't change the target region for this project after clicking this button, and all subsequent migrations are to this region.
