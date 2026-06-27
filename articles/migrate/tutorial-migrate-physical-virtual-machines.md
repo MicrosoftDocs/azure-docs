@@ -250,7 +250,7 @@ You can install the Mobility service using the Mobility service agent software. 
 
 2. On the Specify intent page, under **What do you want to migrate**, select Servers or virtual machines (VMs). Under **Where do you want to migrate to**, select Azure VM.
 
-3. Under How will you select workloads, select one of the following options,
+1. Under **How will you select workloads**, select one of the following options:
    If you have an existing Azure Migrate appliance, select one of the following and proceed to step 5.
     - **From all inventory** to manually select servers 
     - **From an assessment** to use an existing assessment
