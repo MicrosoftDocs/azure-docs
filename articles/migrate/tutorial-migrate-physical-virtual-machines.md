@@ -281,7 +281,7 @@ You can install the Mobility service using the Mobility service agent software. 
     - If the target security type selected is **Standard or Trusted Launch virtual machines**, 
 	  - **Secure boot** is enabled by default (recommended). You can choose to remove this option. Then, proceed to **Disk encryption type** selection.
    - If the target security type selected is **Confidential virtual machines**,
-      - You can optionally choose to confidentially encrypt the OS disks which provides an additional layer of encryption which binds the disk encryption keys to the virtual machine's TPM and makes the disk content accessible only to the VM. To do this, check the **Confidential compute encryption** option and
+      - You can optionally choose to confidentially encrypt the OS disks. This encryption provides an additional layer of encryption that binds the disk encryption keys to the virtual machine's TPM and makes the disk content accessible only to the VM. To enable this encryption, check the **Confidential compute encryption** option and
         proceed to **OS disk encryption type** selection.
      
 	   > [!NOTE]
