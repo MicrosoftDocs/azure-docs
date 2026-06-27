@@ -298,7 +298,7 @@ You can install the Mobility service using the Mobility service agent software. 
    - Double encryption with platform-managed and customer-managed keys
  
    > [!NOTE]
-   > - To replicate VMs with customer-managed-keys (CMK), you'll need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal#set-up-your-disk-encryption-set) under the target Resource Group. A disk encryption set object maps managed disks to a Key Vault that contains the
+   > - To replicate VMs with customer-managed keys (CMK), [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal#set-up-your-disk-encryption-set) under the target resource group. A disk encryption set object maps managed disks to a Key Vault that contains the
      CMK to use for SSE.
    > - The seed disk is created in Azure during replication/staging before cutover. Encrypting it protects data right from the first write while it resides in Azure. The **Disk encryption type** setting applies to both seed disks and the managed disks after final migration.
       
