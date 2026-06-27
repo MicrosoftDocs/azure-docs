@@ -254,7 +254,7 @@ You can install the Mobility service using the Mobility service agent software. 
    If you have an existing Azure Migrate appliance, select one of the following and proceed to step 5.
     - **From all inventory** to manually select servers 
     - **From an assessment** to use an existing assessment
-   If you don't have an existing Azure Migrate appliance (required for assessments, wave planning and other planning capabilities) and directly executing agent-based migrations, Select **From a replication appliance (Physical or others)** and click **Continue** to proceed to step 6.
+   - If you don't have an existing Azure Migrate appliance (required for assessments, wave planning, and other planning capabilities) and want to directly execute agent-based migrations, select **From a replication appliance (Physical or others)** and select **Continue** to proceed to step 6.
 
 5. In **Discovery method**, select the appliance that matches your source environment (Physical) and then select Next.
 
