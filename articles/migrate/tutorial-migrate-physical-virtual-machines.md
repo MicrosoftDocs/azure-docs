@@ -261,7 +261,7 @@ You can install the Mobility service using the Mobility service agent software. 
 1. In **Workloads**, select the machines you want to replicate and migrate and select the **Target VM security type**. Azure Migrate supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost. You can also migrate eligible machines to Confidential virtual machines. [Learn more](../confidential-computing/confidential-vm-overview.md).
 1. Select the replication appliance you set up from the drop-down menu or set up a new replication appliance by referring to the steps provided in the previous section.
 1. In **Guest credentials**, select the friendly name of the credentials you created previously during the replication appliance setup. Select the VMs you want to replicate and then select **Next**.
-9. In **Target settings**, select the subscription and target region to which you want to migrate, and specify the resource group where the Azure VMs will reside after migration. Complete the following settings:
+1. In **Target settings**, select the subscription and target region to which you want to migrate, and specify the resource group where the Azure VMs reside after migration. Complete the following settings:
 
   - **Storage account**: Keep the default option to use the cache storage account that the portal automatically creates for the project. To use a different storage account for replication, select it from the drop-down list.
     
@@ -269,13 +269,13 @@ You can install the Mobility service using the Mobility service agent software. 
    > - If you use private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault)
    > - To replicate using ExpressRoute with private peering, create a private endpoint for the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account-1)
    
-  - **Azure Hybrid Benefit**: Apply Azure Hybrid Benefit and save up to 76% vs. pay-as-you-go costs with an eligible Windows Server and/or Enterprise Linux license. Check the boxes applicable to your license (Windows Server license or Enterprise Linux license).
-  - **Virtual network**: Select the Azure virtual network and subnet that the Azure VMs will join after migration.
-  - **Availability options**: Select one of the following:
-      - **Availability Zone** – Pins the migrated machine to a specific Availability Zone in the region. Use this option to distribute machines that are part of a multi-node application tier across Availability Zones. If you select this
-          option, specify the Availability Zone for each selected machine on the Compute tab. This option is available only if the selected target region supports Availability Zones.
+  - **Azure Hybrid Benefit**: Apply Azure Hybrid Benefit and save up to 76% vs. pay-as-you-go costs by using an eligible Windows Server and/or Enterprise Linux license. Check the boxes applicable to your license (Windows Server license or Enterprise Linux license).
+  - **Virtual network**: Select the Azure virtual network and subnet that the Azure VMs join after migration.
+  - **Availability options**: Select one of the following options:
+      - **Availability Zone** – Pins the migrated machine to a specific Availability Zone in the region. Use this option to distribute machines that are part of a multinode application tier across Availability Zones. If you select this
+          option, specify the Availability Zone for each selected machine on the **Compute** tab. This option is available only if the selected target region supports Availability Zones.
       - **Availability Set** – Places the migrated machine in an Availability Set. The selected target resource group must contain one or more availability sets.
-      - **No infrastructure redundancy required**– Select this option if you don’t require Availability Zones or Availability Sets for the migrated machines.
+      - **No infrastructure redundancy required**– Select this option if you don't require Availability Zones or Availability Sets for the migrated machines.
         
  - In **Security Details**, 
     - If the target security type selected is **Standard or Trusted Launch virtual machines**, 
@@ -285,9 +285,9 @@ You can install the Mobility service using the Mobility service agent software. 
         proceed to **OS disk encryption type** selection.
      
 	   > [!NOTE]
-       > Confidential OS Disk encryption is not supported for RHEL and Rocky Linux VMs. If OS disk encryption is required, please remove these VMs from the selection.
+       > Confidential OS Disk encryption isn't supported for RHEL and Rocky Linux VMs. If OS disk encryption is required, please remove these VMs from the selection.
 	   
- - **OS disk encryption type**, Select:
+ - **OS disk encryption type**, select:
     - Encryption at rest with platform-managed key (Default, if you didn't select **Confidential compute encryption**)
     - Confidential encryption with platform-managed key (If you selected **Confidential compute encryption**)
     - Confidential encryption with customer-managed key (If you selected **Confidential compute encryption**)
