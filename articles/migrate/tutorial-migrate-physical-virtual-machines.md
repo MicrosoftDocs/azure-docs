@@ -258,7 +258,7 @@ You can install the Mobility service using the Mobility service agent software. 
 
 1. In **Discovery method**, select the appliance that matches your source environment (Physical) and then select **Next**.
 
-6. In **Workloads**, select the machines you want to replicate and migrate and select the **Target VM security type**. Azure Migrate supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost. You can also migrate eligible machines to Confidential virtual machines. [Learn more](../confidential-computing/confidential-vm-overview.md).
+1. In **Workloads**, select the machines you want to replicate and migrate and select the **Target VM security type**. Azure Migrate supports migration to Trusted Launch Virtual Machines (TVMs). By default, it migrates eligible VMs as TVMs. These VMs provide enhanced security features such as secure boot and virtual TPM at no extra cost. You can also migrate eligible machines to Confidential virtual machines. [Learn more](../confidential-computing/confidential-vm-overview.md).
 7. Select the replication appliance you have set up from the drop-down menu or set up a new replication appliance by referring the steps provided in previous section.
 8. In **Guest credentials**, In Guest credentials, select the friendly name of the credentials created previously during the replication appliance setup. Select the VMs you want to replicate and then click Next.
 9. In **Target settings**, select the subscription and target region to which you want to migrate, and specify the resource group where the Azure VMs will reside after migration. Complete the following settings:
