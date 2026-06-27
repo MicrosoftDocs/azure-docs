@@ -290,7 +290,7 @@ You can install the Mobility service using the Mobility service agent software. 
  - **OS disk encryption type**, Select:
     - Encryption at rest with platform-managed key (Default, If you have not selected **Confidential compute encryption**)
     - Confidential encryption with platform-managed key (If you selected **Confidential compute encryption**)
-    - Confidential encryption with customer-managed key (If you have selected **Confidential compute encryption**)
+    - Confidential encryption with customer-managed key (If you selected **Confidential compute encryption**)
       
  - **Disk encryption type**, select:
    - Encryption-at-rest with platform-managed key
