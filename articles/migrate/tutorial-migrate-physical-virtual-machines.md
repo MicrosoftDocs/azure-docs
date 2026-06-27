@@ -285,7 +285,7 @@ You can install the Mobility service using the Mobility service agent software. 
         proceed to **OS disk encryption type** selection.
      
 	   > [!NOTE]
-       > Confidential OS Disk encryption isn't supported for RHEL and Rocky Linux VMs. If OS disk encryption is required, please remove these VMs from the selection.
+       > Confidential OS Disk encryption isn't supported for RHEL and Rocky Linux VMs. If OS disk encryption is required, remove these VMs from the selection.
 	   
  - **OS disk encryption type**, select:
     - Encryption at rest with platform-managed key (Default, if you didn't select **Confidential compute encryption**)
