@@ -123,7 +123,7 @@ This section describes how to download & use the PowerShell installer script to 
 1. The virtualization type is prepopulated and unavailable for editing, based on the Azure Migrate appliance used for discovery.
 5. In **Target region**, select the Azure region to which you want to migrate the machines.
 1. Select **Confirm that the target region for migration is ``region-name``.
-7. Select **Create resources**. This creates an Azure Site Recovery vault in the background.
+1. Select **Create resources**. This action creates an Azure Site Recovery vault in the background.
     > [!NOTE]
     > You can't change the target region for this project after clicking this button, and all subsequent migrations are to this region.
 
