@@ -57,7 +57,6 @@ metadata:
   annotations:
     alb.networking.azure.io/alb-namespace: alb-test-infra
     alb.networking.azure.io/alb-name: alb-test
-    cert-manager.io/issuer: letsencrypt-prod
 spec:
   gatewayClassName: azure-alb-external
   listeners:
@@ -95,7 +94,6 @@ metadata:
   namespace: test-infra
   annotations:
     alb.networking.azure.io/alb-id: $RESOURCE_ID
-    cert-manager.io/issuer: letsencrypt-prod
 spec:
   gatewayClassName: azure-alb-external
   listeners:
@@ -176,7 +174,6 @@ helm install \
   --version v1.19.3 \
   --namespace cert-manager \
   --create-namespace \
-  --set config.enableGatewayAPI=true \
   --set crds.enabled=true
 ```
 
@@ -288,7 +285,6 @@ metadata:
   annotations:
     alb.networking.azure.io/alb-namespace: alb-test-infra
     alb.networking.azure.io/alb-name: alb-test
-    cert-manager.io/issuer: letsencrypt-cert
 spec:
   gatewayClassName: azure-alb-external
   listeners:
@@ -335,7 +331,6 @@ metadata:
   namespace: test-infra
   annotations:
     alb.networking.azure.io/alb-id: $RESOURCE_ID
-    cert-manager.io/issuer: letsencrypt-prod
 spec:
   gatewayClassName: azure-alb-external
   listeners:
