@@ -109,11 +109,11 @@ To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
 Deploy the following Bicep template to create a device with an inbound endpoint for the SSE connector. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively:
 
 ```bicep
-param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
+param adrNamespaceName string = '<AIO_NAMESPACE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource namespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
-  name: aioNamespaceName
+resource adrNamespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
+  name: adrNamespaceName
 }
 
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
@@ -122,7 +122,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
 
 resource device 'Microsoft.DeviceRegistry/namespaces/devices@2026-04-01' = {
   name: 'sse-connector'
-  parent: namespace
+  parent: adrNamespace
   location: resourceGroup().location
   extendedLocation: {
     type: 'CustomLocation'
@@ -246,11 +246,11 @@ To learn more, see [az iot ops ns asset sse](/cli/azure/iot/ops/ns/asset/sse).
 Deploy the following Bicep template to create an asset that publishes messages from the device shown previously to an MQTT topic. The data source of the dataset defines the path on the REST endpoint to query. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively:
 
 ```bicep
-param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
+param adrNamespaceName string = '<AIO_NAMESPACE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource namespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
-  name: aioNamespaceName
+resource adrNamespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
+  name: adrNamespaceName
 }
 
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
@@ -259,7 +259,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
 
 resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
   name: 'mysseasset'
-  parent: namespace
+  parent: adrNamespace
   location: resourceGroup().location
   extendedLocation: {
     type: 'CustomLocation'
