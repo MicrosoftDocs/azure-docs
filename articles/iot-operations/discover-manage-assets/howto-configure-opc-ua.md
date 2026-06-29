@@ -107,7 +107,7 @@ Deploy the following Bicep template to create a device with an inbound endpoint 
 param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource namespace 'Microsoft.DeviceRegistry/namespaces@2025-10-01' existing = {
+resource namespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
   name: aioNamespaceName
 }
 
@@ -115,7 +115,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource device 'Microsoft.DeviceRegistry/namespaces/devices@2025-10-01' = {
+resource device 'Microsoft.DeviceRegistry/namespaces/devices@2026-04-01' = {
   name: 'opc-ua-connector-bicep'
   parent: namespace
   location: resourceGroup().location
@@ -352,7 +352,7 @@ Deploy the following Bicep template to create an asset that publishes messages f
 param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource namespace 'Microsoft.DeviceRegistry/namespaces@2025-10-01' existing = {
+resource namespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
   name: aioNamespaceName
 }
 
@@ -360,7 +360,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2025-10-01' = {
+resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
   name: 'thermostat'
   parent: namespace
   location: resourceGroup().location
@@ -788,11 +788,11 @@ To retrieve an asset by using Bicep, use a template like the following example:
 ```bicep
 param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
 
-resource namespace 'Microsoft.DeviceRegistry/namespaces@2025-10-01' existing = {
+resource namespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
   name: aioNamespaceName
 }
 
-resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2025-10-01' existing = {
+resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' existing = {
   name: 'thermostat'
   parent: namespace
 }
@@ -806,7 +806,7 @@ To update an existing asset, for example to modify the description and add a dat
 param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource namespace 'Microsoft.DeviceRegistry/namespaces@2025-10-01' existing = {
+resource namespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
   name: aioNamespaceName
 }
 
@@ -814,7 +814,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2025-10-01' = {
+resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
   name: 'thermostat'
   parent: namespace
   location: resourceGroup().location
