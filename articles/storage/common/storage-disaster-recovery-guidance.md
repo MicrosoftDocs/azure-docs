@@ -208,6 +208,8 @@ The following features and services aren't supported for customer-managed failov
 - Storage accounts that support premium block blobs don't currently support geo-redundancy.
 - Customer-managed failover isn't supported for either the source or the destination account in an [object replication policy](../blobs/object-replication-overview.md).
 - Network File System (NFS) 3.0 (NFSv3) isn't supported for storage account failover. You can't create a storage account configured for geo-redundancy with NFSv3 enabled.
+- A storage account containing any [WORM immutability policy](../blobs/immutable-storage-overview.md)  enabled containers cannot be failed over. Unlocked/locked time-based retention or legal hold policies prevent failover in order to maintain compliance.
+- To failover an account with SSH File Transfer Protocol (SFTP) enabled, you must first [disable SFTP for the account](../blobs/secure-file-transfer-protocol-support-how-to?tabs=azure-portal#enable-sftp-support.md) . If you want to resume using SFTP after the failover is complete, simply re-enable it .
 
 The following table can be used to reference feature support.
 
