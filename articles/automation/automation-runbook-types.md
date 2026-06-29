@@ -414,8 +414,8 @@ You can create and edit graphical and graphical PowerShell Workflow runbooks usi
 
 ## Next steps
 
-* To learn how runtime version support and retirement affect runbooks, see [Language runtime support and retirement policy for Azure Automation](automation-runtime-retirement-policy.md).
 * To learn about PowerShell runbooks, see [Tutorial: Create a PowerShell runbook](./learn/powershell-runbook-managed-identity.md).
 * To learn about PowerShell Workflow runbooks, see [Tutorial: Create a PowerShell Workflow runbook](learn/automation-tutorial-runbook-textual.md).
 * To learn about graphical runbooks, see [Tutorial: Create a graphical runbook](automation-graphical-authoring-intro.md).
 * To learn about Python runbooks, see [Tutorial: Create a Python runbook](./learn/automation-tutorial-runbook-textual-python-3.md).
+* For information on runtime support and retirement when working with runbooks, see [Language runtime support and retirement policy for Azure Automation](automation-runtime-retirement-policy.md).

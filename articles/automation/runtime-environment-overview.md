@@ -97,5 +97,5 @@ While the new Runtime environment experience is recommended, you can also switch
 ## Next steps
 
 * To work with runbooks and Runtime environment, see [Manage Runtime environment](manage-runtime-environment.md).
-* To learn about runtime version support and retirement, see [Language runtime support and retirement policy for Azure Automation](automation-runtime-retirement-policy.md).
+* For information on runtime support and retirement, see [Language runtime support and retirement policy for Azure Automation](automation-runtime-retirement-policy.md).
 * For details of PowerShell, see [PowerShell Docs](/powershell/scripting/overview).
