@@ -179,6 +179,12 @@ Application Gateway for Containers enforces the following timeouts as it initiat
 > [!NOTE]
 > Request timeout strictly enforces the request to complete in the defined time irrespective if data is actively streaming or the request is idle. For example, if you're serving large file downloads and you expect transfers to take greater than 60 seconds due to size or slow transfer rates, consider increasing the request timeout value or setting it to 0.
 
+When a request timeout is configured in more than one place, Application Gateway for Containers applies the following order of precedence:
+
+1. Gateway API HTTPRoute timeouts (`timeouts.request` and `timeouts.backendRequest`) defined on the `HTTPRouteRule` are preferred.
+2. `RoutePolicy` timeout (`routeTimeout`) is used when no Gateway API HTTPRoute timeout is defined.
+3. Default timeout values are used when neither a Gateway API HTTPRoute timeout nor a `RoutePolicy` timeout is defined.
+
 ## Connectivity
 
 The following connectivity requirements are needed for successful operation of Application Gateway for Containers.

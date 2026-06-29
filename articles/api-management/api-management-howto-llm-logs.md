@@ -2,11 +2,9 @@
 title: Set Up Logging for Language Model APIs
 titleSuffix: Azure API Management
 description: Enable logging for language model APIs in Azure API Management to track token usage, prompts, and completions for billing and auditing.
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 06/12/2026
-ms.author: danlep
 ai-usage: ai-assisted
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot

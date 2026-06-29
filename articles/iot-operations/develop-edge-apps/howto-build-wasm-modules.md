@@ -4,7 +4,7 @@ description: Learn how to build WebAssembly (WASM) modules for data flows using 
 author: dominicbetts 
 ms.author: dobett 
 ms.topic: how-to
-ms.date: 04/10/2026
+ms.date: 06/24/2026
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ai-usage: ai-assisted
@@ -183,7 +183,7 @@ Start the local Docker execution environment, then run the graph:
 
 ```bash
 dataflow-dev run start
-dataflow-dev test --app . test-runner/tests/t03-complex-full-pipeline
+dataflow-dev test --app . tests/t03-complex-full-pipeline
 dataflow-dev run stop
 ```
 
@@ -204,7 +204,7 @@ To run all tests:
 
 ```bash
 dataflow-dev run start
-dataflow-dev test --app . test-runner/tests
+dataflow-dev test --app . tests
 dataflow-dev run stop
 ```
 
@@ -618,15 +618,15 @@ To learn how to deploy your custom WASM modules and graph to your Azure IoT Oper
 
 # [dataflow-dev CLI](#tab/cli)
 
-To run your graph application locally with the dataflow-dev CLI, use the `dataflow-dev test` command with a test case that points to your graph configuration and input data. You can create a new test case YAML file in the `test-runner/tests` folder that references your `graph.dataflow.yaml` and input data files. Then, run the test with the following command:
+To run your graph application locally with the dataflow-dev CLI, use the `dataflow-dev test` command with a test case that points to your graph configuration and input data. You can create a new test case YAML file in the `tests` folder that references your `graph.dataflow.yaml` and input data files. Then, run the test with the following command:
 
 ```bash
 dataflow-dev run start
-dataflow-dev test --app . test-runner/tests/my-test-case
+dataflow-dev test --app . tests/my-test-case
 dataflow-dev run stop
 ```
 
-Look at the example test case files in the `test-runner/tests` folder for reference on how to structure your test case YAML file. You can test both Python and Rust modules with the CLI tool by pointing to the appropriate graph configuration and input data in your test case file.
+Look at the example test case files in the `tests` folder for reference on how to structure your test case YAML file. You can test both Python and Rust modules with the CLI tool by pointing to the appropriate graph configuration and input data in your test case file.
 
 # [Standard tools](#tab/tools)
 

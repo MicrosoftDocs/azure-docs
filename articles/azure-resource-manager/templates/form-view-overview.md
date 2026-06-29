@@ -1,7 +1,7 @@
 ---
 title: Form view overview (uiFormDefinition)
 description: Describes the Form view JSON authoring model used by Azure portal Create experiences and template spec portal forms.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/29/2026
 ---
 

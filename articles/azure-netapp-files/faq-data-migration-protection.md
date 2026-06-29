@@ -109,6 +109,10 @@ Select the action icon from the **Migration** tab of the volume, not from the mi
 
 For external ONTAP, you should manually delete the existing peering relationship before creating a new one.
 
+### Are CIFS share-level permissions preserved during migration?
+
+Share-level permissions aren't migrated and need to be recreated manually.
+
 ## Next steps  
 
 - [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)

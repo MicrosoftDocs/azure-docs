@@ -95,6 +95,8 @@ The following sections describe the properties for Azure Storage resource logs w
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-operation.md)]
 
+[!INCLUDE [storage-logs-correlation-id](includes/storage-logs-correlation-id.md)]
+
 ### Fields that describe how the operation was authenticated
 
 ```json

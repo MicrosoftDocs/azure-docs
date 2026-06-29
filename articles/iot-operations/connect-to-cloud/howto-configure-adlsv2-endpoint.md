@@ -30,6 +30,8 @@ Send data to Azure Data Lake Storage Gen2 in Azure IoT Operations by configuring
 
 To configure a data flow endpoint for Azure Data Lake Storage Gen2, use either a user-assigned or system-assigned managed identity. This approach is secure and removes the need to manage credentials manually.
 
+[!INCLUDE [data-flow-graph-uami-usage](../includes/data-flow-graph-uami-usage.md)]
+
 After the Azure Data Lake Storage Gen2 is created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to write to the storage account.
 
 If you're using a system-assigned managed identity, in the Azure portal, go to your Azure IoT Operations instance and select **Overview**. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*. Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension.

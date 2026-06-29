@@ -3,15 +3,16 @@ title: Quickstart for using chat completion configuration in a .NET app
 titleSuffix: Azure App Configuration
 description: Learn to implement chat completion configuration in your .NET application using Azure App Configuration.
 services: azure-app-configuration
-author: MaryanneNjeri
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
-ms.date: 11/21/2025
+ms.date: 06/22/2026
 ms.update-cycle: 180-days
-ms.author: mgichohi
+author: maud-lv
+ms.author: malev
+ms.reviewer: mgichohi
 ms.collection: ce-skilling-ai-copilot
 ---
 

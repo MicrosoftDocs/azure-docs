@@ -11,13 +11,13 @@ groups:
     title: Azure SQL
 # Owner: liliankasem
 - id: func-cli-versions
-  title: Version
-  prompt: Choose a func.exe version
+  title: Choose a command-line tool
+  prompt: Choose your local development tool
   pivots:
   - id: func-cli-v4
-    title: v4
+    title: Azure Functions Core Tools
   - id: func-cli-v5
-    title: v5
+    title: Azure Functions CLI
 # Owner: estfan
 - id: azure-logic-apps
   title: Experience

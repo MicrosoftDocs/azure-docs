@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 06/04/2025
+ms.date: 06/22/2026
 
 #Customer intent: As an Azure developer, I want to create an app configuration store to manage all my app settings in one place using Azure App Configuration.
 ---
@@ -61,7 +61,7 @@ az group create --name AppConfigTestResources --location centralus
 
 ### Create an App Configuration store
 
-Create a new store with the [az group create](/cli/azure/appconfig/#az-appconfig-create) command and replace the placeholder `<name>` with a unique resource name for your App Configuration store.
+Create a new store with the [az appconfig create](/cli/azure/appconfig/#az-appconfig-create) command and replace the placeholder `<name>` with a unique resource name for your App Configuration store.
 
 ```azurecli
 az appconfig create --location centralus --name <name> --resource-group AppConfigTestResources
@@ -121,10 +121,10 @@ When no longer needed, delete the resource group. Deleting a resource group also
 
 ### [Azure CLI](#tab/azure-cli)
 
-Run the [az group delete](/cli/azure/group/#az-group-delete) command. Replace the placeholder `<name>` with the name of the App Configuration store:
+Replace the placeholder `<resource-group-name>` with the name of the resource group that contains the App Configuration store:
 
 ```azurecli
-az group delete --name <name>
+az group delete --name <resource-group-name>
 ```
 
 ---

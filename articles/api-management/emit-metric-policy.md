@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - emit-metric | Microsoft Docs
 description: Reference for the emit-metric policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 04/01/2025
-ms.author: danlep
 ms.custom: engagement-fy23
 ---
 

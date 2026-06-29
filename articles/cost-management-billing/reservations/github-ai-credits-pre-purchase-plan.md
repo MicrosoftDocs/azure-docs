@@ -45,6 +45,9 @@ To get started, estimate your expected GitHub AI Credits usage. This helps you d
 
 For example, suppose you expect to consume 2,000,000 GitHub AI Credits. Assuming a hypothetical pay-as-you-go rate of $0.01 per credit, this would cost $20,000. By purchasing a Tier 1 (20,000 CU) pre-purchase plan at a hypothetical cost of $19,000, you would realize a 5% saving compared to the hypothetical pay-as-you-go rate for the same usage.
 
+> [!NOTE]
+> Pre-purchase plan discounts don't combine with other discounts you might have. If you have additional discounts, the pre-purchase plan discount is applied independently, which may result in a lower effective discount rate than the listed tier percentage. Factor in your existing discounts when estimating savings.
+
 ## Purchase GitHub AI Credits commit units
 
 Purchase GitHub AI Credits pre-purchase plans in the [Azure portal reservations](https://portal.azure.com/#view/Microsoft_Azure_Reservations/ReservationsBrowseBlade/productType/Reservations). 

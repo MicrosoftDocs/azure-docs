@@ -3,7 +3,8 @@ title: Jetpack Reference
 description: Read reference information about the Jetpack tool in Azure CycleCloud. Jetpack provides node configuration, distributed synchronization, and HealthCheck.
 author: dougclayton
 ms.author: doclayto
-ms.date: 09/23/2025
+ms.date: 06/19/2026
+ms.topic: reference
 ---
 
 # Jetpack

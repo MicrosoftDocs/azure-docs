@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2026
+ms.date: 06/20/2026
 ms.custom: generated
 ---
 
@@ -341,6 +341,12 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | `Microsoft.ContainerService/managedclustersnapshots/read` | Get a managed cluster snapshot |
 > | `Microsoft.ContainerService/managedclustersnapshots/write` | Creates a new managed cluster snapshot |
 > | `Microsoft.ContainerService/managedclustersnapshots/delete` | Deletes a managed cluster snapshot |
+> | `Microsoft.ContainerService/nodeCustomizations/read` | Get Node Customization |
+> | `Microsoft.ContainerService/nodeCustomizations/write` | Create or Update Node Customization |
+> | `Microsoft.ContainerService/nodeCustomizations/delete` | Delete Node Customization |
+> | `Microsoft.ContainerService/nodeCustomizations/versions/read` | Get Node Customization Version |
+> | `Microsoft.ContainerService/nodeCustomizations/versions/write` | Create or Update Node Customization Version |
+> | `Microsoft.ContainerService/nodeCustomizations/versions/delete` | Delete Node Customization Version |
 > | `Microsoft.ContainerService/openShiftClusters/read` | Get an Open Shift Cluster |
 > | `Microsoft.ContainerService/openShiftClusters/write` | Creates a new Open Shift Cluster or updates an existing one |
 > | `Microsoft.ContainerService/openShiftClusters/delete` | Delete an Open Shift Cluster |
@@ -348,10 +354,17 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | `Microsoft.ContainerService/openShiftManagedClusters/write` | Creates a new Open Shift Managed Cluster or updates an existing one |
 > | `Microsoft.ContainerService/openShiftManagedClusters/delete` | Delete an Open Shift Managed Cluster |
 > | `Microsoft.ContainerService/operations/read` | Lists operations available on Microsoft.ContainerService resource provider |
+> | `Microsoft.ContainerService/preparedImageSpecifications/read` | Get Prepared Image Specification |
+> | `Microsoft.ContainerService/preparedImageSpecifications/write` | Create or Update Prepared Image Specification |
+> | `Microsoft.ContainerService/preparedImageSpecifications/delete` | Delete Prepared Image Specification |
+> | `Microsoft.ContainerService/preparedImageSpecifications/versions/read` | Get Prepared Image Specification Version |
+> | `Microsoft.ContainerService/preparedImageSpecifications/versions/write` | Create or Update Prepared Image Specification Version |
+> | `Microsoft.ContainerService/preparedImageSpecifications/versions/delete` | Delete Prepared Image Specification Version |
 > | `Microsoft.ContainerService/snapshots/read` | Get a snapshot |
 > | `Microsoft.ContainerService/snapshots/write` | Creates a new snapshot |
 > | `Microsoft.ContainerService/snapshots/delete` | Deletes a snapshot |
 > | **DataAction** | **Description** |
+> | `Microsoft.ContainerService/aiManagers/inference/action` | Perform inference on AI Manager |
 > | `Microsoft.ContainerService/aiManagers/admissionregistration.k8s.io/initializerconfigurations/read` | Reads initializerconfigurations |
 > | `Microsoft.ContainerService/aiManagers/admissionregistration.k8s.io/initializerconfigurations/write` | Writes initializerconfigurations |
 > | `Microsoft.ContainerService/aiManagers/admissionregistration.k8s.io/initializerconfigurations/delete` | Deletes initializerconfigurations |

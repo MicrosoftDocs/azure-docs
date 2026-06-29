@@ -2,13 +2,11 @@
 title: Use API Management with Microservices Deployed in AKS | Microsoft Docs
 description: Learn about options for using Azure API Management to publish microservices-based architectures that are deployed in AKS as APIs.
 services: api-management
-author: dlepow
 manager: cfowler
  
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 05/15/2025
-ms.author: danlep
 
 #customer intent: As an API developer, I want to learn about using API Management to publish microservices-based architectures as APIs.
 ---

@@ -13,7 +13,7 @@ ms.author: duau
 
 ExpressRoute lets you extend your on-premises networks into the Microsoft cloud over a private connection with the help of a connectivity provider. With ExpressRoute, you can establish connections to Microsoft cloud services, such as Microsoft Azure and Microsoft 365.
 
-Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a colocation facility. ExpressRoute connections offer more reliability, faster speeds, consistent latencies, and higher security than typical connections over the Internet, because they don’t go over the public Internet. For information on how to connect your network to Microsoft using ExpressRoute, see [ExpressRoute connectivity models](expressroute-connectivity-models.md).
+You can connect from an any-to-any (IP VPN) network, a point-to-point Ethernet network, or a virtual cross-connection through a connectivity provider at a colocation facility. Because ExpressRoute connections don't go over the public internet, they offer more reliability, faster speeds, consistent latencies, and higher security than typical connections over the internet. For information on how to connect your network to Microsoft by using ExpressRoute, see [ExpressRoute connectivity models](expressroute-connectivity-models.md).
 
 ![ExpressRoute connection overview](./media/expressroute-introduction/expressroute-connection-overview.png)
 
@@ -24,7 +24,7 @@ Connectivity can be from an any-to-any (IP VPN) network, a point-to-point Ethern
 
 ## Key benefits
 
-* Layer 3 connectivity between your on-premises network and the Microsoft Cloud through a connectivity provider. Connectivity can be from an any-to-any (IPVPN) network, a point-to-point Ethernet connection, or through a virtual cross-connection via an Ethernet exchange.
+* Layer 3 connectivity between your on-premises network and the Microsoft cloud through a connectivity provider. You can connect from an any-to-any (IPVPN) network, a point-to-point Ethernet connection, or through a virtual cross-connection via an Ethernet exchange.
 * Connectivity to Microsoft cloud services across all regions in the geopolitical region.
 * Global connectivity to Microsoft services across all regions with the ExpressRoute premium add-on.
 * Dynamic routing between your network and Microsoft via BGP.
@@ -72,15 +72,15 @@ For a detailed list of services supported over ExpressRoute, visit the [ExpressR
 
 You can connect to Microsoft from one of our [peering locations](expressroute-locations.md) and access regions within the same geopolitical region.
 
-For example, if you connect to Microsoft in Amsterdam through ExpressRoute. You have access to all of  Microsoft cloud services hosted in North and West Europe. For an overview of the geopolitical regions, the associated Microsoft cloud regions, and corresponding ExpressRoute peering locations, see the [ExpressRoute partners and peering locations](expressroute-locations.md) article.
+For example, if you connect to Microsoft in Amsterdam through ExpressRoute, you have access to all of Microsoft cloud services hosted in North and West Europe. For an overview of the geopolitical regions, the associated Microsoft cloud regions, and corresponding ExpressRoute peering locations, see the [ExpressRoute partners and peering locations](expressroute-locations.md) article.
 
 ### Global connectivity with ExpressRoute Premium
 
-You can enable [ExpressRoute Premium](expressroute-faqs.md#expressroute-premium) to extend connectivity across geopolitical boundaries. If you connect to Microsoft in Amsterdam through ExpressRoute, you have access to all of Microsoft cloud services hosted in every region across the globe. For example, you have access to services deployed in West US or Australian East the same way you access North and West Europe regions. National clouds are excluded.
+You can enable [ExpressRoute Premium](expressroute-faqs.md#expressroute-premium) to extend connectivity across geopolitical boundaries. If you connect to Microsoft in Amsterdam through ExpressRoute, you have access to all Microsoft cloud services hosted in every region across the globe. For example, you have access to services deployed in West US or Australia East the same way you access North and West Europe regions. National clouds are excluded.
 
 ### Local connectivity with ExpressRoute Local
 
-You can transfer data cost-effectively by enabling the [Local SKU](expressroute-faqs.md#expressroute-local). With Local SKU, you can bring your data to an ExpressRoute location near the Azure region you want. With Local, Data transfer is included in the ExpressRoute port charge.
+You can transfer data cost-effectively by enabling the [Local SKU](expressroute-faqs.md#expressroute-local). By using the Local SKU, you can bring your data to an ExpressRoute location near the Azure region you want. With Local, data transfer is included in the ExpressRoute port charge.
 
 For peering location and supported Azure local region, see [providers by locations](expressroute-locations-providers.md#partners).
 
@@ -105,7 +105,7 @@ ExpressRoute Direct provides customers the opportunity to connect directly into 
 Key features that ExpressRoute Direct provides include, but aren't limited to:
 
 * Massive data ingestion into services like Azure Storage and Azure Cosmos DB.
-* Physical isolation for industries that are regulated and require dedicated and isolated connectivity. For example: banks, governments, and retails.
+* Physical isolation for industries that are regulated and require dedicated and isolated connectivity. For example: banks, governments, and retailers.
 * Granular control of circuit distribution based on business unit.
 
 For more information, see [About ExpressRoute Direct](./expressroute-erdirect-about.md).
@@ -148,7 +148,7 @@ For frequently asked questions about ExpressRoute, see [ExpressRoute FAQ](expres
 
 Subscribe to the RSS feed and view the latest ExpressRoute feature updates on the [Azure Updates](https://azure.microsoft.com/updates?filters=%5B%22Azure+ExpressRoute%22%5D) page.
 
-## Next steps
+## Related content
 
 * [Learn module: Introduction to Azure ExpressRoute](/training/modules/intro-to-azure-expressroute).
 * Review [ExpressRoute prerequisites](expressroute-prerequisites.md).

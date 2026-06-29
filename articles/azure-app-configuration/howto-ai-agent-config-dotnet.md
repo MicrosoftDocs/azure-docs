@@ -3,10 +3,11 @@ title: How to use Agent Framework in a .NET app with Azure App Configuration
 titleSuffix: Azure App Configuration
 description: Learn how to use Agent Framework in a .NET console app with Azure App Configuration.
 ms.service: azure-app-configuration
-author: MaryanneNjeri
-ms.author: mgichohi
+author: maud-lv
+ms.author: malev
+ms.reviewer: mgichohi
 ms.topic: how-to
-ms.date: 04/22/2026
+ms.date: 06/22/2026
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ---

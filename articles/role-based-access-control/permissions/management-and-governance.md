@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2026
+ms.date: 06/20/2026
 ms.custom: generated
 ---
 
@@ -63,10 +63,6 @@ Azure service: [Azure Policy](/azure/governance/policy/overview), [Azure RBAC](/
 > | --- | --- |
 > | `Microsoft.Authorization/elevateAccess/action` | Grants the caller User Access Administrator access at the tenant scope |
 > | `Microsoft.Authorization/acquirePolicyToken/read` | Acquire a policy token at the specified scope. |
-> | `Microsoft.Authorization/classicAdministrators/read` | Reads the administrators for the subscription. Does not have an effect if used as a NotAction in a custom role. |
-> | `Microsoft.Authorization/classicAdministrators/write` | Add or modify administrator to a subscription. |
-> | `Microsoft.Authorization/classicAdministrators/delete` | Removes the administrator from the subscription. |
-> | `Microsoft.Authorization/classicAdministrators/operationstatuses/read` | Gets the administrator operation statuses of the subscription. |
 > | `Microsoft.Authorization/denyAssignments/read` | Get information about a deny assignment. |
 > | `Microsoft.Authorization/denyAssignments/write` | Create a deny assignment at the specified scope. |
 > | `Microsoft.Authorization/denyAssignments/delete` | Delete a deny assignment at the specified scope. |
@@ -1018,6 +1014,7 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action` | Restore recovery point from cross-tenant mapped vault for the protected items. |
 > | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupJobs/read` | Returns a list of all jobs from the cross-tenant mapped vault. |
 > | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupProtectedItems/read` | Returns a list of all protected items from the cross-tenant mapped vault. |
+> | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupUsageSummaries/read` | Returns summaries for Protected Items and Protected Servers for a Recovery Services . |
 > | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupValidateOperationResults/read` | Validate Operation on Protected Item |
 > | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/backupValidateOperationsStatuses/read` | Validate Operation on Protected Item |
 > | `Microsoft.RecoveryServices/Vaults/backupCrossTenantVaultMappings/vaultCredentials/generate/action` | Retrieves the cross-tenant vault mapping. |
@@ -1070,7 +1067,7 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | `Microsoft.RecoveryServices/Vaults/backupOperations/read` | Returns Backup Operation Status for Recovery Services Vault. |
 > | `Microsoft.RecoveryServices/Vaults/backupPolicies/delete` | Delete a Protection Policy |
 > | `Microsoft.RecoveryServices/Vaults/backupPolicies/read` | Returns all Protection Policies |
-> | `Microsoft.RecoveryServices/Vaults/backupPolicies/write` | Creates Protection Policy |
+> | `Microsoft.RecoveryServices/Vaults/backupPolicies/write` | Creates or Updates Protection Policy |
 > | `Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read` | Get Results of Policy Operation. |
 > | `Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read` | Get Status of Policy Operation. |
 > | `Microsoft.RecoveryServices/Vaults/backupProtectableItems/read` | Returns list of all Protectable Items. |

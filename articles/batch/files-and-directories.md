@@ -1,8 +1,8 @@
 ---
 title: Files and directories in Azure Batch
-description: Learn about files and directories and how they are used in an Azure Batch workflow from a development standpoint.
+description: Learn about files and directories and how they're used in an Azure Batch workflow from a development standpoint.
 ms.topic: concept-article
-ms.date: 06/13/2024
+ms.date: 06/16/2026
 # Customer intent: As a developer working with Azure Batch, I want to understand how to utilize files and directories in a Batch workflow, so that I can efficiently manage task outputs and data processing operations.
 ---
 # Files and directories in Azure Batch
@@ -17,7 +17,7 @@ Tasks can access the root directory by referencing the `AZ_BATCH_NODE_ROOT_DIR` 
 
 The root directory contains the following directory structure:
 
-![Screenshot of the compute node directory structure.](media\files-and-directories\node-folder-structure.png)
+![Screenshot of the compute node directory structure.](media/files-and-directories/node-folder-structure.png)
 
 - **applications**: Contains information about the details of application packages installed on the compute node. Tasks can access this directory by referencing the `AZ_BATCH_APP_PACKAGE` environment variable.
 

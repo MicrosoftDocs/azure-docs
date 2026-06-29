@@ -3,12 +3,10 @@ title: Authorize access to API Management developer portal by using Azure Active
 titleSuffix: Azure API Management
 description: Learn how to authorize users of the developer portal in Azure API Management by using Azure Active Directory B2C
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 03/12/2026
-ms.author: danlep
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange

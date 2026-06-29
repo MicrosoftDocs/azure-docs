@@ -15,14 +15,6 @@ items:
     href: iot-device-registry-schema-registry-guidance.md
   - name: IoT device development
     href: iot-overview-device-development.md
-- name: Deliver industrial solutions
-  items:
-  - name: Implement industrial IoT reference solution
-    href: tutorial-iot-industrial-solution-architecture.md
-  - name: Connect on-premises SAP system to Azure
-    href: howto-connect-on-premises-sap-to-azure.md
-  - name: Enable industrial dataspace in Azure
-    href: howto-iot-industrial-dataspaces.md
 - name: References
   items:
   - name: Support and help options

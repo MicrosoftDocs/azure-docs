@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: tutorial
-ms.date: 03/26/2025
+ms.date: 06/19/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -16,21 +16,17 @@ ms.custom:
 
 # Tutorial: Get insights from your processed data
 
-In this tutorial, you populate a [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to capture insights from the OPC UA data that you sent to Event Hubs in the previous tutorial. Using Microsoft Fabric Real-Time Intelligence, you bring your data from Event Hubs into Microsoft Fabric, and map it into a KQL database that can be a source for Real-Time Dashboards. Then, you build a dashboard to display that data in visual tiles that capture insights and show the values over time.
-
-These operations are the last steps in the sample end-to-end tutorial experience, which goes from deploying Azure IoT Operations at the edge through getting insights from that device data in the cloud.
+[!INCLUDE [get-insights-intro](../includes/get-insights-intro.md)]
 
 ## Prerequisites
 
-Before you begin this tutorial, you must complete [Tutorial: Send messages from assets to the cloud using a data flow](tutorial-upload-messages-to-cloud.md)
+Before you begin this tutorial, complete [Tutorial: Send messages from assets to the cloud using a data flow](tutorial-upload-messages-to-cloud.md).
 
-You also need a Microsoft Fabric subscription. In your subscription, you need access to a workspace with **Contributor** or above permissions.
-
-Additionally, your Fabric tenant must allow the creation of Real-Time Dashboards. This is a setting that can be enabled by your tenant administrator. For more information, see [Enable tenant settings in the admin portal](/fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
+[!INCLUDE [get-insights-fabric-prerequisites](../includes/get-insights-fabric-prerequisites.md)]
 
 ## What problem will we solve?
 
-Once your OPC UA data has arrived in the cloud, you'll have a lot of information available to analyze. You might want to organize that data and create reports containing graphs and visualizations to derive insights from the data. The steps in this tutorial illustrate how you can connect that data to Real-Time Intelligence and build a Real-Time Dashboard.
+[!INCLUDE [get-insights-problem](../includes/get-insights-problem.md)]
 
 ## Ingest data into Real-Time Intelligence
 
@@ -40,7 +36,7 @@ In this section, you set up a Microsoft Fabric *eventstream* to connect your eve
 
 In this section, you create an eventstream that will be used to bring your data from Event Hubs into Microsoft Fabric Real-Time Intelligence, and eventually into a KQL database.
 
-Start by navigating to the [Real-Time Intelligence experience in Microsoft Fabric](https://msit.powerbi.com/home?experience=kusto) and opening your Fabric workspace.
+Start by navigating to the [Real-Time Intelligence experience in Microsoft Fabric](https://app.fabric.microsoft.com/home?experience=fabric-developer) and opening your Fabric workspace.
 
 Follow the steps in [Create an eventstream in Microsoft Fabric](/fabric/real-time-intelligence/event-streams/create-manage-an-eventstream?pivots=standard-capabilities#create-an-eventstream-1) to create a new eventstream resource in your workspace.
 
@@ -115,7 +111,7 @@ Follow the steps in [Add a KQL Database destination to an eventstream](/fabric/r
 
 After completing this flow, the KQL table is visible in the eventstream live view as a destination.
 
-Wait a few minutes for data to propagate and for the status of the destination to change to **Active**
+Wait a few minutes for data to propagate and for the status of the destination to change to **Active**. You should see data from the event hub begin to appear in the preview. If data doesn't show up in the preview, wait a few minutes longer and refresh the preview again.
 
 :::image type="content" source="media/tutorial-get-insights/destination-added-data.png" alt-text="Screenshot of the eventstream with data in the KQL database destination.":::
 
@@ -125,7 +121,7 @@ If you want, you can also view and query this data in your KQL database directly
 
 ## Create a Real-Time Dashboard
 
-In this section, you'll create a new [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to visualize your tutorial data. The dashboard will allow filtering by asset ID and timestamp, and will display visual summaries of temperature and humidity data.
+In this section, you'll create a new [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to visualize your tutorial data. The dashboard will allow filtering by asset ID and timestamp, and will display visual summaries of temperature data.
 
 >[!NOTE]
 >You can only create Real-Time Dashboards if your tenant admin has enabled the creation of Real-Time Dashboards in your Fabric tenant. For more information, see [Enable tenant settings in the admin portal](/fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
@@ -162,17 +158,17 @@ Next, configure some parameters for your dashboard so that the visuals can be fi
     * **Value column**: *AssetId*
     * **Default value**: *Select first value of query*
 
-1. Select **Done** to save your parameter.
+1. Select **Done** to save your parameter. Then select **Close** to close the parameters pane.
 
 ### Create line chart tile
 
-Next, add a tile to your dashboard to show a line chart of temperature and humidity over time for the selected asset and time range.
+Next, add a tile to your dashboard to show a line chart of temperature over time for the selected asset and time range.
 
-1. Select either **+ Add tile** or **New tile** to add a new tile.
+1. On the **Home** tab, select the **Add visual** drop-down and then select **Line chart** to add a new line chart tile.
 
-    :::image type="content" source="media/tutorial-get-insights/add-tile.png" alt-text="Screenshot of adding a tile to a dashboard.":::
+    :::image type="content" source="media/tutorial-get-insights/add-tile.png" alt-text="Screenshot of adding a line chart tile to a dashboard.":::
 
-1. Enter the following KQL query for the tile. This query applies filter parameters from the dashboard selectors for time range and asset, and pulls the resulting records with their timestamp, temperature, and humidity.
+1. In the **Query editor**, enter the following KQL query for the tile. This query applies filter parameters from the dashboard selectors for time range and asset, and pulls the resulting records with their timestamp and temperature.
 
     ```kql
     OPCUA 
@@ -181,23 +177,24 @@ Next, add a tile to your dashboard to show a line chart of temperature and humid
     | project Timestamp, Temperature
     ```
 
-    **Run** the query to verify that data can be found.
+    **Run** the query to verify that data can be found. The line chart visual displays the data. The line chart visual requires at least two data points to display, so, if you don't see any data, you may want to select a wider time range or wait for more data to arrive in your database before running the query.
 
     :::image type="content" source="media/tutorial-get-insights/chart-query.png" alt-text="Screenshot of adding a tile query.":::
 
-1. Select **+ Add visual** next to the query results to add a visual for this data. Create a visual with the following characteristics:
+1. Select the **Visualization** tab and set or verify the following values:
 
-    - **Tile name**: *Temperature over time*
-    - **Visual type**: *Line chart*
+    - **Visual type**: *Line chart* (default selection)
+    - **General**:
+        - **Tile name**: *Temperature over time*
     - **Data**:
-        - **Y columns**: *Temperature (decimal)* (already inferred by default)
-        - **X columns**: *Timestamp (datetime)* (already inferred by default)
+        - **Y columns**: *Infer: Temperature (decimal)* (default selection)
+        - **X columns**: *Infer: Timestamp (datetime)* (default selection)
     - **Y Axis**:
         - **Label**: *Units*
     - **X Axis**:
         - **Label**: *Timestamp*
 
-    Select **Apply changes** to create the tile.
+    Select **Done** to create the tile.
 
     :::image type="content" source="media/tutorial-get-insights/chart-visual.png" alt-text="Screenshot of adding a tile visual.":::
 
@@ -205,13 +202,13 @@ View the finished tile on your dashboard.
 
 :::image type="content" source="media/tutorial-get-insights/dashboard-1.png" alt-text="Screenshot of the dashboard with one tile.":::
 
-### Create max value tiles
+### Create max value tile
 
-Next, create some tiles to display the maximum values of temperature and humidity.
+Next, create a tile to display the maximum value of temperature.
 
-1. Select **New tile** to create a new tile.
+1. Select the **Add visual** drop-down and then select **Stat**.
 
-1. Enter the following KQL query for the tile. This query applies filter parameters from the dashboard selectors for time range and asset, and takes the highest temperature value from the resulting records.
+1. In the **Query editor**, enter the following KQL query for the tile. This query applies filter parameters from the dashboard selectors for time range and asset, and takes the highest temperature value from the resulting records.
 
     ```kql
     OPCUA
@@ -221,15 +218,16 @@ Next, create some tiles to display the maximum values of temperature and humidit
     | summarize by Temperature
     ```
 
-    **Run** the query to verify that a maximum temperature can be found.
+    **Run** the query to verify that a maximum temperature can be found. The maximum temperature value should display in the visual preview.
 
-1. Select **+ Add visual** to add a visual for this data. Create a visual with the following characteristics:
-    - **Tile name**: *Max temperature*
-    - **Visual type**: *Stat*
+1. Select the **Visualization** tab and set or verify the following values:
+    - **Visual type**: *Stat* (default selection)
+    - **General**:
+        - **Tile name**: *Max temperature*
     - **Data**:
-        - **Value column**: *Temperature (decimal)* (already inferred by default)
+        - **Value column**: *Infer: Temperature (decimal)* (default selection)
 
-    Select **Apply changes** to create the tile.
+    Select **Done** to create the tile.
 
     :::image type="content" source="media/tutorial-get-insights/stat-visual.png" alt-text="Screenshot of adding a stat visual.":::
 

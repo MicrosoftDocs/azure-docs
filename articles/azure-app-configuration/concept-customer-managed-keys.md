@@ -3,7 +3,7 @@ title: Use Customer-Managed Keys to Encrypt Configuration Data
 description: Find out how to use a customer-managed key to encrypt your configuration data so you can rotate the key on demand and revoke access to the key if needed.
 author: maud-lv
 ms.author: malev
-ms.date: 08/12/2025
+ms.date: 06/22/2026
 ms.custom: devdivchpfy22, devx-track-azurecli
 ms.topic: concept-article
 ms.service: azure-app-configuration

@@ -55,14 +55,6 @@ To transfer files to or from Azure Blob Storage via SFTP clients, see the follow
 | Cross Container Operations | Traversing between containers or performing operations on multiple containers from the same connection are unsupported.
 | Undelete | There is no way to restore a soft-deleted blob with SFTP. The `Undelete` REST API must be used.|
 
-## Authentication and Authorization
-  
-- _Local users_ are the only form of identity management that is currently supported for the SFTP endpoint.
-
-- Microsoft Entra ID isn't supported for the SFTP endpoint.
-
-To learn more, see [SFTP permission model](secure-file-transfer-protocol-support.md#sftp-permission-model) and see [Access control model in Azure Data Lake Storage](data-lake-storage-access-control-model.md).
-
 ### Access ACLs and Default ACLs
 
 - SFTP doesn't currently support **Default ACLs** or additional **Access ACLs** (ACL entries beyond the POSIX `user::`, `group::`, and `other::` entries, such as named users or named groups).

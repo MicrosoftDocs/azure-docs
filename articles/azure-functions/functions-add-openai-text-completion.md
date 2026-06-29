@@ -4,8 +4,6 @@ description: Learn how to connect Azure Functions to OpenAI by adding an output 
 ms.date: 07/11/2024
 ms.update-cycle: 180-days
 ms.topic: tutorial
-author: dbandaru
-ms.author: dbandaru
 ms.collection: 
   - ce-skilling-ai-copilot
 zone_pivot_groups: programming-languages-set-functions-no-go

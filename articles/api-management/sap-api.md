@@ -5,8 +5,6 @@ description: Learn how to import OData metadata from SAP as an API to Azure API 
 ms.service: azure-api-management
 ms.custom:
   - build-2024
-author: martinpankraz
-ms.author: mapankra
 ms.topic: how-to
 ms.date: 03/16/2026
 

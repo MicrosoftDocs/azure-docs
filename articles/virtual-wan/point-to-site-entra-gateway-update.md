@@ -13,6 +13,12 @@ ms.author: cherylmc
 
 # Migrate a manually registered Azure VPN Client to the Microsoft-registered client
 
+> [!IMPORTANT]
+>Manually registered Azure VPN Clients used for Point-to-Site (P2S) connections with Microsoft Entra ID authentication will retire on March 31, 2028 in Azure Public Cloud, and on March 31, 2029 in Azure Government and Microsoft Azure operated by 21Vianet clouds. \
+>After these dates, manually registered clients will no longer function, and only Microsoft-registered VPN clients will be supported after the retirement dates.
+>
+>To avoid any service disruption, follow the article below to migrate manually registered VPN client to a Microsoft-registered VPN client for point-to-site connections with Microsoft Entra ID authentication before the applicable retirement dates.
+
 This article helps you migrate from a manually registered Azure VPN Client to the Microsoft-registered Azure VPN Client for a User VPN (P2S) connection with Microsoft Entra ID authentication. The Microsoft-registered Azure VPN client uses a different Audience value. When you update an Audience value, you must make the change on both the P2S VPN gateway, and on any previously configured VPN clients. For more information about Audience values, see the [Microsoft-registered app](point-to-site-entra-gateway.md) article.
 This article doesn't apply to **custom Audience** value configurations. To modify a custom audience app ID, see [Create or modify a custom audience app ID](point-to-site-entra-register-custom-app.md#change).
 

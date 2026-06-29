@@ -2,12 +2,10 @@
 title: Manage Protocols and Ciphers in Azure API Management
 description: Learn how to manage transport layer security (TLS) protocols and cipher suites in Azure API Management.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 01/06/2026
-ms.author: danlep
 ---
 
 # Manage protocols and ciphers in Azure API Management

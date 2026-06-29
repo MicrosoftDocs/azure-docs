@@ -3,7 +3,7 @@ title: Timer trigger for Azure Functions
 description: Understand how to use timer triggers in Azure Functions.
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.topic: reference
-ms.date: 04/16/2025
+ms.date: 06/21/2026
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
@@ -272,7 +272,7 @@ func timerHandler(ctx context.Context, timer bindings.TimerInfo) error {
 
 |Attribute property | Description|
 |---------|----------------------|
-|**Schedule**| A [cron expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as `%ScheduleAppSetting%`. |
+|**Schedule**| A [cron expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as `%ScheduleAppSetting%`. For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).|
 |**RunOnStartup**| If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. *Use with caution.* **RunOnStartup** should rarely if ever be set to `true`, especially in production. |
 |**UseMonitor**| Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. For schedules that trigger more than once per minute, the default is `false`. |
 
@@ -280,7 +280,7 @@ func timerHandler(ctx context.Context, timer bindings.TimerInfo) error {
 
 |Attribute property | Description|
 |---------|----------------------|
-|**Schedule**| A [NCRONTAB expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as `%ScheduleAppSetting%`. |
+|**Schedule**| A [NCRONTAB expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as `%ScheduleAppSetting%`. For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).|
 |**RunOnStartup**| If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. *Use with caution.* **RunOnStartup** should rarely if ever be set to `true`, especially in production. |
 |**UseMonitor**| Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. For schedules that trigger more than once per minute, the default is `false`. |
 
@@ -298,7 +298,7 @@ For Python v2 functions defined using a decorator, the following properties on t
 | Property    | Description |
 |-------------|-----------------------------|
 | `arg_name` | The name of the variable that represents the timer object in function code. |
-| `schedule` | A [NCRONTAB expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%ScheduleAppSetting%".  |
+| `schedule` | A [NCRONTAB expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%ScheduleAppSetting%". For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings). |
 | `run_on_startup` | If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. *Use with caution.* **runOnStartup** should rarely if ever be set to `true`, especially in production. |
 | `use_monitor` | Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. For schedules that trigger more than once per minute, the default is `false`. |
 
@@ -334,7 +334,7 @@ The following table explains the properties that you can set on the `options` ob
 
 | Property | Description |
 |---------|----------------------|
-|**schedule**| A [NCRONTAB expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%ScheduleAppSetting%". |
+|**schedule**| A [NCRONTAB expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%ScheduleAppSetting%". For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings).|
 |**runOnStartup**| If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. *Use with caution.* **runOnStartup** should rarely if ever be set to `true`, especially in production. |
 |**useMonitor**| Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. For schedules that trigger more than once per minute, the default is `false`. |
 
@@ -347,7 +347,7 @@ The following table explains the binding configuration properties that you set i
 |**type** | Must be set to "timerTrigger". This property is set automatically when you create the trigger in the Azure portal.|
 |**direction** | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | The name of the variable that represents the timer object in function code. | 
-|**schedule**| A [NCRONTAB expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%ScheduleAppSetting%". |
+|**schedule**| A [NCRONTAB expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%ScheduleAppSetting%". For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings). |
 |**runOnStartup**| If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. *Use with caution.* **runOnStartup** should rarely if ever be set to `true`, especially in production. |
 |**useMonitor**| Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. For schedules that trigger more than once per minute, the default is `false`. |
 
@@ -365,7 +365,7 @@ The following table explains the binding configuration properties that you set i
 |**type** | Must be set to "timerTrigger". This property is set automatically when you create the trigger in the Azure portal.|
 |**direction** | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | The name of the variable that represents the timer object in function code. | 
-|**schedule**| A [NCRONTAB expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%ScheduleAppSetting%". |
+|**schedule**| A [NCRONTAB expression](#ncrontab-expressions) or a [TimeSpan](#timespan) value. A `TimeSpan` can be used only for a function app that runs on an App Service Plan. You can put the schedule expression in an app setting and set this property to the app setting name wrapped in **%** signs, as in this example: "%ScheduleAppSetting%". For more information, see [Work with application settings](functions-how-to-use-azure-function-app-settings.md#settings). |
 |**runOnStartup**| If `true`, the function is invoked when the runtime starts. For example, the runtime starts when the function app wakes up after going idle due to inactivity. when the function app restarts due to function changes, and when the function app scales out. *Use with caution.* **runOnStartup** should rarely if ever be set to `true`, especially in production. |
 |**useMonitor**| Set to `true` or `false` to indicate whether the schedule should be monitored. Schedule monitoring persists schedule occurrences to aid in ensuring the schedule is maintained correctly even when function app instances restart. If not set explicitly, the default is `true` for schedules that have a recurrence interval greater than or equal to 1 minute. For schedules that trigger more than once per minute, the default is `false`. |
 

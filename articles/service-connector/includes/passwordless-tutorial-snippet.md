@@ -3,7 +3,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: include
-ms.date: 05/21/2023
+ms.date: 06/17/2026
 ms.custom:
   - devx-track-azurecli
   - sfi-ga-nochange
@@ -15,7 +15,7 @@ ms.custom:
 
 ## Create a passwordless connection
 
-Next, we use Azure App Service as an example to create a connection using managed identity.
+The following commands use Azure App Service as an example to create a connection using a managed identity.
 
 If you use Azure Spring Apps, run `az spring connection create` instead. For more examples, see [Connect Azure Spring Apps to the Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app#connect-azure-spring-apps-to-the-azure-database).
 

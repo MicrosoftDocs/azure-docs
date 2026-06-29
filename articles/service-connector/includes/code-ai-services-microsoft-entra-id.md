@@ -1,9 +1,8 @@
 ---
-author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/20/2023
-ms.author: wchi
+ms.date: 06/17/2026
+ms.reviewer: wchi
 ---
 
 You can use the Azure client library to access various cognitive APIs that Foundry Tools support. We use Azure AI Text Analytics as an example in this sample. Refer to [Authenticate requests to Foundry Tools](/azure/ai-services/authentication#authenticate-with-azure-active-directory) to call the cognitive APIs directly.
@@ -15,7 +14,7 @@ You can use the Azure client library to access various cognitive APIs that Found
     dotnet add package Azure.AI.TextAnalytics
     dotnet add package Azure.Identity
     ```
-1. Authenticate using the Azure Identity library and get the Azure AI Services endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using the Azure Identity library and get the Azure AI Services endpoint from the environment variables added by Service Connector. In the code below, uncomment the section for your authentication type.
     
     ```csharp
     using Azure.AI.TextAnalytics;
@@ -60,7 +59,7 @@ You can use the Azure client library to access various cognitive APIs that Found
         <version>1.11.4</version>
     </dependency>
     ```
-1. Authenticate using `azure-identity` and get the Azure AI Services endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using `azure-identity` and get the Azure AI Services endpoint from the environment variables added by Service Connector. In the code below, uncomment the section for your authentication type.
 
     ```java
     // Uncomment the following lines corresponding to the authentication type you want to use.
@@ -94,7 +93,7 @@ You can use the Azure client library to access various cognitive APIs that Found
     pip install azure-ai-textanalytics==5.1.0
     pip install azure-identity
     ```
-1. Authenticate using `azure-identity` and get the Azure AI Services endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using `azure-identity` and get the Azure AI Services endpoint from the environment variables added by Service Connector. In the code below, uncomment the section for your authentication type.
     ```python
     import os
     from azure.ai.textanalytics import TextAnalyticsClient
@@ -120,14 +119,14 @@ You can use the Azure client library to access various cognitive APIs that Found
       credential=cred)
     ```
 
-### [NodeJS](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 1. Install the following dependencies. We use `ai-text-analytics` as an example.
     ```bash
     npm install @azure/ai-text-analytics@5.1.0
     npm install @azure/identity
     ```
-1. Authenticate using `@azure/identity` and get the Azure AI Services endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using `@azure/identity` and get the Azure AI Services endpoint from the environment variables added by Service Connector. In the code below, uncomment the section for your authentication type.
     
     ```javascript
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";

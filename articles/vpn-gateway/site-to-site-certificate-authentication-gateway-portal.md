@@ -18,9 +18,6 @@ In this article, you use the Azure portal to create a site-to-site (S2S) certifi
 
 :::image type="content" source="./media/site-to-site-certificate-authentication-gateway-portal/diagram.png" alt-text="Diagram that shows site-to-site VPN gateway cross-premises connections." lightbox="./media/site-to-site-certificate-authentication-gateway-portal/diagram.png":::
 
-> [!IMPORTANT]
-> Site-to-site certificate authentication is supported only in the Azure public cloud.
-
 ## Prerequisites
 
 * You already have a virtual network and a VPN gateway. If you don't, follow the steps to [Create a VPN gateway](tutorial-create-gateway-portal.md), then return to this page to configure your site-to-site certificate authentication connection.

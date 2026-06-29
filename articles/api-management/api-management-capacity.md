@@ -2,12 +2,10 @@
 title: Capacity Metrics - Azure API Management
 description: This article explains the capacity metrics in Azure API Management and how to make informed decisions about whether to scale an instance.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/14/2026
-ms.author: danlep
 ms.custom:
   - fasttrack-edit
   - build-2025
