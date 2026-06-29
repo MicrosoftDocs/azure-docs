@@ -12,11 +12,10 @@ ms.author: v-mallicka
 
 This article describes how to configure a System Center 2012 R2 Data Protection Manager (DPM) server to back up and recover Microsoft Exchange Server databases with Azure Backup. Use this article when your organization uses System Center DPM and you want to configure protection groups, backup schedules, and recovery options for Exchange workloads.  
 
-## Choose the right article
-
-Use this article if you're using **System Center DPM**.
-
-If you're using **Microsoft Azure Backup Server (MABS)** instead, see [Back up Exchange server with Azure Backup Server](backup-azure-exchange-mabs.md).
+> [!NOTE]
+> Use this article if you're using **System Center DPM**.
+>
+> If you're using **Microsoft Azure Backup Server (MABS)** instead, see [Back up Exchange server with Azure Backup Server](backup-azure-exchange-mabs.md).
 
 [!INCLUDE [The functionality of Azure Backup trim process.](../../includes/backup-trim-process-notification.md)]
 
