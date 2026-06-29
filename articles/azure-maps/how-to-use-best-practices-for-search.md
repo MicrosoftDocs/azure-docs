@@ -15,7 +15,7 @@ zone_pivot_groups: azure-maps-search
 
 :::zone pivot="search-previous"
 
-Azure Maps [Search service][Search service v1] includes APIs that offers various capabilities to help developers search addresses, places, business listings by name or category, and other geographic information. For example, [Search Fuzzy] allows users to search for an address or Point of Interest (POI).
+Azure Maps [Search service][Search service v1] includes APIs that offer various capabilities to help developers search addresses, places, business listings by name or category, and other geographic information. For example, [Search Fuzzy] allows users to search for an address or Point of Interest (POI).
 
 This article explains how to apply best practices when you call data from Azure Maps Search service. Learn how to:
 > [!div class="checklist"]
