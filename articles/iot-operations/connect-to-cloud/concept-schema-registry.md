@@ -177,11 +177,11 @@ var schemaContent = '''
 }
 '''
 
-resource schemaRegistry 'Microsoft.DeviceRegistry/schemaRegistries@2025-10-01' existing = {
+resource schemaRegistry 'Microsoft.DeviceRegistry/schemaRegistries@2026-04-01' existing = {
   name: schemaRegistryName
 }
 
-resource schema 'Microsoft.DeviceRegistry/schemaRegistries/schemas@2025-10-01' = {
+resource schema 'Microsoft.DeviceRegistry/schemaRegistries/schemas@2026-04-01' = {
   parent: schemaRegistry
   name: schemaName
   properties: {
@@ -192,7 +192,7 @@ resource schema 'Microsoft.DeviceRegistry/schemaRegistries/schemas@2025-10-01' =
   }
 }
 
-resource version 'Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions@2025-10-01' = {
+resource version 'Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions@2026-04-01' = {
   parent: schema
   name: schemaVersion
   properties: {

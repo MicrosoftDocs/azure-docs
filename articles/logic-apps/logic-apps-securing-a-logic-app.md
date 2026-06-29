@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, rarayudu, azla
 ms.topic: how-to
-ms.date: 06/16/2026
+ms.date: 06/26/2026
 ms.update-cycle: 1095-days
 ms.custom:
   - sfi-image-nochange
@@ -735,17 +735,17 @@ In a Standard workflow that starts with the **Request** trigger (but not a webho
 
 <a name="enable-oauth-only-option"></a>
 
-#### Enable OAuth 2.0 with Microsoft Entra ID as the only option to call a request endpoint (Consumption only)
+#### Enable OAuth 2.0 with Microsoft Entra ID as the only option to call a request endpoint
 
 For request-based endpoints, you can restrict authorization to use only [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2). This option works even if you also [disable shared access signature (SAS) authentication](#disable-sas).
 
-1. For your Consumption workflow, set up your **Request** trigger or **HTTP Webhook** trigger with the capability to check the OAuth access token by [following the steps to include the 'Authorization' header in the Request or HTTP webhook trigger outputs](#include-auth-header).
+1. For your workflow, set up your **Request** trigger or **HTTP Webhook** trigger with the capability to check the OAuth access token by [following the steps to include the 'Authorization' header in the Request or HTTP webhook trigger outputs](#include-auth-header).
 
    > [!NOTE]
    >
    > This step makes the `Authorization` header visible in the workflow's run history and in the trigger's outputs.
 
-1. In the [Azure portal](https://portal.azure.com), open your Consumption workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your workflow in the designer.
 
 1. On the designer, select the trigger. On the information pane that opens, select **Settings**.
 
@@ -966,13 +966,13 @@ For more information about security when you use an SAS key, see the following s
 
 <a name="disable-sas"></a>
 
-### Disable shared access signature (SAS) authentication (Consumption only)
+### Disable shared access signature (SAS) authentication
 
 By default, a request-based trigger has SAS authentication enabled. The trigger's endpoint URL includes an SAS, starting with the query parameters, **`sp-<permissions>sv-<SAS-version>sig=<signature>`**, for example:
 
 **`https://{domain}:443/workflows/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ`**
 
-If your Consumption workflow starts with the **Request** trigger, and you want to use [OAuth with Microsoft Entra ID](#enable-oauth), you can disable SAS authentication to avoid errors and problems running your workflow. You also add a security layer by removing the dependency on secrets, which reduces the risk in having secrets logged or leaked.
+If your workflow starts with the **Request** trigger, and you want to use [OAuth with Microsoft Entra ID](#enable-oauth), you can disable SAS authentication to avoid errors and problems running your workflow. You also add a security layer by removing the dependency on secrets, which reduces the risk in having secrets logged or leaked.
 
 This option works even if you also [enable OAuth 2.0 with Microsoft Entra ID as the only option to call a request-based endpoint](#enable-oauth-only-option). For Standard workflows, you can use other authentication types without disabling SAS.
 

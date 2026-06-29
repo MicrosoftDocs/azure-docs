@@ -66,6 +66,12 @@ items:
       href: status-code.md
     - name: Collect a support bundle
       href: troubleshooting.md
+- name: Reliability and resiliency
+  items:
+  - name: Reliability in Azure Storage Mover
+    href: /azure/reliability/reliability-azure-storage-mover?toc=/azure/storage-mover/toc.json
+  - name: Customer-initiated disaster recovery
+    href: customer-initiated-disaster-recovery.md
 - name: Resources
   items:
   - name: Monitor copy and job run logs
