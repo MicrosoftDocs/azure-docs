@@ -20,6 +20,10 @@ ms.custom:
 
 This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Snowflake, and use Data Flow to transform data in Snowflake. For more information, see the introductory article for [Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Snowflake connector documentation](/fabric/data-factory/connector-snowflake-overview).
+
+
 > [!IMPORTANT]
 > The Snowflake V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Snowflake connector](#differences-between-snowflake-and-snowflake-legacy) from V1 to V2. 
 

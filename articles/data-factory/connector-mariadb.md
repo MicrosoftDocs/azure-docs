@@ -18,6 +18,10 @@ ms.custom:
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from MariaDB. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric MariaDB connector documentation](/fabric/data-factory/connector-mariadb-overview).
+
+
 > [!IMPORTANT]
 > The MariaDB connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the MariaDB connector](#upgrade-the-mariadb-driver-version) from version 1.0 to 2.0.
 

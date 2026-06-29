@@ -18,6 +18,10 @@ ms.custom:
 
 This article describes how to use the copy activity in Azure Data Factory and Synapse Analytics pipelines to copy data to or from [Azure Data Explorer](/azure/data-explorer/data-explorer-overview). It builds on the [copy activity overview](copy-activity-overview.md) article, which offers a general overview of copy activity.
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Azure Data Explorer connector documentation](/fabric/data-factory/connector-azure-data-explorer-overview).
+
+
 >[!TIP]
 >To learn more about Azure Data Explorer integration with the service generally read [Integrate Azure Data Explorer](/azure/data-explorer/data-factory-integration).
 

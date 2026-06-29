@@ -18,6 +18,10 @@ ms.custom:
 
 This article outlines how to use Copy Activity to copy data from and to the secure FTP (SFTP) server, and use Data Flow to transform data in SFTP server. To learn more read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric SFTP connector documentation](/fabric/data-factory/connector-sftp-overview).
+
+
 ## Supported capabilities
 
 This SFTP connector is supported for the following capabilities:

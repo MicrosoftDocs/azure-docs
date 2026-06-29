@@ -18,6 +18,10 @@ ms.custom:
 
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from ServiceNow. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric ServiceNow connector documentation](/fabric/data-factory/connector-servicenow-overview).
+
+
 > [!IMPORTANT]
 > The ServiceNow V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the ServiceNow connector](#upgrade-your-servicenow-linked-service) from V1 to V2.
 

@@ -19,6 +19,10 @@ ms.custom:
 
 This article outlines how to use Copy Activity to copy data from and to Azure SQL Managed Instance, and use Data Flow to transform data in Azure SQL Managed Instance. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Azure SQL Managed Instance connector documentation](/fabric/data-factory/connector-azure-sql-managed-instance-overview).
+
+
 ## Supported capabilities
 
 This Azure SQL Managed Instance connector is supported for the following capabilities:

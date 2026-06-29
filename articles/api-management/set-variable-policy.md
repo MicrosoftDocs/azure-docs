@@ -41,7 +41,9 @@ Expressions used in the `set-variable` policy must return one of the following b
 
 -   System.Boolean
 -   System.SByte
+-   System.SByte[]
 -   System.Byte
+-   System.Byte[]
 -   System.UInt16
 -   System.UInt32
 -   System.UInt64

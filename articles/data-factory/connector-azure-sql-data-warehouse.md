@@ -19,6 +19,10 @@ ms.custom:
 
 This article outlines how to use Copy Activity in Azure Data Factory or Synapse pipelines to copy data from and to Azure Synapse Analytics, and use Data Flow to transform data in Azure Data Lake Storage Gen2. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Azure Synapse Analytics connector documentation](/fabric/data-factory/connector-azure-synapse-analytics-overview).
+
+
 ## Supported capabilities
 
 This Azure Synapse Analytics connector is supported for the following capabilities:

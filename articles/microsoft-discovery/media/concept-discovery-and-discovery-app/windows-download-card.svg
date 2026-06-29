@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="112" viewBox="0 0 220 112" role="img" aria-labelledby="title desc">
+  <title id="title">Download Windows</title>
+  <desc id="desc">Blue rounded download button labeled Windows and Windows 11.</desc>
+  <rect x="0" y="0" width="220" height="112" rx="8" fill="#0078D4"/>
+  <path d="M43 34a2 2 0 0 1 2 2v20.17l6.59-6.58a2 2 0 1 1 2.82 2.82l-10 10a2 2 0 0 1-2.82 0l-10-10a2 2 0 0 1 2.82-2.82L41 56.17V36a2 2 0 0 1 2-2Z" fill="#FFFFFF"/>
+  <rect x="33" y="66" width="20" height="4" rx="2" fill="#FFFFFF"/>
+  <text x="125" y="54" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="700" text-anchor="middle">Windows</text>
+  <text x="110" y="84" fill="#FFFFFF" font-family="Segoe UI, Arial, sans-serif" font-size="16" font-weight="600" text-anchor="middle">Windows 11</text>
+</svg>

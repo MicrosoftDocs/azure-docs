@@ -17,6 +17,10 @@ ms.custom:
 
 This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse to copy data from an HTTP endpoint. The article builds on [Copy Activity](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric HTTP connector documentation](/fabric/data-factory/connector-http-overview).
+
+
 The difference among this HTTP connector, the [REST connector](connector-rest.md) and the [Web table connector](connector-web-table.md) are:
 
 - **REST connector** specifically support copying data from RESTful APIs; 

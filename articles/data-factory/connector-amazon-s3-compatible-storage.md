@@ -19,6 +19,9 @@ ms.custom:
 
 This article outlines how to copy data from Amazon Simple Storage Service (Amazon S3) Compatible Storage. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Amazon S3 Compatible connector documentation](/fabric/data-factory/connector-amazon-s3-compatible-overview).
+
 ## Supported capabilities
 
 This Amazon S3 Compatible Storage connector is supported for the following capabilities:
