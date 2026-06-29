@@ -19,6 +19,10 @@ ms.custom:
 
 This article outlines how to use Copy Activity in Azure Data Factory or Synapse Analytics pipelines to copy data from and to Azure Database for MySQL, and use Data Flow to transform data in Azure Database for MySQL. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Azure Database for MySQL connector documentation](/fabric/data-factory/connector-azure-database-for-mysql-overview).
+
+
 This connector is specialized for 
 - [Azure Database for MySQL Single Server](/azure/mysql/single-server-overview)
 - [Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/overview) 

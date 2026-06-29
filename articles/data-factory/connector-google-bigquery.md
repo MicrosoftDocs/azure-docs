@@ -18,6 +18,10 @@ ms.custom:
 
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from Google BigQuery. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Google BigQuery connector documentation](/fabric/data-factory/connector-google-bigquery-overview).
+
+
 > [!IMPORTANT]
 > The Google BigQuery V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Google BigQuery connector](#differences-between-google-bigquery-and-google-bigquery-legacy) from V1 to V2.
 

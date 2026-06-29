@@ -17,6 +17,9 @@ ms.custom:
 
 This article outlines how to use the copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from Amazon RDS for SQL Server database. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Amazon RDS for SQL Server connector documentation](/fabric/data-factory/connector-amazon-rds-for-sql-server-overview).
+
 ## Supported capabilities
 
 This Amazon RDS for SQL Server connector is supported for the following capabilities:

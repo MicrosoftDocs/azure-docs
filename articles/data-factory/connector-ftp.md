@@ -19,6 +19,10 @@ ms.custom:
 
 This article outlines how to copy data from FTP server. To learn about more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric FTP connector documentation](/fabric/data-factory/connector-ftp-overview).
+
+
 ## Supported capabilities
 
 This FTP connector is supported for the following capabilities:

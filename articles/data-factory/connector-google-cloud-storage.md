@@ -18,6 +18,10 @@ ms.custom:
 
 This article outlines how to copy data from Google Cloud Storage (GCS). To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Google Cloud Storage connector documentation](/fabric/data-factory/connector-google-cloud-storage-overview).
+
+
 ## Supported capabilities
 
 This Google Cloud Storage connector is supported for the following capabilities:

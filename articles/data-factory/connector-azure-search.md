@@ -16,6 +16,10 @@ ms.date: 01/05/2024
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data into Azure AI Search index. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Azure AI Search connector documentation](/fabric/data-factory/connector-azure-search-overview).
+
+
 ## Supported capabilities
 
 This Azure AI Search connector is supported for the following capabilities:
