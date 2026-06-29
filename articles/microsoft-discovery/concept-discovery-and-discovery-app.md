@@ -18,9 +18,9 @@ The Microsoft Discovery platform is a cloud-based, production-grade platform dep
 
 > [!div class="nextstepaction"]
 >
-> :::image type="icon" source="media/concept-discovery-and-discovery-app/windows.svg" border="false" alt-text="Windows logo":::
+> :::image type="icon" source="media/concept-discovery-and-discovery-app/windows.svg" border="false" alt-text="Windows logo.":::
 >
-> [:::image type="content" source="media/concept-discovery-and-discovery-app/windows-download-card.svg" alt-text="Download Windows":::](https://aka.ms/discovery/download/current)
+> [:::image type="content" source="media/concept-discovery-and-discovery-app/windows-download-card.svg" alt-text="Download Discovery app button.":::](https://aka.ms/discovery/download/current)
 >
 > User Installer [x64](https://aka.ms/discovery/download/current) [Arm64](https://aka.ms/discovery/download/arm64/current)
 
