@@ -71,12 +71,32 @@ sections:
 
         - question: Are there any charges for data storage?
           answer: >
-            Standard Azure Storage rates apply after the free trial period. 
-
+            Azure Data Manager for Energy will introduce charges for storage from 1 August 2026. 
+            
+        - question: Does storage billing increase Azure Data Manager for Energy pricing?
+          answer: >
+            No. The Azure Data Manager for Energy rate card covering the instance and data partitions price is unchanged. However, you will see an increase in your monthly invoice. Storage at standard Azure rates has been listed as a billable dimension on the pricing page since GA in July 2023, but Microsoft is implementing the passthrough of those charges to your invoice starting on 1 August 2026.   
+           
+        - question: Will my Azure discounts on storage apply to ADME storage billing charges?
+          answer: >
+            Yes. Because charges flow through the standard Azure storage meters, any Azure storage entitlements you have apply automatically, including Enterprise Agreement (EA), Microsoft Customer Agreement (MCA) negotiated price sheet discounts, commitment-based and volume-based offers covering the relevant Azure storage SKUs. However, reservation based pricing discounts is not applicable for data on Azure Data Manager for Energy.
+            
+        - question: How will storage billing charges appear on my invoice?
+          answer: >
+            As standard Azure storage line items associated with your Azure Data Manager for Energy deployment, using the standard Azure storage meters. This provides transparency into the underlying consumption and ensures negotiated discounts are applied at the meter level.
+                        
+        - question: Can I estimate my ADME storage charges?
+          answer: >
+            Yes. Review your current data footprint within your Azure Data Manager for Energy instance(s), model the expected cost in the [Azure Pricing Calculator](https://azure.microsoft.com/en-in/pricing/calculator/) using the regional storage meters, and apply your known storage discounts. Your Microsoft account team can assist with a joint projection.
+                    
+        - question: AWill ADME storage charges applied retroactively?
+          answer: >
+            No. Storage passthrough billing applies to storage consumption on and after 1 August 2026 only. Storage costs will be charged for all data on the instances as of the mentioned date irrespective of when the data was ingested on the instance. 
+                  
         - question: Are there any charges for data transfer?
           answer: >
             Standard Azure data transfer rates apply after the free trial period. 
-           
+                       
         - question: Will I be charged for Azure Data Manager for Energy separately from the applications that I use on top of the platform?
           answer: >
             Pricing for Azure Data Manager for Energy is separate from other applications that you build or use on the platform.
