@@ -117,7 +117,18 @@ landingContent:
           - text: Import OpenAI-compatible LLM API
             url: openai-compatible-llm-api.md
           - text: Expose REST API as MCP server
-            url: export-rest-mcp-server.md      
+            url: export-rest-mcp-server.md
+# Card
+  - title: AI gateway SKU
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: AI gateway SKU overview
+            url: ai-gateway-sku-overview.md
+      -  linkListType: how-to-guide
+         links:
+          - text: How to do something
+            url: how-to-do-something.md
 # Card
   - title: Related services
     linkLists:
