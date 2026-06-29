@@ -155,19 +155,19 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AZURE_APPCONFIG_ENDPOINT "<endpoint-of-your-app-configuration-store>"
+    setx AZURE_APPCONFIG_ENDPOINT "<AppConfigurationEndpoint>"
     ```
 
     If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:AZURE_APPCONFIG_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
+    $Env:AZURE_APPCONFIG_ENDPOINT = "<AppConfigurationEndpoint>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_ENDPOINT='<AppConfigurationEndpoint>'
     ```
 
     ### [Connection string](#tab/connection-string)
@@ -176,19 +176,19 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AZURE_APPCONFIG_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
+    setx AZURE_APPCONFIG_CONNECTION_STRING "<AppConfigurationConnectionString>"
     ```
 
    If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<connection-string-of-your-app-configuration-store>"
+    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<AppConfigurationConnectionString>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export AZURE_APPCONFIG_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_CONNECTION_STRING='<AppConfigurationConnectionString>'
     ```    
     ---
 
@@ -214,13 +214,13 @@ For example, consider a queue-triggered Function app. Instead of specifying the 
 
    | Key                          | Value                                        |
    |------------------------------|----------------------------------------------|
-   | *TestApp:Storage:QueueName*  | *\<The queue name in your storage account>*  |
+   | *TestApp:Storage:QueueName*  | _`<StorageQueueName>`_  |
 
 1. In your Function app, select **Settings** -> **Environment variables** -> **App settings** in the Azure portal, and create an application setting that references the App Configuration key:
 
    | Name                 | Value                                      |
    |----------------------|--------------------------------------------|
-   | *MyQueueName*        | `@Microsoft.AppConfiguration(Endpoint=<your-store-endpoint>; Key=TestApp:Storage:QueueName)` |
+   | *MyQueueName*        | `@Microsoft.AppConfiguration(Endpoint=<AppConfigurationEndpoint>; Key=TestApp:Storage:QueueName)` |
 
    > [!TIP]
    > If you have multiple key-values in Azure App Configuration, you can [export them in batch as App Configuration references](./howto-import-export-data.md?#export-data-to-azure-app-service) to Azure Functions using the Azure portal or CLI.
