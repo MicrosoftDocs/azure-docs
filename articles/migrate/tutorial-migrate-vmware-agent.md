@@ -198,21 +198,20 @@ Finish setting up and registering the replication appliance using the steps prov
       - **Availability Set** – Places the migrated machine in an Availability Set. The selected target resource group must contain one or more availability sets.
       - **No infrastructure redundancy required**– Select this option if you don't require Availability Zones or Availability Sets for the migrated machines.
         
- - In **Security Details**, 
+ -  In **Security Details**, 
     - If the target security type selected is **Standard or Trusted Launch virtual machines**, 
 	  - **Secure boot** is enabled by default (recommended). You can choose to remove this option. Then, proceed to **Disk encryption type** selection.
    - If the target security type selected is **Confidential virtual machines**,
       - You can optionally choose to confidentially encrypt the OS disks. This encryption provides an additional layer of encryption that binds the disk encryption keys to the virtual machine's TPM and makes the disk content accessible only to the VM. To enable this encryption, check the **Confidential compute
-        encryption** option and
-        proceed to **OS disk encryption type** selection.
+        encryption** option and proceed to **OS disk encryption type** selection. Otherwise, proceed to **Disk encryption type** selection.
+      - **OS disk encryption type**, select:
+          -  Encryption at rest with platform-managed key (Default, if you didn't select **Confidential compute encryption**)
+          -  Confidential encryption with platform-managed key (Available, if you selected **Confidential compute encryption**)
+          -  Confidential encryption with customer-managed key (Available, if you selected **Confidential compute encryption**)      
      
 	   > [!NOTE]
        > Confidential OS Disk encryption isn't supported for RHEL and Rocky Linux VMs. If OS disk encryption is required, remove these VMs from the selection.
 	   
- - **OS disk encryption type**, select:
-    - Encryption at rest with platform-managed key (Default, if you didn't select **Confidential compute encryption**)
-    - Confidential encryption with platform-managed key (If you selected **Confidential compute encryption**)
-    - Confidential encryption with customer-managed key (If you selected **Confidential compute encryption**)
       
  - **Disk encryption type**, select:
    - Encryption-at-rest with platform-managed key
