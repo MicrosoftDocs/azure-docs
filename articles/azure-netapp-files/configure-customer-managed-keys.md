@@ -16,7 +16,7 @@ ms.custom:
 
 # Configure customer-managed keys for Azure NetApp Files volume encryption
 
-Customer-managed keys for Azure NetApp Files volume encryption enable you to use your own keys rather than a platform-managed key when creating a new volume. With customer-managed keys, you can fully manage the relationship between a key's life cycle, key usage permissions, and auditing operations on keys.
+By using customer-managed keys for Azure NetApp Files volume encryption, you can use your own keys instead of a platform-managed key. When you use customer-managed keys, you can fully manage the relationship between a key's life cycle, key usage permissions, and auditing operations on keys.
 
 The following diagram demonstrates how customer-managed keys work with Azure NetApp Files:
 
@@ -333,7 +333,7 @@ Azure NetApp Files supports the ability to move existing volumes using platform-
 
 ## Rekey all volumes under a NetApp account
 
-If you have already configured your NetApp account for customer-managed keys and have one or more volumes encrypted with customer-managed keys, you can change the key that is used to encrypt all volumes under the NetApp account. You can select any key that is in the same key vault. Changing key vaults isn't supported.
+If you already configured your NetApp account for customer-managed keys and have one or more volumes encrypted by using customer-managed keys, you can change the key that encrypts all volumes under the NetApp account. You can select any key that's in the same key vault. 
 
 1. Under your NetApp account, navigate to the **Encryption** menu. Under the **Current key** input field, select the **Rekey** link.
 :::image type="content" source="./media/configure-customer-managed-keys/encryption-current-key.png" alt-text="Screenshot of the encryption key." lightbox="./media/configure-customer-managed-keys/encryption-current-key.png":::
@@ -342,6 +342,17 @@ If you have already configured your NetApp account for customer-managed keys and
 :::image type="content" source="./media/configure-customer-managed-keys/encryption-rekey.png" alt-text="Screenshot of the rekey menu." lightbox="./media/configure-customer-managed-keys/encryption-rekey.png":::
 
 1. Select **OK** to save. The rekey operation can take several minutes.
+
+## Change key vault
+
+To change the key that encrypts all volumes under a NetApp account:
+
+1. Go to your NetApp account and open the **Encryption** section under Azure NetApp Files. 
+1. Select the **Change Key Vault** tab and choose an encryption key by entering a key URI or selecting from a key vault.
+1. Click **Select** when done.
+
+:::image type="content" source="./media/configure-customer-managed-keys/change-key-vault.png" alt-text="Screenshot of changing key vault." lightbox="./media/configure-customer-managed-keys/change-key-vault.png":::
+
 
 ## Switch from system-assigned to user-assigned identity
 

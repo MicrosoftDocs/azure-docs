@@ -2,11 +2,11 @@
 metadata:
   title: Azure API Management FAQs | Microsoft Docs
   description: Get answers to frequently asked questions (FAQs) about Azure API Management.
-  author: dlepow
+  author: PatAltimore
   ms.service: azure-api-management
   ms.topic: faq
   ms.date: 01/13/2026
-  ms.author: danlep 
+  ms.author: patricka
   ms.custom: engagement-fy23,fasttrack-edit,build-2025
 
 title: Azure API Management FAQs

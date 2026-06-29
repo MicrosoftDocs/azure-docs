@@ -7,7 +7,7 @@ ms.devlang: csharp
 author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.topic: how-to
-ms.date: 08/13/2025
+ms.date: 06/25/2026
 # customer intent: As a developer, I want to find out how to use a targeting filter in an Azure App Configuration feature flag so that I can roll out features in stages to targeted audiences.
 ---
 
@@ -77,6 +77,7 @@ This article shows you how to add and configure a targeting filter for a feature
    - [ASP.NET Core](./howto-targetingfilter-aspnet-core.md)
    - [Node.js](./howto-targetingfilter-javascript.md)
    - [Go Gin](./howto-targetingfilter-go.md)
+   - [Python](./how-to-targeting-filter-python.md)
 
 ## Next steps
 

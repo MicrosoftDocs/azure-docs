@@ -1,4 +1,4 @@
----
+﻿---
 title: View your billing accounts in Azure portal 
 description: Learn how to view your billing accounts in the Azure portal. See scope information for Enterprise, Microsoft Customer, and Microsoft Partner Agreements.
 author: jkinma39
@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 01/20/2026
+ms.date: 06/25/2026
 ms.author: jkinma
 service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---

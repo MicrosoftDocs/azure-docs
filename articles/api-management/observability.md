@@ -2,12 +2,10 @@
 title: Observability in Azure API Management | Microsoft Docs
 description: Overview of all API observability and monitoring options in Azure API Management.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 08/26/2025
-ms.author: danlep
 ---
 
 # Observability in Azure API Management

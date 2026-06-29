@@ -2,8 +2,6 @@
 title: Integrate Google Tag Manager into Developer Portal
 titleSuffix: Azure API Management
 description: Learn how to plug Google Tag Manager into your managed or self-hosted developer portal in Azure API Management.
-author: dlepow
-ms.author: danlep
 ms.date: 10/02/2025
 ms.service: azure-api-management
 ms.topic: how-to

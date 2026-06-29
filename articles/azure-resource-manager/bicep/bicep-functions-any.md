@@ -3,7 +3,7 @@ title: Bicep functions - any()
 description: Describes the any() function that's available in Bicep to convert types.
 ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 10/22/2025
+ms.date: 06/26/2026
 ---
 
 # any() function (Bicep)

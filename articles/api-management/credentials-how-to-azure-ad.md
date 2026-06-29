@@ -2,11 +2,9 @@
 title: Create Connection to Microsoft Graph API - Azure API Management
 description: Learn how to create and use a managed connection to a backend Microsoft Graph API using the Azure API Management credential manager. 
 services: api-management
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 04/10/2026
-ms.author: danlep
 ms.custom: sfi-image-nochange
 zone_pivot_groups: api-management-credential-auth-scenario
 ---

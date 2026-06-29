@@ -2,12 +2,10 @@
 title: Caching overview | Azure API Management
 description: Learn how caching in Azure API Management helps organizations improve API performance, reduce backend load, and enhance user experience.
 services: api-management
-author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
 ai-usage: ai-assisted
 ms.date: 09/11/2025
-ms.author: danlep
 ---
 
 # Caching overview

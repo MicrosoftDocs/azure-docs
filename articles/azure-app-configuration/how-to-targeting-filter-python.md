@@ -7,7 +7,7 @@ ms.devlang: python
 author: mrm9084
 ms.author: mametcal
 ms.topic: how-to
-ms.date: 10/07/2025
+ms.date: 06/25/2026
 ---
 
 # Roll out features to targeted audiences in a Python application
@@ -116,7 +116,7 @@ In this section, you create a web application that uses the [_Beta_ feature flag
 
 ### Use the feature flag
 
-Add the following code to the _app.py_ file to create a route handler for the Flask application. The application will serve different contents based on whether the **Beta** feature flag is enabled.
+Add the following code to the _app.py_ file before the main function to create a route handler for the Flask application. The application serves different content based on whether the **Beta** feature flag is enabled.
 
 ```python
 @app.route("/")
@@ -181,6 +181,12 @@ def home():
         </body>
     </html>
     """
+
+if __name__ == "__main__":
+    # Initialize configuration before starting the app
+    initialize_config()
+
+    app.run(debug=True)
 ```
 
 
