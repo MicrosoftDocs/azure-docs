@@ -18,6 +18,10 @@ ms.custom:
 
 This article outlines how to use Copy Activity to copy data from Amazon Simple Storage Service (Amazon S3), and use Data Flow to transform data in Amazon S3. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Amazon S3 connector documentation](/fabric/data-factory/connector-amazon-s3-overview).
+
+
 >[!TIP]
 >To learn more about the data migration scenario from Amazon S3 to Azure Storage, see [Migrate data from Amazon S3 to Azure Storage](data-migration-guidance-s3-azure-storage.md).
 

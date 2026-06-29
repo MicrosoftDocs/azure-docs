@@ -367,6 +367,35 @@ To maximize throughput, try the following steps:
 
 * Set the prefetch count to 20 times the expected rate at which messages are received. This count reduces the number of Service Bus client protocol transmissions.
 
+## Diagnose high latency
+
+When message processing is slower than expected, first determine whether the latency is on the client, in the network, or on the service.
+
+### Check the client first
+
+Latency often originates on the client. Check these items in order:
+
+* **Prefetch and concurrency.** A prefetch count or `MaxConcurrentCalls` that's too low leaves the receiver idle between messages. Set too high, it can cause lock expirations on slow processing. Tune both to your processing rate. See [Prefetch Service Bus messages](#prefetch-service-bus-messages) and [Concurrent operations](#concurrent-operations).
+* **Sync-over-async.** Blocking on async calls (`.Result`, `.Wait()`, `.GetAwaiter().GetResult()`) can starve the thread pool under load and inflate latency. Use `async`/`await` end to end. See [Handle timeouts and configure retries](service-bus-timeouts-retries.md).
+* **Client resource pressure.** High CPU, memory pressure, or frequent garbage collection on the client host can slow message handling independently of the service.
+* **Client reuse.** Reuse a single `ServiceBusClient` to avoid the connection setup cost of creating one per operation. See [Reusing factories and clients](#reusing-factories-and-clients).
+
+### Check the network
+
+* A client in a different region from the namespace adds round-trip latency. Co-locate the client with the namespace where possible.
+* The Web Sockets transport over port 443 adds a small amount of overhead compared to AMQP over 5671. Use AMQP directly when your network allows it. See [Service Bus messaging protocols](#service-bus-messaging-protocols).
+
+### Check the service
+
+* On the **Standard** tier, throughput and latency are best effort on shared infrastructure and can be affected by other tenants. For predictable latency, use the **Premium** tier. See [Pricing tier](#pricing-tier).
+* Open the namespace **Resource health** page in the Azure portal to rule out a service-side condition during the affected window.
+* If requests are throttled (`ServiceBusException` with `Reason` of `ServiceBusy`), latency increases while the client backs off. See [Service Bus throttling](service-bus-throttling.md).
+
+### Use metrics and tracing
+
+* In Azure Monitor, review the namespace metrics for throttled requests, active connections, and server latency to correlate latency with load.
+* The `Azure.Messaging.ServiceBus` library is instrumented for distributed tracing. Enable it to measure where time is spent across send, receive, and settle operations. See [Logging and diagnostics](service-bus-troubleshooting-guide.md#logging-and-diagnostics).
+
 ## Related content
 
 - [Azure Service Bus messaging overview](service-bus-messaging-overview.md)
