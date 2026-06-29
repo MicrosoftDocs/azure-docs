@@ -242,7 +242,7 @@ In the Azure portal, open your **Container App**.
 In the left navigation pane, under **Settings**, select **Storage mounts**.  
 
 From here you can add a new mount:  
-1. Choose the storage type (**Azure File share** or **Azure Blob**).  
+1. Choose **Azure File share** as the storage type.  
 2. Provide the required configuration (storage account, share name, access mode).  
 3. Save the mount.  
 4. Create and **deploy** a new revision of your container app to apply the changes.
