@@ -258,6 +258,44 @@ Aliases:  <service-bus-namespace-name>.servicebus.windows.net
 
 For more, see [Azure Private Link service: Limitations](../private-link/private-link-service-overview.md#limitations)
 
+## Troubleshoot private endpoint connectivity
+
+After you enable a private endpoint, most connectivity issues come down to three things: DNS resolution, network rules, and the connection state. Work through the following checks.
+
+### DNS resolves to a public IP instead of the private IP
+
+This problem is common. The client must resolve the namespace to the private IP through the `privatelink.servicebus.windows.net` private DNS zone.
+
+From a host inside the virtual network, run:
+
+```console
+nslookup <service-bus-namespace-name>.servicebus.windows.net
+```
+
+A correct result returns the `privatelink` alias and a private IP (for example, `10.0.0.4`), as shown in [Validate that the private link connection works](#validate-that-the-private-link-connection-works). If you get a public IP instead:
+
+- Confirm the private DNS zone `privatelink.servicebus.windows.net` exists and is linked to the client's virtual network.
+- Confirm an A record for the namespace points to the private endpoint's private IP.
+- If you use custom DNS servers or an on-premises resolver, confirm the conditional forwarder for `servicebus.windows.net` forwards to Azure DNS (168.63.129.16) so the private zone is honored.
+
+> [!NOTE]
+> Because traffic is blocked at the application layer rather than the TCP layer, `nslookup` or a TCP connection against the public endpoint can still succeed even when public access is disabled. Resolution returning a public IP from inside the virtual network still indicates a DNS misconfiguration.
+
+### The private endpoint connection isn't approved
+
+In the Azure portal, open the namespace > **Networking** > **Private endpoint connections** and confirm the connection state is **Approved**. A connection in **Pending** or **Rejected** state blocks traffic. See [Approve, reject, or remove a private endpoint connection](#approve-reject-or-remove-a-private-endpoint-connection).
+
+### A network rule blocks the traffic
+
+- Confirm the network security group (NSG) and any user-defined routes (UDRs) on the client subnet allow traffic to the private IP on Advanced Message Queuing Protocol (AMQP) ports 5671 and 5672, or 443 for Web Sockets.
+- If public network access is disabled, confirm that at least one IP rule or virtual network rule exists. With no rules and public access disabled, the namespace is unreachable from outside the private network.
+
+### A trusted service can't connect
+
+Azure App Service and Azure Functions must be integrated with the virtual network to reach a namespace behind a private endpoint. For the list of services that can bypass the firewall, see [Trusted Microsoft services](#trusted-microsoft-services).
+
+For broader connectivity and timeout troubleshooting, see [Handle timeouts and configure retries](service-bus-timeouts-retries.md) and the [Troubleshooting guide](service-bus-troubleshooting-guide.md).
+
 ## Related content
 
 - Learn more about [Azure Private Link](../private-link/private-link-service-overview.md)
