@@ -124,11 +124,11 @@ landingContent:
       - linkListType: concept
         links:
           - text: AI gateway SKU overview
-            url: ai-gateway-sku-overview.md
-      -  linkListType: how-to-guide
+            url: api-management-gateways-overview.md
+      -  linkListType: get-started
          links:
-          - text: How to do something
-            url: how-to-do-something.md
+          - text: Get started with AI gateway SKU
+            url: api-management-gateways-overview.md
 # Card
   - title: Related services
     linkLists:
