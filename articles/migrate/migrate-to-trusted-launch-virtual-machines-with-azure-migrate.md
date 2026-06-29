@@ -13,7 +13,7 @@ ms.custom: engagement-fy26
 # Migrate to Trusted Launch or Confidential Virtual machines by using Azure Migrate
 Azure Migrate now supports migrating eligible machines to Trusted Launch and Confidential virtual machines in Azure.
 
-## Migrate generation 2 virtual machines to Azure Trusted Launch virtual machines by using Azure Migrate
+## Migrate generation 2 virtual machines to Azure Trusted Launch virtual machines
 
 Azure Migrate now supports migrating generation 2 virtual machines to Azure Virtual Machines with Trusted Launch. This feature is now generally available.
   - Trusted Launch uses UEFI-based Secure Boot and a virtual Trusted Platform Module (vTPM) to establish a trusted boot chain. This trusted boot chain helps ensure that only approved and signed components load during startup, reducing the risk of bootkits, rootkits, and other low-level malware.
@@ -35,13 +35,13 @@ At the root of Trusted Launch is Secure Boot,
 > - You configure Secure Boot as part of the Trusted Launch settings on the target virtual machine. The setting isn't inherited from the source virtual machine.
 > - Even if Secure Boot was enabled on the source virtual machine, it's not automatically enabled on the migrated Trusted Launch virtual machine. You must explicitly ensure Secure Boot is enabled in the Trusted Launch configuration during migration.
 
-## Migrate eligible machines to Azure Confidential VMs by using Azure Migrate (Preview)
+## Migrate eligible machines to Azure Confidential Virtual machines (Preview)
 Azure Migrate now supports the migration of both generation 1 and generation 2 virtual machines (VMs) from on-premises or other cloud platforms to Azure Confidential Virtual machines (CVM).  This feature is available in public preview.
  - Azure Confidential VMs offer strong security and confidentiality for tenants.
  - They create a hardware-enforced boundary between your application and the virtualization stack. You can use them for cloud migrations without modifying your code, and the platform ensures your VM’s state remains protected.
  - For more information on Azure Confidential machines, see [Azure confidential virtual machines](../confidential-computing/confidential-vm-overview.md).
    
-## Supported operating systems for confidential virtual machines
+## Supported operating systems for migrating to confidential virtual machines
 Azure Migrate currently supports the migration of the following operating systems to Confidential Virtual Machines (CVMs):
  - Windows Server: 2019, 2022
  - Ubuntu: 20.04 LTS, 22.04 LTS, 24.04 LTS
@@ -61,8 +61,8 @@ Azure Migrate supports optional confidential encryption for OS disks during migr
 
  >[!Note]
 > - Confidential OS disk encryption is supported only for Windows Server and Ubuntu and isn't supported for Rocky Linux and RHEL.
-> - Only customer-managed keys (CMK) are supported for confidential OS disk encryption.
-> -  Data disks currently don't support confidential encryption. However, you can secure them by using host-based encryption with customer-managed keys (CMK) or platform-managed keys (PMK).
+> - Only customer-managed key (CMK) are supported for confidential OS disk encryption for disks larger than 127 GB. For disks smaller than 127 GB, both platform-managed key (PMK) and customer-managed key (CMK) are supported.
+> - Data disks currently don't support confidential encryption. However, you can secure them by using host-based encryption with customer-managed keys (CMK) or platform-managed keys (PMK).
 
 
 ## Related Links
