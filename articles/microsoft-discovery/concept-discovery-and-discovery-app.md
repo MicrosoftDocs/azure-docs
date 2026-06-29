@@ -16,10 +16,13 @@ The Microsoft Discovery platform is a cloud-based, production-grade platform dep
 
 ## ⬇️ Download the Discovery app
 
-| :::image type="icon" source="media/concept-discovery-and-discovery-app/windows.svg" border="false" alt-text="Windows logo" lightbox="media/concept-discovery-and-discovery-app/windows.svg"::: |
-|:---:|
-| [&#11015;&nbsp; Windows](https://aka.ms/discovery/download/current) |
-| Windows 11 &middot; x64 |
+> [!div class="nextstepaction"]
+>
+> :::image type="icon" source="media/concept-discovery-and-discovery-app/windows.svg" border="false" alt-text="Windows logo":::
+>
+> [:::image type="content" source="media/concept-discovery-and-discovery-app/windows-download-card.svg" alt-text="Download Windows":::](https://aka.ms/discovery/download/current)
+>
+> User Installer [x64](https://aka.ms/discovery/download/current) [Arm64](https://aka.ms/discovery/download/arm64/current)
 
 ## Single platform strategy
 Microsoft Discovery and the Discovery app share core concepts and features such as an agentic framework, the ability to invoke models and tools, a Bookshelf for indexing and reasoning over knowledge, and a Discovery Engine for orchestration. As a lightweight on-ramp to agentic R&D, the Discovery app enables rapid, bottom-up experimentation and exploration, while the Discovery platform enables enterprise-grade scale.
