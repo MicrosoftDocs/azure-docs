@@ -183,45 +183,43 @@ Finish setting up and registering the replication appliance using the steps prov
        - In **Guest credentials**, specify the VM admin account that you use for push installation of the Mobility service.
    - Then, select **Next** after selecting the VMs you want to replicate.
 6. In **Target settings**, select the subscription and target region to which you want to migrate, and specify the resource group where the Azure VMs reside after migration. Complete the following settings:
-
-  - **Storage account**: Keep the default option to use the cache storage account that the portal automatically creates for the project. To use a different storage account for replication, select it from the drop-down list.
+    - **Storage account**: Keep the default option to use the cache storage account that the portal automatically creates for the project. To use a different storage account for replication, select it from the drop-down list.
     
    > [!NOTE]
    > - If you use private endpoint as the connectivity method for the Azure Migrate project, grant the Recovery Services vault access to the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#grant-access-permissions-to-the-recovery-services-vault)
    > - To replicate using ExpressRoute with private peering, create a private endpoint for the cache storage account. [**Learn more**](migrate-servers-to-azure-using-private-link.md#create-a-private-endpoint-for-the-storage-account-1)
    
-  - **Azure Hybrid Benefit**: Apply Azure Hybrid Benefit and save up to 76% vs. pay-as-you-go costs by using an eligible Windows Server and/or Enterprise Linux license. Check the boxes applicable to your license (Windows Server license or Enterprise Linux license).
-  - **Virtual network**: Select the Azure virtual network and subnet that the Azure VMs join after migration.
-  - **Availability options**: Select one of the following options:
-      - **Availability Zone** – Pins the migrated machine to a specific Availability Zone in the region. Use this option to distribute machines that are part of a multinode application tier across Availability Zones. If you select this
-          option, specify the Availability Zone for each selected machine on the **Compute** tab. This option is available only if the selected target region supports Availability Zones.
-      - **Availability Set** – Places the migrated machine in an Availability Set. The selected target resource group must contain one or more availability sets.
-      - **No infrastructure redundancy required**– Select this option if you don't require Availability Zones or Availability Sets for the migrated machines.
+    - **Azure Hybrid Benefit**: Apply Azure Hybrid Benefit and save up to 76% vs. pay-as-you-go costs by using an eligible Windows Server and/or Enterprise Linux license. Check the boxes applicable to your license (Windows Server license or Enterprise Linux license).
+    - **Virtual network**: Select the Azure virtual network and subnet that the Azure VMs join after migration.
+    - **Availability options**: Select one of the following options:
+          - **Availability Zone** – Pins the migrated machine to a specific Availability Zone in the region. Use this option to distribute machines that are part of a multinode application tier across Availability Zones. If you select this option, specify the Availability Zone for each selected machine on the
+            **Compute** tab. This option is available only if the selected target region supports Availability Zones.
+          - **Availability Set** – Places the migrated machine in an Availability Set. The selected target resource group must contain one or more availability sets.
+          - **No infrastructure redundancy required**– Select this option if you don't require Availability Zones or Availability Sets for the migrated machines.
         
- -  In **Security Details**, 
-    - If the target security type selected is **Standard or Trusted Launch virtual machines**, 
-	  - **Secure boot** is enabled by default (recommended). You can choose to remove this option. Then, proceed to **Disk encryption type** selection.
-   - If the target security type selected is **Confidential virtual machines**,
-      - You can optionally choose to confidentially encrypt the OS disks. This encryption provides an additional layer of encryption that binds the disk encryption keys to the virtual machine's TPM and makes the disk content accessible only to the VM. To enable this encryption, check the **Confidential compute
-        encryption** option and proceed to **OS disk encryption type** selection. Otherwise, proceed to **Disk encryption type** selection.
-      - **OS disk encryption type**, select:
-          -  Encryption at rest with platform-managed key (Default, if you didn't select **Confidential compute encryption**)
-          -  Confidential encryption with platform-managed key (Available, if you selected **Confidential compute encryption**)
-          -  Confidential encryption with customer-managed key (Available, if you selected **Confidential compute encryption**)      
-     
-	   > [!NOTE]
-       > Confidential OS Disk encryption isn't supported for RHEL and Rocky Linux VMs. If OS disk encryption is required, remove these VMs from the selection.
+   -  In **Security Details**,
+         - If the target security type selected is **Standard or Trusted Launch virtual machines**:
+            - **Secure boot** is enabled by default (recommended). You can choose to remove this option. Then, proceed to **Disk encryption type** selection.
+         - If the target security type selected is **Confidential virtual machines**:
+            - You can optionally choose to confidentially encrypt the OS disks. This encryption provides an additional layer of encryption that binds the disk encryption keys to the virtual machine's TPM and makes the disk content accessible only to the VM.
+            - To enable this encryption, check the **Confidential compute encryption** option and proceed to **OS disk encryption type** selection. Otherwise, proceed to **Disk encryption type** selection.
+            - **OS disk encryption type**, select:
+               - Encryption at rest with platform-managed key (Default, if you didn't select **Confidential compute encryption**)
+               - Confidential encryption with platform-managed key (Available, if you selected **Confidential compute encryption**)
+               - Confidential encryption with customer-managed key (Available, if you selected **Confidential compute encryption**)
+                  > [!NOTE]
+                  > Confidential OS Disk encryption isn't supported for RHEL and Rocky Linux VMs. If OS disk encryption is required, remove these VMs from the selection.
 	   
-      
- - **Disk encryption type**, select:
-   - Encryption-at-rest with platform-managed key
-   - Encryption-at-rest with customer-managed key
-   - Double encryption with platform-managed and customer-managed keys
- 
+         - **Disk encryption type**, select:
+              - Encryption-at-rest with platform-managed key
+              - Encryption-at-rest with customer-managed key
+              - Double encryption with platform-managed and customer-managed keys   
+         
    > [!NOTE]
    > - To replicate VMs with customer-managed keys (CMK), [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal#set-up-your-disk-encryption-set) under the target resource group. A disk encryption set object maps managed disks to a Key Vault that contains the
      CMK to use for SSE.
    > - The seed disk is created in Azure during replication/staging before cutover. Encrypting it protects data right from the first write while it resides in Azure. The **Disk encryption type** setting applies to both seed disks and the managed disks after final migration.
+ 
       
 7. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform to [Azure requirements](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
@@ -255,19 +253,19 @@ Finish setting up and registering the replication appliance using the steps prov
       - **Execution status**: In progress, In error, Action pending, or Completed.
   
 1. Execution progress is tracked across three stages in the **Execution stage**:
-    - **Preparation**:
+    1. **Preparation**:
          - Servers that are enabled for replication remain in the Preparation stage while initial replication (data replication) is in progress.
          - You can perform **Stop replication** and **Start replication** operations in this stage if required by using the drop-downs available in the server drill-down blade.
          - After initial replication is complete, the servers move to the **Testing** stage. 
       
         :::image type="content" source="./media/tutorial-migrate-vmware/preparation.png" alt-text="Screenshot shows the Preparation stage." lightbox="./media/tutorial-migrate-vmware/preparation.png":::
       
-    -  **Testing**:
+    2. **Testing**:
          - Servers for which initial replication is complete and delta replication is in progress move to the **Testing** stage.
          - You can choose to perform test migrations on a test virtual network before the actual migration (recommended).
          - You can skip the **Testing** stage and start migration directly by using the actions available in the **Completion** drop-down menu.
            
-    - **Completion**:
+    3. **Completion**:
          - Servers for which test migrations are completed or skipped move to this stage. You can perform final migrations (Cutover) for these servers.
          - After migration is completed, perform **Complete migration** to clean up the migration resources by using the drop-downs available in the server drill-down blade.
 
