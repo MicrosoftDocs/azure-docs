@@ -35,27 +35,25 @@ Before you set up the SAP ASE database for backup, review the following prerequi
   | **Trunc log on chkpt** privilege | Disable this privilege for all databases that you want to protect using the **ASE Backup**. Allows you to back up the database log to recovery services vault. Learn more about the [`SAP note - 2921874 - "trunc log on chkpt" in databases with HADR - SAP ASE - SAP for Me`](https://me.sap.com/notes/0002921874). |
    | **Monitor server replication** privilege | Required for SAP ASE HADR (high-availability) deployments so Azure Backup can read each database's replication status during discovery. Without this server-wide privilege, HADR databases are treated as non-replicated, and the HA cluster can be discovered with no databases available to protect. |
 
-  >[!Note]
-  >Log backups aren't supported for the Master database. For other system databases, log backups can only be supported if the database's log files are stored separately from its data files. By default, system databases are created with both data and log files in the same database device, which prevents log backups. To enable log backups, the database administrator must change the location of the log files to a separate device.
-
    >[!Note]
-   >For SAP ASE HADR (high-availability) deployments, the backup login (or role) also requires the server-wide **monitor server replication** privilege.
+   >- Log backups aren't supported for the Master database. For other system databases, log backups can only be supported if the database's log files are stored separately from its data files. By default, system databases are created with both data and log files in the same database device, which prevents log backups. To enable log backups, the database administrator must change the location of the log files to a separate device.
+   >- For SAP ASE HADR (high-availability) deployments, the backup login (or role) also requires the server-wide **monitor server replication** privilege.
    >
-   >Grant this privilege from the `master` database by using a login that has `sa_role`:
+   >  Grant this privilege from the `master` database by using a login that has `sa_role`:
    >
-   >```bash
-   >use master
-   >go
-   >grant monitor server replication to <backup_login_or_role>
-   >go
-   >```
+   >  ```bash
+   >  use master
+   >  go
+   >  grant monitor server replication to <backup_login_or_role>
+   >  go
+   >  ```
    >
-   >Verify the grant with `sp_helprotect <backup_login_or_role>`. The permission appears as `Monitor Server Replication ... Grant`. This multi-word, server-wide privilege can be removed by using:
+   >  Verify the grant with `sp_helprotect <backup_login_or_role>`. The permission appears as `Monitor Server Replication ... Grant`. This multi-word, server-wide privilege can be removed by using:
    >
-   >```bash
-   >revoke monitor server replication from <backup_login_or_role>
-   >go
-   >```
+   >  ```bash
+   >  revoke monitor server replication from <backup_login_or_role>
+   >  go
+   >  ```
 
 - Use the Azure built-in roles to configure backup- assignment of roles and scope to the resources. The following Contributor role allows you to run the **Configure Protection** operation on the database VM:
 
