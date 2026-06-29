@@ -1,5 +1,20 @@
 {
-    "redirections": [             
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-machine-learning-integration-tutorial.md",
+            "redirect_url": "/azure/stream-analytics/machine-learning-udf",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-scale-with-machine-learning-functions.md",
+            "redirect_url": "/azure/stream-analytics/machine-learning-udf",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md",
+            "redirect_url": "/azure/stream-analytics/machine-learning-udf",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/stream-analytics/no-code-build-power-bi-dashboard.md",
             "redirect_url": "https://techcommunity.microsoft.com/blog/analyticsonazure/simplifying-migration-to-fabric-real-time-intelligence-for-power-bi-real-time-re/4283180",
