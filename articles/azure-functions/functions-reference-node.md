@@ -39,6 +39,9 @@ The following table shows each version of the Node.js programming model along wi
 | 2.x                                                                                            | n/a           | 3.x                                                  | 14.x, 12.x, 10.x                                                      | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
 | 1.x                                                                                            | n/a           | 2.x                                                  | 10.x, 8.x                                                             | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
 
+> [!NOTE]
+> Node.js 24 doesn't support 32-bit platforms. When using Node.js 24 in Azure Functions, your function app must run as a 64-bit app. For Windows function apps, make sure that the app isn't configured to use a 32-bit worker process.
+
 ## Folder structure
 
 ::: zone pivot="nodejs-model-v3"
