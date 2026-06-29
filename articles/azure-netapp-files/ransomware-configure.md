@@ -24,17 +24,17 @@ Advanced ransomware protection's alert mechanisms enable you to stay vigilant in
 
 ## Anti-ransomware snapshots
 
-When advanced ransomware protection detects suspicious activity, Azure NetApp Files automatically creates a protected recovery snapshot of the affected volume. These snapshots provide recovery points that can be used to restore data following a confirmed ransomware event. Anti-ransomware snapshots are managed by the service and are separate from user-created snapshots. Snapshot retention is automatically adjusted based on threat status and service policies. Retention periods cannot be reduced but can be extended when a threat remains under investigation or is confirmed as ransomware activity.
+When advanced ransomware protection detects suspicious activity, Azure NetApp Files automatically creates a protected recovery snapshot of the affected volume. These snapshots provide recovery points that you can use to restore data following a confirmed ransomware event. The service manages anti-ransomware snapshots, and they are separate from user-created snapshots. The service automatically adjusts snapshot retention based on threat status and service policies. You can't reduce retention periods but you can extend them when a threat remains under investigation or is confirmed as ransomware activity.
 
 ## Ransomware protection snapshots
 
 Advanced ransomware protection in Azure NetApp Files protects your data by taking automated protection snapshots.
 
-* Snapshots are automatically created when suspicious activity is detected.
+* The service automatically creates snapshots when it detects suspicious activity.
 * Snapshot creation can occur before an attack is confirmed.
 * Snapshots provide recovery points for recovery from ransomware attacks.
-* Snapshot retention is managed by the service and may vary according to threat status.
-* The presence of a snapshot does not necessarily mean ransomware has been confirmed.
+* The service manages snapshot retention, and it might vary according to threat status.
+* The presence of a snapshot doesn't necessarily mean ransomware is confirmed.
 
 
 ## Considerations 
@@ -46,9 +46,9 @@ Advanced ransomware protection in Azure NetApp Files protects your data by takin
 * Anti-ransomware snapshots and anti-ransomware periodic backups serve different purposes:
     * Anti-ransomware snapshots provide rapid recovery points for ransomware events.
     * Anti-ransomware periodic snapshots provide protection against ransomware events and broader data-loss scenarios.
-    * Snapshots reside in the volumes. To protect your volumes against complete loss you should offload snapshots to backup using [Azure NetApp Files backup](backup-introduction.md) or other data protection solutions.
+    * Snapshots reside in the volumes. To protect your volumes against complete loss, offload snapshots to backup by using [Azure NetApp Files backup](backup-introduction.md) or other data protection solutions.
 
-    Depending on configuration, both mechanisms can be used together as part of a layered data protection strategy.
+    Depending on configuration, you can use both mechanisms together as part of a layered data protection strategy.
 
 * Marking an alert as a false positive helps Advanced Ransomware Protection refine its behavioral profile for the workload and can reduce future false-positive notifications for similar activity patterns.
 * Azure NetApp Files advanced ransomware protection is suited for the following workloads:
@@ -87,7 +87,7 @@ Advanced ransomware protection in Azure NetApp Files protects your data by takin
 ## Respond to ransomware threats  
 
 > [!NOTE]
-> Recovery snapshots may be created when suspicious activity is first observed, before ransomware activity has been confirmed. The existence of an anti-ransomware snapshot does not necessarily indicate that a ransomware attack has occurred.
+> The system might create recovery snapshots when it first detects suspicious activity, even if it doesn't confirm ransomware activity. The presence of an anti-ransomware snapshot doesn't necessarily mean a ransomware attack happened.
 
 1. Select **Advanced Ransomware Protection** under the **Storage services** menu in the sidebar. 
 1. Suspected attacks are displayed under **Active threats**. Expand each threat to view the suspect files.  
