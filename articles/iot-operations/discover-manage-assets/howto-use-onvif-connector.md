@@ -145,7 +145,7 @@ Deploy the following Bicep template to create a device with an inbound endpoint 
 param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource device 'Microsoft.DeviceRegistry/namespaces/devices@2025-10-01' = {
+resource device 'Microsoft.DeviceRegistry/namespaces/devices@2026-04-01' = {
   name: 'onvif-connector'
   parent: namespace
   location: resourceGroup().location
