@@ -19,6 +19,10 @@ ms.custom:
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from and to a MongoDB Atlas database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric MongoDB Atlas connector documentation](/fabric/data-factory/connector-mongodb-atlas-overview).
+
+
 ## Supported capabilities
 
 This MongoDB Atlas connector is supported for the following capabilities:

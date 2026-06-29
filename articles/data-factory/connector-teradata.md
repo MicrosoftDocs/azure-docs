@@ -19,6 +19,9 @@ ms.custom:
 
 This article outlines how to use the copy activity in Azure Data Factory and Synapse Analytics pipelines to copy data from Teradata Vantage. It builds on the [copy activity overview](copy-activity-overview.md).
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Teradata Database connector documentation](/fabric/data-factory/connector-teradata-database-overview).
+
 > [!IMPORTANT]
 > The Teradata connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Teradata connector](#upgrade-the-teradata-connector) from version 1.0 to 2.0.
 

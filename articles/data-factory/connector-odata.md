@@ -17,6 +17,10 @@ ms.custom:
 
 This article outlines how to use Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from an OData source. The article builds on [Copy Activity](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric OData connector documentation](/fabric/data-factory/connector-odata-overview).
+
+
 ## Supported capabilities
 
 This OData connector is supported for the following capabilities:
