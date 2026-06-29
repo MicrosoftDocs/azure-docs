@@ -2,12 +2,10 @@
 title: Feature-based comparison of Azure API Management tiers
 description: Compare API Management tiers based on the features they offer. See a table that summarizes the key features available in each pricing tier.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 06/05/2026
-ms.author: danlep
 ms.custom:
   - build-2025
 ---

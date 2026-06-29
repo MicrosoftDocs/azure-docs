@@ -231,8 +231,6 @@ The `provisioningState` value should become `Succeeded` after the update complet
 
 ## Rotate keys
 
-When `autoRotationEnabled` is `true`, Durable Task Scheduler automatically uses the latest supported version of the configured key after a new version is available. Use a versionless key URI if you don't want the scheduler configuration to include a specific key version.
-
 Keep previous key versions in the key vault or managed HSM. Older key versions can be required for backup and restore scenarios. For more information, see [Rotate the Transparent data encryption protector](/azure/azure-sql/database/transparent-data-encryption-byok-key-rotation?view=azuresql) and [Azure Key Vault key rotation](/azure/key-vault/keys/how-to-configure-key-rotation).
 
 ## Revert to Microsoft-managed encryption

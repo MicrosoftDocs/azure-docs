@@ -41,6 +41,8 @@ items:
     href: troubleshooting.md
   - name: Update artifacts
     href: update-artifacts.md
+  - name: Support and private preview
+    href: support-private-preview.md
   - name: Release notes
     href: release-notes.md
   - name: Attestation Document

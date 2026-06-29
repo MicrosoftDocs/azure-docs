@@ -75,7 +75,7 @@ This pattern can also be used to implement a rules engine where the thresholds o
 
 ## Add Machine Learning to your real-time insights
 
-Azure Stream Analytics' built-in [Anomaly Detection model](stream-analytics-machine-learning-anomaly-detection.md) is a convenient way to introduce Machine Learning to your real-time application. For a wider range of Machine Learning needs, see [Azure Stream Analytics integration with Azure Machine Learning](stream-analytics-machine-learning-integration-tutorial.md). You can deploy models from Azure Machine Learning and call them as user-defined functions (UDFs) in your Stream Analytics queries.
+Azure Stream Analytics' built-in [Anomaly Detection model](stream-analytics-machine-learning-anomaly-detection.md) is a convenient way to introduce Machine Learning to your real-time application. For a wider range of Machine Learning needs, you can deploy models from Azure Machine Learning and call them as user-defined functions (UDFs) in your Stream Analytics queries. See [Integrate Azure Stream Analytics with Azure Machine Learning](machine-learning-udf.md).
 
 For advanced users who want to incorporate online training and scoring into the same Stream Analytics pipeline, see this example of how to do that with [linear regression](stream-analytics-high-frequency-trading.md).
 

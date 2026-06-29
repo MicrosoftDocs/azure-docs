@@ -3,7 +3,7 @@ title: Troubleshoot problems with Bicep installation
 description: How to resolve errors and problems with your Bicep installation.
 ms.topic: troubleshooting
 ms.custom: devx-track-bicep, devx-track-dotnet
-ms.date: 10/30/2025
+ms.date: 06/26/2026
 ---
 
 # Troubleshoot Bicep installation

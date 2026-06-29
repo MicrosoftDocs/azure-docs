@@ -266,7 +266,7 @@ items:
     displayName: decorator,configuration
     href: variables.md
   - name: Resources (resource)
-    displayName: batchsize,onlyifnotexists,description,decorator
+    displayName: batchsize,nullIfNotFound,onlyifnotexists,description,decorator
     href: resource-declaration.md
   - name: Outputs (output)
     displayName: decorator,dynamic number of outputs,modules

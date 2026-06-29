@@ -137,7 +137,7 @@ Typically, a network administrator creates a private endpoint. Depending on your
 |Approval method     |Minimum RBAC permissions  |
 |---------|---------|
 |Automatic     | `Microsoft.Network/virtualNetworks/**`<br/>`Microsoft.Network/virtualNetworks/subnets/**`<br/>`Microsoft.Network/privateEndpoints/**`<br/>`Microsoft.Network/networkinterfaces/**`<br/>`Microsoft.Network/locations/availablePrivateEndpointTypes/read`<br/>`Microsoft.[ServiceProvider]/[resourceType]/privateEndpointConnectionsApproval/action`<br/>|
-|Manual     | `Microsoft.Network/virtualNetworks/**`<br/>`Microsoft.Network/virtualNetworks/subnets/**`<br/>`Microsoft.Network/privateEndpoints/**`<br/>`Microsoft.Network/networkinterfaces/**`<br/>`Microsoft.Network/locations/availablePrivateEndpointTypes/read`           |
+|Manual     | `"Microsoft.[ServiceProvider]/[resourceType]/privateEndpointConnections/read"`<br/>`"Microsoft.[ServiceProvider]/[resourceType]/privateEndpointConnections/write"`<br/>|
 
 ## Next steps
 
