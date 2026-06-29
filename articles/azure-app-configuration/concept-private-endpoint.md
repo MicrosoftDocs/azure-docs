@@ -90,7 +90,7 @@ Enabling private endpoints requires an App Configuration store with a [Developer
 
 If you connect a private endpoint to an App Configuration store in a subscription where the App Configuration resource provider isn't registered, the following message appears:
 
-"The private endpoint's subscription '<SubscriptionId>' is not registered to use resource provider 'Microsoft.AppConfiguration.'"
+> The private endpoint's subscription '<SubscriptionId>' is not registered to use resource provider 'Microsoft.AppConfiguration'. See https://aka.ms/appconfig/PrivateEndpointTroubleshooting for instructions on how to register a subscription to a resource provider.
 
 This message typically appears when the private endpoint and the App Configuration store are in different subscriptions. To resolve the situation, take the following steps:
 
