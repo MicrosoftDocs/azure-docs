@@ -5,7 +5,7 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/25/2026
+ms.date: 06/29/2026
 ms.author: kendownie
 ms.custom: monitoring
 # Customer intent: As a cloud administrator, I want to create monitoring alerts for Azure Files metrics and logs, so that I can proactively identify and resolve issues before they impact users.
@@ -136,7 +136,9 @@ Follow these steps to create an alert if the file share bandwidth utilization ex
     > [!NOTE]
     > If the file share is a pay-as-you-go file share, the **File Share** dimension doesn't list the file shares because per share metrics aren't available for pay-as-you-go file shares. If you want per share metrics, use the  provisioned v2 model instead of the pay-as-you-go model.
 
-1. Select the **Dimension values** drop-down and select the provisioned file shares that you want to alert on.
+1. Select the **Dimension values** drop-down and select the provisioned file shares that you want to alert on. The drop-down only lists file shares that have recent activity for this metric. Because **Percentage File Share Bandwidth Utilization** is calculated from underlying usage metrics, a share that hasn't recently consumed bandwidth doesn't emit data points and won't appear in the list. If an expected file share is missing, do the following:
+   - Confirm the share has had recent traffic, or generate some I/O against it, then wait a few minutes and reopen the drop-down.
+   - Widen the metric time range (for example, the last hour instead of the last few minutes) so that it includes a period when the share was active.
 
 1. Under **When to evaluate**, specify the desired evaluation frequency and lookback period. Because bandwidth usage is often bursty, consider using a longer lookback period (for example, 15 to 30 minutes) so that brief, expected spikes don't trigger the alert.
 
@@ -165,7 +167,9 @@ Follow these steps to create an alert if the file share IOPS utilization exceeds
     > [!NOTE]
     > If the file share is a pay-as-you-go file share, the **File Share** dimension doesn't list the file shares  because per share metrics aren't available for pay-as-you-go file shares. If you want per share metrics, use the  provisioned v2 model instead of the pay-as-you-go model.
 
-1. Select the **Dimension values** drop-down and select the provisioned file shares that you want to alert on.
+1. Select the **Dimension values** drop-down and select the provisioned file shares that you want to alert on. The drop-down only lists file shares that have recent activity for this metric. Because **Percentage File Share IOPS Utilization** is calculated from underlying usage metrics, a share that hasn't recently consumed IOPS doesn't emit data points and won't appear in the list. If an expected file share is missing, do the following:
+   - Confirm the share has had recent traffic, or generate some I/O against it, then wait a few minutes and reopen the drop-down.
+   - Widen the metric time range (for example, the last hour instead of the last few minutes) so that it includes a period when the share was active.
 
 1. Under **When to evaluate**, specify the desired evaluation frequency and lookback period. Because IOPS usage is often bursty, consider using a longer lookback period (for example, 15 to 30 minutes) so that brief, expected  spikes don't trigger the alert.
 
