@@ -1,6 +1,6 @@
 ---
-title: Back up an Exchange server via System Center DPM
-description: Learn how to back up an Exchange server to Azure Backup using System Center 2012 R2 DPM
+title: Back up Exchange server databases to Azure Backup with System Center DPM
+description: Learn how to configure System Center DPM to back up and recover Exchange Server databases with Azure Backup.
 ms.topic: how-to
 ms.date: 07/15/2025
 author: AbhishekMallick-MS
@@ -8,9 +8,15 @@ ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to configure backup for an Exchange server to Azure Backup using DPM, so that I can ensure data protection and recovery for my organization's email infrastructure."
 ---
 
-# Back up an Exchange server to Azure Backup with System Center 2012 R2 DPM
+# Back up Exchange Server databases to Azure Backup with System Center DPM
 
-This article describes how to configure a System Center 2012 R2 Data Protection Manager (DPM) server to back up a Microsoft Exchange server to Azure Backup.  
+This article describes how to configure a System Center 2012 R2 Data Protection Manager (DPM) server to back up and recover Microsoft Exchange Server databases with Azure Backup. Use this article when your organization uses System Center DPM and you want to configure protection groups, backup schedules, and recovery options for Exchange workloads.  
+
+## Choose the right article
+
+Use this article if you're using **System Center DPM**.
+
+If you're using **Microsoft Azure Backup Server (MABS)** instead, see [Back up Exchange server with Azure Backup Server](backup-azure-exchange-mabs.md).
 
 [!INCLUDE [The functionality of Azure Backup trim process.](../../includes/backup-trim-process-notification.md)]
 
@@ -122,7 +128,11 @@ For online recovery points, there are five recovery types:
 ## Next steps
 
 * [Azure Backup FAQ](backup-azure-backup-faq.yml)
+* [Recover data from Azure Backup Server and DPM](backup-azure-alternate-dpm-server.md)
+* [Manage backup to Azure for DPM servers via PowerShell](backup-dpm-automation.md)
 
 ## Related content
 
-[Manage backup to Azure for DPM servers via PowerShell](backup-dpm-automation.md).
+* [Prepare DPM workloads in the Azure portal](backup-azure-dpm-introduction.md)
+* [MABS and System Center DPM support matrix](backup-support-matrix-mabs-dpm.md)
+* [Back up Exchange server with Azure Backup Server](backup-azure-exchange-mabs.md)

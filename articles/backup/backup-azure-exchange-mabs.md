@@ -13,6 +13,12 @@ ms.custom: engagement-fy24
 
 This article describes how to configure Microsoft Azure Backup Server (MABS) to back up a Microsoft Exchange server to Azure.  
 
+## Choose the right article
+
+Use this article if you're using **Microsoft Azure Backup Server (MABS)**.
+
+If you're using **System Center DPM** instead, see [Back up Exchange Server databases to Azure Backup with System Center DPM](backup-azure-backup-exchange-server.md).
+
 ## Prerequisites
 
 Before you continue, ensure that Azure Backup Server is [installed and prepared](backup-azure-microsoft-azure-backup.md).
