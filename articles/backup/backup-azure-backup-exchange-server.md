@@ -2,7 +2,7 @@
 title: Back up Exchange server databases to Azure Backup with System Center DPM
 description: Learn how to configure System Center DPM to back up and recover Exchange Server databases with Azure Backup.
 ms.topic: how-to
-ms.date: 07/15/2025
+ms.date: 06/29/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to configure backup for an Exchange server to Azure Backup using DPM, so that I can ensure data protection and recovery for my organization's email infrastructure."
