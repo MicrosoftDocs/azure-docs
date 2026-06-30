@@ -95,11 +95,7 @@ sections:
                   
         - question: Are there any charges for data transfer?
           answer: >
-            Standard Azure data transfer rates apply after the free trial period. 
-                       
-        - question: Will I be charged for Azure Data Manager for Energy separately from the applications that I use on top of the platform?
-          answer: >
-            Pricing for Azure Data Manager for Energy is separate from other applications that you build or use on the platform.
+            Standard Azure data transfer rates are currently not charged on Azure Data Manager for Energy. This would be enabled in the future.   
                   
         - question: Do prices differ regionally?
           answer: >
