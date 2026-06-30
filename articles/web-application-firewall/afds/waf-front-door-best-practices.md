@@ -11,7 +11,7 @@ ms.date: 06/30/2026
 
 # Best practices for Azure Web Application Firewall in Azure Front Door
 
-**Applies to:** :heavy_check_mark: Front Door Premium
+**Applies to:** ✔️ Front Door Premium
 
 This article summarizes best practices for using Azure Web Application Firewall in Azure Front Door.
 
@@ -29,6 +29,8 @@ The rules in your WAF should be tuned for your workload. If you don't tune your 
 
 While you tune your WAF, consider using [detection mode](waf-front-door-policy-settings.md#waf-mode). This mode logs requests and the actions the WAF would normally take, but it doesn't actually block any traffic.
 
+If you use Default Rule Set 2.1 or later, you can also define [exceptions](front-door-exceptions.md) to bypass WAF evaluation for specific request attributes when a rule exclusion isn't granular enough.
+
 For more information, see [Tune Azure Web Application Firewall for Azure Front Door](waf-front-door-tuning.md).
 
 ### Use prevention mode
@@ -40,6 +42,10 @@ After you tune your WAF, configure it to [run in prevention mode](waf-front-door
 When you tune your WAF for your application workload, you typically create a set of rule exclusions to reduce false positive detections. If you manually configure these exclusions by using the Azure portal, when you upgrade your WAF to use a newer rule-set version, you need to reconfigure the same exceptions against the new rule-set version. This process can be time consuming and error prone.
 
 Instead, consider defining your WAF rule exclusions and other configuration as code, such as by using the Azure CLI, Azure PowerShell, Bicep, or Terraform. When you need to update your WAF rule-set version, you can easily reuse the same exclusions.
+
+### Enable request body inspection
+
+Configure your WAF to inspect request bodies so that managed and custom rules can evaluate POST payloads, not just headers and query strings. Request body inspection helps the WAF detect attacks that hide malicious content in the body of a request.
 
 ## Managed rule-set best practices
 
@@ -56,6 +62,8 @@ For more information, see [Azure-managed rule sets](afds-overview.md#azure-manag
 Bots are responsible for a significant proportion of traffic to web applications. The WAF's bot protection rule set categorizes bots based on whether they're good, bad, or unknown. Bad bots can then be blocked, while good bots like search engine crawlers are allowed through to your application.
 
 For more information, see [Bot protection rule set](afds-overview.md#bot-protection-rule-set).
+
+For traffic that bot rules classify as suspicious, you can apply an interactive challenge instead of blocking it outright. Use a [JavaScript challenge](../waf-javascript-challenge.md) to verify that requests come from a real browser, or a [CAPTCHA challenge](captcha-challenge.md) on sensitive flows like sign-in and sign-up to confirm that a human is present.
 
 ### Use the latest rule set versions
 
@@ -115,6 +123,8 @@ Microsoft Sentinel is a security information and event management (SIEM) system,
 
 For more information, see [Use Microsoft Sentinel with Azure Web Application Firewall](../waf-sentinel.md).
 
-## Next steps
+## Related content
 
-Learn how to [create an Azure Front Door WAF policy](waf-front-door-create-portal.md).
+- [Create an Azure Front Door WAF policy](waf-front-door-create-portal.md)
+- [Tune Azure Web Application Firewall for Azure Front Door](waf-front-door-tuning.md)
+- [Azure Web Application Firewall DRS rule groups and rules](waf-front-door-drs.md)
