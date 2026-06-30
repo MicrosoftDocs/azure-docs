@@ -75,7 +75,7 @@ The retirement takes effect globally across all Azure regions.
 >You can access the estimator here: [General purpose v1 (GPv1) storage account cost estimator](https://aka.ms/gpv1costestimator)
 
 [!Note]
->The estimator uses publicly available pricing and does not include contract-specific discounts, taxes, or reservations. Actual costs may vary.
+>The estimator uses publicly available pricing and doesn't include contract-specific discounts, taxes, or reservations. Actual costs might vary.
 
 1. Capture a baseline of monthly operations by type (**read, write, list/metadata**) and any **egress**.
 1. Use the [Azure Pricing Page](https://azure.microsoft.com/pricing/details/storage/blobs/) page to compare **per-GB** and **per-operation** rates for your region, redundancy (LRS/ZRS/GRS/GZRS), and intended access tier (hot/cool/cold/archive).
