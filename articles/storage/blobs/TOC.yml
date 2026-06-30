@@ -131,6 +131,8 @@ items:
                 href: ../common/storage-migration-execution.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Tape migration overview
             href: ../common/tape-migration-guide.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Azure Storage Mover
+            href: ../../storage-mover/index.yml
           - name: AzCopy
             items:
               - name: Get started
@@ -296,6 +298,8 @@ items:
                 href: lifecycle-management-policy-monitor.md
               - name: Performance characteristics
                 href: lifecycle-management-performance-characteristics.md
+          - name: Azure Storage Actions
+            href: ../../storage-actions/storage-tasks/index.yml
           - name: Full text search
             href: /azure/search/search-blob-storage-integration?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Static websites
@@ -1418,6 +1422,8 @@ items:
                 href: ../common/storage-solution-small-dataset-low-moderate-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
               - name: Periodic data transfer
                 href: ../common/storage-solution-periodic-data-transfer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Azure Storage Mover
+            href: ../../storage-mover/index.yml
           - name: AzCopy
             items:
               - name: Get started

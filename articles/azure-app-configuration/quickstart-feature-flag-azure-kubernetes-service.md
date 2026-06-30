@@ -122,7 +122,7 @@ In this section, you will use feature flags in a simple ASP.NET web application 
     metadata:
       name: appconfigurationprovider-sample
     spec:
-      endpoint: <your-app-configuration-store-endpoint>
+      endpoint: <AppConfigurationEndpoint>
       target:
         configMapName: configmap-created-by-appconfig-provider
         configMapData: 
@@ -130,7 +130,7 @@ In this section, you will use feature flags in a simple ASP.NET web application 
           key: mysettings.json
       auth:
         workloadIdentity:
-          managedIdentityClientId: <your-managed-identity-client-id>
+          managedIdentityClientId: <ManagedIdentityClientId>
       featureFlag:
         selectors:
           - keyFilter: 'Beta'

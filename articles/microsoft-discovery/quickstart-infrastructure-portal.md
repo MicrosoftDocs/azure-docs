@@ -247,7 +247,10 @@ A workspace is a collaborative environment where teams manage large-scale scient
    :::image type="content" source="media/quickstart-infrastructure-portal/create-workspace-supercomputer.jpg" alt-text="Screenshot showing the Supercomputer tab while creating a workspace." lightbox="media/quickstart-infrastructure-portal/create-workspace-supercomputer.jpg"::: 
 1. On the **Workspace Identity** tab, select **Add** under **User Assigned Managed Identity (UAMI)** and select the identity created in [step 1](#d-create-a-user-assigned-managed-identity-uami) to provide access to the workspace.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-workspace-identity.jpg" alt-text="Screenshot showing the Workspace Identity tab with the UAMI added." lightbox="media/quickstart-infrastructure-portal/create-workspace-identity.jpg":::
-1. Add tags as needed, and move to the next tab.
+1. On the **Tags** tab, add tags as needed. (Optional) To enable **GitHub Copilot** and configure workspace access, add the following tags. For details, see [Use GitHub Copilot in Microsoft Discovery](how-to-copilot.md).
+   - `discovery.workbench.enableGhcpAiFeatures` set to `true` — Enables GitHub Copilot and AI features for the workspace.
+   - `discovery.workbench.enableExtensions` set to `true` — Enables the VS Code Extension Marketplace in the preview experience.
+   - `NetworkIsolation` set to `false` — Enables public access to the preview experience (workbench) and other managed resource group (MRG) resources. If you keep network isolation enabled (default), you need to be connected on a VPN or ExpressRoute to the virtual network where the workspace is deployed to access over private network.
 1. Review the Terms and Conditions, then select **Review + Create**.
 1. Once validation is successful, select **Create**.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-workspace-overview.jpg" alt-text="Screenshot of the Microsoft Discovery Workspace overview page after creation." lightbox="media/quickstart-infrastructure-portal/create-workspace-overview.jpg":::

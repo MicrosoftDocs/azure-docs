@@ -129,11 +129,11 @@ Now that you have confirmed the feature flag allocations are working as expected
 Open your Application Insights resource in the Azure portal and select **Logs** under **Monitoring**. In the query window, run the following query to see the telemetry events:
 
 ```kusto
-// Step 1: Get distinct users and their Variant from FeatureEvaluation (Replace <store-endpoint> with your store's endpoint)
+// Step 1: Get distinct users and their Variant from FeatureEvaluation (Replace <AppConfigurationEndpoint> with your store's endpoint)
 let evaluated_users =
     customEvents
     | where name == "FeatureEvaluation"
-    | where tostring(customDimensions.FeatureFlagReference) == "https://<store-endpoint>/kv/.appconfig.featureflag/Greeting"
+    | where tostring(customDimensions.FeatureFlagReference) == "https://<AppConfigurationEndpoint>/kv/.appconfig.featureflag/Greeting"
     | extend TargetingId = tostring(customDimensions.TargetingId),
             Variant = tostring(customDimensions.Variant)
     | summarize Variant = any(Variant) by TargetingId;

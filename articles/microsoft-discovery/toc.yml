@@ -85,6 +85,9 @@ items:
           - name: Projects and Investigations
             href: concept-projects-investigations.md
             displayName: Microsoft Discovery, projects, investigations, workspace, research, organization
+          - name: GitHub Copilot & Microsoft Discovery
+            href: concept-copilot.md
+            displayName: Microsoft Discovery, projects, investigations, GitHub Copilot
       - name: Agents
         items:
           - name: Discovery Agent concepts
@@ -200,6 +203,9 @@ items:
           - name: Debug task execution
             href: how-to-debug-task-execution.md
             displayName: debug, troubleshoot, stuck tasks, validation, errors
+          - name: Use GitHub Copilot in Microsoft Discovery
+            href: how-to-copilot.md
+            displayName: Microsoft Discovery, GitHub Copilot
       - name: Tools
         items:
           - name: Plan tool requirements

@@ -48,7 +48,7 @@ If needed, sign in first by using `az login`.
 Run the following command:
 
 ```azurecli-interactive
-az appconfig update --name <name-of-the-appconfig-store> --public-network-access disabled
+az appconfig update --name <AppConfigurationStoreName> --public-network-access disabled
 ```
 
 > [!NOTE]

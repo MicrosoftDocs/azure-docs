@@ -52,9 +52,9 @@ This tutorial uses the Service Bus integration for Event Grid to streamline the 
     ### [Windows Command Prompt](#tab/windowscommandprompt)
 
     ```console
-    setx ServiceBusConnectionString "<Service-Bus-namespace-connection-string>"
-    setx ServiceBusTopic "<Service-Bus-topic-name>"
-    setx ServiceBusSubscription "<Service-Bus-subscription-name>"
+    setx ServiceBusConnectionString "<ServiceBusNamespaceConnectionString>"
+    setx ServiceBusTopic "<ServiceBusTopicName>"
+    setx ServiceBusSubscription "<ServiceBusSubscriptionName>"
     ```
 
     After you run these commands, close and reopen Command Prompt so that the changes take effect.
@@ -62,25 +62,25 @@ This tutorial uses the Service Bus integration for Event Grid to streamline the 
     ### [PowerShell](#tab/powershell)
 
     ```powershell
-    $Env:ServiceBusConnectionString = "<Service-Bus-namespace-connection-string>"
-    $Env:ServiceBusTopic = "<Service-Bus-topic-name>"
-    $Env:ServiceBusSubscription = "<Service-Bus-subscription-name>"
+    $Env:ServiceBusConnectionString = "<ServiceBusNamespaceConnectionString>"
+    $Env:ServiceBusTopic = "<ServiceBusTopicName>"
+    $Env:ServiceBusSubscription = "<ServiceBusSubscriptionName>"
     ```
 
     ### [macOS](#tab/unix)
 
     ```console
-    export ServiceBusConnectionString='<Service-Bus-namespace-connection-string>'
-    export ServiceBusTopic='<Service-Bus-topic-name>'
-    export ServiceBusSubscription='<Service-Bus-subscription-name>'
+    export ServiceBusConnectionString='<ServiceBusNamespaceConnectionString>'
+    export ServiceBusTopic='<ServiceBusTopicName>'
+    export ServiceBusSubscription='<ServiceBusSubscriptionName>'
     ```
 
     ### [Linux](#tab/linux)
 
     ```console
-    export ServiceBusConnectionString='<Service-Bus-namespace-connection-string>'
-    export ServiceBusTopic='<Service-Bus-topic-name>'
-    export ServiceBusSubscription='<Service-Bus-subscription-name>'
+    export ServiceBusConnectionString='<ServiceBusNamespaceConnectionString>'
+    export ServiceBusTopic='<ServiceBusTopicName>'
+    export ServiceBusSubscription='<ServiceBusSubscriptionName>'
     ```
 
     ---
@@ -242,7 +242,7 @@ The `ProcessPushNotification` method takes in a `PushNotification` object that c
     ### [Windows Command Prompt](#tab/windowscommandprompt)
 
     ```console
-    setx AppConfigurationConnectionString "<App-Configuration-store-connection-string>"
+    setx AppConfigurationConnectionString "<AppConfigurationConnectionString>"
     ```
 
     After you run this command, close and reopen Command Prompt so that the change takes effect.
@@ -250,19 +250,19 @@ The `ProcessPushNotification` method takes in a `PushNotification` object that c
     ### [PowerShell](#tab/powershell)
 
     ```powershell
-    $Env:AppConfigurationConnectionString = "<App-Configuration-store-connection-string>"
+    $Env:AppConfigurationConnectionString = "<AppConfigurationConnectionString>"
     ```
 
     ### [macOS](#tab/unix)
 
     ```console
-    export AppConfigurationConnectionString='<App-Configuration-store-connection-string>'
+    export AppConfigurationConnectionString='<AppConfigurationConnectionString>'
     ```
 
     ### [Linux](#tab/linux)
 
     ```console
-    export AppConfigurationConnectionString='<App-Configuration-store-connection-string>'
+    export AppConfigurationConnectionString='<AppConfigurationConnectionString>'
     ```
 
     ---

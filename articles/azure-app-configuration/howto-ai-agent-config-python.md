@@ -135,17 +135,17 @@ In this section, you create a console application and load the agent YAML specif
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AZURE_APPCONFIGURATION_ENDPOINT "<endpoint-of-your-app-configuration-store>"
+    setx AZURE_APPCONFIGURATION_ENDPOINT "<AppConfigurationEndpoint>"
     ```
 
     If you use PowerShell, run the following command:
     ```powershell
-    $Env:AZURE_APPCONFIGURATION_ENDPOINT="<endpoint-of-your-app-configuration-store>"
+    $Env:AZURE_APPCONFIGURATION_ENDPOINT="<AppConfigurationEndpoint>"
     ```
 
     If you use macOS or Linux, run the following command:
     ```bash
-    export AZURE_APPCONFIGURATION_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    export AZURE_APPCONFIGURATION_ENDPOINT='<AppConfigurationEndpoint>'
     ```
 
 1. After the environment variable is properly set, run the following command to run the app locally:
