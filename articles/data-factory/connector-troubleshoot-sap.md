@@ -5,7 +5,8 @@ description: Learn how to troubleshoot issues with the SAP Table, SAP Business W
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 01/05/2024
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---

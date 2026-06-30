@@ -6,7 +6,8 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 05/15/2024
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -59,7 +60,7 @@ With the Azure Data Explorer connector, you can do the following:
 
 Use the following steps to create a linked service to Azure Data Explorer in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -105,7 +106,7 @@ To use service principal authentication, follow these steps to get a service pri
     - **As sink**, grant at least the **Database user** role to your database
 
 >[!NOTE]
->When you use the UI to author, by default your login user account is used to list Azure Data Explorer clusters, databases, and tables. You can choose to list the objects using the service principal by clicking the dropdown next to the refresh button, or manually enter the name if you don't have permission for these operations.
+>When you use the UI to author, by default your login user account is used to list Azure Data Explorer clusters, databases, and tables. You can choose to list the objects using the service principal by selecting the dropdown next to the refresh button, or manually enter the name if you don't have permission for these operations.
 
 The following properties are supported for the Azure Data Explorer linked service:
 
@@ -140,7 +141,7 @@ The following properties are supported for the Azure Data Explorer linked servic
 }
 ```
 
-### <a name="managed-identity"></a> System-assigned managed identity authentication
+### <a id="managed-identity"></a> System-assigned managed identity authentication
 
 To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -385,7 +386,7 @@ source(allowSchemaDrift: true,
 
 ### Sink transformation
 
-The below table lists the properties supported by Azure Data Explorer sink. You can edit these properties in the **Settings** tab. When using inline dataset, you will see additional settings, which are the same as the properties described in [dataset properties](#dataset-properties) section. 
+The below table lists the properties supported by Azure Data Explorer sink. You can edit these properties in the **Settings** tab. When using inline dataset, you'll see additional settings, which are the same as the properties described in [dataset properties](#dataset-properties) section. 
 
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |

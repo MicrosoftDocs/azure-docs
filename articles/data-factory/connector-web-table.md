@@ -6,7 +6,8 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: how-to
-ms.date: 10/20/2023
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ms.author: jianleishen
 ---
 # Copy data from Web table by using Azure Data Factory or Synapse Analytics
@@ -47,7 +48,7 @@ To use this Web table connector, you need to set up a Self-hosted Integration Ru
 
 Use the following steps to create a linked service to Web Table in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -109,7 +110,7 @@ To copy data from Web table, set the type property of the dataset to **WebTable*
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **WebTable** | Yes |
-| path |A relative URL to the resource that contains the table. |No. When path is not specified, only the URL specified in the linked service definition is used. |
+| path |A relative URL to the resource that contains the table. |No. When path isn't specified, only the URL specified in the linked service definition is used. |
 | index |The index of the table in the resource. See [Get index of a table in an HTML page](#get-index-of-a-table-in-an-html-page) section for steps to getting index of a table in an HTML page. |Yes |
 
 **Example:**
@@ -176,28 +177,28 @@ To copy data from Web table, set the source type in the copy activity to **WebSo
 To get the index of a table which you need to configure in [dataset properties](#dataset-properties), you can use e.g. Excel 2016 as the tool as follows:
 
 1. Launch **Excel 2016** and switch to the **Data** tab.
-2. Click **New Query** on the toolbar, point to **From Other Sources** and click **From Web**.
+2. Select **New Query** on the toolbar, point to **From Other Sources** and select **From Web**.
 
     :::image type="content" source="./media/copy-data-from-web-table/PowerQuery-Menu.png" alt-text="Power Query menu":::
-3. In the **From Web** dialog box, enter **URL** that you would use in linked service JSON (for example: https://en.wikipedia.org/wiki/) along with path you would specify for the dataset (for example: AFI%27s_100_Years...100_Movies), and click **OK**.
+3. In the **From Web** dialog box, enter **URL** that you would use in linked service JSON (for example: https://en.wikipedia.org/wiki/) along with path you would specify for the dataset (for example: AFI%27s_100_Years...100_Movies), and select **OK**.
 
     :::image type="content" source="./media/copy-data-from-web-table/FromWeb-DialogBox.png" alt-text="From Web dialog":::
 
     URL used in this example: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
-4. If you see **Access Web content** dialog box, select the right **URL**, **authentication**, and click **Connect**.
+4. If you see **Access Web content** dialog box, select the right **URL**, **authentication**, and select **Connect**.
 
    :::image type="content" source="./media/copy-data-from-web-table/AccessWebContentDialog.png" alt-text="Access Web content dialog box":::
-5. Click a **table** item in the tree view to see content from the table and then click **Edit** button at the bottom.  
+5. Select a **table** item in the tree view to see content from the table and then select **Edit** button at the bottom.  
 
    :::image type="content" source="./media/copy-data-from-web-table/Navigator-DialogBox.png" alt-text="Navigator dialog":::
-6. In the **Query Editor** window, click **Advanced Editor** button on the toolbar.
+6. In the **Query Editor** window, select **Advanced Editor** button on the toolbar.
 
     :::image type="content" source="./media/copy-data-from-web-table/QueryEditor-AdvancedEditorButton.png" alt-text="Advanced Editor button":::
 7. In the Advanced Editor dialog box, the number next to "Source" is the index.
 
     :::image type="content" source="./media/copy-data-from-web-table/AdvancedEditor-Index.png" alt-text="Advanced Editor - Index":::
 
-If you are using Excel 2013, use [Connect to a web page](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) article for details. The steps are similar if you are using [Microsoft Power BI for Desktop](https://powerbi.microsoft.com/desktop/).
+If you're using Excel 2013, use [Connect to a web page](https://support.office.com/article/Connect-to-a-web-page-Power-Query-b2725d67-c9e8-43e6-a590-c0a175bd64d8) article for details. The steps are similar if you're using [Microsoft Power BI for Desktop](https://powerbi.microsoft.com/desktop/).
 
 
 ## Lookup activity properties

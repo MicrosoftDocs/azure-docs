@@ -5,7 +5,8 @@ titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 10/20/2023
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ms.author: jianleishen
 ms.custom:
   - synapse
@@ -34,7 +35,7 @@ Specifically, this Sybase connector supports:
 - SAP Sybase SQL Anywhere (ASA) **version 16 and above**.
 - Copying data using **Basic** or **Windows** authentication.
 
-Sybase IQ and ASE are not supported. You can use generic ODBC connector with Sybase driver instead.
+Sybase IQ and ASE aren't supported. You can use generic ODBC connector with Sybase driver instead.
 
 ## Prerequisites
 
@@ -51,7 +52,7 @@ To use this Sybase connector, you need to:
 
 Use the following steps to create a linked service to Sybase in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -141,7 +142,7 @@ To copy data from Sybase, the following properties are supported:
 }
 ```
 
-If you were using `RelationalTable` typed dataset, it is still supported as-is, while you are suggested to use the new one going forward.
+If you were using `RelationalTable` typed dataset, it's still supported as-is, while you're suggested to use the new one going forward.
 
 ## Copy activity properties
 
@@ -188,7 +189,7 @@ To copy data from Sybase, the following properties are supported in the copy act
 ]
 ```
 
-If you were using `RelationalSource` typed source, it is still supported as-is, while you are suggested to use the new one going forward.
+If you were using `RelationalSource` typed source, it's still supported as-is, while you're suggested to use the new one going forward.
 
 ## Data type mapping for Sybase
 

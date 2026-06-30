@@ -6,7 +6,8 @@ author: jianleishen
 ms.author: ulrichchrist
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 10/20/2023
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -44,7 +45,7 @@ Specifically, this SAP Business Warehouse connector supports:
 - Copying data using basic authentication.
 
 >[!NOTE]
->The SAP Business Warehouse connector does not currently support parameters with MDX.  If filtering with MDX parameters is required you can consider using the alternative [SAP Open Hub connector](connector-sap-business-warehouse-open-hub.md) instead.
+>The SAP Business Warehouse connector doesn't currently support parameters with MDX.  If filtering with MDX parameters is required you can consider using the alternative [SAP Open Hub connector](connector-sap-business-warehouse-open-hub.md) instead.
 
 ## Prerequisites
 
@@ -66,7 +67,7 @@ To use this SAP Business Warehouse connector, you need to:
 
 Use the following steps to create a linked service to SAP BW in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -150,7 +151,7 @@ To copy data from SAP BW, set the type property of the dataset to **SapBwCube**.
 }
 ```
 
-If you were using `RelationalTable` typed dataset, it is still supported as-is, while you are suggested to use the new one going forward.
+If you were using `RelationalTable` typed dataset, it's still supported as-is, while you're suggested to use the new one going forward.
 
 ## Copy activity properties
 
@@ -197,7 +198,7 @@ To copy data from SAP BW, the following properties are supported in the copy act
 ]
 ```
 
-If you were using `RelationalSource` typed source, it is still supported as-is, while you are suggested to use the new one going forward.
+If you were using `RelationalSource` typed source, it's still supported as-is, while you're suggested to use the new one going forward.
 
 ## Data type mapping for SAP BW
 
