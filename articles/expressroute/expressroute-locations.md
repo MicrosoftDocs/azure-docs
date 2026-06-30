@@ -65,7 +65,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** | &check; | &check; | Amsterdam<br/>Amsterdam2<br/>Chicago<br/>Frankfurt<br/>Hong Kong SAR<br/>Johannesburg<br/>London<br/>London<br/>London2<br/>Mumbai<br/>Newport<br/>Paris<br/>Sao Paulo<br/>Silicon Valley<br/>Singapore<br/>Sydney<br/>Tokyo<br/>Washington DC |
 | **BSNL** | &check; | &check; | Chennai<br/>Mumbai |
 | **[C3ntro](https://www.c3ntro.com/)** | &check; | &check; | Miami<br/>Queretaro |
-| **Cello** | &check; | &check; | Sydney |
+| **[Cello](https://cello.co.nz/solutions/cloud-connect)** | &check; | &check; | Auckland<br/>Sydney |
 | **Cellcom Fixed Line Communication (l.p.)** | &check; | &check; | Tel Aviv<br/>Tel Aviv2 |
 | **[CDC](https://cdc.com/services/network-services/)** | &check; | &check; | Canberra<br/>Canberra2 |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** | &check; | &check; | Amsterdam2<br/>Atlanta<br/>Chicago<br/>Chicago2<br/>Dallas<br/>Dublin<br/>Frankfurt<br/>Hong Kong SAR<br/>Las Vegas<br/>London<br/>London2<br/>Montreal<br/>New York<br/>Paris<br/>Phoenix<br/>Phoenix2<br/>San Antonio<br/>Seattle<br/>Silicon Valley<br/>Singapore2<br/>Sydney<br/>Tokyo<br/>Toronto<br/>Washington DC<br/>Washington DC2 |
