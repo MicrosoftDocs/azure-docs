@@ -277,7 +277,7 @@ param endpointName string = 'adls-gen2-endpoint'
 param containerName string = 'aiotutorial'
 param serialFormat string = 'Delta'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2025-10-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -286,17 +286,17 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
 }
 
 // Pointer to the default data flow profile
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2025-10-01' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource adlsEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2025-10-01' existing = {
+resource adlsEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' existing = {
   parent: aioInstance
   name: endpointName
 }
 
-resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2025-10-01' existing = {
+resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
@@ -305,7 +305,7 @@ resource asset 'Microsoft.DeviceRegistry/assets@2025-10-01' existing = {
   name: assetName
 }
 
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2025-10-01' = {
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-03-01' = {
   // Reference to the parent data flow profile, the default profile in this case
   // Same usage as profileRef in Kubernetes YAML
   parent: defaultDataflowProfile
