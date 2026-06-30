@@ -70,61 +70,60 @@
   items:
   - name: Overview
     href: ai-models-tools-agents-overview.md
+  - name: V1 and V2 tiers
     items:
-    - name: V1 and V2 tiers
+    - name: AI Gateway overview
       items:
-      - name: AI Gateway overview
-        items:
-        - name: AI Gateway capabilities
-          href: genai-gateway-capabilities.md
-      - name: Manage LLM APIs
-        items:
-        - name: Create a unified model API
-          href: unified-model-api.md
-        - name: Import Microsoft Foundry API
-          href: azure-ai-foundry-api.md
-        - name: Import Azure OpenAI API
-          href: azure-openai-api-from-specification.md
-        - name: Import language model API
-          href: openai-compatible-llm-api.md
-        - name: Import Google Gemini API
-          href: openai-compatible-google-gemini-api.md
-        - name: Import Amazon Bedrock API
-          href: amazon-bedrock-passthrough-llm-api.md
-        - name: Authenticate and authorize to LLM APIs
-          href: api-management-authenticate-authorize-ai-apis.md
-      - name: AI tools and agent integrations
-        items:
-        - name: Model Context Protocol (MCP) server capabilities
-          href: mcp-server-overview.md
-        - name: Expose REST API as MCP server
-          href: export-rest-mcp-server.md
-        - name: Expose existing MCP server
-          href: expose-existing-mcp-server.md
-        - name: Govern MCP servers with products
-          href: govern-mcp-server-products.md
-        - name: Secure access to MCP servers
-          href: secure-mcp-servers.md
-        - name: Roll out MCP servers using versions
-          href: mcp-server-versions.md
-        - name: Import agent-to-agent (A2A) API
-          href: agent-to-agent-api.md
-      - name: Logging, metrics, and semantic caching
-        items:
-        - name: Log LLM tokens, requests, and responses
-          href: api-management-howto-llm-logs.md
-        - name: Semantic caching for LLM API requests
-          href: azure-openai-enable-semantic-caching.md
-    - name: AI Gateway tiers
+      - name: AI Gateway capabilities
+        href: genai-gateway-capabilities.md
+    - name: Manage LLM APIs
       items:
-      - name: Overview
-        href: ai-gateway-overview.md
-      - name: Create an instance
-        href: quickstart-ai-gateway-create.md
-      - name: Manage models and tools
-        href: ai-gateway-manage-models-tools.md
-      - name: Govern, secure, and operate
-        href: ai-gateway-govern-secure-operate.md
+      - name: Create a unified model API
+        href: unified-model-api.md
+      - name: Import Microsoft Foundry API
+        href: azure-ai-foundry-api.md
+      - name: Import Azure OpenAI API
+        href: azure-openai-api-from-specification.md
+      - name: Import language model API
+        href: openai-compatible-llm-api.md
+      - name: Import Google Gemini API
+        href: openai-compatible-google-gemini-api.md
+      - name: Import Amazon Bedrock API
+        href: amazon-bedrock-passthrough-llm-api.md
+      - name: Authenticate and authorize to LLM APIs
+        href: api-management-authenticate-authorize-ai-apis.md
+    - name: AI tools and agent integrations
+      items:
+      - name: Model Context Protocol (MCP) server capabilities
+        href: mcp-server-overview.md
+      - name: Expose REST API as MCP server
+        href: export-rest-mcp-server.md
+      - name: Expose existing MCP server
+        href: expose-existing-mcp-server.md
+      - name: Govern MCP servers with products
+        href: govern-mcp-server-products.md
+      - name: Secure access to MCP servers
+        href: secure-mcp-servers.md
+      - name: Roll out MCP servers using versions
+        href: mcp-server-versions.md
+      - name: Import agent-to-agent (A2A) API
+        href: agent-to-agent-api.md
+    - name: Logging, metrics, and semantic caching
+      items:
+      - name: Log LLM tokens, requests, and responses
+        href: api-management-howto-llm-logs.md
+      - name: Semantic caching for LLM API requests
+        href: azure-openai-enable-semantic-caching.md
+  - name: AI Gateway tiers
+    items:
+    - name: Overview
+      href: ai-gateway-overview.md
+    - name: Create an instance
+      href: quickstart-ai-gateway-create.md
+    - name: Manage models and tools
+      href: ai-gateway-manage-models-tools.md
+    - name: Govern, secure, and operate
+      href: ai-gateway-govern-secure-operate.md
 - name: Create and import APIs
   items:
   - name: Add an API manually
