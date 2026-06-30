@@ -91,6 +91,8 @@ Microsoft Sentinel is a security information and event management (SIEM) system 
 
 For more information, see [Using Microsoft Sentinel with Azure Web Application Firewall](../waf-sentinel.md).
 
-## Next step
+## Related content
 
-Learn how to [enable the WAF on an Application Gateway](application-gateway-web-application-firewall-portal.md).
+- [Web Application Firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md)
+- [Web Application Firewall exclusion lists](application-gateway-waf-configuration.md)
+- [Web Application Firewall (WAF) v2 custom rules on Application Gateway](custom-waf-rules-overview.md)
