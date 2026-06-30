@@ -1,36 +1,36 @@
 ---
-title: Govern, secure, and operate
-description: Learn how to govern, secure, network, and monitor Azure API Management AI Gateway during preview.
+title: Govern, secure, and operate AI Gateway tier (preview)
+description: Learn how to govern, secure, network, and monitor Azure API Management AI Gateway tier preview.
 ms.service: azure-api-management
-author: <your-github-alias>
+author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
 ms.date: 06/29/2026
 ---
 
-**APPLIES TO: AI Gateway (preview)**
+[!INCLUDE [api-gateway-tier-preview](../includes/preview/preview-ai-gateway-tier.md)]
 
-# Govern, secure, and operate
+# Govern, secure, and operate AI Gateway tier (preview)
 
-Use Azure API Management AI Gateway to put common controls in front of AI models, Microsoft Foundry resources, Azure OpenAI deployments, MCP servers, and tools. Platform teams can apply governance, security, network, and monitoring settings in one place while application teams keep using the assets they need.
+Use Azure API Management AI Gateway tier (preview) to put common controls in front of AI models, Microsoft Foundry resources, Azure OpenAI deployments, MCP servers, and tools. Platform teams can apply governance, security, network, and monitoring settings in one place while application teams keep using the assets they need.
 
-AI Gateway is in preview. Use it for pilots and production-like validation. Features, regions, limits, telemetry fields, and setup flows can change before general availability. The preview supports quick provisioning, but reliability is best effort. Monitor errors and keep a rollback path for critical applications.
+AI Gateway tier is in preview. Use it for pilots and production-like validation. Features, regions, limits, telemetry fields, and setup flows can change before general availability. The preview supports quick provisioning, but reliability is best effort. Monitor errors and keep a rollback path for critical applications.
 
 Use token and request controls to manage live traffic behavior. For detailed financial tracking, use provider billing reports or Azure Cost Management.
 
 ## Prerequisites
 
-- An AI Gateway instance.
-- Permission to manage the AI Gateway instance.
+- An AI Gateway tier instance.
+- Permission to manage the AI Gateway tier instance.
 - Access to the provider model or backend you plan to govern.
 - For managed identity backend authentication, permission to assign the required role on the backend resource.
 - Access to a telemetry destination, such as Application Insights or another OpenTelemetry (OTLP)-compatible endpoint.
 
 ## Governance policies
 
-Governance policies protect AI traffic before requests reach backend models or tools. In preview, policies are configured through visual cards. Administrators select a policy type, choose a target scope, fill in validated fields, and save. You don't need to write XML, paste policy fragments, or use policy expressions.
+Governance policies protect AI traffic before requests reach backend models or tools. In preview, you configure policies through visual cards. Administrators select a policy type, choose a target scope, fill in validated fields, and save. You don't need to write XML, paste policy fragments, or use policy expressions.
 
-Policies can apply globally to the gateway or to an individual model or tool. Use global policies for baseline controls, such as content safety for all traffic. Use asset-level policies when one model or tool has different risk, capacity, or network requirements. When more than one policy applies, the gateway enforces the effective set for the request. If a policy blocks a request, the client receives an error response.
+You can apply policies globally to the gateway or to an individual model or tool. Use global policies for baseline controls, such as content safety for all traffic. Use asset-level policies when one model or tool has different risk, capacity, or network requirements. When more than one policy applies, the gateway enforces the effective set for the request. If a policy blocks a request, the client receives an error response.
 
 Start with these policy types:
 
@@ -40,7 +40,7 @@ Start with these policy types:
 - **PII controls**: Detect and control sensitive personal data in prompts, tool inputs, outputs, or responses. Use them for customer records, support tickets, documents, and other user-provided content.
 - **IP filtering**: Restrict runtime calls to approved client network ranges. Apply it globally for private applications or to a specific tool that needs a tighter boundary.
 
-Governance policies are operational controls. Token limits help reduce spikes and provide usage signals; for financial reporting, use provider billing or Azure Cost Management.
+Governance policies are operational controls. Token limits help reduce spikes and provide usage signals. For financial reporting, use provider billing or Azure Cost Management.
 
 ## Security and identity
 
@@ -52,7 +52,7 @@ For backend authentication, prefer managed identity when the backend supports it
 
 ## Runtime access keys
 
-Runtime access keys let client applications call assets exposed by AI Gateway without receiving backend credentials. Client applications authenticate to the gateway with runtime access keys. A client sends a runtime access key to the gateway in the `api-key` header. The gateway validates the key, applies governance policies, and authenticates to the backend by using the configured API key, OAuth configuration for tools, or managed identity. Use runtime access keys for agent applications, evaluation harnesses, developer tools, and automation that call MCP servers, OpenAPI-generated MCP tools, model resources, or other gateway assets.
+Runtime access keys let client applications call assets exposed by AI Gateway tier without receiving backend credentials. Client applications authenticate to the gateway with runtime access keys. A client sends a runtime access key to the gateway in the `api-key` header. The gateway validates the key, applies governance policies, and authenticates to the backend by using the configured API key, OAuth configuration for tools, or managed identity. Use runtime access keys for agent applications, evaluation harnesses, developer tools, and automation that call MCP servers, OpenAPI-generated MCP tools, model resources, or other gateway assets.
 
 The gateway generates a runtime access key, assigns it to an owner, and rotates or revokes it as needed. Asset access can be limited when supported by the preview configuration.
 
@@ -69,13 +69,13 @@ Client applications include the runtime access key in the `api-key` header. Don'
 
 ## Use managed identity for backend authentication
 
-Configure managed identity so AI Gateway can authenticate to supported model and MCP server backends without storing API keys. Using managed identity to access models and MCP servers is a new public preview capability. Prefer managed identity where supported because it reduces backend key management. It removes key rotation from gateway configuration and lets you manage access with Azure RBAC. AI Gateway supports system-assigned and user-assigned managed identities.
+Configure managed identity so AI Gateway tier can authenticate to supported model and MCP server backends without storing API keys. Using managed identity to access models and MCP servers is a new public preview capability. Prefer managed identity where supported because it reduces backend key management. It removes key rotation from gateway configuration and lets you manage access with Azure RBAC. AI Gateway tier supports system-assigned and user-assigned managed identities.
 
 Use a system-assigned identity when one gateway needs backend access. Use a user-assigned identity when multiple gateways need a shared identity. Use an API key when a provider doesn't support managed identity.
 
 Before you configure backend authentication, make sure you have these items:
 
-- An AI Gateway SKU instance.
+- An AI Gateway tier instance.
 - A Microsoft Foundry or Azure OpenAI resource that hosts the model deployment.
 - Permission to update gateway identity settings.
 - Permission to assign Azure RBAC roles on the backend resource.
@@ -118,7 +118,7 @@ If calls fail with 401 errors, confirm the import uses managed identity and the 
 
 ## Regional availability
 
-During public preview, the AI Gateway SKU is available in the following Azure regions.
+During public preview, the AI Gateway tier is available in the following Azure regions.
 
 | Geography | Preview region | Suggested use |
 | --- | --- | --- |
@@ -140,7 +140,7 @@ Inbound and outbound networking solve different problems. Creating a private end
 
 Before you configure private networking, prepare these items:
 
-- An AI Gateway resource in a supported preview region.
+- An AI Gateway tier resource in a supported preview region.
 - A virtual network with non-overlapping address space.
 - Subnets for private endpoints and outbound integration.
 - Permissions to create private endpoints and DNS resources.
@@ -191,6 +191,6 @@ Start with alerts you can act on, such as high 5xx rate, high P95 or P99 latency
 
 ## Related content
 
-- [AI Gateway overview](./overview.md)
-- [Quickstart: Create an AI Gateway instance](./quickstart-create.md)
-- [Manage models and tools](./models-and-tools.md)
+- [AI Gateway tier overview](./ai-gateway-overview.md)
+- [Quickstart: Create an AI Gateway tier instance](./quickstart-ai-gateway-create.md)
+- [Manage models and tools](./ai-gateway-manage-models-tools.md)

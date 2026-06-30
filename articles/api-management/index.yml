@@ -119,16 +119,16 @@ landingContent:
           - text: Expose REST API as MCP server
             url: export-rest-mcp-server.md
 # Card
-  - title: AI gateway SKU
+  - title: AI gateway tier
     linkLists:
       - linkListType: concept
         links:
-          - text: AI gateway SKU overview
-            url: api-management-gateways-overview.md
+          - text: AI gateway tier overview
+            url: ai-gateway-overview.md
       -  linkListType: get-started
          links:
-          - text: Get started with AI gateway SKU
-            url: api-management-gateways-overview.md
+          - text: Get started
+            url: quickstart-ai-gateway-create.md
 # Card
   - title: Related services
     linkLists:

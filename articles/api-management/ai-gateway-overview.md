@@ -1,31 +1,32 @@
 ---
-title: AI Gateway overview
-description: Learn how AI Gateway helps you publish, secure, govern, and observe access to AI models and tools.
+title: AI Gateway tier (preview) overview
+description: Learn how AI Gateway tier (preview) helps you publish, secure, govern, and observe access to AI models and tools.
 ms.service: azure-api-management
-author: <your-github-alias>
-ms.author: <your-ms-alias>
+author: PatAltimore
+ms.author: patricka
 ms.topic: overview
 ms.date: 06/29/2026
 ---
-**APPLIES TO: AI Gateway (preview)**
 
-# AI Gateway overview
+[!INCLUDE [api-gateway-tier-preview](../includes/preview/preview-ai-gateway-tier.md)]
 
-AI Gateway is a fully managed Azure API Management offering for AI workloads. It gives teams one place to publish, secure, govern, and observe access to AI models and Model Context Protocol (MCP) tools.
+# AI Gateway tier overview
 
-AI Gateway is in public preview. Preview features, regions, service limits, API shapes, and pricing can change before general availability.
+AI Gateway tier (preview) is a fully managed Azure API Management offering for AI workloads. It gives teams one place to publish, secure, govern, and observe access to AI models and Model Context Protocol (MCP) tools.
 
-## What is AI Gateway?
+AI Gateway tier is in public preview. Preview features, regions, service limits, API shapes, and pricing can change before general availability.
 
-AI Gateway is a managed gateway for applications that call models and tools. Applications call a gateway endpoint instead of calling each provider or tool backend directly. The gateway authenticates the caller, applies policies, sends the request to the selected backend, returns the response, and emits telemetry.
+## What is AI Gateway tier?
 
-Use AI Gateway when you want a fully managed path for AI traffic. You don't plan or manage customer scale units. Provisioning is quick. Billing is consumption-based with a free tier for getting started.
+AI Gateway tier is a managed gateway for applications that call models and tools. Applications call a gateway endpoint instead of calling each provider or tool backend directly. The gateway authenticates the caller, applies policies, sends the request to the selected backend, returns the response, and emits telemetry.
+
+Use AI Gateway tier when you want a fully managed path for AI traffic. You don't plan or manage customer scale units. Provisioning is quick. Billing is consumption-based with a free tier for getting started.
 
 ## Why use it
 
-AI Gateway helps teams keep AI traffic governed. It gives platform teams a common runtime boundary for apps, models, and tools.
+AI Gateway tier helps teams keep AI traffic governed. It gives platform teams a common runtime boundary for apps, models, and tools.
 
-Use AI Gateway to:
+Use AI Gateway tier to:
 
 - Put one gateway endpoint in front of supported AI providers.
 - Keep provider credentials hidden from applications.
@@ -55,15 +56,15 @@ Supported providers include Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google
 
 ### MCP server, backends, and tools
 
-An MCP server is the governed front door for agents. It routes to one or more backends (remote MCP servers, OpenAPI APIs, or built-in connectors), and each backend exposes operations as tools that agents call. In AI Gateway, you can bring an MCP server by URL or convert an OpenAPI description into MCP tools.
+An MCP server is the governed front door for agents. It routes to one or more backends (remote MCP servers, OpenAPI APIs, or built-in connectors), and each backend exposes operations as tools that agents call. In AI Gateway tier, you can bring an MCP server by URL or convert an OpenAPI description into MCP tools.
 
 A backend is the service behind a model or tool. It can be a provider endpoint, business API, search system, workflow endpoint, or another service exposed through MCP.
 
-Tools are the approved operations that agents can use. Publishing tools through AI Gateway centralizes access control, monitoring, and governance.
+Tools are the approved operations that agents can use. Publishing tools through AI Gateway tier centralizes access control, monitoring, and governance.
 
 ### Policies
 
-A policy is a runtime governance control for AI traffic. AI Gateway shows common AI controls as cards and declarative settings in the portal, instead of requiring teams to edit XML.
+A policy is a runtime governance control for AI traffic. The AI Gateway tier shows common AI controls as cards and declarative settings in the portal, instead of requiring teams to edit XML.
 
 | Policy | What it controls |
 | --- | --- |
@@ -89,7 +90,7 @@ Developers browse a self-service catalog of available models and tools. Each ass
 
 ## Regional availability
 
-During public preview, you can provision AI Gateway in these regions:
+During public preview, you can provision AI Gateway tier in these regions:
 
 | Geography | Region |
 | --- | --- |
@@ -102,11 +103,11 @@ The public preview includes these capabilities.
 
 ### Anthropic Messages passthrough
 
-Anthropic Messages passthrough lets applications send native Anthropic Messages requests through AI Gateway while still using gateway governance, access control, and monitoring.
+Anthropic Messages passthrough lets applications send native Anthropic Messages requests through AI Gateway tier while still using gateway governance, access control, and monitoring.
 
 ### Managed identity for backend authentication
 
-Managed identity lets AI Gateway authenticate to supported model and MCP server backends without customer-managed secrets. This is a new public preview capability. It aligns backend authentication with Azure identity practices and reduces key management work.
+Managed identity lets AI Gateway tier authenticate to supported model and MCP server backends without customer-managed secrets. This is a new public preview capability. It aligns backend authentication with Azure identity practices and reduces key management work.
 
 ### Private networking
 
@@ -114,25 +115,25 @@ Private networking includes inbound Private Link and outbound virtual network in
 
 ## Frequently asked questions
 
-### Is AI Gateway ready for production?
+### Is AI Gateway tier ready for production?
 
-AI Gateway is in public preview, so availability is best effort without generally available service-level commitments. Breaking changes to APIs, portal workflows, telemetry, limits, regions, or pricing can happen, and preview quotas can cap the number of models, tools, runtime access keys, requests, and token throughput. Start with noncritical workloads, controlled pilots, and clear rollback plans.
+AI Gateway tier is in public preview, so availability is best effort without generally available service-level commitments. Breaking changes to APIs, portal workflows, telemetry, limits, regions, or pricing can happen. Preview quotas can cap the number of models, tools, runtime access keys, requests, and token throughput. Start with noncritical workloads, controlled pilots, and clear rollback plans.
 
 ### How is pricing handled during preview?
 
-AI Gateway has a free tier to get started and then uses consumption billing. You might also pay for related resources, such as model providers, Application Insights, networking, and observability platforms.
+AI Gateway tier has a free tier to get started and then uses consumption billing. You might also pay for related resources, such as model providers, Application Insights, networking, and observability platforms.
 
 ### Which regions are available?
 
-AI Gateway is available in East US 2 and Sweden Central. See [Regional availability](#regional-availability).
+AI Gateway tier is available in East US 2 and Sweden Central. See [Regional availability](#regional-availability).
 
 ### How is my data handled?
 
-You choose where telemetry goes. With Application Insights, it stays in your Azure subscription; other OpenTelemetry (OTLP) destinations follow your configuration and the provider's terms. Telemetry uses OpenTelemetry GenAI semantic conventions (the `gen_ai.*` prefix). Data residency depends on the full request path, so place the gateway, backends, and telemetry destinations in approved regions and involve your security and privacy teams.
+You choose where telemetry goes. With Application Insights, it stays in your Azure subscription. Other OpenTelemetry (OTLP) destinations follow your configuration and the provider's terms. Telemetry uses OpenTelemetry GenAI semantic conventions (the `gen_ai.*` prefix). Data residency depends on the full request path, so place the gateway, backends, and telemetry destinations in approved regions and involve your security and privacy teams.
 
-### Does AI Gateway support private networking?
+### Does AI Gateway tier support private networking?
 
-Yes. Inbound Private Link and outbound virtual network integration are part of the public preview. See [Govern, secure, and operate](./govern-and-operate.md) for setup, DNS, and limitations.
+Yes. Inbound Private Link and outbound virtual network integration are part of the public preview. See [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md) for setup, DNS, and limitations.
 
 ### Which API version should I use for automation?
 
@@ -140,6 +141,6 @@ Use the preview management API version `2026-05-01-preview`. Validate automation
 
 ## Related content
 
-- [Quickstart: Create an AI Gateway instance](./quickstart-create.md)
-- [Manage models and tools](./models-and-tools.md)
-- [Govern, secure, and operate](./govern-and-operate.md)
+- [Quickstart: Create an AI Gateway tier instance](./quickstart-ai-gateway-create.md)
+- [Manage models and tools](./ai-gateway-manage-models-tools.md)
+- [Govern, secure, and operate AI Gateway tier](./ai-gateway-govern-secure-operate.md)

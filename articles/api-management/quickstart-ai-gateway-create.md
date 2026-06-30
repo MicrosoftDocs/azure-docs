@@ -1,25 +1,25 @@
 ---
-title: 'Quickstart: Create an AI Gateway instance'
-description: Create an AI Gateway instance, add a model, generate a runtime access key, call the OpenAI-compatible endpoint, and view telemetry.
+title: 'Quickstart: Create an AI Gateway tier (preview) instance'
+description: Create an AI Gateway (preview) instance, add a model, generate a runtime access key, call the OpenAI-compatible endpoint, and view telemetry.
 ms.service: azure-api-management
-author: <your-github-alias>
-ms.author: <your-ms-alias>
+author: PatAltimore
+ms.author: patricka
 ms.topic: quickstart
 ms.date: 06/29/2026
 ---
 
-**APPLIES TO: AI Gateway (preview)**
+[!INCLUDE [api-gateway-tier-preview](../includes/preview/preview-ai-gateway-tier.md)]
 
-# Quickstart: Create an AI Gateway instance
+# Quickstart: Create an AI Gateway (preview) instance
 
-In this quickstart, you create an AI Gateway instance, add a chat model, create a runtime access key, call the gateway, and view telemetry.
+In this quickstart, you create an AI Gateway (preview) instance, add a chat model, create a runtime access key, call the gateway, and view telemetry.
 
-AI Gateway is a separate Azure API Management offering for AI workloads. It gives you one OpenAI-compatible gateway endpoint for supported model providers, including Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, OpenAI, and Anthropic. AI Gateway provisions quickly, usually within minutes.
+AI Gateway tier is a separate Azure API Management offering for AI workloads. It gives you one OpenAI-compatible gateway endpoint for supported model providers, including Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, OpenAI, and Anthropic. AI Gateway tier provisions quickly, usually within minutes.
 
 **Time to complete:** about 20–30 minutes. **You'll create:** one gateway, one model named `production-chat`, one runtime access key, and one successful chat completion request.
 
 > [!NOTE]
-> AI Gateway is in public preview. Preview features are provided without a service-level agreement and shouldn't be used for production workloads unless your organization accepts the preview terms.
+> AI Gateway tier is in public preview. Preview features are provided without a service-level agreement and shouldn't be used for production workloads unless your organization accepts the preview terms.
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ AI Gateway is a separate Azure API Management offering for AI workloads. It give
 - If your provider requires an API key, have the key available.
 - Python 3.9 or later and the OpenAI Python package, if you want to run the Python sample.
 
-## 1. Provision an AI Gateway instance
+## 1. Provision an AI Gateway tier instance
 
 1. In the Azure portal, search for **API Management**.
 1. Select **Create**.
@@ -43,16 +43,16 @@ AI Gateway is a separate Azure API Management offering for AI workloads. It give
 1. Configure identity. In most cases, enable a system-assigned managed identity so the gateway can authenticate to supported Azure backends.
 1. Review the settings, and then select **Create**.
 
-Provisioning creates a dedicated AI gateway resource in your subscription. You don't choose capacity or add scale units before you add models. Management operations use the preview control plane API version `2026-05-01-preview`. Runtime requests use the gateway host name, not Azure Resource Manager.
+Provisioning creates a dedicated AI Gateway tier resource in your subscription. You don't choose capacity or add scale units before you add models. Management operations use the preview control plane API version `2026-05-01-preview`. Runtime requests use the gateway host name, not Azure Resource Manager.
 
 ## 2. Sign in and open the gateway
 
-1. After deployment completes, go to the AI Gateway instance.
-1. In the gateway resource, select **Open portal**, or go to the AI Gateway portal URL that your organization provides.
+1. After deployment completes, go to the AI Gateway tier instance.
+1. In the gateway resource, select **Open portal**, or go to the AI Gateway tier portal URL that your organization provides.
 1. Sign in with Microsoft Entra ID.
 1. Select the gateway you created.
 
-The AI Gateway portal uses your Entra ID permissions to configure gateway resources. Runtime callers don't need Azure portal access. They call the gateway with runtime access keys that you create later.
+The AI Gateway tier portal uses your Entra ID permissions to configure gateway resources. Runtime callers don't need Azure portal access. They call the gateway with runtime access keys that you create later.
 
 ## 3. Add a model
 
@@ -68,7 +68,7 @@ The AI Gateway portal uses your Entra ID permissions to configure gateway resour
 1. Enter the provider connection settings. The wizard shows the fields required for the selected provider.
 1. Configure backend authentication. For this quickstart, an **API key** is the fastest path:
    - **API key** (recommended for this quickstart): paste the provider key. No role assignment is required.
-   - **Managed identity**: available where the provider supports Microsoft Entra ID authentication, such as Microsoft Foundry or supported Azure OpenAI scenarios. Before you validate, assign the gateway identity the required backend role (for Azure OpenAI, **Cognitive Services OpenAI User**). See [Govern, secure, and operate](./govern-and-operate.md#use-managed-identity-for-backend-authentication).
+   - **Managed identity**: available where the provider supports Microsoft Entra ID authentication, such as Microsoft Foundry or supported Azure OpenAI scenarios. Before you validate, assign the gateway identity the required backend role (for Azure OpenAI, **Cognitive Services OpenAI User**). See [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md#use-managed-identity-for-backend-authentication).
 1. For the model name, enter `production-chat`.
 1. Validate the connection, and then select **Add**.
 
@@ -88,7 +88,7 @@ Runtime access keys are created at the gateway level. Treat them like secrets. S
 
 ## 5. Call the gateway
 
-AI Gateway exposes an OpenAI-compatible endpoint. Use the gateway base URL and pass the model name in the `model` field.
+The AI Gateway tier exposes an OpenAI-compatible endpoint. Use the gateway base URL and pass the model name in the `model` field.
 
 ### Python
 
@@ -145,7 +145,7 @@ If the request succeeds, the response uses the OpenAI chat completions format. I
 - The key has access to the model.
 - The model name is spelled correctly.
 - The backend provider credential is valid.
-- 403 errors: if you chose managed identity, assign the **Cognitive Services OpenAI User** role to the gateway identity on the backend resource — see [Use managed identity for backend authentication](./govern-and-operate.md#use-managed-identity-for-backend-authentication).
+- For 403 errors, if you chose managed identity, assign the **Cognitive Services OpenAI User** role to the gateway identity on the backend resource - see [Use managed identity for backend authentication](./ai-gateway-govern-secure-operate.md#use-managed-identity-for-backend-authentication).
 
 ## 6. See telemetry
 
@@ -156,14 +156,14 @@ After you send a request, view telemetry for the gateway:
 1. Filter by model name to find traffic for `production-chat`.
 1. Use failures and latency charts to troubleshoot backend provider issues.
 
-Telemetry helps you understand usage across providers and applications. Callers use gateway-level runtime access keys, so you can monitor traffic without exposing provider credentials to client applications. The built-in **Monitoring** views work without extra setup. To export this telemetry to Application Insights or another OpenTelemetry endpoint, see [Govern, secure, and operate](./govern-and-operate.md#monitoring).
+Telemetry helps you understand usage across providers and applications. Callers use gateway-level runtime access keys, so you can monitor traffic without exposing provider credentials to client applications. The built-in **Monitoring** views work without extra setup. To export this telemetry to Application Insights or another OpenTelemetry endpoint, see [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md#monitoring).
 
 ## Clean up resources
 
-When you're done, delete any resources you no longer need. Remove the AI Gateway instance, provider test deployments, and runtime access keys that you created only for evaluation.
+When you're done, delete any resources you no longer need. Remove the AI Gateway tier instance, provider test deployments, and runtime access keys that you created only for evaluation.
 
 ## Related content
 
-- [AI Gateway overview](./overview.md)
-- [Manage models and tools](./models-and-tools.md)
-- [Govern, secure, and operate](./govern-and-operate.md)
+- [AI Gateway tier overview](./ai-gateway-overview.md)
+- [Manage models and tools](./ai-gateway-manage-models-tools.md)
+- [Govern, secure, and operate AI Gateway tier](./ai-gateway-govern-secure-operate.md)

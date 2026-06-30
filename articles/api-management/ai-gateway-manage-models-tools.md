@@ -1,29 +1,29 @@
 ---
-title: Manage models and tools
-description: Learn how to add models and MCP tool backends to an Azure API Management AI Gateway instance.
+title: Manage models and tools in AI Gateway tier (preview)
+description: Learn how to add models and MCP tool backends to an Azure API Management AI Gateway tier (preview) instance.
 ms.service: azure-api-management
-author: <your-github-alias>
-ms.author: <your-ms-alias>
+author: PatAltimore
+ms.author: patricka
 ms.topic: how-to
 ms.date: 06/29/2026
 ---
 
-**APPLIES TO: AI Gateway (preview)**
+[!INCLUDE [api-gateway-tier-preview](../includes/preview/preview-ai-gateway-tier.md)]
 
-# Manage models and tools
+# Manage models and tools in AI Gateway tier (preview)
 
-Use AI Gateway to manage the models and tools that applications and agents call. Import models to provide one governed endpoint for model requests. Add MCP servers to expose approved tools through a governed Model Context Protocol (MCP) endpoint. Applications and agents authenticate to the gateway with runtime access keys. The gateway uses the backend authentication you configure for each model provider or tool backend.
+Use AI Gateway tier (preview) to manage the models and tools that applications and agents call. Import models to provide one governed endpoint for model requests. Add MCP servers to expose approved tools through a governed Model Context Protocol (MCP) endpoint. Applications and agents authenticate to the gateway with runtime access keys. The gateway uses the backend authentication you configure for each model provider or tool backend.
 
 ## Prerequisites
 
-- An AI Gateway instance.
-- Permission to manage the AI Gateway instance.
+- An AI Gateway tier instance.
+- Permission to manage the AI Gateway tier instance.
 - Access to the provider model or backend you plan to add.
 - For managed identity backend authentication, permission to assign the required role on the backend resource.
 
 ## Import models
 
-Use the **Add model** wizard to connect AI Gateway to Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, OpenAI, Anthropic, or custom endpoints. Runtime callers usually use the OpenAI-compatible base URL `https://<gateway>.azure-api.net/v1`. Exact fields vary by region, model family, and preview capability.
+Use the **Add model** wizard to connect AI Gateway tier to Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, OpenAI, Anthropic, or custom endpoints. Runtime callers usually use the OpenAI-compatible base URL `https://<gateway>.azure-api.net/v1`. Exact fields vary by region, model family, and preview capability.
 
 | Provider | Typical model information | Backend authentication | Notes |
 | --- | --- | --- | --- |
@@ -54,7 +54,7 @@ Use clear names such as `production-chat`, `evaluation-chat`, or `embeddings-def
 
 To add a model by using the wizard:
 
-1. In the Azure portal or AI Gateway management experience, open your AI Gateway instance.
+1. In the Azure portal or AI Gateway tier management experience, open your AI Gateway tier instance.
 1. Select **Models**.
 1. Select **Add model**.
 1. On **Provider**, choose the provider that hosts your model.
@@ -112,7 +112,7 @@ curl -X POST "https://<gateway>.azure-api.net/anthropic/v1/messages" \
   -d '{"model":"enterprise-claude","max_tokens":256,"messages":[{"role":"user","content":"Write a product description for a trail running backpack."}]}'
 ```
 
-The Anthropic Python SDK works when you point `base_url` at the gateway path. By default, the stock SDK sends the credential in the `x-api-key` header, so pass the gateway runtime access key in the `api-key` header by using `default_headers`. Set `model` to the model name you configured in AI Gateway; the gateway maps that name to the Anthropic backend model, so you don't send a raw Anthropic model ID. The gateway keeps the backend Anthropic key and doesn't send it to clients.
+The Anthropic Python SDK works when you point `base_url` at the gateway path. By default, the stock SDK sends the credential in the `x-api-key` header, so pass the gateway runtime access key in the `api-key` header by using `default_headers`. Set `model` to the model name you configured in AI Gateway tier; the gateway maps that name to the Anthropic backend model, so you don't send a raw Anthropic model ID. The gateway keeps the backend Anthropic key and doesn't send it to clients.
 
 ```python
 from anthropic import Anthropic
@@ -126,9 +126,9 @@ Validate timeouts and response handling before production, especially if policie
 
 ## Add MCP servers
 
-AI Gateway lets platform teams publish MCP servers behind one governed MCP endpoint. The configuration workflow is: create an MCP server, attach one or more backends, and expose selected backend capabilities as tools. A single MCP server can combine remote MCP server URLs, tools generated from REST OpenAPI descriptions, and built-in connectors for services such as Microsoft 365, Salesforce, Slack, GitHub, and ServiceNow.
+AI Gateway tier lets platform teams publish MCP servers behind one governed MCP endpoint. The configuration workflow is: create an MCP server, attach one or more backends, and expose selected backend capabilities as tools. A single MCP server can combine remote MCP server URLs, tools generated from REST OpenAPI descriptions, and built-in connectors for services such as Microsoft 365, Salesforce, Slack, GitHub, and ServiceNow.
 
-Use MCP servers when agents need to call business systems, developer tools, knowledge stores, or internal APIs. Consumers authenticate to the gateway and don't need separate credentials for each backend. For backend authentication, AI Gateway supports API key headers, OAuth, and managed identity, which is a new public preview capability.
+Use MCP servers when agents need to call business systems, developer tools, knowledge stores, or internal APIs. Consumers authenticate to the gateway and don't need separate credentials for each backend. For backend authentication, AI Gateway tier supports API key headers, OAuth, and managed identity, which is a new public preview capability.
 
 A single MCP server federates one or more backends. Each backend contributes tools.
 
@@ -144,7 +144,7 @@ A single MCP server federates one or more backends. Each backend contributes too
 
 To add backends to an MCP server:
 
-1. In the Azure portal, open your AI Gateway resource.
+1. In the Azure portal, open your AI Gateway tier resource.
 1. In the left menu, select **MCP servers**.
 1. Select **Add MCP server**.
 1. Enter a display name, server name, and description for the governed endpoint.
@@ -178,6 +178,6 @@ After you create the server, configure runtime access before sharing it. Add pol
 
 ## Related content
 
-- [AI Gateway overview](./overview.md)
-- [Quickstart: Create an AI Gateway instance](./quickstart-create.md)
-- [Govern, secure, and operate](./govern-and-operate.md)
+- [AI Gateway tier overview](./ai-gateway-overview.md)
+- [Quickstart: Create an AI Gateway tier instance](./quickstart-ai-gateway-create.md)
+- [Govern, secure, and operate AI Gateway tier](./ai-gateway-govern-secure-operate.md)
