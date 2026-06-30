@@ -124,6 +124,10 @@ sections:
         answer:  |
           Yes. Refer to the MatchedRulesSetName property under [Access Logs](front-door-diagnostics.md).
       - question: |
+          Does Azure Front Door support decoding of an encoded URL?
+        answer: |
+          No, the encoded URL will be forwarded as is to the origin unless there modification of the request URL using rules engine rule.
+      - question: |
           Can Front Door provide protection from ‘HTTP/2 Rapid Reset’ DDoS attacks?
         answer:  |
           Yes. For more information, see [Microsoft response to DDoS attacks against HTTP/2](front-door-ddos.md).
