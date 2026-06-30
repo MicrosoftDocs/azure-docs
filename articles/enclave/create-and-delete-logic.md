@@ -4,7 +4,7 @@ titleSuffix: Azure Enclave
 description: Learn the conditions that must be met before you can create or delete Azure Enclave resources, including dependency and lock requirements.
 author: jadean-msft
 ms.author: jadean
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 06/29/2026
 ---
 
