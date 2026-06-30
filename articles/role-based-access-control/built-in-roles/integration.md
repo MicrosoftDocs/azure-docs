@@ -2918,7 +2918,7 @@ You can create and edit workflows, connections, and settings for a Standard logi
 }
 ```
 
-## Logic Apps Standard Operator
+## Logic Apps Standard Operator (Preview)
 
 You can enable and disable the logic app, resubmit workflow runs, as well as create connections. You can't edit workflows or settings.
 
@@ -2993,7 +2993,7 @@ You can enable and disable the logic app, resubmit workflow runs, as well as cre
       "notDataActions": []
     }
   ],
-  "roleName": "Logic Apps Standard Operator",
+  "roleName": "Logic Apps Standard Operator (Preview)",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
