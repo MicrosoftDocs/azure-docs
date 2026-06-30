@@ -99,7 +99,7 @@ Windows Server 2016 64-bit | Supported for Server Core, Server with Desktop Expe
 Windows Server 2012 R2 / Windows Server 2012 | Supported.
 Windows Server 2008 R2 with SP1 onwards. | Supported.
 Windows Server 2008 with SP2 or later (64-bit/32-bit) |  Supported for migration only. [Learn more](migrate-tutorial-windows-server-2008.md).
-Windows 10, Windows 8.1, Windows 8 | Only 64-bit system is supported. 32-bit system isn't supported.
+Windows 11, Windows 10, Windows 8.1, Windows 8 | Only 64-bit system is supported. 32-bit system isn't supported.
 Windows 7 with SP1 64-bit | Supported.
 
 
