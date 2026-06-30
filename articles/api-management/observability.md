@@ -44,7 +44,7 @@ The following table summarizes all the observability capabilities supported by A
 
 The following practices can enhance your API observability: 
 - Granular monitoring: Enable [per-method](/azure/api-management/api-management-howto-use-azure-monitor) metrics for detailed insights into response times and error rates.
-- Tail latency monitoring: Configure per-method alerts for tail latency (for example, 90th, 95th, or 99th [percentile](/kusto/query/percentiles-aggregation-function)), as average latency can be misleading. To implement this, use Kusto Query Language (KQL) to forward logs to a Log Analytics workspace.
+- Tail latency monitoring: Configure per-method alerts for tail latency (for example, 90th, 95th, or 99th [percentile](/kusto/query/percentiles-aggregation-function)), as average latency can be misleading. To implement this feature, use Kusto Query Language (KQL) to forward logs to a Log Analytics workspace.
 - Proactive Alerting: Establish per-method alerts for error rates and low success [rates](/azure/azure-monitor/reference/supported-metrics/microsoft-apimanagement-service-metrics) , utilizing rates instead of counts to ensure accuracy.
 - Distributed tracing: Enable [tracing](/azure/api-management/api-management-howto-app-insights) to identify performance bottlenecks and troubleshoot issues.
 - Resource tagging: Apply [tags to APIs](/rest/api/apimanagement/tag/assign-to-api) for accurate cost tracking and allocation.
