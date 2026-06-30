@@ -441,7 +441,7 @@ sections:
         answer: Application Gateway supports up to 100 TLS/SSL certificates.
 
       - question: Does Application Gateway have support for OCSP and OCSP stapling?
-        answer: Yes, Application Gateway supports certificates with OCSP extensions and OCSP stapling for server certificates.
+        answer: Yes, Application Gateway supports certificates with OCSP extensions and OCSP stapling for server certificates. Cetificates should include all the cetificate chain including the root certificate for OCSP staping to work. In addition, the Application gateway must have access to the OCSP URl of the certificate(s) on HTTP (port 80)
 
       - question: How many authentication certificates for backend reencryption does Application Gateway support?
         answer: Application Gateway supports up to 100 authentication certificates.
