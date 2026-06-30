@@ -65,7 +65,7 @@ The retirement takes effect globally across all Azure regions.
 >Microsoft provides an open-source GPv1 to GPv2 Cost Estimator to help you understand the potential billing impact of migrating your storage accounts.
 >
 >The tool allows you to:
->Compare estimated costs between GPv1 and GPv2 based on your current usage
+>- Compare estimated costs between GPv1 and GPv2 based on your current usage
 >Upload billing data (CSV) to model real-world scenarios
 >Understand how capacity, transactions, and access tiers affect pricing
 >Export results to share with stakeholders
