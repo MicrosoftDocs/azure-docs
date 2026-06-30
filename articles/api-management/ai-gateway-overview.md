@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 06/29/2026
 ---
 
-# AI Gateway tier overview
+# AI Gateway tier (preview) overview
 
 [!INCLUDE [api-gateway-tier-preview](./includes/preview/preview-ai-gateway-tier.md)]
 
