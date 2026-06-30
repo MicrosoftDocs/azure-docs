@@ -3,7 +3,7 @@ title: Govern, secure, and operate
 description: Learn how to govern, secure, network, and monitor Azure API Management AI Gateway during preview.
 ms.service: azure-api-management
 author: <your-github-alias>
-ms.author: <your-ms-alias>
+ms.author: patricka
 ms.topic: how-to
 ms.date: 06/29/2026
 ---
