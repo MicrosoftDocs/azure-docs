@@ -85,7 +85,6 @@ Microsoft Entra Kerberos support for hybrid identities is available for all regi
 
 Azure RBAC support for specific users and groups for cloud-only identities with Microsoft Entra Kerberos is currently available only for the following subset of regions in the Azure Public cloud.
 
-- Asia East
 - Australia Central
 - Australia Central 2
 - Australia East (SSD/premium only)
