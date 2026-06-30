@@ -126,7 +126,7 @@ Validate timeouts and response handling before production, especially if policie
 
 ## Add MCP servers
 
-AI Gateway tier lets platform teams publish MCP servers behind one governed MCP endpoint. The configuration workflow is: create an MCP server, attach one or more backends, and expose selected backend capabilities as tools. A single MCP server can combine remote MCP server URLs, tools generated from REST OpenAPI descriptions, and built-in connectors for services such as Microsoft 365, Salesforce, Slack, GitHub, and ServiceNow.
+AI Gateway tier enables platform teams to publish MCP servers behind one governed MCP endpoint. The configuration workflow is: create an MCP server, attach one or more backends, and expose selected backend capabilities as tools. A single MCP server can combine remote MCP server URLs, tools generated from REST OpenAPI descriptions, and built-in connectors for services such as Microsoft 365, Salesforce, Slack, GitHub, and ServiceNow.
 
 Use MCP servers when agents need to call business systems, developer tools, knowledge stores, or internal APIs. Consumers authenticate to the gateway and don't need separate credentials for each backend. For backend authentication, AI Gateway tier supports API key headers, OAuth, and managed identity, which is a new public preview capability.
 
