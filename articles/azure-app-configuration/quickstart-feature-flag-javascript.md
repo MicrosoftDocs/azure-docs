@@ -134,19 +134,19 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AZURE_APPCONFIG_ENDPOINT "<endpoint-of-your-app-configuration-store>"
+    setx AZURE_APPCONFIG_ENDPOINT "<AppConfigurationEndpoint>"
     ```
 
     If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:AZURE_APPCONFIG_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
+    $Env:AZURE_APPCONFIG_ENDPOINT = "<AppConfigurationEndpoint>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_ENDPOINT='<AppConfigurationEndpoint>'
     ```
 
     ### [Connection string](#tab/connection-string)
@@ -155,19 +155,19 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AZURE_APPCONFIG_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
+    setx AZURE_APPCONFIG_CONNECTION_STRING "<AppConfigurationConnectionString>"
     ```
 
    If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<connection-string-of-your-app-configuration-store>"
+    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<AppConfigurationConnectionString>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export AZURE_APPCONFIG_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_CONNECTION_STRING='<AppConfigurationConnectionString>'
     ```
     
     ---
