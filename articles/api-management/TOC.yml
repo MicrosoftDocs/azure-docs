@@ -100,6 +100,8 @@
       href: govern-mcp-server-products.md
     - name: Secure access to MCP servers
       href: secure-mcp-servers.md
+    - name: Roll out MCP servers using versions
+      href: mcp-server-versions.md
     - name: Import agent-to-agent (A2A) API
       href: agent-to-agent-api.md
   - name: Logging, metrics, and semantic caching
