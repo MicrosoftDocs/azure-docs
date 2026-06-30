@@ -14,7 +14,7 @@ ms.subservice: web-sdk
 
 This document contains information about new features and other changes to the Azure Maps Drawing Tools Module.
 
-## [2.1.0] (CDN: June 29, 2026, npm: TBD)
+## [2.1.0] (CDN: June 29, 2026, npm: July 1, 2026)
 
 ### Other changes
 
@@ -72,6 +72,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[2.1.0]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/2.1.0
 [2.0.0]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/2.0.0
 [1.0.5]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.5
 [1.0.4]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.4

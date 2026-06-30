@@ -14,7 +14,7 @@ ms.subservice: web-sdk
 
 This document contains information about new features and other changes to the Azure Maps Spatial IO Module.
 
-## [0.1.9] (CDN: June 29, 2026, npm: TBD)
+## [0.1.9] (CDN: June 29, 2026, npm: July 1, 2026)
 
 ### Other changes (0.1.9)
 
@@ -71,6 +71,7 @@ Stay up to date on Azure Maps:
 > [Azure Maps Blog]
 
 [WmsClient.getFeatureInfoHtml]: /javascript/api/azure-maps-spatial-io/atlas.io.ogc.wfsclient#azure-maps-spatial-io-atlas-io-ogc-wfsclient-getfeatureinfo
+[0.1.9]: https://www.npmjs.com/package/azure-maps-spatial-io/v/0.1.9
 [0.1.8]: https://www.npmjs.com/package/azure-maps-spatial-io/v/0.1.8
 [0.1.7]: https://www.npmjs.com/package/azure-maps-spatial-io/v/0.1.7
 [0.1.6]: https://www.npmjs.com/package/azure-maps-spatial-io/v/0.1.6

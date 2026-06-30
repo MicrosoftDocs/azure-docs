@@ -16,7 +16,7 @@ This document contains information about new features and other changes to the M
 
 ## v4 (next)
 
-### [4.0.0-preview.2] (CDN: June 29, 2026, npm: TBD)
+### [4.0.0-preview.2] (CDN: June 29, 2026, npm: July 1, 2026)
 
 #### Breaking changes
 * Changed the default `language` to `auto`, which resolves to the browser's configured language instead of `NGT` when no language is set.
@@ -700,6 +700,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[4.0.0-preview.2]: https://www.npmjs.com/package/azure-maps-control/v/4.0.0-preview.2
 [4.0.0-preview.1]: https://www.npmjs.com/package/azure-maps-control/v/4.0.0-preview.1
 [3.7.4]: https://www.npmjs.com/package/azure-maps-control/v/3.7.4
 [3.7.2]: https://www.npmjs.com/package/azure-maps-control/v/3.7.2
