@@ -70,7 +70,7 @@ The retirement takes effect globally across all Azure regions.
 >Understand how capacity, transactions, and access tiers affect pricing
 >Export results to share with stakeholders
 >
->Because this is an open-source project, you can review the code, run it locally, or adapt it to your own needs.
+>Because this tool is an open-source project, you can review the code, run it locally, or adapt it to your own needs.
 >
 >You can access the estimator here: [General purpose v1 (GPv1) storage account cost estimator] https://aka.ms/gpv1costestimator 
 
