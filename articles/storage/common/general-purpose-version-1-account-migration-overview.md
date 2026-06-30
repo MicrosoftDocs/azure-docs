@@ -61,7 +61,7 @@ The retirement takes effect globally across all Azure regions.
 >[!TIP]
 >If your workload is **read, write or list heavy**, reduce transaction counts by batching operations, writing larger blocks, and scoping list operations. GPv2 also provides better tools for optimizing costs, by allowing the tiering of data. Ensure cold data isn't left in the hot tier.
 
->[!Help]
+>[!TIP]
 >Microsoft provides an open-source GPv1 to GPv2 Cost Estimator to help you understand the potential billing impact of migrating your storage accounts.
 >
 >The tool allows you to:
