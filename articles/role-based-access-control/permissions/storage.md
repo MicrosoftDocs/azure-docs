@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 06/20/2026
+ms.date: 06/30/2026
 ms.custom: generated
 ---
 
@@ -304,6 +304,12 @@ Azure service: [Storage](/azure/storage/)
 > | `Microsoft.Storage/unregister/action` |  |
 > | `Microsoft.Storage/register/action` |  |
 > | `Microsoft.Storage/checknameavailability/read` | Checks that account name is valid and is not in use. |
+> | `Microsoft.Storage/contextCaches/write` | Create or update a Context Cache resource. |
+> | `Microsoft.Storage/contextCaches/read` | Returns the list of Context Cache resources or gets the properties of a specified Context Cache resource. |
+> | `Microsoft.Storage/contextCaches/delete` | Delete a Context Cache resource. |
+> | `Microsoft.Storage/contextCaches/contextCacheContainers/write` | Create or update a container in a Context Cache resource. |
+> | `Microsoft.Storage/contextCaches/contextCacheContainers/read` | Returns the list of containers in a Context Cache resource or gets the properties of a specified container. |
+> | `Microsoft.Storage/contextCaches/contextCacheContainers/delete` | Delete a container from a Context Cache resource. |
 > | `Microsoft.Storage/deletedAccounts/read` |  |
 > | `Microsoft.Storage/locations/deleteVirtualNetworkOrSubnets/action` | Notifies Microsoft.Storage that virtual network or subnet is being deleted |
 > | `Microsoft.Storage/locations/notifyNetworkSecurityPerimeterUpdatesAvailable/action` |  |
@@ -311,18 +317,22 @@ Azure service: [Storage](/azure/storage/)
 > | `Microsoft.Storage/locations/ActionsRPOperationStatuses/write` | Creates or updates an ActionsRP operation status |
 > | `Microsoft.Storage/locations/ActionsRPOperationStatuses/read` | Get an ActionsRP operation status |
 > | `Microsoft.Storage/locations/checknameavailability/read` | Checks that account name is valid and is not in use. |
+> | `Microsoft.Storage/locations/ContextCacheRPOperationStatuses/write` | Writes the status of an asynchronous Context Cache operation. |
+> | `Microsoft.Storage/locations/ContextCacheRPOperationStatuses/read` | Reads the status of an asynchronous Context Cache operation. |
 > | `Microsoft.Storage/locations/DataManagementRPOperationStatuses/write` | Creates or updates a DataManagamentRP operation status |
 > | `Microsoft.Storage/locations/DataManagementRPOperationStatuses/read` | Get a DataManagamentRP operation status |
 > | `Microsoft.Storage/locations/usages/read` | Returns the limit and the current usage count for resources in the specified subscription |
 > | `Microsoft.Storage/operations/read` |  |
 > | `Microsoft.Storage/operations/read` | Polls the status of an asynchronous operation. |
+> | `Microsoft.Storage/providerPermissions/read` |  |
 > | `Microsoft.Storage/resilienciesProgressions/read` |  |
+> | `Microsoft.Storage/resourceTypes/read` |  |
 > | `Microsoft.Storage/skus/read` | Lists the Skus supported by Microsoft.Storage. |
 > | `Microsoft.Storage/storageAccounts/updateAutoRotateUserKeys/action` |  |
 > | `Microsoft.Storage/storageAccounts/updateAccountContainerHoldingPeriod/action` |  |
 > | `Microsoft.Storage/storageAccounts/updateInternalProperties/action` |  |
 > | `Microsoft.Storage/storageAccounts/consumerDataShare/action` |  |
-> | `Microsoft.Storage/storageAccounts/hnsonmigration/action` | Customer is able to abort an ongoing Hns migration on the storage account |
+> | `Microsoft.Storage/storageAccounts/abortHnsOnMigration/action` | Customer is able to abort an ongoing Hns migration on the storage account |
 > | `Microsoft.Storage/storageAccounts/hnsonmigration/action` | Customer is able to migrate to hns account type |
 > | `Microsoft.Storage/storageAccounts/networkSecurityPerimeterConfigurations/action` |  |
 > | `Microsoft.Storage/storageAccounts/restoreBlobRanges/action` | Restore blob ranges to the state of the specified time |
@@ -388,6 +398,8 @@ Azure service: [Storage](/azure/storage/)
 > | `Microsoft.Storage/storageAccounts/encryptionScopes/write` |  |
 > | `Microsoft.Storage/storageAccounts/encryptionScopes/hoboConfigurations/read` |  |
 > | `Microsoft.Storage/storageAccounts/encryptionScopes/hoboConfigurations/write` |  |
+> | `Microsoft.Storage/storageAccounts/encryptionScopes/sharedIdentities/read` | Get shared identity for a storage account's encryption scope |
+> | `Microsoft.Storage/storageAccounts/encryptionScopes/sharedIdentities/write` | Put shared identity for a storage account's encryption scope |
 > | `Microsoft.Storage/storageAccounts/fileServices/read` | List file services |
 > | `Microsoft.Storage/storageAccounts/fileServices/write` | Put file service properties |
 > | `Microsoft.Storage/storageAccounts/fileServices/read` | Get file service properties |
@@ -465,6 +477,8 @@ Azure service: [Storage](/azure/storage/)
 > | `Microsoft.Storage/storageAccounts/restorePoints/read` | Get object replication restore point |
 > | `Microsoft.Storage/storageAccounts/restorePoints/read` | List object replication restore points |
 > | `Microsoft.Storage/storageAccounts/services/diagnosticSettings/write` | Create/Update storage account diagnostic settings. |
+> | `Microsoft.Storage/storageAccounts/sharedIdentities/read` |  |
+> | `Microsoft.Storage/storageAccounts/sharedIdentities/write` |  |
 > | `Microsoft.Storage/storageAccounts/storageTaskAssignments/delete` |  |
 > | `Microsoft.Storage/storageAccounts/storageTaskAssignments/read` |  |
 > | `Microsoft.Storage/storageAccounts/storageTaskAssignments/write` |  |

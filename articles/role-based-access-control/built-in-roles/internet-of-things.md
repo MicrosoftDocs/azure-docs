@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 06/20/2026
+ms.date: 06/30/2026
 ms.custom: generated
 ---
 
@@ -370,7 +370,7 @@ User can Azure arc connect and deploy Azure IoT Operations securely.
 > | **NotDataActions** |  |
 > | *none* |  |
 > | **Condition** |  |
-> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {ba92f5b4-2d11-453d-a403-e96b0029c9fe, b24988ac-6180-42a0-ab88-20f7382dd24c})) | Add role assignments for the following roles:<br/>Storage Blob Data Contributor<br/>Contributor |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {ba92f5b4-2d11-453d-a403-e96b0029c9fe, 12675fd7-7f59-493f-9201-f7944860a2f1})) | Add role assignments for the following roles:<br/>Storage Blob Data Contributor<br/>Contributor |
 
 ```json
 {
@@ -398,7 +398,7 @@ User can Azure arc connect and deploy Azure IoT Operations securely.
       "dataActions": [],
       "notDataActions": [],
       "conditionVersion": "2.0",
-      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {ba92f5b4-2d11-453d-a403-e96b0029c9fe, b24988ac-6180-42a0-ab88-20f7382dd24c}))"
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals {ba92f5b4-2d11-453d-a403-e96b0029c9fe, 12675fd7-7f59-493f-9201-f7944860a2f1}))"
     }
   ],
   "roleName": "Azure IoT Operations Onboarding",

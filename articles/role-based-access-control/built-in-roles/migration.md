@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 06/20/2026
+ms.date: 06/30/2026
 ms.custom: generated
 ---
 
@@ -533,6 +533,7 @@ Grants required access to the system assigned managed identity of Azure Migrate 
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read | Read any Protectable Items |
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | Read any Protected Items |
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/read | Read any Migration Items |
+> | Microsoft.DataReplication/replicationVaults/protectedItems/read | Lists protected items |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -561,7 +562,8 @@ Grants required access to the system assigned managed identity of Azure Migrate 
         "Microsoft.MySQLDiscovery/*/read",
         "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read",
         "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read",
-        "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/read"
+        "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/read",
+        "Microsoft.DataReplication/replicationVaults/protectedItems/read"
       ],
       "notActions": [],
       "dataActions": [],

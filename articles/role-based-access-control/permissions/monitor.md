@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 06/20/2026
+ms.date: 06/30/2026
 ms.custom: generated
 ---
 
@@ -878,6 +878,7 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | `Microsoft.OperationalInsights/workspaces/query/AFSAuditLogs/read` | Read data from the AFSAuditLogs table |
 > | `Microsoft.OperationalInsights/workspaces/query/AGCAccessLogs/read` | Read data from the AGCAccessLogs table |
 > | `Microsoft.OperationalInsights/workspaces/query/AGCFirewallLogs/read` | Read data from the AGCFirewallLogs table |
+> | `Microsoft.OperationalInsights/workspaces/query/AgentsInfo/read` | Read data from the AgentsInfo table |
 > | `Microsoft.OperationalInsights/workspaces/query/AggregatedSecurityAlert/read` | Read data from the AggregatedSecurityAlert table |
 > | `Microsoft.OperationalInsights/workspaces/query/AgriFoodApplicationAuditLogs/read` | Read data from the AgriFoodApplicationAuditLogs table |
 > | `Microsoft.OperationalInsights/workspaces/query/AgriFoodFarmManagementLogs/read` | Read data from the AgriFoodFarmManagementLogs table |
@@ -1112,6 +1113,7 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | `Microsoft.OperationalInsights/workspaces/query/CloudAppEvents/read` | Read data from the CloudAppEvents table |
 > | `Microsoft.OperationalInsights/workspaces/query/CloudAuditEvents/read` | Read data from the CloudAuditEvents table |
 > | `Microsoft.OperationalInsights/workspaces/query/CloudDnsEvents/read` | Read data from the CloudDnsEvents table |
+> | `Microsoft.OperationalInsights/workspaces/query/CloudHsmHardwareOperationAuditLogs/read` | Read data from the CloudHsmHardwareOperationAuditLogs table |
 > | `Microsoft.OperationalInsights/workspaces/query/CloudHsmServiceOperationAuditLogs/read` | Read data from the CloudHsmServiceOperationAuditLogs table |
 > | `Microsoft.OperationalInsights/workspaces/query/CloudProcessEvents/read` | Read data from the CloudProcessEvents table |
 > | `Microsoft.OperationalInsights/workspaces/query/CloudStorageAggregatedEvents/read` | Read data from the CloudStorageAggregatedEvents table |
@@ -1512,6 +1514,7 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | `Microsoft.OperationalInsights/workspaces/query/PowerPlatformAdminActivity/read` | Read data from the PowerPlatformAdminActivity table |
 > | `Microsoft.OperationalInsights/workspaces/query/PowerPlatformConnectorActivity/read` | Read data from the PowerPlatformConnectorActivity table |
 > | `Microsoft.OperationalInsights/workspaces/query/PowerPlatformDlpActivity/read` | Read data from the PowerPlatformDlpActivity table |
+> | `Microsoft.OperationalInsights/workspaces/query/PreAuthenticationDiscoveryLogs/read` | Read data from the PreAuthenticationDiscoveryLogs table |
 > | `Microsoft.OperationalInsights/workspaces/query/ProjectActivity/read` | Read data from the ProjectActivity table |
 > | `Microsoft.OperationalInsights/workspaces/query/ProtectionStatus/read` | Read data from the ProtectionStatus table |
 > | `Microsoft.OperationalInsights/workspaces/query/PurviewDataSensitivityLogs/read` | Read data from the PurviewDataSensitivityLogs table |

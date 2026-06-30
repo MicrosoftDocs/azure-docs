@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 06/20/2026
+ms.date: 06/30/2026
 ms.custom: generated
 ---
 
@@ -111,6 +111,7 @@ Azure service: [Azure Local](/azure-stack/hci/)
 > | `Microsoft.AzureStackHCI/EdgeMachines/Delete` | Deletes EdgeMachine resource |
 > | `Microsoft.AzureStackHCI/EdgeMachines/Read` | Gets EdgeMachines resources |
 > | `Microsoft.AzureStackHCI/EdgeMachines/Write` | Creates or updates EdgeMachine resource |
+> | `Microsoft.AzureStackHCI/EdgeMachines/RefreshSecuritySettings/Action` | Triggers an on-demand sync of EdgeMachine SecuritySettings compliance status from Guest Configuration RP, creating the SecuritySettings child resource if it does not already exist. |
 > | `Microsoft.AzureStackHCI/EdgeMachines/Validate/Action` | Validates EdgeMachine Resources |
 > | `Microsoft.AzureStackHCI/EdgeMachines/Disks/Read` | Gets EdgeMachine Disk resources |
 > | `Microsoft.AzureStackHCI/EdgeMachines/Disks/Jobs/Read` | Reads EdgeMachine Disk Job Resource |
@@ -195,6 +196,7 @@ Azure service: [Azure Local](/azure-stack/hci/)
 > | `Microsoft.AzureStackHCI/VirtualMachineInstances/Restart/Action` | Restarts virtual machine instance resource |
 > | `Microsoft.AzureStackHCI/VirtualMachineInstances/Start/Action` | Starts virtual machine instance resource |
 > | `Microsoft.AzureStackHCI/VirtualMachineInstances/Stop/Action` | Stops virtual machine instance resource |
+> | `Microsoft.AzureStackHCI/VirtualMachineInstances/PowerOff/Action` | Powers off virtual machine instance resource |
 > | `Microsoft.AzureStackHCI/VirtualMachineInstances/Pause/Action` | Pauses virtual machine instance resource |
 > | `Microsoft.AzureStackHCI/VirtualMachineInstances/Save/Action` | Saves virtual machine instance resource |
 > | `Microsoft.AzureStackHCI/VirtualMachineInstances/Delete` | Deletes virtual machine instance resource |

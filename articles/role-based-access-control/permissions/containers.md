@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 06/20/2026
+ms.date: 06/30/2026
 ms.custom: generated
 ---
 
@@ -189,6 +189,10 @@ Azure service: [Container Registry](/azure/container-registry/)
 > | `Microsoft.ContainerRegistry/registries/webhooks/operationStatuses/read` | Gets a webhook async operation status |
 > | **DataAction** | **Description** |
 > | `Microsoft.ContainerRegistry/registries/catalog/read` | List repositories in a container registry. |
+> | `Microsoft.ContainerRegistry/registries/connectedRegistries/config/read` | Gets the configuration for the connected registry. |
+> | `Microsoft.ContainerRegistry/registries/connectedRegistries/config/write` | Updates the configuration for the connected registry. |
+> | `Microsoft.ContainerRegistry/registries/connectedRegistries/message/read` | Gets synchronization messages for the connected registry. |
+> | `Microsoft.ContainerRegistry/registries/connectedRegistries/message/write` | Sends synchronization messages for the connected registry. |
 > | `Microsoft.ContainerRegistry/registries/quarantinedArtifacts/read` | Allows pull or get of the quarantined artifacts from container registry. This is similar to Microsoft.ContainerRegistry/registries/quarantine/read except that it is a data action |
 > | `Microsoft.ContainerRegistry/registries/quarantinedArtifacts/write` | Allows write or update of the quarantine state of quarantined artifacts. This is similar to Microsoft.ContainerRegistry/registries/quarantine/write action except that it is a data action |
 > | `Microsoft.ContainerRegistry/registries/repositories/content/read` | Pull or Get images from a container registry. |
@@ -357,9 +361,11 @@ Azure service: [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 > | `Microsoft.ContainerService/preparedImageSpecifications/read` | Get Prepared Image Specification |
 > | `Microsoft.ContainerService/preparedImageSpecifications/write` | Create or Update Prepared Image Specification |
 > | `Microsoft.ContainerService/preparedImageSpecifications/delete` | Delete Prepared Image Specification |
+> | `Microsoft.ContainerService/preparedImageSpecifications/deploy/action` | Deploy Prepared Image Specification |
 > | `Microsoft.ContainerService/preparedImageSpecifications/versions/read` | Get Prepared Image Specification Version |
 > | `Microsoft.ContainerService/preparedImageSpecifications/versions/write` | Create or Update Prepared Image Specification Version |
 > | `Microsoft.ContainerService/preparedImageSpecifications/versions/delete` | Delete Prepared Image Specification Version |
+> | `Microsoft.ContainerService/preparedImageSpecifications/versions/deploy/action` | Deploy Prepared Image Specification Version |
 > | `Microsoft.ContainerService/snapshots/read` | Get a snapshot |
 > | `Microsoft.ContainerService/snapshots/write` | Creates a new snapshot |
 > | `Microsoft.ContainerService/snapshots/delete` | Deletes a snapshot |
