@@ -6,7 +6,8 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 06/03/2024
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -139,7 +140,7 @@ The following properties are supported:
 }
 ```
 
-### <a name="managed-identity"></a> Use system-assigned managed identity authentication
+### <a id="managed-identity"></a> Use system-assigned managed identity authentication
 
 A data factory or Synapse workspace can be associated with a [system-assigned managed identity](data-factory-service-identity.md), which represents the service for authentication. You can directly use this system-assigned managed identity for Data Lake Store authentication, similar to using your own service principal. It allows this designated resource to access and copy data to or from Data Lake Store.
 
@@ -509,7 +510,7 @@ In the sink transformation, you can write to either a container or folder in Azu
    * **Default**: Allow Spark to name files based on PART defaults.
    * **Pattern**: Enter a pattern that enumerates your output files per partition. For example, **loans[n].csv** creates loans1.csv, loans2.csv, and so on.
    * **Per partition**: Enter one file name per partition.
-   * **As data in column**: Set the output file to the value of a column. The path is relative to the dataset container, not the destination folder. If you have a folder path in your dataset, it is overridden.
+   * **As data in column**: Set the output file to the value of a column. The path is relative to the dataset container, not the destination folder. If you have a folder path in your dataset, it's overridden.
    * **Output to a single file**: Combine the partitioned output files into a single named file. The path is relative to the dataset folder. Be aware that the merge operation can possibly fail based upon node size. This option isn't recommended for large datasets.
 
 **Quote all:** Determines whether to enclose all values in quotes
@@ -529,7 +530,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 ## Legacy models
 
 >[!NOTE]
->The following models are still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above sections going forward, and the authoring UI has switched to generating the new model.
+>The following models are still supported as-is for backward compatibility. You're suggested to use the new model mentioned in above sections going forward, and the authoring UI has switched to generating the new model.
 
 ### Legacy dataset model
 
@@ -544,7 +545,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Supported types are **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are **Optimal** and **Fastest**. |No |
 
 >[!TIP]
->To copy all files under a folder, specify **folderPath** only.<br>To copy a single file with a particular name, specify **folderPath** with a folder part and **fileName** with a file name.<br>To copy a subset of files under a folder, specify **folderPath** with a folder part and **fileName** with a wildcard filter. 
+>To copy all files under a folder, specify **folderPath** only.<br />To copy a single file with a particular name, specify **folderPath** with a folder part and **fileName** with a file name.<br />To copy a subset of files under a folder, specify **folderPath** with a folder part and **fileName** with a wildcard filter. 
 
 **Example:**
 
@@ -655,7 +656,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
     }
 ]
 ```
-## Change data capture (preview) 
+## Change data capture (preview)
 
 Azure Data Factory can get new or changed files only from Azure Data Lake Storage Gen1 by enabling **Enable change data capture (Preview)** in the mapping data flow source transformation. With this connector option, you can read new or updated files only and apply transformations before loading transformed data into destination datasets of your choice.
  

@@ -5,7 +5,8 @@ titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: concept-article
-ms.date: 01/26/2025
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ms.author: jianleishen
 ms.custom:
   - synapse
@@ -16,7 +17,7 @@ ms.custom:
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 > [!IMPORTANT]
-> This connector is at [End of Support stage](connector-deprecation-plan.md). You are recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver.
+> This connector is at [End of Support stage](connector-deprecation-plan.md). You're recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver.
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Concur. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -46,7 +47,7 @@ The connector supports the Windows versions in this [article](create-self-hosted
 
 Use the following steps to create a linked service to Concur in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -93,30 +94,30 @@ The following properties are supported for Concur linked service:
 
 ```json
 { 
-    "name": "ConcurLinkedService", 
-    "properties": {
-        "type": "Concur",
-        "typeProperties": {
-            "connectionProperties": {
-                "host":"<host e.g. implementation.concursolutions.com>",
-                "baseUrl": "<base URL for authorization e.g. us-impl.api.concursolutions.com>",
-                "authenticationType": "OAuth_2.0_Bearer",
-                "clientId": "<client id>",
-                "clientSecret": {
+    "name": "ConcurLinkedService", 
+    "properties": {
+        "type": "Concur",
+        "typeProperties": {
+            "connectionProperties": {
+                "host":"<host e.g. implementation.concursolutions.com>",
+                "baseUrl": "<base URL for authorization e.g. us-impl.api.concursolutions.com>",
+                "authenticationType": "OAuth_2.0_Bearer",
+                "clientId": "<client id>",
+                "clientSecret": {
                     "type": "SecureString",
                     "value": "<client secret>"
                 },
-                "username": "fakeUserName",
-                "password": {
+                "username": "fakeUserName",
+                "password": {
                     "type": "SecureString",
                     "value": "<password>"
                 },
-                "useEncryptedEndpoints": true,
-                "useHostVerification": true,
-                "usePeerVerification": true
-            }
-        }
-    }
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
+        }
+    }
 } 
 ```
 
@@ -145,7 +146,7 @@ Note the following is a legacy linked service model without `connectionPropertie
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Concur dataset.
 
-To copy data from Concur, set the type property of the dataset to **ConcurObject**. There is no additional type-specific property in this type of dataset. The following properties are supported:
+To copy data from Concur, set the type property of the dataset to **ConcurObject**. There's no additional type-specific property in this type of dataset. The following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
