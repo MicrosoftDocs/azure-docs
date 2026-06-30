@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.date: 06/29/2026
 ---
 
-[!INCLUDE [api-gateway-tier-preview](../includes/preview/preview-ai-gateway-tier.md)]
+[!INCLUDE [api-gateway-tier-preview](./includes/preview/preview-ai-gateway-tier.md)]
 
 # Quickstart: Create an AI Gateway (preview) instance
 

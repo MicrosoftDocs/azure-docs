@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 06/29/2026
 ---
 
-[!INCLUDE [api-gateway-tier-preview](../includes/preview/preview-ai-gateway-tier.md)]
+[!INCLUDE [api-gateway-tier-preview](./includes/preview/preview-ai-gateway-tier.md)]
 
 # Manage models and tools in AI Gateway tier (preview)
 
