@@ -5,7 +5,7 @@ author: johndowns
 ms.author: jodowns
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 10/12/2023
+ms.date: 06/30/2026
 # Customer intent: As a cloud security administrator, I want to implement best practices for the web application firewall within Azure Front Door, so that I can effectively protect my internet-facing applications from cyber threats while minimizing false positives and maintaining legitimate traffic flow.
 ---
 
