@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 02/06/2024
+ms.update-cycle: 1095-days
 ms.custom:
   - subject-rbac-steps
   - engagement-fy23
