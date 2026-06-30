@@ -66,7 +66,7 @@ The retirement takes effect globally across all Azure regions.
 >
 >The tool allows you to:
 >- Compare estimated costs between GPv1 and GPv2 based on your current usage
->Upload billing data (CSV) to model real-world scenarios
+>- Upload billing data (CSV) to model real-world scenarios
 >Understand how capacity, transactions, and access tiers affect pricing
 >Export results to share with stakeholders
 >
