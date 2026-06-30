@@ -153,9 +153,9 @@ const result = await client.downloadToBuffer(offset, count, downloadToBufferOpti
 
 ---
 
-## Transfer validation with CRC64
+## Transfer validation with CRC64-NVME
 
-In addition to performance tuning with `BlockBlobParallelUploadOptions` and `BlobDownloadToBufferOptions`, you can configure transfer validation to verify data integrity for uploads and downloads. While CRC64 is generally performant to compute, enabling transfer validation may have performance implications that should be considered alongside other tuning decisions.
+In addition to performance tuning with `BlockBlobParallelUploadOptions` and `BlobDownloadToBufferOptions`, you can configure transfer validation to verify data integrity for uploads and downloads. While CRC64-NVME is generally performant to compute, enabling transfer validation may have performance implications that should be considered alongside other tuning decisions.
 
 [!INCLUDE [storage-dev-guide-transfer-validation](../../../includes/storage-dev-guides/storage-dev-guide-transfer-validation.md)]
 
