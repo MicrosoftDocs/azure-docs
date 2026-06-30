@@ -2,8 +2,7 @@
 title: Version and Roll Out MCP Servers Safely in Azure API Management
 description: Run preview and production versions of an MCP server in parallel in Azure API Management, route a slice of consumers to the new version, and promote it when metrics look good.
 #customer intent: As an SRE responsible for production MCP servers, I want to safely roll out new versions of my MCP server alongside existing versions, so that I can validate performance and reliability before promoting to all consumers.
-author: dlepow
-ms.author: danlep
+
 ms.date: 06/23/2026
 ms.service: azure-api-management
 ms.topic: how-to
@@ -31,7 +30,7 @@ This article focuses on scenarios where you need to make breaking changes that r
 - An existing MCP server added to API Management (called *v1* in this article) with active consumers.
 See [Expose a REST API as an MCP server](export-rest-mcp-server.md) or [Expose an existing MCP server](expose-existing-mcp-server.md). 
 - A new version of your MCP server (*v2*) ready to deploy, with a different tool set or breaking changes from *v1*.
-- Monitoring in place to compare *v1* and *v2* performance and reliability (for example, Application Insights with custom dimensions for API version and tool name).
+- Monitoring in place to compare *v1* and *v2* performance and reliability (for example, Application Insights with custom dimensions for API version and tool name). For more information, see [Monitor MCP server traffic](monitor-mcp-servers.md).
 
 ## Stand up v2 alongside v1 
 

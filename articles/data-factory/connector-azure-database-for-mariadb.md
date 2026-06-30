@@ -6,7 +6,8 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 01/26/2025
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -45,7 +46,7 @@ The service provides a built-in driver to enable connectivity, therefore you don
 
 Use the following steps to create a linked service to Azure Database for MariaDB in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -105,13 +106,13 @@ The following properties are supported for Azure Database for MariaDB linked ser
         "type": "AzureMariaDB",
         "typeProperties": {
             "connectionString": "Server={your_server}.mariadb.database.azure.com; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; SslMode=Preferred;",
-            "pwd": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "pwd": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {

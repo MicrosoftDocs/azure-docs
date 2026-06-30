@@ -4,14 +4,14 @@ description: Learn how to assess and upgrade your Azure Synapse Analytics pipeli
 author: ssindhub
 ms.author: ssrinivasara
 ms.topic: how-to
-ms.date: 06/04/2026
+ms.date: 06/11/2026
 ms.custom: pipelines
 ai-usage: ai-assisted
 ---
 
 # Upgrade your Azure Synapse Analytics pipelines to Fabric (preview)
 
-Modernizing your workflows in Microsoft Fabric often starts with bringing your existing Azure Synapse Analytics pipelines forward. The migration experience helps you assess pipeline readiness, understand compatibility gaps, and migrate supported pipelines into a Fabric workspace—so you can move in a controlled, low-risk way.
+Modernizing your workflows in Microsoft Fabric often starts with bringing your existing Azure Synapse Analytics pipelines forward. The migration experience helps you assess pipeline readiness, understand compatibility gaps, and migrate supported pipelines into a Microsoft Fabric workspace. You can move in a controlled, low-risk way.
 
 ## What you can do with the migration experience
 
@@ -62,14 +62,11 @@ To migrate your Synapse pipelines to Fabric:
 
 #### Understand assessment statuses
 
-Each pipeline is categorized using one of the following statuses:
+Each pipeline is categorized with a readiness status:
 
-| Status | What it means |
-|---|---|
-| **Ready** | Good to go for migration. |
-| **Needs review** | Changes are required before/after migration. |
-| **Coming soon** | Support is in progress; migrate later. |
-| **Unsupported / Not compatible** | No equivalent in Fabric; refactor required. |
+[!INCLUDE [migration-assessment-statuses](includes/migration-assessment-statuses.md)]
+
+For details on how to drill into activity-level details, see [What the assessment statuses mean](how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration.md#what-the-assessment-statuses-mean).
 
 ### Select pipelines to migrate
 

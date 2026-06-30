@@ -88,7 +88,11 @@
       href: amazon-bedrock-passthrough-llm-api.md
     - name: Authenticate and authorize to LLM APIs
       href: api-management-authenticate-authorize-ai-apis.md
-  - name: AI tools and agent integrations
+    - name: Log LLM tokens, requests, and responses
+      href: api-management-howto-llm-logs.md
+    - name: Semantic caching for LLM API requests
+      href: azure-openai-enable-semantic-caching.md
+  - name: Manage MCP servers and tools
     items:
     - name: Model Context Protocol (MCP) server capabilities
       href: mcp-server-overview.md
@@ -96,20 +100,20 @@
       href: export-rest-mcp-server.md
     - name: Expose existing MCP server
       href: expose-existing-mcp-server.md
+    - name: Create and manage MCP servers programmatically
+      href: manage-mcp-servers-rest-api.md
     - name: Govern MCP servers with products
       href: govern-mcp-server-products.md
     - name: Secure access to MCP servers
       href: secure-mcp-servers.md
     - name: Roll out MCP servers using versions
       href: mcp-server-versions.md
+    - name: Monitor MCP server traffic
+      href: monitor-mcp-servers.md
+  - name: Manage agent APIs
+    items:
     - name: Import agent-to-agent (A2A) API
       href: agent-to-agent-api.md
-  - name: Logging, metrics, and semantic caching
-    items:
-    - name: Log LLM tokens, requests, and responses
-      href: api-management-howto-llm-logs.md
-    - name: Semantic caching for LLM API requests
-      href: azure-openai-enable-semantic-caching.md
 - name: Create and import APIs
   items:
   - name: Add an API manually
