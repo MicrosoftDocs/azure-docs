@@ -24,7 +24,7 @@ The Blob storage trigger starts a function when a new or updated blob is detecte
 > There are several ways to execute your function code based on changes to blobs in a storage container. If you choose to use the Blob storage trigger, there are two implementations offered: a polling-based one (referenced in this article) and an event-based one. It is recommended that you use the [event-based implementation](./functions-event-grid-blob-trigger.md) as it has lower latency than the other. Also, the Flex Consumption plan supports only the event-based Blob storage trigger.
 
 > [!NOTE] 
-> The polling-based Blob storage trigger implementation does not officially support Data Lake Storage or hierarchical namespace-enabled storage accounts. You should instead use the [event-based implementation](./functions-event-grid-blob-trigger.md).
+> The polling-based Blob storage trigger implementation does not officially support Azure Data Lake Storage (ADLS) or hierarchical namespace (HNS)-enabled storage accounts. You should instead use the [event-based implementation](./functions-event-grid-blob-trigger.md).
 
 > For details about differences between the two implementations of the Blob storage trigger, as well as other triggering options, see [Working with blobs](./storage-considerations.md#working-with-blobs).
 
