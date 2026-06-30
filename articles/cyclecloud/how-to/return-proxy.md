@@ -2,7 +2,8 @@
 title: Return Proxy Enable
 description: Learn about the Azure CycleCloud return proxy. Learn how to designate a cluster node as a return proxy with listening ports on CycleCloud server forwarded through an SSH tunnel.
 author: KimliW
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: adjohnso
 ---
 

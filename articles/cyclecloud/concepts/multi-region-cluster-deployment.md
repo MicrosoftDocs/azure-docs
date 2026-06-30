@@ -4,7 +4,8 @@ description: Guidance to plan, deploy, operate, and recover a multi‑region HPC
 author: jemorey
 ms.author: padmalathas
 ms.reviewer: xpillons
-ms.date: 12/31/2025
+ms.date: 06/19/2026
+ms.topic: concept-article
 ms.update-cycle: 1095-days
 ---
 

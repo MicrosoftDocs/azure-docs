@@ -15,20 +15,20 @@ Azure Confidential Clean Rooms offers a protected environment, called a *clean r
 
 Typical scenarios include multi-party big-data analytics on combined datasets, machine learning (ML) training and fine-tuning where the training data and model come from different parties and multi-party ML inferencing on sensitive inputs.
 
-## Azure Confidential Clean Rooms for Analytics (Preview)
+## Multiparty analytics with Azure Confidential Clean Rooms (Preview)
 
-Azure Confidential Clean Rooms for Analytics is a **fully managed** service that allows customers and their partners to securely analyze privacy-sensitive datasets. It uses **confidential compute enabled Apache Spark-based big-data analytics (Spark SQL)** which helps protect their raw data from other collaborators and from the Azure operator by performing computations in a Trusted Execution Environment (TEE).
+Multiparty analytics with Azure Confidential Clean Rooms is a **fully managed** service that allows customers and their partners to securely analyze privacy-sensitive datasets. It uses **confidential compute enabled Apache Spark-based big-data analytics (Spark SQL)** which helps protect their raw data from other collaborators and from the Azure operator by performing computations in a Trusted Execution Environment (TEE).
 
-The following diagram shows how organizations collaborate by using Azure Confidential Clean Rooms for Analytics.
+The following diagram shows how organizations collaborate by using multiparty analytics with Azure Confidential Clean Rooms.
 
 :::image type="content" source="./media/confidential-clean-rooms/azure-confidential-clean-rooms-analytics-illustration.png" alt-text="Diagram illustrating the end-to-end analytics flow with Spark SQL on Azure Confidential Clean Rooms.":::
 
 > [!NOTE]
-> Azure Confidential Clean Rooms for Analytics is currently in limited preview. The preview is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Customers should not use the preview to process personal data or other data that is subject to legal or regulatory compliance requirements. The preview is intended for testing, evaluation, and feedback, and it shouldn't be used in production.
+> Multiparty analytics with Azure Confidential Clean Rooms is currently in limited preview. The preview is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Customers should not use the preview to process personal data or other data that is subject to legal or regulatory compliance requirements. The preview is intended for testing, evaluation, and feedback, and it shouldn't be used in production.
 
 ### Key features
 
-:::image type="content" source="./media/confidential-clean-rooms/azure-confidential-clean-rooms-analytics-benefits.png" alt-text="Benefits overview for Azure Confidential Clean Rooms for Analytics.":::
+:::image type="content" source="./media/confidential-clean-rooms/azure-confidential-clean-rooms-analytics-benefits.png" alt-text="Benefits overview for multiparty analytics with Azure Confidential Clean Rooms.":::
 
 - **Fully managed:** Azure takes care of the infrastructure provisioning and scaling with no user intervention, which allows customers to focus on the queries and insights rather than on infrastructure management.
 - **Confidential Spark SQL:** Spark SQL allows you to query large datasets and run complex queries in a distributed computing environment. In the confidential computing enabled version, the Spark driver and executors are fully attested policy-governed enclaves running as **[virtual nodes on Confidential Azure Container Instances (C-ACI) in an Azure Kubernetes Service (AKS) cluster](https://github.com/microsoft/virtualnodesOnAzureContainerInstances)** which helps prevent exfiltration of collaborators’ data during query execution.
@@ -96,7 +96,7 @@ Multiparty confidential big-data analytics unlocks value in scenarios where data
 
 ## Joining the preview
 
-Azure Confidential Clean Rooms for Analytics is currently in limited preview. If you're interested in joining the preview, fill in and submit [this form](https://aka.ms/accrforanalytics-signupform).
+Multiparty analytics with Azure Confidential Clean Rooms is currently in limited preview. If you're interested in joining the preview, fill in and submit [this form](https://aka.ms/accrforanalytics-signupform).
 
 After you submit the form, we'll review your request. If we accept your request, we'll contact you with detailed steps for joining. Keep in mind that because the preview is limited, we might not be able to accept all requests.
 

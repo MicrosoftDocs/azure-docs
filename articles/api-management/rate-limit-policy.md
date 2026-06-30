@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - rate-limit | Microsoft Docs
 description: Reference for the rate-limit policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 03/31/2025
-ms.author: danlep
 ---
 
 # Limit call rate by subscription

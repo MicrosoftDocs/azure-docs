@@ -1,8 +1,9 @@
 ---
 title: CycleCloud Release Packages
-description: Find the CycleCloud release packages for download.
+description: Find and download the Azure CycleCloud release packages and components you need for installation and upgrades.
 author: adriankjohnson
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: reference
 ms.author: adjohnso
 ---
 

@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: reference
-ms.date: 03/26/2026
+ms.date: 06/23/2026
 ai-usage: ai-assisted
 
 ---
@@ -43,6 +43,9 @@ Expressions support the following operators, listed from highest to lowest prece
 | 8 | `\|\|` | Logical OR |
 
 The `+` operator concatenates strings when at least one operand is a string. Use parentheses to override default precedence.
+
+> [!IMPORTANT]
+> Use the symbolic logical operators `&&` (AND), `||` (OR), and `!` (NOT). The keyword forms `and`, `or`, and `not` aren't supported. For example, write `$1 == "a" || $1 == "b"` instead of `$1 == "a" or $1 == "b"`.
 
 Examples:
 
@@ -338,6 +341,9 @@ The primary function of escaping in a dot-notated path is to accommodate the use
 ## Wildcards
 
 Use a wildcard (`*`) in input and output paths to match multiple fields at once. This is useful when the output closely resembles the input, or when you need to apply the same transformation across many fields without listing each one.
+
+> [!IMPORTANT]
+> The wildcard examples in this section pass through whatever fields the input contains. For MQTT, Kafka, and other JSON output, this is fine. For a storage destination with Parquet or Delta serialization, the output schema must declare every leaf that the wildcard expands to. If the runtime payload contains a field that the schema doesn't declare, the record is dropped. Generate the schema from representative sample data, and see [Storage serialization behavior](concept-schema-registry.md#storage-serialization-behavior).
 
 ### Copy all fields
 

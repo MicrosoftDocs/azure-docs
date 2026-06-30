@@ -3,10 +3,11 @@ title: How to use Agent Framework in a Python app with Azure App Configuration
 titleSuffix: Azure App Configuration
 description: Learn how to use Agent Framework in a Python app with Azure App Configuration.
 ms.service: azure-app-configuration
-author: MaryanneNjeri
-ms.author: mgichohi
+author: maud-lv
+ms.author: malev
+ms.reviewer: mgichohi
 ms.topic: how-to
-ms.date: 11/10/2025
+ms.date: 06/22/2026
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ---
@@ -134,17 +135,17 @@ In this section, you create a console application and load the agent YAML specif
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AZURE_APPCONFIGURATION_ENDPOINT "<endpoint-of-your-app-configuration-store>"
+    setx AZURE_APPCONFIGURATION_ENDPOINT "<AppConfigurationEndpoint>"
     ```
 
     If you use PowerShell, run the following command:
     ```powershell
-    $Env:AZURE_APPCONFIGURATION_ENDPOINT="<endpoint-of-your-app-configuration-store>"
+    $Env:AZURE_APPCONFIGURATION_ENDPOINT="<AppConfigurationEndpoint>"
     ```
 
     If you use macOS or Linux, run the following command:
     ```bash
-    export AZURE_APPCONFIGURATION_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    export AZURE_APPCONFIGURATION_ENDPOINT='<AppConfigurationEndpoint>'
     ```
 
 1. After the environment variable is properly set, run the following command to run the app locally:

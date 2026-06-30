@@ -1,12 +1,10 @@
 ---
 title: Create and debug Azure API Management policies in VS Code
 description: Learn how to create, understand, and debug Azure API Management Policies with Copilot assistance using the Azure API Management Visual Studio Code extension.
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 04/23/2026
 ms.update-cycle: 180-days
-ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.custom: sfi-image-nochange
 #customer intent: As an API developer who uses Azure API Management to make my APIs available, I need to understand how to create and use policies by using Visual Studio Code.

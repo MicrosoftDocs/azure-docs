@@ -18,6 +18,10 @@ ms.custom:
 
 This article outlines how to use the copy activity in Azure Data Factory and Azure Synapse Analytics pipelines to copy data from an SAP table. For more information, see [Copy activity overview](copy-activity-overview.md).
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric SAP Table connector documentation](/fabric/data-factory/connector-sap-table-application-server-overview).
+
+
 >[!TIP]
 >To learn the overall support on SAP data integration scenario, see [SAP data integration using Azure Data Factory whitepaper](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) with detailed introduction on each SAP connector, comparison and guidance.
 

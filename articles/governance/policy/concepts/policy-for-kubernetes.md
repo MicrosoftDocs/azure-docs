@@ -616,16 +616,9 @@ The addon is now fully FIPS-compliant.
 Patch CVE-2026-25679, CVE-2026-27142, CVE-2026-27139, CVE-2026-32280, CVE-2025-68121, CVE-2025-61726, CVE-2025-61728, CVE-2026-32281, CVE-2026-32283.
 
 Security improvements.
-- Released: May 2026
-- Kubernetes: 1.36+
-- Gatekeeper: 3.22.2-1
-
-##### Gatekeeper 3.22.2
-Patch CVE-2026-31790, CVE-2026-4437, CVE-2026-32283, CVE-2026-31789, CVE-2026-28388, CVE-2026-39883, CVE-2026-33186, CVE-2026-32280, CVE-2026-27142, CVE-2026-39882, CVE-2025-58181, CVE-2026-25679, CVE-2025-47914, CVE-2026-4438, CVE-2026-27139, CVE-2026-28389, CVE-2026-32288, CVE-2026-24051, CVE-2026-32289, CVE-2026-28390, CVE-2026-32281, CVE-2026-32282.
-
-Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.22.2
-
-Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.22.1...v3.22.2
+- Released: Jun 2026
+- Kubernetes: 1.30+
+- Gatekeeper: 3.22.1
 
 ##### Gatekeeper 3.22.1
 Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.22.1

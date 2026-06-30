@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Use Python to create a pool and run a job'
 description: Follow this quickstart to run an app that uses the Azure Batch client library for Python to create and run Batch pools, nodes, jobs, and tasks.
-ms.date: 03/21/2025
+ms.date: 06/16/2026
 ms.topic: quickstart
 ms.devlang: python
 ms.custom: mvc, devx-track-python, mode-api
@@ -14,7 +14,7 @@ This quickstart shows you how to get started with Azure Batch by running an app 
 
 > [!div class="checklist"]
 > - Uploads several input data files to an Azure Storage blob container to use for Batch task processing.
-> - Creates a pool of two virtual machines (VMs), or compute nodes, running Ubuntu 22.04 LTS OS.
+> - Creates a pool of two virtual machines (VMs), or compute nodes, running Ubuntu 22.04 LTS.
 > - Creates a job and three tasks to run on the nodes. Each task processes one of the input files by using a Bash shell command line.
 > - Displays the output files that the tasks return.
 

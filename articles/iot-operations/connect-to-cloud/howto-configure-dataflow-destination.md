@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/26/2026
+ms.date: 06/23/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to configure the destination for a data flow or data flow graph.
@@ -223,7 +223,7 @@ destinationSettings:
 ---
 
 > [!NOTE]
-> The characters `$`, `{`, and `}` are valid in MQTT topic names, so a topic like `factory/$inputTopic.2` is acceptable but incorrect if you intended to use the dynamic topic variable.
+> Only the dynamic topic variables described here (`${inputTopic}`, `${inputTopic.index}`, and, for data flow graphs, `${outputTopic}`) are substituted. A path segment that uses curly braces without a leading `$`, such as `edge-ai/predict/{model_id}`, is treated as a literal string, not a variable. To set the destination topic based on a field in the message, use the data flow graph `${outputTopic}` approach described in the next section. The characters `$`, `{`, and `}` are valid in MQTT topic names, so a topic like `factory/$inputTopic.2` is acceptable but incorrect if you intended to use the dynamic topic variable.
 
 ### Data flow graphs: route by message content
 
@@ -239,6 +239,9 @@ For more information and complete examples, see [Route messages to different top
 ## Serialize the output with a schema
 
 If you want to serialize the data before sending it to the destination, specify a schema and serialization format. Otherwise, the system serializes the data in JSON with the types inferred. Storage endpoints like Microsoft Fabric or Azure Data Lake require a schema to ensure data consistency. Supported serialization formats are Parquet and Delta.
+
+> [!IMPORTANT]
+> With Parquet and Delta serialization, the schema and mapping determine whether records are written, dropped, or written with coerced values. A non-nullable field that a mapping doesn't populate causes the whole batch to be dropped, and type mismatches are coerced silently. Before you deploy a storage data flow, review [Storage serialization behavior](concept-schema-registry.md#storage-serialization-behavior).
 
 > [!TIP]
 > To generate the schema from a sample data file, use the [Schema Gen Helper](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/schema-gen-helper).

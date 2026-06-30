@@ -1,19 +1,22 @@
 ---
-title: Best practices for improving performance using Azure Service Bus
-description: Describes how to use Service Bus to optimize performance when exchanging brokered messages.
-ms.topic: article
-ms.date: 04/29/2025
+title: Performance Best Practices
+description: Learn best practices for optimizing Service Bus performance, including resource planning, protocol selection, client reuse, batching, and prefetching.
+ms.topic: best-practice
+ms.date: 06/12/2026
 ms.devlang: csharp
 ms.custom:
   - devx-track-dotnet
   - sfi-ropc-nochange
+ai-usage: ai-assisted
+
+#customer intent: As a developer or architect, I want to learn best practices for Azure Service Bus performance so that I can maximize throughput and minimize latency in my messaging applications.
 ---
 
-# Best Practices for performance improvements using Service Bus Messaging
+# Best practices for improving performance with Azure Service Bus
 
-This article describes how to use Azure Service Bus to optimize performance when exchanging brokered messages. The first part of this article describes different mechanisms to increase performance. The second part provides guidance on using Service Bus in a way that can offer the best performance in a given scenario.
+This article provides best practices for optimizing performance when you exchange brokered messages with Azure Service Bus. These recommendations cover resource planning, protocol selection, client configuration, and scenario-specific tuning. Following these practices can help you maximize throughput and minimize latency, but evaluate each recommendation against your specific workload before you implement it.
 
-Throughout this article, the term "client" refers to any entity that accesses Service Bus. A client can take the role of a sender or a receiver. The term "sender" is used for a Service Bus queue client or a topic client that sends messages to a Service Bus queue or a topic. The term "receiver" refers to a Service Bus queue client or subscription client that receives messages from a Service Bus queue or a subscription.
+Throughout this article, the term *client* refers to any entity that accesses Service Bus. A client can take the role of a sender or a receiver. The term *sender* is used for a Service Bus queue client or a topic client that sends messages to a Service Bus queue or a topic. The term *receiver* refers to a Service Bus queue client or subscription client that receives messages from a Service Bus queue or a subscription.
 
 ## Resource planning and considerations
 
@@ -41,24 +44,24 @@ When calculating the throughput requirement, consider the data that is being sen
 
 As expected, throughput is higher for smaller message payloads that can be batched together.
 
-#### Benchmarks
+#### Performance benchmarks
 
-Here's a [GitHub sample](https://github.com/Azure-Samples/service-bus-dotnet-messaging-performance) that you can run to see the expected throughput you receive for your Service Bus namespace. In our [benchmark tests](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722), we observed approximately 4 MB/second per Messaging Unit (MU) of ingress and egress.
+Here's a [GitHub sample](https://github.com/Azure-Samples/service-bus-dotnet-messaging-performance) that you can run to see the expected throughput you receive for your Service Bus namespace. In [benchmark tests](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722), the results showed approximately 4 MB/second per Messaging Unit (MU) of ingress and egress.
 
 The benchmarking sample doesn't use any advanced features, so the throughput your applications observe is different, based on your scenarios.
 
-#### Compute considerations
+#### Compute impact on throughput
 
 Service Bus operates several background processes that can affect compute utilization. These include, but aren't limited to, timers, schedules, and metrics emission. Additionally, using certain Service Bus features require compute utilization that can decrease the expected throughput. Some of these features are -
 
 1. Sessions.
-2. Fanning out to multiple subscriptions on a single topic.
-3. Running many filters on a single subscription.
-4. Scheduled messages.
-5. Deferred messages.
-6. Transactions.
-7. Deduplication & look back time window.
-8. Forward to (forwarding from one entity to another).
+1. Fanning out to multiple subscriptions on a single topic.
+1. Running many filters on a single subscription.
+1. Scheduled messages.
+1. Deferred messages.
+1. Transactions.
+1. Deduplication and look back time window.
+1. Forward to (forwarding from one entity to another).
 
 If your application uses any of the above features and you aren't receiving the expected throughput, you can review the **CPU usage** metrics and consider scaling up your Service Bus Premium namespace. You can also utilize Azure Monitor to [automatically scale the Service Bus namespace](automate-update-messaging-units.md). It's recommended to increase the number of Message Units (MUs) when CPU usage exceeds 70% to ensure optimal performance.
 
@@ -68,14 +71,15 @@ While scaling up Compute (Messaging Units) allocated to the namespace is an easi
 
 The cleaner solution in this case is to shard your entities (queues, and topics) across different Service Bus Premium namespaces. You can also consider sharding across different namespaces in different Azure regions.
 
-## Protocols
+## Service Bus messaging protocols
+
 Service Bus enables clients to send and receive messages via one of three protocols:
 
 1. Advanced Message Queuing Protocol (AMQP)
-2. Service Bus Messaging Protocol (SBMP)
-3. Hypertext Transfer Protocol (HTTP)
+1. Service Bus Messaging Protocol (SBMP)
+1. Hypertext Transfer Protocol (HTTP)
 
-AMQP is the most efficient, because it maintains the connection to Service Bus. It also implements batching and [prefetching](#prefetching). Unless explicitly mentioned, all content in this article assumes the use of AMQP or SBMP.
+AMQP is the most efficient, because it maintains the connection to Service Bus. It also implements batching and [prefetching](#prefetch-service-bus-messages). Unless explicitly mentioned, all content in this article assumes the use of AMQP or SBMP.
 
 > [!IMPORTANT]
 > The SBMP protocol is only available for .NET Framework. AMQP is the default for .NET Standard.
@@ -84,7 +88,7 @@ AMQP is the most efficient, because it maintains the connection to Service Bus. 
 
 ## Choosing the appropriate Service Bus .NET SDK
 
-The `Azure.Messaging.ServiceBus` package is the latest Azure Service Bus .NET SDK available as of November 2020. There are two older .NET SDKs that will continue to receive critical bug fixes until 30 September 2026, but we strongly encourage you to use the latest SDK instead. Read the [migration guide](https://aka.ms/azsdk/net/migrate/sb) for details on how to move from the older SDKs.
+The `Azure.Messaging.ServiceBus` package is the latest Azure Service Bus .NET SDK available as of November 2020. There are two older .NET SDKs that will continue to receive critical bug fixes until 30 September 2026, but we strongly encourage you to use the latest SDK instead. Read the [migration guide](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md) for details on how to move from the older SDKs.
 
 | NuGet Package | Primary Namespaces | Minimum Platforms | Protocols |
 |---------------|----------------------|---------------------|-------------|
@@ -96,7 +100,9 @@ For more information on minimum .NET Standard platform support, see [.NET implem
 [!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 ## Reusing factories and clients
+
 # [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
+
 The Service Bus clients that interact with the service, such as [ServiceBusClient](/dotnet/api/azure.messaging.servicebus.servicebusclient), [ServiceBusSender](/dotnet/api/azure.messaging.servicebus.servicebussender), [ServiceBusReceiver](/dotnet/api/azure.messaging.servicebus.servicebusreceiver), and [ServiceBusProcessor](/dotnet/api/azure.messaging.servicebus.servicebusprocessor), should be registered for dependency injection as singletons (or instantiated once and shared). ServiceBusClient (factory) can be registered for dependency injection with the [ServiceBusClientBuilderExtensions](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/src/Compatibility/ServiceBusClientBuilderExtensions.cs). 
 
 We recommend that you don't close or dispose these clients after sending or receiving each message. Closing or disposing the entity-specific objects (ServiceBusSender/Receiver/Processor) results in tearing down the link to the Service Bus service. Disposing the ServiceBusClient results in tearing down the connection to the Service Bus service. 
@@ -105,7 +111,8 @@ This guidance doesn't apply to the [ServiceBusSessionReceiver](/dotnet/api/azure
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
-> Please note, a newer package Azure.Messaging.ServiceBus is available as of November 2020. While the Microsoft.Azure.ServiceBus package will continue to receive critical bug fixes until 30 September 2026, we strongly encourage you to upgrade. Read the [migration guide](https://aka.ms/azsdk/net/migrate/sb) for more details.
+> [!NOTE]
+> A newer package Azure.Messaging.ServiceBus is available as of November 2020. While the Microsoft.Azure.ServiceBus package will continue to receive critical bug fixes until 30 September 2026, we strongly encourage you to upgrade. Read the [migration guide](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md) for more details.
 
 Service Bus client objects, such as implementations of [`IQueueClient`](/dotnet/api/microsoft.azure.servicebus.queueclient) or [`IMessageSender`](/dotnet/api/microsoft.azure.servicebus.core.messagesender), should be registered for dependency injection as singletons (or instantiated once and shared). We recommend that you don't close messaging factories, queue, topic, or subscription clients after you send a message, and then re-create them when you send the next message. Closing a messaging factory deletes the connection to the Service Bus service. A new connection is established when recreating the factory. 
 
@@ -118,11 +125,13 @@ The following note applies to all SDKs:
 > This applies to all SDKs except the Python client. For Python, [locks must be used](/python/api/overview/azure/servicebus-readme?view=azure-python#thread-safety&preserve-view=true) when using threads and concurrent asynchronous operations.
 
 ## Concurrent operations
+
 Operations such as send, receive, delete, and so on, take some time. This time includes the time that the Service Bus service takes to process the operation and the latency of the request and the response. To increase the number of operations per time, operations must execute concurrently.
 
 The client schedules concurrent operations by performing **asynchronous** operations. The next request is started before the previous request is completed. The following code snippet is an example of an asynchronous send operation:
 
 # [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
+
 ```csharp
 var messageOne = new ServiceBusMessage(body);
 var messageTwo = new ServiceBusMessage(body);
@@ -227,7 +236,7 @@ The `MessageReceiver` object is instantiated with the connection string, queue n
 
 ---
 
-## Receive mode
+## Service Bus receive modes
 
 When creating a queue or subscription client, you can specify a receive mode: *Peek-lock* or *Receive and Delete*. The default receive mode is `PeekLock`. When operating in the default mode, the client sends a request to receive a message from Service Bus. After the client has received the message, it sends a request to complete the message.
 
@@ -235,7 +244,7 @@ When setting the receive mode to `ReceiveAndDelete`, both steps are combined in 
 
 Service Bus doesn't support transactions for receive-and-delete operations. Also, peek-lock semantics are required for any scenarios in which the client wants to defer or [dead-letter](service-bus-dead-letter-queues.md) a message.
 
-## Prefetching
+## Prefetch Service Bus messages
 
 [Prefetching](service-bus-prefetch.md) enables the queue or subscription client to load extra messages from the service when it receives messages. The client stores these messages in a local cache. The size of the cache is determined by the `ServiceBusReceiver.PrefetchCount` properties. Each client that enables prefetching maintains its own cache. A cache isn't shared across clients. If the client starts a receive operation and its cache is empty, the service transmits a batch of messages. If the client starts a receive operation and the cache contains a message, the message is taken from the cache.
 
@@ -250,6 +259,7 @@ The time-to-live (TTL) property of a message is checked by the server at the tim
 Prefetching doesn't affect the number of billable messaging operations, and is available only for the Service Bus client protocol. The HTTP protocol doesn't support prefetching. Prefetching is available for both synchronous and asynchronous receive operations.
 
 # [Azure.Messaging.ServiceBus SDK](#tab/net-standard-sdk-2)
+
 For more information, see the following `PrefetchCount` properties:
 
 - [ServiceBusReceiver.PrefetchCount](/dotnet/api/azure.messaging.servicebus.servicebusreceiver.prefetchcount)
@@ -267,6 +277,7 @@ For more information, see the following `PrefetchCount` properties:
 ---
 
 ## Prefetching and ReceiveMessagesAsync
+
 While the concepts of prefetching multiple messages together have similar semantics to processing messages in a batch (`ReceiveMessagesAsync`), there are some minor differences that must be kept in mind when using these approaches together.
 
 Prefetch is a configuration (or mode) on the ServiceBusReceiver and `ReceiveMessagesAsync` is an operation (that has request-response semantics).
@@ -286,10 +297,10 @@ More queues or topics mean that you have more entities to manage at deployment t
 
 The tier of service you use impacts performance predictability. If you choose **Standard** tier, throughput and latency are best effort over a shared multitenant infrastructure. Other tenants on the same cluster can impact your throughput. If you choose **Premium**, you get resources that give you predictable performance, and your multiple queues or topics get processed out of that resource pool. For more information, see [Pricing tiers](#pricing-tier).
 
-## Partitioned namespaces
+## Use partitioned premium namespaces
 When you use [partitioned premium tier namespaces](service-bus-partitioning.md), multiple partitions with lower messaging units (MU) give you a better performance over a single partition with higher MUs. 
 
-## Scenarios
+## Service Bus performance scenarios
 
 The following sections describe typical messaging scenarios and outline the preferred Service Bus settings. Throughput rates are classified as small (less than 1 message/second), moderate (1 message/second or greater but less than 100 messages/second) and high (100 messages/second or greater). The number of clients is classified as small (5 or fewer), moderate (more than 5 but less than or equal to 20), and large (more than 20).
 
@@ -350,8 +361,44 @@ To maximize throughput, follow these guidelines:
 
 Goal: Maximize the throughput of a topic with a large number of subscriptions. A message is received by many subscriptions, which means the combined receive rate over all subscriptions is larger than the send rate. The number of senders is small. The number of receivers per subscription is small.
 
-Topics with a large number of subscriptions typically expose a low overall throughput if all messages are routed to all subscriptions. It's because each message is received many times, and all messages in a topic and all its subscriptions are stored in the same store. The assumption here's that the number of senders and number of receivers per subscription is small. Service Bus supports up to 2,000 subscriptions per topic.
+Topics with a large number of subscriptions typically expose a low overall throughput if all messages are routed to all subscriptions. It's because each message is received many times, and all messages in a topic and all its subscriptions are stored in the same store. The assumption is that the number of senders and number of receivers per subscription is small. Service Bus supports up to 2,000 subscriptions per topic.
 
 To maximize throughput, try the following steps:
 
 * Set the prefetch count to 20 times the expected rate at which messages are received. This count reduces the number of Service Bus client protocol transmissions.
+
+## Diagnose high latency
+
+When message processing is slower than expected, first determine whether the latency is on the client, in the network, or on the service.
+
+### Check the client first
+
+Latency often originates on the client. Check these items in order:
+
+* **Prefetch and concurrency.** A prefetch count or `MaxConcurrentCalls` that's too low leaves the receiver idle between messages. Set too high, it can cause lock expirations on slow processing. Tune both to your processing rate. See [Prefetch Service Bus messages](#prefetch-service-bus-messages) and [Concurrent operations](#concurrent-operations).
+* **Sync-over-async.** Blocking on async calls (`.Result`, `.Wait()`, `.GetAwaiter().GetResult()`) can starve the thread pool under load and inflate latency. Use `async`/`await` end to end. See [Handle timeouts and configure retries](service-bus-timeouts-retries.md).
+* **Client resource pressure.** High CPU, memory pressure, or frequent garbage collection on the client host can slow message handling independently of the service.
+* **Client reuse.** Reuse a single `ServiceBusClient` to avoid the connection setup cost of creating one per operation. See [Reusing factories and clients](#reusing-factories-and-clients).
+
+### Check the network
+
+* A client in a different region from the namespace adds round-trip latency. Co-locate the client with the namespace where possible.
+* The Web Sockets transport over port 443 adds a small amount of overhead compared to AMQP over 5671. Use AMQP directly when your network allows it. See [Service Bus messaging protocols](#service-bus-messaging-protocols).
+
+### Check the service
+
+* On the **Standard** tier, throughput and latency are best effort on shared infrastructure and can be affected by other tenants. For predictable latency, use the **Premium** tier. See [Pricing tier](#pricing-tier).
+* Open the namespace **Resource health** page in the Azure portal to rule out a service-side condition during the affected window.
+* If requests are throttled (`ServiceBusException` with `Reason` of `ServiceBusy`), latency increases while the client backs off. See [Service Bus throttling](service-bus-throttling.md).
+
+### Use metrics and tracing
+
+* In Azure Monitor, review the namespace metrics for throttled requests, active connections, and server latency to correlate latency with load.
+* The `Azure.Messaging.ServiceBus` library is instrumented for distributed tracing. Enable it to measure where time is spent across send, receive, and settle operations. See [Logging and diagnostics](service-bus-troubleshooting-guide.md#logging-and-diagnostics).
+
+## Related content
+
+- [Azure Service Bus messaging overview](service-bus-messaging-overview.md)
+- [Service Bus Premium and Standard messaging tiers](service-bus-premium-messaging.md)
+- [Automate updating messaging units of an Azure Service Bus namespace](automate-update-messaging-units.md)
+- [Best practices for insulating applications against Service Bus outages and disasters](service-bus-outages-disasters.md)

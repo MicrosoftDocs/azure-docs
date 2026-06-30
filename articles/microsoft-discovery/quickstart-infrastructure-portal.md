@@ -53,6 +53,9 @@ Before proceeding with the deployment of Microsoft Discovery infrastructure comp
 
 ### a. Assign roles to administrators
 
+> [!TIP]
+> Instead of assigning the roles listed below one-by-one through the Azure portal, you can assign the full **Platform Administrator** persona role set in a single, idempotent command using the open-source `Set-DiscoveryRoleAssignments.ps1` PowerShell script. See [Assign Microsoft Discovery persona roles with a PowerShell script](how-to-assign-persona-roles.md). This is the recommended path for onboarding multiple users.
+
 Assign the following built-in roles to users at the desired scope (subscription or resource group):
 
 - Microsoft Discovery Platform Administrator (Preview)
@@ -244,7 +247,10 @@ A workspace is a collaborative environment where teams manage large-scale scient
    :::image type="content" source="media/quickstart-infrastructure-portal/create-workspace-supercomputer.jpg" alt-text="Screenshot showing the Supercomputer tab while creating a workspace." lightbox="media/quickstart-infrastructure-portal/create-workspace-supercomputer.jpg"::: 
 1. On the **Workspace Identity** tab, select **Add** under **User Assigned Managed Identity (UAMI)** and select the identity created in [step 1](#d-create-a-user-assigned-managed-identity-uami) to provide access to the workspace.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-workspace-identity.jpg" alt-text="Screenshot showing the Workspace Identity tab with the UAMI added." lightbox="media/quickstart-infrastructure-portal/create-workspace-identity.jpg":::
-1. Add tags as needed, and move to the next tab.
+1. On the **Tags** tab, add tags as needed. (Optional) To enable **GitHub Copilot** and configure workspace access, add the following tags. For details, see [Use GitHub Copilot in Microsoft Discovery](how-to-copilot.md).
+   - `discovery.workbench.enableGhcpAiFeatures` set to `true` — Enables GitHub Copilot and AI features for the workspace.
+   - `discovery.workbench.enableExtensions` set to `true` — Enables the VS Code Extension Marketplace in the preview experience.
+   - `NetworkIsolation` set to `false` — Enables public access to the preview experience (workbench) and other managed resource group (MRG) resources. If you keep network isolation enabled (default), you need to be connected on a VPN or ExpressRoute to the virtual network where the workspace is deployed to access over private network.
 1. Review the Terms and Conditions, then select **Review + Create**.
 1. Once validation is successful, select **Create**.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-workspace-overview.jpg" alt-text="Screenshot of the Microsoft Discovery Workspace overview page after creation." lightbox="media/quickstart-infrastructure-portal/create-workspace-overview.jpg":::

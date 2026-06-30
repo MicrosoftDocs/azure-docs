@@ -40,12 +40,16 @@ Business Process Solutions uses a Fabric SQL Database connection to read and orc
 
    :::image type="content" source="./media/deploy-workload-item/copy-connection-details.png" alt-text="Screenshot that shows how to copy the connection ID." lightbox="./media/deploy-workload-item/copy-connection-details.png":::
 
+### Mirror DD03ND table to mirrored database
+
+Business Process Solutions requires the DD03ND table to correctly map SAP data types during transformation. Replicating this view is mandatory for transformations to work. You can replicate this table by using your existing mirroring solution. Set the target table name as `DD03ND` and configure the replication frequency to match your other SAP tables.
+
 ## Configure an SAP S/4 HANA source system with open mirroring
 
 To configure your SAP S/4 HANA source system with open mirroring, follow these steps:
 
 1. On the home screen, select **Configure source system**.
-     
+
    :::image type="content" source="./media/configure-source-system-with-open-mirroring/configure-source-system.png" alt-text="Screenshot that shows Configure source system." lightbox="./media/configure-source-system-with-open-mirroring/configure-source-system.png":::
 
 1. Select **New source system**.

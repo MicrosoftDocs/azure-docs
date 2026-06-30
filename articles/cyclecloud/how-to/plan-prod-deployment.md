@@ -2,7 +2,8 @@
 title: Plan for CycleCloud Production Deployment
 description: A checklist to help plan for your CycleCloud production deployment
 author: adriankjohnson
-ms.date: 01/23/2026
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: adjohnso
 ---
 

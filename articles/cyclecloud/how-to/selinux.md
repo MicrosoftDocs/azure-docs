@@ -1,8 +1,9 @@
 ---
 title: SELinux Support
-description: SELinux support for Azure CycleCloud.
+description: Learn about SELinux support in Azure CycleCloud and how to run CycleCloud-managed nodes with SELinux set to enforcing mode.
 author: staer
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: danharri
 ---
 

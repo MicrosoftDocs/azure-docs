@@ -2,7 +2,8 @@
 title: Theming
 description: Learn about theming the Azure CycleCloud user interface. Understand how to create a theme, enable a theme, and modify the brand.
 author: dpwatrous
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: dawatrou
 ---
 

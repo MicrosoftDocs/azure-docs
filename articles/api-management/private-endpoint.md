@@ -2,10 +2,8 @@
 title: Set up inbound private endpoint for Azure API Management
 description: Learn how to restrict inbound access to an Azure API Management instance by using an Azure private endpoint and Azure Private Link.
 ms.service: azure-api-management
-author: dlepow
-ms.author: danlep
 ms.topic: how-to
-ms.date: 03/17/2026
+ms.date: 06/09/2026
 ms.custom:
   - build-2025
   - sfi-image-nochange
@@ -34,7 +32,7 @@ You can configure an inbound [private endpoint](../private-link/private-endpoint
 * Connections aren't supported on the [self-hosted gateway](self-hosted-gateway-overview.md) or on a [workspace gateway](workspaces-overview.md#workspace-gateway). 
 * In the classic API Management tiers, private endpoints aren't supported in instances injected in an internal or external virtual network. 
     > [!NOTE]
-    > In the Standard v2 and Premium v2 tiers, private endpoints are supported in instances with any supported virtual network configuration when fronted with [Azure Front Door Premium](../frontdoor/standard-premium/how-to-enable-private-link-apim.md).
+    > When fronted with [Azure Front Door Premium](../frontdoor/standard-premium/how-to-enable-private-link-apim.md), in the Standard v2 and Premium v2 tiers, private endpoints are supported in instances with any supported virtual network configuration.
 
 ## Typical scenarios
 

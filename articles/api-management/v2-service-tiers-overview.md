@@ -2,12 +2,10 @@
 title: Azure API Management - V2 Tiers
 description: Introduction to key scenarios, capabilities, and concepts of the v2 tiers (SKUs) of the Azure API Management service. 
 services: api-management
-author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 05/20/2026
-ms.author: danlep
 ms.custom:
   - references_regions
   - build-2025

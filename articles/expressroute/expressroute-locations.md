@@ -20,7 +20,7 @@ ms.custom: references_regions, template-concept, engagement-fy23
 The tables in this article provide information on ExpressRoute geographical coverage and locations, ExpressRoute connectivity providers, and ExpressRoute System Integrators (SIs).
 
 > [!NOTE]
-> Azure regions and ExpressRoute locations are two distinct and different concepts, understanding the difference between the two is critical to exploring Azure hybrid networking connectivity. 
+> Azure regions and ExpressRoute locations are two distinct concepts. Understanding the difference between the two is critical to exploring Azure hybrid networking connectivity. 
 >
 
 ## Azure regions
@@ -29,7 +29,7 @@ Azure regions are global datacenters where Azure compute, networking, and storag
 
 ## ExpressRoute locations
 
-ExpressRoute locations, also known as peering locations or meet-me locations, are co-location facilities where Microsoft Enterprise Edge (MSEE) devices are situated. These locations serve as the entry points to Microsoft's network and are globally distributed, offering the ability to connect to Microsoft's network worldwide. ExpressRoute partners and ExpressRoute Direct user establish cross connections to Microsoft's network at these locations. Generally, the ExpressRoute location doesn't need to correspond with the Azure region. For instance, you can create an ExpressRoute circuit with the resource location in *East US* for the *Seattle* peering location.
+ExpressRoute locations, also known as peering locations or meet-me locations, are co-location facilities where Microsoft Enterprise Edge (MSEE) devices are situated. These locations serve as the entry points to Microsoft's network and are globally distributed, offering the ability to connect to Microsoft's network worldwide. ExpressRoute partners and ExpressRoute Direct users establish cross connections to Microsoft's network at these locations. Generally, the ExpressRoute location doesn't need to correspond with the Azure region. For instance, you can create an ExpressRoute circuit with the resource location in *East US* for the *Seattle* peering location.
 
 You have access to Azure services across all regions within a geopolitical region if you're connecting to at least one ExpressRoute location within the geopolitical region.
 
@@ -208,7 +208,7 @@ The following table shows locations by service provider. If you want to view ava
 | **[SingTel](https://www.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |&check; |&check; | Hong Kong2<br/>Singapore<br/>Singapore2 |
 | **[SK Telecom](http://b2b.tworld.co.kr/bizts/solution/solutionTemplate.bs?solutionId=0085)** | &check; | &check; | Seoul |
 | **SKT** | &check; | &check; | Seoul |
-| **[Softbank](https://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |&check; |&check; | Osaka<br/>Tokyo<br/>Tokyo2 |
+| **[Softbank](https://www.softbank.jp/business/service/network/direct-access-azure/)** |&check; |&check; | Osaka<br/>Tokyo<br/>Tokyo2 |
 | **[Sohonet](https://www.sohonet.com/product/fastlane/)** | &check; | &check; | Los Angeles<br/>London2 |
 | **[Spark NZ](https://www.sparkdigital.co.nz/solutions/connectivity/cloud-connect/)** | &check; | &check; | Auckland<br/>Sydney |
 | **[Swisscom](https://www.swisscom.ch/en/business/enterprise/offer/cloud-data-center/microsoft-cloud-services/microsoft-azure-von-swisscom.html)** | &check; | &check; | Geneva<br/>Zurich<br/>Zurich2 |
@@ -405,7 +405,7 @@ If you're remote and don't have fiber connectivity, or you want to explore other
 | **[Digital Realty](https://www.digitalrealty.com/platform-digital/connectivity)** | IX Reach<br/>Megaport PacketFabric |
 | **[EdgeConnex](https://www.edgeconnex.com/services/edge-data-centers-proximity-matters/)** | Megaport<br/>PacketFabric |
 | **[Flexential](https://www.flexential.com/connectivity/cloud-connect-microsoft-azure-expressroute)** | IX Reach<br/>Megaport<br/>PacketFabric |
-| **[QTS Data Centers](https://www.qtsdatacenters.com/hybrid-solutions/connectivity/azure-cloud)** | Megaport<br/>PacketFabric |
+| **[QTS Data Centers](https://q.com/connectivity/)** | Megaport<br/>PacketFabric |
 | **[Stream Data Centers](https://www.streamdatacenters.com/solutions/)** | Megaport |
 | **RagingWire Data Centers** | IX Reach<br/>Megaport<br/>PacketFabric |
 | **[T5 Datacenters](https://t5datacenters.com/)** | IX Reach |
@@ -455,7 +455,7 @@ Enabling private connectivity to meet your needs can be challenging, depending o
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | South America |
 | **Vigilant.IT** | Australia |
 
-## Next steps
+## Related content
 
 * For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).
 * Ensure that all prerequisites are met. For more information, see [ExpressRoute prerequisites](expressroute-prerequisites.md).

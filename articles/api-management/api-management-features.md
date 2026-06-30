@@ -2,12 +2,10 @@
 title: Feature-based comparison of Azure API Management tiers
 description: Compare API Management tiers based on the features they offer. See a table that summarizes the key features available in each pricing tier.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 06/02/2026
-ms.author: danlep
+ms.date: 06/05/2026
 ms.custom:
   - build-2025
 ---
@@ -28,9 +26,9 @@ Each API Management [pricing tier](api-management-key-concepts.md#api-management
 | Feature                                                                                      | Consumption | Developer | Basic | Basic v2 |Standard | Standard v2 | Premium | Premium v2 |
 | -------------------------------------------------------------------------------------------- | ----------- | --------- | --------- | --------- | ----- | -------- | ------- | ------- | 
 | Microsoft Entra integration<sup>1</sup>                                                             | ❌          | ✔️       | ❌    | ✔️      | ✔️      | ✔️      | ✔️     | ✔️ |
-| Virtual network injection support                                                               | ❌          | ✔️       | ❌    | ❌       | ❌       | ❌       | ✔️    | ✔️ |
 | Private endpoint support for inbound connections                                                               | ❌          | ✔️       | ✔️    | ❌       | ✔️      | ✔️     | ✔️  | ✔️   |
-| Outbound virtual network integration support                                                             | ❌          | ❌       | ❌    | ❌       | ❌       | ✔️       | ❌    | ✔️ |
+| Deploy (inject) service in virtual network                                                  | ❌          | ✔️       | ❌    | ❌       | ❌       | ❌       | ✔️    | ✔️ |
+| Connect to backends isolated in virtual network                                                            | ❌          | ✔️       | ❌    | ❌       | ❌       | ✔️       | ✔️    | ✔️ |
 | Multi-region deployment                                                                      | ❌          | ❌        | ❌    | ❌       | ❌       | ❌       | ✔️     | ❌ |
 | Availability zones                                                                           | ❌          | ❌        | ❌    | ❌       | ❌       | ❌       | ✔️     | ✔️  |
 | Multiple custom domain names for gateway                                                                 | ❌          | ✔️        | ❌    | ❌      | ❌       | ❌        | ✔️     | ✔️ |

@@ -1,50 +1,152 @@
 ### YamlMime:Landing
 
 title: Azure SRE Agent documentation
-summary: Azure SRE Agent is an AI-powered reliability assistant that helps teams diagnose and resolve production issues, reduce operational toil, and lower mean time to resolution (MTTR).
+summary: Azure SRE Agent is an AI-powered reliability assistant for diagnosing and resolving production issues, reducing operational toil, and lowering mean time to resolution (MTTR). Whether you're a solo operator or part of a large SRE team, the agent works alongside you, investigating root causes, proposing mitigations, and automating runbook-driven responses within guardrails and approval workflows you define.
 
 metadata:
   title: Azure SRE Agent documentation
-  description: Azure SRE Agent is an AI-powered reliability assistant that helps teams diagnose and resolve production issues, reduce operational toil, and lower mean time to resolution (MTTR).
+  description: Azure SRE Agent is an AI-powered reliability assistant that helps you diagnose and resolve production issues, reduce operational toil, and lower MTTR.
   ms.topic: landing-page
   ms.service: azure-sre-agent
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 04/06/2026
+  ms.date: 06/18/2026
+
 landingContent:
-  - title: Overview
+  - title: About Azure SRE Agent
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure SRE Agent and how it works
+          - text: What is Azure SRE Agent?
             url: overview.md
+          - text: Security and trust model
+            url: security-overview.md
+          - text: Data privacy
+            url: data-privacy.md
+          - text: Pricing and billing
+            url: pricing-billing.md
+          - text: Supported regions
+            url: supported-regions.md
+
   - title: Get started
     linkLists:
       - linkListType: get-started
         links:
-          - text: Create your first agent in minutes
+          - text: Create and set up your agent
             url: create-and-set-up.md
-  - title: Build subagents or skills
+          - text: Complete setup
+            url: complete-setup.md
+          - text: Run your first investigation
+            url: first-investigation.md
+          - text: Explore starter prompts
+            url: starter-prompts.md
+          - text: Configure team access
+            url: team-onboard.md
+      - linkListType: tutorial
+        links:
+          - text: "Tutorial: Respond to an incident"
+            url: tutorial-incident-response.md
+          - text: "Tutorial: Run a deep investigation"
+            url: tutorial-deep-investigation.md
+          - text: "Tutorial: Set up agent hooks"
+            url: tutorial-agent-hooks.md
+
+  - title: Respond to incidents
     linkLists:
       - linkListType: concept
         links:
-          - text: Create specialized domain experts
-            url: sub-agents.md
-  - title: Connectors
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Integrate your tools and data sources
-            url: connectors.md
-  - title: Incident response
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Automate triage and remediation
+          - text: Incident response and escalation overview
             url: incident-response.md
-  - title: Deep context
+          - text: Incident management platforms
+            url: incident-platforms.md
+          - text: Runbooks and response plans
+            url: incident-response-plans.md
+          - text: Root cause analysis
+            url: root-cause-analysis.md
+      - linkListType: how-to-guide
+        links:
+          - text: Run a deep investigation
+            url: deep-investigation.md
+          - text: Review and approve mitigations
+            url: execute-mitigations.md
+          - text: Set up PagerDuty indexing
+            url: set-up-pagerduty-indexing.md
+          - text: Set up ServiceNow indexing
+            url: setup-servicenow-indexing.md
+
+  - title: Connect your environment
     linkLists:
       - linkListType: concept
         links:
-          - text: Give your agent code access and persistent memory
+          - text: Connectors overview
+            url: connectors.md
+          - text: Managed connectors
+            url: managed-connectors.md
+          - text: MCP connectors
+            url: mcp-connectors.md
+      - linkListType: how-to-guide
+        links:
+          - text: Connect GitHub
+            url: github-connector.md
+          - text: Connect Azure DevOps
+            url: azure-devops-connector.md
+          - text: Connect Kusto
+            url: kusto-connector.md
+          - text: Connect Log Analytics and Application Insights
+            url: log-analytics-app-insights.md
+          - text: Connect Microsoft Teams
+            url: set-up-teams-connector.md
+
+  - title: Automate operations with custom agents
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Custom agents overview
+            url: sub-agents.md
+          - text: Skills overview
+            url: skills.md
+          - text: Event-driven hooks
+            url: agent-hooks.md
+          - text: Scheduled tasks
+            url: scheduled-tasks.md
+      - linkListType: how-to-guide
+        links:
+          - text: Build a custom agent
+            url: create-subagent.md
+          - text: Create a skill
+            url: create-skill.md
+          - text: Automate workflows
+            url: automate-workflows.md
+          - text: Automate incident response
+            url: automate-incidents.md
+
+  - title: Governance, context, and operations
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Workspace tools overview
             url: workspace-tools.md
+          - text: Persistent memory
+            url: memory.md
+          - text: Source code integration
+            url: connect-source-code.md
+          - text: Knowledge integration
+            url: connect-knowledge.md
+      - linkListType: how-to-guide
+        links:
+          - text: Track incident value
+            url: track-incident-value.md
+          - text: Manage roles and permissions
+            url: manage-permissions.md
+          - text: Audit agent actions
+            url: audit-agent-actions.md
+          - text: Monitor agent usage
+            url: monitor-agent-usage.md
+      - linkListType: reference
+        links:
+          - text: REST API reference
+            url: api-reference.md
+          - text: FAQ
+            url: faq.md
+          - text: Troubleshooting FAQ
+            url: faq-troubleshooting.md

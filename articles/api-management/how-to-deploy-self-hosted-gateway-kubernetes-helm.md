@@ -1,12 +1,10 @@
 ---
 title: Deploy a Self-Hosted Gateway to Kubernetes with Helm
 description: Learn how to deploy self-hosted gateway component of Azure API Management to Kubernetes by using Helm.
-author: tomkerkhove
 manager: mrcarlosdev
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 02/19/2026
-ms.author: tomkerkhove
 ---
 
 # Deploy a self-hosted gateway to Kubernetes by using Helm

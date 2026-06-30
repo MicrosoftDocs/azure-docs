@@ -300,10 +300,14 @@
     items:
     - name: About user groups and client address pools
       href: user-groups-about.md
-    - name: Configure user groups for address pools
-      href: user-groups-create.md
-    - name: RADIUS - Configure NPS and user groups
-      href: user-groups-radius.md
+    - name: Configure user groups and address pools
+      items:
+      - name: Azure Portal
+        href: user-groups-create.md
+      - name: Azure PowerShell
+        href: point-to-site-user-groups-powershell.md
+      - name: RADIUS - Configure NPS and user groups
+        href: user-groups-radius.md
   - name: Configure Always On tunnels
     items:
     - name: User tunnel - Windows clients

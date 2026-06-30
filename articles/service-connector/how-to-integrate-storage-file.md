@@ -18,7 +18,6 @@ This article shows supported clients, authentication methods, and sample code yo
 You can use Service Connector to connect the following Azure compute services to Azure Files:
 
 - Azure App Service
-- Azure Container Apps
 - Azure Functions
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps

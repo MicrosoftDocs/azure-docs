@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/02/2026
+ms.date: 06/10/2026
 ai-usage: ai-assisted
 
 ---
@@ -49,7 +49,7 @@ Create a registry endpoint that points to the public registry where the sample m
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2025-10-01-preview' = {
+resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-07-01' = {
   parent: aioInstance
   name: 'public-ghcr'
   extendedLocation: {

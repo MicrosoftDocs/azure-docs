@@ -5,32 +5,28 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 08/20/2025
+ms.date: 06/18/2026
 ---
 
 # Get connection configurations added by Service Connector
 
-Service Connector configures connection information, such as Database connection string, while creating or updating service connections. After service connections are created, you might want to write code to consume these connection configurations in code. This page shows how to get connection configurations added by Service Connector. 
+Service Connector configures connection information, such as database connection strings, when creating or updating service connections. After service connections are created, you can write code to consume these connection configurations. This article shows how to get connection configurations added by Service Connector.
 
-There are multiple ways to get connection configurations of a service connection.
+There are multiple ways to get the connection configurations for a service connection.
 
-You can get configuration names for specific target service type from the following articles [Integrate Azure Database for PostgreSQL with Service Connector](./how-to-integrate-postgres.md), or you can get connection configurations programmatically by running the following commands.
+You can get configuration names for specific target service types from articles such as [Integrate Azure Database for PostgreSQL with Service Connector](./how-to-integrate-postgres.md). You can also get connection configurations programmatically by running the following commands.
 
 ## [Azure CLI](#tab/azure-cli)
-You can run the following commands in Azure CLI(/cli/azure) to list configurations of a service connection.
+You can run the following commands in [Azure CLI](/cli/azure) to list configurations of a service connection.
+
 ```azurecli
 # for Azure Web App
 az webapp connection list-configuration -g <myResourceGroupName> -n <myWebAppName> --connection <myConnectionName>
 
-# for Azure Container App
-az containerapp connection list-configuration -g <myResourceGroupName> -n <myContainerAppName> --connection <myConnectionName>
-
 # for Azure Spring App
 az spring connection list-configuration --id /subscriptions/{subscription}/resourceGroups/{myResourceGroupName}/providers/Microsoft.AppPlatform/Spring/{mySpringAppName}/apps/{myAppName}/deployments/default/providers/Microsoft.ServiceLinker/linkers/{myConnectionName}
 ```
-For more information, see the following articles in Azure CLI reference documentations:
-- [az webapp connection list-configuration](/cli/azure/webapp/connection#az-webapp-connection-list-configuration)
-- [az containerapp connection list-configuration](/cli/azure/containerapp/connection#az-containerapp-connection-list-configuration)
+For more information, see [az webapp connection list-configuration](/cli/azure/webapp/connection#az-webapp-connection-list-configuration).
 
 ## [Azure PowerShell](#tab/azure-powershell)
 You can run the following commands in Azure PowerShell to list configurations of a service connection.
@@ -38,15 +34,10 @@ You can run the following commands in Azure PowerShell to list configurations of
 # for Azure Web App
 Get-AzServiceLinkerConfigurationForWebApp -WebApp {myWebAppName} -ResourceGroupName {myResourceGroupName} -LinkerName {myConnectionName} | Format-List
 
-# for Azure Container App
-Get-AzServiceLinkerConfigurationForContainerApp -ContainerApp {myContainerAppName} -ResourceGroupName {myResourceGroupName} -LinkerName {myConnectionName} | Format-List
-
 # for Azure Spring App
 Get-AzServiceLinkerConfigurationForSpringCloud -ServiceName {mySpringAppName} -AppName {myAppName} -ResourceGroupName {myResourceGroupName} -LinkerName {myConnectionName} | Format-List
 ```
-For more information, see the following articles in Azure PowerShell reference documentations: 
-- [Get-AzServiceLinkerConfigurationForWebApp](/powershell/module/az.servicelinker/get-azservicelinkerconfigurationforwebapp)
-- [Get-AzServiceLinkerConfigurationForContainerApp](/powershell/module/az.servicelinker/get-azservicelinkerconfigurationforcontainerapp)
+For more information, see [Get-AzServiceLinkerConfigurationForWebApp](/powershell/module/az.servicelinker/get-azservicelinkerconfigurationforwebapp)
 
 ---
 

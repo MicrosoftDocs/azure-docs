@@ -12,7 +12,7 @@
     href: stac-overview.md
   - name: Supported data types
     href: supported-data-types.md
-  - name: Service usage meters
+  - name: Service usage metrics
     href: service-usage-meters.md
   expanded: true
 - name: Deploy & set up
@@ -21,9 +21,9 @@
     href: get-started-planetary-computer.md
   - name: Deploy a GeoCatalog resource
     href: deploy-geocatalog-resource.md
-  - name: Manage access
+  - name: Manage access for Microsoft Planetary Computer Pro
     href: manage-access.md
-  - name: Assign a user-assigned managed identity to a GeoCatalog resource
+  - name: Using managed identities with GeoCatalog resource
     href: assign-managed-identity-geocatalog-resource.md
   - name: Using the Microsoft Planetary Computer Pro APIs
     href: api-tutorial.md

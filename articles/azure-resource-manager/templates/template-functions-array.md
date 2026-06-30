@@ -3,7 +3,7 @@ title: Template functions - arrays
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with arrays.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 08/01/2025
+ms.date: 06/03/2026
 ---
 
 # Array functions for ARM templates
@@ -26,8 +26,8 @@ In Bicep, use the [`array`](../bicep/bicep-functions-array.md#array) function.
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| convertToArray |Yes |int, string, array, or object |The value to convert to an array. |
+| --- | --- | --- | --- |
+| convertToArray | Yes | int, string, array, or object | The value to convert to an array. |
 
 ### Return value
 
@@ -96,9 +96,9 @@ In Bicep, use the [`concat`](../bicep/bicep-functions-array.md#concat) function.
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |array or string |The first array or string for concatenation. |
-| more arguments |No |array or string |More arrays or strings in sequential order for concatenation. |
+| --- | --- | --- | --- |
+| arg1 | Yes | array or string | The first array or string for concatenation. |
+| more arguments | No | array or string | More arrays or strings in sequential order for concatenation. |
 
 This function can take any number of arguments and can accept either strings or arrays for the parameters. However, you can't provide both arrays and strings for parameters. Arrays are only concatenated with other arrays.
 
@@ -188,13 +188,13 @@ In Bicep, use the [`contains`](../bicep/bicep-functions-array.md#contains) funct
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| container |Yes |array, object, or string |The value that contains the value to find. |
-| itemToFind |Yes |string or int |The value to find. |
+| --- | --- | --- | --- |
+| container | Yes | array, object, or string | The value that contains the value to find. |
+| itemToFind | Yes | string or int | The value to find. |
 
 ### Return value
 
-**True** if the item is found; otherwise, **False**.
+**True** if the function finds the item; otherwise, **False**.
 
 ### Example
 
@@ -275,12 +275,12 @@ In Bicep, the `createArray` function isn't supported. To construct an array, see
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| args |No |String, Integer, Array, or Object |The values in the array. |
+| --- | --- | --- | --- |
+| args | No | String, Integer, Array, or Object | The values in the array. |
 
 ### Return value
 
-An array. When no parameters are provided, it returns an empty array.
+An array. When you don't provide any parameters, it returns an empty array.
 
 ### Example
 
@@ -341,6 +341,75 @@ The output of default values from the preceding example is:
 | arrayArray | Array | [["one", "two", "three"]] |
 | emptyArray | Array | [] |
 
+## distinct
+
+`distinct(arrayToModify)`
+
+Returns a new array with all duplicate values removed from the input array. The function preserves the original order of first occurrence.
+
+In Bicep, use the [`distinct`](../bicep/bicep-functions-array.md#distinct) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+| --- | --- | --- | --- |
+| arrayToModify | Yes | array | The array to remove duplicates from. |
+
+### Return value
+
+An array containing only unique elements from the input array. The order of elements is preserved based on their first appearance.
+
+### Example
+
+The following example shows how to use the `distinct` function with different types of arrays.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "numbers": [ 1, 2, 2, 3, 1 ],
+    "names": [ "apple", "banana", "apple", "cherry" ],
+    "resources": [
+      {
+        "name": "storage1",
+        "type": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "name": "vm1",
+        "type": "Microsoft.Compute/virtualMachines"
+      },
+      {
+        "name": "storage1",
+        "type": "Microsoft.Storage/storageAccounts"
+      }
+    ]
+  },
+  "outputs": {
+    "uniqueNumbers": {
+      "type": "array",
+      "value": "[distinct(variables('numbers'))]"
+    },
+    "uniqueNames": {
+      "type": "array",
+      "value": "[distinct(variables('names'))]"
+    },
+    "uniqueResources": {
+      "type": "array",
+      "value": "[distinct(variables('resources'))]"
+    }
+  }
+}
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| uniqueNumbers | Array | [1, 2, 3] |
+| uniqueNames | Array | ["apple", "banana", "cherry"] |
+| uniqueResources | Array | [{"name": "storage1", "type": "Microsoft.Storage/storageAccounts"}, {"name": "vm1", "type": "Microsoft.Compute/virtualMachines"}] |
+
 ## empty
 
 `empty(itemToTest)`
@@ -352,7 +421,7 @@ In Bicep, use the [`empty`](../bicep/bicep-functions-array.md#empty) function.
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
+| --- | --- | --- | --- |
 | itemToTest |Yes |array, object, or string |The value to check if it's empty. |
 
 ### Return value
@@ -419,8 +488,8 @@ In Bicep, use the [`first`](../bicep/bicep-functions-array.md#first) function.
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |array or string |The value to retrieve the first element or character. |
+| --- | --- | --- | --- |
+| arg1 | Yes | array or string | The value to retrieve the first element or character. |
 
 ### Return value
 
@@ -466,16 +535,16 @@ The output of default values from the preceding example is:
 
 `indexFromEnd(sourceArray, reverseIndex)`
 
-Returns an element of the array by counting backwards from the end. This is useful when you want to reference elements starting from the end of a list rather than the beginning. The [`tryIndexFromEnd`](#tryindexfromend) function is a safe version of `indexFromEnd`.
+Returns an element of the array by counting backwards from the end. This function is useful when you want to reference elements starting from the end of a list rather than the beginning. The [`tryIndexFromEnd`](#tryindexfromend) function is a safe version of `indexFromEnd`.
 
 In Bicep, use the [Reserved index accessor](../bicep/operators-access.md#reverse-index-accessor) operator.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| sourceArray |Yes |array |The value to retrieve the element by counting backwards from the end. |
-| reverseIndex |Yes |integer |The one-based index from the end of the array. |
+| --- | --- | --- | --- |
+| sourceArray | Yes | array | The value to retrieve the element by counting backwards from the end. |
+| reverseIndex | Yes | integer | The one-based index from the end of the array. |
 
 ### Return value
 
@@ -528,7 +597,7 @@ Returns an integer for the index of the first occurrence of an item in an array.
 
 ### Return value
 
-An integer representing the first index of the item in the array. The index is zero-based. If the item isn't found, -1 is returned.
+An integer representing the first index of the item in the array. The index is zero-based. If the item isn't found, the function returns -1.
 
 ### Examples
 
@@ -627,10 +696,10 @@ In Bicep, use the [`intersection`](../bicep/bicep-functions-array.md#intersectio
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |array or object |The first value to use for finding common elements. |
-| arg2 |Yes |array or object |The second value to use for finding common elements. |
-| more arguments |No |array or object |More values to use for finding common elements. |
+| --- | --- | --- | --- |
+| arg1 | Yes | array or object | The first value to use for finding common elements. |
+| arg2 | Yes | array or object | The second value to use for finding common elements. |
+| more arguments | No | array or object | More values to use for finding common elements. |
 
 ### Return value
 
@@ -703,8 +772,8 @@ In Bicep, use the [`last`](../bicep/bicep-functions-array.md#last) function.
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |array or string |The value to retrieve the last element or character. |
+| --- | --- | --- | --- |
+| arg1 | Yes | array or string | The value to retrieve the last element or character. |
 
 ### Return value
 
@@ -839,7 +908,7 @@ The output from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| index1 |int | 1 |
+| index1 | int | 1 |
 | index2 | int | 0 |
 | index3 | int | 0 |
 | index4 | int | 2 |
@@ -860,8 +929,8 @@ In Bicep, use the [`length`](../bicep/bicep-functions-array.md#length) function.
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |array, string, or object |The array to use for getting the number of elements, the string to use for getting the number of characters, or the object to use for getting the number of root-level properties. |
+| --- | --- | --- | --- |
+| arg1 | Yes | array, string, or object | The array to use for getting the number of elements, the string to use for getting the number of characters, or the object to use for getting the number of root-level properties. |
 
 ### Return value
 
@@ -949,8 +1018,8 @@ In Bicep, use the [`max`](../bicep/bicep-functions-array.md#max) function.
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |array of integers, or comma-separated list of integers |The collection to get the maximum value. |
+| --- | --- | --- | --- |
+| arg1 | Yes | array of integers, or comma-separated list of integers | The collection to get the maximum value. |
 
 ### Return value
 
@@ -1002,8 +1071,8 @@ In Bicep, use the [`min`](../bicep/bicep-functions-array.md#min) function.
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |array of integers, or comma-separated list of integers |The collection to get the minimum value. |
+| --- | --- | --- | --- |
+| arg1 | Yes | array of integers, or comma-separated list of integers | The collection to get the minimum value. |
 
 ### Return value
 
@@ -1055,9 +1124,9 @@ In Bicep, use the [`range`](../bicep/bicep-functions-array.md#range) function.
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| startIndex |Yes |int |The first integer in the array. The sum of startIndex and count must be no greater than 2147483647. |
-| count |Yes |int |The number of integers in the array. Must be non-negative integer up to 10000. |
+| --- | --- | --- | --- |
+| startIndex | Yes | int | The first integer in the array. The sum of `startIndex` and `count` can't be greater than 2,147,483,647. |
+| count | Yes | int | The number of integers in the array. Must be a non-negative integer up to 10,000. |
 
 ### Return value
 
@@ -1108,9 +1177,9 @@ In Bicep, use the [`skip`](../bicep/bicep-functions-array.md#skip) function.
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
+| --- | --- | --- | --- |
 | originalValue |Yes |array or string |The array or string to use for skipping. |
-| numberToSkip |Yes |int |The number of elements or characters to skip. If this value is 0 or less, all the elements or characters in the value are returned. If it's larger than the length of the array or string, an empty array or string is returned. |
+| numberToSkip |Yes |int |The number of elements or characters to skip. If this value is 0 or less, the function returns all the elements or characters in the value. If it's larger than the length of the array or string, the function returns an empty array or string. |
 
 ### Return value
 
@@ -1178,9 +1247,9 @@ In Bicep, use the [`take`](../bicep/bicep-functions-array.md#take) function.
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| originalValue |Yes |array or string |The array or string to take the elements from. |
-| numberToTake |Yes |int |The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it's larger than the length of the given array or string, all the elements in the array or string are returned. |
+| --- | --- | --- | --- |
+| originalValue | Yes | array or string | The array or string to take the elements from. |
+| numberToTake | Yes | int | The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it's larger than the length of the given array or string, all the elements in the array or string are returned. |
 
 ### Return value
 
@@ -1248,13 +1317,13 @@ In Bicep, use the [safe-dereference](../bicep/operator-safe-dereference.md#safe-
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| itemToTest |Yes |array, object |An object or array to look into. |
-| keyOrIndex |Yes |string, int |A key or index to retrieve from the array or object. A property name for objects or index for arrays.|
+| --- | --- | --- | --- |
+| itemToTest | Yes | array, object | An object or array to look into. |
+| keyOrIndex | Yes | string, int | A key or index to retrieve from the array or object. A property name for objects or index for arrays. |
 
 ### Return value
 
-Returns the value at the key/index if it exists. Returns null if the key/index is missing or out of bounds.
+Returns the value at the key or index if it exists. Returns null if the key or index is missing or out of bounds.
 
 ### Example
 
@@ -1306,7 +1375,7 @@ The output from the preceding example is:
 
 ## tryIndexFromEnd
 
-`tryndexFromEnd(sourceArray, reverseIndex)`
+`tryIndexFromEnd(sourceArray, reverseIndex)`
 
 The `tryIndexFromEnd` function is a safe version of [`indexFromEnd`](#indexfromend). It retrieves a value from an array by counting backward from the end without throwing an error if the index is out of range.
 
@@ -1315,9 +1384,9 @@ In Bicep, use the [Reserved index accessor](../bicep/operators-access.md#reverse
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| sourceArray |Yes |array |The value to retrieve the element by counting backwards from the end. |
-| reverseIndex |Yes |integer |The one-based index from the end of the array. |
+| --- | --- | --- | --- |
+| sourceArray | Yes | array | The value to retrieve the element by counting backwards from the end. |
+| reverseIndex | Yes | integer | The one-based index from the end of the array. |
 
 ### Return value
 
@@ -1401,10 +1470,10 @@ In Bicep, use the [`union`](../bicep/bicep-functions-array.md#union) function.
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |array or object |The first value to use for joining elements. |
-| arg2 |Yes |array or object |The second value to use for joining elements. |
-| more arguments |No |array or object |More values to use for joining elements. |
+| --- | --- | --- | --- |
+| arg1 | Yes | array or object | The first value to use for joining elements. |
+| arg2 | Yes | array or object | The second value to use for joining elements. |
+| more arguments | No | array or object | More values to use for joining elements. |
 
 ### Return value
 
@@ -1542,10 +1611,10 @@ The output from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| objectOutput | Object |{"property":{"one":"a","two":"b","three":"c2","four":"d","five":"e"},"nestedArray":[3,4]}|
-| arrayOutput | Array |[["one","two"],["three"],["four","two"]]|
+| objectOutput | Object | {"property":{"one":"a","two":"b","three":"c2","four":"d","five":"e"},"nestedArray":[3,4]} |
+| arrayOutput | Array | [["one","two"],["three"],["four","two"]] |
 
-If nested arrays were merged, then the value of **objectOutput.nestedArray** is [1, 2, 3, 4], and the value of **arrayOutput** is [["one", "two", "three"], ["three", "four", "two"]].
+If nested arrays were merged, the value of **objectOutput.nestedArray** is [1, 2, 3, 4], and the value of **arrayOutput** is [["one", "two", "three"], ["three", "four", "two"]].
 
 ## Next steps
 

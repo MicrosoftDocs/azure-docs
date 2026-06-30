@@ -5,7 +5,7 @@ description: Learn how to connect classic VNets to Resource Manager VNets using 
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 03/12/2024
+ms.date: 06/10/2026
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 # Customer intent: As a network administrator, I want to connect classic virtual networks to Resource Manager virtual networks, so that I can enable communication between resources across different deployment models.
@@ -73,7 +73,7 @@ GatewaySubnet = 192.168.255.0/27 <br>
 Virtual network gateway name = RMGateway <br>
 Gateway type = VPN <br>
 VPN type = Route-based <br>
-SKU = VpnGw1 <br>
+SKU = VpnGw2AZ <br>
 Location = East US <br>
 Virtual network = RMVNet(associate the VPN gateway to this VNet) <br> 
 First IP configuration = rmgwpip (gateway public IP address) <br> 
@@ -165,7 +165,7 @@ For steps, see [Create a VPN gateway](tutorial-site-to-site-portal.md#VNetGatewa
   * Region = East US
   * Gateway type = VPN
   * VPN type = Route-based
-  * SKU = VpnGw2
+  * SKU = VpnGw2AZ
   * Generation = Generation2
   * Virtual network = RMVNet
   * GatewaySubnet address range = 192.168.255.0/27

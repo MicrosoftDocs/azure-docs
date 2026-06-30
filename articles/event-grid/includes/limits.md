@@ -121,7 +121,7 @@ The following limits apply to Event Grid custom topic, system topic, and partner
 | Limit description                                      | Limit                                                                                                                               |
 |--------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Custom topics per Azure subscription                   | 100<br/>When the limit is reached, you can consider a different region or consider using domains, which can support 100,000 topics. |
-| Event subscriptions per topic                          | 500<br/>This limit can't be increased.                                                                                              |
+| Event subscriptions per topic                          | 500. For Event Subscriptions on Azure Subscriptions the limit is 100. <br/>This limit can't be increased.                                                                                              |
 | Publish rate for a custom or a partner topic (ingress) | 5,000 events or 5 MB per second (whichever comes first)<br/>An event is counted for limits and pricing purposes as a 64-KB data chunk. So, if the event is 128 KB, it counts as two events. |
 | Event size                                             | 1 MB<br/>This limit can't be increased.                                                                                             |
 | Maximum event retention on topics              | 1 day<br/>This limit can't be increased. |

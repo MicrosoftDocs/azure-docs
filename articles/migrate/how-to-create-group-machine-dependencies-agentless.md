@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 08/28/2025
+ms.date: 06/26/2026
 ms.reviewer: v-uhabiba
 ms.custom:
   - engagement-fy25
@@ -17,7 +17,7 @@ ms.custom:
 
 # Analyze server dependencies (agentless)
 
-This article describes how to set up agentless dependency analysis using Azure Migrate: Discovery and assessment tool. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across servers for assessment and migration to Azure.
+This article describes how to set up agentless dependency analysis using Azure Migrate. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across servers for assessment and migration to Azure.
 
 ::: moniker range="migrate"
  > [!Note]
@@ -35,8 +35,8 @@ This article describes how to set up agentless dependency analysis using Azure M
 
 ## What's New?
 
-- Dependency analysis runs automatically on 1,000 servers discovered by each Azure Migrate appliance that passes the prerequisite checks. You don’t need to enable it manually anymore.
-- The enhanced dependency visualization helps you review additional information about the servers, connections, and processes. You can filter the view by process type to analyze key dependencies in the visualization.
+- Dependency analysis runs automatically on 3,000 servers discovered by Azure Migrate appliance for VMware VMs that pass the prerequisite checks. You don't need to enable it manually anymore.
+- The enhanced dependency visualization helps you review dependencies gathered across servers discovered from your datacentre by Azure Migrate.
 - In the new visualization, after identifying key dependencies, you can group servers into an application by tagging them.
 ::: moniker-end
 
@@ -122,7 +122,7 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 - **View dependencies:** The server passed the validation checks and dependency analysis is enabled. You can select this to open the new visualization and check the server’s dependencies.
 ::: moniker range="migrate"
 
-- **Not initiated:** Dependency analysis couldn’t be enabled because Azure Migrate reached its limit of 1,000 servers per appliance for automatic enablement. If you want to run dependency analysis on specific servers, you can disable it manually on other autoenabled servers and enable it for the required ones using the PowerShell module.
+- **Not initiated:** Dependency analysis couldn't be enabled because Azure Migrate reached its limit of 3,000 servers per appliance (VMware) and 1,000 servers per appliance (Hyper-V/Physical) for automatic enablement. To run dependency analysis on specific servers, disable it manually on other autoenabled servers and enable it for the required ones by using the PowerShell module.
 - **Disabled:** You can manually disable dependency analysis on this using the portal or the PowerShell module. You can enable it again anytime using the same module. 
 
 - **Not supported**: Dependency data could not be collected as the server was discovered through CSV import.
@@ -160,13 +160,13 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 
 ### Visualize dependencies across servers
 
-If dependency data collection is enabled on your servers (up to 1,000 servers per appliance), you can now visualize dependencies across all discovered servers in your Azure Migrate project. The visualization displays logically grouped server nodes and their connections, helping you understand network affinity and identify applications running in your datacenter.
+If dependency data collection is enabled on your servers (up to 3,000 servers per appliance), you can now visualize dependencies across all discovered servers in your Azure Migrate project. The visualization displays logically grouped server nodes and their connections, helping you understand network affinity and identify applications running in your datacenter.
 
 #### Default visualization
 
 1. In the left menu select **Dependency analysis** and then select **Explore Applications**.
 1. The visualization shows **Resolvable** connections collected from discovered servers with dependency analysis enabled. 
-    Resolvable connections are network connections identified between servers discovered by Azure Migrate.
+    Resolvable connections are network connections identified between servers, discovered by Azure Migrate.
 
     :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/multi-server-default-view.png" alt-text="The screenshot shows the default multi-server dependency view." lightbox="./media/how-to-create-group-machine-dependencies-agentless/multi-server-default-view.png":::
 
@@ -301,10 +301,10 @@ The dependency data is exported and downloaded in a CSV format. The downloaded f
 1. Select **Export dependencies**.
 1. In the **Export dependencies** view, select one or more appliances for their discovered servers.
 1. Select the time interval for which you want to export data. You can choose from last 7, 10, 15, 30 days.
-1. The process type is set to **Resolvable** by default. This exports only resolvable connections between discovered servers.
+1. The process type is set to **Resolvable** by default. This exports only resolvable connections between discovered servers. But you can change this to **All** if you want to export all connections gathered (including unresolved connections to servers which were either not discovered by Azure Migrate or errored in dependency data gathering).
 1. Select **Generate** to generate a file with the earliest available dependency data amongst the selected appliance(s) within the chosen time interval.
 
-   :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/new-export-dep.png" alt-text="The screenshot illustrates the Export dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/new-export-dep.png":::
+   :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/new-export-dependency.png" alt-text="The screenshot illustrates the Export dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/new-export-dependency.png":::
 
 1. After the file is generated, select **Download** to save it.
 
@@ -367,7 +367,7 @@ After you've performed the required steps to upgrade to the new dependency visua
 ::: moniker range="migrate"
 ## Manage dependencies
 
-Dependency analysis is autoenabled on all discovered servers (upto 1,000 servers per appliance), which have passed the validation checks. You may need to disable one or more of these servers in the following scenarios:
+Dependency analysis is autoenabled on all discovered servers (upto 3,000 servers per appliance), which have passed the validation checks. You may need to disable one or more of these servers in the following scenarios:
 
 1. Dependency analysis is autoenabled on all discovered in your project but you want to disable it on a few servers where you don't want to gather dependency data. 
 1. Dependency analysis is autoenabled on 1,000 servers concurrently in your project but you have more servers where you want to enable it, then you can disable dependency analysis one or more servers from the set of 1,000 and enable others as needed.
@@ -431,7 +431,7 @@ You need to install the PowerShell module to disable for servers that you don't 
     `select-azsubscription -subscription "Contoso Demo Subscription"`
 
 1. Install the AzMig.Dependencies PowerShell module
-    `Install-Module .\AzMig.Dependencies`
+    `Install-Module .\AzMigrate.Dependencies`
 
 ### Disable dependencies
 
@@ -493,7 +493,7 @@ Dependency analysis is autoenabled on all discovered servers, which have passed 
 
 1. Dependency analysis has been autoenabled on all discovered in your project but you want to disable it on a few servers where you don't want to gather dependency data.
 
-1. Dependency analysis is autoenabled on 1,000 servers at the same time in your project. If you have more servers to enable, you can disable it on one or more of the 1,000 servers and enable it on the ones as you need.
+1. Dependency analysis is autoenabled on 3,000 servers at the same time in your project. If you have more servers to enable, you can disable it on one or more of the 3,000 servers and enable it on the ones as you need.
 
     > [!NOTE]
     > Currently, it isn't possible to disable dependency analysis on servers from portal so you need to install the PowerShell module to disable for servers that you don't want.
@@ -518,10 +518,10 @@ Dependency analysis is autoenabled on all discovered servers, which have passed 
     select-azsubscription -subscription "Contoso Demo Subscription"
     ```
 
-1. Install the AzMig.Dependencies PowerShell module
+1. Install the AzMigrate.Dependencies PowerShell module
 
     ```PowerShell
-    Install-Module .\AzMig.Dependencies
+    Install-Module .\AzMigrate.Dependencies
     ```
 
 ### Disable dependency data collection
@@ -580,7 +580,7 @@ In the following example, dependency analysis is being enabled on the list of se
 
 ## Visualize network connections in Power BI
 
-Azure Migrate offers a Power BI template that you can use to visualize network connections of many servers at once, and filter by process and server. To visualize, load the Power BI with dependency data as per the below instructions.
+Azure Migrate offers a [Power BI template](https://download.microsoft.com/download/1469a653-9b21-4a10-b0a4-152629377889/Azure%20Migrate%20-%20Network%20Connections.pbit) that you can use to visualize network connections of many servers at once, and filter by process and server. To visualize, load the Power BI with dependency data as per the following instructions.
 
 ### Log in to Azure
 
@@ -600,10 +600,10 @@ Azure Migrate offers a Power BI template that you can use to visualize network c
     select-azsubscription -subscription "Contoso Demo Subscription"
     ```
 
-1. Install the AzMig.Dependencies PowerShell module
+1. Install the AzMigrate.Dependencies PowerShell module
 
     ```PowerShell
-    Install-Module .\AzMig.Dependencies
+    Install-Module .\AzMigrate.Dependencies
     ```
 
 1. Run the following command. This command downloads the dependencies data in a CSV and processes it to generate a list of unique dependencies that can be used for visualization in Power BI. In the example below the project name is ContosoDemoProject, and the resource group it belongs to be ContosoDemoRG. The dependencies are downloaded for servers discovered by ContosoApp. The unique dependencies are saved in ContosoDemo_Dependencies.csv

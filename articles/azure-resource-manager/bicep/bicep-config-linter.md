@@ -3,7 +3,7 @@ title: Linter settings for Bicep config
 description: Describes how to customize configuration values for the Bicep linter
 ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 03/12/2026
+ms.date: 06/15/2026
 ---
 
 # Add linter settings in the Bicep config file
@@ -14,9 +14,9 @@ This article describes the settings that are available for working with the Bice
 
 ## Customize linter
 
-The linter settings are available under the `analyzers` element. You can enable or disable the linter, supply rule-specific values, and set the level of rules.
+You can find the linter settings under the `analyzers` element. You can enable or disable the linter, supply rule-specific values, and set the level of rules.
 
-The following example shows the rules that are available for configuration.
+The following example shows the rules that you can configure.
 
 ```json
 {
@@ -72,6 +72,9 @@ The following example shows the rules that are available for configuration.
         "no-loc-expr-outside-params": {
           "level": "off"
         },
+        "no-module-name": {
+          "level": "off"
+        },
         "no-unnecessary-dependson": {
           "level": "warning"
         },
@@ -119,7 +122,8 @@ The following example shows the rules that are available for configuration.
         },
         "use-recent-api-versions": {
           "level": "off",
-          "maxAllowedAgeInDays": 730
+          "maxAgeInDays": 730,
+          "gracePeriodInDays": 90
         },
         "use-recent-module-versions": {
           "level": "off"
@@ -133,6 +137,9 @@ The following example shows the rules that are available for configuration.
         "use-safe-access": {
           "level": "warning"
         },
+        "use-recognized-resource-type": {
+          "level": "warning"
+        },
         "use-secure-value-for-secure-inputs": {
           "level": "error"
         },
@@ -141,6 +148,9 @@ The following example shows the rules that are available for configuration.
         },
         "use-stable-vm-image": {
           "level": "warning"
+        },
+        "use-user-defined-types": {
+          "level": "off"
         },
         "what-if-short-circuiting": {
           "level": "off"
@@ -153,15 +163,15 @@ The following example shows the rules that are available for configuration.
 
 The properties are:
 
-- **enabled**: specify **true** for enabling linter, **false** for disabling linter.
+- **enabled**: specify **true** to enable the linter, **false** to disable it.
 - **verbose**: specify **true** to show the bicepconfig.json file used by Visual Studio Code.
-- **rules**: specify rule-specific values. Each rule has a level that determines how the linter responds when a violation is found.
+- **rules**: specify rule-specific values. Each rule has a level that determines how the linter responds when it finds a violation.
 
 The available values for **level** are:
 
-| **level**  | **Build-time behavior** | **Editor behavior** |
-|--|--|--|
-| `Error` | Violations appear as Errors in command-line build output, and causes the build to fail. | Offending code is underlined with a red squiggle and appears in Problems tab. |
+| **level** | **Build-time behavior** | **Editor behavior** |
+| -- | -- | -- |
+| `Error` | Violations appear as errors in command-line build output, and cause the build to fail. | Offending code is underlined with a red squiggle and appears in Problems tab. |
 | `Warning` | Violations appear as Warnings in command-line build output, but they don't cause the build to fail. | Offending code is underlined with a yellow squiggle and appears in Problems tab. |
 | `Info` | Violations don't appear in the command-line build output. | Offending code is underlined with a blue squiggle and appears in Problems tab. |
 | `Off` | Suppressed completely. | Suppressed completely. |

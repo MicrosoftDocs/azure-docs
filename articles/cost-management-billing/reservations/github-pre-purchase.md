@@ -76,6 +76,9 @@ Consider a hypothetical scenario where your organization plans to use:
 
 This example demonstrates how the Pre-Purchase plan can provide cost savings for organizations with predictable GitHub usage patterns.
 
+> [!NOTE]
+> Pre-purchase plan discounts don't combine with other discounts you might have. If you have additional discounts, the pre-purchase plan discount is applied independently, which may result in a lower effective discount rate than the listed tier percentage. Factor in your existing discounts when estimating savings.
+
 ## Purchase GitHub Pre-Purchase Plan commit units
 
 Purchase GitHub Pre-Purchase Plans in the [Azure portal reservations](https://portal.azure.com/#view/Microsoft_Azure_Reservations/ReservationsBrowseBlade/productType/Reservations). 
@@ -111,6 +114,7 @@ You can't split or merge a **GitHub Pre-Purchase Plan**. For more information ab
 
 When you have multiple AI-related purchasing options, understanding how benefits are applied helps you maximize your cost savings. You might have several types of purchases for your AI workloads:
 
+- [GitHub AI Credits Pre-Purchase plan](github-ai-credits-pre-purchase-plan.md) - Covers GitHub AI Credits-specific usage
 - GitHub Pre-Purchase plan - Covers broader GitHub usage
 - [Microsoft Agent Pre-Purchase plan](agent-pre-purchase.md) - Covers broader AI workloads including Copilot Credit, Microsoft Foundry, and GitHub
 
@@ -118,18 +122,22 @@ When you have multiple AI-related purchasing options, understanding how benefits
 
 **What is overlap?** Overlap occurs when multiple benefits can cover the same usage. For example:
 
-- GitHub usage is eligible for both the GitHub Pre-Purchase plan and the Microsoft Agent Pre-Purchase plan
+- GitHub AI Credits usage is eligible for the GitHub AI Credits Pre-Purchase plan, the GitHub Pre-Purchase plan, and the Microsoft Agent Pre-Purchase plan
 
 ### Benefit application order (precedence)
 
 When overlap occurs, Microsoft applies benefits in this specific order to maximize your savings:
 
-1. **GitHub Pre-Purchase Plan**
-   - Applied first to GitHub usage
-   - Most granular benefit preserved for GitHub-specific use
+1. **GitHub AI Credits Pre-Purchase Plan**
+   - Applied first to GitHub AI Credits-specific usage
+   - Most granular benefit preserved for specialized use
 
-2. **Microsoft Agent Pre-Purchase Plan**
-   - Applied next to remaining eligible usage across platforms
+2. **GitHub Pre-Purchase Plan**
+   - Applied next to remaining GitHub usage (including any AI Credits usage not fully covered above)
+   - Broader GitHub coverage
+
+3. **Microsoft Agent Pre-Purchase Plan**
+   - Applied last to remaining eligible usage across platforms
    - Broadest coverage for heterogeneous AI workloads
 
 > [!IMPORTANT]

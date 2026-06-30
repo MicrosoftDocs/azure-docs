@@ -3,13 +3,12 @@ title: .NET Feature Flag Management
 titleSuffix: Azure App Configuration
 description: Find information about using the .NET feature management library and Azure App Configuration to implement feature flags in .NET and ASP.NET Core applications.
 services: azure-app-configuration
-author: jimmyca15
-ms.author: jimmyca
+ms.reviewer: jimmyca
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ms.topic: article
-ms.date: 07/23/2025
+ms.date: 06/18/2026
 # customer intent: As a developer, I want to access reference information about the .NET feature management library so that I can control feature availability in my app without redeploying the app.
 ---
 
@@ -119,7 +118,7 @@ Feature filters are defined in the `client_filters` array. In the preceding code
 
 #### Requirement type
 
-Within the `conditions` property, the `requirement_type` property is used to determine whether the filters should use `Any` or `All` logic when evaluating the state of a feature. If `requirement_type` isn't specified, the default value is `Any`. The  `requirement_type` values result in the following behavior:
+Within the `conditions` property, the `requirement_type` property is used to determine whether the filters should use `Any` or `All` logic when evaluating the state of a feature. If `requirement_type` isn't specified, the default value is `Any`. The `requirement_type` values result in the following behavior:
 
 * `Any`: Only one filter needs to evaluate to `true` for the feature to be enabled. 
 * `All`: Every filter needs to evaluate to `true` for the feature to be enabled.
@@ -140,7 +139,7 @@ A `requirement_type` of `All` changes the way the filters are traversed:
                 "name": "Microsoft.TimeWindow",
                 "parameters": {
                     "Start": "Sun, 01 Jun 2025 13:59:59 GMT",
-                    "End": "Fri, 01 Aug 00:00:00 GMT"
+                    "End": "Fri, 01 Aug 2025 00:00:00 GMT"
                 }
             },
             {
@@ -162,7 +161,7 @@ Starting with v4.3.0, you can opt in to custom merging for Microsoft schema feat
 
 The following code enables custom feature flag configuration merging through dependency injection:
 
-```C#
+```csharp
 IConfiguration configuration = new ConfigurationBuilder()
     .AddJsonFile("appsettings.json")
     .AddJsonFile("appsettings.prod.json")
@@ -178,7 +177,7 @@ services.Configure<ConfigurationFeatureDefinitionProviderOptions>(o =>
 
 You can also enable custom merging when you construct an instance of `ConfigurationFeatureDefinitionProvider`:
 
-```C#
+```csharp
 var featureManager = new FeatureManager(
     new ConfigurationFeatureDefinitionProvider(
             configuration,
@@ -366,7 +365,7 @@ By default, all listed features must be enabled for the feature tag to be render
 
 ```HTML+Razor
 <feature name="FeatureX,FeatureY" requirement="Any">
-  <p>This content appears only when 'FeatureX,' 'FeatureY,' or both are enabled.</p>
+    <p>This content appears only when 'FeatureX', 'FeatureY', or both are enabled.</p>
 </feature>
 ```
 
@@ -390,7 +389,7 @@ The `<feature>` tag requires a tag helper to work. To use the tag, add the featu
 
 ### MVC filters
 
-You can set up MVC action filters that you apply conditionally based on the state of a feature. To set up these filters, you register them in a feature-aware manner. The feature management pipeline supports async MVC action filters that implement the `IAsyncActionFilter` interface.
+You can set up MVC action filters that you apply conditionally based on the state of a feature. To set up these filters, you register them in a feature-aware manner. The feature management pipeline supports asynchronous MVC action filters that implement the `IAsyncActionFilter` interface.
 
 ```csharp
 services.AddMvc(o => 
@@ -649,8 +648,8 @@ The `Microsoft.Percentage` filter provides a way to enable a feature based on a 
 
 The `Microsoft.TimeWindow` filter provides a way to enable a feature based on a time window.
 
-- If you specify only an `End` value, the feature is considered on until that time.
-- If you specify only a `Start` value, the feature is considered on at all points after that time.
+- If you specify only an `End` value, the feature is considered enabled until that time.
+- If you specify only a `Start` value, the feature is considered enabled after that time.
 
 ```json
 {
@@ -906,7 +905,7 @@ For an example of a web application that uses the targeting feature filter, see 
 
 To begin using `TargetingFilter` in an application, you must add it to the application's service collection just like any other feature filter. Unlike other built-in filters, `TargetingFilter` relies on another service to be added to the application's service collection. That service is an `ITargetingContextAccessor` implementation.
 
-The `Microsoft.FeatureManagement.AspNetCore` library provides a [default implementation](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) of `ITargetingContextAccessor` that extracts targeting information from a request's `HttpContext` value. You can use the default targeting context accessor when you set up targeting by using the nongeneric `WithTargeting` overload on `IFeatureManagementBuilder`.
+The `Microsoft.FeatureManagement.AspNetCore` library provides a [default implementation](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) of `ITargetingContextAccessor` that extracts targeting information from a request's `HttpContext` value. You can use the default targeting context accessor when you set up targeting by using the non-generic `WithTargeting` overload on `IFeatureManagementBuilder`.
 
 To register the default targeting context accessor and `TargetingFilter`, you call `WithTargeting` on `IFeatureManagementBuilder`.
 

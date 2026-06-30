@@ -1,9 +1,8 @@
 ---
-author: yungezz
 ms.service: service-connector
 ms.topic: include
-ms.date: 11/24/2023
-ms.author: yungezz
+ms.date: 06/17/2026
+ms.reviewer: yungezz
 ---
 
 
@@ -47,7 +46,7 @@ var blobServiceClient = new BlobServiceClient(connectionString);
         .buildClient();
     ```
 
-### [SpringBoot](#tab/springBoot)
+### [Spring Boot](#tab/springBoot)
 Refer to [Upload a file to an Azure Blob Storage](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json) and set up your Spring application. The configuration properties are added to Spring Apps by Service Connector. Two sets of configuration properties are provided according to the version of Spring Cloud Azure (below 4.0 and above 4.0). For more information about library changes of Spring Cloud Azure, refer to [Spring Cloud Azure Migration Guide](https://microsoft.github.io/spring-cloud-azure/current/reference/html/appendix.html#_from_azure_spring_boot_starter_storage_to_spring_cloud_azure_starter_storage_blob).
 
 
@@ -87,7 +86,7 @@ Refer to [Upload a file to an Azure Blob Storage](/azure/developer/java/spring-f
    ```bash
    go get "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
    ```
-2. Get the Azure Blob Storage connection string from the environment variable added by Service Connector.
+1. Get the Azure Blob Storage connection string from the environment variable added by Service Connector.
    ```go
    import (
      "context"
@@ -108,7 +107,7 @@ Refer to [Upload a file to an Azure Blob Storage](/azure/developer/java/spring-f
    ```bash
    npm install @azure/storage-blob
    ```
-2. Get the Azure Blob Storage connection string from the environment variable added by Service Connector.
+1. Get the Azure Blob Storage connection string from the environment variable added by Service Connector.
    ```javascript
    const { BlobServiceClient } = require("@azure/storage-blob");
    
