@@ -2,8 +2,7 @@
 title: Version and Roll Out MCP Servers Safely in Azure API Management
 description: Run preview and production versions of an MCP server in parallel in Azure API Management, route a slice of consumers to the new version, and promote it when metrics look good.
 #customer intent: As an SRE responsible for production MCP servers, I want to safely roll out new versions of my MCP server alongside existing versions, so that I can validate performance and reliability before promoting to all consumers.
-author: dlepow
-ms.author: danlep
+
 ms.date: 06/23/2026
 ms.service: azure-api-management
 ms.topic: how-to
