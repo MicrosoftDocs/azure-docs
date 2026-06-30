@@ -1,11 +1,12 @@
 ---
 title: Best practices for Azure Web Application Firewall in Azure Front Door
 description: In this article, you learn about the best practices for using Azure Web Application Firewall in Azure Front Door.
-author: johndowns
-ms.author: jodowns
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 10/12/2023
+ms.date: 06/30/2026
+
 # Customer intent: As a cloud security administrator, I want to implement best practices for the web application firewall within Azure Front Door, so that I can effectively protect my internet-facing applications from cyber threats while minimizing false positives and maintaining legitimate traffic flow.
 ---
 
@@ -21,11 +22,11 @@ This section discusses general best practices.
 
 ### Enable the WAF
 
-For internet-facing applications, we recommend that you enable a web application firewall (WAF) and configure it to use managed rules. When you use a WAF and Microsoft-managed rules, your application is protected from a range of attacks.
+For internet-facing applications, enable a web application firewall (WAF) and configure it to use managed rules. When you use a WAF and Microsoft-managed rules, you protect your application from a range of attacks.
 
 ### Tune your WAF
 
-The rules in your WAF should be tuned for your workload. If you don't tune your WAF, it might accidentally block requests that should be allowed. Tuning might involve creating [rule exclusions](waf-front-door-exclusion.md) to reduce false positive detections.
+Tune the rules in your WAF for your workload. If you don't tune your WAF, it might accidentally block requests that should be allowed. Tuning might involve creating [rule exclusions](waf-front-door-exclusion.md) to reduce false positive detections.
 
 While you tune your WAF, consider using [detection mode](waf-front-door-policy-settings.md#waf-mode). This mode logs requests and the actions the WAF would normally take, but it doesn't actually block any traffic.
 
@@ -69,7 +70,7 @@ This section discusses best practices for rate limiting.
 
 ### Add rate limiting
 
-The Azure Front Door WAF enables you to control the number of requests allowed from each client's IP address over a period of time. It's a good practice to add rate limiting to reduce the effect of clients accidentally or intentionally sending large amounts of traffic to your service, such as during a [retry storm](/azure/architecture/antipatterns/retry-storm/).
+The Azure Front Door WAF enables you to control the number of requests allowed from each client's IP address over a period of time. Add rate limiting to reduce the effect of clients accidentally or intentionally sending large amounts of traffic to your service, such as during a [retry storm](/azure/architecture/antipatterns/retry-storm/).
 
 For more information, see the following resources:
 
@@ -79,7 +80,7 @@ For more information, see the following resources:
 
 ### Use a high threshold for rate limits
 
-Usually it's good practice to set your rate limit threshold to be high. For example, if you know that a single client IP address might send around 10 requests to your server each minute, consider specifying a threshold of 20 requests per minute.
+Set your rate limit threshold to be high. For example, if you know that a single client IP address might send around 10 requests to your server each minute, consider specifying a threshold of 20 requests per minute.
 
 High rate-limit thresholds avoid blocking legitimate traffic. These thresholds still provide protection against very high numbers of requests that might overwhelm your infrastructure.
 
@@ -95,7 +96,7 @@ For more information, see [What is geo-filtering on a domain for Azure Front Doo
 
 ### Specify the unknown (ZZ) location
 
-Some IP addresses aren't mapped to locations in our dataset. When an IP address can't be mapped to a location, the WAF assigns the traffic to the unknown (ZZ) country or region. To avoid blocking valid requests from these IP addresses, consider allowing the unknown (ZZ) country or region through your geo-filter.
+Some IP addresses aren't mapped to locations in the dataset. When an IP address can't be mapped to a location, the WAF assigns the traffic to the unknown (ZZ) country or region. To avoid blocking valid requests from these IP addresses, consider allowing the unknown (ZZ) country or region through your geo-filter.
 
 For more information, see [What is geo-filtering on a domain for Azure Front Door?](waf-front-door-tutorial-geo-filtering.md)
 
@@ -105,16 +106,18 @@ This section discusses logging.
 
 ### Add diagnostic settings to save your WAF's logs
 
-The Azure Front Door WAF integrates with Azure Monitor. It's important to save the WAF logs to a destination like Log Analytics. You should review the WAF logs regularly. Reviewing logs helps you to [tune your WAF policies to reduce false-positive detections](#tune-your-waf) and to understand whether your application has been the subject of attacks.
+The Azure Front Door WAF integrates with Azure Monitor. It's important to save the WAF logs to a destination like Log Analytics. Review the WAF logs regularly. Reviewing logs helps you to [tune your WAF policies to reduce false-positive detections](#tune-your-waf) and to understand whether your application is the subject of attacks.
 
 For more information, see [Azure Web Application Firewall monitoring and logging](waf-front-door-monitor.md).
 
 ### Send logs to Microsoft Sentinel
 
-Microsoft Sentinel is a security information and event management (SIEM) system, which imports logs and data from multiple sources to understand the threat landscape for your web application and overall Azure environment. Azure Front Door WAF logs should be imported into Microsoft Sentinel or another SIEM so that your internet-facing properties are included in its analysis. For Microsoft Sentinel, use the Azure WAF connector to easily import your WAF logs.
+Microsoft Sentinel is a security information and event management (SIEM) system that imports logs and data from multiple sources to help you understand the threat landscape for your web application and overall Azure environment. Import Azure Front Door WAF logs into Microsoft Sentinel or another SIEM so that your internet-facing properties are included in its analysis. For Microsoft Sentinel, use the Azure WAF connector to easily import your WAF logs.
 
 For more information, see [Use Microsoft Sentinel with Azure Web Application Firewall](../waf-sentinel.md).
 
-## Next steps
+## Related content
 
-Learn how to [create an Azure Front Door WAF policy](waf-front-door-create-portal.md).
+- [Create an Azure Front Door WAF policy](waf-front-door-create-portal.md)
+- [Tune Azure Web Application Firewall for Azure Front Door](waf-front-door-tuning.md)
+- [Azure Web Application Firewall DRS rule groups and rules](waf-front-door-drs.md)
