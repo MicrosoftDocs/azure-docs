@@ -168,7 +168,7 @@ After a few minutes, the **Devices** page shows the new media device with a **Mi
 
 ## Create a media asset to save clips to Azure Blob Storage
 
-Create an asset that captures video clips from the camera and saves them to the persistent volume claim. ACSA automatically uploads the clips to your Azure Blob Storage account.
+Create an asset that captures video clips from the camera and saves them to the persistent volume claim. ACSA automatically uploads the clips to your Azure Blob Storage account. This section assumes that you configured Azure Container Storage enabled by Azure Arc with a subvolume called `ingestSubDir` and mounted the persistent volume claim to the connector template instance at `/data`. 
 
 1. Find the name of the media endpoint on the media device you created in [View and import the discovered media device](#view-and-import-the-discovered-media-device). The device's details page in the operations experience shows the endpoint name, or run `az iot ops ns device show --name <your-new-media-device-name> --instance <your-instance-name> -g <your-resource-group-name>` to list the device's endpoints.
 

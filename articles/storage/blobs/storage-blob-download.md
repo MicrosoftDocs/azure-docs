@@ -97,7 +97,7 @@ The following table shows the available options for the checksum algorithm, as d
 | Auto | 0 | Recommended. Allows the library to choose an algorithm. Different library versions may choose different algorithms. Auto chooses StorageCrc64 in [client library](/dotnet/api/azure.storage.blobs) versions 12.28.0+ |
 | None | 1 | No selected algorithm. Don't calculate or request checksums.
 | MD5 | 2 | Standard MD5 hash algorithm. |
-| StorageCrc64 | 3 | Azure Storage custom 64-bit CRC. |
+| StorageCrc64 | 3 | Azure Storage custom CRC64-NVME. |
 
 ## Resources
 

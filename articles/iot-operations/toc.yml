@@ -450,9 +450,6 @@ items:
               - name: Akri and connectors
                 href: reference/observability-metrics-akri-connectors.md
                 displayName: metrics, observability
-              - name: Layered Network Management
-                href: reference/observability-metrics-layered-network.md
-                displayName: metrics, observability
           - name: MQTT support
             href: reference/mqtt-support.md
             displayName: v5, v3.1.1, protocol

@@ -18,6 +18,10 @@ ms.custom:
 
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from Dynamics AX source. The article builds on [Copy Activity](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Dynamics AX connector documentation](/fabric/data-factory/connector-dynamics-ax-overview).
+
+
 ## Supported capabilities
 
 This Dynamics AX connector is supported for the following capabilities:

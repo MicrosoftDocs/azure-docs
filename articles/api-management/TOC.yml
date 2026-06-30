@@ -69,7 +69,7 @@
 - name: Manage AI models, tools, and agents
   items:
   - name: Overview
-    href: api-management-ai-overview.md
+    href: ai-models-tools-agents-overview.md
     items:
     - name: V1 and V2 tiers
       items:
@@ -101,8 +101,12 @@
           href: export-rest-mcp-server.md
         - name: Expose existing MCP server
           href: expose-existing-mcp-server.md
+        - name: Govern MCP servers with products
+          href: govern-mcp-server-products.md
         - name: Secure access to MCP servers
           href: secure-mcp-servers.md
+        - name: Roll out MCP servers using versions
+          href: mcp-server-versions.md
         - name: Import agent-to-agent (A2A) API
           href: agent-to-agent-api.md
       - name: Logging, metrics, and semantic caching

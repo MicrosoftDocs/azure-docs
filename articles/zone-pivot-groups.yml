@@ -2036,6 +2036,14 @@ groups:
     title: Data Box Next Gen
   - id: dbx
     title: Data Box
+- id: storage-mover-multicloud
+  title: Storage Mover multicloud migration sources
+  prompt: Select your multicloud migration source.
+  pivots:
+  - id: aws
+    title: Amazon Web Services (AWS)
+  - id: gcs
+    title: Google Cloud Storage (GCS)
 #owner: mbender
 - id: load-balancer-multiple-ip-pv
   title: Load Balancer Multiple IPs

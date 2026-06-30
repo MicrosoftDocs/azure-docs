@@ -16,6 +16,10 @@ ms.custom:
 
 This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse pipelines to copy data from SharePoint Online List. The article builds on [Copy Activity](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric SharePoint Online List connector documentation](/fabric/data-factory/connector-sharepoint-online-list-overview).
+
+
 ## Supported capabilities
 
 This SharePoint Online List connector is supported for the following capabilities:

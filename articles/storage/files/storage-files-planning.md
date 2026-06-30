@@ -4,7 +4,7 @@ description: Understand how to plan for an Azure Files deployment. You can eithe
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 06/17/2026
+ms.date: 06/30/2026
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: As a system architect, I want to evaluate deployment options for Azure Files, so that I can determine the best approach for directly mounting or caching file shares while considering performance, compatibility, and organizational needs.
@@ -111,7 +111,7 @@ Currently, you can create a file share with Microsoft.FileShares in the followin
 
 We encourage you to evaluate the new file share experience with Microsoft.FileShares for all your new Azure Files NFS protocol deployments.
 
-If a specific feature requirement isn't yet available in the new file share experience, or the workload requires SMB protocol support, use the classic file share experience. Deprecation of the classic experience won't begin until the remaining feature gaps are closed. Currently, there's no automation migration support from classic file shares to file shares. 
+If a specific feature requirement isn't yet available in the new file share experience, or the workload requires SMB protocol support, use the classic file share experience. 
 
 | Feature | Classic file shares ![fileshareclassicicon1](./media/storage-files-planning/icon-service-file-share.svg) | File shares (Microsoft.FileShares) ![mfsicon](./media/storage-files-planning/icon-service-Managed-File-Shares.svg) |
 |-|-|-|
