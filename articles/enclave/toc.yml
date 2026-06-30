@@ -158,6 +158,8 @@
   items:
   - name: Deploy Azure SQL from the service catalog
     href: deploy-azure-sql-service-catalog.md
+  - name: Deploy ExpressRoute Connection from the service catalog
+    href: deploy-express-route-connection-service-catalog.md
   - name: Deploy Key Vault from the service catalog
     href: deploy-key-vault-service-catalog.md
   - name: Deploy Private DNS Zones from the service catalog
@@ -168,6 +170,8 @@
     href: deploy-storage-account-service-catalog.md
   - name: Deploy Virtual Machine from the service catalog
     href: deploy-virtual-machine-service-catalog.md
+  - name: Deploy VPN Connection from the service catalog
+    href: deploy-vpn-connection-service-catalog.md
   - name: Deploy service catalog Template from Azure CLI
     href: deploy-template-service-catalog-azure-cli.md
   - name: Install application on a Remote App Virtual Machine
