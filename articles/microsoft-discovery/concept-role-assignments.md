@@ -54,10 +54,9 @@ Platform admins manage the infrastructure that scientists and engineers depend o
 - Manage tools, models, agents, workflows, investigations, and bookshelves
 - Full access to data containers and data assets
 - Configure platform settings and manage access controls
-- Assign and revoke Microsoft Discovery roles for users within the assigned scope
 
 > [!NOTE]
-> The Microsoft Discovery Platform Administrator (Preview) role includes permissions to assign and delete role assignments within its assigned scope. Administrators don't need the Owner or User Access Administrator role separately for that purpose. However, this role assignment capability is restricted by an ABAC condition that limits which roles the administrator can assign or remove to the three Microsoft Discovery built-in roles only.
+> Assigning any of the Microsoft Discovery built-in roles requires the **Owner**, **User Access Administrator**, or **Role Based Access Control Administrator** role at the target scope. The Microsoft Discovery Platform Administrator (Preview) role doesn't grant the ability to assign the Microsoft Discovery built-in roles to other users or groups.
 
 **Permissions:**
 
@@ -74,8 +73,8 @@ Platform admins manage the infrastructure that scientists and engineers depend o
 | `Microsoft.Network/virtualNetworks/read` | Read virtual network configuration during supercomputer deployment |
 | `Microsoft.Network/virtualNetworks/subnets/join/action` | Linked access check for supercomputer node pool subnet references |
 | `Microsoft.Support/*` | Raise support tickets for the subscription |
-| `Microsoft.Authorization/roleAssignments/write` | Assign access to platform users and managed identities (ABAC condition–restricted) |
-| `Microsoft.Authorization/roleAssignments/delete` | Revoke access when required (ABAC condition–restricted) |
+| `Microsoft.Authorization/roleAssignments/write` | Assign supporting infrastructure roles to service principals such as managed identities during resource provisioning |
+| `Microsoft.Authorization/roleAssignments/delete` | Revoke those supporting role assignments when required |
 
 **Data actions:** `Microsoft.Discovery/*`
 
@@ -302,7 +301,8 @@ To assign Microsoft Discovery roles, you need one of the following Azure RBAC pe
 |------|-------------|
 | **Owner** | Can assign any Microsoft Discovery role at subscription, resource group, or resource level. Recommended for initial platform setup. |
 | **User Access Administrator** | Designed for managing user access without requiring full resource management permissions. Ideal for dedicated identity and access management teams. |
-| **Microsoft Discovery Platform Administrator (Preview)** | Can assign Discovery built-in roles within its assigned scope, subject to the ABAC condition that restricts assignments to the three Discovery roles only. |
+| **Role Based Access Control Administrator** | Can assign any Microsoft Discovery role at the scopes where it's granted, without the broader access management permissions of User Access Administrator. |
+| **Microsoft Discovery Platform Administrator (Preview)** | Can't assign the Microsoft Discovery built-in roles. To assign Discovery roles, use one of the roles above. |
 
 ## Understanding assignment scopes
 
