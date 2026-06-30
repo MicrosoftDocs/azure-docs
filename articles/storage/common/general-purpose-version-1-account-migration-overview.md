@@ -6,7 +6,7 @@ Services: storage
 author: gtrossell-eng
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 5/13/2026
+ms.date: 6/30/2026
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
@@ -61,7 +61,7 @@ The retirement takes effect globally across all Azure regions.
 >[!TIP]
 >If your workload is **read, write or list heavy**, reduce transaction counts by batching operations, writing larger blocks, and scoping list operations. GPv2 also provides better tools for optimizing costs, by allowing the tiering of data. Ensure cold data isn't left in the hot tier.
 
-[!Help]
+>[!Help]
 >Microsoft provides an open-source GPv1 to GPv2 Cost Estimator to help you understand the potential billing impact of migrating your storage accounts.
 >
 >The tool allows you to:
@@ -74,7 +74,7 @@ The retirement takes effect globally across all Azure regions.
 >
 >You can access the estimator here: [General purpose v1 (GPv1) storage account cost estimator] https://aka.ms/gpv1costestimator 
 
-[!Note]
+>[!Note]
 >The estimator uses publicly available pricing and does not include contract-specific discounts, taxes, or reservations. Actual costs may vary.
 
 1. Capture a baseline of monthly operations by type (**read, write, list/metadata**) and any **egress**.

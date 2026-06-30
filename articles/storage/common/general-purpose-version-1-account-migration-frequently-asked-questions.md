@@ -6,7 +6,7 @@ Services: storage
 author: gtrossell-eng
 ms.service: azure-storage
 ms.topic: faq
-ms.date: 5/13/2026
+ms.date: 6/30/2026
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
@@ -62,7 +62,7 @@ Because this is an open-source project, you can review the code, run it locally,
 
 You can access the estimator here: [General purpose v1 (GPv1) storage account cost estimator] https://aka.ms/gpv1costestimator 
 
-[!Note]
+>[!Note]
 >The estimator uses publicly available pricing and does not include contract-specific discounts, taxes, or reservations. Actual costs may vary.
 
 ### Does converting a storage account from GPv1 to GPv2 change pricing for files or disks?
