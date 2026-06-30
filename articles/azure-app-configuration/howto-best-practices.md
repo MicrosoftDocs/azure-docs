@@ -42,7 +42,7 @@ The following example demonstrates how to implement key-value composition in a .
 
 ```csharp
 configBuilder.AddAzureAppConfiguration(options => {
-    options.Connect(new Uri("<your-app-config-endpoint>"), new DefaultAzureCredential())
+    options.Connect(new Uri("<AppConfigurationEndpoint>"), new DefaultAzureCredential())
            // Load all keys that start with `TestApp:` and compose with two different labels
            .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
            .Select(keyFilter: "TestApp:*", labelFilter: "Development");
@@ -64,7 +64,7 @@ In this approach, the provider monitors all selected keys. If a change is detect
 ```csharp
 configBuilder.AddAzureAppConfiguration(options =>
 {
-    options.Connect(new Uri("<your-app-config-endpoint>"), new DefaultAzureCredential())
+    options.Connect(new Uri("<AppConfigurationEndpoint>"), new DefaultAzureCredential())
            // Load all keys that start with `TestApp:` and have no label
            .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
            .ConfigureRefresh(refreshOptions =>
@@ -85,7 +85,7 @@ spring:
     azure:
       appconfiguration:
         stores:
-          - endpoint: <your-app-configuration-store-endpoint>
+          - endpoint: <AppConfigurationEndpoint>
             monitoring:
               enabled: true
 ```
@@ -134,7 +134,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
   configuration:
@@ -157,7 +157,7 @@ Alternatively, you can monitor an individual key, often referred to as the *sent
 ```csharp
 configBuilder.AddAzureAppConfiguration(options =>
 {
-    options.Connect(new Uri("<your-app-config-endpoint>"), new DefaultAzureCredential())
+    options.Connect(new Uri("<AppConfigurationEndpoint>"), new DefaultAzureCredential())
            // Load all keys that start with `TestApp:` and have no label
            .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
            .ConfigureRefresh(refreshOptions =>
@@ -178,7 +178,7 @@ spring:
     azure:
       appconfiguration:
         stores:
-          - endpoint: <your-app-configuration-store-endpoint>
+          - endpoint: <AppConfigurationEndpoint>
             monitoring:
               enabled: true
               triggers:
@@ -242,7 +242,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
   configuration:
