@@ -89,42 +89,44 @@ Azure RBAC support for specific users and groups for cloud-only identities with 
 - Australia Central
 - Australia Central 2
 - Australia East (SSD/premium only)
-- Australia Southeast
+- Australia Southeast (SSD/premium only)
 - Austria East
 - Belgium Central
-- Brazil Southeast (SSD/premium only)
+- Brazil South (SSD/premium only)
+- Brazil Southeast
 - Canada Central (SSD/premium only)
 - Canada East (SSD/premium only)
-- Chile Central (HDD/standard only)
+- Chile Central
 - Denmark East (SSD/premium only)
-- East Asia (SSD/premium only)
+- East Asia
 - France Central (SSD/premium only)
 - France South
 - Germany North
-- Germany West Central
-- India Central
+- Germany West Central (SSD/premium only)
+- India Central (SSD/premium only)
 - India South (SSD/premium only)
 - India South Central (SSD/premium only)
 - India West
 - Indonesia Central
-- Italy North (SSD/premium only)
-- Japan East
+- Italy North
+- Japan East (SSD/premium only)
 - Japan West
 - Jio India Central
 - Jio India West
-- Korea Central
+- Korea Central (SSD/premium only)
 - Korea South
 - Malaysia South (HDD/standard only)
 - Malaysia West (SSD/premium only)
 - Mexico Central
-- New Zealand North
+- New Zealand North (SSD/premium only)
 - North Europe (SSD/premium only)
-- Norway East
+- Norway East (SSD/premium only)
 - Norway West
 - Poland Central (SSD/premium only)
 - Qatar Central
 - South Africa North (SSD/premium only)
 - South Africa West (SSD/premium only)
+- Southeast Asia (SSD/premium only)
 - Spain Central
 - Sweden Central (SSD/premium only)
 - Sweden South (HDD/standard only)
