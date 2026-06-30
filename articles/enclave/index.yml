@@ -105,6 +105,8 @@ landingContent:
             url: 1-4-use-service-catalog-create-azure-resources-workloads.md
           - text: Create an enclave endpoint and connection
             url: 1-5-create-enclave-endpoint-connections.md
+          - text: Use approvals for enclave onboarding and external connectivity
+            url: tutorial-approvals-enclave-onboarding-connectivity.md
           - text: Monitor your enclaves
             url: 1-6-monitor-your-enclaves.md
           - text: Host a publicly accessible application in an enclave
