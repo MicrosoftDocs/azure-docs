@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.date: 06/29/2026
 ---
 
-[!INCLUDE [api-gateway-tier-preview](./includes/preview/preview-ai-gateway-tier.md)]
-
 # Manage models and tools in AI Gateway tier (preview)
+
+[!INCLUDE [api-gateway-tier-preview](./includes/preview/preview-ai-gateway-tier.md)]
 
 Use AI Gateway tier (preview) to manage the models and tools that applications and agents call. Import models to provide one governed endpoint for model requests. Add MCP servers to expose approved tools through a governed Model Context Protocol (MCP) endpoint. Applications and agents authenticate to the gateway with runtime access keys. The gateway uses the backend authentication you configure for each model provider or tool backend.
 

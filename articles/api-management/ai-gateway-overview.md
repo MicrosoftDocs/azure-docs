@@ -8,9 +8,9 @@ ms.topic: overview
 ms.date: 06/29/2026
 ---
 
-[!INCLUDE [api-gateway-tier-preview](./includes/preview/preview-ai-gateway-tier.md)]
-
 # AI Gateway tier overview
+
+[!INCLUDE [api-gateway-tier-preview](./includes/preview/preview-ai-gateway-tier.md)]
 
 AI Gateway tier (preview) is a fully managed Azure API Management offering for AI workloads. It gives teams one place to publish, secure, govern, and observe access to AI models and Model Context Protocol (MCP) tools.
 

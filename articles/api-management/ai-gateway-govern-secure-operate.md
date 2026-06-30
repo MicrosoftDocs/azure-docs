@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.date: 06/29/2026
 ---
 
-[!INCLUDE [api-gateway-tier-preview](./includes/preview/preview-ai-gateway-tier.md)]
-
 # Govern, secure, and operate AI Gateway tier (preview)
+
+[!INCLUDE [api-gateway-tier-preview](./includes/preview/preview-ai-gateway-tier.md)]
 
 Use Azure API Management AI Gateway tier (preview) to put common controls in front of AI models, Microsoft Foundry resources, Azure OpenAI deployments, MCP servers, and tools. Platform teams can apply governance, security, network, and monitoring settings in one place while application teams keep using the assets they need.
 

@@ -8,9 +8,9 @@ ms.topic: quickstart
 ms.date: 06/29/2026
 ---
 
-[!INCLUDE [api-gateway-tier-preview](./includes/preview/preview-ai-gateway-tier.md)]
-
 # Quickstart: Create an AI Gateway (preview) instance
+
+[!INCLUDE [api-gateway-tier-preview](./includes/preview/preview-ai-gateway-tier.md)]
 
 In this quickstart, you create an AI Gateway (preview) instance, add a chat model, create a runtime access key, call the gateway, and view telemetry.
 
