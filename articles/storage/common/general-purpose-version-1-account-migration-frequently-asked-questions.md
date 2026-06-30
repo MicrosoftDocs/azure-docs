@@ -47,6 +47,24 @@ No.
 
 General-purpose v1 has **lower transaction prices** but **slightly higher capacity prices** than GPv2. For most workloads, **GPv2 is cheaper overall** once per-blob tiering and optimized capacity pricing are factored in.
 
+### Is there a tool to estimate the cost impact of migrating from GPv1 to GPv2 storage accounts? 
+
+Yes. Microsoft provides an open-source GPv1 to GPv2 Cost Estimator to help you understand the potential billing impact of migrating your storage accounts.
+
+The tool allows you to:
+
+Compare estimated costs between GPv1 and GPv2 based on your current usage
+Upload billing data (CSV) to model real-world scenarios
+Understand how capacity, transactions, and access tiers affect pricing
+Export results to share with stakeholders
+
+Because this is an open-source project, you can review the code, run it locally, or adapt it to your own needs.
+
+You can access the estimator here: [General purpose v1 (GPv1) storage account cost estimator] https://aka.ms/gpv1costestimator 
+
+[!Note]
+>The estimator uses publicly available pricing and does not include contract-specific discounts, taxes, or reservations. Actual costs may vary.
+
 ### Does converting a storage account from GPv1 to GPv2 change pricing for files or disks?
 **No.** Converting a storage account from GPv1 to GPv2 only affects Blob Storage pricing. Azure files and Azure disks each have their own independent pricing models, so their costs do not change when the underlying storage account is upgraded.
 
