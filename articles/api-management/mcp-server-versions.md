@@ -31,7 +31,7 @@ This article focuses on scenarios where you need to make breaking changes that r
 - An existing MCP server added to API Management (called *v1* in this article) with active consumers.
 See [Expose a REST API as an MCP server](export-rest-mcp-server.md) or [Expose an existing MCP server](expose-existing-mcp-server.md). 
 - A new version of your MCP server (*v2*) ready to deploy, with a different tool set or breaking changes from *v1*.
-- Monitoring in place to compare *v1* and *v2* performance and reliability (for example, Application Insights with custom dimensions for API version and tool name).
+- Monitoring in place to compare *v1* and *v2* performance and reliability (for example, Application Insights with custom dimensions for API version and tool name). For more information, see [Monitor MCP server traffic](monitor-mcp-servers.md).
 
 ## Stand up v2 alongside v1 
 
