@@ -54,6 +54,6 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## References
 - [What is a workload?](./what-workload.md)
-- [Create an Enclave](./create-enclave-portal.md)
+- [Create an enclave](./create-enclave-portal.md)
 - [Best practices](./best-practices.md)
 - [Defining your naming convention](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-naming)

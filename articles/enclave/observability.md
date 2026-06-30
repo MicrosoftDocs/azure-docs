@@ -14,9 +14,9 @@ Azure Enclave provides built-in observability features to support secure, scalab
 
 The following are enabled by default for Azure Enclave resources:
 - Log Analytics Workspace is deployed into the Community Managed Resource Group by default
-- (Optional) Log Analytics Workspace is deployed into the Enclave Managed Resource Group
+- (Optional) Log Analytics Workspace is deployed into the enclave Managed Resource Group
 - Storage Account is deployed into Enclave Managed Resource Group
-- Virtual Network Flow Logs for each enclave are enabled, pointed to the Enclave Storage Account, and forwarded to Community and/or Enclave Log Analytics workspace
+- Virtual Network Flow Logs for each enclave are enabled, pointed to the enclave Storage Account, and forwarded to Community and/or Enclave Log Analytics workspace
 - Diagnostic Settings are enabled on resources deployed into both Community and Enclave managed Resource Groups
 
 ## Centralized and isolated observability

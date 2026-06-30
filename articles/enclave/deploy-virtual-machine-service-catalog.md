@@ -1,5 +1,6 @@
 ---
 title: Deploy Virtual Machine from the service catalog into a workload
+titleSuffix: Azure Enclave
 description: Deploy Virtual Machine from the service catalog into a workload with optional domain joining and optional RemoteApp publishing via Azure Virtual Desktops.
 author: aserfass-msft
 ms.author: aserfass

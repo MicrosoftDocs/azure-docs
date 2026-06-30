@@ -21,7 +21,7 @@ For some enterprise systems, this level of DNS doesn't fully satisfy all use-cas
 - For every enclave in your community, create DNS workloads where the workload consists of a DNS resolver/forwarder Virtual Machine.
 - Connect to the DNS resolver Virtual Machine, and manually add conditional forwarder DNS zone records for every private endpoint resource in that enclave where the VM is hosted in. An example of doing so is detailed below.
 
-## Steps to manually add private endpoint DNS records to an Enclave DNS forwarder VM
+## Steps to manually add private endpoint DNS records to an enclave DNS forwarder VM
 
 1. Log in to the DNS server, and open a PowerShell Window 
 2. Run the following commands:

@@ -1,5 +1,6 @@
 ---
 title: Deploy a Storage Account from the service catalog into a workload
+titleSuffix: Azure Enclave
 description: Deploy a Storage Account from the service catalog into a workload
 author: aserfass-msft
 ms.author: aserfass
@@ -47,7 +48,7 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 
 4. Enter the required parameters on each tab
 5. Adjust any of the prepopulated parameters as needed.
-5. Select `Review + Add` then `Create`.
+5. Select `Review + Create` then `Create`.
 
 It can take up to 15+ minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 

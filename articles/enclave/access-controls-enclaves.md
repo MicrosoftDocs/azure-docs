@@ -10,7 +10,7 @@ ms.date: 9/30/2025
 
 # Identity and access controls for Azure Enclave
 
-Azure Enclave provides robust identity and access management (IAM) controls to safeguard your environments while ensuring operational flexibility. This document outlines how enclave and Workload Administration settings are configured, as well as how enclaves integrate with Azure-first identity solutions like Microsoft Entra ID, on-premises Active Directory, Privileged Identity Management (PIM), and the Personnel Portal.
+Azure Enclave provides robust identity and access management (IAM) controls to safeguard your environments while ensuring operational flexibility. This document outlines how enclave and workload Administration settings are configured, as well as how enclaves integrate with Azure-first identity solutions like Microsoft Entra ID, on-premises Active Directory, Privileged Identity Management (PIM), and the Personnel Portal.
 
 ## Enclave administration and workload administration settings
 

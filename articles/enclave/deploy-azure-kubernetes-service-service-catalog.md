@@ -1,5 +1,6 @@
 ---
 title: Deploy Azure Kubernetes Service (AKS) from the service catalog into a workload
+titleSuffix: Azure Enclave
 description: Deploy Azure Kubernetes Service from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
@@ -111,7 +112,7 @@ More information about these rules can be found in this [documentation](/azure/a
 4. Go through each tab and enter all the required parameters.
 5. Use `172.16.0.0/16` for the serviceCidr and `172.16.0.10` for the dnsServiceIP
 6. Adjust any of the prepopulated parameters as needed.
-7. Select `Review + Add` then `Create`.
+7. Select `Review + Create` then `Create`.
 
 It can take up to 30 minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 

@@ -68,7 +68,7 @@ Community and enclave owners might also have concerns regarding the default VM i
 ## References
 - [What is Azure Enclave?](./what-azure-enclave.md)
 - [Best Practices](./best-practices.md)
-- [What is an Enclave?](./what-enclave.md)
+- [What is an enclave?](./what-enclave.md)
 - [What is a workload?](./what-workload.md)
 - [Azure Bastion](https://aka.ms/bastion)
 - [Connect to a Windows VM using RDP - Azure Bastion](/azure/bastion/bastion-connect-vm-rdp-windows)

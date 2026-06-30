@@ -1,5 +1,6 @@
 ---
 title: Deploy an App Service Function App from the service catalog into a workload
+titleSuffix: Azure Enclave
 description: Deploy an App Service Function App from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
@@ -61,7 +62,7 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 6. On the Encryption tab, enter the name of the new key added to the Key Vault for the Customer Managed Key (CMK) setup.
 7. Enter the User Managed Identity Name created during the CMK setup.
 8. Adjust any of the prepopulated or default parameters as needed.
-9. Select `Review + Add` then `Create`.
+9. Select `Review + Create` then `Create`.
 
 It can take 10 minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 

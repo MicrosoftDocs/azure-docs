@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- Completion of [Tutorial 2-3: Deploy Azure Virtual Desktop Workload](./2-3-deploy-virtual-desktop-workload.md)
+- Completion of [Tutorial 2-3: Deploy Azure Virtual Desktop workload](./2-3-deploy-virtual-desktop-workload.md)
 - AKS enclave with node, API server, and private endpoint subnets
 - Common dependencies (Key Vault, managed identity, disk encryption set) from Tutorial 11
 - Private DNS zones for AKS deployed

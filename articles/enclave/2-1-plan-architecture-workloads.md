@@ -224,18 +224,18 @@ If using separate enclaves, you need enclave endpoints and connections for:
 
 Each workload should have one or more resource groups. Consider this organization:
 
-**Azure Virtual Desktop Workload Resource Groups**:
+**Azure Virtual Desktop workload Resource Groups**:
 - `rg-avd-controlplane` - Host pools, workspaces, application groups
 - `rg-avd-sessionhosts` - Session host VMs and related resources
 - `rg-avd-storage` - FSLogix storage accounts
 - `rg-avd-shared` - Shared resources like Key Vault, managed identities
 
-**AKS Workload Resource Groups**:
+**AKS workload Resource Groups**:
 - `rg-aks-cluster` - AKS cluster user resource group
 - `rg-aks-nodes` - AKS managed resource group (created automatically)
 - `rg-aks-shared` - Shared resources like Key Vault, managed identities
 
-**Shared Services Workload Resource Groups** (if using shared services enclave):
+**Shared Services workload Resource Groups** (if using shared services enclave):
 - `rg-shared-security` - Key Vaults, managed identities, disk encryption sets
 - `rg-shared-network` - Private DNS zones
 - `rg-shared-monitoring` - Log Analytics workspaces

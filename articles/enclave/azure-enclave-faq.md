@@ -120,7 +120,7 @@ Managed resources for Azure Enclave include:
 
 For more information, see [Azure Enclave pricing](./azure-enclave-pricing.md).
 
-The cost of the Enclave includes the community, community endpoints, enclave endpoints, enclave connections, and transit hub.
+The cost of the enclave includes the community, community endpoints, enclave endpoints, enclave connections, and transit hub.
 
 ### Are partial hours pro-rated?
 Enclaves deployed during part of an hour are charged for the full hour.

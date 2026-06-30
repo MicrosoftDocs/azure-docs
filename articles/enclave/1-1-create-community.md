@@ -197,7 +197,7 @@ Community deployments take approximately **30-45 minutes** to complete. Azure En
 
 In the `Azure Enclave` page, select `Communities` in the left menu.
 
-[ ![Screenshot showing the Azure portal homepage for Azure Enclave with the Create a Community button.](./media/azure-enclave-homepage.png) ](./media/azure-enclave-homepage.png#lightbox)
+[ ![Screenshot showing the Azure portal homepage for Azure Enclave with the Create a community button.](./media/azure-enclave-homepage.png) ](./media/azure-enclave-homepage.png#lightbox)
 
 #### Step 2: Start community creation
 

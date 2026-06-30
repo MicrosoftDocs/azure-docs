@@ -55,7 +55,7 @@ Certain Azure Enclave customers deployed enclaves with early preview or beta bui
 - Certain preview customers of mission enclaves utilize custom Role-based Access Control (RBAC) roles. All possible actions in Azure Enclave can be taken with our Azure Enclave RBAC roles.
 - Accessing an Azure Enclave enclave through an [Admin Workstation](./understand-admin-vm.md) differs slightly from accessing a mission enclave's evPAW.
 - **If you are using on-prem/custom DNS** - each Enclave _must deploy a DNS resolver_ workload in order to resolve private endpoints for Azure Storage, Key Vault, and Log Analytics. Learn more about [DNS in Azure Enclave](./understand-domain-name-service.md).
-  - If you have requirements to connect to an existing instance of DNS elsewhere, you would provide the private IP addresses of the DNS server as the DNS servers list field for your community and Enclaves.
+  - If you have requirements to connect to an existing instance of DNS elsewhere, provide the private IP addresses of the DNS server as the DNS servers list field for your community and enclaves.
 
 ## References
 - [What is Azure Enclave?](./what-azure-enclave.md)
@@ -63,7 +63,7 @@ Certain Azure Enclave customers deployed enclaves with early preview or beta bui
 - [Move Azure Networking resources to new subscription or resource group](/azure/azure-resource-manager/management/move-limitations/networking-move-limitations)
 - [Azure Enclave governance/Governance](./what-azure-enclave.md#multi-layered-governance-security-and-monitoring)
 - [Azure Policy compliance states](/azure/governance/policy/concepts/compliance-states)
-- [What is an Enclave?](./what-enclave.md)
+- [What is an enclave?](./what-enclave.md)
 - [What is a workload?](./what-workload.md)
 - [Shared responsibility model in the cloud](/azure/security/fundamentals/shared-responsibility)
 - [Best practices of Azure Enclave](./best-practices.md)

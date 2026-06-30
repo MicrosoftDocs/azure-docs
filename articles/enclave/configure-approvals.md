@@ -268,7 +268,7 @@ Assign the Enclave Approver Role at the enclave scope:
 ```azurecli
 az role assignment create \
   --assignee <user-or-group-id> \
-  --role "Enclave Approver" \
+  --role "Enclave Approver Role" \
   --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Mission/enclaves/<enclave-name>"
 ```
 
@@ -277,7 +277,7 @@ Assign the Enclave Approver Role at the community scope:
 ```azurecli
 az role assignment create \
   --assignee <user-or-group-id> \
-  --role "Enclave Approver" \
+  --role "Enclave Approver Role" \
   --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Mission/communities/<community-name>"
 ```
 
@@ -288,7 +288,7 @@ Assign the Enclave Approver Role at enclave scope:
 ```azurepowershell
 New-AzRoleAssignment `
   -ObjectId <user-or-group-id> `
-  -RoleDefinitionName "Enclave Approver" `
+  -RoleDefinitionName "Enclave Approver Role" `
   -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Mission/enclaves/<enclave-name>"
 ```
 
@@ -297,7 +297,7 @@ Assign the Enclave Approver Role at community scope:
 ```azurepowershell
 New-AzRoleAssignment `
   -ObjectId <user-or-group-id> `
-  -RoleDefinitionName "Enclave Approver" `
+  -RoleDefinitionName "Enclave Approver Role" `
   -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Mission/communities/<community-name>"
 ```
 ---
@@ -320,7 +320,7 @@ For enhanced security, combine Approvals with PIM to grant approver permissions 
 
 4. Navigate to **Roles** and search for **Enclave Approver Role**.
 
-5. Select `Enclave Approver` > `Role settings` > `Edit`.
+5. Select `Enclave Approver Role` > `Role settings` > `Edit`.
 
 6. Configure the role settings:
    - `Require approval to activate`: Enable this setting.

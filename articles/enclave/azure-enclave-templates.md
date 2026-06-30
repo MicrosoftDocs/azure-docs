@@ -106,7 +106,7 @@ You can also create the Azure Enclave resources using the resource modules in th
    - **Resource group**: Select Create new. Enter a unique name for the resource group, such as `myResourceGroup`, then select OK.
    - **Location**: Select a location, such as East US.
    - **Community Name**: Name of the Community (ex: `My-Community`)
-   - **Enclave Name**: Name of the Enclave (ex: `My-Enclave`)
+   - **Enclave Name**: Name of the enclave (ex: `My-Enclave`)
    - **Endpoint name**: Name of the enclave endpoint (ex: `endpoint-bingdotcom`)
 
 3. Select `Review + Create` and then `Create`.
@@ -115,7 +115,7 @@ You can also create the Azure Enclave resources using the resource modules in th
 
 5. On the **Deploy** page for the template spec, note the default values and configure the following parameters:
    - **Community Name**: Name of the Community (ex: `My-Community`)
-   - **Enclave Name**: Name of the Enclave (ex: `My-Enclave`)
+   - **Enclave Name**: Name of the enclave (ex: `My-Enclave`)
    - **Endpoint name**: Name of the enclave endpoint (ex: `endpoint-bingdotcom`)
    
 6.  Select `Review + Create` and then `Create`.
@@ -127,7 +127,7 @@ It can take up to 50 minutes to finish all resource creation. Wait for the deplo
 Learn more about what gets deployed in a [community](./what-community.md) and what gets deployed in an [enclave](./what-enclave.md).
 
 ### Connect to the admin workstations
-Learn more about how to access resources within your enclave from the Enclave Admin Workstation [here](./understand-admin-vm.md).
+Learn more about how to access resources within your enclave from the enclave Admin Workstation [here](./understand-admin-vm.md).
 
 ## Terraform
 Terraform support will start after Azure Enclave starts preview.

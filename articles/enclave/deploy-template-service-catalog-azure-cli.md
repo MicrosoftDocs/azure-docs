@@ -1,5 +1,6 @@
 ---
 title: Deploy Template from the service catalog using Azure CLI
+titleSuffix: Azure Enclave
 description: Deploy Template from the service catalog using Azure CLI.
 author: aserfass-msft
 ms.author: aserfass
@@ -114,7 +115,7 @@ Download a specific template by using the name found in the inventory above (for
     }
     ```
 
-5. Fetch the Enclave resources to provide the following parameter values
+5. Fetch the enclave resources to provide the following parameter values
     - storageAccountName
     - virtualNetworkName
     - networkResourceGroupName

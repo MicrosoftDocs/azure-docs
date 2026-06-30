@@ -26,10 +26,10 @@ Create a [community](./what-community.md) and [Enclave](./what-enclave.md).
    - Alternatively, follow the [Azure Virtual Desktop deployment instructions](/azure/virtual-desktop/deploy-azure-virtual-desktop) to deploy Azure Virtual Desktop. For all steps that deploy Azure resources targeting a Resource group, select the workload resource group (for example, `wl-avd-mgmt-pool`).
 3. [Create community endpoint](./create-community-endpoint-portal.md) for necessary URL networking information.
 4. [Create enclave endpoint](./create-enclave-endpoint-portal.md) for necessary IP/CIDR/port/protocol rule networking information.
-5. [Create the enclave connection](./create-enclave-connection-portal.md) so that you can access the Azure Virtual Desktop service in Azure from specified Enclaves.
+5. [Create the enclave connection](./create-enclave-connection-portal.md) so that you can access the Azure Virtual Desktop service in Azure from specified enclaves.
 
 ## References
-- [What is an Enclave?](./what-enclave.md)
+- [What is an enclave?](./what-enclave.md)
 - [What is a workload?](./what-workload.md)
 - [Azure Bastion](https://aka.ms/bastion)
 - [Azure Virtual Desktop](https://aka.ms/avd)

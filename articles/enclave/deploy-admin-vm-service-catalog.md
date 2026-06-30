@@ -1,5 +1,6 @@
 ---
 title: Deploy Admin Virtual Machine from the service catalog into a workload
+titleSuffix: Azure Enclave
 description: Deploy Admin Virtual Machine from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass

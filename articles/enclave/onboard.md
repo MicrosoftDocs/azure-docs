@@ -133,10 +133,10 @@ Now the Azure Enclave resource provider can begin deploying Azure Enclave resour
 
   - Establish network connectivity within your Community
 
-    - [Create an Enclave Endpoint](./create-enclave-endpoint-portal.md)
+    - [Create an enclave Endpoint](./create-enclave-endpoint-portal.md)
     - [Create an enclave connection](./create-enclave-connection-portal.md)
     - [Create a transit hub](./create-transit-hub-portal.md)
-    - [Create a Community Endpoint](./create-community-endpoint-portal.md)
+    - [Create a community endpoint](./create-community-endpoint-portal.md)
 
   - Create resources within your workloads to meet your objectives.
     - Create resources from the [Service Catalog](./list-service-catalog-templates.md)

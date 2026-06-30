@@ -113,13 +113,13 @@ landingContent:
             url: 1-8-migrate-workload-resources.md
       - linkListType: tutorial
         links:
-          - text: Plan Architecture for Workload
+          - text: Plan Architecture for workload
             url: 2-1-plan-architecture-workloads.md
           - text: Create Azure Enclave Environment
             url: 2-2-create-azure-enclave-environment.md
-          - text: Deploy Azure Virtual Desktop Workload
+          - text: Deploy Azure Virtual Desktop workload
             url: 2-3-deploy-virtual-desktop-workload.md
-          - text: Deploy Azure Kubernetes Service Workload
+          - text: Deploy Azure Kubernetes Service workload
             url: 2-4-deploy-kubernetes-workload.md
   # Card
   - title: Governance, Security, and Compliance

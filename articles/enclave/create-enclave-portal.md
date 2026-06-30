@@ -1,5 +1,5 @@
 ---
-title: Create an Enclave in the Azure portal
+title: Create an enclave in the Azure portal
 description: Learn how to create an enclave in Azure Enclave using the Azure portal.
 author: jadean-msft
 ms.author: jadean
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 06/11/2026
 ---
 
-# Create an Enclave in the Azure portal
+# Create an enclave in the Azure portal
 
 An [enclave](./what-enclave.md) is an isolated Azure virtual network that belongs to a community and hosts one or more workloads. Workloads in an enclave are isolated from other enclaves in the same community unless you explicitly enable connectivity by creating endpoints and connections.
 
@@ -34,7 +34,7 @@ Enclave deployments can take several minutes to complete. After deployment compl
 
 3. In the `Azure Enclave` page, select `Enclaves` in the left menu.
 
-   :::image type="content" source="./media/tutorial-step-two-azure-enclave-page-enclaves-list.png" alt-text="Screenshot showing the Azure Enclave portal page with the Enclaves list selected." border="True" lightbox="./media/tutorial-step-two-azure-enclave-page-enclaves-list.png":::
+   :::image type="content" source="./media/tutorial-step-two-azure-enclave-page-enclaves-list.png" alt-text="Screenshot showing the Azure Enclave portal page with the enclaves list selected." border="True" lightbox="./media/tutorial-step-two-azure-enclave-page-enclaves-list.png":::
 
 4. On the `Enclaves` page, select `Create`.
 

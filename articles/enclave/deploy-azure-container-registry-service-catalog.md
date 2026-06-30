@@ -1,5 +1,6 @@
 ---
 title: Deploy Azure Container Registry (ACR) from the service catalog into a workload
+titleSuffix: Azure Enclave
 description: Deploy Azure Container Registry (ACR) from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
@@ -59,7 +60,7 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 
 4. Go through each tab and enter all the required parameters. Under the encryption tab, you need to use the CMK Key and User-assigned Identity names and resource group created in the [Prerequisites](#prerequisites).
 5. Adjust any of the prepopulated parameters as needed.
-6. Select `Review + Add` then `Create`.
+6. Select `Review + Create` then `Create`.
 
 It can take a few minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 

@@ -14,12 +14,10 @@ As an administrator, you can [delete Azure Enclave resources and resource groups
 
 ## Create conditions
 
-- An Enclave can't be created in failed communities.
-- A workload can't be created in failed Enclaves.
-- An enclave endpoint can't be created in failed Enclaves.
-- A Catalog can't be created in failed Enclaves.
-- A Transit hub can't be created in failed communities or using failed Enclave endpoints.
-- An enclave  can't be created in failed Enclaves or using failed Enclave endpoints.
+- You can't create an enclave in failed communities.
+- You can't create a workload in failed enclaves.
+- You can't create an enclave endpoint in failed enclaves.
+- You can't create a transit hub in failed communities or use failed enclave endpoints.
 
 ## Delete conditions
 
@@ -27,10 +25,11 @@ Attempting to delete Azure Enclave resources while Azure Enclave resources are l
 
 - A community can't be deleted if there are enclaves in the community.
 - A community can't be deleted if there are any existing transit hub in the community.
-- An Enclave can't be deleted if there are workloads in the Enclave.
-- An Enclave can't be deleted if there are enclave endpoints in the Enclave.
-- An Enclave can't be deleted if there are Catalogs in the Enclave.
-- When an Enclave is deleted, enclave connections or community endpoint between community and Enclave are also deleted along with Firewall rules.
+- You can't delete an enclave if the enclave contains workloads.
+- You can't delete an enclave if the enclave contains enclave endpoints.
+- You can't delete an enclave if the enclave contains workload resource groups that aren't empty.
+- You can't delete a workload if the workload contains workload resource groups that aren't empty.
+- When you delete an enclave, you also delete enclave connections or community endpoints between the community and enclave along with firewall rules.
 - A workload can't be deleted in the workload resource group is locked.
 - An enclave endpoint can't be deleted if there are active enclave connections using the enclave endpoint.
 - community endpoints can't be deleted if there are active enclave connections using the community endpoint.

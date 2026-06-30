@@ -106,7 +106,7 @@ The Azure Virtual Desktop enclave template prepares your enclave with required s
 
 Now deploy the Azure Virtual Desktop workload with host pool, session hosts, and supporting infrastructure.
 
-### Select the Azure Virtual Desktop Workload template
+### Select the Azure Virtual Desktop workload template
 
 1. In your **Azure Virtual Desktop workload**, select **+ Add an Azure Service**.
 2. Search for and select **Azure Virtual Desktop Workload**.
@@ -124,7 +124,7 @@ Now deploy the Azure Virtual Desktop workload with host pool, session hosts, and
 | **Encryption Configuration** | - **Enable CMK Encryption**: `Yes`<br>- **Disk Encryption Set Resource ID**: Resource ID from Tutorial 2-2 [common dependencies](./2-2-create-azure-enclave-environment.md#set-up-common-dependencies)<br>- **User Assigned Identity Resource ID**: Resource ID from Tutorial 2-2 [common dependencies](./2-2-create-azure-enclave-environment.md#set-up-common-dependencies) |
 | **Monitoring** | - **Enable Diagnostic Settings**: `Yes`<br>- **Log Analytics Workspace**: Select workspace from shared services or create new<br>- **Enable Azure Virtual Desktop Insights**: `Yes` (recommended) |
 
-4. Select `Review + Add`.
+4. Select `Review + Create`.
 5. Review all settings carefully.
 6. Select `Create`.
 
@@ -370,7 +370,7 @@ az group delete --name rg-avd-infrastructure --yes --no-wait
 
 With Azure Virtual Desktop deployed, you can now deploy Azure Kubernetes Service workloads.
 
-> [Tutorial 2-4: Deploy Azure Kubernetes Service Workload](./2-4-deploy-kubernetes-workload.md)
+> [Tutorial 2-4: Deploy Azure Kubernetes Service workload](./2-4-deploy-kubernetes-workload.md)
 
 ## Related content
 

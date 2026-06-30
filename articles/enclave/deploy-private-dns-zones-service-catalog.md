@@ -1,5 +1,6 @@
 ---
 title: Deploy private DNS zones from the service catalog into a workload
+titleSuffix: Azure Enclave
 description: Deploy private DNS zones from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
@@ -39,7 +40,7 @@ Azure Enclave is a cloud networking service that provides organizations with hig
 
 4. Go through each tab and enter all the required parameters.
 5. Adjust any of the prepopulated parameters as needed.
-5. Select `Review + Add` then `Create`.
+5. Select `Review + Create` then `Create`.
 
 It can take a few minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 

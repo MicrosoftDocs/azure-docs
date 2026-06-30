@@ -206,7 +206,7 @@ Private DNS zones enable private endpoint DNS resolution for Azure services.
    - **Create storage blob Private DNS Zone**: `true`
    - **Create Key Vault Private DNS Zone**: `true`
    - **Additional Private DNS Zone Names**: `["privatelink.wvd.microsoft.com","privatelink-global.wvd.microsoft.com"]`
-7. Select `Review + Add` and then `Create`.
+7. Select `Review + Create` and then `Create`.
 8. Wait for the deployment to complete.
 
 ### Create private DNS zones for AKS
@@ -226,7 +226,7 @@ Private DNS zones enable private endpoint DNS resolution for Azure services.
    - **Create storage blob Private DNS Zone**: `true`
    - **Create Key Vault Private DNS Zone**: `true`
    - **Additional Private DNS Zone Names**: `["privatelink.<region>.azmk8s.io"]` and replace `<region>` with your region, for example, `eastus`
-7. Select `Review + Add` and then `Create`.
+7. Select `Review + Create` and then `Create`.
 8. Wait for the deployment to complete.
 
 ## Create community endpoints for external connectivity

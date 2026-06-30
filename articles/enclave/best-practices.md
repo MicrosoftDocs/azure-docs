@@ -239,7 +239,7 @@ A common scenario where you want to modify resources is through tags. Azure Encl
 
 ### Enclave managed resource group
 
-The _Enclave managed resource group_ contains the infrastructure resources described in [What is an Enclave?](./what-enclave.md).
+The _Enclave managed resource group_ contains the infrastructure resources described in [What is an enclave?](./what-enclave.md).
 
 The enclave managed resource group name follows this naming convention: `myEnclaveName-HostedResources-<GUID>`. Every enclave deployment creates this resource group and places enclave infrastructure inside it. When you delete your enclave, the Azure Enclave resource provider automatically deletes the enclave managed resource group.
 
