@@ -4,7 +4,8 @@ description: Learn how to copy data from Marketo to supported sink data stores u
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 01/26/2025
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ms.author: makromer
 author: kromerm
 ms.custom:
@@ -16,7 +17,7 @@ ms.custom:
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 > [!IMPORTANT]
-> This connector is at [End of Support stage](connector-deprecation-plan.md). You are recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver.
+> This connector is at [End of Support stage](connector-deprecation-plan.md). You're recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver.
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Marketo. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -33,7 +34,7 @@ This Marketo connector is supported for the following capabilities:
 
 For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
-Currently, Marketo instance which is integrated with external CRM is not supported.
+Currently, Marketo instance which is integrated with external CRM isn't supported.
 
 >[!NOTE]
 >This Marketo connector is built on top of the Marketo REST API. Be aware that the Marketo has [concurrent request limit](https://developers.marketo.com/rest-api/) on service side. If you hit errors saying "Error while attempting to use REST API: Max rate limit '100' exceeded with in '20' secs (606)" or "Error while attempting to use REST API: Concurrent access limit '10' reached (615)", consider to reduce the concurrent copy activity runs to reduce the number of requests to the service.
@@ -46,7 +47,7 @@ Currently, Marketo instance which is integrated with external CRM is not support
 
 Use the following steps to create a linked service to Marketo in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
