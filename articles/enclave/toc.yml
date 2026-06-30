@@ -136,8 +136,10 @@
     href: configure-approvals.md
   - name: Manage approvals
     href: manage-approvals.md
-- name: Service catalog
+- name: Service catalog (part 1)
   items:
+  - name: Deploy Workload Quickstart from the service catalog
+    href: deploy-workload-quickstart-service-catalog.md
   - name: Deploy Common Dependencies from the service catalog
     href: deploy-common-dependencies-service-catalog.md
   - name: Deploy an Admin Virtual Machine from the service catalog
@@ -152,6 +154,8 @@
     href: deploy-azure-cosmos-db-service-catalog.md
   - name: Deploy Azure Kubernetes Service from the service catalog
     href: deploy-azure-kubernetes-service-service-catalog.md
+- name: Service catalog (part 2)
+  items:
   - name: Deploy Azure SQL from the service catalog
     href: deploy-azure-sql-service-catalog.md
   - name: Deploy Key Vault from the service catalog
