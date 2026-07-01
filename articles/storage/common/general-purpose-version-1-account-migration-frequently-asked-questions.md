@@ -60,7 +60,8 @@ Export results to share with stakeholders
 
 Because this is an open-source project, you can review the code, run it locally, or adapt it to your own needs.
 
-You can access the estimator here: [General purpose v1 (GPv1) storage account cost estimator] https://aka.ms/gpv1costestimator 
+>[!Tip]
+>You can access the estimator here: [General purpose v1 (GPv1) storage account cost estimator] https://aka.ms/gpv1costestimator 
 
 >[!Note]
 >The estimator uses publicly available pricing and doesn't include contract-specific discounts, taxes, or reservations. Actual costs might vary.
@@ -90,6 +91,14 @@ Your bill will reflect **GPv2** pricing, which differs slightly from GPv1. Key d
 Use the **Azure Pricing Calculator** and your current invoice data to estimate new costs.  
 **Pricing:** https://azure.microsoft.com/pricing/details/storage/blobs/  
 **Calculator:** https://azure.microsoft.com/pricing/calculator/
+
+Microsoft also provides an open-source GPv1 to GPv2 Cost Estimator to help you understand the potential billing impact of migrating your storage accounts.
+
+>[!Tip]
+>You can access the estimator here: [General purpose v1 (GPv1) storage account cost estimator] https://aka.ms/gpv1costestimator 
+
+>[!Note]
+>The estimator uses publicly available pricing and doesn't include contract-specific discounts, taxes, or reservations. Actual costs might vary.
 
 ### Is the upgrade permanent?
 

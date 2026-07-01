@@ -6,7 +6,7 @@ Services: storage
 author: gtrossell-eng
 ms.service: azure-storage
 ms.topic: faq
-ms.date: 5/13/2026
+ms.date: 7/1/2026
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
@@ -68,7 +68,8 @@ Features like **lifecycle management**, **per-blob tiering**, **point-in-time re
 
 Your bill reflects **general-purpose v2** pricing, which includes charges for **read/write operations**, **tier-based storage pricing**, and **redundancy options**. Use the **Azure pricing calculator** and your current invoice data to estimate new costs.
 
-- Azure pricing calculator: https://azure.microsoft.com/pricing/calculator/
+>[!Tip]
+>- Azure pricing calculator: https://azure.microsoft.com/pricing/calculator/
 
 ### Is the migration permanent?
 
