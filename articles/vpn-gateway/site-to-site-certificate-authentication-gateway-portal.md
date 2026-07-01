@@ -263,6 +263,79 @@ Site-to-site connections to an on-premises network require a VPN device. In this
 
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-include.md)]
 
+### Example of VPN device configuration: strongSwan in Linux (Ubuntu)
+
+You can configure IPsec using `strongSwan` package in Linux (Ubuntu) for IKEv2 certificate authentication by following the steps:
+
+1. Install `strongSwan` package in the on-premises (Ubuntu) server.
+
+   ```bash
+   sudo apt-get update
+   sudo apt-get install strongswan
+   sudo apt-get install strongswan-pki
+   sudo apt-get install libcharon-extra-plugins
+   sudo apt-get install libcharon-extauth-plugins
+   sudo apt-get install libstrongswan-extra-plugins
+   sudo apt-get install libtss2-tcti-tabrmd0
+   ```
+
+2. The previously generated root certificate, inbound certificate and private key, and outbound certificate needs to be stored in the following directories in Ubuntu.
+
+   ```bash
+   /etc/ipsec.d/cacerts/VPNRootCA01.pem
+   /etc/ipsec.d/private/VPNRootCA01.key
+   /etc/ipsec.d/certs/Inbound-certificate.pem
+   /etc/ipsec.d/private/Inbound-certificate.key
+   /etc/ipsec.d/certs/Outbound-certificate.pem
+   ```
+
+> The private key data of the Inbound-certificate can be exported by following these steps [Outbound certificate - export private key data](/site-to-site-certificate-authentication-gateway-portal.md#outbound-certificate---export-private-key-data)
+
+3. Edit the `/etc/ipsec.conf` file with following contents for IPsec donfiguration with IKEv2 certificate authentication.
+
+   ```bash
+   config setup
+       charondebug="all"
+       uniqueids=yes
+   conn tunnel
+       type=tunnel
+       left=<IP_address_of_on-premises_VPN_device>
+       leftsubnet=<Local_IP_prefix>
+       leftcert=/etc/ipsec.d/certs/Inbound-certificate.pem
+       leftsendcert=always
+       right=<VPN_peer_IP_address>
+       rightsubnet=<Remote_IP_prefix>
+       rightcert=/etc/ipsec.d/certs/Outbound-certificate.pem
+       rightsendcert=always
+       keyexchange=ikev2
+       keyingtries=%forever
+       authby=psk
+       ike=aes256-sha256-modp1024!
+       esp=aes256-sha256!
+       keyingtries=%forever
+       auto=start
+       dpdaction=restart
+       dpddelay=45s
+       dpdtimeout=45s
+       ikelifetime=28800s
+       lifetime=27000s
+       lifebytes=102400000
+   ```
+
+4. Edit the `/etc/ipsec.secrets` with following contents for configuring the private key of the Inboound-certificate certificate.
+
+   ```
+   : RSA "/etc/ipsec.d/private/Inbound-certificate.key"
+   ```
+
+5. Restart the `strongSwan` service.
+
+   ```
+   sudo systemctl restart ipsec
+   ```
+
+You can verify if the VPN is established using the command `sudo ipsec status`.
+
 ## <a name="CreateConnection"></a>Create the site-to-site connection
 
 In this section, you create a site-to-site VPN connection between your virtual network gateway and your on-premises VPN device.
