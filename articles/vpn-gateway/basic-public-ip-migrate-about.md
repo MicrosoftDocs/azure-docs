@@ -33,7 +33,7 @@ To migrate your gateway, you first need to validate whether your resource is cap
  
   * When configuring a third VIP in Active‑Active mode for Point‑to‑Site (P2S), a non‑zonal Public IP must be used.
   
-  * The migration tool requires the gateway subnet to have at least a/27 address space. If your gateway subnet is currently/28 or smaller, the migration will fail and return an error. Before starting migration, expand the gateway subnet to/27 or larger. You can use this to [add multiple prefixes for subnet](../virtual-network/how-to-multiple-prefixes-subnet.md) to /27 or larger before you can proceed with migration. 
+  * The migration tool requires the gateway subnet to have at least a /27 address space. If your gateway subnet is currently /28 or smaller, the migration fails and returns an error. Before starting migration, expand the gateway subnet to /27 or larger. To add multiple prefixes for a subnet, see [add multiple prefixes for subnet](../virtual-network/how-to-multiple-prefixes-subnet.md).
 
   * If you have ExpressRoute and VPN coexisting: We recommend considering migrating the Basic IP resources to Standard IP on **VPN** first.
 
