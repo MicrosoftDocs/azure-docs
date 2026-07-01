@@ -72,7 +72,7 @@ The retirement takes effect globally across all Azure regions.
 >
 >Because this tool is an open-source project, you can review the code, run it locally, or adapt it to your own needs.
 >
->[!INFO]
+>[!Note]
 >You can access the estimator here: [General purpose v1 (GPv1) storage account cost estimator](https://aka.ms/gpv1costestimator)
 
 >[!Note]
