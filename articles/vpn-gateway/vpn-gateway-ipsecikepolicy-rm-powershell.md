@@ -6,7 +6,7 @@ author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 06/10/2026
-ms.author: cherylmc 
+ms.author: duau
 ms.custom: devx-track-azurepowershell
 
 # Customer intent: As a network engineer, I want to configure custom IPsec/IKE policies for Site-to-Site and VNet-to-VNet VPN connections using PowerShell, so that I can ensure secure and efficient communication between Azure networks and on-premises resources.

@@ -6,7 +6,7 @@ author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 06/26/2025
-ms.author: cherylmc 
+ms.author: duau
 # Customer intent: "As a network administrator, I want to reset a VPN gateway or connection, so that I can quickly restore IPsec tunnel connectivity and minimize disruption to my cross-premises communication."
 ---
 # Reset a VPN gateway or a connection

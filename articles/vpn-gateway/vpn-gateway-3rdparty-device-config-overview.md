@@ -5,7 +5,7 @@ author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 06/09/2026
-ms.author: cherylmc 
+ms.author: duau
 ms.custom:
   - devx-track-azurepowershell
   - sfi-image-nochange

@@ -6,7 +6,7 @@ author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 01/23/2026
-ms.author: cherylmc 
+ms.author: duau
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As a network engineer, I want to create a Basic SKU VPN gateway using PowerShell, so that I can establish a secure connection between my virtual network and on-premises infrastructure or other virtual networks."
 ---
