@@ -33,7 +33,7 @@ To migrate your gateway, you first need to validate whether your resource is cap
  
   * When configuring a third VIP in Active‑Active mode for Point‑to‑Site (P2S), a non‑zonal Public IP must be used.
   
-  * If your current gateway subnet is /28 or smaller, the migration tool might error out. You can use this to [add multiple prefixes for subnet](../virtual-network/how-to-multiple-prefixes-subnet.md) to /27 or larger before you can proceed with migration.
+  * The migration tool requires the gateway subnet to have at least a/27 address space. If your gateway subnet is currently/28 or smaller, the migration will fail and return an error. Before starting migration, expand the gateway subnet to/27 or larger. You can use this to [add multiple prefixes for subnet](../virtual-network/how-to-multiple-prefixes-subnet.md) to /27 or larger before you can proceed with migration. 
 
   * If you have ExpressRoute and VPN coexisting: We recommend considering migrating the Basic IP resources to Standard IP on **VPN** first.
 
@@ -165,6 +165,20 @@ No. VPN tunnels are expected to re‑establish as part of the migration process,
 
 Migration is a disruptive operation and might result in brief connectivity interruptions while the VPN gateway configuration is updated and connections are re‑established. These interruptions are typically several minutes in duration, and in most cases complete within approximately 10 minutes, though exact timings aren't guaranteed and can vary based on configuration and network conditions.
 Customers should plan to perform the migration during a maintenance window and ensure applications are resilient to short connectivity interruptions.
+
+#### I am seeing BGP peer IP address change after migration. Do I need to update my BGP peer IP addresses after migrating an active-active VPN Gateway to standard IP?
+
+No. Although the Azure portal displays new BGP peer IP addresses after migration, existing on-premises BGP configurations continue to work without changes. Azure automatically redirects traffic from the original BGP peer IP addresses to the BGP peer IP addresses, preserving connectivity and BGP sessions. 
+
+### Customer-Created Routes and Load Balancers During VPN Gateway Migration
+
+#### Do I need to review any custom networking configuration before migration?
+
+Yes. Review any customer-created Route Tables (UDRs), Load Balancers, firewalls, or NVAs that may reference VPN Gateway instance private IPs (Gateway CAs). And BGP route propagation is turned before migration. If your environment uses VNet peering, ensure Sync VNet Peering is enabled during migration.
+
+#### When should these configurations be updated?
+
+After the Execute step, update any customer-created routes, load balancers, firewall rules, or NVA configurations that reference the old gateway instance IPs. 
 
 ### VPN Gateway Basic SKU
 
