@@ -5,7 +5,7 @@ author: rolyon
 manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: whats-new
-ms.date: 06/30/2026
+ms.date: 07/01/2026
 ms.author: rolyon
 
 ---
@@ -18,7 +18,7 @@ This article provides information about new features and documentation improveme
 
 | Date | Area | Description |
 | --- | --- | --- |
-| June 2026 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). |
+| June 2026 | Roles and permissions | Added the Azure Device Registry Administrator role and updated conditions to restrict role assignments for the Azure IoT Operations Onboarding role to only Storage Blob Data Contributor and Azure Device Registry Administrator. See [Azure Device Registry Administrator](./built-in-roles/internet-of-things.md#azure-device-registry-administrator) and [Azure IoT Operations Onboarding](./built-in-roles/internet-of-things.md#azure-iot-operations-onboarding). |
 | June 2026 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). |
 | May 2026 | Roles and permissions | Updated permissions for several roles and resource providers. See [Azure built-in roles](built-in-roles.md) and [Azure permissions](resource-provider-operations.md). Removed Microsoft.ClassicNetwork and Microsoft.ClassicStorage permissions. |
 | May 2026 | Roles | Added [Semantic Reranker User](./built-in-roles/databases.md#semantic-reranker-user) role. |

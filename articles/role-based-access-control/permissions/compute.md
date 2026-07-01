@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 06/30/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -948,7 +948,6 @@ Azure service: [Virtual Machines](/azure/virtual-machines/), [Virtual Machine Sc
 > | `Microsoft.Compute/virtualMachineScaleSets/performMaintenance/action` | Performs planned maintenance on the instances of the Virtual Machine Scale Set |
 > | `Microsoft.Compute/virtualMachineScaleSets/scale/action` | Verify if an existing Virtual Machine Scale Set can Scale In/Scale Out to specified instance count |
 > | `Microsoft.Compute/virtualMachineScaleSets/forceRecoveryServiceFabricPlatformUpdateDomainWalk/action` | Manually walk the platform update domains of a service fabric Virtual Machine Scale Set to finish a pending update that is stuck |
-> | `Microsoft.Compute/virtualMachineScaleSets/forceRestart/action` | Internal DRI-only operation that force-restarts VM containers in a Virtual Machine Scale Set bypassing Maintenance Recommendation approval, used during outage recovery |
 > | `Microsoft.Compute/virtualMachineScaleSets/osRollingUpgrade/action` | Starts a rolling upgrade to move all Virtual Machine Scale Set instances to the latest available Platform Image OS version. |
 > | `Microsoft.Compute/virtualMachineScaleSets/setOrchestrationServiceState/action` | Sets the state of an orchestration service based on the action provided in operation input. |
 > | `Microsoft.Compute/virtualMachineScaleSets/setVMHealth/action` | Sets health status on Virtual Machines belonging to Virtual Machine Scale Set. |
@@ -1073,8 +1072,6 @@ Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/overview)
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesSubmitDeallocate/action` | VirtualMachinesSubmitDeallocate: Schedule deallocate operation for a batch of virtual machines at datetime in future. |
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesSubmitHibernate/action` | VirtualMachinesSubmitHibernate: Schedule hibernate operation for a batch of virtual machines at datetime in future. |
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesSubmitStart/action` | VirtualMachinesSubmitStart: Schedule start operation for a batch of virtual machines at datetime in future. |
-> | `Microsoft.ComputeSchedule/locations/virtualMachinesExecuteDelete/action` | [PRIVATE PREVIEW]: VirtualMachinesExecuteDelete: Execute delete operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
-> | `Microsoft.ComputeSchedule/locations/virtualMachinesExecuteCreate/action` | [PRIVATE PREVIEW]: VirtualMachinesExecuteCreate: Execute create operation for a batch of virtual machines, this operation is triggered as soon as Computeschedule receives it. |
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesGetOperationErrors/action` | VirtualMachinesGetOperationErrors: Get error details on operation errors (like transient errors encountered, additional logs) if they exist. |
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesExecuteCreateFlex/action` | VirtualMachinesExecuteCreateFlex: Execute create operation for a batch of virtual machines with flex properties, this operation is triggered as soon as Computeschedule receives it. |
 > | `Microsoft.ComputeSchedule/locations/virtualMachinesExecuteDeallocateWithCapacityCheck/action` | virtualMachinesExecuteDeallocateWithCapacityCheck: deallocate VMs only if capacity predictions indicate sufficient capacity at the desired restart time. VMs that fail the capacity check are returned with a VmNoCapacity error. |

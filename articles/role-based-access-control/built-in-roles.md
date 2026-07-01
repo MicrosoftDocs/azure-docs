@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 06/30/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -365,6 +365,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
+> | <a name='azure-device-registry-administrator'></a>[Azure Device Registry Administrator](./built-in-roles/internet-of-things.md#azure-device-registry-administrator) | Azure Device Registry Administrator | 12675fd7-7f59-493f-9201-f7944860a2f1 |
 > | <a name='azure-device-registry-contributor'></a>[Azure Device Registry Contributor](./built-in-roles/internet-of-things.md#azure-device-registry-contributor) | Allows for full access to IoT devices within Azure Device Registry Namespace. | a5c3590a-3a1a-4cd4-9648-ea0a32b15137 |
 > | <a name='azure-device-registry-credentials-contributor'></a>[Azure Device Registry Credentials Contributor](./built-in-roles/internet-of-things.md#azure-device-registry-credentials-contributor) | Allows for full access to manage credentials and policies within Azure Device Registry Namespace. | 09267e11-2e06-40b5-8fe4-68cea20794c9 |
 > | <a name='azure-device-registry-onboarding'></a>[Azure Device Registry Onboarding](./built-in-roles/internet-of-things.md#azure-device-registry-onboarding) | Allows for full access to Azure Device Registry Namespace and X.509 certificate provisioning. | 547f7f0a-69c0-4807-bd9e-0321dfb66a84 |
