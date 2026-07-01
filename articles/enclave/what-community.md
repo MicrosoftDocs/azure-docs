@@ -40,7 +40,9 @@ See [template documentation](./azure-enclave-templates.md#resource-modules)
 ## Managed Resources
 - [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about)
 - [Azure Firewall](/azure/firewall/overview)
+- [Azure Firewall policy](/azure/firewall-manager/policy-overview)
 - [Log Analytics Workspace](/azure/azure-monitor/logs/log-analytics-overview)
+- [Managed Identity](/entra/identity/managed-identities-azure-resources/overview)
 
 ## Next Steps
 - [What is Azure Enclave?](./what-azure-enclave.md)
