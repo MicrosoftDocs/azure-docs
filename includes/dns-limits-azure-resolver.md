@@ -1,9 +1,9 @@
 ---
-author: greg-lindsay
+author: asudbring
 ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 10/09/2023  
-ms.author: greglin
+ms.author: allensu
 ---
 **Azure-provided DNS resolver**
 

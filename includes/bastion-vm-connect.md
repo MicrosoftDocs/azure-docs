@@ -1,9 +1,9 @@
 ---
- author: abell
+ author: asudbring
  ms.service: azure-bastion
  ms.topic: include
  ms.date: 01/22/2026
- ms.author: abell
+ ms.author: allensu
  ms.custom: sfi-image-nochange
 ---
 
