@@ -318,7 +318,7 @@ Log signature: N/A
 
 When updating to version 2605, existing MQTT connector templates may display mismatched metadata versions in the portal. To resolve, delete and recreate the connector template. Alternatively, use the Azure CLI to update the connector.
 
-### MQTT connector can't connect to external MQTT brokers that have a private IP address
+### MQTT connector can't connect to external MQTT brokers that have private IP addresses
 
 ---
 
@@ -330,7 +330,7 @@ Log signature: N/A
 
 ---
 
-Starting in release 2605, if an external MQTT broker has a private IP address, the MQTT connector doesn't connect to it.
+Starting in release 2605, the MQTT connector can't connect to external MQTT brokers that have private IP addresses.  
 
 This issue is scheduled to be fully resolved in release 2607.
 
