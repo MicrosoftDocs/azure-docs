@@ -166,7 +166,7 @@ No. VPN tunnels are expected to re‑establish as part of the migration process,
 Migration is a disruptive operation and might result in brief connectivity interruptions while the VPN gateway configuration is updated and connections are re‑established. These interruptions are typically several minutes in duration, and in most cases complete within approximately 10 minutes, though exact timings aren't guaranteed and can vary based on configuration and network conditions.
 Customers should plan to perform the migration during a maintenance window and ensure applications are resilient to short connectivity interruptions.
 
-#### I am seeing BGP peer IP address change after migration. Do I need to update my BGP peer IP addresses after migrating an active-active VPN Gateway to standard IP?
+#### I see BGP peer IP address change after migration. Do I need to update my BGP peer IP addresses after migrating an active-active VPN Gateway to standard IP?
 
 No. Although the Azure portal displays new BGP peer IP addresses after migration, existing on-premises BGP configurations continue to work without changes. Azure automatically redirects traffic from the original BGP peer IP addresses to the BGP peer IP addresses, preserving connectivity and BGP sessions. 
 
