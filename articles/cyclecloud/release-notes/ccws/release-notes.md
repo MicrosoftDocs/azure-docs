@@ -2,7 +2,7 @@
 title: Current Release Notes - Azure CycleCloud Workspace for Slurm
 description: Read the product release notes for the current Azure CycleCloud Workspace for Slurm release.
 author: abatallas
-ms.date: 06/19/2026
+ms.date: 07/02/2026
 ms.topic: release-notes
 ms.author: padmalathas
 ---
@@ -17,6 +17,8 @@ The current release is `2026.06.02`.
 
 Comprehensive release notes for the individual releases are listed:
 
+* [**2026.07.02 Release Notes**](2026-07-02.md) - released on 07/02/26
+* [**2026.06.02 Release Notes**](2026-06-18.md) - released on 06/18/26
 * [**2026.06.02 Release Notes**](2026-06-02.md) - released on 06/02/26
 * [**2026.05.22 Release Notes**](2026-05-22.md) - released on 05/22/26
 * [**2026.04.08 Release Notes**](2026-04-08.md) - released on 04/08/26
