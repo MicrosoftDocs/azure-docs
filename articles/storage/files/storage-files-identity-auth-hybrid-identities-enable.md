@@ -125,7 +125,6 @@ Azure RBAC support for specific users and groups for cloud-only identities with 
 - Southeast Asia (SSD/premium only)
 - Spain Central
 - Sweden Central (SSD/premium only)
-- Sweden South (HDD/standard only)
 - Switzerland North
 - Switzerland West
 - Taiwan North
