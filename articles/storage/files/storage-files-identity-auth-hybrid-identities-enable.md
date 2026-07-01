@@ -58,15 +58,22 @@ The standard Microsoft Entra Kerberos authentication flow described in this arti
 
 To use Entra Kerberos authentication for cloud-only identities, use one of the following operating systems:
 
-  - Windows 11 Enterprise/Pro single or multi-session.
-  - Windows Server 2025 with the latest cumulative updates installed.
+  - **Windows 11 Enterprise/Pro single or multi-session**. For the best experience, use at least:
+    - Windows 11 version 26H1 or newer, with at least [KB5079489](https://support.microsoft.com/en-us/topic/march-26-2026-kb5079489-os-build-28000-1764-preview-cd374a56-9657-43fb-9ebe-40cb693d8d10) (OS build 28000.1764 or later)
+    - Windows 11 version 25H2 with at least [KB5079391](https://support.microsoft.com/en-us/topic/march-26-2026-kb5079391-os-builds-26200-8116-and-26100-8116-preview-7c9e2275-b9ba-4068-aeb0-23da42b81d3b) (OS build 26200.8116 or later)
+    - Windows 11 version 24H2 with at least [KB5079391](https://support.microsoft.com/en-us/topic/march-26-2026-kb5079391-os-builds-26200-8116-and-26100-8116-preview-7c9e2275-b9ba-4068-aeb0-23da42b81d3b) (OS build 26100.8116 or later)
+  - **Windows Server 2025** with the latest cumulative updates installed.
 
 To use Entra Kerberos authentication for hybrid identities, use one of the following operating systems:
 
-  - Windows 11 Enterprise/Pro single or multi-session.
-  - Windows 10 Enterprise/Pro single or multi-session, versions 2004 or later with the latest cumulative updates installed, especially the [KB5007253 - 2021-11 Cumulative Update Preview for Windows 10](https://support.microsoft.com/topic/november-22-2021-kb5007253-os-builds-19041-1387-19042-1387-19043-1387-and-19044-1387-preview-d1847be9-46c1-49fc-bf56-1d469fc1b3af).
-  - Windows Server 2025 with the latest cumulative updates installed.
-  - Windows Server 2022 with the latest cumulative updates installed, especially the [KB5007254 - 2021-11 Cumulative Update Preview for Microsoft server operating system version 21H2](https://support.microsoft.com/topic/november-22-2021-kb5007254-os-build-20348-380-preview-9a960291-d62e-486a-adcc-6babe5ae6fc1).
+  - **Windows 11 Enterprise/Pro single or multi-session**. For the best experience, use at least:
+    - Windows 11 version 26H1 or newer, with at least [KB5079489](https://support.microsoft.com/en-us/topic/march-26-2026-kb5079489-os-build-28000-1764-preview-cd374a56-9657-43fb-9ebe-40cb693d8d10) (OS build 28000.1764 or later)
+    - Windows 11 version 25H2 with at least [KB5079391](https://support.microsoft.com/en-us/topic/march-26-2026-kb5079391-os-builds-26200-8116-and-26100-8116-preview-7c9e2275-b9ba-4068-aeb0-23da42b81d3b) (OS build 26200.8116 or later)
+    - Windows 11 version 24H2 with at least [KB5079391](https://support.microsoft.com/en-us/topic/march-26-2026-kb5079391-os-builds-26200-8116-and-26100-8116-preview-7c9e2275-b9ba-4068-aeb0-23da42b81d3b) (OS build 26100.8116 or later)
+  - **Windows 10 Enterprise/Pro single or multi-session**, versions 2004 or later with the latest cumulative updates installed, especially the [KB5007253 - 2021-11 Cumulative Update Preview for Windows 10](https://support.microsoft.com/topic/november-22-2021-kb5007253-os-builds-19041-1387-19042-1387-19043-1387-and-19044-1387-preview-d1847be9-46c1-49fc-bf56-1d469fc1b3af).
+  - **Windows Server 2025** with the latest cumulative updates installed.
+  - **Windows Server 2022** with the latest cumulative updates installed, especially the [KB5007254 - 2021-11 Cumulative Update Preview for Microsoft server operating system version 21H2](https://support.microsoft.com/topic/november-22-2021-kb5007254-os-build-20348-380-preview-9a960291-d62e-486a-adcc-6babe5ae6fc1).
+
 
 For information about how to create and configure a Windows VM and sign in by using Entra ID-based authentication, see [Sign in to Windows virtual machine in Azure using Microsoft Entra ID and Azure Role Based Access Control](/entra/identity/devices/howto-vm-sign-in-azure-ad-windows).
 

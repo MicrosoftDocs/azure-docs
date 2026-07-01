@@ -4,7 +4,7 @@ description: Learn how to check which pipelines are ready to migrate and which o
 author: ssindhub
 ms.author: ssrinivasara
 ms.topic: article
-ms.date: 06/04/2026
+ms.date: 06/11/2026
 ms.custom: pipelines
 ---
 
@@ -36,29 +36,24 @@ You can export both ADF and Synapse assessment results as a .csv file, which lis
 Some results point to features that are still in progress or out of scope. Use the results to prioritize the fixes and begin migration.
 
 
-## Understand the results
+## What the assessment statuses mean
 You’ll see one of the four results for each pipeline (and summarized at the factory level):
 
-| Status            | Meaning                                                 |
-|-------------------|---------------------------------------------------------|
-| **Ready**         | Good to go for migration                                |
-| **Needs review**  | Requires changes before migration eg: Global parameters |
-| **Coming soon**   | Support in progress; migrate later                      |
-| **Not compatible**| No equivalent in Fabric; refactor required              |
+[!INCLUDE [migration-assessment-statuses](includes/migration-assessment-statuses.md)]
 
 
-### Drill into details
+### View activity-level compatibility for each pipeline
 In the assessment side pane, expand each pipeline to see:
 
-- Activity‑level status (which activities block migration).
+- Activity-level status (which activities block migration).
 - A summary of Ready/Needs review/Not compatible counts across pipelines.
 
 :::image type="content" source="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/detailed-assessment-drilldown.png" alt-text="Screenshot showing a drill-down of the assessment details." lightbox="media/how-to-assess-your-azure-data-factory-to-fabric-data-factory-migration/detailed-assessment-drilldown.png":::
 
-Use this list to build your to‑do plan (what to fix, what to defer, and what to replace).
+Use this list to build your to-do plan (what to fix, what to defer, and what to replace).
 
 
-### Next steps
+### Start migration after assessment
 When your assessment shows acceptable readiness:
 1. Select Next to begin the  migration flow.
 1. Refer to planning guides for best practices.
@@ -97,5 +92,3 @@ Answer: Yes, you can rerun anytime to validate updates.
 [Migration best practices](/fabric/data-factory/migration-best-practices)
 
 [Connector parity](/fabric/data-factory/connector-parity)
-
-

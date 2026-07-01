@@ -6,7 +6,8 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 05/15/2025
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -20,7 +21,7 @@ ms.custom:
 This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Snowflake, and use Data Flow to transform data in Snowflake. For more information, see the introductory article for [Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 > [!IMPORTANT]
-> The Snowflake V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Snowflake connector](connector-snowflake.md#differences-between-snowflake-and-snowflake-legacy) from V1 to V2.
+> The Snowflake V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You're recommended to [upgrade the Snowflake connector](connector-snowflake.md#differences-between-snowflake-and-snowflake-legacy) from V1 to V2.
 
 ## Supported capabilities
 
@@ -66,7 +67,7 @@ For more information about the network security mechanisms and options supported
 
 Use the following steps to create a linked service to Snowflake in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -94,7 +95,7 @@ This Snowflake connector supports the following authentication types. See the co
 
 - [Basic authentication](#basic-authentication)
 
-### Basic authentication 
+### Basic authentication
 
 The following properties are supported for a Snowflake linked service when using **Basic** authentication. 
 
@@ -102,7 +103,7 @@ The following properties are supported for a Snowflake linked service when using
 | :--------------- | :----------------------------------------------------------- | :------- |
 | type             | The type property must be set to **Snowflake**.              | Yes      |
 | connectionString | Specifies the information needed to connect to the Snowflake instance. You can choose to put password or entire connection string in Azure Key Vault. Refer to the examples below the table, and the [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article, for more details.<br><br>Some typical settings:<br>- **Account name:** The  [full account name](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) of your Snowflake account (including additional segments that identify the region and cloud platform), for example, xy12345.east-us-2.azure.<br/>- **User name:** The login name of the user for the connection.<br>- **Password:** The password for the user.<br>- **Database:** The default database to use once connected. It should be an existing database for which the specified role has privileges.<br>- **Warehouse:** The virtual warehouse to use once connected. It should be an existing warehouse for which the specified role has privileges.<br>- **Role:** The default access control role to use in the Snowflake session. The specified role should be an existing role that has already been assigned to the specified user. The default role is PUBLIC. | Yes      |
-| authenticationType  | Set this property to **Basic**. | Yes    | 
+| authenticationType  | Set this property to **Basic**. | Yes    | 
 | connectVia       | The [integration runtime](concepts-integration-runtime.md) that is used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure integration runtime. | No       |
 
 **Example:**
@@ -511,7 +512,7 @@ source(allowSchemaDrift: true,
 ```
 ### Native Change Tracking
 
-Azure Data Factory now supports a native feature in Snowflake known as change tracking, which involves tracking changes in the form of logs. This feature of snowflake allows us to track the changes in the data over time making it useful for incremental data loading and auditing purpose. To utilize this feature, when you enable Change data capture and select the Snowflake Change Tracking, we create a Stream object for the source table that enables change tracking on source snowflake table. Subsequently, we use the CHANGES clause in our query to fetch only the new or updated data from source table. Also, it is recommended to schedule pipeline such that changes are consumed within interval of [data retention time](https://docs.snowflake.com/en/sql-reference/parameters#label-data-retention-time-in-days) set for snowflake source table else user might see inconsistent behavior in captured changes.
+Azure Data Factory now supports a native feature in Snowflake known as change tracking, which involves tracking changes in the form of logs. This feature of snowflake allows us to track the changes in the data over time making it useful for incremental data loading and auditing purpose. To utilize this feature, when you enable Change data capture and select the Snowflake Change Tracking, we create a Stream object for the source table that enables change tracking on source snowflake table. Subsequently, we use the CHANGES clause in our query to fetch only the new or updated data from source table. Also, it's recommended to schedule pipeline such that changes are consumed within interval of [data retention time](https://docs.snowflake.com/en/sql-reference/parameters#label-data-retention-time-in-days) set for snowflake source table else user might see inconsistent behavior in captured changes.
 
 
 ### Sink transformation

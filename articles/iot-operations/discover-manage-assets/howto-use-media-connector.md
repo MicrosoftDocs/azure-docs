@@ -230,11 +230,11 @@ To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
 Deploy the following Bicep template to create a device with an inbound endpoint for the media connector. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively:
 
 ```bicep
-param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
+param adrNamespaceName string = '<AIO_NAMESPACE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource namespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
-  name: aioNamespaceName
+resource adrNamespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
+  name: adrNamespaceName
 }
 
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
@@ -243,7 +243,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
 
 resource device 'Microsoft.DeviceRegistry/namespaces/devices@2026-04-01' = {
   name: 'media-connector-bicep'
-  parent: namespace
+  parent: adrNamespace
   location: resourceGroup().location
   extendedLocation: {
     type: 'CustomLocation'
@@ -325,7 +325,7 @@ Run the following commands:
 az iot ops ns asset media create --name my-media-source-cli --instance {your instance name}  -g {your resource group name} --device media-connector-cli --endpoint media-connector-cli-0
 
 # Add a stream to the asset
-az iot ops ns asset media stream add --asset my-media-source-cli --instance {your instance name}  -g {your resource group name} --name snapshotmqtt --task-type snapshot-to-mqtt --format jpeg --snapshots-per-sec 0.25 --destination topic="azure-iot-operations/data/snapshots" qos=Qos1 retain=Never ttl=60
+az iot ops ns asset media stream add --asset my-media-source-cli --instance {your instance name}  -g {your resource group name} --name snapshotmqtt --task-type snapshot-to-mqtt --format jpeg --snapshots-per-sec 0.25 --destination topic="azure-iot-operations/data/snapshots" qos=Qos1 retain=Never ttl=60 --disable-autostart false
 ```
 
 To learn more, see [az iot ops ns asset media](/cli/azure/iot/ops/ns/asset/media).
@@ -336,11 +336,11 @@ To learn more, see [az iot ops ns asset media](/cli/azure/iot/ops/ns/asset/media
 Deploy the following Bicep template to create an asset that publishes snapshots from the device shown previously to an MQTT topic. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively:
 
 ```bicep
-param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
+param adrNamespaceName string = '<AIO_NAMESPACE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource namespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
-  name: aioNamespaceName
+resource adrNamespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
+  name: adrNamespaceName
 }
 
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
@@ -349,7 +349,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
 
 resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
   name: 'my-media-source-bicep'
-  parent: namespace
+  parent: adrNamespace
   location: resourceGroup().location
   extendedLocation: {
     type: 'CustomLocation'
@@ -426,11 +426,11 @@ To use a Bicep template:
 Deploy the following Bicep template. The template redeploys the `my-media-source-bicep` asset with both the original snapshot stream and the new clip stream, because Bicep declares the full asset resource. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively:
 
 ```bicep
-param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
+param adrNamespaceName string = '<AIO_NAMESPACE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource namespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
-  name: aioNamespaceName
+resource adrNamespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
+  name: adrNamespaceName
 }
 
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
@@ -439,7 +439,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
 
 resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
   name: 'my-media-source-bicep'
-  parent: namespace
+  parent: adrNamespace
   location: resourceGroup().location
   extendedLocation: {
     type: 'CustomLocation'

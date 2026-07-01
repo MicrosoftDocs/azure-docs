@@ -1,0 +1,266 @@
+- name: Azure Enclave documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: "What is Azure Enclave?"
+    href: what-azure-enclave.md
+  - name: "Why use Azure Enclave?"
+    href: why-azure-enclave.md
+  - name: Azure Enclave FAQs
+    href: azure-enclave-faq.md
+  - name: Azure Enclave Pricing
+    href: azure-enclave-pricing.md
+  - name: "What's new?"
+    href: whats-new.md
+  - name: Quickstarts
+    expanded: true
+    items:
+    - name: Get started with Azure Enclave
+      href: onboard.md
+    - name: Create a community
+      href: create-community-portal.md
+    - name: Create an enclave
+      href: create-enclave-portal.md
+    - name: Create a workload
+      href: create-workload-portal.md
+    - name: Create a community endpoint
+      href: create-community-endpoint-portal.md
+    - name: Create an enclave endpoint
+      href: create-enclave-endpoint-portal.md
+    - name: Create an enclave connection
+      href: create-enclave-connection-portal.md
+    - name: Create a transit hub
+      href: create-transit-hub-portal.md
+#     - name: Easy Button Deployments
+#       href: easy-button-deployments.md
+  - name: Azure Enclave resources
+    items:
+    - name: "What is a community?"
+      href: what-community.md
+    - name: "What is an enclave?"
+      href: what-enclave.md
+    - name: "What is a workload?"
+      href: what-workload.md
+    - name: "What is a community endpoint?"
+      href: what-community-endpoint.md
+    - name: "What is an enclave endpoint?"
+      href: what-enclave-endpoint.md
+    - name: "What is an enclave connection?"
+      href: what-enclave-connection.md
+    - name: "What is a transit hub?"
+      href: what-transit-hub.md
+    - name: "What is a dedicated hub?"
+      href: what-dedicated-hub.md
+  - name: Azure Enclave Concepts
+    items:
+    - name: "What is the service catalog?"
+      href: what-service-catalog.md
+    - name: List of service catalog Templates
+      href: list-service-catalog-templates.md
+    - name: "What are approvals?"
+      href: what-approvals.md
+    - name: Best practices
+      href: best-practices.md
+    - name: Understand resource groups
+      href: azure-enclave-resource-groups.md
+#     - name: Understanding Enclave Networking
+#       href: networking.md
+#     - name: Designing intra-enclave network isolation
+#       href: designing-intra-enclave-network-isolation.md
+    - name: Understand Admin Virtual Machines
+      href: understand-admin-vm.md
+    - name: Understand Domain Name Service
+      href: understand-domain-name-service.md
+- name: Tutorial - Deploy Azure Enclave
+  items:
+  - name: Learn Azure Enclave
+    href: azure-enclave-learn.md
+  - name: Create a community
+    href: 1-1-create-community.md
+  - name: Create enclaves inside a community
+    href: 1-2-create-enclaves-inside-community.md
+  - name: Create workloads inside an enclave
+    href: 1-3-create-workloads-inside-enclave.md
+  - name: Use the service catalog to create Azure resources inside a workload
+    href: 1-4-use-service-catalog-create-azure-resources-workloads.md
+  - name: Create an enclave endpoint and connection
+    href: 1-5-create-enclave-endpoint-connections.md
+  - name: Monitor your enclaves
+    href: 1-6-monitor-your-enclaves.md
+  - name: Host a publicly accessible application in an Azure Enclave
+    href: 1-7-host-publicly-accessible-application-azure-enclave.md
+  - name: Migrate workload resources
+    href: 1-8-migrate-workload-resources.md
+- name: Tutorial - Create a complex workload architecture
+  items:
+  - name: Plan your architecture for Azure Virtual Desktop and AKS workloads
+    href: 2-1-plan-architecture-workloads.md
+  - name: Create Azure Enclave environment for workloads
+    href: 2-2-create-azure-enclave-environment.md
+  - name: Deploy Azure Virtual Desktop workload
+    href: 2-3-deploy-virtual-desktop-workload.md
+  - name: Deploy Azure Kubernetes Service (AKS) workload
+    href: 2-4-deploy-kubernetes-workload.md
+- name: Governance, Security, and Compliance
+  items:
+  - name: Observability
+    href: observability.md
+  - name: Just-in-time access
+    href: just-in-time-access.md
+#     - name: Dynamic Access Controls
+#       href: dynamic-access-controls.md
+#     - name: Attribute-Based Access Controls
+#       href: attribute-based-access-controls.md
+  - name: Access controls in enclaves
+    href: access-controls-enclaves.md
+  - name: Role-based Access Controls (RBAC)
+    href: role-based-access-controls.md
+  - name: Create a user-assigned managed identity
+    href: create-user-managed-identity.md
+  # - name: Use Managed Identity
+  #   href: use-managed-identity.md
+  - name: Policy compliance exemptions
+    href: policy-compliance-exemptions.md
+  - name: Configure customer managed key encryption
+    href: configure-customer-managed-key-encryption-within-enclave.md
+#     - name: Regulatory compliance guidelines
+#       href: regulatory-compliance-guidelines.md
+#     - name: Security best practices
+#       href: security-best-practices.md
+  - name: Configure community governance
+    href: configure-community-governance.md
+- name: Approvals
+  items:
+  - name: Understand approvals
+    href: understand-approvals.md
+  - name: Configure approvals
+    href: configure-approvals.md
+  - name: Manage approvals
+    href: manage-approvals.md
+- name: Service catalog (list 1)
+  items:
+  - name: Deploy Workload Quickstart from the service catalog
+    href: deploy-workload-quickstart-service-catalog.md
+  - name: Deploy Common Dependencies from the service catalog
+    href: deploy-common-dependencies-service-catalog.md
+  - name: Deploy an Admin Virtual Machine from the service catalog
+    href: deploy-admin-vm-service-catalog.md
+  - name: Deploy App Service Function App from the service catalog
+    href: deploy-app-service-function-app-service-catalog.md
+  - name: Deploy App Service Web App from the service catalog
+    href: deploy-app-service-web-app-service-catalog.md
+  - name: Deploy Azure Container Registry from the service catalog
+    href: deploy-azure-container-registry-service-catalog.md
+  - name: Deploy Azure Cosmos DB from the service catalog
+    href: deploy-azure-cosmos-db-service-catalog.md
+  - name: Deploy Azure Kubernetes Service from the service catalog
+    href: deploy-azure-kubernetes-service-service-catalog.md
+- name: Service catalog (list 2)
+  items:
+  - name: Deploy Azure SQL from the service catalog
+    href: deploy-azure-sql-service-catalog.md
+  - name: Deploy ExpressRoute Connection from the service catalog
+    href: deploy-express-route-connection-service-catalog.md
+  - name: Deploy Key Vault from the service catalog
+    href: deploy-key-vault-service-catalog.md
+  - name: Deploy Private DNS Zones from the service catalog
+    href: deploy-private-dns-zones-service-catalog.md
+  - name: Deploy Azure Service Bus from the service catalog
+    href: deploy-service-bus-service-catalog.md
+  - name: Deploy a Storage Account from the service catalog
+    href: deploy-storage-account-service-catalog.md
+  - name: Deploy Virtual Machine from the service catalog
+    href: deploy-virtual-machine-service-catalog.md
+  - name: Deploy VPN Connection from the service catalog
+    href: deploy-vpn-connection-service-catalog.md
+  - name: Deploy service catalog Template from Azure CLI
+    href: deploy-template-service-catalog-azure-cli.md
+  - name: Install application on a Remote App Virtual Machine
+    href: application-deployment-using-remote-app-vm.md
+- name: Manage and Monitor
+  items:
+#     - name: Monitor your enclaves
+#       href: monitor-your-enclaves.md
+  - name: Maintenance mode
+    href: maintenance-mode.md
+  # - name: IP Allocation Management
+  #   href: ip-allocation-management.md
+  - name: Naming rules and restrictions
+    href: name-rules-restrictions-azure-enclave-resources.md
+  # - name: Manage Key Vault SKUs
+  #   href: upgrade-enclave-key-vault-sku.md
+  - name: Move data inside an enclave
+    href: move-data-inside-enclave.md
+  - name: Quotas and region availability
+    href: quotas-region-availability.md
+  - name: Disaster recovery planning
+    href: disaster-recovery-planning.md
+# - name: Troubleshoot
+#   items:
+#   - name: Troubleshoot guide
+#     href: troubleshoot.md
+#   - name: Migrate Azure resources into Azure Enclave
+#     href: migrate-azure-resources-azure-enclave.md
+#   - name: Connectivity troubleshooting
+#     href: connectivity-troubleshooting.md
+#   - name: Firewall and security troubleshooting
+#     href: firewall-and-security-troubleshooting.md
+#   - name: Performance troubleshooting
+#     href: performance-troubleshooting.md
+#   - name: Resource allocation issues
+#     href: resource-allocation-issues.md
+#   - name: Deployment errors
+#     href: deployment-errors.md
+#   - name: Compliance validation
+#     href: compliance-validation.md
+- name: Resources
+  items:
+    - name: Azure Enclave templates
+      href: azure-enclave-templates.md
+    - name: Troubleshoot guide
+      href: troubleshoot.md
+    - name: Migrate Azure resources into Azure Enclave
+      href: migrate-azure-resources-azure-enclave.md
+    # - name: Videos
+    #   href: videos.md
+- name: Guardrail Initiatives
+  items:
+    - name: Azure Kubernetes Service (AKS) Guardrail Initiative
+      href: aks-initiative.md
+    - name: App Service Enclaves Guardrail Initiative
+      href: app-service-initiative.md
+    - name: Azure Container Registry Guardrail Initiative
+      href: container-registry-initiative.md
+    - name: Azure Cosmos DB Guardrail Initiative
+      href: cosmosdb-initiative.md
+    - name: Azure Key Vault Guardrail Initiative
+      href: key-vault-initiative.md
+    - name: Azure SQL Guardrail Initiative
+      href: sql-initiative.md
+    - name: Azure Monitor Guardrail Initiative
+      href: monitor-initiative.md
+    - name: Azure PostgreSQL Guardrail Initiative
+      href: postgresql-initiative.md
+    - name: Azure Service Bus Guardrail Initiative
+      href: service-bus-initiative.md
+    - name: Azure Storage Guardrail Initiative
+      href: storage-initiative.md
+- name: Workload quickstarts
+  items:
+    - name: Create Azure Virtual Desktop workloads
+      href: create-azure-virtual-desktop-workloads.md
+    - name: Create Domain Name Service forwarder
+      href: create-domain-name-service-forwarder.md
+    - name: Create new Enclave Subnet
+      href: create-new-enclave-subnet.md
+#     - name: Workload and Application Planning
+#       href: workload-and-application-planning.md
+- name: Architecture
+  items:
+    - name: Understand creation and deletion logic
+      href: create-and-delete-logic.md
+    - name: Defense in Depth
+      href: defense-in-depth.md
+    - name: Built in RBAC roles
+      href: built-in-rbac-roles.md

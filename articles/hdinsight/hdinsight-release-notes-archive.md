@@ -6,7 +6,7 @@ ms.topic: release-notes
 author: yeturis
 ms.author: sairamyeturi
 ms.reviewer: nijelsf
-ms.date: 10/28/2025
+ms.date: 06/29/2026
 ms.custom:
   - hdinsightactive
   - references_regions
@@ -23,6 +23,49 @@ Subscribe to the [HDInsight Release Notes](./subscribe-to-hdi-release-notes-rep
 To subscribe, click the “watch” button in the banner and watch out for [HDInsight Releases](https://github.com/Azure/HDInsight/releases).
 
 ## Release Information
+
+### Release date: Oct 29, 2025
+
+> [!NOTE]
+> This is a Hotfix / maintenance release for Resource Provider. For more information see, [Resource Provider](.//hdinsight-overview-versioning.md#hdinsight-resource-provider).
+
+Azure HDInsight periodically releases maintenance updates for delivering bug fixes, performance enhancements, and security patches ensuring you stay up to date with these updates guarantees optimal performance and reliability.
+
+This release note applies to
+
+:::image type="icon" source="./media/hdinsight-release-notes/yes-icon.svg" border="false"::: HDInsight 5.1 version.
+
+
+HDInsight release will be available to all regions over several days. This release note is applicable for image number **2508190809**. [How to check the image number?](./view-hindsight-cluster-image-version.md)
+
+HDInsight uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
+
+**OS versions**
+
+* HDInsight 5.1: Ubuntu 18.04.5 LTS Linux Kernel 5.4
+
+> [!NOTE]
+> Ubuntu 18.04 is supported under [Extended Security Maintenance(ESM)](https://techcommunity.microsoft.com/t5/linux-and-open-source-blog/canonical-ubuntu-18-04-lts-reaching-end-of-standard-support/ba-p/3822623) by the Azure Linux team for [Azure HDInsight July 2023](/azure/hdinsight/hdinsight-release-notes-archive#release-date-july-25-2023), release onwards. 
+
+For workload specific versions, see [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md).
+
+## Issues fixed
+
+* Refactoring and security fixes.
+
+## Updates
+
+* The following standalone drivers are no longer supported with HDInsight.
+   * [Hive ODBC driver](https://www.microsoft.com/en-us/download/details.aspx?id=40886)
+   * [Spark ODBC driver](https://www.microsoft.com/en-us/download/details.aspx?id=49883)
+
+## Reminder
+
+* HDInsight service has transitioned to use standard load balancers for all its cluster configurations due to [deprecation announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer#main) of Azure basic load balancer.
+
+  > [!IMPORTANT]
+  > By default, creation of any new HDInsight cluster happens with Standard Load Balancers. We recommend referring to the [migration guide to recreate the cluster](./load-balancer-migration-guidelines.md).
+  > For any assistance, contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 ### Release date: Oct 06, 2025
 
@@ -55,19 +98,19 @@ For workload specific versions, see [HDInsight 5.x component versions](./hdinsig
 * C++ CodeQL scanning enabled for better static analysis coverage.
 * Managed Identity (MI) based authentication for SQL databases is now supported in non-public clouds. For more information see, [Use Managed Identity for SQL Database authentication in Azure HDInsight](./use-managed-identity-for-sql-database-authentication-in-azure-hdinsight.md)
 
-## Issues fixed
+### Issues fixed
 
 * Patched multiple OS-level vulnerabilities across dependencies (qs, braces,   connect, debug, etc.).
 
 * Disabled local user creation by default to strengthen access control. 
 
-## Updates
+### Updates
 
 * The following standalone drivers are no longer supported with HDInsight.
    * [Hive ODBC driver](https://www.microsoft.com/en-us/download/details.aspx?id=40886)
    * [Spark ODBC driver](https://www.microsoft.com/en-us/download/details.aspx?id=49883)
 
-## Reminder
+### Reminder
 
 * HDInsight service has transitioned to use standard load balancers for all its cluster configurations due to [deprecation announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer#main) of Azure basic load balancer.
 

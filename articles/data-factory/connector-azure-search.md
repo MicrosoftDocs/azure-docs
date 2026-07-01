@@ -7,7 +7,8 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: how-to
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ---
 
 # Copy data to an Azure AI Search index using Azure Data Factory or Synapse Analytics
@@ -15,6 +16,10 @@ ms.date: 01/05/2024
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data into Azure AI Search index. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Azure AI Search connector documentation](/fabric/data-factory/connector-azure-search-overview).
+
 
 ## Supported capabilities
 
@@ -32,11 +37,11 @@ You can copy data from any supported source data store into search index. For a 
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
 
-## Create a linked service to Azure Search using UI
+## Create a linked service to Azure AI Search using UI
 
-Use the following steps to create a linked service to Azure Search in the Azure portal UI.
+Use the following steps to create a linked service to Azure AI Search in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -46,14 +51,14 @@ Use the following steps to create a linked service to Azure Search in the Azure 
 
     :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Create a new linked service with Azure Synapse UI.":::
 
-2. Search for Search and select the Azure Search connector.
+2. Search for Search and select the Azure AI Search connector.
 
-   :::image type="content" source="media/connector-azure-search/azure-search-connector.png" alt-text="Select the Azure Search connector.":::    
+   :::image type="content" source="media/connector-azure-search/azure-search-connector.png" alt-text="Select the Azure AI Search connector.":::    
 
 
 1. Configure the service details, test the connection, and create the new linked service.
 
-   :::image type="content" source="media/connector-azure-search/configure-azure-search-linked-service.png" alt-text="Configure a linked service to Azure Search.":::
+   :::image type="content" source="media/connector-azure-search/configure-azure-search-linked-service.png" alt-text="Configure a linked service to Azure AI Search.":::
 
 ## Connector configuration details
 
@@ -104,7 +109,7 @@ To copy data into Azure AI Search, the following properties are supported:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **AzureSearchIndex** | Yes |
-| indexName | Name of the search index. The service does not create the index. The index must exist in Azure AI Search. | Yes |
+| indexName | Name of the search index. The service doesn't create the index. The index must exist in Azure AI Search. | Yes |
 
 **Example:**
 
@@ -147,7 +152,7 @@ AzureSearchSink upserts when writing data. In other words, when writing a docume
 The AzureSearchSink provides the following two upsert behaviors (by using AzureSearch SDK):
 
 - **Merge**: combine all the columns in the new document with the existing one. For columns with null value in the new document, the value in the existing one is preserved.
-- **Upload**: The new document replaces the existing one. For columns not specified in the new document, the value is set to null whether there is a non-null value in the existing document or not.
+- **Upload**: The new document replaces the existing one. For columns not specified in the new document, the value is set to null whether there's a non-null value in the existing document or not.
 
 The default behavior is **Merge**.
 
@@ -202,7 +207,7 @@ The following table specifies whether an Azure AI Search data type is supported 
 | String Array | N |
 | GeographyPoint | N |
 
-Currently other data types e.g. ComplexType are not supported. For a full list of Azure AI Search supported data types, see [Supported data types (Azure AI Search)](/rest/api/searchservice/supported-data-types).
+Currently other data types e.g. ComplexType aren't supported. For a full list of Azure AI Search supported data types, see [Supported data types (Azure AI Search)](/rest/api/searchservice/supported-data-types).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
