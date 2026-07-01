@@ -59,7 +59,7 @@ In the previous tutorials, you created a [community](./1-1-create-community.md) 
    - Select `+ Add` to add Endpoint Rules that represent how to access your app
       - Rule Name: `Website-Rule`
       - Destination Type: `FQDN`
-      - Destination: `*microsoft.com`
+      - Destination: `*.microsoft.com`
       - Protocol: `HTTPS`
       - Port: `443`
 
