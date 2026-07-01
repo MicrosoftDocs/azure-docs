@@ -292,7 +292,7 @@ The deployment process creates:
 - **Network Security Groups**: Default security rules
 
 **Monitoring deployment progress:**
-- Track deployment status in Azure portal notifications
+- Track deployment status in the Azure portal notifications
 - Review deployment logs if issues occur
 - Estimated time: 30-45 minutes
 - Status shows "Running" then "Succeeded"
@@ -303,7 +303,7 @@ After the community deployment completes, perform these validation steps to ensu
 
 ### Step 1: Check community status
 
-1. Navigate to the community in Azure portal
+1. Navigate to the community in the Azure portal
 1. Verify `Status` shows `Succeeded`
 1. Review the `Overview` page for basic information
 
