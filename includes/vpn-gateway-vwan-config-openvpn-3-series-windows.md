@@ -1,10 +1,10 @@
 ---
  title: include file
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 10/08/2024
- ms.author: cherylmc
+ ms.author: duau
 
 #Customer intent: This file is used for both virtual wan and vpn gateway articles.
 ---

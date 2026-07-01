@@ -1,6 +1,6 @@
 ---
 author: abell
-ms.author: cherylmc
+ms.author: allensu
 ms.date: 01/22/2026
 ms.service: azure-bastion
 ms.topic: include

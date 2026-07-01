@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: asudbring
  ms.service: azure-bastion
  ms.topic: include
  ms.date: 08/05/2022
- ms.author: cherylmc
+ ms.author: allensu
  ms.custom: sfi-image-nochange
 ---
 

@@ -1,9 +1,9 @@
 ---
  title: Include file
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.date: 10/18/2023
- ms.author: cherylmc
+ ms.author: duau
 ---
 ### Is BGP supported on all Azure VPN Gateway SKUs?
 

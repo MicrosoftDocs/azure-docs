@@ -2,11 +2,11 @@
  title: Include file
  description: Include file
  services: vpn-gateway
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 02/14/2019
- ms.author: cherylmc
+ ms.author: duau
  ms.custom: Include file
 ---
 
