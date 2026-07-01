@@ -75,7 +75,7 @@ sections:
             
         - question: Does storage billing increase Azure Data Manager for Energy pricing?
           answer: >
-            No. The Azure Data Manager for Energy rate card covering the instance and data partitions price is unchanged. However, you will see an increase in your monthly invoice. Storage at standard Azure rates has been listed as a billable dimension on the pricing page since GA in July 2023, but Microsoft is implementing the passthrough of those charges to your invoice starting on 1 August 2026.   
+            No. The Azure Data Manager for Energy rate card covering the instance and data partitions price is unchanged. However, you will see a change in your monthly invoice. Storage at standard Azure rates has been listed as a billable dimension on the pricing page of Azure Data Manager for Energy since GA in July 2023, but Microsoft is implementing the passthrough of those charges to your invoice starting on 1 August 2026.  
            
         - question: Will my Azure discounts on storage apply to Azure Data Manager for Energy storage billing charges?
           answer: >
