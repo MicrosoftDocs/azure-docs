@@ -1,9 +1,9 @@
 ---
  ms.topic: include
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.date: 06/30/2025
- ms.author: cherylmc
+ ms.author: duau
 ---
 
 Virtual network gateway resources are deployed to a specific subnet named **GatewaySubnet**. The gateway subnet is part of the virtual network IP address range that you specify when you configure your virtual network.

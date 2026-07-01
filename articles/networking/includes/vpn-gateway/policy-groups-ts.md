@@ -1,9 +1,9 @@
 ---
  ms.topic: include
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.date: 04/28/2026
- ms.author: cherylmc
+ ms.author: duau
 ---
 
 The following are some common issues that you might encounter when configuring policy groups and IP address pools for P2S connections, along with troubleshooting steps to help you resolve them.

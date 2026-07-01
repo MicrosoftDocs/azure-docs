@@ -2,12 +2,12 @@
 title: 'Configure customer-controlled maintenance for your virtual network gateway'
 titleSuffix: ExpressRoute
 description: Learn how to configure customer-controlled maintenance for your gateways using the Azure portal, or PowerShell.
-author: cherylmc
+author: duongau
 ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/11/2025
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: As a network administrator, I want to configure maintenance windows for my ExpressRoute virtual network gateways, so that I can control and schedule maintenance activities according to my organization's operational needs.
 ---
 # Configure customer-controlled gateway maintenance for ExpressRoute

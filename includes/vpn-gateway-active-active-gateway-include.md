@@ -1,9 +1,9 @@
 ---
  ms.topic: include
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.date: 12/03/2024
- ms.author: cherylmc
+ ms.author: duau
 
 ---
 

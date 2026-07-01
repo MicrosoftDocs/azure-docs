@@ -1,9 +1,9 @@
 ---
  ms.topic: include
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.date: 08/04/2023
- ms.author: cherylmc
+ ms.author: duau
 
 # This include is used for both Virtual WAN and VPN Gateway articles. Any changes you make must apply address both services.
 ---

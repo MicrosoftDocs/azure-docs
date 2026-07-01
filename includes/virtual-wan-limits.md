@@ -1,10 +1,10 @@
 ---
  description: include file
- author: cherylmc
+ author: duongau
  ms.service: azure-virtual-wan
  ms.topic: include
  ms.date: 04/07/2025
- ms.author: cherylmc
+ ms.author: duau
  ms.custom: include file
 ---
 | Resource |  Limit |

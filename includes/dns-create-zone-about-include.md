@@ -1,9 +1,9 @@
 ---
-author: vhorne
+author: asudbring
 ms.service: azure-dns
 ms.topic: include
 ms.date: 11/25/2018
-ms.author: victorh
+ms.author: allensu
 ---
 A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone.
 

@@ -163,3 +163,6 @@
       href: /azure/templates/microsoft.network/networkmanagers
       displayName: ARM
 - name: Resources
+  items:
+    - name: Reliability in Azure Virtual Network Manager
+      href: /azure/reliability/reliability-virtual-network-manager

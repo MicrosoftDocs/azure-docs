@@ -1,9 +1,9 @@
 ---
  services: vpn-gateway
- author: cherylmc
+ author: duongau
  ms.topic: include
  ms.date: 07/23/2024
- ms.author: cherylmc
+ ms.author: duau
 ---
 |  | **Point-to-Site** | **Site-to-Site** |
 | --- | --- | --- |

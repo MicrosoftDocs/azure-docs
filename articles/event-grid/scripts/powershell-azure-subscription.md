@@ -17,7 +17,7 @@ This script creates an Event Grid subscription to the events for an Azure subscr
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-[!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-azure-subscription/subscribe-to-azure-subscription.ps1 "Subscribe to Azure subscription")]
+[!code-powershell[main](~/powershell_scripts/event-grid/subscribe-to-azure-subscription/subscribe-to-azure-subscription.ps1 "Subscribe to Azure subscription")]
 
 ## Sample script - preview module
 
@@ -26,7 +26,7 @@ This preview sample script requires the Event Grid module. To install, run
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 
-[!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-azure-subscription-preview/subscribe-to-azure-subscription-preview.ps1 "Subscribe to Azure subscription")]
+[!code-powershell[main](~/powershell_scripts/event-grid/subscribe-to-azure-subscription-preview/subscribe-to-azure-subscription-preview.ps1 "Subscribe to Azure subscription")]
 
 ## Script explanation
 

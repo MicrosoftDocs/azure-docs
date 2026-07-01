@@ -103,7 +103,9 @@ Refer to the documentation [How to view applied configurations](how-to-view-appl
 
 ### What happens if the region where the Azure Virtual Network Manager is created is down? Does it affect deployed configurations or only prevent configuration changes?
 
-Only the ability to change configurations will be impacted. Once Azure Virtual Network Manager has programmed the configuration after you commit the configuration, it will continue to operate. For example, if the Azure Virtual Network Manager instance is created in region 1 and the mesh topology is established in region 2, the mesh in region 2 will continue to function even if region 1 becomes unavailable. 
+Only the ability to change configurations is impacted. Once Azure Virtual Network Manager programs the configuration after you commit the configuration, it continues to operate. For example, if the Azure Virtual Network Manager instance is created in region 1 and the mesh topology is established in region 2, the mesh in region 2 continues to function even if region 1 becomes unavailable.
+
+For more information, see [Reliability in Azure Virtual Network Manager](/azure/reliability/reliability-virtual-network-manager).
 
 ### How do configuration changes propagate to virtual networks?
 
@@ -250,6 +252,20 @@ Certain services require specific network requirements to function properly. By 
 ### What are the service limitations of Azure Virtual Network Manager?
 
 For the most current information, see [Limitations with Azure Virtual Network Manager](concept-limitations.md).
+
+## Reliability
+
+### Does Azure Virtual Network Manager support availability zones?
+
+Yes. Azure Virtual Network Manager is automatically zone-redundant when you deploy it into an Azure region that supports availability zones. Microsoft manages zone redundancy for the service, so you don't need to take any action to enable it.
+
+For more information, see [Reliability in Azure Virtual Network Manager](/azure/reliability/reliability-virtual-network-manager).
+
+### What happens if the region hosting my Virtual Network Manager instance goes down?
+
+Azure Virtual Network Manager is a single-region resource. If its home region becomes unavailable, the instance is also unavailable and management operations fail until the region recovers. However, configurations already deployed to managed virtual networks in other regions remain intact and continue to apply during the outage. After the home region recovers, the service automatically restores normal operations.
+
+For more information, see [Reliability in Azure Virtual Network Manager](/azure/reliability/reliability-virtual-network-manager).
 
 ## Next steps
 
