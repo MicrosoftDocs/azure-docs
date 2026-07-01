@@ -313,7 +313,7 @@ Replace the values according to the explanation.
    ```azurecli
    az storage blob upload-batch \
        --account-name $WEBSITE_NAME \
-       --source ./dist/OSDUApp/ \
+       --source ./dist/OSDUApp/browser/ \
        --destination '$web' \
        --overwrite
    ```
