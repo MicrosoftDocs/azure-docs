@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: firewall
- author: vhorne
+ author: duongau
  ms.service: azure-firewall
  ms.topic: include
  ms.date: 07/10/2024
- ms.author: victorh
+ ms.author: duau
  ms.custom: include file
 ---
 

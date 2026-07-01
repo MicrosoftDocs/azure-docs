@@ -53,7 +53,7 @@ landingContent:
           - text: Migrate Hyper-V VMs from on-premises to Azure
             url:  /azure/migrate/tutorial-migrate-hyper-v?view=migrate
           - text: Migrate Azure high-performance computing (HPC)
-            url:  /azure/high-performance-computing/lift-and-shift-overview
+            url:  /azure/cloud-adoption-framework/scenarios/azure-hpc/migrate
           - text: Migrate data using Azure Storage Mover
             url:  /azure/storage-mover/service-overview
   - title: Training modules
