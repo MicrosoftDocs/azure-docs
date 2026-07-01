@@ -77,7 +77,7 @@ _Sample Text: To resolve this error, set up MFA at aka.ms/setupMFA. If you set u
 :::image type="content" source="../media/multifactor-enforcement/assignment-list.png" alt-text="Screenshot of Azure Policy Assignment List View." border="false" lightbox="../media/multifactor-enforcement/assignment-list.png":::
   
 > [!NOTE]
-> Azure Policy assignments that evaluate multifactor enforcement do not provide compliance. In order to get audit events for your policy assignment without enforcement, see 'Audit mode' below. 
+> Azure Policy assignments that evaluate multifactor enforcement don't provide compliance. To get audit events for your policy assignment without enforcement, see **Audit mode** in the following section.
 
 ## Update the policy assignment to enforcement
 You can enable enforcement by updating the 'Effect' of the policy assignment.
