@@ -2,11 +2,11 @@
 title: Create a site-to-site VPN connection in dual stack - Azure PowerShell
 titleSuffix: Azure VPN Gateway
 description: Learn how to create a site-to-site VPN gateway connection in IPv4 and IPv6 dual stack from your on-premises network to a virtual network using Azure PowerShell.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 04/08/2026
-ms.author: cherylmc
+ms.author: duau
 ---
 
 # Create a site-to-site VPN connection in dual stack using Azure PowerShell

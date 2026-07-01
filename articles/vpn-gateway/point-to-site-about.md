@@ -2,11 +2,11 @@
 title: About Azure Point-to-Site VPN connections
 titleSuffix: Azure VPN Gateway
 description: Learn about Point-to-Site VPN.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 06/08/2026
-ms.author: cherylmc
+ms.author: duau
 ms.custom:
   - linux-related-content
   - sfi-image-nochange

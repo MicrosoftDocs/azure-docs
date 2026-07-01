@@ -2,7 +2,7 @@
 title: Create a virtual network gateway - PowerShell
 titleSuffix: Azure VPN Gateway
 description: Learn how to create a virtual network gateway for VPN Gateway connections using PowerShell.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 11/19/2024

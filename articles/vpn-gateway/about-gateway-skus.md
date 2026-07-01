@@ -1,7 +1,7 @@
 ---
 title: 'About gateway SKUs'
 description: Learn about VPN Gateway SKUs.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 06/11/2026

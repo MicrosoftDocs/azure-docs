@@ -5,7 +5,7 @@ description: Learn how to configure a VPN client for point-to-site VPN configura
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
-author: cherylmc
+author: duongau
 ms.author: cherylmc 
 ms.date: 02/26/2025
 # Customer intent: "As a network administrator, I want to configure a VPN client for point-to-site connections using RADIUS password authentication, so that I can securely connect remote devices to our virtual network."

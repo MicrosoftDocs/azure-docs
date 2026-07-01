@@ -2,7 +2,7 @@
 title: 'Create a Basic SKU virtual network gateway: PowerShell'
 titleSuffix: Azure VPN Gateway
 description: Learn how to create a Basic SKU virtual network gateway for a VPN connection to your on-premises network, or to connect virtual networks. Use these instructions to create either a policy-based, or route-based VPN gateway.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 01/23/2026

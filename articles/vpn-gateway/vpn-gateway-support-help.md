@@ -1,8 +1,8 @@
 ---
 title: Azure VPN Gateway Support and Help Options 
 description: How to obtain help and support for questions or problems when you create solutions using Azure VPN Gateway. 
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
 ms.date: 03/03/2026

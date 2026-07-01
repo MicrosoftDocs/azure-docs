@@ -3,8 +3,8 @@ title: Tutorial - Configure a BGP-enabled connection between Azure and Amazon We
 description: In this tutorial, learn how to connect Azure and AWS using an active-active VPN Gateway and two site-to-site connections on AWS.
 #customer intent: Customer intent: As a network engineer, I want to configure a BGP-enabled VPN connection between Azure and AWS so that I can establish an active-active setup for seamless data transfer across cloud environments.
 titleSuffix: Azure VPN Gateway
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.reviewer: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: tutorial

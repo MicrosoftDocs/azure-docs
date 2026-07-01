@@ -2,8 +2,8 @@
 title: 'Assign Users IP Addresses from Defined Pools for P2S VPN Connections - Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to assign IP addresses from specific address pools to P2S VPN users based on their identity or authentication credentials using the Azure portal.
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 05/05/2026

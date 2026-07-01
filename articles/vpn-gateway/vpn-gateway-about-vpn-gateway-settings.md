@@ -1,7 +1,7 @@
 ---
 title: 'Azure VPN Gateway configuration settings'
 description: Learn about VPN Gateway resources and configuration settings.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 03/31/2025

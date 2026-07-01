@@ -2,7 +2,7 @@
 title: 'About active-active VPN gateways'
 titleSuffix: Azure VPN Gateway
 description: Learn about active-active VPN gateways, including configuration and design.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 11/01/2024
