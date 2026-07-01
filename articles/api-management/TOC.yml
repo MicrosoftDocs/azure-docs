@@ -71,7 +71,6 @@
   - name: Overview
     href: ai-models-tools-agents-overview.md
   - name: V1 and V2 tiers
-    items:
     - name: AI Gateway overview
       items:
       - name: AI Gateway capabilities
@@ -116,14 +115,8 @@
         href: monitor-mcp-servers.md
     - name: Manage agent APIs
       items:
-      - name: Overview
-        href: ai-gateway-overview.md
-      - name: Create an instance
-        href: quickstart-ai-gateway-create.md
-      - name: Manage models and tools
-        href: ai-gateway-manage-models-tools.md
-      - name: Govern, secure, and operate
-        href: ai-gateway-govern-secure-operate.md
+      - name: Import agent-to-agent (A2A) API
+        href: agent-to-agent-api.md
   - name: AI Gateway tiers
     items:
     - name: Overview
