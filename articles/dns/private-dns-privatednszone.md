@@ -5,7 +5,7 @@ services: dns
 author: asudbring
 ms.service: azure-dns
 ms.topic: concept-article
-ms.date: 12/18/2025
+ms.date: 06/22/2026
 ms.author: allensu
 # Customer intent: "As a cloud network administrator, I want to manage DNS resolution using private DNS zones, so that I can customize domain names and enhance security for virtual network resources without exposing them to the public Internet."
 ---

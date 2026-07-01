@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 05/15/2026
+ms.date: 06/10/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how I can configure a data flow profile to control data flow behavior.
@@ -53,7 +53,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
 // Pointer to the Azure IoT Operations instance
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -63,7 +63,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
 }
 
 // Pointer to the default data flow profile
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-03-01' = {
   parent: aioInstance
   name: 'default'
   extendedLocation: {
@@ -127,7 +127,7 @@ az iot operations dataflow profile create --resource-group myResourceGroup --ins
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' = {
+resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-03-01' = {
   parent: aioInstance
   name: '<NAME>'
   properties: {
@@ -239,7 +239,7 @@ az iot operations dataflow profile update --resource-group myResourceGroup --ins
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' = {
+resource dataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-03-01' = {
   parent: aioInstance
   name: '<NAME>'
   properties: {

@@ -1,8 +1,9 @@
 ---
 title: Common Issues - Staging Resources| Microsoft Docs
-description: Azure CycleCloud common issue - Staging Resources
+description: Troubleshoot resource staging errors in Azure CycleCloud, such as 'Unable to determine AccessKey for URL'.
 author: adriankjohnson
-ms.date: 06/30/2025
+ms.date: 06/19/2026
+ms.topic: troubleshooting-problem-resolution
 ms.author: adjohnso
 ---
 # Common issues: Staging resources

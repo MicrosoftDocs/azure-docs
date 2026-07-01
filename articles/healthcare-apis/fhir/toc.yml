@@ -28,7 +28,7 @@ items:
         - name: Azure portal
           href: deploy-azure-portal.md
         - name: Bicep
-          href: fhir-service-bicep.md
+          href: ../deploy-healthcare-apis-using-bicep.md
         - name: ARM template
           href: fhir-service-resource-manager-template.md
     - name: Use Microsoft Entra External ID for an identity provider

@@ -24,8 +24,10 @@ In contrast, *per-app scaling* can be enabled at the App Service plan level to s
 App Service plan that hosts it. This way, an App Service plan can be scaled to 10 instances, but an app can be set to use only five.
 
 > [!NOTE]
-> Per-app scaling is available only for **Standard**, **Premium**, **Premium V2**, **Premium V3**, and **Isolated** pricing tiers.
->
+> - Per-app scaling is available only for **Standard**, **Premium**, **Premium V2**, **Premium V3**, and **Isolated** pricing tiers.
+> - If the number of workers assigned to the plan is less than the per-app scaling setting, the number of instances for the app is limited by the number of workers.
+> - If autoscale reduces the number of worker instances, the number of app instances can get reduced to less than the per-app scaling limit.
+> 
 
 Apps are allocated to the available App Service plan using a best-effort approach for an even distribution across instances. While an even distribution isn't guaranteed, the platform makes sure that two instances of the same app aren't hosted on the same App Service plan instance.
 

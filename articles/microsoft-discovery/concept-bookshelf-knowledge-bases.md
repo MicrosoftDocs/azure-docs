@@ -24,9 +24,9 @@ The Bookshelf uses an advanced technique developed by Microsoft Research called 
 Both [Microsoft Discovery and the Microsoft Discovery app](concept-discovery-and-discovery-app.md) use the same GraphRAG-based indexing technology under the hood. 
 
 ### Indexing
-Currently, the Bookshelf supports indexing unstructured (text-based) file formats stored in Azure Blob Storage or stored locally if using the app. Supported file formats are documented in the [Create a Bookshelf and index a Knowledge Base](https://learn.microsoft.com/azure/microsoft-discovery/how-to-index-bookshelf-knowledgebase) how-to guide.
+Currently, the Bookshelf supports indexing unstructured (text-based) file formats stored in Azure Blob Storage or stored locally if using the app. Supported file formats are documented in the [Create a Bookshelf and index a Knowledge Base](/azure/microsoft-discovery/how-to-index-bookshelf-knowledgebase) how-to guide.
 
-The Bookshelf in Microsoft Discovery uses Azure AI Search Enrichment to process supported file formats. Images embedded in supported file formats are processed using Azure AI Search's built-in [Vision skill](https://learn.microsoft.com/azure/ai-services/computer-vision/overview), which automatically generates alt-text for embedded images. The knowledge graph and vector database that results from indexing, collectively known as a Knowledge Base (KB), are stored in an Azure SQL DB in your subscription.
+The Bookshelf in Microsoft Discovery uses Azure AI Search Enrichment to process supported file formats. Images embedded in supported file formats are processed using Azure AI Search's built-in [Vision skill](/azure/ai-services/computer-vision/overview), which automatically generates alt-text for embedded images. The knowledge graph and vector database that results from indexing, collectively known as a Knowledge Base (KB), are stored in an Azure SQL DB in your subscription.
 
 The Bookshelf in the Microsoft Discovery app uses different libraries to process files locally, but the end result is still a queryable knowledge graph. 
 

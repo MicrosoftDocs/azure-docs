@@ -10,7 +10,7 @@ ms.topic: include
 
 #### Do I need to migrate the gateway root certificate, or does it happen automatically?
 
-Microsoft migrates the gateway root certificate on the backend. However, you must generate an updated VPN client profile and distribute it to your users to maintain connectivity after the migration. To make sure your point-to-site (P2S) users have the updated profile installed, follow the steps in [About gateway certificate migration](../articles/vpn-gateway/point-to-site-about-gateway-certificate-migration.md) before the deadline in your Microsoft notification.
+Microsoft migrates the gateway root certificate on the backend. However, you must generate an updated VPN client profile and distribute it to your users before the migration deadline to maintain connectivity after the migration.
 
 #### Do I need to update my VPN client profile even if I'm not using certificate authentication for my P2S VPN?
 
@@ -18,21 +18,25 @@ Yes. The gateway certificate is used for authentication regardless of the authen
 
 #### Why do I need to update my VPN client profile?
 
-The updated profile contains the root certificate information needed to establish trust with the gateway after the migration. Without it, your P2S VPN connection fails after the gateway migrates to the new certificate. The [VPN client profile update](../articles/vpn-gateway/point-to-site-user-vpn-profile-update.md) process is the same one you use for any gateway configuration change that affects P2S VPN, such as adding an authentication method or changing tunnel types. In this case, the change is to the gateway's root certificate, which is a critical component of authentication for all P2S VPN connections.
+The updated profile contains the root certificate information needed to establish trust with the gateway after the migration. Without it, your P2S VPN connection fails after the gateway migrates to the new certificate. The VPN client profile update process is the same one you use for any gateway configuration change that affects P2S VPN, such as adding an authentication method or changing tunnel types. In this case, the change is to the gateway's root certificate, which is a critical component of authentication for all P2S VPN connections.
 
 #### Does the certificate migration change my VPN gateway configuration?
 
 No. Your tunnel type, authentication method, address pool, and routing configuration remain unchanged. Only the client profile needs to be updated.
 
-#### Will there be connectivity impact for end users? 
+#### Will end users experience a connectivity disruption?
 
-If end users don't have the new profile installed, they won't be able to connect after the gateway certificate is migrated. 
+If end users don't have the new profile installed, they won't be able to connect after the gateway certificate is migrated.
+
+#### Why does my VPN gateway have both the old and new root certificates?
+
+During gateway certificate migration, Azure VPN Gateway temporarily supports both the old and new root certificates. This transition period gives administrators time to download and redistribute updated P2S VPN client profiles to users and devices. After the migration deadline at the end of January 2027, only the new certificate is valid.
 
 ### Prerequisites and permissions
 
 #### How do I know if I need to take action?
 
-You receive a notification from Microsoft that identifies your gateway as affected. If you receive this notification, follow the steps in [Update your VPN client profile](../articles/vpn-gateway/point-to-site-user-vpn-profile-update.md).
+You receive a notification from Microsoft that identifies your gateway as affected. If you receive this notification, follow the steps in [How to update point-to-site VPN clients](../articles/vpn-gateway/point-to-site-user-vpn-profile-update.md).
 
 #### Who can download the updated VPN client profile?
 
@@ -42,7 +46,7 @@ Anyone with the Azure RBAC permissions to access the virtual network gateway or 
 
 #### How do I generate a new VPN client profile?
 
-For step-by-step guidance, see [Update your VPN client profile](../articles/vpn-gateway/point-to-site-user-vpn-profile-update.md).
+For step-by-step guidance, see [How to update point-to-site VPN clients](../articles/vpn-gateway/point-to-site-user-vpn-profile-update.md).
 
 #### What does the downloaded ZIP file contain?
 
@@ -54,11 +58,11 @@ No. A single download produces profiles for all supported client types. However,
 
 #### How do I install the updated profile?
 
-For installation steps, see [Configure Point-to-Site VPN clients](../articles/vpn-gateway/point-to-site-user-vpn-profile-update.md).
+For installation steps, see [How to update point-to-site VPN clients](../articles/vpn-gateway/point-to-site-user-vpn-profile-update.md).
 
 #### What if a connection profile for this gateway already exists on my client device?
 
-Add the new configuration to the client rather than assuming it overwrites the existing profile automatically. Follow the installation steps in [Distribute and install the updated profile](../articles/vpn-gateway/point-to-site-user-vpn-profile-update.md#distribute-and-install-the-updated-profile).
+The new profile doesn't automatically overwrite the existing profile. Follow the installation steps in [Distribute and install the updated profile](../articles/vpn-gateway/point-to-site-user-vpn-profile-update.md#distribute-and-install-the-updated-profile) to add the new configuration to the client.
 
 ### Distribution and rollout
 
@@ -66,13 +70,9 @@ Add the new configuration to the client rather than assuming it overwrites the e
 
 The VPN administrator or IT team responsible for the gateway distributes the updated profile to all end users who connect through P2S VPN.
 
-##### Do all users need to update, or just some?
+#### Do all users need to update, or just some?
 
 All end users who connect through the affected gateway by using P2S VPN must install the updated profile.
-
-#### How do I confirm that all clients are updated?
-
-Monitor your gateway after you distribute the updated profile. Make sure all client profiles are updated well in advance of the migration.
 
 #### I have a large number of users. How should I handle the rollout?
 
@@ -109,7 +109,7 @@ Try the following steps:
 
 #### My VPN connection broke before I received the update notification. What happened?
 
-In some cases, your VPN client software or operating system might distrust the older certificate authority before the updated profile is available for your gateway type.
+In some cases, your VPN client software or operating system might distrust the previous root certificate before the updated profile is available for your gateway type.
 
 To restore connectivity, install the previous root certificate on your client device. Then, refer to the [troubleshooting documentation](/troubleshoot/azure/vpn-gateway/welcome-vpn-gateway) and watch for a notification from Microsoft with updated profile instructions. If you need assistance, contact [Microsoft Support](https://azure.microsoft.com/support/).
 

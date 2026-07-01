@@ -5,7 +5,7 @@ description: Learn how to configure IPv6 in dual stack for VPN Gateway.
 author: radwiv
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 04/03/2026
+ms.date: 06/09/2026
 ms.author: radwiv
 # Customer intent: "As a network administrator, I want to configure IPv6 in dual-stack mode for Azure VPN Gateway, so that I can support seamless IPv6 traffic alongside IPv4 within my organization's VPN infrastructure."
 ---
@@ -54,7 +54,7 @@ When you deploy VPN Gateway with IPv6 in dual stack mode, you can use the same s
 
 The following limitations apply to IPv6 in dual stack configuration for VPN Gateway:
 
-* IPv6 support is available for new gateway deployments using VpnGw1-5 and VpnGw1AZ-5AZ SKUs.
+* IPv6 support is available for new gateway deployments using VpnGw1AZ-5AZ SKUs.
 * A VPN gateway deployed in IPv6 dual stack mode can't be moved to an IPv4 only configuration.
 * IPv6 can be used with IPv4 in dual stack mode to set up VPN Gateway connectivity.
 * Point-to-Site VPN gateways using IKEv2 and OpenVPN protocols support IPv6. Point-to-Site VPN gateways don't support IPv6 when using SSTP protocol.

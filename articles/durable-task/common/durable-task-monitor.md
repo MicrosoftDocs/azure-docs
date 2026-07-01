@@ -200,31 +200,31 @@ Java samples for Durable Functions aren't yet available for this scenario. See t
 ::: zone pivot="durable-functions"
 
 # [C#](#tab/csharp)
-<!--
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=41-78,97-115)]
--->
+
 The orchestrator function requires a location to monitor and a phone number to send a message to when the weather becomes clear at the location. This data is passed to the orchestrator function as a strongly typed `MonitorRequest` object.
 
 # [JavaScript](#tab/javascript)
 
 The **E3_Monitor** function uses the standard *function.json* for orchestrator functions.
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E3_Monitor/function.json":::
--->
+
 Here's the code that implements the function:
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E3_Monitor/index.js":::
--->
+
 # [Python](#tab/python)
 
 The **E3_Monitor** function uses the standard *function.json* for orchestrator functions.
-<!--
+
 [!code-json[Main](~/samples-durable-functions-python/samples/monitor/E3_Monitor/function.json)]
--->
+
 Here is the code that implements the function:
-<!--
+
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_Monitor/\_\_init\_\_.py)]
--->
+
 # [PowerShell](#tab/powershell)
 
 Not available for this sample. See the **Durable Task SDKs** pivot for Java coverage.
@@ -527,31 +527,31 @@ As with other samples, the helper activity functions are regular functions that 
 # [C#](#tab/csharp)
 
 The **E3_GetIsClear** function gets the current weather conditions using the Weather Underground API and determines whether the sky is clear.
-<!--
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=80-85)]
--->
+
 # [JavaScript](#tab/javascript)
 
 The *function.json* is defined as follows:
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E3_GetIsClear/function.json":::
--->
+
 And here's the implementation.
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E3_GetIsClear/index.js":::
--->
+
 # [Python](#tab/python)
 
 The **E3_TooManyOpenIssues** function gets a list of currently open issues on the repo and determines if there are "too many" of them: more than 3 as per our sample.
 
 The *function.json* is defined as follows:
-<!--
+
 [!code-json[Main](~/samples-durable-functions-python/samples/monitor/E3_TooManyOpenIssues/function.json)]
--->
+
 And here is the implementation.
-<!--
+
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_TooManyOpenIssues/\_\_init\_\_.py)]
--->
+
 # [PowerShell](#tab/powershell)
 
 Not available for this sample. See the **Durable Task SDKs** pivot for Java coverage.
@@ -577,34 +577,34 @@ public boolean getIsClear(
 # [C#](#tab/csharp)
 
 The **E3_SendGoodWeatherAlert** function uses the Twilio binding to send an SMS message notifying the end user that it's a good time for a walk.
-<!--
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=87-96,140-205)]
--->
+
 > [!NOTE]
 > You will need to install the `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget package to run the sample code.
 
 # [JavaScript](#tab/javascript)
 
 Its *function.json* is simple:
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E3_SendGoodWeatherAlert/function.json":::
--->
+
 And here's the code that sends the SMS message:
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E3_SendGoodWeatherAlert/index.js":::
--->
+
 # [Python](#tab/python)
 
 The **E3_SendAlert** function uses the Twilio binding to send an SMS message notifying the end user that there are at least 3 open issues awaiting a resolution.
 
 Its *function.json* is simple:
-<!--
+
 [!code-json[Main](~/samples-durable-functions-python/samples/monitor/E3_TooManyOpenIssues/function.json)]
--->
+
 And here is the code that sends the SMS message:
-<!--
+
 [!code-python[Main](~/samples-durable-functions-python/samples/monitor/E3_SendAlert/\_\_init\_\_.py)]
--->
+
 # [PowerShell](#tab/powershell)
 
 Not available for this sample. See the **Durable Task SDKs** pivot for Java coverage.

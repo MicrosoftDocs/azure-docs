@@ -1,19 +1,20 @@
 ---
-ms.date: 12/16/2024
+ms.date: 06/11/2026
 author: robece
 ms.author: robece
 title: Concepts for Event Grid namespace topics
-description: General concepts of Event Grid namespace topics and their main functionality such as pull and push delivery.
+description: Understand Event Grid namespace topics, including CloudEvents support, pull and push delivery, event subscriptions, and MQTT broker capabilities.
 ms.topic: concept-article
+ai-usage: ai-assisted
 # Customer intent: I want to know concepts of Azure Event Grid namespaces. 
 ---
 
 # Azure Event Grid namespace concepts
 
-This article introduces you to the main concepts and functionality associated to namespace topics.
+This article describes the main concepts and functionality associated with namespace topics.
 
 ## Events
-An **event** is the smallest amount of information that fully describes something that happened in a system. We often refer to an event as a discrete event because it represents a distinct, self-standing fact about a system that provides an insight that can be actionable. Every event has common information like `source` of the event, `time` the event took place, and a unique identifier. Every event also has a `type`, which usually is a unique identifier that describes the kind of announcement the event is used for. 
+An **event** is the smallest amount of information that fully describes something that happened in a system. An event is often called a discrete event because it represents a distinct, self-standing fact about a system that provides actionable insight. Every event has common information like `source` of the event, `time` the event took place, and a unique identifier. Every event also has a `type`, which usually is a unique identifier that describes the kind of announcement the event is used for. 
 
 For example, an event about a new file being created in Azure Storage has details about the file, such as the `lastTimeModified` value. An Event Hubs event has the URL of the captured file. An event about a new order in your Orders microservice might have an `orderId` attribute and a URL attribute to the order’s state representation. A few more examples of event types include: `com.yourcompany.Orders.OrderCreated`, `org.yourorg.GeneralLedger.AccountChanged`, `io.solutionname.Auth.MaximumNumberOfUserLoginAttemptsReached`. 
 
@@ -39,16 +40,16 @@ Here's a sample event:
 
 
 ### Another kind of event
-The user community also refers as "events" to messages that carry a data point, such as a single device reading or a click on a web application page. That kind of event is usually analyzed over a time window to derive insights and take an action. In Event Grid’s documentation, we refer to that kind of event as a **data point**, **streaming data**, or simply as **telemetry**. Among other types of messages, this kind of events is used with Event Grid’s Message Queuing Telemetry Transport (MQTT) broker feature.
+The user community also refers to messages that carry a data point, such as a single device reading or a click on a web application page, as "events." You typically analyze this kind of event over a time window to derive insights and take an action. In Event Grid documentation, this kind of event is called a **data point**, **streaming data**, or simply **telemetry**. Event Grid's Message Queuing Telemetry Transport (MQTT) broker feature uses this kind of event, among other message types.
 
 ## Support for CloudEvents
-Event Grid namespace topics accepts events that comply with the Cloud Native Computing Foundation (CNCF)’s open standard [CloudEvents 1.0](https://github.com/cloudevents/spec) specification using the [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md) with [JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md). A CloudEvent is a kind of message that contains what is being communicated, referred to as event data, and metadata about it. The event data in event-driven architectures typically carries the information announcing a system state change. The CloudEvents metadata is composed of a set of attributes that provide contextual information about the message like where it originated (the source system), its type, etc. 
+Event Grid namespace topics accept events that comply with the Cloud Native Computing Foundation (CNCF) open standard [CloudEvents 1.0](https://github.com/cloudevents/spec) specification using the [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/bindings/http-protocol-binding.md) with [JSON format](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/formats/json-format.md). A CloudEvent is a kind of message that contains what is being communicated, referred to as event data, and metadata about it. The event data in event-driven architectures typically carries the information announcing a system state change. The CloudEvents metadata consists of a set of attributes that provide contextual information about the message, such as where it originated (the source system) and its type.
 
 For more information, see [Support for CloudEvents schema](namespaces-cloud-events.md).
 
 ## Publishers
 
-A publisher is the application that sends events to Event Grid. It could be the same application where the events originated, the event source. You can publish events from your own application when using namespace topics.
+A publisher is the application that sends events to Event Grid. It can be the same application where the events originated, the event source. You can publish events from your own application when using namespace topics.
 
 ## Event sources
 
@@ -69,7 +70,7 @@ An Event Grid namespace is a management container for the following resources:
 
 With an Azure Event Grid namespace, you can group related resources and manage them as a single unit in your Azure subscription. It gives you a unique fully qualified domain name (FQDN). 
 
-A Namespace exposes two endpoints:
+A namespace exposes two endpoints:
 
 * An HTTP endpoint to support general messaging requirements using namespace topics.
 * An MQTT endpoint for IoT messaging or solutions that use MQTT.
@@ -89,10 +90,10 @@ Throughput units (TUs) define the ingress and egress event rate capacity in name
 
 ## Topics
 
-A topic holds events that have been published to Event Grid. You typically use a topic resource for a collection of related events. We often referred to topics inside a namespace as **namespace topics**.
+A topic holds events that have been published to Event Grid. You typically use a topic resource for a collection of related events. Topics inside a namespace are often called **namespace topics**.
 
 ## Namespace topics
-Namespace topics are topics that are created within an Event Grid namespace. Your application publishes events to an HTTP namespace endpoint specifying a namespace topic where published events are logically contained. When designing your application, you have to decide how many topics to create. For relatively large solutions, create a namespace topic for each category of related events. For example, consider an application that manages user accounts and another application about customer orders. It's unlikely that all event subscribers want events from both applications. To segregate concerns, create two namespace topics: one for each application. Let event consumers subscribe to the topic according to their requirements. For small solutions, you might prefer to send all events to a single topic.
+Namespace topics are topics that are created within an Event Grid namespace. Your application publishes events to an HTTP namespace endpoint specifying a namespace topic where published events are logically contained. When you design your application, decide how many topics to create. For relatively large solutions, create a namespace topic for each category of related events. For example, consider an application that manages user accounts and another application about customer orders. It's unlikely that all event subscribers want events from both applications. To segregate concerns, create two namespace topics: one for each application. Let event consumers subscribe to the topic according to their requirements. For small solutions, you might prefer to send all events to a single topic.
 
 Namespace topics support [pull delivery](pull-delivery-overview.md#pull-delivery) and [push delivery](namespace-push-delivery-overview.md). See [when to use pull or push delivery](pull-delivery-overview.md#push-and-pull-delivery) to help you decide if pull delivery is the right approach given your requirements.
 
@@ -110,7 +111,7 @@ For an example of creating subscriptions for namespace topics, see [Publish and 
 
 ## Pull delivery
 
-With pull delivery, your application connects to Event Grid to read messages using queue-like semantics. As applications connect to Event Grid to consume events, they are in control of the event consumption rate and its timing. Consumer applications can also use private endpoints when connecting to Event Grid to read events using private IP space.
+With pull delivery, your application connects to Event Grid to read messages using queue-like semantics. As applications connect to Event Grid to consume events, they control the event consumption rate and timing. Consumer applications can also use private endpoints when connecting to Event Grid to read events using private IP space.
 
 Pull delivery supports the following operations for reading messages and controlling message state: *receive*, *acknowledge*, *release*, *reject*, and *renew lock*. For more information, see [pull delivery overview](pull-delivery-overview.md).
 
@@ -118,18 +119,18 @@ Pull delivery supports the following operations for reading messages and control
 
 ## Push delivery
 
-With push delivery, Event Grid sends events to a destination configured in a *push* (delivery mode in) event subscription. It provides a robust retry logic in case the destination isn't able to receive events.
+With push delivery, Event Grid sends events to a destination configured in a *push* (delivery mode in) event subscription. It provides robust retry logic in case the destination can't receive events.
 
 >[!IMPORTANT]
 >Event Grid namespaces' push delivery currently supports **Azure Event Hubs** as a destination. In the future, Event Grid namespaces will support more destinations, including all destinations supported by Event Grid Basic.
 
 ### Event Hubs event delivery
 
-Event Grid uses Event Hubs SDK to send events to Event Hubs using [AMQP](https://www.amqp.org/about/what.html). Events are sent as a byte array with every element in the array containing a CloudEvent.
+Event Grid uses the Event Hubs SDK to send events to Event Hubs using [AMQP](https://www.amqp.org/about/what.html). Events are sent as a byte array with every element in the array containing a CloudEvent.
 
 [!INCLUDE [differences-between-consumption-modes](./includes/differences-between-consumption-modes.md)]
 
 ## Related content
 
 * For an introduction to Event Grid, see [About Event Grid](overview.md).
-* To get started using namespace topics, refer to [publish events using namespace topics](publish-events-using-namespace-topics.md).
+* To get started with namespace topics, see [Publish events using namespace topics](publish-events-using-namespace-topics.md).

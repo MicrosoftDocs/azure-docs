@@ -158,7 +158,7 @@ To view or change the SMB security settings by using the Azure portal, follow th
 
 1. Sign in to the Azure portal and search for **Storage accounts**. Select the storage account for which you want to view or change the SMB security settings.
 
-1. From the service menu, select **Data storage** > **File shares**.
+1. From the service menu, select **Data storage** > **Classic file shares**.
 
 1. Under **File share settings**, select the value associated with **Security**. 
 

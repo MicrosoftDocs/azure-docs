@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 01/21/2025
+ms.date: 06/15/2026
 
 #CustomerIntent: I deployed Azure IoT Operations with test settings, and now I want to enable secure settings to use the full feature set.
 ---
@@ -156,6 +156,9 @@ Some Azure IoT Operations components, like data flow endpoints, use a user-assig
    > You'll need to grant the identity permission to whichever cloud resource you'll use the managed identity for.
 
 1. Use the [az iot ops identity assign](/cli/azure/iot/ops) command to assign the identity to the Azure IoT Operations instance. This command also creates a federated identity credential by using the OIDC issuer of the indicated connected cluster and the Azure IoT Operations service account.
+
+    > [!IMPORTANT]
+    > The default version of this command assigns an identity for data flows. If you plan to use data flow graphs, include the `--usage` parameter with the value `wasm-graph`.
 
     # [Bash](#tab/bash)
 

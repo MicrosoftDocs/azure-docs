@@ -27,6 +27,8 @@ items:
       href: how-to-upgrade-your-azure-data-factory-pipelines-to-fabric-data-factory.md
     - name: Upgrade Azure Synapse Analytics pipelines to Fabric
       href: how-to-upgrade-your-azure-synapse-analytics-pipelines-to-fabric-data-factory.md
+    - name: Upgrade mapping data flows to Fabric
+      href: /fabric/data-factory/dataflow-gen2-mapping-data-flows-transforms-upgrade?toc=/azure/data-factory/TOC.json&bc=/azure/data-factory/breadcrumb/toc.json
     - name: Upgrade pipelines with PowerShell
       items:
       - name: Pipeline upgrade with PowerShell overview

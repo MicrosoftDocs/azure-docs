@@ -76,13 +76,13 @@ public static async Task<HttpResponseData> StartHelloCitiesUntyped(
 # [JavaScript](#tab/javascript)
 
 **index.js**
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js/samples/HttpStart/index.js":::
--->
+
 **function.json**
-<!--
+
 :::code language="javascript" source="~/azure-functions-durable-js/samples/HttpStart/function.json":::
--->
+
 # [Python](#tab/python)
 
 **__init__.py**

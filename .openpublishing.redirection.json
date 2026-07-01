@@ -1,6 +1,22 @@
 {
   "redirections": [
     {
+      "source_path": "articles/migrate/create-project.md",
+      "redirect_url": "/azure/migrate/quickstart-create-project",
+      "redirect_document_id": false,
+      "monikers": [
+        "migrate"
+      ]
+    },
+    {
+      "source_path": "articles/migrate/create-manage-projects.md",
+      "redirect_url": "/azure/migrate/quickstart-create-project",
+      "redirect_document_id": false,
+      "monikers": [
+        "migrate"
+      ]
+    },
+    {
       "source_path": "articles/data-factory/transform-data-using-data-lake-analytics.md",
       "redirect_url": "/azure/data-factory/transform-data",
       "redirect_document_id": false
@@ -752,7 +768,7 @@
     },
     {
       "source_path": "articles/migrate/best-practices-assessment.md",
-      "redirect_url": "/previous-versions/azure/migrate/best-practices-assessment",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -760,7 +776,7 @@
     },
     {
       "source_path": "articles/migrate/concepts-assessment-calculation.md",
-      "redirect_url": "/previous-versions/azure/migrate/concepts-assessment-calculation",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -768,7 +784,7 @@
     },
     {
       "source_path": "articles/migrate/concepts-azure-sap-systems-assessment.md",
-      "redirect_url": "/previous-versions/azure/migrate/concepts-azure-sap-systems-assessment",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -776,7 +792,7 @@
     },
     {
       "source_path": "articles/migrate/concepts-azure-sql-assessment-calculation.md",
-      "redirect_url": "/previous-versions/azure/migrate/concepts-azure-sql-assessment-calculation",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -784,7 +800,7 @@
     },
     {
       "source_path": "articles/migrate/concepts-azure-vmware-solution-assessment-calculation.md",
-      "redirect_url": "/previous-versions/azure/migrate/concepts-azure-vmware-solution-assessment-calculation",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -792,7 +808,7 @@
     },
     {
       "source_path": "articles/migrate/concepts-azure-webapps-assessment-calculation.md",
-      "redirect_url": "/previous-versions/azure/migrate/concepts-azure-webapps-assessment-calculation",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -800,7 +816,7 @@
     },
     {
       "source_path": "articles/migrate/concepts-migration-planning.md",
-      "redirect_url": "/previous-versions/azure/migrate/concepts-migration-planning",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -808,7 +824,7 @@
     },
     {
       "source_path": "articles/migrate/concepts-migration-webapps.md",
-      "redirect_url": "/previous-versions/azure/migrate/concepts-migration-webapps",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -816,7 +832,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-create-a-group.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-create-a-group",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -824,7 +840,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-create-azure-app-service-assessment.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-create-azure-app-service-assessment",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -832,7 +848,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-create-azure-sql-assessment.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-create-azure-sql-assessment",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -840,7 +856,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-discover-applications.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-discover-applications",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -848,7 +864,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-create-sql-assessment.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-create-sql-assessment",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -856,7 +872,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-migrate.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-migrate",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -864,7 +880,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-modify-assessment.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-modify-assessment",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -872,7 +888,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-review-sql-assessment.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-review-sql-assessment",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -880,7 +896,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-set-up-appliance-hyper-v.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-set-up-appliance-hyper-v",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -888,7 +904,7 @@
     },
     {
       "source_path": "articles/migrate/how-to-set-up-appliance-vmware.md",
-      "redirect_url": "/previous-versions/azure/migrate/how-to-set-up-appliance-vmware",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -896,7 +912,7 @@
     },
     {
       "source_path": "articles/migrate/migrate-replication-appliance.md",
-      "redirect_url": "/previous-versions/azure/migrate/migrate-replication-appliance",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -904,7 +920,7 @@
     },
     {
       "source_path": "articles/migrate/review-sap-assessment.md",
-      "redirect_url": "/previous-versions/azure/migrate/review-sap-assessment",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -912,7 +928,7 @@
     },
     {
       "source_path": "articles/migrate/tutorial-assess-aspnet-aks.md",
-      "redirect_url": "/previous-versions/azure/migrate/tutorial-assess-aspnet-aks",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -920,7 +936,7 @@
     },
     {
       "source_path": "articles/migrate/tutorial-assess-aws.md",
-      "redirect_url": "/previous-versions/azure/migrate/tutorial-assess-aws",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -928,7 +944,7 @@
     },
     {
       "source_path": "articles/migrate/tutorial-assess-gcp.md",
-      "redirect_url": "/previous-versions/azure/migrate/tutorial-assess-gcp",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -936,7 +952,7 @@
     },
     {
       "source_path": "articles/migrate/tutorial-assess-hyper-v.md",
-      "redirect_url": "/previous-versions/azure/migrate/tutorial-assess-hyper-v",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -944,7 +960,7 @@
     },
     {
       "source_path": "articles/migrate/tutorial-assess-sap-systems.md",
-      "redirect_url": "/previous-versions/azure/migrate/tutorial-assess-sap-systems",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -952,7 +968,7 @@
     },
     {
       "source_path": "articles/migrate/tutorial-assess-webapps.md",
-      "redirect_url": "/previous-versions/azure/migrate/tutorial-assess-webapps",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -960,7 +976,7 @@
     },
     {
       "source_path": "articles/migrate/tutorial-discover-sap-systems.md",
-      "redirect_url": "/previous-versions/azure/migrate/tutorial-discover-sap-systems",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -968,7 +984,7 @@
     },
     {
       "source_path": "articles/migrate/tutorial-migrate-gcp-virtual-machines.md",
-      "redirect_url": "/previous-versions/azure/migrate/tutorial-migrate-gcp-virtual-machines",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -976,7 +992,7 @@
     },
     {
       "source_path": "articles/migrate/migrate-support-matrix-physical-migration.md",
-      "redirect_url": "/previous-versions/azure/migrate/migrate-support-matrix-physical-migration",
+      "redirect_url": "/azure/migrate",
       "redirect_document_id": false,
       "monikers": [
         "migrate"
@@ -7159,7 +7175,12 @@
     },
     {
       "source_path_from_root": "/articles/service-connector/quickstart-cli-container-apps.md",
-      "redirect_url": "/azure/service-connector/quickstart-portal-container-apps",
+      "redirect_url": "https://github.com/microsoft/azure-container-apps/issues/1566",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/service-connector/quickstart-portal-container-apps.md",
+      "redirect_url": "https://github.com/microsoft/azure-container-apps/issues/1566",
       "redirect_document_id": false
     },
     {

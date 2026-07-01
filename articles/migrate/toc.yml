@@ -23,7 +23,7 @@ items:
     href: quickstart-evaluate-readiness-savings-for-arc-resources.md
   - name: Create a business case using imported inventory
     href: how-to-build-a-business-case.md
-- name: Key Concepts # Includes Glossary and key concepts for users to understand the terminologies and journey
+- name: Key concepts
   items:
   - name: Supported Geographies
     href: supported-geographies.md
@@ -33,7 +33,7 @@ items:
     href: best-practices-security.md
   - name: Credentials:Security best practices
     href: best-practices-least-privileged-account.md
-  - name: Requirements for Private endpoints # Explain about private end points and support requirements 
+  - name: Requirements for Private endpoints
     href: how-to-use-azure-migrate-with-private-endpoints.md
   - name: Support Matrix
     href: migrate-support-matrix.md
@@ -61,24 +61,24 @@ items:
       href: how-to-register-appliance-using-entra-app.md
     - name: Appliance configuration
       items:
-        - name: Provide server credentials
-          href: add-server-credentials.md
+      - name: Provide server credentials
+        href: add-server-credentials.md
     - name: Discover VMware estate
       items:
       - name: Discover Virtual Machines
         href: tutorial-discover-vmware.md
       - name: Scoped discovery of VMware hosted VMs
         href: set-discovery-scope.md
-      - name: Support matrix for VMware discovery 
-        href: migrate-support-matrix-vmware.md 
+      - name: Support matrix for VMware discovery
+        href: migrate-support-matrix-vmware.md
     - name: Discover Hyper-V estate
-      items: 
+      items:
       - name: Discover Virtual Machines
         href: tutorial-discover-hyper-v.md
-      - name: Support matrix for Hyper-V discovery 
+      - name: Support matrix for Hyper-V discovery
         href: migrate-support-matrix-hyper-v.md
     - name: Discover Physical or Public-cloud estate
-      items:  
+      items:
       - name: Discover physical servers and servers running in AWS and GCP
         href: tutorial-discover-physical.md
       - name: Support matrix for Physical server discovery
@@ -86,17 +86,17 @@ items:
     - name: Deep discover database workloads
       items:
       - name: SQL instances
-        items: 
+        items:
         - name: Discover SQL servers
           href: how-to-discover-sql-existing-project.md
         - name: Create least privileged credentials for SQL discovery
-          href: least-privilege-credentials.md 
+          href: least-privilege-credentials.md
       - name: PgSQL instances
         items:
         - name: Create least privileged credentials for PostgreSQL discovery
-          href: postgresql-least-privilege-configuration.md    
+          href: postgresql-least-privilege-configuration.md
       - name: MySQL instances
-        items: 
+        items:
         - name: Discover MySQL database instances
           href: tutorial-discover-mysql-database-instances.md
   - name: Discovery using collector
@@ -112,27 +112,27 @@ items:
     - name: Azure Migrate VM Extension for Arc-enabled servers
       href: migrate-virtual-machine-extension-reference.md
   - name: Discover using inventory import
-    items: 
-      - name: CSV import
-        href: tutorial-discover-import.md
-      - name: RVTools import
-        href: tutorial-import-vmware-using-rvtools-xlsx.md
+    items:
+    - name: CSV import
+      href: tutorial-discover-import.md
+    - name: RVTools import
+      href: tutorial-import-vmware-using-rvtools-xlsx.md
 - name: Explore inventory
   items:
-    - name: Discovered metadata
-      href: discovered-metadata.md
-    - name: Review discovered inventory
-      href: how-to-review-discovered-inventory.md
-    - name: Insights
-      href: insights-overview.md
-    - name: Tags in Azure Migrate
-      href: resource-tagging.md
-    - name: Create and manage tags
-      href: how-to-create-manage-tags.md
-    - name: Modify and delete tags
-      href: how-to-modify-delete-tags.md
-    - name: Define and manage applications
-      href: define-manage-applications.md
+  - name: Discovered metadata
+    href: discovered-metadata.md
+  - name: Review discovered inventory
+    href: how-to-review-discovered-inventory.md
+  - name: Insights
+    href: insights-overview.md
+  - name: Tags in Azure Migrate
+    href: resource-tagging.md
+  - name: Create and manage tags
+    href: how-to-create-manage-tags.md
+  - name: Modify and delete tags
+    href: how-to-modify-delete-tags.md
+  - name: Define and manage applications
+    href: define-manage-applications.md
 - name: Create Business case
   items:
   - name: Business case overview
@@ -141,40 +141,42 @@ items:
     href: how-to-build-a-business-case.md
   - name: Review business case
     href: how-to-view-a-business-case.md
-- name: Create Reports
+- name: Create reports
   items:
-   - name: Overview reports
-     href: reports-overview.md
-   - name: Build a report
-     href: how-to-build-a-report.md
+  - name: Overview reports
+    href: reports-overview.md
+  - name: Build a report
+    href: how-to-build-a-report.md
 - name: Plan migrations
   items:
   - name: Assessments
     items:
-    - name: Overview # talk about what is an assessment - types of assessments- Scope creation - Readiness/costing/right-sizing
+    - name: Overview
       href: concepts-overview.md
     - name: Prerequisites
       href: assessment-prerequisites.md
     - name: Review assessment report
       href: assessment-report.md
-    - name: Cost and savings calculations # provide details about cost calculations, Reservations & savings plan calculations, Environment based calculations, license cost.
-      href: cost-estimation.md   
-    - name: Target right-sizing # help users understand how perf data is used in depth
+    - name: Cost and savings calculations
+      href: cost-estimation.md
+    - name: Target right-sizing
       href: target-right-sizing.md
     - name: Performance coverage
       href: confidence-ratings.md
     - name: Application assessment
       items:
-        - name: Create assessment
-          href: create-application-assessment.md
-        - name: Customize assessment settings
-          href: assessment-properties.md
-        - name: Review assessment report
-          href: review-application-assessment.md
-        - name: Code level insights
-          items:
-            - name: Integrate with CAST highlights
-              href: cast-highlights-integration.md
+      - name: Create assessment
+        href: create-application-assessment.md
+      - name: Customize assessment settings
+        href: assessment-properties.md
+      - name: Review assessment report
+        href: review-application-assessment.md
+      - name: Code insights
+        items:
+        - name: Add code insights using GitHub Copilot modernization
+          href: add-copilot-code-insights.md
+        - name: Integrate with CAST highlights
+          href: cast-highlights-integration.md
     - name: Workload specific assessments
       items:
       - name: VM assessment
@@ -225,8 +227,6 @@ items:
           href: create-web-app-assessment.md
         - name: Review assessment report
           href: review-web-app-assessment.md
-        - name: Enhance web app assessment by adding code scan report
-          href: add-copilot-code-insights.md
       - name: File share assessment
         items:
         - name: Create a file share assessment
@@ -240,9 +240,9 @@ items:
     - name: Plan and create waves
       href: how-to-plan-create-waves.md
     - name: Complete a wave plan
-      href: how-to-complete-wave-plan.md  
+      href: how-to-complete-wave-plan.md
     - name: Execute and track waves
-      href: how-to-execute-track-waves.md  
+      href: how-to-execute-track-waves.md
     - name: Wave planning
       href: common-questions-wave-planning.md
 - name: Execute migrations
@@ -255,13 +255,13 @@ items:
     href: tutorial-migrate-vmware.md
   - name: Agent-based migration using portal
     href: tutorial-migrate-vmware-agent.md
-  - name: Redeploy servers using IaC 
+  - name: Redeploy servers using IaC
     href: server-redeploy.md
   - name: Generate and deploy a platform landing zone
     href: platform-landing-zone.md
   - name: Support Matrix
     items:
-    - name: VMware vSphere migration requirements 
+    - name: VMware vSphere migration requirements
       href: migrate-support-matrix-vmware-migration.md
     - name: Physical Agent-based migration requirements
       href: ../site-recovery/vmware-physical-azure-support-matrix.md?toc=/azure/migrate/toc.json
@@ -276,50 +276,49 @@ items:
   - name: Containerize Java web apps and migrate to AKS
     href: tutorial-app-containerization-java-kubernetes.md
   - name: Containerize Java web apps and migrate to App Service containers
-    href: tutorial-app-containerization-java-app-service.md 
+    href: tutorial-app-containerization-java-app-service.md
   - name: Modernize ASP.NET web apps to App Service code
     href: tutorial-modernize-asp-net-appservice-code.md
   - name: Containerize ASP.NET apps and migrate to App Service containers
     href: tutorial-app-containerization-aspnet-app-service.md
   - name: CI/CD for Day 2 operations
     href: tutorial-app-containerization-azure-pipeline.md
-- name: Tutorials 
+- name: Tutorials
   items:
   - name: Migration scenarios
     items:
-    - name: Migrate VMware servers 
+    - name: Migrate VMware servers
       items:
-        - name: Assess VMware servers  
-          href: tutorial-assess-vmware-azure-vm.md
-        - name: Migrate to Azure Cloud
-          href: tutorial-migrate-vmware.md
-        - name: Migrate VMware VMs to Azure using PowerShell (agentless)
-          href: tutorial-migrate-vmware-powershell.md
-        - name: Migrate to Azure Local 
-          href: /azure/azure-local/migrate/migration-azure-migrate-vmware-overview?toc=/azure/migrate/toc.json
-    - name: Migrate Hyper-V servers 
+      - name: Assess VMware servers
+        href: tutorial-assess-vmware-azure-vm.md
+      - name: Migrate to Azure Cloud
+        href: tutorial-migrate-vmware.md
+      - name: Migrate VMware VMs to Azure using PowerShell (agentless)
+        href: tutorial-migrate-vmware-powershell.md
+      - name: Migrate to Azure Local
+        href: /azure/azure-local/migrate/migration-azure-migrate-vmware-overview?toc=/azure/migrate/toc.json
+    - name: Migrate Hyper-V servers
       items:
-        - name: Assess large number of servers in Hyper-V environment
-          href: scale-hyper-v-assessment.md
-        - name: Migrate to Azure Cloud
-          href: tutorial-migrate-hyper-v.md
-        - name: Migrate to Azure Local
-          href: /azure/azure-local/migrate/migration-azure-migrate-overview?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json      
-
+      - name: Assess large number of servers in Hyper-V environment
+        href: scale-hyper-v-assessment.md
+      - name: Migrate to Azure Cloud
+        href: tutorial-migrate-hyper-v.md
+      - name: Migrate to Azure Local
+        href: /azure/azure-local/migrate/migration-azure-migrate-overview?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
     - name: Migrate physical servers
       items:
-        - name: Assess Physical servers
-          href: tutorial-assess-physical.md
-        - name: Migrate Physical servers to Azure
-          href: tutorial-migrate-physical-virtual-machines.md
+      - name: Assess Physical servers
+        href: tutorial-assess-physical.md
+      - name: Migrate Physical servers to Azure
+        href: tutorial-migrate-physical-virtual-machines.md
     - name: Migrate servers hosted on public cloud
       items:
-        - name: Discover AWS inventory
-          href: tutorial-discover-aws.md
-        - name: Discover GCP inventory
-          href: tutorial-discover-gcp.md
-        - name: Migrate AWS EC2 to Azure
-          href: tutorial-migrate-aws-virtual-machines.md
+      - name: Discover AWS inventory
+        href: tutorial-discover-aws.md
+      - name: Discover GCP inventory
+        href: tutorial-discover-gcp.md
+      - name: Migrate AWS EC2 to Azure
+        href: tutorial-migrate-aws-virtual-machines.md
 - name: How-to
   items:
   - name: Discover and assess using Azure Private Link
@@ -339,7 +338,7 @@ items:
     - name: Deploy appliance in Azure Government
       href: deploy-appliance-script-government.md
     - name: Create least privilege credentials for SQL Server discovery
-      href: least-privilege-credentials.md  
+      href: least-privilege-credentials.md
     - name: Enable Arc on discovered items
       href: how-to-arc-enable-inventory.md
     - name: Migrate to Azure Monitor agent
@@ -398,7 +397,7 @@ items:
     href: how-to-plan-analyze-migration-with-agent.md
 - name: Troubleshoot
   items:
-  - name: Azure Migrate Project
+  - name: Azure Migrate project
     items:
     - name: Troubleshoot Azure Migrate projects
       href: troubleshoot-project.md
@@ -423,7 +422,7 @@ items:
     - name: Troubleshoot dependency visualization
       href: troubleshoot-dependencies.md
     - name: Troubleshoot assessment
-      href: troubleshoot-assessment-faq.md 
+      href: troubleshoot-assessment-faq.md
   - name: Assessments
     items:
     - name: Common Issues

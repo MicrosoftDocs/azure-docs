@@ -94,7 +94,7 @@ You no longer have to create and maintain those separate *function.json* configu
 
 # [v4](#tab/v4)
 
-<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTrigger1.js" ::: --->
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTrigger1.js" :::
 
 # [v3](#tab/v3)
 
@@ -140,7 +140,7 @@ module.exports = async function (context, req) {
 
 # [v4](#tab/v4)
 
-<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTrigger1.ts" ::: --->
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTrigger1.ts" :::
 
 # [v3](#tab/v3)
 

@@ -1,14 +1,13 @@
 ---
 title: Overview of Azure page blobs
-description: An overview of Azure page blobs and their advantages, including use cases with sample scripts. 
+description: An overview of Azure page blobs and their advantages, including use cases with sample scripts.
 services: storage
-author: akashdubey-ms
+author: normesta
 
 ms.service: azure-blob-storage
-ms.topic: article
+ms.topic: concept-article
 ms.date: 05/11/2023
-ms.author: akashdubey
-ms.reviewer: wielriac
+ms.author: normesta
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 # Customer intent: "As a cloud architect, I want to understand the features and benefits of Azure page blobs, so that I can determine their suitability for storing virtual disks and optimizing application performance in my cloud solutions."
@@ -16,7 +15,7 @@ ms.custom: devx-track-csharp
 
 # Overview of Azure page blobs
 
-Azure Storage offers three types of blob storage: Block Blobs, Append Blobs and page blobs. Block blobs are composed of blocks and are ideal for storing text or binary files, and for uploading large files efficiently. Append blobs are also made up of blocks, but they are optimized for append operations, making them ideal for logging scenarios. Page blobs are made up of 512-byte pages up to 8 TB in total size and are designed for frequent random read/write operations. Page blobs are the foundation of Azure IaaS Disks. This article focuses on explaining the features and benefits of page blobs.
+Azure Storage offers three types of blob storage: Block Blobs, Append Blobs and page blobs. Block blobs are composed of blocks and are ideal for storing text or binary files, and for uploading large files efficiently. Append blobs are also made up of blocks, but they're optimized for append operations, making them ideal for logging scenarios. Page blobs are made up of 512-byte pages up to 8 TB in total size and are designed for frequent random read/write operations. Page blobs are the foundation of Azure IaaS Disks. This article focuses on explaining the features and benefits of page blobs.
 
 Page blobs are a collection of 512-byte pages, which provide the ability to read/write arbitrary ranges of bytes. Hence, page blobs are ideal for storing index-based and sparse data structures like OS and data disks for Virtual Machines and Databases. For example, Azure SQL DB uses page blobs as the underlying persistent storage for its databases. Moreover, page blobs are also often used for files with Range-Based updates.
 
@@ -24,11 +23,11 @@ Key features of Azure page blobs are its REST interface, the durability of the u
 
 ## Restrictions
 
-Page blobs can only use the **Hot** access tier, they cannot use either the **Cool** or **Archive** tiers. For more information on access tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
+Page blobs can only use the **Hot** access tier; they can't use either the **Cool** or **Archive** tiers. For more information on access tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
 
 ## Sample use cases
 
-Let's discuss a couple of use cases for page blobs starting with Azure IaaS Disks. Azure page blobs are the backbone of the virtual disks platform for Azure IaaS. Both Azure OS and data disks are implemented as virtual disks where data is durably persisted in the Azure Storage platform and then delivered to the virtual machines for maximum performance. Azure Disks are persisted in Hyper-V [VHD format](/previous-versions/windows/it-pro/windows-7/dd979539(v=ws.10)) and stored as a [page blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) in Azure Storage. In addition to using virtual disks for Azure IaaS VMs, page blobs also enable PaaS and DBaaS scenarios such as Azure SQL DB service, which currently uses page blobs for storing SQL data, enabling fast random read-write operations for the database. Another example would be if you have a PaaS service for shared media access for collaborative video editing applications, page blobs enable fast access to random locations in the media. It also enables fast and efficient editing and merging of the same media by multiple users.
+Here are a couple of use cases for page blobs starting with Azure IaaS Disks. Azure page blobs are the backbone of the virtual disks platform for Azure IaaS. Both Azure OS and data disks are implemented as virtual disks where data is durably persisted in the Azure Storage platform and then delivered to the virtual machines for maximum performance. Azure Disks are persisted in Hyper-V [VHD format](/previous-versions/windows/it-pro/windows-7/dd979539(v=ws.10)) and stored as a [page blob](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs) in Azure Storage. In addition to using virtual disks for Azure IaaS VMs, page blobs also enable PaaS and DBaaS scenarios such as Azure SQL DB service, which currently uses page blobs for storing SQL data, enabling fast random read-write operations for the database. Another example would be if you have a PaaS service for shared media access for collaborative video editing applications, page blobs enable fast access to random locations in the media. It also enables fast and efficient editing and merging of the same media by multiple users.
 
 First party Microsoft services like Azure Site Recovery, Azure Backup, as well as many third-party developers have implemented industry-leading innovations using page blob's REST interface. Following are some of the unique scenarios implemented on Azure:
 
@@ -46,7 +45,7 @@ Both types of storage offered with page blobs have their own pricing model. Prem
 
 ### REST API
 
-Refer to the following document to get started with [developing using page blobs](./storage-quickstart-blobs-dotnet.md). As an example, look at how to access page blobs using Storage Client Library for .NET.
+To get started with developing using page blobs, see [Develop using page blobs](./storage-quickstart-blobs-dotnet.md). As an example, look at how to access page blobs using Storage Client Library for .NET.
 
 The following diagram describes the overall relationships between account, containers, and page blobs.
 
@@ -74,7 +73,7 @@ This allows you to write a sequential set of pages up to 4MBs. The offset being 
 
 As soon as a write request for a sequential set of pages succeeds in the blob service and is replicated for durability and resiliency, the write has committed, and success is returned back to the client.
 
-The below diagram shows 2 separate write operations:
+The following diagram shows two separate write operations:
 
 ![A diagram showing the two separate write options.](./media/storage-blob-pageblob-overview/storage-blob-pageblob-overview-figure2.png)
 
@@ -87,7 +86,7 @@ To read pages, use the [PageBlobClient.Download](/dotnet/api/azure.storage.blobs
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD.cs" id="Snippet_ReadFromPageBlob":::
 
-This allows you to download the full blob or range of bytes starting from any offset in the blob. When reading, the offset does not have to start on a multiple of 512. When reading bytes from a NUL page, the service returns zero bytes.
+This allows you to download the full blob or range of bytes starting from any offset in the blob. When reading, the offset doesn't have to start on a multiple of 512. When reading bytes from a NUL page, the service returns zero bytes.
 
 The following figure shows a Read operation with an offset of 256 and a range size of 4352. Data returned is highlighted in orange. Zeros are returned for NUL pages.
 
@@ -103,7 +102,7 @@ To determine which pages are backed by data, use PageBlobClient.GetPageRanges. Y
 
 The Lease Blob operation establishes and manages a lock on a blob for write and delete operations. This operation is useful in scenarios where a page blob is being accessed from multiple clients to ensure only one client can write to the blob at a time. Azure Disks, for example,  leverages this leasing mechanism to ensure the disk is only managed by a single VM. The lock duration can be 15 to 60 seconds, or can be infinite. See the documentation [here](/rest/api/storageservices/lease-blob) for more details.
 
-In addition to rich REST APIs, page blobs also provide shared access, durability, and enhanced security. We will cover those benefits in more detail in the next paragraphs.
+In addition to rich REST APIs, page blobs also provide shared access, durability, and enhanced security. We'll cover those benefits in more detail in the next paragraphs.
 
 ### Concurrent access
 
@@ -113,7 +112,7 @@ An alternative option is to use the page blobs directly via Azure Storage REST A
 
 ### Durability and high availability
 
-Both standard and premium storage are durable storage where the page blob data is always replicated to ensure durability and high availability.Azure has consistently delivered enterprise-grade durability for IaaS disks and page blobs, with an industry-leading zero percent [Annualized Failure Rate](https://en.wikipedia.org/wiki/Annualized_failure_rate).
+Both standard and premium storage are durable storage where the page blob data is always replicated to ensure durability and high availability. consistently delivered enterprise-grade durability for IaaS disks and page blobs, with an industry-leading zero percent [Annualized Failure Rate](https://en.wikipedia.org/wiki/Annualized_failure_rate).
 
 For more information about Azure Storage redundancy for standard and premium storage accounts, see [Azure Storage redundancy](../common/storage-redundancy.md), and these two sections specifically:
 
@@ -126,4 +125,4 @@ For the customers and developers who are interested in implementing their own cu
 
 Moreover, many enterprises have critical workloads already running in on-premises datacenters. For migrating the workload to the cloud, one of the main concerns would be the amount of downtime needed for copying the data, and the risk of unforeseen issues after the switchover. In many cases, the downtime can be a showstopper for migration to the cloud. Using the page blobs REST API, Azure addresses this problem by enabling cloud migration with minimal disruption to critical workloads.
 
-For examples on how to take a snapshot and how to restore a page blob from a snapshot, please refer to the [setup a backup process using incremental snapshots](/azure/virtual-machines/windows/incremental-snapshots) article.
+For examples on how to take a snapshot and how to restore a page blob from a snapshot, see [Set up a backup process using incremental snapshots](/azure/virtual-machines/windows/incremental-snapshots).

@@ -6,9 +6,8 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 11/28/2023
+ms.date: 06/12/2026
 ms.author: normesta
-ms.reviewer: fryu
 ms.devlang: powershell
 # ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
@@ -353,15 +352,15 @@ To create a lifecycle management policy to archive blobs in the Azure portal, fo
 
 1. Navigate to your storage account in the portal.
 
-2. Under **Data management**, locate the **Lifecycle management** settings.
+1. Under **Data management**, locate the **Lifecycle management** settings.
 
-3. Select the **Add a rule** button.
+1. Select the **Add a rule** button.
 
-4. On the **Details** tab, specify a name for your rule.
+1. On the **Details** tab, specify a name for your rule.
 
-5. Specify the rule scope: either **Apply rule to all blobs in your storage account**, or **Limit blobs with filters**.
+1. Specify the rule scope: either **Apply rule to all blobs in your storage account**, or **Limit blobs with filters**.
 
-6. Select the types of blobs for which the rule is to be applied, and specify whether to include blob snapshots or versions.
+1. Select the types of blobs for which the rule is to be applied, and specify whether to include blob snapshots or versions.
 
     :::image type="content" source="media/archive-blob/lifecycle-policy-details-tab-portal.png" alt-text="Screenshot showing how to configure a lifecycle management policy - Details tab.":::
 

@@ -1,11 +1,11 @@
 ---
 title: Choose Between Deployment Models
 description: Choose between deployment models in Azure confidential computing.
-author: cynthn
+author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 4/30/2024
-ms.author: cynthn
+ms.author: wwilliams
 # Customer intent: "As an IT manager, I want to compare deployment models for confidential computing, so that I can choose the most suitable option for my organization's security and operational requirements."
 ---
 

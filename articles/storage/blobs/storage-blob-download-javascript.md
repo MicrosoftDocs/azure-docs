@@ -78,6 +78,41 @@ The following Node.js example downloads a blob to a string with [BlobClient.down
 
 If you're working with JavaScript in the browser, blob data returns in a promise [blobBody](/javascript/api/@azure/storage-blob/blobdownloadresponseparsed#@azure-storage-blob-blobdownloadresponseparsed-blobbody). To learn more, see the example usage for browsers at [BlobClient.download](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-download).
 
+
+## Data transfer validation on download
+
+[!INCLUDE [storage-dev-guide-transfer-validation](../../../includes/storage-dev-guides/storage-dev-guide-transfer-validation.md)]
+
+Transfer validation options can be defined at the client level using [BlobClientConfig](/javascript/api/@azure/storage-blob/blobclientconfig), which applies validation options to all methods called from a [BlobClient](/javascript/api/@azure/storage-blob/blobclient) instance.  Alternatively, you can override transfer validation options at the operation level via options, such as [BlobDownloadOptions](/javascript/api/@azure/storage-blob/blobdownloadoptions).
+
+### [JavaScript](#tab/javascript)
+
+```javascript
+const blobServiceClient = new BlobServiceClient(
+   `https://${account}.blob.core.windows.net`,
+   new DefaultAzureCredential(),
+   {
+     uploadContentChecksumAlgorithm: "StorageCrc64",
+     downloadContentChecksumAlgorithm: "StorageCrc64",
+   }
+);
+```
+
+### [TypeScript](#tab/typescript)
+
+```typescript
+ const blobServiceClient: BlobServiceClient = new BlobServiceClient(
+   `https://${account}.blob.core.windows.net`,
+   new DefaultAzureCredential(),
+   {
+     uploadContentChecksumAlgorithm: "StorageCrc64",
+     downloadContentChecksumAlgorithm: "StorageCrc64",
+   },
+);
+```
+
+---
+
 ## Resources
 
 To learn more about how to download blobs using the Azure Blob Storage client library for JavaScript, see the following resources.

@@ -35,8 +35,8 @@ The following sections provide more detailed descriptions for metrics presented 
 |:-------|:------------|
 | Incoming Requests | The number of requests made to the Service Bus service over a specified period. |
 | Successful Requests | The number of successful requests made to the Service Bus service over a specified period. |
-| [Server Errors](service-bus-messaging-exceptions.md#exception-categories) | The number of requests not processed because of an error in the Service Bus service over a specified period. |
-| [User Errors](service-bus-messaging-exceptions.md#exception-categories) | The number of requests not processed because of user errors over a specified period. |
+| [Server Errors](service-bus-messaging-exceptions.md#service-bus-exception-categories) | The number of requests not processed because of an error in the Service Bus service over a specified period. |
+| [User Errors](service-bus-messaging-exceptions.md#service-bus-exception-categories) | The number of requests not processed because of user errors over a specified period. |
 | Throttled Requests | The number of requests that were throttled because the usage was exceeded.</p><p>MessagingErrorSubCode dimension has the following possible values: <br/><ul><li><b>CPU:</b> CPU throttling</li><li><b>Storage:</b>It indicates throttle because of pending checkpoint operations</li><li><b>Namespace:</b>Namespace operations throttling.</li><li><b>Unknown:</b> Other resource throttling.</li></p> |
 | Pending Checkpoint Operations Count | The number of pending checkpoint operations on the namespace. Service starts to throttle when the pending checkpoint count exceeds limit of (500,000 + (500,000 * messaging units)) operations. This metric applies only to namespaces using the **premium** tier. |
 | Server Send Latency | The time taken by the Service Bus service to complete the request. |

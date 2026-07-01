@@ -2,8 +2,6 @@
 title: Import an Azure OpenAI API as a REST API - Azure API Management
 description: How to import an Azure OpenAI API as a REST API from Azure OpenAI in Foundry Models or from an OpenAPI specification.
 ms.service: azure-api-management
-author: dlepow
-ms.author: danlep
 ms.topic: how-to
 ms.date: 12/18/2025
 ms.update-cycle: 180-days

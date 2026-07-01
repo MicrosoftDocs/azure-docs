@@ -118,7 +118,7 @@ The following table describes the network topologies supported by each network f
 |Transit connectivity via vWAN for Spoke Delegated VNETS| Yes |
 |On-premises connectivity to Delegated subnet via vWAN attached SD-WAN| No|
 |VWAN enables traffic inspection via NVA (Secure vWAN)**|Yes|
-|[User-defined routes (UDRs)](/azure/virtual-network/virtual-networks-udr-overview.md#user-defined) on NC2 on Azure-delegated subnets| Yes|
+|[User-defined routes (UDRs)](/azure/virtual-network/virtual-networks-udr-overview#user-defined) on NC2 on Azure-delegated subnets| Yes|
 |Connectivity from BareMetal to [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) or [private endpoints][def] in a different spoke Vnet connected to vWAN|Yes|
 |Connectivity from BareMetal to [service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) or [private endpoints][def] in the same Vnet on Azure-delegated subnets|No|
 |Connectivity from User VMs (UVMs) on NC2 nodes to Azure resources|Yes|
@@ -133,7 +133,7 @@ The following table describes what’s supported for each network features confi
 |Features |Support or Limit|
 | :------------------- | -------------------: |
 |Delegated subnet per VNet |1|
-|[Network Security Groups](/azure/virtual-network/network-security-groups-overview.md) on NC2 on Azure-delegated subnets|No|
+|[Network Security Groups](/azure/virtual-network/network-security-groups-overview) on NC2 on Azure-delegated subnets|No|
 |Load balancers for NC2 on Azure traffic|No|
 |Dual stack (IPv4 and IPv6) virtual network|IPv4 only supported|
 
@@ -145,4 +145,4 @@ Learn more:
 > [Getting Started](get-started.md)
 
 
-[def]: /azure/private-link/private-endpoint-overview.md
+[def]: /azure/private-link/private-endpoint-overview

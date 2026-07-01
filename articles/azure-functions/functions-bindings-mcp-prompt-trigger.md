@@ -242,7 +242,7 @@ app.mcpPrompt('GenerateDocumentation', {
 });
 ```
 
-For the complete code example, see [mcp-prompts](https://github.com/Azure-Samples/remote-mcp-functions-typescript/tree/main/src/mcp-prompts) sample on GitHub.
+For the complete code example, see [mcp-prompts](https://github.com/Azure-Samples/remote-mcp-functions-typescript/tree/main/mcp-prompts) sample on GitHub.
 
 > [!NOTE]
 > MCP prompt support requires the preview extension bundle and `@azure/functions` version 4.14.0 or later. Update your `host.json` to use the preview bundle:

@@ -5,7 +5,7 @@ description: Learn how to configure IPsec/IKE custom policy for S2S or VNet-to-V
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 06/10/2026
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
@@ -117,7 +117,7 @@ $vnet1 = Get-AzVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
 $subnet1 = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet1
 $gw1ipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 -Subnet $subnet1 -PublicIpAddress $gw1pip1
 
-New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn -VpnType RouteBased -GatewaySku VpnGw1
+New-AzVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 -Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn -VpnType RouteBased -VpnGatewayGeneration "Generation2" -GatewaySku VpnGw2AZ
 ```
 
 Create the local network gateway. You might need to reconnect and declare the following variables again if Azure Cloud Shell timed out.
@@ -223,9 +223,9 @@ $vnet2      = Get-AzVirtualNetwork -Name $VNetName2 -ResourceGroupName $RG2
 $subnet2    = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet2
 $gw2ipconf1 = New-AzVirtualNetworkGatewayIpConfig -Name $GW2IPconf1 -Subnet $subnet2 -PublicIpAddress $gw2pip1
 
-New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1 -GatewayType Vpn -VpnType RouteBased -VpnGatewayGeneration Generation2 -GatewaySku VpnGw2
+New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Location2 -IpConfigurations $gw2ipconf1 -GatewayType Vpn -VpnType RouteBased -VpnGatewayGeneration "Generation2" -GatewaySku VpnGw2AZ
 ```
-
+s
 It can take about 45 minutes or more to create the VPN gateway.
 
 ### Step 2: Create a VNet-toVNet connection with the IPsec/IKE policy

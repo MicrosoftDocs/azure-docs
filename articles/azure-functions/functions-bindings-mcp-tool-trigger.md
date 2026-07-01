@@ -280,7 +280,7 @@ export async function getSnippet(
 }
 ```
 
-For the complete code example, see [snippetsMcpTool.ts](https://github.com/Azure-Samples/remote-mcp-functions-typescript/blob/main/src/functions/snippetsMcpTool.ts).  
+For the complete code example, see [snippetsMcpTool.ts](https://github.com/Azure-Samples/remote-mcp-functions-typescript/blob/main/mcp-tools/src/functions/snippetsMcpTool.ts).  
 ::: zone-end  
 ::: zone pivot="programming-language-python"
 

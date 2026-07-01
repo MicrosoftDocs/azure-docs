@@ -10,7 +10,7 @@ ms.author: anfdocs
 ---
 # Migrate volumes to Azure NetApp Files 
 
-With Azure NetApp Files' migration assistant, you can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP to Azure NetApp Files. The migration assistant is generally available with the REST API and in preview for the Azure portal.
+With Azure NetApp Files' migration assistant, you can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP to Azure NetApp Files. 
 
 ## Requirements 
 
@@ -21,62 +21,20 @@ With Azure NetApp Files' migration assistant, you can peer and migrate volumes f
 * The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: six for cluster peering and one for data access to the migration volumes.
 * The delegated subnet address space should be sized appropriately to accommodate more Azure NetApp Files network interfaces. Review [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) to ensure you meet the requirements for delegated subnet sizing. 
 * With the migration assistant, Azure NetApp Files volumes must be using Standard networking features. For more information about setting network features, see [Configure network features](configure-network-features.md).
-* After issuing the peering request, the request must be accepted within 60 minutes. Peer requests expire if not accepted within 60 minutes.
+* Migration assistant will issue a peering request to the on-premises storage cluster. Peering requests must be accepted on the on-premises cluster within 60 minutes. After 60 minutes, a peering request can no longer be accepted and the peering will fail. You will need to start over if this happens.
+* You should ensure that the earlier cluster peering requests are deleted and are not displaying on the source cluster before initiating a new cluster peering request.
 * You should complete migrations from a single source cluster using one Azure subscription before migrating volumes destined for another subscription. Cluster peering fails when using a second Azure subscription and the same external source clusters.
-* You should ensure that the earlier cluster peering request is deleted and is not displaying on the source cluster before initiating a new cluster peering request.
 * If you use Azure RBAC to separate the role of Azure NetApp Files storage management with the intention of separating volume management tasks where volumes reside on the same network sibling set, be aware that externally connected ONTAP systems peered to that sibling set don't adhere to these Azure-defined roles. The external storage administrator might have limited visibility to all volumes in the sibling set showing storage level metadata details.
 * When creating each migration volume, the Azure NetApp Files volume placement algorithm attempts to reuse the same Azure NetApp Files storage system as any previously created volumes in the subscription to reduce the number of network interface cards (NICs) or IPs consumed in the delegated subnet. If this isn't possible, an additional seven NICs are consumed.
-* You should ensure that there are no external FlexGroup volumes as they can't be migrated to Azure NetApp Files large volumes.
+* Migration assistant migrates volume data including directory and file level access control lists (ACLs). Any share-level permissions aren't migrated and need to be recreated manually.
+* If your on-premises volume has multiple shares (for example, a root share and sub-shares pointing to subdirectories), only the primary share is created on the Azure NetApp Files volume. To verify what shares exist on your on-premises volumes, use the vserver command:
+    * `vserver cifs share show`
+    * `vserver cifs share access-control show`
+* On-premises FlexGroup volumes can't be migrated to Azure NetApp Files large volumes. Exclude FlexGroup volumes from your migration.
 * When the migration is in progress, don't enable features such as backup. Only enable features once the migration has completed.
 
 >[!TIP]
 >For help with creating a migration volume and peering clusters for the migration assistant, see the [PowerShell migration assistant workflow sample script](https://github.com/Azure-Samples/azure-docs-powershell-samples/blob/main/migration-assistant/migration-assistant-workflow.ps1).
-
-## Register the feature 
-
-You need to register the feature before using it for the migration assistant for the first time. After registration, the feature is enabled and works in the background. 
-
-# [Azure CLI](#tab/azurecli)
-
-1. Register the feature: 
-
-    ```azurecli
-    az account set --subscription <subscriptionId>
-    az feature register --namespace Microsoft.NetApp --name ANFMigrationAssistant
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurecli
-    az feature show --namespace Microsoft.NetApp --name ANFMigrationAssistant
-    ```
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
-
-# [Azure PowerShell](#tab/azurepowershell)
-
-1. Register the feature: 
-
-    ```azurepowershell
-    Set-AzContext -SubscriptionId <subscriptionId>
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigrationAssistant
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFMigrationAssistant
-    ```
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
-
----
 
 ## Before you begin 
 
@@ -268,8 +226,6 @@ The network connectivity must be in place for all intercluster (IC) LIFs on the 
 
 # [Azure portal](#tab/portal)
 
-The portal version of the migration assistant is currently in preview.
-
 1.	From your NetApp account view, select **Migration assistant**.
     
     :::image type="content" source="./media/migrate-volume/new-migration-portal.png" alt-text="Screenshot of navigation to the migration assistant portal." lightbox="./media/migrate-volume/new-migration-portal.png":::
@@ -320,6 +276,12 @@ The portal version of the migration assistant is currently in preview.
     :::image type="content" source="./media/migrate-volume/navigate-cluster-peering.png" alt-text="Screenshot of navigation to cluster peering." lightbox="./media/migrate-volume/navigate-cluster-peering.png":::
 
 7.	If the clusters aren't peered, provide the intercluster (IC) LIF addresses for each node of the external cluster and select **Continue**. If clusters are already peered but SVM peering hasn't yet been established, you are guided directly to SVM peering.
+
+    1. Optional: You can run the following command on the external Cloud Volumes ONTAP to fetch the address used for the intercluster LIF:
+
+        ```
+        network interface show -role intercluster -fields home-node,address
+        ```
 
     :::image type="content" source="./media/migrate-volume/configure-cluster-peering.png" alt-text="Screenshot to configure cluster peering." lightbox="./media/migrate-volume/configure-cluster-peering.png":::
     

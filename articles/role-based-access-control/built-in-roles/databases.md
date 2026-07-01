@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2026
+ms.date: 06/20/2026
 ms.custom: generated
 ---
 
@@ -601,6 +601,8 @@ Create and manage Azure Cache for Redis resources. Cannot read or write data sto
 ## Semantic Reranker User
 
 Execute semantic reranking operations against registered inference accounts. This role should be assigned to users who need to run semantic reranking workloads but do not need to manage the accounts themselves.
+
+[Learn more](/azure/cosmos-db/gen-ai/semantic-reranker)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

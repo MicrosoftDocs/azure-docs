@@ -102,7 +102,7 @@ Register one or more of the partner MCP servers in your API inventory to make th
 To register a partner MCP server:
 
 1. In the [Azure portal](https://portal.azure.com), go to your API center.
-1. In the sidebar menu, under **Discover**, select **MCP** (preview).
+1. In the sidebar menu, under **Discover**, select **MCP**.
 1. Browse the available partner MCP servers. Select **Register** to add an MCP server to your API inventory. Follow the on-screen instructions if they're provided to complete the registration.
 
 When you add a partner MCP server, API Center automatically configures the following settings for you:

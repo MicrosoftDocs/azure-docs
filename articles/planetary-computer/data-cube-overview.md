@@ -45,7 +45,9 @@ If these conditions are met, a Kerchunk manifest (`assetid-kerchunk.json`) is ge
 > [!NOTE]
 > The asset format type`application/x-hdf` often corresponds to HDF4 assets. GeoCatalog ingestion doesn't currently support creating virtual kerchunk manifests for HDF4 due to its added complexity and multiple variants.
 
-### STAC item enrichment 
+### STAC item enrichment
+
+To modify your STAC items with the STAC datacube extension, you can enable the enrichment by including the `datacube_stac_enrichment: True` flag on the assets in your original STAC item JSON.
 
 For each optimized asset within the STAC item, the following fields are added:  
 

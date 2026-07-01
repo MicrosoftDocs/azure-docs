@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: mbender-ms
   ms.author: mbender
-  ms.date: 02/27/2024
+  ms.date: 06/23/2026
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -29,79 +29,167 @@ landingContent:
         links:
           - text: Components
             url: application-gateway-for-containers-components.md
-          - text: Custom health probe
-            url: custom-health-probe.md
-          - text: Session Affinity
-            url: session-affinity.md
-          - text: TLS policy
-            url: tls-policy.md
-          - text: Backend health and metrics
-            url: alb-controller-backend-health-metrics.md
-          - text: Metrics
-            url: application-gateway-for-containers-metrics.md
+          - text: Container networking
+            url: container-networking.md
+          - text: Inference gateway for AI workloads
+            url: inference-gateway.md
+          - text: Migrate from AGIC to Application Gateway for Containers
+            url: migrate-from-agic-to-agc.md
+          - text: Understanding pricing
+            url: understanding-pricing.md
           - text: Frequently asked questions
             url: faq.yml
       - linkListType: whats-new
         links:
           - text: What's new
             url: https://azure.microsoft.com/updates?searchterms=Application+Gateway+for+Containers
-            
+
   # Card
   - title: Deploy Application Gateway for Containers
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Provision ALB Controller into AKS cluster
+          - text: Provision ALB Controller into AKS cluster - Add-on
             url: quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md
+          - text: Provision ALB Controller into AKS cluster - Helm
+            url: quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md
           - text: Create Application Gateway for Containers - bring your own deployment
             url: quickstart-create-application-gateway-for-containers-byo-deployment.md
-          - text: Create Application Gateway for Containers - managed by ALB controller
+          - text: Create Application Gateway for Containers - managed by ALB Controller
             url: quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md
 
   # Card
-  - title: Deploy with SSL termination
+  - title: Traffic management concepts
     linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: SSL Offloading
-            url: how-to-ssl-offloading-gateway-api.md
-          - text: Backend Mutual Authentication (mTLS)
-            url: how-to-backend-mtls-gateway-api.md
-
-# Card
-  - title: Troubleshoot Application Gateway for Containers
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Troubleshoot Application Gateway for Containers
-            url: troubleshooting-guide.md
-          - text: Diagnostic Logs
-            url: diagnostics.md
       - linkListType: concept
         links:
-          - text: API Specification for Kubernetes
-            url: api-specification-kubernetes.md
+          - text: Custom health probe
+            url: custom-health-probe.md
+          - text: Load balancing strategies
+            url: load-balancing-strategies.md
+          - text: Session affinity
+            url: session-affinity.md
+          - text: Scaling and zone resiliency
+            url: scaling-zone-resiliency.md
+          - text: Service mesh integration
+            url: service-mesh-integration.md
+
+  # Card
+  - title: Protocols and communication
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: gRPC
+            url: grpc.md
+          - text: Server-sent events
+            url: server-sent-events.md
+          - text: WebSockets
+            url: websockets.md
+
+  # Card
+  - title: Security and certificates
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Cross-Origin Resource Sharing (CORS)
+            url: cross-origin-resource-sharing.md
+          - text: ECDSA and RSA certificates
+            url: ecdsa-rsa-certificates.md
+          - text: TLS policy
+            url: tls-policy.md
+          - text: Web Application Firewall (WAF)
+            url: web-application-firewall.md
+
+  # Card
+  - title: Monitor Application Gateway for Containers
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Backend health and metrics
+            url: alb-controller-backend-health-metrics.md
+          - text: Diagnostic logs
+            url: diagnostics.md
+          - text: Metrics
+            url: application-gateway-for-containers-metrics.md
+          - text: Prometheus and Grafana configuration
+            url: prometheus-grafana.md
+          - text: SIEM integration with Sentinel
+            url: siem-integration-with-sentinel.md
 
   # Card
   - title: Gateway API
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Backend mutual authentication (mTLS)
+            url: how-to-backend-mtls-gateway-api.md
+          - text: Frontend mutual authentication (mTLS)
+            url: how-to-frontend-mtls-gateway-api.md
+          - text: End-to-end TLS
+            url: how-to-end-to-end-tls-gateway-api.md
+          - text: SSL offloading
+            url: how-to-ssl-offloading-gateway-api.md
+          - text: Managed certificates with cert-manager
+            url: how-to-cert-manager-lets-encrypt-gateway-api.md
           - text: Multi-site hosting
             url: how-to-multiple-site-hosting-gateway-api.md
           - text: Path, header, and query string routing
             url: how-to-path-header-query-string-routing-gateway-api.md
+      - linkListType: how-to-guide
+        links:
+          - text: Header rewrite
+            url: how-to-header-rewrite-gateway-api.md
+          - text: URL rewrite
+            url: how-to-url-rewrite-gateway-api.md
+          - text: URL redirect
+            url: how-to-url-redirect-gateway-api.md
           - text: Traffic splitting
             url: how-to-traffic-splitting-gateway-api.md
-          - text: URL Rewrite
-            url: how-to-url-rewrite-gateway-api.md
+          - text: Web Application Firewall (WAF)
+            url: how-to-waf-gateway-api.md
+          - text: WebSockets
+            url: how-to-websockets-gateway-api.md
+          - text: Inference gateway
+            url: how-to-inference-gateway.md
 
   # Card
   - title: Ingress API
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Multi-site hosting
-            url: how-to-multiple-site-hosting-ingress-api.md
+          - text: End-to-end TLS
+            url: how-to-end-to-end-tls-ingress-api.md
           - text: SSL offloading
             url: how-to-ssl-offloading-ingress-api.md
+          - text: Managed certificates with cert-manager
+            url: how-to-cert-manager-lets-encrypt-ingress-api.md
+          - text: Multi-site hosting
+            url: how-to-multiple-site-hosting-ingress-api.md
+          - text: Header rewrite
+            url: how-to-header-rewrite-ingress-api.md
+          - text: URL rewrite
+            url: how-to-url-rewrite-ingress-api.md
+          - text: URL redirect
+            url: how-to-url-redirect-ingress-api.md
+
+  # Card
+  - title: Troubleshoot Application Gateway for Containers
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshooting guide
+            url: troubleshooting-guide.md
+
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: ALB Controller release notes
+            url: alb-controller-release-notes.md
+          - text: ALB Controller Helm chart
+            url: alb-controller-helm-chart.md
+          - text: ALB Service Mesh Helm chart
+            url: service-mesh-helm-chart.md
+          - text: API specification for Kubernetes
+            url: api-specification-kubernetes.md

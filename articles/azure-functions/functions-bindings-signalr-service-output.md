@@ -37,7 +37,7 @@ For information on setup and configuration details, see the [overview](functions
 
 The following example shows a function that sends a message using the output binding to all connected clients. The *newMessage* is the name of the method to be invoked on each client.
 
-<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_broadcast_to_all"::: --->
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_broadcast_to_all":::
 
 # [In-process model](#tab/in-process)
 
@@ -156,7 +156,7 @@ You can send a message only to connections that have been authenticated to a use
 
 # [Isolated worker model](#tab/isolated-process)
 
-<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_send_to_user"::: --->
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_send_to_user":::
 
 # [In-process model](#tab/in-process)
 
@@ -281,7 +281,7 @@ You can send a message only to connections that have been added to a group by se
 
 # [Isolated worker model](#tab/isolated-process)
 
-<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_send_to_group"::: --->
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_send_to_group":::
 
 # [In-process model](#tab/in-process)
 
@@ -406,7 +406,7 @@ SignalR Service allows users or connections to be added to groups. Messages can 
 
 Specify `SignalRGroupActionType` to add or remove a member. The following example removes a user from a group.
 
-<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_remove_from_group"::: --->
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalROutputBindingFunctions2.cs" id="snippet_remove_from_group":::
 
 # [In-process model](#tab/in-process)
 

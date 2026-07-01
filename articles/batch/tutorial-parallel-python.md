@@ -259,7 +259,7 @@ while datetime.datetime.now() < timeout_expiration:
 
 ## Clean up resources
 
-After it runs the tasks, the app automatically deletes the input storage container it created, and gives you the option to delete the Batch pool and job. The BatchClient's [JobOperations](/python/api/azure-batch/azure.batch.operations.joboperations) and [PoolOperations](/python/api/azure-batch/azure.batch.operations.pooloperations) classes both have delete methods, which are called if you confirm deletion. Although you're not charged for jobs and tasks themselves, you are charged for compute nodes. Thus, we recommend that you allocate pools only as needed. When you delete the pool, all task output on the nodes is deleted. However, the input and output files remain in the storage account.
+After it runs the tasks, the app automatically deletes the input storage container it created, and gives you the option to delete the Batch pool and job. The BatchClient's [JobOperations](/python/api/azure-batch/azure.batch.batchclient#azure-batch-batchclient-begin-delete-job) and [PoolOperations](/python/api/azure-batch/azure.batch.batchclient#azure-batch-batchclient-begin-delete-pool) classes both have delete methods, which are called if you confirm deletion. Although you're not charged for jobs and tasks themselves, you are charged for compute nodes. Thus, we recommend that you allocate pools only as needed. When you delete the pool, all task output on the nodes is deleted. However, the input and output files remain in the storage account.
 
 When no longer needed, delete the resource group, Batch account, and storage account. To do so in the Azure portal, select the resource group for the Batch account and choose **Delete resource group**.
 

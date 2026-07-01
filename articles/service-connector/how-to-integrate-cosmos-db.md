@@ -17,7 +17,6 @@ This article shows supported authentication methods and clients, and shows sampl
 Service Connector can be used to connect the following compute services to Azure Cosmos DB for MongoDB:
 
 - Azure App Service
-- Azure Container Apps
 - Azure Functions
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps

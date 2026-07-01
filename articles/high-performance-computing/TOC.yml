@@ -56,7 +56,7 @@
         displayName: Lustre, ANF, Azure NetApp Files, Blob, AzCopy, rsync, Data Box
         items:
         - name: Choose the right storage for your HPC workload
-          href: /azure/virtual-machines/workload-guidelines-best-practices-storage.md 
+          href: /azure/virtual-machines/workload-guidelines-best-practices-storage
           
         - name: HPC storage options (Lustre, ANF, Blob, Azure Files)
           href: lift-and-shift-step-3-storage.md

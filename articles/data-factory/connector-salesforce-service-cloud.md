@@ -16,6 +16,10 @@ ms.date: 03/23/2026
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Salesforce Service Cloud. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Salesforce Service Cloud connector documentation](/fabric/data-factory/connector-salesforce-service-cloud-overview).
+
  
 > [!IMPORTANT]
 > The Salesforce Service Cloud V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Salesforce Service Cloud connector](#differences-between-salesforce-service-cloud-and-salesforce-service-cloud-legacy) from V1 to V2.

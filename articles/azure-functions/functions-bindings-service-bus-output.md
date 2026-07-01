@@ -45,11 +45,11 @@ Go support isn't currently available for this binding.
 
 This code defines and initializes the `ILogger`: 
 
-<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebusmessage_createlogger"::: --->
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebusmessage_createlogger":::
 
 This example shows a [C# function](dotnet-isolated-process-guide.md) that receives a message and writes it to a second queue:
 
-<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readmessage"::: --->
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusReceivedMessageFunctions.cs" id="docsnippet_servicebus_readmessage":::
 
 &nbsp;
 <hr/>
@@ -165,11 +165,11 @@ Java functions can also write to a Service Bus topic. The following example uses
 
 The following example shows a timer triggered [TypeScript function](functions-reference-node.md?tabs=typescript) that sends a queue message every 5 minutes.
 
-<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/serviceBusOutput1.ts" ::: --->
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/serviceBusOutput1.ts" :::
 
 To output multiple messages, return an array instead of a single object. For example:
 
-<!--- :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/serviceBusOutput2.ts" id="displayInDocs" ::: --->
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/serviceBusOutput2.ts" id="displayInDocs" :::
 
 # [Model v3](#tab/nodejs-v3)
 
@@ -184,11 +184,11 @@ TypeScript samples aren't documented for model v3.
 
 The following example shows a timer triggered [JavaScript function](functions-reference-node.md) that sends a queue message every 5 minutes.
 
-<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/serviceBusOutput1.js" ::: --->
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/serviceBusOutput1.js" :::
 
 To output multiple messages, return an array instead of a single object. For example:
 
-<!--- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/serviceBusOutput2.js" id="displayInDocs" ::: --->
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/serviceBusOutput2.js" id="displayInDocs" :::
 
 # [Model v3](#tab/nodejs-v3)
 

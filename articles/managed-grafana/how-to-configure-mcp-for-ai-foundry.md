@@ -4,7 +4,7 @@ description: Learn how to configure Azure Managed Grafana MCP in Azure AI Foundr
 author: weng5e
 ms.author: wuweng
 ms.reviewer: malev
-ms.date: 03/09/2026
+ms.date: 05/28/2026
 ms.topic: how-to
 ms.service: azure-managed-grafana
 #customer intent: As an AI engineer, I want to connect my Azure AI Foundry agent to the Azure Managed Grafana MCP endpoint so that the agent can query Azure resources and observability data.
@@ -74,12 +74,12 @@ To find the correct principal:
 
 1. Configure the tool settings:
 
-   | Setting | Value |
-   | --- | --- |
-   | **workspace-hostname** | Your Azure Managed Grafana endpoint hostname. Enter only the hostname. Don't include `https://` or `/api/azure-mcp`. |
-   | **Authentication** | **Microsoft Entra** |
-   | **Type** | **Project Managed Identity** |
-   | **Audience** | The application ID for Azure Managed Grafana: `ce34e7e5-485f-4d76-964f-b3d2b16d1e4f` |
+    | Setting | Value |
+    | --- | --- |
+    | **workspace-hostname** | Your Azure Managed Grafana endpoint hostname. Enter only the hostname. Don't include `https://` or `/api/azure-mcp`. |
+    | **Authentication** | **Microsoft Entra** |
+    | **Type** | **Project Managed Identity** |
+    | **Audience** | The Azure Managed Grafana audience: `6f2d169c-08f3-4a4c-a982-bcaf2d038c45` |
 
 
     :::image type="content" source="media/how-to-configure-mcp-for-ai-foundry/5-mcp-config.png" alt-text="Screenshot of Azure AI Foundry showing Azure Managed Grafana MCP tool configuration values." lightbox="media/how-to-configure-mcp-for-ai-foundry/5-mcp-config-expanded.png":::
@@ -108,9 +108,11 @@ If validation fails:
 
 - Verify the managed identity has a Grafana role on the Azure Managed Grafana resource.
 - Verify the **workspace-hostname** value is the Grafana hostname only.
-- Verify the audience is `ce34e7e5-485f-4d76-964f-b3d2b16d1e4f`.
+- Verify the audience is `6f2d169c-08f3-4a4c-a982-bcaf2d038c45`.
 - Verify the Grafana data source required by the prompt exists and can access the target Azure scope.
 - Check for RBAC propagation delay and retry after a few minutes.
+
+For general token guidance and an API example, see [Authenticate to Azure Managed Grafana data plane APIs with Microsoft Entra ID](./how-to-authenticate-data-plane-api.md).
 
 ## Clean up resources
 
@@ -129,3 +131,4 @@ If you created resources only for this test, remove access and resources to avoi
 
 - Learn more about the remote MCP endpoint in [Configure an Azure Managed Grafana remote MCP server](./grafana-mcp-server.md).
 - Explore dashboard examples in [Create dashboards for GenAI applications](./azure-ai-foundry-dashboard.md).
+- Review broader token guidance in [Authenticate to Azure Managed Grafana data plane APIs with Microsoft Entra ID](./how-to-authenticate-data-plane-api.md).

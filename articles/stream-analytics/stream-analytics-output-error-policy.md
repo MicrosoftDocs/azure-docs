@@ -1,31 +1,41 @@
 ---
 title: Output error policies in Azure Stream Analytics
-description: Learn about the output error handling policies available in Azure Stream Analytics.
-author: AliciaLiMicrosoft 
-ms.author: ali 
+description: Learn about the Retry and Drop output error handling policies in Azure Stream Analytics, including how each policy works and when to use them.
+author: AliciaLiMicrosoft
+ms.author: ali
 ms.service: azure-stream-analytics
 ms.topic: concept-article
-ms.date: 05/30/2021
+ms.date: 06/10/2026
+ai-usage: ai-assisted
+
+#customer intent: As a developer or data engineer, I want to understand the output error handling policies in Azure Stream Analytics so that I can choose the right policy for my streaming job.
 ---
-# Azure Stream Analytics output error policy
-This article describes the output data error handling policies that can be configured in Azure Stream Analytics.
+# Azure Stream Analytics output error policies
 
-Output data error handling policies apply only to data conversion errors that occur when the output event produced by a Stream Analytics job does not conform to the schema of the target sink. You can configure this policy by choosing either **Retry** or **Drop**. In the Azure portal, while in a Stream Analytics job, under **Configure**, select **Error Policy** to make your selection.
+An output error policy is a configuration in Azure Stream Analytics that controls how the job handles data conversion errors when an output event doesn't conform to the schema of the target sink. Azure Stream Analytics provides two policies: **Retry** and **Drop**.
 
-![Azure Stream Analytics output error policy location](./media/stream-analytics-output-error-policy/stream-analytics-error-policy-locate.png)
+To configure the policy in the Azure portal, open a Stream Analytics job, select **Error policy** under **Settings**, and then choose the policy you want.
 
-
-## Retry
-When an error occurs, Azure Stream Analytics retries writing the event indefinitely until the write succeeds. There is no timeout for retries. Eventually all subsequent events are blocked from processing by the event that is retrying. This will then block the output on which the error happened, as well as any other outputs sharing the same input.
-This option is the default output error handling policy. Retry interval can vary based on each output and can range from a few seconds to a few minutes over subsequent retries.
+:::image type="content" source="./media/stream-analytics-output-error-policy/stream-analytics-error-policy-locate.png" alt-text="Screenshot that shows the Error Policy option under Configure in a Stream Analytics job in the Azure portal.":::
 
 
-## Drop
-Azure Stream Analytics will drop any output event that results in a data conversion error. The dropped events cannot be recovered for reprocessing later.
+## Retry policy
+
+When a data conversion error occurs, Azure Stream Analytics retries writing the event indefinitely until the write succeeds. There's no timeout for retries. The event that's retrying blocks all subsequent events from processing. This policy also blocks the output where the error occurred and any other outputs that share the same input.
+
+Retry is the default output error handling policy. The retry interval varies based on the output and can range from a few seconds to a few minutes over subsequent retries.
 
 
-All transient errors (for example, network errors) are retried regardless of the output error handling policy configuration.
+## Drop policy
+
+Azure Stream Analytics drops any output event that results in a data conversion error. You can't recover dropped events for reprocessing later.
+
+> [!NOTE]
+> Azure Stream Analytics retries all transient errors (for example, network errors) regardless of the output error handling policy configuration.
 
 
-## Next steps
-[Troubleshooting guide for Azure Stream Analytics](./stream-analytics-troubleshoot-query.md)
+## Related content
+
+- [Understand outputs from Azure Stream Analytics](./stream-analytics-define-outputs.md)
+- [Troubleshoot Azure Stream Analytics outputs](./stream-analytics-troubleshoot-output.md)
+- [Troubleshoot Azure Stream Analytics by using resource logs](./stream-analytics-job-diagnostic-logs.md)

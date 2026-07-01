@@ -143,7 +143,7 @@ The default share-level permission is set to **None** at initialization. This se
 
 To configure default share-level permissions on your storage account by using the [Azure portal](https://portal.azure.com), follow these steps:
 
-1. In the Azure portal, go to the storage account that contains your file shares and select **Data storage** > **File shares**.
+1. In the Azure portal, go to the storage account that contains your file shares. From the service menu, under **Data storage**, select **Classic file shares**.
 
 1. You must enable an identity source on your storage account before assigning default share-level permissions. If you already enabled an identity source, select **Configured** next to **Identity-based access**, and proceed to the next step. Otherwise, select **Not configured**, select **Set up** under the desired identity source, and enable the identity source.
 

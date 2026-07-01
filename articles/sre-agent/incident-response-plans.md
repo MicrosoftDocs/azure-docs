@@ -3,7 +3,7 @@ title: Incident Response Plans in Azure SRE Agent
 description: Learn how to route incidents to specialized custom agents with the right tools, investigation depth, and autonomy level automatically.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 04/24/2026
+ms.date: 06/08/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -97,8 +97,7 @@ You can create and manage response plans in two places:
 
 From either path, select **New incident response plan** (or the **+** button on a custom agent node in the canvas) to open the create wizard.
 
-> [!WARNING]
-> When you first connect an incident platform, a default **quickstart** response plan is created automatically. If you create your own plans, **delete the quickstart plan** from **Builder → Incident response plans**. Overlapping plans can cause incidents to be routed to the wrong custom agent or processed twice.
+[!INCLUDE [quickstart-response-plan-warning](includes/quickstart-response-plan-warning.md)]
 
 ## Enable and disable plans
 

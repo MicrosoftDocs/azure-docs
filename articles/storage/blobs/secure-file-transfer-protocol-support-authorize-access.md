@@ -26,7 +26,7 @@ To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer 
 
 ## Create a local user
 
-Azure Storage doesn't support shared access signature (SAS) or Microsoft Entra authentication for accessing the SFTP endpoint. Instead, you must use an identity called local user that you secure with an Azure generated password or a secure shell (SSH) key pair. To grant access to a connecting client, the storage account must have an identity associated with the password or key pair. That identity is called a *local user*.
+Azure Storage doesn't support shared access signature (SAS) for accessing the SFTP endpoint. Instead, you must use either a local user identity or a Microsoft Entra ID identity. Local users can be secured with an Azure generated password or a secure shell (SSH) key pair. To grant access to a connecting client, the storage account must have an identity associated with the password or key pair. That identity is called a *local user*. To learn about using Microsoft Entra ID, see [Authorize SFTP access to blobs using Microsoft Entra ID](secure-file-transfer-protocol-support-entra-id-based-access.md).
 
 In this section, you learn how to create a local user, choose an authentication method, and assign permissions for that local user.
 

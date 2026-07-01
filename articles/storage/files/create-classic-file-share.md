@@ -315,9 +315,7 @@ When you create a classic file share by using the provisioned v2 billing model, 
 
 Follow these instructions to create a provisioned v2 classic file share by using the Azure portal.
 
-1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
-
-   ![A screenshot of the file shares item underneath the data storage node in the table of contents for the storage account.](./media/storage-how-to-create-file-share/create-file-share-provisioned-v2-0.png)
+1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 
 2. In the file share listing, you should see any previously created file shares in this storage account or an empty table if no file shares exist. Select **+ File share** to create a new file share.
 
@@ -403,9 +401,7 @@ When you create a classic file share by using the provisioned v1 billing model, 
 
 Follow these instructions to create an SSD provisioned v1 classic file share by using the Azure portal.
 
-1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
-
-   ![A screenshot of the file shares item underneath the data storage node in the storage account service menu.](./media/storage-how-to-create-file-share/create-file-share-provisioned-v2-0.png)
+1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 
 2. In the file share listing, you should see any previously created file shares in this storage account or an empty table if no file shares exist. Select **+ File share** to create a new file share.
 
@@ -486,9 +482,7 @@ Pay-as-you-go file shares (SMB only) have a property called **access tier**. All
 
 Follow these instructions to create a new HDD pay-as-you-go classic file share by using the Azure portal.
 
-1. Go to your storage account. From the service menu, under **Data storage**, select **File shares**.
-
-   ![A screenshot of the file shares item under the data storage group in a pay-as-you-go storage account.](./media/storage-how-to-create-file-share/create-file-share-paygo-0.png)
+1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 
 1. In the file share listing, you should see any previously created file shares in this storage account or an empty table if no file shares exist. Select **+ File share** to create a new file share.
 

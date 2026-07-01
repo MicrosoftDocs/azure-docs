@@ -58,15 +58,22 @@ The standard Microsoft Entra Kerberos authentication flow described in this arti
 
 To use Entra Kerberos authentication for cloud-only identities, use one of the following operating systems:
 
-  - Windows 11 Enterprise/Pro single or multi-session.
-  - Windows Server 2025 with the latest cumulative updates installed.
+  - **Windows 11 Enterprise/Pro single or multi-session**. For the best experience, use at least:
+    - Windows 11 version 26H1 or newer, with at least [KB5079489](https://support.microsoft.com/en-us/topic/march-26-2026-kb5079489-os-build-28000-1764-preview-cd374a56-9657-43fb-9ebe-40cb693d8d10) (OS build 28000.1764 or later)
+    - Windows 11 version 25H2 with at least [KB5079391](https://support.microsoft.com/en-us/topic/march-26-2026-kb5079391-os-builds-26200-8116-and-26100-8116-preview-7c9e2275-b9ba-4068-aeb0-23da42b81d3b) (OS build 26200.8116 or later)
+    - Windows 11 version 24H2 with at least [KB5079391](https://support.microsoft.com/en-us/topic/march-26-2026-kb5079391-os-builds-26200-8116-and-26100-8116-preview-7c9e2275-b9ba-4068-aeb0-23da42b81d3b) (OS build 26100.8116 or later)
+  - **Windows Server 2025** with the latest cumulative updates installed.
 
 To use Entra Kerberos authentication for hybrid identities, use one of the following operating systems:
 
-  - Windows 11 Enterprise/Pro single or multi-session.
-  - Windows 10 Enterprise/Pro single or multi-session, versions 2004 or later with the latest cumulative updates installed, especially the [KB5007253 - 2021-11 Cumulative Update Preview for Windows 10](https://support.microsoft.com/topic/november-22-2021-kb5007253-os-builds-19041-1387-19042-1387-19043-1387-and-19044-1387-preview-d1847be9-46c1-49fc-bf56-1d469fc1b3af).
-  - Windows Server 2025 with the latest cumulative updates installed.
-  - Windows Server 2022 with the latest cumulative updates installed, especially the [KB5007254 - 2021-11 Cumulative Update Preview for Microsoft server operating system version 21H2](https://support.microsoft.com/topic/november-22-2021-kb5007254-os-build-20348-380-preview-9a960291-d62e-486a-adcc-6babe5ae6fc1).
+  - **Windows 11 Enterprise/Pro single or multi-session**. For the best experience, use at least:
+    - Windows 11 version 26H1 or newer, with at least [KB5079489](https://support.microsoft.com/en-us/topic/march-26-2026-kb5079489-os-build-28000-1764-preview-cd374a56-9657-43fb-9ebe-40cb693d8d10) (OS build 28000.1764 or later)
+    - Windows 11 version 25H2 with at least [KB5079391](https://support.microsoft.com/en-us/topic/march-26-2026-kb5079391-os-builds-26200-8116-and-26100-8116-preview-7c9e2275-b9ba-4068-aeb0-23da42b81d3b) (OS build 26200.8116 or later)
+    - Windows 11 version 24H2 with at least [KB5079391](https://support.microsoft.com/en-us/topic/march-26-2026-kb5079391-os-builds-26200-8116-and-26100-8116-preview-7c9e2275-b9ba-4068-aeb0-23da42b81d3b) (OS build 26100.8116 or later)
+  - **Windows 10 Enterprise/Pro single or multi-session**, versions 2004 or later with the latest cumulative updates installed, especially the [KB5007253 - 2021-11 Cumulative Update Preview for Windows 10](https://support.microsoft.com/topic/november-22-2021-kb5007253-os-builds-19041-1387-19042-1387-19043-1387-and-19044-1387-preview-d1847be9-46c1-49fc-bf56-1d469fc1b3af).
+  - **Windows Server 2025** with the latest cumulative updates installed.
+  - **Windows Server 2022** with the latest cumulative updates installed, especially the [KB5007254 - 2021-11 Cumulative Update Preview for Microsoft server operating system version 21H2](https://support.microsoft.com/topic/november-22-2021-kb5007254-os-build-20348-380-preview-9a960291-d62e-486a-adcc-6babe5ae6fc1).
+
 
 For information about how to create and configure a Windows VM and sign in by using Entra ID-based authentication, see [Sign in to Windows virtual machine in Azure using Microsoft Entra ID and Azure Role Based Access Control](/entra/identity/devices/howto-vm-sign-in-azure-ad-windows).
 
@@ -78,21 +85,57 @@ Microsoft Entra Kerberos support for hybrid identities is available for all regi
 
 Azure RBAC support for specific users and groups for cloud-only identities with Microsoft Entra Kerberos is currently available only for the following subset of regions in the Azure Public cloud.
 
-- Australia Central (SSD/premium only)
-- Australia Central 2 (SSD/premium only)
+- Asia East
+- Australia Central
+- Australia Central 2
+- Australia East (SSD/premium only)
+- Australia Southeast
+- Austria East
+- Belgium Central
 - Brazil Southeast (SSD/premium only)
+- Canada Central (SSD/premium only)
 - Canada East (SSD/premium only)
-- France South (SSD/premium only)
-- Germany North (SSD/premium only)
+- Chile Central (HDD/standard only)
+- Denmark East (SSD/premium only)
+- East Asia (SSD/premium only)
+- France Central (SSD/premium only)
+- France South
+- Germany North
+- Germany West Central
+- India Central
+- India South (SSD/premium only)
+- India South Central (SSD/premium only)
+- India West
+- Indonesia Central
+- Italy North (SSD/premium only)
+- Japan East
+- Japan West
 - Jio India Central
 - Jio India West
+- Korea Central
+- Korea South
+- Malaysia South (HDD/standard only)
+- Malaysia West (SSD/premium only)
+- Mexico Central
+- New Zealand North
+- North Europe (SSD/premium only)
+- Norway East
 - Norway West
+- Poland Central (SSD/premium only)
+- Qatar Central
+- South Africa North (SSD/premium only)
 - South Africa West (SSD/premium only)
-- South India (SSD/premium only)
+- Spain Central
+- Sweden Central (SSD/premium only)
 - Sweden South (HDD/standard only)
-- Switzerland West (SSD/premium only)
-- UAE Central (SSD/premium only)
-- West India (SSD/premium only)
+- Switzerland North
+- Switzerland West
+- Taiwan North
+- UAE Central
+- UAE North
+- UK South (SSD/premium only)
+- UK West (SSD/premium only)
+- US West Central (SSD/premium only)
 
 <a name='enable-azure-ad-kerberos-authentication'></a>
 
@@ -105,7 +148,7 @@ You can enable Microsoft Entra Kerberos authentication on Azure Files by using t
 To enable Microsoft Entra Kerberos authentication by using the [Azure portal](https://portal.azure.com), follow these steps.
 
 1. Sign in to the Azure portal and select the storage account you want to enable Microsoft Entra Kerberos authentication for.
-1. Under **Data storage**, select **File shares**.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
 1. Next to **Identity-based access**, select the configuration status, such as **Not configured**.
  
    :::image type="content" source="media/storage-files-identity-auth-hybrid-identities-enable/configure-identity-based-access.png" alt-text="Screenshot of the Azure portal showing file share settings for a storage account." lightbox="media/storage-files-identity-auth-hybrid-identities-enable/configure-identity-based-access.png" border="true":::
@@ -361,7 +404,7 @@ If you want to use another authentication method, you can disable Microsoft Entr
 To disable Microsoft Entra Kerberos authentication on your storage account by using the Azure portal, follow these steps.
 
 1. Sign in to the Azure portal and select the storage account you want to disable Microsoft Entra Kerberos authentication for.
-1. Under **Data storage**, select **File shares**.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
 1. Next to **Identity-based access**, select the configuration status.
 1. Under **Microsoft Entra Kerberos**, select **Configure**.
 1. Uncheck the **Microsoft Entra Kerberos** checkbox.

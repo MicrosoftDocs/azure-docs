@@ -352,7 +352,7 @@ items:
         - name: Add and manage TLS/SSL certificates
           href: configure-ssl-certificate.md
           displayName: SSL
-        - name: Create and Manage App Service certificates
+        - name: Buy and manage App Service certificates
           href: configure-ssl-app-service-certificate.md
           displayName: SSL
         - name: Use TLS/SSL certificates in app code

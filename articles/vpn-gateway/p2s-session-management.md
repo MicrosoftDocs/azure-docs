@@ -5,7 +5,7 @@ description: Learn how to view and disconnect Point-to-Site VPN sessions.
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 11/27/2023
+ms.date: 06/09/2026
 ms.author: cherylmc
 ms.custom: sfi-image-nochange
 
@@ -30,8 +30,6 @@ To view and disconnect a session in the portal:
 1. Under the **Monitoring** section, select **Point-to-site Sessions**.
 1. You can view all current sessions in the windowpane.
 1. Select **"…"** for the session you want to disconnect, then select **Disconnect**.
-
-Currently, you can't use this feature in the portal for VpnGw4 and VpnGw5 SKUs. If you have one of these gateways, use the PowerShell method that's described in the next section.
 
 ## PowerShell
 

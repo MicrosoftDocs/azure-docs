@@ -95,7 +95,7 @@ In Node.js for Azure Functions version 3, you configure triggers and bindings in
 
 The `http` method on the exported `app` object defines an HTTP trigger. The `storageQueue` method on `output` defines an output binding on this trigger.
 
-<!-- :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageQueueOutput1.js" ::: -->
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageQueueOutput1.js" :::
 
 ### [v3](#tab/node-v3)
 
