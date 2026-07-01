@@ -61,20 +61,20 @@ The retirement takes effect globally across all Azure regions.
 >[!TIP]
 >If your workload is **read, write or list heavy**, reduce transaction counts by batching operations, writing larger blocks, and scoping list operations. GPv2 also provides better tools for optimizing costs, by allowing the tiering of data. Ensure cold data isn't left in the hot tier.
 
+Microsoft provides an open-source GPv1 to GPv2 Cost Estimator to help you understand the potential billing impact of migrating your storage accounts.
+
+The tool allows you to:
+- Compare estimated costs between GPv1 and GPv2 based on your current usage
+- Upload billing data (CSV) to model real-world scenarios
+- Understand how capacity, transactions, and access tiers affect pricing
+- Export results to share with stakeholders
+
+Because this tool is an open-source project, you can review the code, run it locally, or adapt it to your own needs.
+
 >[!TIP]
->Microsoft provides an open-source GPv1 to GPv2 Cost Estimator to help you understand the potential billing impact of migrating your storage accounts.
->
->The tool allows you to:
->- Compare estimated costs between GPv1 and GPv2 based on your current usage
->- Upload billing data (CSV) to model real-world scenarios
->- Understand how capacity, transactions, and access tiers affect pricing
->- Export results to share with stakeholders
->
->Because this tool is an open-source project, you can review the code, run it locally, or adapt it to your own needs.
->
->[!Note]
 >You can access the estimator here: [General purpose v1 (GPv1) storage account cost estimator](https://aka.ms/gpv1costestimator)
->
+
+>[!Note]
 >The estimator uses publicly available pricing and doesn't include contract-specific discounts, taxes, or reservations. Actual costs might vary.
 
 1. Capture a baseline of monthly operations by type (**read, write, list/metadata**) and any **egress**.
