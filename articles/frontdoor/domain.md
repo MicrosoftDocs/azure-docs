@@ -124,7 +124,6 @@ Sometimes, you might need to provide your own TLS certificates. Common scenarios
 * You want Azure Key Vault to issue your certificate by using a partner certification authority.
 * You need to use a TLS certificate that a client application recognizes.
 * You need to use the same TLS certificate on multiple systems.
-* You use [wildcard domains](front-door-wildcard-domain.md). Azure Front Door doesn't provide managed certificates for wildcard domains.
 
 > [!NOTE]
 > * As of September 2023, Azure Front Door supports Bring Your Own Certificates (BYOC) for domain ownership validation. Front Door approves the domain ownership if the Certificate Name (CN) or Subject Alternative Name (SAN) of the certificate matches the custom domain. If you select Azure managed certificate, the domain validation uses the DNS TXT record.
