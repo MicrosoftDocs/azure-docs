@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: troubleshooting-known-issue
 ms.custom: sfi-ropc-nochange
-ms.date: 06/30/2026
+ms.date: 07/01/2026
 ---
 
 # Known issues for Azure IoT Operations
@@ -322,7 +322,7 @@ When updating to version 2605, existing MQTT connector templates may display mis
 
 ---
 
-Issue ID: N/A
+Issue ID: 7791
 
 ---
 
