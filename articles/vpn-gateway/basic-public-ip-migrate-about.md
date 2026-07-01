@@ -170,7 +170,7 @@ Customers should plan to perform the migration during a maintenance window and e
 
 No. Although the Azure portal displays new BGP peer IP addresses after migration, existing on-premises BGP configurations continue to work without changes. Azure automatically redirects traffic from the original BGP peer IP addresses to the BGP peer IP addresses, preserving connectivity and BGP sessions. 
 
-### Customer-Created Routes and Load Balancers During VPN Gateway Migration
+### Customer-created routes and load balancers during VPN gateway migration
 
 #### Do I need to review any custom networking configuration before migration?
 
