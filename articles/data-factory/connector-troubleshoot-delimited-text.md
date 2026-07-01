@@ -5,7 +5,8 @@ description: Learn how to troubleshoot issues with the delimited text format con
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/20/2023
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -22,7 +23,7 @@ This article provides suggestions to troubleshoot common problems with the delim
 
 - **Cause**: When 'firstRowAsHeader' is set in the activity, the first row is used as the column name. This error means that the first row contains an empty value (for example, 'ColumnA, ColumnB').
 
-- **Recommendation**:  Check the first row, and fix the value if it is empty.
+- **Recommendation**:  Check the first row, and fix the value if it's empty.
 
 
 ## Error code: DelimitedTextMoreColumnsThanDefined

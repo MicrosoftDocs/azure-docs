@@ -73,6 +73,8 @@ API Management provides two built-in ways to expose MCP servers:
 
 See the linked articles for step-by-step instructions and limitations.
 
+You can also create and manage MCP servers in Azure API Management by using the REST API, ARM templates, Bicep, the Azure CLI, and Terraform. For more information, see [Manage MCP servers programmatically in API Management](manage-mcp-servers-rest-api.md).
+
 
 ## Govern MCP servers
 

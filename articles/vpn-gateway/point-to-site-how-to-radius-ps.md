@@ -2,11 +2,11 @@
 title: Connect to a virtual network using P2S and RADIUS authentication - PowerShell
 titleSuffix: Azure VPN Gateway
 description: Learn how to connect VPN clients securely to a virtual network using P2S and RADIUS authentication.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 06/09/2026
-ms.author: cherylmc 
+ms.author: duau
 ms.custom:
   - devx-track-azurepowershell
   - sfi-image-nochange

@@ -5,7 +5,8 @@ description: Learn how to troubleshoot issues with the REST connector in Azure D
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 08/29/2024
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -59,7 +60,7 @@ This article provides suggestions to troubleshoot common problems with the REST 
 
       Tools like **Fiddler** are recommended for the preceding case.
 
-## The service principal certificate in Azure Key Vault is not correct
+## The service principal certificate in Azure Key Vault isn't correct
 
 - **Message**: `"Failed to create certificate from certificate raw data and password. Cannot find the requested object."` 
 - **Cause**: Only support the base64 string service principal certificate for Rest connector service principal certificate authentication.

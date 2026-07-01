@@ -2,11 +2,11 @@
 title: 'Azure VPN Client - prerequisites check'
 titleSuffix: Azure Virtual WAN
 description: Learn how to run the Azure VPN Client prerequisites tool to identify missing prerequisites and mitigate them.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/14/2025
-ms.author: cherylmc
+ms.author: duau
 
 ---
 # Azure VPN Client prerequisites check for User VPN P2S connections

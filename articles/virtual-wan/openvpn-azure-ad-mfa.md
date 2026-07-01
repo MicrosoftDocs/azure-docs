@@ -2,11 +2,11 @@
 title: 'Enable MFA for VPN users: Microsoft Entra ID authentication'
 description: Learn how to enable Microsoft Entra multifactor authentication (MFA) for VPN users by using Microsoft Entra authentication.
 services: virtual-wan
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 01/17/2025
-ms.author: cherylmc
+ms.author: duau
 
 ---
 # Enable multifactor authentication (MFA) for P2S VPN - Microsoft Entra ID authentication
