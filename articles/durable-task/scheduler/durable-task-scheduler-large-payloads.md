@@ -82,7 +82,7 @@ Then enable large payload storage in [host.json](../durable-functions/durable-fu
         "type": "azureManaged",
         "connectionStringName": "DTS_CONNECTION_STRING",
         "payloadStorageEnabled": true,
-        "payloadStorageThresholdBytes": 900000
+        "payloadStorageThresholdBytes": 262144
       },
       "hubName": "%TASKHUB_NAME%"
     }
@@ -145,7 +145,7 @@ Register an externalized payload store, choose a threshold, and enable payload r
 ```csharp
 builder.Services.AddExternalizedPayloadStore(options =>
 {
-    options.ThresholdBytes = 900_000;
+    options.ThresholdBytes = 262_144;
     options.ConnectionString = builder.Configuration["PAYLOAD_STORAGE_CONNECTION_STRING"]
         ?? "UseDevelopmentStorage=true";
     options.ContainerName = "durabletask-payloads";
@@ -166,7 +166,7 @@ builder.Services.AddDurableTaskWorker(worker =>
 
 If you use Microsoft Entra ID instead of a storage connection string, set `options.AccountUri` and `options.Credential`. The sample uses `DefaultAzureCredential` and can optionally target a user-assigned managed identity.
 
-Keep `ThresholdBytes` at or below `1,048,576` bytes. The sample uses `900,000` bytes so payloads are offloaded before they approach the 1 MiB scheduler message boundary.
+Keep `ThresholdBytes` at or below `1,048,576` bytes. The sample uses `262,144` bytes (256 KiB), which is also the SDK default, so payloads are offloaded before they approach the 1 MiB scheduler message boundary.
 
 For an end-to-end .NET example, see the [Durable Task SDK large payload sample](https://github.com/Azure-Samples/Durable-Task-Scheduler/tree/main/samples/durable-task-sdks/dotnet/LargePayload).
 
@@ -196,7 +196,7 @@ from durabletask.extensions.azure_blob_payloads import BlobPayloadStore, BlobPay
 store = BlobPayloadStore(BlobPayloadStoreOptions(
     connection_string=storage_connection_string,
     container_name="durabletask-payloads",
-    threshold_bytes=900_000,
+    threshold_bytes=1_024,
 ))
 
 with DurableTaskSchedulerWorker(
@@ -283,7 +283,7 @@ Use these environment variables with the current Durable Task SDK samples.
 | `PAYLOAD_STORAGE_ACCOUNT_URI` | Blob account URI for identity-based payload storage access | unset |
 | `PAYLOAD_CONTAINER_NAME` | Blob container for externalized payloads | `durabletask-payloads` |
 | `PAYLOAD_SIZE_BYTES` | Default payload size used by the run endpoint | `1572864` |
-| `EXTERNALIZE_THRESHOLD_BYTES` | Blob offload threshold | `900000` |
+| `THRESHOLD_BYTES` | Blob offload threshold | `262144` |
 | `PAYLOAD_STORAGE_MANAGED_IDENTITY_CLIENT_ID` | Optional user-assigned managed identity client ID for storage access | unset |
 | `AZURE_CLIENT_ID` | Alternate way to select a user-assigned managed identity | unset |
 | `ASPNETCORE_URLS` | Listen URLs for the sample's HTTP host | framework default |
