@@ -112,7 +112,6 @@ Azure RBAC support for specific users and groups for cloud-only identities with 
 - Japan West
 - Korea Central (SSD/premium only)
 - Korea South
-- Malaysia South (HDD/standard only)
 - Malaysia West (SSD/premium only)
 - Mexico Central
 - New Zealand North (SSD/premium only)
