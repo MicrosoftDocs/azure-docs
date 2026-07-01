@@ -2,8 +2,8 @@
 title: 'Tutorial - Create S2S VPN connection between on-premises network and Azure virtual network: Azure portal'
 description: In this tutorial, you learn how to create a VPN Gateway site-to-site IPsec connection between your on-premises network and a virtual network.
 titleSuffix: Azure VPN Gateway
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.service: azure-vpn-gateway
 ms.topic: tutorial
 ms.date: 07/09/2025

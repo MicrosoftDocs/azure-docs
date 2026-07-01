@@ -2,11 +2,11 @@
 title: 'Migrate manually registered Azure VPN client to Microsoft-registered for P2S Microsoft Entra ID authentication'
 titleSuffix: Azure VPN Gateway
 description: Learn how to update Audience values for P2S VPN gateway connections that use Microsoft Entra ID authentication.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 02/10/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 
 # Customer intent: As an VPN Gateway administrator, I want to update point-to-site Audience values for Microsoft Entra ID authentication.

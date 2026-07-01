@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 06/20/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -683,6 +683,7 @@ Azure service: [Cost Management](/azure/cost-management-billing/)
 > | `Microsoft.CostManagement/calculateCost/action` | Calculate cost for provided product codes. |
 > | `Microsoft.CostManagement/scheduledActions/action` | Run scheduled action. |
 > | `Microsoft.CostManagement/fetchPrices/action` | Fetch prices for provided products. |
+> | `Microsoft.CostManagement/checkNameAvailability/action` | Check the availability and correctness of a name for a resource. |
 > | `Microsoft.CostManagement/alerts/write` | Update alerts. |
 > | `Microsoft.CostManagement/alerts/read` | List alerts. |
 > | `Microsoft.CostManagement/benefitRecommendations/read` | List  single or shared recommendations for Microsoft benefits. |
@@ -1487,23 +1488,6 @@ Azure service: [SAP on Azure](/azure/sap/)
 > | `Microsoft.Workloads/phpWorkloads/wordpressInstances/write` | Create or updated WordpressInstances resource |
 > | `Microsoft.Workloads/phpWorkloads/wordpressInstances/delete` | Delete WordpressInstances resource |
 > | `Microsoft.Workloads/RegisteredSubscriptions/read` | Reads registered subscriptions |
-> | `Microsoft.Workloads/sapDiscoverySites/read` | Gets a SAP Migration discovery site resource. |
-> | `Microsoft.Workloads/sapDiscoverySites/write` | Creates a discovery site for SAP Migration. |
-> | `Microsoft.Workloads/sapDiscoverySites/delete` | Deletes a SAP Migration discovery site resource and its child resources, that is the associated SAP Instances and Server Instances. |
-> | `Microsoft.Workloads/sapDiscoverySites/write` | SAPDiscoverySites_Update. |
-> | `Microsoft.Workloads/sapDiscoverySites/read` | Gets all SAP Migration discovery site resources in a Resource Group. |
-> | `Microsoft.Workloads/sapDiscoverySites/read` | Gets all SAP Migration discovery site resources in a Subscription. |
-> | `Microsoft.Workloads/sapDiscoverySites/importEntities/action` | Import a SAP Migration discovery site resource and it's child resources, that is the SAP instances and Server instances. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/read` | Gets the SAP Instance resource. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/write` | Creates the SAP Instance resource. <br><br>This will be used by service only. PUT operation on this resource by end user will return a Bad Request error. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/delete` | Deletes the SAP Instance resource. <br><br>This will be used by service only. Delete operation on this resource by end user will return a Bad Request error. You can delete the parent resource, which is the SAP Migration discovery site resource, using the delete operation on it. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/write` | Updates the SAP Instance resource. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/read` | Lists the SAP Instance resources for the given SAP Migration discovery site resource. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/read` | Gets the Server Instance resource. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/write` | Creates the Server Instance resource. <br><br>This will be used by service only. PUT operation on this resource by end user will return a Bad Request error. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/delete` | Deletes the Server Instance resource. <br><br>This will be used by service only. Delete operation on this resource by end user will return a Bad Request error. You can delete the parent resource, which is the SAP Migration discovery site resource, using the delete operation on it. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/write` | Updates the Server Instance resource. This operation on a resource by end user will return a Bad Request error. |
-> | `Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/read` | Lists the Server Instance resources for the given SAP Instance resource. |
 > | `Microsoft.Workloads/sapVirtualInstances/read` | Gets an SAP Virtual Instance. |
 > | `Microsoft.Workloads/sapVirtualInstances/write` | Creates an SAP Virtual Instance. |
 > | `Microsoft.Workloads/sapVirtualInstances/delete` | Deletes an SAP Virtual Instance. |
