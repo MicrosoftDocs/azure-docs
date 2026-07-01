@@ -196,7 +196,7 @@ from durabletask.extensions.azure_blob_payloads import BlobPayloadStore, BlobPay
 store = BlobPayloadStore(BlobPayloadStoreOptions(
     connection_string=storage_connection_string,
     container_name="durabletask-payloads",
-    threshold_bytes=1_024,
+    threshold_bytes=262_144,
 ))
 
 with DurableTaskSchedulerWorker(
@@ -219,7 +219,7 @@ with DurableTaskSchedulerWorker(
 
 If you use Microsoft Entra ID instead of a storage connection string, set `account_url` and `credential` in `BlobPayloadStoreOptions`. The sample uses `DefaultAzureCredential`.
 
-Keep `threshold_bytes` at or below `1,048,576` bytes. The current sample uses `1,024` bytes so you can see payload externalization happen during a local run.
+Keep `threshold_bytes` at or below `1,048,576` bytes. The sample uses `262,144` bytes (256 KiB), which is also the SDK default.
 
 For an end-to-end Python example, see the [Durable Task SDK large payload Python sample](https://github.com/microsoft/durabletask-python/tree/main/examples/large_payload).
 
