@@ -7,7 +7,7 @@ author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 05/26/2026
-ms.author: cherylmc 
+ms.author: duau
 ms.custom: sfi-image-nochange
 
 #Audience ID values are not sensitive data.

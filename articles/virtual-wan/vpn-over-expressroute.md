@@ -7,7 +7,7 @@ author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/27/2025
-ms.author: cherylmc 
+ms.author: duau
 ---
 # ExpressRoute encryption: IPsec over ExpressRoute for Virtual WAN
 
