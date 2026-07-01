@@ -2,11 +2,11 @@
 title: 'Configure BGP for VPN Gateway: Portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure BGP for Azure VPN Gateway using the Azure portal.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 06/09/2026
-ms.author: cherylmc 
+ms.author: duau
 
 # Customer intent: As a network administrator, I want to configure BGP for my VPN gateway, so that I can enable dynamic routing and enhance connectivity between my on-premises networks and Azure resources.
 ---

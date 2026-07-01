@@ -2,8 +2,8 @@
 title: SSTP protocol retirement and connections migration
 titleSuffix: Azure VPN Gateway
 description: Learn how to transition to OpenVPN protocol or IKEv2 from SSTP to overcome the 128 concurrent connection SSTP limit.
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 09/29/2025

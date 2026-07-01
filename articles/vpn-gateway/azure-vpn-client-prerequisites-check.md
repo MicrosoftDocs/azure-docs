@@ -2,11 +2,11 @@
 title: 'Azure VPN Client prerequisites check'
 titleSuffix: Azure VPN Gateway
 description: Learn how run the Azure VPN Client prerequisites check to identify missing prerequisites and mitigate them.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 03/14/2025
-ms.author: cherylmc
+ms.author: duau
 
 # Customer intent: As a network administrator, I want to run a prerequisites check on the Azure VPN Client, so that I can identify and resolve any issues that may hinder users from successfully connecting to the P2S VPN.
 ---
