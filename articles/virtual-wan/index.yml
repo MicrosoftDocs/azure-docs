@@ -8,8 +8,8 @@ metadata:
   description: Learn about Virtual WAN
   ms.service: azure-virtual-wan
   ms.topic: landing-page
-  author: cherylmc
-  ms.author: cherylmc
+  author: duongau
+  ms.author: duau
   ms.date: 01/09/2024
   ms.custom: e2e-hybrid
 

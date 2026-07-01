@@ -7,7 +7,7 @@ author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/27/2025
-ms.author: cherylmc 
+ms.author: duau
 ms.custom: devx-track-azurepowershell
 # Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
 ---
