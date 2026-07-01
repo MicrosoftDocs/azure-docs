@@ -52,12 +52,6 @@ There are two deployment options for the OSDU Admin UI:
 
 1. Open the URL in a browser and validate that it's working correctly and connected to the correct Azure Data Manager for Energy instance.
 
-> [!NOTE]
-> If you provide `gcz_endpoint`, the Azure Container Apps deployment injects it into the Admin UI container automatically. The Admin UI then generates runtime configuration with `settings.api_endpoints.gcz_endpoint`, so no manual post-deployment `config.json` update or portal environment variable edit is required. GCZ must already be deployed separately.
-
-> [!IMPORTANT]
-> The `Deploy to Azure` button currently points to the Microsoft-hosted `azuredeploy.json` template. If the template is re-hosted in a PG-controlled repository, update the button link to use the new raw template URL.
-
 ### Parameters
 
 | Parameter | Description | Required |
