@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
-ms.date: 11/01/2024
+ms.date: 07/01/2026
 
 #CustomerIntent: As an IT professional, I want to ensure that the images I download for Azure IoT Operations are legitimate.
 ---
