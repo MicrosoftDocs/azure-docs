@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Access data with managed identity in Java using Service Connector'
+title: 'Tutorial: Access data with managed identity in Java on Azure Container Apps'
 description: Secure Azure Database for PostgreSQL connectivity with managed identity from a sample Java Quarkus app, and deploy it to Azure Container Apps.
 ms.devlang: java
 author: KarlErickson
@@ -8,7 +8,7 @@ ms.reviewer: edburns
 ms.topic: tutorial
 ms.service: azure-container-apps
 ms.date: 03/26/2026
-ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, passwordless-java, service-connector, devx-track-javaee-quarkus-aca
+ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, passwordless-java, devx-track-javaee-quarkus-aca
 ---
 
 # Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity
@@ -24,7 +24,7 @@ What you learn:
 > * Create an Azure Container Registry instance and push a Java app image to it.
 > * Create a Container App in Azure.
 > * Create a PostgreSQL database in Azure.
-> * Connect to a PostgreSQL Database with managed identity using Service Connector.
+> * Connect to a PostgreSQL Database with a system-assigned managed identity.
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
@@ -252,23 +252,55 @@ Next, create a PostgreSQL Database and configure your container app to connect t
        --database-name $DB_NAME
    ```
 
-1. Install the [Service Connector](../service-connector/overview.md) passwordless extension for the Azure CLI:
+1. Ensure your container app has a system-assigned managed identity and capture its principal ID. The identity was assigned when you created the app with `--registry-identity system`; the following command assigns it explicitly if needed.
 
    ```azurecli
-   az extension add --name serviceconnector-passwordless --upgrade --allow-preview true
-   ```
-
-1. Connect the database to the container app with a system-assigned managed identity, using the connection command.
-
-   ```azurecli
-   az containerapp connection create postgres-flexible \
+   az containerapp identity assign \
        --resource-group $RESOURCE_GROUP \
        --name $APP_NAME \
-       --target-resource-group $RESOURCE_GROUP \
-       --server $DB_SERVER_NAME \
-       --database $DB_NAME \
-       --system-identity \
-       --container $APP_NAME
+       --system-assigned
+
+   PRINCIPAL_ID=$(az containerapp show \
+       --resource-group $RESOURCE_GROUP \
+       --name $APP_NAME \
+       --query identity.principalId \
+       --output tsv)
+   ```
+
+1. Set yourself as the Microsoft Entra administrator on the PostgreSQL server so you can create database roles.
+
+   ```azurecli
+   CURRENT_USER=$(az account show --query user.name --output tsv)
+   CURRENT_USER_OID=$(az ad signed-in-user show --query id --output tsv)
+
+   az postgres flexible-server ad-admin create \
+       --resource-group $RESOURCE_GROUP \
+       --server-name $DB_SERVER_NAME \
+       --display-name $CURRENT_USER \
+       --object-id $CURRENT_USER_OID
+   ```
+
+1. Create a database role mapped to the container app's managed identity and grant it access to the `fruits` database.
+
+   ```azurecli
+   az postgres flexible-server execute \
+       --name $DB_SERVER_NAME \
+       --admin-user $CURRENT_USER \
+       --admin-password $(az account get-access-token --resource-type oss-rdbms --query accessToken --output tsv) \
+       --querytext "SELECT * FROM pgaadauth_create_principal_with_oid('$APP_NAME', '$PRINCIPAL_ID', 'service', false, false); GRANT ALL PRIVILEGES ON DATABASE fruits TO \"$APP_NAME\";"
+   ```
+
+1. Configure the container app with the connection information the Quarkus app reads from environment variables.
+
+   ```azurecli
+   az containerapp update \
+       --resource-group $RESOURCE_GROUP \
+       --name $APP_NAME \
+       --set-env-vars \
+           AZURE_POSTGRESQL_HOST=$DB_SERVER_NAME.postgres.database.azure.com \
+           AZURE_POSTGRESQL_PORT=5432 \
+           AZURE_POSTGRESQL_DATABASE=$DB_NAME \
+           AZURE_POSTGRESQL_USERNAME=$APP_NAME
    ```
 
 ## 6. Review your changes
