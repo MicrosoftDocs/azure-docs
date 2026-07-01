@@ -11,13 +11,6 @@ ms.date: 9/30/2025
 
 Maintenance mode is a feature that allows community or enclave owners to temporarily place their community or enclaves into a "maintenance mode" state where changes are allowed. This mode permits privileged users to make certain changes to the underlying managed resources that are normally protected by Deny Assignments. This helps maintain the community and enclave isolation and network boundary.
 
-## Key features
-The following are the key features of Maintenance Mode:
-- *Exclusion from Deny Assignments*: Specified users or groups are temporarily excluded from deny assignments, enabling them to perform necessary maintenance tasks or create complex workloads.
-- *Privileged action*: As this action is considered as a privileged action, Azure recommends only using maintenance mode when performing certain elevated actions. Privileged users making changes should understand changes they're making, and steps to undo or remediate those changes.
-- *User-friendly interface*: The feature is designed with a user-friendly interface, making it easy to activate and deactivate maintenance mode as needed.
-- *Enhanced flexibility*: Maintenance mode provides users with the flexibility to manage their workloads more effectively, ensuring that they can perform tasks without unnecessary interruptions.
-
 ## Maintenance mode options
 
 - `Off` - Deny assignments created by Azure Enclave are in-place to protect underlying [managed resource groups](./azure-enclave-resource-groups.md) for an enclave or community.
@@ -30,24 +23,120 @@ The following are the key features of Maintenance Mode:
 - **Governance** - Managing logging, policy, or other governance-related changes.
 - **Off** - Maintenance mode no longer necessary.
 
+## Community Maintenance Mode
+
+Community Maintenance mode is use protect managed resources that make up the Community including Azure vWAN, Azure Firewall, Firewall Policy and Log Analytics Workspace. Deny assignments are used to prevent unauthorized actions over these resources. When maintainance mode is enabled, the specified principals are granted exclusions from the deny assignments to perform privileged RBAC actions.   
+
+### Community Maintanence Mode Scenarios
+
+Common scenarios for Community Maintanence Mode include:
+- Creating/modifying virtual hub route tables to support complex networking configurations.
+- Creating/modifying custom virtual hubs within the Community vWAN
+- Creating/modifying individual network security group rules required for specific Azure services
+- Creating resources within the Enclave managed resource group to enable private networking (ex - Private DNS Zones, Private Links, etc.) 
+
+## Community - General Maintainance Mode
+
+When `General` maintenance mode is enabled on a **Community ** resource, the maintenance mode `principals` (for example, users or groups) are excluded from the `Deny All` deny assignment for the **community managed resource group**. 
+
+This allows the users identified in the maintenance mode principals to perform that actions that would otherwise be blocked by the `Deny All` deny assignment. The `Allow Dataplane Actions` deny assignments are still in effect for all principals (including the maintenance mode principals). A user may still be limited by their assigned roles.
+
+The following permissions are allowed over the **Community managed resource group** when **general** maintanence mode is enabled.
+
+Community Deny Assignment: `Deny All` 
+
+| Operation                  | Action Type  | Explanation                                     |
+|----------------------------|--------------|-------------------------------------------------|
+| *	                         | Action       | Deny all actions except specified in this table |
+| */read                     | NotAction    | Allowed | Allow "read" actions on all resources |
+| Microsoft.Resources/tags/* | NotAction    | Allow "tags" actions on all resources           |   
+
+### Community - Advanced Maintenance Mode
+
+The following permissions are allowed over the **Communtiy managed resource group** when **advanced** maintanence mode is enabled.
+
+Community Deny Assignment: `Allow Dataplane Actions`
+
+| Operation                                                             | Action Type   | Explanation |
+|-----------------------------------------------------------------------|---------------|-------------------------------------------------------|
+| *                                                                     | Action        | Deny all actions except specified in this table       |
+| */read                                                                | NotAction     | Allow "read" actions on all resources                 |
+| Microsoft.Insights/alertRules/*                                       | NotAction     | Allow all actions on "alertRules"                     |
+| Microsoft.Support/*                                                   | NotAction     | Allow all actions on "Support"                        |
+| Microsoft.Resources/tags/*                                            | NotAction     | Allow "tags" actions on all resources                 |
+| Microsoft.Network/azureFirewalls/networkRuleCollections/write         | NotAction     | Allow "write" actions on networkRuleCollections       |
+| Microsoft.Network/azureFirewalls/applicationRuleCollections/write     | NotAction     | Allow "write" actions on applicationRuleCollections   |
+| Microsoft.Network/azureFirewalls/natRuleCollections/write             | NotAction     | Allow "write" actions on natRuleCollections           |
+| Microsoft.Network/firewallPolicies/ruleGroups/write                   | NotAction     | Allow "write" actions on ruleGroups                   |
+| Microsoft.Network/virtualHubs/write                                   | NotAction     | Allow "write" actions on virtualHubs                  |
+| Microsoft.Network/virtualWans/virtualHubs/read                        | NotAction     | Allow "read" actions on virtualHubs                   |
+| Microsoft.Network/virtualWans/join/action                             | NotAction     | Allow "join" actions on virtualWans                   |
+| Microsoft.Network/virtualHubs/routeTables/write                       | NotAction     | Allow "write" actions over virtual hub route tables   |
+
+## Enclave Maintenance Mode
+
+Enclave Maintenance mode is use protect managed resources that make up the Enclave including Azure virtual network, network security groups, and log analytics workspace. Deny assignments are used to prevent unauthorized actions over these resources. When maintainance mode is enabled, the specified principals are granted exclusions from the deny assignments to perform privileged RBAC actions over the enclave managed resource group. 
+
+### Enclave Maintanence Mode Scenarios
+
+Common scenarios for using enclave maintanence mode include:
+- Performing subnet/vnet joins operations during workload deployments
+- Creating/modifying individual network security group rules required for specific Azure services
+- Creating resources within the enclave managed resource group to enable private networking (ex - Private DNS Zones, Private Links, etc.) 
+
+### Enclave - General Maintenance Mode
+
+When `General` maintenance mode is enabled on an enclave resource, the maintenance mode `principals` (users, groups, or service principals) are excluded from the `Deny All` deny assignment for the **enclave managed resource group**. This allows the users identified in the maintenance mode principals to perform that actions that would otherwise be blocked by the `Deny All` deny assignment. The `Allow Dataplane Actions` deny assignments are still in effect for all principals (including the maintenance mode principals). A user may still be limited by their assigned roles.
+
+The following permissions are allowed over the **enclave managed resource group** when **general** maintanence mode is enabled.
+
+Enclave deny assignment: `Deny All` 
+
+| Operation                  | Action Type  | Explanation                                     |
+|----------------------------|--------------|-------------------------------------------------|
+| *	                         | Action       | Deny all actions except specified in this table |
+| */read                     | NotAction    | Allow "read" actions on all resources           |
+| Microsoft.Resources/tags/* | NotAction    | Allow "tags" actions on all resources           |   
+
+### Enclave - Advanced Maintenance Mode
+
+The following permissions are allowed over the **enclave managed resource group** when **advanced** maintanence mode is enabled.
+
+Enclave deny assignment: `Allow Dataplane Actions`
+
+| Operation                                             | Action Type   | Explanation                                               |
+|-------------------------------------------------------|---------------|-----------------------------------------------------------|
+| *                                                     | Action        | Deny all actions except specified in this table           |
+| */read                                                | NotAction     | Allow "read" actions on all resources                     |
+| Microsoft.Insights/alertRules/*                       | NotAction     | Allow all actions on "alertRules"                         |
+| Microsoft.Resources/deployments/*                     | NotAction     | Allow all actions on "deployments"                        |
+| Microsoft.Support/*                                   | NotAction     | Allow all actions on "Support"                            |
+| Microsoft.Network/privateDnsZones/*                   | NotAction     | Allow all actions on "privateDnsZones"                    |
+| Microsoft.Network/privateDnsOperationResults/*        | NotAction     | Allow all actions on "privateDnsOperationResults"         |
+| Microsoft.Network/privateDnsOperationStatuses/*       | NotAction     | Allow all actions on "privateDnsOperationStatuses"        |
+| Microsoft.Network/virtualNetworks/join/action         | NotAction     | Allow vNet/join operations over the enclave vNet          |
+| Microsoft.Network/virtualNetworks/subnets/join/action | NotAction     | Allow subnet/join operations over the enclave vNet        |
+| Microsoft.Authorization/policyExemptions/*            | NotAction     | Allow all actions on "policyExemptions"                   |
+| Microsoft.Network/routeTables/routes/write            | NotAction     | Allow "write" actions over Virtual Network route tables   |
+
 ## How to use maintenance mode
 
 ### 1. Activate maintenance mode during community or enclave creation
 
 1. Navigate to the Maintenance mode tab on the community or enclave create form.
-2. Select the mode option [`Off` / `General` / `Advanced`].
-3. Select the service principals that you want to include.
-4. Select the justification for why you're entering maintenance mode [`OFF` / `NETWORKING` / `GOVERNANCE`].
-5. Review and create the community or enclave as normal.
+1. Select the mode option [`Off` / `General` / `Advanced`].
+1. Select the service principals that you want to include.
+1. Select the justification for why you're entering maintenance mode [`OFF` / `NETWORKING` / `GOVERNANCE`].
+1. Review and create the community or enclave as normal.
 
 ### 2. Activate maintenance mode for an existing community or enclave
 
 1. Navigate to the community or enclave you're enabling maintenance mode.
-2. Navigate to the "Maintenance mode" tab.
-3. Select the mode option [`Advanced` / `General`].
-4. Select the service principals that you want to include.
-5. Select the justification for why you're entering maintenance mode [`NETWORKING` / `GOVERNANCE`].
-6. Confirm and save.
+1. Navigate to the "Maintenance mode" tab.
+1. Select the mode option [`Advanced` / `General`].
+1. Select the service principals that you want to include.
+1. Select the justification for why you're entering maintenance mode [`NETWORKING` / `GOVERNANCE`].
+1. Confirm and save.
 
 ### 3. Perform maintenance tasks
 
@@ -56,157 +145,21 @@ The following are the key features of Maintenance Mode:
 ### 4. Deactivate maintenance mode
 
 1. After completing your tasks, navigate back to the Maintenance mode tab.
-2. Select the `OFF` mode.
-3. Confirm and save.
+1. Select the `OFF` mode.
+1. Confirm and save.
 
 ## Best practices
 
-- **Communicate**: Inform relevant team members about the activation and deactivation of maintenance mode to avoid any confusion.
+- **Limit Usage**: Ensure that maintenance mode is only enabled for trusted privileged users during planned mainenance windows and ensure to maintain security and isolation over Azure Enclave resources.
 - **Understand the impact**: Privileged users should fully understand the changes they're making, and steps to undo or remediate those changes. Making manual changes to underlying managed resources in a community or enclave while in maintenance mode might cause unintended drift in your environment from ideal states.
 
-## Permissions managed by maintenance mode
-The following permissions are managed by maintenance mode and users are blocked from performing these actions unless they're listed as a principal in the maintenance mode configuration for the community or enclave and maintenance mode is enabled.
+## Learn more
 
-### Maintenance mode "Off"
-When maintenance mode is disabled or `Off`, all principals (for example, users or groups) are prevented from performing actions unless the deny assignments allow that action for all users in the community or enclave managed resource groups. A user may still be limited by their assigned roles.
-
-Deny Assignment: `Deny All` (the same for both communities and enclaves)
-
-| Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
-|----------------------------|--|----------|----------|
-| *	                         | Action | Deny all actions except specified in this table | Deny all actions except specified in this table |
-| */read                     | NotAction | Allow "read" actions on all resources | Allow "read" actions on all resources |
-| Microsoft.Resources/tags/* | NotAction | Allow "tags" actions on all resources | Allow "tags" actions on all resources |
-
-#### Community maintenance mode "Off"
-
-Community Deny Assignment: `Allow Dataplane Actions`
-
-| Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
-|-------------------------------------------------------------------|--|----------|----------|
-| *                                                                 | Action | Deny all actions except specified in this table | Deny all actions except specified in this table |
-| */read                                                            | NotAction | Allow "read" actions on all resources | Allow "read" actions on all resources |
-| Microsoft.Insights/alertRules/*                                   | NotAction | Allow all actions on "alertRules" | Allow all actions on "alertRules" |
-| Microsoft.Support/*                                               | NotAction | Allow all actions on "Support" | Allow all actions on "Support" |
-| Microsoft.Resources/tags/*                                        | NotAction | Allow "tags" actions on all resources | Allow "tags" actions on all resources |
-| Microsoft.Network/azureFirewalls/networkRuleCollections/write     | NotAction | Allow "write" actions on networkRuleCollections | Allow "write" actions on networkRuleCollections |
-| Microsoft.Network/azureFirewalls/applicationRuleCollections/write | NotAction | Allow "write" actions on applicationRuleCollections | Allow "write" actions on applicationRuleCollections |
-| Microsoft.Network/azureFirewalls/natRuleCollections/write         | NotAction | Allow "write" actions on natRuleCollections | Allow "write" actions on natRuleCollections |
-| Microsoft.Network/firewallPolicies/ruleGroups/write               | NotAction | Allow "write" actions on ruleGroups | Allow "write" actions on ruleGroups |
-| Microsoft.Network/virtualHubs/write                               | NotAction | Allow "write" actions on virtualHubs | Allow "write" actions on virtualHubs |
-| Microsoft.Network/virtualWans/virtualHubs/read                    | NotAction | Allow "read" actions on virtualHubs | Allow "read" actions on virtualHubs |
-| Microsoft.Network/virtualWans/join/action                         | NotAction | Allow "join" actions on virtualWans | Allow "join" actions on virtualWans |
-
-#### Enclave maintenance mode "Off"
-
-Enclave Deny Assignment: `Allow Dataplane Actions`
-
-| Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
-|-------------------------------------------------------|--|----------|----------|
-| *	                                                    | Action | Deny all actions except specified in this table | Deny all actions except specified in this table |
-| */read                                                | NotAction | Allow "read" actions on all resources | Allow "read" actions on all resources |
-| Microsoft.Insights/alertRules/*                       | NotAction | Allow all actions on "alertRules" | Allow all actions on "alertRules" |
-| Microsoft.Resources/deployments/*                     | NotAction | Allow all actions on "deployments" | Allow all actions on "deployments" |
-| Microsoft.Support/*                                   | NotAction | Allow all actions on "Support" | Allow all actions on "Support" |
-| Microsoft.Network/privateDnsZones/*                   | NotAction | Allow all actions on "privateDnsZones" | Allow all actions on "privateDnsZones" |
-| Microsoft.Network/privateDnsOperationResults/*        | NotAction | Allow all actions on "privateDnsOperationResults" | Allow all actions on "privateDnsOperationResults" |
-| Microsoft.Network/privateDnsOperationStatuses/*       | NotAction | Allow all actions on "privateDnsOperationStatuses" | Allow all actions on "privateDnsOperationStatuses" |
-| Microsoft.Network/virtualNetworks/join/action         | NotAction | Allow this action | Allow this action |
-| Microsoft.Network/virtualNetworks/subnets/join/action | NotAction | Allow this action | Allow this action |
-| Microsoft.Authorization/policyExemptions/*            | NotAction | Allow all actions on "policyExemptions" | Allow all actions on "policyExemptions" |
-
-### "General" maintenance mode
-When `General` maintenance mode is enabled, the maintenance mode `principals` (for example, users or groups) are excluded from the `Deny All` deny assignment for the community or enclave managed resource group. This allows the users identified in the maintenance mode principals to perform that actions that would otherwise be blocked by the `Deny All` deny assignment. The `Allow Dataplane Actions` deny assignments are still in effect for all principals (including the maintenance mode principals). A user may still be limited by their assigned roles.
-
-Deny Assignment: `Deny All` (the same for both communities and enclaves)
-
-| Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
-|---------------------------------------------|--|----------|----------|
-| *	                         | Action | Allowed here but blocked by `Allow Dataplace Actions` deny assignment | Deny all actions except specified in this table |
-| */read                     | NotAction | Allowed | Allow "read" actions on all resources |
-| Microsoft.Resources/tags/* | NotAction | Allowed | Allow "tags" actions on all resources |
-
-#### Community "General" maintenance mode
-
-Community Deny Assignment: `Allow Dataplane Actions`
-
-| Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
-|-------------------------------------------------------------------|--|----------|----------|
-| *                                                                 | Action | Deny all actions except specified in this table | Deny all actions except specified in this table |
-| */read                                                            | NotAction | Allow "read" actions on all resources | Allow "read" actions on all resources |
-| Microsoft.Insights/alertRules/*                                   | NotAction | Allow all actions on "alertRules" | Allow all actions on "alertRules" |
-| Microsoft.Support/*                                               | NotAction | Allow all actions on "Support" | Allow all actions on "Support" |
-| Microsoft.Resources/tags/*                                        | NotAction | Allow "tags" actions on all resources | Allow "tags" actions on all resources |
-| Microsoft.Network/azureFirewalls/networkRuleCollections/write     | NotAction | Allow "write" actions on networkRuleCollections | Allow "write" actions on networkRuleCollections |
-| Microsoft.Network/azureFirewalls/applicationRuleCollections/write | NotAction | Allow "write" actions on applicationRuleCollections | Allow "write" actions on applicationRuleCollections |
-| Microsoft.Network/azureFirewalls/natRuleCollections/write         | NotAction | Allow "write" actions on natRuleCollections | Allow "write" actions on natRuleCollections |
-| Microsoft.Network/firewallPolicies/ruleGroups/write               | NotAction | Allow "write" actions on ruleGroups | Allow "write" actions on ruleGroups |
-| Microsoft.Network/virtualHubs/write                               | NotAction | Allow "write" actions on virtualHubs | Allow "write" actions on virtualHubs |
-| Microsoft.Network/virtualWans/virtualHubs/read                    | NotAction | Allow "read" actions on virtualHubs | Allow "read" actions on virtualHubs |
-| Microsoft.Network/virtualWans/join/action                         | NotAction | Allow "join" actions on virtualWans | Allow "join" actions on virtualWans |
-
-#### Enclave "General" maintenance mode
-
-Enclave Deny Assignment: `Allow Dataplane Actions`
-
-| Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
-|-------------------------------------------------------|--|----------|----------|
-| *	                                                    | Action | Deny all actions except specified in this table | Deny all actions except specified in this table |
-| */read                                                | NotAction | Allow "read" actions on all resources | Allow "read" actions on all resources |
-| Microsoft.Insights/alertRules/*                       | NotAction | Allow all actions on "alertRules" | Allow all actions on "alertRules" |
-| Microsoft.Resources/deployments/*                     | NotAction | Allow all actions on "deployments" | Allow all actions on "deployments" |
-| Microsoft.Support/*                                   | NotAction | Allow all actions on "Support" | Allow all actions on "Support" |
-| Microsoft.Network/privateDnsZones/*                   | NotAction | Allow all actions on "privateDnsZones" | Allow all actions on "privateDnsZones" |
-| Microsoft.Network/privateDnsOperationResults/*        | NotAction | Allow all actions on "privateDnsOperationResults" | Allow all actions on "privateDnsOperationResults" |
-| Microsoft.Network/privateDnsOperationStatuses/*       | NotAction | Allow all actions on "privateDnsOperationStatuses" | Allow all actions on "privateDnsOperationStatuses" |
-| Microsoft.Network/virtualNetworks/join/action         | NotAction | Allow this action | Allow this action |
-| Microsoft.Network/virtualNetworks/subnets/join/action | NotAction | Allow this action | Allow this action |
-| Microsoft.Authorization/policyExemptions/*            | NotAction | Allow all actions on "policyExemptions" | Allow all actions on "policyExemptions" |
-
-### "Advanced" maintenance mode
-When `Advanced` maintenance mode is enabled, the maintenance mode `principals` (for example, users or groups) are excluded from the `Deny All` and the `Allow Dataplace Actions` deny assignments for the community or enclave managed resource group. This allows the users identified in the maintenance mode principals to perform that actions that would otherwise be blocked by the `Deny All` and the `Allow Dataplace Actions` deny assignments. A user may still be limited by their assigned roles.
-
-Deny Assignment: `Deny All` (the same for both communities and enclaves)
-
-| Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
-|----------------------------|--|----------|----------|
-| *	                         | Action | Allowed | Deny all actions except specified in this table |
-| */read                     | NotAction | Allowed | Allow "read" actions on all resources |
-| Microsoft.Resources/tags/* | NotAction | Allowed | Allow "tags" actions on all resources |
-
-#### Community "Advanced" maintenance mode
-
-Community Deny Assignment: `Allow Dataplane Actions`
-
-| Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
-|-------------------------------------------------------------------|--|----------|----------|
-| *                                                                 | Action    | Allowed | Deny all actions except specified in this table |
-| */read                                                            | NotAction | Allowed | Allow "read" actions on all resources |
-| Microsoft.Insights/alertRules/*                                   | NotAction | Allowed | Allow all actions on "alertRules" |
-| Microsoft.Support/*                                               | NotAction | Allowed | Allow all actions on "Support" |
-| Microsoft.Resources/tags/*                                        | NotAction | Allowed | Allow "tags" actions on all resources |
-| Microsoft.Network/azureFirewalls/networkRuleCollections/write     | NotAction | Allowed | Allow "write" actions on networkRuleCollections |
-| Microsoft.Network/azureFirewalls/applicationRuleCollections/write | NotAction | Allowed | Allow "write" actions on applicationRuleCollections |
-| Microsoft.Network/azureFirewalls/natRuleCollections/write         | NotAction | Allowed | Allow "write" actions on natRuleCollections |
-| Microsoft.Network/firewallPolicies/ruleGroups/write               | NotAction | Allowed | Allow "write" actions on ruleGroups |
-| Microsoft.Network/virtualHubs/write                               | NotAction | Allowed | Allow "write" actions on virtualHubs |
-| Microsoft.Network/virtualWans/virtualHubs/read                    | NotAction | Allowed | Allow "read" actions on virtualHubs |
-| Microsoft.Network/virtualWans/join/action                         | NotAction | Allowed | Allow "join" actions on virtualWans |
-
-#### Enclave "Advanced" maintenance mode
-
-Enclave Deny Assignment: `Allow Dataplane Actions`
-
-| Operation | Action Type | Explanation: maintenance mode principals | Explanation: All non-maintenance mode principals |
-|-------------------------------------------------------|--|----------|----------|
-| *	                                                    | Action | Allowed | Deny all actions except specified in this table |
-| */read                                                | NotAction | Allowed | Allow "read" actions on all resources |
-| Microsoft.Insights/alertRules/*                       | NotAction | Allowed | Allow all actions on "alertRules" |
-| Microsoft.Resources/deployments/*                     | NotAction | Allowed | Allow all actions on "deployments" |
-| Microsoft.Support/*                                   | NotAction | Allowed | Allow all actions on "Support" |
-| Microsoft.Network/privateDnsZones/*                   | NotAction | Allowed | Allow all actions on "privateDnsZones" |
-| Microsoft.Network/privateDnsOperationResults/*        | NotAction | Allowed | Allow all actions on "privateDnsOperationResults" |
-| Microsoft.Network/privateDnsOperationStatuses/*       | NotAction | Allowed | Allow all actions on "privateDnsOperationStatuses" |
-| Microsoft.Network/virtualNetworks/join/action         | NotAction | Allowed | Allow this action |
-| Microsoft.Network/virtualNetworks/subnets/join/action | NotAction | Allowed | Allow this action |
-| Microsoft.Authorization/policyExemptions/*            | NotAction | Allowed| Allow all actions on "policyExemptions" |
+- [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview)
+- [Understand Azure deny assignments](/azure/role-based-access-control/deny-assignments)
+- [List deny assignments using the Azure portal](/azure/role-based-access-control/deny-assignments-portal)
+- [Azure built-in roles](/azure/role-based-access-control/built-in-roles)
+- [Understand Azure role definitions](/azure/role-based-access-control/role-definitions)
+- [Best practices for Azure RBAC](/azure/role-based-access-control/best-practices)
+- [What is Microsoft Entra Privileged Identity Management?](/entra/id-governance/privileged-identity-management/pim-configure)
+- [Managed resource groups in Azure](/azure/azure-resource-manager/managed-applications/overview#managed-resource-group)

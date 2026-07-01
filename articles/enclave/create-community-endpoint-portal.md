@@ -10,7 +10,7 @@ ms.date: 06/12/2026
 
 # Create a community endpoint in the Azure portal
 
-In this how-to article, you create a community endpoint and add a rule that defines an allowed destination for enclave connections.
+In this how-to article, you create a [community endpoint](./what-community-endpoint.md) and add a rule that defines an allowed destination for enclave connections.
 
 ## Prerequisites
 
@@ -24,12 +24,12 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a community endpoint
 
-1. Navigate to an existing community in your Azure subscription.
-2. In the left menu, select `Community Endpoints`, and then select `Create`.
+1. Go to an existing community in your Azure subscription.
+1. In the left menu, select `Community Endpoints`, and then select `Create`.
 
     ![Screenshot showing the community endpoint list.](./media/tutorial-step-five-fabrikam-endpoint-list.png)
 
-3. Enter a name for the community endpoint, and then select `Add` to create a community endpoint rule.
+1. Enter a name for the community endpoint, and then select `Add` to create a community endpoint rule.
 
 ### Community endpoint rule types
 
@@ -50,14 +50,14 @@ Enter the rule name, destination type, destination, port, and protocol, and then
 When you create a `ServiceTag` rule:
 
 1. Select `ServiceTag` as the destination type.
-2. Choose the `Destination` service tag from the list, such as `Storage`, `AzureKeyVault`, or `AzureActiveDirectory`.
-3. Select the protocol: `TCP`, `UDP`, `ICMP`, or `ANY`.
-4. Enter the destination ports required for your service.
+1. Choose the `Destination` service tag from the list, such as `Storage`, `AzureKeyVault`, or `AzureActiveDirectory`.
+1. Select the protocol: `TCP`, `UDP`, `ICMP`, or `ANY`.
+1. Enter the destination ports required for your service.
 
     > [!TIP]
     > Use service tags when you need to connect to Azure services that have dynamic IP address ranges. Service tags reduce the need to track and update IP addresses manually.
 
-5. Select `Review + create`, and then select `Create`.
+1. Select `Review + create`, and then select `Create`.
 
 ## Related content
 

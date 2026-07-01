@@ -9,7 +9,7 @@ ai-usage: ai-assisted
 ---
 # Quota and region availability in Azure Enclave
 
-All Azure services set default limits and quotas for resources and features, such as usage restrictions for certain virtual machine (VM) SKUs.
+All Azure services set default limits and quotas for resources and features, such as usage restrictions for certain virtual machine (VM) sizes.
 Example: [DS_v5 series](/azure/virtual-machines/dv5-dsv5-series#dsv5-series) VMs (see the table showing resource limitations) 
 
 This article details the default resource limits for Azure Enclave resources and the availability of Azure Enclave in Azure regions.

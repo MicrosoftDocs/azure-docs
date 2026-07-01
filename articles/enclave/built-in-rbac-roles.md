@@ -37,7 +37,7 @@ For example, a user with a community owner assignment at subscription scope can 
 
 ## RBAC for workloads
 
-Each workload deployed in Azure Enclave uses a managed resource group. The enclaves service owns that resource group, and you manage workload access control by using standard Azure RBAC.
+Azure Enclave provides multiple options to control access to workload resources. Workloads can be secured with Deny Assignments that block standard RBAC inheritance or can be managed with standard Azure Role-Based Access Controls.
 
 [Learn more about Azure RBAC](/azure/role-based-access-control/overview)
 

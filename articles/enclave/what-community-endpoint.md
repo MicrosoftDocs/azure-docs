@@ -22,9 +22,9 @@ Community endpoints are enforced through **Azure Firewall network rules**, ensur
 In this architecture:
 
 1. An **enclave** initiates outbound connectivity.
-2. Traffic is routed through the **community endpoint**.
-3. The request is evaluated against **Azure Firewall network rules**.
-4. If a rule matches, the connection to the destination is allowed.
+1. Traffic is routed through the **community endpoint**.
+1. The request is evaluated against **Azure Firewall network rules**.
+1. If a rule matches, the connection to the destination is allowed.
 
 This model ensures that all outbound traffic from enclaves is evaluated through centralized policy enforcement.
 

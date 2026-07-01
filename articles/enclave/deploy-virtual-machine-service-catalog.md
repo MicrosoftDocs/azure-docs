@@ -22,8 +22,8 @@ In this article, you:
 ## Deploy Options
 The Virtual Machine template can be deployed in multiple configurations:
 1. Virtual Machine (~10 min)
-2. Virtual Machine domain-joined (~12 min)
-3. Virtual Machine domain-joined and published as a RemoteApp (~20 min)
+1. Virtual Machine domain-joined (~12 min)
+1. Virtual Machine domain-joined and published as a RemoteApp (~20 min)
 
 ## Before you begin
 - This quickstart assumes a basic understanding of networking and Azure Enclave concepts. For more information, see [Concepts and best practices of Azure Enclave](./best-practices.md).
@@ -38,34 +38,34 @@ The Virtual Machine template can be deployed in multiple configurations:
 There are guardrail requirements on the enclaves to ensure enclave resources are using Customer-Managed Keys (CMK) encryption. You need a key in a key vault and a managed identity to access the key. Create the CMK (optional Key Vault) and Managed Identity in the [Common Dependencies service catalog template](./deploy-common-dependencies-service-catalog.md)
 
 1. Subnet for Private Endpoints: You can create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation. The private endpoint subnet should have no [subnet delegation](/azure/virtual-network/subnet-delegation-overview) for the private endpoints to work properly.
-2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
+1. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
     - `Key Vault` required when creating a Key Vault from this template or the more customizable [Key Vault template](./deploy-key-vault-service-catalog.md).
     - `Storage File`, `Storage Queue`, `Storage Blob`, and `Storage Table` are required when making a Storage Account from this template or the more customizable [Storage Account template](./deploy-storage-account-service-catalog.md).
-3. A Key Vault, Customer Managed Key (CMK), and Managed Identity are required for this template. Create a Key Vault, CMK, and Managed Identity in the [Common Dependencies service catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own.
+1. A Key Vault, Customer Managed Key (CMK), and Managed Identity are required for this template. Create a Key Vault, CMK, and Managed Identity in the [Common Dependencies service catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own.
     - These resources should be created inside a [workload resource group](./create-workload-portal.md#add-workload-resource-groups).
     - After creating the User Managed Identity, ensure it has access to the CMK key
         - Assign the `Key Vault Crypto Service Encryption User` role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This role allows you to then assign the managed identity to another resource, like a Virtual Machine. Then that Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault. Assigning a managed identity in this way is a least privilege best practice.
-4. (optional) An existing domain to join if the `Admin VM` is domain joined.
+1. (optional) An existing domain to join if the `Admin VM` is domain joined.
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
-2. Select `+Add an Azure Service` button.
-3. Select the `Virtual Machine` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown
-4. Confirm the version you need (default: `latest`) and select `Next`.
+1. Select `+Add an Azure Service` button.
+1. Select the `Virtual Machine` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown
+1. Confirm the version you need (default: `latest`) and select `Next`.
 
 ![Screenshot showing the Virtual Machine template selected from the service catalog list.](./media/service-catalog-list-virtual-machine.png)
 
-4. Enter all the required parameters on each of the tabs.
-5. For `OS Disk Encryption Name` and `OS Disk Encryption Resource Group Name`, enter the names used in the prerequisites section.
-6. Adjust the prepopulated parameters as needed. 
-7. (Optional) [Publish your RemoteApp](#publish-remoteapp-optional) to other users.
-8. (Optional) [Join a domain](#join-a-domain-optional) on your virtual machine.
-9. (Optional) [Install application](#install-remoteapp-optional) to your RemoteApp.
-10. Select `Review + Create`, if all validations passed, select `Create`.
+1. Enter all the required parameters on each of the tabs.
+1. For `OS Disk Encryption Name` and `OS Disk Encryption Resource Group Name`, enter the names used in the prerequisites section.
+1. Adjust the prepopulated parameters as needed. 
+1. (Optional) [Publish your RemoteApp](#publish-remoteapp-optional) to other users.
+1. (Optional) [Join a domain](#join-a-domain-optional) on your virtual machine.
+1. (Optional) [Install application](#install-remoteapp-optional) to your RemoteApp.
+1. Select `Review + Create`, if all validations passed, select `Create`.
 
 ## Join a domain (optional)
 1. Should you choose to Domain Join your Virtual Machine, you need to select which method you want (Active Directory or Microsoft Entra ID) on the Basic tab and enter the domain joining information.
-2. For the `Active Directory` Domain join options, see the following examples
+1. For the `Active Directory` Domain join options, see the following examples
 
    > [!NOTE]
    > 
@@ -76,7 +76,7 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
    * Organization Unit (OU) path should be in the format of `OU=Organizations,DC=contoso,DC=com` and can be left blank if the default `Computers` OU path is fine.
    * `Domain admin username` and `Domain admin password` should match the domain joining credentials for the domain controller
 
-3. For the `Microsoft Entra ID` Domain join option,
+1. For the `Microsoft Entra ID` Domain join option,
    * First you need to [deploy an Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/tutorial-create-instance)
    * Next you need to use the domain you created to [create an OU](/entra/identity/domain-services/create-ou) or use the default OU of `Computers`
    * Use the previously created OU and Domain to fill in these respective parameters for your virtual machine
@@ -95,18 +95,18 @@ It can take 20+ minutes to finish all resource creation. Wait for the deployment
 
 ## Validate the deployment
 1. Go to the specified resource group, the workload resource group by default, and confirm the intended resources were created. Including: Virtual Machine and OS Disk.
-2. If the RemoteApp was published: host pool, app group, and workspace.
+1. If the RemoteApp was published: host pool, app group, and workspace.
 
 ## Connect to the Application Virtual Machine
 Via the [Admin VM](./understand-admin-vm.md):
 The Admin VM is used for administrator access the resources within the enclave boundary from outside the boundary. The Admin VM might also be called a "jumpbox."
 1. Sign in to a desktop session on the [Admin VM](./understand-admin-vm.md) page for the enclave.
-2. From the start menu, type `RDP`, and open the Remote Desktop Connection app.
-3. Enter the Virtual Machine IP address as the destination IP address for the Remote Desktop Connection.
-4. Enter Virtual Machine credentials and select `Accept/Yes` to warnings about a new connection.
-5. From the Virtual Machine desktop, validate any Virtual Machine settings set during the deployment or complete any custom configuration.
-6. Next, [install application](#install-remoteapp-optional)
-7. Assign a security group assignment to give users access to your RemoteApp(s).
+1. From the start menu, type `RDP`, and open the Remote Desktop Connection app.
+1. Enter the Virtual Machine IP address as the destination IP address for the Remote Desktop Connection.
+1. Enter Virtual Machine credentials and select `Accept/Yes` to warnings about a new connection.
+1. From the Virtual Machine desktop, validate any Virtual Machine settings set during the deployment or complete any custom configuration.
+1. Next, [install application](#install-remoteapp-optional)
+1. Assign a security group assignment to give users access to your RemoteApp(s).
 
 ## Install RemoteApp (Optional)
 Install an application on your Virtual Machine using one of these methods or a method you're familiar with.
@@ -121,9 +121,9 @@ Install an application on your Virtual Machine using one of these methods or a m
         - App Folder:
             - app installer (ex: VSCodeSetup.exe)
             - main script to install the application (and any other supporting scripts)
-    2. A copy of [AzCopy.exe](./application-deployment-using-remote-app-vm.md#prerequisites)
-    3. A [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
-    4. [Enclave connections](./create-enclave-connection-portal.md) to the previously made community endpoint.
+    1. A copy of [AzCopy.exe](./application-deployment-using-remote-app-vm.md#prerequisites)
+    1. A [community endpoint](./create-community-endpoint-portal.md) to the storage account and AzToolBox.
+    1. [Enclave connections](./create-enclave-connection-portal.md) to the previously made community endpoint.
         -  Make an enclave connection to your IP Groups ending in `(enclave-name}`-ipg-eas and another at `{enclave-name}`-ipg-mgmt-vms.
         
         > [!NOTE]
@@ -132,13 +132,13 @@ Install an application on your Virtual Machine using one of these methods or a m
 
 - Install Application:
     1. On the workload overview page, select `Add an Azure Service`.
-    2. For `Service`, select `Virtual Machine`.
-    3. For `Version`, if not selected by default, select the most recent version (for example, 1.0.1(latest)).
-    4. Select `Next`
-    5. Basics Tab:
+    1. For `Service`, select `Virtual Machine`.
+    1. For `Version`, if not selected by default, select the most recent version (for example, 1.0.1(latest)).
+    1. Select `Next`
+    1. Basics Tab:
         - For `Virtual Machine name`, input the name of the Virtual Machine.
         - For  `Admin username` and `Admin password`, input the username and password you use to log into your Virtual Machine. 
-    6. App Tab: 
+    1. App Tab: 
         - For `App Folder URI` add the URI to the app folder from the container.
         - For `Main Script` add the name of the main script (ex: main.ps1) in the app folder that installs the application.
         - Private Container: 
@@ -150,7 +150,7 @@ Install an application on your Virtual Machine using one of these methods or a m
         > If in Microsoft Azure for U.S. Government, do the following steps: 
         > For the `AzCopy File URI`, add the URI to the azcopy.exe from the container.
 
-    7. Select `Review + Create`, if all validations passed, select `Create`. Otherwise, start using the Virtual Machine. 
+    1. Select `Review + Create`, if all validations passed, select `Create`. Otherwise, start using the Virtual Machine. 
 
 ## Delete the deployment
 If you don't plan on keeping these resources, clean up unnecessary resources to avoid Azure charges. If no other deployments exist in the resource group, the whole resource group can be deleted.

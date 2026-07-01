@@ -35,24 +35,24 @@ To mitigate this potential issue, for each subscription, manually create the Net
 
 ![Screenshot showing resource group add role selection in the portal.](./media/onboard-network-watcher-add-role.png)
 
-2. Select `Privileged administrator roles`, select `owner`, then select `Next`.
+1. Select `Privileged administrator roles`, select `owner`, then select `Next`.
 
 ![Screenshot showing the add owner role selection view in the portal.](./media/onboard-add-role-select-owner.png)
 
-3. Select `Select members`, type `Mission Enclave` in the search and select the `Mission Enclave` app, select `Select`, then `Next`.
+1. Select `Select members`, type `Mission Enclave` in the search and select the `Mission Enclave` app, select `Select`, then `Next`.
 
 ![Screenshot showing how to select the Mission Enclave app in the portal.](./media/onboard-select-mission-enclave-app.png)
 
-4. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`, then select `Review + assign`.
+1. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`, then select `Review + assign`.
 
 ![Screenshot showing the add condition view if your subscription requires it.](./media/onboard-add-condition.png)
 
-5. Once the update is complete, you can start deploying Azure Enclave resources.
+1. Once the update is complete, you can start deploying Azure Enclave resources.
 
 When a community or enclave is created, Azure Enclave attempts the following steps:
 1. Check if the `NetworkWatcherRG` exists. If not, attempt to create that resource group.
-2. Check if the `Mission Enclave` App has a permanent `Owner` assignment on `NetworkWatcherRG`. If not, attempt to assign the `Mission Enclave` App as a permanent `Owner` assignment on `NetworkWatcherRG`. Even if an inherited `Owner` permission exists, a permanent `Owner` assignment creation is attempted.
-3. If any step fails, enclave deployments might fail when attempting to create virtual network flow logs.
+1. Check if the `Mission Enclave` App has a permanent `Owner` assignment on `NetworkWatcherRG`. If not, attempt to assign the `Mission Enclave` App as a permanent `Owner` assignment on `NetworkWatcherRG`. Even if an inherited `Owner` permission exists, a permanent `Owner` assignment creation is attempted.
+1. If any step fails, enclave deployments might fail when attempting to create virtual network flow logs.
 
 ## Networking and Organizational Design Patterns for Azure Enclave
 
@@ -175,8 +175,8 @@ Associate the allow lists to DNS traffic rules configured with:
 Azure DNS Security Policy processes rules in priority order (lower numbers = higher priority). When a DNS query is made:
 
 1. The system first evaluates high-priority allow rules (priority 500-1000)
-2. If the domain matches an allow list, the query is permitted
-3. If no `allow` rules match, the query falls through to the default deny rule (priority 65000) and the traffic is blocked
+1. If the domain matches an allow list, the query is permitted
+1. If no `allow` rules match, the query falls through to the default deny rule (priority 65000) and the traffic is blocked
 
 This approach provides several security advantages:
 
@@ -280,10 +280,10 @@ After you create one workload resource group by using option 3, you see a warnin
 Add a resource group to your enclave:
 
 1. Open the Azure portal page for the workload.
-2. Select `Manage` and then `Resource Groups`.
-3. Select `Add a resource group`.
-4. In the side window that opens, select `Create new` to provide the name of the new empty resource group, or select the `Resource Group` drop-down to choose an existing resource group.
-5. Select `OK` and then `Save`.
+1. Select `Manage` and then `Resource Groups`.
+1. Select `Add a resource group`.
+1. In the side window that opens, select `Create new` to provide the name of the new empty resource group, or select the `Resource Group` drop-down to choose an existing resource group.
+1. Select `OK` and then `Save`.
 
 #### How is a workload resource group different from other Azure resource groups?
 

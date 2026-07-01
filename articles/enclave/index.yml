@@ -38,22 +38,22 @@ landingContent:
         links:
           - text: "What is a community?"
             url: what-community.md
-          - text: "What is a transit hub?"
-            url: what-transit-hub.md
-          - text: "What is a community endpoint?"
-            url: what-community-endpoint.md
           - text: "What is an enclave?"
             url: what-enclave.md
+          - text: "What is a workload?"
+            url: what-workload.md
+          - text: "What is a community endpoint?"
+            url: what-community-endpoint.md
           - text: "What is an enclave endpoint?"
             url: what-enclave-endpoint.md
           - text: "What is an enclave connection?"
             url: what-enclave-connection.md
-          - text: "What is a workload?"
-            url: what-workload.md
+          - text: "What is a transit hub?"
+            url: what-transit-hub.md
+          - text: "What is a dedicated hub?"
+            url: what-dedicated-hub.md
           - text: "What is the service catalog?"
             url: what-service-catalog.md
-          - text: List of service catalog templates
-            url: list-service-catalog-templates.md
           - text: "What are approvals?"
             url: what-approvals.md
       - linkListType: concept
@@ -157,6 +157,8 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
+          - text: List of service catalog templates
+            url: list-service-catalog-templates.md
           - text: Deploy Workload Quickstart from the service catalog
             url: deploy-workload-quickstart-service-catalog.md
           - text: Deploy Common Dependencies from the service catalog

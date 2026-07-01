@@ -24,7 +24,7 @@ For some enterprise systems, this level of DNS doesn't fully satisfy all use-cas
 ## Steps to manually add private endpoint DNS records to an enclave DNS forwarder VM
 
 1. Log in to the DNS server, and open a PowerShell Window 
-2. Run the following commands:
+1. Run the following commands:
 
    ``` PowerShell
    $AzureDnsIpAddress = '168.63.129.16'

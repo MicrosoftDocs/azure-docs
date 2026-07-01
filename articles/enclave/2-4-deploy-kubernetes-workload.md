@@ -4,8 +4,7 @@ description: Deploy a private AKS cluster with encryption, monitoring, and netwo
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
-ms.date: 12/18/2024
-ms.custom: references_region
+ms.date: 06/30/2026
 ---
 
 # Tutorial 2-4: Deploy Azure Kubernetes Service (AKS) workload in Azure Enclave
@@ -14,7 +13,8 @@ This tutorial guides you through deploying a private Azure Kubernetes Service (A
 
 In this tutorial, you learn how to:
   - Enable required Azure features for private AKS
-  - Deploy private AKS cluster with network infrastructure
+  - Validate required resources for AKS
+  - Deploy Private AKS Cluster
   - Configure customer-managed key encryption
   - Create community endpoints for AKS connectivity
   - Associate multiple resource groups to AKS workload
@@ -24,11 +24,14 @@ In this tutorial, you learn how to:
 
 - Completion of [Tutorial 2-3: Deploy Azure Virtual Desktop workload](./2-3-deploy-virtual-desktop-workload.md)
 - AKS enclave with node, API server, and private endpoint subnets
-- Common dependencies (Key Vault, managed identity, disk encryption set) from Tutorial 11
+- Common dependencies (Key Vault, managed identity, disk encryption set) from [Tutorial 2-2: Create Azure Enclave environment](./2-2-create-azure-enclave-environment.md)
 - Private DNS zones for AKS deployed
 - **Contributor** role on the AKS workload resource group
 - **Azure Kubernetes Service Contributor** role on the subscription
 - Azure CLI or Azure PowerShell installed for advanced operations
+
+> [!IMPORTANT]
+> This tutorial aligns to the **Private AKS Cluster** template behavior and requires the resources created by the **AVE AKS Enclave** deployment in [Tutorial 2-2](./2-2-create-azure-enclave-environment.md).
 
 ## Before you begin
 
@@ -119,46 +122,6 @@ az keyvault secret set `
     --value $sshPublicKey
 ```
 
-## Deploy AKS network infrastructure
-
-First, deploy the network infrastructure that prepares your enclave for AKS.
-
-### Use service catalog template
-
-1. In the Azure portal, navigate to your **AKS workload** in the AKS enclave.
-2. Select **+ Add an Azure Service**.
-3. Search for and select **Private AKS Cluster - Network Infrastructure**.
-4. Configure the deployment:
-
-   **Basic settings:**
-   - **Resource group**: `rg-aks-infrastructure`
-   - **Location**: Same as enclave region
-   - **Workload Name**: `aks-prod`
-   
-   **Network configuration:**
-   - **Virtual Network Name**: Select AKS enclave virtual network
-   - **Node Subnet Name**: `aksSubnet`
-   - **Node Subnet Address Prefix**: `10.3.1.0/25`
-   - **API Server Subnet Name**: `agentSubnet`
-   - **API Server Subnet Address Prefix**: `10.3.1.128/28`
-   - **Private Endpoint Subnet Name**: `AzureVirtualEnclaveSubnet`
-   - **Private Endpoint Subnet Address Prefix**: `10.3.2.0/26`
-   
-   **Subnet delegation:**
-   - **Enable Node Subnet Delegation**: **No**
-   - **Enable API Subnet Delegation**: **No**
-   - **Enable PE Subnet Delegation**: **No**
-   
-   > [!IMPORTANT]
-   > Don't delegate subnets for private AKS clusters in Azure Enclave.
-   
-   **Network security:**
-   - **Create Network Security Groups**: **Yes** (if not already created)
-   - **NSG Name**: `nsg-aks-nodes`
-
-5. Select **Review + Add** and then **Create**.
-6. Wait for deployment to complete (~5-10 minutes).
-
 ## Deploy private AKS cluster
 
 Now deploy the AKS cluster with full encryption and monitoring.
@@ -166,79 +129,42 @@ Now deploy the AKS cluster with full encryption and monitoring.
 ### Use service catalog template
 
 1. In your **AKS workload**, select **+ Add an Azure Service**.
-2. Search for and select **Private AKS Cluster**.
-3. Configure the deployment:
+1. Search for and select **Private AKS Cluster**.
+1. Configure the deployment:
 
 #### Basics tab
 
-- **Resource group**: `rg-aks-cluster`
-- **Location**: Same as enclave region
-- **Workload Name**: `aks-prod`
+- **AKS Cluster Name**: `aks-prod-01`
+- **Kubernetes Version**: Select latest stable version (for example, `1.32`)
 
-#### Cluster Configuration
+#### Monitoring
 
-- **Cluster Name**: `aks-prod-01`
-- **Kubernetes Version**: Select latest stable version (for example, `1.29.5`)
-- **DNS Prefix**: `aks-prod-01`
-- **Enable Private Cluster**: **Yes** (required)
-- **Enable API Server VNet Integration**: **Yes**
+- **Log Analytics Workspace Name**: Select your enclave or community logging destination.
 
-#### Node Pool Configuration
+#### Encryption
+- **Disk Encryption Set Name**: Enter the name you used from [Tutorial 2-2](./2-2-create-azure-enclave-environment.md).
+- **Encryption Key Name**: Enter your key vault key name.
+- **Key Vault**: Select your key vault with that key name.
 
-- **Node Pool Name**: `systempool`
-- **Node Count**: `3`
-- **Enable Auto-Scaling**: **Yes**
-- **Min Count**: `2`
-- **Max Count**: `5`
-- **VM Size**: `Standard_D4s_v5` (4 vCPU, 16 GB of RAM)
-- **OS Disk Size (GB)**: `128`
-- **OS Disk Type**: `Managed` (uses encryption set)
-- **Max Pods per Node**: `30`
+#### Access
+- **AKS Identity Name**: Enter the name you used from [Tutorial 2-2](./2-2-create-azure-enclave-environment.md).
+- **AKS Identity Resource Group Name**: Update the resource group name to match where your identity is located.
 
-#### Network Configuration
+#### Networking
 
-- **Network Plugin**: `azure` (Azure CNI)
-- **Network Policy**: `azure` (Azure Network Policy)
-- **Load Balancer SKU**: `standard`
-- **Outbound Type**: `userDefinedRouting`
-- **Service CIDR**: `172.16.0.0/16`
-- **DNS Service IP**: `172.16.0.10`
-- **Docker Bridge CIDR**: `172.17.0.1/16`
+- **AKS Subnet Name**: Enter your AKS subnet name
+- **Agent Pool Subnet Name**: Enter your agent pool subnet name
+- **CIDR for Service Traffic**: `172.16.0.0/16`
+- **IP address of the Kubernetes DNS service**: `172.16.0.10`
 
 **Subnet Configuration:**
 - **Node Subnet**: Select `aksSubnet` from your enclave
 - **API Server Subnet**: Select `agentSubnet` from your enclave
 - **Private Endpoint Subnet**: Select `AzureVirtualEnclaveSubnet` from your enclave
 
-#### Identity Configuration
+#### Node pool
 
-- **Identity Type**: **UserAssigned** (recommended)
-- **User Assigned Identity**: Select identity from Tutorial 2-2 (for example, `id-ave-encryption`)
-- **Create New Identity**: **No** (using existing)
-
-> [!NOTE]
-> System Assigned Identity is also supported but User Assigned is recommended for better lifecycle management.
-
-#### Encryption Configuration
-
-- **Enable Disk Encryption Set**: **Yes**
-- **Disk Encryption Set**: Select DES from Tutorial 2-2 (for example, `des-ave-encryption`)
-- **Enable Encryption at Host**: **Yes** (requires feature flag)
-- **Key Vault Name**: `kv-ave-shared-<uniqueid>`
-- **Encryption Key Name**: `cmk-ave-encryption`
-
-#### SSH Configuration (if required by template)
-
-- **SSH Public Key**: Paste the SSH public key or select from Key Vault secret
-- **Linux Admin Username**: `aksadmin`
-
-#### Add-ons Configuration
-
-- **Enable Azure Monitor**: **Yes**
-- **Log Analytics Workspace**: Select workspace from shared services
-- **Enable Microsoft Defender for Containers**: **Yes** (recommended)
-- **Enable Azure Policy**: **Yes** (enforces compliance)
-- **Enable Secret Store CSI Driver**: **Yes** (for Key Vault integration)
+Select `Next` to skip this tab for this tutorial.
 
 #### Tags
 
@@ -246,12 +172,12 @@ Now deploy the AKS cluster with full encryption and monitoring.
 - **Workload**: `AKS`
 - **ManagedBy**: `Azure Enclave`
 
-4. Select **Review + Add**.
-5. Review all settings carefully.
-6. Select **Create**.
+1. Select **Review + Create**.
+1. Review all settings carefully.
+1. Select **Create**.
 
 > [!NOTE]
-> Deployment takes 15-30 minutes. The AKS cluster creates a managed resource group automatically.
+> The AKS cluster creates a managed resource group automatically.
 
 ## Create community endpoints for AKS connectivity
 
@@ -263,8 +189,8 @@ AKS requires outbound connectivity to several Azure services. Create community e
 ### Configure community endpoint
 
 1. Navigate to your community (for example, `fabrikam`).
-2. Select **Community endpoints** > **+ Create** or edit existing `ce-aks-services`.
-3. Ensure these rules exist:
+1. Select **Community endpoints** > **+ Create** or edit existing `ce-aks-services`.
+1. Ensure these rules exist:
 
    **Rule 1: Microsoft Container Registry**
    - **Name**: `mcr`
@@ -296,15 +222,15 @@ AKS requires outbound connectivity to several Azure services. Create community e
    - **Protocol**: `HTTPS`
    - **Port**: `443`
 
-4. Select **Review + create** and then **Create** or **Save**.
+1. Select **Review + create** and then **Create** or **Save**.
 
 ### Configure NSG outbound rules
 
 Add outbound security rules to your NSG to allow AKS traffic.
 
 1. Navigate to **Network security groups** > `nsg-aks-nodes`.
-2. Select **Outbound security rules** > **+ Add**.
-3. Add rule for HTTPS outbound:
+1. Select **Outbound security rules** > **+ Add**.
+1. Add rule for HTTPS outbound:
    - **Source**: `VirtualNetwork`
    - **Destination**: `Internet`
    - **Destination port**: `443`
@@ -320,22 +246,22 @@ AKS creates a managed resource group (MRG) for cluster infrastructure. Associate
 ### Using Azure portal
 
 1. Navigate to your **Azure Enclave** service in the Azure portal.
-2. Select your **Community** (for example, `fabrikam`).
-3. Select **Enclaves** and open your **AKS enclave** (for example, `aks-enclave`).
-4. Select **Workloads** and open your **AKS workload** (for example, `aks-workload`).
-5. In the workload overview, select **Properties** or **Linked Resource Groups**.
-6. Select **+ Add resource group**.
-7. Add the user resource group:
+1. Select your **Community** (for example, `cmt-fabrikam`).
+1. Select **Enclaves** and open your **AKS enclave** (for example, `ve-aks`).
+1. Select **Workloads** and open your **AKS workload** (for example, `wl-aks`).
+1. In the workload overview, select **Properties** or **Linked Resource Groups**.
+1. Select **+ Add resource group**.
+1. Add the user resource group:
    - Select **Subscription**: Your subscription
    - Select **Resource group**: `rg-aks-cluster`
    - Select **Add**
-8. Select **+ Add resource group** again.
-9. Add the AKS managed resource group:
+1. Select **+ Add resource group** again.
+1. Add the AKS managed resource group:
    - The managed RG name follows pattern: `MC_rg-aks-cluster_aks-prod-01_<region>`
    - Select **Subscription**: Your subscription
    - Select **Resource group**: The AKS managed resource group
    - Select **Add**
-10. Verify both resource groups appear in the workload's linked resource groups list.
+1. Verify both resource groups appear in the workload's linked resource groups list.
 
 > [!TIP]
 > To find the AKS managed resource group name, navigate to your AKS cluster in the portal and check the **Node resource group** property on the Overview page.
@@ -347,8 +273,8 @@ Access the private AKS cluster through an admin VM or Azure Bastion within the e
 ### Connect to admin VM
 
 1. Connect to your admin VM via Azure Bastion or RDP.
-2. Ensure the admin VM has Azure CLI installed.
-3. Sign in to Azure:
+1. Ensure the admin VM has Azure CLI installed.
+1. Sign in to Azure:
 
 ```azurecli
 az login

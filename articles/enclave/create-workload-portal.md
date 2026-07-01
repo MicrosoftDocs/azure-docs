@@ -10,7 +10,7 @@ ms.date: 06/12/2026
 
 # Create a workload in the Azure portal
 
-[Workloads](./what-workload.md) are logical groups of zero or more resource groups and their underlying Azure resources in an enclave.
+[Workloads](./what-workload.md) are logical groups of zero or more workload resource groups and their underlying Azure resources in an enclave.
 
 In this how-to guide, you create a workload in an existing Azure Enclave enclave and optionally add workload resource groups.
 
@@ -26,15 +26,15 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Enter `Azure Enclave` in the search.
 
-2. Under `Services`, select `Azure Enclave`.
+1. Under `Services`, select `Azure Enclave`.
 
-3. In the `Azure Enclave` page, select `Workloads` in the left menu.
+1. In the `Azure Enclave` page, select `Workloads` in the left menu.
 
     [ ![Screenshot showing the Azure Enclave portal homepage.](./media/azure-enclave-homepage.png) ](./media/azure-enclave-homepage.png#lightbox)
 
-4. On the `Workloads` page, select `Create`.
+1. On the `Workloads` page, select `Create`.
 
-5. Enter the basic details for your workload:
+1. Enter the basic details for your workload:
    - `Enclave`: Select an existing enclave. This value is automatically applied if you started workload creation from an existing enclave.
    - `Workload name`: Enter a workload name, for example, `cyber-monitoring-apps`.
 
@@ -48,9 +48,13 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. To add a new resource group during workload creation, select `Add`, enter a resource group name, and repeat as needed. You can also create resource groups later or move existing resource groups into the workload after the workload is created.
 
-2. Select `Next`, and then enter any [tags](/azure/azure-resource-manager/management/tag-resources) for your workload.
+1. Select `Next`, and then enter any [tags](/azure/azure-resource-manager/management/tag-resources) for your workload.
 
-3. Select `Review + create`, confirm that the workload details are correct, and then select `Create`.
+1. Select `Review + create`, confirm that the workload details are correct, and then select `Create`.
+
+> [!NOTE]
+>
+> Workload resource groups are flexible and you can decide how to logically organize your resources in [workload resource groups](./best-practices.md#workload-resource-group).
 
 ## References
 - [What is a workload?](./what-workload.md)

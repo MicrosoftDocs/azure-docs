@@ -50,6 +50,8 @@
       href: what-enclave-connection.md
     - name: "What is a transit hub?"
       href: what-transit-hub.md
+    - name: "What is a dedicated hub?"
+      href: what-dedicated-hub.md
   - name: Azure Enclave Concepts
     items:
     - name: "What is the service catalog?"
@@ -136,7 +138,7 @@
     href: configure-approvals.md
   - name: Manage approvals
     href: manage-approvals.md
-- name: Service catalog (part 1)
+- name: Service catalog (list 1)
   items:
   - name: Deploy Workload Quickstart from the service catalog
     href: deploy-workload-quickstart-service-catalog.md
@@ -154,7 +156,7 @@
     href: deploy-azure-cosmos-db-service-catalog.md
   - name: Deploy Azure Kubernetes Service from the service catalog
     href: deploy-azure-kubernetes-service-service-catalog.md
-- name: Service catalog (part 2)
+- name: Service catalog (list 2)
   items:
   - name: Deploy Azure SQL from the service catalog
     href: deploy-azure-sql-service-catalog.md

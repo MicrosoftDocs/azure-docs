@@ -57,7 +57,7 @@ Download a specific template by using the name found in the inventory above (for
     - Azure Secret: veservicecatalogussec.z1.web.core.`<SecretDomain>`
     - Azure Top Secret: veservicecatalogusnat.z2.web.core.`<TopSecretDomain>`
 
-2. Download each template
+1. Download each template
    Continuing the script from the previous step
 
     ```
@@ -69,7 +69,7 @@ Download a specific template by using the name found in the inventory above (for
     }
     ```
 
-4. Open the template and determine which parameters you need to provide values for. In this example, we use "storageAccount/deploy-storage-account-1.0.0.json"
+1. Open the template and determine which parameters you need to provide values for. In this example, we use "storageAccount/deploy-storage-account-1.0.0.json"
 
     Note which parameters are required and which parameters have default values.
     
@@ -115,7 +115,7 @@ Download a specific template by using the name found in the inventory above (for
     }
     ```
 
-5. Fetch the enclave resources to provide the following parameter values
+1. Fetch the enclave resources to provide the following parameter values
     - storageAccountName
     - virtualNetworkName
     - networkResourceGroupName
@@ -128,27 +128,27 @@ Download a specific template by using the name found in the inventory above (for
     ```
     You'll still need to fetch values privateLinkSubnetName, keyName, userAssignedIdentityObject
 
-6. List the subnets in the virtual network (privateLinkSubnetName)
+1. List the subnets in the virtual network (privateLinkSubnetName)
     ```
     az network vnet subnet list --resource-group <resource-group-name> --vnet-name <vnet-name> --query "[].name"
     ```
 
-7. Get CMK Key Name (keyName)
+1. Get CMK Key Name (keyName)
     ```
     az keyvault key list --vault-name <keyvault-name> --query "[].name"
     ```
 
-8. Get the location of userAssignedIdentityObject (userAssignedIdentityObject.location)
+1. Get the location of userAssignedIdentityObject (userAssignedIdentityObject.location)
     ```
     az resource show --ids <user-assigned-identity-resource-id> --query location
     ```
 
-9. Get the subscription name
+1. Get the subscription name
     ```
     az account show --subscription <subscription-id> --query name
     ```
 
-10. Deploy the template
+1. Deploy the template
     ```
     az deployment group create --resource-group <resource-group-name> --template-file ./<template-downloaded-name> --parameters ./<parameter-file-name>
     ```

@@ -53,7 +53,7 @@ Certain Azure Enclave customers deployed enclaves with early preview or beta bui
 - Certain mission enclave deployments utilized different networking connectivity technology, such as [VPN Gateways](/azure/vpn-gateway/vpn-gateway-about-vpngateways) and IPSec tunnels. Azure Enclave additionally utilizes [Azure Virtual WAN](/azure/virtual-wan/virtual-wan-about) and [virtual network Peering](/azure/virtual-network/virtual-network-peering-overview) for its hub-and-spoke network architecture.
 - Certain mission enclave deployments utilize [locks](/azure/azure-resource-manager/management/lock-resources). Before you move any resources, these locks must be removed by a user with elevated privileges.
 - Certain preview customers of mission enclaves utilize custom Role-based Access Control (RBAC) roles. All possible actions in Azure Enclave can be taken with our Azure Enclave RBAC roles.
-- Accessing an Azure Enclave enclave through an [Admin Workstation](./understand-admin-vm.md) differs slightly from accessing a mission enclave's evPAW.
+- Accessing an Azure Enclave enclave through an [Admin VM](./understand-admin-vm.md) differs slightly from accessing a mission enclave's evPAW.
 - **If you are using on-prem/custom DNS** - each Enclave _must deploy a DNS resolver_ workload in order to resolve private endpoints for Azure Storage, Key Vault, and Log Analytics. Learn more about [DNS in Azure Enclave](./understand-domain-name-service.md).
   - If you have requirements to connect to an existing instance of DNS elsewhere, provide the private IP addresses of the DNS server as the DNS servers list field for your community and enclaves.
 

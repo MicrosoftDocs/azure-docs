@@ -4,8 +4,7 @@ description: Deploy Azure Virtual Desktop with session hosts, host pools, and FS
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
-ms.date: 12/18/2024
-ms.custom: references_region
+ms.date: 06/30/2026
 ---
 
 # Tutorial 2-3: Deploy Azure Virtual Desktop workload in Azure Enclave
@@ -60,9 +59,9 @@ The Azure Virtual Desktop community endpoint enables session hosts to communicat
 ### Use service catalog template
 
 1. In the Azure portal, navigate to your **Azure Virtual Desktop workload** in the Azure Virtual Desktop enclave.
-2. Select **+ Add an Azure Service**.
-3. Search for and select **Azure Virtual Desktop Community Endpoint**.
-4. Configure the deployment:
+1. Select **+ Add an Azure Service**.
+1. Search for and select **Azure Virtual Desktop Community Endpoint**.
+1. Configure the deployment:
    - **Resource group**: Select your workload resource group (for example, `rg-avd-workload`)
    - **Community Resource Name**: Select your community (for example, `fabrikam`)
    - **Community Endpoint Name**: `ce-avd-services`
@@ -71,8 +70,8 @@ The Azure Virtual Desktop community endpoint enables session hosts to communicat
      - `login.microsoftonline.com`
      - `management.azure.com`
      - `*.prod.warm.ingest.monitor.core.windows.net`
-5. Select **Review + Add** and then **Create**.
-6. Wait for deployment to complete (~5-10 minutes).
+1. Select **Review + Add** and then **Create**.
+1. Wait for deployment to complete (~5-10 minutes).
 
 ## Deploy Azure Virtual Desktop enclave infrastructure
 
@@ -81,8 +80,8 @@ The Azure Virtual Desktop enclave template prepares your enclave with required s
 ### Use service catalog template
 
 1. In your **Azure Virtual Desktop workload**, select **+ Add an Azure Service**.
-2. Search for and select **Azure Virtual Desktop Enclave**.
-3. Configure the deployment:
+1. Search for and select **Azure Virtual Desktop Enclave**.
+1. Configure the deployment:
    
    **Basic settings:**
    - **Resource group**: `rg-avd-infrastructure`
@@ -99,8 +98,8 @@ The Azure Virtual Desktop enclave template prepares your enclave with required s
    - **Create Private DNS Zones**: **No** (already created in Tutorial 2-2)
    - **Link to VNet**: **Yes**
    
-4. Select **Review + Add** and then **Create**.
-5. Wait for deployment to complete (~10-15 minutes).
+1. Select **Review + Add** and then **Create**.
+1. Wait for deployment to complete (~10-15 minutes).
 
 ## Deploy Azure Virtual Desktop workload
 
@@ -109,8 +108,8 @@ Now deploy the Azure Virtual Desktop workload with host pool, session hosts, and
 ### Select the Azure Virtual Desktop workload template
 
 1. In your **Azure Virtual Desktop workload**, select **+ Add an Azure Service**.
-2. Search for and select **Azure Virtual Desktop Workload**.
-3. Configure the deployment using the following parameters:
+1. Search for and select **Azure Virtual Desktop Workload**.
+1. Configure the deployment using the following parameters:
 
 | Configuration Section | Parameters |
 |----------------------|------------|
@@ -124,9 +123,9 @@ Now deploy the Azure Virtual Desktop workload with host pool, session hosts, and
 | **Encryption Configuration** | - **Enable CMK Encryption**: `Yes`<br>- **Disk Encryption Set Resource ID**: Resource ID from Tutorial 2-2 [common dependencies](./2-2-create-azure-enclave-environment.md#set-up-common-dependencies)<br>- **User Assigned Identity Resource ID**: Resource ID from Tutorial 2-2 [common dependencies](./2-2-create-azure-enclave-environment.md#set-up-common-dependencies) |
 | **Monitoring** | - **Enable Diagnostic Settings**: `Yes`<br>- **Log Analytics Workspace**: Select workspace from shared services or create new<br>- **Enable Azure Virtual Desktop Insights**: `Yes` (recommended) |
 
-4. Select `Review + Create`.
-5. Review all settings carefully.
-6. Select `Create`.
+1. Select `Review + Create`.
+1. Review all settings carefully.
+1. Select `Create`.
 
 > [!NOTE]
 > Deployment takes 30-60 minutes depending on the number of session hosts.
@@ -136,11 +135,11 @@ Now deploy the Azure Virtual Desktop workload with host pool, session hosts, and
 Create enclave endpoints to allow management traffic from admin resources.
 
 1. Navigate to your **Azure Virtual Desktop enclave**.
-2. Select `Enclave endpoints` then select `+ Create`.
-3. Configure the endpoint:
+1. Select `Enclave endpoints` then select `+ Create`.
+1. Configure the endpoint:
    - **Name**: `ee-avd-management`
    - **Description**: `Allow management access to Azure Virtual Desktop resources`
-4. Add rules:
+1. Add rules:
    
    **Rule 1: RDP to Session Hosts**
    - **Name**: `rdp-to-hosts`
@@ -154,19 +153,19 @@ Create enclave endpoints to allow management traffic from admin resources.
    - **Port**: `5985,5986`
    - **Source**: Admin subnet CIDR
    
-5. Select `Review + create` and then `Create`.
+1. Select `Review + create` and then `Create`.
 
 ## Configure enclave connection for FSLogix
 
 If your FSLogix storage is in a different enclave, create an enclave connection.
 
 1. Navigate to your **Azure Virtual Desktop enclave**.
-2. Select `Enclave connections` then select `+ Create`.
-3. Configure the connection:
+1. Select `Enclave connections` then select `+ Create`.
+1. Configure the connection:
    - **Name**: `conn-avd-to-storage`
    - **Source enclave**: `avd-enclave`
    - **Destination enclave endpoint**: Select endpoint in shared services enclave
-4. Select `Review + create` and then `Create`.
+1. Select `Review + create` and then `Create`.
 
 ## Assign users to application group
 
@@ -175,9 +174,9 @@ Users need to be assigned to the application group to access Azure Virtual Deskt
 ### Using Azure portal
 
 1. Navigate to your **Application Group** (for example, `ag-desktop-prod`).
-2. Select `Assignments` then select `+ Add`.
-3. Search for and select users or groups.
-4. Select `Select`.
+1. Select `Assignments` then select `+ Add`.
+1. Search for and select users or groups.
+1. Select `Select`.
 
 ### Using Azure PowerShell
 
@@ -208,18 +207,18 @@ Users can access Azure Virtual Desktop through various clients.
 ### Web client
 
 1. Navigate to [https://client.wvd.microsoft.com/arm/webclient](https://client.wvd.microsoft.com/arm/webclient)
-2. Sign in with Microsoft Entra credentials
-3. Select the published desktop or application
-4. Session connects through enclave connectivity
+1. Sign in with Microsoft Entra credentials
+1. Select the published desktop or application
+1. Session connects through enclave connectivity
 
 ### Windows App
 
 1. Download the [Windows App](https://aka.ms/windowsapp) from the Microsoft Store or direct download
-2. Install and launch Windows App
-3. Select `Add account` or `+` to add a workspace
-4. Sign in with your Microsoft Entra credentials
-5. Your Azure Virtual Desktop resources automatically appear
-6. Select a desktop or application to connect
+1. Install and launch Windows App
+1. Select `Add account` or `+` to add a workspace
+1. Sign in with your Microsoft Entra credentials
+1. Your Azure Virtual Desktop resources automatically appear
+1. Select a desktop or application to connect
 
 > [!NOTE]
 > Windows App replaces the legacy Remote Desktop client and provides a modern experience for accessing Azure Virtual Desktop, Azure Virtual Desktop, and other remote resources.
@@ -231,33 +230,33 @@ Perform these validation steps to ensure proper deployment:
 ### Check session host status
 
 1. Navigate to your **Host Pool** (for example, `hp-prod-01`)
-2. Select `Session hosts`
-3. Verify all hosts show status: `Available`
-4. Check **Agent version** is current
-5. Verify **Domain joined** status
+1. Select `Session hosts`
+1. Verify all hosts show status: `Available`
+1. Check **Agent version** is current
+1. Verify **Domain joined** status
 
 ### Test user session
 
 1. Sign in as a test user
-2. Launch a desktop or application
-3. Verify connectivity and performance
-4. Check FSLogix profile loads correctly
-5. Test application functionality
+1. Launch a desktop or application
+1. Verify connectivity and performance
+1. Check FSLogix profile loads correctly
+1. Test application functionality
 
 ### Verify encryption
 
 1. Navigate to a session host VM
-2. Select `Disks`
-3. Select the OS disk
-4. Verify `Encryption type`: `Encryption at rest with a customer-managed key`
-5. Check encryption set is applied
+1. Select `Disks`
+1. Select the OS disk
+1. Verify `Encryption type`: `Encryption at rest with a customer-managed key`
+1. Check encryption set is applied
 
 ### Check diagnostic logs
 
 1. Navigate to the **Host Pool**
-2. Select `Diagnostic settings`
-3. Verify logs are flowing to Log Analytics
-4. Query logs for connection events:
+1. Select `Diagnostic settings`
+1. Verify logs are flowing to Log Analytics
+1. Query logs for connection events:
 
 ```kusto
 WVDConnections
@@ -269,7 +268,7 @@ WVDConnections
 ### Validate network connectivity
 
 1. Connect to a session host via bastion or admin VM
-2. Test connectivity to required endpoints:
+1. Test connectivity to required endpoints:
 
 ```powershell
 # Test Azure Virtual Desktop control plane
@@ -287,9 +286,9 @@ Test-NetConnection -ComputerName login.microsoftonline.com -Port 443
 Enable and configure Azure Virtual Desktop Insights for comprehensive monitoring.
 
 1. Navigate to your **Host Pool**
-2. Select `Insights`
-3. Select `Open Insights workbook`
-4. Review metrics:
+1. Select `Insights`
+1. Select `Open Insights workbook`
+1. Review metrics:
    - Connection success rate
    - Active sessions
    - Session host performance
@@ -346,14 +345,14 @@ To avoid ongoing charges, delete resources when no longer needed:
 ### Delete in order
 
 1. Remove user assignments from application groups
-2. Delete application groups
-3. Delete workspace
-4. Delete host pool (stops/deletes session hosts)
-5. Delete storage account
-6. Delete disk encryption set
-7. Delete Key Vault key
-8. Delete managed identity
-9. Delete workload resource groups
+1. Delete application groups
+1. Delete workspace
+1. Delete host pool (stops/deletes session hosts)
+1. Delete storage account
+1. Delete disk encryption set
+1. Delete Key Vault key
+1. Delete managed identity
+1. Delete workload resource groups
 
 ### Using Azure CLI
 

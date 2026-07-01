@@ -98,10 +98,10 @@ The metadata for deleted requests remains in logs for auditing purposes.
 ### 5. How can I attach a ticket ID to an approval request?
 
 1. Navigate to your approval request and select `Review`.
-2. View the field called `Ticket ID`.
-3. Select `Add Ticket ID`.
-4. Enter the ticket ID in the field and select `Save`.
-5. To update the ticket ID, select `Edit`.
+1. View the field called `Ticket ID`.
+1. Select `Add Ticket ID`.
+1. Enter the ticket ID in the field and select `Save`.
+1. To update the ticket ID, select `Edit`.
 
 > [!IMPORTANT]
 >

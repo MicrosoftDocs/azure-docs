@@ -36,21 +36,21 @@ Deploy a service catalog template for Common Dependencies when deploying Azure s
 There are guardrail requirements on the enclaves to ensure enclave resources are using Customer-Managed Keys (CMK) encryption. This requires a key and identity to access the key to be accessible in the enclave. Create the CMK (optional Key Vault) and Managed Identity in the [Common Dependencies service catalog template](./deploy-common-dependencies-service-catalog.md)
 
 1. Subnet for Private Endpoints: You had the option to create subnets during enclave creation or you can [create new subnets](./create-new-enclave-subnet.md) after enclave creation.
-2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
+1. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
     - `Key Vault` required when creating a Key Vault from this template or the more customizable [Key Vault template](./deploy-key-vault-service-catalog.md).
     - `Storage File`, `Storage Queue`, `Storage Blob`, and `Storage Table` are required when making a Storage Account from this template or the more customizable [Storage Account template](./deploy-storage-account-service-catalog.md).
 
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
-2. Select `Add Service` button.
-3. Select the `Common Dependencies` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
+1. Select `Add Service` button.
+1. Select the `Common Dependencies` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
 ![Screenshot showing the Common Dependencies template selected from the service catalog list.](./media/service-catalog-list-common-dependencies.png)
 
-4. Go through each tab and enter all the required parameters.
-5. Adjust any of the prepopulated parameters as needed.
-5. Select `Review + Create` then `Create`.
+1. Go through each tab and enter all the required parameters.
+1. Adjust any of the prepopulated parameters as needed.
+1. Select `Review + Create` then `Create`.
 
 It can take 30 minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 

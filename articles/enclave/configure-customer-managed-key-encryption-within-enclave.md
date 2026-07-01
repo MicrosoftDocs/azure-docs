@@ -15,7 +15,7 @@ The fastest way to deploy customer managed keys to be compliant with the Azure E
 Several types of [encryption](/azure/virtual-machines/windows/disk-encryption-overview) are available for securing your data on managed disks and other Azure PaaS services, including Azure Disk Encryption (ADE), Server-Side Encryption (SSE), and encryption at host. In accordance with Azure Enclave default [governance and cybersecurity posture](./what-azure-enclave.md#multi-layered-governance-security-and-monitoring) requires customer-managed-key encryption for all resources deployed in an [enclave](./what-enclave.md).
 
 ## Prerequisites for manual deployment method
-- Portal Access from Admin Workstation (192.168.x.x/26 usually).
+- Portal Access from Admin VM (192.168.x.x/26 usually).
   - [Create community endpoint](./create-community-endpoint-portal.md) to Azure portal and Microsoft Azure services.
     - A default endpoint can be created within the community that defines access to common Microsoft sites and endpoints. If so you can skip this step.
   - [Create enclave connection](./create-enclave-connection-portal.md) to community endpoint.
@@ -48,37 +48,37 @@ Follow these instructions to create a [key vault](./deploy-key-vault-service-cat
 ## Create CMK via the Portal
 Alternatively, CMK can be created via the Portal
 ### Steps in this guide
-1. [Sign in to Admin Workstation](./understand-admin-vm.md).
-2. [Create Access Policy from Admin Workstation](#create-access-policy-from-admin-workstation).
-3. [Generate Key for CMK in Key Vault](#generate-key-for-cmk-in-key-vault).
+1. [Sign in to Admin VM](./understand-admin-vm.md).
+1. [Create Access Policy from Admin VM](#create-access-policy-from-admin-vm).
+1. [Generate Key for CMK in Key Vault](#generate-key-for-cmk-in-key-vault).
 
 ### Enable Enclave access to the Azure portal
-Key vault access is restricted to the KV virtual network so the key vault Key needs to be created from the Azure portal from within the Admin Workstation.
+Key vault access is restricted to the KV virtual network so the key vault Key needs to be created from the Azure portal from within the Admin VM.
 * [Create enclave connection](./create-enclave-connection-portal.md) to community endpoint for access to the Azure portal.
  
-### Sign in to Admin Workstation
-Follow [these Admin Workstation](./understand-admin-vm.md) instructions to sign in.
+### Sign in to Admin VM
+Follow [these Admin VM](./understand-admin-vm.md) instructions to sign in.
 
-### Update Key Vault from Admin Workstation
-1. After Admin Workstation sign in, open Microsoft Edge (for example, via the Start Menu).
-2. Navigate to `https://portal.azure.com` or the domain specific portal URL.
+### Update Key Vault from Admin VM
+1. After Admin VM sign in, open Microsoft Edge (for example, via the Start Menu).
+1. Navigate to `https://portal.azure.com` or the domain specific portal URL.
 
-### Create Access Policy from Admin Workstation
-Key vault access is restricted to the KV virtual network so the key vault Key needs to be created from the Azure portal from within the Admin Workstation.
+### Create Access Policy from Admin VM
+Key vault access is restricted to the KV virtual network so the key vault Key needs to be created from the Azure portal from within the Admin VM.
 1. From the portal, navigate to the Key Vault and select the `Access Policy` on the left side.
-2. Select `Create`.
-3. Select the "Configure from a template" dropdown and select `Key Management`.
-4. Select `Next` to the Principle tab.
-5. Enter your username in the search bar and select your user account.
-5. Select `Next` and then `Create`.
+1. Select `Create`.
+1. Select the "Configure from a template" dropdown and select `Key Management`.
+1. Select `Next` to the Principle tab.
+1. Enter your username in the search bar and select your user account.
+1. Select `Next` and then `Create`.
 
 ### Generate Key for CMK in Key Vault
 1. From the portal, navigate to the Key Vault and select the `Keys` on the left side.
-2. Select `Generate/Import`.
-3. Enter the name for the new key.
-4. Select `Create`. The default options should create an RSA 2048 key.
-5. Copy the key name you created.
-6. You can sign out of the Admin Workstation.
+1. Select `Generate/Import`.
+1. Enter the name for the new key.
+1. Select `Create`. The default options should create an RSA 2048 key.
+1. Copy the key name you created.
+1. You can sign out of the Admin VM.
 
 ### Create a user-assigned managed identity
 [Create a user-assigned managed identity](./create-user-managed-identity.md) for the enclave.

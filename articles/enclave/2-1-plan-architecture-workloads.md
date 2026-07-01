@@ -4,8 +4,7 @@ description: Plan and design your Azure Enclave architecture for deploying Azure
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: tutorial
-ms.date: 12/18/2024
-ms.custom: references_region
+ms.date: 06/30/2026
 ---
 
 # Tutorial 2-1: Plan your architecture for Azure Virtual Desktop and AKS workloads in Azure Enclave
@@ -21,12 +20,12 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-This tutorial assumes understanding of these concepts:
-- [Tutorial 1: Deploy a community](./1-1-create-community.md)
-- [Tutorial 2: Create enclaves inside a community](./1-2-create-enclaves-inside-community.md)
-- [Tutorial 3: Create workloads inside an enclave](./1-3-create-workloads-inside-enclave.md)
-- [Tutorial 4: Use the service catalog](./1-4-use-service-catalog-create-azure-resources-workloads.md)
-- [Tutorial 5: Create enclave endpoints and connections](./1-5-create-enclave-endpoint-connections.md)
+This tutorial assumes understanding of concepts from these tutorials:
+- [Tutorial 1-1: Deploy a community](./1-1-create-community.md)
+- [Tutorial 1-2: Create enclaves inside a community](./1-2-create-enclaves-inside-community.md)
+- [Tutorial 1-3: Create workloads inside an enclave](./1-3-create-workloads-inside-enclave.md)
+- [Tutorial 1-4: Use the service catalog](./1-4-use-service-catalog-create-azure-resources-workloads.md)
+- [Tutorial 1-5: Create enclave endpoints and connections](./1-5-create-enclave-endpoint-connections.md)
 - Understanding of [Azure Virtual Desktop](/azure/virtual-desktop/overview)
 - Understanding of [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 
@@ -138,10 +137,10 @@ You need to decide whether to deploy Azure Virtual Desktop and AKS in separate e
 | Option | Benefits | Considerations |
 |--------|----------|----------------|
 | **Separate Enclaves** | • Maximum isolation between workload types<br>• Independent network policies<br>• Easier to manage different compliance requirements<br>• Clear security boundaries | • More complex enclave connections<br>• More enclave resources<br>• Potential for duplicate shared services |
-| **Shared Enclave** | • Simplified networking<br>• Shared common services<br>• Fewer enclave connections needed<br>• Lower management overhead | • Less isolation between workloads<br>• Shared network policies<br>• Potential for resource contention |
+| **One Enclave** | • Simplified networking<br>• Shared common services<br>• Fewer enclave connections needed<br>• Lower management overhead | • Less isolation between workloads<br>• Shared network policies |
 | **Hybrid with Shared Services Enclave** | • Isolate workloads while sharing common resources<br>• Centralized services like Key Vault, Domain Name System (DNS)<br>• Best of both approaches | • Most complex to set up initially<br>• Requires careful planning of enclave connections |
 
-**Recommendation**: For production environments with strict security requirements, use separate enclaves for Azure Virtual Desktop and AKS and a third enclave for shared services and common resources. This tutorial series uses this approach.
+**Recommendation**: For production environments with strict security requirements, use separate enclaves for Azure Virtual Desktop and AKS and a third enclave for shared services and common resources. This tutorial series walks through the separate enclaves approach.
 
 ### Subnet sizing for Azure Virtual Desktop
 

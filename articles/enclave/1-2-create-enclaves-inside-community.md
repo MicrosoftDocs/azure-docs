@@ -45,9 +45,9 @@ Enclave deployments can take around 30-45 minutes to complete. After deployment 
 
 [ ![Screenshot showing the Azure Enclave portal page with the enclaves list selected.](./media/tutorial-step-two-azure-enclave-page-enclaves-list.png) ](./media/tutorial-step-two-azure-enclave-page-enclaves-list.png#lightbox)
 
-2. On the `Enclaves` page, select `Create`.
+1. On the `Enclaves` page, select `Create`.
 
-3. Enter the basic details for your first enclave:
+1. Enter the basic details for your first enclave:
    - `Subscription`: Select an existing subscription
    - `Resource Group`: `myResourceGroup`
    - `Enclave name`: `ve-Enclave-WebApp`
@@ -58,27 +58,27 @@ Enclave deployments can take around 30-45 minutes to complete. After deployment 
 
     [ ![Screenshot showing the create WebApp enclave screen with the basics inputs for the tutorial environment.](./media/tutorial-step-two-create-webapp-enclave-screen-basics-input.png) ](./media/tutorial-step-two-create-webapp-enclave-screen-basics-input.png#lightbox)
 
-4. Create the enclave subnets:
+1. Create the enclave subnets:
     1. Select `Next` and select `+ Subnet`.
 
-    2. Create a subnet delegated to App Service:
+    1. Create a subnet delegated to App Service:
         - `Name`: `common-subnet`
         - `Size`: `/26`
         - `Delegate subnet to a service`: Select `Microsoft.Web/serverFarms`
         
         [ ![Screenshot showing the inputs for the web app subnet.](./media/tutorial-step-two-create-webapp-enclave-webapp-subnet.png) ](./media/tutorial-step-two-create-webapp-enclave-webapp-subnet.png#lightbox)
 
-    3. Select `Save`.
+    1. Select `Save`.
 
-    4. Create a second subnet for other resources:
+    1. Create a second subnet for other resources:
         - `Name`: `common-subnet`
         - `Size`: `/26`
 
-    5. Select `Save`.
+    1. Select `Save`.
 
         [ ![Screenshot showing the inputs for the common subnet.](./media/tutorial-step-two-create-webapp-enclave-common-subnet.png) ](./media/tutorial-step-two-create-webapp-enclave-common-subnet.png#lightbox)
 
-5. Select `Next`.
+1. Select `Next`.
 
     Enter the maintenance mode details for your first enclave:
     - `Maintenance mode`: Select `General`
@@ -91,11 +91,11 @@ Enclave deployments can take around 30-45 minutes to complete. After deployment 
 
     The policy management tab also shows the options as unavailable because at the community you didn't allow the enclave owners to override policy.
 
-6. Select the `Enclave administration` tab.
+1. Select the `Enclave administration` tab.
 
     1. Select `+`.
-    2. For `Role`, select `Contributor`.
-    3. For `Principals`, select `Choose Microsoft Entra principal` and select your name.
+    1. For `Role`, select `Contributor`.
+    1. For `Principals`, select `Choose Microsoft Entra principal` and select your name.
 
     [ ![Screenshot showing the enclave adminstration inputs.](./media/tutorial-step-two-create-webapp-enclave-administration.png) ](./media/tutorial-step-two-create-webapp-enclave-administration.png#lightbox)
 
@@ -103,9 +103,9 @@ Enclave deployments can take around 30-45 minutes to complete. After deployment 
 
     [ ![Screenshot showing the enclave workload permissions inputs.](./media/tutorial-step-two-create-webapp-enclave-workload-permissions.png) ](./media/tutorial-step-two-create-webapp-enclave-workload-permissions.png#lightbox)
 
-7. Select `Review + create`, verify the settings, and then select `Create`.
+1. Select `Review + create`, verify the settings, and then select `Create`.
 
-8. To deploy the second enclave, repeat steps 1 and 2. On the `Create enclave` page, enter these basic details:
+1. To deploy the second enclave, repeat steps 1 and 2. On the `Create enclave` page, enter these basic details:
    - `Subscription`: Select an existing subscription
    - `Resource Group`: `myResourceGroup`
    - `Enclave name`: `ve-Enclave-DMZ`.
@@ -118,7 +118,7 @@ Enclave deployments can take around 30-45 minutes to complete. After deployment 
    
     Keep the other settings as their defaults for this tutorial.
 
-9. Select `Review + create`, verify the settings, and then select `Create`.
+1. Select `Review + create`, verify the settings, and then select `Create`.
 
 ## Validate the deployment
 
