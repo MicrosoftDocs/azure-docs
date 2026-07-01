@@ -6,8 +6,8 @@ ms.service: azure-virtual-wan
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 02/10/2025
-ms.author: cherylmc
-author: cherylmc
+ms.author: duau
+author: duongau
 ---
 
 # Configure Azure VPN Client – Microsoft Entra ID authentication – Linux (Preview)

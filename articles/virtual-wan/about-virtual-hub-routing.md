@@ -2,12 +2,12 @@
 title: 'About virtual hub routing'
 titleSuffix: Azure Virtual WAN
 description: Learn about Virtual WAN virtual hub routing.
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 12/10/2024
-ms.author: cherylmc
+ms.author: duau
 ms.custom:
   - fasttrack-edit
   - sfi-image-nochange

@@ -3,7 +3,7 @@ title: 'Configure a P2S User VPN - Microsoft Entra ID authentication - manually 
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure Microsoft Entra ID authentication for Virtual WAN User VPN (point-to-site) using a manually registered Azure VPN Client App ID.
 services: virtual-wan
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 05/26/2026

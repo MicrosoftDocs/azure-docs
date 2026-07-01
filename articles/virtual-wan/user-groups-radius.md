@@ -2,11 +2,11 @@
 title: 'Configure vender-specific attributes for P2S User Groups - RADIUS'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure RADIUS/NPS for user groups to assign IP addresses from specific address pools based on identity or authentication credentials.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 04/23/2025
-ms.author: cherylmc
+ms.author: duau
 
 ---
 # RADIUS - Configure NPS for vendor-specific attributes - P2S user groups
