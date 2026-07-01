@@ -48,7 +48,7 @@ In the previous tutorials, you created a [community](./1-1-create-community.md) 
 
 ## Create a community endpoint
 
-1. Go to the `fabrikam` community and select `Community Endpoints`, and then select `Create`.
+1. Go to the `cmt-fabrikam` community and select `Community Endpoints`, and then select `Create`.
 
     [ ![Screenshot showing no existing community endpoints.](./media/tutorial-step-five-fabrikam-endpoint-list.png) ](./media/tutorial-step-five-fabrikam-endpoint-list.png#lightbox)
 

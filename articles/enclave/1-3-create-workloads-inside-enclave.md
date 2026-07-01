@@ -23,7 +23,7 @@ In this tutorial, part three of eight, you create workloads inside an enclave. Y
 Complete [Tutorial 1-2: Create enclaves in a community](./1-2-create-enclaves-inside-community.md). This tutorial assumes that you have:
 
 - An Azure account with an active subscription.
-- An Azure Enclave community named `fabrikam`.
+- An Azure Enclave community named `cmt-fabrikam`.
 - An enclave named `Enclave-WebApp`.
 - Permissions to create Azure Enclave workload resources and resource groups in the subscription.
 

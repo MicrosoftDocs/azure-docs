@@ -373,7 +373,7 @@ If you need to delete your community after completing this tutorial:
 
 1. Navigate to Azure Enclave in the Azure portal
 1. Select `Communities` from the left menu
-1. Select the community to delete (for example, `fabrikam`)
+1. Select the community to delete (for example, `cmt-fabrikam`)
 1. Select `Delete` from the top menu
 1. Type the community name to confirm deletion
 1. Select `Delete`
