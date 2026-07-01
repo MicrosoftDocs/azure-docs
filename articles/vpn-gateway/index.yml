@@ -8,8 +8,8 @@ metadata:
   description: Learn how to configure, create, and manage an Azure VPN gateway.
   ms.service: azure-vpn-gateway
   ms.topic: landing-page
-  author: cherylmc
-  ms.author: cherylmc
+  author: duongau
+  ms.author: duau
   ms.date: 03/31/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
