@@ -1,0 +1,253 @@
+### YamlMime:Landing
+
+title: Azure Enclave documentation
+summary: Learn how to use Azure Enclave. Get started with quickstarts, tutorials, and best practices for deploying, securing, and managing enclave environments in Azure.
+
+metadata:
+  title: Azure Enclave Documentation - Tutorials, Quickstarts, API References
+  description: Learn how to use Azure Enclave. Quickstarts, tutorials, samples, and best practices for deploying, securing, and managing enclaves.
+  ms.topic: landing-page
+  author: aserfass-msft
+  ms.author: aserfass
+  ms.date: 9/30/2025
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Start card title with a verb
+  # Card
+  - title: About Azure Enclave
+    linkLists:
+      - linkListType: overview
+        links:
+        - text: What is Azure Enclave?
+          url: what-azure-enclave.md
+        - text: Why use Azure Enclave?
+          url: why-azure-enclave.md
+        - text: Azure Enclave FAQs
+          url: azure-enclave-faq.md
+        - text: Azure Enclave pricing
+          url: azure-enclave-pricing.md
+      # - linkListType: learn
+      #   links:
+      #     - text: Understanding Enclave Networking
+      #       url: networking.md
+#           - text: Designing intra-enclave network isolation
+#             url: designing-intra-enclave-network-isolation.md
+      - linkListType: concept
+        links:
+          - text: "What is a community?"
+            url: what-community.md
+          - text: "What is an enclave?"
+            url: what-enclave.md
+          - text: "What is a workload?"
+            url: what-workload.md
+          - text: "What is a community endpoint?"
+            url: what-community-endpoint.md
+          - text: "What is an enclave endpoint?"
+            url: what-enclave-endpoint.md
+          - text: "What is an enclave connection?"
+            url: what-enclave-connection.md
+          - text: "What is a transit hub?"
+            url: what-transit-hub.md
+          - text: "What is a dedicated hub?"
+            url: what-dedicated-hub.md
+          - text: "What is the service catalog?"
+            url: what-service-catalog.md
+          - text: "What are approvals?"
+            url: what-approvals.md
+      - linkListType: concept
+        links:
+          - text: Best practices
+            url: best-practices.md
+          - text: Understand resource groups
+            url: azure-enclave-resource-groups.md
+          - text: Understand Admin Virtual Machines
+            url: understand-admin-vm.md
+          - text: Understand Domain Name Service
+            url: understand-domain-name-service.md
+      - linkListType: whats-new
+        links:
+          - text: "What's new?"
+            url: whats-new.md
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a community
+            url: create-community-portal.md
+          - text: Create a community endpoint
+            url: create-community-endpoint-portal.md
+          - text: Create an enclave
+            url: create-enclave-portal.md
+          - text: Create an enclave endpoint
+            url: create-enclave-endpoint-portal.md
+          - text: Create an enclave connection
+            url: create-enclave-connection-portal.md
+          - text: Create a workload
+            url: create-workload-portal.md
+          - text: Create a transit hub
+            url: create-transit-hub-portal.md
+#           - text: Easy button deployments
+#             url: Easy-Button-Deployments.md
+      - linkListType: tutorial
+        links:
+          - text: Learn Azure Enclave
+            url: azure-enclave-learn.md
+          - text: Create a community
+            url: 1-1-create-community.md
+          - text: Create enclaves inside a community
+            url: 1-2-create-enclaves-inside-community.md
+          - text: Create workloads inside an enclave
+            url: 1-3-create-workloads-inside-enclave.md
+          - text: Use the service catalog to create Azure resources inside a workload
+            url: 1-4-use-service-catalog-create-azure-resources-workloads.md
+          - text: Create an enclave endpoint and connection
+            url: 1-5-create-enclave-endpoint-connections.md
+          - text: Monitor your enclaves
+            url: 1-6-monitor-your-enclaves.md
+          - text: Host a publicly accessible application in an enclave
+            url: 1-7-host-publicly-accessible-application-azure-enclave.md
+          - text: Migrate workload resources
+            url: 1-8-migrate-workload-resources.md
+      - linkListType: tutorial
+        links:
+          - text: Plan Architecture for workload
+            url: 2-1-plan-architecture-workloads.md
+          - text: Create Azure Enclave Environment
+            url: 2-2-create-azure-enclave-environment.md
+          - text: Deploy Azure Virtual Desktop workload
+            url: 2-3-deploy-virtual-desktop-workload.md
+          - text: Deploy Azure Kubernetes Service workload
+            url: 2-4-deploy-kubernetes-workload.md
+  # Card
+  - title: Governance, Security, and Compliance
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Observability
+            url: observability.md
+          - text: Just-in-time access
+            url: just-in-time-access.md
+#           - text: Dynamic Access Controls
+#             url: dynamic-access-controls.md
+#           - text: Attribute-Based Access Controls
+#             url: attribute-based-access-controls.md
+          - text: Role-Based Access Controls (RBAC)
+            url: role-based-access-controls.md
+          - text: Access controls in enclaves
+            url: access-controls-enclaves.md
+          - text: Create a user-assigned managed identity
+            url: create-user-managed-identity.md
+#           - text: Customer Managed Key Encryption
+#             url: configure-customer-managed-key-encryption-within-enclave.md
+          - text: Policy compliance exemptions
+            url: policy-compliance-exemptions.md
+          - text: Configure customer managed key encryption
+            url: configure-customer-managed-key-encryption-within-enclave.md
+#           - text: Regulatory compliance guidelines
+#             url: regulatory-compliance-guidelines.md
+#           - text: Security best practices
+#             url: security-best-practices.md
+          - text: Configure community governance
+            url: configure-community-governance.md
+  # Card
+  - title: Deploy from the Services Catalog
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: List of service catalog templates
+            url: list-service-catalog-templates.md
+          - text: Deploy Workload Quickstart from the service catalog
+            url: deploy-workload-quickstart-service-catalog.md
+          - text: Deploy Common Dependencies from the service catalog
+            url: deploy-common-dependencies-service-catalog.md
+          - text: Deploy an Admin Virtual Machine from the service catalog
+            url: deploy-admin-vm-service-catalog.md
+          - text: Deploy Private DNS Zones from the service catalog
+            url: deploy-private-dns-zones-service-catalog.md
+          - text: Deploy a Storage Account from the service catalog
+            url: deploy-storage-account-service-catalog.md
+          - text: Deploy Azure Kubernetes Service from the service catalog
+            url: deploy-azure-kubernetes-service-service-catalog.md
+          - text: Deploy Virtual Machine from the service catalog
+            url: deploy-virtual-machine-service-catalog.md
+          - text: Install application on a Remote App Virtual Machine
+            url: application-deployment-using-remote-app-vm.md
+      - linkListType: deploy
+        links:
+          - text: Deploy Azure App Service from the service catalog
+            url: deploy-app-service-web-app-service-catalog.md
+          - text: Deploy Azure Container Registry from the service catalog
+            url: deploy-azure-container-registry-service-catalog.md
+          - text: Deploy Azure Cosmos DB from the service catalog
+            url: deploy-azure-cosmos-db-service-catalog.md
+          - text: Deploy Function App from the service catalog
+            url: deploy-app-service-function-app-service-catalog.md
+          - text: Deploy Key Vault from the service catalog
+            url: deploy-key-vault-service-catalog.md
+          - text: Deploy Azure SQL from the service catalog
+            url: deploy-azure-sql-service-catalog.md
+          - text: Deploy Azure Service Bus from the service catalog
+            url: deploy-service-bus-service-catalog.md
+  # Card
+  - title: Manage and Monitor
+    linkLists:
+      - linkListType: learn
+        links:
+#           - text: Monitor your enclaves
+#             url: monitor-your-enclaves.md
+          - text: Maintenance mode
+            url: maintenance-mode.md
+#           - text: IP Allocation Management
+#             url: ip-allocation-management.md
+          - text: Naming rules and restrictions
+            url: name-rules-restrictions-azure-enclave-resources.md
+          - text: Move data inside an enclave
+            url: move-data-inside-enclave.md
+          - text: Quotas and region availability
+            url: quotas-region-availability.md
+      - linkListType: architecture
+        links:
+          - text: Understand creation and deletion logic
+            url: create-and-delete-logic.md
+          - text: Defense in Depth
+            url: defense-in-depth.md
+          - text: Built in RBAC roles
+            url: built-in-rbac-roles.md
+          - text: Disaster recovery planning
+            url: disaster-recovery-planning.md
+  # Card
+  - title: Approvals
+    linkLists:
+      - linkListType: learn
+        links:
+          - text: Understand approvals
+            url: understand-approvals.md
+          - text: Configure approvals
+            url: configure-approvals.md
+          - text: Manage approvals
+            url: manage-approvals.md
+  # Card
+  # - title: Troubleshoot
+  #   linkLists:
+  #     - linkListType: how-to-guide
+  #       links:
+  #         - text: Troubleshooting guide
+  #           url: troubleshoot.md
+  #         - text: Policy compliance exemptions
+  #           url: policy-compliance-exemptions.md
+  #         - text: Migrate Azure Resources into Azure Enclave
+  #           url: migrate-azure-resources-azure-enclave.md
+  # Card
+  - title: Resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure Enclave templates
+            url: azure-enclave-templates.md
+          - text: Troubleshooting guide
+            url: troubleshoot.md
+          - text: Migrate Azure resources into Azure Enclave
+            url: migrate-azure-resources-azure-enclave.md
