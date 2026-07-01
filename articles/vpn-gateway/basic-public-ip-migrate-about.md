@@ -176,7 +176,7 @@ No. Although the Azure portal displays new BGP peer IP addresses after migration
 
 Yes. Review any customer-created Route Tables (UDRs), Load Balancers, firewalls, or NVAs that may reference VPN Gateway instance private IPs (Gateway CAs). And BGP route propagation is turned before migration. If your environment uses VNet peering, ensure Sync VNet Peering is enabled during migration.
 
-#### When should these configurations be updated?
+#### When should I update these configurations?
 
 After the Execute step, update any customer-created routes, load balancers, firewall rules, or NVA configurations that reference the old gateway instance IPs. 
 
