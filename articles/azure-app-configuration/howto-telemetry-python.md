@@ -28,7 +28,7 @@ In this tutorial, you use telemetry in your Python application to track feature 
     pip install azure-monitor-opentelemetry
     ```
 
-1. Open `app.py` and configure your application to connect to Application Insights and publish telemetry data. Ensure that the existing `from flask import Flask` import statement appears after the `configure_azure_monitor(...)` call shown below. This order is required for OpenTelemetry auto-instrumentation to work correctly.
+1. Open `app.py` and configure your application to connect to Application Insights and publish telemetry data. Ensure that the existing `from flask import Flask` import statement appears after the `configure_azure_monitor(...)` call shown in the following code. This order is required for OpenTelemetry auto-instrumentation to work correctly.
 
     ```python
     import os
@@ -88,7 +88,7 @@ In this tutorial, you use telemetry in your Python application to track feature 
 
 ## Build and run the app
 
-1. Application Insights requires a connection string to connect to your Application Insights resource. Set the `APPLICATIONINSIGHTS_CONNECTION_STRIN`G` environment variable to the connection string for your Application Insights resource. To locate the connection string, open the Azure portal, navigate to Application Insights, select your Application Insights resource created earlier, and then go to Overview. Copy the value of Connection String. Replace the placeholder value in the following command with the connection string you copied from your Application Insights resource.
+1. Application Insights requires a connection string to connect to your Application Insights resource. Set the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable to the connection string for your Application Insights resource. To locate the connection string, open the Azure portal, navigate to Application Insights, select your Application Insights resource created earlier, and then go to **Overview**. Copy the value of **Connection String**. Replace the placeholder value in the following command with the connection string you copied from your Application Insights resource.
 
     ```cmd
     setx APPLICATIONINSIGHTS_CONNECTION_STRING "applicationinsights-connection-string"
