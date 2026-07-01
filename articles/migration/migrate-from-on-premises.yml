@@ -10,7 +10,7 @@ metadata:
   author: reginahack
   ms.author: rhackenberg
   ms.reviewr: rhackenberg, chkittel
-  ms.date: 07/31/2025
+  ms.date: 06/01/2026
   ms.collection:
    - migration
    - onprem-to-azure
@@ -21,6 +21,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Fundamentals of Azure for on-premises experts
+            url:  /azure/migration/migrate-from-on-premises-fundamentals
           - text: Plan your migration
             url:  /azure/cloud-adoption-framework/migrate/plan-migration
           - text: Select your migration strategy
@@ -43,15 +45,15 @@ landingContent:
       - linkListType: concept
         links:
           - text: Prepare on-premises machines for Azure migration
-            url:  /azure/migrate/prepare-for-migration?view=migrate-classic
+            url:  /azure/migrate/prepare-for-migration?view=migrate
           - text: Migrate on-premises workloads using Azure Migrate
-            url:  /azure/migrate/migrate-services-overview?view=migrate-classic
+            url:  /azure/migrate/migrate-services-overview?view=migrate
           - text: Migrate VMware, Hyper-V, and physical servers to Azure
             url:  /azure/site-recovery/migrate-tutorial-on-premises-azure
           - text: Migrate Hyper-V VMs from on-premises to Azure
-            url:  /azure/migrate/tutorial-migrate-hyper-v?view=migrate-classic
+            url:  /azure/migrate/tutorial-migrate-hyper-v?view=migrate
           - text: Migrate Azure high-performance computing (HPC)
-            url:  /azure/cloud-adoption-framework/scenarios/azure-hpc/migrate
+            url:  /azure/high-performance-computing/lift-and-shift-overview
   - title: Training modules
     linkLists:
       - linkListType: training
@@ -67,7 +69,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Migration architecture design
-            url:  /azure/architecture/guide/migration/migration-start-here
+            url:  /azure/migration/migrate-to-azure
           - text: Choose an Azure compute service
             url:  /azure/architecture/guide/technology-choices/compute-decision-tree
           - text: Azure Migrate application and code assessment
