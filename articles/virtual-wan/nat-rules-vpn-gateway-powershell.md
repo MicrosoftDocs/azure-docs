@@ -3,12 +3,12 @@ title: 'Configure VPN NAT rules for your gateway using PowerShell'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure NAT rules for your Virtual WAN VPN gateway using PowerShell.
 services: virtual-wan
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 08/14/2024
-ms.author: cherylmc
+ms.author: duau
 ---
 
 # Configure NAT Rules for your Virtual WAN VPN gateway using PowerShell

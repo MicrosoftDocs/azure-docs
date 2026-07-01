@@ -2,11 +2,11 @@
 title: 'Virtual WAN: Create virtual hub route table to NVA: Azure portal'
 description: Virtual WAN virtual hub route table to steer traffic to a network virtual appliance using the portal.
 services: virtual-wan
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/27/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 # Customer intent: As someone with a networking background, I want to create a route table using the portal.
 ---

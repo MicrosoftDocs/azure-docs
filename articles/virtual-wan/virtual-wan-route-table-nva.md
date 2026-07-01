@@ -2,7 +2,7 @@
 title: 'Virtual WAN: Create virtual hub route table to NVA: Azure PowerShell'
 description: Virtual WAN virtual hub route table to steer traffic to a network virtual appliance.
 services: virtual-wan
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
 ms.topic: how-to
