@@ -61,7 +61,7 @@ Export results to share with stakeholders
 Because this is an open-source project, you can review the code, run it locally, or adapt it to your own needs.
 
 >[!Tip]
->You can access the estimator here: [General purpose v1 (GPv1) storage account cost estimator] https://aka.ms/gpv1costestimator 
+>You can access the estimator here: [General purpose v1 (GPv1) storage account cost estimator](https://aka.ms/gpv1costestimator)
 
 >[!Note]
 >The estimator uses publicly available pricing and doesn't include contract-specific discounts, taxes, or reservations. Actual costs might vary.
