@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 06/20/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -89,7 +89,7 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/delete` | Deletes specified agent artifact. |
 > | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/write` | Uploads a single file for the specified agent artifact. |
 > | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/write` | Uploads a single file for the specified agent artifact via JSON inline content. |
-> | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/read` | Returns the base64-encoded file for the specified agent artifact (≤3 MiB). |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/read` | Returns the base64-encoded file for the specified agent artifact (3 MiB). |
 > | `Microsoft.ApiCenter/services/workspaces/analyzerConfig/analysisExecutions/read` | Get analysis executions of  a particular analyzer configuration |
 > | `Microsoft.ApiCenter/services/workspaces/analyzerConfigs/write` | Creates or updates specified analyzer configuration. |
 > | `Microsoft.ApiCenter/services/workspaces/analyzerConfigs/read` | Returns the details of the specified analyzer configuration. |
@@ -171,7 +171,7 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | `Microsoft.ApiCenter/services/workspaces/skills/artifacts/delete` | Deletes specified skill artifact. |
 > | `Microsoft.ApiCenter/services/workspaces/skills/artifacts/write` | Uploads a single file for the specified skill artifact. |
 > | `Microsoft.ApiCenter/services/workspaces/skills/artifacts/write` | Uploads a single file for the specified skill artifact via JSON inline content. |
-> | `Microsoft.ApiCenter/services/workspaces/skills/artifacts/read` | Returns the base64-encoded file for the specified skill artifact (≤3 MiB). |
+> | `Microsoft.ApiCenter/services/workspaces/skills/artifacts/read` | Returns the base64-encoded file for the specified skill artifact (3 MiB). |
 > | `Microsoft.ApiCenter/services/workspaces/skills/versions/write` | Creates or updates specified skill version. |
 > | `Microsoft.ApiCenter/services/workspaces/skills/versions/read` | Returns paginated collection of skill versions. |
 > | `Microsoft.ApiCenter/services/workspaces/skills/versions/read` | Returns the details of the specified skill version. |

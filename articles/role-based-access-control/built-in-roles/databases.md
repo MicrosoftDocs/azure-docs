@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 06/20/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -124,7 +124,7 @@ Read Azure Managed Redis resources and their configuration. Cannot modify resour
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/locations/operationsStatus/read | View the status of a long running operation for which the 'AzureAsync' header was previously returned to the client |
 > | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/operations/read | Lists the operations that 'Microsoft.Cache' provider supports. |
-> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redisEnterprise/read | View Azure Managed Redis resource’s settings and configurations |
+> | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redisEnterprise/read | View Azure Managed Redis resource's settings and configurations |
 > | [Microsoft.Cache](../permissions/databases.md#microsoftcache)/redisEnterprise/*/read | Gets or lists Azure Managed Redis resources |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/read | Read a classic metric alert |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
