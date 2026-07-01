@@ -101,7 +101,7 @@ You can view activity Log events in Azure portal and other supported clients. He
 jq -r '"ResourceName\tResourceId\tPolicyDefinitionDisplayName", (.[] as $event | ($event.Policies | fromjson[] | "\($event.ResourceId | split("/") | last)\t\($event.ResourceId)\t\(.policyDefinitionDisplayName)"))' | \
 column -t -s $'\t'`
 
-You can also use Azure Portal to pull log events. Here is a sample query:
+You can also use the Azure portal to pull log events. Here's a sample query:
 `AzureActivity
 | where CategoryValue == "Policy"
 | extend p = parse_json(Properties)
