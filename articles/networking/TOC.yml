@@ -26,6 +26,70 @@
       href: ../frontdoor/create-front-door-portal.md?toc=/azure/networking/toc.json
 - name: Plan and Design
   items:
+  - name: Networking design guide
+    items:
+    - name: Overview
+      href: design-guide/overview.md
+    - name: Common workload patterns
+      href: design-guide/workload-patterns.md
+    - name: Scenario guides
+      items:
+      - name: Lift and shift
+        href: design-guide/lift-and-shift.md
+      - name: Migrate and modernize
+        href: design-guide/migrate-modernize.md
+      - name: Cross-cloud
+        href: design-guide/cross-cloud.md
+    - name: Foundational
+      items:
+      - name: Virtual networks and subnets
+        href: design-guide/vnets-subnets.md
+      - name: IP address planning
+        href: design-guide/ip-planning.md
+      - name: Network security groups and ASGs
+        href: design-guide/network-application-security-groups.md
+    - name: Topology
+      items:
+      - name: Single-workload flat network
+        href: design-guide/flat-network.md
+      - name: Hub-and-spoke topology
+        href: design-guide/hub-spoke.md
+      - name: Azure Virtual WAN
+        href: design-guide/virtual-wan.md
+      - name: Multi-region networking
+        href: design-guide/multi-region.md
+    - name: Connectivity
+      items:
+      - name: Hybrid connectivity
+        href: design-guide/hybrid-connectivity.md
+      - name: Internet ingress
+        href: design-guide/internet-ingress.md
+      - name: Application delivery
+        href: design-guide/app-delivery.md
+      - name: Outbound egress
+        href: design-guide/outbound-egress.md
+      - name: Private PaaS access
+        href: design-guide/private-platform-as-a-service.md
+      - name: Developer and admin access
+        href: design-guide/developer-admin-access.md
+      - name: Cross-region and cross-cloud
+        href: design-guide/cross-region.md
+    - name: Security
+      items:
+      - name: Azure Firewall
+        href: design-guide/azure-firewall.md
+      - name: Web Application Firewall
+        href: design-guide/web-application-firewall.md
+      - name: DDoS protection
+        href: design-guide/ddos.md
+      - name: DNS and private name resolution
+        href: design-guide/dns-security.md
+    - name: Operations
+      items:
+      - name: Network monitoring
+        href: design-guide/monitor.md
+      - name: Centralized network management
+        href: design-guide/azure-virtual-network-manager.md
   - name: Architecture guides
     href: architecture-guides.md?toc=/azure/networking/toc.json
   - name: Design cross-service scenarios

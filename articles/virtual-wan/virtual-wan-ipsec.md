@@ -3,11 +3,11 @@ title: 'Virtual WAN site-to-site IPsec policies'
 titleSuffix: Azure Virtual WAN
 description: Learn about Azure Virtual WAN IPsec connectivity policies, including default initiator and responder policies, and custom policy combinations.
 services: virtual-wan
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: reference
 ms.date: 03/27/2025
-ms.author: cherylmc
+ms.author: duau
 #Customer intent: As a Virtual WAN software-defined connectivity provider, I want to know the IPsec policies
 ---
 

@@ -2,11 +2,11 @@
 title: 'Quickstart: Route to shared services using an ARM template'
 titleSuffix: Azure Virtual WAN
 description: Learn about how to set up routes to access a shared service VNet with a workload that you want every VNet and Branch to access using an Azure Resource Manager template (ARM template).
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: quickstart
 ms.date: 03/27/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom:
   - subject-armqs
   - mode-arm

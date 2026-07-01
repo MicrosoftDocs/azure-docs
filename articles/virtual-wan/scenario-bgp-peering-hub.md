@@ -2,11 +2,11 @@
 title: 'About BGP peering with a virtual hub'
 titleSuffix: Azure Virtual WAN
 description: Learn about BGP peering with an Azure Virtual WAN virtual hub.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 03/26/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 
 ---

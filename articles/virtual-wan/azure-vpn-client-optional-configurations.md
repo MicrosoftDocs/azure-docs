@@ -2,11 +2,11 @@
 title: 'Azure VPN Client optional configuration steps: OpenVPN protocol'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure the Azure VPN Client optional configuration parameters for P2S OpenVPN connections.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/07/2025
-ms.author: cherylmc
+ms.author: duau
 
 ---
 

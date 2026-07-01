@@ -1,12 +1,12 @@
 ---
 title: 'Azure Virtual WAN partners, regions, and available locations'
 description: This article contains a list of Azure Virtual WAN partners and available locations.
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 03/05/2024
-ms.author: cherylmc
+ms.author: duau
 ms.custom: references_regions
 # Customer intent: As someone with a networking background, I want to learn more about Branch IPsec connectivity automation
 ---

@@ -2,12 +2,12 @@
 title: 'Azure Virtual WAN: User VPN client profiles'
 description: This helps you work with the client profile file
 services: virtual-wan
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 02/04/2025
-ms.author: cherylmc
+ms.author: duau
 
 ---
 # Working with User VPN client profile files

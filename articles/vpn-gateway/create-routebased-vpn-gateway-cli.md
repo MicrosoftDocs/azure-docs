@@ -2,11 +2,11 @@
 title: Create a virtual network gateway - CLI
 titleSuffix: Azure VPN Gateway
 description: Learn how to create a virtual network gateway for VPN Gateway connections using CLI.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 11/18/2024
-ms.author: cherylmc
+ms.author: duau
 ms.custom:
   - devx-track-azurecli
   - sfi-image-nochange

@@ -2147,3 +2147,15 @@ groups:
     title: Windows
   - id: linux
     title: Linux
+
+# Owner: duongau
+- id: networking-scenario
+  title: Choose your scenario
+  prompt: Select the migration scenario that matches your project
+  pivots:
+  - id: lift-shift
+    title: Lift and shift
+  - id: modernize
+    title: Migrate and modernize
+  - id: cross-cloud
+    title: Cross-cloud

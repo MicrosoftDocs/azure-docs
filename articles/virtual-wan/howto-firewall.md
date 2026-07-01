@@ -3,12 +3,12 @@ title: 'Install Azure Firewall in a Virtual WAN hub'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure Azure Firewall in a Virtual WAN hub.
 services: virtual-wan
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 10/25/2024
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 
 ---

@@ -366,7 +366,7 @@ Once the Event Grid namespace is configured, you can create a data flow endpoint
 Use the [az iot ops dataflow endpoint create eventgrid](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-eventgrid) command to create or replace an Azure Event Grid MQTT data flow endpoint.
 
 ```azurecli
-az iot ops dataflow endpoint create eventgrid --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host <Namespace>.<Region>-1.ts.eventgrid.azure.net --port 9092
+az iot ops dataflow endpoint create eventgrid --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host <Namespace>.<Region>-1.ts.eventgrid.azure.net --port 8883
 ```
 
 This command creates an Event Grid MQTT broker endpoint with default settings and system-assigned managed identity authentication. You can specify additional options as needed.
@@ -374,7 +374,7 @@ This command creates an Event Grid MQTT broker endpoint with default settings an
 Here's an example command to create or replace an Event Grid MQTT broker data flow endpoint named `event-grid-endpoint`:
 
 ```azurecli
-az iot ops dataflow endpoint create eventgrid --resource-group myResourceGroup --instance myAioInstance --name event-grid-endpoint --host mynamespace.eastus-1.ts.eventgrid.azure.net --port 9092
+az iot ops dataflow endpoint create eventgrid --resource-group myResourceGroup --instance myAioInstance --name event-grid-endpoint --host mynamespace.eastus-1.ts.eventgrid.azure.net --port 8883
 ```
 
 #### Create or change
@@ -393,7 +393,7 @@ In this example, assume a configuration file named `event-grid-endpoint.json` wi
 {
     "endpointType": "Mqtt",
     "mqttSettings": {
-        "host": "mynamespace.eastus-1.ts.eventgrid.azure.net:9092",
+        "host": "mynamespace.eastus-1.ts.eventgrid.azure.net:8883",
         "authentication": {
             "method": "SystemAssignedManagedIdentity",
             "systemAssignedManagedIdentitySettings": {}
