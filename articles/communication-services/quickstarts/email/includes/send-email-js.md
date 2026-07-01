@@ -163,6 +163,9 @@ For simplicity, this article uses connection strings, but in production environm
 ### Send an email message
 
 To send an email message, call the `beginSend` function from the `EmailClient`. This method returns a poller that checks on the status of the operation and retrieves the result once finished.
+> Note:
+> In `@azure/communication-email` v3.1.0 and later, the `isStarted` property was removed from `poller.getOperationState()`. The sample below uses the `status` field instead to validate that the poller has started successfully.
+
 
 ```javascript
 
@@ -187,8 +190,8 @@ async function main() {
 
     const poller = await emailClient.beginSend(message);
 
-    if (!poller.getOperationState().isStarted) {
-      throw "Poller was not started."
+    if (poller.getOperationState().status !== "running") {
+      throw "Poller failed to start.";
     }
 
     let timeElapsed = 0;
