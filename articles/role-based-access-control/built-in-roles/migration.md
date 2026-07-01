@@ -533,7 +533,6 @@ Grants required access to the system assigned managed identity of Azure Migrate 
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read | Read any Protectable Items |
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | Read any Protected Items |
 > | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/read | Read any Migration Items |
-> | Microsoft.DataReplication/replicationVaults/protectedItems/read | Lists protected items |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -562,8 +561,7 @@ Grants required access to the system assigned managed identity of Azure Migrate 
         "Microsoft.MySQLDiscovery/*/read",
         "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read",
         "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read",
-        "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/read",
-        "Microsoft.DataReplication/replicationVaults/protectedItems/read"
+        "Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/read"
       ],
       "notActions": [],
       "dataActions": [],

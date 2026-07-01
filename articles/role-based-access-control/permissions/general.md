@@ -87,7 +87,7 @@ Azure service: core
 > | `Microsoft.Commerce/register/action` | Register Subscription for Microsoft Commerce UsageAggregate |
 > | `Microsoft.Commerce/unregister/action` | Unregister Subscription for Microsoft Commerce UsageAggregate |
 > | `Microsoft.Commerce/RateCard/read` | Returns offer data, resource/meter metadata and rates for the given subscription. |
-> | `Microsoft.Commerce/UsageAggregates/read` | Retrieves Microsoft Azures consumption  by a subscription. The result contains aggregates usage data, subscription and resource related information, on a particular time range. |
+> | `Microsoft.Commerce/UsageAggregates/read` | Retrieves Microsoft Azure's consumption  by a subscription. The result contains aggregates usage data, subscription and resource related information, on a particular time range. |
 
 ## Microsoft.Marketplace
 
