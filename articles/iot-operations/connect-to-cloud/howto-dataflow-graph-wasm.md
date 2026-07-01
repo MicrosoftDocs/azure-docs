@@ -1162,13 +1162,11 @@ You pass the configuration key-value pairs to the WASM module at runtime. The mo
 
 #### Destination nodes
 
-Destination nodes define where processed data is sent. They connect to data flow endpoints that send data to MQTT brokers, cloud storage, or other systems. Each destination node specifies:
+Destination nodes define where processed data is sent. They connect to data flow endpoints that send data to MQTT brokers or other systems. Each destination node specifies:
 
 - Endpoint reference that points to a configured data flow endpoint.
 - Data destination as the specific topic, path, or location for output data.
 - Output schema settings (optional) that define serialization format and schema validation.
-
-For storage destinations like Azure Data Lake or Fabric OneLake, you can specify output schema settings to control how data is serialized and validated.
 
 > [!NOTE]
 > Currently, only MQTT, Kafka, and OpenTelemetry endpoints are supported as data destinations for data flow graphs. For more information, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
@@ -1187,14 +1185,10 @@ The CLI applies the whole graph from one config file, so add this destination no
 ```json
 {
   "nodeType": "Destination",
-  "name": "cloud-storage-destination",
+  "name": "output",
   "destinationSettings": {
-    "endpointRef": "azure-storage-endpoint",
+    "endpointRef": "default",
     "dataDestination": "processed-data/temperature",
-    "outputSchemaSettings": {
-      "serializationFormat": "Parquet",
-      "schemaRef": "aio-sr://temperature-output-schema:1"
-    }
   }
 }
 ```
@@ -1204,14 +1198,10 @@ The CLI applies the whole graph from one config file, so add this destination no
 ```bicep
 {
   nodeType: 'Destination'
-  name: 'cloud-storage-destination'
+  name: 'output'
   destinationSettings: {
-    endpointRef: 'azure-storage-endpoint'
+    endpointRef: 'default'
     dataDestination: 'processed-data/temperature'
-    outputSchemaSettings: {
-      serializationFormat: 'Parquet'
-      schemaRef: 'aio-sr://temperature-output-schema:1'
-    }
   }
 }
 ```
@@ -1220,13 +1210,10 @@ The CLI applies the whole graph from one config file, so add this destination no
 
 ```yaml
 - nodeType: Destination
-  name: cloud-storage-destination
+  name: output
   destinationSettings:
-    endpointRef: azure-storage-endpoint
+    endpointRef: default
     dataDestination: processed-data/temperature
-    outputSchemaSettings:
-      serializationFormat: Parquet
-      schemaRef: aio-sr://temperature-output-schema:1
 ```
 
 ---
@@ -1262,7 +1249,7 @@ The CLI applies the whole graph from one config file, so add this to the `nodeCo
       "name": "temperature-processor"
     },
     "to": {
-      "name": "cloud-storage-destination"
+      "name": "output"
     }
   }
 ]
@@ -1289,7 +1276,7 @@ nodeConnections: [
       name: 'temperature-processor'
     }
     to: {
-      name: 'cloud-storage-destination'
+      name: 'output'
     }
   }
 ]
@@ -1309,7 +1296,7 @@ nodeConnections:
   - from:
       name: temperature-processor
     to:
-      name: cloud-storage-destination
+      name: output
 ```
 
 ---
@@ -1337,16 +1324,6 @@ Kafka endpoints can serve as both sources and destinations. They connect to Kafk
 - **Confluent Cloud**
 
 For detailed configuration information, see [Configure Azure Event Hubs and Kafka data flow endpoints](howto-configure-kafka-endpoint.md).
-
-#### Storage endpoints
-
-Storage endpoints can only serve as destinations. They connect to cloud storage systems for long-term data retention and analytics:
-
-- **Azure Data Lake Storage**
-- **Microsoft Fabric OneLake** 
-- **Local storage**
-
-Storage endpoints typically require output schema settings to define data serialization format.
 
 #### Registry endpoints
 
