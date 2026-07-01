@@ -74,8 +74,7 @@ The retirement takes effect globally across all Azure regions.
 >
 >[!Note]
 >You can access the estimator here: [General purpose v1 (GPv1) storage account cost estimator](https://aka.ms/gpv1costestimator)
-
->[!Note]
+>
 >The estimator uses publicly available pricing and doesn't include contract-specific discounts, taxes, or reservations. Actual costs might vary.
 
 1. Capture a baseline of monthly operations by type (**read, write, list/metadata**) and any **egress**.
