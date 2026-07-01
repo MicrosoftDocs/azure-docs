@@ -1,4 +1,4 @@
------
+--
 title: Deploy OSDU Admin UI on top of Azure Data Manager for Energy
 description: Learn how to deploy the OSDU Admin UI on top of your Azure Data Manager for Energy instance.
 ms.service: azure-data-manager-energy
