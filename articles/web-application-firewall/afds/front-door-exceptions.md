@@ -12,6 +12,8 @@ ms.date: 06/29/2026
 
 # Azure Front Door WAF exceptions list (preview)
 
+**Applies to:** :heavy_check_mark: Front Door Premium
+
 The Azure Front Door Web Application Firewall (WAF) helps protect your web applications from common threats and attacks. This article describes how to configure WAF exception lists in a WAF policy associated with your Azure Front Door.
 
 For an overview of WAF policies, see [Azure Web Application Firewall on Azure Front Door](afds-overview.md) and [WAF policy settings](waf-front-door-policy-settings.md).

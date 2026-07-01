@@ -300,7 +300,7 @@ Replace the values according to the explanation.
 > [!NOTE]
 > [OSDU Connector API](https://community.opengroup.org/osdu/ui/admin-ui-group/admin-ui-totalenergies/connector-api-totalenergies) provides an interface between consumers and OSDU APIs by wrapping selected API chains and objects. It currently manages operations and actions on project and scenario objects.
 >
-> If you configure `gcz_endpoint`, use the base GCZ endpoint ending with `/gcz/`. GCZ must already be deployed separately.
+> If you configure `gcz_endpoint`, use the base GCZ endpoint ending with `/gcz/`. You must already have deployed GCZ separately.
 
 1. Build the web UI.
 

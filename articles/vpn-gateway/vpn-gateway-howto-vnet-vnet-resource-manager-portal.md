@@ -2,11 +2,11 @@
 title: 'Configure a VNet-to-VNet VPN gateway connection: Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to create a VPN gateway connection between virtual networks.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 06/30/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 
 # Do not change VNet-to-VNet to another wording, such as Net-to-Net. VNet-to-VNet is the correct term and is the value used by Azure to denote this specific type of connection. It is different than a typical network connection.

@@ -2,11 +2,11 @@
 title: 'About Site-to-site VPN Connections with Certificate Authentication'
 titleSuffix: Azure VPN Gateway
 description: Learn about site-to-site VPN connections with certificate authentication.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 02/24/2026
-ms.author: cherylmc
+ms.author: duau
 
 # Customer intent: "As a network engineer, I want to understand how to establish a secure site-to-site VPN connection using certificate authentication, so that I can securely connect my on-premises network to my Azure virtual network."
 ---

@@ -2,11 +2,11 @@
 title: Create custom app ID for P2S VPN Microsoft Entra ID authentication
 titleSuffix: Azure VPN Gateway
 description: Learn how to create or modify a custom audience App ID or upgrade an existing custom App ID to the new Microsoft-registered Azure VPN Client app values.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 02/27/2025
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: As a network administrator, I want to create or modify a custom audience App ID for P2S VPN authentication, so that I can manage user access to resources effectively using Microsoft Entra ID.
 ---
 

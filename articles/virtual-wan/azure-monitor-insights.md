@@ -2,12 +2,12 @@
 title: 'Monitoring Virtual WAN using Azure Monitor Insights'
 description: Learn about monitoring Azure Virtual WAN by using Azure Monitor Insights.
 services: virtual-wan
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 06/09/2022
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 ---
 

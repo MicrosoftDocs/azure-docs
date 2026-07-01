@@ -1,11 +1,11 @@
 ---
 title: 'Connect a virtual network gateway to an Azure Virtual WAN'
 description: Learn how to connect an Azure VPN gateway (virtual network gateway) to an Azure Virtual WAN VPN gateway.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/26/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 
 ---
