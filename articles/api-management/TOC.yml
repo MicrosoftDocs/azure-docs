@@ -100,6 +100,8 @@
       href: export-rest-mcp-server.md
     - name: Expose existing MCP server
       href: expose-existing-mcp-server.md
+    - name: Create and manage MCP servers programmatically
+      href: manage-mcp-servers-rest-api.md
     - name: Govern MCP servers with products
       href: govern-mcp-server-products.md
     - name: Secure access to MCP servers

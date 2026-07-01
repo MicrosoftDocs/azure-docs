@@ -1,9 +1,7 @@
 ---
 title: Govern MCP Servers with Products - API Mnagement
 description: Learn how to package one or more MCP servers into an API Management product so consumers go through the same subscription, approval, and quota workflows your organization already uses for REST APIs.
-author: dlepow
-ms.author: danlep
-ms.reviewer: danlep
+
 ms.date: 06/23/2026
 ms.service: azure-api-management
 ms.topic: how-to
