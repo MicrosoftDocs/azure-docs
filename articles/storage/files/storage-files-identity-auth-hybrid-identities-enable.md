@@ -110,7 +110,6 @@ Azure RBAC support for specific users and groups for cloud-only identities with 
 - Italy North
 - Japan East (SSD/premium only)
 - Japan West
-- Jio India Central
 - Jio India West
 - Korea Central (SSD/premium only)
 - Korea South
