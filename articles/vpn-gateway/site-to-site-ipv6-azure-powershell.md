@@ -47,7 +47,7 @@ Verify that your environment meets the following criteria before beginning confi
 
 ### Azure PowerShell
 
-This article uses PowerShell cmdlets. To run the cmdlets, you can use Azure Cloud Shell or PowerShell installed locally on your computer. If you use PowerShell locally, make sure you have the latest Azure PowerShell module installed. For installation instructions, see [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+This article uses PowerShell cmdlets. To run the cmdlets, you can use Azure Cloud Shell or PowerShell installed locally on your computer. If you use PowerShell locally, make sure you have the latest Azure PowerShell module installed. For installation instructions, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 Assign the variables used in the configuration.
 
