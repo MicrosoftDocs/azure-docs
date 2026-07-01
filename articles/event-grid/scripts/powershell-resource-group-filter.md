@@ -17,7 +17,7 @@ This script creates an Event Grid subscription to the events for a resource grou
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-[!code-powershell[main](../../../powershell_scripts/event-grid/filter-events/filter-events.ps1 "Filter events")]
+[!code-powershell[main](~/powershell_scripts/event-grid/filter-events/filter-events.ps1 "Filter events")]
 
 ## Sample script - preview module
 
@@ -26,7 +26,7 @@ This script creates an Event Grid subscription to the events for a resource grou
 The preview sample script requires the Event Grid module. To install, run
 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
 
-[!code-powershell[main](../../../powershell_scripts/event-grid/filter-events-preview/filter-events-preview.ps1 "Filter events")]
+[!code-powershell[main](~/powershell_scripts/event-grid/filter-events-preview/filter-events-preview.ps1 "Filter events")]
 
 ## Script explanation
 

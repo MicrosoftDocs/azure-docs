@@ -57,18 +57,6 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "AIVisualProvision",
-            "url": "https://github.com/Microsoft/AIVisualProvision",
-            "branch": "master",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "api-management-policy-samples",
-            "url": "https://github.com/Azure/api-management-policy-snippets",
-            "branch": "master",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "azure_cli_scripts",
             "url": "https://github.com/Azure-Samples/azure-cli-samples",
             "branch": "master",
@@ -89,18 +77,6 @@
         {
             "path_to_root": "azure-actions-workflow-samples",
             "url": "https://github.com/Azure/actions-workflow-samples",
-            "branch": "master",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-ai-vision-sdk",
-            "url": "https://github.com/Azure-Samples/azure-ai-vision-sdk",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-app-service-multi-container",
-            "url": "https://github.com/Azure-Samples/multicontainerwordpress",
             "branch": "master",
             "branch_mapping": {}
         },
@@ -141,6 +117,18 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "azure-functions-durable-js",
+            "url": "https://github.com/Azure/azure-functions-durable-js",
+            "branch": "v2.x",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "azure-functions-durable-js-v3",
+            "url": "https://github.com/Azure/azure-functions-durable-js",
+            "branch": "v3.x",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "azure-functions-kafka-extension",
             "url": "https://github.com/Azure/azure-functions-kafka-extension",
             "branch": "dev",
@@ -150,6 +138,12 @@
             "path_to_root": "azure-functions-python-worker",
             "url": "https://github.com/Azure/azure-functions-python-worker",
             "branch": "dev",
+            "branch_mapping": {}
+        },
+        {
+            "path_to_root": "functions-nodejs-extensions",
+            "url": "https://github.com/Azure/azure-functions-nodejs-extensions",
+            "branch": "main",
             "branch_mapping": {}
         },
         {
@@ -177,32 +171,14 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "remote-mcp-functions-dotnet",
-            "url": "https://github.com/Azure-Samples/remote-mcp-functions-dotnet",
+            "path_to_root": "samples-durable-functions",
+            "url": "https://github.com/Azure/azure-functions-durable-extension",
             "branch": "main",
             "branch_mapping": {}
         },
         {
-            "path_to_root": "remote-mcp-functions-typescript",
-            "url": "https://github.com/Azure-Samples/remote-mcp-functions-typescript",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "remote-mcp-functions-python",
-            "url": "https://github.com/Azure-Samples/remote-mcp-functions-python",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "remote-mcp-functions-java",
-            "url": "https://github.com/Azure-Samples/remote-mcp-functions-java",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "remote-mcp-functions-javascript",
-            "url": "https://github.com/Azure-Samples/remote-mcp-functions-javascript",
+            "path_to_root": "samples-durable-functions-python",
+            "url": "https://github.com/Azure/azure-functions-durable-python",
             "branch": "main",
             "branch_mapping": {}
         },
@@ -225,36 +201,6 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "azure-functions-mongodb-extension",
-            "url": "https://github.com/Azure/Azure-functions-mongodb-extension",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-functions-durable-js",
-            "url": "https://github.com/Azure/azure-functions-durable-js",
-            "branch": "v2.x",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-functions-durable-js-v3",
-            "url": "https://github.com/Azure/azure-functions-durable-js",
-            "branch": "v3.x",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "samples-durable-functions",
-            "url": "https://github.com/Azure/azure-functions-durable-extension",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "samples-durable-functions-python",
-            "url": "https://github.com/Azure/azure-functions-durable-python",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "azure-functions-nodejs-v4",
             "url": "https://github.com/Azure/azure-functions-nodejs-samples",
             "branch": "main",
@@ -264,12 +210,6 @@
             "path_to_root": "azure-functions-python-worker-extension",
             "url": "https://github.com/Azure-Samples/python-worker-extension-timer",
             "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-functions-samples-java",
-            "url": "https://github.com/Azure-Samples/azure-functions-samples-java",
-            "branch": "master",
             "branch_mapping": {}
         },
         {
@@ -423,74 +363,8 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "azure-iot-sdk-node",
-            "url": "https://github.com/Azure/azure-iot-sdk-node",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "azure-load-testing-samples",
             "url": "https://github.com/Azure-Samples/azure-load-testing-samples",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-sdk-for-go-samples",
-            "url": "https://github.com/Azure-Samples/azure-sdk-for-go-samples",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-sdk-for-java-event-hubs",
-            "url": "https://github.com/Azure/azure-sdk-for-java/",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-sdk-for-java-script-event-hubs",
-            "url": "https://github.com/Azure/azure-sdk-for-js/",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-sdk-for-net",
-            "url": "https://github.com/Azure/azure-sdk-for-net/",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-sdk-for-net-event-hubs",
-            "url": "https://github.com/Azure/azure-sdk-for-net/",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-sdk-for-python-event-hubs",
-            "url": "https://github.com/Azure/azure-sdk-for-python/",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-search-dotnet-samples",
-            "url": "https://github.com/Azure-Samples/azure-search-dotnet-samples",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-search-javascript-samples",
-            "url": "https://github.com/Azure-Samples/azure-search-javascript-samples",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-search-python-samples",
-            "url": "https://github.com/Azure-Samples/azure-search-python-samples",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "azure-search-static-web-app",
-            "url": "https://github.com/Azure-Samples/azure-search-static-web-app",
             "branch": "main",
             "branch_mapping": {}
         },
@@ -537,20 +411,8 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "digital-twins-docs-samples-dps",
-            "url": "https://github.com/Azure-Samples/digital-twins-iothub-integration",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "digital-twins-docs-samples-getting-started",
             "url": "https://github.com/Azure-Samples/azure-digital-twins-getting-started",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "dotnet-samples",
-            "url": "https://github.com/dotnet/samples",
             "branch": "main",
             "branch_mapping": {}
         },
@@ -591,6 +453,12 @@
             "branch_mapping": {}
         },
         {
+            "path_to_root": "functions-docs-python",
+            "url": "https://github.com/Azure-Samples/functions-docs-python",
+            "branch": "master",
+            "branch_mapping": {}
+        },
+        {
             "path_to_root": "functions-docs-python-v2",
             "url": "https://github.com/Azure-Samples/functions-docs-python-v2",
             "branch": "main",
@@ -608,12 +476,6 @@
             "branch": "main",
             "branch_mapping": {}
         },
-        {
-            "path_to_root": "functions-nodejs-extensions",
-            "url": "https://github.com/Azure/azure-functions-nodejs-extensions",
-            "branch": "main",
-            "branch_mapping": {}
-        },        
         {
             "path_to_root": "functions-node-sdk-bindings-blob",
             "url": "https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-nodejs",
@@ -644,42 +506,6 @@
             "branch": "main",
             "branch_mapping": {}
         },        
-        {
-            "path_to_root": "functions-scenarios-durable-dotnet",
-            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-dotnet-azd",
-            "branch": "main",
-            "branch_mapping": {}
-        },          
-        {
-            "path_to_root": "functions-scenarios-durable-typescript",
-            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-typescript-azd",
-            "branch": "main",
-            "branch_mapping": {}
-        },         
-        {
-            "path_to_root": "functions-scenarios-durable-python",
-            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-python-azd",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "functions-scenarios-durable-java",
-            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-java-azd",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "functions-scenarios-durable-javascript",
-            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-javascript-azd",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "functions-scenarios-durable-powershell",
-            "url": "https://github.com/Azure-Samples/durable-functions-quickstart-powershell-azd",
-            "branch": "main",
-            "branch_mapping": {}
-        }, 
         {    "path_to_root": "functions-sql-todo-sample",
             "url": "https://github.com/Azure-Samples/azure-sql-binding-func-dotnet-todo",
             "branch": "docs-snippets",
@@ -716,33 +542,9 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "ImmersiveReaderSdk",
-            "url": "https://github.com/microsoft/immersive-reader-sdk",
-            "branch": "master",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "iot-samples-c",
             "url": "https://github.com/Azure/azure-iot-sdk-c",
             "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "iot-samples-node",
-            "url": "https://github.com/Azure-Samples/azure-iot-samples-node",
-            "branch": "master",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "js-e2e",
-            "url": "https://github.com/azure-samples/js-e2e",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "media-services-video-indexer",
-            "url": "https://github.com/Azure-Samples/media-services-video-indexer",
-            "branch": "master",
             "branch_mapping": {}
         },
         {
@@ -796,12 +598,6 @@
         {
             "path_to_root": "msdocs-quarkus-postgresql-sample-app",
             "url": "https://github.com/Azure-Samples/msdocs-quarkus-postgresql-sample-app",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "msdocs-storage-bind-function-service",
-            "url": "https://github.com/Azure-Samples/msdocs-storage-bind-function-service",
             "branch": "main",
             "branch_mapping": {}
         },
@@ -860,12 +656,6 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "playwright-testing-service",
-            "url": "https://github.com/microsoft/playwright-testing-service",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "policy-templates",
             "url": "https://github.com/Azure/azure-policy",
             "branch": "master",
@@ -884,18 +674,6 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "rag-data-openai-python-promptflow-main",
-            "url": "https://github.com/Azure-Samples/rag-data-openai-python-promptflow",
-            "branch": "main",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "remote-monitoring-webui",
-            "url": "https://github.com/Azure/pcs-remote-monitoring-webui.git",
-            "branch": "master",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "resourcemanager-templates",
             "url": "https://github.com/Azure/azure-docs-json-samples",
             "branch": "master",
@@ -908,69 +686,15 @@
             "branch_mapping": {}
         },
         {
-            "path_to_root": "samples-anomaly-detector",
-            "url": "https://github.com/Azure-Samples/anomalydetector",
-            "branch": "master",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "samples-eCommerceCatalogModeration",
-            "url": "https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration",
-            "branch": "master",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "samples-fbPageModeration",
-            "url": "https://github.com/MicrosoftContentModerator/samples-fbPageModeration",
-            "branch": "master",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "samples-iot-distributed-tracing",
-            "url": "https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample",
-            "branch": "master",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "samples-javascript",
-            "url": "https://github.com/Microsoft/tsiclient",
-            "branch": "tutorial",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "storage-mgmt-devguide-dotnet",
             "url": "https://github.com/Azure-Samples/storage-mgmt-devguide-dotnet",
             "branch": "main",
             "branch_mapping": {}
         },
         {
-            "path_to_root": "terraform",
-            "url": "https://github.com/Azure/terraform",
-            "branch": "master",
-            "branch_mapping": {}
-        },
-        {
             "path_to_root": "terraform_samples",
             "url": "https://github.com/Azure/terraform",
             "branch": "master",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "VideoReviewConsoleApp",
-            "url": "https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp",
-            "branch": "master",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "web-apps-node-iot-hub-data-visualization",
-            "url": "https://github.com/azure-samples/web-apps-node-iot-hub-data-visualization",
-            "branch": "master",
-            "branch_mapping": {}
-        },
-        {
-            "path_to_root": "WebApp-OpenIdConnect-DotNet",
-            "url": "https://github.com/AzureADQuickStarts/WebApp-OpenIdConnect-DotNet",
-            "branch": "GuidedSetup",
             "branch_mapping": {}
         },
         {
