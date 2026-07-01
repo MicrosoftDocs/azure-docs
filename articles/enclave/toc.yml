@@ -52,7 +52,7 @@
       href: what-transit-hub.md
     - name: "What is a dedicated hub?"
       href: what-dedicated-hub.md
-  - name: Azure Enclave Concepts
+  - name: Azure Enclave concepts
     items:
     - name: "What is the service catalog?"
       href: what-service-catalog.md
