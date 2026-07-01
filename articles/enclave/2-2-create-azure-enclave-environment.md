@@ -33,7 +33,7 @@ This tutorial assumes you have:
 - Identified the Azure region for your enclaves
 
 > [!IMPORTANT]
-> This tutorial uses placeholder names. Replace `myResourceGroup`, `cmt-fabrikam`, `avd-enclave`, `aks-enclave`, etc. with your own naming convention.
+> This tutorial uses placeholder names. Replace `myResourceGroup`, `cmt-fabrikam`, `avd-enclave`, `aks-enclave`, and other placeholder names with your own naming convention.
 
 ## Set up common dependencies
 
@@ -234,7 +234,7 @@ Community endpoints allow traffic from your enclaves to external Azure services 
 
 ### Create Azure Virtual Desktop community endpoint
 
-1. Navigate to your community (for example, `cmt-fabrikam`).
+1. Go to your community (for example, `cmt-fabrikam`).
 1. Select `Community endpoints` then select `+ Create`.
 1. Configure the endpoint:
    - **Name**: `ce-avd-services`
